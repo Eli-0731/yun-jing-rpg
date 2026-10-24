@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.4.1",
   "birthWeights": [
     { "id": "mortal", "label": "凡骨", "weight": 100000, "apertures": 0, "rootCount": 0, "efficiency": 0.65 },
     { "id": "ordinary", "label": "常資", "weight": 769700, "apertures": 1, "rootCount": 1, "efficiency": 1.0 },
@@ -35,6 +35,8 @@
     { "id": "spirit-stone", "label": "靈石" },
     { "id": "body-bath", "label": "淬體藥浴" },
     { "id": "water-purifier", "label": "淨水藥劑" },
-    { "id": "companion-herb", "label": "樹伴靈草" }
+    { "id": "companion-herb", "label": "樹伴靈草" },
+    { "id": "rabbit-meat", "label": "山兔肉" },
+    { "id": "rabbit-hide", "label": "山兔皮" }
   ]
 }

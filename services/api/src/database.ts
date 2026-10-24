@@ -21,6 +21,8 @@ CREATE TABLE IF NOT EXISTS companion_links(id text PRIMARY KEY, player_id text U
 CREATE TABLE IF NOT EXISTS transfers(id text PRIMARY KEY, player_id text NOT NULL REFERENCES players(id), link_id text NOT NULL, quantity integer NOT NULL CHECK(quantity > 0), status text NOT NULL CHECK(status IN ('received','cancelled')), at_ms bigint NOT NULL);
 CREATE INDEX IF NOT EXISTS transfers_window ON transfers(player_id,at_ms) WHERE status='received';
 CREATE TABLE IF NOT EXISTS room_tickets(ticket_hash text PRIMARY KEY, player_id text NOT NULL REFERENCES players(id), room_id text NOT NULL, expires_at bigint NOT NULL, consumed boolean NOT NULL DEFAULT false);
+CREATE TABLE IF NOT EXISTS hunt_deaths(death_id text PRIMARY KEY, room_id text NOT NULL, spawn_id text NOT NULL, fingerprint text NOT NULL, receipt jsonb NOT NULL, occurred_at bigint NOT NULL, UNIQUE(room_id,spawn_id));
+CREATE TABLE IF NOT EXISTS merchant_proximity(player_id text PRIMARY KEY REFERENCES players(id), room_id text NOT NULL, merchant_id text NOT NULL, valid_until bigint NOT NULL);
 INSERT INTO schema_versions(version) VALUES(1) ON CONFLICT DO NOTHING;
 `;
 

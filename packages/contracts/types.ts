@@ -37,3 +37,13 @@ export interface Journal {
 export type PublicPlayer = Omit<Player, 'roots' | 'apertures'> & { roots: string[] | null; apertures: number | null };
 export interface Snapshot { player: PublicPlayer; birth: Birth | null; birthAssigned: boolean; world: World; serverTime: number; version: number; contentVersion: string; speed: number; journal: Journal }
 export interface Action { kind: string; [key: string]: unknown }
+export interface HuntDeath {
+  deathId: string;
+  roomId: string;
+  spawnId: string;
+  enemyId: string;
+  occurredAt: number;
+  participants: string[];
+}
+export interface HuntReward { playerId: string; items: { item: string; quantity: number }[] }
+export interface HuntReceipt { deathId: string; roomId: string; spawnId: string; rewards: HuntReward[] }

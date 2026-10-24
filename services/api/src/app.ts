@@ -5,9 +5,9 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { resolve } from 'node:path';
 import { randomBytes, timingSafeEqual } from 'node:crypto';
 import { Database } from './database';
-import { Game, GameError, content, estateContent, ensure, hash } from './game';
+import { Game, GameError, content, estateContent, huntingContent, ensure, hash } from './game';
 import { Auth } from './auth';
-import { Action } from '../../../packages/contracts/types';
+import { Action, HuntDeath } from '../../../packages/contracts/types';
 import { chapter } from './journal';
 
 export interface Configuration { mode: 'local' | 'production'; host: string; port: number; directory?: string; url?: string; internalKey?: string; speed: number }
@@ -47,7 +47,7 @@ export class Runtime {
 export class Api {
   constructor(private readonly runtime: Runtime) {}
   @Get('health') health() { return { status: 'ok', mode: this.runtime.config.mode, contentVersion: content.version, speed: this.runtime.game.speed }; }
-  @Get('content') definitions() { return { ...content, chapter, estate: estateContent }; }
+  @Get('content') definitions() { return { ...content, chapter, estate: estateContent, hunting: huntingContent }; }
   @Get('auth/config') authConfig() {
     return process.env.FIREBASE_WEB_CONFIG ? JSON.parse(process.env.FIREBASE_WEB_CONFIG) : { unavailable: true };
   }
@@ -81,6 +81,14 @@ export class Api {
   @Post('internal/transfers') transfer(@Headers('x-service-key') key: string, @Body() body: { id: string; playerId: string; linkId: string; quantity: number; cancel?: boolean }) {
     this.runtime.internal(key);
     return this.runtime.game.receiveTransfer(body);
+  }
+  @Post('internal/hunt/death') huntDeath(@Headers('x-service-key') key: string, @Body() body: HuntDeath) {
+    this.runtime.internal(key);
+    return this.runtime.game.settleHuntDeath(body);
+  }
+  @Post('internal/merchant/proximity') merchantProximity(@Headers('x-service-key') key: string, @Body() body: { playerId: string; roomId: string; merchantId: string }) {
+    this.runtime.internal(key);
+    return this.runtime.game.markMerchantProximity(body?.playerId, body?.roomId, body?.merchantId);
   }
 }
 @Module({ controllers: [Api], providers: [Runtime] })
