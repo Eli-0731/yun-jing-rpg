@@ -4,8 +4,10 @@ import { Action, Birth, Player, Snapshot, Stack, Talent, World } from '../../../
 import { Database, Sql } from './database';
 import { buildJournal, chapter } from './journal';
 import estateContent from '../../../packages/content/estate.json';
+import huntingContent from '../../../packages/content/hunting.json';
+import { HuntDeath, HuntReceipt, HuntReward } from '../../../packages/contracts/types';
 
-export { content, estateContent };
+export { content, estateContent, huntingContent };
 export const SELECTION_DELAY_MS = 10 * 24 * 60 * 60 * 1000;
 export function estateOf(player: Player) { return player.estate ?? { cistern: false, bound: false, modes: ['rain','rain','rain','rain'] }; }
 export class GameError extends Error {
@@ -61,12 +63,32 @@ function text(value: unknown, max = 100): string {
 }
 const mark = (player: Player, milestone: string) => { if (!player.milestones.includes(milestone)) player.milestones.push(milestone); };
 const fingerprint = (action: Action) => hash(JSON.stringify(Object.fromEntries(Object.entries(action).sort(([a], [b]) => a.localeCompare(b)))));
+const uuid = (value: unknown): value is string => typeof value === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
+function validateHuntingContent() {
+  ensure(huntingContent.roomId === 'qingxi' && huntingContent.version.length > 0, 'HUNT_CONTENT', '狩獵內容版本或區域無效');
+  ensure(huntingContent.maxParticipants >= 1 && huntingContent.maxParticipants <= 4 && huntingContent.eventMaxAgeSeconds > 0, 'HUNT_CONTENT', '狩獵人數或時間限制無效');
+  for (const enemy of huntingContent.enemies) {
+    ensure(enemy.maxHealth > 0 && enemy.noticeRadiusM > enemy.fleeRadiusM && enemy.fleeRadiusM > 0 && enemy.leashRadiusM > enemy.noticeRadiusM && enemy.respawnSeconds > 0, 'HUNT_CONTENT', '山兔狀態數值無效');
+    for (const drop of enemy.drops) ensure(content.items.some(x => x.id === drop.item) && Number.isInteger(drop.quantity) && drop.quantity > 0 && Number.isInteger(drop.chancePerMillion) && drop.chancePerMillion >= 0 && drop.chancePerMillion <= 1_000_000, 'HUNT_CONTENT', '山兔掉落定義無效');
+  }
+  for (const [item, price] of Object.entries(huntingContent.sellPrices)) ensure(content.items.some(x => x.id === item) && Number.isSafeInteger(price) && price > 0, 'HUNT_CONTENT', '狩獵售價無效');
+}
+function huntFingerprint(input: HuntDeath) {
+  return hash(JSON.stringify({ deathId: input.deathId, roomId: input.roomId, spawnId: input.spawnId, enemyId: input.enemyId, occurredAt: input.occurredAt, participants: [...input.participants].sort() }));
+}
+function dropsFor(deathId: string, playerId: string, enemy: (typeof huntingContent.enemies)[number]) {
+  return enemy.drops.filter(drop => {
+    const roll = parseInt(hash(`${deathId}:${playerId}:${drop.item}`).slice(0, 8), 16) % 1_000_000;
+    return roll < drop.chancePerMillion;
+  }).map(drop => ({ item: drop.item, quantity: drop.quantity }));
+}
 
 export class Game {
   constructor(public db: Database, public options: { now?: () => number; birth?: () => Birth; speed?: number } = {}) {}
   now() { return this.options.now?.() ?? Date.now(); }
   get speed() { return this.options.speed ?? 1; }
   async initialize() {
+    validateHuntingContent();
     await this.db.initialize();
     const world: World = { channel: 0, required: content.project.requiredStone, waterQuality: 20, sanctuary: false, history: [] };
     await this.db.query('INSERT INTO worlds(id,state) VALUES($1,$2) ON CONFLICT DO NOTHING', ['qingxi', JSON.stringify(world)]);
@@ -123,6 +145,10 @@ export class Game {
         return previous.result;
       }
       const before = structuredClone(state.player.inventory);
+      if (action.kind === 'sell-hunt') {
+        const proximity = (await tx.query<{ valid_until: string }>('SELECT valid_until FROM merchant_proximity WHERE player_id=$1 AND room_id=$2 AND merchant_id=$3', [id, huntingContent.roomId, 'material-merchant'])).rows[0];
+        ensure(proximity && Number(proximity.valid_until) > this.now(), 'MERCHANT_DISTANCE', '請到青溪材料商販面前出售', 409);
+      }
       if (action.kind === 'birth') {
         if (!state.birth) {
           state.birth = this.options.birth?.() ?? drawBirth(this.now());
@@ -222,6 +248,22 @@ export class Game {
         const payment = spend(player, 'spirit-stone', offer.price * packs);
         grant(player, offer.item, offer.quantity * packs, payment.bound);
         mark(player, 'purchased-supplies');
+        break;
+      }
+      case 'sell-hunt': {
+        const item = text(action.item);
+        const price = (huntingContent.sellPrices as Record<string, number>)[item];
+        ensure(Number.isSafeInteger(price) && price > 0, 'NOT_SELLABLE', '這項材料不能在此出售');
+        const quantity = integer(action.quantity, 1, 10);
+        // The room server grants short-lived proximity only after checking the player's position.
+        // This is checked by act() inside the same transaction before apply() runs.
+        const unbound = player.inventory.filter(x => x.item === item && !x.bound);
+        ensure(unbound.reduce((sum, x) => sum + x.quantity, 0) >= quantity, 'MATERIALS', '可出售的未綁定材料不足');
+        let remaining = quantity;
+        for (const stack of unbound) { const used = Math.min(remaining, stack.quantity); stack.quantity -= used; remaining -= used; }
+        player.inventory = player.inventory.filter(x => x.quantity > 0);
+        grant(player, 'spirit-stone', price * quantity);
+        mark(player, 'sold-hunt');
         break;
       }
       case 'investigate': {
@@ -332,6 +374,52 @@ export class Game {
       }
       default: throw new GameError('UNKNOWN_ACTION', '未知操作');
     }
+  }
+  async markMerchantProximity(playerId: string, roomId: string, merchantId: string) {
+    ensure(uuid(playerId) && roomId === huntingContent.roomId && merchantId === 'material-merchant', 'INVALID_MERCHANT_VISIT', '商販位置資料無效');
+    await this.db.transaction(async tx => {
+      const row = (await tx.query('SELECT id FROM players WHERE id=$1', [playerId])).rows[0];
+      ensure(row, 'PLAYER_NOT_FOUND', '找不到修行身分', 404);
+      await tx.query('INSERT INTO merchant_proximity(player_id,room_id,merchant_id,valid_until) VALUES($1,$2,$3,$4) ON CONFLICT(player_id) DO UPDATE SET room_id=$2,merchant_id=$3,valid_until=$4', [playerId, roomId, merchantId, this.now() + 30_000]);
+    });
+    return { playerId, validForSeconds: 30 };
+  }
+  async settleHuntDeath(input: HuntDeath): Promise<HuntReceipt> {
+    ensure(input && typeof input === 'object' && !Array.isArray(input), 'INVALID_HUNT', '擊殺資料無效');
+    ensure(Object.keys(input).sort().join(',') === 'deathId,enemyId,occurredAt,participants,roomId,spawnId', 'INVALID_HUNT', '擊殺欄位無效');
+    ensure(uuid(input.deathId) && uuid(input.spawnId) && input.roomId === huntingContent.roomId, 'INVALID_HUNT', '擊殺識別或區域無效');
+    ensure(typeof input.occurredAt === 'number' && Number.isSafeInteger(input.occurredAt), 'INVALID_HUNT', '擊殺時間無效');
+    ensure(Array.isArray(input.participants) && input.participants.length >= 1 && input.participants.length <= huntingContent.maxParticipants && input.participants.every(uuid) && new Set(input.participants).size === input.participants.length, 'INVALID_HUNT', '參與名單無效');
+    const enemy = huntingContent.enemies.find(x => x.id === input.enemyId);
+    ensure(enemy, 'UNKNOWN_ENEMY', '未知的狩獵目標');
+    const digest = huntFingerprint(input);
+    return this.db.transaction(async tx => {
+      // Match act() lock order (world, then players) and serialize competing deaths for one spawn.
+      await tx.query('SELECT id FROM worlds WHERE id=$1 FOR UPDATE', [huntingContent.roomId]);
+      const existing = (await tx.query<{ fingerprint: string; receipt: HuntReceipt }>('SELECT fingerprint,receipt FROM hunt_deaths WHERE death_id=$1', [input.deathId])).rows[0];
+      if (existing) {
+        ensure(existing.fingerprint === digest, 'HUNT_CONFLICT', '擊殺識別已用於不同事件', 409);
+        return existing.receipt;
+      }
+      const duplicateSpawn = (await tx.query('SELECT death_id FROM hunt_deaths WHERE room_id=$1 AND spawn_id=$2', [input.roomId, input.spawnId])).rows[0];
+      ensure(!duplicateSpawn, 'HUNT_ALREADY_SETTLED', '這次山兔出生已結算', 409);
+      const age = this.now() - input.occurredAt;
+      ensure(age >= -5_000 && age <= huntingContent.eventMaxAgeSeconds * 1000, 'HUNT_EXPIRED', '擊殺事件過期或時間無效', 409);
+      const rewards: HuntReward[] = [];
+      for (const playerId of [...input.participants].sort()) {
+        const row = (await tx.query<{ state: Player }>('SELECT state FROM players WHERE id=$1 FOR UPDATE', [playerId])).rows[0];
+        ensure(row, 'PLAYER_NOT_FOUND', '參與者不存在', 404);
+        const before = structuredClone(row.state.inventory);
+        const items = dropsFor(input.deathId, playerId, enemy);
+        for (const item of items) grant(row.state, item.item, item.quantity);
+        await tx.query('UPDATE players SET state=$2,version=version+1 WHERE id=$1', [playerId, JSON.stringify(row.state)]);
+        await tx.query('INSERT INTO ledger(actor_id,request_id,changes) VALUES($1,$2,$3)', [playerId, `hunt:${input.deathId}`, JSON.stringify({ kind: 'hunt', before, after: row.state.inventory, spawnId: input.spawnId })]);
+        rewards.push({ playerId, items });
+      }
+      const receipt = { deathId: input.deathId, roomId: input.roomId, spawnId: input.spawnId, rewards };
+      await tx.query('INSERT INTO hunt_deaths(death_id,room_id,spawn_id,fingerprint,receipt,occurred_at) VALUES($1,$2,$3,$4,$5,$6)', [input.deathId, input.roomId, input.spawnId, digest, JSON.stringify(receipt), input.occurredAt]);
+      return receipt;
+    });
   }
   async receiveTransfer(input: { id: string; playerId: string; linkId: string; quantity: number; cancel?: boolean }) {
     text(input.id); text(input.linkId); integer(input.quantity, 1, 4);

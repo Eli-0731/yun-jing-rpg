@@ -17,7 +17,7 @@ namespace YunJing
     [Serializable] public class Snapshot { public Player player; public Birth birth; public bool birthAssigned; public World world; public double serverTime; public int version; }
     [Serializable] public class RoomTicket { public string ticket, roomId, host; public ushort port; }
     [Serializable] public class ErrorBody { public string message; }
-    [Serializable] public class GameAction { public string kind, node, clue, crop, recipe, job, sect, route, discipline; public int plot, quantity; public bool useCompanion; }
+    [Serializable] public class GameAction { public string kind, node, clue, crop, recipe, job, sect, route, discipline, item; public int plot, quantity; public bool useCompanion; }
     [Serializable] class ActionRequest { public string requestId; public GameAction action; }
     [Serializable] class AliasRequest { public string alias; }
     [Serializable] class RefreshRequest { public string refreshToken; }

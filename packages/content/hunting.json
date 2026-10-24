@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "roomId": "qingxi",
+  "eventMaxAgeSeconds": 120,
+  "maxParticipants": 4,
+  "enemies": [
+    {
+      "id": "qingxi-mountain-rabbit",
+      "maxHealth": 20,
+      "noticeRadiusM": 7,
+      "fleeRadiusM": 4,
+      "leashRadiusM": 28,
+      "respawnSeconds": 90,
+      "drops": [
+        { "item": "rabbit-meat", "quantity": 1, "chancePerMillion": 1000000 },
+        { "item": "rabbit-hide", "quantity": 1, "chancePerMillion": 350000 }
+      ]
+    }
+  ],
+  "sellPrices": {
+    "rabbit-meat": 2,
+    "rabbit-hide": 3
+  }
+}
