@@ -2,7 +2,7 @@
 
 日期：2026-10-24  
 提供方專案：[joshsu54/dondon2.0](https://github.com/joshsu54/dondon2.0)  
-接收方：GitHub 帳號 **z1nnz**；新儲存庫網址待提供。  
+接收方：[z1nnz/yun-jing-rpg](https://github.com/z1nnz/yun-jing-rpg)。  
 用途：將現有美術資源交付給《雲境》的 Unity 專案，逐項驗收與整合。
 
 請依下面的清單提供最新有效素材，不需要搬移整個 Unreal 專案。以下版本是本次檢視時的版本；如果已有更新，請提供更新版，並註明差異與已知問題。
@@ -73,7 +73,7 @@
 
 ## 五、上傳方式與目錄
 
-等 z1nnz 提供新儲存庫網址及協作權限後，再上傳到指定儲存庫。建議另開分支：
+接收儲存庫為 `https://github.com/z1nnz/yun-jing-rpg`；等 z1nnz 提供協作權限後，再上傳。建議另開分支：
 
 `assets/dondon-import`
 
