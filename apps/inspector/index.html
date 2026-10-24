@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>雲境 · 青溪修行驗證</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header><div><small>雲境 / YUN JING</small><h1>從一方小院，走入修行。</h1><p>青溪斷流 · 第一段互動流程</p></div><span class="badge" id="mode">連接服務中</span></header>
+<main>
+  <section class="notice">這是連接實際存檔的開發驗證介面。3D 遊戲客戶端在 Unity 專案中；此頁不代表最終遊戲畫面。</section>
+  <section class="login" id="login"><label for="alias">本機測試身分</label><input id="alias" value="traveler-a" maxlength="24" pattern="[a-z0-9_-]+"><button id="sign-in" disabled>進入青溪</button><p>不同身分有自己的田地與物品，共用青溪水渠進度。使用相同身分會交接登入。</p></section>
+  <div id="game" hidden>
+    <section class="identity"><div><small>我的修行</small><h2 id="name"></h2><p id="birth"></p></div><div id="stats"></div><button id="draw">測定先天天賦 · 僅一次</button><button id="sign-out" class="quiet">切換身分</button></section>
+    <section id="journey-section" hidden><small>入世 / 宗門選比</small><h2>先修行，再問道</h2><p id="selection-status"></p><p>已領取煉氣訣。可以先試引氣，或練基礎武技；採集、調查與藥浴也能累積成果。十日資格依創角時間計算，離線也計，與種植加速無關。</p><div class="buttons"><button data-action='{"kind":"practice-basic","discipline":"qi"}'>修習煉氣訣</button><button data-action='{"kind":"practice-basic","discipline":"body"}'>練基礎武技</button></div></section>
+    <section class="journal"><small>修行手札 / 第一章</small><h2 id="chapter-title"></h2><p id="chapter-description"></p><p id="guidance" class="guidance"></p><p id="chapter-progress"></p><div id="quests" class="quests"></div></section>
+    <div class="grid">
+      <section><small>01 / 住處</small><h2 id="housing-title">四畦靈田</h2><p id="housing-hint" class="hint">成熟後不會枯萎，離線也會繼續生長。</p><div id="estate"></div><div id="plots" class="plots"></div></section>
+      <section><small>02 / 青溪</small><h2>水脈待重生</h2><p id="world"></p><progress id="channel" max="12" value="0"></progress><div class="buttons" id="investigation"></div><div class="buttons"><button data-action='{"kind":"gather","node":"quarry"}'>採集陣基石</button><button data-action='{"kind":"contribute","quantity":3}'>修復／維護水渠</button><button data-action='{"kind":"claim-project"}'>領取共同成果</button></div><ol id="history"></ol></section>
+      <section id="mentors-section"><small>03 / 師承</small><h2>選一條自己的路</h2><div id="mentors"></div><div id="dialogue" class="dialogue" role="status" aria-live="polite" hidden></div><div class="buttons"><button data-action='{"kind":"enroll","sect":"xuanyue"}'>拜入玄岳 · 體修</button><button data-action='{"kind":"enroll","sect":"taixuan"}'>拜入太玄 · 法修</button><button data-action='{"kind":"practice"}'>練習功法</button><button data-action='{"kind":"bathe"}'>使用淬體藥浴</button><button data-action='{"kind":"awaken"}'>嘗試後天開靈</button><button data-action='{"kind":"breakthrough"}'>完成啟蒙試煉</button></div><p class="hint">凡骨：玄岳體修 → 藥浴 → 體魄 40 ＋三處調查 → 後天開靈。試煉：主修 100、完成煉製、調查與水渠成果。</p></section>
+      <section><small>04 / 丹房</small><h2>讓藥草有用武之地</h2><div class="buttons"><button data-action='{"kind":"craft","recipe":"body-bath"}'>煉淬體藥浴 · 青靈草 ×3</button><button data-action='{"kind":"craft","recipe":"water-purifier"}'>煉淨水藥劑 · 淨水蓮 ×2</button></div><div id="jobs"></div><div class="buttons"><button data-action='{"kind":"resolve","route":"ecology"}'>以藥劑淨化水脈</button><button data-action='{"kind":"resolve","route":"coexist"}'>以靈草安置靈獸</button></div></section>
+      <section><small>05 / 行囊</small><h2>一路累積的成果</h2><div id="inventory"></div><div class="buttons"><button data-action='{"kind":"gather","node":"seed-bank"}'>領取基礎種子</button><button data-action='{"kind":"gather","node":"herb-bank"}'>採集野生青靈草</button></div></section>
+      <section><small>06 / 補給</small><h2 id="merchant-name">青溪補給商人</h2><p id="merchant-description"></p><p id="wallet"></p><div id="offers"></div><p class="hint">每次購買一份。使用綁定靈石買到的材料也會綁定；沒有出售或兌回功能。</p></section>
+      <section><small>07 / 足跡</small><h2>修行紀事</h2><div id="milestones"></div><div id="clue-notes"></div><p class="hint">物品與工程由服務端保存。本機測試使用加速種植；不代表正式版成長曲線。</p></section>
+    </div>
+  </div>
+  <div id="feedback" role="status" aria-live="polite">準備好後，進入你的第一座小院。</div><button id="retry" hidden>重試未確認操作</button>
+</main><footer>斷脈之後，萬物待生。 · 青溪章節驗證版</footer>
+<script src="/app.js" defer></script>
+</body></html>

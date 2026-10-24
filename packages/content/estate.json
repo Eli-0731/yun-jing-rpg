@@ -1,0 +1,9 @@
+{
+  "cistern": { "capacity": 2, "cost": [{ "item": "stone", "quantity": 6 }, { "item": "spirit-stone", "quantity": 4 }] },
+  "modes": [
+    { "id": "rain", "label": "自然生長", "water": 0, "durationPercent": 100, "extraYield": 0, "description": "不用水路，維持原本週期與收成。" },
+    { "id": "swift", "label": "細流催生", "water": 1, "durationPercent": 80, "extraYield": 0, "description": "占 1 點供水，生長時間縮短 20%。" },
+    { "id": "abundant", "label": "深灌養根", "water": 2, "durationPercent": 125, "extraYield": 1, "description": "占 2 點供水，多等 25% 時間，收成多 1 株。" }
+  ],
+  "tending": { "item": "qingling-herb", "quantity": 1, "extraYield": 1, "description": "成熟前施一次草肥：消耗青靈草 1 株，這一茬收成多 1 株。不照料也不會減產或枯萎。" }
+}

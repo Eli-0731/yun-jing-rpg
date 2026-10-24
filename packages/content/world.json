@@ -1,0 +1,40 @@
+{
+  "version": "0.4.0",
+  "birthWeights": [
+    { "id": "mortal", "label": "凡骨", "weight": 100000, "apertures": 0, "rootCount": 0, "efficiency": 0.65 },
+    { "id": "ordinary", "label": "常資", "weight": 769700, "apertures": 1, "rootCount": 1, "efficiency": 1.0 },
+    { "id": "gifted", "label": "良才", "weight": 100000, "apertures": 2, "rootCount": 2, "efficiency": 1.3 },
+    { "id": "prodigy", "label": "天驕", "weight": 30000, "apertures": 3, "rootCount": 2, "efficiency": 1.8 },
+    { "id": "chosen", "label": "天命", "weight": 300, "apertures": 5, "rootCount": 3, "efficiency": 3.0 }
+  ],
+  "crops": [
+    { "id": "qingling", "label": "青靈草", "seed": "qingling-seed", "item": "qingling-herb", "growthSeconds": 1800, "yield": 3 },
+    { "id": "lotus", "label": "淨水蓮", "seed": "lotus-seed", "item": "water-lotus", "growthSeconds": 14400, "yield": 2 }
+  ],
+  "recipes": [
+    { "id": "body-bath", "label": "淬體藥浴", "seconds": 60, "ingredients": [{ "item": "qingling-herb", "quantity": 3 }], "output": "body-bath", "quantity": 1 },
+    { "id": "water-purifier", "label": "淨水藥劑", "seconds": 60, "ingredients": [{ "item": "water-lotus", "quantity": 2 }], "output": "water-purifier", "quantity": 1 }
+  ],
+  "sects": [
+    { "id": "taixuan", "label": "太玄道院", "path": "spell" },
+    { "id": "xuanyue", "label": "玄岳宗", "path": "body" },
+    { "id": "wenjian", "label": "問劍山", "path": "sword" },
+    { "id": "danxia", "label": "丹霞谷", "path": "alchemy" },
+    { "id": "tiangong", "label": "天工門", "path": "craft" },
+    { "id": "yuling", "label": "御靈谷", "path": "beast" },
+    { "id": "xuanming", "label": "玄冥宗", "path": "shadow" }
+  ],
+  "project": { "id": "qingxi-channel", "label": "青溪水渠", "requiredStone": 12, "reward": 5 },
+  "transfer": { "windowDays": 28, "maximumHerbs": 4, "cropDays": 14, "plots": 2 },
+  "items": [
+    { "id": "qingling-seed", "label": "青靈草種" },
+    { "id": "lotus-seed", "label": "淨水蓮種" },
+    { "id": "qingling-herb", "label": "青靈草" },
+    { "id": "water-lotus", "label": "淨水蓮" },
+    { "id": "stone", "label": "陣基石" },
+    { "id": "spirit-stone", "label": "靈石" },
+    { "id": "body-bath", "label": "淬體藥浴" },
+    { "id": "water-purifier", "label": "淨水藥劑" },
+    { "id": "companion-herb", "label": "樹伴靈草" }
+  ]
+}

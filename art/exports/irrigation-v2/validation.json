@@ -1,0 +1,204 @@
+{
+  "textures": [
+    {
+      "asset": "spirit-bed",
+      "channel": "albedo",
+      "size": [
+        1024,
+        1024
+      ],
+      "bytes": 519814
+    },
+    {
+      "asset": "spirit-bed",
+      "channel": "normal",
+      "size": [
+        1024,
+        1024
+      ],
+      "bytes": 769600
+    },
+    {
+      "asset": "cistern",
+      "channel": "albedo",
+      "size": [
+        1024,
+        1024
+      ],
+      "bytes": 560107
+    },
+    {
+      "asset": "cistern",
+      "channel": "normal",
+      "size": [
+        1024,
+        1024
+      ],
+      "bytes": 928620
+    },
+    {
+      "asset": "water-channel",
+      "channel": "albedo",
+      "size": [
+        1024,
+        1024
+      ],
+      "bytes": 924656
+    },
+    {
+      "asset": "water-channel",
+      "channel": "normal",
+      "size": [
+        1024,
+        1024
+      ],
+      "bytes": 1757560
+    }
+  ],
+  "exports": [
+    {
+      "asset": "spirit-bed",
+      "lod": 0,
+      "format": "glb",
+      "triangles": 3404,
+      "bounds_m": [
+        2.4140000343322754,
+        3.222000002861023,
+        0.4030000567436218
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "spirit-bed",
+      "lod": 0,
+      "format": "fbx",
+      "triangles": 3404,
+      "bounds_m": [
+        2.4140000343322754,
+        3.222000002861023,
+        0.40300052717338986
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "spirit-bed",
+      "lod": 1,
+      "format": "glb",
+      "triangles": 1702,
+      "bounds_m": [
+        2.4140000343322754,
+        3.2220001220703125,
+        0.4030000567436218
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "spirit-bed",
+      "lod": 1,
+      "format": "fbx",
+      "triangles": 1702,
+      "bounds_m": [
+        2.4140000343322754,
+        3.2220001220703125,
+        0.40300052717338986
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "cistern",
+      "lod": 0,
+      "format": "glb",
+      "triangles": 1816,
+      "bounds_m": [
+        2.0,
+        2.2799999713897705,
+        1.100000023841858
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "cistern",
+      "lod": 0,
+      "format": "fbx",
+      "triangles": 1816,
+      "bounds_m": [
+        2.0,
+        2.2800002098083496,
+        1.1000004251811077
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "cistern",
+      "lod": 1,
+      "format": "glb",
+      "triangles": 914,
+      "bounds_m": [
+        2.0,
+        2.2799999713897705,
+        1.100000023841858
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "cistern",
+      "lod": 1,
+      "format": "fbx",
+      "triangles": 914,
+      "bounds_m": [
+        2.0,
+        2.2800002098083496,
+        1.1000004251811077
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "water-channel",
+      "lod": 0,
+      "format": "glb",
+      "triangles": 540,
+      "bounds_m": [
+        0.6000000238418579,
+        2.0,
+        0.23999997973442078
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "water-channel",
+      "lod": 0,
+      "format": "fbx",
+      "triangles": 540,
+      "bounds_m": [
+        0.6000000238418579,
+        2.0,
+        0.24000030656786464
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "water-channel",
+      "lod": 1,
+      "format": "glb",
+      "triangles": 276,
+      "bounds_m": [
+        0.6000000238418579,
+        2.0,
+        0.23999997973442078
+      ],
+      "status": "passed"
+    },
+    {
+      "asset": "water-channel",
+      "lod": 1,
+      "format": "fbx",
+      "triangles": 276,
+      "bounds_m": [
+        0.6000000238418579,
+        2.0,
+        0.24000030656786464
+      ],
+      "status": "passed"
+    }
+  ]
+}

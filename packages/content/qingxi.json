@@ -1,0 +1,90 @@
+{
+  "id": "qingxi-awakening",
+  "title": "第一章 · 青溪初行",
+  "introduction": "溪水停在破裂的陣基前，田裡的水蓮逐漸枯黃。先認識自己的身體，再決定要為這片山院做些什麼。",
+  "quests": [
+    {
+      "id": "meet-mentor", "title": "問道之前", "description": "先聽過兩條修行路的說明，再決定向誰求學。見面不代表拜師，也不限制之後轉修。",
+      "optional": false, "requires": [],
+      "objectives": [{ "kind": "birth", "target": 1, "label": "測定先天天賦" }, { "kind": "mentor", "target": 2, "label": "與兩位導師交談" }],
+      "rewards": [{ "item": "qingling-seed", "quantity": 1 }],
+      "hint": "下方「師承」可以分別詢問沈岳與柳知微，不必先選宗門。"
+    },
+    {
+      "id": "first-harvest", "title": "一畦新生", "description": "種下一畦靈草並收成，讓小院第一次有了自己的產出。成熟後即使晚回來，也不會腐爛。",
+      "optional": false, "requires": ["meet-mentor"],
+      "objectives": [{ "kind": "milestone", "keys": ["harvested"], "target": 1, "label": "完成一次收成" }],
+      "rewards": [{ "item": "lotus-seed", "quantity": 1 }],
+      "hint": "新入世角色滿十個現實日測資、入宗取得靈田後，可種青靈草或淨水蓮。等待期間可採集野生靈草；缺種子可向補給商人購買。"
+    },
+    {
+      "id": "first-formula", "title": "藥性初識", "description": "從材料變成可用的藥，才算真正掌握第一張配方。淬體藥浴幫助煉體，淨水藥劑則能改善青溪。",
+      "optional": false, "requires": ["first-harvest"],
+      "objectives": [{ "kind": "milestone", "keys": ["crafted:body-bath", "crafted:water-purifier"], "target": 1, "label": "領取一份煉製成品" }],
+      "rewards": [{ "item": "spirit-stone", "quantity": 3 }],
+      "hint": "青靈草可自行種植、野外採集或向補給商人購買；淨水蓮可種植或購買。開始煉製後還需領取成品。"
+    },
+    {
+      "id": "restore-channel", "title": "重續水脈", "description": "理解斷流的三個原因，參與修復或維護。即使別人先修好了水渠，你仍能留下自己的貢獻。",
+      "optional": false, "requires": ["meet-mentor"],
+      "objectives": [{ "kind": "clues", "target": 3, "label": "調查三處線索" }, { "kind": "milestone", "keys": ["project-reward"], "target": 1, "label": "領取青溪共同成果" }],
+      "rewards": [{ "item": "spirit-stone", "quantity": 5 }],
+      "hint": "調查破裂陣基後採石修渠；水渠完成後，參與過修復、維護、淨水或安置靈獸的人皆可領取個人成果。"
+    },
+    {
+      "id": "living-stream", "title": "留一條生路", "description": "恢復水質或替靈獸安置棲地。兩條路可以都做，沒有一個選擇會封死另一條路。",
+      "optional": true, "requires": ["restore-channel"],
+      "objectives": [{ "kind": "milestone", "keys": ["resolved:ecology", "resolved:coexist"], "target": 1, "label": "完成淨水或共存任一路線" }],
+      "rewards": [{ "item": "lotus-seed", "quantity": 2 }],
+      "hint": "先調查三處線索；淨水需一份淨水藥劑，共存需兩株青靈草。"
+    },
+    {
+      "id": "mortal-awakening", "title": "凡骨也能問道", "description": "沒有先天靈根，不等於沒有修行之路。以藥浴、體魄和見聞完成一次後天開靈；也可以繼續專注體修。",
+      "optional": true, "audience": "mortal", "requires": ["first-formula"],
+      "objectives": [{ "kind": "milestone", "keys": ["awakened"], "target": 1, "label": "完成後天開靈" }],
+      "rewards": [{ "item": "spirit-stone", "quantity": 4 }],
+      "hint": "體魄達 40、使用過藥浴、調查三處線索後嘗試開靈。先天紀錄不會被改寫。"
+    },
+    {
+      "id": "first-trial", "title": "我的第一步", "description": "帶著自己的修行成果完成啟蒙試煉。這只是青溪的第一段旅程，尚不是築基。",
+      "optional": false, "requires": ["first-formula", "restore-channel"],
+      "objectives": [{ "kind": "sect", "target": 1, "label": "選擇師承" }, { "kind": "cultivation", "target": 100, "label": "當前主修進度達 100" }, { "kind": "realm", "target": 1, "label": "完成啟蒙試煉" }],
+      "rewards": [{ "item": "spirit-stone", "quantity": 8 }],
+      "hint": "體修練體魄，法修練引氣；試煉還需三處調查、一份已領取的煉製成品與共同工程成果。"
+    }
+  ],
+  "mentors": [
+    {
+      "id": "shen-yue", "name": "沈岳", "title": "玄岳宗 · 護院教習", "sect": "xuanyue",
+      "introduction": "先站穩，再談登山。氣血、筋骨與呼吸，都能成為修行的根基。",
+      "topics": [
+        { "id": "path", "label": "體修怎麼起步？", "text": "未入宗也可先練基礎武技，用採來的青靈草煉製藥浴。滿十個現實日，到廣場測資後再選玄岳師承。功法練習與藥浴都能累積體魄，不必空等入門。" },
+        { "id": "roots", "label": "沒有靈根也能修行嗎？", "text": "可以。凡骨先修體魄，不必等到有靈根才出門。體魄四十、做過藥浴並調查青溪三處線索後，可嘗試後天開靈；那不是繼續體修的必要條件。" },
+        { "id": "river", "label": "我能怎麼幫青溪？", "text": "採石修渠是一條路，淨水和安置靈獸也是。水渠若已完成，就維護一塊陣基；你的個人成果不由最早到場的人決定。" }
+      ]
+    },
+    {
+      "id": "liu-zhiwei", "name": "柳知微", "title": "太玄道院 · 引氣講師", "sect": "taixuan",
+      "introduction": "感應到靈氣，只是聽見了水聲。如何讓它在體內流動，還要慢慢學。",
+      "topics": [
+        { "id": "path", "label": "法修怎麼起步？", "text": "入世時已領到煉氣訣，可以先試著引氣。若目前未能感應靈氣，先練武技與調理身體也有用。滿十個現實日再到廣場測資，選太玄師承；資質會影響每次進境，觀察與煉製仍要自己掌握。" },
+        { "id": "roots", "label": "這條路適合我嗎？", "text": "沒有靈根時，單靠選擇太玄還不能引氣。可以先找沈岳煉體，再完成後天開靈；轉換師承不會清掉已累積的體魄與引氣。" },
+        { "id": "river", "label": "為什麼要調查靈獸？", "text": "它們靠近村落，可能只是舊棲地受了影響。看看破陣、水蓮與巢穴，才能分清哪個問題該用石材，哪個問題該用藥草。" }
+      ]
+    }
+  ],
+  "clues": [
+    { "id": "broken-array", "label": "破裂陣基", "description": "導流石的裂縫讓靈流散逸。修復需要陣基石；完成後仍可維護，不會剝奪後來者參與的機會。" },
+    { "id": "dry-lotus", "label": "枯萎水蓮", "description": "水蓮根部積著濁物，單純補上水量還不夠。用淨水蓮煉製藥劑，可以逐步改善水質。" },
+    { "id": "beast-nest", "label": "靈獸巢穴", "description": "岩縫裡有尚未離巢的幼獸。提供靈草安置替代棲地，可以恢復通行並保留共存的可能。" }
+  ],
+  "merchant": {
+    "name": "阿禾", "title": "青溪補給商人", "description": "自己種、沿途採，或用靈石換一份現成材料。買的是準備，不是突破資格。",
+    "offers": [
+      { "id": "qingling-seed", "item": "qingling-seed", "quantity": 1, "price": 1 },
+      { "id": "lotus-seed", "item": "lotus-seed", "quantity": 1, "price": 1 },
+      { "id": "qingling-bundle", "item": "qingling-herb", "quantity": 3, "price": 4 },
+      { "id": "lotus-bundle", "item": "water-lotus", "quantity": 2, "price": 4 }
+    ]
+  }
+}

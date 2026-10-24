@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: yunjing
+      POSTGRES_PASSWORD: local-development-only
+      POSTGRES_DB: yunjing
+    ports:
+      - "127.0.0.1:54329:5432"
+    volumes:
+      - yunjing-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yunjing"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  yunjing-postgres:
+

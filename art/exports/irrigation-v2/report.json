@@ -1,0 +1,85 @@
+{
+  "blender": "5.2.2 LTS",
+  "references": [
+    {
+      "file": "art\\references\\irrigation-v1\\cistern.png",
+      "sha256": "31738b3ab28b62787b0f9f37921fb911c5ba3cb2ecf02b320a9dc1edf0479cf9"
+    },
+    {
+      "file": "art\\references\\irrigation-v1\\spirit-bed.png",
+      "sha256": "584cba46af1f97685baec5cbcca82c7271334eb44980b334f1f4a5b348b388c7"
+    },
+    {
+      "file": "art\\references\\irrigation-v1\\water-channel.png",
+      "sha256": "56df8f955fff581bb8bc1f295ba8c6e2f6836d526eea6cc2fd4347f3b01ae2a3"
+    }
+  ],
+  "assets": [
+    {
+      "name": "spirit-bed",
+      "lod": 0,
+      "triangles": 3404,
+      "objects": [
+        "spirit-bed-body",
+        "spirit-bed-foliage"
+      ],
+      "material_slots": 2,
+      "fbx_bytes": 140380
+    },
+    {
+      "name": "spirit-bed",
+      "lod": 1,
+      "triangles": 1702,
+      "objects": [
+        "spirit-bed-body-lod1",
+        "spirit-bed-foliage-lod1"
+      ],
+      "material_slots": 2,
+      "fbx_bytes": 102236
+    },
+    {
+      "name": "cistern",
+      "lod": 0,
+      "triangles": 1816,
+      "objects": [
+        "cistern-mesh",
+        "cistern-water"
+      ],
+      "material_slots": 2,
+      "fbx_bytes": 80652
+    },
+    {
+      "name": "cistern",
+      "lod": 1,
+      "triangles": 914,
+      "objects": [
+        "cistern-mesh-lod1",
+        "cistern-water-lod1"
+      ],
+      "material_slots": 2,
+      "fbx_bytes": 59196
+    },
+    {
+      "name": "water-channel",
+      "lod": 0,
+      "triangles": 540,
+      "objects": [
+        "water-channel-mesh",
+        "water-channel-water"
+      ],
+      "material_slots": 2,
+      "fbx_bytes": 41724
+    },
+    {
+      "name": "water-channel",
+      "lod": 1,
+      "triangles": 276,
+      "objects": [
+        "water-channel-mesh-lod1",
+        "water-channel-water-lod1"
+      ],
+      "material_slots": 2,
+      "fbx_bytes": 35036
+    }
+  ]
+}

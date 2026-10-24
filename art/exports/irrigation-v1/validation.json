@@ -1,0 +1,74 @@
+[
+  {
+    "name": "spirit-bed",
+    "format": "glb",
+    "roundtrip_bounds_m": [
+      2.4140000343322754,
+      3.222000002861023,
+      0.4030000567436218
+    ],
+    "triangles": 3404,
+    "uv": true,
+    "status": "passed"
+  },
+  {
+    "name": "spirit-bed",
+    "format": "fbx",
+    "roundtrip_bounds_m": [
+      2.4140000343322754,
+      3.2220001220703125,
+      0.40300058677803463
+    ],
+    "triangles": 3404,
+    "uv": true,
+    "status": "passed"
+  },
+  {
+    "name": "cistern",
+    "format": "glb",
+    "roundtrip_bounds_m": [
+      2.0,
+      2.2799999713897705,
+      1.100000023841858
+    ],
+    "triangles": 1816,
+    "uv": true,
+    "status": "passed"
+  },
+  {
+    "name": "cistern",
+    "format": "fbx",
+    "roundtrip_bounds_m": [
+      2.0,
+      2.2800002098083496,
+      1.1000004251811077
+    ],
+    "triangles": 1816,
+    "uv": true,
+    "status": "passed"
+  },
+  {
+    "name": "water-channel",
+    "format": "glb",
+    "roundtrip_bounds_m": [
+      0.6000000238418579,
+      2.0,
+      0.23999997973442078
+    ],
+    "triangles": 540,
+    "uv": true,
+    "status": "passed"
+  },
+  {
+    "name": "water-channel",
+    "format": "fbx",
+    "roundtrip_bounds_m": [
+      0.6000000238418579,
+      2.0,
+      0.24000030656786464
+    ],
+    "triangles": 540,
+    "uv": true,
+    "status": "passed"
+  }
+]

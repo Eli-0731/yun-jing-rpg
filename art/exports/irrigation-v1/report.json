@@ -1,0 +1,32 @@
+{
+  "reference_directory": "art/references/irrigation-v1",
+  "blender": "5.2.2 LTS",
+  "units": "meters",
+  "forward": "-Y in Blender; FBX -Z forward, Y up",
+  "assets": [
+    {
+      "name": "spirit-bed",
+      "triangles": 3404,
+      "vertices": 2016,
+      "objects": 1,
+      "glb_bytes": 265476,
+      "fbx_bytes": 98332
+    },
+    {
+      "name": "cistern",
+      "triangles": 1816,
+      "vertices": 984,
+      "objects": 2,
+      "glb_bytes": 140536,
+      "fbx_bytes": 56748
+    },
+    {
+      "name": "water-channel",
+      "triangles": 540,
+      "vertices": 296,
+      "objects": 2,
+      "glb_bytes": 44564,
+      "fbx_bytes": 33692
+    }
+  ]
+}
