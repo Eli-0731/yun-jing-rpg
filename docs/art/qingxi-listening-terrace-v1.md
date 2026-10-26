@@ -11,7 +11,7 @@
 ## 本輪完成
 
 - 約 8.5 × 6 公尺的橢圓石台、四階入口、分段弧形石拱與懸掛竹椅。
-- 改用暖色砂岩、象牙色石材、青綠銅件及藍色野花。增加石縫、弧形刻線、平台邊緣石塊、座板支撐與拱頂吊點。
+- 按 AI 三視圖改為淺灰石材、低飽和青銅件及藍色野花。增加石縫、拱內輪廓線、平台邊緣石塊、座板支撐與拱頂吊點。
 - 來源：`art/source/qingxi-listening-terrace-v1.blend`。
 - 可交換網格：`art/exports/qingxi-listening-terrace-v1.glb`。
 - 四角度靜態預覽：`art/previews/qingxi-listening-terrace-v1/`。

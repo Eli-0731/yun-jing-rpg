@@ -15,6 +15,8 @@
 
 ## 美術素材
 
+- 2026-10-27 青溪聽風台 v1 已依原創 AI 三視圖製作可編修 Blender 母檔、GLB 和四角度預覽，代表物件 Blender 幾何 QA 通過。v14 村口入口組裝及橫向 PWA 小場地已能在本機預覽與操作；它們仍是樣片，尚未接入完整大世界、正式服務端或 Unity。詳見 [入口試玩紀錄](execution/qingxi-entry-v14-trial.md)。
+
 - 洞府灌溉 v2：Blender、FBX、GLB、貼圖、LOD 與往返驗證。
 - 測資廣場 v1：先保存三視圖，再建模；Blender、FBX、GLB 往返驗證通過。
 - 青溪世界雛形 v1：180 × 140 m 空間規劃與兩張 Blender 畫面；木橋、古樹均先完成 AI 三視圖，再建模、QA 與 FBX 往返驗證。詳見 [青溪世界雛形](qingxi-world-foundation.md)。

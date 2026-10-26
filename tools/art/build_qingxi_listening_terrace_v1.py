@@ -40,11 +40,11 @@ def material(name, color, roughness=.8, metallic=0):
     return m
 
 
-stone = material("M_HoneySandstone", (.55, .43, .31))
-stone_light = material("M_IvoryWornStone", (.76, .67, .51))
+stone = material("M_WarmGreyLimestone", (.47, .52, .50))
+stone_light = material("M_PaleIvoryStone", (.72, .74, .68))
 stone_dark = material("M_WeatheredStoneJoint", (.31, .32, .28))
-stone_accent = material("M_AmberStoneAccent", (.65, .52, .34))
-bronze = material("M_TurquoisePatinatedBronze", (.08, .42, .39), .43, .7)
+stone_accent = material("M_WeatheredLimestone", (.59, .62, .57))
+bronze = material("M_MutedPatinatedBronze", (.19, .31, .28), .43, .7)
 bamboo = material("M_GoldenBamboo", (.64, .39, .14), .58)
 rope = material("M_WovenHemp", (.40, .26, .12), .85)
 moss = material("M_DeepMoss", (.08, .24, .13))
@@ -74,9 +74,9 @@ def stone_grain(mat, dark, light, scale):
     links.new(bump.outputs["Normal"], bsdf.inputs["Normal"])
 
 
-stone_grain(stone, (.32, .25, .18), (.69, .56, .41), 9)
-stone_grain(stone_light, (.52, .48, .39), (.88, .79, .62), 11)
-stone_grain(stone_accent, (.45, .34, .22), (.79, .64, .43), 12)
+stone_grain(stone, (.32, .37, .35), (.63, .66, .59), 9)
+stone_grain(stone_light, (.57, .61, .57), (.86, .85, .76), 11)
+stone_grain(stone_accent, (.45, .48, .43), (.72, .73, .63), 12)
 
 
 def mesh_object(name, verts, faces, mat, collection=asset):
@@ -200,11 +200,12 @@ for row in range(4):
         (3.7 + row * .26, .48, .24), stone_light)
 for index, theta in enumerate((.12, .29, .46, .63, .8, 2.18, 2.38, 2.58, 2.78, 2.98)):
     x, y = 4.00 * math.cos(theta), 2.72 * math.sin(theta)
-    box(f"SM_LowParapet_{index:02d}", (x, y, .96), (.62, .34, .48), stone_accent if index % 3 == 0 else stone)
+    box(f"SM_LowParapet_{index:02d}", (x, y, .88), (.45, .30, .26), stone_accent if index % 3 == 0 else stone)
+    box(f"SM_ParapetCap_{index:02d}", (x, y, 1.035), (.53, .38, .055), stone_light)
 
 # Separate arch masonry segments and two inset bronze contour lines.
 for i in range(20):
-    arch_block(f"SM_MoonArchStone_{i:02d}", (i + .04) / 20, (i + .94) / 20)
+    arch_block(f"SM_MoonArchStone_{i:02d}", (i + .005) / 20, (i + .995) / 20)
 for front_y, suffix in ((.325, "Front"), (1.025, "Back")):
     pts = []
     for i in range(45):
