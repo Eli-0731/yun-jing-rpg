@@ -156,9 +156,10 @@ namespace YunJing.Editor
             var field = Surface("Field", new Color(.39f,.31f,.20f));
 
             Block("Walkable valley foundation", new Vector3(0,-.35f,0), new Vector3(180,.7f,140), grass);
-            Block("Village to aptitude plaza path", new Vector3(0,.02f,14), new Vector3(3.2f,.04f,48), path,false);
+            Block("Village to aptitude plaza path", new Vector3(0,.02f,9), new Vector3(3.2f,.04f,58), path,false);
             ListeningTerrace(new Vector3(-8, 0, -15));
-            Block("Listening terrace approach", new Vector3(-4, .025f, -15), new Vector3(8, .05f, 2.7f), path, false);
+            Block("Listening terrace approach", new Vector3(-4, .025f, -19), new Vector3(8, .05f, 2.7f), path, false);
+            Block("Listening terrace stair approach", new Vector3(-8, .025f, -18), new Vector3(2.7f, .05f, 2), path, false);
             Block("Village to bridge path", new Vector3(15,.02f,5), new Vector3(31,.04f,2.6f),path,false);
             Block("Eastern forest road", new Vector3(50,.02f,5), new Vector3(42,.04f,2.6f),path,false);
             Block("Cave trail", new Vector3(70,.025f,27), new Vector3(2.5f,.05f,48),path,false);
