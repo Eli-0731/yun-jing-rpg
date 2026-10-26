@@ -26,6 +26,28 @@ function renderJourney() {
   $('selection-status').textContent=journey.assessedAt!==null?'已完成廣場測資，可選擇目前開放的宗門。':remaining?`距選比資格還有 ${days} 天 ${hours} 小時 ${minutes} 分鐘；離線也會計時。`:'已取得選比資格，可前往廣場測定確切資質。';
   $('draw').textContent='前往廣場測資';$('draw').hidden=journey.assessedAt!==null;$('draw').disabled=remaining>0;
 }
+function renderStudy() {
+  const state=snapshot.player.study||{focus:null,progressMs:{},mastered:[]};
+  const hidden=!!snapshot.player.journey&&snapshot.player.journey.assessedAt===null;
+  const active=definitions.study.techniques.find(item=>item.id===state.focus);
+  $('study-summary').textContent=active?`目前專注：${active.label}${hidden?'。廣場測資後顯示完整進度。':'；離線時間持續累積。'}`:'可自由選擇第一門技藝。';
+  $('techniques').replaceChildren();
+  for(const technique of definitions.study.techniques) {
+    const row=document.createElement('div');row.className='item';
+    const title=document.createElement('span');title.textContent=`${technique.label} · 基準 ${technique.days} 日 · ${technique.effect}`;
+    const mastered=state.mastered.includes(technique.id);
+    const progress=state.progressMs[technique.id]||0;
+    row.append(title);
+    if(mastered) row.append(paragraph('已入門'));
+    else {
+      if(!hidden)row.append(paragraph(`研習進度：${(progress/86400000).toFixed(1)} / ${technique.days} 基準日`,'hint'));
+      const focus=button(state.focus===technique.id?'研習中':'專注研習',{kind:'focus-technique',technique:technique.id});
+      focus.disabled=state.focus===technique.id;row.append(focus);
+      if(!hidden&&progress>=technique.days*86400000)row.append(button('確認入門',{kind:'claim-technique',technique:technique.id}));
+    }
+    $('techniques').append(row);
+  }
+}
 function renderJournal() {
   const journal=snapshot.journal;
   if(!journal){$('guidance').textContent='正在讀取修行手札…';return;}
@@ -71,7 +93,7 @@ function render() {
   const p=snapshot.player; $('login').hidden=true; $('game').hidden=false;
   $('name').textContent=`${p.name} · ${p.realm ? '啟蒙試煉已完成':'修行初始'}`;
   $('birth').textContent=snapshot.birth?`${snapshot.birth.label} / 先天靈根：${snapshot.birth.roots.join('、')||'無'} / 當前靈根：${p.roots?.join('、')||'無'} / 靈竅 ${p.apertures}`:snapshot.birthAssigned?'先天已確定 · 確切資質待廣場測定':'先測定天賦，再開始你的修行。';
-  $('draw').hidden=!!snapshot.birth;$('draw').disabled=false;$('draw').textContent='測定先天天賦 · 僅一次';renderJourney();
+  $('draw').hidden=!!snapshot.birth;$('draw').disabled=false;$('draw').textContent='測定先天天賦 · 僅一次';renderJourney();renderStudy();
   const hasCave=!p.journey||p.journey.housing==='cave';
   $('housing-title').textContent=hasCave?'洞府 · 四畦靈田':'聚落借住小屋';
   $('housing-hint').textContent=hasCave?'已取得種植空間；成熟不會枯萎，離線也會生長。':'正式洞府與靈田於入宗後取得。目前可修習煉氣訣、武技與採集。';

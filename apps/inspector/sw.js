@@ -1,4 +1,4 @@
-const CACHE='yun-jing-inspector-static-v1';
+const CACHE='yun-jing-inspector-static-v2';
 const SHELL=['/','/index.html','/style.css','/app.js','/art-gallery.html','/manifest.webmanifest','/icon.svg'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting()));

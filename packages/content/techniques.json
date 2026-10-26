@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "techniques": [
+    { "id": "herb-lore", "label": "靈植辨識", "days": 20, "affinity": "木", "effect": "青溪野生靈草採集每次多一株" },
+    { "id": "stone-sense", "label": "辨石尋脈", "days": 25, "affinity": "土", "effect": "青溪石材採集每次多一塊" },
+    { "id": "body-footwork", "label": "行氣步法", "days": 30, "affinity": "金", "effect": "基礎武技每次修習多一點體魄" }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "version": "0.4.1",
+  "version": "0.4.2",
   "birthWeights": [
     { "id": "mortal", "label": "凡骨", "weight": 100000, "apertures": 0, "rootCount": 0, "efficiency": 0.65 },
     { "id": "ordinary", "label": "常資", "weight": 769700, "apertures": 1, "rootCount": 1, "efficiency": 1.0 },

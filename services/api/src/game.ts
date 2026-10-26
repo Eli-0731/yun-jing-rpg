@@ -1,14 +1,32 @@
 import { createHash, randomInt, randomUUID } from 'node:crypto';
 import content from '../../../packages/content/world.json';
-import { Action, Birth, Player, Snapshot, Stack, Talent, World } from '../../../packages/contracts/types';
+import { Action, Birth, Player, Snapshot, Stack, Talent, TechniqueStudy, World } from '../../../packages/contracts/types';
 import { Database, Sql } from './database';
 import { buildJournal, chapter } from './journal';
 import estateContent from '../../../packages/content/estate.json';
 import huntingContent from '../../../packages/content/hunting.json';
+import techniqueContent from '../../../packages/content/techniques.json';
 import { HuntDeath, HuntReceipt, HuntReward } from '../../../packages/contracts/types';
 
-export { content, estateContent, huntingContent };
+export { content, estateContent, huntingContent, techniqueContent };
 export const SELECTION_DELAY_MS = 10 * 24 * 60 * 60 * 1000;
+const DAY_MS = 24 * 60 * 60 * 1000;
+function studyOf(player: Player): TechniqueStudy {
+  return player.study ?? { focus: null, since: null, progressMs: {}, mastered: [] };
+}
+function settleStudy(player: Player, birth: Birth, now: number) {
+  const study = studyOf(player);
+  if (study.focus && study.since !== null && now > study.since && !study.mastered.includes(study.focus)) {
+    const technique = techniqueContent.techniques.find(item => item.id === study.focus);
+    if (technique) {
+      const rate = birth.roots.includes(technique.affinity) ? birth.efficiency : 0.8;
+      const limit = technique.days * DAY_MS;
+      study.progressMs[study.focus] = Math.min(limit, (study.progressMs[study.focus] ?? 0) + (now - study.since) * rate);
+    }
+  }
+  if (study.focus) study.since = Math.max(study.since ?? now, now);
+  player.study = study;
+}
 export function estateOf(player: Player) { return player.estate ?? { cistern: false, bound: false, modes: ['rain','rain','rain','rain'] }; }
 export class GameError extends Error {
   constructor(public code: string, message: string, public status = 400) { super(message); }
@@ -119,7 +137,10 @@ export class Game {
   }
   private toSnapshot(player: Player, world: World, birth: Birth | null, version: number): Snapshot {
     const hidden=!!player.journey && player.journey.assessedAt===null;
-    const publicPlayer={...structuredClone(player),roots:hidden?null:[...player.roots],apertures:hidden?null:player.apertures};
+    const projected=structuredClone(player);
+    if (birth && projected.study) settleStudy(projected, birth, this.now());
+    if (hidden && projected.study) projected.study.progressMs = {};
+    const publicPlayer={...projected,roots:hidden?null:[...player.roots],apertures:hidden?null:player.apertures};
     return { player:publicPlayer, world, birth:hidden?null:birth, birthAssigned:!!birth, version, serverTime: this.now(), contentVersion: content.version, speed: this.speed, journal: buildJournal(player, birth) };
   }
   private async lock(tx: Sql, id: string) {
@@ -141,6 +162,7 @@ export class Game {
         // Reproject historical receipts for an unassessed character; never leak a private birth payload.
         if(state.player.journey?.assessedAt===null) {
           previous.result.birth=null;previous.result.player.roots=null;previous.result.player.apertures=null;
+          if(previous.result.player.study)previous.result.player.study.progressMs={};
         }
         return previous.result;
       }
@@ -171,6 +193,7 @@ export class Game {
   }
   private apply(player: Player, world: World, birth: Birth, action: Action) {
     const now = this.now();
+    if (player.study) settleStudy(player, birth, now);
     const cooldown = (key: string, seconds: number) => {
       ensure((player.cooldowns[key] ?? 0) <= now, 'COOLDOWN', '尚在調息，請稍後再試', 409);
       player.cooldowns[key] = now + seconds * 1000;
@@ -190,9 +213,28 @@ export class Game {
         ensure(['body','qi'].includes(action.discipline as string),'INVALID_DISCIPLINE','請選擇基礎武技或煉氣訣引氣');
         if(action.discipline==='qi')ensure(player.roots.length>0,'NO_ROOT','目前未感應靈氣，可先練基礎武技、藥浴淬體或探索後天開靈');
         cooldown('practice',15);
-        if(action.discipline==='body')player.body+=Math.ceil(3*birth.efficiency);
+        if(action.discipline==='body')player.body+=Math.ceil(3*birth.efficiency)+(player.study?.mastered.includes('body-footwork')?1:0);
         else player.qi+=Math.ceil(3*birth.efficiency);
         mark(player,'practiced');break;
+      }
+      case 'focus-technique': {
+        const technique = techniqueContent.techniques.find(item => item.id === action.technique);
+        ensure(technique, 'UNKNOWN_TECHNIQUE', '找不到這門基礎技藝');
+        const study = studyOf(player);
+        ensure(!study.mastered.includes(technique.id), 'ALREADY_MASTERED', '這門技藝已完成入門', 409);
+        study.focus = technique.id; study.since = now; player.study = study;
+        mark(player, 'began-technique-study'); break;
+      }
+      case 'claim-technique': {
+        ensure(!player.journey || player.journey.assessedAt!==null, 'ASSESSMENT_REQUIRED', '廣場測資後可確認技藝入門成果', 409);
+        const technique = techniqueContent.techniques.find(item => item.id === action.technique);
+        ensure(technique, 'UNKNOWN_TECHNIQUE', '找不到這門基礎技藝');
+        const study = studyOf(player);
+        ensure(!study.mastered.includes(technique.id), 'ALREADY_MASTERED', '這門技藝已完成入門', 409);
+        ensure((study.progressMs[technique.id] ?? 0) >= technique.days * DAY_MS, 'STUDY_INCOMPLETE', '還需要繼續專注研習', 409);
+        study.mastered.push(technique.id);
+        if (study.focus === technique.id) { study.focus = null; study.since = null; }
+        player.study = study; mark(player, `mastered:${technique.id}`); break;
       }
       case 'build-cistern': {
         const estate = estateOf(player);
@@ -275,9 +317,9 @@ export class Game {
       case 'gather': {
         const node = text(action.node); ensure(['quarry', 'seed-bank', 'herb-bank'].includes(node), 'INVALID_NODE', '未知採集點');
         cooldown(`gather:${node}`, 15);
-        if (node === 'quarry') grant(player, 'stone', 3);
+        if (node === 'quarry') grant(player, 'stone', 3+(player.study?.mastered.includes('stone-sense')?1:0));
         if (node === 'seed-bank') { grant(player, 'qingling-seed', 1); grant(player, 'lotus-seed', 1); }
-        if (node === 'herb-bank') grant(player, 'qingling-herb', 1);
+        if (node === 'herb-bank') grant(player, 'qingling-herb', 1+(player.study?.mastered.includes('herb-lore')?1:0));
         mark(player, 'gathered'); break;
       }
       case 'plant': {
