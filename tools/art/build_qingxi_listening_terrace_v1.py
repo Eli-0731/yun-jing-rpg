@@ -6,6 +6,7 @@ No geometry, textures or Blender data from the downloaded reference archives is 
 import math
 import pathlib
 import random
+import shutil
 
 import bpy
 from mathutils import Vector
@@ -13,8 +14,10 @@ from mathutils import Vector
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "art/source/qingxi-listening-terrace-v1.blend"
 EXPORT = ROOT / "art/exports/qingxi-listening-terrace-v1.glb"
+EXPORT_FBX = ROOT / "art/exports/qingxi-listening-terrace-v1.fbx"
+UNITY_FBX = ROOT / "apps/game/Assets/YunJing/Models/QingxiListeningTerraceV1/qingxi-listening-terrace-v1.fbx"
 PREVIEW = ROOT / "art/previews/qingxi-listening-terrace-v1"
-for path in (SOURCE.parent, EXPORT.parent, PREVIEW):
+for path in (SOURCE.parent, EXPORT.parent, UNITY_FBX.parent, PREVIEW):
     path.mkdir(parents=True, exist_ok=True)
 
 # A fresh background Blender process is required by the build command.
@@ -332,4 +335,10 @@ for ob in asset.objects:
     ob.select_set(True)
 bpy.context.view_layer.objects.active = next(iter(asset.objects))
 bpy.ops.export_scene.gltf(filepath=str(EXPORT), export_format="GLB", use_selection=True)
-print("TERRACE_BUILT", len(asset.objects), "parts", SOURCE, EXPORT)
+bpy.ops.export_scene.fbx(filepath=str(EXPORT_FBX), use_selection=True,
+    object_types={"MESH"}, axis_forward="-Z", axis_up="Y",
+    apply_scale_options="FBX_SCALE_ALL", bake_space_transform=True,
+    use_mesh_modifiers=True, use_triangles=True, mesh_smooth_type="FACE",
+    add_leaf_bones=False, bake_anim=False)
+shutil.copy2(EXPORT_FBX, UNITY_FBX)
+print("TERRACE_BUILT", len(asset.objects), "parts", SOURCE, EXPORT, EXPORT_FBX, UNITY_FBX)

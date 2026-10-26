@@ -2,6 +2,8 @@
 
 更新：2026-10-27。專案仍在 M0／M1 原型階段。
 
+**最新接續點：** 青溪聽風台原創 FBX 已匯入 Unity 世界生成器，放置在村口入口支路並對主要石構件加碰撞；`6000.0.82f1` 批次生成 `QingxiWorldPreview` 回傳碼 0，場景資料包含聽風台及連接路。這是 Editor 生成與編譯驗證，尚未實際操作角色上台。跨角色、房屋、道路、植被的共同準則見[雲境美術語言](art/yunjing-visual-language.md)；已完成與未完成的接續順序見[核心組續作清單](execution/2026-10-27/02-core-progress-and-next.md)。
+
 ## 已完成並有測試
 
 - NestJS API、PGlite 本機持久化及本機驗證頁。
@@ -40,7 +42,7 @@
 - Windows、Android、Linux Server 建置腳本。
 - Firebase 登入橋接、外部 PostgreSQL、跨 App 完整輸送流程。
 
-本機有 Unity `6000.0.82f1`。本次整合嘗試遭 Editor 授權代碼 198 阻擋；協作者在另一部電腦以 `6000.0.85f1` 跑過青溪世界的套件匯入、編譯及路線測試，但批次結束時發生 `MonoManager NULL` 崩潰（exit 21）。本次合併後的 Unity 原始碼、FishNet 雙端連線、prefab、玩家建置與手機效能未在這台電腦通過。使用者目前指定先做 PWA 驗證，不再以 Unity 測試作為本輪關卡。[合併紀錄](integration-2026-10-26.md)。
+先前整合嘗試遭 Editor 授權代碼 198 阻擋；協作者在另一部電腦以 `6000.0.85f1` 跑過青溪世界的套件匯入、編譯及路線測試，但批次結束時發生 `MonoManager NULL` 崩潰（exit 21）。之後使用者完成 Unity Hub 登入，本機 `6000.0.82f1` 已能批次生成世界預覽。FishNet 雙端連線與手機效能仍未在這台電腦通過。[先前合併紀錄](integration-2026-10-26.md)。
 
 **2026-10-26 新驗證：** 使用者登入 Unity Hub 後，在獨立工作樹以本機 `6000.0.82f1` 對 `apps/game` 執行 `-batchmode -nographics -quit`，記錄到授權成功、資產匯入及腳本編譯，最後 `Exiting batchmode successfully`、回傳碼 0。先前的授權代碼 198 此次未再發生。這僅證明 Editor 可載入專案及完成基礎編譯；世界場景、角色控制、Android 建置與手機效能仍未驗證。Unity 自動生成的 `.meta`／設定變動未列入本輪提交。
 
@@ -56,7 +58,6 @@
 
 ## 下一步
 
-1. 按[現行三位協作者各 14 小時、合計 42 小時工作包](execution/2026-10-26/10-qingxi-three-collaborators-42h.md)交付藥鋪＋採藥委託、道路＋採集路線、村口審圖導覽；**角色由 z1nnz／Codex 這一組負責，協作者不接手**。山兔五段動畫與 LOD 已由 PR #21 合併，不重派。
-2. 使用 PWA 驗證圖片呈現、基本流程及手機瀏覽器佈局；修正視覺缺口。
-3. 將採集、調查和種植接到場景位置與服務端距離判定。
-4. 待使用者重新啟用 Unity 驗證，再做 Editor 編譯、雙端與 Android 實測。
+1. 按[2026-10-27 三位協作者各 14 小時工作包](execution/2026-10-27/01-novice-entry-parallel-work-42h.md)交付演武、溪畔採集與村內事件；角色由 z1nnz／Codex 核心組負責，不重派山兔既有五段動畫。
+2. 核心組按[續作清單](execution/2026-10-27/02-core-progress-and-next.md)接續 Unity 入口走位、場景採集與女主角局部相似度。
+3. 以實際操作與真機量測檢查場景、鏡頭、手機效能與雙端連線；Editor 批次生成成功不能代替這些測試。
