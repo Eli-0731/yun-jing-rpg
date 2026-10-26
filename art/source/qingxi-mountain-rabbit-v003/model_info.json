@@ -1,0 +1,122 @@
+{
+  "asset": "QingxiMountainRabbit",
+  "version": "v003",
+  "stage": "Blender-tested candidate; Unity not tested",
+  "source": {
+    "asset": "Dondon QMountainRabbit v002",
+    "original_author": "joshsu54 / dondon2.0",
+    "geometry": "read-only derivation, original silhouette preserved",
+    "blend_sha256": "d2fdd0189790609f6ac0b8d553e872d7a84076a97da88ebaff082595f705b89f"
+  },
+  "work_author": "Codex agent, directed by project collaborator; procedural rig, animation, LOD, texture, export and QA",
+  "units": "meters",
+  "front": "-Y",
+  "up": "Z",
+  "pivot": "ground center",
+  "dimensions_m": [
+    0.46999987959861755,
+    0.6889998912811279,
+    0.7575731873512268
+  ],
+  "lods": [
+    {
+      "mesh": "SK_QingxiRabbit_LOD0",
+      "triangles": 22192,
+      "vertices": 11134,
+      "material_slots": 1
+    },
+    {
+      "mesh": "SK_QingxiRabbit_LOD1",
+      "triangles": 10842,
+      "vertices": 5459,
+      "material_slots": 1
+    },
+    {
+      "mesh": "SK_QingxiRabbit_LOD2",
+      "triangles": 4418,
+      "vertices": 2247,
+      "material_slots": 1
+    }
+  ],
+  "rig": {
+    "bone_count": 17,
+    "bone_names": [
+      "Root",
+      "Pelvis",
+      "Spine",
+      "Chest",
+      "Neck",
+      "Head",
+      "Ear_L",
+      "Ear_R",
+      "FrontUpper_L",
+      "FrontPaw_L",
+      "FrontUpper_R",
+      "FrontPaw_R",
+      "Tail",
+      "HindUpper_L",
+      "HindPaw_L",
+      "HindUpper_R",
+      "HindPaw_R"
+    ],
+    "generic": true,
+    "has_ik_controls": false
+  },
+  "clips": [
+    {
+      "name": "Rabbit_Idle",
+      "frames": 48,
+      "fps": 24,
+      "loop": true,
+      "horizontal_root_motion": false
+    },
+    {
+      "name": "Rabbit_Hop",
+      "frames": 24,
+      "fps": 24,
+      "loop": true,
+      "horizontal_root_motion": false
+    },
+    {
+      "name": "Rabbit_Flee",
+      "frames": 16,
+      "fps": 24,
+      "loop": true,
+      "horizontal_root_motion": false
+    },
+    {
+      "name": "Rabbit_Hit",
+      "frames": 8,
+      "fps": 24,
+      "loop": false,
+      "horizontal_root_motion": false
+    },
+    {
+      "name": "Rabbit_Death",
+      "frames": 24,
+      "fps": 24,
+      "loop": false,
+      "horizontal_root_motion": false
+    }
+  ],
+  "material": {
+    "slots": 1,
+    "base_color": "textures/T_Rabbit_BaseColor.png",
+    "roughness": "textures/T_Rabbit_Roughness.png",
+    "normal": "textures/T_Rabbit_Normal.png",
+    "normal_is_flat_placeholder": true,
+    "roughness_is_constant": true,
+    "atlas_uv_shared_bands": true
+  },
+  "collision": {
+    "body": "capsule reference, height 0.62 m, radius 0.22 m",
+    "head": "sphere reference, radius 0.15 m",
+    "unity_colliders_created": false
+  },
+  "limits": [
+    "Dondon v002 exterior remains 19 intersecting mesh islands joined into one mesh per LOD; no continuous retopology or IK controls",
+    "Unity Generic Rig, URP material, gameplay collision and mobile performance have not been tested",
+    "Source repository license terms require confirmation by rights holders"
+  ],
+  "validation": "validation.json"
+}
