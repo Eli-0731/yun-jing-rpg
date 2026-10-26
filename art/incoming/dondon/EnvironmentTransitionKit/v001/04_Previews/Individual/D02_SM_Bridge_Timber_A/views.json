@@ -1,0 +1,205 @@
+{
+  "module": "SM_Bridge_Timber_A",
+  "code": "D02",
+  "source": "01_Blender/timber_bridge_v01.blend",
+  "same_geometry": true,
+  "note": "Library view convention: 01_front looks from -Y. Orthographic scale fitted per view.",
+  "lod_rendered": "LOD0",
+  "views": [
+    {
+      "file": "01_front.png",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        5.0,
+        -40.0,
+        -0.46000003814697266
+      ],
+      "ortho_scale": 11.199999809265137
+    },
+    {
+      "file": "02_right.png",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        45.0,
+        0.0,
+        -0.46000003814697266
+      ],
+      "ortho_scale": 3.5840001106262207
+    },
+    {
+      "file": "03_rear.png",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        5.0,
+        40.0,
+        -0.46000003814697266
+      ],
+      "ortho_scale": 11.199999809265137
+    },
+    {
+      "file": "04_left.png",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -35.0,
+        0.0,
+        -0.46000003814697266
+      ],
+      "ortho_scale": 3.5840001106262207
+    },
+    {
+      "file": "05_front_right.png",
+      "direction": [
+        1,
+        -1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        31.037784576416016,
+        -26.037784576416016,
+        15.162671089172363
+      ],
+      "ortho_scale": 10.453866958618164
+    },
+    {
+      "file": "06_rear_right.png",
+      "direction": [
+        1,
+        1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        31.037784576416016,
+        26.037784576416016,
+        15.162671089172363
+      ],
+      "ortho_scale": 10.453866958618164
+    },
+    {
+      "file": "07_rear_left.png",
+      "direction": [
+        -1,
+        1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -21.037784576416016,
+        26.037784576416016,
+        15.162671089172363
+      ],
+      "ortho_scale": 10.453866958618164
+    },
+    {
+      "file": "08_front_left.png",
+      "direction": [
+        -1,
+        -1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -21.037784576416016,
+        -26.037784576416016,
+        15.162671089172363
+      ],
+      "ortho_scale": 10.453866958618164
+    },
+    {
+      "file": "09_top.png",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        5.0,
+        0.0,
+        39.540000915527344
+      ],
+      "ortho_scale": 11.199999809265137
+    },
+    {
+      "file": "10_high_front.png",
+      "direction": [
+        0,
+        -1,
+        1
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        5.0,
+        -28.284271240234375,
+        27.82427215576172
+      ],
+      "ortho_scale": 11.19999885559082
+    },
+    {
+      "file": "11_persp_45.png",
+      "direction": [
+        -0.75,
+        -1.0,
+        0.55
+      ],
+      "projection": "perspective",
+      "camera_location": [
+        -2.210920810699463,
+        -9.614562034606934,
+        4.828009128570557
+      ],
+      "ortho_scale": null
+    },
+    {
+      "file": "12_detail.png",
+      "direction": [
+        -0.85,
+        -1.0,
+        0.55
+      ],
+      "projection": "perspective",
+      "camera_location": [
+        -0.5503488779067993,
+        -3.2298219203948975,
+        1.7414021492004395
+      ],
+      "ortho_scale": null
+    },
+    {
+      "file": "13_pier.png",
+      "direction": [
+        0.55,
+        -1.0,
+        -0.05
+      ],
+      "projection": "perspective",
+      "camera_location": [
+        7.2147016525268555,
+        -4.026730537414551,
+        -1.1013364791870117
+      ],
+      "ortho_scale": null
+    }
+  ]
+}

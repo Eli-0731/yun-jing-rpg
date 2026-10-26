@@ -1,0 +1,89 @@
+{
+  "id": "SM_Riverbank_Eroded_A",
+  "code": "B09",
+  "name_zh": "沖刷崩岸",
+  "group": "B",
+  "purpose": "坡面三道沖刷細溝與坡腳崩土，端面高程不變。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.0,
+    -1.0
+  ],
+  "bounds_max_m": [
+    4.0,
+    1.058176875114441,
+    0.33602985739707947
+  ],
+  "triangles": {
+    "LOD0": 1250,
+    "LOD1": 384,
+    "LOD2": 96,
+    "COL": 96,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_Riverbank_Eroded_A_Terrain_LOD0": 768,
+      "SM_Riverbank_Eroded_A_Terrain_LOD1": 384,
+      "SM_Riverbank_Eroded_A_Terrain_LOD2": 96,
+      "SM_Riverbank_Eroded_A_COL": 96,
+      "SM_Riverbank_Eroded_A_DET_Stones_LOD0": 442,
+      "SM_Riverbank_Eroded_A_DET_Grass_LOD0": 40
+    }
+  },
+  "objects": [
+    "SM_Riverbank_Eroded_A",
+    "SM_Riverbank_Eroded_A_COL",
+    "SM_Riverbank_Eroded_A_DET_Grass_LOD0",
+    "SM_Riverbank_Eroded_A_DET_Stones_LOD0",
+    "SM_Riverbank_Eroded_A_Terrain_LOD0",
+    "SM_Riverbank_Eroded_A_Terrain_LOD1",
+    "SM_Riverbank_Eroded_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/riverbank_modules_v01.blend",
+    "blend_collection": "SM_Riverbank_Eroded_A",
+    "blend_sha256": "0afe4ea0cc8775fe874faa3a11a0246c1e7124e12bde298515cd6cc2947695f1",
+    "fbx": "02_Exports/Riverbank/SM_Riverbank_Eroded_A.fbx",
+    "fbx_sha256": "b5369c7f979efd35f63a462d029bf02a27650d42955d5c936e752ba0d7c5fc1c",
+    "previews": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A",
+    "three_view": "00_References/ThreeViews/B09_SM_Riverbank_Eroded_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "BANK_0_TO_MINUS_0P8",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "BANK_0_TO_MINUS_0P8",
+      "location_m": [
+        4.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

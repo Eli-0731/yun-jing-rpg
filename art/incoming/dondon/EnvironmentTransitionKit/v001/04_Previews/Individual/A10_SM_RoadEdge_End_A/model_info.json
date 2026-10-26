@@ -1,0 +1,78 @@
+{
+  "id": "SM_RoadEdge_End_A",
+  "code": "A10",
+  "name_zh": "道路終端",
+  "group": "A",
+  "purpose": "道路自然收尾（半圓收口），只有入口接頭。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.407667875289917,
+    -0.09510837495326996
+  ],
+  "bounds_max_m": [
+    4.0,
+    2.4836127758026123,
+    0.41793569922447205
+  ],
+  "triangles": {
+    "LOD0": 1244,
+    "LOD1": 384,
+    "LOD2": 96,
+    "COL": 96,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_RoadEdge_End_A_Terrain_LOD0": 768,
+      "SM_RoadEdge_End_A_Terrain_LOD1": 384,
+      "SM_RoadEdge_End_A_Terrain_LOD2": 96,
+      "SM_RoadEdge_End_A_COL": 96,
+      "SM_RoadEdge_End_A_DET_Stones_LOD0": 372,
+      "SM_RoadEdge_End_A_DET_Grass_LOD0": 104
+    }
+  },
+  "objects": [
+    "SM_RoadEdge_End_A",
+    "SM_RoadEdge_End_A_COL",
+    "SM_RoadEdge_End_A_DET_Grass_LOD0",
+    "SM_RoadEdge_End_A_DET_Stones_LOD0",
+    "SM_RoadEdge_End_A_Terrain_LOD0",
+    "SM_RoadEdge_End_A_Terrain_LOD1",
+    "SM_RoadEdge_End_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/road_edge_modules_v01.blend",
+    "blend_collection": "SM_RoadEdge_End_A",
+    "blend_sha256": "6874c9ba5057deeec88181c24a14b06219b675c9af505b8b6fa55b5d9860fa6e",
+    "fbx": "02_Exports/RoadEdge/SM_RoadEdge_End_A.fbx",
+    "fbx_sha256": "449807cc79a99cb21eed411b9a8c377cd5534402f8c90a2c031d2462b3d00f67",
+    "previews": "04_Previews/Individual/A10_SM_RoadEdge_End_A",
+    "three_view": "00_References/ThreeViews/A10_SM_RoadEdge_End_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "ROAD_3M",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

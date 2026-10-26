@@ -1,0 +1,13 @@
+{
+  "modules": {
+    "SM_Bridge_Timber_A": {
+      "tris": {
+        "SM_Bridge_Timber_A_LOD0": 1112,
+        "SM_Bridge_Timber_A_LOD1": 248,
+        "SM_Bridge_Timber_A_LOD2": 48,
+        "SM_Bridge_Timber_A_COL": 36
+      },
+      "lod0_tris": 1112
+    }
+  }
+}

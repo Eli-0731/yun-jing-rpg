@@ -1,0 +1,42 @@
+{
+  "module": "SM_Bridge_Log_A",
+  "code": "D01",
+  "tolerance_m": 0.001,
+  "geometry": {
+    "walk_strip_max_abs_z_m": 0.0,
+    "walk_strip_min_width_m": 0.3252306580543518,
+    "walk_strip_max_width_m": 0.388610303401947,
+    "seat_lowest_z_m": -0.20000000298023224,
+    "seat_expected_z_m": -0.2,
+    "seat_contact_vertices": 144,
+    "seat_in_bridgehead_frame_z_m": -0.04999999701976776,
+    "c05_top_z_m": -0.05,
+    "entry_top_in_bridgehead_frame_z_m": 0.15000000596046448,
+    "c01_exit_z_m": 0.15,
+    "min_clearance_above_c08_c02_m": 0.11063458642995877,
+    "tris": {
+      "SM_Bridge_Log_A_Log_LOD0": 2254,
+      "SM_Bridge_Log_A_Log_LOD1": 768,
+      "SM_Bridge_Log_A_Log_LOD2": 182,
+      "SM_Bridge_Log_A_COL": 12
+    },
+    "lod0_tris": 2254,
+    "budget": [
+      800,
+      4000
+    ],
+    "pass": true
+  },
+  "fbx_blender_reimport": {
+    "objects": 5,
+    "max_bounds_error_m": 2.9802322387695312e-08,
+    "issues": [],
+    "pass": true
+  },
+  "overall_pass": true,
+  "not_verified": [
+    "Unity / Unreal import",
+    "in-engine walking on the log",
+    "performance"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "id": "SM_RoadEdge_Slope_A",
+  "code": "A07",
+  "name_zh": "小坡銜接",
+  "group": "A",
+  "purpose": "4 m 上坡，出口比入口高 0.20 m；smoothstep 坡形，兩端坡度為 0，最大坡度 7.5%。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.48799467086792,
+    -0.011294773779809475
+  ],
+  "bounds_max_m": [
+    4.0,
+    2.4372498989105225,
+    0.5761356353759766
+  ],
+  "triangles": {
+    "LOD0": 1256,
+    "LOD1": 384,
+    "LOD2": 96,
+    "COL": 96,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_RoadEdge_Slope_A_Terrain_LOD0": 768,
+      "SM_RoadEdge_Slope_A_Terrain_LOD1": 384,
+      "SM_RoadEdge_Slope_A_Terrain_LOD2": 96,
+      "SM_RoadEdge_Slope_A_COL": 96,
+      "SM_RoadEdge_Slope_A_DET_Stones_LOD0": 432,
+      "SM_RoadEdge_Slope_A_DET_Grass_LOD0": 56
+    }
+  },
+  "objects": [
+    "SM_RoadEdge_Slope_A",
+    "SM_RoadEdge_Slope_A_COL",
+    "SM_RoadEdge_Slope_A_DET_Grass_LOD0",
+    "SM_RoadEdge_Slope_A_DET_Stones_LOD0",
+    "SM_RoadEdge_Slope_A_Terrain_LOD0",
+    "SM_RoadEdge_Slope_A_Terrain_LOD1",
+    "SM_RoadEdge_Slope_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/road_edge_modules_v01.blend",
+    "blend_collection": "SM_RoadEdge_Slope_A",
+    "blend_sha256": "6874c9ba5057deeec88181c24a14b06219b675c9af505b8b6fa55b5d9860fa6e",
+    "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Slope_A.fbx",
+    "fbx_sha256": "8ee86062d2e999ee76b7008e9fa10ef50604c1888aa9da95d3c86f4d4dfe5315",
+    "previews": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A",
+    "three_view": "00_References/ThreeViews/A07_SM_RoadEdge_Slope_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "ROAD_3M",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "ROAD_3M",
+      "location_m": [
+        4.0,
+        0.0,
+        0.2
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

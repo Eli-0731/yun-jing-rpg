@@ -1,0 +1,112 @@
+{
+  "id": "SM_Bridgehead_WaterEdge_A",
+  "code": "C08",
+  "name_zh": "橋頭近水沖刷帶",
+  "group": "C",
+  "purpose": "石基前方到河床的濕泥碎石沖刷帶，河側邊緣與 B 類坡腳同為 -1.0 m。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+  "bounds_min_m": [
+    3.25,
+    -2.25,
+    -1.0681544542312622
+  ],
+  "bounds_max_m": [
+    5.0,
+    2.25,
+    -0.11663129925727844
+  ],
+  "triangles": {
+    "LOD0": 1648,
+    "LOD1": 624,
+    "LOD2": 144,
+    "COL": 144,
+    "budget_LOD0": [
+      800,
+      4000
+    ],
+    "by_object": {
+      "SM_Bridgehead_WaterEdge_A_Terrain_LOD0": 1008,
+      "SM_Bridgehead_WaterEdge_A_Terrain_LOD1": 504,
+      "SM_Bridgehead_WaterEdge_A_Terrain_LOD2": 144,
+      "SM_Bridgehead_WaterEdge_A_COL": 144,
+      "SM_Bridgehead_WaterEdge_A_DET_Stones_LOD0": 400,
+      "SM_Bridgehead_WaterEdge_A_Rocks_LOD0": 240,
+      "SM_Bridgehead_WaterEdge_A_Rocks_LOD1": 120
+    }
+  },
+  "objects": [
+    "SM_Bridgehead_WaterEdge_A",
+    "SM_Bridgehead_WaterEdge_A_COL",
+    "SM_Bridgehead_WaterEdge_A_DET_Stones_LOD0",
+    "SM_Bridgehead_WaterEdge_A_Rocks_LOD0",
+    "SM_Bridgehead_WaterEdge_A_Rocks_LOD1",
+    "SM_Bridgehead_WaterEdge_A_Terrain_LOD0",
+    "SM_Bridgehead_WaterEdge_A_Terrain_LOD1",
+    "SM_Bridgehead_WaterEdge_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/bridgehead_modules_v01.blend",
+    "blend_collection": "SM_Bridgehead_WaterEdge_A",
+    "blend_sha256": "57430a88ecae1d24a0d15fcf9d4fac445b12e52d7761fc186928ab50dc5ee1d9",
+    "fbx": "02_Exports/Bridgehead/SM_Bridgehead_WaterEdge_A.fbx",
+    "fbx_sha256": "efc407bf2a0c162c7109bd4dde110c81166e1cfbba81a372f1747a1bfb9ef507",
+    "previews": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A",
+    "three_view": "00_References/ThreeViews/C08_SM_Bridgehead_WaterEdge_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        3.25,
+        0.0,
+        -0.19163130144032922
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "RIVERBED_EDGE",
+      "location_m": [
+        5.0,
+        0.0,
+        -1.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "BankSeam_L",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        3.25,
+        2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "BankSeam_R",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        3.25,
+        -2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

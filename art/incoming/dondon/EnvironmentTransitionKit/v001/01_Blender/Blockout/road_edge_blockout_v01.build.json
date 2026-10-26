@@ -1,0 +1,157 @@
+{
+  "stage": "blockout",
+  "blender": "5.2.3 LTS",
+  "modules": {
+    "SM_RoadEdge_Straight_L_A": {
+      "objects": [
+        "SM_RoadEdge_Straight_L_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_Straight_L_A_Terrain_LOD0": 192
+      },
+      "lod0_tris": 192
+    },
+    "SM_RoadEdge_Straight_R_A": {
+      "objects": [
+        "SM_RoadEdge_Straight_R_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_Straight_R_A_Terrain_LOD0": 192
+      },
+      "lod0_tris": 192
+    },
+    "SM_RoadEdge_Curve_L_A": {
+      "objects": [
+        "SM_RoadEdge_Curve_L_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_Curve_L_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_RoadEdge_Curve_R_A": {
+      "objects": [
+        "SM_RoadEdge_Curve_R_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_Curve_R_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_RoadEdge_WideCurve_L_A": {
+      "objects": [
+        "SM_RoadEdge_WideCurve_L_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_WideCurve_L_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_RoadEdge_WideCurve_R_A": {
+      "objects": [
+        "SM_RoadEdge_WideCurve_R_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_WideCurve_R_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_RoadEdge_Slope_A": {
+      "objects": [
+        "SM_RoadEdge_Slope_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_Slope_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_RoadEdge_GrassTransition_A": {
+      "objects": [
+        "SM_RoadEdge_GrassTransition_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_GrassTransition_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_RoadEdge_StoneTransition_A": {
+      "objects": [
+        "SM_RoadEdge_StoneTransition_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_StoneTransition_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_RoadEdge_End_A": {
+      "objects": [
+        "SM_RoadEdge_End_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_End_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_RoadEdge_Damaged_A": {
+      "objects": [
+        "SM_RoadEdge_Damaged_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_Damaged_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    }
+  },
+  "slots": {
+    "A_straight": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "A03": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "A04": [
+      18.0,
+      0.0,
+      0.0
+    ],
+    "A05": [
+      27.0,
+      0.0,
+      0.0
+    ],
+    "A06": [
+      36.0,
+      0.0,
+      0.0
+    ],
+    "A07": [
+      45.0,
+      0.0,
+      0.0
+    ],
+    "A08": [
+      54.0,
+      0.0,
+      0.0
+    ],
+    "A09": [
+      63.0,
+      0.0,
+      0.0
+    ],
+    "A10": [
+      72.0,
+      0.0,
+      0.0
+    ],
+    "A11": [
+      81.0,
+      0.0,
+      0.0
+    ]
+  }
+}

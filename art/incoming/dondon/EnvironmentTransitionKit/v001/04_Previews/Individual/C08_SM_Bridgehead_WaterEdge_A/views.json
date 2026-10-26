@@ -1,0 +1,164 @@
+{
+  "module": "SM_Bridgehead_WaterEdge_A",
+  "code": "C08",
+  "source": "01_Blender/bridgehead_modules_v01.blend",
+  "same_geometry": true,
+  "note": "Library view convention: 01_front looks from -Y. Kit modules travel along +X.",
+  "lod_rendered": "LOD0 (terrain + details)",
+  "views": [
+    {
+      "file": "01_front.png",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        4.125,
+        -43.22418212890625,
+        -0.5923928618431091
+      ]
+    },
+    {
+      "file": "02_right.png",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        21.34918212890625,
+        -26.0,
+        -0.5923928618431091
+      ]
+    },
+    {
+      "file": "03_rear.png",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        4.125,
+        -8.77581787109375,
+        -0.5923928618431091
+      ]
+    },
+    {
+      "file": "04_left.png",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -13.09918212890625,
+        -26.0,
+        -0.5923928618431091
+      ]
+    },
+    {
+      "file": "05_front_right.png",
+      "direction": [
+        1,
+        -1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        15.33698844909668,
+        -37.21199035644531,
+        6.134799957275391
+      ]
+    },
+    {
+      "file": "06_rear_right.png",
+      "direction": [
+        1,
+        1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        15.33698844909668,
+        -14.78801155090332,
+        6.134799957275391
+      ]
+    },
+    {
+      "file": "07_rear_left.png",
+      "direction": [
+        -1,
+        1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -7.08698844909668,
+        -14.78801155090332,
+        6.134799957275391
+      ]
+    },
+    {
+      "file": "08_front_left.png",
+      "direction": [
+        -1,
+        -1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -7.08698844909668,
+        -37.21199035644531,
+        6.134799957275391
+      ]
+    },
+    {
+      "file": "09_top.png",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        4.125,
+        -26.0,
+        16.631790161132812
+      ]
+    },
+    {
+      "file": "10_high_front.png",
+      "direction": [
+        0,
+        -1,
+        1
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        4.125,
+        -38.17933654785156,
+        11.586942672729492
+      ]
+    },
+    {
+      "file": "11_persp_45.png",
+      "direction": [
+        0.8191520462122222,
+        -0.5735764336043884,
+        0.85
+      ],
+      "projection": "perspective",
+      "camera_location": [
+        7.820123672485352,
+        -28.587352752685547,
+        3.2418830394744873
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "stage": "blockout",
+  "blender": "5.2.3 LTS",
+  "modules": {
+    "SM_Riverbank_Straight_A": {
+      "objects": [
+        "SM_Riverbank_Straight_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_Straight_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_Riverbank_Straight_B": {
+      "objects": [
+        "SM_Riverbank_Straight_B_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_Straight_B_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_Riverbank_InnerCorner_A": {
+      "objects": [
+        "SM_Riverbank_InnerCorner_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_InnerCorner_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_Riverbank_OuterCorner_A": {
+      "objects": [
+        "SM_Riverbank_OuterCorner_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_OuterCorner_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_Riverbank_Slope_A": {
+      "objects": [
+        "SM_Riverbank_Slope_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_Slope_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_Riverbank_Steep_A": {
+      "objects": [
+        "SM_Riverbank_Steep_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_Steep_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_Riverbank_RockReinforced_A": {
+      "objects": [
+        "SM_Riverbank_RockReinforced_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_RockReinforced_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_Riverbank_GrassHeavy_A": {
+      "objects": [
+        "SM_Riverbank_GrassHeavy_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_GrassHeavy_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_Riverbank_Eroded_A": {
+      "objects": [
+        "SM_Riverbank_Eroded_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_Eroded_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_Riverbank_End_A": {
+      "objects": [
+        "SM_Riverbank_End_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_End_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    }
+  },
+  "slots": {
+    "B01": [
+      0.0,
+      -12.0,
+      0.0
+    ],
+    "B02": [
+      9.0,
+      -12.0,
+      0.0
+    ],
+    "B03": [
+      18.0,
+      -12.0,
+      0.0
+    ],
+    "B04": [
+      27.0,
+      -12.0,
+      0.0
+    ],
+    "B05": [
+      36.0,
+      -12.0,
+      0.0
+    ],
+    "B06": [
+      45.0,
+      -12.0,
+      0.0
+    ],
+    "B07": [
+      54.0,
+      -12.0,
+      0.0
+    ],
+    "B08": [
+      63.0,
+      -12.0,
+      0.0
+    ],
+    "B09": [
+      72.0,
+      -12.0,
+      0.0
+    ],
+    "B10": [
+      81.0,
+      -12.0,
+      0.0
+    ]
+  }
+}

@@ -1,0 +1,2571 @@
+{
+  "kit": "Environment_Transition_Kit",
+  "version": "v01",
+  "generated_by": "05_Scripts/write_final_reports.py",
+  "units": "metre",
+  "axes": {
+    "up": "+Z",
+    "forward": "+X = direction of travel",
+    "left": "+Y"
+  },
+  "transform_convention": "location = connector centre in module space; heading_deg = direction of travel through the connector, counter-clockwise from +X about +Z.  To attach B after A: T_B = T_A * Translate(A.exit.location) * RotZ(A.exit.heading). Every module entry is its own origin with heading 0, except the bridgehead pieces, which share one frame.",
+  "tolerance_m": 0.001,
+  "connector_types": {
+    "ROAD_3M": "Full road section: 3.00 m surface (Y=±1.50, Z=0) plus 0.75 m edge band each side with a 0.04 m verge hump; 25 vertices at Y = -2.25..-1.50 step 0.125, -1.25..1.25 step 0.25, 1.50..2.25 step 0.125.",
+    "ROAD_EDGE_L": "Left edge band only: Y = +1.50..+2.25 step 0.125 (7 vertices).  Joins ROAD_3M edges and TEST_RoadCore_3m.",
+    "ROAD_EDGE_R": "Right edge band only: Y = -2.25..-1.50 step 0.125 (7 vertices).",
+    "BANK_0_TO_MINUS_0P8": "Bank section across the bank line: land +1.00 m at Z=0, crest at 0, smoothstep slope through the test water level -0.80 to the toe -1.00 at 2.00 m on the water side; 25 vertices step 0.125.  Land is on the left of the travel direction.",
+    "BRIDGE_3M": "Test deck seat: 3.00 m wide, Z=+0.15, 13 vertices Y=-1.50..1.50 step 0.25.",
+    "GROUND_3M": "Flat ground line Z=0, 3.00 m wide.",
+    "GROUND_EDGE": "Open edge resting on flat ground Z=0.",
+    "BRIDGEHEAD_FIELD": "Internal seam of the bridgehead set; both sides sample the same height field c_H on the same lattice.",
+    "BRIDGE_SEAT": "Top face of the stone base, Z=-0.05, under the 0.20 m test deck.",
+    "RIVERBED_EDGE": "River-side open edge at the toe depth (Z=-1.00 at the bank connectors)."
+  },
+  "bounds_note": "Bounds are measured from all exported meshes (details included; grass cards may overhang free outer edges, never entry/exit planes).",
+  "modules": [
+    {
+      "code": "A01",
+      "id": "SM_RoadEdge_Straight_L_A",
+      "group": "A",
+      "name_zh": "直線左路緣",
+      "note": "4 m 左側收邊帶（+Y），路面 3 m 由測試路芯或其他道路模組提供；泥土與草地自然過渡。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        1.5,
+        -0.0628
+      ],
+      "bounds_max_m": [
+        4.0,
+        2.4437,
+        0.3388
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_EDGE_L",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "A01",
+            "TEST_RoadCore_3m",
+            "ROAD_3M 模組的 +Y 收邊帶"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.06561060373405075,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "ROAD_EDGE_L",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "A01",
+            "TEST_RoadCore_3m",
+            "ROAD_3M 模組的 +Y 收邊帶"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "CoreSeam",
+          "role": "seam",
+          "type": "ROAD_3M",
+          "partner": "TEST_RoadCore_3m (or the surface of another road module)",
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            1.5,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 17,
+          "compatible": [
+            "TEST_RoadCore_3m (or the surface of another road module)"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "A02",
+      "id": "SM_RoadEdge_Straight_R_A",
+      "group": "A",
+      "name_zh": "直線右路緣",
+      "note": "4 m 右側收邊帶（-Y），與 A01 配對。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.4054,
+        -0.0451
+      ],
+      "bounds_max_m": [
+        4.0,
+        -1.5,
+        0.3846
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_EDGE_R",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "A02",
+            "TEST_RoadCore_3m",
+            "ROAD_3M 模組的 -Y 收邊帶"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "ROAD_EDGE_R",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "A02",
+            "TEST_RoadCore_3m",
+            "ROAD_3M 模組的 -Y 收邊帶"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "CoreSeam",
+          "role": "seam",
+          "type": "ROAD_3M",
+          "partner": "TEST_RoadCore_3m (or the surface of another road module)",
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            -1.5,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 17,
+          "compatible": [
+            "TEST_RoadCore_3m (or the surface of another road module)"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "A03",
+      "id": "SM_RoadEdge_Curve_L_A",
+      "group": "A",
+      "name_zh": "左彎 15°",
+      "note": "整段 3 m 路面＋兩側收邊，中心線弧長 4 m、左轉 15°，出口位姿依圓弧計算。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.3712,
+        -0.0858
+      ],
+      "bounds_max_m": [
+        4.5368,
+        2.6939,
+        0.3889
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A11",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.03956468118525214,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            3.954464,
+            0.520615,
+            0.0
+          ],
+          "heading_deg": 15.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A08",
+            "A09",
+            "A10",
+            "A11",
+            "C01",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "A04",
+      "id": "SM_RoadEdge_Curve_R_A",
+      "group": "A",
+      "name_zh": "右彎 15°",
+      "note": "右轉 15°，直接生成（非鏡射），法線與 UV 正確。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.6939,
+        -0.0694
+      ],
+      "bounds_max_m": [
+        4.5368,
+        2.3262,
+        0.4684
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A11",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.055952909680744456,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            3.954464,
+            -0.520615,
+            0.0
+          ],
+          "heading_deg": -15.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A08",
+            "A09",
+            "A10",
+            "A11",
+            "C01",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.01978234059262607,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "A05",
+      "id": "SM_RoadEdge_WideCurve_L_A",
+      "group": "A",
+      "name_zh": "左彎 30°",
+      "note": "左轉 30°，路面與收邊沿同一圓弧，不扭曲。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.3982,
+        -0.0545
+      ],
+      "bounds_max_m": [
+        4.9447,
+        2.972,
+        0.4046
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A11",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            3.819719,
+            1.023491,
+            0.0
+          ],
+          "heading_deg": 30.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A08",
+            "A09",
+            "A10",
+            "A11",
+            "C01",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.027976454840372228,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "A06",
+      "id": "SM_RoadEdge_WideCurve_R_A",
+      "group": "A",
+      "name_zh": "右彎 30°",
+      "note": "右轉 30°。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.972,
+        -0.092
+      ],
+      "bounds_max_m": [
+        4.9447,
+        2.3392,
+        0.4173
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A11",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            3.819719,
+            -1.023491,
+            0.0
+          ],
+          "heading_deg": -30.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A08",
+            "A09",
+            "A10",
+            "A11",
+            "C01",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "A07",
+      "id": "SM_RoadEdge_Slope_A",
+      "group": "A",
+      "name_zh": "小坡銜接",
+      "note": "4 m 上坡，出口比入口高 0.20 m；smoothstep 坡形，兩端坡度為 0，最大坡度 7.5%。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.488,
+        -0.0113
+      ],
+      "bounds_max_m": [
+        4.0,
+        2.4372,
+        0.5761
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A11",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.2
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A08",
+            "A09",
+            "A10",
+            "A11",
+            "C01",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "A08",
+      "id": "SM_RoadEdge_GrassTransition_A",
+      "group": "A",
+      "name_zh": "泥路轉草地",
+      "note": "泥土路面沿行進方向漸變為草地小徑；貼圖遮罩混合＋稀疏可關閉草片。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.3781,
+        -0.0686
+      ],
+      "bounds_max_m": [
+        4.0,
+        2.3585,
+        0.4162
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A11",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": "GRASS_PATH",
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "（幾何相容所有 ROAD_3M 入口；材質為草地小徑狀態，本套件尚無同狀態路段）"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.03426402083239251,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "A09",
+      "id": "SM_RoadEdge_StoneTransition_A",
+      "group": "A",
+      "name_zh": "泥路轉碎石",
+      "note": "泥土路面漸變為細碎石路，少量碎石細節；不形成石牆。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.3567,
+        -0.0635
+      ],
+      "bounds_max_m": [
+        4.0,
+        2.4148,
+        0.427
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A11",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": "GRAVEL_PATH",
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "（幾何相容所有 ROAD_3M 入口；材質為碎石路狀態，本套件尚無同狀態路段）"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "A10",
+      "id": "SM_RoadEdge_End_A",
+      "group": "A",
+      "name_zh": "道路終端",
+      "note": "道路自然收尾（半圓收口），只有入口接頭。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.4077,
+        -0.0951
+      ],
+      "bounds_max_m": [
+        4.0,
+        2.4836,
+        0.4179
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A11",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.03426402083239251,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "A11",
+      "id": "SM_RoadEdge_Damaged_A",
+      "group": "A",
+      "name_zh": "破損路段",
+      "note": "內側坑洞、缺角與裂紋，入口出口仍為標準斷面。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.4876,
+        -0.0872
+      ],
+      "bounds_max_m": [
+        4.0,
+        2.4298,
+        0.3951
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A11",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A08",
+            "A09",
+            "A10",
+            "A11",
+            "C01",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.05934702678045817,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "B01",
+      "id": "SM_Riverbank_Straight_A",
+      "group": "B",
+      "name_zh": "河岸直段 A",
+      "note": "4 m 土坡河岸，岸上 0 m、示意水位 -0.8 m、水下坡腳 -1.0 m；稀疏植被。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.0,
+        -1.0
+      ],
+      "bounds_max_m": [
+        4.0,
+        1.0857,
+        0.4339
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "B02",
+      "id": "SM_Riverbank_Straight_B",
+      "group": "B",
+      "name_zh": "河岸直段 B",
+      "note": "與 B01 同接頭，多風化小石、苔蘚與不同侵蝕紋。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.0,
+        -1.0
+      ],
+      "bounds_max_m": [
+        4.0,
+        1.1604,
+        0.4157
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "B03",
+      "id": "SM_Riverbank_InnerCorner_A",
+      "group": "B",
+      "name_zh": "河岸內凹轉角",
+      "note": "陸地內凹（水灣）90° 轉角：沿岸線行進時向水側右轉，岸線弧長 4 m。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.5465,
+        -1.0
+      ],
+      "bounds_max_m": [
+        3.6496,
+        1.0,
+        0.3419
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            2.546479,
+            -2.546479,
+            0.0
+          ],
+          "heading_deg": -90.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "B04",
+      "id": "SM_Riverbank_OuterCorner_A",
+      "group": "B",
+      "name_zh": "河岸外凸轉角",
+      "note": "陸地外凸（岬角）90° 轉角：向陸側左轉，岸線弧長 4 m。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.0,
+        -1.0
+      ],
+      "bounds_max_m": [
+        4.5465,
+        2.5465,
+        0.3988
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            2.546479,
+            2.546479,
+            0.0
+          ],
+          "heading_deg": 90.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "B05",
+      "id": "SM_Riverbank_Slope_A",
+      "group": "B",
+      "name_zh": "緩坡入水",
+      "note": "中段改為寬緩入水坡道（約 19°），兩端回到標準斷面；水面只在測試場景顯示。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.0,
+        -1.0049
+      ],
+      "bounds_max_m": [
+        4.0,
+        1.0768,
+        0.3766
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "B06",
+      "id": "SM_Riverbank_Steep_A",
+      "group": "B",
+      "name_zh": "陡岸露岩",
+      "note": "中段為陡土岸與面向水側的露岩。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.0,
+        -1.2465
+      ],
+      "bounds_max_m": [
+        4.0,
+        1.0727,
+        0.3821
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "B07",
+      "id": "SM_Riverbank_RockReinforced_A",
+      "group": "B",
+      "name_zh": "砌石護岸",
+      "note": "岸坡上排列護岸石塊，石塊不越過兩端接頭面。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.0,
+        -1.0
+      ],
+      "bounds_max_m": [
+        4.0,
+        1.0902,
+        0.4288
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "B08",
+      "id": "SM_Riverbank_GrassHeavy_A",
+      "group": "B",
+      "name_zh": "草根濕岸",
+      "note": "草量多、岸頂有草皮懸邊；草片為可關閉子物件。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.0,
+        -1.0
+      ],
+      "bounds_max_m": [
+        4.0,
+        1.2288,
+        0.5111
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "B09",
+      "id": "SM_Riverbank_Eroded_A",
+      "group": "B",
+      "name_zh": "沖刷崩岸",
+      "note": "坡面三道沖刷細溝與坡腳崩土，端面高程不變。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.0,
+        -1.0
+      ],
+      "bounds_max_m": [
+        4.0,
+        1.0582,
+        0.336
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "B10",
+      "id": "SM_Riverbank_End_A",
+      "group": "B",
+      "name_zh": "河岸終端",
+      "note": "岸高差在 4 m 內平順消失到地面，只有入口接頭。",
+      "pivot": "entry connector (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -2.0,
+        -1.0
+      ],
+      "bounds_max_m": [
+        4.0,
+        1.0386,
+        0.3631
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "C01",
+      "id": "SM_Bridgehead_RoadTransition_A",
+      "group": "C",
+      "name_zh": "道路轉橋面",
+      "note": "道路 0 m 以 2 m smoothstep 緩坡升到測試橋面 +0.15 m，最大坡度 11%，無台階。",
+      "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+      "bounds_min_m": [
+        0.0,
+        -2.2897,
+        -0.0128
+      ],
+      "bounds_max_m": [
+        2.0,
+        2.3374,
+        0.4346
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "ROAD_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "A03",
+            "A04",
+            "A05",
+            "A06",
+            "A07",
+            "A11",
+            "A01+A02+TEST_RoadCore_3m"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BRIDGE_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            0.0,
+            0.15
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 13,
+          "compatible": [
+            "C06",
+            "TEST_BridgeDeck_3m",
+            "正式橋梁（橋面 +0.15、寬 3 m）"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "SideSeam_L",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_SideTrim_L_A",
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 9,
+          "compatible": [
+            "SM_Bridgehead_SideTrim_L_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "SideSeam_R",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_SideTrim_R_A",
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            -2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 9,
+          "compatible": [
+            "SM_Bridgehead_SideTrim_R_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "CornerSeam",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_CornerCap_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            0.0,
+            0.15
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 14,
+          "compatible": [
+            "SM_Bridgehead_CornerCap_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "C02",
+      "id": "SM_Bridgehead_BankTransition_A",
+      "group": "C",
+      "name_zh": "橋頭兩側岸坡",
+      "note": "橋頭兩側陸地到河岸土坡的過渡（左右兩片），外端接 B 類標準河岸斷面。",
+      "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+      "bounds_min_m": [
+        1.9576,
+        -4.0,
+        -1.0
+      ],
+      "bounds_max_m": [
+        5.0,
+        4.0,
+        0.4473
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            3.0,
+            -4.0,
+            0.0
+          ],
+          "heading_deg": 90.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            3.0,
+            4.0,
+            0.0
+          ],
+          "heading_deg": 90.0,
+          "vertex_count": 25,
+          "compatible": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+            "C02"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "TrimSeam_L",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_SideTrim_L_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "SM_Bridgehead_SideTrim_L_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "InnerSeam_L",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_CornerCap_A / SM_Bridgehead_WaterEdge_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "SM_Bridgehead_CornerCap_A / SM_Bridgehead_WaterEdge_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.01978234059262607,
+          "qa_pass": true
+        },
+        {
+          "name": "TrimSeam_R",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_SideTrim_R_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            -2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "SM_Bridgehead_SideTrim_R_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "InnerSeam_R",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_CornerCap_A / SM_Bridgehead_WaterEdge_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            -2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "SM_Bridgehead_CornerCap_A / SM_Bridgehead_WaterEdge_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.01978234059262607,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "C03",
+      "id": "SM_Bridgehead_SideTrim_L_A",
+      "group": "C",
+      "name_zh": "橋頭左側收口",
+      "note": "左側（+Y）泥土草坡與散石，貼著 C01 外緣由坡道高度降回地面，避開通行區。",
+      "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+      "bounds_min_m": [
+        0.0,
+        2.0881,
+        -0.0474
+      ],
+      "bounds_max_m": [
+        2.0,
+        3.2654,
+        0.4281
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "GROUND_EDGE",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            2.625,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_BankTransition_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            2.625,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "C07",
+            "C08"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "RoadSeam",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_RoadTransition_A",
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 9,
+          "compatible": [
+            "SM_Bridgehead_RoadTransition_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "C04",
+      "id": "SM_Bridgehead_SideTrim_R_A",
+      "group": "C",
+      "name_zh": "橋頭右側收口",
+      "note": "右側（-Y）對應收口，與 C03 成對。",
+      "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+      "bounds_min_m": [
+        0.0,
+        -3.1805,
+        -0.0511
+      ],
+      "bounds_max_m": [
+        2.0,
+        -2.0944,
+        0.4537
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "GROUND_EDGE",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            -2.625,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_BankTransition_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            -2.625,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "C07",
+            "C08"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "RoadSeam",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_RoadTransition_A",
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            -2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 9,
+          "compatible": [
+            "SM_Bridgehead_RoadTransition_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "C05",
+      "id": "SM_Bridgehead_Base_A",
+      "group": "C",
+      "name_zh": "橋頭石基",
+      "note": "橋頭下方簡潔石基（頂面 -0.05 m 承托 0.20 m 厚的測試橋面），不含橋梁主跨。",
+      "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+      "bounds_min_m": [
+        2.0,
+        -1.5,
+        -0.55
+      ],
+      "bounds_max_m": [
+        3.25,
+        1.5,
+        -0.05
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BRIDGE_SEAT",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            0.0,
+            -0.05
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 4,
+          "compatible": [],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": null,
+          "measured_max_normal_error_deg": null,
+          "qa_pass": null
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_WaterEdge_A (front face contact)",
+          "surface_variant": null,
+          "location_m": [
+            3.25,
+            0.0,
+            -0.191631
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 25,
+          "compatible": [
+            "C07",
+            "C08"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": null,
+          "measured_max_normal_error_deg": null,
+          "qa_pass": null
+        }
+      ]
+    },
+    {
+      "code": "C06",
+      "id": "SM_Bridgehead_SlopeFix_A",
+      "group": "C",
+      "name_zh": "接地短坡",
+      "note": "1.5 m 短坡，把 +0.15 m 橋面高度平順降到地面 0 m；可單獨用於簡易橋端或高差修飾。",
+      "pivot": "ground below the high edge (0,0,0)",
+      "bounds_min_m": [
+        0.0,
+        -1.5,
+        0.0
+      ],
+      "bounds_max_m": [
+        1.5,
+        1.5,
+        0.1509
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BRIDGE_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            0.0,
+            0.0,
+            0.15
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 13,
+          "compatible": [
+            "C01",
+            "TEST_BridgeDeck_3m",
+            "正式橋梁（橋面 +0.15、寬 3 m）"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "GROUND_3M",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            1.5,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 13,
+          "compatible": [],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "C07",
+      "id": "SM_Bridgehead_CornerCap_A",
+      "group": "C",
+      "name_zh": "橋頭角隅封邊",
+      "note": "石基兩側角隅的地形與封邊石，消除土坡與石基之間的三角縫（左右兩片）。",
+      "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+      "bounds_min_m": [
+        2.0,
+        -2.3195,
+        -0.55
+      ],
+      "bounds_max_m": [
+        3.25,
+        2.388,
+        0.4001
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_RoadTransition_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            1.875,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "C03",
+            "C04",
+            "C05",
+            "C07"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_WaterEdge_A",
+          "surface_variant": null,
+          "location_m": [
+            3.25,
+            1.875,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "C07",
+            "C08"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "BankSeam_L",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_BankTransition_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 11,
+          "compatible": [
+            "SM_Bridgehead_BankTransition_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "EntryConnector_R",
+          "role": "entry",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_RoadTransition_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            -1.875,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "SM_Bridgehead_RoadTransition_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector_R",
+          "role": "exit",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_WaterEdge_A",
+          "surface_variant": null,
+          "location_m": [
+            3.25,
+            -1.875,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 7,
+          "compatible": [
+            "SM_Bridgehead_WaterEdge_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "BankSeam_R",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_BankTransition_A",
+          "surface_variant": null,
+          "location_m": [
+            2.0,
+            -2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 11,
+          "compatible": [
+            "SM_Bridgehead_BankTransition_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    },
+    {
+      "code": "C08",
+      "id": "SM_Bridgehead_WaterEdge_A",
+      "group": "C",
+      "name_zh": "橋頭近水沖刷帶",
+      "note": "石基前方到河床的濕泥碎石沖刷帶，河側邊緣與 B 類坡腳同為 -1.0 m。",
+      "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+      "bounds_min_m": [
+        3.25,
+        -2.25,
+        -1.0682
+      ],
+      "bounds_max_m": [
+        5.0,
+        2.25,
+        -0.1166
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_Base_A / SM_Bridgehead_CornerCap_A",
+          "surface_variant": null,
+          "location_m": [
+            3.25,
+            0.0,
+            -0.191631
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 37,
+          "compatible": [
+            "C03",
+            "C04",
+            "C05",
+            "C07"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "RIVERBED_EDGE",
+          "partner": null,
+          "surface_variant": null,
+          "location_m": [
+            5.0,
+            0.0,
+            -1.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 37,
+          "compatible": [],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "BankSeam_L",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_BankTransition_A",
+          "surface_variant": null,
+          "location_m": [
+            3.25,
+            2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 15,
+          "compatible": [
+            "SM_Bridgehead_BankTransition_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        },
+        {
+          "name": "BankSeam_R",
+          "role": "seam",
+          "type": "BRIDGEHEAD_FIELD",
+          "partner": "SM_Bridgehead_BankTransition_A",
+          "surface_variant": null,
+          "location_m": [
+            3.25,
+            -2.25,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "vertex_count": 15,
+          "compatible": [
+            "SM_Bridgehead_BankTransition_A"
+          ],
+          "allowed_height_difference_m": 0.001,
+          "measured_max_position_error_m": 0.0,
+          "measured_max_normal_error_deg": 0.0,
+          "qa_pass": true
+        }
+      ]
+    }
+  ],
+  "extras": [
+    {
+      "id": "SM_Bridge_Timber_A",
+      "code": "D02",
+      "name_zh": "木造梁橋",
+      "group": "D (extra, requested after the 29-module kit)",
+      "version": "v01",
+      "purpose": "木造梁橋：3 m 寬木板橋面、4 根主梁、兩側木欄杆、河中央一座木排架（3 根圓木樁＋帽梁＋交叉斜撐）；跨距 10 m，橋面與 C01 坡道頂齊平，主梁兩端削口擱在兩岸 C05 石基上。",
+      "units": "metre",
+      "up": "+Z",
+      "forward": "+X",
+      "pivot": "centre of the deck top at the entry end; bridgehead frame placement = translate (2, 0, +0.15)",
+      "bounds_min_m": [
+        0.0,
+        -1.600000023841858,
+        -1.9500000476837158
+      ],
+      "bounds_max_m": [
+        10.0,
+        1.600000023841858,
+        1.0299999713897705
+      ],
+      "triangles": {
+        "SM_Bridge_Timber_A_LOD0": 1112,
+        "SM_Bridge_Timber_A_LOD1": 248,
+        "SM_Bridge_Timber_A_LOD2": 48,
+        "SM_Bridge_Timber_A_COL": 36
+      },
+      "materials": [
+        "M_Timber",
+        "M_Bark",
+        "M_EndGrain"
+      ],
+      "connectors": [
+        {
+          "name": "EntryConnector",
+          "role": "entry",
+          "type": "BRIDGE_3M",
+          "location": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "partner": "SM_Bridgehead_RoadTransition_A exit"
+        },
+        {
+          "name": "ExitConnector",
+          "role": "exit",
+          "type": "BRIDGE_3M",
+          "location": [
+            10.0,
+            0.0,
+            0.0
+          ],
+          "heading_deg": 0.0,
+          "partner": "far SM_Bridgehead_RoadTransition_A exit (turned 180)"
+        },
+        {
+          "name": "Seat_Entry",
+          "role": "seat",
+          "type": "BRIDGE_SEAT",
+          "location": [
+            0.625,
+            0.0,
+            -0.2
+          ],
+          "heading_deg": 0.0,
+          "partner": "SM_Bridgehead_Base_A"
+        },
+        {
+          "name": "Seat_Exit",
+          "role": "seat",
+          "type": "BRIDGE_SEAT",
+          "location": [
+            9.375,
+            0.0,
+            -0.2
+          ],
+          "heading_deg": 0.0,
+          "partner": "SM_Bridgehead_Base_A (far bank)"
+        }
+      ],
+      "files": {
+        "blend": "01_Blender/timber_bridge_v01.blend",
+        "blend_sha256": "e8ce2c3ae22e7c97bbbb4249eb0aa85b121d3e85f21866c08ad94d65aad2ea22",
+        "fbx": "02_Exports/Bridge/SM_Bridge_Timber_A.fbx",
+        "fbx_sha256": "367042b170aa747a40b3c2796403ae10046640bf91a2143af20d1284752168fe",
+        "previews": "04_Previews/Individual/D02_SM_Bridge_Timber_A"
+      },
+      "fits": "two bridgeheads whose frames are 14 m apart, the far one turned 180 degrees (10 m between the C01 exits); pier piles reach local Z -1.95"
+    }
+  ],
+  "test_objects": {
+    "TEST_RoadCore_3m": "4 m x 3 m flat road core at Z=0 (frame of A01/A02)",
+    "TEST_BridgeDeck_3m": "3 m wide placeholder deck, top +0.15, bottom -0.05, from X=2 (bridgehead frame)",
+    "TEST_ScaleCube_1m": "1 m cube for the engine scale check",
+    "export": "02_Exports/_TestHelpers/*.fbx (never inside a module FBX)"
+  }
+}

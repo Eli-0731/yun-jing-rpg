@@ -1,0 +1,122 @@
+{
+  "id": "SM_Bridgehead_RoadTransition_A",
+  "code": "C01",
+  "name_zh": "道路轉橋面",
+  "group": "C",
+  "purpose": "道路 0 m 以 2 m smoothstep 緩坡升到測試橋面 +0.15 m，最大坡度 11%，無台階。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+  "bounds_min_m": [
+    0.0,
+    -2.28971529006958,
+    -0.012797264382243156
+  ],
+  "bounds_max_m": [
+    2.0,
+    2.337425470352173,
+    0.43460696935653687
+  ],
+  "triangles": {
+    "LOD0": 524,
+    "LOD1": 192,
+    "LOD2": 48,
+    "COL": 48,
+    "budget_LOD0": [
+      800,
+      4000
+    ],
+    "by_object": {
+      "SM_Bridgehead_RoadTransition_A_Terrain_LOD0": 384,
+      "SM_Bridgehead_RoadTransition_A_Terrain_LOD1": 192,
+      "SM_Bridgehead_RoadTransition_A_Terrain_LOD2": 48,
+      "SM_Bridgehead_RoadTransition_A_COL": 48,
+      "SM_Bridgehead_RoadTransition_A_DET_Stones_LOD0": 100,
+      "SM_Bridgehead_RoadTransition_A_DET_Grass_LOD0": 40
+    }
+  },
+  "objects": [
+    "SM_Bridgehead_RoadTransition_A",
+    "SM_Bridgehead_RoadTransition_A_COL",
+    "SM_Bridgehead_RoadTransition_A_DET_Grass_LOD0",
+    "SM_Bridgehead_RoadTransition_A_DET_Stones_LOD0",
+    "SM_Bridgehead_RoadTransition_A_Terrain_LOD0",
+    "SM_Bridgehead_RoadTransition_A_Terrain_LOD1",
+    "SM_Bridgehead_RoadTransition_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/bridgehead_modules_v01.blend",
+    "blend_collection": "SM_Bridgehead_RoadTransition_A",
+    "blend_sha256": "57430a88ecae1d24a0d15fcf9d4fac445b12e52d7761fc186928ab50dc5ee1d9",
+    "fbx": "02_Exports/Bridgehead/SM_Bridgehead_RoadTransition_A.fbx",
+    "fbx_sha256": "33697e0e7b32753c49fea9f77546182509e8d0eb3384e8d2bca53c41ef8c33fa",
+    "previews": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A",
+    "three_view": "00_References/ThreeViews/C01_SM_Bridgehead_RoadTransition_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "ROAD_3M",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "BRIDGE_3M",
+      "location_m": [
+        2.0,
+        0.0,
+        0.15
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "SideSeam_L",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        0.0,
+        2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "SideSeam_R",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        0.0,
+        -2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "CornerSeam",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        2.0,
+        0.0,
+        0.15
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

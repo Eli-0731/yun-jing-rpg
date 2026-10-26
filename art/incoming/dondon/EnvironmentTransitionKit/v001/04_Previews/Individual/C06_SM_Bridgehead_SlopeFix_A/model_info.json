@@ -1,0 +1,86 @@
+{
+  "id": "SM_Bridgehead_SlopeFix_A",
+  "code": "C06",
+  "name_zh": "接地短坡",
+  "group": "C",
+  "purpose": "1.5 m 短坡，把 +0.15 m 橋面高度平順降到地面 0 m；可單獨用於簡易橋端或高差修飾。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "ground below the high edge (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -1.5,
+    0.0
+  ],
+  "bounds_max_m": [
+    1.5,
+    1.5,
+    0.1509198695421219
+  ],
+  "triangles": {
+    "LOD0": 348,
+    "LOD1": 144,
+    "LOD2": 36,
+    "COL": 36,
+    "budget_LOD0": [
+      800,
+      4000
+    ],
+    "by_object": {
+      "SM_Bridgehead_SlopeFix_A_Terrain_LOD0": 288,
+      "SM_Bridgehead_SlopeFix_A_Terrain_LOD1": 144,
+      "SM_Bridgehead_SlopeFix_A_Terrain_LOD2": 36,
+      "SM_Bridgehead_SlopeFix_A_COL": 36,
+      "SM_Bridgehead_SlopeFix_A_DET_Stones_LOD0": 60
+    }
+  },
+  "objects": [
+    "SM_Bridgehead_SlopeFix_A",
+    "SM_Bridgehead_SlopeFix_A_COL",
+    "SM_Bridgehead_SlopeFix_A_DET_Stones_LOD0",
+    "SM_Bridgehead_SlopeFix_A_Terrain_LOD0",
+    "SM_Bridgehead_SlopeFix_A_Terrain_LOD1",
+    "SM_Bridgehead_SlopeFix_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/bridgehead_modules_v01.blend",
+    "blend_collection": "SM_Bridgehead_SlopeFix_A",
+    "blend_sha256": "57430a88ecae1d24a0d15fcf9d4fac445b12e52d7761fc186928ab50dc5ee1d9",
+    "fbx": "02_Exports/Bridgehead/SM_Bridgehead_SlopeFix_A.fbx",
+    "fbx_sha256": "f3db68c34e567df138e6e0cededa6d6439b3c9c858a7ea00cf1f1c94a12b8388",
+    "previews": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A",
+    "three_view": "00_References/ThreeViews/C06_SM_Bridgehead_SlopeFix_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "BRIDGE_3M",
+      "location_m": [
+        0.0,
+        0.0,
+        0.15
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "GROUND_3M",
+      "location_m": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

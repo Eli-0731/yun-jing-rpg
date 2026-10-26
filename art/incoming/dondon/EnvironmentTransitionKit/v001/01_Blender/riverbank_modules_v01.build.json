@@ -1,0 +1,272 @@
+{
+  "stage": "final",
+  "blender": "5.2.3 LTS",
+  "modules": {
+    "SM_Riverbank_Straight_A": {
+      "objects": [
+        "SM_Riverbank_Straight_A_Terrain_LOD0",
+        "SM_Riverbank_Straight_A_Terrain_LOD1",
+        "SM_Riverbank_Straight_A_Terrain_LOD2",
+        "SM_Riverbank_Straight_A_COL",
+        "SM_Riverbank_Straight_A_DET_Stones_LOD0",
+        "SM_Riverbank_Straight_A_DET_Grass_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_Straight_A_Terrain_LOD0": 768,
+        "SM_Riverbank_Straight_A_Terrain_LOD1": 384,
+        "SM_Riverbank_Straight_A_Terrain_LOD2": 96,
+        "SM_Riverbank_Straight_A_COL": 96,
+        "SM_Riverbank_Straight_A_DET_Stones_LOD0": 292,
+        "SM_Riverbank_Straight_A_DET_Grass_LOD0": 40
+      },
+      "lod0_tris": 1100,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Riverbank_Straight_B": {
+      "objects": [
+        "SM_Riverbank_Straight_B_Terrain_LOD0",
+        "SM_Riverbank_Straight_B_Terrain_LOD1",
+        "SM_Riverbank_Straight_B_Terrain_LOD2",
+        "SM_Riverbank_Straight_B_COL",
+        "SM_Riverbank_Straight_B_DET_Stones_LOD0",
+        "SM_Riverbank_Straight_B_DET_Grass_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_Straight_B_Terrain_LOD0": 768,
+        "SM_Riverbank_Straight_B_Terrain_LOD1": 384,
+        "SM_Riverbank_Straight_B_Terrain_LOD2": 96,
+        "SM_Riverbank_Straight_B_COL": 96,
+        "SM_Riverbank_Straight_B_DET_Stones_LOD0": 632,
+        "SM_Riverbank_Straight_B_DET_Grass_LOD0": 40
+      },
+      "lod0_tris": 1440,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Riverbank_InnerCorner_A": {
+      "objects": [
+        "SM_Riverbank_InnerCorner_A_Terrain_LOD0",
+        "SM_Riverbank_InnerCorner_A_Terrain_LOD1",
+        "SM_Riverbank_InnerCorner_A_Terrain_LOD2",
+        "SM_Riverbank_InnerCorner_A_COL",
+        "SM_Riverbank_InnerCorner_A_DET_Stones_LOD0",
+        "SM_Riverbank_InnerCorner_A_DET_Grass_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_InnerCorner_A_Terrain_LOD0": 768,
+        "SM_Riverbank_InnerCorner_A_Terrain_LOD1": 384,
+        "SM_Riverbank_InnerCorner_A_Terrain_LOD2": 96,
+        "SM_Riverbank_InnerCorner_A_COL": 96,
+        "SM_Riverbank_InnerCorner_A_DET_Stones_LOD0": 292,
+        "SM_Riverbank_InnerCorner_A_DET_Grass_LOD0": 40
+      },
+      "lod0_tris": 1100,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Riverbank_OuterCorner_A": {
+      "objects": [
+        "SM_Riverbank_OuterCorner_A_Terrain_LOD0",
+        "SM_Riverbank_OuterCorner_A_Terrain_LOD1",
+        "SM_Riverbank_OuterCorner_A_Terrain_LOD2",
+        "SM_Riverbank_OuterCorner_A_COL",
+        "SM_Riverbank_OuterCorner_A_DET_Stones_LOD0",
+        "SM_Riverbank_OuterCorner_A_DET_Grass_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_OuterCorner_A_Terrain_LOD0": 768,
+        "SM_Riverbank_OuterCorner_A_Terrain_LOD1": 384,
+        "SM_Riverbank_OuterCorner_A_Terrain_LOD2": 96,
+        "SM_Riverbank_OuterCorner_A_COL": 96,
+        "SM_Riverbank_OuterCorner_A_DET_Stones_LOD0": 292,
+        "SM_Riverbank_OuterCorner_A_DET_Grass_LOD0": 40
+      },
+      "lod0_tris": 1100,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Riverbank_Slope_A": {
+      "objects": [
+        "SM_Riverbank_Slope_A_Terrain_LOD0",
+        "SM_Riverbank_Slope_A_Terrain_LOD1",
+        "SM_Riverbank_Slope_A_Terrain_LOD2",
+        "SM_Riverbank_Slope_A_COL",
+        "SM_Riverbank_Slope_A_DET_Stones_LOD0",
+        "SM_Riverbank_Slope_A_DET_Grass_LOD0",
+        "SM_Riverbank_Slope_A_Rocks_LOD0",
+        "SM_Riverbank_Slope_A_Rocks_LOD1"
+      ],
+      "tris": {
+        "SM_Riverbank_Slope_A_Terrain_LOD0": 768,
+        "SM_Riverbank_Slope_A_Terrain_LOD1": 384,
+        "SM_Riverbank_Slope_A_Terrain_LOD2": 96,
+        "SM_Riverbank_Slope_A_COL": 96,
+        "SM_Riverbank_Slope_A_DET_Stones_LOD0": 292,
+        "SM_Riverbank_Slope_A_DET_Grass_LOD0": 40,
+        "SM_Riverbank_Slope_A_Rocks_LOD0": 320,
+        "SM_Riverbank_Slope_A_Rocks_LOD1": 160
+      },
+      "lod0_tris": 1420,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Riverbank_Steep_A": {
+      "objects": [
+        "SM_Riverbank_Steep_A_Terrain_LOD0",
+        "SM_Riverbank_Steep_A_Terrain_LOD1",
+        "SM_Riverbank_Steep_A_Terrain_LOD2",
+        "SM_Riverbank_Steep_A_COL",
+        "SM_Riverbank_Steep_A_DET_Stones_LOD0",
+        "SM_Riverbank_Steep_A_DET_Grass_LOD0",
+        "SM_Riverbank_Steep_A_Rocks_LOD0",
+        "SM_Riverbank_Steep_A_Rocks_LOD1"
+      ],
+      "tris": {
+        "SM_Riverbank_Steep_A_Terrain_LOD0": 768,
+        "SM_Riverbank_Steep_A_Terrain_LOD1": 384,
+        "SM_Riverbank_Steep_A_Terrain_LOD2": 96,
+        "SM_Riverbank_Steep_A_COL": 96,
+        "SM_Riverbank_Steep_A_DET_Stones_LOD0": 292,
+        "SM_Riverbank_Steep_A_DET_Grass_LOD0": 40,
+        "SM_Riverbank_Steep_A_Rocks_LOD0": 864,
+        "SM_Riverbank_Steep_A_Rocks_LOD1": 432
+      },
+      "lod0_tris": 1964,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Riverbank_RockReinforced_A": {
+      "objects": [
+        "SM_Riverbank_RockReinforced_A_Terrain_LOD0",
+        "SM_Riverbank_RockReinforced_A_Terrain_LOD1",
+        "SM_Riverbank_RockReinforced_A_Terrain_LOD2",
+        "SM_Riverbank_RockReinforced_A_COL",
+        "SM_Riverbank_RockReinforced_A_DET_Stones_LOD0",
+        "SM_Riverbank_RockReinforced_A_DET_Grass_LOD0",
+        "SM_Riverbank_RockReinforced_A_Rocks_LOD0",
+        "SM_Riverbank_RockReinforced_A_Rocks_LOD1"
+      ],
+      "tris": {
+        "SM_Riverbank_RockReinforced_A_Terrain_LOD0": 768,
+        "SM_Riverbank_RockReinforced_A_Terrain_LOD1": 384,
+        "SM_Riverbank_RockReinforced_A_Terrain_LOD2": 96,
+        "SM_Riverbank_RockReinforced_A_COL": 96,
+        "SM_Riverbank_RockReinforced_A_DET_Stones_LOD0": 232,
+        "SM_Riverbank_RockReinforced_A_DET_Grass_LOD0": 40,
+        "SM_Riverbank_RockReinforced_A_Rocks_LOD0": 2400,
+        "SM_Riverbank_RockReinforced_A_Rocks_LOD1": 1200
+      },
+      "lod0_tris": 3440,
+      "details_dropped_at_connectors": 1
+    },
+    "SM_Riverbank_GrassHeavy_A": {
+      "objects": [
+        "SM_Riverbank_GrassHeavy_A_Terrain_LOD0",
+        "SM_Riverbank_GrassHeavy_A_Terrain_LOD1",
+        "SM_Riverbank_GrassHeavy_A_Terrain_LOD2",
+        "SM_Riverbank_GrassHeavy_A_COL",
+        "SM_Riverbank_GrassHeavy_A_DET_Stones_LOD0",
+        "SM_Riverbank_GrassHeavy_A_DET_Grass_LOD0",
+        "SM_Riverbank_GrassHeavy_A_SodLip_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_GrassHeavy_A_Terrain_LOD0": 768,
+        "SM_Riverbank_GrassHeavy_A_Terrain_LOD1": 384,
+        "SM_Riverbank_GrassHeavy_A_Terrain_LOD2": 96,
+        "SM_Riverbank_GrassHeavy_A_COL": 96,
+        "SM_Riverbank_GrassHeavy_A_DET_Stones_LOD0": 292,
+        "SM_Riverbank_GrassHeavy_A_DET_Grass_LOD0": 256,
+        "SM_Riverbank_GrassHeavy_A_SodLip_LOD0": 144
+      },
+      "lod0_tris": 1460,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Riverbank_Eroded_A": {
+      "objects": [
+        "SM_Riverbank_Eroded_A_Terrain_LOD0",
+        "SM_Riverbank_Eroded_A_Terrain_LOD1",
+        "SM_Riverbank_Eroded_A_Terrain_LOD2",
+        "SM_Riverbank_Eroded_A_COL",
+        "SM_Riverbank_Eroded_A_DET_Stones_LOD0",
+        "SM_Riverbank_Eroded_A_DET_Grass_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_Eroded_A_Terrain_LOD0": 768,
+        "SM_Riverbank_Eroded_A_Terrain_LOD1": 384,
+        "SM_Riverbank_Eroded_A_Terrain_LOD2": 96,
+        "SM_Riverbank_Eroded_A_COL": 96,
+        "SM_Riverbank_Eroded_A_DET_Stones_LOD0": 442,
+        "SM_Riverbank_Eroded_A_DET_Grass_LOD0": 40
+      },
+      "lod0_tris": 1250,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Riverbank_End_A": {
+      "objects": [
+        "SM_Riverbank_End_A_Terrain_LOD0",
+        "SM_Riverbank_End_A_Terrain_LOD1",
+        "SM_Riverbank_End_A_Terrain_LOD2",
+        "SM_Riverbank_End_A_COL",
+        "SM_Riverbank_End_A_DET_Stones_LOD0",
+        "SM_Riverbank_End_A_DET_Grass_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_End_A_Terrain_LOD0": 768,
+        "SM_Riverbank_End_A_Terrain_LOD1": 384,
+        "SM_Riverbank_End_A_Terrain_LOD2": 96,
+        "SM_Riverbank_End_A_COL": 96,
+        "SM_Riverbank_End_A_DET_Stones_LOD0": 100,
+        "SM_Riverbank_End_A_DET_Grass_LOD0": 40
+      },
+      "lod0_tris": 908,
+      "details_dropped_at_connectors": 0
+    }
+  },
+  "slots": {
+    "B01": [
+      0.0,
+      -12.0,
+      0.0
+    ],
+    "B02": [
+      9.0,
+      -12.0,
+      0.0
+    ],
+    "B03": [
+      18.0,
+      -12.0,
+      0.0
+    ],
+    "B04": [
+      27.0,
+      -12.0,
+      0.0
+    ],
+    "B05": [
+      36.0,
+      -12.0,
+      0.0
+    ],
+    "B06": [
+      45.0,
+      -12.0,
+      0.0
+    ],
+    "B07": [
+      54.0,
+      -12.0,
+      0.0
+    ],
+    "B08": [
+      63.0,
+      -12.0,
+      0.0
+    ],
+    "B09": [
+      72.0,
+      -12.0,
+      0.0
+    ],
+    "B10": [
+      81.0,
+      -12.0,
+      0.0
+    ]
+  }
+}

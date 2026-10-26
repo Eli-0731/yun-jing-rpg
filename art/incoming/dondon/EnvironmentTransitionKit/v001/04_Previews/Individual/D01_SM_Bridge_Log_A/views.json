@@ -1,0 +1,190 @@
+{
+  "module": "SM_Bridge_Log_A",
+  "code": "D01",
+  "source": "01_Blender/log_bridge_v01.blend",
+  "same_geometry": true,
+  "note": "Library view convention: 01_front looks from -Y. Orthographic scale fitted per view.",
+  "lod_rendered": "LOD0",
+  "views": [
+    {
+      "file": "01_front.png",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        5.0,
+        -39.97633361816406,
+        -0.1734393686056137
+      ],
+      "ortho_scale": 11.199999809265137
+    },
+    {
+      "file": "02_right.png",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        45.0,
+        0.023666098713874817,
+        -0.1734393686056137
+      ],
+      "ortho_scale": 0.7273668646812439
+    },
+    {
+      "file": "03_rear.png",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        5.0,
+        40.02366638183594,
+        -0.1734393686056137
+      ],
+      "ortho_scale": 11.199999809265137
+    },
+    {
+      "file": "04_left.png",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -35.0,
+        0.023666098713874817,
+        -0.1734393686056137
+      ],
+      "ortho_scale": 0.7273668646812439
+    },
+    {
+      "file": "05_front_right.png",
+      "direction": [
+        1,
+        -1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        31.037784576416016,
+        -26.014118194580078,
+        15.44923210144043
+      ],
+      "ortho_scale": 8.433921813964844
+    },
+    {
+      "file": "06_rear_right.png",
+      "direction": [
+        1,
+        1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        31.037784576416016,
+        26.061450958251953,
+        15.44923210144043
+      ],
+      "ortho_scale": 8.433921813964844
+    },
+    {
+      "file": "07_rear_left.png",
+      "direction": [
+        -1,
+        1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -21.037784576416016,
+        26.061450958251953,
+        15.44923210144043
+      ],
+      "ortho_scale": 8.433921813964844
+    },
+    {
+      "file": "08_front_left.png",
+      "direction": [
+        -1,
+        -1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -21.037784576416016,
+        -26.014118194580078,
+        15.44923210144043
+      ],
+      "ortho_scale": 8.433921813964844
+    },
+    {
+      "file": "09_top.png",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        5.0,
+        0.023666098713874817,
+        39.826560974121094
+      ],
+      "ortho_scale": 11.199999809265137
+    },
+    {
+      "file": "10_high_front.png",
+      "direction": [
+        0,
+        -1,
+        1
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        5.0,
+        -28.260604858398438,
+        28.11083221435547
+      ],
+      "ortho_scale": 11.19999885559082
+    },
+    {
+      "file": "11_persp_45.png",
+      "direction": [
+        -0.75,
+        -1.0,
+        0.55
+      ],
+      "projection": "perspective",
+      "camera_location": [
+        -1.6247825622558594,
+        -8.809377670288086,
+        4.68473482131958
+      ],
+      "ortho_scale": null
+    },
+    {
+      "file": "12_detail.png",
+      "direction": [
+        -0.9,
+        -1.0,
+        0.65
+      ],
+      "projection": "perspective",
+      "camera_location": [
+        -0.6468063592910767,
+        -1.940895915031433,
+        1.1415823698043823
+      ],
+      "ortho_scale": null
+    }
+  ]
+}

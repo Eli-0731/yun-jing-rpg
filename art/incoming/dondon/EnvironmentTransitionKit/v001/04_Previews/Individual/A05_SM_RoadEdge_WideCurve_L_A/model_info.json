@@ -1,0 +1,89 @@
+{
+  "id": "SM_RoadEdge_WideCurve_L_A",
+  "code": "A05",
+  "name_zh": "左彎 30°",
+  "group": "A",
+  "purpose": "左轉 30°，路面與收邊沿同一圓弧，不扭曲。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.3981709480285645,
+    -0.05454617738723755
+  ],
+  "bounds_max_m": [
+    4.944718837738037,
+    2.9720475673675537,
+    0.40459978580474854
+  ],
+  "triangles": {
+    "LOD0": 1256,
+    "LOD1": 384,
+    "LOD2": 96,
+    "COL": 96,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_RoadEdge_WideCurve_L_A_Terrain_LOD0": 768,
+      "SM_RoadEdge_WideCurve_L_A_Terrain_LOD1": 384,
+      "SM_RoadEdge_WideCurve_L_A_Terrain_LOD2": 96,
+      "SM_RoadEdge_WideCurve_L_A_COL": 96,
+      "SM_RoadEdge_WideCurve_L_A_DET_Stones_LOD0": 432,
+      "SM_RoadEdge_WideCurve_L_A_DET_Grass_LOD0": 56
+    }
+  },
+  "objects": [
+    "SM_RoadEdge_WideCurve_L_A",
+    "SM_RoadEdge_WideCurve_L_A_COL",
+    "SM_RoadEdge_WideCurve_L_A_DET_Grass_LOD0",
+    "SM_RoadEdge_WideCurve_L_A_DET_Stones_LOD0",
+    "SM_RoadEdge_WideCurve_L_A_Terrain_LOD0",
+    "SM_RoadEdge_WideCurve_L_A_Terrain_LOD1",
+    "SM_RoadEdge_WideCurve_L_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/road_edge_modules_v01.blend",
+    "blend_collection": "SM_RoadEdge_WideCurve_L_A",
+    "blend_sha256": "6874c9ba5057deeec88181c24a14b06219b675c9af505b8b6fa55b5d9860fa6e",
+    "fbx": "02_Exports/RoadEdge/SM_RoadEdge_WideCurve_L_A.fbx",
+    "fbx_sha256": "a1cf2c72102557e9d76d64787f1cd5fd595dbc3081ccb5220370c9293f3f5ba6",
+    "previews": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A",
+    "three_view": "00_References/ThreeViews/A05_SM_RoadEdge_WideCurve_L_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "ROAD_3M",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "ROAD_3M",
+      "location_m": [
+        3.819718634205488,
+        1.023490523349471,
+        0.0
+      ],
+      "heading_deg": 29.999999999999996
+    }
+  ]
+}

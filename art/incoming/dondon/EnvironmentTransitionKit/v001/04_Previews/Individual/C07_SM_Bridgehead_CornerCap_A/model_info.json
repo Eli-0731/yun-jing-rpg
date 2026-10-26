@@ -1,0 +1,134 @@
+{
+  "id": "SM_Bridgehead_CornerCap_A",
+  "code": "C07",
+  "name_zh": "橋頭角隅封邊",
+  "group": "C",
+  "purpose": "石基兩側角隅的地形與封邊石，消除土坡與石基之間的三角縫（左右兩片）。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+  "bounds_min_m": [
+    2.0,
+    -2.3195297718048096,
+    -0.550000011920929
+  ],
+  "bounds_max_m": [
+    3.25,
+    2.3879520893096924,
+    0.40008655190467834
+  ],
+  "triangles": {
+    "LOD0": 796,
+    "LOD1": 384,
+    "LOD2": 36,
+    "COL": 36,
+    "budget_LOD0": [
+      800,
+      4000
+    ],
+    "by_object": {
+      "SM_Bridgehead_CornerCap_A_Terrain_LOD0": 240,
+      "SM_Bridgehead_CornerCap_A_Terrain_LOD1": 120,
+      "SM_Bridgehead_CornerCap_A_Terrain_LOD2": 36,
+      "SM_Bridgehead_CornerCap_A_COL": 36,
+      "SM_Bridgehead_CornerCap_A_DET_Grass_LOD0": 28,
+      "SM_Bridgehead_CornerCap_A_Rocks_LOD0": 528,
+      "SM_Bridgehead_CornerCap_A_Rocks_LOD1": 264
+    }
+  },
+  "objects": [
+    "SM_Bridgehead_CornerCap_A",
+    "SM_Bridgehead_CornerCap_A_COL",
+    "SM_Bridgehead_CornerCap_A_DET_Grass_LOD0",
+    "SM_Bridgehead_CornerCap_A_Rocks_LOD0",
+    "SM_Bridgehead_CornerCap_A_Rocks_LOD1",
+    "SM_Bridgehead_CornerCap_A_Terrain_LOD0",
+    "SM_Bridgehead_CornerCap_A_Terrain_LOD1",
+    "SM_Bridgehead_CornerCap_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/bridgehead_modules_v01.blend",
+    "blend_collection": "SM_Bridgehead_CornerCap_A",
+    "blend_sha256": "57430a88ecae1d24a0d15fcf9d4fac445b12e52d7761fc186928ab50dc5ee1d9",
+    "fbx": "02_Exports/Bridgehead/SM_Bridgehead_CornerCap_A.fbx",
+    "fbx_sha256": "299e4ea4cc66e82ef5efb8fca92b5ec2036b2dd4363bdf1e210afb561a3deb14",
+    "previews": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A",
+    "three_view": "00_References/ThreeViews/C07_SM_Bridgehead_CornerCap_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        2.0,
+        1.875,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        3.25,
+        1.875,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "BankSeam_L",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        2.0,
+        2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "EntryConnector_R",
+      "role": "entry",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        2.0,
+        -1.875,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector_R",
+      "role": "exit",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        3.25,
+        -1.875,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "BankSeam_R",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        2.0,
+        -2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

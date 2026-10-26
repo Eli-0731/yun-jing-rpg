@@ -1,0 +1,100 @@
+{
+  "id": "SM_RoadEdge_Straight_R_A",
+  "code": "A02",
+  "name_zh": "直線右路緣",
+  "group": "A",
+  "purpose": "4 m 右側收邊帶（-Y），與 A01 配對。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.4054269790649414,
+    -0.04514263570308685
+  ],
+  "bounds_max_m": [
+    4.0,
+    -1.5,
+    0.38463547825813293
+  ],
+  "triangles": {
+    "LOD0": 406,
+    "LOD1": 96,
+    "LOD2": 24,
+    "COL": 24,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_RoadEdge_Straight_R_A_Terrain_LOD0": 192,
+      "SM_RoadEdge_Straight_R_A_Terrain_LOD1": 96,
+      "SM_RoadEdge_Straight_R_A_Terrain_LOD2": 24,
+      "SM_RoadEdge_Straight_R_A_COL": 24,
+      "SM_RoadEdge_Straight_R_A_DET_Stones_LOD0": 186,
+      "SM_RoadEdge_Straight_R_A_DET_Grass_LOD0": 28
+    }
+  },
+  "objects": [
+    "SM_RoadEdge_Straight_R_A",
+    "SM_RoadEdge_Straight_R_A_COL",
+    "SM_RoadEdge_Straight_R_A_DET_Grass_LOD0",
+    "SM_RoadEdge_Straight_R_A_DET_Stones_LOD0",
+    "SM_RoadEdge_Straight_R_A_Terrain_LOD0",
+    "SM_RoadEdge_Straight_R_A_Terrain_LOD1",
+    "SM_RoadEdge_Straight_R_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/road_edge_modules_v01.blend",
+    "blend_collection": "SM_RoadEdge_Straight_R_A",
+    "blend_sha256": "6874c9ba5057deeec88181c24a14b06219b675c9af505b8b6fa55b5d9860fa6e",
+    "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Straight_R_A.fbx",
+    "fbx_sha256": "91aba622b054044f33b407e1ee0eb05ba1935d398c229073cec23587b1efe29d",
+    "previews": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A",
+    "three_view": "00_References/ThreeViews/A02_SM_RoadEdge_Straight_R_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "ROAD_EDGE_R",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "ROAD_EDGE_R",
+      "location_m": [
+        4.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "CoreSeam",
+      "role": "seam",
+      "type": "ROAD_3M",
+      "location_m": [
+        0.0,
+        -1.5,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}
