@@ -31,7 +31,7 @@ namespace YunJing
             Cultivator.TextInputFocused = !string.IsNullOrEmpty(GUI.GetNameOfFocusedControl());
             float scale = Mathf.Max(1, Screen.height / 900f);
             GUI.matrix = Matrix4x4.Scale(Vector3.one * scale);
-            GUILayout.BeginArea(new Rect(16, 16, 350, Screen.height / scale - 32), GUI.skin.box);
+            GUILayout.BeginArea(new Rect(16, 16, 350, Screen.height / scale - 200), GUI.skin.box);
             GUILayout.Label("YUN JING · QINGXI / DEVELOPMENT");
             GUILayout.Label(api.Status);
             GUI.enabled = !api.Busy;
@@ -98,7 +98,8 @@ namespace YunJing
             GUI.enabled = true; GUILayout.EndArea();
             if (Cultivator.Local != null)
             {
-                float x = Screen.width / scale - 190, y = Screen.height / scale - 160;
+                // Keep the movement pad on the left; the right half is the touch-look area.
+                float x = 20, y = Screen.height / scale - 160;
                 var direction = Vector2.zero;
                 if (GUI.RepeatButton(new Rect(x + 55, y, 55, 45), "↑")) direction.y++;
                 if (GUI.RepeatButton(new Rect(x, y + 50, 55, 45), "←")) direction.x--;

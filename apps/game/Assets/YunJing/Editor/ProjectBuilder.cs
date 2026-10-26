@@ -81,7 +81,7 @@ namespace YunJing.Editor
             sun.transform.rotation = Quaternion.Euler(48,-30,0); sun.shadows = LightShadows.Soft;
             RenderSettings.ambientLight = new Color(.55f,.62f,.63f); RenderSettings.fog = true;
             RenderSettings.fogColor = new Color(.65f,.73f,.72f); RenderSettings.fogDensity = .012f;
-            var camera = new GameObject("Main Camera", typeof(Camera), typeof(AudioListener)).GetComponent<Camera>(); camera.tag = "MainCamera";
+            var camera = new GameObject("Main Camera", typeof(Camera), typeof(AudioListener), typeof(QingxiOrbitCamera)).GetComponent<Camera>(); camera.tag = "MainCamera";
             camera.transform.position = new Vector3(0,14,-19); camera.transform.LookAt(Vector3.zero); camera.farClipPlane=150;
             var actor = new GameObject("Cultivator"); actor.transform.position = new Vector3(0,1,-7);
             var capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule); capsule.transform.SetParent(actor.transform,false);
