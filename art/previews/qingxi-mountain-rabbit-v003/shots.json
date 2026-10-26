@@ -1,0 +1,119 @@
+{
+  "front": {
+    "action": "Rabbit_Idle",
+    "frame": 1,
+    "camera": [
+      0,
+      -1.8,
+      0.85
+    ]
+  },
+  "side": {
+    "action": "Rabbit_Idle",
+    "frame": 1,
+    "camera": [
+      1.8,
+      0,
+      0.8
+    ]
+  },
+  "rear": {
+    "action": "Rabbit_Idle",
+    "frame": 1,
+    "camera": [
+      0,
+      1.8,
+      0.85
+    ]
+  },
+  "three_quarter": {
+    "action": "Rabbit_Idle",
+    "frame": 1,
+    "camera": [
+      1.35,
+      -1.35,
+      0.85
+    ]
+  },
+  "idle": {
+    "action": "Rabbit_Idle",
+    "frame": 24,
+    "camera": [
+      1.35,
+      -1.35,
+      0.85
+    ]
+  },
+  "hop": {
+    "action": "Rabbit_Hop",
+    "frame": 12,
+    "camera": [
+      1.35,
+      -1.35,
+      0.85
+    ]
+  },
+  "flee": {
+    "action": "Rabbit_Flee",
+    "frame": 8,
+    "camera": [
+      1.35,
+      -1.35,
+      0.85
+    ]
+  },
+  "hit": {
+    "action": "Rabbit_Hit",
+    "frame": 4,
+    "camera": [
+      1.35,
+      -1.35,
+      0.85
+    ]
+  },
+  "death": {
+    "action": "Rabbit_Death",
+    "frame": 24,
+    "camera": [
+      1.35,
+      -1.35,
+      0.85
+    ]
+  },
+  "crouch": {
+    "action": "Rabbit_Hop",
+    "frame": 1,
+    "camera": [
+      1.8,
+      0,
+      0.8
+    ]
+  },
+  "jump_start": {
+    "action": "Rabbit_Hop",
+    "frame": 6,
+    "camera": [
+      1.8,
+      0,
+      0.8
+    ]
+  },
+  "jump_air": {
+    "action": "Rabbit_Hop",
+    "frame": 13,
+    "camera": [
+      1.8,
+      0,
+      0.8
+    ]
+  },
+  "jump_land": {
+    "action": "Rabbit_Hop",
+    "frame": 19,
+    "camera": [
+      1.8,
+      0,
+      0.8
+    ]
+  }
+}

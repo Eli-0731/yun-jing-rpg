@@ -1,0 +1,1572 @@
+{
+  "validator": "Blender 5.2.2 + Python",
+  "source_sha256": "d2fdd0189790609f6ac0b8d553e872d7a84076a97da88ebaff082595f705b89f",
+  "blend": {
+    "armature_bones": 17,
+    "bone_names": [
+      "Root",
+      "Pelvis",
+      "Spine",
+      "Chest",
+      "Neck",
+      "Head",
+      "Ear_L",
+      "Ear_R",
+      "FrontUpper_L",
+      "FrontPaw_L",
+      "FrontUpper_R",
+      "FrontPaw_R",
+      "Tail",
+      "HindUpper_L",
+      "HindPaw_L",
+      "HindUpper_R",
+      "HindPaw_R"
+    ],
+    "lods": [
+      {
+        "mesh": "SK_QingxiRabbit_LOD0",
+        "triangles": 22192,
+        "vertices": 11134,
+        "material_slots": 1,
+        "unweighted_vertices": 0,
+        "over_four_influences": 0,
+        "unnormalized_vertices": 0,
+        "bounds_m": [
+          [
+            -0.23499992489814758,
+            0.23499992489814758
+          ],
+          [
+            -0.34449994564056396,
+            0.34449994564056396
+          ],
+          [
+            -1.3504177331924438e-08,
+            0.757421612739563
+          ]
+        ]
+      },
+      {
+        "mesh": "SK_QingxiRabbit_LOD1",
+        "triangles": 10842,
+        "vertices": 5459,
+        "material_slots": 1,
+        "unweighted_vertices": 0,
+        "over_four_influences": 0,
+        "unnormalized_vertices": 0,
+        "bounds_m": [
+          [
+            -0.23499993979930878,
+            0.23499993979930878
+          ],
+          [
+            -0.34449994564056396,
+            0.34449994564056396
+          ],
+          [
+            0.0,
+            0.7575731873512268
+          ]
+        ]
+      },
+      {
+        "mesh": "SK_QingxiRabbit_LOD2",
+        "triangles": 4418,
+        "vertices": 2247,
+        "material_slots": 1,
+        "unweighted_vertices": 0,
+        "over_four_influences": 0,
+        "unnormalized_vertices": 0,
+        "bounds_m": [
+          [
+            -0.23493480682373047,
+            0.23493482172489166
+          ],
+          [
+            -0.3444916307926178,
+            0.3444535434246063
+          ],
+          [
+            -0.0005245801876299083,
+            0.7575731873512268
+          ]
+        ]
+      }
+    ],
+    "actions": {
+      "Rabbit_Idle": {
+        "frames": 48,
+        "loop": true,
+        "frame_range": [
+          1.0,
+          48.0
+        ]
+      },
+      "Rabbit_Hop": {
+        "frames": 24,
+        "loop": true,
+        "frame_range": [
+          1.0,
+          24.0
+        ]
+      },
+      "Rabbit_Flee": {
+        "frames": 16,
+        "loop": true,
+        "frame_range": [
+          1.0,
+          16.0
+        ]
+      },
+      "Rabbit_Hit": {
+        "frames": 8,
+        "loop": false,
+        "frame_range": [
+          1.0,
+          8.0
+        ]
+      },
+      "Rabbit_Death": {
+        "frames": 24,
+        "loop": false,
+        "frame_range": [
+          1.0,
+          24.0
+        ]
+      }
+    }
+  },
+  "pose_qa": {
+    "Rabbit_Idle": [
+      {
+        "frame": 1,
+        "min_z_m": -0.0,
+        "max_z_m": 0.75742,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 2,
+        "min_z_m": 4e-05,
+        "max_z_m": 0.75748,
+        "root_local_y_m": 7e-05,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 3,
+        "min_z_m": 0.00015,
+        "max_z_m": 0.75766,
+        "root_local_y_m": 0.00026,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 4,
+        "min_z_m": 0.00032,
+        "max_z_m": 0.75794,
+        "root_local_y_m": 0.00056,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 5,
+        "min_z_m": 0.00055,
+        "max_z_m": 0.75829,
+        "root_local_y_m": 0.00096,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 6,
+        "min_z_m": 0.00083,
+        "max_z_m": 0.75872,
+        "root_local_y_m": 0.00145,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 7,
+        "min_z_m": 0.00115,
+        "max_z_m": 0.75919,
+        "root_local_y_m": 0.00202,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 8,
+        "min_z_m": 0.00151,
+        "max_z_m": 0.75969,
+        "root_local_y_m": 0.00266,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 9,
+        "min_z_m": 0.0019,
+        "max_z_m": 0.7602,
+        "root_local_y_m": 0.00335,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 10,
+        "min_z_m": 0.00232,
+        "max_z_m": 0.76071,
+        "root_local_y_m": 0.00407,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 11,
+        "min_z_m": 0.00276,
+        "max_z_m": 0.7612,
+        "root_local_y_m": 0.00483,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 12,
+        "min_z_m": 0.0032,
+        "max_z_m": 0.76167,
+        "root_local_y_m": 0.00561,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 13,
+        "min_z_m": 0.00365,
+        "max_z_m": 0.7621,
+        "root_local_y_m": 0.00639,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 14,
+        "min_z_m": 0.00409,
+        "max_z_m": 0.76248,
+        "root_local_y_m": 0.00717,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 15,
+        "min_z_m": 0.00453,
+        "max_z_m": 0.76283,
+        "root_local_y_m": 0.00793,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 16,
+        "min_z_m": 0.00495,
+        "max_z_m": 0.76312,
+        "root_local_y_m": 0.00865,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 17,
+        "min_z_m": 0.00535,
+        "max_z_m": 0.76336,
+        "root_local_y_m": 0.00934,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 18,
+        "min_z_m": 0.00571,
+        "max_z_m": 0.76356,
+        "root_local_y_m": 0.00998,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 19,
+        "min_z_m": 0.00604,
+        "max_z_m": 0.76372,
+        "root_local_y_m": 0.01055,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 20,
+        "min_z_m": 0.00633,
+        "max_z_m": 0.76384,
+        "root_local_y_m": 0.01104,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 21,
+        "min_z_m": 0.00656,
+        "max_z_m": 0.76392,
+        "root_local_y_m": 0.01144,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 22,
+        "min_z_m": 0.00674,
+        "max_z_m": 0.76398,
+        "root_local_y_m": 0.01174,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 23,
+        "min_z_m": 0.00685,
+        "max_z_m": 0.76401,
+        "root_local_y_m": 0.01193,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 24,
+        "min_z_m": 0.00688,
+        "max_z_m": 0.76402,
+        "root_local_y_m": 0.012,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 25,
+        "min_z_m": 0.00685,
+        "max_z_m": 0.76401,
+        "root_local_y_m": 0.01194,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 26,
+        "min_z_m": 0.00675,
+        "max_z_m": 0.76398,
+        "root_local_y_m": 0.01176,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 27,
+        "min_z_m": 0.00659,
+        "max_z_m": 0.76393,
+        "root_local_y_m": 0.01148,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 28,
+        "min_z_m": 0.00637,
+        "max_z_m": 0.76385,
+        "root_local_y_m": 0.01111,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 29,
+        "min_z_m": 0.00611,
+        "max_z_m": 0.76375,
+        "root_local_y_m": 0.01065,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 30,
+        "min_z_m": 0.0058,
+        "max_z_m": 0.7636,
+        "root_local_y_m": 0.01013,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 31,
+        "min_z_m": 0.00546,
+        "max_z_m": 0.76343,
+        "root_local_y_m": 0.00953,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 32,
+        "min_z_m": 0.00509,
+        "max_z_m": 0.7632,
+        "root_local_y_m": 0.00889,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 33,
+        "min_z_m": 0.00469,
+        "max_z_m": 0.76294,
+        "root_local_y_m": 0.0082,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 34,
+        "min_z_m": 0.00428,
+        "max_z_m": 0.76263,
+        "root_local_y_m": 0.00749,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 35,
+        "min_z_m": 0.00385,
+        "max_z_m": 0.76228,
+        "root_local_y_m": 0.00675,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 36,
+        "min_z_m": 0.00342,
+        "max_z_m": 0.76189,
+        "root_local_y_m": 0.006,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 37,
+        "min_z_m": 0.003,
+        "max_z_m": 0.76146,
+        "root_local_y_m": 0.00525,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 38,
+        "min_z_m": 0.00257,
+        "max_z_m": 0.761,
+        "root_local_y_m": 0.00451,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 39,
+        "min_z_m": 0.00216,
+        "max_z_m": 0.76052,
+        "root_local_y_m": 0.0038,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 40,
+        "min_z_m": 0.00177,
+        "max_z_m": 0.76003,
+        "root_local_y_m": 0.00311,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 41,
+        "min_z_m": 0.0014,
+        "max_z_m": 0.75954,
+        "root_local_y_m": 0.00247,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 42,
+        "min_z_m": 0.00107,
+        "max_z_m": 0.75907,
+        "root_local_y_m": 0.00187,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 43,
+        "min_z_m": 0.00076,
+        "max_z_m": 0.75863,
+        "root_local_y_m": 0.00135,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 44,
+        "min_z_m": 0.00051,
+        "max_z_m": 0.75823,
+        "root_local_y_m": 0.00089,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 45,
+        "min_z_m": 0.00029,
+        "max_z_m": 0.7579,
+        "root_local_y_m": 0.00052,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 46,
+        "min_z_m": 0.00013,
+        "max_z_m": 0.75764,
+        "root_local_y_m": 0.00024,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 47,
+        "min_z_m": 3e-05,
+        "max_z_m": 0.75748,
+        "root_local_y_m": 6e-05,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 48,
+        "min_z_m": -0.0,
+        "max_z_m": 0.75742,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      }
+    ],
+    "Rabbit_Hop": [
+      {
+        "frame": 1,
+        "min_z_m": -0.0,
+        "max_z_m": 0.75757,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 2,
+        "min_z_m": 0.01286,
+        "max_z_m": 0.77035,
+        "root_local_y_m": 0.01286,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 3,
+        "min_z_m": 0.04457,
+        "max_z_m": 0.80168,
+        "root_local_y_m": 0.04457,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 4,
+        "min_z_m": 0.07969,
+        "max_z_m": 0.84115,
+        "root_local_y_m": 0.08486,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 5,
+        "min_z_m": 0.09964,
+        "max_z_m": 0.87874,
+        "root_local_y_m": 0.12343,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 6,
+        "min_z_m": 0.11658,
+        "max_z_m": 0.90482,
+        "root_local_y_m": 0.15,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 7,
+        "min_z_m": 0.12865,
+        "max_z_m": 0.92015,
+        "root_local_y_m": 0.16481,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 8,
+        "min_z_m": 0.1374,
+        "max_z_m": 0.93186,
+        "root_local_y_m": 0.17542,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 9,
+        "min_z_m": 0.14331,
+        "max_z_m": 0.93989,
+        "root_local_y_m": 0.18254,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 10,
+        "min_z_m": 0.14689,
+        "max_z_m": 0.94444,
+        "root_local_y_m": 0.18685,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 11,
+        "min_z_m": 0.14872,
+        "max_z_m": 0.94616,
+        "root_local_y_m": 0.18907,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 12,
+        "min_z_m": 0.14937,
+        "max_z_m": 0.94619,
+        "root_local_y_m": 0.18988,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 13,
+        "min_z_m": 0.14946,
+        "max_z_m": 0.9459,
+        "root_local_y_m": 0.19,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 14,
+        "min_z_m": 0.14179,
+        "max_z_m": 0.93604,
+        "root_local_y_m": 0.17986,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 15,
+        "min_z_m": 0.12335,
+        "max_z_m": 0.91065,
+        "root_local_y_m": 0.15389,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 16,
+        "min_z_m": 0.09944,
+        "max_z_m": 0.87604,
+        "root_local_y_m": 0.11875,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 17,
+        "min_z_m": 0.07486,
+        "max_z_m": 0.83868,
+        "root_local_y_m": 0.08111,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 18,
+        "min_z_m": 0.04764,
+        "max_z_m": 0.80524,
+        "root_local_y_m": 0.04764,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 19,
+        "min_z_m": 0.025,
+        "max_z_m": 0.78257,
+        "root_local_y_m": 0.025,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 20,
+        "min_z_m": 0.0128,
+        "max_z_m": 0.77037,
+        "root_local_y_m": 0.0128,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 21,
+        "min_z_m": 0.0054,
+        "max_z_m": 0.76297,
+        "root_local_y_m": 0.0054,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 22,
+        "min_z_m": 0.0016,
+        "max_z_m": 0.75917,
+        "root_local_y_m": 0.0016,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 23,
+        "min_z_m": 0.0002,
+        "max_z_m": 0.75777,
+        "root_local_y_m": 0.0002,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 24,
+        "min_z_m": -0.0,
+        "max_z_m": 0.75757,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      }
+    ],
+    "Rabbit_Flee": [
+      {
+        "frame": 1,
+        "min_z_m": -0.0,
+        "max_z_m": 0.75757,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 2,
+        "min_z_m": 0.03104,
+        "max_z_m": 0.78832,
+        "root_local_y_m": 0.03104,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 3,
+        "min_z_m": 0.0787,
+        "max_z_m": 0.84692,
+        "root_local_y_m": 0.09096,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 4,
+        "min_z_m": 0.09658,
+        "max_z_m": 0.88482,
+        "root_local_y_m": 0.13,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 5,
+        "min_z_m": 0.10276,
+        "max_z_m": 0.89552,
+        "root_local_y_m": 0.13976,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 6,
+        "min_z_m": 0.10665,
+        "max_z_m": 0.9029,
+        "root_local_y_m": 0.14568,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 7,
+        "min_z_m": 0.10866,
+        "max_z_m": 0.90626,
+        "root_local_y_m": 0.14872,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 8,
+        "min_z_m": 0.10937,
+        "max_z_m": 0.90645,
+        "root_local_y_m": 0.14984,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 9,
+        "min_z_m": 0.10946,
+        "max_z_m": 0.9059,
+        "root_local_y_m": 0.15,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 10,
+        "min_z_m": 0.0921,
+        "max_z_m": 0.87852,
+        "root_local_y_m": 0.12176,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 11,
+        "min_z_m": 0.06137,
+        "max_z_m": 0.82331,
+        "root_local_y_m": 0.06574,
+        "low_vertex_groups": [
+          "HindPaw_L"
+        ]
+      },
+      {
+        "frame": 12,
+        "min_z_m": 0.025,
+        "max_z_m": 0.78257,
+        "root_local_y_m": 0.025,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 13,
+        "min_z_m": 0.01055,
+        "max_z_m": 0.76812,
+        "root_local_y_m": 0.01055,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 14,
+        "min_z_m": 0.00312,
+        "max_z_m": 0.7607,
+        "root_local_y_m": 0.00312,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 15,
+        "min_z_m": 0.00039,
+        "max_z_m": 0.75796,
+        "root_local_y_m": 0.00039,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 16,
+        "min_z_m": -0.0,
+        "max_z_m": 0.75757,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      }
+    ],
+    "Rabbit_Hit": [
+      {
+        "frame": 1,
+        "min_z_m": -0.0,
+        "max_z_m": 0.75757,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 2,
+        "min_z_m": 0.00085,
+        "max_z_m": 0.76164,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 3,
+        "min_z_m": 0.00096,
+        "max_z_m": 0.76161,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 4,
+        "min_z_m": 0.00163,
+        "max_z_m": 0.75774,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 5,
+        "min_z_m": 0.00115,
+        "max_z_m": 0.76038,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 6,
+        "min_z_m": 0.0009,
+        "max_z_m": 0.76283,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 7,
+        "min_z_m": 0.00044,
+        "max_z_m": 0.76038,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 8,
+        "min_z_m": -0.0,
+        "max_z_m": 0.75757,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      }
+    ],
+    "Rabbit_Death": [
+      {
+        "frame": 1,
+        "min_z_m": -0.0,
+        "max_z_m": 0.75757,
+        "root_local_y_m": 0.0,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 2,
+        "min_z_m": 0.00113,
+        "max_z_m": 0.75915,
+        "root_local_y_m": 0.00332,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 3,
+        "min_z_m": 0.00387,
+        "max_z_m": 0.76228,
+        "root_local_y_m": 0.0119,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 4,
+        "min_z_m": 0.00803,
+        "max_z_m": 0.76394,
+        "root_local_y_m": 0.02362,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 5,
+        "min_z_m": 0.01443,
+        "max_z_m": 0.76096,
+        "root_local_y_m": 0.03638,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 6,
+        "min_z_m": 0.02345,
+        "max_z_m": 0.75057,
+        "root_local_y_m": 0.0481,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 7,
+        "min_z_m": 0.03482,
+        "max_z_m": 0.731,
+        "root_local_y_m": 0.05668,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 8,
+        "min_z_m": 0.04601,
+        "max_z_m": 0.70156,
+        "root_local_y_m": 0.06,
+        "low_vertex_groups": [
+          "FrontPaw_L"
+        ]
+      },
+      {
+        "frame": 9,
+        "min_z_m": 0.0496,
+        "max_z_m": 0.66099,
+        "root_local_y_m": 0.05828,
+        "low_vertex_groups": [
+          "Spine"
+        ]
+      },
+      {
+        "frame": 10,
+        "min_z_m": 0.04351,
+        "max_z_m": 0.60905,
+        "root_local_y_m": 0.05375,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 11,
+        "min_z_m": 0.035,
+        "max_z_m": 0.54823,
+        "root_local_y_m": 0.04734,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 12,
+        "min_z_m": 0.02661,
+        "max_z_m": 0.48439,
+        "root_local_y_m": 0.04,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 13,
+        "min_z_m": 0.0175,
+        "max_z_m": 0.43729,
+        "root_local_y_m": 0.03266,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 14,
+        "min_z_m": 0.00995,
+        "max_z_m": 0.43152,
+        "root_local_y_m": 0.02625,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 15,
+        "min_z_m": 0.00487,
+        "max_z_m": 0.42734,
+        "root_local_y_m": 0.02172,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 16,
+        "min_z_m": 0.00299,
+        "max_z_m": 0.42574,
+        "root_local_y_m": 0.02,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 17,
+        "min_z_m": 0.00299,
+        "max_z_m": 0.42574,
+        "root_local_y_m": 0.02,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 18,
+        "min_z_m": 0.00299,
+        "max_z_m": 0.42574,
+        "root_local_y_m": 0.02,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 19,
+        "min_z_m": 0.00299,
+        "max_z_m": 0.42574,
+        "root_local_y_m": 0.02,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 20,
+        "min_z_m": 0.00299,
+        "max_z_m": 0.42574,
+        "root_local_y_m": 0.02,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 21,
+        "min_z_m": 0.00299,
+        "max_z_m": 0.42574,
+        "root_local_y_m": 0.02,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 22,
+        "min_z_m": 0.00299,
+        "max_z_m": 0.42574,
+        "root_local_y_m": 0.02,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 23,
+        "min_z_m": 0.00299,
+        "max_z_m": 0.42574,
+        "root_local_y_m": 0.02,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      },
+      {
+        "frame": 24,
+        "min_z_m": 0.00299,
+        "max_z_m": 0.42574,
+        "root_local_y_m": 0.02,
+        "low_vertex_groups": [
+          "Spine",
+          "Chest"
+        ]
+      }
+    ]
+  },
+  "textures": {
+    "T_Rabbit_BaseColor.png": 1996,
+    "T_Rabbit_Normal.png": 1852,
+    "T_Rabbit_Roughness.png": 1853
+  },
+  "glb_json": {
+    "meshes": 1,
+    "skins": 1,
+    "animations": [
+      "Rabbit_Death",
+      "Rabbit_Flee",
+      "Rabbit_Hit",
+      "Rabbit_Hop",
+      "Rabbit_Idle"
+    ],
+    "materials": 1
+  },
+  "roundtrip": {
+    "QingxiMountainRabbit_v003.fbx": {
+      "mesh_names": [
+        "SK_QingxiRabbit_LOD0"
+      ],
+      "mesh_count": 1,
+      "armature_count": 1,
+      "triangles": 22192,
+      "bounds_m": [
+        [
+          -0.23499992489814758,
+          0.23499992489814758
+        ],
+        [
+          -0.34449994564056396,
+          0.34450000524520874
+        ],
+        [
+          -8.734406975463571e-08,
+          0.7575728893280029
+        ]
+      ],
+      "action_names": [
+        "RIG_QingxiRabbit|RIG_QingxiRabbit|Rabbit_Death",
+        "RIG_QingxiRabbit|RIG_QingxiRabbit|Rabbit_Flee",
+        "RIG_QingxiRabbit|RIG_QingxiRabbit|Rabbit_Hit",
+        "RIG_QingxiRabbit|RIG_QingxiRabbit|Rabbit_Hop",
+        "RIG_QingxiRabbit|RIG_QingxiRabbit|Rabbit_Idle"
+      ],
+      "action_ranges": {
+        "RIG_QingxiRabbit|RIG_QingxiRabbit|Rabbit_Death": [
+          1.0,
+          24.0
+        ],
+        "RIG_QingxiRabbit|RIG_QingxiRabbit|Rabbit_Flee": [
+          1.0,
+          16.0
+        ],
+        "RIG_QingxiRabbit|RIG_QingxiRabbit|Rabbit_Hit": [
+          1.0,
+          8.0
+        ],
+        "RIG_QingxiRabbit|RIG_QingxiRabbit|Rabbit_Hop": [
+          1.0,
+          24.0
+        ],
+        "RIG_QingxiRabbit|RIG_QingxiRabbit|Rabbit_Idle": [
+          1.0,
+          48.0
+        ]
+      }
+    },
+    "QingxiMountainRabbit_v003_LOD1.fbx": {
+      "mesh_names": [
+        "SK_QingxiRabbit_LOD1"
+      ],
+      "mesh_count": 1,
+      "armature_count": 1,
+      "triangles": 10842,
+      "bounds_m": [
+        [
+          -0.2349999099969864,
+          0.234999880194664
+        ],
+        [
+          -0.3445000648498535,
+          0.34450000524520874
+        ],
+        [
+          -1.0456355425958463e-07,
+          0.7574213743209839
+        ]
+      ],
+      "action_names": [],
+      "action_ranges": {}
+    },
+    "QingxiMountainRabbit_v003_LOD2.fbx": {
+      "mesh_names": [
+        "SK_QingxiRabbit_LOD2"
+      ],
+      "mesh_count": 1,
+      "armature_count": 1,
+      "triangles": 4418,
+      "bounds_m": [
+        [
+          -0.23493477702140808,
+          0.2349347621202469
+        ],
+        [
+          -0.34449175000190735,
+          0.3444536030292511
+        ],
+        [
+          -0.0005246329819783568,
+          0.7574213743209839
+        ]
+      ],
+      "action_names": [],
+      "action_ranges": {}
+    },
+    "QingxiMountainRabbit_v003.glb": {
+      "mesh_names": [
+        "SK_QingxiRabbit_LOD0"
+      ],
+      "mesh_count": 1,
+      "armature_count": 1,
+      "triangles": 22192,
+      "bounds_m": [
+        [
+          -0.23499992489814758,
+          0.23499992489814758
+        ],
+        [
+          -0.34450000524520874,
+          0.3444998860359192
+        ],
+        [
+          -9.909270204389031e-08,
+          0.757573127746582
+        ]
+      ],
+      "action_names": [
+        "Rabbit_Death",
+        "Rabbit_Flee",
+        "Rabbit_Hit",
+        "Rabbit_Hop",
+        "Rabbit_Idle"
+      ],
+      "action_ranges": {
+        "Rabbit_Death": [
+          1.0,
+          24.0
+        ],
+        "Rabbit_Flee": [
+          1.0,
+          16.0
+        ],
+        "Rabbit_Hit": [
+          1.0,
+          8.0
+        ],
+        "Rabbit_Hop": [
+          1.0,
+          24.0
+        ],
+        "Rabbit_Idle": [
+          1.0,
+          48.0
+        ]
+      }
+    },
+    "Rabbit_Idle.fbx": {
+      "mesh_names": [
+        "SK_QingxiRabbit_LOD0"
+      ],
+      "mesh_count": 1,
+      "armature_count": 1,
+      "triangles": 22192,
+      "bounds_m": [
+        [
+          -0.23499992489814758,
+          0.23499992489814758
+        ],
+        [
+          -0.34449994564056396,
+          0.34450000524520874
+        ],
+        [
+          -8.734406975463571e-08,
+          0.7574214339256287
+        ]
+      ],
+      "action_names": [
+        "RIG_QingxiRabbit|Scene"
+      ],
+      "action_ranges": {
+        "RIG_QingxiRabbit|Scene": [
+          2.0,
+          49.0
+        ]
+      }
+    },
+    "Rabbit_Hop.fbx": {
+      "mesh_names": [
+        "SK_QingxiRabbit_LOD0"
+      ],
+      "mesh_count": 1,
+      "armature_count": 1,
+      "triangles": 22192,
+      "bounds_m": [
+        [
+          -0.23499992489814758,
+          0.23499992489814758
+        ],
+        [
+          -0.34449994564056396,
+          0.34450000524520874
+        ],
+        [
+          -2.8333605683883434e-08,
+          0.7575728893280029
+        ]
+      ],
+      "action_names": [
+        "RIG_QingxiRabbit|Scene"
+      ],
+      "action_ranges": {
+        "RIG_QingxiRabbit|Scene": [
+          2.0,
+          25.0
+        ]
+      }
+    },
+    "Rabbit_Flee.fbx": {
+      "mesh_names": [
+        "SK_QingxiRabbit_LOD0"
+      ],
+      "mesh_count": 1,
+      "armature_count": 1,
+      "triangles": 22192,
+      "bounds_m": [
+        [
+          -0.23499992489814758,
+          0.23499992489814758
+        ],
+        [
+          -0.34449994564056396,
+          0.34450000524520874
+        ],
+        [
+          -2.8333605683883434e-08,
+          0.7575728893280029
+        ]
+      ],
+      "action_names": [
+        "RIG_QingxiRabbit|Scene"
+      ],
+      "action_ranges": {
+        "RIG_QingxiRabbit|Scene": [
+          2.0,
+          17.0
+        ]
+      }
+    },
+    "Rabbit_Hit.fbx": {
+      "mesh_names": [
+        "SK_QingxiRabbit_LOD0"
+      ],
+      "mesh_count": 1,
+      "armature_count": 1,
+      "triangles": 22192,
+      "bounds_m": [
+        [
+          -0.23499992489814758,
+          0.23499992489814758
+        ],
+        [
+          -0.34449994564056396,
+          0.34450000524520874
+        ],
+        [
+          -8.734406975463571e-08,
+          0.7575728893280029
+        ]
+      ],
+      "action_names": [
+        "RIG_QingxiRabbit|Scene"
+      ],
+      "action_ranges": {
+        "RIG_QingxiRabbit|Scene": [
+          2.0,
+          9.0
+        ]
+      }
+    },
+    "Rabbit_Death.fbx": {
+      "mesh_names": [
+        "SK_QingxiRabbit_LOD0"
+      ],
+      "mesh_count": 1,
+      "armature_count": 1,
+      "triangles": 22192,
+      "bounds_m": [
+        [
+          -0.23499992489814758,
+          0.23499992489814758
+        ],
+        [
+          -0.34449994564056396,
+          0.34450000524520874
+        ],
+        [
+          -8.734406975463571e-08,
+          0.7575728893280029
+        ]
+      ],
+      "action_names": [
+        "RIG_QingxiRabbit|Scene"
+      ],
+      "action_ranges": {
+        "RIG_QingxiRabbit|Scene": [
+          2.0,
+          25.0
+        ]
+      }
+    }
+  },
+  "errors": [],
+  "pass": true
+}

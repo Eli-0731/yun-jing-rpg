@@ -1,0 +1,39 @@
+{
+  "tool": "blender-asset-qa/scripts/qa_check.py",
+  "blender_version": "5.2.2 LTS",
+  "profile": "game",
+  "results": [
+    {
+      "lod": 0,
+      "pass": true,
+      "triangles": 22192,
+      "islands": 19,
+      "errors": [],
+      "warnings": [
+        "~100.0% UV overlap; intentional shared color bands"
+      ]
+    },
+    {
+      "lod": 1,
+      "pass": true,
+      "triangles": 10842,
+      "islands": 19,
+      "errors": [],
+      "warnings": [
+        "~99.31% UV overlap; intentional shared color bands"
+      ]
+    },
+    {
+      "lod": 2,
+      "pass": true,
+      "triangles": 4418,
+      "islands": 19,
+      "errors": [],
+      "warnings": [
+        "~98.65% UV overlap; intentional shared color bands"
+      ]
+    }
+  ],
+  "visual_review": "../../previews/qingxi-mountain-rabbit-v003/qa_wire.png",
+  "accepted_limit": "Dondon source consists of 19 intersecting, closed islands; this pass retains the source exterior and does not claim continuous deformation topology."
+}
