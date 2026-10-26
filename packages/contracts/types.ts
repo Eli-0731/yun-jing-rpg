@@ -11,6 +11,10 @@ export interface Journey {
   version: 1; createdAt: number; selectionAt: number; assessedAt: number | null;
   manual: 'qi-primer'; housing: 'lodging' | 'cave';
 }
+export interface TechniqueStudy {
+  focus: string | null; since: number | null;
+  progressMs: Record<string, number>; mastered: string[];
+}
 export interface Player {
   id: string; name: string; realm: number; path: string; sect: string;
   body: number; qi: number; roots: string[]; apertures: number;
@@ -18,6 +22,7 @@ export interface Player {
   milestones: string[]; cooldowns: Record<string, number>; contribution: number;
   estate?: Estate;
   journey?: Journey;
+  study?: TechniqueStudy;
 }
 export interface World {
   channel: number; required: number; waterQuality: number; sanctuary: boolean;

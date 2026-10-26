@@ -5,7 +5,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { resolve } from 'node:path';
 import { randomBytes, timingSafeEqual } from 'node:crypto';
 import { Database } from './database';
-import { Game, GameError, content, estateContent, huntingContent, ensure, hash } from './game';
+import { Game, GameError, content, estateContent, huntingContent, techniqueContent, ensure, hash } from './game';
 import { Auth } from './auth';
 import { Action, HuntDeath } from '../../../packages/contracts/types';
 import { chapter } from './journal';
@@ -47,7 +47,7 @@ export class Runtime {
 export class Api {
   constructor(private readonly runtime: Runtime) {}
   @Get('health') health() { return { status: 'ok', mode: this.runtime.config.mode, contentVersion: content.version, speed: this.runtime.game.speed }; }
-  @Get('content') definitions() { return { ...content, chapter, estate: estateContent, hunting: huntingContent }; }
+  @Get('content') definitions() { return { ...content, chapter, estate: estateContent, hunting: huntingContent, study: techniqueContent }; }
   @Get('auth/config') authConfig() {
     return process.env.FIREBASE_WEB_CONFIG ? JSON.parse(process.env.FIREBASE_WEB_CONFIG) : { unavailable: true };
   }
