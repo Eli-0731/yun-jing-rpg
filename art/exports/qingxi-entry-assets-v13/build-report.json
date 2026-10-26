@@ -1,0 +1,22 @@
+{
+  "novice-cultivator": {
+    "objects": 47,
+    "triangles": 3332,
+    "glb": "art\\exports\\qingxi-entry-assets-v13\\novice-cultivator-v13.glb"
+  },
+  "village-gate": {
+    "objects": 319,
+    "triangles": 4020,
+    "glb": "art\\exports\\qingxi-entry-assets-v13\\village-gate-v13.glb"
+  },
+  "herb-basket": {
+    "objects": 74,
+    "triangles": 16680,
+    "glb": "art\\exports\\qingxi-entry-assets-v13\\herb-basket-v13.glb"
+  },
+  "road-dressing": {
+    "objects": 128,
+    "triangles": 4040,
+    "glb": "art\\exports\\qingxi-entry-assets-v13\\road-dressing-v13.glb"
+  }
+}

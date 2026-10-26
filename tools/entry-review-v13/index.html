@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1c3030"><title>雲境｜青溪村口美術檢視 v13</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#172020;color:#ede8d8;font:16px/1.6 system-ui,"Noto Sans TC",sans-serif}
+header,main{max-width:1180px;margin:auto;padding:1.2rem}header{border-bottom:1px solid #49625b}h1{margin:.3rem 0;font-size:clamp(1.5rem,4vw,2.4rem)}h2{font-size:1.25rem}p{color:#c6d4cb}
+.notice{border:1px solid #997455;background:#3e3428;border-radius:10px;padding:.8rem 1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,390px),1fr));gap:1rem}
+figure{margin:0;background:#263432;border:1px solid #50645d;border-radius:10px;overflow:hidden}figure img{display:block;width:100%;height:auto;cursor:zoom-in}figcaption{padding:.75rem 1rem}
+figure img.zoom{position:fixed;inset:0;width:100vw;height:100vh;object-fit:contain;background:#0b1110;z-index:10;cursor:zoom-out;padding:1rem}
+ul{padding-left:1.4rem}a{color:#b9e8ce}small{color:#aabdb4}
+</style></head><body>
+<header><small>z1nnz × Codex｜青溪村口美術檢視</small><h1>從三視圖到可組裝區域</h1><p>桌面與手機瀏覽器均可看圖；點圖片可放大。這是 Blender 藝術原型，沒有角色操控、遊戲水面或 Unity 真機驗證。</p></header>
+<main><div class="notice">目前驗收狀態：<strong>未達最終風格</strong>。角色臉、衣料、道路石草與水岸仍需精修；先公開實際差距，供三位協作者接手。</div>
+<h2>村口組裝</h2><div class="grid"><figure><img src="../../art/previews/qingxi-entry-v13/entrance-overview.png" alt="青溪村口組裝預覽"><figcaption>12 米不規則道路＋客舍＋村口牌樓＋樹伴原樹＋河岸小件。水面暫為靜態審圖代理。</figcaption></figure>
+<figure><img src="../../art/references/qingxi-winding-road-v1/three-view.png" alt="原道路三視圖"><figcaption>道路 AI 三視圖目標。近景植被層次、岩石紋理、土壤顆粒仍有明顯差距。</figcaption></figure></div>
+<h2>角色：參考與實作差距</h2><div class="grid"><figure><img src="../../art/references/qingxi-novice-cultivator-v1/three-view.png" alt="原創角色三視圖"><figcaption>先生成並保存的原創角色三視圖。</figcaption></figure><figure><img src="../../art/previews/qingxi-entry-assets-v13/novice-front.png" alt="角色目前 Blender 原型"><figcaption>目前僅完成服裝配色、比例與輪廓；臉、髮絲、布料和骨架仍待重做。</figcaption></figure></div>
+<h2>可重複使用的小件</h2><div class="grid">
+<figure><img src="../../art/previews/qingxi-entry-assets-v13/village-gate.png" alt="村口牌樓"><figcaption>村口牌樓：獨立 GLB，屋瓦、木柱、石座。</figcaption></figure>
+<figure><img src="../../art/previews/qingxi-entry-assets-v13/herb-basket.png" alt="採藥籃"><figcaption>採藥籃：獨立 GLB，編織籃體和草藥。</figcaption></figure>
+<figure><img src="../../art/previews/qingxi-entry-assets-v13/road-dressing.png" alt="道路散佈組"><figcaption>碎石、蘆草、野花散佈組；目前為近景測試，不是最終草石質感。</figcaption></figure>
+</div><h2>下一輪驗收</h2><ul><li>角色完成拓撲、骨架、待機與行走；可用控制輸入驗證後才能稱為可操作。</li><li>路緣由土、碎石、裸岩、草叢到河岸有連續層次；同一鏡頭與三視圖逐項比較。</li><li>原樹根部埋入地面，葉冠完整；不以新生成的樹取代樹伴原件。</li><li>河面流向、水位與岸線在 PWA／引擎實際視角驗證。</li></ul></main>
+<script>document.querySelectorAll('figure img').forEach(img=>img.addEventListener('click',()=>img.classList.toggle('zoom')));</script>
+</body></html>

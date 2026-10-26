@@ -14,4 +14,14 @@
 | 山兔掉落與售出 API | z1nnz／Codex 協作 | 服務端原型及冪等測試完成 | 協作者 A 做模型／動畫；區域程序仍需實際命中、距離及死亡事件接線。 |
 | 青溪視覺檢視 PWA | z1nnz／Codex 協作 | 圖片和現有玩法測試頁可在瀏覽器查看；不等於 3D 客戶端 | 協作者 C 做獨立行走鏡頭樣片，不改登入 API。 |
 
-對 [三位協作者 14 小時任務](execution/2026-10-26/06-three-collaborators-14h.md)，A 管山兔、B 管路岸拼件、C 管 PWA 行走。核心組保留樹伴成樹、主場景整合、服務端資產帳本與驗收。新交付先看此表與分支，再開始製作。
+## 青溪村口 v13 新增工作
+
+| 內容 | 原始製作／來源 | 實際狀態 | 專責後續 |
+|---|---|---|---|
+| 原創初始角色 AI 三視圖與低面數雛形 | z1nnz 指導／Codex 製作；本次仙俠短劇影像僅作風格參考 | [三視圖](../art/references/qingxi-novice-cultivator-v1/three-view.png)先於[模型](../art/previews/qingxi-entry-assets-v13/novice-front.png)保存；無骨架／動畫／操作；含曲線網格 QA 0 錯誤，造型仍為低精度原型 | A 在自己分支重做形變模型與兩段動畫，保留來源，不覆寫 v13 雛形 |
+| 村口牌樓、採藥竹籃、碎石花草散佈 | z1nnz 指導／Codex 製作；各新模型先有 AI 三視圖 | 獨立 Blender／GLB 與預覽；QA 0 錯誤但仍有警告，不能稱為量產資產 | B 另做道路岸線模組；核心組處理剩餘 UV／隱藏面等警告 |
+| 12 m 青溪村口組裝 | z1nnz 指導／Codex 組裝，沿用樹伴原樹及既有客舍／道路 | [審圖](../tools/entry-review-v13/index.html)；靜態 Blender 預覽，未達完整區域或可玩狀態 | C 做獨立 PWA 試走；核心組保留主組裝母稿 |
+
+最新 [三位協作者各 14 小時任務](execution/2026-10-26/08-entry-v13-three-collaborators-14h.md)優先；[07 舊工作包](execution/2026-10-26/07-daily-14h-work-package.md)保留歷史，山兔五段動畫與 LOD 已由 PR #21 合併，不重派。核心組保留樹伴成樹、主場景整合、服務端資產帳本與驗收。新交付先看此表與遠端分支，再開始製作。
+
+山兔 v003 來源與作者：原外觀 Dondon v002；Johnnnny0823／其 Codex 完成骨架、動畫、LOD；z1nnz／Codex 只負責重跑驗證及合併。保留原提交 `440e3c7`，合併為 `842e6d6`。
