@@ -1,0 +1,147 @@
+{
+  "road": {
+    "file": "art\\exports\\qingxi-road-props-v12\\qingxi-road-v12.glb",
+    "scale": 1.0,
+    "objects": 115
+  },
+  "gate": {
+    "file": "art\\exports\\qingxi-entry-assets-v13\\village-gate-v13.glb",
+    "scale": 0.9291,
+    "objects": 319
+  },
+  "guesthouse": {
+    "file": "art\\exports\\qingxi-riverside-house-v1\\qingxi-riverside-house-v1.glb",
+    "scale": 0.5186,
+    "objects": 9
+  },
+  "basket": {
+    "file": "art\\exports\\qingxi-entry-assets-v13\\herb-basket-v13.glb",
+    "scale": 1.0111,
+    "objects": 74
+  },
+  "character": {
+    "file": "art\\exports\\qingxi-entry-assets-v13\\novice-cultivator-v13.glb",
+    "scale": 1.0,
+    "objects": 47
+  },
+  "waymarker": {
+    "file": "art\\exports\\qingxi-road-props-v12\\qingxi-waymarker-v12.glb",
+    "scale": 1.1111,
+    "objects": 6
+  },
+  "herb-rack": {
+    "file": "art\\exports\\qingxi-road-props-v12\\qingxi-herb-rack-v12.glb",
+    "scale": 0.9524,
+    "objects": 51
+  },
+  "bridge-rail": {
+    "file": "art\\exports\\qingxi-road-props-v12\\qingxi-bridge-rail-v12.glb",
+    "scale": 0.9426,
+    "objects": 10
+  },
+  "road_dressing_0": {
+    "file": "art\\exports\\qingxi-entry-assets-v13\\road-dressing-v13.glb",
+    "scale": 0.9038,
+    "objects": 128
+  },
+  "road_dressing_1": {
+    "file": "art\\exports\\qingxi-entry-assets-v13\\road-dressing-v13.glb",
+    "scale": 0.9038,
+    "objects": 128
+  },
+  "Boulder_0": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-moss-boulder-v2.glb",
+    "scale": 0.3189,
+    "objects": 22
+  },
+  "Boulder_1": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-moss-boulder-v2.glb",
+    "scale": 0.3189,
+    "objects": 22
+  },
+  "Boulder_2": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-moss-boulder-v2.glb",
+    "scale": 0.3189,
+    "objects": 22
+  },
+  "Boulder_3": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-moss-boulder-v2.glb",
+    "scale": 0.3189,
+    "objects": 22
+  },
+  "Boulder_4": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-moss-boulder-v2.glb",
+    "scale": 0.3189,
+    "objects": 22
+  },
+  "Boulder_5": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-moss-boulder-v2.glb",
+    "scale": 0.3189,
+    "objects": 22
+  },
+  "Boulder_6": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-moss-boulder-v2.glb",
+    "scale": 0.3189,
+    "objects": 22
+  },
+  "Flowers_0": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-fern-flower-v2.glb",
+    "scale": 0.6102,
+    "objects": 179
+  },
+  "Flowers_1": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-fern-flower-v2.glb",
+    "scale": 0.6102,
+    "objects": 179
+  },
+  "Flowers_2": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-fern-flower-v2.glb",
+    "scale": 0.6102,
+    "objects": 179
+  },
+  "Flowers_3": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-fern-flower-v2.glb",
+    "scale": 0.6102,
+    "objects": 179
+  },
+  "Flowers_4": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-fern-flower-v2.glb",
+    "scale": 0.6102,
+    "objects": 179
+  },
+  "Flowers_5": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-fern-flower-v2.glb",
+    "scale": 0.6102,
+    "objects": 179
+  },
+  "Reeds_0": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-river-reed-v2.glb",
+    "scale": 0.3743,
+    "objects": 57
+  },
+  "Reeds_1": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-river-reed-v2.glb",
+    "scale": 0.3743,
+    "objects": 57
+  },
+  "Reeds_2": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-river-reed-v2.glb",
+    "scale": 0.3743,
+    "objects": 57
+  },
+  "Reeds_3": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-river-reed-v2.glb",
+    "scale": 0.3743,
+    "objects": 57
+  },
+  "Reeds_4": {
+    "file": "art\\exports\\qingxi-detail-props-v2\\qingxi-river-reed-v2.glb",
+    "scale": 0.3743,
+    "objects": 57
+  },
+  "original_tree": {
+    "source": "art\\source\\qingxi-world-original-tree-v11.blend",
+    "objects": 96,
+    "scale": 0.7894
+  }
+}

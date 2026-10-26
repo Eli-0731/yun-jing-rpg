@@ -23,3 +23,11 @@ PR #13–#16 的當時 `API and persistence` 工作流程均回報成功；這�
 ## 同日續查：道路與小物件 v12 整合前
 
 再次 `git fetch origin --prune` 後，`main` 為 `f977ab7`，遠端仍只有開啟的 [#14](https://github.com/z1nnz/yun-jing-rpg/pull/14)（`e05672c`，草稿）與 [#15](https://github.com/z1nnz/yun-jing-rpg/pull/15)（`fe71619`）。兩支 head 與前次審查相同，沒有協作者的新提交可供這輪合併。#14 舊版青溪 Builder、#15 的 Unity／FishNet 固定版本仍與主線衝突；修正要求已留在各 PR，保持開啟等待作者更新。本輪核心組新增的道路與小物件位於自己的新檔案與新分支，未覆寫三位協作者的交付路徑。
+
+## 同日村口 v13 續查
+
+`main` 為 `5d249bc` 時再次查 `origin` 遠端分支：#14 `e05672c`、#15 `fe71619` 頭提交未變，沒有新上傳的 A／B／C 交付分支。兩個待審 PR 的舊衝突仍待各作者依先前留言重整，故本輪沒有代他們覆寫或強制合併。核心組的 v13 全部在 `feature/qingxi-entry-style-v13` 新路徑：角色、牌樓、竹籃、審圖組裝及文件，未改協作者現有 Builder、Unity 版本、`tools/world-preview/` 或山兔原稿。待 v13 相關 QA／瀏覽器連結及主線 CI 檢查完成後，只合併核心組自己的 PR；作者歸屬依 [工作登記](../work-ownership.md)保留。
+
+### 新到 PR #21 已驗收合併
+
+續查發現 Johnnnny0823 上傳 `feature/qingxi-rabbit-v003`（`440e3c7`）。37 個檔案均在獨立山兔目錄，`merge-tree` 與主線無衝突。核心組在 `D:/yun-jing-rpg-rabbit-review` 重跑 `validate_rabbit.py`：五段動畫、120 幀地面／權重、九個 FBX／GLB 回匯通過；目視跳躍圖，API 與 LFS CI 均成功。已在 PR 留驗證留言，由 z1nnz 帳號以 merge commit 合併，主線合併 SHA `842e6d6785650d3cf7989ce16ebe5fc4ffcb80ba`，保留原提交作者。這是素材候選版整合，不代表 Unity 或遊戲內戰鬥已驗收。#14／#15 的舊版本衝突仍未改變。
