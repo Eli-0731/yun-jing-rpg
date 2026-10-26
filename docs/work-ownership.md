@@ -18,7 +18,7 @@
 
 | 內容 | 原始製作／來源 | 實際狀態 | 專責後續 |
 |---|---|---|---|
-| 原創初始角色 AI 三視圖與低面數雛形 | z1nnz 指導／Codex 製作；本次仙俠短劇影像僅作風格參考 | [三視圖](../art/references/qingxi-novice-cultivator-v1/three-view.png)先於[模型](../art/previews/qingxi-entry-assets-v13/novice-front.png)保存；無骨架／動畫／操作；含曲線網格 QA 0 錯誤，造型仍為低精度原型 | 角色後續由 z1nnz／Codex 核心組負責；A 不接角色模型或動畫 |
+| 原創初始角色 AI 三視圖與低面數雛形 | z1nnz 指導／Codex 製作；本次仙俠短劇影像僅作風格參考 | [三視圖](../art/references/qingxi-novice-cultivator-v1/three-view.png)先於[模型](../art/previews/qingxi-entry-assets-v13/novice-front.png)保存；無骨架／動畫／操作；含曲線網格 QA 0 錯誤，造型仍為低精度原型 | 角色後續由 z1nnz 親自負責，Codex 依指示支援；A 不接角色模型或動畫 |
 | 村口牌樓、採藥竹籃、碎石花草散佈 | z1nnz 指導／Codex 製作；各新模型先有 AI 三視圖 | 獨立 Blender／GLB 與預覽；QA 0 錯誤但仍有警告，不能稱為量產資產 | B 另做道路岸線模組；核心組處理剩餘 UV／隱藏面等警告 |
 | 12 m 青溪村口組裝 | z1nnz 指導／Codex 組裝，沿用樹伴原樹及既有客舍／道路 | [審圖](../tools/entry-review-v13/index.html)；靜態 Blender 預覽，未達完整區域或可玩狀態 | C 做獨立 PWA 試走；核心組保留主組裝母稿 |
 
@@ -28,9 +28,9 @@
 
 | 內容 | 作者／來源 | 已完成 | 接手範圍 |
 |---|---|---|---|
-| Heroine-01 三視圖與臉髮衣飾板 | 使用者提供短劇畫面作造型參照；z1nnz 指導／Codex 生成並檢視原創技術參考圖 | [角色設定](../art/references/heroine-01/character-spec.md)；背面、鞋和部分刺繡標為推定 | z1nnz／Codex 核心組製作頭面、衣髮、骨架與動畫；協作者不改角色 |
+| Heroine-01 三視圖與臉髮衣飾板 | 使用者提供短劇畫面作造型參照；z1nnz 指導／Codex 生成並檢視原創技術參考圖 | [角色設定](../art/references/heroine-01/character-spec.md)；背面、鞋和部分刺繡標為推定 | z1nnz 親自製作頭面、衣髮、骨架與動畫；Codex 依指示支援；協作者不改角色 |
 | 專注研習與三門技藝 | z1nnz 指導／Codex 實作 | 服務端現實時間、切換保留、領悟獎勵及本機驗證頁；55 項測試通過 | 核心組維護 API；C 只接場景入口，不能在前端直接發獎 |
 
-新的[每人 28 小時、兩段實作包](execution/2026-10-26/09-heroine-and-qingxi-two-session-work.md)取代上方 14 小時工作包的**未開始部分**；舊文件保留當時分工紀錄。**依使用者最新分工，A 改負責藥鋪、茶棚及街景模組**，B 負責路岸橋，C 負責場景互動和四件新小物；角色完整製作保留給 z1nnz／Codex 核心組。
+新的[每人 28 小時、兩段實作包](execution/2026-10-26/09-heroine-and-qingxi-two-session-work.md)取代上方 14 小時工作包的**未開始部分**；舊文件保留當時分工紀錄。**依使用者最新分工，A 改負責藥鋪、茶棚及街景模組**，B 負責路岸橋，C 負責場景互動和四件新小物；角色建模保留給 z1nnz 本人。
 
 山兔 v003 來源與作者：原外觀 Dondon v002；Johnnnny0823／其 Codex 完成骨架、動畫、LOD；z1nnz／Codex 只負責重跑驗證及合併。保留原提交 `440e3c7`，合併為 `842e6d6`。
