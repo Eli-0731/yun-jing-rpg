@@ -1,5 +1,7 @@
 # 青溪村口 v13｜三位協作者各 14 小時實作包
 
+> **歷史工作包，請勿按本頁派工。** 使用者其後指定「角色由 z1nnz／Codex 核心組製作，其他建模交給協作者」。A 的人物任務已取消；現行 A／B／C 任務請用[09 修訂工作包](09-heroine-and-qingxi-two-session-work.md)。本頁僅保留當時分工紀錄，不代表目前授權。
+
 本工作包以 `main` 合併 v13 後的版本為基準。14 小時是**每人預估製作量**，可以分段執行；不要求玩家在線 14 小時。先看 [工作歸屬](../../work-ownership.md)、[進度](../../status.md)、[村口檢視頁](../../../tools/entry-review-v13/index.html)與[完整美術差距](../qingxi-entry-v13.md)。沿用既有來源時保留原作者；自行新做或改造物件形體，必須先生成、檢視並保存 AI 三視圖才建模。
 
 本單更新村口優先次序。前一份 [07 工作包](07-daily-14h-work-package.md)仍保留紀錄；A 的山兔五段動畫與 LOD 已由 [PR #21](https://github.com/z1nnz/yun-jing-rpg/pull/21)合併，**不再重派**；遊戲內接線由核心組後續處理。A 本輪開始做玩家角色。三位協作者各開獨立分支及 PR，標註實際作者，不覆寫 `art/source/qingxi-entry-assembly-v13.blend` 或其他人的母稿。
