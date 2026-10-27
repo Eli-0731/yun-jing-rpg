@@ -1,0 +1,2400 @@
+{
+  "name": "final_all29",
+  "files": [
+    "01_Blender/road_edge_modules_v01.blend",
+    "01_Blender/riverbank_modules_v01.blend",
+    "01_Blender/bridgehead_modules_v01.blend"
+  ],
+  "blender": "5.2.3 LTS",
+  "tolerance_m": 0.001,
+  "modules": {
+    "SM_RoadEdge_Straight_L_A": {
+      "code": "A01",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_EDGE_L",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.06561060373405075,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "ROAD_EDGE_L",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "CoreSeam",
+          "type": "ROAD_3M",
+          "expected_vertices": 17,
+          "vertices_on_line": 17,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 1.9282313246105076e-10,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 406,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_Straight_L_A_Terrain_LOD0": 192,
+          "SM_RoadEdge_Straight_L_A_Terrain_LOD1": 96,
+          "SM_RoadEdge_Straight_L_A_Terrain_LOD2": 24,
+          "SM_RoadEdge_Straight_L_A_COL": 24,
+          "SM_RoadEdge_Straight_L_A_DET_Stones_LOD0": 186,
+          "SM_RoadEdge_Straight_L_A_DET_Grass_LOD0": 28
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_Straight_L_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Straight_L_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Straight_L_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_RoadEdge_Straight_R_A": {
+      "code": "A02",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_EDGE_R",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "ROAD_EDGE_R",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "CoreSeam",
+          "type": "ROAD_3M",
+          "expected_vertices": 17,
+          "vertices_on_line": 17,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 1.9282313246105076e-10,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 406,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_Straight_R_A_Terrain_LOD0": 192,
+          "SM_RoadEdge_Straight_R_A_Terrain_LOD1": 96,
+          "SM_RoadEdge_Straight_R_A_Terrain_LOD2": 24,
+          "SM_RoadEdge_Straight_R_A_COL": 24,
+          "SM_RoadEdge_Straight_R_A_DET_Stones_LOD0": 186,
+          "SM_RoadEdge_Straight_R_A_DET_Grass_LOD0": 28
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_Straight_R_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Straight_R_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Straight_R_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_RoadEdge_Curve_L_A": {
+      "code": "A03",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.03956468118525214,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1256,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_Curve_L_A_Terrain_LOD0": 768,
+          "SM_RoadEdge_Curve_L_A_Terrain_LOD1": 384,
+          "SM_RoadEdge_Curve_L_A_Terrain_LOD2": 96,
+          "SM_RoadEdge_Curve_L_A_COL": 96,
+          "SM_RoadEdge_Curve_L_A_DET_Stones_LOD0": 432,
+          "SM_RoadEdge_Curve_L_A_DET_Grass_LOD0": 56
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_Curve_L_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Curve_L_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Curve_L_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_RoadEdge_Curve_R_A": {
+      "code": "A04",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.055952909680744456,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.01978234059262607,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1256,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_Curve_R_A_Terrain_LOD0": 768,
+          "SM_RoadEdge_Curve_R_A_Terrain_LOD1": 384,
+          "SM_RoadEdge_Curve_R_A_Terrain_LOD2": 96,
+          "SM_RoadEdge_Curve_R_A_COL": 96,
+          "SM_RoadEdge_Curve_R_A_DET_Stones_LOD0": 432,
+          "SM_RoadEdge_Curve_R_A_DET_Grass_LOD0": 56
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_Curve_R_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Curve_R_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Curve_R_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_RoadEdge_WideCurve_L_A": {
+      "code": "A05",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.027976454840372228,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1256,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_WideCurve_L_A_Terrain_LOD0": 768,
+          "SM_RoadEdge_WideCurve_L_A_Terrain_LOD1": 384,
+          "SM_RoadEdge_WideCurve_L_A_Terrain_LOD2": 96,
+          "SM_RoadEdge_WideCurve_L_A_COL": 96,
+          "SM_RoadEdge_WideCurve_L_A_DET_Stones_LOD0": 432,
+          "SM_RoadEdge_WideCurve_L_A_DET_Grass_LOD0": 56
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_WideCurve_L_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_WideCurve_L_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_WideCurve_L_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_RoadEdge_WideCurve_R_A": {
+      "code": "A06",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1256,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_WideCurve_R_A_Terrain_LOD0": 768,
+          "SM_RoadEdge_WideCurve_R_A_Terrain_LOD1": 384,
+          "SM_RoadEdge_WideCurve_R_A_Terrain_LOD2": 96,
+          "SM_RoadEdge_WideCurve_R_A_COL": 96,
+          "SM_RoadEdge_WideCurve_R_A_DET_Stones_LOD0": 432,
+          "SM_RoadEdge_WideCurve_R_A_DET_Grass_LOD0": 56
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_WideCurve_R_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_WideCurve_R_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_WideCurve_R_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_RoadEdge_Slope_A": {
+      "code": "A07",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1256,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_Slope_A_Terrain_LOD0": 768,
+          "SM_RoadEdge_Slope_A_Terrain_LOD1": 384,
+          "SM_RoadEdge_Slope_A_Terrain_LOD2": 96,
+          "SM_RoadEdge_Slope_A_COL": 96,
+          "SM_RoadEdge_Slope_A_DET_Stones_LOD0": 432,
+          "SM_RoadEdge_Slope_A_DET_Grass_LOD0": 56
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_Slope_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Slope_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Slope_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_RoadEdge_GrassTransition_A": {
+      "code": "A08",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.9526507350219333e-08,
+          "max_normal_error_deg": 0.03426402083239251,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1320,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_GrassTransition_A_Terrain_LOD0": 768,
+          "SM_RoadEdge_GrassTransition_A_Terrain_LOD1": 384,
+          "SM_RoadEdge_GrassTransition_A_Terrain_LOD2": 96,
+          "SM_RoadEdge_GrassTransition_A_COL": 96,
+          "SM_RoadEdge_GrassTransition_A_DET_Stones_LOD0": 432,
+          "SM_RoadEdge_GrassTransition_A_DET_Grass_LOD0": 120
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_GrassTransition_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_GrassTransition_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_GrassTransition_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_RoadEdge_StoneTransition_A": {
+      "code": "A09",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1736,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_StoneTransition_A_Terrain_LOD0": 768,
+          "SM_RoadEdge_StoneTransition_A_Terrain_LOD1": 384,
+          "SM_RoadEdge_StoneTransition_A_Terrain_LOD2": 96,
+          "SM_RoadEdge_StoneTransition_A_COL": 96,
+          "SM_RoadEdge_StoneTransition_A_DET_Stones_LOD0": 912,
+          "SM_RoadEdge_StoneTransition_A_DET_Grass_LOD0": 56
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_StoneTransition_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_StoneTransition_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_StoneTransition_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_RoadEdge_End_A": {
+      "code": "A10",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.03426402083239251,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1244,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_End_A_Terrain_LOD0": 768,
+          "SM_RoadEdge_End_A_Terrain_LOD1": 384,
+          "SM_RoadEdge_End_A_Terrain_LOD2": 96,
+          "SM_RoadEdge_End_A_COL": 96,
+          "SM_RoadEdge_End_A_DET_Stones_LOD0": 372,
+          "SM_RoadEdge_End_A_DET_Grass_LOD0": 104
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_End_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_End_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_RoadEdge_Damaged_A": {
+      "code": "A11",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.05934702678045817,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 7,
+        "lod0_tris": 1558,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_RoadEdge_Damaged_A_Terrain_LOD0": 768,
+          "SM_RoadEdge_Damaged_A_Terrain_LOD1": 384,
+          "SM_RoadEdge_Damaged_A_Terrain_LOD2": 96,
+          "SM_RoadEdge_Damaged_A_COL": 96,
+          "SM_RoadEdge_Damaged_A_DET_Stones_LOD0": 662,
+          "SM_RoadEdge_Damaged_A_DET_Grass_LOD0": 56,
+          "SM_RoadEdge_Damaged_A_DET_Cracks_LOD0": 72
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_RoadEdge_Damaged_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Damaged_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_RoadEdge_Damaged_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Riverbank_Straight_A": {
+      "code": "B01",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1100,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Riverbank_Straight_A_Terrain_LOD0": 768,
+          "SM_Riverbank_Straight_A_Terrain_LOD1": 384,
+          "SM_Riverbank_Straight_A_Terrain_LOD2": 96,
+          "SM_Riverbank_Straight_A_COL": 96,
+          "SM_Riverbank_Straight_A_DET_Stones_LOD0": 292,
+          "SM_Riverbank_Straight_A_DET_Grass_LOD0": 40
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Riverbank_Straight_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_Straight_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_Straight_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Riverbank_Straight_B": {
+      "code": "B02",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1440,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Riverbank_Straight_B_Terrain_LOD0": 768,
+          "SM_Riverbank_Straight_B_Terrain_LOD1": 384,
+          "SM_Riverbank_Straight_B_Terrain_LOD2": 96,
+          "SM_Riverbank_Straight_B_COL": 96,
+          "SM_Riverbank_Straight_B_DET_Stones_LOD0": 632,
+          "SM_Riverbank_Straight_B_DET_Grass_LOD0": 40
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Riverbank_Straight_B_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_Straight_B_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_Straight_B_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Riverbank_InnerCorner_A": {
+      "code": "B03",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1100,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Riverbank_InnerCorner_A_Terrain_LOD0": 768,
+          "SM_Riverbank_InnerCorner_A_Terrain_LOD1": 384,
+          "SM_Riverbank_InnerCorner_A_Terrain_LOD2": 96,
+          "SM_Riverbank_InnerCorner_A_COL": 96,
+          "SM_Riverbank_InnerCorner_A_DET_Stones_LOD0": 292,
+          "SM_Riverbank_InnerCorner_A_DET_Grass_LOD0": 40
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Riverbank_InnerCorner_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_InnerCorner_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_InnerCorner_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Riverbank_OuterCorner_A": {
+      "code": "B04",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1100,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Riverbank_OuterCorner_A_Terrain_LOD0": 768,
+          "SM_Riverbank_OuterCorner_A_Terrain_LOD1": 384,
+          "SM_Riverbank_OuterCorner_A_Terrain_LOD2": 96,
+          "SM_Riverbank_OuterCorner_A_COL": 96,
+          "SM_Riverbank_OuterCorner_A_DET_Stones_LOD0": 292,
+          "SM_Riverbank_OuterCorner_A_DET_Grass_LOD0": 40
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Riverbank_OuterCorner_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_OuterCorner_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_OuterCorner_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Riverbank_Slope_A": {
+      "code": "B05",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 8,
+        "lod0_tris": 1420,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Riverbank_Slope_A_Terrain_LOD0": 768,
+          "SM_Riverbank_Slope_A_Terrain_LOD1": 384,
+          "SM_Riverbank_Slope_A_Terrain_LOD2": 96,
+          "SM_Riverbank_Slope_A_COL": 96,
+          "SM_Riverbank_Slope_A_DET_Stones_LOD0": 292,
+          "SM_Riverbank_Slope_A_DET_Grass_LOD0": 40,
+          "SM_Riverbank_Slope_A_Rocks_LOD0": 320,
+          "SM_Riverbank_Slope_A_Rocks_LOD1": 160
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Riverbank_Slope_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_Slope_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_Slope_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Riverbank_Steep_A": {
+      "code": "B06",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 8,
+        "lod0_tris": 1964,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Riverbank_Steep_A_Terrain_LOD0": 768,
+          "SM_Riverbank_Steep_A_Terrain_LOD1": 384,
+          "SM_Riverbank_Steep_A_Terrain_LOD2": 96,
+          "SM_Riverbank_Steep_A_COL": 96,
+          "SM_Riverbank_Steep_A_DET_Stones_LOD0": 292,
+          "SM_Riverbank_Steep_A_DET_Grass_LOD0": 40,
+          "SM_Riverbank_Steep_A_Rocks_LOD0": 864,
+          "SM_Riverbank_Steep_A_Rocks_LOD1": 432
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Riverbank_Steep_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_Steep_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_Steep_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Riverbank_RockReinforced_A": {
+      "code": "B07",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 8,
+        "lod0_tris": 3440,
+        "budget": [
+          800,
+          4000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Riverbank_RockReinforced_A_Terrain_LOD0": 768,
+          "SM_Riverbank_RockReinforced_A_Terrain_LOD1": 384,
+          "SM_Riverbank_RockReinforced_A_Terrain_LOD2": 96,
+          "SM_Riverbank_RockReinforced_A_COL": 96,
+          "SM_Riverbank_RockReinforced_A_DET_Stones_LOD0": 232,
+          "SM_Riverbank_RockReinforced_A_DET_Grass_LOD0": 40,
+          "SM_Riverbank_RockReinforced_A_Rocks_LOD0": 2400,
+          "SM_Riverbank_RockReinforced_A_Rocks_LOD1": 1200
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Riverbank_RockReinforced_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_RockReinforced_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_RockReinforced_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Riverbank_GrassHeavy_A": {
+      "code": "B08",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 7,
+        "lod0_tris": 1460,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Riverbank_GrassHeavy_A_Terrain_LOD0": 768,
+          "SM_Riverbank_GrassHeavy_A_Terrain_LOD1": 384,
+          "SM_Riverbank_GrassHeavy_A_Terrain_LOD2": 96,
+          "SM_Riverbank_GrassHeavy_A_COL": 96,
+          "SM_Riverbank_GrassHeavy_A_DET_Stones_LOD0": 292,
+          "SM_Riverbank_GrassHeavy_A_DET_Grass_LOD0": 256,
+          "SM_Riverbank_GrassHeavy_A_SodLip_LOD0": 144
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Riverbank_GrassHeavy_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_GrassHeavy_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_GrassHeavy_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Riverbank_Eroded_A": {
+      "code": "B09",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1250,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Riverbank_Eroded_A_Terrain_LOD0": 768,
+          "SM_Riverbank_Eroded_A_Terrain_LOD1": 384,
+          "SM_Riverbank_Eroded_A_Terrain_LOD2": 96,
+          "SM_Riverbank_Eroded_A_COL": 96,
+          "SM_Riverbank_Eroded_A_DET_Stones_LOD0": 442,
+          "SM_Riverbank_Eroded_A_DET_Grass_LOD0": 40
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Riverbank_Eroded_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_Eroded_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_Eroded_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Riverbank_End_A": {
+      "code": "B10",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 908,
+        "budget": [
+          300,
+          2000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Riverbank_End_A_Terrain_LOD0": 768,
+          "SM_Riverbank_End_A_Terrain_LOD1": 384,
+          "SM_Riverbank_End_A_Terrain_LOD2": 96,
+          "SM_Riverbank_End_A_COL": 96,
+          "SM_Riverbank_End_A_DET_Stones_LOD0": 100,
+          "SM_Riverbank_End_A_DET_Grass_LOD0": 40
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Riverbank_End_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Riverbank_End_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Bridgehead_RoadTransition_A": {
+      "code": "C01",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "ROAD_3M",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BRIDGE_3M",
+          "expected_vertices": 13,
+          "vertices_on_line": 13,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 1.1920929132713809e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "SideSeam_L",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 9,
+          "vertices_on_line": 9,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "SideSeam_R",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 9,
+          "vertices_on_line": 9,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "CornerSeam",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 14,
+          "vertices_on_line": 14,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 524,
+        "budget": [
+          800,
+          4000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Bridgehead_RoadTransition_A_Terrain_LOD0": 384,
+          "SM_Bridgehead_RoadTransition_A_Terrain_LOD1": 192,
+          "SM_Bridgehead_RoadTransition_A_Terrain_LOD2": 48,
+          "SM_Bridgehead_RoadTransition_A_COL": 48,
+          "SM_Bridgehead_RoadTransition_A_DET_Stones_LOD0": 100,
+          "SM_Bridgehead_RoadTransition_A_DET_Grass_LOD0": 40
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Bridgehead_RoadTransition_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_RoadTransition_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_RoadTransition_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Bridgehead_BankTransition_A": {
+      "code": "C02",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BANK_0_TO_MINUS_0P8",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "TrimSeam_L",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "InnerSeam_L",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.01978234059262607,
+          "pass": true
+        },
+        {
+          "connector": "TrimSeam_R",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "InnerSeam_R",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 25,
+          "vertices_on_line": 25,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.01978234059262607,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 1652,
+        "budget": [
+          800,
+          4000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Bridgehead_BankTransition_A_Terrain_LOD0": 1344,
+          "SM_Bridgehead_BankTransition_A_Terrain_LOD1": 672,
+          "SM_Bridgehead_BankTransition_A_Terrain_LOD2": 168,
+          "SM_Bridgehead_BankTransition_A_COL": 168,
+          "SM_Bridgehead_BankTransition_A_DET_Stones_LOD0": 236,
+          "SM_Bridgehead_BankTransition_A_DET_Grass_LOD0": 72
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Bridgehead_BankTransition_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_BankTransition_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_BankTransition_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Bridgehead_SideTrim_L_A": {
+      "code": "C03",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "GROUND_EDGE",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "RoadSeam",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 9,
+          "vertices_on_line": 9,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 376,
+        "budget": [
+          800,
+          4000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Bridgehead_SideTrim_L_A_Terrain_LOD0": 96,
+          "SM_Bridgehead_SideTrim_L_A_Terrain_LOD1": 48,
+          "SM_Bridgehead_SideTrim_L_A_Terrain_LOD2": 12,
+          "SM_Bridgehead_SideTrim_L_A_COL": 12,
+          "SM_Bridgehead_SideTrim_L_A_DET_Stones_LOD0": 240,
+          "SM_Bridgehead_SideTrim_L_A_DET_Grass_LOD0": 40
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Bridgehead_SideTrim_L_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_SideTrim_L_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_SideTrim_L_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Bridgehead_SideTrim_R_A": {
+      "code": "C04",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "GROUND_EDGE",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "RoadSeam",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 9,
+          "vertices_on_line": 9,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.384185793236071e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 6,
+        "lod0_tris": 376,
+        "budget": [
+          800,
+          4000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Bridgehead_SideTrim_R_A_Terrain_LOD0": 96,
+          "SM_Bridgehead_SideTrim_R_A_Terrain_LOD1": 48,
+          "SM_Bridgehead_SideTrim_R_A_Terrain_LOD2": 12,
+          "SM_Bridgehead_SideTrim_R_A_COL": 12,
+          "SM_Bridgehead_SideTrim_R_A_DET_Stones_LOD0": 240,
+          "SM_Bridgehead_SideTrim_R_A_DET_Grass_LOD0": 40
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Bridgehead_SideTrim_R_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_SideTrim_R_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_SideTrim_R_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Bridgehead_Base_A": {
+      "code": "C05",
+      "connectors": [],
+      "stats": {
+        "objects": 4,
+        "lod0_tris": 452,
+        "budget": [
+          800,
+          4000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Bridgehead_Base_A_Masonry_LOD0": 452,
+          "SM_Bridgehead_Base_A_Masonry_LOD1": 120,
+          "SM_Bridgehead_Base_A_Masonry_LOD2": 12,
+          "SM_Bridgehead_Base_A_COL": 12
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 1.1920928955078125e-07,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Bridgehead_Base_A_Masonry_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 1.1920928955078125e-07
+          },
+          {
+            "object": "SM_Bridgehead_Base_A_Masonry_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Bridgehead_SlopeFix_A": {
+      "code": "C06",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BRIDGE_3M",
+          "expected_vertices": 13,
+          "vertices_on_line": 13,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 1.1920928910669204e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "GROUND_3M",
+          "expected_vertices": 13,
+          "vertices_on_line": 13,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 5,
+        "lod0_tris": 348,
+        "budget": [
+          800,
+          4000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Bridgehead_SlopeFix_A_Terrain_LOD0": 288,
+          "SM_Bridgehead_SlopeFix_A_Terrain_LOD1": 144,
+          "SM_Bridgehead_SlopeFix_A_Terrain_LOD2": 36,
+          "SM_Bridgehead_SlopeFix_A_COL": 36,
+          "SM_Bridgehead_SlopeFix_A_DET_Stones_LOD0": 60
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Bridgehead_SlopeFix_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_SlopeFix_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Bridgehead_CornerCap_A": {
+      "code": "C07",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 1.2111663505454118e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "BankSeam_L",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 11,
+          "vertices_on_line": 11,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "EntryConnector_R",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327454997445e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector_R",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 7,
+          "vertices_on_line": 7,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 1.2111663505454118e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "BankSeam_R",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 11,
+          "vertices_on_line": 11,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.4223327788064353e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 7,
+        "lod0_tris": 796,
+        "budget": [
+          800,
+          4000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Bridgehead_CornerCap_A_Terrain_LOD0": 240,
+          "SM_Bridgehead_CornerCap_A_Terrain_LOD1": 120,
+          "SM_Bridgehead_CornerCap_A_Terrain_LOD2": 36,
+          "SM_Bridgehead_CornerCap_A_COL": 36,
+          "SM_Bridgehead_CornerCap_A_DET_Grass_LOD0": 28,
+          "SM_Bridgehead_CornerCap_A_Rocks_LOD0": 528,
+          "SM_Bridgehead_CornerCap_A_Rocks_LOD1": 264
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Bridgehead_CornerCap_A_DET_Grass_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_CornerCap_A_DET_Grass_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_CornerCap_A_DET_Grass_LOD0",
+            "connector": "EntryConnector_R",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    },
+    "SM_Bridgehead_WaterEdge_A": {
+      "code": "C08",
+      "connectors": [
+        {
+          "connector": "EntryConnector",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 37,
+          "vertices_on_line": 37,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 1.2111663505454118e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "ExitConnector",
+          "type": "RIVERBED_EDGE",
+          "expected_vertices": 37,
+          "vertices_on_line": 37,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 2.422332767704205e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "BankSeam_L",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 15,
+          "vertices_on_line": 15,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 1.1244857600622993e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        },
+        {
+          "connector": "BankSeam_R",
+          "type": "BRIDGEHEAD_FIELD",
+          "expected_vertices": 15,
+          "vertices_on_line": 15,
+          "max_position_error_m": 0.0,
+          "max_mask_error": 1.1244857600622993e-08,
+          "max_normal_error_deg": 0.0,
+          "pass": true
+        }
+      ],
+      "stats": {
+        "objects": 7,
+        "lod0_tris": 1648,
+        "budget": [
+          800,
+          4000
+        ],
+        "within_budget_max": true,
+        "tris_by_object": {
+          "SM_Bridgehead_WaterEdge_A_Terrain_LOD0": 1008,
+          "SM_Bridgehead_WaterEdge_A_Terrain_LOD1": 504,
+          "SM_Bridgehead_WaterEdge_A_Terrain_LOD2": 144,
+          "SM_Bridgehead_WaterEdge_A_COL": 144,
+          "SM_Bridgehead_WaterEdge_A_DET_Stones_LOD0": 400,
+          "SM_Bridgehead_WaterEdge_A_Rocks_LOD0": 240,
+          "SM_Bridgehead_WaterEdge_A_Rocks_LOD1": 120
+        },
+        "issues": []
+      },
+      "details": {
+        "max_protrusion_m": 0.0,
+        "pass": true,
+        "worst": [
+          {
+            "object": "SM_Bridgehead_WaterEdge_A_DET_Stones_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_WaterEdge_A_DET_Stones_LOD0",
+            "connector": "ExitConnector",
+            "protrusion_m": 0.0
+          },
+          {
+            "object": "SM_Bridgehead_WaterEdge_A_Rocks_LOD0",
+            "connector": "EntryConnector",
+            "protrusion_m": 0.0
+          }
+        ]
+      },
+      "pass": true
+    }
+  },
+  "chains": [
+    {
+      "chain": "straight x3",
+      "steps": [
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.06561060373405075,
+          "count_a": 7,
+          "count_b": 7,
+          "pass": true,
+          "a": "A01",
+          "b": "A01"
+        },
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.06561060373405075,
+          "count_a": 7,
+          "count_b": 7,
+          "pass": true,
+          "a": "A01",
+          "b": "A01"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "chain": "curves L15 R15 L30 R30",
+      "steps": [
+        {
+          "max_position_error_m": 4.76837158203125e-07,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.055952909680744456,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "A03",
+          "b": "A04"
+        },
+        {
+          "max_position_error_m": 5.331201577973843e-07,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.01978234059262607,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "A04",
+          "b": "A05"
+        },
+        {
+          "max_position_error_m": 4.76837158203125e-07,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.027976454840372228,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "A05",
+          "b": "A06"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "chain": "road variants",
+      "steps": [
+        {
+          "max_position_error_m": 1.4901161193847656e-08,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.0,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "A07",
+          "b": "A11"
+        },
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.05934702678045817,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "A11",
+          "b": "A09"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "chain": "road into end",
+      "steps": [
+        {
+          "max_position_error_m": 4.76837158203125e-07,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.03426402083239251,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "A03",
+          "b": "A10"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "chain": "bank chain",
+      "steps": [
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.0,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "B01",
+          "b": "B03"
+        },
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.0,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "B03",
+          "b": "B02"
+        },
+        {
+          "max_position_error_m": 4.76837158203125e-07,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.0,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "B02",
+          "b": "B04"
+        },
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.027976454840372228,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "B04",
+          "b": "B05"
+        },
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.0,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "B05",
+          "b": "B06"
+        },
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.0,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "B06",
+          "b": "B07"
+        },
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.0,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "B07",
+          "b": "B08"
+        },
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.0,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "B08",
+          "b": "B09"
+        },
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.0,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "B09",
+          "b": "B10"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "chain": "road into bridgehead",
+      "steps": [
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": 0.0,
+          "max_normal_error_deg": 0.05934702678045817,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "A11",
+          "b": "C01"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "chain": "transition exits (geometry)",
+      "steps": [
+        {
+          "max_position_error_m": 0.0,
+          "max_mask_error": null,
+          "max_normal_error_deg": 0.03426402083239251,
+          "count_a": 25,
+          "count_b": 25,
+          "pass": true,
+          "a": "A08",
+          "b": "A05"
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "pairs": [
+    {
+      "pair": "A01 CoreSeam + TEST_RoadCore_3m",
+      "max_position_error_m": 0.0,
+      "pass": true
+    },
+    {
+      "pair": "A02 CoreSeam + TEST_RoadCore_3m",
+      "max_position_error_m": 0.0,
+      "pass": true
+    },
+    {
+      "pair": "C01 exit on TEST_BridgeDeck_3m top (+0.15)",
+      "max_position_error_m": 5.960464483090178e-09,
+      "pass": true
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 1.608393842030146e-38,
+      "max_normal_error_deg": 0.03426402083239251,
+      "count_a": 25,
+      "count_b": 25,
+      "pass": true,
+      "pair": "B01 exit -> C02 entry (3, -4) heading 90"
+    },
+    {
+      "max_position_error_m": 2.384185791015625e-07,
+      "max_mask_error": 1.608393842030146e-38,
+      "max_normal_error_deg": 0.03426402083239251,
+      "count_a": 25,
+      "count_b": 25,
+      "pass": true,
+      "pair": "C02 exit (3, +4) -> B01 entry"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.0,
+      "count_a": 9,
+      "count_b": 9,
+      "pass": true,
+      "pair": "C01.SideSeam_L = C03.RoadSeam"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.0,
+      "count_a": 9,
+      "count_b": 9,
+      "pass": true,
+      "pair": "C01.SideSeam_R = C04.RoadSeam"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.0,
+      "count_a": 7,
+      "count_b": 7,
+      "pass": true,
+      "pair": "C03.ExitConnector = C02.TrimSeam_L"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.0,
+      "count_a": 7,
+      "count_b": 7,
+      "pass": true,
+      "pair": "C04.ExitConnector = C02.TrimSeam_R"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.0,
+      "count_a": 14,
+      "count_b": 14,
+      "pass": true,
+      "pair": "C01.CornerSeam = C07.EntryConnector+EntryConnector_R"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.0,
+      "count_a": 11,
+      "count_b": 11,
+      "pass": true,
+      "pair": "C07.BankSeam_L = C02.InnerSeam_L[:11]"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.01978234059262607,
+      "count_a": 11,
+      "count_b": 11,
+      "pass": true,
+      "pair": "C07.BankSeam_R = C02.InnerSeam_R[:11]"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.01978234059262607,
+      "count_a": 15,
+      "count_b": 15,
+      "pass": true,
+      "pair": "C08.BankSeam_L = C02.InnerSeam_L[10:]"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.01978234059262607,
+      "count_a": 15,
+      "count_b": 15,
+      "pass": true,
+      "pair": "C08.BankSeam_R = C02.InnerSeam_R[10:]"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.0,
+      "count_a": 7,
+      "count_b": 7,
+      "pass": true,
+      "pair": "C07.ExitConnector = C08.EntryConnector[30:]"
+    },
+    {
+      "max_position_error_m": 0.0,
+      "max_mask_error": 0.0,
+      "max_normal_error_deg": 0.0,
+      "count_a": 7,
+      "count_b": 7,
+      "pass": true,
+      "pair": "C07.ExitConnector_R = C08.EntryConnector[:7]"
+    }
+  ],
+  "pass": true,
+  "renders": {
+    "road_bridgehead": [
+      "04_Previews/AssemblyTests/final_all29_road_bridgehead_45deg.png",
+      "04_Previews/AssemblyTests/final_all29_road_bridgehead_top.png",
+      "04_Previews/AssemblyTests/final_all29_road_bridgehead_side.png"
+    ],
+    "road_chain": [
+      "04_Previews/AssemblyTests/final_all29_road_chain_45deg.png",
+      "04_Previews/AssemblyTests/final_all29_road_chain_top.png",
+      "04_Previews/AssemblyTests/final_all29_road_chain_side.png"
+    ],
+    "bank_chain": [
+      "04_Previews/AssemblyTests/final_all29_bank_chain_45deg.png",
+      "04_Previews/AssemblyTests/final_all29_bank_chain_top.png",
+      "04_Previews/AssemblyTests/final_all29_bank_chain_side.png"
+    ],
+    "assembly_blend": "04_Previews/AssemblyTests/final_all29_assembly.blend"
+  }
+}

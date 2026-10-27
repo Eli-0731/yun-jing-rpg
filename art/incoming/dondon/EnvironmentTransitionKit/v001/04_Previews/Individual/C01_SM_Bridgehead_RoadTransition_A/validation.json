@@ -1,0 +1,223 @@
+{
+  "module": "SM_Bridgehead_RoadTransition_A",
+  "code": "C01",
+  "tolerance_m": 0.001,
+  "overall_pass": true,
+  "connectors": [
+    {
+      "connector": "EntryConnector",
+      "type": "ROAD_3M",
+      "expected_vertices": 25,
+      "vertices_on_line": 25,
+      "max_position_error_m": 0.0,
+      "max_mask_error": 2.4223327454997445e-08,
+      "max_normal_error_deg": 0.0,
+      "pass": true
+    },
+    {
+      "connector": "ExitConnector",
+      "type": "BRIDGE_3M",
+      "expected_vertices": 13,
+      "vertices_on_line": 13,
+      "max_position_error_m": 0.0,
+      "max_mask_error": 1.1920929132713809e-08,
+      "max_normal_error_deg": 0.0,
+      "pass": true
+    },
+    {
+      "connector": "SideSeam_L",
+      "type": "BRIDGEHEAD_FIELD",
+      "expected_vertices": 9,
+      "vertices_on_line": 9,
+      "max_position_error_m": 0.0,
+      "max_mask_error": 2.384185793236071e-08,
+      "max_normal_error_deg": 0.0,
+      "pass": true
+    },
+    {
+      "connector": "SideSeam_R",
+      "type": "BRIDGEHEAD_FIELD",
+      "expected_vertices": 9,
+      "vertices_on_line": 9,
+      "max_position_error_m": 0.0,
+      "max_mask_error": 2.384185793236071e-08,
+      "max_normal_error_deg": 0.0,
+      "pass": true
+    },
+    {
+      "connector": "CornerSeam",
+      "type": "BRIDGEHEAD_FIELD",
+      "expected_vertices": 14,
+      "vertices_on_line": 14,
+      "max_position_error_m": 0.0,
+      "max_mask_error": 2.4223327454997445e-08,
+      "max_normal_error_deg": 0.0,
+      "pass": true
+    }
+  ],
+  "details_stay_behind_entry_exit_planes": {
+    "max_protrusion_m": 0.0,
+    "pass": true,
+    "worst": [
+      {
+        "object": "SM_Bridgehead_RoadTransition_A_DET_Stones_LOD0",
+        "connector": "EntryConnector",
+        "protrusion_m": 0.0
+      },
+      {
+        "object": "SM_Bridgehead_RoadTransition_A_DET_Stones_LOD0",
+        "connector": "ExitConnector",
+        "protrusion_m": 0.0
+      },
+      {
+        "object": "SM_Bridgehead_RoadTransition_A_DET_Grass_LOD0",
+        "connector": "EntryConnector",
+        "protrusion_m": 0.0
+      }
+    ]
+  },
+  "detail_pieces_removed_by_guard_at_build": 0,
+  "mesh_checks": {
+    "objects": 6,
+    "lod0_tris": 524,
+    "budget": [
+      800,
+      4000
+    ],
+    "within_budget_max": true,
+    "tris_by_object": {
+      "SM_Bridgehead_RoadTransition_A_Terrain_LOD0": 384,
+      "SM_Bridgehead_RoadTransition_A_Terrain_LOD1": 192,
+      "SM_Bridgehead_RoadTransition_A_Terrain_LOD2": 48,
+      "SM_Bridgehead_RoadTransition_A_COL": 48,
+      "SM_Bridgehead_RoadTransition_A_DET_Stones_LOD0": 100,
+      "SM_Bridgehead_RoadTransition_A_DET_Grass_LOD0": 40
+    },
+    "issues": []
+  },
+  "fbx_blender_reimport": {
+    "code": "C01",
+    "fbx": "02_Exports/Bridgehead/SM_Bridgehead_RoadTransition_A.fbx",
+    "objects": 7,
+    "max_bounds_error_m": 1.7601996660232544e-07,
+    "max_connector_vertex_error_m": 1.7136335372924805e-07,
+    "issues": [],
+    "pass": true
+  },
+  "previews": {
+    "views": 11,
+    "all_1024": true,
+    "touching_edge": [],
+    "detail": {
+      "01_front": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "02_right": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "03_rear": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "04_left": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "05_front_right": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "06_rear_right": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "07_rear_left": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "08_front_left": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "09_top": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "10_high_front": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "11_persp_45": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      }
+    }
+  },
+  "source_reports": [
+    "06_Reports/qa/final_all29.json",
+    "06_Reports/qa/fbx_reimport_v01.json",
+    "06_Reports/qa/preview_crop_check.json"
+  ],
+  "not_verified": [
+    "Unity / Unreal import, materials and LOD groups",
+    "in-engine collision and walkability",
+    "performance on target devices"
+  ]
+}

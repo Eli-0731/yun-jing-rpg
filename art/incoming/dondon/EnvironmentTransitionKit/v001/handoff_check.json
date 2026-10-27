@@ -1,0 +1,640 @@
+{
+  "blender": "5.2.3 LTS",
+  "package": "/home/user/dondon/Environment_Transition_Kit/Handoff/yunjing_upload/EnvironmentTransitionKit/v001",
+  "fbx": [
+    {
+      "file": "02_Exports/Bridge/SM_Bridge_Log_A.fbx",
+      "objects": 5,
+      "mesh_objects": 4,
+      "triangles": 3216,
+      "size_m": [
+        10.0,
+        0.6494347155094147,
+        0.34687875229096576
+      ],
+      "size_error_m": 1.5079738346912563e-08
+    },
+    {
+      "file": "02_Exports/Bridge/SM_Bridge_Timber_A.fbx",
+      "objects": 5,
+      "mesh_objects": 4,
+      "triangles": 1444,
+      "size_m": [
+        10.0,
+        3.2000001668930054,
+        2.9800002574920654
+      ],
+      "size_error_m": 2.384185791015625e-07
+    },
+    {
+      "file": "02_Exports/Bridgehead/SM_Bridgehead_BankTransition_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 2660,
+      "size_m": [
+        3.0423834323883057,
+        8.0,
+        1.4472964406013489
+      ],
+      "size_error_m": 2.086162567138672e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Bridgehead/SM_Bridgehead_Base_A.fbx",
+      "objects": 5,
+      "mesh_objects": 4,
+      "triangles": 596,
+      "size_m": [
+        1.2500001192092896,
+        3.0,
+        0.5000002421438694
+      ],
+      "size_error_m": 2.3096799850463867e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Bridgehead/SM_Bridgehead_CornerCap_A.fbx",
+      "objects": 8,
+      "mesh_objects": 7,
+      "triangles": 1252,
+      "size_m": [
+        1.25,
+        4.707481861114502,
+        0.9500868618488312
+      ],
+      "size_error_m": 2.980232238769531e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Bridgehead/SM_Bridgehead_RoadTransition_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 812,
+      "size_m": [
+        2.0,
+        4.627140760421753,
+        0.44740455877035856
+      ],
+      "size_error_m": 3.25031578540802e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Bridgehead/SM_Bridgehead_SideTrim_L_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 448,
+      "size_m": [
+        2.0,
+        1.17732572555542,
+        0.4754558280110359
+      ],
+      "size_error_m": 6.705522537231445e-08,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Bridgehead/SM_Bridgehead_SideTrim_R_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 448,
+      "size_m": [
+        2.0,
+        1.0861437320709229,
+        0.5048445016145706
+      ],
+      "size_error_m": 3.725290298461914e-08,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Bridgehead/SM_Bridgehead_SlopeFix_A.fbx",
+      "objects": 6,
+      "mesh_objects": 5,
+      "triangles": 564,
+      "size_m": [
+        1.5,
+        3.0,
+        0.15091987848084898
+      ],
+      "size_error_m": 8.938727091845067e-09,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Bridgehead/SM_Bridgehead_WaterEdge_A.fbx",
+      "objects": 8,
+      "mesh_objects": 7,
+      "triangles": 2560,
+      "size_m": [
+        1.75,
+        4.5,
+        0.9515233263373375
+      ],
+      "size_error_m": 1.7136335372924805e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Riverbank/SM_Riverbank_End_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1484,
+      "size_m": [
+        4.0,
+        3.038603186607361,
+        1.3631135523319244
+      ],
+      "size_error_m": 2.086162567138672e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Riverbank/SM_Riverbank_Eroded_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1826,
+      "size_m": [
+        4.0,
+        3.058176875114441,
+        1.3360296785831451
+      ],
+      "size_error_m": 1.7881393432617188e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Riverbank/SM_Riverbank_GrassHeavy_A.fbx",
+      "objects": 8,
+      "mesh_objects": 7,
+      "triangles": 2036,
+      "size_m": [
+        4.0,
+        3.2288331985473633,
+        1.5111308097839355
+      ],
+      "size_error_m": 1.7881393432617188e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Riverbank/SM_Riverbank_InnerCorner_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1676,
+      "size_m": [
+        3.64963960647583,
+        3.5464789867401123,
+        1.3419313728809357
+      ],
+      "size_error_m": 1.7881393432617188e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Riverbank/SM_Riverbank_OuterCorner_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1676,
+      "size_m": [
+        4.546479225158691,
+        4.546478986740112,
+        1.3987758457660675
+      ],
+      "size_error_m": 2.384185791015625e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Riverbank/SM_Riverbank_RockReinforced_A.fbx",
+      "objects": 9,
+      "mesh_objects": 8,
+      "triangles": 5216,
+      "size_m": [
+        4.0,
+        3.090244174003601,
+        1.428750991821289
+      ],
+      "size_error_m": 1.7881393432617188e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Riverbank/SM_Riverbank_Slope_A.fbx",
+      "objects": 9,
+      "mesh_objects": 8,
+      "triangles": 2156,
+      "size_m": [
+        4.0,
+        3.076783537864685,
+        1.38155859708786
+      ],
+      "size_error_m": 1.4901161193847656e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Riverbank/SM_Riverbank_Steep_A.fbx",
+      "objects": 9,
+      "mesh_objects": 8,
+      "triangles": 2972,
+      "size_m": [
+        4.0,
+        3.0727407932281494,
+        1.6285586655139923
+      ],
+      "size_error_m": 1.1920928955078125e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Riverbank/SM_Riverbank_Straight_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1676,
+      "size_m": [
+        4.0,
+        3.085729956626892,
+        1.4339205920696259
+      ],
+      "size_error_m": 1.7881393432617188e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/Riverbank/SM_Riverbank_Straight_B.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 2016,
+      "size_m": [
+        4.0,
+        3.1603646278381348,
+        1.4156606793403625
+      ],
+      "size_error_m": 2.086162567138672e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_Curve_L_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1832,
+      "size_m": [
+        4.536806583404541,
+        5.065143585205078,
+        0.4747367426753044
+      ],
+      "size_error_m": 3.129243850708008e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_Curve_R_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1832,
+      "size_m": [
+        4.536806583404541,
+        5.020183801651001,
+        0.537836454808712
+      ],
+      "size_error_m": 3.3527612686157227e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_Damaged_A.fbx",
+      "objects": 8,
+      "mesh_objects": 7,
+      "triangles": 2134,
+      "size_m": [
+        4.0,
+        4.917388439178467,
+        0.4822935238480568
+      ],
+      "size_error_m": 3.0547380447387695e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_End_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1820,
+      "size_m": [
+        4.0,
+        4.891280651092529,
+        0.5130438059568405
+      ],
+      "size_error_m": 2.682209014892578e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_GrassTransition_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1896,
+      "size_m": [
+        4.0,
+        4.736551523208618,
+        0.48483239859342575
+      ],
+      "size_error_m": 7.450580596923828e-09,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_Slope_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1832,
+      "size_m": [
+        4.0,
+        4.925244569778442,
+        0.5874307677149773
+      ],
+      "size_error_m": 3.5855919122695923e-07,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_StoneTransition_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 2312,
+      "size_m": [
+        4.0,
+        4.771504163742065,
+        0.49051155894994736
+      ],
+      "size_error_m": 7.450580596923828e-09,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_Straight_L_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 550,
+      "size_m": [
+        4.0,
+        0.9436750411987305,
+        0.4016593396663666
+      ],
+      "size_error_m": 7.450580596923828e-09,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_Straight_R_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 550,
+      "size_m": [
+        4.0,
+        0.9054269790649414,
+        0.4297781474888325
+      ],
+      "size_error_m": 3.3527612686157227e-08,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_WideCurve_L_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1832,
+      "size_m": [
+        4.944718837738037,
+        5.370218515396118,
+        0.45914603769779205
+      ],
+      "size_error_m": 7.450580596923828e-08,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/RoadEdge/SM_RoadEdge_WideCurve_R_A.fbx",
+      "objects": 7,
+      "mesh_objects": 6,
+      "triangles": 1832,
+      "size_m": [
+        4.944718837738037,
+        5.311249017715454,
+        0.5092331394553185
+      ],
+      "size_error_m": 7.450580596923828e-09,
+      "names_match": true
+    },
+    {
+      "file": "02_Exports/_TestHelpers/TEST_BridgeDeck_3m.fbx",
+      "objects": 1,
+      "mesh_objects": 1,
+      "triangles": 12,
+      "size_m": [
+        6.0,
+        3.0,
+        0.20000023767352104
+      ]
+    },
+    {
+      "file": "02_Exports/_TestHelpers/TEST_RoadCore_3m.fbx",
+      "objects": 1,
+      "mesh_objects": 1,
+      "triangles": 384,
+      "size_m": [
+        4.0,
+        3.0,
+        2.2649371089755732e-07
+      ]
+    },
+    {
+      "file": "02_Exports/_TestHelpers/TEST_ScaleCube_1m.fbx",
+      "objects": 1,
+      "mesh_objects": 1,
+      "triangles": 12,
+      "size_m": [
+        1.0,
+        1.0,
+        1.0000000496738295
+      ]
+    }
+  ],
+  "blend": [
+    {
+      "file": "01_Blender/Blockout/blockout_representatives_v01.blend",
+      "opened": true,
+      "objects": 13,
+      "mesh_objects": 8,
+      "triangles_all_objects": 3288,
+      "materials": 3,
+      "images": 0,
+      "images_missing": [],
+      "libraries": [],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "01_Blender/Blockout/bridgehead_blockout_v01.blend",
+      "opened": true,
+      "objects": 18,
+      "mesh_objects": 10,
+      "triangles_all_objects": 3492,
+      "materials": 4,
+      "images": 0,
+      "images_missing": [],
+      "libraries": [],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "01_Blender/Blockout/riverbank_blockout_v01.blend",
+      "opened": true,
+      "objects": 21,
+      "mesh_objects": 11,
+      "triangles_all_objects": 7692,
+      "materials": 2,
+      "images": 0,
+      "images_missing": [],
+      "libraries": [],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "01_Blender/Blockout/road_edge_blockout_v01.blend",
+      "opened": true,
+      "objects": 24,
+      "mesh_objects": 13,
+      "triangles_all_objects": 7692,
+      "materials": 2,
+      "images": 0,
+      "images_missing": [],
+      "libraries": [],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "01_Blender/bridgehead_modules_v01.blend",
+      "opened": true,
+      "objects": 57,
+      "mesh_objects": 49,
+      "triangles_all_objects": 9364,
+      "materials": 7,
+      "images": 20,
+      "images_missing": [],
+      "libraries": [],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "01_Blender/log_bridge_v01.blend",
+      "opened": true,
+      "objects": 5,
+      "mesh_objects": 4,
+      "triangles_all_objects": 3216,
+      "materials": 4,
+      "images": 12,
+      "images_missing": [],
+      "libraries": [],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "01_Blender/riverbank_modules_v01.blend",
+      "opened": true,
+      "objects": 78,
+      "mesh_objects": 68,
+      "triangles_all_objects": 22746,
+      "materials": 7,
+      "images": 20,
+      "images_missing": [],
+      "libraries": [],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "01_Blender/road_edge_modules_v01.blend",
+      "opened": true,
+      "objects": 80,
+      "mesh_objects": 69,
+      "triangles_all_objects": 18818,
+      "materials": 7,
+      "images": 20,
+      "images_missing": [],
+      "libraries": [],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "01_Blender/timber_bridge_v01.blend",
+      "opened": true,
+      "objects": 5,
+      "mesh_objects": 4,
+      "triangles_all_objects": 1444,
+      "materials": 3,
+      "images": 9,
+      "images_missing": [],
+      "libraries": [],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "04_Previews/AssemblyTests/blockout_all29_assembly.blend",
+      "opened": true,
+      "objects": 111,
+      "mesh_objects": 36,
+      "triangles_all_objects": 19604,
+      "materials": 7,
+      "images": 0,
+      "images_missing": [],
+      "libraries": [
+        "//../../01_Blender/Blockout/bridgehead_blockout_v01.blend",
+        "//../../01_Blender/Blockout/riverbank_blockout_v01.blend",
+        "//../../01_Blender/Blockout/road_edge_blockout_v01.blend"
+      ],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "04_Previews/AssemblyTests/blockout_representatives_assembly.blend",
+      "opened": true,
+      "objects": 28,
+      "mesh_objects": 10,
+      "triangles_all_objects": 4036,
+      "materials": 4,
+      "images": 0,
+      "images_missing": [],
+      "libraries": [
+        "//../../01_Blender/Blockout/blockout_representatives_v01.blend"
+      ],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "04_Previews/AssemblyTests/final_all29_assembly.blend",
+      "opened": true,
+      "objects": 263,
+      "mesh_objects": 188,
+      "triangles_all_objects": 51656,
+      "materials": 20,
+      "images": 60,
+      "images_missing": [],
+      "libraries": [
+        "//../../01_Blender/bridgehead_modules_v01.blend",
+        "//../../01_Blender/riverbank_modules_v01.blend",
+        "//../../01_Blender/road_edge_modules_v01.blend"
+      ],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    },
+    {
+      "file": "04_Previews/Showcase/showcase_v01_scene.blend",
+      "opened": true,
+      "objects": 205,
+      "mesh_objects": 146,
+      "triangles_all_objects": 75260,
+      "materials": 24,
+      "images": 70,
+      "images_missing": [],
+      "libraries": [
+        "//../../01_Blender/bridgehead_modules_v01.blend",
+        "//../../01_Blender/riverbank_modules_v01.blend",
+        "//../../01_Blender/road_edge_modules_v01.blend",
+        "//../../01_Blender/timber_bridge_v01.blend"
+      ],
+      "libraries_missing": [],
+      "scene_unit_scale": 1.0
+    }
+  ],
+  "summary": {
+    "fbx_files": 34,
+    "fbx_max_size_error_m": 3.5855919122695923e-07,
+    "fbx_name_mismatches": [],
+    "blend_files": 13,
+    "blend_missing_images": 0,
+    "blend_missing_libraries": 0,
+    "not_done": [
+      "Unity import",
+      "URP materials",
+      "mobile performance",
+      "in-engine collision and walking"
+    ]
+  }
+}

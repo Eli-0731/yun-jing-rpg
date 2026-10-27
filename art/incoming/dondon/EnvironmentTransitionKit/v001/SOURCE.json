@@ -1,0 +1,3947 @@
+{
+  "source_repository": "https://github.com/joshsu54/dondon",
+  "source_branch": "claude/environment-transition-kit",
+  "source_commit": "45ba2368a0b2a3a26b6b5f659c135d7b55052aa5",
+  "source_folder": "Environment_Transition_Kit/",
+  "previews": "per-module previews resized to 512 px; originals stay in the source repository",
+  "files": 656,
+  "identical_copies": 310,
+  "file_list": [
+    {
+      "path": "00_References/IMAGE_PROMPTS.md",
+      "bytes": 6501,
+      "sha256": "6d341446e04e5cc218b155431ce297d9c054cf2eff3349de0f4ef20c4d092a58",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/REF_A_Road_Edge_Sheet.png",
+      "bytes": 708624,
+      "sha256": "0a2750d37deb9d361014b96354f75b7c0cd51468db7ba3f8c4a60bda725e75c4",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/REF_B_Riverbank_Sheet.png",
+      "bytes": 596804,
+      "sha256": "75ec923608cc2fa0a30608ce40684690052612f24f8861c107e24c19cc41a7bc",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/REF_C_Bridgehead_Sheet.png",
+      "bytes": 460241,
+      "sha256": "9642e0c531956dfb73718b57879132d81121452a3bcd97d03e66274be15ecdd0",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/REF_D_Orthographic_Construction.png",
+      "bytes": 657468,
+      "sha256": "833cdb608b2b02871cf7e05066c54bc383324f48883d008256a04d77d16670b0",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/REF_E_Connector_Engineering.png",
+      "bytes": 656245,
+      "sha256": "657006bd4cb82923d1ab3a6145049aa8918c9e22b346894220b2d645001d6e50",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/REF_F_Materials.png",
+      "bytes": 3960486,
+      "sha256": "d3d0f75efa60a6ed2bc5228ea998de57595f366e8bbdc14b22552e89f56d281c",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A01_SM_RoadEdge_Straight_L_A_3view.png",
+      "bytes": 340520,
+      "sha256": "defd01d126eedf8c059f648e31ba845baf20556a36a907b3b5f4dec5fbaa137c",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A02_SM_RoadEdge_Straight_R_A_3view.png",
+      "bytes": 330822,
+      "sha256": "e271adc2134fa92ad52bfb5a2f3cc77d1e2538090e8d42360e95e77f264dcec5",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A03_SM_RoadEdge_Curve_L_A_3view.png",
+      "bytes": 497210,
+      "sha256": "8f2a1d11b8b2683f21e86c9abe4e1986158f4b08a8b29060cc86a0de0d87795c",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A04_SM_RoadEdge_Curve_R_A_3view.png",
+      "bytes": 494125,
+      "sha256": "7b5d5e0ef1e8a89a6c899d24503fe035d4d826b63b5cea37ce9a2b5c2fa9232d",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A05_SM_RoadEdge_WideCurve_L_A_3view.png",
+      "bytes": 534683,
+      "sha256": "f58d6f49678725498a10be37d142e567639894f412930b666999da371905cf7b",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A06_SM_RoadEdge_WideCurve_R_A_3view.png",
+      "bytes": 532231,
+      "sha256": "777500637d31428980e6913699c4827128498e2fb59051cc48f94456f4b813e9",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A07_SM_RoadEdge_Slope_A_3view.png",
+      "bytes": 438928,
+      "sha256": "ab85a0b34f18ea94a88f3a7da844c3951606554ab443e6238548b8311d6cb8d7",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A08_SM_RoadEdge_GrassTransition_A_3view.png",
+      "bytes": 380097,
+      "sha256": "ed68c5c0a35b65508dcfcae50ad337d8f741c09d363599b6ebd328da1c34d72e",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A09_SM_RoadEdge_StoneTransition_A_3view.png",
+      "bytes": 371076,
+      "sha256": "c4f9efcb910c87d525f04082a633bdd4de072cd82ccc042b56e72b54f9e40918",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A10_SM_RoadEdge_End_A_3view.png",
+      "bytes": 387045,
+      "sha256": "df499b4f1bef43a1e90785ba6e35c16d19988c7aa214c7457c97af9f4089359b",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/A11_SM_RoadEdge_Damaged_A_3view.png",
+      "bytes": 420094,
+      "sha256": "54b5d595da84d22d5205bd7c18105fa89d94dcae84f5a6883ec75c71e2ebb696",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/B01_SM_Riverbank_Straight_A_3view.png",
+      "bytes": 367462,
+      "sha256": "49dffb34d74be446fada25a68e8764a73bb49145b3309cca74b00e355215341b",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/B02_SM_Riverbank_Straight_B_3view.png",
+      "bytes": 410390,
+      "sha256": "d63ea2f0f3d0f8e41222ca558b86a55411008a7f841f59022b83dc581092c565",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/B03_SM_Riverbank_InnerCorner_A_3view.png",
+      "bytes": 601216,
+      "sha256": "e8bdd085d35f610cfd9b8888fce66f151ffd92b56f0d8d44486372833b3d6a7e",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/B04_SM_Riverbank_OuterCorner_A_3view.png",
+      "bytes": 634904,
+      "sha256": "f250f97a641451a030606cc71042f97de3cb4d040394e14627a60777e6c389b7",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/B05_SM_Riverbank_Slope_A_3view.png",
+      "bytes": 461450,
+      "sha256": "37ef00ff6aa952fd741bbcb3999f1541881754c0365c5312a49a3ffdef5ebda1",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/B06_SM_Riverbank_Steep_A_3view.png",
+      "bytes": 460187,
+      "sha256": "778b5f01f979a1552320c0286f40c27488ca5ad339bf8850bfe1c55fab20fb48",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/B07_SM_Riverbank_RockReinforced_A_3view.png",
+      "bytes": 391505,
+      "sha256": "38d6e2759e696433c3273ff783ce086a16f10b820f22296ac073b7e33db58d5b",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/B08_SM_Riverbank_GrassHeavy_A_3view.png",
+      "bytes": 395326,
+      "sha256": "5b5d761620b1613e69cbe3deadbf409daef0153f83e0b874d2e6ea517d0b410c",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/B09_SM_Riverbank_Eroded_A_3view.png",
+      "bytes": 481301,
+      "sha256": "93667b372e1bcd5ee287a5dece9fe79d973cec782bde45b16990869728a3ab25",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/B10_SM_Riverbank_End_A_3view.png",
+      "bytes": 429564,
+      "sha256": "a4ec2af1b03a4d9c284f3b5cabb638c8d527472ba1bb89848bfbc555de582cb3",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/C01_SM_Bridgehead_RoadTransition_A_3view.png",
+      "bytes": 430721,
+      "sha256": "f9a1937dad9b7af29ce1defe6b6df5c508af4697ab487f7d4d08dc31185c7223",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/C02_SM_Bridgehead_BankTransition_A_3view.png",
+      "bytes": 480884,
+      "sha256": "5a454d0a1873c0f45b3dbb0480051e0b314de49d0ba95b8684fc51c4fca3820f",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/C03_SM_Bridgehead_SideTrim_L_A_3view.png",
+      "bytes": 359791,
+      "sha256": "5e778083c96daaa9bcdff6e746c3b6ed1924d8c1ea8d8a3ebb13bc6e3e559e82",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/C04_SM_Bridgehead_SideTrim_R_A_3view.png",
+      "bytes": 349247,
+      "sha256": "d4ae18eb46575240c89a1a87d4c63efc2a0c6b3dd677fabb47b5201d672057d1",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/C05_SM_Bridgehead_Base_A_3view.png",
+      "bytes": 338232,
+      "sha256": "70f0f9e0b4576ed92d94775a2eb287df6323b0c75b85cac16aed0e641eced559",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/C06_SM_Bridgehead_SlopeFix_A_3view.png",
+      "bytes": 331074,
+      "sha256": "fb58eb62566a7f942167ae6c2b859cd7928ada852e47a755ea85ba49bad2e965",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/C07_SM_Bridgehead_CornerCap_A_3view.png",
+      "bytes": 416428,
+      "sha256": "bc51cd477972f64dca0083294180fb44d056b53f589d592afad2eaf253f15854",
+      "copy": "identical"
+    },
+    {
+      "path": "00_References/ThreeViews/C08_SM_Bridgehead_WaterEdge_A_3view.png",
+      "bytes": 464936,
+      "sha256": "a1cb814ecee672b9974b250653b3b13f28eaf5517c4cc556114283b659e54c4e",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/Blockout/blockout_representatives_v01.blend",
+      "bytes": 143496,
+      "sha256": "3f8064e7c29db4d2bc4852f5b99cedd5734d200102a4036b71b1126765cf6fb2",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/Blockout/blockout_representatives_v01.build.json",
+      "bytes": 1388,
+      "sha256": "ad2d952d15d23f4f10a2d3a715f9a0a3014896fb96d9178710b1fc31d04a9ee2",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/Blockout/bridgehead_blockout_v01.blend",
+      "bytes": 157931,
+      "sha256": "6b828c502e9d0658230062931c744633b6f76583525d4a0fddb670720c31b6e6",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/Blockout/bridgehead_blockout_v01.build.json",
+      "bytes": 1988,
+      "sha256": "4f92fd7d05556f95537e3fd376010b05fcd83cc9b39e379104a730a500ec1080",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/Blockout/riverbank_blockout_v01.blend",
+      "bytes": 141645,
+      "sha256": "5158454aadc3c17b602ece9de7016d3969495c36811f09cad0ec882b6338edc5",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/Blockout/riverbank_blockout_v01.build.json",
+      "bytes": 2788,
+      "sha256": "d84a79ec3662b8a23a909c19fbb74dc02a4b622ba92403fe0b2a2b0b3689471f",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/Blockout/road_edge_blockout_v01.blend",
+      "bytes": 150950,
+      "sha256": "dbe5f22cff275cb04bb14758fe643c7fe9e59cb6230c6dd3f601a0b0c820c7ce",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/Blockout/road_edge_blockout_v01.build.json",
+      "bytes": 2993,
+      "sha256": "d66faf21d7858fe818b78196344bd3488786c95b6efa654eb3664bf8f9083a6a",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/bridgehead_modules_v01.blend",
+      "bytes": 329664,
+      "sha256": "57430a88ecae1d24a0d15fcf9d4fac445b12e52d7761fc186928ab50dc5ee1d9",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/bridgehead_modules_v01.build.json",
+      "bytes": 6378,
+      "sha256": "5197195e910e98aa71093030637d4ebee6d7267b77987dd7afcea20438f9399c",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/log_bridge_v01.blend",
+      "bytes": 162684,
+      "sha256": "f625b4a2da426f795c2105f1df2057c8e4ff44d7251f2c05ec8e47d1c9cab908",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/log_bridge_v01.build.json",
+      "bytes": 260,
+      "sha256": "0107efd85c46823ef9c94146990ef2485c32ff33c7e5888913127094309ee478",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/riverbank_modules_v01.blend",
+      "bytes": 548200,
+      "sha256": "0afe4ea0cc8775fe874faa3a11a0246c1e7124e12bde298515cd6cc2947695f1",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/riverbank_modules_v01.build.json",
+      "bytes": 8852,
+      "sha256": "98e4a4cb20e97910a8c200400d6361f1ae1c44348a9a85fcc8b87bc36ad7b754",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/road_edge_modules_v01.blend",
+      "bytes": 414748,
+      "sha256": "6874c9ba5057deeec88181c24a14b06219b675c9af505b8b6fa55b5d9860fa6e",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/road_edge_modules_v01.build.json",
+      "bytes": 9017,
+      "sha256": "6f07f9b8b5a9e029d7f1c070cd1c1e2e10c4e144c1b1147a25d3fdb6ff4c711b",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/timber_bridge_v01.blend",
+      "bytes": 124169,
+      "sha256": "e8ce2c3ae22e7c97bbbb4249eb0aa85b121d3e85f21866c08ad94d65aad2ea22",
+      "copy": "identical"
+    },
+    {
+      "path": "01_Blender/timber_bridge_v01.build.json",
+      "bytes": 262,
+      "sha256": "e5917017035625abc22a1d1d8f9a23b1cd3bdf16ce2ec2bf100fea344aafe643",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Bridge/SM_Bridge_Log_A.fbx",
+      "bytes": 152828,
+      "sha256": "e30c98a5f3f0387177368208208557bf1a74ace752b0990704b797f151bc6d9d",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Bridge/SM_Bridge_Timber_A.fbx",
+      "bytes": 74444,
+      "sha256": "367042b170aa747a40b3c2796403ae10046640bf91a2143af20d1284752168fe",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Bridgehead/SM_Bridgehead_BankTransition_A.fbx",
+      "bytes": 192796,
+      "sha256": "beebf4d9a888d7a1e04b054aa76497c9fb55834bf7003f059c445f53e62c32d9",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Bridgehead/SM_Bridgehead_Base_A.fbx",
+      "bytes": 71004,
+      "sha256": "ae48291d6980ca0164bc31d334a5bf2d7776f264943390ba3874570685f40dd3",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Bridgehead/SM_Bridgehead_CornerCap_A.fbx",
+      "bytes": 148028,
+      "sha256": "299e4ea4cc66e82ef5efb8fca92b5ec2036b2dd4363bdf1e210afb561a3deb14",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Bridgehead/SM_Bridgehead_RoadTransition_A.fbx",
+      "bytes": 95996,
+      "sha256": "33697e0e7b32753c49fea9f77546182509e8d0eb3384e8d2bca53c41ef8c33fa",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Bridgehead/SM_Bridgehead_SideTrim_L_A.fbx",
+      "bytes": 81932,
+      "sha256": "62c9e94123c9203d96dbcdaf011b2c89727d63b06a63c8537be31a1473307fef",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Bridgehead/SM_Bridgehead_SideTrim_R_A.fbx",
+      "bytes": 81980,
+      "sha256": "8ea359c35ce270788d782be2566733c9ddfc419e5ba1b950100c319cfe1142c1",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Bridgehead/SM_Bridgehead_SlopeFix_A.fbx",
+      "bytes": 75004,
+      "sha256": "f3db68c34e567df138e6e0cededa6d6439b3c9c858a7ea00cf1f1c94a12b8388",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Bridgehead/SM_Bridgehead_WaterEdge_A.fbx",
+      "bytes": 205196,
+      "sha256": "efc407bf2a0c162c7109bd4dde110c81166e1cfbba81a372f1747a1bfb9ef507",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Riverbank/SM_Riverbank_End_A.fbx",
+      "bytes": 127948,
+      "sha256": "e5ec43b454fb0711eb0b594d9de5358a3fc0473d5b11bd1aa94f9e2d6786d086",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Riverbank/SM_Riverbank_Eroded_A.fbx",
+      "bytes": 156092,
+      "sha256": "b5369c7f979efd35f63a462d029bf02a27650d42955d5c936e752ba0d7c5fc1c",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Riverbank/SM_Riverbank_GrassHeavy_A.fbx",
+      "bytes": 170060,
+      "sha256": "fc417fc5b58543a6aa53377a59cec67116dc535173bfd127af81ab9d5c89c51a",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Riverbank/SM_Riverbank_InnerCorner_A.fbx",
+      "bytes": 148332,
+      "sha256": "dab3f0eb3c5eef6b2524f409227c0158b002bfc9429878d13b739eb676ccfa04",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Riverbank/SM_Riverbank_OuterCorner_A.fbx",
+      "bytes": 146780,
+      "sha256": "44aee405f15e46b285fd24e3eaedcc15add722c8260a7b83c0053b82169b1426",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Riverbank/SM_Riverbank_RockReinforced_A.fbx",
+      "bytes": 487340,
+      "sha256": "8b5f99c83ef2f6da82cdc8224680d4556d2fc812cc40c953c21366d052c778b0",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Riverbank/SM_Riverbank_Slope_A.fbx",
+      "bytes": 188876,
+      "sha256": "aba391f2631c400eeac6a968acb74ffd2f3419cc27eb1fdc25616e2d17cab7cc",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Riverbank/SM_Riverbank_Steep_A.fbx",
+      "bytes": 248812,
+      "sha256": "770a161ff392db94eb7914ca1de92c21f718b837c0e96dba1875e73343cd9cfa",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Riverbank/SM_Riverbank_Straight_A.fbx",
+      "bytes": 143708,
+      "sha256": "142b59f7af9f61fbc69d30e845de3b83de362ba7b0d43eb73786c6c48ce555f7",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/Riverbank/SM_Riverbank_Straight_B.fbx",
+      "bytes": 170732,
+      "sha256": "a8cc479344be0935b210877636e4b71fbf9b90719980bba73625d3aeea78b035",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_Curve_L_A.fbx",
+      "bytes": 157660,
+      "sha256": "66d4e45b70734077816f25eb23664429b67d9dc4659663dec91518be0c5a0523",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_Curve_R_A.fbx",
+      "bytes": 157724,
+      "sha256": "99474af61554cda0b66742a32c50dfc0d358deff4fb178a0e756e03f4cda289e",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_Damaged_A.fbx",
+      "bytes": 186028,
+      "sha256": "1d6c116344af33a12c661af953f290a862b72cba4ad2bc9100adf5e1ea1649da",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_End_A.fbx",
+      "bytes": 154556,
+      "sha256": "449807cc79a99cb21eed411b9a8c377cd5534402f8c90a2c031d2462b3d00f67",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_GrassTransition_A.fbx",
+      "bytes": 162044,
+      "sha256": "e6858d7671d9f10636571079919d7f1a89c369e0249cada20d41c5badaa36fd8",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_Slope_A.fbx",
+      "bytes": 154636,
+      "sha256": "8ee86062d2e999ee76b7008e9fa10ef50604c1888aa9da95d3c86f4d4dfe5315",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_StoneTransition_A.fbx",
+      "bytes": 193340,
+      "sha256": "ed60aa5041d0ee2bc03e1c56be6fc72fde5081f7bdef1db0314760b19d8f3d48",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_Straight_L_A.fbx",
+      "bytes": 85292,
+      "sha256": "7c752da82e19fd8f5e5cae616fc58e7da735fbe23981a965bffaecc080cb60ce",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_Straight_R_A.fbx",
+      "bytes": 85452,
+      "sha256": "91aba622b054044f33b407e1ee0eb05ba1935d398c229073cec23587b1efe29d",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_WideCurve_L_A.fbx",
+      "bytes": 157564,
+      "sha256": "a1cf2c72102557e9d76d64787f1cd5fd595dbc3081ccb5220370c9293f3f5ba6",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/RoadEdge/SM_RoadEdge_WideCurve_R_A.fbx",
+      "bytes": 157180,
+      "sha256": "f8d8645b9c76617af7e0fb9cad3edae45ae206371a71998dfa623a9bb7601fa6",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/_TestHelpers/TEST_BridgeDeck_3m.fbx",
+      "bytes": 16380,
+      "sha256": "0696168cc9be2d5b65a7dd9e1779b537b440cbea243544f493f5b4260d26e530",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/_TestHelpers/TEST_RoadCore_3m.fbx",
+      "bytes": 19868,
+      "sha256": "57b818799a9c753f55b15357174d1c0376c7215db9bd3128186d93ff8f9283da",
+      "copy": "identical"
+    },
+    {
+      "path": "02_Exports/_TestHelpers/TEST_ScaleCube_1m.fbx",
+      "bytes": 16300,
+      "sha256": "47931b78e8a70a68ac0b135bcc2e8a07d4b832d043de2a79271c6b37f26b6af7",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Bark_BaseColor.png",
+      "bytes": 905623,
+      "sha256": "64b263654b3727bf44708ba646f35f8e3ed81a195237b78200a0db8ff10c1d70",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Bark_Normal.png",
+      "bytes": 2151277,
+      "sha256": "dad3d40b1be4d2eb33d71f26a22fd3a0228467fd75d4844c4515f2b528feecac",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Bark_Roughness.png",
+      "bytes": 468191,
+      "sha256": "e0dadf4462690b96599ba253b806bdaa5513134d43d0c3ae8332eeda9a831b59",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_BlendNoise.png",
+      "bytes": 1825355,
+      "sha256": "92da93c74b2d07cdcd9af1f585539cd0a3af7dcc6b0a29e7b44672b262a2f857",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_DrySoil_BaseColor.png",
+      "bytes": 1497197,
+      "sha256": "dcdd4cb28314052024a4cb6e38a12b64d73f27c189c42d1829e295bdb7735ee2",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_DrySoil_Normal.png",
+      "bytes": 2427585,
+      "sha256": "b0ccbbc549c3148d8e07193b2a039f2a8d0fb4996632af6c4b1ed8987d1a5e5a",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_DrySoil_Roughness.png",
+      "bytes": 482331,
+      "sha256": "29c38695a471c1f2089c30920e4345966667856fb408e6fc9389e8166d9c7bd7",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_EndGrain_BaseColor.png",
+      "bytes": 663565,
+      "sha256": "6257073d998dfefe4c1d09f1700f6c431587b3a5fce6494b62ef6a59608ac66c",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_EndGrain_Normal.png",
+      "bytes": 915002,
+      "sha256": "0fac2a3c7a64ebac4d0739a95d9337215ca7f7bb71535df15007868e40bd841b",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_EndGrain_Roughness.png",
+      "bytes": 554038,
+      "sha256": "a0d479e024b719d9f3f29014bd73b4713e0a5fe27f616eee04d2dc75d0e428b1",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_GrassCard_BaseColor.png",
+      "bytes": 192269,
+      "sha256": "611a3a86b9d76b9cb412d96c48d528a2370bbaef7c3a42ccd21e3c46a5bd6ce4",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Grass_BaseColor.png",
+      "bytes": 1699395,
+      "sha256": "9ecdcf67c3d7b1048f53c60c0c462f1a5313272297728a010d4109aceecee61d",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Grass_Normal.png",
+      "bytes": 2677865,
+      "sha256": "bd5cf3610492fea609de44e147db3f954b1d1ac3791afdec8e4bcc6975d543f0",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Grass_Roughness.png",
+      "bytes": 1113552,
+      "sha256": "21e38b60126a9ae545252ec3efe3ac609dbc4ea81e516a0ab9b7908902f30622",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Moss_BaseColor.png",
+      "bytes": 1508544,
+      "sha256": "b91e67f1261a68dc1b91e2b4eea89ffd5af7c1a394ec170898219c06e2653875",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Moss_Normal.png",
+      "bytes": 2565904,
+      "sha256": "2cc8eebeecdecce607d05480fb0eb9abc43edea0e8e3a105ca7472ea9d1fbcd2",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Moss_Roughness.png",
+      "bytes": 508038,
+      "sha256": "6a31ae1b7feec71ed866ec1bb6987ef1687acf74f80cc6caf733383eec921749",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_PathGravel_BaseColor.png",
+      "bytes": 1360193,
+      "sha256": "c631af3e70d48837d69a40546b4bed9ace48e48415b895eca46c64a8963232bd",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_PathGravel_Normal.png",
+      "bytes": 1979383,
+      "sha256": "7b6c351dbf708b140c7c59b123a94420e3ae14dce0ee8bef89ec8aa7c5ae8fcc",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_PathGravel_Roughness.png",
+      "bytes": 556022,
+      "sha256": "f3fc686c32e7eded73cd5da1a7cf334a2c1a198f14cae5e928fb42a9bb82be65",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Rock_BaseColor.png",
+      "bytes": 1320451,
+      "sha256": "fd51618973348d80064ac557e2e69edd9bff1f0419db0fc6d2dfc1500e10b5b6",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Rock_Normal.png",
+      "bytes": 2328398,
+      "sha256": "7e696fbf1d79119fd4b17c15b9187f9890b5a64ce296da2e0226b96b1904ff0c",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Rock_Roughness.png",
+      "bytes": 518834,
+      "sha256": "8d062a6bde1c1610f693ef198ee48f549e6019850a1661393af6ba131cd0e961",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Timber_BaseColor.png",
+      "bytes": 1022844,
+      "sha256": "0bbef4223c350ffc1d0abc5f9171598c7766e646b8449ea61e963e96b6af8ed6",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Timber_Normal.png",
+      "bytes": 2444489,
+      "sha256": "15d5b7b252b3399b096f4f3faadbfe85db9856d50f0b53b4d8e0d526eeff241a",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Timber_Roughness.png",
+      "bytes": 652866,
+      "sha256": "5391d6f3be7e9382171b806d6281dd74aa54e8620fcd070661bf4afb4c6c54d0",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Water_Normal.png",
+      "bytes": 1265485,
+      "sha256": "d894403dbd90ac3775dc2f62c08545b5bccc7332ffbb72a3c58addb05a0e4798",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_WetSoil_BaseColor.png",
+      "bytes": 1127169,
+      "sha256": "77fb4dc8e67d61c7aff787687f98899bc8e41ad13d53ebb710b99955dabdb142",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_WetSoil_Normal.png",
+      "bytes": 1698590,
+      "sha256": "10f4767731f0e0589dc7e16d3bf2d435f8d476240589dba085a1d0f678eb7acd",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_WetSoil_Roughness.png",
+      "bytes": 705636,
+      "sha256": "fe2f3aec6eb54fbc6280fa9833e49c0f11edd815e2adc87c80eab95935064b56",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Wood_BaseColor.png",
+      "bytes": 1038452,
+      "sha256": "e62c20a7f7ef9a56909a544134c96e0bde122e3efdc71b7b024bcc489542258f",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Wood_Normal.png",
+      "bytes": 2398896,
+      "sha256": "479452b690b504240dff8e48c8445a476ac170c7ff55a41e6d284fa71c7f773d",
+      "copy": "identical"
+    },
+    {
+      "path": "03_Textures/T_Wood_Roughness.png",
+      "bytes": 576731,
+      "sha256": "b92c4dd3f27430e775959063ee41d292b57003443edbf442f249024a25468263",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_assembly.blend",
+      "bytes": 109296,
+      "sha256": "f98f73524c7190c6cabe0dc813dbb926f522c039dbd1340368e4f1a417ceb2f9",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_bank_chain_45deg.png",
+      "bytes": 1304679,
+      "sha256": "115c2bd9c378dc566218049dfe29d9aa7a593f48a33a38811d4de42b01c202e1",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_bank_chain_side.png",
+      "bytes": 1210200,
+      "sha256": "d05ade44f419fef86133f3dd160504be3380477eb515031d560f94fe5614ba71",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_bank_chain_top.png",
+      "bytes": 1284534,
+      "sha256": "5a3b29bcb7c5446ccd4f437eb2895f0256cc1d02b3c997d4f74d78e3234905e7",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_overview.png",
+      "bytes": 940914,
+      "sha256": "ef35369c7ad5b736f9debdd8d8a643a85d0b10e55f176102a03f5dac0cc28276",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_road_bridgehead_45deg.png",
+      "bytes": 1281420,
+      "sha256": "06d6952db78f181cf70aac75ee15a969a8dc4762dc7fc0257537a3ced59eb28c",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_road_bridgehead_side.png",
+      "bytes": 1220572,
+      "sha256": "c6adb7c12f91c8348f1400901abc0c0aa756e5f1dbeecaa91b10804bb1a1ddd8",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_road_bridgehead_top.png",
+      "bytes": 1281357,
+      "sha256": "cb795d4a4d256196005f7704820f561fe6e7b2110b5a1bb2d141c6bf56e632b8",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_road_chain_45deg.png",
+      "bytes": 1259143,
+      "sha256": "64e3fd1476e03fb312d80508cdc69b43d8e0f8cb1a19bfb0b4a164dbb5d14f27",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_road_chain_side.png",
+      "bytes": 1229438,
+      "sha256": "c981d93ec0e18e56d686a23f9f965a95f2bef14eba797d23286cf21a04e84887",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_all29_road_chain_top.png",
+      "bytes": 1312999,
+      "sha256": "86dc56047857f52324743fd9f26520aeadf8a4b6c5db40fd5e11c5b32d435f8e",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_representatives_45deg.png",
+      "bytes": 1281183,
+      "sha256": "18113dcb7bc70596df164bf595edeee90223fe5b4f967dc7f7df69efa08b3c8c",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_representatives_assembly.blend",
+      "bytes": 102639,
+      "sha256": "2ae2a605185712a6d4f36a734e83c16fa97d3878dc69bbc67e7d4bc553d2a10b",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_representatives_side.png",
+      "bytes": 1216849,
+      "sha256": "c082b9926071a78db569ab4b6b0ff78aaaffda3cac7e7dfdb58139ba17307ab2",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/blockout_representatives_top.png",
+      "bytes": 1257127,
+      "sha256": "7d465d4ed47fd5b2fb391634339adeb68dd723e7c876c755a5b110d9f5795aa6",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/final_all29_assembly.blend",
+      "bytes": 109576,
+      "sha256": "cf69cb494e6e27396c24120706cb037da17d70b9a196fb56501505977ff57271",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/final_all29_bank_chain_45deg.png",
+      "bytes": 1374966,
+      "sha256": "bbb4a4c27f67445ecbb6d3b69a24816f978ef8267e81f296f0054e53e7ea2adc",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/final_all29_bank_chain_side.png",
+      "bytes": 1320595,
+      "sha256": "e37711cc78f55c5f05a1a18a2dfa1b5304adc512e643a79e6fe5e75f5b6db3b9",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/final_all29_bank_chain_top.png",
+      "bytes": 1459157,
+      "sha256": "1d1c25816cbbc30b9e7e8ad791141f6ef95d54d4a857d2fcb72f6d7ae119c97f",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/final_all29_road_bridgehead_45deg.png",
+      "bytes": 1392023,
+      "sha256": "1a241b2fb7dde1cb6ffe3997b5bbf91543664b5a1a7e683213d914576bb51859",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/final_all29_road_bridgehead_side.png",
+      "bytes": 1243436,
+      "sha256": "3316898ff09c1b0565cad530253f06bf187f519a4ba8439cece76931c167714a",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/final_all29_road_bridgehead_top.png",
+      "bytes": 1517519,
+      "sha256": "b18321ed0a78c7d5828c3438e86ae833d9246825b76ef8215a4ed9c07a7d9039",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/final_all29_road_chain_45deg.png",
+      "bytes": 1455637,
+      "sha256": "2637c4baa0e95e278d7f9aba3cc4dfd5a52e409c752592ab614062ab37b59124",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/final_all29_road_chain_side.png",
+      "bytes": 1289284,
+      "sha256": "b0aa19fa81f50709e6981f58673c872294098bbcc853e0d56b96c4e8be279b63",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/AssemblyTests/final_all29_road_chain_top.png",
+      "bytes": 1750424,
+      "sha256": "1e0d40ec202427c7a83d73b5baf7bc2997608ba7d59c2da52a8706bf1b55d688",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/01_front.png",
+      "bytes": 848055,
+      "sha256": "d4a8dcfdd6db9b1c7836221130d4df4c53778a817adb878e8ef587db7f7bd905",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/02_right.png",
+      "bytes": 804100,
+      "sha256": "9ea9ba2919ed70f4c4ff800f3ccba6d26c33fece77e635c415934d6e4d0c8ec2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/03_rear.png",
+      "bytes": 836010,
+      "sha256": "2b1e1ee2dee947cc47b516153261cc938dd7fdb36261666d84f3feccfca4d030",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/04_left.png",
+      "bytes": 816911,
+      "sha256": "b82c32ebc1119a62e47e30736c6d2a99b35c6a95d706cc66be93474858de4517",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/05_front_right.png",
+      "bytes": 928106,
+      "sha256": "088978cd4f5cdbd32a4b2affcce8fcf9a4374151d72fd3795fcf8ea6a9918a49",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/06_rear_right.png",
+      "bytes": 902045,
+      "sha256": "d6d85441ecf9a53b50dd583a56c81b5e8960d58bfc7b735058393f6567c8ee94",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/07_rear_left.png",
+      "bytes": 902874,
+      "sha256": "6c71bd6f902640d2c85a02add1e60f122ff233e79b8e9209d057a3920f4ba958",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/08_front_left.png",
+      "bytes": 922646,
+      "sha256": "a3cfdbbbdcacba595f8ea890270113fb71380f3087e20daf2a7bc9eb12df94bc",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/09_top.png",
+      "bytes": 953018,
+      "sha256": "17156dcd678df7ef6f1661e3408948a36addb46244b4c0bea9183315b845d429",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/10_high_front.png",
+      "bytes": 933453,
+      "sha256": "46fced3adabbaa1ba215a92cfadf1394f90aac18e332fc41a3c687521f8078fd",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/11_persp_45.png",
+      "bytes": 944951,
+      "sha256": "6e8a90e86a80931698b518852ea6a65ff1a58c14baad90ecd57fed8f893e8903",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/model_info.json",
+      "bytes": 2538,
+      "sha256": "19263a06ebecfba5c80cc5a9c36a46415364a1be1db9d4a5cf5f9ffa03e328d7",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/validation.json",
+      "bytes": 4872,
+      "sha256": "159cb0db7b16944680373df183f9f7fe1cbcf4df15f8976dc933d755735ecb42",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/views.json",
+      "bytes": 3130,
+      "sha256": "221ea877a2045b2f78694e0b70ea733e53520b3b5b53972ef732fc542ebb668a",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/01_front.png",
+      "bytes": 847137,
+      "sha256": "ef2eb37e76ccdcc189a038f10365a324544836f793b2a24f69c733a7bd600a0f",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/02_right.png",
+      "bytes": 825723,
+      "sha256": "2a2336851422e671308ef2ffb39b8908ad71d28f5b41c933e72a3fd562a82da0",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/03_rear.png",
+      "bytes": 846804,
+      "sha256": "1e1fe640e737ed0b2fc765cd9d1b82367316b12cb8e35818b7b8f025200a9d2f",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/04_left.png",
+      "bytes": 842013,
+      "sha256": "8c7518434dbd084d0fbb2c78ec5d30565480c3f18d873c150e65a481f2a239f5",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/05_front_right.png",
+      "bytes": 890814,
+      "sha256": "5a98a5f55741aaa8681d98e9f867ea12b1c1211b11dcf77c46270a2fee5fe1ff",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/06_rear_right.png",
+      "bytes": 922723,
+      "sha256": "aa7bf682641240c31cedf894b546d90e35031997f7f539cbcae954d05cd76649",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/07_rear_left.png",
+      "bytes": 912895,
+      "sha256": "9123bdeca38bf04936278fe37704ea67725a6c949da8df1c03af7b7c1aab2b84",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/08_front_left.png",
+      "bytes": 907495,
+      "sha256": "a6f785580af27b1e7d5eb6dd01e17f62cd2d67a07ec8df0e1e7b5a6cb0aacdc1",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/09_top.png",
+      "bytes": 957954,
+      "sha256": "c3277f9dc15207350e5cbe45685255cf655414a148e0c38615e6eaed4f9a5b05",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/10_high_front.png",
+      "bytes": 924955,
+      "sha256": "62748d7b17f274f59db8526aa02ca2c9725090cb1a809d8809725a949ef2deb3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/11_persp_45.png",
+      "bytes": 926549,
+      "sha256": "ff3a28e99d21bae2d5d51331eb925976e3438d65855f84cc70ba67603e66aa3e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/model_info.json",
+      "bytes": 2472,
+      "sha256": "1346d6dff2990486decbcded4353b386c3d9be38a6c45b32c6df7af225d5e81d",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/validation.json",
+      "bytes": 4857,
+      "sha256": "e84171b60561524e58b7b4b42f7b0ea402f9996c80d7264ca40c0b5f1ed00044",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/views.json",
+      "bytes": 3139,
+      "sha256": "0444a0efe206c6530a2a53933fb2ce19e874d2f76c7b554eaef5bf4915516825",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/01_front.png",
+      "bytes": 815393,
+      "sha256": "0cd0cec0533b631834aefad1c6dc1116e6e35418dcb3a06df4c55538c5b205cb",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/02_right.png",
+      "bytes": 832266,
+      "sha256": "5bc0f8d3a2f4060a37718ff201eb84a9178aaea2805ad3928d20e5ed9892e86d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/03_rear.png",
+      "bytes": 837407,
+      "sha256": "6ac4f4c1f8569d4d5734ada9302ae9c4c0811af00e3cd64a61901770eb3ed617",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/04_left.png",
+      "bytes": 827349,
+      "sha256": "6d759535914d13615f00ba8902b2fff972215459a19b59abeca7d826cc8e41a7",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/05_front_right.png",
+      "bytes": 970192,
+      "sha256": "7468c70b05fb93219e6eed5fd14a699f6a0dfb06fb5428342df790e7380491b5",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/06_rear_right.png",
+      "bytes": 967968,
+      "sha256": "9c04a1efa5da3ccd314c88f317e977e4bcd4bce2e7affe98ce3499e4e0c35d4c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/07_rear_left.png",
+      "bytes": 974590,
+      "sha256": "652a04c1a88c381f794b21c9fb0ef1df6cd86eba377dae00c7cb678c01577370",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/08_front_left.png",
+      "bytes": 969053,
+      "sha256": "1d23a38ff73981c58c45046cb5ee32e67ff6bd3f6ac5f5c988afdb1e79cf3c8c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/09_top.png",
+      "bytes": 1177149,
+      "sha256": "6de58f4f31572085bae91458dd4b35075bd96d4a2bb2cbb1e58f16ec02d8c58e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/10_high_front.png",
+      "bytes": 1067089,
+      "sha256": "c4a1de4ce2b0321c06e0518417e0b3b5964a7d8773c7cfff2c1c28c981cde0ee",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/11_persp_45.png",
+      "bytes": 1026238,
+      "sha256": "d94c297141a36ebb19347bf43381e4aedb8e78c8dddbf20cf2d8a8aa94d96994",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/model_info.json",
+      "bytes": 2351,
+      "sha256": "218559044cc981ab5ce440284ef9512592d986d106fdc923de6735b481323761",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/validation.json",
+      "bytes": 4571,
+      "sha256": "385c010fa274fd5ecf78ae133c1b277e43427cc2098021f91694631486a223bb",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/views.json",
+      "bytes": 3170,
+      "sha256": "4352ee4e813e3237f0b503ea6bb86d1df1e505d0aa07b935c8388ab221639048",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/01_front.png",
+      "bytes": 813656,
+      "sha256": "53c50e732e0b4e2caf3eff3c01283b219cb7663031fe18b58a1b9178179df46c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/02_right.png",
+      "bytes": 840721,
+      "sha256": "e7268fd2cd97e1dfe09c8f23313bcf51c10f338f83d19a5aefa8917c9913f8dc",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/03_rear.png",
+      "bytes": 815153,
+      "sha256": "3913d5d7822f35c9a8ccf16fe6617061630fa472eee8485485639ec1b2da2018",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/04_left.png",
+      "bytes": 835166,
+      "sha256": "ba68fc0eeb9e8854f83e603a11059f02fe2a73b9ba4811009fe207fe768a344c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/05_front_right.png",
+      "bytes": 969133,
+      "sha256": "49e1588b53e3ba391c94fcdf31c4b7f0b244ba0e266ea8acd29492a4966a7fe1",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/06_rear_right.png",
+      "bytes": 956709,
+      "sha256": "132d58b5f1ca89fc7b1626f3b426215faedb13369f31388969cf53bac73087d0",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/07_rear_left.png",
+      "bytes": 969827,
+      "sha256": "262431009e05cdf9b970f29b40ea690773ddbfb65c0d3381c01469f28947bbcd",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/08_front_left.png",
+      "bytes": 963513,
+      "sha256": "8171c556a15b82855d3a9608663b68a5011b305ce987a8e2ca7403e0f0a7ab27",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/09_top.png",
+      "bytes": 1182469,
+      "sha256": "03db26e236d74f9351797650ab5d0c3cbcab5c623f016ac1d804820d338e775e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/10_high_front.png",
+      "bytes": 1083915,
+      "sha256": "43275b5dbf3a586cafa5a1474a5c6468b819fab200996c0aef438ea01f63da7e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/11_persp_45.png",
+      "bytes": 1001316,
+      "sha256": "44271ce14c978944b4f26a37cdfaa0289ccba81aaa222e8fcb2948c3cecb6b94",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/model_info.json",
+      "bytes": 2320,
+      "sha256": "05c058c75ccc3bea0661e4f2307c19a38c1c389c1b23f0a3cc360d9274be6004",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/validation.json",
+      "bytes": 4588,
+      "sha256": "6a6c4d435b433ad7617e9c8ecdf300deb9abf103c60ff28af51d51dab744b1e4",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/views.json",
+      "bytes": 3184,
+      "sha256": "a24c56acfbdf9b2a61ff31a602b872a5000db9de5fb28f3ce8026a53a1512405",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/01_front.png",
+      "bytes": 816875,
+      "sha256": "1f1eb664fff72a672c18b545a52610f100d40080b8274723d24c97832bf1e756",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/02_right.png",
+      "bytes": 808529,
+      "sha256": "090d19c46b1cb1558d4408326d6370940e4f8df9ad9c744762771421cbdeb612",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/03_rear.png",
+      "bytes": 834555,
+      "sha256": "39403248c54f12fcd4fc343b3a8dedfde4bb3222d500497d0fce17277e03bee7",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/04_left.png",
+      "bytes": 805026,
+      "sha256": "0c1d87454791c3be79f8ed4f92cb85a09bf7315ea1c570ac975887bdbd4b1f22",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/05_front_right.png",
+      "bytes": 934737,
+      "sha256": "dd9b9947ff8127f9aa3adbbf22ad27d1012ae9a134de23e2e91df6f913ba7a55",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/06_rear_right.png",
+      "bytes": 950620,
+      "sha256": "0c791284a382279e3fa7638b8add8ff2812338afadc2b52ec806cdcf40c63fa1",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/07_rear_left.png",
+      "bytes": 956677,
+      "sha256": "f14c28194d2c97d7b64c291c013c25a157e5f245b07121d3dbabeac9588cd502",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/08_front_left.png",
+      "bytes": 946141,
+      "sha256": "666eaac21901f40e8f1a7a4fc3f9233521880b56f144f81649dae96bb3810751",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/09_top.png",
+      "bytes": 1150751,
+      "sha256": "f9233bca92901b054765a053b5f6daa55b48eb61756f3150360c3d89de2609e4",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/10_high_front.png",
+      "bytes": 1041157,
+      "sha256": "d1bbe7de64420745196647058399feec872cb6202d0fdd43fd1650e3ae5d9aa3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/11_persp_45.png",
+      "bytes": 1013775,
+      "sha256": "d20d4e3ad2b691789671642a9c594b4e52183747ed8e0dda53df30ec97b79279",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/model_info.json",
+      "bytes": 2383,
+      "sha256": "f1191aa1889957eb278e451a54f7bbfc1b248e92368ebe9bd93c297bbd666e04",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/validation.json",
+      "bytes": 4616,
+      "sha256": "fabf2ee418583540e67f5f3675537dcb8aae97ad6487b45c0fa55eb2e59559ea",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/views.json",
+      "bytes": 3177,
+      "sha256": "60e58d98a1daf9d9093468bc97ae8d71d2b328a09fdd2e3c70f03e44ba7cc31c",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/01_front.png",
+      "bytes": 815494,
+      "sha256": "37876d0c44605656f75b8e6dda75fbc916dc825c37ffbee4c1016e71315f17bd",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/02_right.png",
+      "bytes": 811924,
+      "sha256": "d48be9222704c8db743f006ef26726ff5704da1e394c0a4b4fdac4ab51ebe3e6",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/03_rear.png",
+      "bytes": 816453,
+      "sha256": "adc0f3bfa7b3a088e0ccfc6ba064f841a85142f153f4279247034e51c03978c8",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/04_left.png",
+      "bytes": 832978,
+      "sha256": "fb1123daa6211b9e6f4cd5b5a6a80ead251e49efcd5b3c27840e9ee2909ae534",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/05_front_right.png",
+      "bytes": 948743,
+      "sha256": "1ae8a9410d4994058657acbc7ee63fd2e6195194ebebafb559f800a7a3efbf99",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/06_rear_right.png",
+      "bytes": 962064,
+      "sha256": "913f9f14d491904da2a5cfd31dee6317c9de2a20d7c920c1926bfb6f2d587785",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/07_rear_left.png",
+      "bytes": 946189,
+      "sha256": "117057fde7aef625c5f67541ee254ddf1faa8719c8f02960ce0d2ce548086e32",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/08_front_left.png",
+      "bytes": 950904,
+      "sha256": "2abf5dfcaee35070378bd7138d689f2a22f4b1c1e7a701da38293aa4e72a7046",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/09_top.png",
+      "bytes": 1149652,
+      "sha256": "b58d055a9f4e08cd36863df1b5c9abbc1f4ea3797e6f7c6ddb5ad69076c8ad2d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/10_high_front.png",
+      "bytes": 1052216,
+      "sha256": "341f68c3d7d7143544e834ad998a993ae2caaa02105361c97f31fa46486853d3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/11_persp_45.png",
+      "bytes": 989952,
+      "sha256": "4d42728817ac8471be2bcfc7ccd69e32698b98172d1712835ce2e448852af33e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/model_info.json",
+      "bytes": 2340,
+      "sha256": "0a8002d7a14024a31307e8d709985536709716744209155db46f017d839708d0",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/validation.json",
+      "bytes": 4599,
+      "sha256": "fcf1ed189c438705dd9a982c9e184d5cba92b579454070ad18eacdfbe7b28689",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/views.json",
+      "bytes": 3183,
+      "sha256": "02d052ec0f2707bef73d9053526667fef437eeb479108c348bcc8298f70f6f6f",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/01_front.png",
+      "bytes": 844113,
+      "sha256": "ec00c833c42051396440942e13f92919cda87341881515811446aa2a9160f591",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/02_right.png",
+      "bytes": 831396,
+      "sha256": "189cd9fceef858af043a4efe08acfe3a1f085f63e8bb9646f4157b06af1051dc",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/03_rear.png",
+      "bytes": 832093,
+      "sha256": "2e9827a8f3a17f2eadee31bc2ec64012f289a5278c18b4debda57e573a355c0b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/04_left.png",
+      "bytes": 834508,
+      "sha256": "1e29320606f4c05828bbd45d2fc3ae448398d37ddbc93c48f425e6f24dd8a59e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/05_front_right.png",
+      "bytes": 966719,
+      "sha256": "c1db2401799669847821b9c47858002ff628dff078d0703f34f96aabdb57c3d4",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/06_rear_right.png",
+      "bytes": 974853,
+      "sha256": "5ae56b0dfe959f12f0d9147ab1b4a22ae3bfc8c9201aff829dfec5050649970c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/07_rear_left.png",
+      "bytes": 1006766,
+      "sha256": "11f1e2b9831f8e9d93bab0a4897bc45503e0d6aa6abc5548685ca449c669c66a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/08_front_left.png",
+      "bytes": 1006513,
+      "sha256": "8fea950d77fa9cc4c21440ef2cd6b1f330b1409a580647707660647afb90ef88",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/09_top.png",
+      "bytes": 1213909,
+      "sha256": "35a79afb0bfaa15e1284e2fe37a80eea7b7d8541cb541644b621b5207461b084",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/10_high_front.png",
+      "bytes": 1102912,
+      "sha256": "4fe88c221f19c00aac5e93b68063d151f33d7853ba78ea0b2d1fff769d085c8e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/11_persp_45.png",
+      "bytes": 1048916,
+      "sha256": "c0715189d2256ae69422098da9567c8c36284871ed9b2c11d80e568de94e3e50",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/model_info.json",
+      "bytes": 2259,
+      "sha256": "bd8142f4a74254ad064b333863a3d0319e18e5b8662cf1f628a24dd7781e4b24",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/validation.json",
+      "bytes": 4533,
+      "sha256": "5816fa2cee1a0f22d64e72902ba9e87a9989f2fc04e9b32c8190545e39895e56",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/views.json",
+      "bytes": 3125,
+      "sha256": "2d5131adc6446424693c22d92aee4997557c9b5d97173d09035ff8062d5e5158",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/01_front.png",
+      "bytes": 836879,
+      "sha256": "1b2d51edf868415b8dccd34fb66f3002a8139cf50e9d5d94901d1b2d737499a3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/02_right.png",
+      "bytes": 833124,
+      "sha256": "16c2019f177b2c65e48b3e2d1a4c17827a3a3bf6c49fddcd6f829bb775e50acb",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/03_rear.png",
+      "bytes": 841253,
+      "sha256": "27dca72232480d8ec70f8802ba926bb2e7c5fd29865072aefa7f3c5fee7ee8a9",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/04_left.png",
+      "bytes": 835479,
+      "sha256": "db8dec5ede84a355845564f3446811e81cbef39fbbccbcd9d1ec7102d8cef97e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/05_front_right.png",
+      "bytes": 1013530,
+      "sha256": "c02c2557a826fc4c1e66d499b3bee21faf7e82186cf0007cdce966ba44384e12",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/06_rear_right.png",
+      "bytes": 1013602,
+      "sha256": "a076d2b0560befce97203b650ed5829feb00714723a78c5d2c470b5894c2849d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/07_rear_left.png",
+      "bytes": 1011982,
+      "sha256": "9183ac4b0f527bab839b51b40d950a2fa5ba5cbdbe5c8cdf9d132cc0f4dfbd71",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/08_front_left.png",
+      "bytes": 1004158,
+      "sha256": "9ba315c1720437203de723b08261ebb7e9abc63f35f648caf2432bc8aa5b9293",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/09_top.png",
+      "bytes": 1243794,
+      "sha256": "3f6b14035114cc641b6bb67c1527bdde18d74f56017ac2725be0a5eaae865ef1",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/10_high_front.png",
+      "bytes": 1124840,
+      "sha256": "79d54f17ff4b1c37f22c2cf3156721e6cb294776984289edcb9cfeee73cfaa0b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/11_persp_45.png",
+      "bytes": 1059996,
+      "sha256": "0b9657311058e7d6425822b122290987ba9df23b6b5f643d5a1adb420266a4e4",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/model_info.json",
+      "bytes": 2437,
+      "sha256": "eac1d8525ca6f11bf1409083dd5dbea4642e5bf0b39e6e5bcadb09af12679b38",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/validation.json",
+      "bytes": 4659,
+      "sha256": "e9160e90620ab3780d64cb1b732490fd853f65d608fe9b69e2283552d9d496a4",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/views.json",
+      "bytes": 3140,
+      "sha256": "8e39b891e5fd9bb9bfdbf7b2391cdc93d6701fd531e3c18953593d648537ce51",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/01_front.png",
+      "bytes": 821693,
+      "sha256": "3033a6110597e8ac50f5e469678387b667d8f787172d1aa6b6c613b349918b5e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/02_right.png",
+      "bytes": 821597,
+      "sha256": "968776f143dc5910afb3afe3ef09331b2c5f415a7ae0bdc1d67bdea16c499eee",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/03_rear.png",
+      "bytes": 835780,
+      "sha256": "299001a76d9e386f6137eb85bf8a7151683149d5da3091882857e8525184e114",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/04_left.png",
+      "bytes": 813365,
+      "sha256": "a8c89dcf95b286700d0093600685262f5cedd4093bf1e4a150d53c9e3c2a1856",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/05_front_right.png",
+      "bytes": 1014752,
+      "sha256": "a20915adc1909c0d485806d2405a56417e8f60898cb60e202601ae624d581840",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/06_rear_right.png",
+      "bytes": 1010507,
+      "sha256": "db5b603e42f44f3faea6f894dae48521cc1c224b440ab43ccfffeef5bf58564d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/07_rear_left.png",
+      "bytes": 1014888,
+      "sha256": "eebc18177c8de1e54506bd535736961ef2e5108ba6b6a26040517e288c47b105",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/08_front_left.png",
+      "bytes": 1012176,
+      "sha256": "5e27be1143d9d5d39d80ee9c2223cece572a8c395d43a723030eb4fcd506e029",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/09_top.png",
+      "bytes": 1252924,
+      "sha256": "907b467859a735d61b25ed980c6d335365a7b20c698adf2b170b00a8eb30e874",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/10_high_front.png",
+      "bytes": 1146229,
+      "sha256": "d4ca33bc0d95e9d02d45fff0f59313f143464dcb8778dd68740d08803a79bda0",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/11_persp_45.png",
+      "bytes": 1068091,
+      "sha256": "150ce681a24b84c5dccd0b024069636a2ea1c938d17a3cc7186acafd20ecd475",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/model_info.json",
+      "bytes": 2416,
+      "sha256": "c73d8d4d1d165fa6c306913578a741834c4df5b191ca6f9d15a82b22193da448",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/validation.json",
+      "bytes": 4641,
+      "sha256": "50e1a3060fbde27c6d3baed08311febce6aa3c40b572e035206626335e02bd98",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/views.json",
+      "bytes": 3138,
+      "sha256": "ca71659a467cea3c39cd7921708441c05b90340316e11e9f802f268453ee2fe0",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/01_front.png",
+      "bytes": 835063,
+      "sha256": "2e412d366ee5b64eb5ea12a65c798f0967affb8ee650ae4f3c9af53d024a0768",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/02_right.png",
+      "bytes": 828800,
+      "sha256": "956a398f75404b374fcb39e92a7b7ed8bb5f4c3d194dc0c4d931eed4633c3ebe",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/03_rear.png",
+      "bytes": 844143,
+      "sha256": "c734fd1c544b6bbdd1070fed7710704b80ee6c9a2db9ebf9d0a111693a6a9bf5",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/04_left.png",
+      "bytes": 816424,
+      "sha256": "2ad42522a1bd5115cb1832be69064c12a68a70bfadd994fc374adf40c6a4ff50",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/05_front_right.png",
+      "bytes": 981304,
+      "sha256": "315fc5f1382cf9fc8dfaad84c0ef966177ca438f804ab12477b2cb8c97a0b06d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/06_rear_right.png",
+      "bytes": 990602,
+      "sha256": "1072f93580a61d209adfc4a240f7f87dd7c52db0c6356fcddf1c3c5a6b2e4e7f",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/07_rear_left.png",
+      "bytes": 993173,
+      "sha256": "4b858e54c8b6d9cc9a1d8bc1102c0cdfcc5e332dad223aeb6becfa986d32e8d8",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/08_front_left.png",
+      "bytes": 991872,
+      "sha256": "d5254b761bca08020bfcd87894e0af42583297df976e8ea2766a7af6c9306364",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/09_top.png",
+      "bytes": 1222220,
+      "sha256": "d539510861f5168b13b914cf8120c7489d1df04c68ff122955a6ab2638cf438b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/10_high_front.png",
+      "bytes": 1125274,
+      "sha256": "dbd45810be7823ee1d5ec4b8e6bc85079bd6105abfe86936252ea1e5a9753ea3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/11_persp_45.png",
+      "bytes": 1047211,
+      "sha256": "0f02e82105f7b23d85eec3b4b90ad4d4130eb85e7dda7c466f18cf65d6abbde8",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/model_info.json",
+      "bytes": 1999,
+      "sha256": "583ac306041217362508b6530907a4feca9800b03200fa49fb2a68b96f66a6d7",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/validation.json",
+      "bytes": 4118,
+      "sha256": "5d35434d77f3281539265db3b75e55cba58def7ee4d4559935af1f0b90f4eddc",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A10_SM_RoadEdge_End_A/views.json",
+      "bytes": 3127,
+      "sha256": "6c89f3d7a62cb872f832c56cbaecd67866b5228bf7bb02ee43a655d7e6f2752b",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/01_front.png",
+      "bytes": 832564,
+      "sha256": "6314c1c9bdd393a8ebf3ef89723d734a84363193cb41a73dd9bd6a1079f9e996",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/02_right.png",
+      "bytes": 809170,
+      "sha256": "1d062bc4f031b421a643d82d3b6f8f9d2d92a993f0f8dce6fe00424f9a94c95a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/03_rear.png",
+      "bytes": 855968,
+      "sha256": "8e333d2dfb92730faa594ab08fe0f8a3a6fbbf41f66d7010256ac03dab9f9408",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/04_left.png",
+      "bytes": 802831,
+      "sha256": "3f5c8d643ac11b8fbf0c086365d1728ece8450b01e15e55516b22f93ec5b4c70",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/05_front_right.png",
+      "bytes": 986176,
+      "sha256": "066fb2639ac040bf1be3f538eb49b6bb1832440e4e1c7418f2b61da6bb576fa5",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/06_rear_right.png",
+      "bytes": 993130,
+      "sha256": "d9cf7afb1f56e0bebb4aea3ffcb9250793bbd912603f732ccb1c7d27dbe54bfc",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/07_rear_left.png",
+      "bytes": 1000598,
+      "sha256": "27b5378f3dc510e91c43f6ec20d326f572d39491519903b9ae21f54632731e56",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/08_front_left.png",
+      "bytes": 995867,
+      "sha256": "e47fb8c51db66bc073da64b4e64480a01d6ec74c3efd2df857f4ce8d53b26be4",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/09_top.png",
+      "bytes": 1225751,
+      "sha256": "3c2cbeb81455d7df7301abed1a9a6b8789189e200f5d29eab539ae246d68e28d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/10_high_front.png",
+      "bytes": 1105543,
+      "sha256": "d6f4e596301b90c2fea7950c9e49fa8b7f10165fbd6ecab88c97fb5423913dc7",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/11_persp_45.png",
+      "bytes": 1041987,
+      "sha256": "9a7deccbb563b7a63b468300add42ca479cecd20d18300d77acb67de9de038e6",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/model_info.json",
+      "bytes": 2372,
+      "sha256": "3775a15db45ab2cb47b92167c4f2f4c3fd352e5793432a13019f87e885f89680",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/validation.json",
+      "bytes": 4621,
+      "sha256": "7498f5c7d65310ee4909ce1e60386fb8476dde16c2e31a142ae3bcace6219f4a",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/views.json",
+      "bytes": 3125,
+      "sha256": "947b7e8f667dd4e23de4ed4a285cb4459bfbac847c13cd0fb3c6d44bd692c0d7",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/01_front.png",
+      "bytes": 945730,
+      "sha256": "98f2198e0ec41b26fdce1b5ca1ac0b3685538da6d576c92e61042f0e768c95b8",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/02_right.png",
+      "bytes": 829898,
+      "sha256": "2240b9e1e04e54e9ed7c41d558da7aea699275be04572012e33a4b416fc523c2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/03_rear.png",
+      "bytes": 913094,
+      "sha256": "4efcde094f2e6836cee9c36adf5f51952c7d2b758e8704f9667732b22e95fa7e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/04_left.png",
+      "bytes": 814813,
+      "sha256": "eb5a8c53f981d65d6d58ce6565d77e1f24ec2e9d076036af9e21e819ea6cfc61",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/05_front_right.png",
+      "bytes": 1052623,
+      "sha256": "45698ee241bdee1f67c4ea51c290584ed02bf92b894d585263effce40b2b92fc",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/06_rear_right.png",
+      "bytes": 901929,
+      "sha256": "2251e0e7b697d619122f391e3a99eaca2db3b6ac7067a2742fcbafbc8b00d772",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/07_rear_left.png",
+      "bytes": 891880,
+      "sha256": "697d8430ab938922e69e86b171850f9320085cae0eaeb8628a882ff5cf2a032a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/08_front_left.png",
+      "bytes": 1057065,
+      "sha256": "fb769f1c61eff51262b4ed52e8c25caffe57b541c552074795d935409c37a9df",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/09_top.png",
+      "bytes": 1159520,
+      "sha256": "c543559eefab70e591fa473f59b44ef674f3f5983dce85efed7ee0de11a7766a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/10_high_front.png",
+      "bytes": 1156794,
+      "sha256": "7cb0aee106971a7119731f3ca23306edf29bc426c3ee32baa8d5c8aecf69a9a1",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/11_persp_45.png",
+      "bytes": 1120309,
+      "sha256": "dda9322bbde969ed214b1b844b071f74b785bca0c7ad99b08621660ff2aa6be4",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/model_info.json",
+      "bytes": 2317,
+      "sha256": "34c7409c64b2dc232bfbfa8cd626136e1ce131082221f63e28a5898007b72863",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/validation.json",
+      "bytes": 4602,
+      "sha256": "3fd859424bbbfd677b3a87e74ea48ffa759b417362ca64ba95cedc8d02812e35",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/views.json",
+      "bytes": 3168,
+      "sha256": "fe6941c83a28118e18df15392bd93704b976a58e26d6782e2f36391fb8c0bca5",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/01_front.png",
+      "bytes": 955099,
+      "sha256": "650534bec2f7ae1f71f364a6aded005ab73bad920a85594e645909d2debebcb6",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/02_right.png",
+      "bytes": 818614,
+      "sha256": "e68b4acc488239d79157b42e995a34ce310f583d3736ab31a27d6575ea0eba4e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/03_rear.png",
+      "bytes": 935418,
+      "sha256": "abf0b101750f34905354b1ee8599cde10e93ff2c1c0b02cfe1f5c1b01fdef39b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/04_left.png",
+      "bytes": 818263,
+      "sha256": "40578f02bab904479661756dfdcba731a00479a1af26e1d7dbb5738c1355704e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/05_front_right.png",
+      "bytes": 1066975,
+      "sha256": "6d23f20c7f5c944beeed5742d17a511a7390bd34e9940f3a60b94fc41274240e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/06_rear_right.png",
+      "bytes": 895499,
+      "sha256": "9b91557dbcb2c7aa70bbff34499b462651916d448303243627955d47e0a13bba",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/07_rear_left.png",
+      "bytes": 903592,
+      "sha256": "9519907d334d441df762271eee656f0e656800127f25e9530fcf1800d5eb2071",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/08_front_left.png",
+      "bytes": 1057484,
+      "sha256": "a1267ad74b655031d4441ea4c33d131c705e0e0211fe65bbea7d1e3e04bb6550",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/09_top.png",
+      "bytes": 1169935,
+      "sha256": "812354e4594a37c0481b4bbee20dff63a04645a696152bb9f5be0d3906c6a315",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/10_high_front.png",
+      "bytes": 1137881,
+      "sha256": "7175187071ec721333794d088164c0e931a70adb1a0c133205f1fd125161439b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/11_persp_45.png",
+      "bytes": 1124483,
+      "sha256": "1d2308c811b60c2c18f851a56021cec070b7f389ad868fc11833fa31700556e2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/model_info.json",
+      "bytes": 2293,
+      "sha256": "5c1c3f2facf29c613f93e716736ed2044dcde844e83395b791d30d99f44f8486",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/validation.json",
+      "bytes": 4602,
+      "sha256": "c8deec9e5b615d654985c7bdb98dcbf126f2960489dc8063f91d9063868ec820",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/views.json",
+      "bytes": 3166,
+      "sha256": "26929cef887dc88c5d6df2b892ec8a6f054f14276ac08e6a32d9df26fb695835",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/01_front.png",
+      "bytes": 905483,
+      "sha256": "4bd393712965cd37880d45ceb0a7a9a9f3dfc763655eb73f7d91b0a23c6fc793",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/02_right.png",
+      "bytes": 880371,
+      "sha256": "e011fd9206c1c7ade2a04c6f0ce9dcc0bcde83117a9889cd04d212a8b108117c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/03_rear.png",
+      "bytes": 878690,
+      "sha256": "0b8465c77bba2812e2bd89b88f869051921e8af385822dcbecc42e949a97a6da",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/04_left.png",
+      "bytes": 867157,
+      "sha256": "d4013591910959777374afb0822327aa63ad221aa8093cb97362cf7e0b79f86a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/05_front_right.png",
+      "bytes": 964635,
+      "sha256": "d56ae59e18bcd3ce7aebf554255875251cc9c979e3623b03c489b85ffb893456",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/06_rear_right.png",
+      "bytes": 881683,
+      "sha256": "8b748e7cfc2e6d9c67ad06cd12b74119b00ae55cfa53b70be495fe5ad56b5c11",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/07_rear_left.png",
+      "bytes": 945800,
+      "sha256": "0e23c309e22039bcb6476045ce31a7a96aae6b0b453bc67a66ea00f566167c79",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/08_front_left.png",
+      "bytes": 1019165,
+      "sha256": "52e27a74126b2edef31aa58aafbf2eacd2c1c011cd62eeb7eb34bd9d4a208496",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/09_top.png",
+      "bytes": 1153151,
+      "sha256": "8ac1ddf742d7bc5b14d58aa2878d2a2509f2684258fee00c2b56c461203ce396",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/10_high_front.png",
+      "bytes": 1091322,
+      "sha256": "3115d4bb6e5b8952bd2f6aa1b01c644a7e9d7c623712221e2126026b37e42f7d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/11_persp_45.png",
+      "bytes": 1089611,
+      "sha256": "7d88399b4e0185a41ecf7c7ed5ca072d7d260021a72663b98f7085610ace570c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/model_info.json",
+      "bytes": 2421,
+      "sha256": "ce326c95992d7c60500c7861ec5b36cc53918e7182371cfc1ad84ce5b1de8fce",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/validation.json",
+      "bytes": 4635,
+      "sha256": "7ba77133adc650713c31d15c8b7a678c8f7e52ccf24d9f171f11ab60a8f9f148",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/views.json",
+      "bytes": 3221,
+      "sha256": "0da86c35873d4d524f32be3ba9cbaef0dc0ba6643e9a4dc1c03c216e0a40f72e",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/01_front.png",
+      "bytes": 888083,
+      "sha256": "4a7440cfdcea1578534408d10a5cc879e8d6d4b21eeaffdf6eddc4015badfe02",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/02_right.png",
+      "bytes": 898430,
+      "sha256": "d84262ac9db2557f9ddb702c48ebef5f1a1a1bf22624324ca996019c84f78e72",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/03_rear.png",
+      "bytes": 879032,
+      "sha256": "630762a975fd7d95b7330d84a8b586b86eb4f3e5ed17b7201e2d0a1a66bff0c0",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/04_left.png",
+      "bytes": 867672,
+      "sha256": "d023814a0ad756102eb02d132bb74b6e30197030c4b7e71a5f7b28f48dd66c20",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/05_front_right.png",
+      "bytes": 1008869,
+      "sha256": "40a4b3f4181abc20ff4605e07caac6fea03a174b90130a2fe26a2572ed3117e9",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/06_rear_right.png",
+      "bytes": 953025,
+      "sha256": "2adcb4b0e0bb05121e7c4e34437135b50248bae83c84d7084ada9cd627626738",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/07_rear_left.png",
+      "bytes": 868856,
+      "sha256": "71d2744eae2504b5e1063daafa306a0a97e257f4cb9b16352a2704c3ef1da070",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/08_front_left.png",
+      "bytes": 937030,
+      "sha256": "ace27834c170508a54073f9cd5c24f3de3725094d01efd878a284ce16220424e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/09_top.png",
+      "bytes": 1120891,
+      "sha256": "a6ab2fb9b28446cb08e547baf6cd898649304d7763abb88bcf1fd40c47834c6c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/10_high_front.png",
+      "bytes": 1080628,
+      "sha256": "be5c8246581de1eefd6c64806cd2743c2a6b157c7b8df4d919405c9fdefcdf8a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/11_persp_45.png",
+      "bytes": 1023158,
+      "sha256": "ff57286c6ccb14f61fc2a80e13b5ada20f5ddbfc053907266d25804202aba09e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/model_info.json",
+      "bytes": 2404,
+      "sha256": "dfab8e041445b0ac0a77a787c47abff66c7941716f0e231e1d85f15fc3f553d0",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/validation.json",
+      "bytes": 4633,
+      "sha256": "af99d238db9d2be579596aee55c1fd34604089d562bc5d85fe7589bf46e8db93",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/views.json",
+      "bytes": 3211,
+      "sha256": "29947c32151e4dc930c4693e2851d417789078d1eb6b8a50be9279da807d67ea",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/01_front.png",
+      "bytes": 950365,
+      "sha256": "a2fb8a3080e0d9136e0fa099e8824a5254893796945ab5cabd8f5edf9495139a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/02_right.png",
+      "bytes": 844315,
+      "sha256": "4f5c3aace779c53051f751148a8f8477adb05e80bea479d18d9f384913d290f5",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/03_rear.png",
+      "bytes": 929385,
+      "sha256": "0ab3cb834764449711a49f7cf48d64b385d9d4161350b6bfed9136ea639ba522",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/04_left.png",
+      "bytes": 845235,
+      "sha256": "739e94b8fe5c22876f11cd9b1cc890c619f218ccc514dacbb6e07874db791777",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/05_front_right.png",
+      "bytes": 1065155,
+      "sha256": "dbb1d4447b343c76efd6e352eb8f8ed0d06d77a8e4c196f79331eec1140a0c00",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/06_rear_right.png",
+      "bytes": 904951,
+      "sha256": "02a5e956e3e49f422d210c81bb558e278de520664a7b6582cd93883e340730e2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/07_rear_left.png",
+      "bytes": 893520,
+      "sha256": "0755deb847e62a1d77c282d62d72794fe8d97a866c54d251d89a77c959652734",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/08_front_left.png",
+      "bytes": 1051723,
+      "sha256": "17c9e7722172a25c128fba18cca650ff899ec94df76ad8b755bece3df8c1f8d6",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/09_top.png",
+      "bytes": 1153155,
+      "sha256": "0680dda767865e0c8cccb0c2a4614bea5e8e57c457d827a13fc2b89d72a9279d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/10_high_front.png",
+      "bytes": 1149863,
+      "sha256": "bced8a8cd9b4105001a95e26f3c72d0cb43740fc5a45d9f7df1ad269dd2324c7",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/11_persp_45.png",
+      "bytes": 1112291,
+      "sha256": "077238f74812c7d494826e97ad07010b69157e57bccbac1d785866e664bb2e08",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/model_info.json",
+      "bytes": 2463,
+      "sha256": "1a54c14283a9065deddfe7bd612f1ea842f8cb8650f8a82944fc302bfc9526e7",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/validation.json",
+      "bytes": 4661,
+      "sha256": "73abf6bbac12c9f2ecb39d085ef50cbeebb3d4a2e7babdb8cee29f682539deca",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/views.json",
+      "bytes": 3162,
+      "sha256": "35f38cd740c57cfed08596a8888ec45076b2f8de0bb862eccc355d3d6754c8ae",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/01_front.png",
+      "bytes": 962902,
+      "sha256": "b548e0fdb3283b6ed8d2d7f2610e73d23de0019c72c6286ad3c03a68b423152d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/02_right.png",
+      "bytes": 847028,
+      "sha256": "93a31eb841c1b690b8d42ce39ee2fc1dd15f58b8426a6f8afc120cd73f05baeb",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/03_rear.png",
+      "bytes": 929049,
+      "sha256": "993c1d5b02bed5346031469bf354d08282aac1c62a6ed3be51644d48a7959581",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/04_left.png",
+      "bytes": 849989,
+      "sha256": "c3940e53632985a24a2f0f31fa9d3f11a64658acd3dbf5c74e99b78ecd076844",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/05_front_right.png",
+      "bytes": 1059898,
+      "sha256": "1e945c870b67a2752435333cf99ad9cd385521b0c13aa65dfacddb57c2ae61fc",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/06_rear_right.png",
+      "bytes": 911916,
+      "sha256": "1dd89a8e7088aca3332bab22b90b0f47b3f1fd5a49afe38b94976bd2c590be1a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/07_rear_left.png",
+      "bytes": 912324,
+      "sha256": "7d7f080183c5db985777fb57f0948d24df8fb6d68dcffe88cb85cb1dac344405",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/08_front_left.png",
+      "bytes": 1049090,
+      "sha256": "2bb0b48a88c10c6958c835fa22defaffa093c83352d1550214fac880d8d0d70e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/09_top.png",
+      "bytes": 1135080,
+      "sha256": "65ed12a5070262d63841353428d50513fa4582158a5e2a2cf5d319f05998dc6b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/10_high_front.png",
+      "bytes": 1126758,
+      "sha256": "2b80691c2dcf67a311949a5891109af834b52298200be530b946964c8fc0a740",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/11_persp_45.png",
+      "bytes": 1108920,
+      "sha256": "e95e9bca4c16f6d31f9f01c2c7a7a8bb0cb0a26762f10edf853b7c5ddd0064cc",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/model_info.json",
+      "bytes": 2400,
+      "sha256": "60ef3b3c05337c37553cb998448c74dfa31e637438fa24884c6a5f7440e3d753",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/validation.json",
+      "bytes": 4661,
+      "sha256": "54a702b7fcf9e24b769d04819e65d898cf7dc0d7f10134d2ab777c86f4f1e408",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/views.json",
+      "bytes": 3159,
+      "sha256": "21d4907183f6d1952bf1b8a5c1a1853f45e61e3f937129d0b44859dfa5ee7ce5",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/01_front.png",
+      "bytes": 960418,
+      "sha256": "1530d02357a9da4aac87fff227cc2281f413a84abf7f9e35b899fa6c934a2d3f",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/02_right.png",
+      "bytes": 850810,
+      "sha256": "5d827250904b0facf12d862e927d38722b7d9ed9510a8df2ad0a01247ad4dc93",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/03_rear.png",
+      "bytes": 943182,
+      "sha256": "8fce4b7c3d8e046b67caf7ac5ba2cf3576b003418b02ec6899c6d89b70d6a837",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/04_left.png",
+      "bytes": 852352,
+      "sha256": "a8b924d43009655ece0e353d208da5a9118e68fb94bc58ed7c329e942409893e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/05_front_right.png",
+      "bytes": 1089100,
+      "sha256": "30d834069d62f1ebdaebda674ab2acfed9f3960aefec241ed0cc73faa8d505d2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/06_rear_right.png",
+      "bytes": 909430,
+      "sha256": "d7fc78579188b3674a1a3f3a705c980f55a2f5fde8ea7f7cdb9810feb5e5adbd",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/07_rear_left.png",
+      "bytes": 906123,
+      "sha256": "149c5c1b2eda6090571de259dca51b494390b11ae9aeea79d4e0bb3ed067f80f",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/08_front_left.png",
+      "bytes": 1067520,
+      "sha256": "2e23b0482ab658d440beec6bafe7c5bcdaa09c5eebaa57b216b76a4eed541074",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/09_top.png",
+      "bytes": 1184587,
+      "sha256": "7dcbf5b38814d1ed4276c76a0d511e615741867f26d8e184d4200bc0e15c8c3b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/10_high_front.png",
+      "bytes": 1176384,
+      "sha256": "fa5e4fa5b1cf8d628fbb133cbda6552a12a900e87a0dcc6aa0f8024538272223",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/11_persp_45.png",
+      "bytes": 1134576,
+      "sha256": "d3dc1fe1afdcfe5aad248296886f0ec126b9a6883346cd9c6bc8493a2b2c29d1",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/model_info.json",
+      "bytes": 2604,
+      "sha256": "80452997bfd1b8ba77353fa63b1a3787dfc94d0ff9d4d43ef8adf8fef0d64f00",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/validation.json",
+      "bytes": 4780,
+      "sha256": "a50870f164ee8b707221f17aba61fe344b11e2031264d5376cd676b4bbf361dd",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/views.json",
+      "bytes": 3162,
+      "sha256": "439b72989e86d7b3b6b38a08f0978fcb853c00ae7a7f71586c6a73eca1c11bd4",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/01_front.png",
+      "bytes": 980072,
+      "sha256": "d6513e31403720c4721f0a8b3f15f5506443eddaf4a8d71b0fcaf94184a99337",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/02_right.png",
+      "bytes": 835656,
+      "sha256": "7fe1787301e0c34c05427284be6f21d5d080ec6f937c4d5bf8ac1121501cdaf0",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/03_rear.png",
+      "bytes": 944116,
+      "sha256": "581ef0f944a7dd33c1a267e7df62c06d6d7ddade89fc778dbfc831eb26f7b9ef",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/04_left.png",
+      "bytes": 864533,
+      "sha256": "4851629fcdda783de51691a7df1053aa40671d08f08f3285b75d8ac595a41f2a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/05_front_right.png",
+      "bytes": 1072859,
+      "sha256": "d2a5726700d34189dce466db2ef51f4c76803e8a75eeb26fbb81fc1db0e4119f",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/06_rear_right.png",
+      "bytes": 929583,
+      "sha256": "33d52ee407985a418859526087dad7928796be4b730a322ba49c585c6d132664",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/07_rear_left.png",
+      "bytes": 928894,
+      "sha256": "db28dfa5a26e2c8e0ebea082d6082338bcaa55128d318ceb4c092d6a3a3eff53",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/08_front_left.png",
+      "bytes": 1064798,
+      "sha256": "6eadc31370709c10284b7b4b51d8f4efaf9b82d3c553d3f936d9d7f17f6b63cb",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/09_top.png",
+      "bytes": 1171027,
+      "sha256": "459e8524550fa95a1ec87616ccba65b5ef8f1d2c553791ca4c3bcf7ad07cba38",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/10_high_front.png",
+      "bytes": 1172506,
+      "sha256": "3b8af9621724917f9dd8cced7a0fb9f9f221557394c2328e1abdfef37f0e642e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/11_persp_45.png",
+      "bytes": 1143320,
+      "sha256": "c1d100e8885a752cd4a5212325f512d8aba2772981e0730e2d5fd3b03a25b6c3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/model_info.json",
+      "bytes": 2440,
+      "sha256": "4f9ded618329becb1d885e2505261cc1b7583067e7fb0d5e500609c9dc6cd9a6",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/validation.json",
+      "bytes": 4677,
+      "sha256": "2b1dd5c7074c7a42d92568624d6883f86f5fee0b92f6f8c36cc8db8a4ca8ac04",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/views.json",
+      "bytes": 3169,
+      "sha256": "12b0b04612d8dd5d4c1aee2135ec3ceb8845870c043868757f8a6a51dc659d67",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/01_front.png",
+      "bytes": 948662,
+      "sha256": "24e5e4a8e80cd65450bf6668a8f9c0659bd305f1fd0dbee06702ccf0e1d1f2ed",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/02_right.png",
+      "bytes": 835925,
+      "sha256": "346dd850c42326e081592c26d13f8202533ffa7ff76d039398eb470ffea32bb7",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/03_rear.png",
+      "bytes": 931069,
+      "sha256": "8248b52dc0d90e8452431dcd72b5cf46e5966639bff3d51dc18f55b926ccfae3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/04_left.png",
+      "bytes": 831308,
+      "sha256": "df48c30a07b458395d0012dafd21bd03077203f95f70a9c9c15e5f44c8e36f3f",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/05_front_right.png",
+      "bytes": 1054139,
+      "sha256": "ad14cd8bcd7aba5f2aa3581c0a3da803b7fa175968a70d5e717c396b1132a1ce",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/06_rear_right.png",
+      "bytes": 904119,
+      "sha256": "7f5ac00f85dbf193191b57938c7ad0f699fb75ae79dfe03968842fbbd70c82ea",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/07_rear_left.png",
+      "bytes": 900654,
+      "sha256": "77c236df4fafddfd387050a24c5e0b532313d8276e0249c53fec20969d90ff3a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/08_front_left.png",
+      "bytes": 1056002,
+      "sha256": "378c10b57f131ef07181396ba4af84dac912a5af2f98f50b66aba02c237b27c0",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/09_top.png",
+      "bytes": 1162660,
+      "sha256": "4a15c077c3af74cbb8846765e6d62278ffcc84ffdb0839716910170731a4fff2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/10_high_front.png",
+      "bytes": 1156218,
+      "sha256": "d52c2e40e7611bdb0d2d2ecdeff0cfbd500f3099ba244d9fbdfda89e2a28e955",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/11_persp_45.png",
+      "bytes": 1124494,
+      "sha256": "8bf843beb2fce56f494f141becbefc84fee03133b6c263bd5fa1506fac849dcf",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/model_info.json",
+      "bytes": 2252,
+      "sha256": "98c20f7e88e165a2e127505cb73556025f26872401d722a438ccda2334d89488",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/validation.json",
+      "bytes": 4580,
+      "sha256": "9ee1191506e2f2f79f2f4bf076e7af3eb392f2a7e4bae699adf9842850dab6b4",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/views.json",
+      "bytes": 3150,
+      "sha256": "2b1536c9d081c0b197b22d67aebcb05391464059e03d618015eca8c0e573169b",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/01_front.png",
+      "bytes": 904643,
+      "sha256": "01b1ca39536503bc58fd04c68040c430848a57bbbbb448228ebfc8de84d6e8c4",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/02_right.png",
+      "bytes": 838417,
+      "sha256": "803f71ea1aa02f89a35e8bc0978932a6600ffc0d4704e72f7628fcfab3827929",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/03_rear.png",
+      "bytes": 894988,
+      "sha256": "dc743d01a0c272de87997374ff65a7933aec88e7597d8660712334786837372e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/04_left.png",
+      "bytes": 847306,
+      "sha256": "a54d52f45fac5f9e401c0f9f1bd3ffc9fd2a39c53cc123f1c896d552ff0062a9",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/05_front_right.png",
+      "bytes": 1004134,
+      "sha256": "2bb5eabaf12362c3466d562e246aa99d871b9a0c69abdfea6e7475ea04f11c7d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/06_rear_right.png",
+      "bytes": 924397,
+      "sha256": "8ede5fc377a39dd68dc38b003d362e58596186c298238f80211a78467dfd13c4",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/07_rear_left.png",
+      "bytes": 943783,
+      "sha256": "328695a4c7c01a059a9fe5206c909fb62ca570067965bdeaafa1ec77910ba011",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/08_front_left.png",
+      "bytes": 1037794,
+      "sha256": "fa363d29f0830cb8750822917f642b37b6287540e00f15235bb36aff5989a7c2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/09_top.png",
+      "bytes": 1186749,
+      "sha256": "6b7949fe47b38572ab95bc1f8800663907ca278dc59c025476c27efa5f9f57cc",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/10_high_front.png",
+      "bytes": 1122639,
+      "sha256": "5fb6cc6b21e18b1c2a26f9317ca27972ab527ae51a510f643d654cf20ac18304",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/11_persp_45.png",
+      "bytes": 1128995,
+      "sha256": "62f892c21774e90d0d2383fd167772ae2ad0579be91ca9c64a91334a5bc83eff",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/model_info.json",
+      "bytes": 2003,
+      "sha256": "0e1f3488a6e5800c9ce08cf00c65b3ae8ce10c176fc9d964a2f6dec5c04894f7",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/validation.json",
+      "bytes": 4123,
+      "sha256": "1d8bc7a413fd7a541fd1f3ad3db26441c29f992261927af1a12381210fe22696",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/B10_SM_Riverbank_End_A/views.json",
+      "bytes": 3157,
+      "sha256": "04946b63149c520e439cd25c53f10456cafbefee9ac6fc3ba87a2de5e17d2d8a",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/01_front.png",
+      "bytes": 816620,
+      "sha256": "b0cd785f82c78b6607ad2566265e40f9740c501d71a3021fb8ae3c64ffff09f9",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/02_right.png",
+      "bytes": 835247,
+      "sha256": "3d2fdb84374ac1e32db78f625db6d7904be0cc802a6af9ec746d5a3b725df8e9",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/03_rear.png",
+      "bytes": 849225,
+      "sha256": "928787e5724b09d82a77000c43cba76b21144ae9c8f7f93fbc243c7ec326159a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/04_left.png",
+      "bytes": 837547,
+      "sha256": "aa1c919d476c8cce84f62c9ebec7cca2c161337b2b4cd3a44a8a928234e48507",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/05_front_right.png",
+      "bytes": 959278,
+      "sha256": "75a6a6f6f7a5ef0ac2e8a59682cc9ed5902699063a1f68cae8705c8a9c8f6286",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/06_rear_right.png",
+      "bytes": 958760,
+      "sha256": "6fa28f6ee45f563e4ecf179846096cc9486ad1d7e0453be8ce418aaaf9ad4854",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/07_rear_left.png",
+      "bytes": 987331,
+      "sha256": "58298563d005b861041ceded12ba7d295f0d10a6ef22095fc52148b444824d61",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/08_front_left.png",
+      "bytes": 984979,
+      "sha256": "0af379be0a9de1eb0115d6bfd5b71ff665eead790e1b04af1984551231bf592b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/09_top.png",
+      "bytes": 1194778,
+      "sha256": "e70d7beeddb3c61cca1339abfa887397f8a5fd5570405e0a3c2076b382cc3e23",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/10_high_front.png",
+      "bytes": 1098242,
+      "sha256": "6b84a18d91304591d160219a2fccbb37a26668c0fa20b7505c5173de54a964e2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/11_persp_45.png",
+      "bytes": 1014768,
+      "sha256": "b72c3dd47b97f00bd9759666794ad91f3b22e07a790b9a086b0f5401cd9dff5b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/model_info.json",
+      "bytes": 3090,
+      "sha256": "f534895def7db9efc7fabe42cc384ea331172ebbbc53c13a81c86ba42a5c7721",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/validation.json",
+      "bytes": 5485,
+      "sha256": "2ae705fb00371842bfeef33118844334ed14d62790cc82962ec6519b72f1ac99",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/views.json",
+      "bytes": 3147,
+      "sha256": "b5fc9f23fb26f2ac04b206e404b7f5eb39b1bff67f2732c950f96f4fb598847e",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/01_front.png",
+      "bytes": 817265,
+      "sha256": "43e6cc12985b2885cef772a6bd397e103cd3ebb59c2f095a673062de24ad07b1",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/02_right.png",
+      "bytes": 870388,
+      "sha256": "337e0888f9d0652603f18685f5e67fd974facf87210c7597e8d98bafbb15257b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/03_rear.png",
+      "bytes": 824098,
+      "sha256": "ca4509cb14e549cc1767ef66d0719f5eebc20ec1dea01dad9338eb32403d5b55",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/04_left.png",
+      "bytes": 854704,
+      "sha256": "0996f9245be0c6b32db878deafab839318f657abd8d950e0258bef485c6c9a62",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/05_front_right.png",
+      "bytes": 912004,
+      "sha256": "7dc2fd9bcfebc4a4f4ffd77c9611f2a0838821a9fac1ef8e8df4e414a93aebbe",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/06_rear_right.png",
+      "bytes": 932001,
+      "sha256": "674c7e4a715215d6e38582fc2fbcf4e667f14f04c65c5575e3182e0daac07eed",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/07_rear_left.png",
+      "bytes": 855692,
+      "sha256": "86694dd469834ffeb2bf226411e494b571fce16a715f00602f852b66f2a7d127",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/08_front_left.png",
+      "bytes": 864206,
+      "sha256": "3d5e0a5fb2bdd2b8d5c3a065b7eaf344f00006a51c813065903f9fde0321d3f3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/09_top.png",
+      "bytes": 960139,
+      "sha256": "d6d9f9eb968df84a04673e8c6845f7ea267c0cb4fbcc18ce670bcd682dc24c26",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/10_high_front.png",
+      "bytes": 922346,
+      "sha256": "69a57c89a52dd577a73ed3ca8dcfaa50aa739bd957432f58d0ef9e2173221257",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/11_persp_45.png",
+      "bytes": 952488,
+      "sha256": "a80ee8b552e2d7b62c758c4d60bdab170a1cdf7ed80e9b15d16fd24d5d23b417",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/model_info.json",
+      "bytes": 3292,
+      "sha256": "11748f52a4a90c75a19859fec7928f2aef8bb9be74dda182f66473ad2baac482",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/validation.json",
+      "bytes": 5823,
+      "sha256": "f507b4d2b5266ef7a92e0d9d9e4251f24c15afe02a772c74186dbe95d95c0254",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/views.json",
+      "bytes": 3189,
+      "sha256": "e8eed2d052f99e4237cdd6cd1846e7d273b4696686712e589d823989911163b7",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/01_front.png",
+      "bytes": 906985,
+      "sha256": "d22d8b8c6c79a0eb190254b41a387d51e99401048697e603d55e37c08e7c47d3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/02_right.png",
+      "bytes": 877406,
+      "sha256": "84e2e04125ce25e8f1ce2b9d76f8eabb34085f1514cac65fd5632823981f086d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/03_rear.png",
+      "bytes": 906550,
+      "sha256": "cb1b25e3214049efdeafcc8feff4340a92e5b3ac5843c4ee12bca14a308b130e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/04_left.png",
+      "bytes": 885788,
+      "sha256": "3c9e44ff462cd345b9d28cc8450590346eb6b833fcf66bd86e25ec4a30dc2d0f",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/05_front_right.png",
+      "bytes": 960321,
+      "sha256": "59ee7a9d8da8c79384c94dd867432cd6b0529a7ee8b384069c44f5d7e9a3bbe2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/06_rear_right.png",
+      "bytes": 980355,
+      "sha256": "4b1ba6b0cd6d896ffe6f0a0823ed48625b1259cc0dcf6af919fd45a145322acc",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/07_rear_left.png",
+      "bytes": 979369,
+      "sha256": "506de5624bc7bbcf15aee26a3c315349331435c66c1ac8255a56afcac6db3e59",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/08_front_left.png",
+      "bytes": 969244,
+      "sha256": "2efcd65ceee44168c6e6c5b5f1f2cca79a1e16dda399498eb60a8c9b86da2f85",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/09_top.png",
+      "bytes": 1050800,
+      "sha256": "df77fb36c7eaae4ad393edd2c32aea59bcb415fea8281e54ab31b48bd69c95cc",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/10_high_front.png",
+      "bytes": 1025526,
+      "sha256": "a22a1ce4799282fcf14a69cff61e90173420db71aed45617b148ebd0fac34ecd",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/11_persp_45.png",
+      "bytes": 1016050,
+      "sha256": "3538f6afe59f2dd56cf78b1088b7479e9a620ada23bc91e0d966dfee73baf763",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/model_info.json",
+      "bytes": 2650,
+      "sha256": "94e9866e66aed0e0da79c0276fae8a67e9506d4b03b9661ac74c0ad56e0ff085",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/validation.json",
+      "bytes": 4889,
+      "sha256": "4f78155174a39d7f91679cc58b1c280b88d6b998dd6358be4ca678eee5008348",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/views.json",
+      "bytes": 3134,
+      "sha256": "afb8a8c25a5a4a558cf325e9685ce9979e15c26c17164d14b4c8804c598bb45e",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/01_front.png",
+      "bytes": 917505,
+      "sha256": "6ff5e1916b70d0c41a60280058a71851cdff8b7d6341a2f98106e76a41fc0d15",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/02_right.png",
+      "bytes": 865568,
+      "sha256": "1b1dc9b4c5fdc9dd2acf95fcf2bcffe7b4504d3cd5ee6eafdece77e1de5e2491",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/03_rear.png",
+      "bytes": 913403,
+      "sha256": "7820a0e11e2a9467d2e95433240cac16b05e45e87a424363fa8b57d467d6da05",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/04_left.png",
+      "bytes": 881230,
+      "sha256": "2073a39a6163a9a3f18f79e5d44a33ecdc3a386940785cae2143a574d2e4e6b4",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/05_front_right.png",
+      "bytes": 986042,
+      "sha256": "11354b5585e2f6ed6e11c04efe9bb8d544eada2161f04c8c389a8424e5337037",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/06_rear_right.png",
+      "bytes": 957906,
+      "sha256": "4b9959e3ab11464ce71af74d7e7ed4178f893dfcfb1ee4f7ddbf42c8f7102548",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/07_rear_left.png",
+      "bytes": 985610,
+      "sha256": "9d3a281a0a189ffcd4e482a2bfb616f92eb6eda7e146693c24fb66cb47a34fbb",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/08_front_left.png",
+      "bytes": 1007497,
+      "sha256": "28b26cc0bb7f8589acdf3a5571b8806f16a88cbddc88045d5b1e576e03c3084b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/09_top.png",
+      "bytes": 1047166,
+      "sha256": "81e4461226b53fc6dc2b92e47177615a57e53eee34d2eba5cb15f3e0799ccfe2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/10_high_front.png",
+      "bytes": 1052578,
+      "sha256": "af2730ad5789755f6148fa71d4bbdf964155472fcf488d3be713d8120bc9b1df",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/11_persp_45.png",
+      "bytes": 1041350,
+      "sha256": "2c081239e5eb8a131d0c2e68fa77ba58f70e8210dd16dd01ac0d54549e5b6017",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/model_info.json",
+      "bytes": 2601,
+      "sha256": "5ee43bedada8e1633cf1a2a874ca342725d9f3f1eb27c141b56934a4a5d17184",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/validation.json",
+      "bytes": 4889,
+      "sha256": "c852d1b1265f302b121a0177bf562320099d03fb7016fb81d74136035f36fd73",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/views.json",
+      "bytes": 3128,
+      "sha256": "ddaa9ef17b3cf602f925e040b234f08c619818540d4a7acfabe276730053e21f",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/01_front.png",
+      "bytes": 858721,
+      "sha256": "0537d564387658a1f83cd37194eb911243b7e23666b0bb36cdc87d414cd8b5e5",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/02_right.png",
+      "bytes": 888157,
+      "sha256": "2a25e2b592bc5701a2b5c333c42790a120d51f9f44ac83465e033595defde9ba",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/03_rear.png",
+      "bytes": 839758,
+      "sha256": "0a91c2eb656ded00889905a5b431eef3a8bb04e166982d4eb40305265d8f6e8b",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/04_left.png",
+      "bytes": 907419,
+      "sha256": "73581a8138445f0b19aa22bffb2e039ce7a181a7958292351807b553e44889a2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/05_front_right.png",
+      "bytes": 1020365,
+      "sha256": "42c784f1946b23f6e1ad2d4780afb1a095bdbfa8f518efffaf21ed215c13f3ca",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/06_rear_right.png",
+      "bytes": 988091,
+      "sha256": "f6002c5ce985cab57709d0277c364ff4d61c3f65553222ce4ce15cfc6f10aa37",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/07_rear_left.png",
+      "bytes": 1030447,
+      "sha256": "5c312f8cdf2391186c085c96127b0d400f6d7be0763697a10b717daa2a482e71",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/08_front_left.png",
+      "bytes": 1016974,
+      "sha256": "e6537eeb40ee736ced39f15f9e2b50c818362504a082f582ac188da4d5e88266",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/09_top.png",
+      "bytes": 1117235,
+      "sha256": "d4b34c9ddf397151a992cc804d04841ce60ea8ef3b2ac01953b16adadf4743c5",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/10_high_front.png",
+      "bytes": 1058344,
+      "sha256": "3aa249f6e7c62887ee8284cfaa5f8c0980744d381a49bd55a6b24d3acf30d2ac",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/11_persp_45.png",
+      "bytes": 949407,
+      "sha256": "e80d279f27c039ef44b9e9511e2e9f3a30c9bba38d3214199529bb84361a04bb",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/model_info.json",
+      "bytes": 2104,
+      "sha256": "06b382b848bc8ba7e7cfeef8f3221c24ead1b73e7d21a72cdb23c50b6ca328d7",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/validation.json",
+      "bytes": 3958,
+      "sha256": "107826325ee4a1de34c41d8e559a80b1a05cdc171ec17dbbe59b440da6ffc230",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/views.json",
+      "bytes": 3145,
+      "sha256": "0890343d65eef538b6a5c57ae93c1afb268e9570faaf0faac5b4a345d71a375b",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/01_front.png",
+      "bytes": 805458,
+      "sha256": "9b271e5c18c877ec84808ea7605f3de63192ab6106354ad4351e56db332bd2c1",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/02_right.png",
+      "bytes": 820488,
+      "sha256": "653d6e301a4bebcb696d6e51595ef08c3076e4b073c67fcd44c6a192f792d476",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/03_rear.png",
+      "bytes": 805015,
+      "sha256": "4dcec18ce7792795ae69952a0478663be8e9123db5925341a85532d2477d28dd",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/04_left.png",
+      "bytes": 833423,
+      "sha256": "84a0a88dbadbb44037eb004e9de320958b063cb5e16bbf5d327669e98ff11824",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/05_front_right.png",
+      "bytes": 989486,
+      "sha256": "5976cbff3b3b8602b830733b23f786dc27bdf85132d72edb092797a9f71beaf8",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/06_rear_right.png",
+      "bytes": 986794,
+      "sha256": "5463b9930c965196ecf7f030996a7ccfb333123dfefdf72d41ccd42117f74cc8",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/07_rear_left.png",
+      "bytes": 935154,
+      "sha256": "d18e71b3ebbe232b832176c8b7950dd184ade8474910e9b2bd57b935f36f9984",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/08_front_left.png",
+      "bytes": 928938,
+      "sha256": "903118b26031c615f8b6a753329e842b5f599117c12437b0353ccc7502ac7498",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/09_top.png",
+      "bytes": 1209533,
+      "sha256": "3f479d0f38fd64756d325d7476b836a06bd13ae93f43952ec1be8294ddb31d20",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/10_high_front.png",
+      "bytes": 1090045,
+      "sha256": "4bbb92af6b39f6a43f26153363f23a9768c29033ccd095e929ae49d4c1e01fd7",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/11_persp_45.png",
+      "bytes": 978680,
+      "sha256": "54f874775e4bfdbdb97b4ef338ed49fa20b920a4497c71cd1433e332b77152c7",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/model_info.json",
+      "bytes": 2209,
+      "sha256": "9afee5ab54573270e408b0bb250ca1429cb4f80f4c7632b5906c75ec3540347e",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/validation.json",
+      "bytes": 4375,
+      "sha256": "92889a4b8acf6f18ff84d8039a62f39635576e75b69f04aaa527edb05ab8ac4d",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/views.json",
+      "bytes": 3095,
+      "sha256": "5e590df283ef91189a182e5ae3352948fc6687b1cdfe8e781f1a4c1174213f82",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/01_front.png",
+      "bytes": 824170,
+      "sha256": "56484031cf9550c19438e5deb9d0e8de1872fe58796be43303f012a76464472e",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/02_right.png",
+      "bytes": 857500,
+      "sha256": "46dbceb141b4b544da38fcbe189d5bd40c33b9a389f775da5f3af2a7585a53ec",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/03_rear.png",
+      "bytes": 823945,
+      "sha256": "bfd0f480bbf1e27f0b8d37d07e1f4f2e179cd02a6f63970e2e7e4e339568fa56",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/04_left.png",
+      "bytes": 847667,
+      "sha256": "fd004b615ced5789aa8dbb84d65fc1698763e4a7a69e482afe1ddca505e77126",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/05_front_right.png",
+      "bytes": 890317,
+      "sha256": "eb18ee9dce5616581b672b25f8a1b74345b2ea85e919ac0699eb2acbb4d9eb02",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/06_rear_right.png",
+      "bytes": 892717,
+      "sha256": "415823d88337a0ada4926f1ec6d6da8b811c7e7cf215a578b20505a7c3fc5455",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/07_rear_left.png",
+      "bytes": 876134,
+      "sha256": "f366193023c2926de6ed989a9da60f8931f34c51cc67ead233ead5f39d282dff",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/08_front_left.png",
+      "bytes": 871090,
+      "sha256": "e864673fe00fbd3b56828428fcccdac8100ff6d802bc681d6f8e94728f4581b0",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/09_top.png",
+      "bytes": 900795,
+      "sha256": "2f07ed58ba4decba9b9c9c316ed30d53e8e7d026a184986e6260fe9530e952e4",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/10_high_front.png",
+      "bytes": 893362,
+      "sha256": "b07e706ec7297bef6db0caa447af1584a02d0adf3634d5483a1c65f2984b14d7",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/11_persp_45.png",
+      "bytes": 912023,
+      "sha256": "a0421e747d04264398f6b225eab5a522394951cbd79ed498a9f1b06815e9e21c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/model_info.json",
+      "bytes": 3304,
+      "sha256": "ce294646d95b26b1a2bf417bdd2b16577e9a1aa806474c2f3dcba10111d7bb3f",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/validation.json",
+      "bytes": 5779,
+      "sha256": "7fc7e6248445cebe9cb22ce46bdf1dda92229c37375633a09e6f603568dd8361",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/views.json",
+      "bytes": 3173,
+      "sha256": "dee8f70c8412b0dcfbd43fa43907a59ef259929ad944df53ea05fd6321975f5b",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/01_front.png",
+      "bytes": 805519,
+      "sha256": "7315ce26beba96615b4ab7fa80d791e40b7c36fad09571935645ba6b52f458e2",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/02_right.png",
+      "bytes": 939448,
+      "sha256": "860f2eb66dbd5a49026374faa6a0e0735521196d3c984742a27b4ed161c7224f",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/03_rear.png",
+      "bytes": 816505,
+      "sha256": "601f19dddbe8eb52d2bfc1fc9594038cdacb30e23e87fd8253954081476458fa",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/04_left.png",
+      "bytes": 914892,
+      "sha256": "a77c49233117df13a7b82a70c0d57c68ab3d031318ab15d828cd98fc3e1a393d",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/05_front_right.png",
+      "bytes": 994768,
+      "sha256": "4d88565bb26824e762790b8c65c170c3c8639c50e3f179cb7029242d609a32d3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/06_rear_right.png",
+      "bytes": 1039563,
+      "sha256": "623c531ed423c8ac833ace5450ce0a212e416f6b5668befa5550e16ba4a3b11a",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/07_rear_left.png",
+      "bytes": 880520,
+      "sha256": "9a0d52cdab434b41690491df00b21f964da0741b306b8e7fdc9607c4d6029dba",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/08_front_left.png",
+      "bytes": 871572,
+      "sha256": "5e2fd3742f666dcdafeb7b47dc748cbb756ae81224b5bfe1ad213355495b4004",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/09_top.png",
+      "bytes": 1102253,
+      "sha256": "0b5c15cd601c400a36ed4bba110786ca2785d30dbc425d4b6f6791b0b8360322",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/10_high_front.png",
+      "bytes": 1010646,
+      "sha256": "26ae4a8b481c34ff5d44cc985cc8c7da0909fcf14d7411470e0855fe564414b5",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/11_persp_45.png",
+      "bytes": 1040456,
+      "sha256": "1b764d6bf4d49d30e2bba5d3044fc957dd67aa6a1c92c48c01f897493630b826",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/model_info.json",
+      "bytes": 2892,
+      "sha256": "df1d606a44c4b58315d9762ce32715ec1f56ea76d1e0acfcb8a0a8ab518ef8cd",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/validation.json",
+      "bytes": 5218,
+      "sha256": "0f9e30f21d6607db11c45b0774181a798084415390c0f86582409b9d563d742f",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/views.json",
+      "bytes": 3122,
+      "sha256": "2886481e05fa5be451bc6b8234b77132d2f0ce40363c6bbf8142f2c828d1ae26",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/01_front.png",
+      "bytes": 812428,
+      "sha256": "acf7dc2a25d87011659aaba39afac46b53897632940a9e234550313415db9a40",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/02_right.png",
+      "bytes": 940982,
+      "sha256": "416e00a6ae06ae2ea4849524bb2739467a0229ef2bafd4dbf6e9dfefbc0a2cc7",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/03_rear.png",
+      "bytes": 820781,
+      "sha256": "934aa235968fc6bcde542f3de3d39394f7a77b557b9ea5ff5e8f4630622e0826",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/04_left.png",
+      "bytes": 930238,
+      "sha256": "b6562832d075c94b7293667f1d85483f6a87c46265525bb4d8f76ae920f27bd3",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/05_front_right.png",
+      "bytes": 854649,
+      "sha256": "ca9e087f3a143ba33f1059848c92ebb9bb28f6a1521302a012872fd7566b9e29",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/06_rear_right.png",
+      "bytes": 872778,
+      "sha256": "4ba48c0444052d5a47739058d014be3ea630126c854089fc96669cb6ae75d1eb",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/07_rear_left.png",
+      "bytes": 849364,
+      "sha256": "271b49942068568f7fa4db58e453c23517f9fa61cba273d8bbeec47674a60494",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/08_front_left.png",
+      "bytes": 858831,
+      "sha256": "147d9476ef83a92268f331a494077e7abc160ac8923d76328d0b77659643a444",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/09_top.png",
+      "bytes": 816934,
+      "sha256": "b33c7bae3cdf629dad0f25992f1deba2273d676cd258497d25ecd7f00c62da24",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/10_high_front.png",
+      "bytes": 844417,
+      "sha256": "b67380f57bfae7f97d34e2b56f66a852c316b36231ac6316cf1b5477ff6701c4",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/11_persp_45.png",
+      "bytes": 847492,
+      "sha256": "77becdeb97830a37b0b4fdcab388990b7e2843036086595930edc9f1bd566a34",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/12_detail.png",
+      "bytes": 937211,
+      "sha256": "447ef87f96a1ef32a780c80496da534f27594c5b6692a2395d709f945473fb19",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/model_info.json",
+      "bytes": 2204,
+      "sha256": "acc46eabe437c55ab4bdbd06f436bee8b7b1953724aebc760f27dca7eef78b4e",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/validation.json",
+      "bytes": 1093,
+      "sha256": "e299341c0ea557639c126a32a93206bdc244faff1efd2fac04326e0145f10083",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/D01_SM_Bridge_Log_A/views.json",
+      "bytes": 3809,
+      "sha256": "2d2fdbd1473b10f7bb62b501dd20487bae3b02c7033f55f52c8a20cbeb5a6d19",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/01_front.png",
+      "bytes": 846197,
+      "sha256": "8f9d52ba966dd58d78833880d4abbc6c7dc5833b21933dd663c835c35c20fa41",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/02_right.png",
+      "bytes": 960054,
+      "sha256": "29a4f9a141ea1964f3be9dd290d28098bf014cd37c5a2f664b67d0b27f3a0c3c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/03_rear.png",
+      "bytes": 842405,
+      "sha256": "4322537175a1518d4f54f30ed16841a1906703a9b5d50a6a3ee8f0bfcf1b56f0",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/04_left.png",
+      "bytes": 994578,
+      "sha256": "ea1e03e5973906ba375457c2f5829c123493c2827e3552e593977b8c8f75da86",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/05_front_right.png",
+      "bytes": 1006937,
+      "sha256": "bb9e36e651fb68541aea4ff16cba055f893bfc002083f2e1b6d1549bd25a794c",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/06_rear_right.png",
+      "bytes": 1002369,
+      "sha256": "0c7f6ab3c6c6df6238779a2d1fc77b1ddd02a3dfbe41313cfd29e1ac81a2bf40",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/07_rear_left.png",
+      "bytes": 999659,
+      "sha256": "3ca733f2b34d664cf0cfce80fa5e9950060d7d7a21431d916241f067498973cb",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/08_front_left.png",
+      "bytes": 973506,
+      "sha256": "2fcc9196414ec6240f082f1abaac2505f303d8c8a3bf181160d160dc6bf3feea",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/09_top.png",
+      "bytes": 957444,
+      "sha256": "0f6922dcb1943034df670f1003d903254a944d9a7361f56da46be972360fd989",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/10_high_front.png",
+      "bytes": 948139,
+      "sha256": "0cb39fbebba48e58f6bcaab101cba1f7bf91d322476be398c962dffa323f45cb",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/11_persp_45.png",
+      "bytes": 940715,
+      "sha256": "e0af27069030db946f17fd98e1eef038c17a6feba636af6c66fe8b083addab25",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/12_detail.png",
+      "bytes": 1142129,
+      "sha256": "f15616349fdd2810a9fdc008ec3b8349e382ae13c2e63d1b3729c2eda4789314",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/13_pier.png",
+      "bytes": 1045778,
+      "sha256": "69fe3e7bb7a1b3efe7aefc838c12fbe1739423077a761ae5b09814f3640c9939",
+      "copy": "resized to 512 px"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/model_info.json",
+      "bytes": 2465,
+      "sha256": "01dd2cca2ec04c8d79b2ea326ef647f30fe92e5a7a82fad3419fbb878234fc90",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/validation.json",
+      "bytes": 1168,
+      "sha256": "98b49bac0fd3ad11773c675980d1fe549030fa3ea971f1f960a7a512a18482b9",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Individual/D02_SM_Bridge_Timber_A/views.json",
+      "bytes": 4047,
+      "sha256": "4e3828e215fe2da4f1e6c39cb3964cdc2ed267c63c9906198158137adbd1617d",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Materials/M_DrySoil.png",
+      "bytes": 456412,
+      "sha256": "35026fcd0cc40fa5ed384f1eef4fb114a27c7405efa1042b0eb156efcd26a46a",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Materials/M_Grass.png",
+      "bytes": 449512,
+      "sha256": "0f93576585dad3b7b61397a34e2a05967e1d7a6bf3743d79ed28c2d71a705a6d",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Materials/M_Moss.png",
+      "bytes": 450530,
+      "sha256": "245130a33e2f375ebc9badddb58b58b4943d0682502c8850c65f5d118ba2fa48",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Materials/M_PathGravel.png",
+      "bytes": 474504,
+      "sha256": "fe65cb844fe536224ecaa1d422604622e04893a25a359324e0a40b81359d6afc",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Materials/M_Rock.png",
+      "bytes": 442169,
+      "sha256": "d5bb9946b25b8aa39879dcfc53ad1b52014090d2b87f0707f1ba8374c71a89ab",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Materials/M_TerrainBlend_demo.png",
+      "bytes": 1243541,
+      "sha256": "19fa3bdedb166826a27187d5ca6c93b2bc0cc7c8cc096293283152b95b93c6ba",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Materials/M_WetSoil.png",
+      "bytes": 418631,
+      "sha256": "60e69880935cac528d856f2206b3c0a6f4f2c04dc823dbe6f673b296edd1d31a",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Sheets/Sheet_A_RoadEdge.png",
+      "bytes": 1764935,
+      "sha256": "111801a2c3f365ab950c69018f7a3b1ab196544dcde8249366e8c1ac1902c599",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Sheets/Sheet_B_Riverbank.png",
+      "bytes": 1947751,
+      "sha256": "a9b6e2667dfa4ec3ca95adb332681e7d13beaaa197d5457b70a2197f1c9cfefa",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Sheets/Sheet_C_Bridgehead.png",
+      "bytes": 1308048,
+      "sha256": "893c368691b92edb432a9d0ba25b1c39d7ba7995611803911264def3a9ca4c73",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Sheets/Sheet_D_TimberBridge.png",
+      "bytes": 587212,
+      "sha256": "e46a96440e6081bedf9d7bc78faf61f3ba759a983bd921f728df73a2038d1cf2",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_bridgehead.png",
+      "bytes": 3245285,
+      "sha256": "45e0c16a1a5ad59df7a2346670531e76555855009eb94016e2ced0fc3d6c7f78",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_bridgehead_labels.png",
+      "bytes": 2979920,
+      "sha256": "796be1bd37487346556738e4245f2b2ad7087a59b67fd18999f78f1964c16041",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_hero.png",
+      "bytes": 2501313,
+      "sha256": "a0781d682601adc1b862c204db879812c65fa751d8d6ccc441bdb0f187e3e9b4",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_hero_labels.png",
+      "bytes": 2059339,
+      "sha256": "3180ff9044dd6bdf1968540bc82a661517530cab7994f5f25ef2df3ff06079bc",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_labels.json",
+      "bytes": 8618,
+      "sha256": "22e674d59f79705a644696b0dd4d0eb8d40d5be8fd705f622b80961ea6f755f0",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_river.png",
+      "bytes": 2919213,
+      "sha256": "a080eb9b02359a343afd009fe4f4329a3559a7c703eac3eeb8aac1c3122bb0ed",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_river_labels.png",
+      "bytes": 2564768,
+      "sha256": "0d61a1d99ed2be66632989ee47decc0e43cdff81e4ef7bbdac2f0bda7cfecd6c",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_scene.blend",
+      "bytes": 802048,
+      "sha256": "bcf109755625454afefc7443dbb66ff4089fcf7f5fe8dc74b9e8213e1d08a2de",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_seam_bank.png",
+      "bytes": 3030378,
+      "sha256": "6dd08666e5b082ae084764cc524915d2a579c1c4210f3efcf901f7c6b28d3086",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_seam_bank_labels.png",
+      "bytes": 2766706,
+      "sha256": "0569e10264f7c154cc07bb05b042432fc363e12d6d22b3ad82d8d904ec9a0844",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_seam_deck.png",
+      "bytes": 3101741,
+      "sha256": "b19ecc2c74a9cff1c6acffcc5eabee58df45657bc0ced92c824028e84171fbe9",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_seam_deck_labels.png",
+      "bytes": 2839522,
+      "sha256": "0a334a9051b3c9d9cb7da3c4bbe2f80a09bfb6196eddfb07f1300557eec06ff8",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_seam_road.png",
+      "bytes": 3228441,
+      "sha256": "8b14c5d1915122ac098c0309fb8da96dcd87aed5fa50d220c6f440e180636589",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_seam_road_labels.png",
+      "bytes": 2972655,
+      "sha256": "1eb6f3f50cb825297fc5780bbe8dbaf556cc8e97aa5e39def049a4fd02b65b25",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_stream.png",
+      "bytes": 2769708,
+      "sha256": "3432c57b63b938f925f2ad584da4478ea356aefd7dc6a5fbbb75aaf3baf6b850",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_stream_labels.png",
+      "bytes": 2518559,
+      "sha256": "c55b134c1b5dc29f3c0f172f9473902ce04132ea273aedb628c0d895492b2a91",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_top.png",
+      "bytes": 2974285,
+      "sha256": "be7577876276f1669bbc94676190a9f7f03a7edb172fac9673f9e7b4a3e21b8c",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/Showcase/showcase_v01_top_labels.png",
+      "bytes": 2626388,
+      "sha256": "34c4fa37813bb26d6aa67b8b54776105dfdc3f9bf99ca4100c637e210b0737a2",
+      "copy": "identical"
+    },
+    {
+      "path": "04_Previews/index.html",
+      "bytes": 81509,
+      "sha256": "e719a8836fb38c982a6b49a4a50077b7918e0693e45f2f4556939efa2ca2957d",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/annotate_showcase.py",
+      "bytes": 6718,
+      "sha256": "3a33810075063c6baefa7ed271d202c3da92a44e57e3a67e09fcb0b42ea0b82a",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/bake_textures.py",
+      "bytes": 22068,
+      "sha256": "85382527abe93e406cbe7b6bf609af1340d1fc37106d31d23a2efa5ce5fcfd90",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/build_all.sh",
+      "bytes": 2206,
+      "sha256": "9656b8de0bf7ee7eb24f5188d2f680399fcf5bb4d9641f9cc9582361718c2cdc",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/check_incoming.py",
+      "bytes": 5321,
+      "sha256": "2a54b57de875b194b0a46d5799ae8b3e5dad4c7cf9e8db9d12b62607bad25faa",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/draw_three_views.py",
+      "bytes": 50110,
+      "sha256": "c66a72f7b0ca72967c9e6f922f124c93da7a3991508d1e1736579348df0b7502",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/export_fbx.py",
+      "bytes": 9666,
+      "sha256": "bcda36193de50a866ae2c9e25bf04884c9e25abe9da63481aeda182adcd89669",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/generate_log_bridge.py",
+      "bytes": 18122,
+      "sha256": "88af58b1c938cefa957978402423f9ec1a8b286c8141fe703334a101e8addfec",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/generate_modules.py",
+      "bytes": 27567,
+      "sha256": "69523de4f0d520717abcae1fe64f19e4e0e777572564a2f0392d70cf8d90a773",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/generate_timber_bridge.py",
+      "bytes": 17757,
+      "sha256": "0712c5c7f70d0275fecfb5fb049d219e4dbd3028afd5bf1ba931f512f93b1dc4",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/kit_blender.py",
+      "bytes": 30491,
+      "sha256": "ad43c8811e113cd9b47d01f7a45310370f471d3648c76f185c74b349acc38991",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/kit_spec.py",
+      "bytes": 30966,
+      "sha256": "2438b410df454f07c0d5535e0b1a4e2fc8525d5b75c812f247b08ffcc6381792",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/make_card_texture.py",
+      "bytes": 1737,
+      "sha256": "c47e1688f2ef8b3e7229b16707ccbc878e691ad93e4a4891060d20d7570874f0",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/make_incoming_package.py",
+      "bytes": 12726,
+      "sha256": "16ec2f4434b8d7e573379fcdd3b4536d3951bc1ffaef1978702c7ad22f811d0f",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/make_ref_f.py",
+      "bytes": 3596,
+      "sha256": "fdd17c49fd37e1b167baa0387507cba071a5696d06cfbf06a712abed2d625a0d",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/phase0_safety_check.py",
+      "bytes": 4768,
+      "sha256": "4bc27f4651187b8d39f41ab97e6ded817a1d2a34f668a8005d6027bf2f1b5642",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/render_material_sheet.py",
+      "bytes": 3391,
+      "sha256": "9ad7b0940d5ecd96a0b10ae4e847d5a1543529b47f5c2fb8c100515cd30cee09",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/render_previews.py",
+      "bytes": 5568,
+      "sha256": "1891e68cc6e6deba237bbae7d737d6f34bea91a1638199d32aeea32e7d45eda6",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/render_showcase.py",
+      "bytes": 26008,
+      "sha256": "dc82955a82d00e35b7abdb8b088bfe2c67144f547abcd990a60a625005775de2",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/validate_connectors.py",
+      "bytes": 21630,
+      "sha256": "25b9ca47430cdf7121265e7052de8977fe78a2fe33631d2154cbef90aaec4050",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/write_final_reports.py",
+      "bytes": 42015,
+      "sha256": "10ef37580cceb3972a45f4dbe0018bce7b18b8a67046fe6e5e56db987e0b934f",
+      "copy": "identical"
+    },
+    {
+      "path": "05_Scripts/write_reports.py",
+      "bytes": 6685,
+      "sha256": "e08d59542552f2675575683f6132c886bff62357215c35723c7d27c8b80ce299",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/ASSET_MANIFEST.csv",
+      "bytes": 26548,
+      "sha256": "1e3459494164e2c6afc8f96d30eb37c27c7db7bbb26210471f6c687b97c35e21",
+      "copy": "CRLF line endings changed to LF"
+    },
+    {
+      "path": "06_Reports/ASSET_MANIFEST.md",
+      "bytes": 18269,
+      "sha256": "f6c03ad12e42dbcbea692a1a48e07f40e945e7337678573890e3868536aed697",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/ASSUMPTIONS.md",
+      "bytes": 10741,
+      "sha256": "d26ced8e1105a86ab6b1d9aea9971db3cf4aca0709c802a60506c9b92ed096fa",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/CONNECTOR_SPEC.json",
+      "bytes": 67936,
+      "sha256": "f40866ce3742d4fecfc9e7cae34f96b7691954a5a5e2bd866a4489e51f08247b",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/PHASE0_Safety.json",
+      "bytes": 1225,
+      "sha256": "8a90009268a96cdad1725f9ae58c8c29459021f9ee8bb08ed3d756c3c87183f4",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/PHASE0_Safety.md",
+      "bytes": 2540,
+      "sha256": "1df2c090f1722e3bdfe67f6293bb1609772d94a1753ebb3a04dd70b54a2dfc48",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/PHASE1_ThreeViews_Review.md",
+      "bytes": 4372,
+      "sha256": "eb209bb338bf830d7e9c22c85b48c4d368fd52ef843273c28e38abcbc8f53cdf",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/PHASE6_ProtectedAssetRecheck.json",
+      "bytes": 174,
+      "sha256": "07a2b4140546439ac1768f2043efd5586d73ff9050b4cb46498ff1fe410bd043",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/QA_Report.md",
+      "bytes": 16103,
+      "sha256": "5caedcd11fa9f3999be11f1f01f89a93178370f1ef21ce47200cac299d5a60fb",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/README_Integration.md",
+      "bytes": 7402,
+      "sha256": "abd7fe92190e90a776c4c8ab7efa545f7686aeb2ac23ffcd106541e6d8b3bbb1",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/history/ASSET_MANIFEST_phase1_design.csv",
+      "bytes": 15913,
+      "sha256": "2e45e0148539eef3fa50c200f8b98295db27bb1d6b9a02f5d1c0843c621f32ed",
+      "copy": "CRLF line endings changed to LF"
+    },
+    {
+      "path": "06_Reports/history/ASSET_MANIFEST_phase1_design.md",
+      "bytes": 13131,
+      "sha256": "20950555f527a4a8ec6a6a953e399fb20c5810ac21016d15a1cacf48c477db0a",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/qa/blockout_all29.json",
+      "bytes": 44227,
+      "sha256": "cfb2f5a14080425a3522b2518d876cffbf9d4dd8fbf79089844a87c963868fb5",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/qa/blockout_representatives.json",
+      "bytes": 10089,
+      "sha256": "a90a1786e7fc873bae0ad41ae27c6bf19ba706687b9c84be62b9074aa59c3613",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/qa/fbx_export_bridgehead_modules.json",
+      "bytes": 44011,
+      "sha256": "9d28f4c07811851a866a6a6a9ecac2d468dea312cf62225394ed35d823379132",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/qa/fbx_export_riverbank_modules.json",
+      "bytes": 53742,
+      "sha256": "a7966f846ae679ae14211cc6ef9f1a77ce6f30731c09e88a021fc0ec1a4b0133",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/qa/fbx_export_road_edge_modules.json",
+      "bytes": 56599,
+      "sha256": "417d8ed943e2cf8e1ce206c96be03da551f065ee03577566d439da7234817094",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/qa/fbx_reimport_v01.json",
+      "bytes": 8870,
+      "sha256": "bba6453041c1dc77cb872e14d05d1adf2fe0037581e8e38189c4704087109d95",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/qa/final_all29.json",
+      "bytes": 69639,
+      "sha256": "e9ea78a5f91c0630c2af6ccea38b863346c37dcd81f87110f155948d59851366",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/qa/history/blockout_representatives_run1_checker_false_positive.json",
+      "bytes": 10092,
+      "sha256": "df2b7cb8f58745812d035c2c0f6f1235f3e41bbf9c769905874e992a2c20612e",
+      "copy": "identical"
+    },
+    {
+      "path": "06_Reports/qa/preview_crop_check.json",
+      "bytes": 76364,
+      "sha256": "c03ee9b2e2dbea8a4f734a15f9decea0ad161a3c0b18b4db394e08f5c986050d",
+      "copy": "identical"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4609,
+      "sha256": "1c87342136bc24af5cddde33fd62ecc3fbfbc5d12886ebc25ca8ecf250b2e927",
+      "copy": "identical"
+    }
+  ]
+}

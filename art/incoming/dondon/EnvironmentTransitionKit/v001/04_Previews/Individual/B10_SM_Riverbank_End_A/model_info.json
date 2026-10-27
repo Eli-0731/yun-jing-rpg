@@ -1,0 +1,78 @@
+{
+  "id": "SM_Riverbank_End_A",
+  "code": "B10",
+  "name_zh": "河岸終端",
+  "group": "B",
+  "purpose": "岸高差在 4 m 內平順消失到地面，只有入口接頭。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.0,
+    -1.0
+  ],
+  "bounds_max_m": [
+    4.0,
+    1.0386031866073608,
+    0.36311376094818115
+  ],
+  "triangles": {
+    "LOD0": 908,
+    "LOD1": 384,
+    "LOD2": 96,
+    "COL": 96,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_Riverbank_End_A_Terrain_LOD0": 768,
+      "SM_Riverbank_End_A_Terrain_LOD1": 384,
+      "SM_Riverbank_End_A_Terrain_LOD2": 96,
+      "SM_Riverbank_End_A_COL": 96,
+      "SM_Riverbank_End_A_DET_Stones_LOD0": 100,
+      "SM_Riverbank_End_A_DET_Grass_LOD0": 40
+    }
+  },
+  "objects": [
+    "SM_Riverbank_End_A",
+    "SM_Riverbank_End_A_COL",
+    "SM_Riverbank_End_A_DET_Grass_LOD0",
+    "SM_Riverbank_End_A_DET_Stones_LOD0",
+    "SM_Riverbank_End_A_Terrain_LOD0",
+    "SM_Riverbank_End_A_Terrain_LOD1",
+    "SM_Riverbank_End_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/riverbank_modules_v01.blend",
+    "blend_collection": "SM_Riverbank_End_A",
+    "blend_sha256": "0afe4ea0cc8775fe874faa3a11a0246c1e7124e12bde298515cd6cc2947695f1",
+    "fbx": "02_Exports/Riverbank/SM_Riverbank_End_A.fbx",
+    "fbx_sha256": "e5ec43b454fb0711eb0b594d9de5358a3fc0473d5b11bd1aa94f9e2d6786d086",
+    "previews": "04_Previews/Individual/B10_SM_Riverbank_End_A",
+    "three_view": "00_References/ThreeViews/B10_SM_Riverbank_End_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "BANK_0_TO_MINUS_0P8",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

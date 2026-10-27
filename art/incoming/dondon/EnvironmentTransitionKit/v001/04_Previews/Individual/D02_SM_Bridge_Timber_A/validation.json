@@ -1,0 +1,45 @@
+{
+  "module": "SM_Bridge_Timber_A",
+  "code": "D02",
+  "tolerance_m": 0.001,
+  "geometry": {
+    "planks": 48,
+    "deck_top_highest_z_m": 0.0,
+    "entry_plank_top_z_m": 0.0,
+    "deck_top_min_z_m": -0.0028500352054834366,
+    "bearing_lowest_z_m": -0.20000000298023224,
+    "bearing_max_abs_y_m": 1.5,
+    "seat_contact_vertices": 96,
+    "seat_in_bridgehead_frame_z_m": -0.04999999701976776,
+    "c05_top_z_m": -0.05,
+    "entry_top_in_bridgehead_frame_z_m": 0.15000000596046448,
+    "c01_exit_z_m": 0.15,
+    "min_clearance_above_c08_c02_m": 0.25280448271811784,
+    "railing_height_m": 0.97,
+    "clear_walk_width_m": 2.69,
+    "tris": {
+      "SM_Bridge_Timber_A_LOD0": 1112,
+      "SM_Bridge_Timber_A_LOD1": 248,
+      "SM_Bridge_Timber_A_LOD2": 48,
+      "SM_Bridge_Timber_A_COL": 36
+    },
+    "lod0_tris": 1112,
+    "budget": [
+      800,
+      4000
+    ],
+    "pass": true
+  },
+  "fbx_blender_reimport": {
+    "objects": 5,
+    "max_bounds_error_m": 1.1920928955078125e-07,
+    "issues": [],
+    "pass": true
+  },
+  "overall_pass": true,
+  "not_verified": [
+    "Unity / Unreal import",
+    "in-engine walking and railing collision",
+    "performance"
+  ]
+}

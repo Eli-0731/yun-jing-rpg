@@ -1,0 +1,90 @@
+{
+  "stage": "blockout",
+  "blender": "5.2.3 LTS",
+  "modules": {
+    "SM_Bridgehead_RoadTransition_A": {
+      "objects": [
+        "SM_Bridgehead_RoadTransition_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_RoadTransition_A_Terrain_LOD0": 384
+      },
+      "lod0_tris": 384
+    },
+    "SM_Bridgehead_BankTransition_A": {
+      "objects": [
+        "SM_Bridgehead_BankTransition_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_BankTransition_A_Terrain_LOD0": 1344
+      },
+      "lod0_tris": 1344
+    },
+    "SM_Bridgehead_SideTrim_L_A": {
+      "objects": [
+        "SM_Bridgehead_SideTrim_L_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_SideTrim_L_A_Terrain_LOD0": 96
+      },
+      "lod0_tris": 96
+    },
+    "SM_Bridgehead_SideTrim_R_A": {
+      "objects": [
+        "SM_Bridgehead_SideTrim_R_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_SideTrim_R_A_Terrain_LOD0": 96
+      },
+      "lod0_tris": 96
+    },
+    "SM_Bridgehead_Base_A": {
+      "objects": [
+        "SM_Bridgehead_Base_A_Masonry_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_Base_A_Masonry_LOD0": 12
+      },
+      "lod0_tris": 12
+    },
+    "SM_Bridgehead_SlopeFix_A": {
+      "objects": [
+        "SM_Bridgehead_SlopeFix_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_SlopeFix_A_Terrain_LOD0": 288
+      },
+      "lod0_tris": 288
+    },
+    "SM_Bridgehead_CornerCap_A": {
+      "objects": [
+        "SM_Bridgehead_CornerCap_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_CornerCap_A_Terrain_LOD0": 240
+      },
+      "lod0_tris": 240
+    },
+    "SM_Bridgehead_WaterEdge_A": {
+      "objects": [
+        "SM_Bridgehead_WaterEdge_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_WaterEdge_A_Terrain_LOD0": 1008
+      },
+      "lod0_tris": 1008
+    }
+  },
+  "slots": {
+    "C_bridgehead": [
+      0.0,
+      -26.0,
+      0.0
+    ],
+    "C06": [
+      9.0,
+      -26.0,
+      0.0
+    ]
+  }
+}

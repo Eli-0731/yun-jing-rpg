@@ -1,0 +1,164 @@
+{
+  "module": "SM_RoadEdge_GrassTransition_A",
+  "code": "A08",
+  "source": "01_Blender/road_edge_modules_v01.blend",
+  "same_geometry": true,
+  "note": "Library view convention: 01_front looks from -Y. Kit modules travel along +X.",
+  "lod_rendered": "LOD0 (terrain + details)",
+  "views": [
+    {
+      "file": "01_front.png",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        56.0,
+        -20.456600189208984,
+        0.17379379272460938
+      ]
+    },
+    {
+      "file": "02_right.png",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        76.4468002319336,
+        -0.009797453880310059,
+        0.17379379272460938
+      ]
+    },
+    {
+      "file": "03_rear.png",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        56.0,
+        20.43700408935547,
+        0.17379379272460938
+      ]
+    },
+    {
+      "file": "04_left.png",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        35.553199768066406,
+        -0.009797453880310059,
+        0.17379379272460938
+      ]
+    },
+    {
+      "file": "05_front_right.png",
+      "direction": [
+        1,
+        -1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        69.30973815917969,
+        -13.31953239440918,
+        8.159635543823242
+      ]
+    },
+    {
+      "file": "06_rear_right.png",
+      "direction": [
+        1,
+        1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        69.30973815917969,
+        13.299938201904297,
+        8.159635543823242
+      ]
+    },
+    {
+      "file": "07_rear_left.png",
+      "direction": [
+        -1,
+        1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        42.69026565551758,
+        13.299938201904297,
+        8.159635543823242
+      ]
+    },
+    {
+      "file": "08_front_left.png",
+      "direction": [
+        -1,
+        -1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        42.69026565551758,
+        -13.31953239440918,
+        8.159635543823242
+      ]
+    },
+    {
+      "file": "09_top.png",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        56.0,
+        -0.009797453880310059,
+        20.620595932006836
+      ]
+    },
+    {
+      "file": "10_high_front.png",
+      "direction": [
+        0,
+        -1,
+        1
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        56.0,
+        -14.467869758605957,
+        14.631866455078125
+      ]
+    },
+    {
+      "file": "11_persp_45.png",
+      "direction": [
+        -1.0,
+        -1.15,
+        0.85
+      ],
+      "projection": "perspective",
+      "camera_location": [
+        51.71284484863281,
+        -4.940025806427002,
+        3.817875623703003
+      ]
+    }
+  ]
+}

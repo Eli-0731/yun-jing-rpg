@@ -1,0 +1,91 @@
+{
+  "id": "SM_Bridge_Timber_A",
+  "code": "D02",
+  "name_zh": "木造梁橋",
+  "group": "D (extra, requested after the 29-module kit)",
+  "version": "v01",
+  "purpose": "木造梁橋：3 m 寬木板橋面、4 根主梁、兩側木欄杆、河中央一座木排架（3 根圓木樁＋帽梁＋交叉斜撐）；跨距 10 m，橋面與 C01 坡道頂齊平，主梁兩端削口擱在兩岸 C05 石基上。",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X",
+  "pivot": "centre of the deck top at the entry end; bridgehead frame placement = translate (2, 0, +0.15)",
+  "bounds_min_m": [
+    0.0,
+    -1.600000023841858,
+    -1.9500000476837158
+  ],
+  "bounds_max_m": [
+    10.0,
+    1.600000023841858,
+    1.0299999713897705
+  ],
+  "triangles": {
+    "SM_Bridge_Timber_A_LOD0": 1112,
+    "SM_Bridge_Timber_A_LOD1": 248,
+    "SM_Bridge_Timber_A_LOD2": 48,
+    "SM_Bridge_Timber_A_COL": 36
+  },
+  "materials": [
+    "M_Timber",
+    "M_Bark",
+    "M_EndGrain"
+  ],
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "BRIDGE_3M",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0,
+      "partner": "SM_Bridgehead_RoadTransition_A exit"
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "BRIDGE_3M",
+      "location": [
+        10.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0,
+      "partner": "far SM_Bridgehead_RoadTransition_A exit (turned 180)"
+    },
+    {
+      "name": "Seat_Entry",
+      "role": "seat",
+      "type": "BRIDGE_SEAT",
+      "location": [
+        0.625,
+        0.0,
+        -0.2
+      ],
+      "heading_deg": 0.0,
+      "partner": "SM_Bridgehead_Base_A"
+    },
+    {
+      "name": "Seat_Exit",
+      "role": "seat",
+      "type": "BRIDGE_SEAT",
+      "location": [
+        9.375,
+        0.0,
+        -0.2
+      ],
+      "heading_deg": 0.0,
+      "partner": "SM_Bridgehead_Base_A (far bank)"
+    }
+  ],
+  "files": {
+    "blend": "01_Blender/timber_bridge_v01.blend",
+    "blend_sha256": "e8ce2c3ae22e7c97bbbb4249eb0aa85b121d3e85f21866c08ad94d65aad2ea22",
+    "fbx": "02_Exports/Bridge/SM_Bridge_Timber_A.fbx",
+    "fbx_sha256": "367042b170aa747a40b3c2796403ae10046640bf91a2143af20d1284752168fe",
+    "previews": "04_Previews/Individual/D02_SM_Bridge_Timber_A"
+  },
+  "fits": "two bridgeheads whose frames are 14 m apart, the far one turned 180 degrees (10 m between the C01 exits); pier piles reach local Z -1.95"
+}

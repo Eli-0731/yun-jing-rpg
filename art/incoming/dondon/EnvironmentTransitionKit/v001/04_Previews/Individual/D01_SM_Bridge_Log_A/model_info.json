@@ -1,0 +1,90 @@
+{
+  "id": "SM_Bridge_Log_A",
+  "code": "D01",
+  "name_zh": "獨木橋",
+  "group": "D (extra, requested after the 29-module kit)",
+  "version": "v01",
+  "purpose": "一根削平頂面的原木獨木橋，長 10 m；行走面與 C01 坡道頂齊平，兩端底部削平擱在兩岸 C05 石基上。",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X",
+  "pivot": "centre of the walking strip at the entry end; bridgehead frame placement = translate (2, 0, +0.15)",
+  "bounds_min_m": [
+    0.0,
+    -0.3010512590408325,
+    -0.3468787372112274
+  ],
+  "bounds_max_m": [
+    10.0,
+    0.34838345646858215,
+    0.0
+  ],
+  "triangles": {
+    "SM_Bridge_Log_A_Log_LOD0": 2254,
+    "SM_Bridge_Log_A_Log_LOD1": 768,
+    "SM_Bridge_Log_A_Log_LOD2": 182,
+    "SM_Bridge_Log_A_COL": 12
+  },
+  "materials": [
+    "M_Bark",
+    "M_Wood",
+    "M_EndGrain",
+    "M_Moss"
+  ],
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "LOG_WALK",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "LOG_WALK",
+      "location": [
+        10.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "Seat_Entry",
+      "role": "seat",
+      "type": "BRIDGE_SEAT",
+      "location": [
+        0.625,
+        0.0,
+        -0.2
+      ],
+      "heading_deg": 0.0,
+      "partner": "SM_Bridgehead_Base_A"
+    },
+    {
+      "name": "Seat_Exit",
+      "role": "seat",
+      "type": "BRIDGE_SEAT",
+      "location": [
+        9.375,
+        0.0,
+        -0.2
+      ],
+      "heading_deg": 0.0,
+      "partner": "SM_Bridgehead_Base_A (far bank, turned 180)"
+    }
+  ],
+  "files": {
+    "blend": "01_Blender/log_bridge_v01.blend",
+    "blend_sha256": "f625b4a2da426f795c2105f1df2057c8e4ff44d7251f2c05ec8e47d1c9cab908",
+    "fbx": "02_Exports/Bridge/SM_Bridge_Log_A.fbx",
+    "fbx_sha256": "e30c98a5f3f0387177368208208557bf1a74ace752b0990704b797f151bc6d9d",
+    "previews": "04_Previews/Individual/D01_SM_Bridge_Log_A"
+  },
+  "fits": "two bridgeheads whose frames are 14 m apart, the far one turned 180 degrees (10 m between the C01 exits)"
+}

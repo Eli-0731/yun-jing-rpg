@@ -1,0 +1,92 @@
+{
+  "id": "SM_RoadEdge_Damaged_A",
+  "code": "A11",
+  "name_zh": "破損路段",
+  "group": "A",
+  "purpose": "內側坑洞、缺角與裂紋，入口出口仍為標準斷面。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.4876019954681396,
+    -0.0871911346912384
+  ],
+  "bounds_max_m": [
+    4.0,
+    2.429786443710327,
+    0.3951020836830139
+  ],
+  "triangles": {
+    "LOD0": 1558,
+    "LOD1": 384,
+    "LOD2": 96,
+    "COL": 96,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_RoadEdge_Damaged_A_Terrain_LOD0": 768,
+      "SM_RoadEdge_Damaged_A_Terrain_LOD1": 384,
+      "SM_RoadEdge_Damaged_A_Terrain_LOD2": 96,
+      "SM_RoadEdge_Damaged_A_COL": 96,
+      "SM_RoadEdge_Damaged_A_DET_Stones_LOD0": 662,
+      "SM_RoadEdge_Damaged_A_DET_Grass_LOD0": 56,
+      "SM_RoadEdge_Damaged_A_DET_Cracks_LOD0": 72
+    }
+  },
+  "objects": [
+    "SM_RoadEdge_Damaged_A",
+    "SM_RoadEdge_Damaged_A_COL",
+    "SM_RoadEdge_Damaged_A_DET_Cracks_LOD0",
+    "SM_RoadEdge_Damaged_A_DET_Grass_LOD0",
+    "SM_RoadEdge_Damaged_A_DET_Stones_LOD0",
+    "SM_RoadEdge_Damaged_A_Terrain_LOD0",
+    "SM_RoadEdge_Damaged_A_Terrain_LOD1",
+    "SM_RoadEdge_Damaged_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend",
+    "M_WetSoil"
+  ],
+  "files": {
+    "blend": "01_Blender/road_edge_modules_v01.blend",
+    "blend_collection": "SM_RoadEdge_Damaged_A",
+    "blend_sha256": "6874c9ba5057deeec88181c24a14b06219b675c9af505b8b6fa55b5d9860fa6e",
+    "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Damaged_A.fbx",
+    "fbx_sha256": "1d6c116344af33a12c661af953f290a862b72cba4ad2bc9100adf5e1ea1649da",
+    "previews": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A",
+    "three_view": "00_References/ThreeViews/A11_SM_RoadEdge_Damaged_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "ROAD_3M",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "ROAD_3M",
+      "location_m": [
+        4.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

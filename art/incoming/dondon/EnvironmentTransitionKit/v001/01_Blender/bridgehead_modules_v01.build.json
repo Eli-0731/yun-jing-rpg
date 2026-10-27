@@ -1,0 +1,176 @@
+{
+  "stage": "final",
+  "blender": "5.2.3 LTS",
+  "modules": {
+    "SM_Bridgehead_RoadTransition_A": {
+      "objects": [
+        "SM_Bridgehead_RoadTransition_A_Terrain_LOD0",
+        "SM_Bridgehead_RoadTransition_A_Terrain_LOD1",
+        "SM_Bridgehead_RoadTransition_A_Terrain_LOD2",
+        "SM_Bridgehead_RoadTransition_A_COL",
+        "SM_Bridgehead_RoadTransition_A_DET_Stones_LOD0",
+        "SM_Bridgehead_RoadTransition_A_DET_Grass_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_RoadTransition_A_Terrain_LOD0": 384,
+        "SM_Bridgehead_RoadTransition_A_Terrain_LOD1": 192,
+        "SM_Bridgehead_RoadTransition_A_Terrain_LOD2": 48,
+        "SM_Bridgehead_RoadTransition_A_COL": 48,
+        "SM_Bridgehead_RoadTransition_A_DET_Stones_LOD0": 100,
+        "SM_Bridgehead_RoadTransition_A_DET_Grass_LOD0": 40
+      },
+      "lod0_tris": 524,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Bridgehead_BankTransition_A": {
+      "objects": [
+        "SM_Bridgehead_BankTransition_A_Terrain_LOD0",
+        "SM_Bridgehead_BankTransition_A_Terrain_LOD1",
+        "SM_Bridgehead_BankTransition_A_Terrain_LOD2",
+        "SM_Bridgehead_BankTransition_A_COL",
+        "SM_Bridgehead_BankTransition_A_DET_Stones_LOD0",
+        "SM_Bridgehead_BankTransition_A_DET_Grass_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_BankTransition_A_Terrain_LOD0": 1344,
+        "SM_Bridgehead_BankTransition_A_Terrain_LOD1": 672,
+        "SM_Bridgehead_BankTransition_A_Terrain_LOD2": 168,
+        "SM_Bridgehead_BankTransition_A_COL": 168,
+        "SM_Bridgehead_BankTransition_A_DET_Stones_LOD0": 236,
+        "SM_Bridgehead_BankTransition_A_DET_Grass_LOD0": 72
+      },
+      "lod0_tris": 1652,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Bridgehead_SideTrim_L_A": {
+      "objects": [
+        "SM_Bridgehead_SideTrim_L_A_Terrain_LOD0",
+        "SM_Bridgehead_SideTrim_L_A_Terrain_LOD1",
+        "SM_Bridgehead_SideTrim_L_A_Terrain_LOD2",
+        "SM_Bridgehead_SideTrim_L_A_COL",
+        "SM_Bridgehead_SideTrim_L_A_DET_Stones_LOD0",
+        "SM_Bridgehead_SideTrim_L_A_DET_Grass_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_SideTrim_L_A_Terrain_LOD0": 96,
+        "SM_Bridgehead_SideTrim_L_A_Terrain_LOD1": 48,
+        "SM_Bridgehead_SideTrim_L_A_Terrain_LOD2": 12,
+        "SM_Bridgehead_SideTrim_L_A_COL": 12,
+        "SM_Bridgehead_SideTrim_L_A_DET_Stones_LOD0": 240,
+        "SM_Bridgehead_SideTrim_L_A_DET_Grass_LOD0": 40
+      },
+      "lod0_tris": 376,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Bridgehead_SideTrim_R_A": {
+      "objects": [
+        "SM_Bridgehead_SideTrim_R_A_Terrain_LOD0",
+        "SM_Bridgehead_SideTrim_R_A_Terrain_LOD1",
+        "SM_Bridgehead_SideTrim_R_A_Terrain_LOD2",
+        "SM_Bridgehead_SideTrim_R_A_COL",
+        "SM_Bridgehead_SideTrim_R_A_DET_Stones_LOD0",
+        "SM_Bridgehead_SideTrim_R_A_DET_Grass_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_SideTrim_R_A_Terrain_LOD0": 96,
+        "SM_Bridgehead_SideTrim_R_A_Terrain_LOD1": 48,
+        "SM_Bridgehead_SideTrim_R_A_Terrain_LOD2": 12,
+        "SM_Bridgehead_SideTrim_R_A_COL": 12,
+        "SM_Bridgehead_SideTrim_R_A_DET_Stones_LOD0": 240,
+        "SM_Bridgehead_SideTrim_R_A_DET_Grass_LOD0": 40
+      },
+      "lod0_tris": 376,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Bridgehead_Base_A": {
+      "objects": [
+        "SM_Bridgehead_Base_A_Masonry_LOD0",
+        "SM_Bridgehead_Base_A_Masonry_LOD1",
+        "SM_Bridgehead_Base_A_Masonry_LOD2",
+        "SM_Bridgehead_Base_A_COL"
+      ],
+      "tris": {
+        "SM_Bridgehead_Base_A_Masonry_LOD0": 452,
+        "SM_Bridgehead_Base_A_Masonry_LOD1": 120,
+        "SM_Bridgehead_Base_A_Masonry_LOD2": 12,
+        "SM_Bridgehead_Base_A_COL": 12
+      },
+      "lod0_tris": 452,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Bridgehead_SlopeFix_A": {
+      "objects": [
+        "SM_Bridgehead_SlopeFix_A_Terrain_LOD0",
+        "SM_Bridgehead_SlopeFix_A_Terrain_LOD1",
+        "SM_Bridgehead_SlopeFix_A_Terrain_LOD2",
+        "SM_Bridgehead_SlopeFix_A_COL",
+        "SM_Bridgehead_SlopeFix_A_DET_Stones_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_SlopeFix_A_Terrain_LOD0": 288,
+        "SM_Bridgehead_SlopeFix_A_Terrain_LOD1": 144,
+        "SM_Bridgehead_SlopeFix_A_Terrain_LOD2": 36,
+        "SM_Bridgehead_SlopeFix_A_COL": 36,
+        "SM_Bridgehead_SlopeFix_A_DET_Stones_LOD0": 60
+      },
+      "lod0_tris": 348,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Bridgehead_CornerCap_A": {
+      "objects": [
+        "SM_Bridgehead_CornerCap_A_Terrain_LOD0",
+        "SM_Bridgehead_CornerCap_A_Terrain_LOD1",
+        "SM_Bridgehead_CornerCap_A_Terrain_LOD2",
+        "SM_Bridgehead_CornerCap_A_COL",
+        "SM_Bridgehead_CornerCap_A_DET_Grass_LOD0",
+        "SM_Bridgehead_CornerCap_A_Rocks_LOD0",
+        "SM_Bridgehead_CornerCap_A_Rocks_LOD1"
+      ],
+      "tris": {
+        "SM_Bridgehead_CornerCap_A_Terrain_LOD0": 240,
+        "SM_Bridgehead_CornerCap_A_Terrain_LOD1": 120,
+        "SM_Bridgehead_CornerCap_A_Terrain_LOD2": 36,
+        "SM_Bridgehead_CornerCap_A_COL": 36,
+        "SM_Bridgehead_CornerCap_A_DET_Grass_LOD0": 28,
+        "SM_Bridgehead_CornerCap_A_Rocks_LOD0": 528,
+        "SM_Bridgehead_CornerCap_A_Rocks_LOD1": 264
+      },
+      "lod0_tris": 796,
+      "details_dropped_at_connectors": 0
+    },
+    "SM_Bridgehead_WaterEdge_A": {
+      "objects": [
+        "SM_Bridgehead_WaterEdge_A_Terrain_LOD0",
+        "SM_Bridgehead_WaterEdge_A_Terrain_LOD1",
+        "SM_Bridgehead_WaterEdge_A_Terrain_LOD2",
+        "SM_Bridgehead_WaterEdge_A_COL",
+        "SM_Bridgehead_WaterEdge_A_DET_Stones_LOD0",
+        "SM_Bridgehead_WaterEdge_A_Rocks_LOD0",
+        "SM_Bridgehead_WaterEdge_A_Rocks_LOD1"
+      ],
+      "tris": {
+        "SM_Bridgehead_WaterEdge_A_Terrain_LOD0": 1008,
+        "SM_Bridgehead_WaterEdge_A_Terrain_LOD1": 504,
+        "SM_Bridgehead_WaterEdge_A_Terrain_LOD2": 144,
+        "SM_Bridgehead_WaterEdge_A_COL": 144,
+        "SM_Bridgehead_WaterEdge_A_DET_Stones_LOD0": 400,
+        "SM_Bridgehead_WaterEdge_A_Rocks_LOD0": 240,
+        "SM_Bridgehead_WaterEdge_A_Rocks_LOD1": 120
+      },
+      "lod0_tris": 1648,
+      "details_dropped_at_connectors": 9
+    }
+  },
+  "slots": {
+    "C_bridgehead": [
+      0.0,
+      -26.0,
+      0.0
+    ],
+    "C06": [
+      9.0,
+      -26.0,
+      0.0
+    ]
+  }
+}

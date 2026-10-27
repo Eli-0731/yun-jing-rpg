@@ -1,0 +1,164 @@
+{
+  "module": "SM_Riverbank_Straight_B",
+  "code": "B02",
+  "source": "01_Blender/riverbank_modules_v01.blend",
+  "same_geometry": true,
+  "note": "Library view convention: 01_front looks from -Y. Kit modules travel along +X.",
+  "lod_rendered": "LOD0 (terrain + details)",
+  "views": [
+    {
+      "file": "01_front.png",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        11.0,
+        -30.562030792236328,
+        -0.29216957092285156
+      ]
+    },
+    {
+      "file": "02_right.png",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        29.142213821411133,
+        -12.419817924499512,
+        -0.29216957092285156
+      ]
+    },
+    {
+      "file": "03_rear.png",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        11.0,
+        5.722395896911621,
+        -0.29216957092285156
+      ]
+    },
+    {
+      "file": "04_left.png",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -7.142213821411133,
+        -12.419817924499512,
+        -0.29216957092285156
+      ]
+    },
+    {
+      "file": "05_front_right.png",
+      "direction": [
+        1,
+        -1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        22.8095760345459,
+        -24.229393005371094,
+        6.793576240539551
+      ]
+    },
+    {
+      "file": "06_rear_right.png",
+      "direction": [
+        1,
+        1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        22.8095760345459,
+        -0.6102418899536133,
+        6.793576240539551
+      ]
+    },
+    {
+      "file": "07_rear_left.png",
+      "direction": [
+        -1,
+        1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -0.8095760345458984,
+        -0.6102418899536133,
+        6.793576240539551
+      ]
+    },
+    {
+      "file": "08_front_left.png",
+      "direction": [
+        -1,
+        -1,
+        0.6
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        -0.8095760345458984,
+        -24.229393005371094,
+        6.793576240539551
+      ]
+    },
+    {
+      "file": "09_top.png",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        11.0,
+        -12.419817924499512,
+        17.85004425048828
+      ]
+    },
+    {
+      "file": "10_high_front.png",
+      "direction": [
+        0,
+        -1,
+        1
+      ],
+      "projection": "orthographic",
+      "camera_location": [
+        11.0,
+        -25.248300552368164,
+        12.5363130569458
+      ]
+    },
+    {
+      "file": "11_persp_45.png",
+      "direction": [
+        -0.5735764354302088,
+        -0.819152044933769,
+        0.85
+      ],
+      "projection": "perspective",
+      "camera_location": [
+        8.218337059020996,
+        -16.392444610595703,
+        3.830059051513672
+      ]
+    }
+  ]
+}
