@@ -1,0 +1,27 @@
+import{chromium}from'playwright';import{spawn}from'node:child_process';import{once}from'node:events';import assert from'node:assert/strict';import{writeFile,mkdir}from'node:fs/promises';import path from'node:path';import{fileURLToPath}from'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url)),server=spawn(process.execPath,[path.join(dir,'server.mjs')],{env:{...process.env,PORT:'4320'},stdio:['ignore','pipe','pipe']});let browser;
+try{
+ await once(server.stdout,'data');browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+ const context=await browser.newContext({viewport:{width:1280,height:720},acceptDownloads:true}),page=await context.newPage(),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});
+ await page.goto('http://127.0.0.1:4320');
+ await page.locator('[data-destination="save"]').click();assert.match(await page.locator('#status').innerText(),/先.*選/);
+ await page.locator('[data-sample="herb"]').press('Enter');assert.match(await page.locator('#detail').innerText(),/溪畔淺灘/);
+ await page.locator('[data-destination="save"]').press('Enter');
+ for(let i=0;i<8;i++)await page.locator('[data-destination="save"]').click();
+ assert.equal(await page.locator('#count-save').innerText(),'1');
+ await page.locator('[data-world="alchemy"]').click();await page.locator('#undo').click();assert.equal(await page.locator('#count-save').innerText(),'1');assert.equal(await page.locator('#count-alchemy').innerText(),'0');assert.equal(await page.locator('#undo').isEnabled(),false);
+ await page.locator('[data-sample="ore"]').click();await page.locator('[data-destination="alchemy"]').click();
+ await page.reload();assert.equal(await page.locator('#count-save').innerText(),'1');assert.equal(await page.locator('#count-alchemy').innerText(),'1');
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ await page.screenshot({path:path.join(dir,'previews/desktop-1280x720.png')});
+ await page.getByRole('button',{name:'查看回村背籠近景',exact:true}).click();assert.equal(await page.locator('#preview').isVisible(),true);await page.getByRole('button',{name:'關閉近景',exact:true}).click();
+ const download=page.waitForEvent('download');await page.locator('#contract').click();const d=await download;assert.equal(d.suggestedFilename(),'qingxi-return-local-intents.json');
+ await page.evaluate(()=>navigator.serviceWorker.ready);await page.reload();await page.waitForFunction(()=>navigator.serviceWorker.controller!==null);await context.setOffline(true);await page.reload();await page.locator('[data-sample="seed"]').click();await page.locator('[data-destination="save"]').click();assert.equal(await page.locator('#count-save').innerText(),'2');await context.setOffline(false);
+ const mobile=await browser.newContext({viewport:{width:844,height:390},deviceScaleFactor:1,isMobile:true,hasTouch:true}),touch=await mobile.newPage();
+ await touch.goto('http://127.0.0.1:4320');await touch.locator('[data-sample="ore"]').tap();await touch.locator('[data-world="alchemy"]').tap();assert.equal(await touch.locator('#count-alchemy').innerText(),'1');await touch.locator('#undo').tap();assert.equal(await touch.locator('#count-table').innerText(),'3');
+ assert.equal(await touch.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await touch.screenshot({path:path.join(dir,'previews/mobile-844x390.png')});await mobile.close();
+ const noStorage=await browser.newContext();await noStorage.addInitScript(()=>{Storage.prototype.setItem=function(){throw Error('disabled storage');};Storage.prototype.getItem=function(){throw Error('disabled storage');};});const ns=await noStorage.newPage();await ns.goto('http://127.0.0.1:4320');await ns.locator('[data-sample="herb"]').click();await ns.locator('[data-destination="save"]').click();assert.match(await ns.locator('#status').innerText(),/無法保存/);await noStorage.close();
+ assert.deepEqual(errors,[]);await context.close();
+ await writeFile(path.join(dir,'previews/browser-report.json'),JSON.stringify({pass:true,desktop:'1280x720',touch:'844x390 Chrome emulation; not physical phone',checks:['empty selection error','keyboard select and assign','repeat click conservation','world object feedback','undo once','reload','asset preview','intent download','offline interaction','touch choice and undo','no horizontal overflow','blocked localStorage fallback'],errors},null,2));console.log('RETURN_BROWSER_PASS');
+}finally{await browser?.close();server.kill();}

@@ -1,0 +1,137 @@
+{
+  "author": "Eli-0731 / Codex",
+  "batch": 1,
+  "blender": "4.5.3 LTS",
+  "units": "meters",
+  "axes": "Blender Z-up / front -Y; GLB Y-up / front +Z",
+  "reference_sha256": {
+    "C01-three-view.png": "4f8ef16b762ec45969858101bb6e0e3baf984d49c221bb88fe2126b6a24f2e5a",
+    "C02-three-view.png": "8924753a2fc7bdd67e3302e9d9cf1312ff0f52d24b7bc681cb549581aae9185a",
+    "C03-three-view.png": "94151fe9b559af73d47df086bd82623eb8156670641463e003d8dd9a2117bf0f",
+    "C04-three-view.png": "0a168f353854104cff4dcc4a67b841938c8c192e0a245f9b34c4ba3d0455a40d"
+  },
+  "assets": [
+    {
+      "id": "C01",
+      "dimensions_xyz": [
+        0.4806666672229767,
+        0.3917623460292816,
+        0.6000000238418579
+      ],
+      "triangles": 1956,
+      "meshes": 30,
+      "errors": [],
+      "lod_plan": "one prototype LOD; future 50% simplification of bindings at 8m, cull small props at 20m; not yet implemented",
+      "collision": "simple box main silhouette; basket capsule; no collisions on cords or paper",
+      "roundtrip_dimensions_xyz": [
+        0.4806666672229767,
+        0.3917623460292816,
+        0.6000000238418579
+      ],
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C02",
+      "dimensions_xyz": [
+        1.149999976158142,
+        0.6349999904632568,
+        0.6599999666213989
+      ],
+      "triangles": 1512,
+      "meshes": 14,
+      "errors": [],
+      "lod_plan": "one prototype LOD; future 50% simplification of bindings at 8m, cull small props at 20m; not yet implemented",
+      "collision": "simple box main silhouette; basket capsule; no collisions on cords or paper",
+      "roundtrip_dimensions_xyz": [
+        1.149999976158142,
+        0.6349999904632568,
+        0.6599999666213989
+      ],
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C03",
+      "dimensions_xyz": [
+        0.48100000619888306,
+        0.3248406797647476,
+        0.281000018119812
+      ],
+      "triangles": 2400,
+      "meshes": 21,
+      "errors": [],
+      "lod_plan": "one prototype LOD; future 50% simplification of bindings at 8m, cull small props at 20m; not yet implemented",
+      "collision": "simple box main silhouette; basket capsule; no collisions on cords or paper",
+      "roundtrip_dimensions_xyz": [
+        0.48100000619888306,
+        0.3248406797647476,
+        0.281000018119812
+      ],
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C04",
+      "dimensions_xyz": [
+        0.35092684626579285,
+        0.2957669794559479,
+        0.16233013570308685
+      ],
+      "triangles": 712,
+      "meshes": 7,
+      "errors": [],
+      "lod_plan": "one prototype LOD; future 50% simplification of bindings at 8m, cull small props at 20m; not yet implemented",
+      "collision": "simple box main silhouette; basket capsule; no collisions on cords or paper",
+      "roundtrip_dimensions_xyz": [
+        0.35092684626579285,
+        0.2957669794559479,
+        0.16233013570308685
+      ],
+      "roundtrip_pass": true
+    }
+  ],
+  "corner_footprint_m": [
+    3,
+    4
+  ],
+  "placements_xyz": {
+    "C01": [
+      -0.91,
+      0.48,
+      0
+    ],
+    "C02": [
+      0,
+      0.46,
+      0
+    ],
+    "C03": [
+      -0.31,
+      0.45,
+      0.66
+    ],
+    "C04": [
+      0.3,
+      0.4,
+      0.66
+    ],
+    "C05": [
+      0.85,
+      0.52,
+      0
+    ],
+    "C06": [
+      -0.43,
+      -0.89,
+      0
+    ],
+    "C07": [
+      0.84,
+      -0.53,
+      0
+    ],
+    "C08": [
+      -0.43,
+      -0.89,
+      0.45
+    ]
+  }
+}
