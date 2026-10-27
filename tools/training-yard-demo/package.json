@@ -1,0 +1,1 @@
+{"name":"qingxi-training-yard-demo","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test rhythm.test.mjs"},"dependencies":{"three":"0.170.0"}}

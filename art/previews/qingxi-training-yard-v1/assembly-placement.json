@@ -1,0 +1,32 @@
+{
+  "training-shelter": [
+    0,
+    0,
+    0
+  ],
+  "qi-striking-post": [
+    -1.55,
+    0.35,
+    0.12
+  ],
+  "agility-post": [
+    1.55,
+    0.35,
+    0.12
+  ],
+  "weapon-rack": [
+    2.0,
+    1.55,
+    0.12
+  ],
+  "engraved-training-stone": [
+    -1.45,
+    1.45,
+    0.12
+  ],
+  "training-banner": [
+    -3,
+    -2.1,
+    0
+  ]
+}

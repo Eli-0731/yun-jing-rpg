@@ -1,0 +1,98 @@
+{
+  "training-shelter": {
+    "pass": true,
+    "errors": [],
+    "warnings_count": 155,
+    "warnings_by_type": {
+      "stacked_uv": 131,
+      "flat_cap_ngons": 15,
+      "hidden_contact_faces": 9
+    },
+    "mesh_parts": 588,
+    "triangles": 39236,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "degenerate_faces": 0,
+    "floating_islands": 0
+  },
+  "qi-striking-post": {
+    "pass": true,
+    "errors": [],
+    "warnings_count": 25,
+    "warnings_by_type": {
+      "stacked_uv": 15,
+      "flat_cap_ngons": 9,
+      "hidden_contact_faces": 0
+    },
+    "mesh_parts": 15,
+    "triangles": 14156,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "degenerate_faces": 0,
+    "floating_islands": 0
+  },
+  "agility-post": {
+    "pass": true,
+    "errors": [],
+    "warnings_count": 89,
+    "warnings_by_type": {
+      "stacked_uv": 29,
+      "flat_cap_ngons": 60,
+      "hidden_contact_faces": 0
+    },
+    "mesh_parts": 68,
+    "triangles": 6492,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "degenerate_faces": 0,
+    "floating_islands": 0
+  },
+  "weapon-rack": {
+    "pass": true,
+    "errors": [],
+    "warnings_count": 18,
+    "warnings_by_type": {
+      "stacked_uv": 12,
+      "flat_cap_ngons": 6,
+      "hidden_contact_faces": 0
+    },
+    "mesh_parts": 14,
+    "triangles": 4032,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "degenerate_faces": 0,
+    "floating_islands": 0
+  },
+  "engraved-training-stone": {
+    "pass": true,
+    "errors": [],
+    "warnings_count": 10,
+    "warnings_by_type": {
+      "stacked_uv": 5,
+      "flat_cap_ngons": 5,
+      "hidden_contact_faces": 0
+    },
+    "mesh_parts": 5,
+    "triangles": 3532,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "degenerate_faces": 0,
+    "floating_islands": 0
+  },
+  "training-banner": {
+    "pass": true,
+    "errors": [],
+    "warnings_count": 11,
+    "warnings_by_type": {
+      "stacked_uv": 7,
+      "flat_cap_ngons": 4,
+      "hidden_contact_faces": 0
+    },
+    "mesh_parts": 8,
+    "triangles": 9012,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "degenerate_faces": 0,
+    "floating_islands": 0
+  }
+}
