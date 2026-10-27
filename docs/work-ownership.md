@@ -44,3 +44,8 @@
 現行[三人各 14 小時、合計 42 小時實作包](execution/2026-10-26/10-qingxi-three-collaborators-42h.md)取代舊 09 包的未開始部分；舊文件保留當時分工紀錄。A 負責藥鋪模型與服務端採藥委託，B 負責道路草石模型與可走採集路線，C 負責較容易的村口審圖導覽與素材索引。角色模型由 z1nnz／Codex 這一組製作，協作者不接手。
 
 山兔 v003 來源與作者：原外觀 Dondon v002；Johnnnny0823／其 Codex 完成骨架、動畫、LOD；z1nnz／Codex 只負責重跑驗證及合併。保留原提交 `440e3c7`，合併為 `842e6d6`。
+
+## 2026-10-27 本機試走與環境交接
+
+- z1nnz／Codex：QingxiWalkthroughBuilder、QingxiWalkthroughController、QingxiWalkthroughSmoke 與 tools/unity.ps1 接線，負責本機試走，不覆寫網路玩法；詳見 execution/qingxi-unity-walkthrough.md。
+- joshsu54：EnvironmentTransitionKit/v001 的 31 個環境模組，PR #29 合併 b2a5767；z1nnz／Codex 僅做審閱、完整性檢查與合併，不把模型署成自己原創。協作者不需重新製作這 31 件；後續依各自工作包做演武、採集與告示。
