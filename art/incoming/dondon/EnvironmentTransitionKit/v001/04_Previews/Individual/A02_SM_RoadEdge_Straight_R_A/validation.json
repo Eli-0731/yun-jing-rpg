@@ -1,0 +1,203 @@
+{
+  "module": "SM_RoadEdge_Straight_R_A",
+  "code": "A02",
+  "tolerance_m": 0.001,
+  "overall_pass": true,
+  "connectors": [
+    {
+      "connector": "EntryConnector",
+      "type": "ROAD_EDGE_R",
+      "expected_vertices": 7,
+      "vertices_on_line": 7,
+      "max_position_error_m": 0.0,
+      "max_mask_error": 2.4223327454997445e-08,
+      "max_normal_error_deg": 0.0,
+      "pass": true
+    },
+    {
+      "connector": "ExitConnector",
+      "type": "ROAD_EDGE_R",
+      "expected_vertices": 7,
+      "vertices_on_line": 7,
+      "max_position_error_m": 0.0,
+      "max_mask_error": 2.4223327454997445e-08,
+      "max_normal_error_deg": 0.0,
+      "pass": true
+    },
+    {
+      "connector": "CoreSeam",
+      "type": "ROAD_3M",
+      "expected_vertices": 17,
+      "vertices_on_line": 17,
+      "max_position_error_m": 0.0,
+      "max_mask_error": 1.9282313246105076e-10,
+      "max_normal_error_deg": 0.0,
+      "pass": true
+    }
+  ],
+  "details_stay_behind_entry_exit_planes": {
+    "max_protrusion_m": 0.0,
+    "pass": true,
+    "worst": [
+      {
+        "object": "SM_RoadEdge_Straight_R_A_DET_Stones_LOD0",
+        "connector": "EntryConnector",
+        "protrusion_m": 0.0
+      },
+      {
+        "object": "SM_RoadEdge_Straight_R_A_DET_Stones_LOD0",
+        "connector": "ExitConnector",
+        "protrusion_m": 0.0
+      },
+      {
+        "object": "SM_RoadEdge_Straight_R_A_DET_Grass_LOD0",
+        "connector": "EntryConnector",
+        "protrusion_m": 0.0
+      }
+    ]
+  },
+  "detail_pieces_removed_by_guard_at_build": 0,
+  "mesh_checks": {
+    "objects": 6,
+    "lod0_tris": 406,
+    "budget": [
+      300,
+      2000
+    ],
+    "within_budget_max": true,
+    "tris_by_object": {
+      "SM_RoadEdge_Straight_R_A_Terrain_LOD0": 192,
+      "SM_RoadEdge_Straight_R_A_Terrain_LOD1": 96,
+      "SM_RoadEdge_Straight_R_A_Terrain_LOD2": 24,
+      "SM_RoadEdge_Straight_R_A_COL": 24,
+      "SM_RoadEdge_Straight_R_A_DET_Stones_LOD0": 186,
+      "SM_RoadEdge_Straight_R_A_DET_Grass_LOD0": 28
+    },
+    "issues": []
+  },
+  "fbx_blender_reimport": {
+    "code": "A02",
+    "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Straight_R_A.fbx",
+    "objects": 7,
+    "max_bounds_error_m": 1.7881393432617188e-07,
+    "max_connector_vertex_error_m": 1.6987027606774063e-07,
+    "issues": [],
+    "pass": true
+  },
+  "previews": {
+    "views": 11,
+    "all_1024": true,
+    "touching_edge": [],
+    "detail": {
+      "01_front": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "02_right": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "03_rear": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "04_left": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "05_front_right": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "06_rear_right": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "07_rear_left": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "08_front_left": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "09_top": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "10_high_front": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      },
+      "11_persp_45": {
+        "size": [
+          1024,
+          1024
+        ],
+        "border_pixels_off_background": 0.0,
+        "touches_edge": false,
+        "close_up": false
+      }
+    }
+  },
+  "source_reports": [
+    "06_Reports/qa/final_all29.json",
+    "06_Reports/qa/fbx_reimport_v01.json",
+    "06_Reports/qa/preview_crop_check.json"
+  ],
+  "not_verified": [
+    "Unity / Unreal import, materials and LOD groups",
+    "in-engine collision and walkability",
+    "performance on target devices"
+  ]
+}

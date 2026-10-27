@@ -1,0 +1,68 @@
+{
+  "stage": "blockout",
+  "blender": "5.2.3 LTS",
+  "modules": {
+    "SM_RoadEdge_Straight_L_A": {
+      "objects": [
+        "SM_RoadEdge_Straight_L_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_Straight_L_A_Terrain_LOD0": 192
+      },
+      "lod0_tris": 192
+    },
+    "SM_RoadEdge_Straight_R_A": {
+      "objects": [
+        "SM_RoadEdge_Straight_R_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_RoadEdge_Straight_R_A_Terrain_LOD0": 192
+      },
+      "lod0_tris": 192
+    },
+    "SM_Riverbank_Straight_A": {
+      "objects": [
+        "SM_Riverbank_Straight_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Riverbank_Straight_A_Terrain_LOD0": 768
+      },
+      "lod0_tris": 768
+    },
+    "SM_Bridgehead_RoadTransition_A": {
+      "objects": [
+        "SM_Bridgehead_RoadTransition_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_RoadTransition_A_Terrain_LOD0": 384
+      },
+      "lod0_tris": 384
+    },
+    "SM_Bridgehead_BankTransition_A": {
+      "objects": [
+        "SM_Bridgehead_BankTransition_A_Terrain_LOD0"
+      ],
+      "tris": {
+        "SM_Bridgehead_BankTransition_A_Terrain_LOD0": 1344
+      },
+      "lod0_tris": 1344
+    }
+  },
+  "slots": {
+    "A_straight": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "B01": [
+      0.0,
+      -12.0,
+      0.0
+    ],
+    "C_bridgehead": [
+      0.0,
+      -26.0,
+      0.0
+    ]
+  }
+}

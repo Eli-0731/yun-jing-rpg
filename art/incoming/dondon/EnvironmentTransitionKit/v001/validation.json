@@ -1,0 +1,220 @@
+{
+  "package": "EnvironmentTransitionKit",
+  "version": "v001",
+  "measured_in": "source repository with Blender 5.2.3 LTS",
+  "connectors_chains_pairs": {
+    "pass": true,
+    "tolerance_m": 0.001,
+    "chains": 7,
+    "pairs": 16,
+    "record": "06_Reports/qa/final_all29.json"
+  },
+  "fbx_blender_reimport": {
+    "pass": true,
+    "modules": 29,
+    "scope": "Blender FBX round trip (not an engine import)",
+    "record": "06_Reports/qa/fbx_reimport_v01.json"
+  },
+  "preview_crop_check": {
+    "all_1024": true,
+    "touching_edge": {},
+    "record": "06_Reports/qa/preview_crop_check.json"
+  },
+  "protected_assets_unchanged": true,
+  "per_asset": [
+    {
+      "code": "A01",
+      "id": "SM_RoadEdge_Straight_L_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A/validation.json"
+    },
+    {
+      "code": "A02",
+      "id": "SM_RoadEdge_Straight_R_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A/validation.json"
+    },
+    {
+      "code": "A03",
+      "id": "SM_RoadEdge_Curve_L_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A/validation.json"
+    },
+    {
+      "code": "A04",
+      "id": "SM_RoadEdge_Curve_R_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A/validation.json"
+    },
+    {
+      "code": "A05",
+      "id": "SM_RoadEdge_WideCurve_L_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A/validation.json"
+    },
+    {
+      "code": "A06",
+      "id": "SM_RoadEdge_WideCurve_R_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A/validation.json"
+    },
+    {
+      "code": "A07",
+      "id": "SM_RoadEdge_Slope_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A/validation.json"
+    },
+    {
+      "code": "A08",
+      "id": "SM_RoadEdge_GrassTransition_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A/validation.json"
+    },
+    {
+      "code": "A09",
+      "id": "SM_RoadEdge_StoneTransition_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A/validation.json"
+    },
+    {
+      "code": "A10",
+      "id": "SM_RoadEdge_End_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A10_SM_RoadEdge_End_A/validation.json"
+    },
+    {
+      "code": "A11",
+      "id": "SM_RoadEdge_Damaged_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A/validation.json"
+    },
+    {
+      "code": "B01",
+      "id": "SM_Riverbank_Straight_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/B01_SM_Riverbank_Straight_A/validation.json"
+    },
+    {
+      "code": "B02",
+      "id": "SM_Riverbank_Straight_B",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/B02_SM_Riverbank_Straight_B/validation.json"
+    },
+    {
+      "code": "B03",
+      "id": "SM_Riverbank_InnerCorner_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A/validation.json"
+    },
+    {
+      "code": "B04",
+      "id": "SM_Riverbank_OuterCorner_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A/validation.json"
+    },
+    {
+      "code": "B05",
+      "id": "SM_Riverbank_Slope_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/B05_SM_Riverbank_Slope_A/validation.json"
+    },
+    {
+      "code": "B06",
+      "id": "SM_Riverbank_Steep_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/B06_SM_Riverbank_Steep_A/validation.json"
+    },
+    {
+      "code": "B07",
+      "id": "SM_Riverbank_RockReinforced_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A/validation.json"
+    },
+    {
+      "code": "B08",
+      "id": "SM_Riverbank_GrassHeavy_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A/validation.json"
+    },
+    {
+      "code": "B09",
+      "id": "SM_Riverbank_Eroded_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A/validation.json"
+    },
+    {
+      "code": "B10",
+      "id": "SM_Riverbank_End_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/B10_SM_Riverbank_End_A/validation.json"
+    },
+    {
+      "code": "C01",
+      "id": "SM_Bridgehead_RoadTransition_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A/validation.json"
+    },
+    {
+      "code": "C02",
+      "id": "SM_Bridgehead_BankTransition_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A/validation.json"
+    },
+    {
+      "code": "C03",
+      "id": "SM_Bridgehead_SideTrim_L_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A/validation.json"
+    },
+    {
+      "code": "C04",
+      "id": "SM_Bridgehead_SideTrim_R_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A/validation.json"
+    },
+    {
+      "code": "C05",
+      "id": "SM_Bridgehead_Base_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/C05_SM_Bridgehead_Base_A/validation.json"
+    },
+    {
+      "code": "C06",
+      "id": "SM_Bridgehead_SlopeFix_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A/validation.json"
+    },
+    {
+      "code": "C07",
+      "id": "SM_Bridgehead_CornerCap_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A/validation.json"
+    },
+    {
+      "code": "C08",
+      "id": "SM_Bridgehead_WaterEdge_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A/validation.json"
+    },
+    {
+      "code": "D01",
+      "id": "SM_Bridge_Log_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/D01_SM_Bridge_Log_A/validation.json"
+    },
+    {
+      "code": "D02",
+      "id": "SM_Bridge_Timber_A",
+      "overall_pass": true,
+      "record": "04_Previews/Individual/D02_SM_Bridge_Timber_A/validation.json"
+    }
+  ],
+  "hand_off_check": "handoff_check.json (written by check_incoming.py at the receiving location)",
+  "not_done": [
+    "Unity import",
+    "URP materials",
+    "mobile performance",
+    "in-engine collision and walking",
+    "AI three-views before modelling (see README)"
+  ]
+}

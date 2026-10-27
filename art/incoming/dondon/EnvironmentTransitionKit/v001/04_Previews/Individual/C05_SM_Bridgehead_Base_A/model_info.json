@@ -1,0 +1,82 @@
+{
+  "id": "SM_Bridgehead_Base_A",
+  "code": "C05",
+  "name_zh": "橋頭石基",
+  "group": "C",
+  "purpose": "橋頭下方簡潔石基（頂面 -0.05 m 承托 0.20 m 厚的測試橋面），不含橋梁主跨。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+  "bounds_min_m": [
+    1.9999998807907104,
+    -1.5,
+    -0.550000011920929
+  ],
+  "bounds_max_m": [
+    3.25,
+    1.5,
+    -0.05000000074505806
+  ],
+  "triangles": {
+    "LOD0": 452,
+    "LOD1": 120,
+    "LOD2": 12,
+    "COL": 12,
+    "budget_LOD0": [
+      800,
+      4000
+    ],
+    "by_object": {
+      "SM_Bridgehead_Base_A_Masonry_LOD0": 452,
+      "SM_Bridgehead_Base_A_Masonry_LOD1": 120,
+      "SM_Bridgehead_Base_A_Masonry_LOD2": 12,
+      "SM_Bridgehead_Base_A_COL": 12
+    }
+  },
+  "objects": [
+    "SM_Bridgehead_Base_A",
+    "SM_Bridgehead_Base_A_COL",
+    "SM_Bridgehead_Base_A_Masonry_LOD0",
+    "SM_Bridgehead_Base_A_Masonry_LOD1",
+    "SM_Bridgehead_Base_A_Masonry_LOD2"
+  ],
+  "materials": [
+    "M_Moss",
+    "M_Rock"
+  ],
+  "files": {
+    "blend": "01_Blender/bridgehead_modules_v01.blend",
+    "blend_collection": "SM_Bridgehead_Base_A",
+    "blend_sha256": "57430a88ecae1d24a0d15fcf9d4fac445b12e52d7761fc186928ab50dc5ee1d9",
+    "fbx": "02_Exports/Bridgehead/SM_Bridgehead_Base_A.fbx",
+    "fbx_sha256": "ae48291d6980ca0164bc31d334a5bf2d7776f264943390ba3874570685f40dd3",
+    "previews": "04_Previews/Individual/C05_SM_Bridgehead_Base_A",
+    "three_view": "00_References/ThreeViews/C05_SM_Bridgehead_Base_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "BRIDGE_SEAT",
+      "location_m": [
+        2.0,
+        0.0,
+        -0.05
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        3.25,
+        0.0,
+        -0.19163130144032922
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

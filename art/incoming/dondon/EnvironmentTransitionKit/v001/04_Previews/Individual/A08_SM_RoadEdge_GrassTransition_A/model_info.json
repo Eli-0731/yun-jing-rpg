@@ -1,0 +1,89 @@
+{
+  "id": "SM_RoadEdge_GrassTransition_A",
+  "code": "A08",
+  "name_zh": "泥路轉草地",
+  "group": "A",
+  "purpose": "泥土路面沿行進方向漸變為草地小徑；貼圖遮罩混合＋稀疏可關閉草片。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.378073215484619,
+    -0.0686223953962326
+  ],
+  "bounds_max_m": [
+    4.0,
+    2.358478307723999,
+    0.41620999574661255
+  ],
+  "triangles": {
+    "LOD0": 1320,
+    "LOD1": 384,
+    "LOD2": 96,
+    "COL": 96,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_RoadEdge_GrassTransition_A_Terrain_LOD0": 768,
+      "SM_RoadEdge_GrassTransition_A_Terrain_LOD1": 384,
+      "SM_RoadEdge_GrassTransition_A_Terrain_LOD2": 96,
+      "SM_RoadEdge_GrassTransition_A_COL": 96,
+      "SM_RoadEdge_GrassTransition_A_DET_Stones_LOD0": 432,
+      "SM_RoadEdge_GrassTransition_A_DET_Grass_LOD0": 120
+    }
+  },
+  "objects": [
+    "SM_RoadEdge_GrassTransition_A",
+    "SM_RoadEdge_GrassTransition_A_COL",
+    "SM_RoadEdge_GrassTransition_A_DET_Grass_LOD0",
+    "SM_RoadEdge_GrassTransition_A_DET_Stones_LOD0",
+    "SM_RoadEdge_GrassTransition_A_Terrain_LOD0",
+    "SM_RoadEdge_GrassTransition_A_Terrain_LOD1",
+    "SM_RoadEdge_GrassTransition_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/road_edge_modules_v01.blend",
+    "blend_collection": "SM_RoadEdge_GrassTransition_A",
+    "blend_sha256": "6874c9ba5057deeec88181c24a14b06219b675c9af505b8b6fa55b5d9860fa6e",
+    "fbx": "02_Exports/RoadEdge/SM_RoadEdge_GrassTransition_A.fbx",
+    "fbx_sha256": "e6858d7671d9f10636571079919d7f1a89c369e0249cada20d41c5badaa36fd8",
+    "previews": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A",
+    "three_view": "00_References/ThreeViews/A08_SM_RoadEdge_GrassTransition_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "ROAD_3M",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "ROAD_3M",
+      "location_m": [
+        4.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

@@ -1,0 +1,3318 @@
+{
+  "method": "border pixels of each preview compared with the median border colour; >0.2 % off-background = model touches the edge",
+  "modules": {
+    "A01": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "A02": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "A03": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "A04": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "A05": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "A06": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "A07": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "A08": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "A09": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "A10": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "A11": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "B01": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "B02": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "B03": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "B04": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "B05": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "B06": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "B07": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "B08": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "B09": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "B10": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "C01": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "C02": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "C03": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "C04": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "C05": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "C06": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "C07": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "C08": {
+      "views": 11,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        }
+      }
+    },
+    "D01": {
+      "views": 12,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "12_detail": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.021,
+          "touches_edge": false,
+          "close_up": true
+        }
+      }
+    },
+    "D02": {
+      "views": 13,
+      "all_1024": true,
+      "touching_edge": [],
+      "detail": {
+        "01_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "02_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "03_rear": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "04_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "05_front_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "06_rear_right": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "07_rear_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "08_front_left": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "09_top": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "10_high_front": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "11_persp_45": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0,
+          "touches_edge": false,
+          "close_up": false
+        },
+        "12_detail": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.0813,
+          "touches_edge": false,
+          "close_up": true
+        },
+        "13_pier": {
+          "size": [
+            1024,
+            1024
+          ],
+          "border_pixels_off_background": 0.1804,
+          "touches_edge": false,
+          "close_up": true
+        }
+      }
+    }
+  }
+}

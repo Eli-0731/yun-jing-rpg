@@ -1,0 +1,100 @@
+{
+  "id": "SM_Bridgehead_SideTrim_L_A",
+  "code": "C03",
+  "name_zh": "橋頭左側收口",
+  "group": "C",
+  "purpose": "左側（+Y）泥土草坡與散石，貼著 C01 外緣由坡道高度降回地面，避開通行區。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+  "bounds_min_m": [
+    0.0,
+    2.088114023208618,
+    -0.04735127091407776
+  ],
+  "bounds_max_m": [
+    2.0,
+    3.265439748764038,
+    0.4281044900417328
+  ],
+  "triangles": {
+    "LOD0": 376,
+    "LOD1": 48,
+    "LOD2": 12,
+    "COL": 12,
+    "budget_LOD0": [
+      800,
+      4000
+    ],
+    "by_object": {
+      "SM_Bridgehead_SideTrim_L_A_Terrain_LOD0": 96,
+      "SM_Bridgehead_SideTrim_L_A_Terrain_LOD1": 48,
+      "SM_Bridgehead_SideTrim_L_A_Terrain_LOD2": 12,
+      "SM_Bridgehead_SideTrim_L_A_COL": 12,
+      "SM_Bridgehead_SideTrim_L_A_DET_Stones_LOD0": 240,
+      "SM_Bridgehead_SideTrim_L_A_DET_Grass_LOD0": 40
+    }
+  },
+  "objects": [
+    "SM_Bridgehead_SideTrim_L_A",
+    "SM_Bridgehead_SideTrim_L_A_COL",
+    "SM_Bridgehead_SideTrim_L_A_DET_Grass_LOD0",
+    "SM_Bridgehead_SideTrim_L_A_DET_Stones_LOD0",
+    "SM_Bridgehead_SideTrim_L_A_Terrain_LOD0",
+    "SM_Bridgehead_SideTrim_L_A_Terrain_LOD1",
+    "SM_Bridgehead_SideTrim_L_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/bridgehead_modules_v01.blend",
+    "blend_collection": "SM_Bridgehead_SideTrim_L_A",
+    "blend_sha256": "57430a88ecae1d24a0d15fcf9d4fac445b12e52d7761fc186928ab50dc5ee1d9",
+    "fbx": "02_Exports/Bridgehead/SM_Bridgehead_SideTrim_L_A.fbx",
+    "fbx_sha256": "62c9e94123c9203d96dbcdaf011b2c89727d63b06a63c8537be31a1473307fef",
+    "previews": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A",
+    "three_view": "00_References/ThreeViews/C03_SM_Bridgehead_SideTrim_L_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "GROUND_EDGE",
+      "location_m": [
+        0.0,
+        2.625,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        2.0,
+        2.625,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "RoadSeam",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        0.0,
+        2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

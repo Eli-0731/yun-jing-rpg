@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-10-26 08:46:46",
+  "project_root": "/home/user/dondon",
+  "kit_dir": "/home/user/dondon/Environment_Transition_Kit",
+  "kit_realpath": "/home/user/dondon/Environment_Transition_Kit",
+  "symlinks_on_kit_path": [],
+  "search_roots": [
+    "/home",
+    "/root",
+    "/tmp",
+    "/opt",
+    "/mnt",
+    "/srv",
+    "/workspace"
+  ],
+  "name_patterns": [
+    "樹伴",
+    "古樹",
+    "山兔",
+    "主世界",
+    "mainworld",
+    "main_world",
+    "overworld",
+    "treecompanion",
+    "tree_companion",
+    "ancienttree",
+    "ancient_tree",
+    "mountainrabbit",
+    "mountain_rabbit",
+    "rabbit",
+    "hare_"
+  ],
+  "protected_matches": [
+    {
+      "path": "/root/.local/share/uv/tools/pyright/lib/python3.13/site-packages/pyright/dist/dist/typeshed-fallback/stubs/hvac/hvac/api/secrets_engines/rabbitmq.pyi",
+      "is_dir": false,
+      "is_symlink": false,
+      "size": 701,
+      "mtime": 1792690353.0,
+      "sha256": "8554cb58c50823deac70f75a5b8511db71b552b0733d825f041a3c8f79f1d871"
+    }
+  ],
+  "protected_matches_found": 1,
+  "blend_files_in_project": 220,
+  "policy": "Protected assets are never opened, linked, appended or written. Matching is by name only; hashing is read-only."
+}

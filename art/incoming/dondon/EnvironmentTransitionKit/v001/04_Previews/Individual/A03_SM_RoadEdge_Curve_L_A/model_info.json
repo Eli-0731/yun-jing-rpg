@@ -1,0 +1,89 @@
+{
+  "id": "SM_RoadEdge_Curve_L_A",
+  "code": "A03",
+  "name_zh": "左彎 15°",
+  "group": "A",
+  "purpose": "整段 3 m 路面＋兩側收邊，中心線弧長 4 m、左轉 15°，出口位姿依圓弧計算。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.3711955547332764,
+    -0.08584562689065933
+  ],
+  "bounds_max_m": [
+    4.536806583404541,
+    2.6939480304718018,
+    0.38889080286026
+  ],
+  "triangles": {
+    "LOD0": 1256,
+    "LOD1": 384,
+    "LOD2": 96,
+    "COL": 96,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_RoadEdge_Curve_L_A_Terrain_LOD0": 768,
+      "SM_RoadEdge_Curve_L_A_Terrain_LOD1": 384,
+      "SM_RoadEdge_Curve_L_A_Terrain_LOD2": 96,
+      "SM_RoadEdge_Curve_L_A_COL": 96,
+      "SM_RoadEdge_Curve_L_A_DET_Stones_LOD0": 432,
+      "SM_RoadEdge_Curve_L_A_DET_Grass_LOD0": 56
+    }
+  },
+  "objects": [
+    "SM_RoadEdge_Curve_L_A",
+    "SM_RoadEdge_Curve_L_A_COL",
+    "SM_RoadEdge_Curve_L_A_DET_Grass_LOD0",
+    "SM_RoadEdge_Curve_L_A_DET_Stones_LOD0",
+    "SM_RoadEdge_Curve_L_A_Terrain_LOD0",
+    "SM_RoadEdge_Curve_L_A_Terrain_LOD1",
+    "SM_RoadEdge_Curve_L_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/road_edge_modules_v01.blend",
+    "blend_collection": "SM_RoadEdge_Curve_L_A",
+    "blend_sha256": "6874c9ba5057deeec88181c24a14b06219b675c9af505b8b6fa55b5d9860fa6e",
+    "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Curve_L_A.fbx",
+    "fbx_sha256": "66d4e45b70734077816f25eb23664429b67d9dc4659663dec91518be0c5a0523",
+    "previews": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A",
+    "three_view": "00_References/ThreeViews/A03_SM_RoadEdge_Curve_L_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "ROAD_3M",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "ROAD_3M",
+      "location_m": [
+        3.954463717861477,
+        0.5206150250752022,
+        0.0
+      ],
+      "heading_deg": 14.999999999999998
+    }
+  ]
+}

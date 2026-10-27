@@ -1,0 +1,133 @@
+{
+  "id": "SM_Bridgehead_BankTransition_A",
+  "code": "C02",
+  "name_zh": "橋頭兩側岸坡",
+  "group": "C",
+  "purpose": "橋頭兩側陸地到河岸土坡的過渡（左右兩片），外端接 B 類標準河岸斷面。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "bridgehead frame origin = C01 road entry (0,0,0); C01-C05, C07, C08 share it",
+  "bounds_min_m": [
+    1.9576165676116943,
+    -4.0,
+    -1.0
+  ],
+  "bounds_max_m": [
+    5.0,
+    4.0,
+    0.44729623198509216
+  ],
+  "triangles": {
+    "LOD0": 1652,
+    "LOD1": 672,
+    "LOD2": 168,
+    "COL": 168,
+    "budget_LOD0": [
+      800,
+      4000
+    ],
+    "by_object": {
+      "SM_Bridgehead_BankTransition_A_Terrain_LOD0": 1344,
+      "SM_Bridgehead_BankTransition_A_Terrain_LOD1": 672,
+      "SM_Bridgehead_BankTransition_A_Terrain_LOD2": 168,
+      "SM_Bridgehead_BankTransition_A_COL": 168,
+      "SM_Bridgehead_BankTransition_A_DET_Stones_LOD0": 236,
+      "SM_Bridgehead_BankTransition_A_DET_Grass_LOD0": 72
+    }
+  },
+  "objects": [
+    "SM_Bridgehead_BankTransition_A",
+    "SM_Bridgehead_BankTransition_A_COL",
+    "SM_Bridgehead_BankTransition_A_DET_Grass_LOD0",
+    "SM_Bridgehead_BankTransition_A_DET_Stones_LOD0",
+    "SM_Bridgehead_BankTransition_A_Terrain_LOD0",
+    "SM_Bridgehead_BankTransition_A_Terrain_LOD1",
+    "SM_Bridgehead_BankTransition_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/bridgehead_modules_v01.blend",
+    "blend_collection": "SM_Bridgehead_BankTransition_A",
+    "blend_sha256": "57430a88ecae1d24a0d15fcf9d4fac445b12e52d7761fc186928ab50dc5ee1d9",
+    "fbx": "02_Exports/Bridgehead/SM_Bridgehead_BankTransition_A.fbx",
+    "fbx_sha256": "beebf4d9a888d7a1e04b054aa76497c9fb55834bf7003f059c445f53e62c32d9",
+    "previews": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A",
+    "three_view": "00_References/ThreeViews/C02_SM_Bridgehead_BankTransition_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "BANK_0_TO_MINUS_0P8",
+      "location_m": [
+        3.0,
+        -4.0,
+        0.0
+      ],
+      "heading_deg": 90.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "BANK_0_TO_MINUS_0P8",
+      "location_m": [
+        3.0,
+        4.0,
+        0.0
+      ],
+      "heading_deg": 90.0
+    },
+    {
+      "name": "TrimSeam_L",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        2.0,
+        2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "InnerSeam_L",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        2.0,
+        2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "TrimSeam_R",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        2.0,
+        -2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "InnerSeam_R",
+      "role": "seam",
+      "type": "BRIDGEHEAD_FIELD",
+      "location_m": [
+        2.0,
+        -2.25,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

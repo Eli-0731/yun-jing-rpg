@@ -1,0 +1,89 @@
+{
+  "id": "SM_Riverbank_Straight_B",
+  "code": "B02",
+  "name_zh": "河岸直段 B",
+  "group": "B",
+  "purpose": "與 B01 同接頭，多風化小石、苔蘚與不同侵蝕紋。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.0,
+    -1.0
+  ],
+  "bounds_max_m": [
+    4.0,
+    1.1603646278381348,
+    0.41566088795661926
+  ],
+  "triangles": {
+    "LOD0": 1440,
+    "LOD1": 384,
+    "LOD2": 96,
+    "COL": 96,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_Riverbank_Straight_B_Terrain_LOD0": 768,
+      "SM_Riverbank_Straight_B_Terrain_LOD1": 384,
+      "SM_Riverbank_Straight_B_Terrain_LOD2": 96,
+      "SM_Riverbank_Straight_B_COL": 96,
+      "SM_Riverbank_Straight_B_DET_Stones_LOD0": 632,
+      "SM_Riverbank_Straight_B_DET_Grass_LOD0": 40
+    }
+  },
+  "objects": [
+    "SM_Riverbank_Straight_B",
+    "SM_Riverbank_Straight_B_COL",
+    "SM_Riverbank_Straight_B_DET_Grass_LOD0",
+    "SM_Riverbank_Straight_B_DET_Stones_LOD0",
+    "SM_Riverbank_Straight_B_Terrain_LOD0",
+    "SM_Riverbank_Straight_B_Terrain_LOD1",
+    "SM_Riverbank_Straight_B_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/riverbank_modules_v01.blend",
+    "blend_collection": "SM_Riverbank_Straight_B",
+    "blend_sha256": "0afe4ea0cc8775fe874faa3a11a0246c1e7124e12bde298515cd6cc2947695f1",
+    "fbx": "02_Exports/Riverbank/SM_Riverbank_Straight_B.fbx",
+    "fbx_sha256": "a8cc479344be0935b210877636e4b71fbf9b90719980bba73625d3aeea78b035",
+    "previews": "04_Previews/Individual/B02_SM_Riverbank_Straight_B",
+    "three_view": "00_References/ThreeViews/B02_SM_Riverbank_Straight_B_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "BANK_0_TO_MINUS_0P8",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "BANK_0_TO_MINUS_0P8",
+      "location_m": [
+        4.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    }
+  ]
+}

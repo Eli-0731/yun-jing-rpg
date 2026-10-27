@@ -1,0 +1,89 @@
+{
+  "id": "SM_Riverbank_InnerCorner_A",
+  "code": "B03",
+  "name_zh": "河岸內凹轉角",
+  "group": "B",
+  "purpose": "陸地內凹（水灣）90° 轉角：沿岸線行進時向水側右轉，岸線弧長 4 m。",
+  "version": "v01",
+  "units": "metre",
+  "up": "+Z",
+  "forward": "+X (travel direction); preview 01_front looks from -Y",
+  "pivot": "entry connector (0,0,0)",
+  "bounds_min_m": [
+    0.0,
+    -2.5464789867401123,
+    -1.0
+  ],
+  "bounds_max_m": [
+    3.64963960647583,
+    1.0,
+    0.34193155169487
+  ],
+  "triangles": {
+    "LOD0": 1100,
+    "LOD1": 384,
+    "LOD2": 96,
+    "COL": 96,
+    "budget_LOD0": [
+      300,
+      2000
+    ],
+    "by_object": {
+      "SM_Riverbank_InnerCorner_A_Terrain_LOD0": 768,
+      "SM_Riverbank_InnerCorner_A_Terrain_LOD1": 384,
+      "SM_Riverbank_InnerCorner_A_Terrain_LOD2": 96,
+      "SM_Riverbank_InnerCorner_A_COL": 96,
+      "SM_Riverbank_InnerCorner_A_DET_Stones_LOD0": 292,
+      "SM_Riverbank_InnerCorner_A_DET_Grass_LOD0": 40
+    }
+  },
+  "objects": [
+    "SM_Riverbank_InnerCorner_A",
+    "SM_Riverbank_InnerCorner_A_COL",
+    "SM_Riverbank_InnerCorner_A_DET_Grass_LOD0",
+    "SM_Riverbank_InnerCorner_A_DET_Stones_LOD0",
+    "SM_Riverbank_InnerCorner_A_Terrain_LOD0",
+    "SM_Riverbank_InnerCorner_A_Terrain_LOD1",
+    "SM_Riverbank_InnerCorner_A_Terrain_LOD2"
+  ],
+  "materials": [
+    "M_GrassCard",
+    "M_Moss",
+    "M_PathGravel",
+    "M_Rock",
+    "M_TerrainBlend"
+  ],
+  "files": {
+    "blend": "01_Blender/riverbank_modules_v01.blend",
+    "blend_collection": "SM_Riverbank_InnerCorner_A",
+    "blend_sha256": "0afe4ea0cc8775fe874faa3a11a0246c1e7124e12bde298515cd6cc2947695f1",
+    "fbx": "02_Exports/Riverbank/SM_Riverbank_InnerCorner_A.fbx",
+    "fbx_sha256": "dab3f0eb3c5eef6b2524f409227c0158b002bfc9429878d13b739eb676ccfa04",
+    "previews": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A",
+    "three_view": "00_References/ThreeViews/B03_SM_Riverbank_InnerCorner_A_3view.png"
+  },
+  "connectors": [
+    {
+      "name": "EntryConnector",
+      "role": "entry",
+      "type": "BANK_0_TO_MINUS_0P8",
+      "location_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "heading_deg": 0.0
+    },
+    {
+      "name": "ExitConnector",
+      "role": "exit",
+      "type": "BANK_0_TO_MINUS_0P8",
+      "location_m": [
+        2.5464790894703255,
+        -2.546479089470325,
+        0.0
+      ],
+      "heading_deg": -90.0
+    }
+  ]
+}

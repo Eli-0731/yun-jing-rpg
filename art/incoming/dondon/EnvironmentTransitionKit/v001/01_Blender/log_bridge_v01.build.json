@@ -1,0 +1,13 @@
+{
+  "modules": {
+    "SM_Bridge_Log_A": {
+      "tris": {
+        "SM_Bridge_Log_A_Log_LOD0": 2254,
+        "SM_Bridge_Log_A_Log_LOD1": 768,
+        "SM_Bridge_Log_A_Log_LOD2": 182,
+        "SM_Bridge_Log_A_COL": 12
+      },
+      "lod0_tris": 2254
+    }
+  }
+}

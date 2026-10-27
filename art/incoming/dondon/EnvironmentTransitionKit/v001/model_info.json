@@ -1,0 +1,849 @@
+{
+  "package": "EnvironmentTransitionKit",
+  "version": "v001",
+  "source_version": "v01",
+  "assets": 31,
+  "units": "metre (1 unit = 1 m)",
+  "up": "+Z in Blender; FBX written Forward -Z, Up Y, Apply Transform",
+  "forward": "+X = travel direction, +Y = left side; preview 01_front looks from -Y",
+  "pivot": "A/B: entry connector; C01-C05, C07, C08: shared bridgehead frame; bridges: entry-end deck centre",
+  "status": {
+    "uv": "done (world-scale, 2 m per UV unit; textures tile)",
+    "lod": "LOD0/LOD1/LOD2 per asset",
+    "collision": "_COL proxy mesh per asset (not tested in an engine)",
+    "rig_animation": "none (static props)",
+    "materials": "Blender node materials + baked 1024 px PBR textures; engine materials must be rebuilt (06_Reports/README_Integration.md)"
+  },
+  "items": [
+    {
+      "code": "A01",
+      "id": "SM_RoadEdge_Straight_L_A",
+      "name_zh": "直線左路緣",
+      "group": "A",
+      "size_m": [
+        4.0,
+        0.9437,
+        0.4017
+      ],
+      "triangles": {
+        "LOD0": 406,
+        "LOD1": 96,
+        "LOD2": 24,
+        "COL": 24
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Straight_L_A.fbx",
+      "previews": "04_Previews/Individual/A01_SM_RoadEdge_Straight_L_A"
+    },
+    {
+      "code": "A02",
+      "id": "SM_RoadEdge_Straight_R_A",
+      "name_zh": "直線右路緣",
+      "group": "A",
+      "size_m": [
+        4.0,
+        0.9054,
+        0.4298
+      ],
+      "triangles": {
+        "LOD0": 406,
+        "LOD1": 96,
+        "LOD2": 24,
+        "COL": 24
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Straight_R_A.fbx",
+      "previews": "04_Previews/Individual/A02_SM_RoadEdge_Straight_R_A"
+    },
+    {
+      "code": "A03",
+      "id": "SM_RoadEdge_Curve_L_A",
+      "name_zh": "左彎 15°",
+      "group": "A",
+      "size_m": [
+        4.5368,
+        5.0651,
+        0.4747
+      ],
+      "triangles": {
+        "LOD0": 1256,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Curve_L_A.fbx",
+      "previews": "04_Previews/Individual/A03_SM_RoadEdge_Curve_L_A"
+    },
+    {
+      "code": "A04",
+      "id": "SM_RoadEdge_Curve_R_A",
+      "name_zh": "右彎 15°",
+      "group": "A",
+      "size_m": [
+        4.5368,
+        5.0202,
+        0.5378
+      ],
+      "triangles": {
+        "LOD0": 1256,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Curve_R_A.fbx",
+      "previews": "04_Previews/Individual/A04_SM_RoadEdge_Curve_R_A"
+    },
+    {
+      "code": "A05",
+      "id": "SM_RoadEdge_WideCurve_L_A",
+      "name_zh": "左彎 30°",
+      "group": "A",
+      "size_m": [
+        4.9447,
+        5.3702,
+        0.4591
+      ],
+      "triangles": {
+        "LOD0": 1256,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_WideCurve_L_A.fbx",
+      "previews": "04_Previews/Individual/A05_SM_RoadEdge_WideCurve_L_A"
+    },
+    {
+      "code": "A06",
+      "id": "SM_RoadEdge_WideCurve_R_A",
+      "name_zh": "右彎 30°",
+      "group": "A",
+      "size_m": [
+        4.9447,
+        5.3112,
+        0.5092
+      ],
+      "triangles": {
+        "LOD0": 1256,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_WideCurve_R_A.fbx",
+      "previews": "04_Previews/Individual/A06_SM_RoadEdge_WideCurve_R_A"
+    },
+    {
+      "code": "A07",
+      "id": "SM_RoadEdge_Slope_A",
+      "name_zh": "小坡銜接",
+      "group": "A",
+      "size_m": [
+        4.0,
+        4.9252,
+        0.5874
+      ],
+      "triangles": {
+        "LOD0": 1256,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Slope_A.fbx",
+      "previews": "04_Previews/Individual/A07_SM_RoadEdge_Slope_A"
+    },
+    {
+      "code": "A08",
+      "id": "SM_RoadEdge_GrassTransition_A",
+      "name_zh": "泥路轉草地",
+      "group": "A",
+      "size_m": [
+        4.0,
+        4.7366,
+        0.4848
+      ],
+      "triangles": {
+        "LOD0": 1320,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_GrassTransition_A.fbx",
+      "previews": "04_Previews/Individual/A08_SM_RoadEdge_GrassTransition_A"
+    },
+    {
+      "code": "A09",
+      "id": "SM_RoadEdge_StoneTransition_A",
+      "name_zh": "泥路轉碎石",
+      "group": "A",
+      "size_m": [
+        4.0,
+        4.7715,
+        0.4905
+      ],
+      "triangles": {
+        "LOD0": 1736,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_StoneTransition_A.fbx",
+      "previews": "04_Previews/Individual/A09_SM_RoadEdge_StoneTransition_A"
+    },
+    {
+      "code": "A10",
+      "id": "SM_RoadEdge_End_A",
+      "name_zh": "道路終端",
+      "group": "A",
+      "size_m": [
+        4.0,
+        4.8913,
+        0.513
+      ],
+      "triangles": {
+        "LOD0": 1244,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_End_A.fbx",
+      "previews": "04_Previews/Individual/A10_SM_RoadEdge_End_A"
+    },
+    {
+      "code": "A11",
+      "id": "SM_RoadEdge_Damaged_A",
+      "name_zh": "破損路段",
+      "group": "A",
+      "size_m": [
+        4.0,
+        4.9174,
+        0.4823
+      ],
+      "triangles": {
+        "LOD0": 1558,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend",
+        "M_WetSoil"
+      ],
+      "blend": "01_Blender/road_edge_modules_v01.blend",
+      "fbx": "02_Exports/RoadEdge/SM_RoadEdge_Damaged_A.fbx",
+      "previews": "04_Previews/Individual/A11_SM_RoadEdge_Damaged_A"
+    },
+    {
+      "code": "B01",
+      "id": "SM_Riverbank_Straight_A",
+      "name_zh": "河岸直段 A",
+      "group": "B",
+      "size_m": [
+        4.0,
+        3.0857,
+        1.4339
+      ],
+      "triangles": {
+        "LOD0": 1100,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/riverbank_modules_v01.blend",
+      "fbx": "02_Exports/Riverbank/SM_Riverbank_Straight_A.fbx",
+      "previews": "04_Previews/Individual/B01_SM_Riverbank_Straight_A"
+    },
+    {
+      "code": "B02",
+      "id": "SM_Riverbank_Straight_B",
+      "name_zh": "河岸直段 B",
+      "group": "B",
+      "size_m": [
+        4.0,
+        3.1604,
+        1.4157
+      ],
+      "triangles": {
+        "LOD0": 1440,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/riverbank_modules_v01.blend",
+      "fbx": "02_Exports/Riverbank/SM_Riverbank_Straight_B.fbx",
+      "previews": "04_Previews/Individual/B02_SM_Riverbank_Straight_B"
+    },
+    {
+      "code": "B03",
+      "id": "SM_Riverbank_InnerCorner_A",
+      "name_zh": "河岸內凹轉角",
+      "group": "B",
+      "size_m": [
+        3.6496,
+        3.5465,
+        1.3419
+      ],
+      "triangles": {
+        "LOD0": 1100,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/riverbank_modules_v01.blend",
+      "fbx": "02_Exports/Riverbank/SM_Riverbank_InnerCorner_A.fbx",
+      "previews": "04_Previews/Individual/B03_SM_Riverbank_InnerCorner_A"
+    },
+    {
+      "code": "B04",
+      "id": "SM_Riverbank_OuterCorner_A",
+      "name_zh": "河岸外凸轉角",
+      "group": "B",
+      "size_m": [
+        4.5465,
+        4.5465,
+        1.3988
+      ],
+      "triangles": {
+        "LOD0": 1100,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/riverbank_modules_v01.blend",
+      "fbx": "02_Exports/Riverbank/SM_Riverbank_OuterCorner_A.fbx",
+      "previews": "04_Previews/Individual/B04_SM_Riverbank_OuterCorner_A"
+    },
+    {
+      "code": "B05",
+      "id": "SM_Riverbank_Slope_A",
+      "name_zh": "緩坡入水",
+      "group": "B",
+      "size_m": [
+        4.0,
+        3.0768,
+        1.3816
+      ],
+      "triangles": {
+        "LOD0": 1420,
+        "LOD1": 544,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/riverbank_modules_v01.blend",
+      "fbx": "02_Exports/Riverbank/SM_Riverbank_Slope_A.fbx",
+      "previews": "04_Previews/Individual/B05_SM_Riverbank_Slope_A"
+    },
+    {
+      "code": "B06",
+      "id": "SM_Riverbank_Steep_A",
+      "name_zh": "陡岸露岩",
+      "group": "B",
+      "size_m": [
+        4.0,
+        3.0727,
+        1.6286
+      ],
+      "triangles": {
+        "LOD0": 1964,
+        "LOD1": 816,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/riverbank_modules_v01.blend",
+      "fbx": "02_Exports/Riverbank/SM_Riverbank_Steep_A.fbx",
+      "previews": "04_Previews/Individual/B06_SM_Riverbank_Steep_A"
+    },
+    {
+      "code": "B07",
+      "id": "SM_Riverbank_RockReinforced_A",
+      "name_zh": "砌石護岸",
+      "group": "B",
+      "size_m": [
+        4.0,
+        3.0902,
+        1.4288
+      ],
+      "triangles": {
+        "LOD0": 3440,
+        "LOD1": 1584,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/riverbank_modules_v01.blend",
+      "fbx": "02_Exports/Riverbank/SM_Riverbank_RockReinforced_A.fbx",
+      "previews": "04_Previews/Individual/B07_SM_Riverbank_RockReinforced_A"
+    },
+    {
+      "code": "B08",
+      "id": "SM_Riverbank_GrassHeavy_A",
+      "name_zh": "草根濕岸",
+      "group": "B",
+      "size_m": [
+        4.0,
+        3.2288,
+        1.5111
+      ],
+      "triangles": {
+        "LOD0": 1460,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_Grass",
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/riverbank_modules_v01.blend",
+      "fbx": "02_Exports/Riverbank/SM_Riverbank_GrassHeavy_A.fbx",
+      "previews": "04_Previews/Individual/B08_SM_Riverbank_GrassHeavy_A"
+    },
+    {
+      "code": "B09",
+      "id": "SM_Riverbank_Eroded_A",
+      "name_zh": "沖刷崩岸",
+      "group": "B",
+      "size_m": [
+        4.0,
+        3.0582,
+        1.336
+      ],
+      "triangles": {
+        "LOD0": 1250,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/riverbank_modules_v01.blend",
+      "fbx": "02_Exports/Riverbank/SM_Riverbank_Eroded_A.fbx",
+      "previews": "04_Previews/Individual/B09_SM_Riverbank_Eroded_A"
+    },
+    {
+      "code": "B10",
+      "id": "SM_Riverbank_End_A",
+      "name_zh": "河岸終端",
+      "group": "B",
+      "size_m": [
+        4.0,
+        3.0386,
+        1.3631
+      ],
+      "triangles": {
+        "LOD0": 908,
+        "LOD1": 384,
+        "LOD2": 96,
+        "COL": 96
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/riverbank_modules_v01.blend",
+      "fbx": "02_Exports/Riverbank/SM_Riverbank_End_A.fbx",
+      "previews": "04_Previews/Individual/B10_SM_Riverbank_End_A"
+    },
+    {
+      "code": "C01",
+      "id": "SM_Bridgehead_RoadTransition_A",
+      "name_zh": "道路轉橋面",
+      "group": "C",
+      "size_m": [
+        2.0,
+        4.6271,
+        0.4474
+      ],
+      "triangles": {
+        "LOD0": 524,
+        "LOD1": 192,
+        "LOD2": 48,
+        "COL": 48
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/bridgehead_modules_v01.blend",
+      "fbx": "02_Exports/Bridgehead/SM_Bridgehead_RoadTransition_A.fbx",
+      "previews": "04_Previews/Individual/C01_SM_Bridgehead_RoadTransition_A"
+    },
+    {
+      "code": "C02",
+      "id": "SM_Bridgehead_BankTransition_A",
+      "name_zh": "橋頭兩側岸坡",
+      "group": "C",
+      "size_m": [
+        3.0424,
+        8.0,
+        1.4473
+      ],
+      "triangles": {
+        "LOD0": 1652,
+        "LOD1": 672,
+        "LOD2": 168,
+        "COL": 168
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/bridgehead_modules_v01.blend",
+      "fbx": "02_Exports/Bridgehead/SM_Bridgehead_BankTransition_A.fbx",
+      "previews": "04_Previews/Individual/C02_SM_Bridgehead_BankTransition_A"
+    },
+    {
+      "code": "C03",
+      "id": "SM_Bridgehead_SideTrim_L_A",
+      "name_zh": "橋頭左側收口",
+      "group": "C",
+      "size_m": [
+        2.0,
+        1.1773,
+        0.4755
+      ],
+      "triangles": {
+        "LOD0": 376,
+        "LOD1": 48,
+        "LOD2": 12,
+        "COL": 12
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/bridgehead_modules_v01.blend",
+      "fbx": "02_Exports/Bridgehead/SM_Bridgehead_SideTrim_L_A.fbx",
+      "previews": "04_Previews/Individual/C03_SM_Bridgehead_SideTrim_L_A"
+    },
+    {
+      "code": "C04",
+      "id": "SM_Bridgehead_SideTrim_R_A",
+      "name_zh": "橋頭右側收口",
+      "group": "C",
+      "size_m": [
+        2.0,
+        1.0861,
+        0.5048
+      ],
+      "triangles": {
+        "LOD0": 376,
+        "LOD1": 48,
+        "LOD2": 12,
+        "COL": 12
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/bridgehead_modules_v01.blend",
+      "fbx": "02_Exports/Bridgehead/SM_Bridgehead_SideTrim_R_A.fbx",
+      "previews": "04_Previews/Individual/C04_SM_Bridgehead_SideTrim_R_A"
+    },
+    {
+      "code": "C05",
+      "id": "SM_Bridgehead_Base_A",
+      "name_zh": "橋頭石基",
+      "group": "C",
+      "size_m": [
+        1.25,
+        3.0,
+        0.5
+      ],
+      "triangles": {
+        "LOD0": 452,
+        "LOD1": 120,
+        "LOD2": 12,
+        "COL": 12
+      },
+      "materials": [
+        "M_Moss",
+        "M_Rock"
+      ],
+      "blend": "01_Blender/bridgehead_modules_v01.blend",
+      "fbx": "02_Exports/Bridgehead/SM_Bridgehead_Base_A.fbx",
+      "previews": "04_Previews/Individual/C05_SM_Bridgehead_Base_A"
+    },
+    {
+      "code": "C06",
+      "id": "SM_Bridgehead_SlopeFix_A",
+      "name_zh": "接地短坡",
+      "group": "C",
+      "size_m": [
+        1.5,
+        3.0,
+        0.1509
+      ],
+      "triangles": {
+        "LOD0": 348,
+        "LOD1": 144,
+        "LOD2": 36,
+        "COL": 36
+      },
+      "materials": [
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/bridgehead_modules_v01.blend",
+      "fbx": "02_Exports/Bridgehead/SM_Bridgehead_SlopeFix_A.fbx",
+      "previews": "04_Previews/Individual/C06_SM_Bridgehead_SlopeFix_A"
+    },
+    {
+      "code": "C07",
+      "id": "SM_Bridgehead_CornerCap_A",
+      "name_zh": "橋頭角隅封邊",
+      "group": "C",
+      "size_m": [
+        1.25,
+        4.7075,
+        0.9501
+      ],
+      "triangles": {
+        "LOD0": 796,
+        "LOD1": 384,
+        "LOD2": 36,
+        "COL": 36
+      },
+      "materials": [
+        "M_GrassCard",
+        "M_Moss",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/bridgehead_modules_v01.blend",
+      "fbx": "02_Exports/Bridgehead/SM_Bridgehead_CornerCap_A.fbx",
+      "previews": "04_Previews/Individual/C07_SM_Bridgehead_CornerCap_A"
+    },
+    {
+      "code": "C08",
+      "id": "SM_Bridgehead_WaterEdge_A",
+      "name_zh": "橋頭近水沖刷帶",
+      "group": "C",
+      "size_m": [
+        1.75,
+        4.5,
+        0.9515
+      ],
+      "triangles": {
+        "LOD0": 1648,
+        "LOD1": 624,
+        "LOD2": 144,
+        "COL": 144
+      },
+      "materials": [
+        "M_Moss",
+        "M_PathGravel",
+        "M_Rock",
+        "M_TerrainBlend"
+      ],
+      "blend": "01_Blender/bridgehead_modules_v01.blend",
+      "fbx": "02_Exports/Bridgehead/SM_Bridgehead_WaterEdge_A.fbx",
+      "previews": "04_Previews/Individual/C08_SM_Bridgehead_WaterEdge_A"
+    },
+    {
+      "code": "D01",
+      "id": "SM_Bridge_Log_A",
+      "name_zh": "獨木橋",
+      "group": "D (extra, requested after the 29-module kit)",
+      "size_m": [
+        10.0,
+        0.6494,
+        0.3469
+      ],
+      "triangles": {
+        "LOD0": 2254,
+        "LOD1": 768,
+        "LOD2": 182,
+        "COL": 12
+      },
+      "materials": [
+        "M_Bark",
+        "M_Wood",
+        "M_EndGrain",
+        "M_Moss"
+      ],
+      "blend": "01_Blender/log_bridge_v01.blend",
+      "fbx": "02_Exports/Bridge/SM_Bridge_Log_A.fbx",
+      "previews": "04_Previews/Individual/D01_SM_Bridge_Log_A"
+    },
+    {
+      "code": "D02",
+      "id": "SM_Bridge_Timber_A",
+      "name_zh": "木造梁橋",
+      "group": "D (extra, requested after the 29-module kit)",
+      "size_m": [
+        10.0,
+        3.2,
+        2.98
+      ],
+      "triangles": {
+        "LOD0": 1112,
+        "LOD1": 248,
+        "LOD2": 48,
+        "COL": 36
+      },
+      "materials": [
+        "M_Timber",
+        "M_Bark",
+        "M_EndGrain"
+      ],
+      "blend": "01_Blender/timber_bridge_v01.blend",
+      "fbx": "02_Exports/Bridge/SM_Bridge_Timber_A.fbx",
+      "previews": "04_Previews/Individual/D02_SM_Bridge_Timber_A"
+    }
+  ]
+}
