@@ -6,6 +6,6 @@
 
 尺度為公尺，母檔採 Blender Z-up、資產前方為 -Y；GLB 採 glTF Y-up、模型前方為 +Z。各件原點是地面中心，無場景組裝位移。示範擺放座標在 `../../previews/qingxi-training-yard-v1/assembly-placement.json`。棚體總外包尺寸約 6.82 × 5.40 × 3.90 m（含屋脊、坡道及飛檐）；石坡寬 3.40 m、平台高 0.12 m，四柱內的步行通道無中央柱。精確匯出面數和回匯尺寸在 `../../exports/qingxi-training-yard-v1/asset-manifest.json`。
 
-`qa-report.json` 的六件 `pass` 為 Blender 網格檢查結果，實際回匯結果在匯出 manifest。警告中的重疊 UV 來自共享／平鋪材質貼圖，不適合作獨立光照貼圖或逐件烘焙；圓柱端蓋 n-gon 為平面封口，GLB 匯出時已三角化。棚內隱藏接合面尚可在正式整合前進一步精簡。手機 FPS、Unity 編譯、Unity 導入材質和碰撞、主線入口連接及正式練功 API 均未驗證。
+`qa-report.json` 的六件 `pass` 為 Blender 網格檢查結果，實際回匯結果在匯出 manifest。警告中的重疊 UV 來自共享／平鋪材質貼圖，不適合作獨立光照貼圖或逐件烘焙；圓柱端蓋 n-gon 為平面封口，GLB 匯出時已三角化。棚內隱藏接合面尚可在正式整合前進一步精簡。手機 FPS、主遊戲 PWA 的材質與碰撞、入口連接及正式練功 API 均未驗證。
 
-`collision-proxies.json` 是給核心組的簡化碰撞建議，並非已寫入 Unity 的 Collider。前端本機展示使用自己的步行代理，不存修為、物品或伺服器獎勵。
+`collision-proxies.json` 是給核心組的簡化碰撞建議，並非主遊戲 PWA 已接入的碰撞。獨立 PWA 展示使用自己的步行代理，不存修為、物品或伺服器獎勵。

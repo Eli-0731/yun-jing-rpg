@@ -17,4 +17,4 @@
 
 本組只新增 `art/references/qingxi-training-yard-v1/`、`art/source/qingxi-training-yard-v1/`、`art/exports/qingxi-training-yard-v1/`、`art/previews/qingxi-training-yard-v1/`、`tools/training-yard-demo/`。核心入口、聽風台、其他協作者資產與 API 均交核心組接入。
 
-獨立展示的節奏分數只在記憶體，不換算修為或獎勵。main 的原始碼已有受權限保護的 `POST /actions` 及 `practice-basic`（qi/body，服務端冷卻與發獎），但本輪沒有接入，也未對 Unity 編譯或手機效能作驗證。
+獨立 PWA 展示的節奏分數只在記憶體，不換算修為或獎勵。main 的原始碼已有受權限保護的 `POST /actions` 及 `practice-basic`（qi/body，服務端冷卻與發獎），但本輪沒有接入主遊戲 PWA，也未對實體手機安裝或效能作驗證。
