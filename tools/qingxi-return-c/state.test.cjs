@@ -3,7 +3,7 @@ const run=(s,a)=>R.apply(s,a).state;
 test('repeated clicks cannot duplicate a sample; totals are always three',()=>{
  let s=run(R.empty(),{type:'select',sample:'herb'});s=run(s,{type:'move',destination:'save'});const revision=s.revision;
  for(let i=0;i<100;i++)s=run(s,{type:'move',destination:'save'});
- assert.equal(s.revision,revision);assert.equal(s.journal.length,1);assert.deepEqual(R.summary(s),{table:2,save:1,alchemy:0});
+ assert.equal(s.revision,revision);assert.equal(s.journal.length,1);assert.deepEqual(R.summary(s),{table:2,save:1,alchemy:0,commission:0});
  for(const id of Object.keys(R.samples))for(const d of Object.keys(R.destinations)){s=run(s,{type:'select',sample:id});s=run(s,{type:'move',destination:d});assert.equal(Object.values(R.summary(s)).reduce((a,b)=>a+b),3);}
 });
 test('one-step undo restores previous location; cannot undo twice',()=>{
@@ -20,4 +20,14 @@ test('invalid actions and corrupt saves cannot invent assets or destinations',()
  const next=R.restore({version:1,selected:'herb',placements:{herb:'mint-money',ore:'save',seed:100,extra:'save'},lastAction:{sample:'herb',to:'alchemy',from:null},journal:[{sample:'unknown',to:'save',kind:'move'}],revision:-99});
  assert.deepEqual(next.placements,{herb:null,ore:'save',seed:null});assert.equal(next.lastAction,null);assert.equal(next.revision,0);assert.deepEqual(next.journal,[]);
  assert.deepEqual(R.restore(null),s);assert.deepEqual(R.restore({version:99}),s);
+});
+test('all three destinations remain optional; commission is local assignment only',()=>{
+ let s=R.empty();for(const id of Object.keys(R.samples)){s=run(s,{type:'select',sample:id});s=run(s,{type:'move',destination:'commission'});}
+ assert.deepEqual(R.summary(s),{table:0,save:0,alchemy:0,commission:3});assert.equal(Object.hasOwn(s,'rewards'),false);
+ s=run(s,{type:'undo'});assert.equal(s.placements.seed,null);assert.equal(R.summary(s).commission,2);
+});
+test('unknown storage values and stale undo cannot affect fixed sample definitions',()=>{
+ const s=R.restore({version:1,placements:{herb:'save',ore:'commission',seed:'alchemy'},lastAction:{sample:'ore',from:null,to:'save'},journal:[{sample:'ore',to:'commission',kind:'move',reward:999}],revision:4});
+ assert.equal(s.lastAction,null);assert.equal(Object.values(R.summary(s)).reduce((a,b)=>a+b),3);assert.equal(s.journal[0].reward,undefined);
+ assert.equal(Object.isFrozen(R.samples.herb),true);
 });

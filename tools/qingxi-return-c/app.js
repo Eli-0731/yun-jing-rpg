@@ -1,7 +1,7 @@
 (() => {
  'use strict';
  const R=QingxiReturn,KEY='qingxi-return-c-v1',$=id=>document.getElementById(id);
- const assets={C01:'回村背籠',C02:'低木分揀桌',C03:'收納竹匣',C04:'藥草布包'};
+ const assets={C01:'回村背籠',C02:'低木分揀桌',C03:'收納竹匣',C04:'藥草布包',C05:'委託封條盒',C06:'木製座凳',C07:'簡易油紙燈',C08:'手札皮扣與木托'};
  let state=R.empty(),storageOK=true;
  try{state=R.restore(JSON.parse(localStorage.getItem(KEY)));}catch{storageOK=false;}
  const say=text=>{$('status').textContent=text+(storageOK?'':' 此瀏覽器無法保存，重載後可能重置。');};
@@ -30,10 +30,11 @@
  }
  for(const [id,name] of Object.entries(R.destinations)){
   const b=document.createElement('button');b.dataset.destination=id;b.textContent=name;
-  const small=document.createElement('small');small.textContent=id==='save'?'收進竹匣，慢慢再看':'裝入布包，留待研究';b.append(small);
+  const small=document.createElement('small');small.textContent=id==='save'?'收進竹匣，慢慢再看':id==='alchemy'?'裝入布包，留待研究':'封存展示；不完成正式委託';b.append(small);
   b.addEventListener('click',()=>act({type:'move',destination:id}));$('destinations').append(b);
  }
- document.querySelectorAll('[data-world]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.world==='table'){if(!state.selected)act({type:'select',sample:'herb'});else{say('點選右側樣本可換一份；再選擇保存或留待煉製。');b.classList.add('active');}}else act({type:'move',destination:b.dataset.world});}));
+ document.querySelectorAll('[data-world]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.world==='table'){if(!state.selected)act({type:'select',sample:'herb'});else{say('點選右側樣本可換一份；三個去向都可以自由選擇。');b.classList.add('active');}}else if(b.dataset.world==='journal'){$('journal-content').hidden=!$('journal-content').hidden;say($('journal-content').hidden?'手札已收起；隨時可以再翻開。':'手札已翻開，可查看每份樣本的來源與去向。');b.classList.toggle('active',!$('journal-content').hidden);}else act({type:'move',destination:b.dataset.world});}));
+ let dusk=false;$('light').addEventListener('click',()=>{dusk=!dusk;$('corner-image').src='previews/'+(dusk?'return-corner-dusk.png':'return-corner.png');$('light').textContent=dusk?'切回白日':'看看傍晚';say(dusk?'傍晚樣片：可用標示辨認三個去向。':'已切回白日樣片。');});
  for(const [id,name] of Object.entries(assets)){
   const b=document.createElement('button');b.setAttribute('aria-label','查看'+name+'近景');
   const img=document.createElement('img');img.src=`previews/${id}-close.png`;img.alt=name+'實際渲染';const label=document.createElement('small');label.textContent=id+' '+name;b.append(img,label);

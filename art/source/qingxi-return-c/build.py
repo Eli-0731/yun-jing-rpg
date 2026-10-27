@@ -34,6 +34,8 @@ WOOD=mat('old_warm_wood',(.30,.18,.09),'wood');DARK=mat('wood_endgrain',(.16,.09
 BAMBOO=mat('bamboo_weave',(.46,.36,.17),'weave');RIM=mat('bamboo_rim',(.35,.25,.11),'wood')
 HEMP=mat('hemp_rope',(.62,.52,.34),'weave');CLOTH=mat('sage_hemp',(.29,.35,.20),'weave')
 PAPER=mat('warm_paper',(.81,.69,.43));BRONZE=mat('aged_bronze',(.25,.22,.10));LEATHER=mat('brown_leather',(.21,.10,.05),'weave')
+LAMP=mat('warm_lamp_paper',(.81,.69,.43))
+lamp_bs=LAMP.node_tree.nodes.get('Principled BSDF');lamp_bs.inputs['Emission Color'].default_value=(.9,.55,.15,1);lamp_bs.inputs['Emission Strength'].default_value=.45
 
 def box(name,loc,size,material,bevel=.007):
     bpy.ops.mesh.primitive_cube_add(size=1,location=loc);o=bpy.context.object;o.name=name;o.dimensions=size
@@ -141,7 +143,7 @@ if opt.batch==2:
     end('C06',s)
     s=begin()
     box('lamp_foot',(0,0,.025),(.27,.27,.05),WOOD)
-    box('paper_lamp',(0,0,.245),(.23,.23,.36),PAPER)
+    box('paper_lamp',(0,0,.245),(.23,.23,.36),LAMP)
     for x in [-.123,.123]:
         for y in [-.123,.123]:rod('lamp_corner',(x,y,.055),(x,y,.46),.010,RIM,8)
     for z in [.065,.445]:
@@ -190,12 +192,21 @@ for id,obs in groups.items():
     for o in obs:o.hide_render=False;o.location+=Vector(placements[id])
 shot('return-corner.png',(0,0,.35),(4,-6,4.2),4.8)
 # A scale guide rendered as a neutral ruler, not an additional asset or a character.
+scaleObjects=begin()
 scaleMat=mat('scale_guide',(.68,.60,.39))
 rod('1.7m_scale',(-1.30,1.36,0),(-1.30,1.36,1.7),.012,scaleMat)
 for z in [0,.5,1,1.5,1.7]:rod('scale_tick',(-1.35,1.36,z),(-1.25,1.36,z),.007,scaleMat)
 shot('scale-3x4m.png',(0,0,.5),(4,-6,4.2),5.3)
-for id,obs in groups.items():
-    for o in obs:o.location-=Vector(placements[id])
+for o in set(bpy.data.objects)-scaleObjects:o.hide_render=True
+if opt.batch==2:
+    lights=[o for o in scene.objects if o.type=='LIGHT'];energies=[o.data.energy for o in lights]
+    for light in lights:light.data.energy*=.20
+    bpy.ops.object.light_add(type='POINT',location=(.84,-.53,.35));glow=bpy.context.object;glow.name='preview_lantern_glow';glow.data.energy=12;glow.data.color=(1,.58,.22);glow.data.shadow_soft_size=.20
+    shot('return-corner-dusk.png',(0,0,.35),(4,-6,4.2),4.8)
+    bpy.data.objects.remove(glow,do_unlink=True)
+    for light,energy in zip(lights,energies):light.data.energy=energy
+# Preserve the reviewable 3x4m assembly in the editable mother file.
+# GLBs above were exported at local ground origins before this placement.
 bpy.ops.wm.save_as_mainfile(filepath=str(Path(__file__).parent/f'Qingxi_Return_C_batch{opt.batch}.blend'))
 report['corner_footprint_m']=[3,4];report['placements_xyz']=placements
 for a in report['assets']:

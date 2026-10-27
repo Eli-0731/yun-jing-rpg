@@ -6,7 +6,7 @@
   ore:Object.freeze({name:'溪石礦樣本',source:'溪路石壁',use:'觀察石紋，或留待工坊辨材。',symbol:'石'}),
   seed:Object.freeze({name:'露珠草種樣本',source:'村外草坡',use:'保存作為種植觀察樣本。',symbol:'種'})
  });
- const destinations=Object.freeze({save:'保存',alchemy:'留待煉製'});
+ const destinations=Object.freeze({save:'保存',alchemy:'留待煉製',commission:'交委託（展示）'});
  const validDestination=x=>x===null||Object.hasOwn(destinations,x);
  const empty=()=>({version:1,selected:null,placements:{herb:null,ore:null,seed:null},lastAction:null,journal:[],revision:0});
  function restore(raw){
