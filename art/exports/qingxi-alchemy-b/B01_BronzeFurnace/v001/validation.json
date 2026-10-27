@@ -1,0 +1,167 @@
+{
+ "B01_BronzeFurnace_cold": {
+  "asset": "B01",
+  "key": "B01_BronzeFurnace_cold",
+  "state": "cold",
+  "version": "v001",
+  "dimensions_m": [
+   0.736,
+   0.765,
+   0.892
+  ],
+  "bbox_min": [
+   -0.368,
+   -0.362,
+   0.0
+  ],
+  "bbox_max": [
+   0.368,
+   0.403,
+   0.892
+  ],
+  "target_size_m": [
+   0.86,
+   0.8,
+   0.92
+  ],
+  "trianglesLOD": [
+   14912,
+   7456,
+   3280
+  ],
+  "budgetLOD0": 15000,
+  "withinBudget": true,
+  "vertices": 7522,
+  "materials": [
+   "M_B01_BronzeFurnace_cold"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B01_BronzeFurnace_cold_LOD0"
+  ],
+  "textures": [
+   "T_B01_BronzeFurnace_cold_BaseColor.png",
+   "T_B01_BronzeFurnace_cold_Normal.png",
+   "T_B01_BronzeFurnace_cold_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 14912,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B01_BronzeFurnace_cold.001"
+   ]
+  },
+  "files": {
+   "B01_BronzeFurnace_cold.glb": {
+    "bytes": 4163672,
+    "sha256": "3a317152b6fb58358738d3fb42172f3e7bb630e7fe17bb8e528d445bc883baba"
+   },
+   "B01_BronzeFurnace_cold.fbx": {
+    "bytes": 1384364,
+    "sha256": "fdec82fa8680f52037b8a7a8833b0d47baff31ca5321e384a95f24558b3eabfb"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B01_BronzeFurnace_cold": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 7.2,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ },
+ "B01_BronzeFurnace_heating": {
+  "asset": "B01",
+  "key": "B01_BronzeFurnace_heating",
+  "state": "heating",
+  "version": "v001",
+  "dimensions_m": [
+   0.736,
+   0.765,
+   0.892
+  ],
+  "bbox_min": [
+   -0.368,
+   -0.362,
+   0.0
+  ],
+  "bbox_max": [
+   0.368,
+   0.403,
+   0.892
+  ],
+  "target_size_m": [
+   0.86,
+   0.8,
+   0.92
+  ],
+  "trianglesLOD": [
+   14912,
+   7456,
+   3280
+  ],
+  "budgetLOD0": 15000,
+  "withinBudget": true,
+  "vertices": 7522,
+  "materials": [
+   "M_B01_BronzeFurnace_heating"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B01_BronzeFurnace_heating_LOD0"
+  ],
+  "textures": [
+   "T_B01_BronzeFurnace_heating_BaseColor.png",
+   "T_B01_BronzeFurnace_heating_Emissive.png",
+   "T_B01_BronzeFurnace_heating_Normal.png",
+   "T_B01_BronzeFurnace_heating_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 14912,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B01_BronzeFurnace_heating.001"
+   ]
+  },
+  "files": {
+   "B01_BronzeFurnace_heating.glb": {
+    "bytes": 4353828,
+    "sha256": "323fc4d6a3662a01059a9ec85162d723bb75ddabcbce5bf40a7c5b0450fc28b1"
+   },
+   "B01_BronzeFurnace_heating.fbx": {
+    "bytes": 1385708,
+    "sha256": "8484326057b09fb735fc0180c578160342f4858ce1c9af2335e61d0715df7b43"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B01_BronzeFurnace_heating": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 6.8,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

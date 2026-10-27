@@ -1,0 +1,84 @@
+{
+ "B02_FurnaceLid": {
+  "asset": "B02",
+  "key": "B02_FurnaceLid",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.544,
+   0.544,
+   0.278
+  ],
+  "bbox_min": [
+   -0.272,
+   -0.272,
+   0.0
+  ],
+  "bbox_max": [
+   0.272,
+   0.272,
+   0.278
+  ],
+  "target_size_m": [
+   0.54,
+   0.54,
+   0.27
+  ],
+  "trianglesLOD": [
+   6452,
+   3226,
+   1418
+  ],
+  "budgetLOD0": 6500,
+  "withinBudget": true,
+  "vertices": 3262,
+  "materials": [
+   "M_B02_FurnaceLid"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B02_FurnaceLid_LOD0"
+  ],
+  "textures": [
+   "T_B02_FurnaceLid_BaseColor.png",
+   "T_B02_FurnaceLid_Normal.png",
+   "T_B02_FurnaceLid_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 32,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 6452,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B02_FurnaceLid.001"
+   ]
+  },
+  "files": {
+   "B02_FurnaceLid.glb": {
+    "bytes": 3378840,
+    "sha256": "2a6eccfc6f2289fcfd7efcf1f90ca2faeabceed13485705f82b15d23c3444642"
+   },
+   "B02_FurnaceLid.fbx": {
+    "bytes": 634380,
+    "sha256": "2b87be1b0ad5fe40f6500212f37eb2115215a15bda23f2b364adddf6b7496874"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B02_FurnaceLid": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 4.7,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
