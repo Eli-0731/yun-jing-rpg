@@ -1,6 +1,6 @@
 # 青溪工作與來源登記
 
-目前「進儲存庫」「放進 Unity 場景」「完成可玩互動」為三個不同階段；較大城鎮由 `apps/game/Assets/QingxiWorld/Editor/QingxiWorldBuilder.cs` 重建，小入口由 `apps/game/Assets/YunJing/Editor/QingxiWorldBuilder.cs` 重建，尚未統一。詳見[開發進度表](development-roadmap.md)。z1nnz 已說明所提供外來模型取得原作者授權，可在《雲境》改造；修改時仍登記原作者與原始檔，不將改色或改面歸成全新原創。
+目前「進儲存庫」「放進 Unity 場景」「完成可玩互動」為三個不同階段；較大城鎮由 `apps/game/Assets/QingxiWorld/Editor/QingxiWorldBuilder.cs` 重建，小入口由 `apps/game/Assets/YunJing/Editor/QingxiWorldBuilder.cs` 重建，尚未統一。詳見[開發進度表](development-roadmap.md)和[協作者素材接入表](asset-integration-register.md)。z1nnz 已說明所提供外來模型取得原作者授權，可在《雲境》改造；修改時仍登記原作者與原始檔，不將改色或改面歸成全新原創。
 
 ## 2026-10-27 入口補做範圍
 
@@ -10,7 +10,6 @@
 | 聽風台 Unity FBX 匯入與村口擺位 | z1nnz 指導／其 Codex 由原創聽風台母稿匯出及接線 | 同一 PR #27；世界生成與編譯通過，實際走位及手機效能未驗。協作者勿覆寫 `QingxiWorldBuilder.cs` 與 `QingxiListeningTerraceV1`。 |
 | 雲境統一美術語言與核心組接續清單 | z1nnz 指導／其 Codex 編寫，整合使用者選定的原創參考圖 | [風格規範](art/yunjing-visual-language.md)及[續作清單](execution/2026-10-27/02-core-progress-and-next.md)；這是共同準則和待辦，不代表所有資產已符合。 |
 | 演武區、溪畔採集、村內告示與小事件 | A、B、C 各自新工作包 | [2026-10-27 工作包](execution/2026-10-27/01-novice-entry-parallel-work-42h.md)已派發，尚未視為交付；各自保留實際作者與獨立 PR。 |
-
 
 更新：2026-10-26。此表用來避免重做；「z1nnz／Codex 協作」表示由 z1nnz 指導、Codex 在其專案中製作或整合，不把協作者原創誤記為 z1nnz 獨作。
 
