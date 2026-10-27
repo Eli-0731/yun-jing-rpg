@@ -1,5 +1,7 @@
 # 青溪採集路段素材 v001（半寫實）
 
+> **暫存素材，尚未通過正式美術驗收。** z1nnz 於 2026-10-28 指示先合併協作者已交付的素材，後續再補三視圖與修訂模型。本次只收入模型、貼圖、母稿及檢視圖；獨立採集展示與其非正式 API 接線未併入。下述建模前缺少 AI 三視圖的事實保留，不把建模後渲染圖寫成前置參考。
+
 ## 作者與來源
 
 - **實際作者**：Claude（Anthropic，Claude Code）依使用者 joshsu54 的工單撰寫 Blender Python 程序化建模腳本並生成。
@@ -56,26 +58,15 @@ blender -b --python-exit-code 1 --python render_views.py
 uv run --no-project --with pillow python make_sheets.py
 ```
 
-## 示範啟動
-
-在版本庫根目錄執行：
-
-```bash
-uv run --no-project python tools/gathering-point-demo/serve.py --port 8765
-```
-
-然後開啟 `http://127.0.0.1:8765/tools/gathering-point-demo/`。操作與數量規則見 `tools/gathering-point-demo/README.md`。
-
 ## 已實際檢查
 
 - 每個 GLB 都回匯 Blender 檢查：網格／材質／貼圖數、尺寸與 model_info 誤差 < 1 mm、三角形數、原點。結果在各 `validation.json`。
-- 在瀏覽器實際跑完示範：觀察→採集→換採後模型→未再生原因→岔口必選→涉水受阻→踏板高度→再生。
+- 協作者原分支曾在瀏覽器走查獨立展示；本次僅合併素材，該展示不屬於 `main` 交付內容。
 
 ## 尚未接入／未驗證
 
 - 沒有匯入 Unity、Unreal 或 Godot；碰撞體、LOD、導航網格都沒做。
 - 遊戲材質不含背光透射、次表面散射、水晶透射與金屬度（已烘成顏色）。
 - 面數偏高，特別是赤露參約 8.5 萬三角形，草叢應改用插片或實例化草。
-- 沒有接正式伺服器、存檔或背包系統；示範玩家是簡單替身。
-  - 示範的 `?server=` 送 `POST {server}/gather`，與 `services/api` 現有的 `gather` 動作（節點 `quarry`／`seed-bank`／`herb-bank`）格式不同，接入時要改成呼叫既有動作。
+- 沒有接正式伺服器、存檔或背包系統。本次未合併獨立展示；任何正式採集交互都須使用現有服務端契約與資產帳本。
 - 尚未放進 v12 村口實景測試遠看效果：只做了平地 40 m 平視圖與示範內的遠景。
