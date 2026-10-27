@@ -58,6 +58,9 @@ namespace YunJing.Editor
             if (walkableParts == 0) throw new InvalidOperationException("Listening terrace has no walkable stone meshes.");
 
             var approach = ConnectEntrance(player, terrace.transform.position);
+            var hud = new GameObject("Qingxi Designed HUD").AddComponent<YunJing.QingxiHud>();
+            hud.walker = player.GetComponent<global::QingxiWorld.QingxiFirstPerson>();
+            hud.uiMaterial = UiSurface();
 
             PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
             PlayerSettings.defaultScreenWidth = 1280;
@@ -161,11 +164,24 @@ namespace YunJing.Editor
             return material;
         }
 
+        static Material UiSurface()
+        {
+            string path = MaterialFolder + "/UnifiedHudUI.mat";
+            var result = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (result != null) return result;
+            var shader = Shader.Find("UI/Default");
+            if (shader == null) throw new InvalidOperationException("Unity UI/Default shader unavailable.");
+            result = new Material(shader);
+            AssetDatabase.CreateAsset(result, path);
+            return result;
+        }
+
         static void ValidateScene()
         {
             if (GameObject.Find("Town") == null || GameObject.Find("HuntArea_rotated180") == null ||
                 GameObject.Find("Qingxi listening terrace - town entrance") == null ||
-                GameObject.Find("Player_FirstPerson") == null)
+                GameObject.Find("Player_FirstPerson") == null ||
+                GameObject.Find("Qingxi Designed HUD") == null)
                 throw new InvalidOperationException("Unified world is missing its town, hunt, terrace or local traveler.");
         }
 

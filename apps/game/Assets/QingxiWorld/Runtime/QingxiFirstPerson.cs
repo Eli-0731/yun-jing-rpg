@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 namespace QingxiWorld
 {
@@ -18,8 +20,10 @@ namespace QingxiWorld
         public string[] spotNames; public Vector3[] spotPositions; public float[] spotYaws;
         public Transform huntRoot; public string[] zoneLabels; public Vector4[] zoneRects;   // hunt-local centre x, z, width, depth
         public Transform[] pointsOfInterest;
+        public bool useDesignedHud;
+        public event Action<string> LocationChanged;
 
-        CharacterController cc; float yaw, pitch, vy, stopwatch; bool third = true, help = true; NavMeshDataInstance nav;
+        CharacterController cc; float yaw, pitch, vy, stopwatch; bool third = true, help = true, menuOpen; NavMeshDataInstance nav;
         readonly List<string> log = new List<string>(); readonly HashSet<string> reached = new HashSet<string>();
         GUIStyle box, small; GameObject[] overlays = new GameObject[0]; bool showOverlays;
 
@@ -35,13 +39,17 @@ namespace QingxiWorld
         }
         void SetOverlays(bool on) { showOverlays = on; foreach (var g in overlays) g.SetActive(on); }
         void Lock(bool on) { Cursor.lockState = on ? CursorLockMode.Locked : CursorLockMode.None; Cursor.visible = !on; }
+        public void SetMenuOpen(bool value) { menuOpen = value; Lock(!value); }
         void ApplyView() { if (body != null) foreach (var r in body.GetComponentsInChildren<Renderer>()) r.enabled = third; }
 
         void Update()
         {
             var kb = Keyboard.current; var mouse = Mouse.current; if (kb == null || mouse == null) return;
+            if (menuOpen) return;
             if (kb.escapeKey.wasPressedThisFrame) Lock(false);
-            if (mouse.leftButton.wasPressedThisFrame && Cursor.lockState != CursorLockMode.Locked) Lock(true);
+            // Let the Qingxi journal consume its own click while the cursor is free.
+            if (mouse.leftButton.wasPressedThisFrame && Cursor.lockState != CursorLockMode.Locked
+                && !(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())) Lock(true);
             if (kb.vKey.wasPressedThisFrame) { third = !third; ApplyView(); }
             if (kb.hKey.wasPressedThisFrame) help = !help;
             if (kb.lKey.wasPressedThisFrame) { SetOverlays(!showOverlays); Log(showOverlays ? "顯示測試路線與導航網格" : "隱藏測試路線與導航網格"); }
@@ -68,7 +76,7 @@ namespace QingxiWorld
             UpdateCamera();
             foreach (var p in pointsOfInterest ?? new Transform[0])
                 if (p != null && !reached.Contains(p.name) && (p.name.StartsWith("TrailClue") || p.name.StartsWith("HerbNode") || p.name.StartsWith("Merchant") || p.name.StartsWith("SafeReturn") || p.name.StartsWith("Entrance_"))
-                    && Vector3.Distance(Flat(p.position), Flat(transform.position)) < 3) { reached.Add(p.name); Log("到達 " + p.name + "：走了 " + stopwatch.ToString("0.0") + " 秒"); }
+                    && Vector3.Distance(Flat(p.position), Flat(transform.position)) < 3) { reached.Add(p.name); Log("到達 " + p.name + "：走了 " + stopwatch.ToString("0.0") + " 秒"); LocationChanged?.Invoke(p.name); }
         }
         void UpdateCamera()
         {
@@ -82,6 +90,7 @@ namespace QingxiWorld
         {
             cc.enabled = false; transform.position = spotPositions[i] + Vector3.up * .05f; cc.enabled = true;
             yaw = spotYaws[i]; pitch = 0; vy = 0; stopwatch = 0; reached.Clear(); Log("傳送到 " + spotNames[i] + "，計時歸零");
+            LocationChanged?.Invoke(spotNames[i]);
         }
         void Log(string s) { log.Add(s); if (log.Count > 5) log.RemoveAt(0); }
         string Zone()
@@ -97,6 +106,7 @@ namespace QingxiWorld
 
         void OnGUI()
         {
+            if (useDesignedHud) return;
             if (box == null) { box = new GUIStyle(GUI.skin.box) { fontSize = 18, alignment = TextAnchor.UpperLeft, wordWrap = true }; small = new GUIStyle(box) { fontSize = 15 }; }
             var near = (pointsOfInterest ?? new Transform[0]).Where(p => p != null).Select(p => (p.name, d: Vector3.Distance(p.position, transform.position))).OrderBy(x => x.d).FirstOrDefault();
             var rabbits = FindObjectsByType<QingxiRabbit>(FindObjectsSortMode.None);
