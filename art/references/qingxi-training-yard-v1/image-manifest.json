@@ -1,0 +1,38 @@
+[
+  {
+    "file": "agility-post-three-view.png",
+    "bytes": 2003911,
+    "sha256": "2b9496b125154e87d7db5a72ff05c04c7dd54248d869c442cfdef24fe70d9e71",
+    "status": "AI concept; reviewed by Codex; user authorized build without visual sign-off"
+  },
+  {
+    "file": "engraved-training-stone-three-view.png",
+    "bytes": 1779417,
+    "sha256": "d96e36ece0b96500b8ae75c8e8846f83e0e75e429a8f2788b5561980f7c27506",
+    "status": "AI concept; reviewed by Codex; user authorized build without visual sign-off"
+  },
+  {
+    "file": "qi-striking-post-three-view.png",
+    "bytes": 2227023,
+    "sha256": "de59da152c311c1d5654b4573400a929a7cf705faca3d9073494f6c5676426ed",
+    "status": "AI concept; reviewed by Codex; user authorized build without visual sign-off"
+  },
+  {
+    "file": "training-banner-three-view.png",
+    "bytes": 1680842,
+    "sha256": "e1171687b3b3a9feb35e8e17301346cda79614d4a55d44ba54859328818ec54c",
+    "status": "AI concept; reviewed by Codex; user authorized build without visual sign-off"
+  },
+  {
+    "file": "training-shelter-three-view.png",
+    "bytes": 2059145,
+    "sha256": "54d318c60db2cf756f43cfcfce1690bec520a168f1c09a7a8e07a5dfc3e666d0",
+    "status": "AI concept; reviewed by Codex; user authorized build without visual sign-off"
+  },
+  {
+    "file": "weapon-rack-three-view.png",
+    "bytes": 1616653,
+    "sha256": "ceb361294d1eb991e226ef62091205f1e53fd85eedbea92786e8d6029e568754",
+    "status": "AI concept; reviewed by Codex; user authorized build without visual sign-off"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "units": "meters",
+  "axis": "Blender Z-up local; GLB converts to glTF Y-up",
+  "status": "handoff proposal; Unity colliders not installed or tested",
+  "assets": {
+    "training-shelter": {"walkablePlatform": {"type": "box", "center": [0, 0, 0.06], "size": [6.4, 4.8, 0.12]}, "entranceRamp": {"type": "ramp", "width": 3.4, "startY": -3.0, "endY": -2.34, "rise": 0.12}, "posts": [{"type": "capsule", "radius": 0.20, "height": 2.77, "center": [-2.4, -1.8, 1.385]}, {"type": "capsule", "radius": 0.20, "height": 2.77, "center": [2.4, -1.8, 1.385]}, {"type": "capsule", "radius": 0.20, "height": 2.77, "center": [-2.4, 1.8, 1.385]}, {"type": "capsule", "radius": 0.20, "height": 2.77, "center": [2.4, 1.8, 1.385]}]},
+    "qi-striking-post": {"type": "capsule", "radius": 0.35, "height": 1.65, "center": [0, 0, 0.825]},
+    "agility-post": {"type": "box", "center": [0, 0, 0.825], "size": [1.15, 0.85, 1.65]},
+    "weapon-rack": {"type": "box", "center": [0, 0, 0.825], "size": [1.80, 0.65, 1.65]},
+    "engraved-training-stone": {"type": "box", "center": [0, 0, 0.14], "size": [1.82, 1.52, 0.28]},
+    "training-banner": {"type": "capsule", "radius": 0.30, "height": 2.65, "center": [0, 0, 1.325]}
+  }
+}

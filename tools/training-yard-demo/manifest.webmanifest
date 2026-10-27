@@ -1,0 +1,16 @@
+{
+  "name": "雲境・青溪演武區本機展示",
+  "short_name": "青溪演武",
+  "description": "六件演武區模型與兩種不產生正式修為的練功節奏展示",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#132822",
+  "theme_color": "#18392f",
+  "icons": [
+    {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
