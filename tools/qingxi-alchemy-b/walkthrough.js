@@ -1,6 +1,7 @@
 // Scripted player-view walkthrough (?walk): fixed time step, every frame composited with the HUD and posted to
 // serve.mjs (/__frame). Encode afterwards with art/source/qingxi-alchemy-b/encode_walkthrough.py.
-// Round 1: known recipe (one wrong pick first, to show the feedback), claim pressed three times.
+// Round 1: known recipe (one wrong pick first, to show the feedback; B05 drawers open while identifying, B04 trays
+// show the processed materials), claim pressed three times.
 // Round 2: research variant with strong fire -> failure reason and partial return.
 const FPS = 12, DT = 1 / FPS;
 
@@ -67,17 +68,26 @@ export async function runWalkthrough(ctx) {
     await fetch(`/__frame?n=${n++}`, { method: 'POST', body: out.toDataURL('image/jpeg', 0.88) });
   }
   const hold = async s => { for (let i = 0; i < Math.round(s * FPS); i++) await frame(); };
+  // The bench row splits the floor into a front aisle (entrance, bench stations, water, fuel, B04) and a back aisle
+  // (furnace, chimney, filter, cabinet / recipe stand); crossing goes round the bench's open left end.
+  const GAP = [[-0.05, -1.0], [-0.05, -0.15]], back = p => p[1] > -0.55;
+  async function goTo(p) {
+    ctx.target = b2t([p[0], p[1], 0]);
+    for (let i = 0; i < FPS * 12 && ctx.target; i++) await frame();
+    if (ctx.target) console.warn('walkthrough: did not reach', p);
+  }
   async function walkTo(role) {
-    ctx.target = b2t(station(role).approach);
-    for (let i = 0; i < FPS * 20 && ctx.target; i++) await frame();
-    card(role); await hold(0.8);
+    const dst = station(role).approach, cur = [player.position.x, -player.position.z];
+    if (back(cur) !== back(dst)) for (const p of back(cur) ? [GAP[1], GAP[0]] : GAP) await goTo(p);
+    await goTo(dst);
+    card(role); await hold(1.0);
   }
   const press = async (a, v, slot, s = 1.1) => { act(a, v, slot); await hold(s); };
 
   await hold(1.5);
   // ---- round 1: known recipe
   await walkTo('identify');
-  for (const b of ctx.S.bag.map(x => x.batchId)) await press('identify', b);
+  for (const b of ctx.S.bag.map(x => x.batchId)) await press('identify', b, null, 1.7);   // its drawer slides out, label inked
   await walkTo('recipe');
   await press('recipe', 'body-bath');
   await press('pick', 'pr31-qinglan_01-r1', 'main', 0.6);
@@ -88,6 +98,7 @@ export async function runWalkthrough(ctx) {
   await walkTo('water'); await press('water');
   await walkTo('process');
   await press('process', 'slice', 'main'); await press('process', 'soak', 'aux');
+  await walkTo('sort'); await hold(1.8);                       // B04 trays now show the sliced main and soaked aux
   await walkTo('fuel'); await press('fuel');
   await walkTo('refine');
   await press('fire', 'strong', null, 1.2); await press('fire', 'medium', null, 1.6);   // preview reacts to the choice

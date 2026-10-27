@@ -2,7 +2,7 @@
 
   blender -b --python-exit-code 1 --python combo.py
 
-Seats the lid on the furnace socket `lid_seat`, measures triangle overlap and clearances, renders closed/heating/open
+Seats the matching lid state (cold lid on the cold furnace, heated lid on the heating one) on the furnace socket `lid_seat`, measures triangle overlap and clearances, renders closed/heating/open
 and writes art/exports/qingxi-alchemy-b/fit_B01_B02.json.
 """
 import bpy, sys, json, math
@@ -44,8 +44,9 @@ def overlaps(a_objs, b_objs):
 def run(state):
     Q.reset()
     fur = load(EX / 'B01_BronzeFurnace' / Q.VER / f'B01_BronzeFurnace_{state}.glb')
-    lid = load(EX / 'B02_FurnaceLid' / Q.VER / 'B02_FurnaceLid.glb')
-    fi, li = info('B01_BronzeFurnace', f'B01_BronzeFurnace_{state}'), info('B02_FurnaceLid', 'B02_FurnaceLid')
+    lkey = 'B02_FurnaceLid' if state == 'cold' else f'B02_FurnaceLid_{state}'   # cold lid kept the unsuffixed key
+    lid = load(EX / 'B02_FurnaceLid' / Q.VER / f'{lkey}.glb')
+    fi, li = info('B01_BronzeFurnace', f'B01_BronzeFurnace_{state}'), info('B02_FurnaceLid', lkey)
     seat = Vector(fi['sockets']['lid_seat']); rim = fi['rim']
     for o in lid:
         o.location = o.location + seat
@@ -57,7 +58,7 @@ def run(state):
     wall_r = min(math.hypot(v.x, v.y) for v in fv if seat.z - 0.01 < v.z < rim['top_z'] - 0.002 and math.hypot(v.x, v.y) < 0.26)
     # vertical clearance: flange underside vs rim top
     flange_z = min(v.z for v in lv if math.hypot(v.x, v.y) > rim['inner_r'] + 0.01)
-    res = dict(state=state, seat=list(seat), triangleOverlaps=overlaps(fur, lid),
+    res = dict(state=state, lid=lkey, seat=list(seat), triangleOverlaps=overlaps(fur, lid),
                skirtRadius=round(skirt_r, 4), rimInnerRadius=round(wall_r, 4), radialClearance=round(wall_r - skirt_r, 4),
                flangeUndersideZ=round(flange_z, 4), rimTopZ=rim['top_z'], verticalClearance=round(flange_z - rim['top_z'], 4))
     res['pass'] = res['triangleOverlaps'] == 0 and res['radialClearance'] > 0 and res['verticalClearance'] >= 0

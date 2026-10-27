@@ -14,7 +14,7 @@
      "inferred": "Right view puts the flue at back-right but the back view centres it: modelled centred at the back. Leg count is ambiguous: four legs at the diagonals. Interior below the rim is a sooty crucible."},
     {"id": "B02", "image": "B02_removable_furnace_lid.png", "views": ["front", "right", "back", "closed", "open"], "reviewed": true,
      "known": "Stepped domed bronze lid, bail handle with dark grip, perforated vent spout on the back, notched lower skirt.",
-     "inferred": "The inset furnace has a small slotted door that conflicts with B01's arched mouth; B01 is authoritative. Skirt sized to drop inside the B01 rim so the flange rests on it without intersecting."},
+     "inferred": "The inset furnace has a small slotted door that conflicts with B01's arched mouth; B01 is authoritative. Skirt sized to drop inside the B01 rim so the flange rests on it without intersecting. The sheet shows no heated look: the heating state (oxidised crown, temper ring, sooty vent, embers in an opened vent throat) is designed here, not taken from the reference."},
     {"id": "B03", "image": "B03_stone_mortar_and_pestle.png", "views": ["front", "right", "back"], "reviewed": true,
      "known": "Grey granite bowl on a foot ring, rolled lip with a front pour notch, bulb-ended pestle with a collar.", "inferred": "Pestle shown lying flat; modelled resting inside the bowl for the placed prop and separately as its own node."},
     {"id": "B04", "image": "B04_two_tier_bamboo_sorting_trays.png", "views": ["front", "right", "back"], "reviewed": true,

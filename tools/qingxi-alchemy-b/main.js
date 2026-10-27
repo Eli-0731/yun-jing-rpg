@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MATERIALS, demoBag } from './src/materials-adapter.mjs';
 import { RECIPES, PROCESS, FIRE, COLLECT, newState, identify, checkCompound, preview, brew, claimLocal } from './src/alchemy-core.mjs';
+import { makeCabinet, makeTrays, makeSteam } from './props.js';
 
 const $ = id => document.getElementById(id);
 const WALK = new URLSearchParams(location.search).has('walk');
@@ -48,7 +49,11 @@ await Promise.all(layout.instances.map(async it => {
 const heatingFurnace = inst.find(i => i.glb.includes('B01_BronzeFurnace_heating')).obj;
 const coldFurnace = (await loader.loadAsync(ROOT + 'art/exports/qingxi-alchemy-b/B01_BronzeFurnace/v001/B01_BronzeFurnace_cold.glb')).scene;
 coldFurnace.position.copy(heatingFurnace.position); coldFurnace.traverse(m => { if (m.isMesh) m.castShadow = m.receiveShadow = true; }); scene.add(coldFurnace);
-const lid = inst.find(i => i.id === 'B02').obj, lidSeat = lid.position.clone(), lidOpen = b2t([0.62, 0.42, 0.0]);
+// lid states: the layout seats the heated lid; the cold lid is loaded beside it and shown while the fire is out
+const hotLid = inst.find(i => i.id === 'B02').obj, lidSeat = hotLid.position.clone(), lidOpen = b2t([0.62, 0.42, 0.0]);
+const coldLid = (await loader.loadAsync(ROOT + 'art/exports/qingxi-alchemy-b/B02_FurnaceLid/v001/B02_FurnaceLid.glb')).scene;
+coldLid.traverse(m => { if (m.isMesh) m.castShadow = m.receiveShadow = true; }); scene.add(coldLid);
+const lids = [hotLid, coldLid], VENT_TOP = b2t([0.09, 0.165, 0.175]);   // vent mouth in lid space (Blender coords)
 const filledBottles = inst.filter(i => i.glb.includes('_filled')).map(i => i.obj);
 const fireLight = new THREE.PointLight('#ff8a3a', 0, 2.2, 2); fireLight.position.copy(b2t([0, 0.30, 0.3])); scene.add(fireLight);
 
@@ -58,6 +63,7 @@ const robe = new THREE.Mesh(new THREE.CapsuleGeometry(0.17, 1.0, 6, 16), mat('#2
 const head = new THREE.Mesh(new THREE.SphereGeometry(0.11, 20, 14), mat('#d9b896', 0.7)); head.position.y = 1.585;
 const nose = new THREE.Mesh(new THREE.ConeGeometry(0.03, 0.08, 8), mat('#b39a62')); nose.rotation.x = -Math.PI / 2; nose.position.set(0, 1.58, -0.12);
 [robe, head, nose].forEach(m => { m.castShadow = true; player.add(m); }); scene.add(player);
+const figureMats = [robe, head, nose].map(m => Object.assign(m.material, { transparent: true }));   // compiled transparent so opacity can fade
 player.position.copy(b2t(layout.entrance)); player.rotation.y = 0;
 
 // ---------------------------------------------------------------- game state
@@ -98,7 +104,7 @@ function card(role) {
   openRole = role; const c = $('card'); c.hidden = false; const r = RECIPES[plan.recipe]; let h = '';
   const slotName = role => r.slots.find(s => s.role === role)?.label ?? role;
   if (role === 'identify') {
-    h = `<h2>藥櫃 B05 · 辨材</h2><p class="dim">把背包裡的材料攤開，看清屬性、藥性、純度與穩定度。</p><table>${S.bag.map(b => {
+    h = `<h2>藥櫃 B05 · 辨材</h2><p class="dim">拉開抽屜看清屬性、藥性、純度與穩定度；辨識過的抽屜標籤寫上名稱並蓋紅印。</p><table>${S.bag.map(b => {
       const m = MATERIALS[b.material], seen = S.identified.includes(b.batchId);
       return `<tr><td>${m.name} ×${b.qty}</td><td>${seen ? `${m.element}屬・性${m.nature}・純度 ${b.purity}・穩定 ${b.stability}` : '<span class="dim">未辨識</span>'}</td><td>${seen ? '' : `<button data-act="identify" data-v="${b.batchId}">辨識</button>`}</td></tr>`; }).join('')}</table>`;
   } else if (role === 'recipe') {
@@ -126,7 +132,7 @@ function card(role) {
        <p class="dim">本機演示領取：請求編號 ${claimRequest.slice(0, 8)}…，重複按不會增加。正式領取由伺服器決定（CONTRACT.md）。</p>
        <div class="row"><button class="go" data-act="claim">本機演示領取</button>${round.claimed ? '<button data-act="again">再煉一爐</button>' : ''}</div>`);
   } else {
-    const flavour = { dry: '晾藥筐 B08：曬好的藥材攤在這裡透氣。', sort: '分料盤 B04：上層放待處理，下層放處理好的。', exhaust: '排煙矮煙囪 B12：丹爐的煙從這裡排出。' };
+    const flavour = { dry: '晾藥筐 B08：曬好的藥材攤在這裡透氣。', sort: '分料盤 B04：配伍確認後，上層放主藥、下層放輔藥，處理過的樣子會留在盤上，開爐後用掉。', exhaust: '排煙矮煙囪 B12：丹爐的煙從這裡排出。' };
     h = `<h2>${STATION[role].label}</h2><p>${flavour[role] ?? ''}</p>`;
   }
   c.innerHTML = '<button class="x" data-act="close">×</button>' + h;
@@ -138,7 +144,7 @@ function resultHtml() {
 }
 function act(a, v, slot) {
   if (a === 'close') { $('card').hidden = true; openRole = null; return; }
-  if (a === 'identify') { const r = identify(S, v); toast(r.text); }
+  if (a === 'identify') { const r = identify(S, v); toast(r.text); drawerFocus = v; }
   if (a === 'recipe') { plan.recipe = v; plan.picks = {}; plan.process = {}; }
   if (a === 'pick') plan.picks[slot] = v;
   if (a === 'lock') {
@@ -164,13 +170,13 @@ function act(a, v, slot) {
     else if (r.replayed) toast('已領過：同一請求重送，結果不增加');
     else { round.claimed = true; filledBottles.forEach(o => (o.visible = true)); toast(`本機演示領得 ${r.granted.label} ×${r.granted.quantity}（非正式）`); }
   }
-  if (a === 'again') { newRound(); setFurnace(false); lid.position.copy(lidSeat); filledBottles.forEach(o => (o.visible = false)); }
+  if (a === 'again') { newRound(); setFurnace(false); filledBottles.forEach(o => (o.visible = false)); }
   renderSteps(); renderPreview(); if (openRole) card(openRole);
 }
 $('card').addEventListener('click', e => { const b = e.target.closest('button'); if (b && !b.disabled) act(b.dataset.act, b.dataset.v, b.dataset.slot); });
 function setFurnace(hot, open = false) {
   heatingFurnace.visible = hot; coldFurnace.visible = !hot; fireLight.intensity = hot ? 2.2 : 0;
-  lid.position.copy(open ? lidOpen : lidSeat);
+  hotLid.visible = hot; coldLid.visible = !hot; lids.forEach(l => l.position.copy(open ? lidOpen : lidSeat));
 }
 setFurnace(false); filledBottles.forEach(o => (o.visible = false));
 
@@ -190,10 +196,14 @@ function move(dt) {
   const dir = new THREE.Vector3();
   if (keys.has('w') || keys.has('arrowup')) dir.z -= 1; if (keys.has('s') || keys.has('arrowdown')) dir.z += 1;
   if (keys.has('a') || keys.has('arrowleft')) dir.x -= 1; if (keys.has('d') || keys.has('arrowright')) dir.x += 1;
+  let step = 1.7 * dt;
   if (dir.lengthSq()) target = null;
-  else if (target) { dir.subVectors(target, player.position).setY(0); if (dir.length() < 0.06) { target = null; dir.set(0, 0, 0); } }
+  else if (target) {   // the last step stops on the target instead of overshooting (large dt would oscillate round it)
+    dir.subVectors(target, player.position).setY(0); step = Math.min(step, dir.length());
+    if (dir.length() < 0.06) { target = null; dir.set(0, 0, 0); }
+  }
   if (dir.lengthSq()) {
-    dir.normalize(); const next = player.position.clone().addScaledVector(dir, 1.7 * dt);
+    dir.normalize(); const next = player.position.clone().addScaledVector(dir, step);
     for (const o of obstacles) { const d = next.clone().sub(o.p).setY(0), min = o.r + 0.2; if (d.length() < min) next.add(d.setLength(min - d.length())); }
     next.x = THREE.MathUtils.clamp(next.x, -1.85, 2.45); next.z = THREE.MathUtils.clamp(next.z, -1.65, 2.35);
     player.position.copy(next); player.rotation.y = Math.atan2(-dir.x, -dir.z);
@@ -203,18 +213,44 @@ function move(dt) {
   const pr = $('prompt'); pr.hidden = !near || openRole === near?.role; if (near) pr.textContent = `E：${near.label}（${near.id}）`;
   if (openRole && STATION[openRole] && b2t(STATION[openRole].approach).setY(0).distanceTo(player.position.clone().setY(0)) > 1.2) act('close');
 }
-function frameCamera(dt) {
-  const want = player.position.clone().add(new THREE.Vector3(0.3, 3.0, 3.7));
-  camera.position.lerp(want, 1 - Math.exp(-dt * 4)); camera.lookAt(player.position.clone().add(new THREE.Vector3(0, 0.5, -1.3)));
+// follow camera; while a station card is open it rises to look down on that station from the side away from the
+// player (or toward the room centre when the player stands square in front), so the figure and the shed posts do not
+// hide drawers, trays or the furnace mouth
+const look = new THREE.Vector3();
+function frameCamera(dt, snap = false) {
+  const st = openRole && STATION[openRole];
+  let want, at;
+  if (st) {
+    const f = b2t(st.position), dx = player.position.x - f.x, side = Math.abs(dx) > 0.1 ? -Math.sign(dx) : f.x > 0.3 ? -1 : 1;
+    want = f.clone().add(new THREE.Vector3(side * 1.0, 2.4, 2.2)); at = f.clone().add(new THREE.Vector3(0, -0.1, 0));   // aim low: station sits above the card
+  } else {
+    want = player.position.clone().add(new THREE.Vector3(0.3, 3.0, 3.7)); at = player.position.clone().add(new THREE.Vector3(0, 0.5, -1.3));
+  }
+  const k = snap ? 1 : 1 - Math.exp(-dt * 4);
+  camera.position.lerp(want, k); look.lerp(at, k); camera.lookAt(look);
+  const fade = THREE.MathUtils.lerp(figureMats[0].opacity, st ? 0.3 : 1, k);   // figure ghosts while framing a station
+  for (const m of figureMats) { m.opacity = fade; m.depthWrite = fade >= 0.99; }
 }
 function resize() { const w = WALK ? 1280 : innerWidth, h = WALK ? 720 : innerHeight; renderer.setSize(w, h, !WALK); camera.aspect = w / h; camera.updateProjectionMatrix(); }
 addEventListener('resize', resize); resize();
-camera.position.copy(player.position).add(new THREE.Vector3(0.3, 3.0, 3.7));
+frameCamera(0, true);
 renderSteps(); renderPreview();
 
 let t0 = performance.now(), flicker = 0;
+// in-world material and product states: B05 drawers + labels, B04 tray loads, steam from the heated lid's vent
+const cabinet = makeCabinet(inst.find(i => i.id === 'B05').obj, S.bag, MATERIALS);
+const trays = makeTrays(inst.find(i => i.id === 'B04').obj);
+const steam = makeSteam(scene);
+let drawerFocus = null;   // last batch identified at B05; its drawer is the one pulled out
+function trayLoads() {   // after 配伍 the picked batches sit on B04 (main up, aux down) until the brew consumes them
+  if (!round.locked || round.brewed) return {};
+  return Object.fromEntries(RECIPES[plan.recipe].slots.map(s => [s.role, { material: S.bag.find(b => b.batchId === plan.picks[s.role]).material, form: plan.process[s.role] ?? 'raw' }]));
+}
 function tick(dt) {
   move(dt); frameCamera(dt); flicker += dt;
+  cabinet.update(dt, openRole === 'identify', S.identified, drawerFocus ?? S.bag.find(b => !S.identified.includes(b.batchId))?.batchId);
+  trays.set(trayLoads());
+  steam.update(dt, hotLid.visible && hotLid.position.equals(lidSeat), hotLid.localToWorld(VENT_TOP.clone()));
   if (heatingFurnace.visible) fireLight.intensity = 2.0 + Math.sin(flicker * 9) * 0.25 + Math.sin(flicker * 23) * 0.12;
   if (toastT > 0 && (toastT -= dt) <= 0) $('toast').hidden = true;
   renderer.render(scene, camera);
@@ -222,7 +258,7 @@ function tick(dt) {
 if (!WALK) renderer.setAnimationLoop(() => { const now = performance.now(); tick(Math.min(0.05, (now - t0) / 1000)); t0 = now; });
 
 // ---------------------------------------------------------------- scripted walkthrough (?walk) for the recording
-window.demo = { S, get plan() { return plan; }, get last() { return last; }, act, card, layout, scene, camera };
+window.demo = { S, get plan() { return plan; }, get last() { return last; }, act, card, layout, scene, camera, player, tick };
 if (WALK) {
   const { runWalkthrough } = await import('./walkthrough.js');
   runWalkthrough({ tick, act, card, player, layout, b2t, S, get plan() { return plan; }, get last() { return last; }, get target() { return target; }, set target(v) { target = v; }, canvas });

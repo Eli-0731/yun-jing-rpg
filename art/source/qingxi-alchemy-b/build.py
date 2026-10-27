@@ -65,7 +65,7 @@ def build_state(a, st):
         'target_size_m': a['size'], 'trianglesLOD': tris, 'budgetLOD0': a['budget'], 'withinBudget': tris[0] <= a['budget'],
         'vertices': sum(len(o.data.vertices) for o in nodes), 'materials': [m.name for m in G.data.materials], 'textureResolution': a['res'],
         'nodes': [o.name for o in nodes],
-        'textures': sorted(p.name for p in tdir.glob(f'T_{key}_*.png')),
+        'textures': sorted(p.name for p in tdir.glob(f'T_{key}_*.png') if p.stem[len(key) + 3:] in ('BaseColor', 'ORM', 'Normal', 'Emissive')),
         'originAtBase': abs(mn[2]) < 0.003, 'meshHealth': health,
         'glbRoundTrip': {'triangles': rt_tris, 'trianglesMatch': rt_tris == tris[0],
                          'bboxMatch': all(abs(a_ - b_) < 0.002 for a_, b_ in zip(rmn + rmx, mn + mx)), 'materials': rmats},

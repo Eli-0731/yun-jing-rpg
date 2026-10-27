@@ -343,7 +343,10 @@ def edge_cavity(nt, cav_dist=0.035, edge_dist=0.006):
 
 
 # ----------------------------------------------------------------------------- material library
-def m_bronze(name='Bronze', patina=0.55, polish=0.6, scale=1.0, band=None, seams=False, soot=0.0, heat=0.0, smudge=None):
+def m_bronze(name='Bronze', patina=0.55, polish=0.6, scale=1.0, band=None, seams=False, soot=0.0, heat=0.0, smudge=None,
+             heat_zone=((0, 0, 0.15), (0.2, 0.2, 0.2))):
+    """heat > 0: heat-oxidised zone around heat_zone (centre, radii): dark red-brown core with the patina burnt off,
+    ringed by a purple-to-straw temper band."""
     m, nt, b = new_mat(name); co = coords(nt, (scale, scale, scale))
     n1 = noise(nt, co, 3.0, 6, 0.6); n2 = noise(nt, co, 18.0, 3, 0.5)
     base = mix(nt, n1, (0.105, 0.064, 0.032), (0.19, 0.12, 0.058))
@@ -392,12 +395,25 @@ def m_bronze(name='Bronze', patina=0.55, polish=0.6, scale=1.0, band=None, seams
         ln = N(nt, 'ShaderNodeVectorMath', operation='LENGTH'); L(nt, dv.outputs[0], ln.inputs[0])
         sm = math_(nt, 'SUBTRACT', 1.0, smooth(nt, math_(nt, 'ADD', ln.outputs['Value'], math_(nt, 'MULTIPLY', n2, 0.5)), 0.5, 1.2))
         col = mix(nt, math_(nt, 'MULTIPLY', sm, 0.85), col, (0.03, 0.026, 0.024)); pm = math_(nt, 'MULTIPLY', pm, math_(nt, 'SUBTRACT', 1.0, sm))
+    if heat:
+        c, rr = heat_zone; wp = world_pos(nt)
+        sub = N(nt, 'ShaderNodeVectorMath', operation='SUBTRACT'); L(nt, wp, sub.inputs[0]); sub.inputs[1].default_value = c
+        dv = N(nt, 'ShaderNodeVectorMath', operation='DIVIDE'); L(nt, sub.outputs[0], dv.inputs[0]); dv.inputs[1].default_value = rr
+        ln = N(nt, 'ShaderNodeVectorMath', operation='LENGTH'); L(nt, dv.outputs[0], ln.inputs[0])
+        d = math_(nt, 'ADD', ln.outputs['Value'], math_(nt, 'MULTIPLY', math_(nt, 'SUBTRACT', n1, 0.5), 0.45))
+        core = math_(nt, 'MULTIPLY', math_(nt, 'SUBTRACT', 1.0, smooth(nt, d, 0.45, 0.72)), heat)
+        ring = math_(nt, 'MULTIPLY', math_(nt, 'SUBTRACT', 1.0, smooth(nt, math_(nt, 'ABSOLUTE', math_(nt, 'SUBTRACT', d, 0.84)), 0.04, 0.14)), heat * 0.9)
+        pm = math_(nt, 'MULTIPLY', pm, math_(nt, 'SUBTRACT', 1.0, core))
+        col = mix(nt, core, col, mix(nt, n2, (0.045, 0.024, 0.019), (0.085, 0.042, 0.028)))
+        col = mix(nt, ring, col, mix(nt, smooth(nt, d, 0.78, 0.92), (0.13, 0.065, 0.16), (0.36, 0.23, 0.09)))
     if soot:
         pz = sep(nt, world_pos(nt))[2]
         sm = math_(nt, 'MULTIPLY', soot, smooth(nt, noise(nt, co, 5.0, 3), 0.35, 0.7))
         col = mix(nt, sm, col, (0.035, 0.03, 0.028))
     rough = mixf(nt, pm, mixf(nt, em, mixf(nt, ox, 0.46, 0.62), 0.30), 0.78)
     metal = mixf(nt, pm, mixf(nt, ox, 0.7, 0.35), 0.05)
+    if heat:   # oxide scale is matte: the hot core stops reading as polished bronze
+        rough = mixf(nt, core, rough, 0.68); metal = mixf(nt, core, metal, 0.12)
     return finish(m, nt, b, col, rough, metal, hgt, 0.0016, 0.6)
 
 

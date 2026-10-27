@@ -17,20 +17,20 @@
 | 程序化原始碼 | `art/source/qingxi-alchemy-b/*.py` | — |
 | 原始 .blend | `art/source/qingxi-alchemy-b/blend/<key>_v001.blend` | 程序化分件（隱藏）＋烘焙後的遊戲網格＋LOD |
 | 佈局場景 | `art/source/qingxi-alchemy-b/blend/QA_Workshop_Layout_v001.blend` | — |
-| GLB | `art/exports/qingxi-alchemy-b/<ID>_<Name>/v001/<key>.glb` | 14 個（12 件；B01、B10 各兩種狀態）；LOD0，內嵌貼圖 |
+| GLB | `art/exports/qingxi-alchemy-b/<ID>_<Name>/v001/<key>.glb` | 15 個（12 件；B01、B02、B10 各兩種狀態）；LOD0，內嵌貼圖 |
 | FBX | 同上，`<key>.fbx` | LOD0–2，`_LODn` 命名，供 Unity LOD Group |
-| 貼圖 | 同上，`textures/` | BaseColor、ORM（R=AO、G=粗糙、B=金屬）、Normal（OpenGL）；B01 加熱狀態另有 Emissive |
+| 貼圖 | 同上，`textures/` | BaseColor、ORM（R=AO、G=粗糙、B=金屬）、Normal（OpenGL）；B01、B02 加熱狀態另有 Emissive |
 | 每件資料 | 同上，`<key>_model_info.json`、`validation.json` | 尺寸、三角面、碰撞建議、socket、狀態、檢查結果、檔案 sha256 |
 | 渲染 | `art/previews/qingxi-alchemy-b/<ID>/<state>/` | 每個狀態：10 方位中性光、2 張特寫（正面／側面）、線框、4 張風格光、材質表 |
-| 爐蓋配合 | `art/previews/qingxi-alchemy-b/B01_B02_fit/`、`art/exports/qingxi-alchemy-b/fit_B01_B02.json` | 關閉（冷／加熱）、開蓋、接縫特寫 |
+| 爐蓋配合 | `art/previews/qingxi-alchemy-b/B01_B02_fit/`、`art/exports/qingxi-alchemy-b/fit_B01_B02.json` | 關閉（冷爐配冷蓋／加熱爐配受熱蓋）、開蓋、接縫特寫 |
 | 工坊佈局 | `art/previews/qingxi-alchemy-b/layout/` | 玩家視角全景、走到丹爐前的視角、俯視佈局草圖 |
 | 玩法示範 | `tools/qingxi-alchemy-b/` | 辨材→配伍→煉製→領成品；`CONTRACT.md`；單元測試 |
-| 示範錄影 | `art/previews/qingxi-alchemy-b/demo/walkthrough_player_view.mp4` | 1 支，玩家視角，H.264 1280×720 12 fps，185 秒 |
+| 示範錄影 | `art/previews/qingxi-alchemy-b/demo/walkthrough_player_view.mp4` | 1 支，玩家視角，H.264 1280×720 12 fps，86 秒 |
 
 12 件：
 
 - B01 青銅小丹爐（冷／加熱）
-- B02 可拆爐蓋
+- B02 可拆爐蓋（冷／受熱：頂部熱氧化、回火色環、排氣嘴煙燻與餘燼光）
 - B03 石藥杵臼
 - B04 二層竹分料盤
 - B05 三層草藥抽屜櫃（3 個抽屜可分開）
@@ -75,15 +75,15 @@ blender -b --python-exit-code 1 --python art/source/qingxi-alchemy-b/encode_walk
 
 | 檢查 | 結果 |
 |---|---|
-| GLB 在 Blender 重新匯入 | 14／14：三角面數一致，包圍盒誤差 < 2 mm（`validation.json`） → **Imported（Blender）** |
-| 原點在底面中心、1 單位 = 1 m、正面 −Y | 14／14（`originAtBase`） |
-| LOD0 在修正後的上限內 | 14／14 |
+| GLB 在 Blender 重新匯入 | 15／15：三角面數一致，包圍盒誤差 < 2 mm（`validation.json`） → **Imported（Blender）** |
+| 原點在底面中心、1 單位 = 1 m、正面 −Y | 15／15（`originAtBase`） |
+| LOD0 在修正後的上限內 | 15／15 |
 | GLB 材質 alphaMode | 由 `validation.json` 的 `glbAlphaModes`／`alphaModeOk` 直接讀 GLB 檢查：B08 為 MASK（cutoff 0.5），其餘烘焙材質為 OPAQUE；B10 玻璃另為 BLEND（刻意） |
 | 網格健康 | 沒有鬆散頂點或零面積面。開放邊只出現在刻意不封口的薄件：繩、布、玻璃單層殼、管口 |
 | 爐蓋與丹爐 | 三角面重疊 0；徑向間隙 8 mm；垂直間隙 1 mm |
 | 視覺審閱 | 每件至少兩輪快速渲染（正、斜、背、特寫）並修正，最後看過完整渲染 → **Visually Verified（Blender Cycles）** |
 | 示範單元測試 | `node --test`：13／13 通過 |
-| 示範錄影（腳本驅動，固定 12 fps 時間步，不是手動操作） | 185 秒，一支：第 1 輪已知配方（先故意選錯→具體回饋），約 96 秒收取成功、約 115 秒第一次領取，再按兩次顯示「已領過，結果不增加」；第 2 輪研究變體用武火，約 179 秒顯示失敗原因並退回赤露參漿果 ×1、玉脈晶 ×1 → 已知配方遠低於 5 分鐘 |
+| 示範錄影（腳本驅動，固定 12 fps 時間步，不是手動操作） | 86 秒，一支：第 1 輪已知配方（辨材時 B05 對應抽屜逐一拉開、露出藥材；先故意選錯→具體回饋；處理後 B04 上層放切段主藥、下層放浸泡輔藥；加熱時換上受熱爐蓋、排氣嘴冒白煙），約 44 秒收取成功、約 48 秒第一次領取，再按兩次顯示「已領過，結果不增加」；第 2 輪研究變體用武火，約 77 秒顯示失敗原因並退回赤露參漿果 ×1、玉脈晶 ×1 → 已知配方遠低於 5 分鐘 |
 | `npm test`（既有測試） | 55／55 通過（本 PR 沒有修改受測程式） |
 | Unity 匯入、遊戲內光照、手機效能、LOD 切換距離 | **尚未驗證**（本機沒有對這批素材開 Unity） |
 
@@ -98,20 +98,21 @@ blender -b --python-exit-code 1 --python art/source/qingxi-alchemy-b/encode_walk
    - `recipe.seconds`
    - 批次純度欄位
    - 工坊接近檢查
-4. B01 冷／加熱兩種狀態是兩個 GLB；加熱時爐口的 Emissive 需要搭配場景點光源（示範中用 PointLight 閃動）。
+4. B01、B02 的冷／加熱狀態各是兩個 GLB（同網格，換材質）。B02 冷蓋沿用原檔名 `B02_FurnaceLid`，受熱蓋是 `B02_FurnaceLid_heating`。加熱時爐口與排氣嘴的 Emissive 需要搭配場景點光源（示範中用 PointLight 閃動），排氣嘴白煙是示範的粒子，不在 GLB 內。
 5. B10 玻璃是 alpha blend，在 URP 要設為 Transparent；B08 編織孔是 alpha clip，要設為 Alpha Clipping。
 
 ## 5. 狀態紀錄
 
 | 件 | 參考圖審閱 | 程序化模型 | 烘焙＋LOD | Exported | Imported（Blender） | Visually Verified（Cycles） | In-game Verified |
 |---|---|---|---|---|---|---|---|
-| B01–B12（14 個狀態） | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | — 未驗證 |
+| B01–B12（15 個狀態） | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | — 未驗證 |
 
 過程中修過、值得核心組知道的問題：
 
 - **AO 烘焙偏黑**：第一輪烘焙時，隱藏的程序化分件仍會遮住遊戲網格，AO 大片發黑。現在烘焙時隱藏其他網格，AO 距離依物件尺寸設定（0.03–0.35 m），並重調石、竹、青瓷、竹簡顏色。
 - **B08 alphaMode**：第一版 GLB 寫成 BLEND（引擎會當半透明排序）。現在匯出材質的 alpha 先經 Math「Round」，GLB 寫成 MASK，validation 直接讀 GLB 檢查。
 - **B01 原點**：底座石墊有幾 mm 低於 0，`game_mesh` 現在會把 z < 0 的頂點夾到 0（先確認誤差 < 1 cm）。
+- **示範走位**：舊錄影的玩家卡在長凳後面，辨材其實是隔空完成。現在走位會繞過長凳左端的通道；B04 移到長凳右側（layout.py 新增「接近點離長凳至少 0.25 m」的檢查）；移動最後一步改為只走剩餘距離，不會在目標點來回抖動。走不到目標時錄影會在主控台發出警告，這次錄影沒有出現。
 
 已知限制：
 

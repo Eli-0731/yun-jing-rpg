@@ -1,6 +1,7 @@
 [
  {
   "state": "cold",
+  "lid": "B02_FurnaceLid",
   "seat": [
    0.0,
    0.0,
@@ -17,6 +18,7 @@
  },
  {
   "state": "heating",
+  "lid": "B02_FurnaceLid_heating",
   "seat": [
    0.0,
    0.0,

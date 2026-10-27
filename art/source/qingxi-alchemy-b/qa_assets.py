@@ -1,7 +1,7 @@
 """Procedural builders for the alchemy workshop kit. Each builder(state) creates its parts in the active
 collection and returns (parts, info). info carries the asset metadata used by build.py / validation."""
 import math
-from mathutils import Vector
+from mathutils import Vector, Matrix, Euler
 import qa_lib as Q
 
 TAU = math.tau
@@ -122,14 +122,25 @@ LID_PROF = [(0, 0.028), (0.170, 0.026), (0.188, 0.018), (0.194, 0.004), (0.199, 
             (0.090, 0.145), (0.088, 0.152), (0.070, 0.158), (0.035, 0.162), (0, 0.163)]
 
 
-@asset('B02', 'FurnaceLid', states=('default',), res=1024, budget=6500, size=(0.54, 0.54, 0.27),
+VENT_A, VENT_R = math.radians(60), 0.165   # vent spout at back-right
+
+
+@asset('B02', 'FurnaceLid', states=('default', 'heating'), res=1024, budget=6500, size=(0.54, 0.54, 0.27),
        collision={'type': 'cylinder', 'radius': 0.27, 'height': 0.16, 'center': [0, 0, 0.08], 'note': 'pick-up / place target; seat on B01 socket lid_seat'})
 def b02(state='default'):
-    br = Q.m_bronze('B02_Bronze', patina=0.45, polish=0.7)
-    br2 = Q.m_bronze('B02_Fittings', patina=0.3, polish=0.85)
+    # default = cold lid (key B02_FurnaceLid, kept from the first release); heating = same mesh, heat-oxidised crown,
+    # soot round the vent and embers glowing inside the open vent (emissive map)
+    heat = 1.0 if state == 'heating' else 0.0
+    vent = (VENT_R * math.cos(VENT_A), VENT_R * math.sin(VENT_A), 0.17)
+    zone = ((0.02, 0.03, 0.16), (0.26, 0.26, 0.30))
+    br = Q.m_bronze('B02_Bronze', patina=0.45, polish=0.7, heat=heat * 0.9, heat_zone=zone,
+                    smudge=(vent, (0.075, 0.075, 0.05)) if heat else None)
+    br2 = Q.m_bronze('B02_Fittings', patina=0.3, polish=0.85, heat=heat * 0.6, heat_zone=zone,
+                     smudge=(vent, (0.035, 0.035, 0.03)) if heat else None)
+    ember = Q.m_coal('B02_VentEmber', heat=heat * 0.9)
     wood = Q.m_wood('B02_Grip', a=(0.025, 0.022, 0.02), b_=(0.06, 0.05, 0.045), axis='Z', ring=12, wear=0.3, rough=0.45)
     P = []
-    lid = Q.lathe('Lid_Body', LID_PROF, br, segs=72, sharp=34)
+    lid = Q.lathe('Lid_Body', LID_PROF, br, segs=64, sharp=34)
     for i in range(6):
         a = TAU * i / 6 + math.pi / 6
         n = Q.box(f'Cut_Notch{i}', (0.06, 0.026, 0.020), (0.202 * math.cos(a), 0.202 * math.sin(a), 0.004), br, bevel=0, rot=(0, 0, a + math.pi / 2))
@@ -145,13 +156,19 @@ def b02(state='default'):
     P.append(Q.cyl('Lid_Grip', 0.020, 0.13, (0, 0, 0.255), wood, segs=20, bevel=0.006, bseg=3, rot=(0, math.pi / 2, 0)))
     for sx in (-1, 1):
         P.append(Q.cyl(f'Lid_Ferrule{sx}', 0.023, 0.014, (sx * 0.072, 0, 0.255), br2, segs=20, bevel=0.003, rot=(0, math.pi / 2, 0)))
-    # vent spout at back-right
-    a = math.radians(60); r = 0.165
-    sp = Q.lathe('Lid_Vent', [(0, -0.01), (0.024, -0.01), (0.024, 0.045), (0.028, 0.05), (0.028, 0.062), (0.0, 0.064)], br2, segs=24)
-    sp.location = (r * math.cos(a), r * math.sin(a), 0.112); sp.rotation_euler = (math.radians(-26), 0, a - math.pi / 2)
+    # vent spout at back-right: open throat (17 mm) down to a shallow floor where embers show when the furnace is lit
+    sp = Q.lathe('Lid_Vent', [(0, -0.01), (0.024, -0.01), (0.024, 0.045), (0.028, 0.05), (0.028, 0.062), (0.018, 0.062),
+                              (0.017, 0.056), (0.017, 0.038), (0.0, 0.038)], br2, segs=20)
+    rot = Euler((math.radians(-26), 0, VENT_A - math.pi / 2))
+    sp.location = (VENT_R * math.cos(VENT_A), VENT_R * math.sin(VENT_A), 0.112); sp.rotation_euler = rot
     P.append(sp)
+    em = Q.cyl('Lid_VentEmber', 0.0145, 0.006, Matrix.Translation(sp.location) @ rot.to_matrix().to_4x4() @ Vector((0, 0, 0.043)),
+               ember, segs=16, rot=rot)
+    Q.jitter(em, 0.0015, seed=7); P.append(em)
     Q.finalize_parts(P, 202)
-    info = dict(states={'closed': f'seated on B01 at z={LID_SEAT_Z:.3f}', 'open': 'lifted / set beside the furnace'},
+    info = dict(states={'default': 'cold lid; closed = seated on B01 lid_seat, open = set beside the furnace',
+                        'heating': 'same mesh: heat-oxidised crown with temper ring, sooty vent, embers glowing in the vent (emissive map)'},
+                placement={'closed': f'seated on B01 at z={LID_SEAT_Z:.3f}', 'open': 'lifted / set beside the furnace'},
                 sockets={'grip': [0, 0, 0.255], 'seat_underside_z': 0.040})
     return P, info
 

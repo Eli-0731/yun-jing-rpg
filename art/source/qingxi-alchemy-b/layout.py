@@ -18,20 +18,21 @@ DEMO = Q.REPO / 'tools/qingxi-alchemy-b/data/layout.json'
 # id, file key, position (x, y, z), yaw degrees (0 = front faces -Y, toward the entrance), station / role
 PLACE = [
     ('B01', 'B01_BronzeFurnace/v001/B01_BronzeFurnace_heating', (0.0, 0.60, 0.0), 0, 'refine'),
-    ('B02', 'B02_FurnaceLid/v001/B02_FurnaceLid', None, 0, 'refine'),
+    ('B02', 'B02_FurnaceLid/v001/B02_FurnaceLid_heating', None, 0, 'refine'),
     ('B12', 'B12_WorkshopChimney/v001/B12_WorkshopChimney', (-1.15, 0.935, 0.0), 0, 'exhaust'),
     ('B07', 'B07_WoodenFuelBox/v001/B07_WoodenFuelBox', (-0.78, -0.05, 0.0), 0, 'fuel'),
     ('B06', 'B06_CeramicWaterJar/v001/B06_CeramicWaterJar', (-1.55, -0.55, 0.0), 20, 'water'),
     ('B09', 'B09_ClothFilterFrame/v001/B09_ClothFilterFrame', (0.66, 1.22, 0.0), 0, 'filter'),
     ('B05', 'B05_HerbDrawerCabinet/v001/B05_HerbDrawerCabinet', (1.50, 1.24, 0.0), 0, 'identify'),
     ('B11', 'B11_BambooRecipeStand/v001/B11_BambooRecipeStand', (1.50, 1.22, 0.88), 0, 'recipe'),
-    ('B04', 'B04_BambooSortingTrays/v001/B04_BambooSortingTrays', (2.05, -0.25, 0.0), -90, 'sort'),
+    ('B04', 'B04_BambooSortingTrays/v001/B04_BambooSortingTrays', (2.10, -0.35, 0.0), 0, 'sort'),   # clear of the bench end
     ('B03', 'B03_StoneMortar/v001/B03_StoneMortar', (0.62, -0.46, 0.42), 0, 'process'),
     ('B10', 'B10_WaxSealedBottle/v001/B10_WaxSealedBottle_filled', (1.02, -0.42, 0.42), 0, 'collect'),
     ('B10', 'B10_WaxSealedBottle/v001/B10_WaxSealedBottle_filled', (1.10, -0.50, 0.42), 20, 'collect'),
     ('B10', 'B10_WaxSealedBottle/v001/B10_WaxSealedBottle_empty', (0.93, -0.53, 0.42), -15, 'collect'),
     ('B08', 'B08_VentilatedDryingBasket/v001/B08_VentilatedDryingBasket', (1.45, -0.46, 0.42), 0, 'dry'),
 ]
+BENCH = (1.02, -0.46, 1.30, 0.50)   # placeholder bench: centre x, y, size x, y (B03, B08, B10 sit on it)
 # B05 and B11 share a footprint (the stand sits on the cabinet): split their approach points left/right
 APPROACH_SHIFT = {'identify': (0.30, 0.0), 'recipe': (-0.35, 0.0), 'exhaust': (-0.18, 0.0)}
 STATION_LABEL = {'refine': '煉製', 'exhaust': '排煙', 'fuel': '添柴', 'water': '取水', 'filter': '濾渣', 'identify': '辨材',
@@ -62,7 +63,7 @@ def placeholders(fi):
             P.append(Q.box(f'PH_Post{x}{y}', (0.14, 0.14, 2.7), (x, y, 1.35), wood, bevel=0.01))
     P.append(Q.box('PH_BackWall', (4.5, 0.06, 1.25), (0.30, 1.75, 0.625), wood, bevel=0))
     rf = Q.box('PH_Roof', (5.0, 3.9, 0.06), (0.30, 0.15, 2.82), roof, bevel=0); rf.rotation_euler = (math.radians(-9), 0, 0); rf.visible_shadow = False; P.append(rf)  # open-sided shed: roof casts no studio shadow
-    P.append(Q.box('PH_BenchTop', (1.30, 0.50, 0.05), (1.02, -0.46, 0.395), wood, bevel=0.006))
+    P.append(Q.box('PH_BenchTop', (*BENCH[2:], 0.05), (*BENCH[:2], 0.395), wood, bevel=0.006))
     for x in (0.45, 1.59):
         P.append(Q.box(f'PH_BenchLeg{x}', (0.08, 0.42, 0.37), (x, -0.46, 0.185), wood, bevel=0.006))
     # 1.70 m scale figure (capsule body + head), standing at the entrance looking in
@@ -124,8 +125,12 @@ def main():
                 topOrtho=dict(center=[0.30, 0.20], scale=5.4, px=1600), entrance=[-0.20, -1.60, 0.0], figureHeight=1.70,
                 flueElbow=dict(start=[round(c, 3) for c in flue[0]], end=[round(c, 3) for c in flue[1]]), stations=stations, instances=instances)
     DEMO.parent.mkdir(parents=True, exist_ok=True); DEMO.write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding='utf-8')
-    # reach check: approach points stay on the floor and keep 0.45 m from every other station's base
-    bad = [st['role'] for st in stations if not (-2.0 < st['approach'][0] < 2.6 and -1.5 < st['approach'][1] < 2.1)
+    # reach check: approach points stay on the floor, keep 0.45 m from every other station's base and 0.25 m (player
+    # radius + margin) from the bench footprint
+    def off_bench(p):
+        dx = max(abs(p[0] - BENCH[0]) - BENCH[2] / 2, 0); dy = max(abs(p[1] - BENCH[1]) - BENCH[3] / 2, 0)
+        return math.hypot(dx, dy) >= 0.25
+    bad = [st['role'] for st in stations if not (-2.0 < st['approach'][0] < 2.6 and -1.5 < st['approach'][1] < 2.1) or not off_bench(st['approach'])
            or any(o is not st and o['position'][2] == 0 and math.dist(st['approach'][:2], o['position'][:2]) < 0.45 for o in stations)
            or any(o is not st and math.dist(st['approach'][:2], o['approach'][:2]) < 0.30 for o in stations)]
     data['reachCheck'] = dict(blocked=bad, pass_=not bad)
