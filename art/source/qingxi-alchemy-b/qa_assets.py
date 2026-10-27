@@ -157,3 +157,4 @@ def b02(state='default'):
 
 
 import qa_assets1  # noqa: E402,F401  (registers B03-B06)
+import qa_assets2  # noqa: E402,F401  (registers B07-B12)

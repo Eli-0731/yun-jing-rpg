@@ -1,0 +1,123 @@
+{
+ "id": "B08",
+ "name": "VentilatedDryingBasket",
+ "key": "B08_VentilatedDryingBasket",
+ "state": "default",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.7268,
+  0.654,
+  0.2105
+ ],
+ "triangles": 8956,
+ "lod_triangles": [
+  8956,
+  4478,
+  1970
+ ],
+ "collision": {
+  "type": "cylinder",
+  "radius": 0.32,
+  "height": 0.16,
+  "center": [
+   0,
+   0,
+   0.08
+  ],
+  "note": "open-weave floor and wall use alpha clip"
+ },
+ "states": {
+  "default": "empty; open weave lets air through (alpha clip)"
+ },
+ "sockets": {
+  "herb_surface": [
+   0,
+   0,
+   0.062
+  ]
+ },
+ "validation": {
+  "asset": "B08",
+  "key": "B08_VentilatedDryingBasket",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.7268,
+   0.654,
+   0.2105
+  ],
+  "bbox_min": [
+   -0.3634,
+   -0.327,
+   0.0
+  ],
+  "bbox_max": [
+   0.3634,
+   0.327,
+   0.2105
+  ],
+  "target_size_m": [
+   0.74,
+   0.64,
+   0.21
+  ],
+  "trianglesLOD": [
+   8956,
+   4478,
+   1970
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "vertices": 4532,
+  "materials": [
+   "M_B08_VentilatedDryingBasket"
+  ],
+  "textureResolution": 2048,
+  "nodes": [
+   "B08_VentilatedDryingBasket_LOD0"
+  ],
+  "textures": [
+   "T_B08_VentilatedDryingBasket_BaseColor.png",
+   "T_B08_VentilatedDryingBasket_Normal.png",
+   "T_B08_VentilatedDryingBasket_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 48,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 8956,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B08_VentilatedDryingBasket.001"
+   ]
+  },
+  "files": {
+   "B08_VentilatedDryingBasket.glb": {
+    "bytes": 9906660,
+    "sha256": "2fd334234a7833bb7d63695a1ab0537724019dd8dbeae6732cae39791b304423"
+   },
+   "B08_VentilatedDryingBasket.fbx": {
+    "bytes": 1003116,
+    "sha256": "b7fb5ed8a902f7401addec5988b758db41e37dfecf1a3696fa15278c8e1889bd"
+   }
+  },
+  "alphaClip": true,
+  "glbAlphaModes": {
+   "M_B08_VentilatedDryingBasket": "MASK"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 10.3,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
