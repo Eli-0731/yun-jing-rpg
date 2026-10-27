@@ -9,6 +9,8 @@ __pycache__/
 .env.*
 !.env.example
 artifacts/
+# Local third-party model studies and generated scratch files.
+output/
 **/Library/
 **/Temp/
 **/Obj/
