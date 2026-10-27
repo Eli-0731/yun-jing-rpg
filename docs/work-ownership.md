@@ -1,5 +1,7 @@
 # 青溪工作與來源登記
 
+目前「進儲存庫」「放進 Unity 場景」「完成可玩互動」為三個不同階段；較大城鎮由 `apps/game/Assets/QingxiWorld/Editor/QingxiWorldBuilder.cs` 重建，小入口由 `apps/game/Assets/YunJing/Editor/QingxiWorldBuilder.cs` 重建，尚未統一。詳見[開發進度表](development-roadmap.md)。z1nnz 已說明所提供外來模型取得原作者授權，可在《雲境》改造；修改時仍登記原作者與原始檔，不將改色或改面歸成全新原創。
+
 ## 2026-10-27 入口補做範圍
 
 | 內容 | 製作／來源 | 現況與邊界 |
