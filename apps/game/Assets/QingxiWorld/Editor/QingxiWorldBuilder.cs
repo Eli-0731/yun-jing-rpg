@@ -1,4 +1,4 @@
-// Integrated Qingxi world (Unity 6000.0.85f1): the town blockout exported by tools/export-qingxi-town-for-unity.py plus the
+// Integrated Qingxi world: the town blockout exported by tools/export-qingxi-town-for-unity.py plus the
 // 220 x 160 m hunt graybox from docs/graybox/qingxi-hunt/layout.json, rotated 180 degrees south-west of the town, dressed
 // with the dondon handoff FBX models. Bakes separate player / rabbit NavMesh data, runs route tests, writes screenshots to
 // artifacts/qingxi-world and adds a local first-person walker. Scripted checks only: no rabbit AI on the server, combat,
@@ -43,7 +43,7 @@ namespace QingxiWorld.Editor
         [Serializable] public class GroupCheck { public string group; public bool allPairsConnected, fleeWithinLeash; public float longestFleePath, longestFleeSeconds; }
         [Serializable] public class Report
         {
-            public string unityVersion, scope = "Local Unity 6000.0.85f1 copy inside dondon2.0-main. Scripted NavMesh paths and two CharacterController walks; no rabbit AI, combat, drops, multiplayer or device test.";
+            public string unityVersion, scope = "Current project build. Scripted NavMesh paths and two CharacterController walks; no rabbit AI, combat, drops, multiplayer or device test.";
             public string status; public List<string> failures = new List<string>(); public List<string> notes = new List<string>();
             public List<string> mappingCheck = new List<string>();
             public List<PointCheck> points = new List<PointCheck>(); public List<PathCheck> paths = new List<PathCheck>();
@@ -132,7 +132,12 @@ namespace QingxiWorld.Editor
             using (var inst = new NavInstance(playerData)) { report.navTrianglesPlayer = Preview(world, "NavMeshPreview_Player", new Color(.2f, .5f, 1f, .35f), .06f); PlayerTests(hunt, huntRoot, markers, lines); }
             using (var inst = new NavInstance(rabbitData)) { report.navTrianglesRabbit = Preview(world, "NavMeshPreview_Rabbit", new Color(1f, .55f, .1f, .45f), .1f); RabbitTests(hunt, markers, lines); }
 
-            Screens(world, huntRoot);
+            // Headless batch runs have no graphics device. RenderTexture-based
+            // captures in that mode can crash the Editor before the scene is saved.
+            if (SystemInfo.graphicsDeviceType != UnityEngine.Rendering.GraphicsDeviceType.Null)
+                Screens(world, huntRoot);
+            else
+                report.notes.Add("Screenshots skipped: batch run has no graphics device.");
             AddPlayer(world, huntRoot, hunt, markers, rabbitData);
             report.status = report.failures.Count == 0 ? "passed" : "failed";
             File.WriteAllText(Path.Combine(Reports, "route_test.json"), JsonUtility.ToJson(report, true));

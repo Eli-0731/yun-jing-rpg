@@ -1,19 +1,20 @@
 param(
-    [ValidateSet('Generate','WorldPreview','Walkthrough','WalkthroughWindows','Windows','Android','LinuxServer')] [string]$Target = 'Generate',
+    [ValidateSet('Generate','WorldPreview','Walkthrough','WalkthroughWindows','UnifiedWorld','UnifiedWorldWindows','Windows','Android','LinuxServer')] [string]$Target = 'Generate',
     [string]$EditorPath = 'D:\DevTools\Unity\6000.0.82f1\Editor\Unity.exe'
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $gamePath = Join-Path $projectRoot 'apps/game'
 if (-not (Test-Path -LiteralPath $EditorPath)) { throw "Unity not found: $EditorPath" }
-if ($Target -eq 'WalkthroughWindows') {
+if ($Target -eq 'WalkthroughWindows' -or $Target -eq 'UnifiedWorldWindows') {
     # Input backend changes made by scene generation take effect after an Editor restart.
-    & $PSCommandPath -Target Walkthrough -EditorPath $EditorPath
+    $prepass = if ($Target -eq 'WalkthroughWindows') { 'Walkthrough' } else { 'UnifiedWorld' }
+    & $PSCommandPath -Target $prepass -EditorPath $EditorPath
 }
-$methods = @{ Generate='Generate'; WorldPreview='Generate'; Walkthrough='Generate'; WalkthroughWindows='BuildWindows'; Windows='BuildWindows'; Android='BuildAndroid'; LinuxServer='BuildLinuxServer' }
+$methods = @{ Generate='Generate'; WorldPreview='Generate'; Walkthrough='Generate'; WalkthroughWindows='BuildWindows'; UnifiedWorld='Generate'; UnifiedWorldWindows='BuildWindows'; Windows='BuildWindows'; Android='BuildAndroid'; LinuxServer='BuildLinuxServer' }
 New-Item -ItemType Directory -Force -Path (Join-Path $projectRoot 'artifacts') | Out-Null
 $log = Join-Path $projectRoot "artifacts/unity-$Target.log"
-$builder = if ($Target -eq 'WorldPreview') { 'QingxiWorldBuilder' } elseif ($Target -like 'Walkthrough*') { 'QingxiWalkthroughBuilder' } else { 'ProjectBuilder' }
+$builder = if ($Target -eq 'WorldPreview') { 'QingxiWorldBuilder' } elseif ($Target -like 'Walkthrough*') { 'QingxiWalkthroughBuilder' } elseif ($Target -like 'UnifiedWorld*') { 'QingxiUnifiedWorldBuilder' } else { 'ProjectBuilder' }
 $method = 'YunJing.Editor.' + $builder + '.' + $methods[$Target]
 $arguments = @('-batchmode','-nographics','-quit','-projectPath','.', '-executeMethod',$method,'-logFile',('"' + $log + '"'))
 $process = Start-Process -FilePath $EditorPath -WorkingDirectory $gamePath -ArgumentList $arguments -WindowStyle Hidden -PassThru

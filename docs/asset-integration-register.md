@@ -5,14 +5,14 @@
 | 素材／工作 | 原作者及位置 | 進儲存庫 | 進 Unity | 進目前入口試玩 | 遊戲互動 |
 |---|---|---|---|---|---|
 | TownLayout v004，48×54 m 街區原件 | joshsu54／Dondon，`art/incoming/dondon/TownLayout/v004/` | 是 | 整包未直接用在小入口 | 否 | 否；整包高面數，待拆件、LOD、碰撞 |
-| 較大青溪鎮，151 筆配置 | joshsu54 交接模型＋核心組場景配置，`apps/game/Assets/QingxiWorld/` | 是 | 是，**獨立**城鎮＋狩獵區生成器 | 否，目前試玩呼叫另一生成器 | 舊獨立場景有本機走路與兔子替身；正式採獵／背包未接 |
+| 較大青溪鎮，151 筆配置 | joshsu54 交接模型＋核心組場景配置，`apps/game/Assets/QingxiWorld/` | 是 | 是，原獨立生成器加上 PR #27 的統一場景 | 是，統一 Windows 試玩版已顯示城鎮 | 本機走路與兔子替身；正式採獵／背包未接 |
 | StarterHouse v004、StoneArchBridge、MountainStreamBend、MountainStonePath／Stairs、CliffBoardwalk、QCaveEntrance、SectGate、LayeredCliff、CommonPine、BambooClump、MossBoulderSet | joshsu54／Dondon 原件；選入 `apps/game/Assets/YunJing/Models/CollaboratorWorldV1/` | 是 | 是，`YunJing.Editor.QingxiWorldBuilder` 已逐件排放 | 是，視野與距離依角色位置 | 基本場景模型；不是可開門、交易或採集的成品 |
-| 原創聽風台與入口支路 | z1nnz 指導／Codex 製作，PR #27 | 在草稿 PR | 是，小入口 | 是 | 石構件有碰撞；未完整人工走位驗收 |
+| 原創聽風台與入口支路 | z1nnz 指導／Codex 製作，PR #27 | 在草稿 PR | 是，小入口與統一場景 | 是；統一版將聽風台放在較大城鎮入口 | 石構件有碰撞；未完整人工走位驗收 |
 | 道路／河岸／橋頭 31 件 EnvironmentTransitionKit | joshsu54，`art/incoming/dondon/EnvironmentTransitionKit/v001/`，PR #29 | **已合入 main** | 尚未整批匯入可玩場景 | 否 | 否；下一步按路段挑選、設材質和碰撞 |
 | 山兔 v003 骨架、動畫、LOD | Johnny0823／Codex，PR #21 | 是 | 模型交接；目前入口未接戰鬥 | 否 | 服務端掉落規則另有原型，兩者尚未接通 |
 | 演武棚、溪畔採集、告示與小事件 | A、B、C 各自工作包 | 截至本次稽核未見交付 PR | 否 | 否 | 否；工作單不算完成素材 |
 
-**目前的大城鎮為何看不見：** `QingxiWorld.Editor.QingxiWorldBuilder` 在 `apps/game/Assets/QingxiWorld/` 建較大的小鎮和狩獵區；PR #27 的本機試玩則用 `YunJing.Editor.QingxiWalkthroughBuilder`，底層採 `apps/game/Assets/YunJing/Editor/QingxiWorldBuilder.cs` 的小入口。這兩份生成的 Unity 場景各自獨立，尚未在現行固定 Unity 版本和畫面設定下接成同一張可玩地圖。
+**統一場景目前包含什麼：** `QingxiWorld.Editor.QingxiWorldBuilder` 在 `apps/game/Assets/QingxiWorld/` 建較大的小鎮和狩獵區；PR #27 的 `YunJing.Editor.QingxiUnifiedWorldBuilder` 加入原創聽風台並建置新的 Windows 試玩版。舊小入口試走仍可單獨生成，沒有被刪掉。TownLayout v004 整包和 31 件新交接模組尚未全部放進統一場景。
 
 **每件交付的接入流程：** 協作者交原件與來源 → PR 檢查並合併 → 匯入標準場景和設定比例／材質／LOD／碰撞 → 放進玩家行走路線 → 如有玩法才連服務端、背包、保存並測重送。只有走到相應步驟，表格才能向右更新。
 

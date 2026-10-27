@@ -1,6 +1,6 @@
 # 青溪工作與來源登記
 
-目前「進儲存庫」「放進 Unity 場景」「完成可玩互動」為三個不同階段；較大城鎮由 `apps/game/Assets/QingxiWorld/Editor/QingxiWorldBuilder.cs` 重建，小入口由 `apps/game/Assets/YunJing/Editor/QingxiWorldBuilder.cs` 重建，尚未統一。詳見[開發進度表](development-roadmap.md)和[協作者素材接入表](asset-integration-register.md)。z1nnz 已說明所提供外來模型取得原作者授權，可在《雲境》改造；修改時仍登記原作者與原始檔，不將改色或改面歸成全新原創。
+目前「進儲存庫」「放進 Unity 場景」「完成可玩互動」為三個不同階段；較大城鎮由 `apps/game/Assets/QingxiWorld/Editor/QingxiWorldBuilder.cs` 重建，小入口由 `apps/game/Assets/YunJing/Editor/QingxiWorldBuilder.cs` 重建。PR #27 草稿的 `QingxiUnifiedWorldBuilder.cs` 由 z1nnz 指導／Codex 接線，把較大城鎮、狩獵灰盒及聽風台組成統一場景；原模型及城鎮配置仍保留協作者來源署名。詳見[開發進度表](development-roadmap.md)和[協作者素材接入表](asset-integration-register.md)。z1nnz 已說明所提供外來模型取得原作者授權，可在《雲境》改造；修改時仍登記原作者與原始檔，不將改色或改面歸成全新原創。
 
 ## 2026-10-27 入口補做範圍
 
