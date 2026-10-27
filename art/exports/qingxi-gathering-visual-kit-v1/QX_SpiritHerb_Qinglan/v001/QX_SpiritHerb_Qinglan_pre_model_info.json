@@ -1,0 +1,93 @@
+{
+  "key": "QX_SpiritHerb_Qinglan_pre",
+  "asset": "QX_SpiritHerb_Qinglan",
+  "state": "pre",
+  "name_zh": "青溪蘭（靈草一）",
+  "state_zh": "採前",
+  "version": "v001",
+  "design": "Creek orchid (Cymbidium-like): fan clump of 18 keeled strap leaves arching in crossing S curves, papery sheaths and pseudobulbs, three scapes with bracts and 5-7 nodding jade blossoms (cupped sepals, hooded petals, spotted recurved lip, the top ones buds) in the lee of a mossy stone. Post: scapes cut to stubs, outer leaves sickle-cut, young leaves kept, two new shoots, cut leaves / scape / blossoms on the soil.",
+  "material_direction": "Glossy deep jade-green leaves (rough 0.32) with fine parallel veins, pale keel, yellow-green sheath base and a few straw-dry tips; blossoms pale jade with darker veins, ivory lip with red-violet spots, soft inner glow; papery straw sheaths.",
+  "units": "1 Blender unit = 1 m",
+  "front_axis": "-Y (Blender); GLB exported +Y up, so the front faces +Z in glTF space",
+  "origin": "bottom centre at ground level",
+  "dimensions_m": [
+    0.8572,
+    0.7566,
+    0.5134
+  ],
+  "bounds_min_m": [
+    -0.4212,
+    -0.3549,
+    -0.012
+  ],
+  "bounds_max_m": [
+    0.436,
+    0.4017,
+    0.5014
+  ],
+  "game_triangles": 35320,
+  "game_vertices": 24313,
+  "high_poly_bake_source_faces": 15428,
+  "texture_size_px": 1024,
+  "texture_maps": {
+    "BaseColor": {
+      "file": "textures/QX_SpiritHerb_Qinglan_pre_BaseColor.png",
+      "uv_coverage_before_dilation": 0.3271
+    },
+    "Roughness": {
+      "file": "textures/QX_SpiritHerb_Qinglan_pre_Roughness.png",
+      "uv_coverage_before_dilation": 0.3271
+    },
+    "Normal": {
+      "file": "textures/QX_SpiritHerb_Qinglan_pre_Normal.png",
+      "uv_coverage_before_dilation": 0.3271
+    },
+    "Emission": {
+      "file": "textures/QX_SpiritHerb_Qinglan_pre_Emission.png",
+      "uv_coverage_before_dilation": 0.3271
+    }
+  },
+  "bake": {
+    "engine": "Cycles CPU",
+    "samples": 8,
+    "groups": {
+      "A_low_poly_from_high_poly": {
+        "cage_extrusion_m": 0.06,
+        "max_ray_m": 0.12,
+        "sources": [
+          "Qinglan_Pebbles_HP",
+          "Qinglan_Stone_HP"
+        ]
+      },
+      "B_self": {
+        "cage_extrusion_m": 0.003,
+        "max_ray_m": 0.008,
+        "sources": 10
+      }
+    }
+  },
+  "not_reproduced_in_game_material": [
+    "leaf / petal back-light translucency",
+    "berry / blossom subsurface",
+    "crystal transmission (crystals are opaque with baked colour and emission)",
+    "iron metallic (baked as dark iron-grey dielectric: base colour mixed toward 0.055 grey by the metallic amount)"
+  ],
+  "files": {
+    "QX_SpiritHerb_Qinglan_pre.glb": {
+      "bytes": 3916896,
+      "sha256": "c1976c13a54a5ffa77bee4e7b44a1b989d2eba21db7bcd58d98934498886db43"
+    },
+    "QX_SpiritHerb_Qinglan_pre.fbx": {
+      "bytes": 1187388,
+      "sha256": "1855aaf456a4108dbbef85b47b479cda4aa6a337672ef48d549e57fbf1acffeb"
+    },
+    "QX_SpiritHerb_Qinglan_pre.blend": {
+      "bytes": 2221987,
+      "sha256": "b6eb99654bb09ebeb7c3a7118a605384762786b58cf600e12e023f697ca3bda5"
+    }
+  },
+  "build_seconds": 22.6,
+  "build_notes": {
+    "state_change": "pre"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "key": "QX_EmbeddedOre_Yumai_post",
+  "asset": "QX_EmbeddedOre_Yumai",
+  "state": "post",
+  "name_zh": "嵌地玉脈石（石礦）",
+  "state_zh": "採後",
+  "version": "v001",
+  "design": "Split granite boulder pair sunk in a soil skirt: bedded, flaked and cracked surfaces (remeshed high poly), moss cushions on the upper and back faces, a pale jade cleft between the blocks with a cluster of glowing terminated crystals. Post: crystals broken to glassy fractured stumps, fresh scar and chips, shards on the soil.",
+  "material_direction": "Cool grey granite with bed tone shifts, mineral grains, worn edges, rain streaks, lichen and moss; pale jade cleft coat and veins; crystals translucent jade with inner emission (pre) / darker drained glassy stumps with rippled fractures (post).",
+  "units": "1 Blender unit = 1 m",
+  "front_axis": "-Y (Blender); GLB exported +Y up, so the front faces +Z in glTF space",
+  "origin": "bottom centre at ground level",
+  "dimensions_m": [
+    2.339,
+    2.0281,
+    0.8339
+  ],
+  "bounds_min_m": [
+    -1.1427,
+    -1.0186,
+    -0.024
+  ],
+  "bounds_max_m": [
+    1.1964,
+    1.0095,
+    0.8099
+  ],
+  "game_triangles": 44720,
+  "game_vertices": 32146,
+  "high_poly_bake_source_faces": 118570,
+  "texture_size_px": 2048,
+  "texture_maps": {
+    "BaseColor": {
+      "file": "textures/QX_EmbeddedOre_Yumai_post_BaseColor.png",
+      "uv_coverage_before_dilation": 0.3704
+    },
+    "Roughness": {
+      "file": "textures/QX_EmbeddedOre_Yumai_post_Roughness.png",
+      "uv_coverage_before_dilation": 0.3704
+    },
+    "Normal": {
+      "file": "textures/QX_EmbeddedOre_Yumai_post_Normal.png",
+      "uv_coverage_before_dilation": 0.3704
+    },
+    "Emission": {
+      "file": "textures/QX_EmbeddedOre_Yumai_post_Emission.png",
+      "uv_coverage_before_dilation": 0.3704
+    }
+  },
+  "bake": {
+    "engine": "Cycles CPU",
+    "samples": 8,
+    "groups": {
+      "A_low_poly_from_high_poly": {
+        "cage_extrusion_m": 0.06,
+        "max_ray_m": 0.12,
+        "sources": [
+          "Ore_Boulder_HP",
+          "Ore_Talus_HP"
+        ]
+      },
+      "B_self": {
+        "cage_extrusion_m": 0.003,
+        "max_ray_m": 0.008,
+        "sources": 6
+      }
+    }
+  },
+  "not_reproduced_in_game_material": [
+    "leaf / petal back-light translucency",
+    "berry / blossom subsurface",
+    "crystal transmission (crystals are opaque with baked colour and emission)",
+    "iron metallic (baked as dark rough dielectric)"
+  ],
+  "files": {
+    "QX_EmbeddedOre_Yumai_post.glb": {
+      "bytes": 10765424,
+      "sha256": "d373a05d01acabd191e784bf9017e7241bdb16900346a75715d4db1ec80eaf67"
+    },
+    "QX_EmbeddedOre_Yumai_post.fbx": {
+      "bytes": 1534300,
+      "sha256": "7e8cc033f118dbd6ce152b61e6e3e4d07f8d183a65fcde12277116c185915de2"
+    },
+    "QX_EmbeddedOre_Yumai_post.blend": {
+      "bytes": 6586632,
+      "sha256": "8c01e88a0b56735ff2a2e769f3942cf9a4a4246be7536e3bdfaa32f69bb75ed1"
+    }
+  },
+  "build_seconds": 109.6,
+  "build_notes": {
+    "boolean_rejections": "[['_blk_A1', '_cut101', 'rejected'], ['Ore_Boulder', 'loose islands removed', '0']]",
+    "cleft_normal": "[0.8253356218338013, -0.5646424889564514, 0.0]",
+    "cleft_direction": "[0.5646424889564514, 0.8253356218338013, 0.0]",
+    "crystal_base_m": "[0.0, 0.0, 0.1599999964237213]",
+    "main_crystals": 5,
+    "small_crystals": 14,
+    "talus_pieces": 0,
+    "state_change": "post: crystals snapped to fracture stumps, veins unlit, pick notches on cleft lips, more spent shards"
+  }
+}

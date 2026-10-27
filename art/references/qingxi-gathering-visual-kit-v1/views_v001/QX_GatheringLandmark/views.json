@@ -1,0 +1,260 @@
+{
+  "key": "QX_GatheringLandmark",
+  "name_zh": "採藥山門（採集地標）",
+  "state_zh": "單一狀態",
+  "front_axis": "-Y",
+  "right_view_from": "+X",
+  "ten_views": [
+    {
+      "file": "01_front.png",
+      "azimuth_deg": 0,
+      "elevation_deg": 12,
+      "camera_m": [
+        0.051,
+        -15.011,
+        5.417
+      ],
+      "target_m": [
+        0.051,
+        0.036,
+        2.219
+      ],
+      "lens_mm": 50,
+      "projection": "perspective"
+    },
+    {
+      "file": "02_front_right.png",
+      "azimuth_deg": 45,
+      "elevation_deg": 12,
+      "camera_m": [
+        10.691,
+        -10.604,
+        5.417
+      ],
+      "target_m": [
+        0.051,
+        0.036,
+        2.219
+      ],
+      "lens_mm": 50,
+      "projection": "perspective"
+    },
+    {
+      "file": "03_right.png",
+      "azimuth_deg": 90,
+      "elevation_deg": 12,
+      "camera_m": [
+        15.098,
+        0.036,
+        5.417
+      ],
+      "target_m": [
+        0.051,
+        0.036,
+        2.219
+      ],
+      "lens_mm": 50,
+      "projection": "perspective"
+    },
+    {
+      "file": "04_back_right.png",
+      "azimuth_deg": 135,
+      "elevation_deg": 12,
+      "camera_m": [
+        10.691,
+        10.675,
+        5.417
+      ],
+      "target_m": [
+        0.051,
+        0.036,
+        2.219
+      ],
+      "lens_mm": 50,
+      "projection": "perspective"
+    },
+    {
+      "file": "05_back.png",
+      "azimuth_deg": 180,
+      "elevation_deg": 12,
+      "camera_m": [
+        0.051,
+        15.083,
+        5.417
+      ],
+      "target_m": [
+        0.051,
+        0.036,
+        2.219
+      ],
+      "lens_mm": 50,
+      "projection": "perspective"
+    },
+    {
+      "file": "06_back_left.png",
+      "azimuth_deg": 225,
+      "elevation_deg": 12,
+      "camera_m": [
+        -10.589,
+        10.675,
+        5.417
+      ],
+      "target_m": [
+        0.051,
+        0.036,
+        2.219
+      ],
+      "lens_mm": 50,
+      "projection": "perspective"
+    },
+    {
+      "file": "07_left.png",
+      "azimuth_deg": 270,
+      "elevation_deg": 12,
+      "camera_m": [
+        -14.996,
+        0.036,
+        5.417
+      ],
+      "target_m": [
+        0.051,
+        0.036,
+        2.219
+      ],
+      "lens_mm": 50,
+      "projection": "perspective"
+    },
+    {
+      "file": "08_front_left.png",
+      "azimuth_deg": 315,
+      "elevation_deg": 12,
+      "camera_m": [
+        -10.589,
+        -10.604,
+        5.417
+      ],
+      "target_m": [
+        0.051,
+        0.036,
+        2.219
+      ],
+      "lens_mm": 50,
+      "projection": "perspective"
+    },
+    {
+      "file": "09_top.png",
+      "azimuth_deg": 0,
+      "elevation_deg": 90,
+      "camera_m": [
+        0.051,
+        0.034,
+        17.602
+      ],
+      "target_m": [
+        0.051,
+        0.036,
+        2.219
+      ],
+      "lens_mm": 50,
+      "projection": "perspective"
+    },
+    {
+      "file": "10_high_front.png",
+      "azimuth_deg": 0,
+      "elevation_deg": 48,
+      "camera_m": [
+        0.051,
+        -10.258,
+        13.651
+      ],
+      "target_m": [
+        0.051,
+        0.036,
+        2.219
+      ],
+      "lens_mm": 50,
+      "projection": "perspective"
+    }
+  ],
+  "orthographic": [
+    {
+      "file": "ortho_front.png",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "ortho_scale_m": 4.9974
+    },
+    {
+      "file": "ortho_right.png",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "ortho_scale_m": 4.9974
+    },
+    {
+      "file": "ortho_top.png",
+      "direction": [
+        0,
+        -0.0001,
+        1
+      ],
+      "ortho_scale_m": 4.9974
+    }
+  ],
+  "eye_height": [
+    {
+      "file": "eye_40m.png",
+      "camera_m": [
+        6.0,
+        -40.0,
+        1.600000023841858
+      ],
+      "target_m": [
+        0.0,
+        0.0,
+        1.2
+      ],
+      "lens_mm": 35,
+      "note": "eye height 1.6 m"
+    },
+    {
+      "file": "eye_15m.png",
+      "camera_m": [
+        2.5,
+        -15.0,
+        1.600000023841858
+      ],
+      "target_m": [
+        0.0,
+        0.0,
+        1.2
+      ],
+      "lens_mm": 35,
+      "note": "eye height 1.6 m"
+    },
+    {
+      "file": "eye_6m.png",
+      "camera_m": [
+        1.2000000476837158,
+        -6.0,
+        1.600000023841858
+      ],
+      "target_m": [
+        0.0,
+        0.0,
+        1.2
+      ],
+      "lens_mm": 35,
+      "note": "eye height 1.6 m"
+    }
+  ],
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 24,
+    "denoise": true
+  }
+}
