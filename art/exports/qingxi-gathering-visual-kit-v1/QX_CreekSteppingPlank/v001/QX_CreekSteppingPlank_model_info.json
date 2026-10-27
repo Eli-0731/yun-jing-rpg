@@ -1,0 +1,97 @@
+{
+  "key": "QX_CreekSteppingPlank",
+  "asset": "QX_CreekSteppingPlank",
+  "state": "base",
+  "name_zh": "渡溪踏板",
+  "state_zh": "單一狀態",
+  "version": "v001",
+  "design": "Stepping bay: river cobbles round the pile feet, four barked round piles with a waterline algae band, two hewn beams in saddle notches with forged cramps, three cupped hewn deck boards with square-head spikes; the board tops (0.62 m) are the only light, flat surface and carry a worn tread.",
+  "material_direction": "Board tops silver-grey weathered timber with a lighter, smoother worn tread; darker beams; dark furrowed bark with peeled patches, a green algae band and dark wet wood below the waterline; wet dark cobbles; black forged iron.",
+  "units": "1 Blender unit = 1 m",
+  "front_axis": "-Y (Blender); GLB exported +Y up, so the front faces +Z in glTF space",
+  "origin": "bottom centre of the bounds",
+  "dimensions_m": [
+    0.9784,
+    0.7949,
+    0.626
+  ],
+  "bounds_min_m": [
+    -0.4892,
+    -0.3975,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.4892,
+    0.3975,
+    0.626
+  ],
+  "game_triangles": 10960,
+  "game_vertices": 5610,
+  "high_poly_bake_source_faces": 44344,
+  "texture_size_px": 1024,
+  "texture_maps": {
+    "BaseColor": {
+      "file": "textures/QX_CreekSteppingPlank_BaseColor.png",
+      "uv_coverage_before_dilation": 0.6913
+    },
+    "Roughness": {
+      "file": "textures/QX_CreekSteppingPlank_Roughness.png",
+      "uv_coverage_before_dilation": 0.6913
+    },
+    "Normal": {
+      "file": "textures/QX_CreekSteppingPlank_Normal.png",
+      "uv_coverage_before_dilation": 0.6913
+    },
+    "Emission": {
+      "file": "textures/QX_CreekSteppingPlank_Emission.png",
+      "uv_coverage_before_dilation": 0.6913
+    }
+  },
+  "bake": {
+    "engine": "Cycles CPU",
+    "samples": 8,
+    "groups": {
+      "A_low_poly_from_high_poly": {
+        "cage_extrusion_m": 0.06,
+        "max_ray_m": 0.12,
+        "sources": [
+          "Plank_Cobbles_HP"
+        ]
+      },
+      "B_self": {
+        "cage_extrusion_m": 0.003,
+        "max_ray_m": 0.008,
+        "sources": 5
+      }
+    }
+  },
+  "not_reproduced_in_game_material": [
+    "leaf / petal back-light translucency",
+    "berry / blossom subsurface",
+    "crystal transmission (crystals are opaque with baked colour and emission)",
+    "iron metallic (baked as dark iron-grey dielectric: base colour mixed toward 0.055 grey by the metallic amount)"
+  ],
+  "files": {
+    "QX_CreekSteppingPlank.glb": {
+      "bytes": 3517564,
+      "sha256": "ff6a36ce75358f7631dc9067a3a31b8159c9356f640b869403cf0db300c0ba09"
+    },
+    "QX_CreekSteppingPlank.fbx": {
+      "bytes": 357260,
+      "sha256": "98f4b10349081eea18f3862094ff8fe9cf242e1f5a18ce917f47d126b5787b5b"
+    },
+    "QX_CreekSteppingPlank.blend": {
+      "bytes": 2233058,
+      "sha256": "949e5d187e96fa6dfe26eee785afb86e6c3e86bd35d1706c8b96ac89b3ec341c"
+    }
+  },
+  "build_seconds": 51.1,
+  "build_notes": {
+    "foot_surface_top_m": 0.62,
+    "foot_surface_size_m": [
+      0.732,
+      0.72
+    ],
+    "waterline_m": 0.16
+  }
+}

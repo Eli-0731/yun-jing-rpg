@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>青溪採集路段 示範</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}
+</script>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="mode" class="mode"></div>
+<div id="hud">
+  <div id="where"></div>
+  <div id="bag"><b>背包</b><ul id="bagList"><li class="dim">尚未採集</li></ul></div>
+</div>
+<div id="card" hidden>
+  <div class="cardHead"><span id="cardName"></span><span id="cardState"></span></div>
+  <p id="cardBody"></p>
+  <ul id="cardTraits"></ul>
+  <div id="bar" hidden><i></i></div>
+</div>
+<div id="prompt"></div>
+<div id="toast" hidden></div>
+<div id="keys">A／D 或 ←／→ 行走　·　W／S 選路（岔口）　·　E 觀察 → 再按 E 採集　·　C 切換近景</div>
+<div id="loading">載入模型中…</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>

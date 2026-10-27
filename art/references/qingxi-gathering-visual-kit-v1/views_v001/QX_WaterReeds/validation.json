@@ -1,0 +1,50 @@
+{
+  "key": "QX_WaterReeds",
+  "source_glb": "art/exports/qingxi-gathering-visual-kit-v1/QX_WaterReeds/v001/QX_WaterReeds.glb",
+  "glb_sha256": "c6c6f0f7f48f43f1a879d89162d6aff5382d4980c235a96b7daeaa279e4559cc",
+  "checks": {
+    "glb_imports": true,
+    "one_mesh_one_material": true,
+    "four_textures_embedded": true,
+    "dimensions_match_model_info_1mm": true,
+    "triangles_match_model_info": true,
+    "origin_bottom_centre": true,
+    "ten_views_1024": true
+  },
+  "all_passed": true,
+  "measured": {
+    "dimensions_m": [
+      1.2467,
+      1.0831,
+      1.9053
+    ],
+    "bounds_min_m": [
+      -0.6743,
+      -0.5487,
+      -0.1244
+    ],
+    "triangles": 35166,
+    "materials": 1,
+    "textures": [
+      "QX_WaterReeds_BaseColor",
+      "QX_WaterReeds_Emission",
+      "QX_WaterReeds_Normal",
+      "QX_WaterReeds_Roughness"
+    ]
+  },
+  "model_info": {
+    "dimensions_m": [
+      1.2467,
+      1.0831,
+      1.9053
+    ],
+    "game_triangles": 35166
+  },
+  "not_checked": [
+    "Unreal / Godot import",
+    "collision",
+    "LOD",
+    "navigation",
+    "in-engine lighting"
+  ]
+}

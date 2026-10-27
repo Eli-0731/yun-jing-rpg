@@ -1,0 +1,94 @@
+{
+  "key": "QX_SpiritHerb_Chilu_post",
+  "asset": "QX_SpiritHerb_Chilu",
+  "state": "post",
+  "name_zh": "赤露參（靈草二）",
+  "state_zh": "採後",
+  "version": "v001",
+  "design": "Ginseng-like spirit herb patch: dense meadow grass feathering out at the rim, three fruiting plants of graded size and three young plants growing through it, so the compact crimson umbels sit among the blades. Each plant: S-curved stem, whorl of palmate leaves (five finely serrated leaflets). Post: every umbel stripped to short broken pedicels, one missed green berry, one leaf snapped and wilting, grass trampled flat round the main plant, crushed berries.",
+  "material_direction": "Dark green leaflets with pinnate veins, yellowing margins and back-light; stem green flushing purple-red at the whorl; berries deep crimson, waxy (rough 0.30) with a dark stylar point, faint inner glow = the kit hot accent.",
+  "units": "1 Blender unit = 1 m",
+  "front_axis": "-Y (Blender); GLB exported +Y up, so the front faces +Z in glTF space",
+  "origin": "bottom centre at ground level",
+  "dimensions_m": [
+    1.0396,
+    0.9394,
+    0.3198
+  ],
+  "bounds_min_m": [
+    -0.5159,
+    -0.4702,
+    -0.012
+  ],
+  "bounds_max_m": [
+    0.5237,
+    0.4692,
+    0.3078
+  ],
+  "game_triangles": 71716,
+  "game_vertices": 51159,
+  "high_poly_bake_source_faces": 5830,
+  "texture_size_px": 1024,
+  "texture_maps": {
+    "BaseColor": {
+      "file": "textures/QX_SpiritHerb_Chilu_post_BaseColor.png",
+      "uv_coverage_before_dilation": 0.1156
+    },
+    "Roughness": {
+      "file": "textures/QX_SpiritHerb_Chilu_post_Roughness.png",
+      "uv_coverage_before_dilation": 0.1156
+    },
+    "Normal": {
+      "file": "textures/QX_SpiritHerb_Chilu_post_Normal.png",
+      "uv_coverage_before_dilation": 0.1156
+    },
+    "Emission": {
+      "file": "textures/QX_SpiritHerb_Chilu_post_Emission.png",
+      "uv_coverage_before_dilation": 0.1156
+    }
+  },
+  "bake": {
+    "engine": "Cycles CPU",
+    "samples": 8,
+    "groups": {
+      "A_low_poly_from_high_poly": {
+        "cage_extrusion_m": 0.06,
+        "max_ray_m": 0.12,
+        "sources": [
+          "Chilu_Pebbles_HP"
+        ]
+      },
+      "B_self": {
+        "cage_extrusion_m": 0.003,
+        "max_ray_m": 0.008,
+        "sources": 8
+      }
+    }
+  },
+  "not_reproduced_in_game_material": [
+    "leaf / petal back-light translucency",
+    "berry / blossom subsurface",
+    "crystal transmission (crystals are opaque with baked colour and emission)",
+    "iron metallic (baked as dark rough dielectric)"
+  ],
+  "files": {
+    "QX_SpiritHerb_Chilu_post.glb": {
+      "bytes": 5292660,
+      "sha256": "9b64a2229a13d6d1df15cf236ae76d69e91343466989866faf725400bee3eda9"
+    },
+    "QX_SpiritHerb_Chilu_post.fbx": {
+      "bytes": 2318684,
+      "sha256": "75f7533a703217e1d50cdcfa0e7fd6d516d1a30c1881865357d4588be6b0f40e"
+    },
+    "QX_SpiritHerb_Chilu_post.blend": {
+      "bytes": 3414006,
+      "sha256": "f2c2d397ff7c6fcc1328b961bdb74ffa13133dfd6c36ad8913fc035404354c5c"
+    }
+  },
+  "build_seconds": 31.3,
+  "build_notes": {
+    "umbel_positions": "[20, 11, 11, 0, 0, 0]",
+    "grass_tufts": 196,
+    "state_change": "post: all umbels stripped, bare and broken pedicels, one missed green berry, leaf snapped and wilting, grass trampled round the main plant, crushed berries"
+  }
+}

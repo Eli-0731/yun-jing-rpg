@@ -1,0 +1,50 @@
+{
+  "key": "QX_EmbeddedOre_Yumai_pre",
+  "source_glb": "art/exports/qingxi-gathering-visual-kit-v1/QX_EmbeddedOre_Yumai/v001/QX_EmbeddedOre_Yumai_pre.glb",
+  "glb_sha256": "71c7f9397f75a895c4f199b70d25e761aa004e2d82831b8c1f287533c21fef99",
+  "checks": {
+    "glb_imports": true,
+    "one_mesh_one_material": true,
+    "four_textures_embedded": true,
+    "dimensions_match_model_info_1mm": true,
+    "triangles_match_model_info": true,
+    "origin_bottom_centre": true,
+    "ten_views_1024": true
+  },
+  "all_passed": true,
+  "measured": {
+    "dimensions_m": [
+      2.339,
+      2.0281,
+      1.1336
+    ],
+    "bounds_min_m": [
+      -1.1427,
+      -1.0186,
+      -0.012
+    ],
+    "triangles": 46332,
+    "materials": 1,
+    "textures": [
+      "QX_EmbeddedOre_Yumai_pre_BaseColor",
+      "QX_EmbeddedOre_Yumai_pre_Emission",
+      "QX_EmbeddedOre_Yumai_pre_Normal",
+      "QX_EmbeddedOre_Yumai_pre_Roughness"
+    ]
+  },
+  "model_info": {
+    "dimensions_m": [
+      2.339,
+      2.0281,
+      1.1336
+    ],
+    "game_triangles": 46332
+  },
+  "not_checked": [
+    "Unreal / Godot import",
+    "collision",
+    "LOD",
+    "navigation",
+    "in-engine lighting"
+  ]
+}
