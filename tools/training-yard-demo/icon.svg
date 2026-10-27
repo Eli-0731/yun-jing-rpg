@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-label="青溪演武">
+  <rect width="192" height="192" rx="36" fill="#18392f"/>
+  <path d="M35 125 96 56l61 69" fill="none" stroke="#d9c494" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M43 137h106M66 92v45m60-45v45" fill="none" stroke="#a6b99e" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="96" cy="113" r="9" fill="#d9c494"/>
+</svg>
