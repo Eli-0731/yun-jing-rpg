@@ -8,4 +8,4 @@
 
 `qa-report.json` 的六件 `pass` 為 Blender 網格檢查結果，實際回匯結果在匯出 manifest。警告中的重疊 UV 來自共享／平鋪材質貼圖，不適合作獨立光照貼圖或逐件烘焙；圓柱端蓋 n-gon 為平面封口，GLB 匯出時已三角化。棚內隱藏接合面尚可在正式整合前進一步精簡。手機 FPS、Unity 編譯、Unity 導入材質和碰撞、主線入口連接及正式練功 API 均未驗證。
 
-`collision-proxies.json` 是給核心組的簡化碰撞建議，並非已寫入 Unity 的 Collider。
+`collision-proxies.json` 是給核心組的簡化碰撞建議，並非已寫入 Unity 的 Collider。前端本機展示使用自己的步行代理，不存修為、物品或伺服器獎勵。

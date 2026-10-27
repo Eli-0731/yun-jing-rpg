@@ -13,8 +13,8 @@
 | `engraved-training-stone-three-view.png` | 約 1.8 × 1.5 × 0.28 m；天然石板、淺刻同心環與礦物色填紋。 |
 | `training-banner-three-view.png` | 2.65 m 旗桿、0.70 × 1.40 m 青綠布旗、赭色印紋與邊、實體吊環和石座。 |
 
-圖片由 OpenAI image_gen 生成，提示詞保存在 `prompts.json`，SHA-256 在 `image-manifest.json`。建模程式是原創程序幾何與自製 PBR 貼圖，未下載或轉用第三方模型。委託與造型方向來自 Johnnnny0823；Codex 執行圖像提示、建模與資產驗證。
+圖片由 OpenAI image_gen 生成，提示詞保存在 `prompts.json`，SHA-256 在 `image-manifest.json`。建模程式是原創程序幾何與自製 PBR 貼圖，未下載或轉用第三方模型。委託與造型方向來自 Johnnnny0823；Codex 執行圖像提示、模型、展示與驗證。
 
-本組只新增 `art/references/qingxi-training-yard-v1/`、`art/source/qingxi-training-yard-v1/`、`art/exports/qingxi-training-yard-v1/`、`art/previews/qingxi-training-yard-v1/`。核心入口、聽風台、其他協作者資產與 API 均交核心組接入。
+本組只新增 `art/references/qingxi-training-yard-v1/`、`art/source/qingxi-training-yard-v1/`、`art/exports/qingxi-training-yard-v1/`、`art/previews/qingxi-training-yard-v1/`、`tools/training-yard-demo/`。核心入口、聽風台、其他協作者資產與 API 均交核心組接入。
 
-本輪只交建模資產，不含練功玩法或 API 接線；Unity 編譯及手機效能也尚未驗證。
+獨立展示的節奏分數只在記憶體，不換算修為或獎勵。main 的原始碼已有受權限保護的 `POST /actions` 及 `practice-basic`（qi/body，服務端冷卻與發獎），但本輪沒有接入，也未對 Unity 編譯或手機效能作驗證。
