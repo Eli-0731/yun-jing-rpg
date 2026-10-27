@@ -8,10 +8,11 @@
 - `YunJing.Editor.QingxiUnifiedWorldBuilder` 在同一場景加入核心組原創聽風台 FBX，依城鎮地形落地，石基／鋪面／入口階加碰撞，並生成獨立 `QingxiUnifiedWorld.unity`。
 - `tools/unity.ps1 -Target UnifiedWorldWindows` 分兩次 Unity 程序生成場景與建置橫向 1280×720 Windows 本機版本；不覆蓋舊小入口試走場景。
 - 無圖形裝置的批次驗證略過舊生成器的 RenderTexture 截圖，避免 Editor 在存檔前崩潰；有圖形裝置時仍執行原截圖流程。
+- 玩家導航網格可從城鎮廣場抵達聽風台周邊入口，增加第九個本機除錯定位點與到達提示；它不取代實際步行驗收。
 
 ## 實際驗證
 
-固定 Unity `6000.0.82f1`、`-batchmode -nographics`：舊城鎮與狩獵路線報告 `passed`、`failures=0`，統一場景生成成功，Windows build 成功。曾啟動 `YunJingUnifiedWorld.exe`，實際畫面可見第三人稱角色、城鎮廣場、河與通往狩獵區的方向。這只證明 Windows 版本可啟動和顯示；聽風台至坊市尚未完成連續人工走位，手機、網路及服務端採獵亦未驗收。
+固定 Unity `6000.0.82f1`、`-batchmode -nographics`：舊城鎮與狩獵路線報告 `passed`、`failures=0`，統一場景生成成功，城鎮廣場至聽風台周邊有完整 NavMesh 路徑約 53.4 m，Windows build 成功。曾啟動 `YunJingUnifiedWorld.exe`，實際畫面可見第三人稱角色、城鎮廣場、河與通往狩獵區的方向。這只證明 Windows 版本可啟動和顯示；聽風台至坊市尚未完成連續人工走位，手機、網路及服務端採獵亦未驗收。
 
 本機重建命令：
 

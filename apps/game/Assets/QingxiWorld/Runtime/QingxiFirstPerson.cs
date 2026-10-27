@@ -67,7 +67,7 @@ namespace QingxiWorld
             if (transform.position.y < -40) Teleport(0);
             UpdateCamera();
             foreach (var p in pointsOfInterest ?? new Transform[0])
-                if (p != null && !reached.Contains(p.name) && (p.name.StartsWith("TrailClue") || p.name.StartsWith("HerbNode") || p.name.StartsWith("Merchant") || p.name.StartsWith("SafeReturn"))
+                if (p != null && !reached.Contains(p.name) && (p.name.StartsWith("TrailClue") || p.name.StartsWith("HerbNode") || p.name.StartsWith("Merchant") || p.name.StartsWith("SafeReturn") || p.name.StartsWith("Entrance_"))
                     && Vector3.Distance(Flat(p.position), Flat(transform.position)) < 3) { reached.Add(p.name); Log("到達 " + p.name + "：走了 " + stopwatch.ToString("0.0") + " 秒"); }
         }
         void UpdateCamera()

@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace YunJing.Editor
 {
@@ -56,13 +57,82 @@ namespace YunJing.Editor
             }
             if (walkableParts == 0) throw new InvalidOperationException("Listening terrace has no walkable stone meshes.");
 
+            var approach = ConnectEntrance(player, terrace.transform.position);
+
             PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
             PlayerSettings.defaultScreenWidth = 1280;
             PlayerSettings.defaultScreenHeight = 720;
             ValidateScene();
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), ScenePath);
             AssetDatabase.SaveAssets();
-            Debug.Log($"QINGXI_UNIFIED_GENERATED: larger town + hunt + entrance terrace, terrain={ground:F2}m, walkable terrace parts={walkableParts}");
+            Debug.Log($"QINGXI_UNIFIED_GENERATED: larger town + hunt + entrance terrace, terrain={ground:F2}m, walkable terrace parts={walkableParts}, plaza-to-entrance route={approach:F1}m");
+        }
+
+        static float ConnectEntrance(GameObject player, Vector3 terraceCenter)
+        {
+            var source = AssetDatabase.LoadAssetAtPath<NavMeshData>("Assets/QingxiWorld/Generated/NavMesh_Player.asset");
+            if (source == null) throw new InvalidOperationException("Larger-town player NavMesh is missing.");
+            var walker = player.GetComponent<global::QingxiWorld.QingxiFirstPerson>();
+            if (walker == null) throw new InvalidOperationException("Larger-town local traveler is missing.");
+            var townSpawn = GameObject.Find("PlayerSpawn_Town");
+            if (townSpawn == null) throw new InvalidOperationException("Larger-town plaza spawn is missing.");
+
+            using (var nav = new NavScope(source))
+            {
+                if (!NavMesh.SamplePosition(townSpawn.transform.position, out var start, 2f, NavMesh.AllAreas))
+                    throw new InvalidOperationException("Plaza spawn is outside the player NavMesh.");
+                NavMeshPath bestPath = null;
+                Vector3 entry = Vector3.zero;
+                float bestLength = float.MaxValue;
+                // The terrace is a reused FBX with several stairs. Search the
+                // surrounding walkable town ground rather than assuming its pivot
+                // marks the entrance or teleporting the player into masonry.
+                foreach (var offset in new[] {
+                    new Vector3(0, 0, -5), new Vector3(-5, 0, 0),
+                    new Vector3(5, 0, 0), new Vector3(0, 0, 5)
+                })
+                {
+                    var candidate = terraceCenter + offset;
+                    if (!NavMesh.SamplePosition(candidate, out var end, 2f, NavMesh.AllAreas)) continue;
+                    var path = new NavMeshPath();
+                    if (!NavMesh.CalculatePath(start.position, end.position, NavMesh.AllAreas, path) ||
+                        path.status != NavMeshPathStatus.PathComplete) continue;
+                    float length = 0;
+                    for (int i = 1; i < path.corners.Length; i++)
+                        length += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+                    if (length >= bestLength) continue;
+                    bestPath = path; bestLength = length; entry = end.position;
+                }
+                if (bestPath == null) throw new InvalidOperationException("No complete walking route from the plaza to the listening terrace approach.");
+
+                var overlay = GameObject.Find("RouteTest_Lines");
+                if (overlay != null)
+                {
+                    var route = new GameObject("Plaza_to_ListeningTerrace_Approach");
+                    route.transform.SetParent(overlay.transform, false);
+                    var line = route.AddComponent<LineRenderer>();
+                    line.positionCount = bestPath.corners.Length;
+                    line.SetPositions(bestPath.corners.Select(p => p + Vector3.up * .25f).ToArray());
+                    line.startWidth = line.endWidth = .35f;
+                    line.sharedMaterial = Surface("UnifiedTerraceRouteDebug", new Color(.18f, .66f, .73f));
+                }
+
+                var point = new GameObject("Entrance_ListeningTerrace");
+                point.transform.position = entry;
+                walker.spotNames = walker.spotNames.Concat(new[] { "聽風台入口" }).ToArray();
+                walker.spotPositions = walker.spotPositions.Concat(new[] { entry }).ToArray();
+                var look = terraceCenter - entry;
+                walker.spotYaws = walker.spotYaws.Concat(new[] { Mathf.Atan2(look.x, look.z) * Mathf.Rad2Deg }).ToArray();
+                walker.pointsOfInterest = walker.pointsOfInterest.Concat(new[] { point.transform }).ToArray();
+                return bestLength;
+            }
+        }
+
+        sealed class NavScope : IDisposable
+        {
+            readonly NavMeshDataInstance instance;
+            public NavScope(NavMeshData data) { instance = NavMesh.AddNavMeshData(data); }
+            public void Dispose() { if (instance.valid) instance.Remove(); }
         }
 
         static float TownGround(Transform terrain, float x, float z)
