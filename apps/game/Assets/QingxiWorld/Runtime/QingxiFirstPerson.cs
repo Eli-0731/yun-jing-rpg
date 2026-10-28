@@ -69,6 +69,11 @@ namespace QingxiWorld
                     Log(r != null ? "抓到 " + r.spawnName + "（示意）。90 秒後在原出生點重生" : "附近 2.2 m 內沒有兔子");
                 }
             }
+            if (kb.eKey.wasPressedThisFrame && localForaging != null)
+            {
+                localForaging.TrySecondary(transform.position, out var message);
+                Log(message);
+            }
             if (Cursor.lockState == CursorLockMode.Locked)
             {
                 var d = mouse.delta.ReadValue(); yaw += d.x * lookSensitivity; pitch = Mathf.Clamp(pitch - d.y * lookSensitivity, -80, 80);

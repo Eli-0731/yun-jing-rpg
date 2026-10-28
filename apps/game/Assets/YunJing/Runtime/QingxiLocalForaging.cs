@@ -9,14 +9,21 @@ namespace YunJing
     public sealed class QingxiLocalForaging : MonoBehaviour
     {
         public Transform[] herbNodes;
+        public Transform[] clueNodes;
         public Transform marketEntrance;
+        public Transform trainingSpot;
         public float herbRegrowSeconds = 60f;
 
         readonly Dictionary<Transform, float> harvestedUntil = new Dictionary<Transform, float>();
+        readonly HashSet<Transform> observedClues = new HashSet<Transform>();
         public int Herbs { get; private set; }
         public int Rabbits { get; private set; }
         public int PracticeStones { get; private set; }
         public int Trades { get; private set; }
+        public int Insights { get; private set; }
+        public int PracticePellets { get; private set; }
+        public int ObservedClues => observedClues.Count;
+        int basicPracticeCount;
         public string LastMessage { get; private set; } = "沿溪探索，按 F 與靈草、山兔或坊市互動";
         public event Action Changed;
 
@@ -29,12 +36,17 @@ namespace YunJing
                 if (herb != null && Distance(playerPosition, herb.position) <= 2.4f)
                     return harvestedUntil.TryGetValue(herb, out var until) && Time.time < until
                         ? "靈草正在再生" : "F 採集靈草";
+            foreach (var clue in clueNodes ?? Array.Empty<Transform>())
+                if (clue != null && Distance(playerPosition, clue.position) <= 2.4f)
+                    return observedClues.Contains(clue) ? "已記下這處線索" : "F 觀察此處線索";
             foreach (var rabbit in FindObjectsByType<QingxiRabbit>(FindObjectsSortMode.None))
                 if (!rabbit.IsCaught && Distance(playerPosition, rabbit.transform.position) <= 2.2f)
                     return "F 抓取山兔";
             if (marketEntrance != null && Distance(playerPosition, marketEntrance.position) <= 3f)
-                return Herbs + Rabbits > 0 ? "F 在坊市交換採獵物" : "坊市：先去採草或尋找山兔";
-            return "沿溪尋找靈草、山兔與坊市";
+                return "F 交換材料  ·  E 用兩株靈草煉調息散";
+            if (trainingSpot != null && Distance(playerPosition, trainingSpot.position) <= 3f)
+                return "F 練習引氣訣  ·  E 服用調息散";
+            return "探索線索、採藥、追兔，或回聽風台練氣";
         }
 
         public bool TryInteract(Vector3 playerPosition, out string message) =>
@@ -54,6 +66,17 @@ namespace YunJing
                 harvestedUntil[herb] = now + herbRegrowSeconds;
                 Herbs++;
                 return Complete("採到一株靈草（本機試玩）", out message);
+            }
+
+            foreach (var clue in clueNodes ?? Array.Empty<Transform>())
+            {
+                if (clue == null || Distance(playerPosition, clue.position) > 2.4f) continue;
+                if (!observedClues.Add(clue))
+                {
+                    message = "這處線索已記在旅途手札";
+                    return false;
+                }
+                return Complete("發現新線索；回聽風台可試著參悟", out message);
             }
 
             foreach (var rabbit in FindObjectsByType<QingxiRabbit>(FindObjectsSortMode.None))
@@ -77,7 +100,38 @@ namespace YunJing
                 Trades++;
                 return Complete("已在坊市交換；練習靈石只在本次試玩有效", out message);
             }
+            if (trainingSpot != null && Distance(playerPosition, trainingSpot.position) <= 3f)
+            {
+                if (basicPracticeCount > observedClues.Count)
+                {
+                    message = "已參悟目前線索；再去探索，或服用調息散";
+                    return false;
+                }
+                basicPracticeCount++;
+                Insights++;
+                return Complete("完成一次引氣訣練習，得到一點本機領悟", out message);
+            }
             message = "附近沒有可互動的靈草、山兔或坊市";
+            return false;
+        }
+
+        public bool TrySecondary(Vector3 playerPosition, out string message)
+        {
+            if (marketEntrance != null && Distance(playerPosition, marketEntrance.position) <= 3f)
+            {
+                if (Herbs < 2) { message = "煉製調息散需要兩株靈草"; return false; }
+                Herbs -= 2;
+                PracticePellets++;
+                return Complete("煉成一份調息散（本機試玩）", out message);
+            }
+            if (trainingSpot != null && Distance(playerPosition, trainingSpot.position) <= 3f)
+            {
+                if (PracticePellets == 0) { message = "沒有調息散；可先練習引氣訣"; return false; }
+                PracticePellets--;
+                Insights += 2;
+                return Complete("服用調息散，獲得兩點本機領悟", out message);
+            }
+            message = "這裡沒有煉製或服用操作";
             return false;
         }
 

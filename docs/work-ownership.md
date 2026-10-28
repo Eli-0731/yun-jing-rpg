@@ -1,5 +1,12 @@
 # 青溪工作與來源登記
 
+## 2026-10-28 核心組續作
+
+| 內容 | 製作與來源 | 目前狀態 | 協作者邊界 |
+|---|---|---|---|
+| 新手線索、引氣訣、簡易煉製與調息試玩 | z1nnz 指導／Codex 在原採獵循環上接線 | PR #27 草稿；固定 Unity 批次生成與 Windows 建置通過，本機非正式資產；見 [活動說明](execution/qingxi-novice-activities-v1.md) | A／B／C 不覆寫 `QingxiLocalForaging.cs` 與統一場景生成器；可交獨立對話或場景模組 |
+| 青溪彎曲土路近景 v13 | z1nnz 指導／Codex 精修 v12；沿用 [原創 AI 三視圖](../art/references/qingxi-winding-road-v1/three-view.png)、v12 碎石葉叢與既有河岸石材貼圖 | 獨立 Blender／GLB、雙視圖；QA 0 錯誤，尚未接 Unity；見 [資產紀錄](qingxi-road-v13.md) | 協作者 B 的三段道路與橋頭模組仍維持其原作者；不要以 v13 覆寫 B 的母檔 |
+
 ## 2026-10-27 頭部與遊戲介面補記
 
 | 內容 | 來源／負責 | 實際狀態 | 協作者邊界 |

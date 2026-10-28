@@ -60,7 +60,7 @@ namespace YunJing
                 new Vector2(-22, -22), new Vector2(312, 108), new Color(.035f, .07f, .09f, .78f));
             Label("Guide Title", guide, "現在可以做", 19, FontStyle.Bold,
                 new Vector2(16, -12), new Vector2(270, 28), new Color(.94f, .87f, .66f));
-            Label("Guide Body", guide, "走訪聽風台  ·  沿路去坊市  ·  尋找山兔", 15, FontStyle.Normal,
+            Label("Guide Body", guide, "觀察線索 · 練氣 · 採藥 · 煉製 · 追兔 · 逛坊市", 15, FontStyle.Normal,
                 new Vector2(16, -48), new Vector2(280, 44), new Color(.88f, .91f, .88f));
 
             journalButton = Action("Journey Button", safe, "旅途手札  [M]", new Vector2(1, 1),
@@ -73,15 +73,15 @@ namespace YunJing
             if (foraging != null)
             {
                 var activity = Panel("Local Foraging", safe, new Vector2(1, 0), new Vector2(1, 0),
-                    new Vector2(-22, 22), new Vector2(330, 132), new Color(.035f, .07f, .09f, .81f));
+                    new Vector2(-22, 22), new Vector2(330, 154), new Color(.035f, .07f, .09f, .81f));
                 Label("Activity Title", activity, "青溪採獵 · 本機試玩", 18, FontStyle.Bold,
                     new Vector2(14, -9), new Vector2(300, 27), new Color(.94f, .87f, .66f));
                 foragingText = Label("Activity Counts", activity, "", 15, FontStyle.Normal,
-                    new Vector2(14, -40), new Vector2(300, 23), new Color(.88f, .91f, .88f));
+                    new Vector2(14, -40), new Vector2(300, 46), new Color(.88f, .91f, .88f));
                 interactionText = Label("Interaction Prompt", activity, "", 14, FontStyle.Normal,
-                    new Vector2(14, -68), new Vector2(300, 22), new Color(.67f, .87f, .83f));
+                    new Vector2(14, -87), new Vector2(300, 32), new Color(.67f, .87f, .83f));
                 activityResult = Label("Activity Result", activity, "", 13, FontStyle.Normal,
-                    new Vector2(14, -94), new Vector2(300, 31), new Color(.94f, .87f, .66f));
+                    new Vector2(14, -120), new Vector2(300, 28), new Color(.94f, .87f, .66f));
                 RefreshForaging();
                 foraging.Changed += RefreshForaging;
             }
@@ -124,7 +124,7 @@ namespace YunJing
         void RefreshForaging()
         {
             if (foragingText != null)
-                foragingText.text = $"靈草 {foraging.Herbs}  ·  山兔 {foraging.Rabbits}  ·  練習靈石 {foraging.PracticeStones}";
+                foragingText.text = $"靈草 {foraging.Herbs} · 山兔 {foraging.Rabbits} · 練習靈石 {foraging.PracticeStones}\n線索 {foraging.ObservedClues} · 調息散 {foraging.PracticePellets} · 領悟 {foraging.Insights}";
             if (activityResult != null) activityResult.text = foraging.LastMessage;
         }
 
