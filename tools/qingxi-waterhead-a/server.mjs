@@ -7,7 +7,9 @@ import path from 'node:path';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, '../..');
 const KIT = ['A01_straight_01', 'A01_bend_left_01', 'A01_narrow_01', 'A01_bend_right_01', 'A01_end_source_01', 'A02_side_crack_01', 'A02_end_break_01',
-  'A03_FormationBase', 'A04_SiltBar', 'A04_SiltBar_cleared', 'A05_WitheredSedge_01', 'A06_MarkerStone'];
+  'A03_FormationBase', 'A04_SiltBar', 'A04_SiltBar_cleared', 'A04_SiltSide_02', 'A04_SiltJam_03', 'A05_WitheredSedge_01', 'A05_WitheredSedge_02',
+  'A05_WitheredSedge_03', 'A06_MarkerStone', 'A07_NurseryTracks', 'A08_steps_line_01', 'A08_slabs_stagger_01', 'A08_gravel_bar_01', 'A09_WaterGauge',
+  'A10_FallenBamboo', 'A11_PavilionRuin', 'A12_ResonanceStone'];
 // Background dressing reused read-only from the delivered forest encounter kit (PR #39, same author).
 const FOREST = ['A06_RootStump', 'A03_FallenLog'];
 const routes = {

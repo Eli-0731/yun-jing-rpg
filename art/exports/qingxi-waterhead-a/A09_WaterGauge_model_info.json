@@ -1,0 +1,100 @@
+{
+ "id": "A09",
+ "variant": "single",
+ "key": "A09_WaterGauge",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.7,
+  0.7759,
+  1.6492
+ ],
+ "triangles": 1438,
+ "lod_triangles": [
+  1438,
+  639,
+  281
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   0.14,
+   0.14,
+   1.65
+  ],
+  "center": [
+   0,
+   0,
+   0.82
+  ],
+  "note": "zero of the scale = river tile base: today 0.30 m, old high water 0.86 m (rope); hint water_gauge"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A09_WaterGauge",
+  "dimensions_m": [
+   0.7,
+   0.7759,
+   1.6492
+  ],
+  "bbox_min": [
+   -0.35,
+   -0.4259,
+   0.0
+  ],
+  "bbox_max": [
+   0.35,
+   0.35,
+   1.6492
+  ],
+  "trianglesLOD": [
+   1438,
+   639,
+   281
+  ],
+  "budgetLOD0": 4000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A09_WaterGauge"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A09_WaterGauge_LOD0",
+   "A09_WaterGauge_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 108,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 1438,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "M_A09_WaterGauge.001"
+   ]
+  },
+  "files": {
+   "A09_WaterGauge.glb": {
+    "bytes": 290672,
+    "sha256": "7758c776675d29597c8de3165d02139ad824962be4f1a0d3b839e651f0f31d6a"
+   },
+   "A09_WaterGauge.fbx": {
+    "bytes": 173500,
+    "sha256": "c29e2169c156874018f273a1efc9e6296d2cbe12aa2cfda2a9e035b46ac23784"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A09_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

@@ -10,11 +10,11 @@
   8.245,
   2.0536
  ],
- "triangles": 20256,
+ "triangles": 18816,
  "lod_triangles": [
-  20256,
-  7837,
-  3448
+  18816,
+  7117,
+  3131
  ],
  "collision": {
   "type": "heightfield",
@@ -39,9 +39,9 @@
    2.0536
   ],
   "trianglesLOD": [
-   20256,
-   7837,
-   3448
+   18816,
+   7117,
+   3131
   ],
   "budgetLOD0": 21000,
   "withinBudget": true,
@@ -50,7 +50,7 @@
    "LowWater",
    "M_A01_bend_right_01"
   ],
-  "textureResolution": 2048,
+  "textureResolution": 4096,
   "nodes": [
    "A01_bend_right_01_LOD0",
    "A01_bend_right_01_Clear"
@@ -62,7 +62,7 @@
    "zeroAreaFaces": 0
   },
   "glbRoundTrip": {
-   "triangles": 20256,
+   "triangles": 18816,
    "trianglesMatch": true,
    "bboxMatch": true,
    "materials": [
@@ -73,12 +73,12 @@
   },
   "files": {
    "A01_bend_right_01.glb": {
-    "bytes": 2242440,
-    "sha256": "4a9ae057b9f5907da715c67b46b4056e8d15e87402c9f878887380c2685d4225"
+    "bytes": 3288244,
+    "sha256": "f45b49bdc18cab465f7b0ba223898ca17d385c8f7906cfb6b8fbd3ff409eb4e2"
    },
    "A01_bend_right_01.fbx": {
-    "bytes": 2534044,
-    "sha256": "a35a6c8fef02edc70c62ca2f7771719ffa60ecbe876a8b4cbb6208a9f77f7a8f"
+    "bytes": 2293404,
+    "sha256": "d77774c851fdd90f97f1a630448d8ab4c9333a4451d45717a392d8338213d81e"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A01_bend_right_three_view.png",
@@ -103,6 +103,7 @@
    5.9847,
    -40.0
   ],
+  "terminal": false,
   "place": "set the origin at y = -bank_top so banks meet ground 0; chain the next module at out_port"
  }
 }

@@ -1,0 +1,99 @@
+{
+ "id": "A12",
+ "variant": "single",
+ "key": "A12_ResonanceStone",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  1.8369,
+  1.7152,
+  1.078
+ ],
+ "triangles": 6782,
+ "lod_triangles": [
+  6782,
+  3280,
+  1442
+ ],
+ "collision": {
+  "type": "capsule",
+  "radius": 0.35,
+  "height": 1.1,
+  "center": [
+   0,
+   0,
+   0.55
+  ],
+  "note": "hint resonance_stone: faint vein glow and hum, no arrow"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A12_ResonanceStone",
+  "dimensions_m": [
+   1.8369,
+   1.7152,
+   1.078
+  ],
+  "bbox_min": [
+   -0.9756,
+   -0.7315,
+   0.0
+  ],
+  "bbox_max": [
+   0.8613,
+   0.9837,
+   1.078
+  ],
+  "trianglesLOD": [
+   6782,
+   3280,
+   1442
+  ],
+  "budgetLOD0": 8000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "LowWater",
+   "M_A12_ResonanceStone"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A12_ResonanceStone_LOD0",
+   "A12_ResonanceStone_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 6782,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "LowWater.001",
+    "M_A12_ResonanceStone.001"
+   ]
+  },
+  "files": {
+   "A12_ResonanceStone.glb": {
+    "bytes": 748144,
+    "sha256": "a9207d5729a164ec3da0b42b44c28d09da16b14a83a5c496e72ff8e9208d26d7"
+   },
+   "A12_ResonanceStone.fbx": {
+    "bytes": 938524,
+    "sha256": "f2d1e39afcb6606d484839c772ea110a0ee2c98786e6e8e3366e335f4dd618f8"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A12_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

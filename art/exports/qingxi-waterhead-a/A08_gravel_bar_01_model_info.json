@@ -1,0 +1,90 @@
+{
+ "id": "A08",
+ "variant": "tread 3: natural gravel bar with three boulders",
+ "key": "A08_gravel_bar_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  3.1,
+  2.5,
+  0.4322
+ ],
+ "triangles": 3952,
+ "lod_triangles": [
+  3952,
+  1960,
+  861
+ ],
+ "collision": {
+  "type": "mesh",
+  "note": "river tile frame; the bar stands just out of the water"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A08_gravel_bar_01",
+  "dimensions_m": [
+   3.1,
+   2.5,
+   0.4322
+  ],
+  "bbox_min": [
+   -1.55,
+   -1.25,
+   0.2009
+  ],
+  "bbox_max": [
+   1.55,
+   1.25,
+   0.633
+  ],
+  "trianglesLOD": [
+   3952,
+   1960,
+   861
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "LowWater",
+   "M_A08_gravel_bar_01"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A08_gravel_bar_01_LOD0",
+   "A08_gravel_bar_01_Clear"
+  ],
+  "originAtBase": false,
+  "meshHealth": {
+   "nonManifoldEdges": 132,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 3952,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "LowWater.001",
+    "M_A08_gravel_bar_01.001"
+   ]
+  },
+  "files": {
+   "A08_gravel_bar_01.glb": {
+    "bytes": 434652,
+    "sha256": "64cee39c051679bf8f67ee0b6949bb7a916102f9cf10e43ad9038018b9f75324"
+   },
+   "A08_gravel_bar_01.fbx": {
+    "bytes": 520508,
+    "sha256": "12747d175425decb26b3bb898e2dacfac3fab79acbff3de54f69e29dda3a88e6"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A08_gravel_bar_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

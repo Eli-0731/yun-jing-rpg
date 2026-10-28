@@ -23,24 +23,25 @@
     <ol id="book">
       <li data-id="cracked_sluice">？？？<small>沿岸的舊水路</small></li>
       <li data-id="silt_buildup">？？？<small>河道裡</small></li>
-      <li data-id="nursery_tracks">？？？<small>（第二批開放）</small></li>
+      <li data-id="nursery_tracks">？？？<small>水邊的泥地</small></li>
     </ol>
     <div class="verdict" id="verdict"></div>
-    <div class="row"><button id="export">線索 JSON</button><button id="reset">重新調查</button></div>
+    <div class="row"><button id="export">手札</button><button id="reset">重新調查</button></div>
   </section>
 </header>
 
 <div id="toast" class="toast" role="status"></div>
 <div id="look" class="look" aria-hidden="true"></div>
 <div id="prompt" class="prompt">從下游入口出發，沿岸看看水為什麼變少</div>
-<div id="hint" class="hint">WASD 移動 · 拖曳轉視角 · E 觀察 · R 回入口</div>
+<div id="hint" class="hint">WASD 移動 · 拖曳轉視角 · E 觀察／互動 · R 回入口</div>
+<div id="wary" aria-hidden="true"></div>
 
 <section id="result" class="card" hidden>
-  <span class="eyebrow">線索交接（本機 fixture）</span>
+  <span class="eyebrow">調查手札</span>
   <h2 id="result-title">—</h2>
-  <p id="result-detail"></p>
-  <pre class="json" id="result-json"></pre>
-  <p class="fine">只記錄看到了什麼，不發靈石、貢獻或材料。B 的導水方案與 C 的村民回應讀同一組 observationIds。</p>
+  <ul id="result-list" class="notes"></ul>
+  <p id="result-next"></p>
+  <pre class="json" id="result-json" hidden></pre>
   <div class="row"><button id="close" class="primary">繼續調查</button></div>
 </section>
 

@@ -72,11 +72,11 @@
   "files": {
    "A04_SiltBar.glb": {
     "bytes": 725144,
-    "sha256": "55fb8fd6c05af3ba3eba9c66718c46ba8a06a58c70a37217e794685b64d2f2fc"
+    "sha256": "95610f5c409dffff9fc211dcb343ca8e223b44b35e2b47d5a60b1a9fb2599084"
    },
    "A04_SiltBar.fbx": {
     "bytes": 622204,
-    "sha256": "a2c6c4d3ba82d52a6cf13d65b51564a02bbcf9b14484382ea7af081ceab3e53a"
+    "sha256": "5111ecdb2d1dacde66655fa3748c84d154cdc119e6e00ea3438ed604c0e473fc"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A04_three_view.png",

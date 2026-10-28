@@ -1,0 +1,90 @@
+{
+ "id": "A10",
+ "variant": "single",
+ "key": "A10_FallenBamboo",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  4.6597,
+  2.5286,
+  2.4855
+ ],
+ "triangles": 9760,
+ "lod_triangles": [
+  9760,
+  3990,
+  1754
+ ],
+ "collision": {
+  "type": "capsules",
+  "note": "screen x -1.9..0.3 blocks; the gap x 0.3..1.5 under the high arch (2.0 m) is walkable"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A10_FallenBamboo",
+  "dimensions_m": [
+   4.6597,
+   2.5286,
+   2.4855
+  ],
+  "bbox_min": [
+   -2.4612,
+   -1.328,
+   0.0
+  ],
+  "bbox_max": [
+   2.1984,
+   1.2006,
+   2.4855
+  ],
+  "trianglesLOD": [
+   9760,
+   3990,
+   1754
+  ],
+  "budgetLOD0": 14000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A10_FallenBamboo"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A10_FallenBamboo_LOD0",
+   "A10_FallenBamboo_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 1774,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 9760,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "M_A10_FallenBamboo.001"
+   ]
+  },
+  "files": {
+   "A10_FallenBamboo.glb": {
+    "bytes": 861080,
+    "sha256": "f74fcc0b7ac7ebff62567742b98a7ed3f32d7727d5c22f5475f12217afbc0fb6"
+   },
+   "A10_FallenBamboo.fbx": {
+    "bytes": 1262956,
+    "sha256": "71a97700cb73ae5e610427a90faba402cf5e490c9464630fbf2d39de822d2c1c"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A10_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

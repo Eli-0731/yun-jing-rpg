@@ -70,6 +70,36 @@ export class Sfx {
     }
   }
 
+  /** Water released through the raked gap. */
+  whoosh() {
+    if (!this.ctx) return;
+    const t = this.ctx.currentTime, n = this.#noise(1.6);
+    const bp = this.ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 0.8;
+    bp.frequency.setValueAtTime(500, t); bp.frequency.exponentialRampToValueAtTime(1600, t + 1.2);
+    this.#env(n.connect(bp), t, 0.2, 0.18, 1.3); n.start(t); n.stop(t + 1.6);
+  }
+
+  /** A low warning rumble from the nursery side (never an attack). */
+  growl() {
+    if (!this.ctx) return;
+    const t = this.ctx.currentTime, o = this.ctx.createOscillator(), lfo = this.ctx.createOscillator(), lg = this.ctx.createGain();
+    o.type = 'sawtooth'; o.frequency.value = 62; lfo.frequency.value = 9; lg.gain.value = 12; lfo.connect(lg).connect(o.frequency);
+    const lp = this.ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 260;
+    this.#env(o.connect(lp), t, 0.25, 0.16, 1.4); o.start(t); lfo.start(t); o.stop(t + 1.8); lfo.stop(t + 1.8);
+  }
+
+  /** The resonance stone's hum: 0..1 by distance. */
+  hum(k) {
+    if (!this.ctx) return;
+    if (!this.humNode) {
+      const o = this.ctx.createOscillator(), o2 = this.ctx.createOscillator(), g = this.ctx.createGain();
+      o.frequency.value = 196; o2.frequency.value = 293.7; g.gain.value = 0.0001;
+      o.connect(g); o2.connect(g); g.connect(this.master); o.start(); o2.start();
+      this.humNode = g;
+    }
+    this.humNode.gain.setTargetAtTime(0.0001 + 0.05 * k * k, this.ctx.currentTime, 0.4);
+  }
+
   /** Soft low knock for "nothing here" / "already noted". */
   knock() {
     if (!this.ctx) return;

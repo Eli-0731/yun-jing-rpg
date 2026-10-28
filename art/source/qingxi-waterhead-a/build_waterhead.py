@@ -180,6 +180,18 @@ def make_materials():
     g['CRACKMUD'] = m_crackmud()
     g['MARKER'] = water_bands(add_moss(Q.m_stone('MarkerStone', light=(0.17, 0.16, 0.14), dark=(0.065, 0.062, 0.055), scale=1.4, chisel=1.6), 0.85, (0.5, 0.95)),
                               wet_top=0.35, old_lo=0.38, old_hi=0.86, strength=1.4, dry=((0.30, 0.28, 0.24), (0.24, 0.225, 0.19)))
+    g['NURSERYMUD'] = m_nursery_mud()
+    g['REED'] = Q.m_simple('BrokenReed', (0.20, 0.15, 0.07), (0.36, 0.29, 0.14), rough=0.8, nscale=30.0, cav_col=(0.08, 0.06, 0.03))
+    g['GAUGE'] = m_gauge()
+    g['ROPE'] = Q.m_cord('Rope', (0.20, 0.14, 0.07), (0.34, 0.25, 0.13))
+    g['DEADWOOD'] = add_moss(Q.m_wood('Deadwood', (0.10, 0.085, 0.065), (0.22, 0.19, 0.15), axis='X', ring=2.0, wear=0.3, rough=0.85), 0.6)
+    g['ENDGRAIN'] = Q.m_endgrain('LogEnd', (0.20, 0.15, 0.10), (0.33, 0.26, 0.18))
+    g['BAMBOO'] = Q.m_simple('DryBamboo', (0.24, 0.21, 0.09), (0.40, 0.35, 0.17), rough=0.55, nscale=9.0, bump=0.001, cav_col=(0.10, 0.08, 0.04),
+                             edge_col=(0.48, 0.43, 0.24))
+    g['TIMBER'] = add_moss(Q.m_wood('OldTimber', (0.07, 0.055, 0.04), (0.16, 0.13, 0.10), axis='Z', ring=2.4, wear=0.55, rough=0.8), 0.35, (0.6, 0.95))
+    g['TILE'] = Q.m_simple('RoofTileShard', (0.035, 0.04, 0.045), (0.075, 0.085, 0.095), rough=0.6, nscale=6.0, bump=0.001,
+                           cav_col=(0.012, 0.013, 0.015), edge_col=(0.13, 0.135, 0.135))
+    g['VEINSTONE'] = add_moss(m_resonance(), 0.4, (0.75, 0.98), cover=(0.5, 0.6))
     g['MUD'] = Q.m_simple('WetMud', (0.035, 0.026, 0.018), (0.07, 0.05, 0.032), rough=0.3, nscale=10.0, bump=0.002)
     globals().update(g)
 
@@ -429,7 +441,7 @@ def bank_rocks(name, course, shape, spots, seed, mat=None):
         z = shape(u, s, w)
         _, d, _ = course.frame(u)
         rot = math.atan2(d.y, d.x) + random.Random(seed + k).uniform(-0.4, 0.4)
-        boulder(f'{name}_{k}', rad, tuple(course.at(u, s, z - rad[2] * 0.3)), mat or ROCK, seed=seed + k, subd=3, rough=0.26,
+        boulder(f'{name}_{k}', rad, tuple(course.at(u, s, z - rad[2] * 0.3)), mat or ROCK, seed=seed + k, subd=3 if max(rad) > 0.33 else 2, rough=0.26,
                 rot=rot, cleave=5, box=2.6, tilt=(random.Random(seed * 3 + k).uniform(-0.3, 0.3), 0.0))
 
 
@@ -563,10 +575,10 @@ def build_river(variant):
     roots(f'A01_{variant}_root', course, shape, root, seed=60)
     # embedded stones all along both banks (half buried in the slope), then gravel and cobbles, then grass on the lip
     slope_spots = []
-    for k in range(16):
+    for k in range(26):
         u = rnd.uniform(0.4, course.L - 0.4)
         side = rnd.choice((-1, 1))
-        r = rnd.uniform(0.16, 0.38)
+        r = rnd.uniform(0.12, 0.38) if k < 16 else rnd.uniform(0.08, 0.16)   # the extra ten are small half-buried stones
         slope_spots.append((u, side * rnd.uniform(1.35, 2.3), (r * 1.2, r, r * 0.8)))
     bank_rocks(f'A01_{variant}_slope', course, shape, slope_spots, seed=140 + len(variant))
     bed_stones(f'A01_{variant}_peb', course, shape, 32 if variant == 'end_source' else 70, seed=70 + len(variant), lo=-1.9, hi=1.9, size=(0.05, 0.12))
@@ -881,22 +893,529 @@ def build_A06():
         tuft(f'A06_grass_{k}', 0.55 * math.cos(a), 0.5 * math.sin(a), 0.0, h=rnd.uniform(0.2, 0.34), n=8, seed=610 + k, droop=0.3)
 
 
+# ====================================================================== batch two helpers
+def save_mask(name, arr):
+    h, w = arr.shape[:2]
+    rgba = np.ones((h, w, 4), np.float32)
+    rgba[..., :3] = arr[..., None]
+    im = bpy.data.images.new(name, width=w, height=h, alpha=False)
+    im.colorspace_settings.name = 'Non-Color'
+    im.pixels.foreach_set(rgba.ravel())
+    (ROOT / 'textures').mkdir(exist_ok=True)
+    im.filepath_raw = str(ROOT / 'textures' / f'{name}.png')
+    im.file_format = 'PNG'
+    im.save()
+    im.pack()
+    return im
+
+
+def vc_tuft(name, x, y, z, h, n, seed, base_c, tip_c, droop=0.3, width=(0.008, 0.016)):
+    """Like tuft(), with explicit root/tip colours (fur wisps, reeds)."""
+    o = tuft(name, x, y, z, h=h, n=n, seed=seed, droop=droop)
+    ca = o.data.color_attributes['Col']
+    zs = [v.co.z for v in o.data.vertices]
+    top = max(zs) or 1.0
+    for i, v in enumerate(o.data.vertices):
+        t = max(0.0, v.co.z) / top
+        ca.data[i].color = (*(base_c[j] + (tip_c[j] - base_c[j]) * t for j in range(3)), 1.0)
+    return o
+
+
+# ====================================================================== A07 beast nursery footprints (observation only)
+TRACK_X, TRACK_Y = 3.0, 2.5
+
+
+def nursery_mask(n=2048):
+    """Three tracks of four-toed clawed prints (adult 0.22 m, juvenile 0.12 m, cub 0.06 m) walking towards +y (the water).
+    1 = pressed deep. Pixel grid covers the 3.0 x 2.5 m tile."""
+    h = int(n * TRACK_Y / TRACK_X)
+    v, u = np.mgrid[0:h, 0:n].astype(np.float32)
+    x, y = (u / n - 0.5) * TRACK_X, (v / h - 0.5) * TRACK_Y
+    m = np.zeros_like(x)
+    rng = np.random.default_rng(11)
+
+    def ell(cx, cy, rx, ry, depth=1.0):
+        return depth * np.clip(1 - (((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2), 0, 1) ** 0.6
+
+    for lane, size, stride, y0 in ((-0.75, 0.22, 0.42, -1.0), (0.05, 0.12, 0.26, -0.95), (0.62, 0.06, 0.15, -1.05)):
+        k = 0
+        yy = y0
+        while yy < 0.95:
+            side = 1 if k % 2 else -1
+            cx = lane + side * size * 0.45 + 0.05 * math.sin(yy * 2.2) + rng.uniform(-0.01, 0.01)
+            cy = yy
+            m = np.maximum(m, ell(cx, cy, size * 0.32, size * 0.28))                    # heel pad
+            for t, (dx, dy) in enumerate(((-0.33, 0.30), (-0.12, 0.42), (0.12, 0.42), (0.33, 0.30))):
+                tx, ty = cx + dx * size, cy + dy * size
+                m = np.maximum(m, ell(tx, ty, size * 0.1, size * 0.13))                 # toes
+                m = np.maximum(m, ell(tx + dx * size * 0.15, ty + size * 0.2, size * 0.03, size * 0.08, 0.8))   # claw marks
+            yy += stride * rng.uniform(0.92, 1.08)
+            k += 1
+    # churned patch where they drank at the water end: irregular trampling, not a pattern
+    waves = sum(np.sin(x * a + y * b + c) for a, b, c in ((31, 11, 0.3), (-17, 27, 1.7), (9, -35, 2.9), (23, 19, 4.1))) / 4
+    churn = np.clip(1 - ((x - 0.0) ** 2 / 1.0 + (y - 1.0) ** 2 / 0.12), 0, 1) * np.clip(0.5 + 0.7 * waves, 0, 1)
+    return np.clip(np.maximum(m, churn * 0.55), 0, 1)
+
+
+def box_blur(a, r):
+    """Separable box blur (r pixels), twice: a cheap soft dilation for the squeezed-up mud rims."""
+    for _ in range(2):
+        for axis in (0, 1):
+            c = np.cumsum(np.pad(a, [(r + 1, r) if i == axis else (0, 0) for i in range(2)], mode='edge'), axis=axis)
+            a = (np.take(c, range(2 * r + 1, c.shape[axis]), axis=axis) - np.take(c, range(0, c.shape[axis] - 2 * r - 1), axis=axis)) / (2 * r + 1)
+    return a
+
+
+def m_nursery_mud(name='NurseryMud'):
+    m, nt, b = Q.new_mat(name)
+    co = Q.coords(nt, (1, 1, 1))
+    n1, n2 = Q.noise(nt, co, 2.4, 5, 0.6), Q.noise(nt, co, 26.0, 3)
+    col = Q.mix(nt, Q.smooth(nt, n1, 0.3, 0.75), (0.040, 0.030, 0.020), (0.085, 0.064, 0.042))
+    p = Q.sep(nt, Q.attr(nt, 'qa_lc'))
+    cv = Q.N(nt, 'ShaderNodeCombineXYZ')
+    Q.L(nt, Q.math_(nt, 'ADD', Q.math_(nt, 'DIVIDE', p[0], TRACK_X), 0.5), cv.inputs[0])
+    Q.L(nt, Q.math_(nt, 'ADD', Q.math_(nt, 'DIVIDE', p[1], TRACK_Y), 0.5), cv.inputs[1])
+    mask = nursery_mask()
+    rim = np.clip((box_blur(mask, 7) - mask) * 3.0, 0, 1)
+    ti = Q.N(nt, 'ShaderNodeTexImage', image=save_mask('P_NurseryTracks', mask), extension='CLIP')
+    tr = Q.N(nt, 'ShaderNodeTexImage', image=save_mask('P_NurseryRims', rim), extension='CLIP')
+    Q.L(nt, cv.outputs[0], ti.inputs['Vector'])
+    Q.L(nt, cv.outputs[0], tr.inputs['Vector'])
+    pr, rr = ti.outputs['Color'], tr.outputs['Color']
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', rr, 0.9), col, (0.15, 0.12, 0.085))                # mud squeezed up round each print: lighter, drier
+    col = Q.mix(nt, Q.smooth(nt, pr, 0.05, 0.4), col, (0.010, 0.008, 0.006))                  # the prints hold water: much darker
+    rough = Q.mixf(nt, Q.smooth(nt, pr, 0.05, 0.4), Q.mixf(nt, n2, 0.6, 0.85), 0.12)          # and glossy
+    hgt = Q.math_(nt, 'ADD', Q.math_(nt, 'MULTIPLY', n2, 0.2), Q.math_(nt, 'SUBTRACT', Q.math_(nt, 'MULTIPLY', rr, 0.8), Q.math_(nt, 'MULTIPLY', pr, 2.2)))
+    return Q.finish(m, nt, b, col, rough, 0.0, hgt, 0.03, 1.0)
+
+
+def build_A07():
+    rnd = random.Random(77)
+    nx, ny = 48, 40
+    verts, faces = [], []
+    for j in range(ny + 1):
+        for i in range(nx + 1):
+            x, y = -TRACK_X / 2 + TRACK_X * i / nx, -TRACK_Y / 2 + TRACK_Y * j / ny
+            edge = smoothstep(0.0, 0.35, min(TRACK_X / 2 - abs(x), TRACK_Y / 2 - abs(y)))
+            z = 0.02 + edge * (0.08 + 0.025 * noise.fractal(Vector((x, y, 0)) * 1.8, 0.6, 2.0, 4) - 0.03 * smoothstep(0.6, 1.2, y))
+            verts.append((x, y, max(0.0, z)))
+    W = nx + 1
+    for j in range(ny):
+        for i in range(nx):
+            a = j * W + i
+            faces.append((a, a + 1, a + W + 1, a + W))
+    o = Y.make_mesh('A07_mud', verts, faces, None, [NURSERYMUD], coll=coll(), smooth_angle=70)
+    # broken reeds at the water end, a few tufts of shed grey fur, pebbles at the edge
+    for k in range(9):
+        x = rnd.uniform(-1.3, 1.3)
+        y = rnd.uniform(0.7, 1.15)
+        a = rnd.uniform(-0.6, 0.6)
+        L = rnd.uniform(0.35, 0.7)
+        pts = [(x + math.sin(a) * L * t, y + math.cos(a) * L * t * 0.4 - 0.1 * t, 0.1 + 0.08 * math.sin(math.pi * t * 0.8)) for t in np.linspace(0, 1, 6)]
+        Y.tube(f'A07_reed_{k}', pts, 0.008, 5, coll(), [REED], caps=True)
+    for k in range(6):
+        vc_tuft(f'A07_fur_{k}', rnd.uniform(-1.2, 1.0), rnd.uniform(-0.9, 0.9), 0.09, h=0.05, n=7, seed=780 + k,
+                base_c=(0.20, 0.19, 0.17), tip_c=(0.46, 0.44, 0.40), droop=0.6)
+    for k in range(10):
+        a = rnd.uniform(0, math.tau)
+        x, y = 1.35 * math.cos(a), 1.12 * math.sin(a)
+        r = rnd.uniform(0.04, 0.1)
+        boulder(f'A07_peb_{k}', (r, r * 0.8, r * 0.6), (x, y, 0.0), PEBBLE, seed=790 + k, subd=1, rough=0.15, ground=0.0)
+    for k in range(7):
+        a = rnd.uniform(0, math.tau)
+        tuft(f'A07_grass_{k}', 1.45 * math.cos(a), 1.2 * math.sin(a), 0.0, h=rnd.uniform(0.18, 0.3), n=8, seed=800 + k, droop=0.3)
+
+
+# ====================================================================== A08 pebble ford: three tread layouts, in the river tile frame
+def ford_bed(name, extra=lambda x, y: 0.0):
+    """A gravel bed patch that follows the shared channel cross-section (origin = tile base at the channel centre), thickening
+    slightly in the middle so stones can sit in it; its edges taper into the river tile."""
+    nx, ny = 36, 30
+    verts, faces = [], []
+    for j in range(ny + 1):
+        for i in range(nx + 1):
+            x, y = -1.55 + 3.1 * i / nx, -1.25 + 2.5 * j / ny
+            fade = smoothstep(0.0, 0.35, 1.25 - abs(y)) * smoothstep(0.0, 0.25, 1.55 - abs(x))
+            z = profile(x) + fade * (0.025 + extra(x, y))
+            verts.append((x, y, z))
+    W = nx + 1
+    for j in range(ny):
+        for i in range(nx):
+            a = j * W + i
+            faces.append((a, a + 1, a + W + 1, a + W))
+    return Y.make_mesh(name, verts, faces, None, [BANK], coll=coll(), smooth_angle=70)
+
+
+def build_A08(variant):
+    rnd = random.Random({'steps_line': 81, 'slabs_stagger': 82, 'gravel_bar': 83}[variant])
+    if variant == 'steps_line':
+        ford_bed('A08_bed')
+        for k, x in enumerate(np.linspace(-1.05, 1.05, 6)):          # six flat-topped steps in a gentle curve
+            y = 0.18 * math.sin(x * 1.4) + rnd.uniform(-0.04, 0.04)
+            r = rnd.uniform(0.19, 0.24)
+            top = WATER + 0.12 + rnd.uniform(-0.02, 0.02)
+            boulder(f'A08_step_{k}', (r, r * 0.85, 0.16), (x, y, top - 0.16 * 0.62), ROCK, seed=810 + k, subd=3, rough=0.12, box=3.0,
+                    squash_top=0.55, cleave=2, rot=rnd.uniform(0, 3), ground=profile(x) - 0.05)
+    elif variant == 'slabs_stagger':
+        ford_bed('A08_bed')
+        for k, (x, y) in enumerate(((-0.9, -0.28), (-0.3, 0.3), (0.32, -0.25), (0.92, 0.28))):   # four big worn slabs, zig-zag
+            r = rnd.uniform(0.3, 0.4)
+            top = WATER + 0.1 + rnd.uniform(-0.015, 0.015)
+            boulder(f'A08_slab_{k}', (r, r * 0.82, 0.12), (x, y, top - 0.12 * 0.6), ROCK, seed=820 + k, subd=3, rough=0.08, box=4.0,
+                    squash_top=0.7, cleave=3, rot=rnd.uniform(0, 3), ground=profile(x) - 0.05)
+    else:   # a natural gravel bar rising just out of the water, three boulders to step on, a riffle over the low point
+        bar = lambda x, y: 0.13 * math.exp(-(y / 0.55) ** 2) * (1 - 0.7 * math.exp(-((x - 0.45) / 0.3) ** 2))
+        ford_bed('A08_bed', bar)
+        for k, (x, y, r) in enumerate(((-0.75, 0.05, 0.26), (-0.05, -0.12, 0.3), (0.85, 0.1, 0.24))):
+            boulder(f'A08_boulder_{k}', (r, r * 0.9, r * 0.6), (x, y, profile(x) + 0.08), ROCK, seed=830 + k, subd=3, rough=0.18,
+                    rot=rnd.uniform(0, 3), ground=profile(x) - 0.05)
+        rv = []                                                       # a thin sheet of water spilling over the low point
+        for t in np.linspace(0, 1, 9):
+            for w in (-0.16, 0.0, 0.16):
+                rv.append((0.45 + w * (1 + 0.6 * t), 0.6 - 1.2 * t, WATER + 0.035 * (1 - t) + 0.01 * math.sin(t * 9 + w * 20)))
+        Y.make_mesh('A08_riffle', rv, [(j * 3 + i, j * 3 + i + 1, j * 3 + i + 4, j * 3 + i + 3) for j in range(8) for i in range(2)], None, [WATERM], coll=coll())
+    for k in range(40):                                               # pebbles between the stones
+        x, y = rnd.uniform(-1.3, 1.3), rnd.uniform(-1.0, 1.0)
+        r = rnd.uniform(0.04, 0.09)
+        boulder(f'A08_peb_{k}', (r, r * 0.85, r * 0.55), (x, y, profile(x) + 0.01), PEBBLE, seed=850 + k, subd=1, rough=0.15, ground=profile(x) - 0.02)
+
+
+# ====================================================================== A09 wooden water-level staff gauge (zero = tile base)
+def m_gauge(name='GaugeWood'):
+    """Weathered post: carved, blackened marks every 0.1 m (longer every 0.5 m) by world height, so the readings match the
+    river tile's water levels exactly (today 0.30 m, old high water 0.86 m)."""
+    m = Q.m_wood(name, (0.09, 0.075, 0.055), (0.20, 0.17, 0.13), axis='Z', ring=2.0, wear=0.5, rough=0.8)
+    nt = m.node_tree
+    alb = next(n for n in nt.nodes if n.type == 'REROUTE' and n.name == 'CH_albedo')
+    src = alb.inputs[0].links[0].from_socket
+    wz = Q.attr(nt, 'qa_wz', 'fac')
+    lc = Q.sep(nt, Q.attr(nt, 'qa_lc'))
+    tick = Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, Q.math_(nt, 'ABSOLUTE', Q.math_(nt, 'SUBTRACT', Q.math_(nt, 'FRACT', Q.math_(nt, 'DIVIDE', Q.math_(nt, 'ADD', wz, 0.05), 0.1)), 0.5)), 0.02, 0.05))
+    major = Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, Q.math_(nt, 'ABSOLUTE', Q.math_(nt, 'SUBTRACT', Q.math_(nt, 'FRACT', Q.math_(nt, 'DIVIDE', Q.math_(nt, 'ADD', wz, 0.25), 0.5)), 0.5)), 0.008, 0.02))
+    short = Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, lc[0], -0.005, 0.02))          # minor ticks reach half way across the face
+    marks = Q.math_(nt, 'MAXIMUM', Q.math_(nt, 'MULTIPLY', tick, short), major)
+    front = Q.smooth(nt, Q.math_(nt, 'MULTIPLY', lc[1], -1.0), 0.05, 0.059)          # carved on the face towards -Y only
+    marks = Q.math_(nt, 'MULTIPLY', marks, front)
+    Q.L(nt, Q.mix(nt, Q.math_(nt, 'MULTIPLY', marks, 0.9), src, (0.012, 0.01, 0.008)), alb.inputs[0])
+    return water_bands(m, wet_top=WATER + 0.02, old_lo=WATER + 0.06, old_hi=OLD_HI, strength=1.3,
+                       dry=((0.16, 0.14, 0.11), (0.12, 0.105, 0.085)))
+
+
+def build_A09():
+    rnd = random.Random(99)
+    Y.block('A09_post', (0.12, 0.12, 1.62), (0.0, 0.0, 0.81), coll(), [GAUGE], bev=0.012)
+    Y.block('A09_cap', (0.14, 0.14, 0.03), (0.0, 0.0, 1.63), coll(), [GAUGE], bev=0.01, rot=(0.04, -0.03, 0.1))
+    pts = [(0.075 * math.cos(a) * 1.15, 0.075 * math.sin(a) * 1.15, OLD_HI + 0.012 * math.sin(a * 3)) for a in np.linspace(0, math.tau, 25)]
+    Y.tube('A09_rope', pts, 0.012, 6, coll(), [ROPE], caps=False)
+    Y.tube('A09_rope_end', [(0.08, -0.04, OLD_HI), (0.11, -0.05, OLD_HI - 0.08), (0.1, -0.06, OLD_HI - 0.17)], 0.01, 6, coll(), [ROPE], caps=True)
+    for k in range(9):                                                # stones packed round the foot at bed level
+        a = k / 9 * math.tau + rnd.uniform(-0.2, 0.2)
+        r = rnd.uniform(0.06, 0.12)
+        boulder(f'A09_stone_{k}', (r, r * 0.85, r * 0.6), (0.16 * math.cos(a), 0.16 * math.sin(a), BED + 0.02), PEBBLE, seed=990 + k, subd=2,
+                rough=0.18, ground=BED)
+    Y.make_mesh('A09_bedpatch', [(0.35 * math.cos(a), 0.35 * math.sin(a), BED) for a in np.linspace(0, math.tau, 20, endpoint=False)],
+                [tuple(range(20))], None, [MUD], coll=coll())
+    for k in range(4):
+        a = rnd.uniform(0, math.tau)
+        tuft(f'A09_grass_{k}', 0.22 * math.cos(a), 0.22 * math.sin(a), BED, h=rnd.uniform(0.18, 0.3), n=8, seed=995 + k, droop=0.3)
+
+
+# ====================================================================== A04 silt variants 2 and 3 (origin on the channel bed, like A04_SiltBar)
+def build_A04_side():
+    """A long low sand tongue along one side of the channel, pushing the flow against the far bank."""
+    rnd = random.Random(402)
+    o = silt_mound('A04s_bar', 0.35, 0.62, 1.65, gap_x=9, n=36, seed=21)
+    o.location = (-0.5, 0.0, 0.0)
+    for k in range(26):
+        x, y = rnd.uniform(-1.0, 0.0), rnd.uniform(-1.4, 1.4)
+        r = rnd.uniform(0.03, 0.08)
+        boulder(f'A04s_peb_{k}', (r, r * 0.8, r * 0.5), (x, y, max(0.0, mound_h(x + 0.5, y, 0.35, 0.62, 1.65, 9) - r * 0.3)), PEBBLE,
+                seed=4020 + k, subd=1, rough=0.15, ground=0.0)
+    for k in range(6):
+        a = rnd.uniform(0, math.pi)
+        x, y = rnd.uniform(-0.9, -0.1), rnd.uniform(-1.2, 1.2)
+        z = mound_h(x + 0.5, y, 0.35, 0.62, 1.65, 9)
+        Y.tube(f'A04s_twig_{k}', [(x - math.cos(a) * 0.2, y - math.sin(a) * 0.2, z), (x + math.cos(a) * 0.2, y + math.sin(a) * 0.2, z - 0.01)],
+               0.01, 5, coll(), [ROOTWOOD], caps=True)
+
+
+def build_A04_jam():
+    """A half-rotten log lying across the stream with silt, branches and leaves piled up behind it; water seeps under it."""
+    rnd = random.Random(403)
+    Y.tube('A04j_log', [(-1.45, -0.45, 0.14), (-0.5, -0.5, 0.17), (0.5, -0.47, 0.16), (1.45, -0.42, 0.13)], lambda t: 0.17 - 0.03 * t, 12,
+           coll(), [DEADWOOD], caps=True)
+    for sx in (-1, 1):                                                 # end grain of the broken ends
+        Y.lathe(f'A04j_end_{sx}', [(0.0, 0.0), (0.155, 0.0), (0.16, 0.01)], 12, coll(), [ENDGRAIN]).matrix_world = \
+            Matrix.Translation((sx * 1.455, -0.45 + 0.03 * sx, 0.135)) @ Matrix.Rotation(math.radians(90 * sx), 4, 'Y')
+    fan = lambda x, y: 0.45 * smoothstep(0.0, 1.0, 1.0 - abs(x) / 1.35) * smoothstep(-0.5, -0.2, y) * (1 - smoothstep(0.3, 1.3, y))
+    verts, faces = [], []
+    nx, ny = 30, 24
+    for j in range(ny + 1):
+        for i in range(nx + 1):
+            x, y = -1.35 + 2.7 * i / nx, -0.45 + 1.8 * j / ny
+            h = fan(x, y) * (1 + 0.2 * noise.fractal(Vector((x, y, 0)) * 2.0, 0.6, 2.0, 4))
+            verts.append((x, y, max(0.0, h)))
+    W = nx + 1
+    faces = [f for f in ((j * W + i, j * W + i + 1, (j + 1) * W + i + 1, (j + 1) * W + i) for j in range(ny) for i in range(nx))
+             if max(verts[v][2] for v in f) > 0.004]
+    o = Y.make_mesh('A04j_silt', verts, faces, None, [SILT], coll=coll(), smooth_angle=70)
+    bm = bmesh.new()
+    bm.from_mesh(o.data)
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context='VERTS')
+    bm.to_mesh(o.data)
+    bm.free()
+    for k in range(14):                                                # branches wedged against the log
+        x = rnd.uniform(-1.2, 1.2)
+        a = rnd.uniform(-0.5, 0.5)
+        L = rnd.uniform(0.5, 1.0)
+        pts = [(x + math.sin(a) * L * t, -0.35 + math.cos(a) * L * t * 0.7, 0.3 + 0.25 * t - 0.2 * t * t) for t in np.linspace(0, 1, 5)]
+        Y.tube(f'A04j_branch_{k}', pts, lambda t: 0.022 * (1 - 0.6 * t), 5, coll(), [ROOTWOOD], caps=True)
+    for k in range(18):
+        x, y = rnd.uniform(-1.2, 1.2), rnd.uniform(-0.3, 0.9)
+        r = rnd.uniform(0.04, 0.1)
+        boulder(f'A04j_peb_{k}', (r, r * 0.8, r * 0.5), (x, y, max(0.0, fan(x, y) - r * 0.3)), PEBBLE, seed=4030 + k, subd=1, rough=0.15, ground=0.0)
+    pond = [(1.0 * math.cos(a), 1.15 + 0.45 * math.sin(a), 0.42) for a in np.linspace(0, math.tau, 24, endpoint=False)]
+    Y.make_mesh('A04j_pond', pond, [tuple(range(24))], None, [WATERM], coll=coll())
+    for k, x in enumerate((-0.45, 0.55)):                             # two trickles seeping under the log
+        Y.tube(f'A04j_seep_{k}', [(x, -0.3, 0.12), (x + 0.02, -0.6, 0.05), (x + 0.05, -1.0, 0.03)], lambda t: 0.035 + 0.02 * t, 6, coll(), [WATERM], caps=False)
+
+
+# ====================================================================== A05 sedge variants 2 and 3
+def build_A05_tall():
+    rnd = random.Random(502)
+    boulder('A05t_mud', (0.32, 0.28, 0.05), (0.0, 0.0, 0.0), CRACKMUD, seed=52, subd=3, rough=0.25, ground=0.0)
+    sedge('A05t_leaves', 26, 5021, h=(0.6, 1.0))
+    for k in range(3):                                                 # dry seed stalks
+        a = rnd.uniform(0, math.tau)
+        top = (0.08 * math.cos(a), 0.08 * math.sin(a), rnd.uniform(0.95, 1.08))
+        Y.tube(f'A05t_stalk_{k}', [(0.0, 0.0, 0.03), (top[0] * 0.5, top[1] * 0.5, top[2] * 0.5), top], 0.005, 4, coll(), [REED], caps=True)
+        for j in range(5):
+            boulder(f'A05t_seed_{k}_{j}', (0.012, 0.012, 0.03), (top[0], top[1], top[2] - 0.03 - j * 0.035), REED, seed=5030 + k * 7 + j,
+                    subd=1, rough=0.2, ground=-9)
+
+
+def build_A05_mat():
+    """Dry grass combed flat in one direction (the old current ran +X) over a stone edge, crusted with dry silt."""
+    rnd = random.Random(503)
+    for k, (x, y, r) in enumerate(((-0.3, 0.0, 0.26), (0.15, 0.06, 0.22), (0.45, -0.05, 0.18), (-0.05, -0.12, 0.16))):
+        boulder(f'A05m_stone_{k}', (r * 1.2, r, r * 0.55), (x, y, 0.0), ROCK, seed=5040 + k, subd=3, rough=0.2, cleave=3, ground=0.0)
+    verts, faces, cols = [], [], []
+    for i in range(140):
+        x0, y0 = rnd.uniform(-0.65, 0.3), rnd.uniform(-0.28, 0.28)
+        L = rnd.uniform(0.3, 0.6)
+        wid = rnd.uniform(0.008, 0.016)
+        a = rnd.uniform(-0.25, 0.25)
+        d = Vector((math.cos(a), math.sin(a), 0))
+        side = Vector((-d.y, d.x, 0)) * wid
+        tip_c = rnd.choice(((0.34, 0.25, 0.10), (0.26, 0.18, 0.08), (0.40, 0.31, 0.14)))
+        prev = None
+        for t in np.linspace(0, 1, 5):
+            p = Vector((x0, y0, 0)) + d * L * t
+            surf = 0.0
+            for (sx, sy, r) in ((-0.3, 0.0, 0.26), (0.15, 0.06, 0.22), (0.45, -0.05, 0.18), (-0.05, -0.12, 0.16)):
+                q = 1 - ((p.x - sx) / (r * 1.2)) ** 2 - ((p.y - sy) / r) ** 2
+                if q > 0:
+                    surf = max(surf, r * 0.55 * math.sqrt(q))
+            p.z = surf + 0.02 + 0.05 * math.sin(math.pi * t) * (1 - t)
+            c = tuple((0.05, 0.07, 0.025)[j] * (1 - min(1, t * 4)) + tip_c[j] * min(1, t * 4) for j in range(3))
+            k = len(verts)
+            verts += [tuple(p - side * (1 - 0.8 * t)), tuple(p + side * (1 - 0.8 * t))]
+            cols += [c, c]
+            if prev is not None:
+                faces.append((prev, prev + 1, k + 1, k))
+            prev = k
+    o = Y.make_mesh('A05m_blades', verts, faces, None, [GRASSVC], coll=coll())
+    ca = o.data.color_attributes.new('Col', 'FLOAT_COLOR', 'POINT')
+    for i, c in enumerate(cols):
+        ca.data[i].color = (*c, 1.0)
+    for k in range(5):                                                 # crusts of dried silt on top
+        boulder(f'A05m_crust_{k}', (0.1, 0.07, 0.015), (rnd.uniform(-0.4, 0.3), rnd.uniform(-0.15, 0.15), 0.2), SILT, seed=5050 + k, subd=2,
+                rough=0.3, ground=0.0)
+
+
+# ====================================================================== A10 fallen bamboo clump (screen with a walk-through gap)
+def smooth_path(pts, step=0.09):
+    """Catmull-Rom through the control points, resampled about every `step` metres (no kinks)."""
+    P = [Vector(p) for p in pts]
+    P = [P[0] * 2 - P[1]] + P + [P[-1] * 2 - P[-2]]
+    out = []
+    for i in range(1, len(P) - 2):
+        p0, p1, p2, p3 = P[i - 1], P[i], P[i + 1], P[i + 2]
+        n = max(2, int((p2 - p1).length / step))
+        for k in range(n):
+            t = k / n
+            out.append(0.5 * ((2 * p1) + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t * t + (-p0 + 3 * p1 - 3 * p2 + p3) * t ** 3))
+    out.append(P[-2])
+    return [tuple(v) for v in out]
+
+
+def culm(name, pts, r, mat):
+    """Bamboo culm along a smooth path through pts, with a node swelling every ~0.3 m."""
+    path = smooth_path(pts)
+    L = sum((Vector(b) - Vector(a)).length for a, b in zip(path, path[1:]))
+    n = max(1, int(L / 0.3))
+    return Y.tube(name, path, lambda t: r * (1 + 0.16 * max(0.0, 1 - abs(((t * n) % 1) - 0.5) * 10)), 6, coll(), [mat], caps=True)
+
+
+def bamboo_leaves(name, tip, n, seed):
+    rnd = random.Random(seed)
+    verts, faces, cols = [], [], []
+    for i in range(n):
+        a = rnd.uniform(0, math.tau)
+        d = Vector((math.cos(a), math.sin(a), rnd.uniform(-0.6, 0.1))).normalized()
+        base = Vector(tip) + Vector((rnd.uniform(-0.25, 0.25), rnd.uniform(-0.25, 0.25), rnd.uniform(-0.2, 0.1)))
+        L = rnd.uniform(0.16, 0.3)
+        side = d.cross(Vector((0, 0, 1))).normalized() * rnd.uniform(0.016, 0.026)
+        mid = base + d * L * 0.5 + Vector((0, 0, -0.03))
+        c0 = rnd.choice(((0.30, 0.26, 0.10), (0.36, 0.30, 0.13), (0.22, 0.20, 0.08)))
+        k = len(verts)
+        verts += [tuple(base), tuple(mid - side), tuple(base + d * L + Vector((0, 0, -0.06))), tuple(mid + side)]
+        faces.append((k, k + 1, k + 2, k + 3))
+        cols += [tuple(x * 0.7 for x in c0), c0, tuple(x * 1.2 for x in c0), c0]
+    o = Y.make_mesh(name, verts, faces, None, [GRASSVC], coll=coll())
+    ca = o.data.color_attributes.new('Col', 'FLOAT_COLOR', 'POINT')
+    for i, c in enumerate(cols):
+        ca.data[i].color = (*c, 1.0)
+    return o
+
+
+def build_A10():
+    rnd = random.Random(1010)
+    for k in range(5):                                                 # the living clump the culms broke from (x ~ -1.6)
+        x, y = -1.65 + rnd.uniform(-0.2, 0.2), rnd.uniform(-0.25, 0.25)
+        h = rnd.uniform(1.8, 2.4)
+        lean = rnd.uniform(-0.25, 0.1)
+        culm(f'A10_stand_{k}', [(x, y, 0.0), (x + lean * 0.5, y, h * 0.5), (x + lean, y + rnd.uniform(-0.1, 0.1), h)], rnd.uniform(0.03, 0.04), BAMBOO)
+        for j, f in enumerate((1.0, 0.82, 0.66)):
+            bamboo_leaves(f'A10_stand_leaves_{k}_{j}', (x + lean * f, y, h * f), 16, 1020 + k * 5 + j)
+    for k in range(13):                                                # toppled culms: a leaning screen from the clump towards +x
+        y = rnd.uniform(-0.9, 0.9)
+        x0 = -1.6 + rnd.uniform(-0.15, 0.15)
+        reach = rnd.uniform(1.4, 2.0)                                  # they stop short of the gap (x 0.3..1.5)
+        top = rnd.uniform(0.9, 1.6)
+        pts = [(x0, y, 0.05), (x0 + reach * 0.35, y + rnd.uniform(-0.15, 0.15), top), (x0 + reach * 0.75, y + rnd.uniform(-0.2, 0.2), top * 0.6),
+               (x0 + reach, y + rnd.uniform(-0.2, 0.2), 0.05)]
+        culm(f'A10_fallen_{k}', pts, rnd.uniform(0.028, 0.04), BAMBOO)
+        for j, q in enumerate(pts[1:3]):
+            bamboo_leaves(f'A10_fallen_leaves_{k}_{j}', q, 12, 1040 + k * 3 + j)
+    culm('A10_arch', [(-0.2, 0.35, 0.05), (0.15, 0.33, 1.4), (0.8, 0.3, 2.1), (1.5, 0.26, 1.95), (1.95, 0.22, 1.1), (2.1, 0.2, 0.05)], 0.034, BAMBOO)
+    bamboo_leaves('A10_arch_leaves', (0.9, 0.3, 2.05), 18, 1059)   # the high arch over the gap
+    for k in range(3):                                                 # snapped pieces lying beyond the gap
+        x, y = rnd.uniform(1.6, 2.1), rnd.uniform(-0.8, 0.8)
+        a = rnd.uniform(0, math.pi)
+        culm(f'A10_piece_{k}', [(x - math.cos(a) * 0.5, y - math.sin(a) * 0.5, 0.04), (x + math.cos(a) * 0.5, y + math.sin(a) * 0.5, 0.04)], 0.03, BAMBOO)
+    for k in range(16):
+        tuft(f'A10_grass_{k}', rnd.uniform(-2.0, 2.0), rnd.uniform(-1.1, 1.1), 0.0, h=rnd.uniform(0.18, 0.32), n=8, seed=1060 + k, droop=0.4)
+    for k in range(3):
+        r = rnd.uniform(0.12, 0.2)
+        boulder(f'A10_stone_{k}', (r, r * 0.85, r * 0.6), (rnd.uniform(-1.9, -1.2), rnd.uniform(-0.6, 0.6), 0.0), ROCK, seed=1070 + k, subd=2, ground=0.0)
+
+
+# ====================================================================== A11 ruined small observation pavilion base
+def build_A11():
+    rnd = random.Random(1111)
+    H = 0.45
+    for i in range(6):                                                 # platform walls of dressed stone (carved band on the sides)
+        for side in ('n', 's', 'e', 'w'):
+            t = -1.25 + 0.5 * i
+            loc = {'n': (t, 1.42, H / 2), 's': (t, -1.42, H / 2), 'e': (1.42, t, H / 2), 'w': (-1.42, t, H / 2)}[side]
+            size = (0.49, 0.16, H) if side in 'ns' else (0.16, 0.49, H)
+            if side == 's' and abs(t) < 0.8:
+                continue                                               # the steps go here
+            Y.block(f'A11_wall_{side}_{i}', size, loc, coll(), [SLUICE], bev=0.012)
+    Y.block('A11_fill', (2.68, 2.68, H - 0.06), (0, 0, (H - 0.06) / 2), coll(), [SOILM], bev=0.0)
+    for i in range(5):                                                 # paving slabs with gaps, a couple missing or lifted
+        for j in range(5):
+            if (i, j) in ((3, 1), (1, 4)):
+                continue
+            x, y = -1.12 + 0.56 * i, -1.12 + 0.56 * j
+            tilt = (rnd.uniform(-0.04, 0.04), rnd.uniform(-0.04, 0.04), rnd.uniform(-0.03, 0.03)) if (i + j) % 4 == 0 else (0, 0, 0)
+            Y.block(f'A11_slab_{i}_{j}', (0.54, 0.54, 0.06), (x, y, H - 0.03), coll(), [SLUICE], bev=0.01, rot=tilt)
+    for k in range(3):                                                 # three steps on the -Y side
+        Y.block(f'A11_step_{k}', (1.5, 0.3, 0.15), (0.0, -1.62 - 0.3 * (2 - k) + 0.3, 0.075 + 0.15 * k), coll(), [SLUICE], bev=0.012)
+    posts = [(-1.3, -1.3), (1.3, -1.3), (-1.3, 1.3), (1.3, 1.3)]
+    for k, (x, y) in enumerate(posts):
+        Y.block(f'A11_postbase_{k}', (0.32, 0.32, 0.22), (x, y, H + 0.11), coll(), [SLUICE], bev=0.02)
+        if k in (0, 3):                                                # two posts still standing, snapped off
+            h = 1.1 if k == 0 else 1.45
+            Y.tube(f'A11_post_{k}', [(x, y, H + 0.2), (x + 0.01, y, H + 0.2 + h)], 0.11, 10, coll(), [TIMBER], caps=True)
+            Y.tube(f'A11_collar_{k}', [(x, y, H + 0.24), (x, y, H + 0.34)], 0.125, 12, coll(), [BRONZE], caps=True)
+            for s in range(4):                                         # splinters at the break
+                a = s * 1.6 + 0.3
+                Y.tube(f'A11_splinter_{k}_{s}', [(x + 0.05 * math.cos(a), y + 0.05 * math.sin(a), H + 0.15 + h),
+                                                  (x + 0.07 * math.cos(a), y + 0.07 * math.sin(a), H + 0.15 + h + rnd.uniform(0.12, 0.3))],
+                       lambda t: 0.03 * (1 - t) + 0.004, 4, coll(), [TIMBER], caps=True)
+    Y.beam_between('A11_fallen_beam', (-1.15, 1.1, H + 0.12), (0.9, -0.6, H + 0.1), 0.16, 0.14, coll(), [TIMBER])
+    Y.block('A11_bench', (1.3, 0.34, 0.08), (0.0, 1.05, H + 0.42), coll(), [SLUICE], bev=0.012)
+    for sx in (-0.5, 0.5):
+        Y.block(f'A11_bench_leg_{sx}', (0.16, 0.28, 0.38), (sx, 1.05, H + 0.19), coll(), [SLUICE], bev=0.01)
+    for k in range(10):                                                # broken roof tiles
+        x, y = rnd.uniform(-1.2, 1.2), rnd.uniform(-1.1, 1.1)
+        Y.block(f'A11_tile_{k}', (rnd.uniform(0.12, 0.22), rnd.uniform(0.1, 0.18), 0.018), (x, y, H + 0.02), coll(), [TILE], bev=0.004,
+                rot=(rnd.uniform(-0.2, 0.2), rnd.uniform(-0.2, 0.2), rnd.uniform(0, 3)))
+    for k in range(12):
+        a = rnd.uniform(0, math.tau)
+        r = rnd.uniform(1.6, 1.9)
+        tuft(f'A11_grass_{k}', r * math.cos(a), r * math.sin(a), 0.0, h=rnd.uniform(0.2, 0.34), n=8, seed=1120 + k, droop=0.35)
+
+
+# ====================================================================== A12 water-vein resonance stone (faint cyan veins)
+def m_resonance(name='VeinStone'):
+    m, nt, b = Q.new_mat(name)
+    co = Q.coords(nt, (1, 1, 1))
+    n1 = Q.noise(nt, co, 2.4, 6, 0.6)
+    col = Q.mix(nt, Q.smooth(nt, n1, 0.3, 0.75), (0.035, 0.045, 0.055), (0.09, 0.105, 0.12))
+    warp = Q.N(nt, 'ShaderNodeVectorMath', operation='ADD')
+    Q.L(nt, co, warp.inputs[0])
+    Q.L(nt, Q.N(nt, 'ShaderNodeTexNoise', noise_dimensions='3D').outputs['Color'], warp.inputs[1])
+    v1 = Q.voronoi(nt, Q.coords(nt, (3.6, 3.6, 1.4)), 1.0, 'DISTANCE_TO_EDGE')
+    v2 = Q.voronoi(nt, Q.coords(nt, (8.0, 8.0, 3.0)), 1.0, 'DISTANCE_TO_EDGE')
+    gate = Q.smooth(nt, Q.noise(nt, co, 1.6, 3), 0.42, 0.6)            # veins fade in and out like tributaries
+    vein = Q.math_(nt, 'MAXIMUM', Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, v1, 0.0, 0.012)),
+                   Q.math_(nt, 'MULTIPLY', Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, v2, 0.0, 0.01)), 0.6))
+    vein = Q.math_(nt, 'MULTIPLY', vein, gate)
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', vein, 0.8), col, (0.30, 0.62, 0.62))
+    cav, edge = Q.edge_cavity(nt, 0.04, 0.006)
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, cav, 0.1, 0.6), 0.5), col, (0.015, 0.018, 0.022))
+    emit = Q.mix(nt, Q.math_(nt, 'MULTIPLY', vein, 1.0), (0, 0, 0), (0.05, 0.21, 0.20))   # faint: a soft vein glow, not a beacon
+    return Q.finish(m, nt, b, col, Q.mixf(nt, n1, 0.35, 0.55), 0.0, Q.math_(nt, 'SUBTRACT', n1, Q.math_(nt, 'MULTIPLY', vein, 0.5)), 0.003, 0.8, emit=emit)
+
+
+def build_A12():
+    rnd = random.Random(1212)
+    boulder('A12_stone', (0.34, 0.27, 0.58), (0.0, 0.0, 0.52), VEINSTONE, seed=12, subd=5, rough=0.1, box=2.15, cleave=3, squash_top=0.05)
+    for k in range(13):                                                # ring of flat stones round a shallow basin
+        a = k / 13 * math.tau + rnd.uniform(-0.1, 0.1)
+        r = rnd.uniform(0.11, 0.16)
+        boulder(f'A12_ring_{k}', (r, r * 0.8, 0.05), (0.62 * math.cos(a), 0.62 * math.sin(a), 0.0), ROCK, seed=1220 + k, subd=2, rough=0.12,
+                box=3.0, squash_top=0.4, ground=0.0)
+    for k in range(20):
+        a, r = rnd.uniform(0, math.tau), rnd.uniform(0.3, 0.5)
+        rr = rnd.uniform(0.03, 0.06)
+        boulder(f'A12_peb_{k}', (rr, rr * 0.85, rr * 0.5), (r * math.cos(a), r * math.sin(a), 0.0), PEBBLE, seed=1240 + k, subd=1, rough=0.15, ground=0.0)
+    Y.make_mesh('A12_basin_water', [(0.55 * math.cos(a), 0.55 * math.sin(a), 0.04) for a in np.linspace(0, math.tau, 24, endpoint=False)],
+                [tuple(range(24))], None, [WATERM], coll=coll())
+    for k in range(5):
+        a = rnd.uniform(0, math.tau)
+        tuft(f'A12_grass_{k}', 0.8 * math.cos(a), 0.8 * math.sin(a), 0.0, h=rnd.uniform(0.18, 0.3), n=8, seed=1260 + k, droop=0.3)
+
+
 # ====================================================================== pipeline
 def ref(name):
     return f'{name}_three_view.png'
 
 
 ASSETS = {
-    'A01_straight_01': dict(build=lambda: build_river('straight'), ref=ref('A01_straight'), res=2048, budget=20000, double=True,
+    'A01_straight_01': dict(build=lambda: build_river('straight'), ref=ref('A01_straight'), res=4096, budget=20000, double=True,
                             family='A01', variant='straight', collision=dict(type='heightfield', note='banks and channel walkable; datum: bank top 1.15 m above origin')),
-    'A01_bend_left_01': dict(build=lambda: build_river('bend_left'), ref=ref('A01_bend_left'), res=2048, budget=20000, double=True,
+    'A01_bend_left_01': dict(build=lambda: build_river('bend_left'), ref=ref('A01_bend_left'), res=4096, budget=20000, double=True,
                              family='A01', variant='bend_left 25 deg', collision=dict(type='heightfield', note='inner gravel bar is the easy way down to the water')),
-    'A01_bend_right_01': dict(build=lambda: build_river('bend_right'), ref=ref('A01_bend_right'), res=2048, budget=21000,   # strata ledges are individual slabs
+    'A01_bend_right_01': dict(build=lambda: build_river('bend_right'), ref=ref('A01_bend_right'), res=4096, budget=21000,   # strata ledges are individual slabs
                               double=True,
                               family='A01', variant='bend_right 40 deg', collision=dict(type='heightfield', note='outer cliff (left bank) 1.7 m: not climbable; walk the inner bar')),
-    'A01_narrow_01': dict(build=lambda: build_river('narrow'), ref=ref('A01_narrow'), res=2048, budget=20000, double=True,
+    'A01_narrow_01': dict(build=lambda: build_river('narrow'), ref=ref('A01_narrow'), res=4096, budget=20000, double=True,
                           family='A01', variant='narrowing pinch', collision=dict(type='heightfield', note='pinch rocks are blockers; the sill can be stepped over')),
-    'A01_end_source_01': dict(build=lambda: build_river('end_source'), ref=ref('A01_end_source'), res=2048, budget=22000, double=True,   # budget: twelve jam boulders
+    'A01_end_source_01': dict(build=lambda: build_river('end_source'), ref=ref('A01_end_source'), res=4096, budget=22000, double=True,   # budget: twelve jam boulders
                               family='A01', variant='terminal: spring and boulder jam (closes a run upstream)',
                               collision=dict(type='heightfield', note='interface only at the downstream end; the boulder jam is a blocker')),
     'A02_side_crack_01': dict(build=lambda: build_A02('side_crack'), ref=ref('A02_side_crack'), res=1024, budget=9000, double=True,
@@ -911,6 +1430,34 @@ ASSETS = {
                                 collision=dict(type='none', note='walkable remnant; swap in when the silt is cleared')),
     'A05_WitheredSedge_01': dict(build=build_A05, ref=ref('A05'), res=512, budget=3500, double=True, family='A05', variant='clump 01',
                                  collision=dict(type='none', note='non-blocking plant; vertex-coloured leaves in the Clear node')),
+    'A07_NurseryTracks': dict(build=build_A07, ref=ref('A07'), res=2048, budget=7000, double=True, family='A07', variant='single',
+                              collision=dict(type='heightfield', note='flat mud, walkable; clue nursery_tracks; the nursery side is a warning zone, never damage')),
+    'A08_steps_line_01': dict(build=lambda: build_A08('steps_line'), ref=ref('A08_steps_line'), res=1024, budget=9000, double=True, family='A08',
+                              variant='tread 1: six stepping stones in a line',
+                              collision=dict(type='mesh', note='river tile frame: origin = tile base at the channel centre; place exactly like an A01 module')),
+    'A08_slabs_stagger_01': dict(build=lambda: build_A08('slabs_stagger'), ref=ref('A08_slabs_stagger'), res=1024, budget=9000, double=True, family='A08',
+                                 variant='tread 2: four staggered slabs',
+                                 collision=dict(type='mesh', note='river tile frame; step from slab to slab')),
+    'A08_gravel_bar_01': dict(build=lambda: build_A08('gravel_bar'), ref=ref('A08_gravel_bar'), res=1024, budget=9000, double=True, family='A08',
+                              variant='tread 3: natural gravel bar with three boulders',
+                              collision=dict(type='mesh', note='river tile frame; the bar stands just out of the water')),
+    'A09_WaterGauge': dict(build=build_A09, ref=ref('A09'), res=1024, budget=4000, double=True, family='A09', variant='single',
+                           collision=dict(type='box', size=[0.14, 0.14, 1.65], center=[0, 0, 0.82],
+                                          note='zero of the scale = river tile base: today 0.30 m, old high water 0.86 m (rope); hint water_gauge')),
+    'A04_SiltSide_02': dict(build=build_A04_side, ref=ref('A04_silt_side'), res=1024, budget=5000, double=True, family='A04', variant='mound 02: side bar',
+                            collision=dict(type='mesh', note='origin on the channel bed; lies along the left side, flow pushed right')),
+    'A04_SiltJam_03': dict(build=build_A04_jam, ref=ref('A04_silt_jam'), res=1024, budget=9000, double=True, family='A04', variant='mound 03: log jam',
+                           collision=dict(type='capsule', radius=0.17, from_=[-1.45, -0.45, 0.14], to=[1.45, -0.42, 0.13], note='log blocks; silt walkable')),
+    'A05_WitheredSedge_02': dict(build=build_A05_tall, ref=ref('A05_tall_sparse'), res=512, budget=2500, double=True, family='A05', variant='clump 02: tall, sparse',
+                                 collision=dict(type='none', note='non-blocking plant')),
+    'A05_WitheredSedge_03': dict(build=build_A05_mat, ref=ref('A05_low_mat'), res=512, budget=4000, double=True, family='A05', variant='clump 03: low combed mat',
+                                 collision=dict(type='none', note='stones under the mat are step-over')),
+    'A10_FallenBamboo': dict(build=build_A10, ref=ref('A10'), res=1024, budget=14000, double=True, family='A10', variant='single',
+                             collision=dict(type='capsules', note='screen x -1.9..0.3 blocks; the gap x 0.3..1.5 under the high arch (2.0 m) is walkable')),
+    'A11_PavilionRuin': dict(build=build_A11, ref=ref('A11'), res=2048, budget=12000, double=True, family='A11', variant='single',
+                             collision=dict(type='box', size=[3.0, 3.0, 0.45], center=[0, 0, 0.225], note='steps on -Y; platform walkable; posts and bench block')),
+    'A12_ResonanceStone': dict(build=build_A12, ref=ref('A12'), res=1024, budget=8000, double=True, family='A12', variant='single',
+                               collision=dict(type='capsule', radius=0.35, height=1.1, center=[0, 0, 0.55], note='hint resonance_stone: faint vein glow and hum, no arrow')),
     'A06_MarkerStone': dict(build=build_A06, ref=ref('A06'), res=1024, budget=7000, double=True, family='A06', variant='single',
                             collision=dict(type='capsule', radius=0.45, height=1.2, center=[0, 0, 0.6], note='water lines at 0.35 m (today) and 0.86 m (old)')),
 }
@@ -1013,10 +1560,31 @@ def build_asset(aid):
     return v
 
 
+def outdoor_light():
+    """Review lighting at game scale: a warm sun about 50 deg up and a blue-grey sky, close to the demo scene, instead of
+    the prop studio's area lights (which sit inside a 7 m tile and blow it out)."""
+    Q.studio('stylized')
+    for o in [o for o in bpy.data.objects if o.name.startswith('QA_L')]:
+        bpy.data.objects.remove(o)
+    w = bpy.context.scene.world.node_tree
+    for n in w.nodes:
+        if n.type == 'BACKGROUND' and n.inputs['Strength'].default_value < 0.9:
+            n.inputs['Color'].default_value = (0.36, 0.45, 0.52, 1)
+            n.inputs['Strength'].default_value = 0.7
+    sd = bpy.data.lights.new('QA_Sun', 'SUN')
+    sd.energy = 3.4
+    sd.color = (1.0, 0.9, 0.76)
+    sd.angle = math.radians(2.5)
+    so = bpy.data.objects.new('QA_Sun', sd)
+    bpy.context.scene.collection.objects.link(so)
+    so.rotation_euler = (math.radians(40), 0, math.radians(35))
+    bpy.context.scene.view_settings.look = 'AgX - Medium High Contrast'
+
+
 def previews(key, nodes):
     out = PREV / key
     Q.gpu(bpy.context.scene, 48)
-    Q.studio('stylized')
+    outdoor_light()
     Q.camera_fit(nodes, 35, 24)
     Q.render(out / 'three_quarter.png', 1024, 64)
     Q.camera_fit(nodes, 0, 14, margin=0.8)

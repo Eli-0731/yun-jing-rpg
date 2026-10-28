@@ -116,3 +116,9 @@ body.plan .hud-top, body.plan .prompt, body.plan .hint, body.plan .touch, body.p
   .book li { font-size: 11px; } .book li small { display: none; } .book li.found small { display: none; }
   .book .row button { font-size: 11px; padding: 2px 6px; }
 }
+.notes { margin: 6px 0; padding-left: 18px; display: grid; gap: 6px; line-height: 1.55; }
+.notes b { display: block; color: var(--gold-2); font-family: var(--serif); letter-spacing: .1em; }
+#wary { position: fixed; inset: 0; pointer-events: none; opacity: 0; transition: opacity .8s;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(150, 90, 20, .45) 100%); }
+body.wary #wary { opacity: 1; animation: wary 2.4s ease-in-out infinite; }
+@keyframes wary { 50% { opacity: .55; } }

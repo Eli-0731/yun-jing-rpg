@@ -1,0 +1,87 @@
+{
+ "id": "A04",
+ "variant": "mound 02: side bar",
+ "key": "A04_SiltSide_02",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  1.2582,
+  3.4776,
+  0.4166
+ ],
+ "triangles": 3160,
+ "lod_triangles": [
+  3160,
+  1580,
+  694
+ ],
+ "collision": {
+  "type": "mesh",
+  "note": "origin on the channel bed; lies along the left side, flow pushed right"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A04_SiltSide_02",
+  "dimensions_m": [
+   1.2582,
+   3.4776,
+   0.4166
+  ],
+  "bbox_min": [
+   -1.1346,
+   -1.7539,
+   0.0
+  ],
+  "bbox_max": [
+   0.1236,
+   1.7237,
+   0.4166
+  ],
+  "trianglesLOD": [
+   3160,
+   1580,
+   694
+  ],
+  "budgetLOD0": 5000,
+  "withinBudget": true,
+  "materials": [
+   "M_A04_SiltSide_02"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A04_SiltSide_02_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 204,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 3160,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A04_SiltSide_02.001"
+   ]
+  },
+  "files": {
+   "A04_SiltSide_02.glb": {
+    "bytes": 387368,
+    "sha256": "11093f11a45ce8e80ffbe20cddc91fade13f6a086b27b2e5285757cb56bb6d93"
+   },
+   "A04_SiltSide_02.fbx": {
+    "bytes": 439100,
+    "sha256": "0d4a0298dab033f9477f65bc90a7583924b71ddd9ecc6b16b8c94d3738a2db48"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A04_silt_side_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

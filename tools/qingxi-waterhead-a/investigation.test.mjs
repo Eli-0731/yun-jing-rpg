@@ -112,3 +112,46 @@ test('the handoff JSON only carries observation ids and the verdict', () => {
     observationIds: ['cracked_sluice', 'silt_buildup'], order: ['cracked_sluice', 'silt_buildup'], verdict: 'discuss',
   });
 });
+
+test('the silt can only be raked open after it was looked at, from beside it, once', () => {
+  const e = new Investigation(WORLD);
+  assert.equal(e.clearSilt(), false);                       // not looked at yet
+  goLook(e, -1, 14); e.observe();
+  for (let i = 0; i < 400; i++) e.step(DT, { moveX: 0, moveZ: -1 });   // walk away
+  assert.equal(e.clearSilt(), false);                       // too far
+  goLook(e, -1, 14);
+  assert.equal(e.clearSilt(), true);
+  assert.equal(e.snapshot().siltCleared, true);
+  assert.equal(e.clearSilt(), false);                       // already cleared
+  const ev = e.drainEvents().map(x => x.type);
+  assert.ok(ev.includes('look-first') && ev.includes('too-far') && ev.includes('silt-cleared') && ev.includes('already-cleared'));
+  assert.deepEqual(e.toJSON().observationIds, ['silt_buildup']);   // the scene change is not part of the handoff
+  e.reset();
+  assert.equal(e.siltCleared, false);
+});
+
+test('walking into the nursery side warns once on entry and once on leaving, and never ends the run', () => {
+  const e = new Investigation(WORLD);
+  goLook(e, 3, 20, 1.0);
+  for (let i = 0; i < 300; i++) e.step(DT, { moveX: 0, moveZ: -1 });
+  const ev = e.drainEvents().filter(x => x.type.endsWith('-zone'));
+  assert.deepEqual(ev.map(x => x.type), ['enter-zone', 'leave-zone']);
+  assert.equal(e.verdict, null);
+});
+
+test('all three clues in any order give the full picture; the nursery tracks count like the others', () => {
+  const e = new Investigation(WORLD);
+  goLook(e, 3, 20); e.observe();
+  goLook(e, 2, 8); e.observe();
+  goLook(e, -1, 14); e.observe();
+  assert.equal(e.verdict, 'full');
+  assert.deepEqual(e.toJSON().order, ['nursery_tracks', 'cracked_sluice', 'silt_buildup']);
+});
+
+test('a hint right in front of you wins over a clue that is only at the edge of view', () => {
+  const e = new Investigation({ ...WORLD, hints: [{ id: 'water_gauge', x: 0, z: 2 }], clues: [{ id: 'cracked_sluice', x: 1.6, z: 1.2 }], walls: [] });
+  e.player.heading = 0;                                  // looking straight at the gauge (+z); the sluice is off to the side
+  assert.equal(e.inReach().id, 'water_gauge');
+  e.player.heading = Math.atan2(1.6, 1.2);               // turn to the sluice
+  assert.equal(e.inReach().id, 'cracked_sluice');
+});

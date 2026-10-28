@@ -1,0 +1,87 @@
+{
+ "id": "A08",
+ "variant": "tread 1: six stepping stones in a line",
+ "key": "A08_steps_line_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  3.1,
+  2.5,
+  0.4244
+ ],
+ "triangles": 4880,
+ "lod_triangles": [
+  4880,
+  2440,
+  1073
+ ],
+ "collision": {
+  "type": "mesh",
+  "note": "river tile frame: origin = tile base at the channel centre; place exactly like an A01 module"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A08_steps_line_01",
+  "dimensions_m": [
+   3.1,
+   2.5,
+   0.4244
+  ],
+  "bbox_min": [
+   -1.55,
+   -1.25,
+   0.2086
+  ],
+  "bbox_max": [
+   1.55,
+   1.25,
+   0.633
+  ],
+  "trianglesLOD": [
+   4880,
+   2440,
+   1073
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "M_A08_steps_line_01"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A08_steps_line_01_LOD0"
+  ],
+  "originAtBase": false,
+  "meshHealth": {
+   "nonManifoldEdges": 132,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 4880,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A08_steps_line_01.001"
+   ]
+  },
+  "files": {
+   "A08_steps_line_01.glb": {
+    "bytes": 492344,
+    "sha256": "96ba1691462d21fb22b15da7d96cd661078b7b00babfaa8122e1633b96e846b7"
+   },
+   "A08_steps_line_01.fbx": {
+    "bytes": 607164,
+    "sha256": "25412c105f596aa297ddfbdb150fb872b30ea059462a916961ff0fc56428206d"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A08_steps_line_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

@@ -39,6 +39,7 @@ export class Investigation {
     this.events = [];
     this.focus = null;                 // { kind: 'clue'|'hint', id, held }
     this.zones = new Set();            // named zones the player is standing in
+    this.siltCleared = false;          // scene state: the player raked the silt bar open (shows what clearing would do)
   }
 
   #emit(type, data = {}) { this.events.push({ t: Math.round(this.t * 1000) / 1000, type, ...data }); }
@@ -52,7 +53,7 @@ export class Investigation {
     return n >= OBSERVATION_IDS.length ? 'full' : n >= 2 ? 'discuss' : null;
   }
 
-  /** What the player is close to and looking at right now (clues first, then hints). */
+  /** What the player is close to and looking at most directly right now (clues or hints). */
   inReach() {
     const p = this.player, fx = Math.sin(p.heading), fz = Math.cos(p.heading);
     let best = null;
@@ -63,10 +64,10 @@ export class Investigation {
         if (d > range) continue;
         const facing = d < 0.3 ? 1 : (dx * fx + dz * fz) / d;
         if (facing < this.P.observeCone) continue;
-        const score = d - facing;
+        // whatever the player is looking at most directly wins; a clue only gets a slight edge over a hint
+        const score = d * 0.5 + (1 - facing) * 3 - (kind === 'clue' ? 0.15 : 0);
         if (!best || score < best.score) best = { kind, id: c.id, score };
       }
-      if (best) break;
     }
     return best && { kind: best.kind, id: best.id };
   }
@@ -93,9 +94,22 @@ export class Investigation {
     this.#emit('returned');
   }
 
-  /** Start over: empty clue book, back at the entrance. */
+  /** After the silt bar has been looked at, the player may rake part of it open beside it: the bar is replaced by its
+   * cleared state and the water downstream rises. Only a scene change; it grants nothing and is not a handoff outcome. */
+  clearSilt() {
+    const silt = (this.world.clues || []).find(c => c.id === 'silt_buildup');
+    if (this.siltCleared) { this.#emit('already-cleared'); return false; }
+    if (!silt || !this.book.some(b => b.id === 'silt_buildup')) { this.#emit('look-first'); return false; }
+    const p = this.player;
+    if (len(silt.x - p.x, silt.z - p.z) > (silt.clearRange ?? 3.0)) { this.#emit('too-far'); return false; }
+    this.siltCleared = true;
+    this.#emit('silt-cleared');
+    return true;
+  }
+
+  /** Start over: empty clue book, silt back in place, back at the entrance. */
   reset() {
-    this.book = []; this.returnToEntrance(); this.#emit('reset');
+    this.book = []; this.siltCleared = false; this.returnToEntrance(); this.#emit('reset');
   }
 
   #blocked(x, z) {
@@ -136,7 +150,7 @@ export class Investigation {
   snapshot() {
     return {
       t: this.t, player: { ...this.player }, observationIds: this.observationIds, verdict: this.verdict,
-      inReach: this.inReach(), zones: [...this.zones],
+      inReach: this.inReach(), zones: [...this.zones], siltCleared: this.siltCleared,
     };
   }
 

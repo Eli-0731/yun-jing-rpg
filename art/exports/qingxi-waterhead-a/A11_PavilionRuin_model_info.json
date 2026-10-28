@@ -1,0 +1,100 @@
+{
+ "id": "A11",
+ "variant": "single",
+ "key": "A11_PavilionRuin",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  3.4966,
+  4.0127,
+  2.3444
+ ],
+ "triangles": 7708,
+ "lod_triangles": [
+  7708,
+  3614,
+  1590
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   3.0,
+   3.0,
+   0.45
+  ],
+  "center": [
+   0,
+   0,
+   0.225
+  ],
+  "note": "steps on -Y; platform walkable; posts and bench block"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A11_PavilionRuin",
+  "dimensions_m": [
+   3.4966,
+   4.0127,
+   2.3444
+  ],
+  "bbox_min": [
+   -1.9301,
+   -2.07,
+   0.0
+  ],
+  "bbox_max": [
+   1.5665,
+   1.9427,
+   2.3444
+  ],
+  "trianglesLOD": [
+   7708,
+   3614,
+   1590
+  ],
+  "budgetLOD0": 12000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A11_PavilionRuin"
+  ],
+  "textureResolution": 2048,
+  "nodes": [
+   "A11_PavilionRuin_LOD0",
+   "A11_PavilionRuin_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 328,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 7708,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "M_A11_PavilionRuin.001"
+   ]
+  },
+  "files": {
+   "A11_PavilionRuin.glb": {
+    "bytes": 1065600,
+    "sha256": "c36d9e7c3af14b51701e23bae6a7510692a9a714db6ce233578524915689bd10"
+   },
+   "A11_PavilionRuin.fbx": {
+    "bytes": 1036172,
+    "sha256": "d589a4401d0ff63dbb4d4503e04b9dab71e714c6e4eab56dfc342baa60cf1dbe"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A11_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

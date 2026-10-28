@@ -179,16 +179,33 @@ const wind = { value: 0 };
 const SLUICE = onRiver(0, 3.4, 3.05), SLUICE2 = onRiver(at('A01_narrow_01'), 3.6, 3.05), FORMATION = onRiver(at('A01_bend_left_01'), 2.0, -4.3);   // on the open ground beyond the inner bank, clear of the sluice crack
 const SILT = onRiver(at('A01_bend_left_01'), 3.7, 0.15), MARKER = onRiver(at('A01_narrow_01'), 1.2, -0.95);
 const START_P = onRiver(0, 1.2, 2.55);
+const BL = at('A01_bend_left_01'), NR = at('A01_narrow_01'), BR = at('A01_bend_right_01'), ES = at('A01_end_source_01');
+const NURSERY = onRiver(BR, 3.3, 2.15), GAUGE = onRiver(0, 2.2, -1.2), RESONANCE = onRiver(ES, 1.6, -2.75);
+const BAMBOO = onRiver(BL, 4.2, 4.1), PAVILION = onRiver(BR, 3.6, 5.2), SILT2 = onRiver(0, 0.5, -0.55), SILT3 = onRiver(BR, 0.9, 0);   // bamboo: a stretch of right bank with no sluice, so its gap is the path
+const FORDS = [['A08_steps_line_01', onRiver(0, 4.9, 0)], ['A08_gravel_bar_01', onRiver(BL, 1.1, 0)], ['A08_slabs_stagger_01', onRiver(BR, 5.6, 0)]];
+/** yaw that turns a model's local -Z (Blender +Y) towards (x, z) */
+const faceTo = (from, x, z) => Math.atan2(-(x - from.x), -(z - from.z));
 const LAYOUT = [
-  ...placed.map(m => ({ id: m.id, x: m.x, y: -TOP, z: m.z, rot: m.yaw, terrain: true })),
+  ...placed.map((m, mi) => ({ id: m.id, x: m.x, y: -TOP, z: m.z, rot: m.yaw, terrain: true, mi })),
   { id: 'A02_side_crack_01', x: SLUICE.x, y: 0, z: SLUICE.z, rot: SLUICE.yaw - Math.PI / 2 },
   { id: 'A02_end_break_01', x: SLUICE2.x, y: 0, z: SLUICE2.z, rot: SLUICE2.yaw - Math.PI / 2 },
   { id: 'A03_FormationBase', x: FORMATION.x, y: 0, z: FORMATION.z, rot: 0.8 },
   { id: 'A04_SiltBar', x: SILT.x, y: -TOP + BED, z: SILT.z, rot: SILT.yaw, walk: true, silt: 'blocking' },
   { id: 'A04_SiltBar_cleared', x: SILT.x, y: -TOP + BED, z: SILT.z, rot: SILT.yaw, hidden: true, silt: 'cleared' },
   { id: 'A06_MarkerStone', x: MARKER.x, y: -TOP + WATER - 0.35, z: MARKER.z, rot: 0.4 },
-  ...[[0, 1.6, 1.75], [0, 4.6, -1.8], [1, 5.4, 1.85], [2, 4.7, -1.65], [3, 2.0, 1.95], [3, 4.6, -1.7], [4, 2.5, -1.8]].map(([i, u, s], k) => {
-    const p = onRiver(i, u, s); return { id: 'A05_WitheredSedge_01', x: p.x, y: null, z: p.z, rot: k * 1.7 }; }),
+  ...[[0, 1.6, 1.75, 1], [0, 4.0, -1.8, 2], [1, 5.4, 1.85, 3], [2, 4.7, -1.65, 1], [3, 2.0, 1.95, 2], [3, 4.6, -1.7, 3], [4, 2.5, -1.8, 1],
+      [1, 2.6, -1.9, 2], [2, 1.8, 1.9, 3], [0, 5.6, 1.9, 2]].map(([i, u, s, v], k) => {
+    const p = onRiver(i, u, s); return { id: `A05_WitheredSedge_0${v}`, x: p.x, y: null, z: p.z, rot: k * 1.7, plant: true }; }),
+  // batch two
+  ...FORDS.map(([id, q]) => ({ id, x: q.x, y: -TOP, z: q.z, rot: q.yaw, walk: true, ford: true })),
+  { id: 'A07_NurseryTracks', x: NURSERY.x, y: null, z: NURSERY.z, rot: faceTo(NURSERY, onRiver(BR, 3.3, 0).x, onRiver(BR, 3.3, 0).z), walk: true },
+  { id: 'A09_WaterGauge', x: GAUGE.x, y: -TOP, z: GAUGE.z, rot: GAUGE.yaw + Math.PI / 2 },
+  // the clump grows on the open ground and has toppled towards the river; its gap (under the 2 m arch) sits on the bank-top path
+  { id: 'A10_FallenBamboo', x: BAMBOO.x, y: 0, z: BAMBOO.z, rot: BAMBOO.yaw + Math.PI, plant: true },
+  { id: 'A11_PavilionRuin', x: PAVILION.x, y: 0, z: PAVILION.z, rot: faceTo(PAVILION, onRiver(BR, 3.6, 0).x, onRiver(BR, 3.6, 0).z) + Math.PI, walk: true },
+  { id: 'A12_ResonanceStone', x: RESONANCE.x, y: null, z: RESONANCE.z, rot: 0.6, resonance: true },
+  { id: 'A04_SiltSide_02', x: SILT2.x, y: -TOP + BED, z: SILT2.z, rot: SILT2.yaw, walk: true },
+  { id: 'A04_SiltJam_03', x: SILT3.x, y: -TOP + BED, z: SILT3.z, rot: SILT3.yaw, walk: true },
   // background dressing, reused read-only from the forest encounter kit (PR #39): hides the open downstream cut until the core team joins the village river
   { id: 'A03_FallenLog', x: placed[0].x, y: -0.15, z: placed[0].z + 1.4, rot: Math.PI / 2 + 0.15, forest: true },
   { id: 'A06_RootStump', x: onRiver(at('A01_bend_right_01'), 3.2, 3.9).x, y: 0, z: onRiver(at('A01_bend_right_01'), 3.2, 3.9).z, rot: 2.0, forest: true },
@@ -198,7 +215,7 @@ const ray = new THREE.Raycaster(), DOWN = new THREE.Vector3(0, -1, 0);
 const heightCache = new Map();
 const terrain = [];
 const occluders = [];
-const siltModels = {};
+const siltModels = {}, resonanceMats = [], riverWater = [], placedItems = [];
 let loaded = 0;
 const progress = () => { loaded++; $('load-text').textContent = `載入模型 ${loaded}/${LAYOUT.length}`; $('load-bar').style.setProperty('--p', `${loaded / LAYOUT.length * 100}%`); };
 const cache = {};
@@ -210,13 +227,18 @@ for (const it of order) {
   const o = g.scene.clone(true);
   const y = it.y ?? groundY(it.x, it.z) - 0.02;
   o.position.set(it.x, y, it.z); o.rotation.y = it.rot; o.visible = !it.hidden;
+  o.updateMatrixWorld(true);   // later props raycast onto this one before the first frame renders
   o.traverse(m => { if (m.isMesh) { m.castShadow = !it.terrain; m.receiveShadow = true; if (m.material.transparent) { m.castShadow = false; m.material.depthWrite = false; } } });
   scene.add(o);
   if (it.terrain || it.walk) terrain.push(o);
-  else if (it.id !== 'A05_WitheredSedge_01') occluders.push(o);
+  else if (!it.plant) occluders.push(o);   // plants (sedge, the bamboo screen) never push the camera in
   if (it.silt) siltModels[it.silt] = o;
+  if (it.resonance) o.traverse(m => { if (m.isMesh && m.material.emissiveMap) resonanceMats.push(m.material); });
+  if (it.terrain && it.id.startsWith('A01')) o.traverse(m => { if (m.isMesh && m.material.transparent) riverWater.push({ mesh: m, module: it.mi }); });
+  placedItems.push({ ...it, object: o });
   progress();
 }
+heightCache.clear();   // heights sampled while models were still arriving are stale
 $('loading').classList.add('done');
 setTimeout(() => ($('loading').hidden = true), 700);
 
@@ -244,6 +266,12 @@ function walkable(x, z) {
   return g < 1.4;
 }
 
+/** A model-local Blender (x, y) point -> world circle, for a model placed at `at` with three rotation.y = rot. */
+function localToWorld(atp, rot, bx, by, r) {
+  const lx = bx, lz = -by, c = Math.cos(rot), sn = Math.sin(rot);
+  return { x: atp.x + lx * c + lz * sn, z: atp.z - lx * sn + lz * c, r };
+}
+
 // ------------------------------------------------------------------ rules world
 const START = { x: START_P.x, z: START_P.z, heading: Math.PI };   // facing upstream (-z)
 const sluiceFace = (p, off) => ({ x: p.x - Math.cos(p.yaw) * off, z: p.z + Math.sin(p.yaw) * off });   // a point on the river side of the trough
@@ -252,14 +280,24 @@ const WORLD = {
   clues: [
     { id: 'cracked_sluice', ...sluiceFace(SLUICE, 0.45), range: 2.4 },
     { id: 'cracked_sluice', ...sluiceFace(SLUICE2, 0.2), range: 2.4 },
-    { id: 'silt_buildup', x: SILT.x, z: SILT.z, range: 3.4 },
+    { id: 'silt_buildup', x: SILT.x, z: SILT.z, range: 3.4, clearRange: 3.4 },
+    { id: 'silt_buildup', x: SILT2.x, z: SILT2.z, range: 3.0 },
+    { id: 'silt_buildup', x: SILT3.x, z: SILT3.z, range: 3.2 },
+    { id: 'nursery_tracks', x: NURSERY.x, z: NURSERY.z, range: 2.8 },
   ],
-  hints: [{ id: 'marker_stone', x: MARKER.x, z: MARKER.z, range: 3.0 }],
+  hints: [{ id: 'marker_stone', x: MARKER.x, z: MARKER.z, range: 3.0 }, { id: 'water_gauge', x: GAUGE.x, z: GAUGE.z, range: 2.6 },
+    { id: 'resonance_stone', x: RESONANCE.x, z: RESONANCE.z, range: 2.8 }],
+  zones: [{ id: 'nursery', x: NURSERY.x, z: NURSERY.z, r: 4.2 }],
   walls: [
     ...[-1.2, -0.4, 0.4, 1.2].flatMap(t => [onRiver(0, 3.4 + t, 3.05), onRiver(at('A01_narrow_01'), 3.6 + t, 3.05)]).map(q => ({ x: q.x, z: q.z, r: 0.42 })),   // A02 troughs
     { x: FORMATION.x, z: FORMATION.z, r: 0.95 }, { x: MARKER.x, z: MARKER.z, r: 0.5 },
     { ...onRiver(at('A01_narrow_01'), 3.0, -1.35), r: 0.75 }, { ...onRiver(at('A01_narrow_01'), 2.9, 1.4), r: 0.75 },
-    ...[1.2, 1.7, 2.2, 2.7, 3.2, 3.7, 4.2, 4.7, 5.2].map(u => ({ ...onRiver(at('A01_bend_right_01'), u, -1.4), r: 0.3 })),   // foot of the outer strata cliff     // the two pinch rocks of the narrow module
+    ...[1.2, 1.7, 2.2, 2.7, 3.2, 3.7, 4.2, 4.7, 5.2].map(u => ({ ...onRiver(at('A01_bend_right_01'), u, -1.4), r: 0.3 })),   // foot of the outer strata cliff
+    { x: GAUGE.x, z: GAUGE.z, r: 0.15 }, { x: RESONANCE.x, z: RESONANCE.z, r: 0.45 },
+    // A10 bamboo screen (local x -1.9..0.3); its gap (local x 0.3..1.5) stays open
+    ...[-1.7, -1.25, -0.8, -0.35, 0.1].flatMap(bx => [-0.6, 0, 0.6].map(by => localToWorld(BAMBOO, BAMBOO.yaw + Math.PI, bx, by, 0.36))),
+    // the end-source boulder jam
+    ...[[2.5, -0.6], [2.6, 0.7], [3.2, -1.5], [3.3, 0.1], [3.2, 1.6], [3.7, -0.8], [3.7, 1.0]].map(([u, sv]) => ({ ...onRiver(ES, u, sv), r: 0.55 })),
   ],
   walkable,
 };
@@ -329,8 +367,15 @@ $('close').onclick = () => ($('result').hidden = true);
 
 function act(kind) {
   if (kind === 'home') { inv.returnToEntrance(); camYaw = Math.PI; return; }
-  if (kind === 'observe') inv.observe();
+  if (kind !== 'observe') return;
+  const r = inv.inReach(), p = inv.player;
+  if (r && r.id === 'silt_buildup' && inv.observationIds.includes('silt_buildup') && !inv.siltCleared &&
+      Math.hypot(SILT.x - p.x, SILT.z - p.z) < 3.4) { inv.clearSilt(); return; }
+  if (onPavilion()) { showHandoff(); return; }
+  inv.observe();
 }
+const onPavilion = () => { const p = inv.player; return Math.hypot(p.x - PAVILION.x, p.z - PAVILION.z) < 1.6; };
+let waterRise = 0;   // 0..1, animates the downstream water up after the silt is raked open
 
 // ------------------------------------------------------------------ feedback
 function toast(text, kind = 'info', sub = '') {
@@ -344,38 +389,77 @@ function renderBook() {
     if (found) li.innerHTML = `${CLUE_TEXT[id].title}<small>${CLUE_TEXT[id].note}</small>`;
   }
   const v = inv.verdict;
-  $('verdict').textContent = v === 'full' ? '三種跡象都看到了：可以回去完整說明缺水原因' : v === 'discuss' ? '已有兩種跡象：可以回去討論導水方案' : '';
+  $('verdict').textContent = v === 'full' ? '三種原因都找到了：回水工場說明給工匠聽' : v === 'discuss' ? '已有兩種跡象：可以回水工場和工匠商量怎麼讓水回來' : '';
 }
+// What the player can do with the notes (part B's choices); the raw handoff JSON is a developer view only (?dev=1).
+const NEXT_STEP = {
+  cracked_sluice: '修補古水路：把石槽的破口補起來，水就不會一路漏在岸上。',
+  silt_buildup: '清理泥沙：把堵在河道裡的泥沙和斷枝清開，讓水重新流下來。',
+  nursery_tracks: '避開育幼處：妖獸在上游育幼，改道或等牠們離開，不要硬闖。',
+};
+const DEV = new URLSearchParams(location.search).has('dev');
 function showHandoff() {
-  const j = inv.toJSON();
-  $('result-title').textContent = j.verdict === 'full' ? '三種跡象齊全' : j.verdict === 'discuss' ? '可回去討論導水方案' : `已看到 ${j.observationIds.length} 種跡象`;
-  $('result-detail').textContent = j.observationIds.length ? `記下：${j.observationIds.map(id => CLUE_TEXT[id].title).join('、')}。` : '還沒有記下任何跡象。';
+  const j = inv.toJSON(), n = j.observationIds.length;
+  $('result-title').textContent = j.verdict === 'full' ? '找齊三種原因' : j.verdict === 'discuss' ? '可以回去商量了' : n ? '還差一點線索' : '還沒有發現';
+  $('result-list').innerHTML = j.observationIds.map(id => `<li><b>${CLUE_TEXT[id].title}</b>${CLUE_TEXT[id].note}</li>`).join('') || '<li>沿岸走走，靠近看看石槽、河道和泥地。</li>';
+  $('result-next').textContent = n >= 2
+    ? `帶著手札回水工場找工匠商量要先處理哪一樁：${j.observationIds.map(id => NEXT_STEP[id]).join(' ')}`
+    : '再找到一種跡象，就能回水工場和工匠商量怎麼讓水回來。';
+  $('result-json').hidden = !DEV;
   $('result-json').textContent = JSON.stringify(j, null, 2);
   $('result').hidden = false;
 }
 function handle(ev) {
   switch (ev.type) {
     case 'clue': sfx.chime(ev.count === 1 ? 1 : ev.count === 2 ? 1.12 : 1.26); toast(CLUE_TEXT[ev.id].title, 'good', CLUE_TEXT[ev.id].note); renderBook(); break;
-    case 'verdict': setTimeout(() => { toast(ev.verdict === 'full' ? '三種跡象齊全' : '可以回去討論導水方案', 'good', '線索簿可匯出交給工匠與村民'); }, 1600);
+    case 'verdict': setTimeout(() => { toast(ev.verdict === 'full' ? '三種原因都找到了' : '可以回去商量了', 'good', '帶著手札回水工場找工匠'); }, 1600);
       if (ev.verdict === 'discuss') setTimeout(showHandoff, 3200); break;
     case 'already': sfx.knock(); toast('', 'info', '這裡已經記下了'); break;
     case 'look-closer': sfx.tick(); toast('', 'info', '再看仔細一點…'); break;
     case 'hint': sfx.tick(); toast('', 'info', HINT_TEXT[ev.id]); break;
     case 'nothing': toast('', 'info', '這裡沒什麼特別的'); break;
     case 'returned': toast('', 'info', '回到下游入口（線索簿保留）'); break;
+    case 'silt-cleared':
+      siltModels.blocking.visible = false; siltModels.cleared.visible = true; heightCache.clear(); waterRise = 0.0001; sfx.whoosh();
+      toast('扒開了一道口子', 'good', '積水沿著缺口流下，下游的水位慢慢漲了一點'); break;
+    case 'look-first': toast('', 'info', '先看清楚河道裡堆了什麼'); break;
+    case 'enter-zone': if (ev.id === 'nursery') { sfx.growl(); document.body.classList.add('wary');
+      toast('低低的嗚聲', 'bad', '泥地上有幼獸的足跡…放輕腳步，別再往前'); } break;
+    case 'leave-zone': if (ev.id === 'nursery') { document.body.classList.remove('wary'); toast('', 'info', '退開了，嗚聲停了'); } break;
   }
 }
 const KEY = COARSE ? '按「觀察」' : 'E／點擊';
 const PROMPT = {
   cracked_sluice: `${KEY} 觀察：岸上的舊石槽`,
   silt_buildup: `${KEY} 觀察：河道裡堆起的東西`,
+  nursery_tracks: `${KEY} 觀察：泥地上的足跡`,
 };
+const HINT_PROMPT = { marker_stone: '看看這塊石頭', water_gauge: '讀一讀水位尺', resonance_stone: '摸摸這塊會發光的石頭' };
 
 // ------------------------------------------------------------------ frame
 function resize() { renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); }
 const camera = new THREE.PerspectiveCamera(COARSE ? 62 : 55, 1, 0.05, 400);
 const planCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 200);
 let viewMode = 'play';   // 'play' | 'plan' | 'eye'
+let showColliders = false, colliderGroup = null;
+/** Seams (module joints, white) and collision circles (red) for the seam / collision review sheet. */
+function drawColliders() {
+  if (colliderGroup) scene.remove(colliderGroup);
+  colliderGroup = new THREE.Group();
+  const red = new THREE.MeshBasicMaterial({ color: 0xe0563f, transparent: true, opacity: 0.55, depthTest: false });
+  for (const w of WORLD.walls) {
+    const m = new THREE.Mesh(new THREE.CircleGeometry(w.r, 20).rotateX(-Math.PI / 2), red); m.position.set(w.x, 3, w.z); m.renderOrder = 5; colliderGroup.add(m);
+  }
+  const seam = new THREE.LineBasicMaterial({ color: 0xffffff, depthTest: false });
+  placed.forEach((m, i) => {
+    const a = onRiver(i, 0, -3.5), b = onRiver(i, 0, 3.5);
+    const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(a.x, 3, a.z), new THREE.Vector3(b.x, 3, b.z)]), seam); l.renderOrder = 6;
+    colliderGroup.add(l);
+  });
+  const zone = new THREE.Mesh(new THREE.RingGeometry(4.1, 4.2, 48).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xf1b54a, depthTest: false }));
+  zone.position.set(NURSERY.x, 3, NURSERY.z); colliderGroup.add(zone);
+  scene.add(colliderGroup);
+}
 function setPlan(on) {
   viewMode = on ? 'plan' : 'play';
   document.body.classList.toggle('plan', on);
@@ -395,6 +479,9 @@ function setPlan(on) {
   tag(SLUICE.x, SLUICE.z, 'A02_side_crack_01 破槽', 'clue'); tag(SLUICE2.x, SLUICE2.z, 'A02_end_break_01 破槽', 'clue');
   tag(SILT.x, SILT.z, 'A04_SiltBar 泥沙', 'clue'); tag(MARKER.x, MARKER.z, 'A06 示跡石', 'aux'); tag(FORMATION.x, FORMATION.z, 'A03 舊陣基', 'aux');
   tag(START.x, START.z, '入口（下游）', 'start');
+  for (const it of placedItems) if (!it.terrain && !it.forest && !it.id.startsWith('A05') && !it.hidden && !/^A0[236]_/.test(it.id))
+    tag(it.x, it.z, it.id, it.walk ? 'aux' : 'clue');
+  if (showColliders) drawColliders();
 }
 addEventListener('resize', resize); resize();
 let last = performance.now(), acc = 0, bob = 0;
@@ -421,13 +508,22 @@ function frame(ms) {
   const k = reach && reach.kind === 'clue' && !inv.observationIds.includes(reach.id) ? Math.min(1, (focus?.held || 0) / PARAMS.dwell) : 0;
   $('look').classList.toggle('on', k > 0); $('look').style.setProperty('--k', k.toFixed(3));
   player.userData.head.rotation.x = reach ? 0.25 : 0;
-  if (reach && reach.kind === 'clue') $('prompt').textContent = inv.observationIds.includes(reach.id) ? '已記在線索簿' : PROMPT[reach.id];
-  else if (reach && reach.kind === 'hint') $('prompt').textContent = `${KEY} 看看這塊石頭`;
+  if (reach && reach.kind === 'clue') $('prompt').textContent = !inv.observationIds.includes(reach.id) ? PROMPT[reach.id]
+    : reach.id === 'silt_buildup' && !inv.siltCleared && Math.hypot(SILT.x - p.x, SILT.z - p.z) < 3.4 ? `${KEY} 扒開一點泥沙看看` : '已記在線索簿';
+  else if (onPavilion()) $('prompt').textContent = `觀測亭殘基：${KEY} 翻開手札，比較三處跡象`;
+  else if (reach && reach.kind === 'hint') $('prompt').textContent = `${KEY} ${HINT_PROMPT[reach.id]}`;
   else {
     const d = riverDist(p.x, p.z);
-    $('prompt').textContent = d < 1.0 ? '水只剩中間一道細流，兩邊的卵石都露出來了' : inv.verdict ? '可以按「線索 JSON」交接，或繼續找第三種跡象' : '沿岸往上游走，看看水為什麼變少';
+    $('prompt').textContent = d < 1.0 ? '水只剩中間一道細流，兩邊的卵石都露出來了' : inv.verdict === 'full' ? '三種原因都找到了：回水工場說明給工匠聽' : inv.verdict ? '可以回水工場商量了，或繼續找第三種跡象' : '沿岸往上游走，看看水為什麼變少';
   }
-  sfx.streamLevel(Math.max(0, 1 - riverDist(p.x, p.z) / 6));
+  sfx.streamLevel(Math.max(0, 1 - riverDist(p.x, p.z) / 6) * (1 + waterRise * 0.6));
+  // the resonance stone answers when you come close: its veins brighten and it hums (no arrow, no marker)
+  const near = Math.max(0, 1 - Math.hypot(p.x - RESONANCE.x, p.z - RESONANCE.z) / 6);
+  for (const m of resonanceMats) m.emissiveIntensity = 0.35 + near * (1.6 + 0.4 * Math.sin(ms * 0.004));
+  sfx.hum(near);
+  // after the silt is raked open the water below it rises a little over a few seconds
+  if (waterRise > 0 && waterRise < 1) waterRise = Math.min(1, waterRise + dt / 3);
+  for (const w of riverWater) w.mesh.position.y = w.module <= at('A01_bend_left_01') ? 0.07 * waterRise : 0;
   // third-person camera with collision (pattern from tools/qingxi-encounter-a)
   const fwdX = Math.sin(camYaw), fwdZ = Math.cos(camYaw), rightX = -fwdZ, rightZ = fwdX;
   const dist = 4.6, pitch = camPitch;
@@ -453,6 +549,19 @@ function frame(ms) {
 camera.position.set(START.x, 2.5, START.z + 4.4);
 requestAnimationFrame(frame);
 
+let highSheet = null;
+/** A flat water ribbon of half-width hw along a polyline (review view of the old high water). */
+function ribbon(pts, hw, y) {
+  const pos = [], idx = [];
+  pts.forEach((p, i) => {
+    const q = pts[Math.min(i + 1, pts.length - 1)], o = pts[Math.max(i - 1, 0)], dx = q.x - o.x, dz = q.z - o.z, l = Math.hypot(dx, dz) || 1;
+    pos.push(p.x - dz / l * hw, y, p.z + dx / l * hw, p.x + dz / l * hw, y, p.z - dx / l * hw);
+    if (i) idx.push(2 * i - 2, 2 * i - 1, 2 * i, 2 * i - 1, 2 * i + 1, 2 * i);
+  });
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+  return new THREE.Mesh(g, new THREE.MeshStandardMaterial({ color: 0x1f3b39, transparent: true, opacity: 0.6, roughness: 0.1, side: THREE.DoubleSide, depthWrite: false }));
+}
+
 // Debug / capture hook (local only).
 globalThis.__wh = {
   get inv() { return inv; }, act, showHandoff, onRiver,
@@ -464,6 +573,11 @@ globalThis.__wh = {
   spots: { SLUICE, SLUICE2, SILT, MARKER, FORMATION, START, clues: WORLD.clues },
   state: () => inv.snapshot(),
   route: ROUTE, chain: CHAIN, setPlan, eye(on) { viewMode = on ? 'eye' : 'play'; },
+  colliders(on) { showColliders = on; if (!on && colliderGroup) { scene.remove(colliderGroup); colliderGroup = null; } },
+  /** review only: the old high water (0.86 m) over the whole run, to show the fords under water */
+  highWater(on) { if (on && !highSheet) { const pts = centre.map(c => new THREE.Vector3(c.x, 0, c.z)); highSheet = ribbon(pts, 2.4, -TOP + 0.86); scene.add(highSheet); }
+    if (highSheet) highSheet.visible = on; },
+  more: { NURSERY, GAUGE, RESONANCE, BAMBOO, PAVILION, SILT2, SILT3, FORDS: FORDS.map(([id, q]) => ({ id, ...q })) },
   groundY, riverDist,
   setSilt(cleared) { siltModels.blocking.visible = !cleared; siltModels.cleared.visible = cleared; heightCache.clear(); },
 };

@@ -1,0 +1,90 @@
+{
+ "id": "A05",
+ "variant": "clump 02: tall, sparse",
+ "key": "A05_WitheredSedge_02",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  1.5799,
+  1.4113,
+  1.0589
+ ],
+ "triangles": 1024,
+ "lod_triangles": [
+  1024,
+  346,
+  152
+ ],
+ "collision": {
+  "type": "none",
+  "note": "non-blocking plant"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A05_WitheredSedge_02",
+  "dimensions_m": [
+   1.5799,
+   1.4113,
+   1.0589
+  ],
+  "bbox_min": [
+   -0.811,
+   -0.5878,
+   0.0
+  ],
+  "bbox_max": [
+   0.7689,
+   0.8235,
+   1.0589
+  ],
+  "trianglesLOD": [
+   1024,
+   346,
+   152
+  ],
+  "budgetLOD0": 2500,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A05_WitheredSedge_02"
+  ],
+  "textureResolution": 512,
+  "nodes": [
+   "A05_WitheredSedge_02_LOD0",
+   "A05_WitheredSedge_02_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 60,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 1024,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "M_A05_WitheredSedge_02.001"
+   ]
+  },
+  "files": {
+   "A05_WitheredSedge_02.glb": {
+    "bytes": 139220,
+    "sha256": "dead918694707aa1c869695439999f30f997454ecd0d18448f823aeb8692b917"
+   },
+   "A05_WitheredSedge_02.fbx": {
+    "bytes": 164508,
+    "sha256": "ff01439c01bbb009af75369c9b21a0c12d0b58c583f347883992f5ed0f3ddcf3"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A05_tall_sparse_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
