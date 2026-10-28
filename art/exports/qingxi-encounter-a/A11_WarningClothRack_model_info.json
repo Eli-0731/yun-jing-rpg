@@ -1,0 +1,104 @@
+{
+ "id": "A11",
+ "name": "WarningClothRack",
+ "key": "A11_WarningClothRack",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.0,
+ "dimensions_m": [
+  1.64,
+  0.6192,
+  1.9
+ ],
+ "triangles": 3876,
+ "lod_triangles": [
+  3876,
+  2009,
+  884
+ ],
+ "collision": {
+  "type": "capsules",
+  "items": [
+   [
+    -0.62,
+    0,
+    0.95,
+    0.07
+   ],
+   [
+    0.62,
+    0,
+    0.95,
+    0.07
+   ]
+  ],
+  "note": "cloth has no collision"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A11",
+  "key": "A11_WarningClothRack",
+  "dimensions_m": [
+   1.64,
+   0.6192,
+   1.9
+  ],
+  "bbox_min": [
+   -0.82,
+   -0.3193,
+   0.0
+  ],
+  "bbox_max": [
+   0.82,
+   0.2999,
+   1.9
+  ],
+  "trianglesLOD": [
+   3876,
+   2009,
+   884
+  ],
+  "budgetLOD0": 7000,
+  "withinBudget": true,
+  "materials": [
+   "M_A11_WarningClothRack"
+  ],
+  "textureResolution": 1024,
+  "doubleSided": true,
+  "nodes": [
+   "A11_WarningClothRack_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 1174,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 3876,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A11_WarningClothRack.001"
+   ]
+  },
+  "files": {
+   "A11_WarningClothRack.glb": {
+    "bytes": 582912,
+    "sha256": "97f4bafcfe5ba1576824acf0b85dbb2d64efb04cd943dccfa90e4d41280a38b4"
+   },
+   "A11_WarningClothRack.fbx": {
+    "bytes": 597596,
+    "sha256": "e3598619e5c152da2d8fce285b3a3f2744039d7c008e1e94b40ef488fb0d0be2"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A11_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

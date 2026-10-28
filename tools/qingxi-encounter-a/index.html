@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#14231f">
+<link rel="icon" href="data:,">
+<title>青溪林地遭遇</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"./vendor/build/three.module.js","three/addons/":"./vendor/examples/jsm/"}}</script>
+</head>
+<body>
+<canvas id="world" aria-label="青溪林地，第三人稱山兔遭遇"></canvas>
+<div id="flash" aria-hidden="true"></div>
+
+<header class="hud-top">
+  <div class="title">
+    <span class="eyebrow">雲境 · 青溪第一次出村</span>
+    <h1>林地遭遇</h1>
+    <span class="notice">本機展示 · 刷新重置 · 不發正式掉落或靈石</span>
+  </div>
+  <div class="panel" role="group" aria-label="試招流派">
+    <span class="label">試招</span>
+    <button id="style-sword" class="seg on" aria-pressed="true">劍・看破綻</button>
+    <button id="style-body" class="seg" aria-pressed="false">體・穩架</button>
+    <button class="seg" disabled title="下一版">法・下一版</button>
+    <label class="tells"><input id="show-tells" type="checkbox" checked> 狀態提示</label>
+  </div>
+</header>
+
+<div class="vitals">
+  <div class="hp" id="hp" aria-label="氣血"><i></i><i></i><i></i></div>
+  <div class="cool"><span id="dodge-cd">閃避</span><span id="guard">架勢</span></div>
+</div>
+<div id="rabbit-state" class="rstate" role="status"></div>
+<div id="toast" class="toast" role="status"></div>
+<div id="prompt" class="prompt">從避雨龕出發，沿兔徑往林間凹地走</div>
+<div id="hint" class="hint">WASD 移動 · 拖曳轉視角 · 空白鍵 閃避 · 右鍵／K 按住格擋 · 左鍵／J 攻擊 · Q 試招 · E 互動 · R 回安全點</div>
+
+<section id="result" class="card" hidden>
+  <span class="eyebrow" id="result-kind">遭遇結果</span>
+  <h2 id="result-title">—</h2>
+  <p id="result-detail"></p>
+  <p class="fine">本機展示：沒有掉落、不扣材料、不發靈石。正式掉落只能由伺服器依區域程序驗證後的事件發放。</p>
+  <div class="row"><button id="again" class="primary">回安全點再來</button><button id="close">繼續走走</button></div>
+</section>
+
+<nav id="touch" class="touch" aria-label="觸控操作">
+  <div id="stick" class="stick"><i></i></div>
+  <div class="actions">
+    <button id="t-attack" class="act">攻擊</button>
+    <button id="t-tech" class="act">試招</button>
+    <button id="t-block" class="act">格擋</button>
+    <button id="t-dodge" class="act big">閃避</button>
+    <button id="t-use" class="act">互動</button>
+  </div>
+</nav>
+
+<div id="loading" class="loading"><b>青溪林地</b><span id="load-text">載入模型…</span><i id="load-bar"></i></div>
+<script type="module" src="app.mjs"></script>
+</body>
+</html>
