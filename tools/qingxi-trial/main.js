@@ -130,6 +130,7 @@ const terrace = beacon(14.6, 6.1, '#7fc8d6');
 const entrance = beacon(0, 10.1, '#eac978');
 const returnTable = beacon(9.4, -0.8, '#d5b27f');
 const workshop = beacon(15.8, 1.2, '#d96e55');
+const forest = beacon(12.2, -6.0, '#8bc088');
 
 const player = new THREE.Group(); player.position.set(0, 0, 11.4); player.rotation.y = Math.PI; scene.add(player);
 let avatarMotion = null;
@@ -197,7 +198,8 @@ function refresh() {
 function distance(object) { return Math.hypot(player.position.x - object.position.x, player.position.z - object.position.z); }
 function nearest() {
   return [['青溪入口告示', entrance], ['村門演武', practice], ['青溪靈草', herb],
-    ['回村分揀桌', returnTable], ['溪畔煉製工坊', workshop], ['客舍商販', vendor], ['聽風台', terrace]]
+    ['回村分揀桌', returnTable], ['溪畔煉製工坊', workshop], ['山兔林地遭遇', forest],
+    ['客舍商販', vendor], ['聽風台', terrace]]
     .map(([name, object]) => ({ name, object, d: distance(object) })).sort((a, b) => a.d - b.d)[0];
 }
 function interact() {
@@ -207,7 +209,7 @@ function interact() {
   if (target.object === entrance) {
     openActivity('村口告示與三條線索', '../novice-field-guide/');
   } else if (target.object === practice) {
-    state.training = true; say('你照著煉氣訣試運一周天，也可以改練基礎武技。此處只記錄試玩動作。');
+    openActivity('公共演武區 · 調息與格擋', '../training-yard-demo/');
   } else if (target.object === herb) {
     if (!state.herb) { state.herb = true; herb.visible = false; say('採到一株青溪靈草。這是本機試玩道具，未寫入遊戲背包。'); }
     else say('這株靈草已在本次試玩採過。');
@@ -215,6 +217,8 @@ function interact() {
     openActivity('回村樣本整理', '../qingxi-return-c/');
   } else if (target.object === workshop) {
     openActivity('溪畔煉製工坊', '../qingxi-alchemy-b/');
+  } else if (target.object === forest) {
+    openActivity('山兔林地 · 閃避與看破綻', '../qingxi-encounter-a/');
   } else if (target.object === vendor) {
     if (state.herb && state.rabbit) { state.delivered = true; say('商販確認了靈草與山兔材料。小循環完成；正式交易仍須服務端結算。'); }
     else say('商販說：先自由走走；找到靈草、追上山兔，再回來聊聊。');

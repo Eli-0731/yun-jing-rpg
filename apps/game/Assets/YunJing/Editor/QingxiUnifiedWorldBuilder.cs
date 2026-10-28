@@ -91,8 +91,9 @@ namespace YunJing.Editor
             var townSpawn = GameObject.Find("PlayerSpawn_Town");
             var market = GameObject.Find("Entrance_MaterialShop");
             var terrain = GameObject.Find("Town_Terrain");
+            var hunt = GameObject.Find("HuntArea_rotated180");
             var navData = AssetDatabase.LoadAssetAtPath<NavMeshData>("Assets/QingxiWorld/Generated/NavMesh_Player.asset");
-            if (townSpawn == null || market == null || terrain == null || navData == null)
+            if (townSpawn == null || market == null || terrain == null || hunt == null || navData == null)
                 throw new InvalidOperationException("Collaborator placement requires town spawn, market and terrain.");
             var root = new GameObject("CollaboratorNoviceLocations").transform;
             int count = 0;
@@ -101,8 +102,16 @@ namespace YunJing.Editor
                 var locations = new[] {
                     ("village-board", "Eli-0731", townSpawn.transform.position + new Vector3(2, 0, -2), 1.8f),
                     ("training-shelter", "Johnnnny0823", townSpawn.transform.position + new Vector3(8, 0, -5), 3.0f),
+                    ("qi-striking-post", "Johnnnny0823", townSpawn.transform.position + new Vector3(10, 0, -7), 1.65f),
+                    ("agility-post", "Johnnnny0823", townSpawn.transform.position + new Vector3(6, 0, -8), 1.6f),
+                    ("training-banner", "Johnnnny0823", townSpawn.transform.position + new Vector3(11, 0, -3), 2.5f),
+                    ("weapon-rack", "Johnnnny0823", townSpawn.transform.position + new Vector3(5, 0, -5), 1.2f),
                     ("return-table", "Eli-0731", market.transform.position + new Vector3(3, 0, -2), .75f),
                     ("alchemy-furnace", "joshsu54", market.transform.position + new Vector3(5, 0, -3), .92f),
+                    ("forest-fallen-log", "Johnnnny0823", hunt.transform.TransformPoint(new Vector3(111, 0, 94)), 1.46f),
+                    ("forest-moss-cover", "Johnnnny0823", hunt.transform.TransformPoint(new Vector3(117, 0, 92)), 1.4f),
+                    ("forest-layered-rock", "Johnnnny0823", hunt.transform.TransformPoint(new Vector3(124, 0, 96)), 2.1f),
+                    ("forest-root-stump", "Johnnnny0823", hunt.transform.TransformPoint(new Vector3(113, 0, 101)), .45f),
                 };
                 foreach (var location in locations)
                 {
