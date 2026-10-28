@@ -92,7 +92,7 @@ namespace YunJing
             Label("Journal Title", page, "青溪 · 初入世", 29, FontStyle.Bold,
                 new Vector2(28, -26), new Vector2(450, 42), new Color(.94f, .87f, .65f));
             Label("Journal Body", page,
-                "這裡沒有必須依序完成的每日任務。\n\n你可以先去聽風台看看城鎮，沿溪散步，\n或往林地尋找山兔。稍後也能回到廣場。",
+                "青溪沒有必做的每日任務。\n\n可觀察山道線索，回聽風台練氣；\n採草後在坊市交換，或煉調息散。\n想活動筋骨，也可追蹤山兔。",
                 18, FontStyle.Normal, new Vector2(28, -85), new Vector2(450, 143),
                 new Color(.9f, .92f, .87f));
             Action("Go Plaza", page, "回廣場", new Vector2(0, 0), new Vector2(28, 25),
