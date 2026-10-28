@@ -1,0 +1,10 @@
+{
+  "reference": "art\\references\\qingxi-winding-road-v1\\three-view.png",
+  "source": "art\\source\\qingxi-road-props-v13.blend",
+  "export": "art\\exports\\qingxi-road-props-v13\\qingxi-road-v13.glb",
+  "objects": 147,
+  "triangles": 12960,
+  "added_reused_pebbles": 20,
+  "added_reused_leaf_mounds": 12,
+  "curve_offset_max_m": 0.58
+}

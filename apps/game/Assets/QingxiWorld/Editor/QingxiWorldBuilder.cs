@@ -1,4 +1,4 @@
-// Integrated Qingxi world (Unity 6000.0.85f1): the town blockout exported by tools/export-qingxi-town-for-unity.py plus the
+// Integrated Qingxi world: the town blockout exported by tools/export-qingxi-town-for-unity.py plus the
 // 220 x 160 m hunt graybox from docs/graybox/qingxi-hunt/layout.json, rotated 180 degrees south-west of the town, dressed
 // with the dondon handoff FBX models. Bakes separate player / rabbit NavMesh data, runs route tests, writes screenshots to
 // artifacts/qingxi-world and adds a local first-person walker. Scripted checks only: no rabbit AI on the server, combat,
@@ -43,7 +43,7 @@ namespace QingxiWorld.Editor
         [Serializable] public class GroupCheck { public string group; public bool allPairsConnected, fleeWithinLeash; public float longestFleePath, longestFleeSeconds; }
         [Serializable] public class Report
         {
-            public string unityVersion, scope = "Local Unity 6000.0.85f1 copy inside dondon2.0-main. Scripted NavMesh paths and two CharacterController walks; no rabbit AI, combat, drops, multiplayer or device test.";
+            public string unityVersion, scope = "Current project build. Scripted NavMesh paths and two CharacterController walks; no rabbit AI, combat, drops, multiplayer or device test.";
             public string status; public List<string> failures = new List<string>(); public List<string> notes = new List<string>();
             public List<string> mappingCheck = new List<string>();
             public List<PointCheck> points = new List<PointCheck>(); public List<PathCheck> paths = new List<PathCheck>();
@@ -132,7 +132,12 @@ namespace QingxiWorld.Editor
             using (var inst = new NavInstance(playerData)) { report.navTrianglesPlayer = Preview(world, "NavMeshPreview_Player", new Color(.2f, .5f, 1f, .35f), .06f); PlayerTests(hunt, huntRoot, markers, lines); }
             using (var inst = new NavInstance(rabbitData)) { report.navTrianglesRabbit = Preview(world, "NavMeshPreview_Rabbit", new Color(1f, .55f, .1f, .45f), .1f); RabbitTests(hunt, markers, lines); }
 
-            Screens(world, huntRoot);
+            // Headless batch runs have no graphics device. RenderTexture-based
+            // captures in that mode can crash the Editor before the scene is saved.
+            if (SystemInfo.graphicsDeviceType != UnityEngine.Rendering.GraphicsDeviceType.Null)
+                Screens(world, huntRoot);
+            else
+                report.notes.Add("Screenshots skipped: batch run has no graphics device.");
             AddPlayer(world, huntRoot, hunt, markers, rabbitData);
             report.status = report.failures.Count == 0 ? "passed" : "failed";
             File.WriteAllText(Path.Combine(Reports, "route_test.json"), JsonUtility.ToJson(report, true));
@@ -520,7 +525,10 @@ namespace QingxiWorld.Editor
             var cc = player.AddComponent<CharacterController>(); cc.radius = .35f; cc.height = 1.4f; cc.center = Vector3.up * .7f; cc.slopeLimit = 35; cc.stepOffset = .3f; cc.skinWidth = .03f;
             var camGo = new GameObject("PlayerCamera") { tag = "MainCamera" }; camGo.transform.SetParent(player.transform, false); camGo.transform.localPosition = Vector3.up * 1.2f;
             var cam = camGo.AddComponent<Camera>(); cam.fieldOfView = 70; cam.nearClipPlane = .05f; cam.farClipPlane = 1500; camGo.AddComponent<AudioListener>();
-            var body = PlaceBlenderModel("Dondon/QPlayerMale.fbx", player.transform, Vector3.zero, 180, 1, "Body_QPlayerMale");
+            // Original novice study mesh, authored after its saved AI three-view.
+            // This is a visible walk-through avatar, not the finished Heroine-01.
+            var body = PlaceBlenderModel("ArtV001/NoviceCultivatorV1.fbx", player.transform, Vector3.zero, 180, 1, "Body_NoviceCultivatorV1");
+            body.AddComponent<YunJing.QingxiNoviceMotion>();
             var fp = player.AddComponent<QingxiWorld.QingxiFirstPerson>(); fp.cam = cam; fp.body = body; fp.rabbitNavMesh = rabbitData;
             fp.spotNames = spots.Select(s => s.Item1).ToArray(); fp.spotPositions = spots.Select(s => s.Item2).ToArray(); fp.spotYaws = spots.Select(s => s.Item3).ToArray();
             fp.huntRoot = hunt; fp.zoneLabels = d.zones.Select(z => z.label).ToArray(); fp.zoneRects = d.zones.Select(z => new Vector4(z.center.x, z.center.z, z.width, z.depth)).ToArray();

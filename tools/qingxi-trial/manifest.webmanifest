@@ -1,0 +1,11 @@
+{
+  "name": "雲境・青溪新手試玩",
+  "short_name": "青溪試玩",
+  "start_url": "/tools/qingxi-trial/",
+  "scope": "/tools/qingxi-trial/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#172a25",
+  "theme_color": "#172a25",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
