@@ -1,0 +1,97 @@
+{
+ "id": "A06",
+ "name": "RootStump",
+ "key": "A06_RootStump",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.0,
+ "dimensions_m": [
+  2.8726,
+  2.5887,
+  0.45
+ ],
+ "triangles": 6312,
+ "lod_triangles": [
+  6312,
+  3725,
+  2283
+ ],
+ "collision": {
+  "type": "cylinder",
+  "radius": 0.5,
+  "height": 0.45,
+  "center": [
+   0,
+   0,
+   0.225
+  ],
+  "note": "roots are step-over (< 0.3 m): no collider, slow-walk zone r 1.2 m"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A06",
+  "key": "A06_RootStump",
+  "dimensions_m": [
+   2.8726,
+   2.5887,
+   0.45
+  ],
+  "bbox_min": [
+   -1.448,
+   -1.2396,
+   0.0
+  ],
+  "bbox_max": [
+   1.4246,
+   1.3492,
+   0.45
+  ],
+  "trianglesLOD": [
+   6312,
+   3725,
+   2283
+  ],
+  "budgetLOD0": 8000,
+  "withinBudget": true,
+  "materials": [
+   "M_A06_RootStump"
+  ],
+  "textureResolution": 1024,
+  "doubleSided": true,
+  "nodes": [
+   "A06_RootStump_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 4494,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 6312,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A06_RootStump.001"
+   ]
+  },
+  "files": {
+   "A06_RootStump.glb": {
+    "bytes": 1022212,
+    "sha256": "f1f7cd1de4389960c0ce7328d53d8145f4d90142dd1a627585314fcb50171226"
+   },
+   "A06_RootStump.fbx": {
+    "bytes": 1085660,
+    "sha256": "df161fa07f971d94e5a1e93aa3552e2e0f3984fa4404272f96876b8b4e492b76"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A06_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
