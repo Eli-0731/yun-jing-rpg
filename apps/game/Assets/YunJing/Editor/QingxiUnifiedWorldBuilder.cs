@@ -58,6 +58,7 @@ namespace YunJing.Editor
             if (walkableParts == 0) throw new InvalidOperationException("Listening terrace has no walkable stone meshes.");
 
             var approach = ConnectEntrance(player, terrace.transform.position);
+            var market = ConnectMarket(player);
             var hud = new GameObject("Qingxi Designed HUD").AddComponent<YunJing.QingxiHud>();
             hud.walker = player.GetComponent<global::QingxiWorld.QingxiFirstPerson>();
             hud.uiMaterial = UiSurface();
@@ -68,7 +69,7 @@ namespace YunJing.Editor
             ValidateScene();
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), ScenePath);
             AssetDatabase.SaveAssets();
-            Debug.Log($"QINGXI_UNIFIED_GENERATED: larger town + hunt + entrance terrace, terrain={ground:F2}m, walkable terrace parts={walkableParts}, plaza-to-entrance route={approach:F1}m");
+            Debug.Log($"QINGXI_UNIFIED_GENERATED: larger town + hunt + entrance terrace, terrain={ground:F2}m, walkable terrace parts={walkableParts}, plaza-to-entrance route={approach:F1}m, entrance-to-market route={market:F1}m");
         }
 
         static float ConnectEntrance(GameObject player, Vector3 terraceCenter)
@@ -131,6 +132,62 @@ namespace YunJing.Editor
             }
         }
 
+        static float ConnectMarket(GameObject player)
+        {
+            var source = AssetDatabase.LoadAssetAtPath<NavMeshData>("Assets/QingxiWorld/Generated/NavMesh_Player.asset");
+            var entrance = GameObject.Find("Entrance_ListeningTerrace");
+            var townAssets = GameObject.Find("TownAssets");
+            var shop = townAssets == null ? null : townAssets.transform.Cast<Transform>()
+                .FirstOrDefault(t => t.name == "MaterialShop");
+            var box = shop == null ? null : shop.GetComponent<BoxCollider>();
+            var walker = player.GetComponent<global::QingxiWorld.QingxiFirstPerson>();
+            if (source == null || entrance == null || box == null || walker == null)
+                throw new InvalidOperationException("Cannot connect listening terrace to the existing material shop.");
+
+            using (var nav = new NavScope(source))
+            {
+                if (!NavMesh.SamplePosition(entrance.transform.position, out var start, 2f, NavMesh.AllAreas))
+                    throw new InvalidOperationException("Listening terrace entry is outside the player NavMesh.");
+                var center = shop.TransformPoint(box.center);
+                center.y = shop.position.y;
+                var radius = Mathf.Max(box.size.x, box.size.z) * shop.lossyScale.x / 2f + 1.5f;
+                NavMeshPath bestPath = null;
+                Vector3 marketEntry = Vector3.zero;
+                float bestLength = float.MaxValue;
+                for (int i = 0; i < 16; i++)
+                {
+                    var probe = center + Quaternion.Euler(0, i * 22.5f, 0) * Vector3.forward * radius;
+                    if (!NavMesh.SamplePosition(probe, out var end, 2f, NavMesh.AllAreas)) continue;
+                    var path = new NavMeshPath();
+                    if (!NavMesh.CalculatePath(start.position, end.position, NavMesh.AllAreas, path) ||
+                        path.status != NavMeshPathStatus.PathComplete) continue;
+                    float length = 0;
+                    for (int j = 1; j < path.corners.Length; j++)
+                        length += Vector3.Distance(path.corners[j - 1], path.corners[j]);
+                    if (length >= bestLength) continue;
+                    bestPath = path; bestLength = length; marketEntry = end.position;
+                }
+                if (bestPath == null)
+                    throw new InvalidOperationException("No complete walking route from the listening terrace to the material shop.");
+
+                var marker = new GameObject("Entrance_MaterialShop");
+                marker.transform.position = marketEntry;
+                walker.pointsOfInterest = walker.pointsOfInterest.Concat(new[] { marker.transform }).ToArray();
+                var overlay = GameObject.Find("RouteTest_Lines");
+                if (overlay != null)
+                {
+                    var route = new GameObject("ListeningTerrace_to_MaterialShop");
+                    route.transform.SetParent(overlay.transform, false);
+                    var line = route.AddComponent<LineRenderer>();
+                    line.positionCount = bestPath.corners.Length;
+                    line.SetPositions(bestPath.corners.Select(p => p + Vector3.up * .25f).ToArray());
+                    line.startWidth = line.endWidth = .25f;
+                    line.sharedMaterial = Surface("UnifiedMarketRouteDebug", new Color(.8f, .62f, .3f));
+                }
+                return bestLength;
+            }
+        }
+
         sealed class NavScope : IDisposable
         {
             readonly NavMeshDataInstance instance;
@@ -180,6 +237,7 @@ namespace YunJing.Editor
         {
             if (GameObject.Find("Town") == null || GameObject.Find("HuntArea_rotated180") == null ||
                 GameObject.Find("Qingxi listening terrace - town entrance") == null ||
+                GameObject.Find("Entrance_MaterialShop") == null ||
                 GameObject.Find("Player_FirstPerson") == null ||
                 GameObject.Find("Qingxi Designed HUD") == null)
                 throw new InvalidOperationException("Unified world is missing its town, hunt, terrace or local traveler.");

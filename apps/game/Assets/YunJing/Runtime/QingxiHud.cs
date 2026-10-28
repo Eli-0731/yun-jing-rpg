@@ -56,7 +56,7 @@ namespace YunJing
                 new Vector2(-22, -22), new Vector2(312, 108), new Color(.035f, .07f, .09f, .78f));
             Label("Guide Title", guide, "現在可以做", 19, FontStyle.Bold,
                 new Vector2(16, -12), new Vector2(270, 28), new Color(.94f, .87f, .66f));
-            Label("Guide Body", guide, "走訪聽風台  ·  探索溪畔  ·  尋找山兔", 15, FontStyle.Normal,
+            Label("Guide Body", guide, "走訪聽風台  ·  沿路去坊市  ·  尋找山兔", 15, FontStyle.Normal,
                 new Vector2(16, -48), new Vector2(280, 44), new Color(.88f, .91f, .88f));
 
             journalButton = Action("Journey Button", safe, "旅途手札  [M]", new Vector2(1, 1),
@@ -100,7 +100,9 @@ namespace YunJing
 
         void OnLocation(string location)
         {
-            if (place != null) place.text = location;
+            if (place == null) return;
+            place.text = location == "Entrance_ListeningTerrace" ? "聽風台入口" :
+                location == "Entrance_MaterialShop" ? "坊市入口" : location;
         }
 
         void ToggleJournal()
