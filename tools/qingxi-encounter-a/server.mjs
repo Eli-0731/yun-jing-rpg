@@ -7,7 +7,7 @@ import path from 'node:path';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, '../..');
 const KIT = ['A01_SlopeTile', 'A02_HollowTile', 'A03_FallenLog', 'A04_MossBoulderCover', 'A05_LayeredRockCover', 'A06_RootStump',
-  'A07_RabbitTrailTile', 'A08_BrokenBambooFence', 'A09_StoneShelter', 'A10_WatchPlatform', 'A11_WarningClothRack', 'A12_VineDummy'];
+  'A07_RabbitTrailTile', 'A08_BrokenBambooFence', 'A09_StoneShelter', 'A10_WatchPlatform', 'A11_WarningClothRack', 'A12_VineDummy', 'A12_VineDummy_worn'];
 const routes = {
   '/assets/': { root: path.join(repo, 'art/exports/qingxi-encounter-a'), allow: KIT.map(k => `${k}.glb`) },
   // Rabbit v003 is reused read-only (Johnnnny0823 / Codex, PR #21); this demo does not modify it.

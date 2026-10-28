@@ -33,6 +33,25 @@ async function until(p, pred, ms = 8000) { const t0 = Date.now(); while (Date.no
 
 {
   const { p, ctx, errors } = await open({ width: 1280, height: 720 });
+  await shot(p, '00-shelter-start-1280x720.png');
+  await p.evaluate(() => __enc.teleport(2.6, -7.4, 205)); await wait(700);
+  await shot(p, '15-stone-shelter-safe-point-1280x720.png');
+  await p.evaluate(() => __enc.restart(true)); await wait(300);
+  // batch two props: the vine dummy (practice until the skin wears), the watch platform, fence + warning rack, trail prints
+  await p.evaluate(() => __enc.teleport(3.4, -12.0, 0)); await wait(600);
+  for (let i = 0; i < 6; i++) { await p.keyboard.press(i % 2 ? 'KeyQ' : 'KeyJ'); await wait(560); if (i === 2) await shot(p, '10-dummy-practice-1280x720.png'); }
+  await wait(400); await shot(p, '11-dummy-worn-1280x720.png');
+  const dummyEvents = (await p.evaluate(() => __enc.events())).filter(e => e.type === 'dummy-hit');
+  await p.evaluate(() => __enc.teleport(-4.1, -7.5, -90)); await wait(300); await p.keyboard.press('KeyE'); await wait(300);
+  await p.evaluate(() => __enc.look(Math.atan2(6.2, 7.5) * 180 / Math.PI, 0.55)); await wait(900);
+  await shot(p, '12-watch-platform-view-1280x720.png');
+  const onDeck = await p.evaluate(() => __enc.climbed);
+  await p.keyboard.press('KeyE'); await wait(300);
+  await p.evaluate(() => { __enc.restart(true); __enc.teleport(-0.6, -10.2, 12); }); await wait(700);
+  await shot(p, '13-fence-and-warning-1280x720.png');
+  await p.evaluate(() => { __enc.teleport(0.2, -7.6, 0); __enc.look(0, 0.85); }); await wait(700);
+  await shot(p, '14-rabbit-trail-prints-1280x720.png');
+  await p.evaluate(() => { __enc.restart(true); __enc.look(0, 0.32); }); await wait(500);
   await shot(p, '01-trail-start-1280x720.png');
   // walk up the trail with real keys until the rabbit notices
   await p.keyboard.down('KeyW'); await until(p, s => s.player.z > -2.6, 12000); await p.keyboard.up('KeyW');
@@ -89,7 +108,7 @@ async function until(p, pred, ms = 8000) { const t0 = Date.now(); while (Date.no
   await p.evaluate(() => { Object.defineProperty(document, 'hidden', { value: true, configurable: true }); document.dispatchEvent(new Event('visibilitychange')); });
   await wait(1500);
   const after = await st(p);
-  console.log('RESULT', JSON.stringify({ outcome: res.outcome, stats: res.stats, bodyStats: body.stats, guardBroken: guard.player.guardBroken,
+  console.log('RESULT', JSON.stringify({ dummy: dummyEvents.map(e => [e.total, e.worn]), onDeck, outcome: res.outcome, stats: res.stats, bodyStats: body.stats, guardBroken: guard.player.guardBroken,
     disconnect: { hpBefore, hpAfter: after.player.hp, rabbit: after.rabbit.state }, errors }));
   await ctx.close();
 }

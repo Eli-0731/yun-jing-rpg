@@ -115,22 +115,41 @@ const LAYOUT = [
   { id: 'A01_SlopeTile', x: -2, y: -0.6, z: 5, rot: Math.PI, terrain: true },
   { id: 'A01_SlopeTile', x: 2, y: -0.6, z: 5, rot: Math.PI, terrain: true },
   { id: 'A01_SlopeTile', x: 5, y: -0.6, z: 1, rot: Math.PI / 2, terrain: true },
+  { id: 'A07_RabbitTrailTile', x: 0, y: -0.15, z: -5.0, rot: 0, terrain: true },
   { id: 'A04_MossBoulderCover', x: -2.6, y: 0, z: -3.2, rot: 0.3 },
   { id: 'A05_LayeredRockCover', x: 3.4, y: 0, z: -1.2, rot: -1.2 },
   { id: 'A03_FallenLog', x: 3.6, y: 0, z: -5.2, rot: -0.45 },
-  { id: 'A06_RootStump', x: -3.4, y: 0, z: -7.0, rot: 0.6 },
+  { id: 'A06_RootStump', x: -3.0, y: 0, z: -6.4, rot: 0.6 },
+  { id: 'A08_BrokenBambooFence', x: -2.4, y: 0, z: -8.6, rot: 0 },
+  { id: 'A08_BrokenBambooFence', x: 2.4, y: 0, z: -8.6, rot: Math.PI },
+  { id: 'A11_WarningClothRack', x: 1.75, y: 0, z: -8.15, rot: Math.PI },
+  { id: 'A10_WatchPlatform', x: -6.2, y: 0, z: -7.5, rot: Math.PI / 2 },
+  { id: 'A09_StoneShelter', x: 0, y: 0, z: -11, rot: 0, floor: true },
+  { id: 'A12_VineDummy', x: 3.4, y: 0, z: -10.6, rot: -Math.PI / 2, dummy: 'intact' },
+  { id: 'A12_VineDummy_worn', x: 3.4, y: 0, z: -10.6, rot: -Math.PI / 2, dummy: 'worn', hidden: true },
 ];
-const SAFE = { x: 0, z: -11 }, START = { x: 0.3, z: -13 };
+const SAFE = { x: 0, z: -11 }, START = { x: 0, z: -9.95 };     // start on the stone shelter's (A09) step, inside the safe radius
 const BURROW = { x: 0, z: 1.75 };
+const PLATFORM = { x: -6.2, z: -7.5, deck: 1.8, ladder: { x: -4.45, z: -7.5 } };
+const DUMMY = { x: 3.4, z: -10.6, r: 0.3, wearAt: 8 };
+const ring = (cx, cz, x0, x1, z0, z1, r = 0.22) => { const out = [], n = Math.max(1, Math.round(Math.hypot(x1 - x0, z1 - z0) / 0.4));
+  for (let i = 0; i <= n; i++) out.push({ x: cx + x0 + (x1 - x0) * i / n, z: cz + z0 + (z1 - z0) * i / n, r }); return out; };
 const WORLD = {
-  burrow: BURROW, safe: SAFE, start: START,
+  burrow: BURROW, safe: SAFE, start: START, respawn: START, safeZones: [], dummies: [DUMMY],   // respawn on the step: no camera room inside the shelter
   cover: [{ x: -2.6, z: -3.2, r: 0.95 }, { x: 3.4, z: -1.2, r: 1.25 }, { x: 3.6, z: -5.2, r: 0.5 }, { x: 2.5, z: -4.6, r: 0.5 }, { x: 4.7, z: -5.8, r: 0.5 }],
   walls: [{ x: -2.6, z: -3.2, r: 0.85 }, { x: 3.4, z: -1.2, r: 1.0 }, { x: 3.6, z: -5.2, r: 0.38 }, { x: 2.5, z: -4.6, r: 0.38 },
-    { x: 4.7, z: -5.8, r: 0.38 }, { x: -3.4, z: -7.0, r: 0.5 }],
+    { x: 4.7, z: -5.8, r: 0.38 }, { x: -3.0, z: -6.4, r: 0.5 },
+    ...ring(-2.4, -8.6, -1.5, 1.5, 0, 0, 0.18), ...ring(2.4, -8.6, -1.5, 1.5, 0, 0, 0.18),            // A08 fences (gap on the trail)
+    ...ring(0, -11, -1.0, 1.0, -0.63, -0.63), ...ring(0, -11, -0.93, -0.93, 0.5, -0.5), ...ring(0, -11, 0.93, 0.93, 0.5, -0.5),  // A09 walls
+    { x: -0.98, z: -10.32, r: 0.12 }, { x: 0.98, z: -10.32, r: 0.12 },
+    ...[-1, 1].flatMap(a => [-1, 1].map(b => ({ x: PLATFORM.x + 0.9 * a, z: PLATFORM.z + 0.9 * b, r: 0.13 }))),  // A10 legs
+    { x: DUMMY.x, z: DUMMY.z, r: 0.3 }, { x: 1.75, z: -8.15, r: 0.12 }],
 };
 
 const loader = new GLTFLoader();
 const terrain = [];
+const occluders = [];   // props the third-person camera must not end up behind
+const dummyModels = {};
 let loaded = 0;
 const TOTAL = LAYOUT.length + 1;
 const progress = () => { loaded++; $('load-text').textContent = `載入模型 ${loaded}/${TOTAL}`; $('load-bar').style.setProperty('--p', `${loaded / TOTAL * 100}%`); };
@@ -140,9 +159,10 @@ const [, rabbitGltf] = await Promise.all([
   Promise.all(LAYOUT.map(async it => {
     const g = await glb(`./assets/${it.id}.glb`);
     const o = g.scene.clone(true);
-    o.position.set(it.x, it.y, it.z); o.rotation.y = it.rot;
+    o.position.set(it.x, it.y, it.z); o.rotation.y = it.rot; o.visible = !it.hidden;
     o.traverse(m => { if (m.isMesh) { m.castShadow = !it.terrain; m.receiveShadow = true; } });
-    scene.add(o); if (it.terrain) terrain.push(o);
+    scene.add(o); if (it.terrain || it.floor) terrain.push(o); if (!it.terrain) occluders.push(o);
+    if (it.dummy) dummyModels[it.dummy] = o;
     progress();
   })),
   glb('./rabbit/QingxiMountainRabbit_v003.glb').then(g => { progress(); return g; }),
@@ -151,20 +171,10 @@ terrain.push(ground);
 $('loading').classList.add('done');
 setTimeout(() => ($('loading').hidden = true), 700);
 
-// Safe point stand-in until A09 (stone shelter) lands in batch two: a flat stone ring and a post with a cloth tag.
-{
-  const ring = new THREE.Mesh(new THREE.RingGeometry(1.0, 1.4, 32).rotateX(-Math.PI / 2), new THREE.MeshStandardMaterial({ color: 0x8b8572, roughness: 0.9 }));
-  ring.position.set(SAFE.x, 0.01, SAFE.z); ring.receiveShadow = true; scene.add(ring);
-  const post = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.06, 1.4, 8), new THREE.MeshStandardMaterial({ color: 0x4a3524, roughness: 0.8 }));
-  post.position.set(SAFE.x + 1.2, 0.7, SAFE.z); post.castShadow = true; scene.add(post);
-  const cloth = new THREE.Mesh(new THREE.PlaneGeometry(0.28, 0.5), new THREE.MeshStandardMaterial({ color: 0x2f7a68, side: THREE.DoubleSide }));
-  cloth.position.set(SAFE.x + 1.2, 1.1, SAFE.z + 0.15); scene.add(cloth);
-}
-
 // ------------------------------------------------------------------ ground height (visual): raycast onto the terrain tiles
 const ray = new THREE.Raycaster(), DOWN = new THREE.Vector3(0, -1, 0);
 function groundY(x, z) {
-  ray.set(new THREE.Vector3(x, 5, z), DOWN); ray.far = 10;
+  ray.set(new THREE.Vector3(x, 1.0, z), DOWN); ray.far = 3;
   const hit = ray.intersectObjects(terrain, true)[0];
   return hit ? hit.point.y : 0;
 }
@@ -246,7 +256,9 @@ function setStyle(s) { style = s; $('style-sword').classList.toggle('on', s === 
 $('style-sword').onclick = () => setStyle('sword');
 $('style-body').onclick = () => setStyle('body');
 function restart(atSafe = true) {
-  enc = new Encounter(atSafe ? { ...WORLD, start: SAFE } : WORLD, { style });
+  if (typeof climbed !== 'undefined' && climbed) climbed = false;
+  if (dummyModels.intact) { dummyModels.intact.visible = true; dummyModels.worn.visible = false; }
+  enc = new Encounter(WORLD, { style });     // START is the shelter step, inside the safe radius
   $('result').hidden = true; toast('', 'info', '回到安全點');
 }
 $('again').onclick = () => restart(true);
@@ -258,7 +270,7 @@ addEventListener('keydown', e => {
   const k = alias[e.code] || e.code;
   if (['Space', 'KeyW', 'KeyA', 'KeyS', 'KeyD'].includes(k)) e.preventDefault();
   if (e.repeat) return;
-  if (k === 'Space') act('dodge'); else if (k === 'KeyJ') act('attack'); else if (k === 'KeyQ') act('technique');
+  if (k === 'Space') act('dodge'); else if (k === 'KeyJ') act('attack'); else if (k === 'KeyQ') act('technique'); else if (k === 'KeyE') act('interact');
   else if (k === 'KeyK') act('block-on'); else if (k === 'KeyR') restart(true);
   keys.add(k);
 });
@@ -295,15 +307,31 @@ canvas.addEventListener('pointerup', e => {
   const hold = (btn, down, up) => { btn.addEventListener('pointerdown', e => { e.preventDefault(); sfx.unlock(); btn.classList.add('down'); btn.setPointerCapture(e.pointerId); down(); });
     for (const ev of ['pointerup', 'pointercancel']) btn.addEventListener(ev, () => { btn.classList.remove('down'); up?.(); }); };
   hold($('t-dodge'), () => act('dodge')); hold($('t-attack'), () => act('attack')); hold($('t-tech'), () => act('technique'));
-  hold($('t-block'), () => act('block-on'), () => act('block-off'));
+  hold($('t-block'), () => act('block-on'), () => act('block-off')); hold($('t-use'), () => act('interact'));
 }
 
 /** soft lock-on: actions turn the player towards the rabbit when it is close, like most action games */
 function faceRabbitIfNear() {
   const p = enc.player, r = enc.rabbit;
   if (Math.hypot(r.x - p.x, r.z - p.z) < 5 && r.state !== 'idle') enc.face(Math.atan2(r.x - p.x, r.z - p.z));
+  else if (Math.hypot(DUMMY.x - p.x, DUMMY.z - p.z) < 2.4) enc.face(Math.atan2(DUMMY.x - p.x, DUMMY.z - p.z));   // practice target
+}
+let climbed = false;   // on the A10 watch platform deck: a safe vantage point, no movement until climbing down
+function setClimbed(on) {
+  climbed = on;
+  const p = enc.player;
+  if (on) { p.x = PLATFORM.x; p.z = PLATFORM.z; enc.world.safeZones = [{ x: PLATFORM.x, z: PLATFORM.z, r: 1.2 }]; camPitch = 0.55; }
+  else { p.x = PLATFORM.ladder.x + 0.4; p.z = PLATFORM.ladder.z; enc.world.safeZones = []; camPitch = 0.32; }
+  sfx.tick(on);
 }
 function act(kind) {
+  if (kind === 'interact') {
+    const p = enc.player;
+    if (climbed) setClimbed(false);
+    else if (Math.hypot(p.x - PLATFORM.ladder.x, p.z - PLATFORM.ladder.z) < 1.3) setClimbed(true);
+    return;
+  }
+  if (climbed && kind !== 'block-off') return;
   if (kind === 'dodge') { if (enc.dodge()) sfx.whoosh(0.8); }
   else if (kind === 'attack' || kind === 'technique') { faceRabbitIfNear(); enc.attack(kind === 'technique' ? 'technique' : 'basic'); }
   else if (kind === 'block-on') { faceRabbitIfNear(); enc.setBlock(true); }
@@ -338,6 +366,11 @@ function handle(ev) {
     case 'guard-broken': toast('架勢散亂', 'bad', '連按防禦反而站不穩'); break;
     case 'stagger': puff(r.x, groundY(r.x, r.z), r.z, ev.cause === 'wall' ? 1.2 : 0.6); if (ev.cause === 'wall') { sfx.thud(); toast('撞上障礙', 'good', '引牠撞樹撞石，破綻最長'); } break;
     case 'retreat': $('prompt').textContent = RETREAT_TEXT[ev.reason] || '山兔撤退'; break;
+    case 'dummy-hit':
+      sfx.clack(0.7); shake = 0.04; puff(DUMMY.x, 1.0, DUMMY.z, 0.3, 0x9c8a4e);
+      toast(ev.kind === 'technique' ? '試招' : '擊中藤靶', 'good', ev.worn ? '藤靶外皮破了，可以換新再練' : `累計 ${ev.total} 點`);
+      if (ev.worn && dummyModels.worn) { dummyModels.intact.visible = false; dummyModels.worn.visible = true; }
+      break;
     case 'won': showResult(true); break;
     case 'downed': showResult(false); break;
     case 'reset': break;
@@ -357,7 +390,7 @@ function resize() { renderer.setSize(innerWidth, innerHeight, false); camera.asp
 const camera = new THREE.PerspectiveCamera(COARSE ? 62 : 55, 1, 0.05, 400);
 addEventListener('resize', resize); resize();
 let last = performance.now(), acc = 0, attackAnim = 0;
-const camPos = new THREE.Vector3(), tmp = new THREE.Vector3();
+const camPos = new THREE.Vector3(), tmp = new THREE.Vector3(), tmp2 = new THREE.Vector3(), camRay = new THREE.Raycaster();
 
 function frame(ms) {
   let dt = Math.min((ms - last) / 1000, 0.05); last = ms; wind.value = ms / 1000;
@@ -376,7 +409,8 @@ function frame(ms) {
   for (const ev of enc.drainEvents()) { handle(ev); eventLog.push(ev); if (eventLog.length > 200) eventLog.shift(); }
   const s = enc.snapshot();
   // player visual
-  const p = s.player, py = groundY(p.x, p.z);
+  if (climbed) enc.move(0, 0);
+  const p = s.player, py = climbed ? PLATFORM.deck : groundY(p.x, p.z);
   player.position.set(p.x, py, p.z); player.rotation.y = p.heading;
   const u = player.userData;
   u.sword.visible = style === 'sword';
@@ -409,7 +443,11 @@ function frame(ms) {
   document.querySelectorAll('#hp i').forEach((el, i) => el.classList.toggle('off', i >= p.hp));
   $('dodge-cd').classList.toggle('wait', !p.dodgeReady); $('guard').classList.toggle('broken', p.guardBroken);
   $('guard').textContent = p.guardBroken ? '架勢散亂' : p.blocking ? '格擋中' : '架勢';
-  if (r.state === 'idle' && !s.outcome) {
+  const nearLadder = Math.hypot(p.x - PLATFORM.ladder.x, p.z - PLATFORM.ladder.z) < 1.3, nearDummy = Math.hypot(p.x - DUMMY.x, p.z - DUMMY.z) < 2.2;
+  if (climbed) $('prompt').textContent = '觀察台上：看清兔徑、凹地與退路，山兔碰不到你。E 下來';
+  else if (nearLadder && r.state === 'idle') $('prompt').textContent = 'E／互動：爬上觀察台';
+  else if (nearDummy && r.state === 'idle') $('prompt').textContent = '戰前試招：對藤靶 左鍵／J 攻擊，Q 試招';
+  else if (r.state === 'idle' && !s.outcome) {
     const d = Math.hypot(p.x - BURROW.x, p.z - BURROW.z);
     $('prompt').textContent = Math.hypot(p.x - SAFE.x, p.z - SAFE.z) < PARAMS.safeRadius ? '安全點：山兔不會追到這裡' : d > 9 ? '沿兔徑往林間凹地走，留意動靜' : '凹地裡有兔洞…放輕腳步，或繞到石後觀察';
   } else if (r.state === 'alert') $('prompt').textContent = '山兔發現你了：可以躲到石後，或站穩準備';
@@ -423,10 +461,31 @@ function frame(ms) {
     camYaw += Math.atan2(Math.sin(want - camYaw), Math.cos(want - camYaw)) * Math.min(1, dt * 3);
   }
   const fwdX = Math.sin(camYaw), fwdZ = Math.cos(camYaw), rightX = -fwdZ, rightZ = fwdX;
-  const shoulder = 0.75, dist = engaged ? 5.4 : 4.8, pitch = engaged ? Math.max(camPitch, 0.42) : camPitch;
-  const target = tmp.set(p.x + rightX * shoulder, py + 1.2, p.z + rightZ * shoulder);
-  if (engaged) target.lerp(new THREE.Vector3(r.x, ry + 0.4, r.z), 0.35);
-  camPos.set(target.x - fwdX * dist * Math.cos(pitch), target.y + Math.sin(pitch) * dist, target.z - fwdZ * dist * Math.cos(pitch));
+  const dist = engaged ? 5.4 : 4.8, pitch = engaged ? Math.max(camPitch, 0.42) : camPitch;
+  // camera collision: pull in along the view ray if a wall, roof or rock is between the stand-in and the camera;
+  // when the right shoulder is blocked close in (e.g. between the shelter's side walls), try the left or a narrower shoulder
+  const place = shoulder => {
+    const t = new THREE.Vector3(p.x + rightX * shoulder, py + 1.2, p.z + rightZ * shoulder);
+    if (engaged) t.lerp(new THREE.Vector3(r.x, ry + 0.4, r.z), 0.35);
+    if (shoulder) {           // the shoulder point itself must not be inside a wall
+      const head = new THREE.Vector3(p.x, py + 1.2, p.z), toT = t.clone().sub(head);
+      camRay.set(head, toT.clone().normalize()); camRay.far = toT.length() + 0.3;
+      if (camRay.intersectObjects(occluders, true).length) return { t, c: t.clone(), free: -1 };
+    }
+    const c = new THREE.Vector3(t.x - fwdX * dist * Math.cos(pitch), t.y + Math.sin(pitch) * dist, t.z - fwdZ * dist * Math.cos(pitch));
+    camRay.set(t, tmp2.copy(c).sub(t).normalize()); camRay.far = c.distanceTo(t);
+    const block = camRay.intersectObjects(occluders, true)[0];
+    const free = block ? block.distance - 0.25 : dist;
+    if (block) c.copy(t).addScaledVector(camRay.ray.direction, Math.max(0.15, free));
+    return { t, c, free };
+  };
+  let view = place(0.75);
+  for (const s of [-0.75, 0.35, -0.35, 0]) {
+    if (view.free >= 1.2) break;
+    const alt = place(s); if (alt.free > view.free + 0.05) view = alt;
+  }
+  const target = tmp.copy(view.t);
+  camPos.copy(view.c);
   if (shake > 0) { shake = Math.max(0, shake - dt * 0.8); camPos.x += (Math.random() - 0.5) * shake; camPos.y += (Math.random() - 0.5) * shake; }
   camera.position.lerp(camPos, Math.min(1, dt * 10 || 1)); camera.lookAt(target);
   sun.position.set(p.x + SUN_DIR.x * 40, SUN_DIR.y * 40, p.z + SUN_DIR.z * 40); sun.target.position.set(p.x, 0, p.z);
@@ -439,7 +498,7 @@ requestAnimationFrame(frame);
 
 // Debug / capture hook (local only).
 globalThis.__enc = {
-  get enc() { return enc; }, act, restart, setStyle,
+  get enc() { return enc; }, act, restart, setStyle, get climbed() { return climbed; },
   autoMove(v) { autoMove = v; },
   events: () => eventLog.slice(),
   teleport(x, z, yawDeg = 0) { enc.player.x = x; enc.player.z = z; camYaw = THREE.MathUtils.degToRad(yawDeg); },

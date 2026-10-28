@@ -1,0 +1,97 @@
+{
+ "id": "A12",
+ "name": "VineDummy",
+ "key": "A12_VineDummy",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.0,
+ "dimensions_m": [
+  0.9604,
+  0.6502,
+  1.642
+ ],
+ "triangles": 8128,
+ "lod_triangles": [
+  8128,
+  4064,
+  1787
+ ],
+ "collision": {
+  "type": "capsule",
+  "radius": 0.2,
+  "height": 1.64,
+  "center": [
+   0,
+   0,
+   0.82
+  ],
+  "note": "strike target; swap to A12_VineDummy_worn after enough hits"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A12",
+  "key": "A12_VineDummy",
+  "dimensions_m": [
+   0.9604,
+   0.6502,
+   1.642
+  ],
+  "bbox_min": [
+   -0.4798,
+   -0.326,
+   0.0
+  ],
+  "bbox_max": [
+   0.4806,
+   0.3242,
+   1.642
+  ],
+  "trianglesLOD": [
+   8128,
+   4064,
+   1787
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "M_A12_VineDummy"
+  ],
+  "textureResolution": 1024,
+  "doubleSided": true,
+  "nodes": [
+   "A12_VineDummy_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 1804,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 8128,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A12_VineDummy.001"
+   ]
+  },
+  "files": {
+   "A12_VineDummy.glb": {
+    "bytes": 906308,
+    "sha256": "22ee0ffb8cb8eea34ee1fe43995af119a1ad89aaf257b2b197ad5b4ec13396f9"
+   },
+   "A12_VineDummy.fbx": {
+    "bytes": 1221500,
+    "sha256": "66cfb7fccca85afdd16f93cfcc4f67fd73a6030fae9f26e1b694ffdb9af2169c"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A12_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

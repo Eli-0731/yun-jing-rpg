@@ -18,7 +18,10 @@ OUT.mkdir(parents=True, exist_ok=True)
 LAYOUT = [  # (key, three x, three y, three z, three rot.y) -- mirrors LAYOUT in app.mjs
     ('A02_HollowTile', 0, -0.6, 0, math.pi), ('A01_SlopeTile', -2, -0.6, 5, math.pi), ('A01_SlopeTile', 2, -0.6, 5, math.pi),
     ('A01_SlopeTile', 5, -0.6, 1, math.pi / 2), ('A04_MossBoulderCover', -2.6, 0, -3.2, 0.3), ('A05_LayeredRockCover', 3.4, 0, -1.2, -1.2),
-    ('A03_FallenLog', 3.6, 0, -5.2, -0.45), ('A06_RootStump', -3.4, 0, -7.0, 0.6),
+    ('A03_FallenLog', 3.6, 0, -5.2, -0.45), ('A06_RootStump', -3.0, 0, -6.4, 0.6),
+    ('A07_RabbitTrailTile', 0, -0.15, -5.0, 0), ('A08_BrokenBambooFence', -2.4, 0, -8.6, 0), ('A08_BrokenBambooFence', 2.4, 0, -8.6, math.pi),
+    ('A11_WarningClothRack', 1.75, 0, -8.15, math.pi), ('A10_WatchPlatform', -6.2, 0, -7.5, math.pi / 2), ('A09_StoneShelter', 0, 0, -11, 0),
+    ('A12_VineDummy', 3.4, 0, -10.6, -math.pi / 2),
 ]
 sc = bpy.data.scenes.new('Layout')
 for key, x, y, z, rot in LAYOUT:
@@ -49,7 +52,6 @@ def plane(name, verts, m, z=0.0):
 
 plane('meadow', [(-40, -40), (40, -40), (40, 40), (-40, 40)], mat('Meadow', (0.045, 0.06, 0.02)), -0.002)
 plane('trail', [(-0.6, 3.0), (0.6, 3.0), (0.9, 14), (-0.3, 14)], mat('Trail', (0.10, 0.07, 0.042)), 0.003)
-plane('safe', [(-1.2, 10.4), (1.2, 10.4), (1.2, 11.6), (-1.2, 11.6)], mat('SafeStone', (0.28, 0.26, 0.22)), 0.004)
 bm = bmesh.new()
 bmesh.ops.create_cone(bm, cap_ends=True, segments=16, radius1=0.24, radius2=0.2, depth=1.45)
 bmesh.ops.translate(bm, verts=bm.verts, vec=(0, 0, 0.725))
@@ -58,7 +60,7 @@ me = bpy.data.meshes.new('Figure')
 bm.to_mesh(me)
 me.materials.append(mat('Figure', (0.20, 0.30, 0.26), 0.7))
 fig = bpy.data.objects.new('Figure_1p7m', me)
-fig.location = (0.4, 3.6, 0)
+fig.location = (0.4, 6.4, 0)
 sc.collection.objects.link(fig)
 
 w = bpy.data.worlds.new('Sky')
@@ -93,8 +95,9 @@ sc.view_settings.look = 'AgX - Base Contrast'
 sc.render.resolution_x, sc.render.resolution_y = 1600, 900
 
 SHOTS = {
-    'overview': ((-10, 14, 9), (0.5, 1.5, 0.3), 28, None),
-    'plan_top': ((0.5, 2.5, 30), (0.5, 2.5, 0), None, 22),
+    'overview': ((-12, 18, 10), (0.0, 4.0, 0.3), 26, None),
+    'safe_side': ((5.5, 15.5, 3.2), (-0.5, 9.0, 1.0), 26, None),
+    'plan_top': ((-0.5, 4.5, 30), (-0.5, 4.5, 0), None, 28),
     'eye_height_trail': ((0.3, 8.5, 1.7), (0, -0.5, 0.6), 24, None),
     'tile_seams': ((-5.5, -1.0, 3.2), (0, -4.5, 0.2), 32, None),
 }
