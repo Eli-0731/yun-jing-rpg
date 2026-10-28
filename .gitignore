@@ -34,3 +34,8 @@ apps/game/Assets/QingxiWorld/Generated.meta
 # Alchemy room: copies of art/exports/qingxi-alchemy-b made by AlchemyRoomBuilder.CopyExports
 apps/game/Assets/YunJing/Models/AlchemyB/
 apps/game/Assets/YunJing/Models/AlchemyB.meta
+# Unified world: copies of art/exports/qingxi-encounter-a and the rabbit v003 made by QingxiCollaboratorZonesBuilder
+apps/game/Assets/YunJing/Models/ForestEncounterA/
+apps/game/Assets/YunJing/Models/ForestEncounterA.meta
+apps/game/Assets/YunJing/Models/TrainingYardA/
+apps/game/Assets/YunJing/Models/TrainingYardA.meta

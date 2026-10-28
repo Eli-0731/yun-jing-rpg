@@ -9,7 +9,7 @@ using UnityEngine.UI;
 namespace YunJing
 {
     // Local Qingxi walkthrough UI. No account, inventory or reward authority.
-    public sealed class QingxiHud : MonoBehaviour
+    public sealed partial class QingxiHud : MonoBehaviour
     {
         public QingxiFirstPerson walker;
         public QingxiLocalForaging foraging;
@@ -97,14 +97,16 @@ namespace YunJing
                 new Color(.9f, .92f, .87f));
             Action("Go Plaza", page, "回廣場", new Vector2(0, 0), new Vector2(28, 25),
                 new Vector2(128, 48), () => { walker.Teleport(0); ToggleJournal(); });
-            Action("Go Terrace", page, "聽風台入口", new Vector2(0, 0), new Vector2(172, 25),
-                new Vector2(146, 48), () => { walker.Teleport(8); ToggleJournal(); });
+            if (walker.spotNames.Length > 8)
+                Action("Go Terrace", page, "聽風台入口", new Vector2(0, 0), new Vector2(172, 25),
+                    new Vector2(146, 48), () => { walker.Teleport(8); ToggleJournal(); });
             Action("Close Journal", page, "繼續探索", new Vector2(0, 0), new Vector2(334, 25),
                 new Vector2(148, 48), ToggleJournal);
             journal.SetActive(false);
             walker.useDesignedHud = true;
             walker.LocationChanged += OnLocation;
             OnLocation("青溪小鎮");
+            BuildCollaboratorPanels();
         }
 
         void OnDestroy()
@@ -119,6 +121,7 @@ namespace YunJing
             if (Keyboard.current != null && Keyboard.current.mKey.wasPressedThisFrame) ToggleJournal();
             if (foraging != null && interactionText != null)
                 interactionText.text = foraging.Prompt(walker.transform.position);
+            UpdateCollaboratorPanels();
         }
 
         void RefreshForaging()

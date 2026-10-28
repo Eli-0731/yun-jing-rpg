@@ -12,6 +12,7 @@ namespace YunJing
         public Transform[] clueNodes;
         public Transform marketEntrance;
         public Transform trainingSpot;
+        public QingxiAbcStations abc;
         public float herbRegrowSeconds = 60f;
 
         readonly Dictionary<Transform, float> harvestedUntil = new Dictionary<Transform, float>();
@@ -32,6 +33,8 @@ namespace YunJing
 
         public string Prompt(Vector3 playerPosition)
         {
+            var station = abc != null ? abc.Prompt(playerPosition) : null;
+            if (station != null) return station;
             foreach (var herb in herbNodes ?? Array.Empty<Transform>())
                 if (herb != null && Distance(playerPosition, herb.position) <= 2.4f)
                     return harvestedUntil.TryGetValue(herb, out var until) && Time.time < until
@@ -55,6 +58,7 @@ namespace YunJing
         // Explicit time permits deterministic Editor checks without changing the system clock.
         public bool TryInteractAt(Vector3 playerPosition, float now, out string message)
         {
+            if (abc != null && abc.TryInteract(playerPosition, out message)) return Complete(message, out message);
             foreach (var herb in herbNodes ?? Array.Empty<Transform>())
             {
                 if (herb == null || Distance(playerPosition, herb.position) > 2.4f) continue;
@@ -133,6 +137,25 @@ namespace YunJing
             }
             message = "這裡沒有煉製或服用操作";
             return false;
+        }
+
+        // Rehearsal counts survive a visit to the alchemy room (a separate scene) within one run only.
+        sealed class Carried { public int herbs, rabbits, stones, trades, insights, pellets, practice; public string[] clues; }
+        static Carried carried;
+
+        public void Carry() => carried = new Carried { herbs = Herbs, rabbits = Rabbits, stones = PracticeStones, trades = Trades,
+            insights = Insights, pellets = PracticePellets, practice = basicPracticeCount,
+            clues = Array.ConvertAll(Array.FindAll(clueNodes ?? Array.Empty<Transform>(), c => c != null && observedClues.Contains(c)), c => c.name) };
+
+        public void RestoreCarried()
+        {
+            if (carried == null) return;
+            Herbs = carried.herbs; Rabbits = carried.rabbits; PracticeStones = carried.stones; Trades = carried.trades;
+            Insights = carried.insights; PracticePellets = carried.pellets; basicPracticeCount = carried.practice;
+            foreach (var clue in clueNodes ?? Array.Empty<Transform>())
+                if (clue != null && Array.IndexOf(carried.clues, clue.name) >= 0) observedClues.Add(clue);
+            carried = null;
+            Complete("離開丹房，回到青溪街上", out _);
         }
 
         bool Complete(string result, out string message)
