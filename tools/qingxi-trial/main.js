@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { collaboratorModels } from './scene-content.mjs';
 
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(() => {});
 
@@ -66,6 +67,15 @@ const loading = Promise.allSettled(assets.map(async ([path, x, z, extent, axis])
   if (path.includes('village-gate') || path.includes('riverside-house')) cameraBlockers.push(loaded.root);
   return loaded;
 }));
+// The larger Unity town uses its own builder. This is its walkable entrance
+// slice: real collaborator meshes are placed along the first village route.
+const collaboratorLoading = Promise.allSettled(collaboratorModels.map(async item => {
+  const { root } = await placeModel(item.path, item.x, item.z, item.size, item.axis);
+  root.name = item.id;
+  root.userData.author = item.owner;
+  if (item.id === 'training-shelter' || item.id === 'alchemy-cabinet') cameraBlockers.push(root);
+  return item.id;
+}));
 
 async function scatterExisting(path, positions, extent) {
   const first = await placeModel(path, positions[0][0], positions[0][1], extent);
@@ -97,6 +107,9 @@ const practice = beacon(0, 6.0, '#d1c28a');
 const herb = beacon(12.1, -2.1, '#51c987');
 const vendor = beacon(6.3, .4, '#e5a360');
 const terrace = beacon(14.6, 6.1, '#7fc8d6');
+const entrance = beacon(0, 10.1, '#eac978');
+const returnTable = beacon(9.4, -0.8, '#d5b27f');
+const workshop = beacon(15.8, 1.2, '#d96e55');
 
 const player = new THREE.Group(); player.position.set(0, 0, 11.4); player.rotation.y = Math.PI; scene.add(player);
 let rabbit;
@@ -136,18 +149,27 @@ function refresh() {
 }
 function distance(object) { return Math.hypot(player.position.x - object.position.x, player.position.z - object.position.z); }
 function nearest() {
-  return [['村門演武', practice], ['青溪靈草', herb], ['客舍商販', vendor], ['聽風台', terrace]]
+  return [['青溪入口告示', entrance], ['村門演武', practice], ['青溪靈草', herb],
+    ['回村分揀桌', returnTable], ['溪畔煉製工坊', workshop], ['客舍商販', vendor], ['聽風台', terrace]]
     .map(([name, object]) => ({ name, object, d: distance(object) })).sort((a, b) => a.d - b.d)[0];
 }
 function interact() {
   if (!state.started) return;
   const target = nearest();
   if (target.d > 2.7) { say('再靠近一點，才能互動。'); return; }
-  if (target.object === practice) {
+  if (target.object === entrance) {
+    say('青溪入口：告示旁可走向演武棚、溪畔採集路或回村分揀桌；這些場景使用協作者交付的模型。');
+  } else if (target.object === practice) {
     state.training = true; say('你照著煉氣訣試運一周天，也可以改練基礎武技。此處只記錄試玩動作。');
   } else if (target.object === herb) {
     if (!state.herb) { state.herb = true; herb.visible = false; say('採到一株青溪靈草。這是本機試玩道具，未寫入遊戲背包。'); }
     else say('這株靈草已在本次試玩採過。');
+  } else if (target.object === returnTable) {
+    say(state.herb || state.rabbit
+      ? '回村分揀桌：可先把採到的樣本整理保存。此處是本機展示，正式背包由服務端管理。'
+      : '回村分揀桌：從溪畔帶回草藥或山兔材料後，可以在這裡整理。');
+  } else if (target.object === workshop) {
+    say('溪畔煉製工坊已設在入口路線旁；爐、藥臼和藥櫃均為協作者模型。完整配伍試玩可由右上方「煉製玩法」開啟。');
   } else if (target.object === vendor) {
     if (state.herb && state.rabbit) { state.delivered = true; say('商販確認了靈草與山兔材料。小循環完成；正式交易仍須服務端結算。'); }
     else say('商販說：先自由走走；找到靈草、追上山兔，再回來聊聊。');
@@ -242,5 +264,11 @@ function tick(now = performance.now()) {
 loading.then(results => {
   const failed = results.filter(result => result.status === 'rejected').length;
   if (failed) say(`${failed} 件場景模型載入失敗，仍可試走基本玩法。`);
+});
+collaboratorLoading.then(results => {
+  const failed = results.filter(result => result.status === 'rejected');
+  const count = results.length - failed.length;
+  document.getElementById('models').textContent = `協作者場景模型 ${count}/${results.length} 件已載入`;
+  if (failed.length) say(`${failed.length} 件協作者模型載入失敗；請從本機伺服器開啟並確認 Git LFS 素材。`);
 });
 tick();

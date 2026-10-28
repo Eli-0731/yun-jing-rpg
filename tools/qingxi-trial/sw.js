@@ -1,6 +1,6 @@
-const CACHE = 'qingxi-trial-v2';
+const CACHE = 'qingxi-trial-v3';
 const SHELL = ['/tools/qingxi-trial/', '/tools/qingxi-trial/index.html',
-  '/tools/qingxi-trial/main.js', '/tools/qingxi-trial/icon.svg',
+  '/tools/qingxi-trial/main.js', '/tools/qingxi-trial/scene-content.mjs', '/tools/qingxi-trial/icon.svg',
   '/tools/qingxi-trial/manifest.webmanifest'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)));

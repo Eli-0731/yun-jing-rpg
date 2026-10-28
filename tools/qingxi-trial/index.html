@@ -11,6 +11,7 @@
     .brand,.status,.actions,.pad,.notice{position:absolute;background:#142a27dc;border:1px solid #d4d7b866;box-shadow:0 10px 28px #07130d7a;backdrop-filter:blur(8px)}
     .brand{top:12px;left:12px;border-radius:12px;padding:10px 14px;max-width:370px}.brand strong{display:block;font-size:18px}.brand small{color:#dbd8b8}
     .status{top:12px;right:12px;border-radius:12px;padding:10px 14px;max-width:340px}.status h2{font-size:15px;margin:0 0 5px}.status p{margin:0}.status .done{color:#a8efb2}
+    .status small{display:block;color:#cbd6c8;margin-top:4px}.status nav{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}.status a{color:#ffdf9f;font-size:12px;text-decoration:none;border-bottom:1px solid #ffdf9f88}
     .notice{bottom:16px;left:50%;transform:translateX(-50%);border-radius:12px;padding:9px 14px;text-align:center;max-width:90vw;min-width:220px}
     .pad{left:16px;bottom:16px;border-radius:20px;padding:7px;display:grid;grid-template-columns:repeat(3,45px);gap:3px;touch-action:none}
     .pad button,.actions button{background:#4a6c60e0;border:1px solid #d9e0b890;color:white;border-radius:12px;min-height:45px}
@@ -18,7 +19,7 @@
     .intro{position:fixed;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,#0c242483,#0b1a19e8),url('../../art/previews/qingxi-entry-v14/entrance-overview.png') center/cover;z-index:20;padding:20px}
     .intro section{background:#132921e9;border:1px solid #dbc99b9c;border-radius:18px;max-width:580px;padding:24px;box-shadow:0 20px 70px #0009}.intro h1{margin:0 0 9px;font-size:clamp(26px,5vw,38px)}.intro p{color:#e5e1c8}.intro button{background:#dfc890;color:#172a25;border:0;border-radius:10px;padding:10px 24px;font-weight:700}.intro small{display:block;margin-top:13px;color:#cbd6c8}
     .rotate{display:none;position:fixed;inset:0;z-index:40;background:#142a27;color:#fff7df;place-items:center;text-align:center;padding:30px;font-size:22px}
-    @media(max-height:560px) and (orientation:landscape){.brand{top:8px;left:8px;padding:6px 9px;max-width:220px;font-size:11px}.brand strong{font-size:14px}.status{top:8px;right:8px;max-width:220px;font-size:11px;padding:6px 9px}.status h2{font-size:13px}.notice{bottom:8px;font-size:11px;max-width:35vw}.pad{bottom:8px;left:8px}.pad button{min-height:38px;height:38px}.actions{bottom:8px;right:8px}.actions button{min-height:42px;padding:0 10px}.intro section{max-width:620px;padding:13px 18px}.intro h1{font-size:24px}.intro p{margin:6px 0;font-size:13px}.intro small{font-size:11px}}
+    @media(max-height:560px) and (orientation:landscape){.brand{top:8px;left:8px;padding:6px 9px;max-width:220px;font-size:11px}.brand strong{font-size:14px}.status{top:8px;right:8px;max-width:250px;font-size:11px;padding:6px 9px}.status h2{font-size:13px}.notice{bottom:8px;font-size:11px;max-width:35vw}.pad{bottom:8px;left:8px}.pad button{min-height:38px;height:38px}.actions{bottom:8px;right:8px}.actions button{min-height:42px;padding:0 10px}.intro section{max-width:620px;padding:13px 18px}.intro h1{font-size:24px}.intro p{margin:6px 0;font-size:13px}.intro small{font-size:11px}}
     @media(orientation:portrait) and (max-width:700px){.rotate{display:grid}}
   </style>
   <script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
@@ -26,13 +27,13 @@
 <body>
 <div id="scene" aria-label="青溪第三人稱試玩場地"></div>
 <div class="hud">
-  <div class="brand"><strong>雲境 · 青溪初入世</strong><small>WASD 移動 · 滑鼠右鍵拖動視角 · E 互動 · 空白鍵出招</small></div>
-  <div class="status"><h2>自由探索</h2><p id="progress" aria-live="polite">練功 0/1 · 靈草 0/1 · 山兔 0/1</p><p id="nearby">走近地標可互動</p></div>
+  <div class="brand"><strong>雲境 · 青溪入口</strong><small>從告示牌入村 · WASD 移動 · 右鍵轉視角 · E 互動 · 空白鍵出招</small></div>
+  <div class="status"><h2>自由探索</h2><p id="progress" aria-live="polite">練功 0/1 · 靈草 0/1 · 山兔 0/1</p><p id="nearby">走近地標可互動</p><small id="models" aria-live="polite">正在載入協作者場景模型…</small><nav aria-label="其他青溪試玩"><a href="../novice-field-guide/" target="_blank" rel="noopener">村內探索</a><a href="../qingxi-return-c/" target="_blank" rel="noopener">回村整理</a><a href="../qingxi-alchemy-b/" target="_blank" rel="noopener">煉製玩法</a></nav></div>
   <div class="pad" aria-label="觸控移動"><span class="blank"></span><button data-move="w" aria-label="前進">▲</button><span class="blank"></span><button data-move="a" aria-label="向左">◀</button><button data-move="s" aria-label="後退">▼</button><button data-move="d" aria-label="向右">▶</button></div>
   <div class="actions"><button id="interact" aria-label="互動">互動 E</button><button id="attack" aria-label="出招">出招</button></div>
   <div class="notice" id="notice" aria-live="polite">先到村門或聽風台看看；沒有強制任務順序。</div>
 </div>
-<div class="intro" id="intro"><section><h1>青溪，從此入世</h1><p>先在同一小片天地走走。你可以到村門練一式基礎功、尋一株靈草、追一隻山兔，再回客舍告訴商販。這是入口場景與操作的試玩稿，所有收穫只存在這次瀏覽器試玩，不會寫入正式角色。</p><button id="start">進入青溪</button><small>目前是 PWA 3D 原型；角色動畫、命中判定、手機效能及多人仍需正式遊戲實測。</small></section></div>
+<div class="intro" id="intro"><section><h1>青溪，從此入世</h1><p>你會從村口告示牌進入。往左可看演武棚，沿路到溪畔採草或追兔，回程有分揀桌與煉製工坊。這些地點已擺入協作者的實際模型；三種延伸玩法可由右上方開啟。所有收穫仍只在本機試玩，不寫入正式角色。</p><button id="start">從村口進入</button><small>目前展示的是可走的入口片區；較大的青溪鎮仍在 Unity 統一場景，尚未成為此 PWA 的無縫地圖。</small></section></div>
 <div class="rotate" role="status">請將手機轉為橫向，進入青溪試玩。</div>
 <script type="module" src="main.js"></script>
 </body></html>

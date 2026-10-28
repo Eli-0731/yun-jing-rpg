@@ -16,6 +16,7 @@ namespace YunJing.Editor
     {
         public const string ScenePath = "Assets/QingxiWorld/Generated/QingxiUnifiedWorld.unity";
         const string TerracePath = "Assets/YunJing/Models/QingxiListeningTerraceV1/qingxi-listening-terrace-v1.fbx";
+        const string CollaboratorFolder = "Assets/YunJing/Models/CollaboratorNoviceV1/";
         const string MaterialFolder = "Assets/QingxiWorld/Generated/Materials";
 
         [MenuItem("Yun Jing/Generate unified Qingxi world")]
@@ -59,6 +60,7 @@ namespace YunJing.Editor
 
             var approach = ConnectEntrance(player, terrace.transform.position);
             var market = ConnectMarket(player);
+            var collaboratorProps = PlaceCollaboratorNoviceModels();
             var hud = new GameObject("Qingxi Designed HUD").AddComponent<YunJing.QingxiHud>();
             hud.walker = player.GetComponent<global::QingxiWorld.QingxiFirstPerson>();
             hud.uiMaterial = UiSurface();
@@ -79,7 +81,51 @@ namespace YunJing.Editor
             ValidateScene();
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), ScenePath);
             AssetDatabase.SaveAssets();
-            Debug.Log($"QINGXI_UNIFIED_GENERATED: larger town + hunt + entrance terrace, terrain={ground:F2}m, walkable terrace parts={walkableParts}, plaza-to-entrance route={approach:F1}m, local herb nodes={foraging.herbNodes.Length}, clue nodes={foraging.clueNodes.Length}");
+            Debug.Log($"QINGXI_UNIFIED_GENERATED: larger town + hunt + entrance terrace, terrain={ground:F2}m, walkable terrace parts={walkableParts}, plaza-to-entrance route={approach:F1}m, collaborator props={collaboratorProps}, local herb nodes={foraging.herbNodes.Length}, clue nodes={foraging.clueNodes.Length}");
+        }
+
+        // Visual placement only. These are authored collaborator meshes converted
+        // from the reviewed GLBs; no client-side reward or interaction is added.
+        static int PlaceCollaboratorNoviceModels()
+        {
+            var townSpawn = GameObject.Find("PlayerSpawn_Town");
+            var market = GameObject.Find("Entrance_MaterialShop");
+            var terrain = GameObject.Find("Town_Terrain");
+            var navData = AssetDatabase.LoadAssetAtPath<NavMeshData>("Assets/QingxiWorld/Generated/NavMesh_Player.asset");
+            if (townSpawn == null || market == null || terrain == null || navData == null)
+                throw new InvalidOperationException("Collaborator placement requires town spawn, market and terrain.");
+            var root = new GameObject("CollaboratorNoviceLocations").transform;
+            int count = 0;
+            using (var nav = new NavScope(navData))
+            {
+                var locations = new[] {
+                    ("village-board", "Eli-0731", townSpawn.transform.position + new Vector3(2, 0, -2), 1.8f),
+                    ("training-shelter", "Johnnnny0823", townSpawn.transform.position + new Vector3(8, 0, -5), 3.0f),
+                    ("return-table", "Eli-0731", market.transform.position + new Vector3(3, 0, -2), .75f),
+                    ("alchemy-furnace", "joshsu54", market.transform.position + new Vector3(5, 0, -3), .92f),
+                };
+                foreach (var location in locations)
+                {
+                    var source = AssetDatabase.LoadAssetAtPath<GameObject>(CollaboratorFolder + location.Item1 + ".fbx");
+                    if (source == null) throw new InvalidOperationException("Missing collaborator model: " + location.Item1);
+                    if (!NavMesh.SamplePosition(location.Item3, out var spot, 5f, NavMesh.AllAreas))
+                        throw new InvalidOperationException("No town walking ground near " + location.Item1);
+                    var placed = (GameObject)PrefabUtility.InstantiatePrefab(source);
+                    placed.name = location.Item1 + " - by " + location.Item2;
+                    placed.transform.SetParent(root, true);
+                    placed.transform.position = spot.position;
+                    var renderers = placed.GetComponentsInChildren<Renderer>();
+                    if (renderers.Length == 0) throw new InvalidOperationException("No renderer in " + location.Item1);
+                    var bounds = renderers[0].bounds;
+                    foreach (var renderer in renderers.Skip(1)) bounds.Encapsulate(renderer.bounds);
+                    placed.transform.localScale *= location.Item4 / Mathf.Max(.001f, bounds.size.y);
+                    bounds = placed.GetComponentsInChildren<Renderer>()[0].bounds;
+                    foreach (var renderer in placed.GetComponentsInChildren<Renderer>().Skip(1)) bounds.Encapsulate(renderer.bounds);
+                    placed.transform.position += Vector3.up * (spot.position.y - bounds.min.y);
+                    count++;
+                }
+            }
+            return count;
         }
 
         static float ConnectEntrance(GameObject player, Vector3 terraceCenter)
@@ -249,7 +295,8 @@ namespace YunJing.Editor
                 GameObject.Find("Qingxi listening terrace - town entrance") == null ||
                 GameObject.Find("Entrance_MaterialShop") == null ||
                 GameObject.Find("Player_FirstPerson") == null ||
-                GameObject.Find("Qingxi Designed HUD") == null)
+                GameObject.Find("Qingxi Designed HUD") == null ||
+                GameObject.Find("CollaboratorNoviceLocations") == null)
                 throw new InvalidOperationException("Unified world is missing its town, hunt, terrace or local traveler.");
         }
 
