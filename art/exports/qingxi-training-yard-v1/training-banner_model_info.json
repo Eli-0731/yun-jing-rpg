@@ -1,0 +1,103 @@
+{
+ "id": "training-banner",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.84,
+  0.55,
+  2.66
+ ],
+ "triangles": 5996,
+ "lod_triangles": [
+  5996,
+  2997,
+  1319
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   0.55,
+   0.55,
+   0.3
+  ],
+  "center": [
+   0,
+   0,
+   0.15
+  ],
+  "note": "pole capsule r0.05 above the base; cloth has no collision"
+ },
+ "pivots": {
+  "banner_cloth": [
+   0,
+   0,
+   2.33
+  ]
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "training-banner",
+  "dimensions_m": [
+   0.84,
+   0.55,
+   2.66
+  ],
+  "bbox_min": [
+   -0.42,
+   -0.275,
+   0.0
+  ],
+  "bbox_max": [
+   0.42,
+   0.275,
+   2.66
+  ],
+  "trianglesLOD": [
+   5996,
+   2997,
+   1319
+  ],
+  "budgetLOD0": 8000,
+  "withinBudget": true,
+  "materials": [
+   "M_training-banner"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "training-banner_LOD0",
+   "training-banner_banner_cloth_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 1358,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 5996,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_training-banner.001"
+   ]
+  },
+  "files": {
+   "training-banner.glb": {
+    "bytes": 644808,
+    "sha256": "f9a97c3dee757d045f96b0a4aa722557ec8ef4ada820110722eaa8e1075ff661"
+   },
+   "training-banner.fbx": {
+    "bytes": 873644,
+    "sha256": "f863b68a88d8008d691aca705da3f3f1dee35d8fe9f81f26c866ae6c057d5f18"
+   }
+  },
+  "reference": "art/references/qingxi-training-yard-v1/training-banner-three-view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

@@ -1,20 +1,20 @@
 # 青溪公共演武區：六件三視圖
 
-六件物件的 AI 正／側／頂參考圖已先生成、檢視、保存，才開始 Blender 建模。手機無法開啟本機審圖頁；使用者於 2026-10-27 指示「先做吧，我還是看不了，大不了到時候刪掉重做」。這是製作授權，並非逐件造型的目視核准。原圖可從 PR 的 `art/references/qingxi-training-yard-v1/` 在手機直接查看。圖片具概念圖性質，側／頂視的局部透視或尺寸矛盾，以統一模型規格修正。
+六張 AI 正／側／頂參考圖於 2026-10-27 由 Codex 以 OpenAI image_gen 生成並保存（提示詞 `prompts.json`，SHA-256 `image-manifest.json`），之後才開始建模。使用者當時因手機看不到審圖頁，指示「先做吧，我還是看不了，大不了到時候刪掉重做」；這是製作授權，不是逐件目視核准。
 
-工作包來源：`z1nnz/yun-jing-rpg` 的 `7225d37`，`docs/execution/2026-10-27/01-novice-entry-parallel-work-42h.md`，A 組。本分支 `feature/qingxi-training-yard-v1` 從取得時最新的 main `b2a57673751057ff6c31538d72a73898c350e7d6` 建立。工作包文件當時尚未在該 main 中，因此沒有擅自合併其他組的變更。
+## 2026-10-28 重做
 
-| 檔名 | 正式建模規格與檢視修正 |
+PR #32 的 Codex 模型被使用者退回。重做前，Claude Code 再次逐張檢視這六張圖（沒有重新生成，圖檔與雜湊不變），並以它們為準重建模型。每件的「三視圖 vs 模型正交圖」對照在 `../../previews/qingxi-training-yard-v1/<asset>/ref-vs-model.png`。
+
+| 檔名 | 本次建模依據與取捨 |
 | --- | --- |
-| `training-shelter-three-view.png` | 四柱、木樑與青瓦；低台基 0.12 m，前入口石坡淨寬 3.4 m、棚內無中央柱。圖中台階改為平緩坡。 |
-| `qi-striking-post-three-view.png` | 高 1.65 m，八角舊木、三段麻繩墊、正面渦紋與節奏點。原提示四點、生成圖三點；模型依實際圖採三點。 |
-| `agility-post-three-view.png` | 高 1.65 m，兩支格擋臂、一支低腿桿、紅布節奏提示及交叉穩固腳座。 |
-| `weapon-rack-three-view.png` | 空木架，雙立柱、雙五槽橫梁與加寬腳座，不附武器。前兩次圖片生成被工具拒絕；第三次空架方案成功後才建模。 |
-| `engraved-training-stone-three-view.png` | 約 1.8 × 1.5 × 0.28 m；天然石板、淺刻同心環與礦物色填紋。 |
-| `training-banner-three-view.png` | 2.65 m 旗桿、0.70 × 1.40 m 青綠布旗、赭色印紋與邊、實體吊環和石座。 |
+| `training-shelter-three-view.png` | 依圖改回石台基＋前方兩級台階（Codex 版改成緩坡）；曲面屋頂、四角翹起、筒瓦與瓦當、正脊捲尾、懸山博風板與懸魚、四柱鼓形柱礎、額枋與由額、雀替、斗拱、前柱玉結垂飾。圖上沒有字，匾額只用抽象劍環紋。高度約 4.3 m（含脊飾），比圖註 3.8 m 高，為了讓梁下淨高約 2.1 m。 |
+| `qi-striking-post-three-view.png` | 八角木樁、三段螺旋麻繩圈與側夾板、正面玉紋圓盤、下方三顆釘、四塊石座與木楔。 |
+| `agility-post-three-view.png` | 圓樁、皮革頂墊與黑繩、左右兩臂向前斜伸（左臂紅布纏）、前下方一支腿樁、十字腳座與木楔。三支臂是獨立節點，供格擋動畫使用。 |
+| `weapon-rack-three-view.png` | 空架：雙立柱、上下兩根六槽橫梁、穿釘、鐵箍與鉚釘、斜面腳座。依圖不放武器。 |
+| `engraved-training-stone-three-view.png` | 約 1.8 × 1.5 × 0.28 m 不規則石板，含缺角；三道同心環、四瓣花與四個菱形刻紋，礦物青填色。 |
+| `training-banner-three-view.png` | 石座、鐵套與四片支撐、木桿、象牙色頂珠、橫桿與繩綁、吊環、0.70 × 1.40 m 青綠旗面與赭邊、同心圓紋、破損旗尾、兩側垂穗。 |
 
-圖片由 OpenAI image_gen 生成，提示詞保存在 `prompts.json`，SHA-256 在 `image-manifest.json`。建模程式是原創程序幾何與自製 PBR 貼圖，未下載或轉用第三方模型。委託與造型方向來自 Johnnnny0823；Codex 執行圖像提示、模型、展示與驗證。
+作者：三視圖提示與生成 Codex（Johnnnny0823 委託）；2026-10-28 檢視與建模 Claude Code（Claude Opus 5.5）。沒有使用第三方模型。
 
-本組只新增 `art/references/qingxi-training-yard-v1/`、`art/source/qingxi-training-yard-v1/`、`art/exports/qingxi-training-yard-v1/`、`art/previews/qingxi-training-yard-v1/`、`tools/training-yard-demo/`。核心入口、聽風台、其他協作者資產與 API 均交核心組接入。
-
-獨立 PWA 展示的節奏分數只在記憶體，不換算修為或獎勵。main 的原始碼已有受權限保護的 `POST /actions` 及 `practice-basic`（qi/body，服務端冷卻與發獎），但本輪沒有接入主遊戲 PWA，也未對實體手機安裝或效能作驗證。
+本組只改 `art/references|source|exports|previews/qingxi-training-yard-v1/` 與 `tools/training-yard-demo/`；核心入口、聽風台、其他協作者資產、API 與 Unity 均未修改。
