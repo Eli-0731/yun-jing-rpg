@@ -1,0 +1,131 @@
+{
+ "id": "B10",
+ "name": "WaxSealedBottle",
+ "key": "B10_WaxSealedBottle_empty",
+ "state": "empty",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.1124,
+  0.0757,
+  0.109
+ ],
+ "triangles": 1036,
+ "lod_triangles": [
+  1036,
+  518,
+  226
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   0.075,
+   0.075,
+   0.115
+  ],
+  "center": [
+   0,
+   0,
+   0.058
+  ],
+  "note": "finished product container; empty bottle has its cork as node Cork"
+ },
+ "states": {
+  "filled": "corked, wax-sealed, twine tied, tonic 80 percent",
+  "empty": "open and dry, cork lying beside it"
+ },
+ "sockets": {
+  "grip": [
+   0,
+   0,
+   0.05
+  ]
+ },
+ "validation": {
+  "asset": "B10",
+  "key": "B10_WaxSealedBottle_empty",
+  "state": "empty",
+  "version": "v001",
+  "dimensions_m": [
+   0.1124,
+   0.0757,
+   0.109
+  ],
+  "bbox_min": [
+   -0.0375,
+   -0.0382,
+   0.0
+  ],
+  "bbox_max": [
+   0.0749,
+   0.0375,
+   0.109
+  ],
+  "target_size_m": [
+   0.075,
+   0.075,
+   0.12
+  ],
+  "trianglesLOD": [
+   1036,
+   518,
+   226
+  ],
+  "budgetLOD0": 3200,
+  "withinBudget": true,
+  "vertices": 539,
+  "materials": [
+   "M_B10_WaxSealedBottle_empty",
+   "B10_Glass"
+  ],
+  "textureResolution": 512,
+  "nodes": [
+   "B10_WaxSealedBottle_empty_LOD0",
+   "B10_WaxSealedBottle_empty_Cork_LOD0"
+  ],
+  "textures": [
+   "T_B10_WaxSealedBottle_empty_BaseColor.png",
+   "T_B10_WaxSealedBottle_empty_Normal.png",
+   "T_B10_WaxSealedBottle_empty_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 32,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 1036,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "B10_Glass.001",
+    "M_B10_WaxSealedBottle_empty.001"
+   ]
+  },
+  "files": {
+   "B10_WaxSealedBottle_empty.glb": {
+    "bytes": 369096,
+    "sha256": "1100b0cf8818d4f4bdcec5f98751f15fb54c0d15829078a3b9f14e7f1acf2a3e"
+   },
+   "B10_WaxSealedBottle_empty.fbx": {
+    "bytes": 148892,
+    "sha256": "697f6e36b778321f3bb926a5783fe3432bf0811fa3008b25690740a7d891a5d6"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B10_WaxSealedBottle_empty": "OPAQUE",
+   "B10_Glass": "BLEND"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 5.1,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

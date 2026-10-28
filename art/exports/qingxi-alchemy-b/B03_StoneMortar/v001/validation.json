@@ -1,0 +1,85 @@
+{
+ "B03_StoneMortar": {
+  "asset": "B03",
+  "key": "B03_StoneMortar",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.3424,
+   0.3184,
+   0.2086
+  ],
+  "bbox_min": [
+   -0.1595,
+   -0.1588,
+   0.0
+  ],
+  "bbox_max": [
+   0.1829,
+   0.1596,
+   0.2086
+  ],
+  "target_size_m": [
+   0.32,
+   0.32,
+   0.25
+  ],
+  "trianglesLOD": [
+   2276,
+   1138,
+   500
+  ],
+  "budgetLOD0": 2500,
+  "withinBudget": true,
+  "vertices": 1144,
+  "materials": [
+   "M_B03_StoneMortar"
+  ],
+  "textureResolution": 512,
+  "nodes": [
+   "B03_StoneMortar_LOD0",
+   "B03_StoneMortar_Pestle_LOD0"
+  ],
+  "textures": [
+   "T_B03_StoneMortar_BaseColor.png",
+   "T_B03_StoneMortar_Normal.png",
+   "T_B03_StoneMortar_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 2276,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B03_StoneMortar.001"
+   ]
+  },
+  "files": {
+   "B03_StoneMortar.glb": {
+    "bytes": 768492,
+    "sha256": "b35b9608715fcf32a0a66e1ea712760c87f980abb873aa4d77b4c6c104f00af4"
+   },
+   "B03_StoneMortar.fbx": {
+    "bytes": 257004,
+    "sha256": "f0573ef79e6c098868116c5a94fa8b1f91dc2cc84596cb4b35046815cd786917"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B03_StoneMortar": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 2.5,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

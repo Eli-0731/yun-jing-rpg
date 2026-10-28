@@ -1,0 +1,37 @@
+:root { --ink: #23211d; --paper: rgba(246, 242, 232, .94); --jade: #3f6f62; --amber: #b8742a; --warn: #a2412f; --line: rgba(35, 33, 29, .18); }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #2b302c; font: 15px/1.5 "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif; color: var(--ink); }
+#view { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+#mode { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); padding: 6px 14px; border-radius: 999px; background: #7a3b22; color: #fff; font-weight: 700; letter-spacing: .04em; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+aside, #card, #prompt, #toast, #help { position: fixed; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,.25); }
+#steps { top: 56px; left: 16px; width: 250px; padding: 12px 14px; }
+#steps h2, #preview h2, #card h2 { margin: 0 0 6px; font-size: 16px; }
+#steps ol { margin: 0; padding: 0; list-style: none; }
+#steps li { margin: 3px 0; color: #6d675d; }
+#steps li.now { color: var(--ink); font-weight: 700; }
+#steps li.done { color: var(--jade); }
+#preview { top: 56px; right: 16px; width: 270px; padding: 12px 14px; }
+.meter { height: 8px; border-radius: 4px; background: #ddd5c4; overflow: hidden; margin: 2px 0 8px; }
+.meter i { display: block; height: 100%; background: var(--jade); }
+.meter.pot i { background: var(--amber); }
+.warn { color: var(--warn); font-size: 13px; margin: 4px 0 0; }
+.dim { color: #7b746a; font-size: 13px; }
+#card { left: 50%; bottom: 72px; transform: translateX(-50%); width: min(560px, calc(100% - 32px)); max-height: 62vh; overflow: auto; padding: 14px 16px; }
+#card .row { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; align-items: center; }
+#card button, #prompt { font: inherit; }
+#card button { padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: #fff; cursor: pointer; }
+#card button.on { background: var(--jade); color: #fff; border-color: var(--jade); }
+#card button.go { background: var(--amber); color: #fff; border-color: var(--amber); font-weight: 700; }
+#card button:disabled { opacity: .45; cursor: default; }
+#card .fb { margin: 6px 0; padding: 8px 10px; border-radius: 8px; background: #f3e1d9; color: var(--warn); }
+#card .ok { margin: 6px 0; padding: 8px 10px; border-radius: 8px; background: #dcebe3; color: #24493f; }
+#card table { border-collapse: collapse; width: 100%; font-size: 14px; }
+#card td { padding: 3px 6px; border-bottom: 1px solid var(--line); }
+#card .x { position: absolute; top: 8px; right: 10px; border: 0; background: none; font-size: 18px; cursor: pointer; }
+#prompt { left: 50%; bottom: 24px; transform: translateX(-50%); padding: 8px 16px; cursor: pointer; font-weight: 700; }
+#toast { left: 50%; top: 52px; transform: translateX(-50%); padding: 8px 16px; max-width: 80%; white-space: pre-line; }
+#toast.bad { background: #f6ded6; color: var(--warn); }
+#help { left: 16px; bottom: 16px; padding: 6px 10px; font-size: 13px; color: #5d574e; }
+@media (max-width: 760px) {
+  #steps { width: 170px; font-size: 13px; } #preview { width: 180px; font-size: 13px; top: auto; bottom: 120px; } #help { display: none; }
+}

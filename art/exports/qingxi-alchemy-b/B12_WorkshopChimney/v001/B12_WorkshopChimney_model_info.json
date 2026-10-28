@@ -1,0 +1,131 @@
+{
+ "id": "B12",
+ "name": "WorkshopChimney",
+ "key": "B12_WorkshopChimney",
+ "state": "default",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.7632,
+  0.7385,
+  1.945
+ ],
+ "triangles": 6144,
+ "lod_triangles": [
+  6144,
+  3072,
+  1351
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   0.74,
+   0.74,
+   1.92
+  ],
+  "center": [
+   0,
+   0,
+   0.96
+  ],
+  "note": "flue inlet socket on +X at z 0.98"
+ },
+ "states": {
+  "default": "soot darkens the upper courses"
+ },
+ "sockets": {
+  "flue_inlet": [
+   0.39,
+   0,
+   0.98
+  ],
+  "smoke_outlet": [
+   0,
+   0,
+   1.665
+  ]
+ },
+ "validation": {
+  "asset": "B12",
+  "key": "B12_WorkshopChimney",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.7632,
+   0.7385,
+   1.945
+  ],
+  "bbox_min": [
+   -0.3682,
+   -0.3691,
+   0.0
+  ],
+  "bbox_max": [
+   0.395,
+   0.3694,
+   1.945
+  ],
+  "target_size_m": [
+   0.8,
+   0.78,
+   1.92
+  ],
+  "trianglesLOD": [
+   6144,
+   3072,
+   1351
+  ],
+  "budgetLOD0": 6500,
+  "withinBudget": true,
+  "vertices": 3278,
+  "materials": [
+   "M_B12_WorkshopChimney"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B12_WorkshopChimney_LOD0"
+  ],
+  "textures": [
+   "T_B12_WorkshopChimney_BaseColor.png",
+   "T_B12_WorkshopChimney_Normal.png",
+   "T_B12_WorkshopChimney_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 192,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 6144,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B12_WorkshopChimney.001"
+   ]
+  },
+  "files": {
+   "B12_WorkshopChimney.glb": {
+    "bytes": 3707440,
+    "sha256": "26d544a1764d9030967177c5b27fd3f245b09bb291aa17bd4873af31b118c6b4"
+   },
+   "B12_WorkshopChimney.fbx": {
+    "bytes": 714700,
+    "sha256": "f6e4cb8dfe07b91d5f8f3724a51fc5c685d4f1e87ca52789ad22f6cc8b9ad933"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B12_WorkshopChimney": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 5.2,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
