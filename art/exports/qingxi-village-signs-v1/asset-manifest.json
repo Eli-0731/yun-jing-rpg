@@ -1,0 +1,91 @@
+{
+  "author": "Eli-0731 / Codex",
+  "blender": "4.5.3 LTS",
+  "units": "meters",
+  "source_axes": "Z up, front -Y",
+  "glb_axes": "Y up, front +Z",
+  "reference_sha256": {
+    "Q01-three-view.png": "eda3467c6865b66cc8ce670fbb9c11afbc2d910c1e48093312bc91e5e1d8db52",
+    "Q02-three-view.png": "470bae753c87e0ff556dafc595097e806b03176e42ecfadcf1a3364b938b0fd3",
+    "Q03-three-view.png": "1e79c08183de8bdd934c09e0f17cdc1c7f8a4418a2d10a59e138fdc6a4c07c1b",
+    "Q04-three-view.png": "4a491250204574264c0ef676de72c7dd9ded3700f9460a7cb124fd616350710c"
+  },
+  "assets": [
+    {
+      "id": "Q01",
+      "dimensions_xyz": [
+        1.25,
+        0.5531529486179352,
+        1.7650001049041748
+      ],
+      "triangles": 4248,
+      "meshes": 40,
+      "errors": [],
+      "lod": "single prototype LOD; integrate distance culling at 25m, low LOD not delivered",
+      "collision": "one box or capsule around main silhouette, decorative cords non-colliding",
+      "roundtrip_dimensions_xyz": [
+        1.25,
+        0.5531529486179352,
+        1.7650001049041748
+      ],
+      "roundtrip_pass": true
+    },
+    {
+      "id": "Q02",
+      "dimensions_xyz": [
+        0.47999998927116394,
+        0.36328864097595215,
+        0.8288543820381165
+      ],
+      "triangles": 376,
+      "meshes": 6,
+      "errors": [],
+      "lod": "single prototype LOD; integrate distance culling at 25m, low LOD not delivered",
+      "collision": "one box or capsule around main silhouette, decorative cords non-colliding",
+      "roundtrip_dimensions_xyz": [
+        0.47999998927116394,
+        0.36328864097595215,
+        0.8288543820381165
+      ],
+      "roundtrip_pass": true
+    },
+    {
+      "id": "Q03",
+      "dimensions_xyz": [
+        0.24652446806430817,
+        0.21720774471759796,
+        1.0499999523162842
+      ],
+      "triangles": 1136,
+      "meshes": 17,
+      "errors": [],
+      "lod": "single prototype LOD; integrate distance culling at 25m, low LOD not delivered",
+      "collision": "one box or capsule around main silhouette, decorative cords non-colliding",
+      "roundtrip_dimensions_xyz": [
+        0.24652446806430817,
+        0.21720774471759796,
+        1.0499999523162842
+      ],
+      "roundtrip_pass": true
+    },
+    {
+      "id": "Q04",
+      "dimensions_xyz": [
+        0.8500000238418579,
+        0.41999998688697815,
+        1.2410814762115479
+      ],
+      "triangles": 3488,
+      "meshes": 28,
+      "errors": [],
+      "lod": "single prototype LOD; integrate distance culling at 25m, low LOD not delivered",
+      "collision": "one box or capsule around main silhouette, decorative cords non-colliding",
+      "roundtrip_dimensions_xyz": [
+        0.8500000238418579,
+        0.41999998688697815,
+        1.2410814762115479
+      ],
+      "roundtrip_pass": true
+    }
+  ]
+}
