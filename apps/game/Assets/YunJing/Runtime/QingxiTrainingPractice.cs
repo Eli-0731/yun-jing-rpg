@@ -13,6 +13,7 @@ namespace YunJing
     {
         const float Reach = 1.9f;
         public Transform qiPost, blockPost;
+        public string qiLabel = "氣勁木樁";
         public QingxiFirstPerson walker;
 
         public Rules.BreathSession Breath { get; private set; }
@@ -30,7 +31,7 @@ namespace YunJing
         public string Prompt(Vector3 position)
         {
             if (Active) return null;
-            if (qiPost != null && Flat(position, qiPost.position) <= Reach) return "F 引氣呼吸（氣勁木樁，Johnnnny0823）";
+            if (qiPost != null && Flat(position, qiPost.position) <= Reach) return $"F 引氣呼吸（{qiLabel}，Johnnnny0823 的練法）";
             if (blockPost != null && Flat(position, blockPost.position) <= Reach) return "F 武技格擋（身法木樁，Johnnnny0823）";
             return null;
         }

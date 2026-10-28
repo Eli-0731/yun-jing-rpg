@@ -13,13 +13,17 @@ namespace YunJing
         public const string VillageScene = "QingxiNoviceVillage";
         const float Reach = 2.4f;
 
+        public const string LodgingScene = "QingxiLodgingInterior";
+
         public Transform alchemyDoor, returnTable;
+        public Transform lodgingDoor;              // village: front door of the lodging house
+        public Transform exitDoor, bed, chest;     // lodging interior
         public QingxiForestEncounter forest;
         public QingxiFirstPerson walker;
-        public QingxiTrainingPractice training;   // Johnnnny0823's two training-yard drills
+        public QingxiTrainingPractice training;   // Johnnnny0823's training drills (posts, or the cushion indoors)
 
-        // Set by QingxiSceneReturn when the player leaves the alchemy room.
-        public static bool ReturningFromAlchemy;
+        // Set by QingxiSceneReturn when the player leaves the alchemy room, and by the lodging exit door.
+        public static bool ReturningFromAlchemy, ReturningFromLodging;
 
         public bool SortingOpen { get; set; }
         public event System.Action SortingRequested;
@@ -27,14 +31,20 @@ namespace YunJing
         void Start()
         {
             if (walker == null) walker = QingxiFirstPerson.Current;
-            if (!ReturningFromAlchemy || walker == null || alchemyDoor == null) return;
-            ReturningFromAlchemy = false;
+            if (walker == null) return;
+            var foraging = GetComponent<QingxiLocalForaging>();
+            if (ReturningFromAlchemy && alchemyDoor != null) { ReturningFromAlchemy = false; Place(alchemyDoor); foraging?.RestoreCarried(); }
+            else if (ReturningFromLodging && lodgingDoor != null) { ReturningFromLodging = false; Place(lodgingDoor); foraging?.RestoreCarried("走出借住處，回到青溪村"); }
+            else if (exitDoor != null) foraging?.RestoreCarried("進入借住處");
+        }
+
+        void Place(Transform door)
+        {
             var body = walker.GetComponent<CharacterController>();
             body.enabled = false;
-            walker.transform.position = alchemyDoor.position + Vector3.up * .05f;
-            walker.transform.rotation = Quaternion.LookRotation(-alchemyDoor.forward);
+            walker.transform.position = door.position + Vector3.up * .05f;
+            walker.transform.rotation = Quaternion.LookRotation(-door.forward);
             body.enabled = true;
-            GetComponent<QingxiLocalForaging>()?.RestoreCarried();
         }
 
         static float Flat(Vector3 a, Vector3 b) => Vector2.Distance(new Vector2(a.x, a.z), new Vector2(b.x, b.z));
@@ -43,6 +53,10 @@ namespace YunJing
         {
             var practice = training != null ? training.Prompt(position) : null;
             if (practice != null) return practice;
+            if (lodgingDoor != null && Flat(position, lodgingDoor.position) <= Reach) return "F 推門進入借住處";
+            if (exitDoor != null && Flat(position, exitDoor.position) <= Reach) return "F 推門出去，回到青溪村";
+            if (bed != null && Flat(position, bed.position) <= Reach) return "F 在床上歇息片刻";
+            if (chest != null && Flat(position, chest.position) <= Reach) return "F 打開儲物箱";
             if (alchemyDoor != null && Flat(position, alchemyDoor.position) <= Reach) return "F 進入溪畔丹房（joshsu54 煉製玩法，需本機 API）";
             if (returnTable != null && Flat(position, returnTable.position) <= Reach) return "F 在分揀桌整理回村樣本（保存／留待煉製／交委託展示）";
             if (forest != null && forest.NearLadder(position)) return forest.Climbed ? "F 爬下觀察台" : "F 爬上觀察台（安全點）";
@@ -53,6 +67,34 @@ namespace YunJing
         {
             message = null;
             if (training != null && training.TryInteract(position, out message)) return true;
+            var foraging = GetComponent<QingxiLocalForaging>();
+            if (lodgingDoor != null && Flat(position, lodgingDoor.position) <= Reach)
+            {
+                if (!Application.CanStreamedLevelBeLoaded(LodgingScene)) { message = "借住處室內未包含在這個建置"; return true; }
+                foraging?.Carry();
+                QingxiSceneFade.ThroughDoor(LodgingScene, walker, lodgingDoor);
+                message = "推門進屋";
+                return true;
+            }
+            if (exitDoor != null && Flat(position, exitDoor.position) <= Reach)
+            {
+                foraging?.Carry();
+                ReturningFromLodging = true;
+                QingxiSceneFade.ThroughDoor(VillageScene, walker, exitDoor);
+                message = "推門出去";
+                return true;
+            }
+            if (bed != null && Flat(position, bed.position) <= Reach)
+            {
+                QingxiSceneFade.Blink();
+                message = "歇息片刻，氣息平穩。（本機演練，不會跳過現實時間）";
+                return true;
+            }
+            if (chest != null && Flat(position, chest.position) <= Reach)
+            {
+                message = "箱子是空的。正式背包接上服務端後，物品會放在這裡。";
+                return true;
+            }
             if (alchemyDoor != null && Flat(position, alchemyDoor.position) <= Reach)
             {
                 if (!Application.CanStreamedLevelBeLoaded(AlchemyScene)) { message = "丹房場景未包含在這個建置"; return true; }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using QingxiWorld;
 using UnityEngine;
 
@@ -141,23 +142,28 @@ namespace YunJing
             return false;
         }
 
-        // Rehearsal counts survive a visit to the alchemy room (a separate scene) within one run only.
+        // Rehearsal counts survive a visit to another scene (alchemy room, lodging interior) within one run only.
         sealed class Carried { public int herbs, rabbits, stones, trades, insights, pellets, practice; public string[] clues; }
         static Carried carried;
+        // Clues seen in the village stay remembered while the player is in a scene without those clue nodes.
+        static string[] pendingClues = Array.Empty<string>();
 
         public void Carry() => carried = new Carried { herbs = Herbs, rabbits = Rabbits, stones = PracticeStones, trades = Trades,
             insights = Insights, pellets = PracticePellets, practice = basicPracticeCount,
-            clues = Array.ConvertAll(Array.FindAll(clueNodes ?? Array.Empty<Transform>(), c => c != null && observedClues.Contains(c)), c => c.name) };
+            clues = Array.ConvertAll(Array.FindAll(clueNodes ?? Array.Empty<Transform>(), c => c != null && observedClues.Contains(c)), c => c.name)
+                .Concat(pendingClues).Distinct().ToArray() };
 
-        public void RestoreCarried()
+        public void RestoreCarried(string arrival = "離開丹房，回到青溪街上")
         {
             if (carried == null) return;
             Herbs = carried.herbs; Rabbits = carried.rabbits; PracticeStones = carried.stones; Trades = carried.trades;
             Insights = carried.insights; PracticePellets = carried.pellets; basicPracticeCount = carried.practice;
+            var restored = new HashSet<string>();
             foreach (var clue in clueNodes ?? Array.Empty<Transform>())
-                if (clue != null && Array.IndexOf(carried.clues, clue.name) >= 0) observedClues.Add(clue);
+                if (clue != null && Array.IndexOf(carried.clues, clue.name) >= 0) { observedClues.Add(clue); restored.Add(clue.name); }
+            pendingClues = carried.clues.Where(c => !restored.Contains(c)).ToArray();
             carried = null;
-            Complete("離開丹房，回到青溪街上", out _);
+            Complete(arrival, out _);
         }
 
         bool Complete(string result, out string message)

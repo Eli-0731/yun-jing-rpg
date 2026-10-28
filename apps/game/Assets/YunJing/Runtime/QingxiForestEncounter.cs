@@ -82,18 +82,25 @@ namespace YunJing
             UpdateRabbit();
         }
 
+        // On-screen buttons (QingxiTouchControls) set these; one-shot flags are cleared after each read.
+        public static bool VirtualAttack, VirtualTechnique, VirtualBlockHeld, VirtualDodge, VirtualReturn;
+
         void ReadInput()
         {
-            var kb = Keyboard.current; var mouse = Mouse.current; if (kb == null) return;
+            var kb = Keyboard.current; var mouse = Mouse.current;
+            bool attack = VirtualAttack, technique = VirtualTechnique, dodge = VirtualDodge, back = VirtualReturn;
+            VirtualAttack = VirtualTechnique = VirtualDodge = VirtualReturn = false;
             bool locked = Cursor.lockState == CursorLockMode.Locked;
-            if (kb.rKey.wasPressedThisFrame) { ReturnToSafePoint(); return; }
-            bool blockHeld = kb.kKey.isPressed || (locked && mouse != null && mouse.rightButton.isPressed);
+            if (back || (kb != null && kb.rKey.wasPressedThisFrame)) { ReturnToSafePoint(); return; }
+            bool blockHeld = VirtualBlockHeld || (kb != null && kb.kKey.isPressed) || (locked && mouse != null && mouse.rightButton.isPressed);
             if (blockHeld != rules.player.blocking) rules.SetBlock(blockHeld);
-            if (kb.jKey.wasPressedThisFrame || (locked && mouse != null && mouse.leftButton.wasPressedThisFrame)) rules.Attack("basic");
-            if (kb.qKey.wasPressedThisFrame) rules.Attack("technique");
-            if (kb.cKey.wasPressedThisFrame || kb.leftCtrlKey.wasPressedThisFrame)
+            if (attack || (kb != null && kb.jKey.wasPressedThisFrame) || (locked && mouse != null && mouse.leftButton.wasPressedThisFrame)) rules.Attack("basic");
+            if (technique || (kb != null && kb.qKey.wasPressedThisFrame)) rules.Attack("technique");
+            if (dodge || (kb != null && (kb.cKey.wasPressedThisFrame || kb.leftCtrlKey.wasPressedThisFrame)))
             {
-                var input = new Vector3((kb.dKey.isPressed ? 1 : 0) - (kb.aKey.isPressed ? 1 : 0), 0, (kb.wKey.isPressed ? 1 : 0) - (kb.sKey.isPressed ? 1 : 0));
+                var move = QingxiWorld.QingxiFirstPerson.VirtualMove;
+                var input = kb == null ? new Vector3(move.x, 0, move.y)
+                    : new Vector3((kb.dKey.isPressed ? 1 : 0) - (kb.aKey.isPressed ? 1 : 0) + move.x, 0, (kb.wKey.isPressed ? 1 : 0) - (kb.sKey.isPressed ? 1 : 0) + move.y);
                 var dir = transform.InverseTransformDirection(walker.transform.TransformDirection(input));
                 rules.Move(dir.x, dir.z);
                 rules.Dodge();

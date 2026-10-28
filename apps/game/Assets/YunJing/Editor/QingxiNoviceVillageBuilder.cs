@@ -91,6 +91,12 @@ namespace YunJing.Editor
             var training = player.AddComponent<QingxiTrainingPractice>();
             training.qiPost = qiPost; training.blockPost = blockPost; training.walker = walker;
             stations.training = training;
+            // The lodging's front door (west side, facing the road) leads into its interior scene.
+            var lodgingDoor = new GameObject("LodgingDoor_StarterHouse").transform;
+            lodgingDoor.SetParent(village, false); lodgingDoor.position = At(11.8f, -19.5f); lodgingDoor.rotation = Quaternion.Euler(0, 90, 0);
+            stations.lodgingDoor = lodgingDoor;
+            var touch = player.AddComponent<QingxiTouchControls>();
+            touch.forest = zones.encounter; touch.training = training;
             var trainingParity = QingxiTrainingPracticeSmoke.Verify();
             foraging.abc = stations;
             walker.localForaging = foraging;
@@ -105,7 +111,10 @@ namespace YunJing.Editor
             AssetDatabase.SaveAssets();
             Debug.Log($"QINGXI_NOVICE_VILLAGE_GENERATED: collaborator models={zones.models}, placements={placed}, spots={spots.Length}, herbs={herbs.Length}, clues={foraging.clueNodes.Length}, URP copies={converted}, {trainingParity}\n" + string.Join("\n", zones.report));
             PrepareAlchemyRoom();
+            QingxiLodgingInteriorBuilder.Generate();
         }
+
+        static string[] Scenes => new[] { ScenePath, AlchemyScenePath, QingxiLodgingInteriorBuilder.ScenePath };
 
         static float Facing(Vector3 from, Vector3 target)
         {
@@ -138,7 +147,7 @@ namespace YunJing.Editor
             }
         }
 
-        static GameObject Player(Transform village, Vector3 spawn)
+        internal static GameObject Player(Transform village, Vector3 spawn)
         {
             var player = new GameObject("Player_FirstPerson");
             player.transform.SetParent(village, false);
@@ -377,17 +386,41 @@ namespace YunJing.Editor
 
         public static void BuildWindows()
         {
-            if (!File.Exists(ScenePath) || !File.Exists(AlchemyScenePath)) throw new InvalidOperationException("Generate the novice village in a previous Editor process.");
+            if (Scenes.Any(s => !File.Exists(s))) throw new InvalidOperationException("Generate the novice village in a previous Editor process.");
             QingxiUrpUpgrade.EnsurePipeline();
             PlayerSettings.productName = "雲境 · 青溪新手村";
             string path = "../../artifacts/windows-novice-village/YunJingNoviceVillage.exe";
             Directory.CreateDirectory(Path.GetDirectoryName(path));
             var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-                scenes = new[] { ScenePath, AlchemyScenePath }, target = BuildTarget.StandaloneWindows64,
+                scenes = Scenes, target = BuildTarget.StandaloneWindows64,
                 locationPathName = path, options = BuildOptions.None
             });
             if (report.summary.result != BuildResult.Succeeded) throw new InvalidOperationException("Novice village Windows build failed.");
             Debug.Log("QINGXI_NOVICE_VILLAGE_WINDOWS_BUILT: " + Path.GetFullPath(path));
+        }
+
+        // Browser build with Unity's PWA template (web manifest, service worker, installable). Gzip with the
+        // decompression fallback so any static server can host it; run tools/qingxi-webgl/serve.mjs to try it.
+        public static void BuildWebGL()
+        {
+            if (Scenes.Any(s => !File.Exists(s))) throw new InvalidOperationException("Generate the novice village in a previous Editor process.");
+            QingxiUrpUpgrade.EnsurePipeline();
+            PlayerSettings.productName = "雲境 · 青溪新手村";
+            PlayerSettings.WebGL.template = "APPLICATION:PWA";
+            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+            PlayerSettings.WebGL.decompressionFallback = true;
+            PlayerSettings.WebGL.dataCaching = true;
+            PlayerSettings.WebGL.exceptionSupport = WebGLExceptionSupport.ExplicitlyThrownExceptionsOnly;
+            PlayerSettings.WebGL.initialMemorySize = 256;
+            PlayerSettings.runInBackground = true;
+            string path = "../../artifacts/webgl-novice-village";
+            Directory.CreateDirectory(path);
+            var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
+                scenes = Scenes, target = BuildTarget.WebGL, locationPathName = path, options = BuildOptions.None
+            });
+            if (report.summary.result != BuildResult.Succeeded)
+                throw new InvalidOperationException("Novice village WebGL build failed: " + string.Join("; ", report.steps.SelectMany(s => s.messages).Where(m => m.type == LogType.Error).Select(m => m.content).Take(5)));
+            Debug.Log($"QINGXI_NOVICE_VILLAGE_WEBGL_BUILT: {Path.GetFullPath(path)} ({report.summary.totalSize / 1048576f:0.0} MB, {report.summary.totalTime.TotalMinutes:0.0} min)");
         }
     }
 }

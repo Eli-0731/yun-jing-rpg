@@ -19,7 +19,9 @@ namespace YunJing
 
         IEnumerator Start()
         {
-            if (running || Array.IndexOf(Environment.GetCommandLineArgs(), "--abc-smoke") < 0) yield break;
+            // --abc-smoke on the command line, or ?abc-smoke in the browser (WebGL/PWA build).
+            bool requested = Array.IndexOf(Environment.GetCommandLineArgs(), "--abc-smoke") >= 0 || Application.absoluteURL.Contains("abc-smoke");
+            if (running || !requested) yield break;
             running = true;
             Application.targetFrameRate = 60;
             DontDestroyOnLoad(gameObject);
@@ -30,6 +32,14 @@ namespace YunJing
             var stations = walker.GetComponent<QingxiAbcStations>();
             var forest = FindFirstObjectByType<QingxiForestEncounter>();
             var body = walker.GetComponent<CharacterController>();
+
+            // The village stands on a Unity Terrain: its collider must hold the walker up in the built player.
+            var terrain = Terrain.activeTerrain;
+            var groundCollider = terrain != null ? terrain.GetComponent<TerrainCollider>() : null;
+            var groundRay = Physics.RaycastAll(new Vector3(0, 60, -22), Vector3.down, 200f, ~0, QueryTriggerInteraction.Ignore).FirstOrDefault(h => h.collider is TerrainCollider);
+            bool groundHit = groundRay.collider != null;
+            Debug.Log($"[QingxiAbcSmoke] terrain={(terrain != null ? terrain.name : "none")} collider={(groundCollider != null ? groundCollider.enabled.ToString() : "none")} data={(groundCollider != null && groundCollider.terrainData != null ? groundCollider.terrainData.heightmapResolution.ToString() : "none")} ray={groundHit} {(groundHit ? groundRay.collider.name + " y=" + groundRay.point.y.ToString("0.00") : "")}");
+            if (terrain != null) Check($"terrain collider holds the ground (ray hit {(groundHit ? groundRay.collider.name : "nothing")})", groundHit && groundRay.collider is TerrainCollider);
 
             // C: sorting table opens and keeps a choice.
             Spot(walker, "回村分揀桌");
@@ -119,9 +129,46 @@ namespace YunJing
             walker = QingxiFirstPerson.Current;
             foraging = walker.GetComponent<QingxiLocalForaging>();
             Check("back in " + home, SceneManager.GetActiveScene().name == home);
-            Check("returned to the alchemy door", Vector3.Distance(walker.transform.position, door) < 1.5f);
+            Check($"returned to the alchemy door (at {walker.transform.position}, door {door})", Vector3.Distance(walker.transform.position, door) < 1.5f);
             Check("rehearsal counts carried", foraging.Herbs == herbs);
             Check("sorting kept", QingxiReturnSorting.Session.Placements["herb"] == "save");
+
+            // Lodging: the house door fades into the interior scene; the exit door brings the player back out.
+            stations = walker.GetComponent<QingxiAbcStations>();
+            if (stations.lodgingDoor != null)
+            {
+                var lodgingDoor = stations.lodgingDoor.position;
+                Teleport(walker, lodgingDoor);
+                yield return Frames(5);
+                Check("lodging door prompt", (foraging.Prompt(walker.transform.position) ?? "").Contains("借住處"));
+                foraging.TryInteract(walker.transform.position, out _);
+                yield return new WaitForSecondsRealtime(2.5f);
+                walker = QingxiFirstPerson.Current;
+                var inside = walker != null ? walker.GetComponent<QingxiAbcStations>() : null;
+                Check("lodging interior loaded", SceneManager.GetActiveScene().name == QingxiAbcStations.LodgingScene && inside != null && inside.exitDoor != null);
+                if (inside != null && inside.exitDoor != null)
+                {
+                    var indoorForaging = walker.GetComponent<QingxiLocalForaging>();
+                    Check("counts carried indoors", indoorForaging.Herbs == herbs);
+                    Teleport(walker, inside.bed.position + Vector3.right * 1.3f);
+                    yield return Frames(5);
+                    Check("bed offers rest", (indoorForaging.Prompt(walker.transform.position) ?? "").Contains("歇息"));
+                    Teleport(walker, inside.chest.position + Vector3.left * 1.1f);
+                    yield return Frames(5);
+                    Check("chest can be opened", (indoorForaging.Prompt(walker.transform.position) ?? "").Contains("儲物箱"));
+                    Teleport(walker, inside.training.qiPost.position + Vector3.back * .9f);
+                    yield return Frames(5);
+                    Check("cushion offers breathing", (indoorForaging.Prompt(walker.transform.position) ?? "").Contains("蒲團"));
+                    Teleport(walker, inside.exitDoor.position);
+                    yield return Frames(5);
+                    indoorForaging.TryInteract(walker.transform.position, out _);
+                    yield return new WaitForSecondsRealtime(2.5f);
+                    walker = QingxiFirstPerson.Current;
+                    foraging = walker.GetComponent<QingxiLocalForaging>();
+                    Check($"back outside the lodging (at {walker.transform.position}, door {lodgingDoor})", SceneManager.GetActiveScene().name == home && Vector3.Distance(walker.transform.position, lodgingDoor) < 1.5f);
+                    Check("counts carried back out", foraging.Herbs == herbs);
+                }
+            }
 
             var report = $"QINGXI_ABC_SMOKE {(passed ? "PASS" : "FAIL")}: " + string.Join("; ", results);
             Debug.Log(report);
