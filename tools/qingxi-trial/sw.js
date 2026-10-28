@@ -1,4 +1,4 @@
-const CACHE = 'qingxi-trial-v3';
+const CACHE = 'qingxi-trial-v4';
 const SHELL = ['/tools/qingxi-trial/', '/tools/qingxi-trial/index.html',
   '/tools/qingxi-trial/main.js', '/tools/qingxi-trial/scene-content.mjs', '/tools/qingxi-trial/icon.svg',
   '/tools/qingxi-trial/manifest.webmanifest'];

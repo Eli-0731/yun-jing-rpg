@@ -25,7 +25,24 @@ let previousFrame = performance.now();
 const cameraBlockers = [];
 const cameraRay = new THREE.Raycaster();
 
-const ground = new THREE.Mesh(new THREE.PlaneGeometry(48, 35), new THREE.MeshStandardMaterial({ color: '#819b73', roughness: 1 }));
+// Road-v13 is the authored entrance surface. A mottled ground material keeps
+// the uncovered edges from reading as one flat green block.
+const groundCanvas = document.createElement('canvas');
+groundCanvas.width = groundCanvas.height = 256;
+const groundContext = groundCanvas.getContext('2d');
+groundContext.fillStyle = '#79906a'; groundContext.fillRect(0, 0, 256, 256);
+let seed = 82341;
+function random() { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; }
+for (let i = 0; i < 4800; i++) {
+  const shade = Math.floor(70 + random() * 65);
+  groundContext.fillStyle = `rgba(${shade + 19},${shade + 34},${shade},${.08 + random() * .18})`;
+  groundContext.fillRect(random() * 256, random() * 256, 1 + random() * 7, 1 + random() * 5);
+}
+const groundTexture = new THREE.CanvasTexture(groundCanvas);
+groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
+groundTexture.repeat.set(5, 4);
+groundTexture.colorSpace = THREE.SRGBColorSpace;
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(48, 35), new THREE.MeshStandardMaterial({ map: groundTexture, roughness: 1 }));
 ground.rotation.x = -Math.PI / 2; ground.position.y = -.045; scene.add(ground);
 const river = new THREE.Mesh(new THREE.PlaneGeometry(3.8, 35), new THREE.MeshStandardMaterial({ color: '#319ba6', transparent: true, opacity: .83, roughness: .24 }));
 river.rotation.x = -Math.PI / 2; river.position.set(-9.9, .015, 0); scene.add(river);
@@ -52,8 +69,8 @@ async function placeModel(path, x, z, extent, axis = 'width', rotation = 0) {
 }
 
 const assets = [
-  ['../../art/exports/qingxi-road-props-v12/qingxi-road-v12.glb', 0, 0, 15, 'width'],
-  ['../../art/exports/qingxi-road-props-v12/qingxi-road-v12.glb', 9, 5, 8, 'width'],
+  ['../../art/exports/qingxi-road-props-v13/qingxi-road-v13.glb', 0, 7, 17, 'width'],
+  ['../../art/exports/qingxi-road-props-v13/qingxi-road-v13.glb', 0, -3, 15, 'width'],
   ['../../art/exports/qingxi-entry-assets-v13/village-gate-v13.glb', 0, 8, 6.5, 'width'],
   ['../../art/exports/qingxi-riverside-house-v1/qingxi-riverside-house-v1.glb', 5.4, 2.4, 7, 'width'],
   ['../../art/exports/elder-world-tree-hero-v1/elder-world-tree-hero-v1.glb', -5, 7, 6.8, 'height'],
@@ -89,10 +106,13 @@ async function scatterExisting(path, positions, extent) {
 }
 const dressing = Promise.allSettled([
   scatterExisting('../../art/exports/qingxi-detail-props-v2/qingxi-moss-boulder-v2.glb',
-    [[-5.0, 7.0], [8.7, -2.1], [17.5, -2.2], [9.1, -8.8], [18.0, -8.8], [10.1, 3.1], [18.3, 6.0]], 1.8),
+    [[-5.0, 7.0], [8.7, -2.1], [17.5, -2.2], [9.1, -8.8], [18.0, -8.8], [10.1, 3.1], [18.3, 6.0],
+      [-6.1, 10.2], [-4.8, 11.6], [-5.9, 2.1], [4.1, 10.9], [6.5, 9.0], [2.7, 3.1], [7.1, 5.8]], 1.8),
   scatterExisting('../../art/exports/qingxi-detail-props-v2/qingxi-fern-flower-v2.glb',
     [[10.2, -3.1], [13.4, -.8], [16.9, -4.0], [10.3, -7.8], [16.1, -9.7],
-      [8.6, 4.6], [11.0, 7.6], [17.2, 8.8], [3.0, -5.4]], 1.1),
+      [8.6, 4.6], [11.0, 7.6], [17.2, 8.8], [3.0, -5.4], [-5.8, 8.8], [-6.4, 4.2],
+      [-2.0, 10.8], [3.5, 10.3], [5.8, 7.8], [2.9, 2.0], [-3.8, 1.4], [6.9, 4.0],
+      [7.9, 2.7], [-3.1, -4.3], [4.5, -7.0]], 1.1),
 ]);
 
 function beacon(x, z, color) {
@@ -112,6 +132,7 @@ const returnTable = beacon(9.4, -0.8, '#d5b27f');
 const workshop = beacon(15.8, 1.2, '#d96e55');
 
 const player = new THREE.Group(); player.position.set(0, 0, 11.4); player.rotation.y = Math.PI; scene.add(player);
+let avatarMotion = null;
 let rabbit;
 const rabbitHome = new THREE.Vector3(12, 0, -8);
 const rabbitState = { hp: 2, stun: 0, fleeAngle: 0 };
@@ -121,7 +142,22 @@ function fallbackCharacter() {
   body.position.y = 1.0; player.add(body);
 }
 placeModel('../../art/exports/qingxi-entry-assets-v13/novice-cultivator-v13.glb', 0, 0, 1.75, 'height')
-  .then(({ root }) => { scene.remove(root); root.position.set(0, 0, 0); player.add(root); })
+  .then(({ root }) => {
+    scene.remove(root); root.position.set(0, 0, 0); player.add(root);
+    const parts = [];
+    root.traverse(object => {
+      if (!object.isMesh) return;
+      const name = object.name;
+      const swing = /_(Leg|UpperArm|Forearm|Sleeve)_/.exec(name);
+      const hair = name.includes('BackHair') || name.includes('TempleHair');
+      const skirt = name.includes('SkirtLayer');
+      if (!swing && !hair && !skirt) return;
+      parts.push({ object, base: object.rotation.clone(), swing: swing?.[1],
+        side: name.endsWith('_-1') ? -1 : 1, hair, skirt });
+    });
+    avatarMotion = { root, parts, phase: 0, amount: 0 };
+    document.getElementById('avatar').textContent = '原創修行者試模：可步行、轉向、出招';
+  })
   .catch(() => fallbackCharacter());
 placeModel('../../art/exports/qingxi-mountain-rabbit-v003/QingxiMountainRabbit_v003.glb', rabbitHome.x, rabbitHome.z, .75, 'height')
   .then(({ root, gltf }) => {
@@ -142,7 +178,18 @@ const status = document.getElementById('progress');
 const nearby = document.getElementById('nearby');
 const notice = document.getElementById('notice');
 const intro = document.getElementById('intro');
+const activity = document.getElementById('activity');
+const activityFrame = document.getElementById('activity-frame');
 function say(message) { notice.textContent = message; state.lastToast = performance.now(); }
+function openActivity(title, path) {
+  held.clear();
+  document.getElementById('activity-title').textContent = title + ' · 本機試玩';
+  activityFrame.src = path;
+  activity.showModal();
+  say(`${title}已開啟；完成後按「返回場景」繼續走。此處資料不會寫入正式角色。`);
+}
+document.getElementById('activity-close').addEventListener('click', () => activity.close());
+activity.addEventListener('close', () => { activityFrame.src = 'about:blank'; held.clear(); });
 function refresh() {
   status.textContent = `練功 ${+state.training}/1 · 靈草 ${+state.herb}/1 · 山兔 ${+state.rabbit}/1`;
   if (state.delivered) status.classList.add('done');
@@ -154,22 +201,20 @@ function nearest() {
     .map(([name, object]) => ({ name, object, d: distance(object) })).sort((a, b) => a.d - b.d)[0];
 }
 function interact() {
-  if (!state.started) return;
+  if (!state.started || activity.open) return;
   const target = nearest();
   if (target.d > 2.7) { say('再靠近一點，才能互動。'); return; }
   if (target.object === entrance) {
-    say('青溪入口：告示旁可走向演武棚、溪畔採集路或回村分揀桌；這些場景使用協作者交付的模型。');
+    openActivity('村口告示與三條線索', '../novice-field-guide/');
   } else if (target.object === practice) {
     state.training = true; say('你照著煉氣訣試運一周天，也可以改練基礎武技。此處只記錄試玩動作。');
   } else if (target.object === herb) {
     if (!state.herb) { state.herb = true; herb.visible = false; say('採到一株青溪靈草。這是本機試玩道具，未寫入遊戲背包。'); }
     else say('這株靈草已在本次試玩採過。');
   } else if (target.object === returnTable) {
-    say(state.herb || state.rabbit
-      ? '回村分揀桌：可先把採到的樣本整理保存。此處是本機展示，正式背包由服務端管理。'
-      : '回村分揀桌：從溪畔帶回草藥或山兔材料後，可以在這裡整理。');
+    openActivity('回村樣本整理', '../qingxi-return-c/');
   } else if (target.object === workshop) {
-    say('溪畔煉製工坊已設在入口路線旁；爐、藥臼和藥櫃均為協作者模型。完整配伍試玩可由右上方「煉製玩法」開啟。');
+    openActivity('溪畔煉製工坊', '../qingxi-alchemy-b/');
   } else if (target.object === vendor) {
     if (state.herb && state.rabbit) { state.delivered = true; say('商販確認了靈草與山兔材料。小循環完成；正式交易仍須服務端結算。'); }
     else say('商販說：先自由走走；找到靈草、追上山兔，再回來聊聊。');
@@ -177,7 +222,7 @@ function interact() {
   refresh();
 }
 function attack() {
-  if (!state.started || state.attackCooldown > 0) return;
+  if (!state.started || activity.open || state.attackCooldown > 0) return;
   state.attackCooldown = .55;
   if (!rabbit || state.rabbit || distance(rabbit) > 2.6) { say('招式落空。靠近山兔，觀察牠的逃跑路線。'); return; }
   rabbitState.hp--;
@@ -193,6 +238,7 @@ document.getElementById('start').addEventListener('click', async () => {
 document.getElementById('interact').addEventListener('click', interact);
 document.getElementById('attack').addEventListener('click', attack);
 addEventListener('keydown', e => {
+  if (activity.open) return;
   const k = e.key.toLowerCase();
   if (['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','e',' '].includes(k)) e.preventDefault();
   held.add(k); if (k === 'e' && !e.repeat) interact(); if (k === ' ' && !e.repeat) attack();
@@ -217,7 +263,7 @@ function tick(now = performance.now()) {
   previousFrame = now;
   state.attackCooldown = Math.max(0, state.attackCooldown - dt);
   rabbitState.mixer?.update(dt);
-  if (state.started) {
+  if (state.started && !activity.open) {
     const forward = Number(held.has('w') || held.has('arrowup')) - Number(held.has('s') || held.has('arrowdown'));
     const sideways = Number(held.has('d') || held.has('arrowright')) - Number(held.has('a') || held.has('arrowleft'));
     const length = Math.hypot(forward, sideways) || 1;
@@ -231,7 +277,24 @@ function tick(now = performance.now()) {
     if (!(nextX > 2.7 && nextX < 8.2 && nextZ > .9 && nextZ < 4.4)) {
       player.position.x = nextX; player.position.z = nextZ;
     }
-    if (forward || sideways) player.rotation.y = Math.atan2(dx, dz);
+    const moving = Boolean(forward || sideways);
+    if (moving) player.rotation.y = Math.atan2(dx, dz);
+    if (avatarMotion) {
+      avatarMotion.amount = THREE.MathUtils.damp(avatarMotion.amount, moving ? 1 : 0, 9, dt);
+      avatarMotion.phase += dt * (moving ? 9.8 : 1.8);
+      const stride = Math.sin(avatarMotion.phase) * avatarMotion.amount;
+      const casting = state.attackCooldown > .30 ? 1 : 0;
+      avatarMotion.root.position.y = Math.abs(Math.sin(avatarMotion.phase)) * .045 * avatarMotion.amount
+        + Math.sin(now * .002) * .008;
+      for (const part of avatarMotion.parts) {
+        let angle = 0;
+        if (part.swing === 'Leg') angle = stride * .23 * part.side;
+        else if (part.swing) angle = -stride * .15 * part.side + casting * .28;
+        else if (part.hair) angle = Math.sin(now * .003 + part.side) * .025 + stride * .018;
+        else if (part.skirt) angle = -stride * .035;
+        part.object.rotation.x = part.base.x + angle;
+      }
+    }
     if (rabbit && !state.rabbit && rabbitState.stun <= 0 && distance(rabbit) < 5.8) {
       const away = new THREE.Vector3(rabbit.position.x - player.position.x, 0, rabbit.position.z - player.position.z).normalize();
       rabbit.position.x = THREE.MathUtils.clamp(rabbit.position.x + away.x * 1.9 * dt, 8, 20);
