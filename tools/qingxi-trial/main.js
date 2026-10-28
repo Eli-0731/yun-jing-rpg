@@ -24,6 +24,7 @@ const loader = new GLTFLoader();
 let previousFrame = performance.now();
 const cameraBlockers = [];
 const cameraRay = new THREE.Raycaster();
+const flowingWater = [];
 
 // Road-v13 is the authored entrance surface. A mottled ground material keeps
 // the uncovered edges from reading as one flat green block.
@@ -75,12 +76,25 @@ const assets = [
   ['../../art/exports/qingxi-riverside-house-v1/qingxi-riverside-house-v1.glb', 5.4, 2.4, 7, 'width'],
   ['../../art/exports/elder-world-tree-hero-v1/elder-world-tree-hero-v1.glb', -5, 7, 6.8, 'height'],
   ['../../art/exports/qingxi-listening-terrace-v1.glb', 14.6, 6, 9, 'width'],
+  ['../../art/exports/qingxi-riverbank-v2/qingxi-riverbank-v2.glb', -6.5, 6, 12, 'width', Math.PI],
+  ['../../art/exports/qingxi-riverbank-v2/qingxi-riverbank-v2.glb', -6.5, -6, 12, 'width', Math.PI],
 ];
-const loading = Promise.allSettled(assets.map(async ([path, x, z, extent, axis]) => {
-  const loaded = await placeModel(path, x, z, extent, axis);
+const loading = Promise.allSettled(assets.map(async ([path, x, z, extent, axis, rotation = 0]) => {
+  const loaded = await placeModel(path, x, z, extent, axis, rotation);
   // The source tree's exposed floating-island roots extend below the trunk.
   // The village variant embeds them in terrain until the dedicated root pass.
   if (path.includes('elder-world-tree')) loaded.root.position.y -= 2.1;
+  if (path.includes('qingxi-riverbank-v2')) {
+    loaded.root.traverse(part => {
+      if (!part.isMesh || !part.name.toLowerCase().includes('water')) return;
+      part.material = part.material.clone();
+      if (!part.material.map) return;
+      part.material.map = part.material.map.clone();
+      part.material.map.wrapS = part.material.map.wrapT = THREE.RepeatWrapping;
+      part.material.map.needsUpdate = true;
+      flowingWater.push(part.material.map);
+    });
+  }
   if (path.includes('village-gate') || path.includes('riverside-house')) cameraBlockers.push(loaded.root);
   return loaded;
 }));
@@ -265,6 +279,11 @@ addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; cam
 function tick(now = performance.now()) {
   const dt = Math.min((now - previousFrame) / 1000, .05);
   previousFrame = now;
+  // A slow texture current adds motion without moving the collision surface.
+  for (const waterMap of flowingWater) {
+    waterMap.offset.x = (waterMap.offset.x + dt * .006) % 1;
+    waterMap.offset.y = (waterMap.offset.y + dt * .018) % 1;
+  }
   state.attackCooldown = Math.max(0, state.attackCooldown - dt);
   rabbitState.mixer?.update(dt);
   if (state.started && !activity.open) {

@@ -17,7 +17,7 @@
 
 - `tools/qingxi-trial/`：48 × 35 m 的橫向試玩入口。村口古樹、牌樓、彎路、客舍、演武、回村、煉製與山兔林地現在可在同一片區走訪；協作者模型 22 件有原作者登記。
 - `apps/game/Assets/YunJing/Editor/QingxiUnifiedWorldBuilder.cs`：把較大青溪鎮與狩獵區生成為 Unity 統一世界；已有 12 件協作者 FBX 的視覺擺位，仍需實際玩家視角檢查。
-- `art/previews/qingxi-entrance-playable-v2.png`：目前遊戲鏡頭的誠實截圖。地面、水、遠景、人物臉髮、模型材質與遮擋均未達目標。
+- `art/previews/qingxi-entrance-playable-v3.png`：目前遊戲鏡頭的誠實截圖。入口旁已擺入原創河岸 v2 模組並加入緩慢紋理流動；地面、水岸接縫、遠景、人物臉髮、模型材質與遮擋均未達目標。
 
 ## 接下來的開發序列
 
