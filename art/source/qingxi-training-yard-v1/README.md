@@ -1,11 +1,40 @@
-# 青溪公共演武區資產交接
+# 青溪公共演武區 v1：模型原始檔與建置（2026-10-28 重做）
 
-此目錄是六件道具的可編輯 Blender 5.2.2 母檔與可重建程式。`Qingxi_Training_Yard_v1.blend` 保留六個獨立 Collection；每件包含可編輯的網格、倒角修改器、材質節點、UV、及已打包的 Base Color／Roughness／Normal 圖。原件是本輪依已保存 AI 三視圖製作的程序幾何，沒有取用第三方模型。作者標註為 Johnnnny0823 委託、Codex 建模與驗證；圖像來源詳見 `../../references/qingxi-training-yard-v1/README.md`。
+PR #32 合併的 Codex 版被使用者退回（「跟屎一樣」），本次依同一組 AI 三視圖重做六件模型，品質對齊 main 上 B 組煉製工坊（同一套烘焙／LOD／匯出規格）。
 
-`build_yard.py` 在**獨立背景 Blender 程序**中重建母檔，不應在使用者目前開啟的場景內執行。執行 `blender -b --python-exit-code 1 --python build_yard.py` 後以 `review_yard.py` 跑六件 QA 和近景渲染；`export_yard.py` 讀入母檔、套用修改器、逐件合併遊戲網格，產生六個獨立 GLB，並在全新空場景逐一回匯檢查網格三角面數、UV、材質及尺寸。所有輸出路徑限定在本組自己的 `art/exports/qingxi-training-yard-v1/` 與 `art/previews/qingxi-training-yard-v1/`。
+## 檔案
 
-尺度為公尺，母檔採 Blender Z-up、資產前方為 -Y；GLB 採 glTF Y-up、模型前方為 +Z。各件原點是地面中心，無場景組裝位移。示範擺放座標在 `../../previews/qingxi-training-yard-v1/assembly-placement.json`。棚體總外包尺寸約 6.82 × 5.40 × 3.90 m（含屋脊、坡道及飛檐）；石坡寬 3.40 m、平台高 0.12 m，四柱內的步行通道無中央柱。精確匯出面數和回匯尺寸在 `../../exports/qingxi-training-yard-v1/asset-manifest.json`。
+| 檔案 | 內容 |
+|---|---|
+| `Qingxi_Training_Yard_v1.blend` | 母檔：六件各有「程序分件（可編輯，隱藏）」與「烘焙後遊戲網格＋LOD」兩個 Collection；`YardPreview` 場景依 `placement.json` 擺好整區。 |
+| `blend/<asset>_v1.blend` | 每件的單獨建置結果（母檔由這六個檔組合）。 |
+| `build_yard.py` | 幾何、材質、烘焙、LOD、匯出、驗證、單件預覽。 |
+| `yardlib.py` | 本組幾何工具（車削、掃掠管、螺旋繩圈、擠出輪廓、方料）。 |
+| `kitlib.py` | 烘焙／匯出／渲染工具，改寫自 `art/source/qingxi-alchemy-b/qa_lib.py`（joshsu54＋Claude Code，main `ebe57d4`），只改輸出路徑；原檔未動。 |
+| `review_yard.py` | 用母檔 `YardPreview` 渲染整區與 1.7 m 眼高畫面。 |
+| `compose_sheets.py` | 「AI 三視圖 vs 模型正交圖」對照表（需 Pillow）。 |
+| `placement.json` | 示範擺位（Blender 座標），展示頁使用同一組數字。 |
+| `textures/P_*.png` | 自製圖樣（旗面、匾額、刻紋、玉紋），經部件座標取樣後烘進圖集。 |
 
-`qa-report.json` 的六件 `pass` 為 Blender 網格檢查結果，實際回匯結果在匯出 manifest。警告中的重疊 UV 來自共享／平鋪材質貼圖，不適合作獨立光照貼圖或逐件烘焙；圓柱端蓋 n-gon 為平面封口，GLB 匯出時已三角化。棚內隱藏接合面尚可在正式整合前進一步精簡。手機 FPS、主遊戲 PWA 的材質與碰撞、入口連接及正式練功 API 均未驗證。
+## 指令（Blender 5.2.2，背景執行，勿在已開啟的場景內跑）
 
-`collision-proxies.json` 是給核心組的簡化碰撞建議，並非主遊戲 PWA 已接入的碰撞。獨立 PWA 展示使用自己的步行代理，不存修為、物品或伺服器獎勵。
+```powershell
+$B = 'C:\Program Files\Blender Foundation\Blender 5.2\blender.exe'
+& $B -b --python-exit-code 1 --python art/source/qingxi-training-yard-v1/build_yard.py            # 六件；可加資產 id、--no-render、--quick
+& $B -b --python-exit-code 1 --python art/source/qingxi-training-yard-v1/build_yard.py -- --master
+& $B -b art/source/qingxi-training-yard-v1/Qingxi_Training_Yard_v1.blend --python-exit-code 1 --python art/source/qingxi-training-yard-v1/review_yard.py
+python art/source/qingxi-training-yard-v1/compose_sheets.py
+```
+
+## 規格
+
+- 公尺；Blender Z-up、正面 −Y；GLB Y-up、正面 +Z。原點在底面中心。
+- 輪廓件用真幾何（曲面屋頂與翹角、筒瓦、瓦當、斗拱、雀替、懸魚、柱礎、螺旋繩圈、皮革護墊、槽口、鉚釘）；木紋、裂紋、苔痕、瓦縫、刻紋與舊化烘進貼圖。
+- 每件一個烘焙材質：`textures/T_<asset>_BaseColor／ORM（R=AO G=粗糙 B=金屬）／Normal（OpenGL）`。演武棚 2048，其餘 1024。
+- GLB 只含 LOD0，貼圖轉 WebP（給 PWA；`EXT_texture_webp`）；FBX 含 LOD0–2（`_LOD1`、`_LOD2`）並引用 PNG，給 Unity LOD Group。
+- 可動節點：身法木樁 `arm_left／arm_right／arm_low`（樞紐在樁軸）、氣勁木樁 `jade_disc`、`rope_band_1..3`、練功旗 `banner_cloth`（樞紐在橫桿）。樞紐座標寫在各件 `model_info.json`。
+- 演武棚步道：前階 3.4 m，柱間淨寬約 4.8 m，梁下淨高約 2.1 m；地坪高 0.30 m，兩級 0.10 m 台階。
+
+尺寸、三角面、碰撞建議與回匯結果見 `art/exports/qingxi-training-yard-v1/<asset>_model_info.json`，總結見 `art/previews/qingxi-training-yard-v1/VALIDATION.md`。
+
+作者：Johnnnny0823（委託、方向）；Claude Code（Claude Opus 5.5）程序建模、烘焙、驗證。三視圖來源見 `../../references/qingxi-training-yard-v1/README.md`。沒有使用第三方模型。
