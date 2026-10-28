@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using QingxiWorld;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
 
 namespace YunJing
@@ -40,6 +42,19 @@ namespace YunJing
             bool groundHit = groundRay.collider != null;
             Debug.Log($"[QingxiAbcSmoke] terrain={(terrain != null ? terrain.name : "none")} collider={(groundCollider != null ? groundCollider.enabled.ToString() : "none")} data={(groundCollider != null && groundCollider.terrainData != null ? groundCollider.terrainData.heightmapResolution.ToString() : "none")} ray={groundHit} {(groundHit ? groundRay.collider.name + " y=" + groundRay.point.y.ToString("0.00") : "")}");
             if (terrain != null) Check($"terrain collider holds the ground (ray hit {(groundHit ? groundRay.collider.name : "nothing")})", groundHit && groundRay.collider is TerrainCollider);
+
+            // The real input path: hold W through the Input System and the walker must walk. (A headless run has
+            // no keyboard, so a virtual one is added.) This failed silently while the legacy input handler was active.
+            Spot(walker, "村口");
+            yield return Frames(10);
+            var keyboard = Keyboard.current ?? InputSystem.AddDevice<Keyboard>();
+            var start = walker.transform.position;
+            InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.W));
+            yield return new WaitForSecondsRealtime(1f);
+            InputSystem.QueueStateEvent(keyboard, new KeyboardState());
+            yield return Frames(3);
+            float walked = Vector2.Distance(new Vector2(start.x, start.z), new Vector2(walker.transform.position.x, walker.transform.position.z));
+            Check($"holding W walks the player ({walked:0.0} m, keyboard {(Keyboard.current != null ? "present" : "missing")})", walked > 1f);
 
             // C: sorting table opens and keeps a choice.
             Spot(walker, "回村分揀桌");

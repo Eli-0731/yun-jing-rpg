@@ -139,6 +139,7 @@ namespace QingxiWorld
 
         void OnGUI()
         {
+            YunJing.QingxiFonts.ApplyImgui();
             if (useDesignedHud) return;
             if (box == null) { box = new GUIStyle(GUI.skin.box) { fontSize = 18, alignment = TextAnchor.UpperLeft, wordWrap = true }; small = new GUIStyle(box) { fontSize = 15 }; }
             var near = (pointsOfInterest ?? new Transform[0]).Where(p => p != null).Select(p => (p.name, d: Vector3.Distance(p.position, transform.position))).OrderBy(x => x.d).FirstOrDefault();

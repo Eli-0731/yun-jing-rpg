@@ -29,7 +29,7 @@ namespace YunJing
         void Start()
         {
             if (walker == null) { enabled = false; return; }
-            font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            font = QingxiFonts.Ui != null ? QingxiFonts.Ui : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             var canvas = new GameObject("Qingxi HUD Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             canvas.transform.SetParent(transform, false);
             var cv = canvas.GetComponent<Canvas>();
@@ -190,7 +190,7 @@ namespace YunJing
             var rect = Rect(name, parent, new Vector2(0, 1), new Vector2(0, 1), offset, bounds,
                 new Vector2(0, 1));
             var t = rect.gameObject.AddComponent<Text>();
-            t.font = font; t.text = value; t.fontSize = size; t.fontStyle = style;
+            t.font = style == FontStyle.Bold && size >= 18 && QingxiFonts.Title != null ? QingxiFonts.Title : font; t.text = value; t.fontSize = size; t.fontStyle = style;
             if (uiMaterial != null) t.material = uiMaterial;
             t.color = color; t.alignment = TextAnchor.UpperLeft;
             t.horizontalOverflow = HorizontalWrapMode.Wrap;

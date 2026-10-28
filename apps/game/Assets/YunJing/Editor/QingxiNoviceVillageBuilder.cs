@@ -33,6 +33,12 @@ namespace YunJing.Editor
         public static void Generate()
         {
             QingxiUrpUpgrade.EnsurePipeline();
+            // All village input (walker, encounter, drills, HUD, touch) uses the Input System package. With the
+            // legacy-only handler (0) Keyboard.current and Mouse.current are null and nothing responds, in the
+            // Windows player and the browser alike. Takes effect from the next Editor process (the build step).
+            var settings = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/ProjectSettings.asset")[0]);
+            settings.FindProperty("activeInputHandler").intValue = 1; settings.ApplyModifiedPropertiesWithoutUndo();
+            AssetDatabase.SaveAssets();
             Directory.CreateDirectory(MaterialFolder);
             Directory.CreateDirectory(Path.GetDirectoryName(ScenePath));
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);

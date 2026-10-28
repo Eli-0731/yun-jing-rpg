@@ -1,5 +1,7 @@
 # 青溪新手村｜開發計畫
 
+> 這份是新手大世界 **P0／P1（A 青溪河谷的新手村）** 的細項。整個新手大世界（五區、八大主題、P0–P6 時程）見 [新手大世界整體開發計畫](novice-world-master-plan.md)。
+
 2026-10-29，z1nnz 指定目標，Claude Code 整理。目標來自 z1nnz 的指示：
 
 - 新手村要能在**瀏覽器上玩**，做成 PWA；
@@ -29,8 +31,9 @@
 - **1.3 WebGL＋PWA**：`./tools/unity.ps1 -Target NoviceVillageWebGL`，輸出到 `artifacts/webgl-novice-village/`，總計 88 MB（場景與模型 76 MB）；用 Unity 的 PWA 範本，附 manifest 和 service worker。本機伺服器：`node tools/qingxi-webgl/serve.mjs`，網址 `http://127.0.0.1:4190/`。
 - **1.4 驗證**：Windows 建置版 smoke 31／31；**瀏覽器（WebGL 2.0）跑 `?abc-smoke` 也是 31／31**。
 - **順手修到的重大錯誤**：專案沒有啟用 Unity 內建的 Terrain Physics 模組，建置版裡**地形沒有碰撞，玩家會穿過地面一直掉**。已在 `Packages/manifest.json` 加入 `com.unity.modules.terrainphysics`，smoke 也加了「地形碰撞撐得住」的檢查。以前的 smoke 沒抓到，是因為批次模式沒有鍵盤時，走路元件不會執行。
+- **第二個重大錯誤（z1nnz 在瀏覽器試玩時發現）**：專案設定 `activeInputHandler: 0`（只開舊版輸入），但所有程式都用新版 Input System，所以 **Windows 版和瀏覽器版的鍵盤、滑鼠都沒有作用**。現在由新手村生成器設為 1。smoke 加了「按住 W 一秒，角色真的會走」的檢查，實測走了 4.1 m。
+- **中文字型**：打包 Google 的 Noto Sans TC（介面）與 Noto Serif TC（標題、地名），授權為 SIL OFL 1.1，授權檔放在 `Resources/Fonts/`。uGUI 和 IMGUI 都改用這兩套字型；瀏覽器版也會把 joshsu54 丹房介面的系統字型換掉，因為瀏覽器裡沒有正黑體。
 - **還沒解決**：
-  - 瀏覽器版**中文字顯示不出來**。內建字型沒有中文，要打包一套開源中文字型（例如 Noto Sans TC，SIL OFL）。
   - 88 MB 對手機偏大，之後要做貼圖壓縮和場景資料瘦身。
   - URP 有兩個除錯用 shader 在 WebGL 上不支援，畫面目前看不出影響。
 

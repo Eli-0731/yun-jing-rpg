@@ -20,6 +20,7 @@ namespace YunJing
 
         void OnGUI()
         {
+            QingxiFonts.ApplyImgui();
             if (string.IsNullOrEmpty(ReturnScene) || !Application.CanStreamedLevelBeLoaded(ReturnScene)) return;
             if (style == null) style = new GUIStyle(GUI.skin.button) { fontSize = 18 };
             var s = Screen.safeArea;

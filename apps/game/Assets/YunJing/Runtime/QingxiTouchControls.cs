@@ -135,6 +135,7 @@ namespace YunJing
 
         void OnGUI()
         {
+            QingxiFonts.ApplyImgui();
             if (!Active) return;
             var previous = GUI.matrix;
             GUI.matrix = Matrix4x4.Scale(Vector3.one * Scale);

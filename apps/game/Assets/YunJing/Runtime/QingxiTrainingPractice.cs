@@ -110,6 +110,7 @@ namespace YunJing
 
         void OnGUI()
         {
+            QingxiFonts.ApplyImgui();
             float scale = Mathf.Clamp(Screen.height / 720f, .7f, 1.5f);
             var previous = GUI.matrix;
             GUI.matrix = Matrix4x4.Scale(Vector3.one * scale);

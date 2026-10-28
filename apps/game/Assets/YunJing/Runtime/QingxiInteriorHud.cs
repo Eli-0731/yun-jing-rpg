@@ -12,6 +12,7 @@ namespace YunJing
 
         void OnGUI()
         {
+            QingxiFonts.ApplyImgui();
             var walker = QingxiFirstPerson.Current;
             if (walker == null || (training != null && training.Active)) return;
             float scale = Mathf.Clamp(Screen.height / 720f, .7f, 2f);
