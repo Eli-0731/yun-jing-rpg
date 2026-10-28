@@ -1,0 +1,101 @@
+{
+ "id": "A03",
+ "name": "FallenLog",
+ "key": "A03_FallenLog",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.0,
+ "dimensions_m": [
+  5.8989,
+  2.1482,
+  1.4573
+ ],
+ "triangles": 8150,
+ "lod_triangles": [
+  8150,
+  4549,
+  2001
+ ],
+ "collision": {
+  "type": "capsule",
+  "radius": 0.3,
+  "from_": [
+   -2.3,
+   0,
+   0.3
+  ],
+  "to": [
+   2.4,
+   0,
+   0.43
+  ],
+  "note": "climb-over point at x 0.35 (top 0.72 m); walk-around past the root end (-x)"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A03",
+  "key": "A03_FallenLog",
+  "dimensions_m": [
+   5.8989,
+   2.1482,
+   1.4573
+  ],
+  "bbox_min": [
+   -3.0104,
+   -1.2004,
+   0.0
+  ],
+  "bbox_max": [
+   2.8885,
+   0.9478,
+   1.4573
+  ],
+  "trianglesLOD": [
+   8150,
+   4549,
+   2001
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "M_A03_FallenLog"
+  ],
+  "textureResolution": 1024,
+  "doubleSided": false,
+  "nodes": [
+   "A03_FallenLog_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 4044,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 8150,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A03_FallenLog.001"
+   ]
+  },
+  "files": {
+   "A03_FallenLog.glb": {
+    "bytes": 1029884,
+    "sha256": "4d535f3f903816edadbefd813ea896ad696390284825e7dd57840964f4e35261"
+   },
+   "A03_FallenLog.fbx": {
+    "bytes": 1269292,
+    "sha256": "67ce899e61c9050ff8f5fb6880e183ffa01b2af02ded044bb0aa87b6eaa4c61a"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A03_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

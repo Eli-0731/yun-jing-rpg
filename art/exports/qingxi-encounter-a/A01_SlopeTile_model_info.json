@@ -1,0 +1,90 @@
+{
+ "id": "A01",
+ "name": "SlopeTile",
+ "key": "A01_SlopeTile",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.6,
+ "dimensions_m": [
+  4.398,
+  4.2877,
+  1.5378
+ ],
+ "triangles": 11276,
+ "lod_triangles": [
+  11276,
+  6276,
+  2760
+ ],
+ "collision": {
+  "type": "heightfield",
+  "note": "use the top surface as walkable mesh collider; sides are cliffs; datum 0.6 m (place origin at -0.6 so the flat edge meets ground 0)"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A01",
+  "key": "A01_SlopeTile",
+  "dimensions_m": [
+   4.398,
+   4.2877,
+   1.5378
+  ],
+  "bbox_min": [
+   -2.1871,
+   -2.1313,
+   0.0
+  ],
+  "bbox_max": [
+   2.211,
+   2.1564,
+   1.5378
+  ],
+  "trianglesLOD": [
+   11276,
+   6276,
+   2760
+  ],
+  "budgetLOD0": 12000,
+  "withinBudget": true,
+  "materials": [
+   "M_A01_SlopeTile"
+  ],
+  "textureResolution": 1024,
+  "doubleSided": true,
+  "nodes": [
+   "A01_SlopeTile_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 3834,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 11276,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A01_SlopeTile.001"
+   ]
+  },
+  "files": {
+   "A01_SlopeTile.glb": {
+    "bytes": 1032664,
+    "sha256": "68a397fb97aa1ade524afbf54cfd609c847b037f3427415ce166c35357b400f4"
+   },
+   "A01_SlopeTile.fbx": {
+    "bytes": 1247980,
+    "sha256": "70a73f457b076bd5716b98ed02646354f7a018143674879851c0fe855ce3ae08"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A01_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
