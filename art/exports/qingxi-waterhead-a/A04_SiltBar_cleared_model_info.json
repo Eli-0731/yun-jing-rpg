@@ -1,0 +1,90 @@
+{
+ "id": "A04",
+ "variant": "cleared state",
+ "key": "A04_SiltBar_cleared",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  2.7996,
+  2.2,
+  0.1316
+ ],
+ "triangles": 1322,
+ "lod_triangles": [
+  1322,
+  660,
+  290
+ ],
+ "collision": {
+  "type": "none",
+  "note": "walkable remnant; swap in when the silt is cleared"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A04_SiltBar_cleared",
+  "dimensions_m": [
+   2.7996,
+   2.2,
+   0.1316
+  ],
+  "bbox_min": [
+   -1.3991,
+   -1.1,
+   0.0
+  ],
+  "bbox_max": [
+   1.4005,
+   1.1,
+   0.1316
+  ],
+  "trianglesLOD": [
+   1322,
+   660,
+   290
+  ],
+  "budgetLOD0": 4000,
+  "withinBudget": true,
+  "materials": [
+   "LowWater",
+   "M_A04_SiltBar_cleared"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A04_SiltBar_cleared_LOD0",
+   "A04_SiltBar_cleared_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 240,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 1322,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "LowWater.001",
+    "M_A04_SiltBar_cleared.001"
+   ]
+  },
+  "files": {
+   "A04_SiltBar_cleared.glb": {
+    "bytes": 277748,
+    "sha256": "822d349011a1b01f2ca13cc7d8fc12040fd5ced13c9615be7135eb010b77814c"
+   },
+   "A04_SiltBar_cleared.fbx": {
+    "bytes": 196092,
+    "sha256": "8246684c79cfe9023d46f09d7e1ad26cf589596e77479ead8903ea0552984220"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A04_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

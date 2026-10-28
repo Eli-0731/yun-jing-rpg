@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#14231f">
+<link rel="icon" href="data:,">
+<title>青溪上游調查</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"./vendor/build/three.module.js","three/addons/":"./vendor/examples/jsm/"}}</script>
+</head>
+<body>
+<canvas id="world" aria-label="青溪上游河段，第三人稱調查"></canvas>
+
+<header class="hud-top">
+  <div class="title">
+    <span class="eyebrow">雲境 · 青溪斷流初章</span>
+    <h1>上游調查</h1>
+    <span class="notice">本機展示 · 刷新重置 · 不發正式資源</span>
+  </div>
+  <section class="book" aria-label="線索簿">
+    <h3>線索簿</h3>
+    <ol id="book">
+      <li data-id="cracked_sluice">？？？<small>沿岸的舊水路</small></li>
+      <li data-id="silt_buildup">？？？<small>河道裡</small></li>
+      <li data-id="nursery_tracks">？？？<small>（第二批開放）</small></li>
+    </ol>
+    <div class="verdict" id="verdict"></div>
+    <div class="row"><button id="export">線索 JSON</button><button id="reset">重新調查</button></div>
+  </section>
+</header>
+
+<div id="toast" class="toast" role="status"></div>
+<div id="look" class="look" aria-hidden="true"></div>
+<div id="prompt" class="prompt">從下游入口出發，沿岸看看水為什麼變少</div>
+<div id="hint" class="hint">WASD 移動 · 拖曳轉視角 · E 觀察 · R 回入口</div>
+
+<section id="result" class="card" hidden>
+  <span class="eyebrow">線索交接（本機 fixture）</span>
+  <h2 id="result-title">—</h2>
+  <p id="result-detail"></p>
+  <pre class="json" id="result-json"></pre>
+  <p class="fine">只記錄看到了什麼，不發靈石、貢獻或材料。B 的導水方案與 C 的村民回應讀同一組 observationIds。</p>
+  <div class="row"><button id="close" class="primary">繼續調查</button></div>
+</section>
+
+<nav id="touch" class="touch" aria-label="觸控操作">
+  <div id="stick" class="stick"><i></i></div>
+  <div class="actions">
+    <button id="t-use" class="act big">觀察</button>
+    <button id="t-home" class="act">回入口</button>
+  </div>
+</nav>
+
+<div id="loading" class="loading"><b>青溪上游</b><span id="load-text">載入模型…</span><i id="load-bar"></i></div>
+<script type="module" src="app.mjs"></script>
+</body>
+</html>

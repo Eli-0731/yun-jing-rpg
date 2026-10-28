@@ -1,0 +1,108 @@
+{
+ "id": "A01",
+ "variant": "straight",
+ "key": "A01_straight_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  7.0,
+  6.0,
+  1.5822
+ ],
+ "triangles": 19156,
+ "lod_triangles": [
+  19156,
+  7288,
+  3205
+ ],
+ "collision": {
+  "type": "heightfield",
+  "note": "banks and channel walkable; datum: bank top 1.15 m above origin"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A01_straight_01",
+  "dimensions_m": [
+   7.0,
+   6.0,
+   1.5822
+  ],
+  "bbox_min": [
+   -3.5,
+   0.0,
+   0.0
+  ],
+  "bbox_max": [
+   3.5,
+   6.0,
+   1.5822
+  ],
+  "trianglesLOD": [
+   19156,
+   7288,
+   3205
+  ],
+  "budgetLOD0": 20000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "LowWater",
+   "M_A01_straight_01"
+  ],
+  "textureResolution": 2048,
+  "nodes": [
+   "A01_straight_01_LOD0",
+   "A01_straight_01_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 282,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 19156,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "LowWater.001",
+    "M_A01_straight_01.001"
+   ]
+  },
+  "files": {
+   "A01_straight_01.glb": {
+    "bytes": 2051452,
+    "sha256": "73006868ea5b8a6ce09decaa565309a355040402d09d3f3fee93ca038c9cb724"
+   },
+   "A01_straight_01.fbx": {
+    "bytes": 2247388,
+    "sha256": "cd7ed631dd921a1096ee8d36dce67fe4a5ec690c0a5897dd9657e40f6d492ce4"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A01_straight_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ },
+ "river_interface": {
+  "origin": "downstream port: channel centre at the tile base; upstream is +Y (Blender) / -Z (glTF)",
+  "channel_width_m": 2.4,
+  "tile_width_m": 7.0,
+  "bank_top_m": 1.15,
+  "bed_m": 0.25,
+  "water_m": 0.3,
+  "old_high_water_m": 0.86,
+  "length_m": 6.0,
+  "out_port_blender_xy_deg": [
+   0.0,
+   6.0,
+   0.0
+  ],
+  "place": "set the origin at y = -bank_top so banks meet ground 0; chain the next module at out_port"
+ }
+}

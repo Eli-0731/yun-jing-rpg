@@ -1,0 +1,102 @@
+{
+ "id": "A02",
+ "variant": "side crack",
+ "key": "A02_side_crack_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  3.0293,
+  1.6825,
+  0.74
+ ],
+ "triangles": 3298,
+ "lod_triangles": [
+  3298,
+  1470,
+  646
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   3.0,
+   0.8,
+   0.67
+  ],
+  "center": [
+   0,
+   0,
+   0.335
+  ],
+  "note": "clue cracked_sluice: look at the -Y face"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A02_side_crack_01",
+  "dimensions_m": [
+   3.0293,
+   1.6825,
+   0.74
+  ],
+  "bbox_min": [
+   -1.5293,
+   -1.1127,
+   0.0
+  ],
+  "bbox_max": [
+   1.5,
+   0.5699,
+   0.74
+  ],
+  "trianglesLOD": [
+   3298,
+   1470,
+   646
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "LowWater",
+   "M_A02_side_crack_01"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A02_side_crack_01_LOD0",
+   "A02_side_crack_01_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 3298,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "LowWater.001",
+    "M_A02_side_crack_01.001"
+   ]
+  },
+  "files": {
+   "A02_side_crack_01.glb": {
+    "bytes": 355400,
+    "sha256": "b71f116952f911496de748c75cf652dccd6bf77f1e9aeab730fcc7c7869a434e"
+   },
+   "A02_side_crack_01.fbx": {
+    "bytes": 346988,
+    "sha256": "ff76bde4e0502425084b463ba898bdb584750224e5820534a7b3354bb4d6b249"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A02_side_crack_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

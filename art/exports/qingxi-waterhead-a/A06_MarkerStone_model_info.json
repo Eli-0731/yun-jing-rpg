@@ -1,0 +1,97 @@
+{
+ "id": "A06",
+ "variant": "single",
+ "key": "A06_MarkerStone",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  1.6276,
+  1.5871,
+  1.1725
+ ],
+ "triangles": 6080,
+ "lod_triangles": [
+  6080,
+  2920,
+  1284
+ ],
+ "collision": {
+  "type": "capsule",
+  "radius": 0.45,
+  "height": 1.2,
+  "center": [
+   0,
+   0,
+   0.6
+  ],
+  "note": "water lines at 0.35 m (today) and 0.86 m (old)"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A06_MarkerStone",
+  "dimensions_m": [
+   1.6276,
+   1.5871,
+   1.1725
+  ],
+  "bbox_min": [
+   -0.8427,
+   -0.8423,
+   0.0
+  ],
+  "bbox_max": [
+   0.7849,
+   0.7448,
+   1.1725
+  ],
+  "trianglesLOD": [
+   6080,
+   2920,
+   1284
+  ],
+  "budgetLOD0": 7000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A06_MarkerStone"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A06_MarkerStone_LOD0",
+   "A06_MarkerStone_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 6080,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "M_A06_MarkerStone.001"
+   ]
+  },
+  "files": {
+   "A06_MarkerStone.glb": {
+    "bytes": 603096,
+    "sha256": "2a1578ef92d84774372e59c103ffeff1f860a24256f2e283471d9b2684610fd2"
+   },
+   "A06_MarkerStone.fbx": {
+    "bytes": 827756,
+    "sha256": "b0eb1288ea66a09cdc0937d9056002163213b67aa50d6d0c6771542c448804ee"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A06_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

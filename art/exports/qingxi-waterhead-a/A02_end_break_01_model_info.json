@@ -1,0 +1,102 @@
+{
+ "id": "A02",
+ "variant": "broken end joint",
+ "key": "A02_end_break_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  3.7187,
+  1.2008,
+  0.74
+ ],
+ "triangles": 3356,
+ "lod_triangles": [
+  3356,
+  1500,
+  660
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   3.0,
+   0.8,
+   0.67
+  ],
+  "center": [
+   0,
+   0,
+   0.335
+  ],
+  "note": "clue cracked_sluice: the tipped end at +X"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A02_end_break_01",
+  "dimensions_m": [
+   3.7187,
+   1.2008,
+   0.74
+  ],
+  "bbox_min": [
+   -1.5,
+   -0.5837,
+   0.0
+  ],
+  "bbox_max": [
+   2.2187,
+   0.6171,
+   0.74
+  ],
+  "trianglesLOD": [
+   3356,
+   1500,
+   660
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "LowWater",
+   "M_A02_end_break_01"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A02_end_break_01_LOD0",
+   "A02_end_break_01_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 3356,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "LowWater.001",
+    "M_A02_end_break_01.001"
+   ]
+  },
+  "files": {
+   "A02_end_break_01.glb": {
+    "bytes": 382580,
+    "sha256": "693f26573f09a21b89391694d40cc318375ba838a913159947581bb8f2185ce0"
+   },
+   "A02_end_break_01.fbx": {
+    "bytes": 358828,
+    "sha256": "03af9df7043fac4b848e1051c71e3e8898bcfbe9f10043225ac6d8849b584ff7"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A02_end_break_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

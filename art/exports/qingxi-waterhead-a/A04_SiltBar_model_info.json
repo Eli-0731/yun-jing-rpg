@@ -1,0 +1,90 @@
+{
+ "id": "A04",
+ "variant": "mound 01 (blocking)",
+ "key": "A04_SiltBar",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  2.4708,
+  2.9737,
+  0.6951
+ ],
+ "triangles": 4066,
+ "lod_triangles": [
+  4066,
+  2001,
+  880
+ ],
+ "collision": {
+  "type": "mesh",
+  "note": "place on the channel bed (origin z = bed); clue silt_buildup; pond water is part of the Clear node"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A04_SiltBar",
+  "dimensions_m": [
+   2.4708,
+   2.9737,
+   0.6951
+  ],
+  "bbox_min": [
+   -1.2392,
+   -1.2037,
+   0.0
+  ],
+  "bbox_max": [
+   1.2316,
+   1.77,
+   0.6951
+  ],
+  "trianglesLOD": [
+   4066,
+   2001,
+   880
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "LowWater",
+   "M_A04_SiltBar"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A04_SiltBar_LOD0",
+   "A04_SiltBar_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 542,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 4066,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "LowWater.001",
+    "M_A04_SiltBar.001"
+   ]
+  },
+  "files": {
+   "A04_SiltBar.glb": {
+    "bytes": 725144,
+    "sha256": "55fb8fd6c05af3ba3eba9c66718c46ba8a06a58c70a37217e794685b64d2f2fc"
+   },
+   "A04_SiltBar.fbx": {
+    "bytes": 622204,
+    "sha256": "a2c6c4d3ba82d52a6cf13d65b51564a02bbcf9b14484382ea7af081ceab3e53a"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A04_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

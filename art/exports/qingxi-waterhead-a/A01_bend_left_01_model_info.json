@@ -1,0 +1,108 @@
+{
+ "id": "A01",
+ "variant": "bend_left 25 deg",
+ "key": "A01_bend_left_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  8.0678,
+  7.7749,
+  1.7003
+ ],
+ "triangles": 19232,
+ "lod_triangles": [
+  19232,
+  7325,
+  3222
+ ],
+ "collision": {
+  "type": "heightfield",
+  "note": "inner gravel bar is the easy way down to the water"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A01_bend_left_01",
+  "dimensions_m": [
+   8.0678,
+   7.7749,
+   1.7003
+  ],
+  "bbox_min": [
+   -4.5678,
+   0.0,
+   0.0
+  ],
+  "bbox_max": [
+   3.5,
+   7.7749,
+   1.7003
+  ],
+  "trianglesLOD": [
+   19232,
+   7325,
+   3222
+  ],
+  "budgetLOD0": 20000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "LowWater",
+   "M_A01_bend_left_01"
+  ],
+  "textureResolution": 2048,
+  "nodes": [
+   "A01_bend_left_01_LOD0",
+   "A01_bend_left_01_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 222,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 19232,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "LowWater.001",
+    "M_A01_bend_left_01.001"
+   ]
+  },
+  "files": {
+   "A01_bend_left_01.glb": {
+    "bytes": 2077968,
+    "sha256": "63dd5548f98bbeb89fd8a9e361dca7b486729e9641dacc5f194c0cc92dff721c"
+   },
+   "A01_bend_left_01.fbx": {
+    "bytes": 2298124,
+    "sha256": "c6b4a4f00132d6d469059857dd3bf28ae6964facfcdf24b199948163c1b232ec"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A01_bend_left_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ },
+ "river_interface": {
+  "origin": "downstream port: channel centre at the tile base; upstream is +Y (Blender) / -Z (glTF)",
+  "channel_width_m": 2.4,
+  "tile_width_m": 7.0,
+  "bank_top_m": 1.15,
+  "bed_m": 0.25,
+  "water_m": 0.3,
+  "old_high_water_m": 0.86,
+  "length_m": 6.5,
+  "out_port_blender_xy_deg": [
+   -1.3957,
+   6.2957,
+   25.0
+  ],
+  "place": "set the origin at y = -bank_top so banks meet ground 0; chain the next module at out_port"
+ }
+}

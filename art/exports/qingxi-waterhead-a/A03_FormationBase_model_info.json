@@ -1,0 +1,97 @@
+{
+ "id": "A03",
+ "variant": "single",
+ "key": "A03_FormationBase",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  2.3591,
+  2.5059,
+  0.4608
+ ],
+ "triangles": 7168,
+ "lod_triangles": [
+  7168,
+  3212,
+  1413
+ ],
+ "collision": {
+  "type": "cylinder",
+  "radius": 0.9,
+  "height": 0.45,
+  "center": [
+   0,
+   0,
+   0.22
+  ],
+  "note": "tilted 9 deg, sunk 0.1 m on the gap side; step-on not intended"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A03_FormationBase",
+  "dimensions_m": [
+   2.3591,
+   2.5059,
+   0.4608
+  ],
+  "bbox_min": [
+   -1.0951,
+   -1.0474,
+   0.0
+  ],
+  "bbox_max": [
+   1.264,
+   1.4585,
+   0.4608
+  ],
+  "trianglesLOD": [
+   7168,
+   3212,
+   1413
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A03_FormationBase"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A03_FormationBase_LOD0",
+   "A03_FormationBase_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 194,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 7168,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "M_A03_FormationBase.001"
+   ]
+  },
+  "files": {
+   "A03_FormationBase.glb": {
+    "bytes": 682040,
+    "sha256": "c5375e6f5260beec080dbbe8661021883c23584f24142e684c7ac75831a9d8b7"
+   },
+   "A03_FormationBase.fbx": {
+    "bytes": 739900,
+    "sha256": "1c64f9a366501dbe5fbd4ece3bbbe8f9630de863fd540e3a239f4d56a52e713f"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A03_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

@@ -1,0 +1,156 @@
+[
+ {
+  "id": "A01_bend_left",
+  "file": "A01_bend_left_three_view.png",
+  "bytes": 1606834,
+  "sha256": "1ff0eda28e136fa56bd3538d194ddb7d62623eb683cb5450298f30314aaa0692",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "左彎約 25°：內岸卵石灘、外岸斜倒大石；兩端剖面與直段相同。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
+  "id": "A01_bend_right",
+  "file": "A01_bend_right_three_view.png",
+  "bytes": 2189806,
+  "sha256": "98444ec12a1e79a8da72e9e172cb2eee2d436b482b72ebbf69ab36ba1c5e8f1d",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "右彎約 40°：外岸是有樹根的高層理岩壁，內岸低矮沙洲。圖中兩端畫成整齊石柱收邊，建模改為自然斷面。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
+  "id": "A01_end_source",
+  "file": "A01_end_source_three_view.png",
+  "bytes": 2157763,
+  "sha256": "4b07c8ebcb7bfc9441e236ea270b6be186ef8449694f15c2befbbe70f9a2c6a1",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "收尾件：4 m 長，下游端是與其他段相同的 2.4 m 接口；往上游河床抬升進入亂石堆，腳下有小泉潭與兩道細流，背面封閉沒有開口。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
+  "id": "A01_narrow",
+  "file": "A01_narrow_three_view.png",
+  "bytes": 1918571,
+  "sha256": "f5a847f804c3c76ecb4d6c8603c706940f93a1ba72585347fc0ec1dd82a5480d",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "收窄：兩塊大岩把河道夾到約 1.2 m，有小落差與白水，兩端仍為 2.4 m 接口。圖中水畫得偏深，建模保持低水位。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
+  "id": "A01_straight",
+  "file": "A01_straight_three_view.png",
+  "bytes": 1857580,
+  "sha256": "ed35699c3d58c909cf10e49d926cc3e50fbedc1e4ddf3f4f4e270150f5628300",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "直段：7 m 寬、6 m 長，河道 2.4 m、河床低於岸頂 0.9 m；中間細流，兩側露出卵石與濕泥，岸上一圈淺色舊水位。兩端剖面相同，可拼接。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
+  "id": "A02_end_break",
+  "file": "A02_end_break_three_view.png",
+  "bytes": 1803001,
+  "sha256": "97817ca3fd15cbf03dfa75312aae996b8ce63043bb10314d8c8941767a4eab17",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "石槽變體 2：最後一塊斜裂，末端一截與端柱往外傾倒，水從缺口流下，地上有碎石。和變體 1 的破口位置、形狀不同。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
+  "id": "A02_side_crack",
+  "file": "A02_side_crack_three_view.png",
+  "bytes": 1638736,
+  "sha256": "610981e95c2d69cfd7ebc66835bd098533518c699714d46b10ef0c7752a7f0a1",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "石槽變體 1：3 m 長、0.7 m 寬、0.55 m 高的 U 形槽，外側雲紋帶；中間一塊側面裂開缺角，細流漏到地上。正面看得見破口。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
+  "id": "A03",
+  "file": "A03_three_view.png",
+  "bytes": 1693272,
+  "sha256": "12cfbf79ba77893e51e20ebfb24e79f5148311916113818dc1add3afd925ec2b",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "半埋舊陣基：直徑 1.8 m 圓台，石塊分件，一側傾斜沉入土中；青綠銅環有卦象刻槽，缺一段，地上有掉落的銅片。是殘件，不是修復完整品。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
+  "id": "A04",
+  "file": "A04_three_view.png",
+  "bytes": 2217921,
+  "sha256": "68725c4d470d7e4a3698497641d6fe2614fccbb3f2e3c4eeec69a54b23d19f94",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "泥沙堆：2.4×2.2×0.6 m，夾斷枝、落葉、卵石，堵住大半河道，後方積水、一側細流；下方附清理後只剩兩側低矮殘沙的狀態。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
+  "id": "A05",
+  "file": "A05_three_view.png",
+  "bytes": 2123099,
+  "sha256": "ba9e53f66850e8d23ddccef07b3aa36f08c514b644d85b81b9de7122e11d4dee",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "枯黃水草：0.9 m 寬、0.7 m 高的莎草叢，葉片下垂、尖端枯褐，根部一點綠，龜裂乾泥；和綠色蘆葦明顯不同。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
+  "id": "A06",
+  "file": "A06_three_view.png",
+  "bytes": 2573135,
+  "sha256": "d0ad67b1ade16d65d9952a4ae92a2542dc3e1bab52e07af539c04de8f25a886a",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json",
+  "review": "示跡石：1.2 m 高、1.0 m 寬，0.35 m 處是現在的濕線，往上是淺色乾痕，0.85 m 處一圈乾苔是舊高水位，頂部有苔。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ }
+]

@@ -1,0 +1,108 @@
+{
+ "id": "A01",
+ "variant": "narrowing pinch",
+ "key": "A01_narrow_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  7.0,
+  6.0,
+  1.9968
+ ],
+ "triangles": 19892,
+ "lod_triangles": [
+  19892,
+  7655,
+  3368
+ ],
+ "collision": {
+  "type": "heightfield",
+  "note": "pinch rocks are blockers; the sill can be stepped over"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A01_narrow_01",
+  "dimensions_m": [
+   7.0,
+   6.0,
+   1.9968
+  ],
+  "bbox_min": [
+   -3.5,
+   0.0,
+   0.0
+  ],
+  "bbox_max": [
+   3.5,
+   6.0,
+   1.9968
+  ],
+  "trianglesLOD": [
+   19892,
+   7655,
+   3368
+  ],
+  "budgetLOD0": 20000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "LowWater",
+   "M_A01_narrow_01"
+  ],
+  "textureResolution": 2048,
+  "nodes": [
+   "A01_narrow_01_LOD0",
+   "A01_narrow_01_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 222,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 19892,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "LowWater.001",
+    "M_A01_narrow_01.001"
+   ]
+  },
+  "files": {
+   "A01_narrow_01.glb": {
+    "bytes": 2078928,
+    "sha256": "64f6f13d73504871229caaa1b75b6edfc4e4a8a826ba73771f44371aceabbd00"
+   },
+   "A01_narrow_01.fbx": {
+    "bytes": 2350172,
+    "sha256": "763f5f88b621d92de3edff6c2e36539b77e59fddc1f788cc17d86c8858b13a54"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A01_narrow_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ },
+ "river_interface": {
+  "origin": "downstream port: channel centre at the tile base; upstream is +Y (Blender) / -Z (glTF)",
+  "channel_width_m": 2.4,
+  "tile_width_m": 7.0,
+  "bank_top_m": 1.15,
+  "bed_m": 0.25,
+  "water_m": 0.3,
+  "old_high_water_m": 0.86,
+  "length_m": 6.0,
+  "out_port_blender_xy_deg": [
+   0.0,
+   6.0,
+   0.0
+  ],
+  "place": "set the origin at y = -bank_top so banks meet ground 0; chain the next module at out_port"
+ }
+}

@@ -1,0 +1,105 @@
+{
+ "id": "A01",
+ "variant": "terminal: spring and boulder jam (closes a run upstream)",
+ "key": "A01_end_source_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  7.0,
+  4.4209,
+  1.9517
+ ],
+ "triangles": 21758,
+ "lod_triangles": [
+  21758,
+  8162,
+  3591
+ ],
+ "collision": {
+  "type": "heightfield",
+  "note": "interface only at the downstream end; the boulder jam is a blocker"
+ },
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A01_end_source_01",
+  "dimensions_m": [
+   7.0,
+   4.4209,
+   1.9517
+  ],
+  "bbox_min": [
+   -3.5,
+   0.0,
+   0.0
+  ],
+  "bbox_max": [
+   3.5,
+   4.4209,
+   1.9517
+  ],
+  "trianglesLOD": [
+   21758,
+   8162,
+   3591
+  ],
+  "budgetLOD0": 22000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "LowWater",
+   "M_A01_end_source_01"
+  ],
+  "textureResolution": 2048,
+  "nodes": [
+   "A01_end_source_01_LOD0",
+   "A01_end_source_01_Clear"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 252,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 21758,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "LowWater.001",
+    "M_A01_end_source_01.001"
+   ]
+  },
+  "files": {
+   "A01_end_source_01.glb": {
+    "bytes": 2187656,
+    "sha256": "963a8283f3a0801c6c53b070f63622a6caed1ea7750d78bfcae925c95e78fc75"
+   },
+   "A01_end_source_01.fbx": {
+    "bytes": 2501308,
+    "sha256": "02610dfbc9a507385ea6efc7644803a445f2d70173b5bdfcf592f49351a8cec6"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A01_end_source_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ },
+ "river_interface": {
+  "origin": "downstream port: channel centre at the tile base; upstream is +Y (Blender) / -Z (glTF)",
+  "channel_width_m": 2.4,
+  "tile_width_m": 7.0,
+  "bank_top_m": 1.15,
+  "bed_m": 0.25,
+  "water_m": 0.3,
+  "old_high_water_m": 0.86,
+  "length_m": 4.0,
+  "out_port_blender_xy_deg": null,
+  "terminal": true,
+  "place": "set the origin at y = -bank_top so banks meet ground 0; chain the next module at out_port"
+ }
+}
