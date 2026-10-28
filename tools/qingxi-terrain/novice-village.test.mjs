@@ -46,6 +46,26 @@ test('the climb between neighbouring pads along each road is gentle', () => {
   }
 });
 
+const roadDistance = (x, z) => Math.min(...layout.edges.map(e => {
+  const a = nodes[e.from], b = nodes[e.to];
+  const abx = b.x - a.x, abz = b.z - a.z, len2 = abx * abx + abz * abz;
+  const t = len2 ? Math.max(0, Math.min(1, ((x - a.x) * abx + (z - a.z) * abz) / len2)) : 0;
+  return Math.hypot(x - a.x - abx * t, z - a.z - abz * t) - e.width / 2;
+}));
+
+test('every building and prop stands on a flat pad', () => {
+  for (const p of layout.placements)
+    assert.ok(layout.pads.some(pad => padEdge(pad, p.x, p.z) <= -0.5), `${p.id} is not inside a pad`);
+});
+
+test('herbs grow in open ground, off roads and pads', () => {
+  for (const h of layout.herbs) {
+    assert.ok(roadDistance(h.x, h.z) > 2, `${h.id} is on or next to a road`);
+    assert.ok(layout.pads.every(pad => padEdge(pad, h.x, h.z) > 2), `${h.id} is on a pad`);
+    assert.ok(Math.abs(h.x) < 44 && Math.abs(h.z) < 44, `${h.id} is outside the village boundary`);
+  }
+});
+
 test('the check config mirrors the layout', () => {
   const config = buildConfig(layout);
   assert.equal(config.roads.length, layout.edges.length);

@@ -23,6 +23,8 @@ namespace YunJing.Editor
         [Serializable] public class Pad { public string id, surface; public float x, z, halfX, halfZ, height; }
         [Serializable] public class HeightPoint { public float x, z, height; }
         [Serializable] public class Checkpoint { public string name, node; }
+        [Serializable] public class Placement { public string id, role, model, author, collider; public float x, z, yaw; }
+        [Serializable] public class Herb { public string id, kind; public float x, z; }
         [Serializable]
         public class Layout
         {
@@ -35,6 +37,8 @@ namespace YunJing.Editor
             public HeightPoint[] heightPoints;
             public Checkpoint[] checkpoints;
             public string[] route;
+            public Placement[] placements;
+            public Herb[] herbs;
         }
 
         static readonly string[] LayerNames = { "VillageMeadow", "VillagePackedEarth", "VillagePlazaStone", "VillageForestFloor" };

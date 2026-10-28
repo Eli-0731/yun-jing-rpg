@@ -73,6 +73,17 @@ namespace YunJing
             foraging.TryInteract(walker.transform.position, out _);
             int herbs = foraging.Herbs;
             Check("herb gathered", herbs == 1);
+            yield return Frames(2);
+            var herbVisual = foraging.herbNodes[0].GetComponent<QingxiHerbVisual>();
+            Check("herb switches to its harvested model", herbVisual != null && herbVisual.post.activeSelf && !herbVisual.pre.activeSelf);
+
+            // The herbal stall is the market; only read the prompt so the herb count stays for the carry check.
+            if (foraging.marketEntrance != null)
+            {
+                Teleport(walker, foraging.marketEntrance.position);
+                yield return Frames(5);
+                Check("market stall offers trade", (foraging.Prompt(walker.transform.position) ?? "").Contains("交換"));
+            }
 
             // B: the door loads joshsu54's AlchemyRoom scene; Backspace / the button returns to the door.
             Spot(walker, "溪畔丹房");

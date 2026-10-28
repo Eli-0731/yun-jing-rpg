@@ -1,0 +1,47 @@
+{
+  "expected": {
+    "size_xyz": [
+      2.01,
+      0.73,
+      0.785
+    ],
+    "triangles": 1320
+  },
+  "glb": {
+    "size_xyz": [
+      2.01,
+      0.73,
+      0.785
+    ],
+    "ground_z": 0.0,
+    "triangles": 1320,
+    "materials": [
+      "M_QX_AgedElm",
+      "M_QX_Bamboo",
+      "M_QX_OxidisedBronze"
+    ],
+    "qa_errors": 0,
+    "qa_warnings": [
+      "QX_AlchemyWorkTable_v001_LOD0: duplicate verts=1284 loose verts=0"
+    ]
+  },
+  "fbx": {
+    "size_xyz": [
+      2.01,
+      0.73,
+      0.785
+    ],
+    "ground_z": -0.0,
+    "triangles": 1320,
+    "materials": [
+      "M_QX_AgedElm",
+      "M_QX_Bamboo",
+      "M_QX_OxidisedBronze"
+    ],
+    "qa_errors": 0,
+    "qa_warnings": [
+      "QX_AlchemyWorkTable_v001_LOD0: 18 n-gons"
+    ]
+  },
+  "pass": true
+}

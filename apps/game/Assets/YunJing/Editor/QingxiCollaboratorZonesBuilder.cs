@@ -20,6 +20,7 @@ namespace YunJing.Editor
         const string RabbitModels = "Assets/YunJing/Models/ForestEncounterA/Rabbit";
         const string AlchemyModels = "Assets/YunJing/Models/AlchemyB";   // same copy target as AlchemyRoomBuilder
         public const string ReturnModels = "Assets/YunJing/Models/VillageReturnC";
+        const string AlchemyTableModel = "Assets/YunJing/Models/AlchemyTableV1/QX_AlchemyWorkTable_v001.fbx";
         public const string SignModels = "Assets/YunJing/Models/VillageSignsC";
         const string TrainingModels = "Assets/YunJing/Models/TrainingYardA";
         const string MaterialFolder = "Assets/QingxiWorld/Generated/Materials/Collaborators";
@@ -157,23 +158,18 @@ namespace YunJing.Editor
                     Path.Combine(Repo, "art/exports/qingxi-alchemy-b", item.folder, "v001", item.id + "_model_info.json"), result);
                 if (item.y < .01f) Solid(model);
             }
-            // Same graybox work table as AlchemyRoomBuilder: named as a placeholder, not an authored asset.
+            // Core-group work table v1 (art/references/qingxi-alchemy-table-v1), built to B's graybox size:
+            // 2.0 x 0.72 m with the top at 0.78 m, where his mortar, basket, bottle and recipe stand sit.
             var t = data.alchemy.table;
-            var tableGround = LocalGround(root, t.x, t.z);
-            var table = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            table.name = "Placeholder_WorkTable (graybox)";
+            var tableSource = AssetDatabase.LoadAssetAtPath<GameObject>(AlchemyTableModel);
+            if (tableSource == null) throw new FileNotFoundException("Alchemy work table missing", AlchemyTableModel);
+            var table = (GameObject)PrefabUtility.InstantiatePrefab(tableSource);
+            table.name = "QX_AlchemyWorkTable_v001 (core group)";
             table.transform.SetParent(root, false);
-            table.transform.localPosition = new Vector3(t.x, tableGround + t.y - .03f, t.z);
-            table.transform.localScale = new Vector3(t.width, .06f, t.depth);
-            table.GetComponent<Renderer>().sharedMaterial = Flat("AlchemyCornerTimber", new Color(.36f, .27f, .18f));
-            foreach (var x in new[] { -1, 1 }) foreach (var z in new[] { -1, 1 })
-            {
-                var leg = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                leg.name = "Placeholder_TableLeg"; leg.transform.SetParent(root, false);
-                leg.transform.localPosition = new Vector3(t.x + x * (t.width / 2 - .08f), tableGround + (t.y - .06f) / 2, t.z + z * (t.depth / 2 - .08f));
-                leg.transform.localScale = new Vector3(.08f, t.y - .06f, .08f);
-                leg.GetComponent<Renderer>().sharedMaterial = table.GetComponent<Renderer>().sharedMaterial;
-            }
+            table.transform.localPosition = new Vector3(t.x, LocalGround(root, t.x, t.z), t.z);
+            table.transform.localRotation = tableSource.transform.localRotation;
+            var tableBox = table.AddComponent<BoxCollider>();
+            tableBox.center = new Vector3(0, .39f, 0); tableBox.size = new Vector3(2f, .78f, .72f);
             result.alchemyDoor = Marker("AlchemyDoor_B", root, new Vector3(data.alchemy.door.x, 0, data.alchemy.door.z)).transform;
             return root;
         }

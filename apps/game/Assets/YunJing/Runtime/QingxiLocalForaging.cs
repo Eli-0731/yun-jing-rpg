@@ -52,6 +52,8 @@ namespace YunJing
             return "探索線索、採藥、追兔，或回聽風台練氣";
         }
 
+        public bool IsHarvested(Transform herb) => harvestedUntil.TryGetValue(herb, out var until) && Time.time < until;
+
         public bool TryInteract(Vector3 playerPosition, out string message) =>
             TryInteractAt(playerPosition, Time.time, out message);
 

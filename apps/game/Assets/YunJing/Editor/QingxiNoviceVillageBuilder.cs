@@ -23,6 +23,8 @@ namespace YunJing.Editor
         const string AlchemyScenePath = "Assets/YunJing/Generated/AlchemyRoom.unity";
         const string MaterialFolder = "Assets/QingxiWorld/Generated/Materials/Collaborators";
         static Terrain terrain;
+        static QingxiVillageTerrain.Layout layout;
+        const string GatheringModels = "Assets/YunJing/Models/GatheringB";   // copied from art/exports, gitignored
 
         static Vector3 At(float x, float z) => new Vector3(x, QingxiVillageTerrain.Ground(terrain, x, z), z);
         static Vector3 At(Vector3 p) => At(p.x, p.z);
@@ -37,6 +39,7 @@ namespace YunJing.Editor
             var village = new GameObject("QingxiNoviceVillage").transform;
             Lighting(village);
             terrain = QingxiVillageTerrain.Create(village);
+            layout = QingxiVillageTerrain.Load();
             Physics.SyncTransforms();
             Boundary(village);
 
@@ -51,6 +54,7 @@ namespace YunJing.Editor
             var yard = TrainingYard(village, zones);
             var signs = Signs(village, zones);
             var herbs = Herbs(village);
+            var placed = Placements(village);
             Scenery(village);
 
             var walker = player.GetComponent<global::QingxiWorld.QingxiFirstPerson>();
@@ -61,6 +65,8 @@ namespace YunJing.Editor
                 ("演武區", yard.position + new Vector3(-4, 0, 0), yard.position),
                 ("林地遭遇", zones.forest.Find("SafePoint_A09").position, zones.forest.Find("RabbitBurrow_A02").position),
                 ("回村分揀桌", zones.returnTable.position, zones.ret.position),
+                ("坊市", At(-6, -14), At(-11, -15)),
+                ("藥田", At(-18, -21), At(-25, -24)),
             };
             walker.spotNames = spots.Select(s => s.name).ToArray();
             walker.spotPositions = spots.Select(s => s.at).ToArray();
@@ -74,6 +80,11 @@ namespace YunJing.Editor
             foraging.herbNodes = herbs;
             foraging.clueNodes = signs.Skip(1).ToArray();   // Q02-Q04 are Eli-0731's clue signs; Q01 is the notice board
             foraging.trainingSpot = yard;
+            // The herbal stall is the market: herbs and rabbits trade for practice stones there (local only).
+            var market = new GameObject("MarketEntrance_HerbalStall").transform;
+            market.SetParent(village, false); market.position = At(-7.5f, -14.5f);
+            foraging.marketEntrance = market;
+            foreach (var visual in herbs.Select(h => h.GetComponent<QingxiHerbVisual>()).Where(v => v != null)) visual.foraging = foraging;
             var stations = player.AddComponent<QingxiAbcStations>();
             stations.alchemyDoor = zones.alchemyDoor; stations.returnTable = zones.returnTable;
             stations.forest = zones.encounter; stations.walker = walker;
@@ -88,7 +99,7 @@ namespace YunJing.Editor
             PlayerSettings.defaultScreenHeight = 720;
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), ScenePath);
             AssetDatabase.SaveAssets();
-            Debug.Log($"QINGXI_NOVICE_VILLAGE_GENERATED: collaborator models={zones.models}, spots={spots.Length}, herbs={herbs.Length}, clues={foraging.clueNodes.Length}, URP copies={converted}\n" + string.Join("\n", zones.report));
+            Debug.Log($"QINGXI_NOVICE_VILLAGE_GENERATED: collaborator models={zones.models}, placements={placed}, spots={spots.Length}, herbs={herbs.Length}, clues={foraging.clueNodes.Length}, URP copies={converted}\n" + string.Join("\n", zones.report));
             PrepareAlchemyRoom();
         }
 
@@ -172,25 +183,121 @@ namespace YunJing.Editor
             }).ToArray();
         }
 
-        // Placeholder herb clumps for the local foraging loop; no herb model has been delivered yet.
+        // Herb nodes for the local foraging loop use joshsu54's gathering kit (QX_SpiritHerb_*): the "pre"
+        // model until harvested, the "post" model until it regrows (QingxiHerbVisual).
         static Transform[] Herbs(Transform village)
         {
-            var leaf = Surface("VillageHerb_Placeholder", new Color(.32f, .62f, .38f));
-            var root = new GameObject("HerbNodes_Placeholder (graybox)").transform; root.SetParent(village, false);
-            return new[] { new Vector3(-8, 0, 12), new Vector3(8.5f, 0, 11), new Vector3(-11, 0, 4) }.Select((at, i) =>
+            CopyGathering();
+            var root = new GameObject("HerbNodes (joshsu54 gathering kit)").transform; root.SetParent(village, false);
+            return layout.herbs.Select(h =>
             {
-                var node = new GameObject($"HerbNode_0{i + 1}").transform; node.SetParent(root, false); node.localPosition = At(at);
-                for (int k = 0; k < 5; k++)
-                {
-                    var blade = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-                    blade.name = "Placeholder_HerbBlade"; blade.transform.SetParent(node, false);
-                    blade.transform.localPosition = Quaternion.Euler(0, k * 72, 0) * new Vector3(.14f, .2f, 0);
-                    blade.transform.localRotation = Quaternion.Euler(18, k * 72, 0); blade.transform.localScale = new Vector3(.08f, .22f, .04f);
-                    blade.GetComponent<Renderer>().sharedMaterial = leaf;
-                    UnityEngine.Object.DestroyImmediate(blade.GetComponent<Collider>());
-                }
+                var node = new GameObject(h.id).transform; node.SetParent(root, false); node.localPosition = At(h.x, h.z);
+                var visual = node.gameObject.AddComponent<QingxiHerbVisual>();
+                visual.pre = HerbModel(h.kind, "pre", node);
+                visual.post = HerbModel(h.kind, "post", node);
+                visual.post.SetActive(false);
                 return node;
             }).ToArray();
+        }
+
+        static GameObject HerbModel(string kind, string state, Transform node)
+        {
+            string key = $"QX_SpiritHerb_{kind}_{state}";
+            var source = AssetDatabase.LoadAssetAtPath<GameObject>($"{GatheringModels}/{kind}/{key}.fbx");
+            if (source == null) throw new FileNotFoundException("Gathering kit herb missing", key);
+            var model = (GameObject)PrefabUtility.InstantiatePrefab(source);
+            model.name = key + " - by joshsu54";
+            model.transform.SetParent(node, false);
+            var material = GatheringMaterial(kind, key);
+            foreach (var r in model.GetComponentsInChildren<Renderer>()) r.sharedMaterials = Enumerable.Repeat(material, r.sharedMaterials.Length).ToArray();
+            return model;
+        }
+
+        static Material GatheringMaterial(string kind, string key)
+        {
+            var path = $"{MaterialFolder}/{key}_URP.mat";
+            var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (mat == null) { mat = new Material(Shader.Find("Universal Render Pipeline/Lit")); AssetDatabase.CreateAsset(mat, path); }
+            string tex = $"{GatheringModels}/{kind}/textures/{key}_";
+            var baseColor = AssetDatabase.LoadAssetAtPath<Texture2D>(tex + "BaseColor.png");
+            if (baseColor == null) throw new FileNotFoundException("Gathering kit texture missing", tex + "BaseColor.png");
+            mat.SetTexture("_BaseMap", baseColor); mat.SetColor("_BaseColor", Color.white); mat.SetFloat("_Smoothness", .15f);
+            var normal = AssetDatabase.LoadAssetAtPath<Texture2D>(tex + "Normal.png");
+            if (normal != null) { mat.SetTexture("_BumpMap", normal); mat.EnableKeyword("_NORMALMAP"); }
+            var emission = AssetDatabase.LoadAssetAtPath<Texture2D>(tex + "Emission.png");
+            if (emission != null) { mat.SetTexture("_EmissionMap", emission); mat.SetColor("_EmissionColor", Color.white * .6f); mat.EnableKeyword("_EMISSION"); }
+            EditorUtility.SetDirty(mat);
+            return mat;
+        }
+
+        // Copy the two herb kinds (pre/post FBX and textures) from art/exports into the gitignored model folder.
+        static void CopyGathering()
+        {
+            string repo = Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
+            foreach (var kind in layout.herbs.Select(h => h.kind).Distinct())
+            {
+                var src = Path.Combine(repo, "art/exports/qingxi-gathering-visual-kit-v1", "QX_SpiritHerb_" + kind, "v001");
+                var dst = Path.Combine(repo, "apps/game", GatheringModels, kind);
+                foreach (var (from, to, pattern) in new[] { (src, dst, "*.fbx"), (Path.Combine(src, "textures"), Path.Combine(dst, "textures"), "*.png") })
+                {
+                    Directory.CreateDirectory(to);
+                    foreach (var file in Directory.GetFiles(from, pattern))
+                    {
+                        if (new FileInfo(file).Length < 1024) throw new InvalidOperationException("Git LFS pointer instead of asset; run git lfs pull: " + file);
+                        var target = Path.Combine(to, Path.GetFileName(file));
+                        if (!File.Exists(target) || new FileInfo(target).Length != new FileInfo(file).Length) File.Copy(file, target, true);
+                    }
+                }
+            }
+            AssetDatabase.Refresh();
+            foreach (var guid in AssetDatabase.FindAssets("t:Model", new[] { GatheringModels }))
+            {
+                var importer = (ModelImporter)AssetImporter.GetAtPath(AssetDatabase.GUIDToAssetPath(guid));
+                if (importer.bakeAxisConversion && importer.materialImportMode == ModelImporterMaterialImportMode.None) continue;
+                importer.bakeAxisConversion = true; importer.importAnimation = false; importer.importCameras = false; importer.importLights = false;
+                importer.materialImportMode = ModelImporterMaterialImportMode.None;
+                importer.SaveAndReimport();
+            }
+            foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { GatheringModels }))
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                var ti = (TextureImporter)AssetImporter.GetAtPath(path);
+                bool normal = path.EndsWith("_Normal.png"), linear = normal || path.EndsWith("_Roughness.png");
+                var type = normal ? TextureImporterType.NormalMap : TextureImporterType.Default;
+                if (ti.textureType == type && ti.sRGBTexture == !linear && ti.maxTextureSize == 1024) continue;
+                ti.textureType = type; ti.sRGBTexture = !linear; ti.maxTextureSize = 1024; ti.SaveAndReimport();
+            }
+        }
+
+        // Buildings and props from the layout data: each stands on its pad at the terrain height and keeps
+        // its FBX root rotation (Z-up exports carry an import rotation); only the yaw is added.
+        static int Placements(Transform village)
+        {
+            var root = new GameObject("VillagePlacements (novice-village.json)").transform; root.SetParent(village, false);
+            foreach (var p in layout.placements)
+            {
+                var source = AssetDatabase.LoadAssetAtPath<GameObject>(p.model);
+                if (source == null) throw new FileNotFoundException("Village placement model missing (Git LFS pulled?)", p.model);
+                var model = (GameObject)PrefabUtility.InstantiatePrefab(source);
+                model.name = $"{p.id} - {p.author}";
+                model.transform.SetParent(root, false);
+                model.transform.localRotation = Quaternion.Euler(0, p.yaw, 0) * source.transform.localRotation;
+                model.transform.localPosition = At(p.x, p.z);
+                // Rest the visual base on the ground even when the FBX origin is not at the base.
+                var renderers = model.GetComponentsInChildren<Renderer>();
+                if (renderers.Length == 0) throw new InvalidDataException("No renderer in " + p.model);
+                var b = renderers[0].bounds; foreach (var r in renderers) b.Encapsulate(r.bounds);
+                model.transform.position += Vector3.up * (At(p.x, p.z).y - b.min.y);
+                if (p.collider == "box")
+                {
+                    b = renderers[0].bounds; foreach (var r in renderers) b.Encapsulate(r.bounds);
+                    var box = model.AddComponent<BoxCollider>();
+                    box.center = model.transform.InverseTransformPoint(b.center);
+                    var size = model.transform.InverseTransformVector(b.size);
+                    box.size = new Vector3(Mathf.Abs(size.x), Mathf.Abs(size.y), Mathf.Abs(size.z));
+                }
+            }
+            return layout.placements.Length;
         }
 
         // Existing reviewed environment pieces (CollaboratorWorldV1) framing the village edge.
@@ -207,6 +314,9 @@ namespace YunJing.Editor
                 var r = 30 + (float)random.NextDouble() * 8;
                 var at = Quaternion.Euler(0, angle, 0) * new Vector3(0, 0, r);
                 if (Mathf.Abs(at.x) < 11 && at.z < 0) continue;   // keep the village gate approach open
+                // ...and every pad, road and herb clear (the layout grew into the old ring).
+                if (QingxiVillageTerrain.PadDistance(layout, at.x, at.z, out _) < 3f || QingxiVillageTerrain.RoadDistance(layout, at.x, at.z, out _) < 3f
+                    || layout.herbs.Any(h => Vector2.Distance(new Vector2(h.x, h.z), new Vector2(at.x, at.z)) < 4f)) continue;
                 Tree(n++ % 3 == 0 ? bamboo : pine, root, at, n % 3 == 0 ? 4.5f : 9f + (float)random.NextDouble() * 3, (float)random.NextDouble() * 360);
             }
             // a darker stand of pines behind the forest encounter
