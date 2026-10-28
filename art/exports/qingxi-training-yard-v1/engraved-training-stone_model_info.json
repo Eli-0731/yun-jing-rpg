@@ -1,0 +1,96 @@
+{
+ "id": "engraved-training-stone",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  2.0816,
+  1.6652,
+  0.2819
+ ],
+ "triangles": 3072,
+ "lod_triangles": [
+  3072,
+  1536,
+  674
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   1.8,
+   1.5,
+   0.28
+  ],
+  "center": [
+   0,
+   0,
+   0.14
+  ],
+  "note": "walkable top; step height 0.28 m"
+ },
+ "pivots": {},
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "engraved-training-stone",
+  "dimensions_m": [
+   2.0816,
+   1.6652,
+   0.2819
+  ],
+  "bbox_min": [
+   -1.0566,
+   -0.8161,
+   0.0
+  ],
+  "bbox_max": [
+   1.025,
+   0.8491,
+   0.2819
+  ],
+  "trianglesLOD": [
+   3072,
+   1536,
+   674
+  ],
+  "budgetLOD0": 4000,
+  "withinBudget": true,
+  "materials": [
+   "M_engraved-training-stone"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "engraved-training-stone_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 3072,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_engraved-training-stone.001"
+   ]
+  },
+  "files": {
+   "engraved-training-stone.glb": {
+    "bytes": 226104,
+    "sha256": "019b2def84fb03876d051aa1c444e3bcc639dcab29fc84963f3a4b64698f9312"
+   },
+   "engraved-training-stone.fbx": {
+    "bytes": 371308,
+    "sha256": "81b8153472fcc13e5e2f203e3e3a26fc2443f543eb63abbf87609f943fab94e3"
+   }
+  },
+  "reference": "art/references/qingxi-training-yard-v1/engraved-training-stone-three-view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
