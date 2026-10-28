@@ -1,0 +1,26 @@
+{
+  "pass": true,
+  "desktop": "1280x720",
+  "touch": "844x390 Chrome emulation, not physical phone",
+  "checks": [
+    "no clues can report",
+    "keyboard and repeat idempotency",
+    "three choices",
+    "change and cancel preserve upstream",
+    "saved choice reload",
+    "dry/partial/restored actual images",
+    "unknown outcome is not complete",
+    "object feedback",
+    "model preview",
+    "invalid JSON inert",
+    "local-only export",
+    "offline reload and variant image",
+    "touch and no horizontal overflow",
+    "storage disabled fallback",
+    "direct file launch",
+    "static server scope",
+    "no non-GET page requests"
+  ],
+  "errors": [],
+  "requests": []
+}

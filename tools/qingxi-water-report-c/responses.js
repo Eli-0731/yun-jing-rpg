@@ -1,0 +1,28 @@
+/* Eli-0731 / Codex. Source: response-data.json */
+(function(root){const data={
+  "none": {
+    "tell_shortage": "上游斷流，村裡水少，原因還待確認，先把你看到的缺水記下來。",
+    "inspect_crack": "槽邊是否破損還待確認，可以先請工匠檢查舊水路。",
+    "protect_nursery": "上游斷流，村裡水少，可以先留意溪畔幼獸與育幼區。"
+  },
+  "pending": {
+    "tell_shortage": "上游已有缺水跡象，水還沒導回來，可以先把看到的情況告知大家。",
+    "inspect_crack": "水還沒導回來，槽邊狀況需要確認，可以先把線索交給工匠。",
+    "protect_nursery": "水還沒導回來，溪畔幼獸也需要留意，可以先保護育幼區。"
+  },
+  "partial": {
+    "tell_shortage": "水只部分恢復，先把你看到的缺水記下來，別急著說修好。",
+    "inspect_crack": "水只部分恢復，可以請工匠檢查舊槽，看看哪段仍在漏水。",
+    "protect_nursery": "水只部分恢復，溪畔幼獸仍可能受影響，可以先保護育幼區。"
+  },
+  "restored": {
+    "tell_shortage": "水已恢復，先把你看到的先前缺水記下來，讓後人知道。",
+    "inspect_crack": "水已恢復，可以請工匠看看舊槽，確認槽邊還穩不穩。",
+    "protect_nursery": "水已恢復，溪畔幼獸也可能回來，可以繼續留意育幼區。"
+  },
+  "protected": {
+    "tell_shortage": "育幼區已保護，村田仍部分供水，先把你看到的缺水記下來。",
+    "inspect_crack": "育幼區已保護，村田仍部分供水，可以先請工匠檢查舊槽。",
+    "protect_nursery": "育幼區已保護，村田仍部分供水，接下來也能再看看村田的需要。"
+  }
+};if(typeof module!=="undefined")module.exports=data;else root.WaterReportResponses=data;})(typeof globalThis!=="undefined"?globalThis:this);
