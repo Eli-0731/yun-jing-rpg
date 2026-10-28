@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { collaboratorModels } from './scene-content.mjs';
+import { makeRoadBlocks, makeLeftVergeBlocks, makeMeadowBlock, meadowBlocks } from './road-tiles.mjs';
 
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(() => {});
 
@@ -50,6 +51,95 @@ river.rotation.x = -Math.PI / 2; river.position.set(-9.9, .015, 0); scene.add(ri
 const bank = new THREE.Mesh(new THREE.PlaneGeometry(.42, 35), new THREE.MeshStandardMaterial({ color: '#6b7760', roughness: 1 }));
 bank.rotation.x = -Math.PI / 2; bank.position.set(-7.75, .025, 0); scene.add(bank);
 
+function fadeBankTileEnds(mesh) {
+  mesh.updateWorldMatrix(true, false);
+  const bounds = new THREE.Box3().setFromObject(mesh);
+  const material = mesh.material.clone();
+  material.transparent = true;
+  material.depthWrite = false;
+  material.onBeforeCompile = shader => {
+    shader.uniforms.bankMinZ = { value: bounds.min.z };
+    shader.uniforms.bankMaxZ = { value: bounds.max.z };
+    shader.vertexShader = shader.vertexShader.replace('#include <common>',
+      '#include <common>\nvarying float vBankWorldZ;');
+    shader.vertexShader = shader.vertexShader.replace('#include <worldpos_vertex>',
+      '#include <worldpos_vertex>\nvBankWorldZ = (modelMatrix * vec4(transformed, 1.0)).z;');
+    shader.fragmentShader = shader.fragmentShader.replace('#include <common>',
+      '#include <common>\nvarying float vBankWorldZ;\nuniform float bankMinZ;\nuniform float bankMaxZ;');
+    shader.fragmentShader = shader.fragmentShader.replace('#include <color_fragment>',
+      '#include <color_fragment>\nfloat bankEdge = smoothstep(bankMinZ, bankMinZ + 1.4, vBankWorldZ) * (1.0 - smoothstep(bankMaxZ - 1.4, bankMaxZ, vBankWorldZ));\ndiffuseColor.a *= bankEdge;');
+  };
+  mesh.material = material;
+}
+
+function addRoadBlocks(sourceMaterial, sourceMeadowMaterial) {
+  const material = sourceMaterial.clone();
+  material.side = THREE.DoubleSide;
+  if (material.map) {
+    material.map = material.map.clone();
+    material.map.wrapS = material.map.wrapT = THREE.RepeatWrapping;
+    material.map.needsUpdate = true;
+  }
+  makeRoadBlocks().forEach(({ stations, variant }, tileIndex) => {
+    const vertices = [], uvs = [], indices = [];
+    stations.forEach(station => {
+      vertices.push(...station.left, ...station.right);
+      uvs.push(0, station.textureV, 1, station.textureV);
+    });
+    for (let i = 0; i < stations.length - 1; i++) {
+      const a = i * 2, b = a + 1, c = a + 2, d = a + 3;
+      indices.push(a, c, b, b, c, d);
+    }
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+    geometry.setIndex(indices);
+    geometry.computeVertexNormals();
+    const tile = new THREE.Mesh(geometry, material);
+    tile.name = `RoadBlock_${variant}_${String(tileIndex + 1).padStart(2, '0')}`;
+    scene.add(tile);
+  });
+  const meadowMaterial = sourceMeadowMaterial.clone();
+  meadowMaterial.side = THREE.DoubleSide;
+  if (meadowMaterial.map) {
+    meadowMaterial.map = meadowMaterial.map.clone();
+    meadowMaterial.map.wrapS = meadowMaterial.map.wrapT = THREE.RepeatWrapping;
+    meadowMaterial.map.needsUpdate = true;
+  }
+  makeLeftVergeBlocks().forEach((stations, index) => {
+    const vertices = [], uvs = [], indices = [];
+    stations.forEach(station => {
+      vertices.push(...station.left, ...station.right);
+      uvs.push(0, station.textureV, 1, station.textureV);
+    });
+    for (let i = 0; i < stations.length - 1; i++) {
+      const a = i * 2, b = a + 1, c = a + 2, d = a + 3;
+      indices.push(a, c, b, b, c, d);
+    }
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+    geometry.setIndex(indices); geometry.computeVertexNormals();
+    const verge = new THREE.Mesh(geometry, meadowMaterial);
+    verge.name = `LeftMeadowVerge_${index + 1}`;
+    scene.add(verge);
+  });
+  meadowBlocks.forEach((block, index) => {
+    const points = makeMeadowBlock(block);
+    const vertices = points.flat();
+    const indices = [];
+    for (let i = 1; i < points.length - 1; i++) indices.push(0, i, i + 1);
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    geometry.setAttribute('uv', new THREE.Float32BufferAttribute(points.flatMap(p => [p[0] / 5, p[2] / 5]), 2));
+    geometry.setIndex(indices);
+    geometry.computeVertexNormals();
+    const meadow = new THREE.Mesh(geometry, meadowMaterial);
+    meadow.name = `MeadowBlock_${String(index + 1).padStart(2, '0')}`;
+    scene.add(meadow);
+  });
+}
+
 // Normalizes an authored GLB to a readable review scale. Geometry comes from
 // this repository; no third-party download is inserted into the trial.
 async function placeModel(path, x, z, extent, axis = 'width', rotation = 0) {
@@ -70,22 +160,42 @@ async function placeModel(path, x, z, extent, axis = 'width', rotation = 0) {
 }
 
 const assets = [
-  ['../../art/exports/qingxi-road-props-v13/qingxi-road-v13.glb', 0, 7, 17, 'width'],
-  ['../../art/exports/qingxi-road-props-v13/qingxi-road-v13.glb', 0, -3, 15, 'width'],
+  ['../../art/exports/qingxi-road-props-v13/qingxi-road-v13.glb', 0, 6, 17, 'width'],
   ['../../art/exports/qingxi-entry-assets-v13/village-gate-v13.glb', 0, 8, 6.5, 'width'],
   ['../../art/exports/qingxi-riverside-house-v1/qingxi-riverside-house-v1.glb', 5.4, 2.4, 7, 'width'],
   ['../../art/exports/elder-world-tree-hero-v1/elder-world-tree-hero-v1.glb', -5, 7, 6.8, 'height'],
   ['../../art/exports/qingxi-listening-terrace-v1.glb', 14.6, 6, 9, 'width'],
-  ['../../art/exports/qingxi-riverbank-v2/qingxi-riverbank-v2.glb', -6.5, 6, 12, 'width', Math.PI],
-  ['../../art/exports/qingxi-riverbank-v2/qingxi-riverbank-v2.glb', -6.5, -6, 12, 'width', Math.PI],
+  ['../../art/exports/qingxi-riverbank-v2/qingxi-riverbank-v2.glb', -6.5, 12, 12, 'width', Math.PI],
+  ['../../art/exports/qingxi-riverbank-v2/qingxi-riverbank-v2.glb', -6.5, 0, 12, 'width', Math.PI],
+  ['../../art/exports/qingxi-riverbank-v2/qingxi-riverbank-v2.glb', -6.5, -12, 12, 'width', Math.PI],
 ];
 const loading = Promise.allSettled(assets.map(async ([path, x, z, extent, axis, rotation = 0]) => {
   const loaded = await placeModel(path, x, z, extent, axis, rotation);
+  if (path.includes('qingxi-road-v13')) {
+    // The GLB already contains distinct meadow, tread, stone and plant meshes.
+    // Keep one road section, then sort those meshes into editable components.
+    const road = loaded.gltf.scene;
+    const groups = Object.fromEntries(['meadow', 'tread', 'stone', 'plant'].map(key => [key, new THREE.Group()]));
+    for (const [key, group] of Object.entries(groups)) { group.name = `RoadComponent_${key}`; road.add(group); }
+    for (const part of [...road.children]) {
+      if (!part.isMesh) continue;
+      const key = part.name.includes('MeadowBase') ? 'meadow'
+        : part.name.includes('IrregularPackedTread') ? 'tread'
+        : /Stone|Pebble/.test(part.name) ? 'stone' : 'plant';
+      groups[key].add(part);
+    }
+    const treadMaterial = groups.tread.children[0].material;
+    addRoadBlocks(treadMaterial, groups.meadow.children[0].material);
+  }
   // The source tree's exposed floating-island roots extend below the trunk.
   // The village variant embeds them in terrain until the dedicated root pass.
   if (path.includes('elder-world-tree')) loaded.root.position.y -= 2.1;
   if (path.includes('qingxi-riverbank-v2')) {
     loaded.root.traverse(part => {
+      // This bank kit contains a built-in dirt path. The village road owns
+      // the walkable surface, so do not layer a second path across it.
+      if (part.name.includes('Batched_path')) { part.visible = false; return; }
+      if (/Batched_(grass|moss)/.test(part.name)) fadeBankTileEnds(part);
       if (!part.isMesh || !part.name.toLowerCase().includes('water')) return;
       part.material = part.material.clone();
       if (!part.material.map) return;
@@ -95,7 +205,7 @@ const loading = Promise.allSettled(assets.map(async ([path, x, z, extent, axis, 
       flowingWater.push(part.material.map);
     });
   }
-  if (path.includes('village-gate') || path.includes('riverside-house')) cameraBlockers.push(loaded.root);
+  if (path.includes('village-gate') || path.includes('riverside-house') || path.includes('elder-world-tree')) cameraBlockers.push(loaded.root);
   return loaded;
 }));
 // The larger Unity town uses its own builder. This is its walkable entrance
@@ -137,7 +247,7 @@ function beacon(x, z, color) {
   foot.position.y = .04; group.add(foot);
   group.position.set(x, 0, z); scene.add(group); return group;
 }
-const practice = beacon(0, 6.0, '#d1c28a');
+const practice = beacon(-4.0, -3.5, '#d1c28a');
 const herb = beacon(12.1, -2.1, '#51c987');
 const vendor = beacon(6.3, .4, '#e5a360');
 const terrace = beacon(14.6, 6.1, '#7fc8d6');
