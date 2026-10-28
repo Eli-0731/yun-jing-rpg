@@ -85,6 +85,27 @@ namespace YunJing
                 Check("market stall offers trade", (foraging.Prompt(walker.transform.position) ?? "").Contains("交換"));
             }
 
+            // A: Johnnnny0823's training posts start his drills and give movement back afterwards.
+            var training = stations.training;
+            if (training != null)
+            {
+                Teleport(walker, training.qiPost.position + training.qiPost.forward * -1.1f);
+                yield return Frames(5);
+                Check("qi post offers breathing", (foraging.Prompt(walker.transform.position) ?? "").Contains("引氣呼吸"));
+                foraging.TryInteract(walker.transform.position, out _);
+                Check("breathing drill starts and holds the walker", training.Breath != null && training.Frozen);
+                yield return Frames(30);
+                Check("breathing guide advances", training.Breath != null && training.Breath.Elapsed > -1.4);
+                training.End();
+                Teleport(walker, training.blockPost.position + training.blockPost.forward * -1.1f);
+                yield return Frames(5);
+                Check("agility post offers blocking", (foraging.Prompt(walker.transform.position) ?? "").Contains("武技格擋"));
+                foraging.TryInteract(walker.transform.position, out _);
+                Check("block drill starts", training.Block != null && training.Block.strikes.Count == 12);
+                training.End();
+                Check("walker free after the drill", !training.Frozen && walker.enabled);
+            }
+
             // B: the door loads joshsu54's AlchemyRoom scene; Backspace / the button returns to the door.
             Spot(walker, "溪畔丹房");
             yield return Frames(5);

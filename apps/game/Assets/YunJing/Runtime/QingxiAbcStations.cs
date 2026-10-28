@@ -16,6 +16,7 @@ namespace YunJing
         public Transform alchemyDoor, returnTable;
         public QingxiForestEncounter forest;
         public QingxiFirstPerson walker;
+        public QingxiTrainingPractice training;   // Johnnnny0823's two training-yard drills
 
         // Set by QingxiSceneReturn when the player leaves the alchemy room.
         public static bool ReturningFromAlchemy;
@@ -40,6 +41,8 @@ namespace YunJing
 
         public string Prompt(Vector3 position)
         {
+            var practice = training != null ? training.Prompt(position) : null;
+            if (practice != null) return practice;
             if (alchemyDoor != null && Flat(position, alchemyDoor.position) <= Reach) return "F 進入溪畔丹房（joshsu54 煉製玩法，需本機 API）";
             if (returnTable != null && Flat(position, returnTable.position) <= Reach) return "F 在分揀桌整理回村樣本（保存／留待煉製／交委託展示）";
             if (forest != null && forest.NearLadder(position)) return forest.Climbed ? "F 爬下觀察台" : "F 爬上觀察台（安全點）";
@@ -49,6 +52,7 @@ namespace YunJing
         public bool TryInteract(Vector3 position, out string message)
         {
             message = null;
+            if (training != null && training.TryInteract(position, out message)) return true;
             if (alchemyDoor != null && Flat(position, alchemyDoor.position) <= Reach)
             {
                 if (!Application.CanStreamedLevelBeLoaded(AlchemyScene)) { message = "丹房場景未包含在這個建置"; return true; }

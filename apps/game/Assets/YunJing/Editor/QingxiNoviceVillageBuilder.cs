@@ -79,7 +79,7 @@ namespace YunJing.Editor
             var foraging = player.AddComponent<QingxiLocalForaging>();
             foraging.herbNodes = herbs;
             foraging.clueNodes = signs.Skip(1).ToArray();   // Q02-Q04 are Eli-0731's clue signs; Q01 is the notice board
-            foraging.trainingSpot = yard;
+            foraging.trainingSpot = shelterSpot;
             // The herbal stall is the market: herbs and rabbits trade for practice stones there (local only).
             var market = new GameObject("MarketEntrance_HerbalStall").transform;
             market.SetParent(village, false); market.position = At(-7.5f, -14.5f);
@@ -88,6 +88,10 @@ namespace YunJing.Editor
             var stations = player.AddComponent<QingxiAbcStations>();
             stations.alchemyDoor = zones.alchemyDoor; stations.returnTable = zones.returnTable;
             stations.forest = zones.encounter; stations.walker = walker;
+            var training = player.AddComponent<QingxiTrainingPractice>();
+            training.qiPost = qiPost; training.blockPost = blockPost; training.walker = walker;
+            stations.training = training;
+            var trainingParity = QingxiTrainingPracticeSmoke.Verify();
             foraging.abc = stations;
             walker.localForaging = foraging;
             hud.foraging = foraging; hud.forest = zones.encounter; hud.stations = stations;
@@ -99,7 +103,7 @@ namespace YunJing.Editor
             PlayerSettings.defaultScreenHeight = 720;
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), ScenePath);
             AssetDatabase.SaveAssets();
-            Debug.Log($"QINGXI_NOVICE_VILLAGE_GENERATED: collaborator models={zones.models}, placements={placed}, spots={spots.Length}, herbs={herbs.Length}, clues={foraging.clueNodes.Length}, URP copies={converted}\n" + string.Join("\n", zones.report));
+            Debug.Log($"QINGXI_NOVICE_VILLAGE_GENERATED: collaborator models={zones.models}, placements={placed}, spots={spots.Length}, herbs={herbs.Length}, clues={foraging.clueNodes.Length}, URP copies={converted}, {trainingParity}\n" + string.Join("\n", zones.report));
             PrepareAlchemyRoom();
         }
 
@@ -151,14 +155,19 @@ namespace YunJing.Editor
         }
 
         // ------------------------------------------------------------------ collaborator pieces outside the three kits
+        static Transform qiPost, blockPost, shelterSpot;
+
         static Transform TrainingYard(Transform village, QingxiCollaboratorZonesBuilder.Result result)
         {
             var yard = new GameObject("CollaboratorZone_A_TrainingYard (Johnnnny0823)").transform;
             yard.SetParent(village, false); yard.position = At(15, -2);
             yard.rotation = Quaternion.Euler(0, Facing(yard.position, Vector3.zero), 0);
             QingxiCollaboratorZonesBuilder.PlaceTrainingProp("training-shelter", yard, new Vector3(0, 0, 4), 180, result);
-            QingxiCollaboratorZonesBuilder.PlaceTrainingProp("qi-striking-post", yard, new Vector3(-2.2f, 0, .5f), 0, result);
-            QingxiCollaboratorZonesBuilder.PlaceTrainingProp("agility-post", yard, new Vector3(0, 0, .2f), 0, result);
+            // His two posts run his drills (QingxiTrainingPractice); the core group's 引氣訣 moves under the shelter.
+            qiPost = QingxiCollaboratorZonesBuilder.PlaceTrainingProp("qi-striking-post", yard, new Vector3(-2.2f, 0, .5f), 0, result).transform;
+            blockPost = QingxiCollaboratorZonesBuilder.PlaceTrainingProp("agility-post", yard, new Vector3(0, 0, .2f), 0, result).transform;
+            shelterSpot = new GameObject("TrainingSpot_Shelter").transform;
+            shelterSpot.SetParent(yard, false); shelterSpot.localPosition = new Vector3(0, 0, 4.2f);
             QingxiCollaboratorZonesBuilder.PlaceTrainingProp("engraved-training-stone", yard, new Vector3(2.4f, 0, .4f), 200, result);
             QingxiCollaboratorZonesBuilder.PlaceTrainingProp("weapon-rack", yard, new Vector3(4, 0, 3), 270, result);
             QingxiCollaboratorZonesBuilder.PlaceTrainingProp("training-banner", yard, new Vector3(-3.8f, 0, -2.2f), 0, result);
