@@ -66,6 +66,35 @@ test('herbs grow in open ground, off roads and pads', () => {
   }
 });
 
+const creekDistance = (x, z) => {
+  const p = layout.creek.points;
+  let best = Infinity;
+  for (let i = 0; i + 3 < p.length; i += 2) {
+    const ax = p[i], az = p[i + 1], bx = p[i + 2], bz = p[i + 3];
+    const abx = bx - ax, abz = bz - az, len2 = abx * abx + abz * abz;
+    const t = len2 ? Math.max(0, Math.min(1, ((x - ax) * abx + (z - az) * abz) / len2)) : 0;
+    best = Math.min(best, Math.hypot(x - ax - abx * t, z - az - abz * t));
+  }
+  return best;
+};
+
+test('the creek keeps clear of pads, roads, herbs and buildings', () => {
+  const c = layout.creek;
+  assert.ok(c && c.points.length >= 4 && c.points.length % 2 === 0, 'creek needs x,z pairs');
+  const clear = c.width / 2 + c.bank;
+  // Sample the creek every half metre against every pad and road.
+  const p = c.points;
+  for (let i = 0; i + 3 < p.length; i += 2)
+    for (let t = 0; t <= 1; t += 0.05) {
+      const x = p[i] + (p[i + 2] - p[i]) * t, z = p[i + 1] + (p[i + 3] - p[i + 1]) * t;
+      for (const pad of layout.pads) assert.ok(padEdge(pad, x, z) > clear - 1, `creek at ${x.toFixed(1)},${z.toFixed(1)} cuts into ${pad.id}`);
+      assert.ok(roadDistance(x, z) > c.width / 2, `creek at ${x.toFixed(1)},${z.toFixed(1)} crosses a road`);
+    }
+  for (const h of layout.herbs) assert.ok(creekDistance(h.x, h.z) > clear, `${h.id} is on the creek bank`);
+  for (const pl of layout.placements) assert.ok(creekDistance(pl.x, pl.z) > clear, `${pl.id} is in the creek`);
+  assert.ok(creekDistance(c.crossing.x, c.crossing.z) < 0.5, 'the crossing must sit on the creek');
+});
+
 test('the check config mirrors the layout', () => {
   const config = buildConfig(layout);
   assert.equal(config.roads.length, layout.edges.length);

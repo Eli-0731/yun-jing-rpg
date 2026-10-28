@@ -25,6 +25,16 @@ namespace YunJing.Editor
         [Serializable] public class Checkpoint { public string name, node; }
         [Serializable] public class Placement { public string id, role, model, author, collider; public float x, z, yaw; }
         [Serializable] public class Herb { public string id, kind; public float x, z; }
+        [Serializable] public class Crossing { public float x, z; public int stones; }
+        [Serializable]
+        public class Creek
+        {
+            public float width = 4, depth = .9f, bank = 3, waterLevel = .6f;
+            public float[] points = new float[0];   // x, z pairs from upstream to downstream
+            public Crossing crossing;
+            public int Count => points.Length / 2;
+            public Vector2 this[int i] => new Vector2(points[2 * i], points[2 * i + 1]);
+        }
         [Serializable]
         public class Layout
         {
@@ -39,6 +49,33 @@ namespace YunJing.Editor
             public string[] route;
             public Placement[] placements;
             public Herb[] herbs;
+            public Creek creek;
+        }
+
+        // Distance to the creek's centre line, and the land height there (the bed follows the land, so the
+        // water runs downhill). Returns +infinity when the layout has no creek.
+        public static float CreekDistance(Layout layout, float x, float z, out float centreLand)
+        {
+            centreLand = 0;
+            var c = layout.creek;
+            if (c == null || c.Count < 2) return float.PositiveInfinity;
+            float best = float.PositiveInfinity; var p = new Vector2(x, z);
+            for (int i = 0; i + 1 < c.Count; i++)
+            {
+                Vector2 a = c[i], b = c[i + 1], ab = b - a;
+                float t = Mathf.Clamp01(Vector2.Dot(p - a, ab) / Mathf.Max(ab.sqrMagnitude, 1e-6f));
+                var q = a + ab * t;
+                float d = Vector2.Distance(p, q);
+                if (d < best) { best = d; centreLand = BaseHeight(layout, q.x, q.y); }
+            }
+            return best;
+        }
+
+        /// <summary>Height of the water surface at a point on (or near) the creek centre line.</summary>
+        public static float WaterHeight(Layout layout, float x, float z)
+        {
+            CreekDistance(layout, x, z, out float land);
+            return land - layout.creek.depth + layout.creek.waterLevel;
         }
 
         static readonly string[] LayerNames = { "VillageMeadow", "VillagePackedEarth", "VillagePlazaStone", "VillageForestFloor" };
@@ -122,6 +159,14 @@ namespace YunJing.Editor
                 + layout.noise * (Mathf.PerlinNoise(x * .17f + 53f, z * .17f + 29f) - .5f);
             float road = RoadDistance(layout, x, z, out float roadHeight);
             h = Mathf.Lerp(roadHeight, h, Smooth(0f, RoadBlend, road));
+            // Creek: a flat bed (depth below the land at the centre line) easing up the banks.
+            float creek = CreekDistance(layout, x, z, out float creekLand);
+            if (!float.IsPositiveInfinity(creek))
+            {
+                var c = layout.creek;
+                float bed = creekLand - c.depth + .05f * (Mathf.PerlinNoise(x * .4f, z * .4f) - .5f);
+                h = Mathf.Lerp(bed, h, Smooth(c.width * .35f, c.width * .5f + c.bank, creek));
+            }
             // Pads last: each zone stands on one flat platform at its stated height.
             foreach (var p in layout.pads)
             {
@@ -173,6 +218,9 @@ namespace YunJing.Editor
                 float dirt = Mathf.Max(1f - Smooth(-.25f, 1f, road + edgeNoise), nearest?.surface == "dirt" ? inPad * .7f : 0);
                 float plaza = nearest?.surface == "plaza" ? inPad * .85f : 0;
                 float forest = nearest?.surface == "forest" ? (1f - Smooth(-1f, 3f, pad)) * (1f - dirt) : 0;
+                // Wet, darker banks along the creek reuse the forest-floor layer (keeps the terrain at 4 layers).
+                float creek = CreekDistance(layout, wx, wz, out _);
+                if (layout.creek != null) forest = Mathf.Max(forest, (1f - Smooth(layout.creek.width * .5f, layout.creek.width * .5f + layout.creek.bank + 1f, creek + edgeNoise * 2f)) * (1f - dirt));
                 plaza *= 1f - dirt * .5f;
                 paint[z, x, 1] = dirt;
                 paint[z, x, 2] = plaza;
@@ -182,7 +230,8 @@ namespace YunJing.Editor
                 for (int l = 0; l < LayerNames.Length; l++) sum += paint[z, x, l];
                 for (int l = 0; l < LayerNames.Length; l++) paint[z, x, l] /= sum;
                 // Grass: none on roads or pads, thinning toward their edges.
-                float density = Smooth(.3f, 2.3f, road) * Smooth(.5f, 2.5f, pad);
+                float density = Smooth(.3f, 2.3f, road) * Smooth(.5f, 2.5f, pad)
+                    * (layout.creek != null ? Smooth(layout.creek.width * .5f + .5f, layout.creek.width * .5f + 2.5f, creek) : 1f);
                 float scatter = Mathf.PerlinNoise(wx * .71f + 31f, wz * .71f + 41f);
                 detail[z, x] = density > .85f && scatter > .55f ? (scatter > .7f ? 3 : 1) : 0;
             }

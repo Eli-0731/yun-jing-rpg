@@ -45,7 +45,9 @@ namespace YunJing.Editor
             Shot("10-lodging", new Vector3(4, 4.5f, -26), new Vector3(17, 1.5f, -19));
             Shot("11-market", new Vector3(-2, 3.5f, -20), new Vector3(-11, 1, -14));
             Shot("12-fields", new Vector3(-14, 6, -14), new Vector3(-25, 0, -24));
-            Shot("13-herb-close", new Vector3(-21.5f, 1.4f, 6.5f), new Vector3(-23, .2f, 8));
+            Shot("13-herb-close", new Vector3(-18f, 1.4f, 7.5f), new Vector3(-19.5f, .2f, 9));
+            Shot("14-creek-crossing-eye", new Vector3(-19.5f, 1.7f, 2.5f), new Vector3(-27f, .3f, 4.5f));
+            Shot("15-creek-above", new Vector3(-12f, 14f, -16f), new Vector3(-30f, 0f, 2f));
             Debug.Log($"QINGXI_VILLAGE_CAPTURED to {dir} (pipeline: {(GraphicsSettings.currentRenderPipeline != null ? GraphicsSettings.currentRenderPipeline.name : "built-in")})");
         }
     }

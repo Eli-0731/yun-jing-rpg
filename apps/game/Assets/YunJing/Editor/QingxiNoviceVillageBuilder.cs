@@ -61,6 +61,7 @@ namespace YunJing.Editor
             var signs = Signs(village, zones);
             var herbs = Herbs(village);
             var placed = Placements(village);
+            Creek(village);
             Scenery(village);
 
             var walker = player.GetComponent<global::QingxiWorld.QingxiFirstPerson>();
@@ -258,9 +259,12 @@ namespace YunJing.Editor
         static void CopyGathering()
         {
             string repo = Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
-            foreach (var kind in layout.herbs.Select(h => h.kind).Distinct())
+            // Herb kinds go to GatheringB/<kind>; the creek's stepping plank and reeds to GatheringB/Creek.
+            var kits = layout.herbs.Select(h => h.kind).Distinct().Select(k => (folder: "QX_SpiritHerb_" + k, kind: k))
+                .Concat(new[] { (folder: "QX_CreekSteppingPlank", kind: "Creek"), (folder: "QX_WaterReeds", kind: "Creek") });
+            foreach (var (folder, kind) in kits)
             {
-                var src = Path.Combine(repo, "art/exports/qingxi-gathering-visual-kit-v1", "QX_SpiritHerb_" + kind, "v001");
+                var src = Path.Combine(repo, "art/exports/qingxi-gathering-visual-kit-v1", folder, "v001");
                 var dst = Path.Combine(repo, "apps/game", GatheringModels, kind);
                 foreach (var (from, to, pattern) in new[] { (src, dst, "*.fbx"), (Path.Combine(src, "textures"), Path.Combine(dst, "textures"), "*.png") })
                 {
@@ -291,6 +295,157 @@ namespace YunJing.Editor
                 if (ti.textureType == type && ti.sRGBTexture == !linear && ti.maxTextureSize == 1024) continue;
                 ti.textureType = type; ti.sRGBTexture = !linear; ti.maxTextureSize = 1024; ti.SaveAndReimport();
             }
+        }
+
+        // ------------------------------------------------------------------ west creek
+        // Water surface ribbon along the carved channel, joshsu54's stepping planks for a crossing, and a few of his
+        // reed clumps plus CollaboratorWorldV1 mossy boulders on the banks. The reeds are 35k triangles each, so only
+        // a handful are placed until the clump gets a LOD.
+        static void Creek(Transform village)
+        {
+            var c = layout.creek;
+            if (c == null || c.Count < 2) return;
+            var root = new GameObject("WestCreek (novice-village.json)").transform; root.SetParent(village, false);
+
+            // Resample the centre line every metre so the ribbon bends smoothly.
+            var line = new System.Collections.Generic.List<Vector2>();
+            for (int i = 0; i + 1 < c.Count; i++)
+            {
+                int steps = Mathf.Max(1, Mathf.CeilToInt(Vector2.Distance(c[i], c[i + 1])));
+                for (int s = 0; s < steps; s++) line.Add(Vector2.Lerp(c[i], c[i + 1], s / (float)steps));
+            }
+            line.Add(c[c.Count - 1]);
+            var verts = new System.Collections.Generic.List<Vector3>(); var uvs = new System.Collections.Generic.List<Vector2>();
+            var tris = new System.Collections.Generic.List<int>();
+            float half = c.width * .5f - .15f, along = 0;   // tucked just inside the banks
+            for (int i = 0; i < line.Count; i++)
+            {
+                var dir = (line[Mathf.Min(i + 1, line.Count - 1)] - line[Mathf.Max(i - 1, 0)]).normalized;
+                var side = new Vector2(-dir.y, dir.x) * half;
+                float y = QingxiVillageTerrain.WaterHeight(layout, line[i].x, line[i].y);
+                if (i > 0) along += Vector2.Distance(line[i], line[i - 1]);
+                verts.Add(new Vector3(line[i].x - side.x, y, line[i].y - side.y)); uvs.Add(new Vector2(0, along / 4f));
+                verts.Add(new Vector3(line[i].x + side.x, y, line[i].y + side.y)); uvs.Add(new Vector2(1, along / 4f));
+                if (i > 0) { int b = verts.Count - 4; tris.AddRange(new[] { b, b + 2, b + 1, b + 1, b + 2, b + 3 }); }
+            }
+            // Faces must point up or the surface is back-face culled from above (it rendered as thin slivers).
+            var n = Vector3.Cross(verts[tris[1]] - verts[tris[0]], verts[tris[2]] - verts[tris[0]]);
+            if (n.y < 0) for (int i = 0; i < tris.Count; i += 3) (tris[i + 1], tris[i + 2]) = (tris[i + 2], tris[i + 1]);
+            var mesh = new Mesh { name = "WestCreekWater" };
+            mesh.SetVertices(verts); mesh.SetUVs(0, uvs); mesh.SetTriangles(tris, 0); mesh.RecalculateNormals(); mesh.RecalculateBounds();
+            if (c.crossing != null)
+            {
+                float ground = At(c.crossing.x, c.crossing.z).y;
+                QingxiVillageTerrain.CreekDistance(layout, c.crossing.x, c.crossing.z, out float land);
+                Debug.Log($"QINGXI_CREEK: crossing land {land:0.00} m, terrain bed {ground:0.00} m, water {QingxiVillageTerrain.WaterHeight(layout, c.crossing.x, c.crossing.z):0.00} m, ribbon vertices {verts.Count}");
+            }
+            AssetDatabase.CreateAsset(mesh, "Assets/YunJing/Generated/NoviceVillageCreekWater.asset");
+            var water = new GameObject("CreekWater");
+            water.transform.SetParent(root, false);
+            water.AddComponent<MeshFilter>().sharedMesh = mesh;
+            water.AddComponent<MeshRenderer>().sharedMaterial = WaterMaterial();
+
+            // Stepping planks across the channel at the crossing (perpendicular to the flow).
+            if (c.crossing != null && c.crossing.stones > 0)
+            {
+                var flow = FlowAt(c, new Vector2(c.crossing.x, c.crossing.z));
+                var across = new Vector2(-flow.y, flow.x);
+                for (int i = 0; i < c.crossing.stones; i++)
+                {
+                    float t = (i - (c.crossing.stones - 1) / 2f) * 1.15f;
+                    var p = new Vector2(c.crossing.x, c.crossing.z) + across * t;
+                    var plank = GatheringProp("QX_CreekSteppingPlank", root, p, Mathf.Atan2(across.x, across.y) * Mathf.Rad2Deg + (i % 2) * 12f);
+                    var b = plank.GetComponentsInChildren<Renderer>().Select(r => r.bounds).Aggregate((x, y) => { x.Encapsulate(y); return x; });
+                    var box = plank.AddComponent<BoxCollider>();
+                    box.center = plank.transform.InverseTransformPoint(b.center);
+                    var size = plank.transform.InverseTransformVector(b.size);
+                    box.size = new Vector3(Mathf.Abs(size.x), Mathf.Abs(size.y), Mathf.Abs(size.z));
+                }
+            }
+
+            // Banks: reeds near the crossing, boulders spaced along the creek, alternating sides.
+            var boulder = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/YunJing/Models/CollaboratorWorldV1/MossBoulderSet_v001.fbx");
+            float total = 0; for (int i = 1; i < line.Count; i++) total += Vector2.Distance(line[i], line[i - 1]);
+            int placed = 0;
+            for (float d = 6f; d < total - 6f; d += 11f, placed++)
+            {
+                var (p, flow) = PointAlong(line, d);
+                var bank = p + new Vector2(-flow.y, flow.x) * (placed % 2 == 0 ? 1 : -1) * (c.width * .5f + .6f);
+                if (QingxiVillageTerrain.PadDistance(layout, bank.x, bank.y, out _) < 1.5f || QingxiVillageTerrain.RoadDistance(layout, bank.x, bank.y, out _) < 1.5f) continue;
+                if (boulder != null)
+                {
+                    var rock = (GameObject)PrefabUtility.InstantiatePrefab(boulder);
+                    rock.name = "CreekBoulder - MossBoulderSet_v001 (CollaboratorWorldV1)";
+                    rock.transform.SetParent(root, false);
+                    rock.transform.localRotation = Quaternion.Euler(0, placed * 67f, 0) * boulder.transform.localRotation;
+                    rock.transform.localScale = boulder.transform.localScale * .55f;
+                    rock.transform.localPosition = At(bank.x, bank.y) + Vector3.down * .2f;
+                }
+            }
+            if (c.crossing != null)
+                foreach (var (dx, dz, yaw) in new[] { (-3.2f, 2.4f, 20f), (3.4f, 1.6f, 140f), (-2.6f, -3.0f, 250f), (3.0f, -2.7f, 300f) })
+                {
+                    var at = new Vector2(c.crossing.x + dx, c.crossing.z + dz);
+                    if (QingxiVillageTerrain.CreekDistance(layout, at.x, at.y, out _) < c.width * .5f - .2f) continue;
+                    GatheringProp("QX_WaterReeds", root, at, yaw);
+                }
+        }
+
+        static Vector2 FlowAt(QingxiVillageTerrain.Creek c, Vector2 p)
+        {
+            float best = float.MaxValue; var flow = Vector2.up;
+            for (int i = 0; i + 1 < c.Count; i++)
+            {
+                Vector2 a = c[i], b = c[i + 1], ab = b - a;
+                float t = Mathf.Clamp01(Vector2.Dot(p - a, ab) / Mathf.Max(ab.sqrMagnitude, 1e-6f));
+                float d = Vector2.Distance(p, a + ab * t);
+                if (d < best) { best = d; flow = ab.normalized; }
+            }
+            return flow;
+        }
+
+        static (Vector2 point, Vector2 flow) PointAlong(System.Collections.Generic.List<Vector2> line, float distance)
+        {
+            for (int i = 1; i < line.Count; i++)
+            {
+                float seg = Vector2.Distance(line[i - 1], line[i]);
+                if (distance <= seg) return (Vector2.Lerp(line[i - 1], line[i], distance / seg), (line[i] - line[i - 1]).normalized);
+                distance -= seg;
+            }
+            return (line[line.Count - 1], (line[line.Count - 1] - line[line.Count - 2]).normalized);
+        }
+
+        static GameObject GatheringProp(string key, Transform parent, Vector2 at, float yaw)
+        {
+            var source = AssetDatabase.LoadAssetAtPath<GameObject>($"{GatheringModels}/Creek/{key}.fbx");
+            if (source == null) throw new FileNotFoundException("Creek prop missing", key);
+            var model = (GameObject)PrefabUtility.InstantiatePrefab(source);
+            model.name = key + " - by joshsu54";
+            model.transform.SetParent(parent, false);
+            model.transform.localRotation = Quaternion.Euler(0, yaw, 0) * source.transform.localRotation;
+            model.transform.localPosition = At(at.x, at.y);
+            var material = GatheringMaterial("Creek", key);
+            foreach (var r in model.GetComponentsInChildren<Renderer>()) r.sharedMaterials = Enumerable.Repeat(material, r.sharedMaterials.Length).ToArray();
+            return model;
+        }
+
+        static Material WaterMaterial()
+        {
+            var path = $"{MaterialFolder}/VillageCreekWater_URP.mat";
+            var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (mat == null) { mat = new Material(Shader.Find("Universal Render Pipeline/Lit")); AssetDatabase.CreateAsset(mat, path); }
+            // Clear blue-green, transparent, glossy: the direction images' creek water.
+            mat.SetFloat("_Surface", 1); mat.SetFloat("_Blend", 0);
+            mat.SetFloat("_SrcBlend", (float)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            mat.SetFloat("_DstBlend", (float)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            mat.SetFloat("_ZWrite", 0);
+            mat.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+            mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+            mat.SetColor("_BaseColor", new Color(.10f, .34f, .36f, .72f));
+            mat.SetFloat("_Smoothness", .95f);
+            mat.SetFloat("_Metallic", 0);
+            EditorUtility.SetDirty(mat);
+            return mat;
         }
 
         // Buildings and props from the layout data: each stands on its pad at the terrain height and keeps
@@ -340,6 +495,7 @@ namespace YunJing.Editor
                 if (Mathf.Abs(at.x) < 11 && at.z < 0) continue;   // keep the village gate approach open
                 // ...and every pad, road and herb clear (the layout grew into the old ring).
                 if (QingxiVillageTerrain.PadDistance(layout, at.x, at.z, out _) < 3f || QingxiVillageTerrain.RoadDistance(layout, at.x, at.z, out _) < 3f
+                    || QingxiVillageTerrain.CreekDistance(layout, at.x, at.z, out _) < 6f
                     || layout.herbs.Any(h => Vector2.Distance(new Vector2(h.x, h.z), new Vector2(at.x, at.z)) < 4f)) continue;
                 Tree(n++ % 3 == 0 ? bamboo : pine, root, at, n % 3 == 0 ? 4.5f : 9f + (float)random.NextDouble() * 3, (float)random.NextDouble() * 360);
             }
