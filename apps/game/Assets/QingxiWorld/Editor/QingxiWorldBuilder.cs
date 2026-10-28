@@ -525,7 +525,10 @@ namespace QingxiWorld.Editor
             var cc = player.AddComponent<CharacterController>(); cc.radius = .35f; cc.height = 1.4f; cc.center = Vector3.up * .7f; cc.slopeLimit = 35; cc.stepOffset = .3f; cc.skinWidth = .03f;
             var camGo = new GameObject("PlayerCamera") { tag = "MainCamera" }; camGo.transform.SetParent(player.transform, false); camGo.transform.localPosition = Vector3.up * 1.2f;
             var cam = camGo.AddComponent<Camera>(); cam.fieldOfView = 70; cam.nearClipPlane = .05f; cam.farClipPlane = 1500; camGo.AddComponent<AudioListener>();
-            var body = PlaceBlenderModel("Dondon/QPlayerMale.fbx", player.transform, Vector3.zero, 180, 1, "Body_QPlayerMale");
+            // Original novice study mesh, authored after its saved AI three-view.
+            // This is a visible walk-through avatar, not the finished Heroine-01.
+            var body = PlaceBlenderModel("ArtV001/NoviceCultivatorV1.fbx", player.transform, Vector3.zero, 180, 1, "Body_NoviceCultivatorV1");
+            body.AddComponent<YunJing.QingxiNoviceMotion>();
             var fp = player.AddComponent<QingxiWorld.QingxiFirstPerson>(); fp.cam = cam; fp.body = body; fp.rabbitNavMesh = rabbitData;
             fp.spotNames = spots.Select(s => s.Item1).ToArray(); fp.spotPositions = spots.Select(s => s.Item2).ToArray(); fp.spotYaws = spots.Select(s => s.Item3).ToArray();
             fp.huntRoot = hunt; fp.zoneLabels = d.zones.Select(z => z.label).ToArray(); fp.zoneRects = d.zones.Select(z => new Vector4(z.center.x, z.center.z, z.width, z.depth)).ToArray();
