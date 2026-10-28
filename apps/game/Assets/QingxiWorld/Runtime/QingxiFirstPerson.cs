@@ -21,6 +21,7 @@ namespace QingxiWorld
         public Transform huntRoot; public string[] zoneLabels; public Vector4[] zoneRects;   // hunt-local centre x, z, width, depth
         public Transform[] pointsOfInterest;
         public bool useDesignedHud;
+        public YunJing.QingxiLocalForaging localForaging;
         public event Action<string> LocationChanged;
 
         CharacterController cc; float yaw, pitch, vy, stopwatch; bool third = true, help = true, menuOpen; NavMeshDataInstance nav;
@@ -57,8 +58,16 @@ namespace QingxiWorld
                 if (kb[(Key)((int)Key.Digit1 + i)].wasPressedThisFrame) Teleport(i);
             if (kb.fKey.wasPressedThisFrame)
             {
-                var r = FindObjectsByType<QingxiRabbit>(FindObjectsSortMode.None).FirstOrDefault(x => x.TryCatch(transform.position, 2.2f));
-                Log(r != null ? "抓到 " + r.spawnName + "（示意）。90 秒後在原出生點重生" : "附近 2.2 m 內沒有兔子");
+                if (localForaging != null)
+                {
+                    localForaging.TryInteract(transform.position, out var message);
+                    Log(message);
+                }
+                else
+                {
+                    var r = FindObjectsByType<QingxiRabbit>(FindObjectsSortMode.None).FirstOrDefault(x => x.TryCatch(transform.position, 2.2f));
+                    Log(r != null ? "抓到 " + r.spawnName + "（示意）。90 秒後在原出生點重生" : "附近 2.2 m 內沒有兔子");
+                }
             }
             if (Cursor.lockState == CursorLockMode.Locked)
             {

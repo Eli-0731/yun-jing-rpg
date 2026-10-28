@@ -62,6 +62,13 @@ namespace YunJing.Editor
             var hud = new GameObject("Qingxi Designed HUD").AddComponent<YunJing.QingxiHud>();
             hud.walker = player.GetComponent<global::QingxiWorld.QingxiFirstPerson>();
             hud.uiMaterial = UiSurface();
+            var foraging = player.AddComponent<YunJing.QingxiLocalForaging>();
+            foraging.herbNodes = hud.walker.pointsOfInterest.Where(p => p != null && p.name.StartsWith("HerbNode_")).ToArray();
+            foraging.marketEntrance = GameObject.Find("Entrance_MaterialShop").transform;
+            if (foraging.herbNodes.Length == 0) throw new InvalidOperationException("No herb nodes available for local foraging rehearsal.");
+            hud.walker.localForaging = foraging;
+            hud.foraging = foraging;
+            QingxiLocalForagingSmoke.Verify();
 
             PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
             PlayerSettings.defaultScreenWidth = 1280;
@@ -69,7 +76,7 @@ namespace YunJing.Editor
             ValidateScene();
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), ScenePath);
             AssetDatabase.SaveAssets();
-            Debug.Log($"QINGXI_UNIFIED_GENERATED: larger town + hunt + entrance terrace, terrain={ground:F2}m, walkable terrace parts={walkableParts}, plaza-to-entrance route={approach:F1}m, entrance-to-market route={market:F1}m");
+            Debug.Log($"QINGXI_UNIFIED_GENERATED: larger town + hunt + entrance terrace, terrain={ground:F2}m, walkable terrace parts={walkableParts}, plaza-to-entrance route={approach:F1}m, entrance-to-market route={market:F1}m, local herb nodes={foraging.herbNodes.Length}");
         }
 
         static float ConnectEntrance(GameObject player, Vector3 terraceCenter)

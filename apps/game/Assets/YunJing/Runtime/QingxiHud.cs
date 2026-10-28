@@ -12,11 +12,14 @@ namespace YunJing
     public sealed class QingxiHud : MonoBehaviour
     {
         public QingxiFirstPerson walker;
+        public QingxiLocalForaging foraging;
         public Material uiMaterial;
 
         RectTransform safe;
         GameObject journal;
         Text place;
+        Text foragingText;
+        Text interactionText;
         Button journalButton;
         Font font;
         bool open;
@@ -66,6 +69,20 @@ namespace YunJing
             Label("Control Text", hint, "WASD 行走  ·  Shift 奔跑  ·  空白鍵跳躍\n滑鼠看向四周  ·  Esc 顯示游標", 15,
                 FontStyle.Normal, new Vector2(14, -9), new Vector2(358, 48), new Color(.85f, .9f, .87f));
 
+            if (foraging != null)
+            {
+                var activity = Panel("Local Foraging", safe, new Vector2(1, 0), new Vector2(1, 0),
+                    new Vector2(-22, 22), new Vector2(330, 108), new Color(.035f, .07f, .09f, .81f));
+                Label("Activity Title", activity, "青溪採獵 · 本機試玩", 18, FontStyle.Bold,
+                    new Vector2(14, -9), new Vector2(300, 27), new Color(.94f, .87f, .66f));
+                foragingText = Label("Activity Counts", activity, "", 15, FontStyle.Normal,
+                    new Vector2(14, -40), new Vector2(300, 23), new Color(.88f, .91f, .88f));
+                interactionText = Label("Interaction Prompt", activity, "", 14, FontStyle.Normal,
+                    new Vector2(14, -67), new Vector2(300, 36), new Color(.67f, .87f, .83f));
+                RefreshForaging();
+                foraging.Changed += RefreshForaging;
+            }
+
             journal = Panel("Journey Journal", safe, new Vector2(.5f, .5f), new Vector2(.5f, .5f),
                 Vector2.zero, new Vector2(510, 338), new Color(.055f, .095f, .10f, .96f)).gameObject;
             var page = journal.GetComponent<RectTransform>();
@@ -90,12 +107,21 @@ namespace YunJing
         void OnDestroy()
         {
             if (walker != null) walker.LocationChanged -= OnLocation;
+            if (foraging != null) foraging.Changed -= RefreshForaging;
         }
 
         void Update()
         {
             if (Screen.width != width || Screen.height != height) SafeArea();
             if (Keyboard.current != null && Keyboard.current.mKey.wasPressedThisFrame) ToggleJournal();
+            if (foraging != null && interactionText != null)
+                interactionText.text = foraging.Prompt(walker.transform.position);
+        }
+
+        void RefreshForaging()
+        {
+            if (foragingText != null)
+                foragingText.text = $"靈草 {foraging.Herbs}  ·  山兔 {foraging.Rabbits}  ·  練習靈石 {foraging.PracticeStones}";
         }
 
         void OnLocation(string location)
@@ -141,6 +167,7 @@ namespace YunJing
             Vector2 anchored, Vector2 size, Color color)
         {
             var pivot = anchorMin == new Vector2(1, 1) ? new Vector2(1, 1) :
+                anchorMin == new Vector2(1, 0) ? new Vector2(1, 0) :
                 anchorMin == new Vector2(0, 1) ? new Vector2(0, 1) :
                 anchorMin == new Vector2(0, 0) ? new Vector2(0, 0) : new Vector2(.5f, .5f);
             var rect = Rect(name, parent, anchorMin, anchorMax, anchored, size, pivot);
