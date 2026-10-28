@@ -1,0 +1,112 @@
+{
+ "id": "agility-post",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  1.2098,
+  1.0975,
+  1.67
+ ],
+ "triangles": 3676,
+ "lod_triangles": [
+  3676,
+  1837,
+  808
+ ],
+ "collision": {
+  "type": "capsule",
+  "radius": 0.16,
+  "height": 1.67,
+  "center": [
+   0,
+   0,
+   0.835
+  ],
+  "note": "arms are separate nodes; add small capsules when they animate"
+ },
+ "pivots": {
+  "arm_left": [
+   0,
+   0,
+   1.12
+  ],
+  "arm_right": [
+   0,
+   0,
+   1.12
+  ],
+  "arm_low": [
+   0,
+   0,
+   0.56
+  ]
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "agility-post",
+  "dimensions_m": [
+   1.2098,
+   1.0975,
+   1.67
+  ],
+  "bbox_min": [
+   -0.6049,
+   -0.6383,
+   0.0
+  ],
+  "bbox_max": [
+   0.6049,
+   0.4592,
+   1.67
+  ],
+  "trianglesLOD": [
+   3676,
+   1837,
+   808
+  ],
+  "budgetLOD0": 6000,
+  "withinBudget": true,
+  "materials": [
+   "M_agility-post"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "agility-post_LOD0",
+   "agility-post_arm_left_LOD0",
+   "agility-post_arm_right_LOD0",
+   "agility-post_arm_low_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 812,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 3676,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_agility-post.001"
+   ]
+  },
+  "files": {
+   "agility-post.glb": {
+    "bytes": 415628,
+    "sha256": "f3f840396eec1859858ebacc33c476aac41e94e0a9760cf36e24b016dec67843"
+   },
+   "agility-post.fbx": {
+    "bytes": 522172,
+    "sha256": "fdf0419797f56b250024c4fc947dbdd5020ae56eae96895f7765ecda9ca78d31"
+   }
+  },
+  "reference": "art/references/qingxi-training-yard-v1/agility-post-three-view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
