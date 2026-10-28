@@ -35,6 +35,7 @@ namespace YunJing.Editor
             public string grassPattern = "grass|fern|flower|reed|clump|草";
             public string roadMeshPattern = "road|path|trail|approach|路";
             public string ignorePattern = "^$";
+            public bool bakeNavMesh;               // build a temporary NavMesh for the route check when the scene has none
             public Road[] roads = new Road[0];
             public Checkpoint[] checkpoints = new Checkpoint[0];
             public string[] route = new string[0];
@@ -65,11 +66,13 @@ namespace YunJing.Editor
             var config = JsonUtility.FromJson<Config>(File.ReadAllText(configPath));
             if (!string.IsNullOrEmpty(config.scene)) EditorSceneManager.OpenScene(config.scene, OpenSceneMode.Single);
             Physics.SyncTransforms();
+            ignored = new Regex(config.ignorePattern, RegexOptions.IgnoreCase);
             var report = new Report();
             CheckGrounding(config, report);
             CheckGrass(config, report);
             CheckRoadGrades(config, report);
             CheckRoadMeshOverlap(config, report);
+            if (config.bakeNavMesh) BakeNavMesh();
             CheckRoute(config, report);
             Write(configPath, config, report);
             return report.failures.Count;
@@ -78,13 +81,38 @@ namespace YunJing.Editor
         // Highest non-trigger collider under (x, z), skipping colliders that belong to `self`.
         static bool Ground(float x, float z, Transform self, out float height)
         {
+            return Ground(x, z, self, 500f, out height);
+        }
+
+        // Casting from just above the walker (fromY) skips roofs and canopies it walks under.
+        static bool Ground(float x, float z, Transform self, float fromY, out float height)
+        {
             height = float.NegativeInfinity;
-            foreach (var hit in Physics.RaycastAll(new Vector3(x, 500f, z), Vector3.down, 1000f, ~0, QueryTriggerInteraction.Ignore))
+            foreach (var hit in Physics.RaycastAll(new Vector3(x, fromY, z), Vector3.down, fromY + 500f, ~0, QueryTriggerInteraction.Ignore))
             {
-                if (self != null && hit.collider.transform.IsChildOf(self)) continue;
+                if (self != null && hit.collider.transform.IsChildOf(self) || Skip(hit.collider)) continue;
                 height = Mathf.Max(height, hit.point.y);
             }
             return !float.IsNegativeInfinity(height);
+        }
+
+        static Regex ignored;
+
+        // The walker's own controller and ignored objects (player, cameras) are neither ground nor obstacles.
+        static bool Skip(Collider c)
+        {
+            if (c is CharacterController) return true;
+            for (var t = c.transform; t != null; t = t.parent)
+                if (ignored != null && ignored.IsMatch(t.name)) return true;
+            return false;
+        }
+
+        static bool LowerLod(Renderer r)
+        {
+            var group = r.GetComponentInParent<LODGroup>();
+            if (group == null) return false;
+            var lods = group.GetLODs();
+            return lods.Length > 0 && !lods[0].renderers.Contains(r);
         }
 
         static bool VisualBounds(GameObject go, out Bounds bounds)
@@ -121,7 +149,7 @@ namespace YunJing.Editor
                 if (tilt > 1f) report.Fail($"躺倒：{go.name} 的根節點匯入旋轉被覆蓋，模型傾斜 {tilt:0}°（{Fmt(go.transform.position)}）");
                 var samples = new List<float>();
                 foreach (var (fx, fz) in new[] { (0f, 0f), (-.35f, -.35f), (.35f, -.35f), (-.35f, .35f), (.35f, .35f) })
-                    if (Ground(b.center.x + fx * b.size.x, b.center.z + fz * b.size.z, go.transform, out var h)) samples.Add(h);
+                    if (Ground(b.center.x + fx * b.size.x, b.center.z + fz * b.size.z, go.transform, b.max.y + .5f, out var h)) samples.Add(h);
                 if (samples.Count == 0) { report.Fail($"懸空：{go.name} 底下沒有任何地面（{Fmt(b.center)}）"); continue; }
                 float gap = b.min.y - samples.Max();
                 if (gap > config.groundTolerance) report.Fail($"懸空：{go.name} 底部比腳印內最高的地面還高 {gap:0.00} m（{Fmt(b.center)}）");
@@ -201,7 +229,7 @@ namespace YunJing.Editor
                     for (int s = 0; s <= steps; s++)
                     {
                         var p = Vector2.Lerp(a, c, s / (float)steps);
-                        if (!Ground(p.x, p.y, null, out var h)) { missing++; previous = null; continue; }
+                        if (!Ground(p.x, p.y, null, previous.HasValue ? previous.Value + 1.5f : 500f, out var h)) { missing++; previous = null; continue; }
                         if (previous.HasValue)
                         {
                             float grade = Mathf.Atan2(Mathf.Abs(h - previous.Value), Vector2.Distance(a, c) / steps) * Mathf.Rad2Deg;
@@ -209,7 +237,7 @@ namespace YunJing.Editor
                         }
                         previous = h;
                         var l = p + side; var r = p - side;
-                        if (Ground(l.x, l.y, null, out var hl) && Ground(r.x, r.y, null, out var hr))
+                        if (Ground(l.x, l.y, null, h + 1.5f, out var hl) && Ground(r.x, r.y, null, h + 1.5f, out var hr))
                             worstCross = Mathf.Max(worstCross, Mathf.Atan2(Mathf.Abs(hl - hr), road.width * .8f) * Mathf.Rad2Deg);
                     }
                 }
@@ -226,7 +254,7 @@ namespace YunJing.Editor
         {
             var pattern = new Regex(config.roadMeshPattern, RegexOptions.IgnoreCase);
             var flats = UnityEngine.Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None)
-                .Where(r => r.enabled && (pattern.IsMatch(r.name) || r.transform.parent && pattern.IsMatch(r.transform.parent.name)))
+                .Where(r => r.enabled && !LowerLod(r) && (pattern.IsMatch(r.name) || r.transform.parent && pattern.IsMatch(r.transform.parent.name)))
                 .Where(r => r.bounds.size.y < .5f && r.bounds.size.x * r.bounds.size.z > 1f)
                 .ToList();
             int pairs = 0;
@@ -272,7 +300,7 @@ namespace YunJing.Editor
                 for (int s = 0; s <= steps && problem == null; s++)
                 {
                     var p = Vector3.Lerp(from, to, s / (float)steps);
-                    if (!Ground(p.x, p.z, null, out var h)) { problem = $"沒有地面（{Fmt(p)}）"; break; }
+                    if (!Ground(p.x, p.z, null, previous.HasValue ? previous.Value + 1.5f : 500f, out var h)) { problem = $"沒有地面（{Fmt(p)}）"; break; }
                     if (previous.HasValue)
                     {
                         float rise = h - previous.Value, run = Vector3.Distance(from, to) / steps;
@@ -280,23 +308,39 @@ namespace YunJing.Editor
                     }
                     var bottom = new Vector3(p.x, h + .35f + config.stepHeight, p.z);
                     var top = new Vector3(p.x, h + 1.4f - .35f, p.z);
-                    if (problem == null && Physics.CheckCapsule(bottom, Vector3.Max(top, bottom), .3f, ~0, QueryTriggerInteraction.Ignore))
-                    {
-                        var blocker = Physics.OverlapCapsule(bottom, Vector3.Max(top, bottom), .3f, ~0, QueryTriggerInteraction.Ignore).FirstOrDefault();
-                        problem = $"被 {(blocker ? blocker.name : "碰撞體")} 擋住（{Fmt(new Vector3(p.x, h, p.z))}）";
-                    }
+                    var blocker = problem == null ? Physics.OverlapCapsule(bottom, Vector3.Max(top, bottom), .3f, ~0, QueryTriggerInteraction.Ignore).FirstOrDefault(c => !Skip(c)) : null;
+                    if (blocker != null) problem = $"被 {blocker.name} 擋住（{Fmt(new Vector3(p.x, h, p.z))}）";
                     previous = h;
                 }
-                if (problem != null) report.Fail($"路線 {leg}：{problem}");
-                else report.Pass($"路線 {leg}：直線試走通過");
-                if (!navMesh) continue;
-                var path = new NavMeshPath();
-                bool snapped = NavMesh.SamplePosition(from, out var a, 3f, NavMesh.AllAreas) & NavMesh.SamplePosition(to, out var b, 3f, NavMesh.AllAreas);
-                if (!snapped || !NavMesh.CalculatePath(a.position, b.position, NavMesh.AllAreas, path) || path.status != NavMeshPathStatus.PathComplete)
-                    report.Fail($"路線 {leg}：NavMesh 找不到完整路徑");
-                else report.Pass($"路線 {leg}：NavMesh 路徑長 {PathLength(path):0.0} m");
+                float? detour = null;
+                if (navMesh)
+                {
+                    var path = new NavMeshPath();
+                    bool snapped = NavMesh.SamplePosition(from, out var a, 3f, NavMesh.AllAreas) & NavMesh.SamplePosition(to, out var b, 3f, NavMesh.AllAreas);
+                    if (snapped && NavMesh.CalculatePath(a.position, b.position, NavMesh.AllAreas, path) && path.status == NavMeshPathStatus.PathComplete)
+                        detour = PathLength(path);
+                }
+                // Reachability is what matters: a blocked straight line is only a warning when a walkable detour exists.
+                if (problem == null) report.Pass($"路線 {leg}：直線試走通過" + (detour.HasValue ? $"，NavMesh 路徑 {detour:0.0} m" : ""));
+                else if (detour.HasValue) report.Warn($"路線 {leg}：直線{problem}，但 NavMesh 找到 {detour:0.0} m 的繞行路徑");
+                else report.Fail($"路線 {leg}：{problem}" + (navMesh ? "，NavMesh 也找不到路徑" : ""));
+                if (navMesh && problem == null && !detour.HasValue) report.Fail($"路線 {leg}：直線可走，但 NavMesh 找不到完整路徑");
             }
             if (!navMesh && points.Count > 1) report.Warn("場景沒有烘焙 NavMesh，路線只做了直線膠囊試走");
+        }
+
+        // In-memory NavMesh for the player capsule, built from the scene's colliders (not saved).
+        static void BakeNavMesh()
+        {
+            NavMesh.RemoveAllNavMeshData();
+            var settings = NavMesh.GetSettingsByID(0);
+            settings.agentRadius = .35f; settings.agentHeight = 1.4f; settings.agentSlope = 35f; settings.agentClimb = .3f;
+            var bounds = new Bounds(Vector3.zero, new Vector3(400, 200, 400));
+            var sources = new List<NavMeshBuildSource>();
+            NavMeshBuilder.CollectSources(bounds, ~0, NavMeshCollectGeometry.PhysicsColliders, 0, new List<NavMeshBuildMarkup>(), sources);
+            sources.RemoveAll(s => s.component is Collider c && Skip(c));
+            var data = NavMeshBuilder.BuildNavMeshData(settings, sources, bounds, Vector3.zero, Quaternion.identity);
+            NavMesh.AddNavMeshData(data);
         }
 
         static float PathLength(NavMeshPath path)

@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "units": "metres",
+  "note": "Single source for the novice village ground: height, road paint, grass exclusion and the grounding-check config. Pads are flat platforms under each collaborator zone at the given height.",
+  "bounds": { "minX": -50, "minZ": -50, "sizeX": 100, "sizeZ": 100 },
+  "noise": 0.15,
+  "nodes": [
+    { "id": "gate", "x": 0, "z": -24 },
+    { "id": "plaza", "x": 0, "z": -2 },
+    { "id": "forest-edge", "x": 0, "z": 11 },
+    { "id": "rabbit-trail", "x": 0, "z": 19 },
+    { "id": "alchemy-door", "x": -10.5, "z": -2 },
+    { "id": "yard-edge", "x": 10, "z": -2 }
+  ],
+  "edges": [
+    { "id": "gate-plaza", "from": "gate", "to": "plaza", "width": 3.0, "surface": "dirt" },
+    { "id": "plaza-forest", "from": "plaza", "to": "forest-edge", "width": 3.0, "surface": "dirt" },
+    { "id": "plaza-alchemy", "from": "plaza", "to": "alchemy-door", "width": 2.6, "surface": "dirt" },
+    { "id": "plaza-yard", "from": "plaza", "to": "yard-edge", "width": 2.6, "surface": "dirt" }
+  ],
+  "pads": [
+    { "id": "plaza", "x": 0, "z": -2, "halfX": 7, "halfZ": 7, "height": 0.5, "surface": "plaza" },
+    { "id": "alchemy-B", "x": -15, "z": -2, "halfX": 5, "halfZ": 5, "height": 0.15, "surface": "dirt" },
+    { "id": "training-yard", "x": 16.5, "z": -2, "halfX": 6.5, "halfZ": 6.5, "height": 0.6, "surface": "dirt" },
+    { "id": "forest-A", "x": -1, "z": 21, "halfX": 10, "halfZ": 11.5, "height": 1.2, "surface": "forest" }
+  ],
+  "heightPoints": [
+    { "x": 0, "z": -26, "height": 0 },
+    { "x": -40, "z": -40, "height": 2.0 },
+    { "x": 40, "z": -40, "height": 2.5 },
+    { "x": -42, "z": 0, "height": 3.2 },
+    { "x": 42, "z": 2, "height": 3.6 },
+    { "x": -38, "z": 40, "height": 5.0 },
+    { "x": 0, "z": 44, "height": 5.5 },
+    { "x": 38, "z": 40, "height": 4.5 }
+  ],
+  "checkpoints": [
+    { "name": "村口", "node": "gate" },
+    { "name": "小廣場", "node": "plaza" },
+    { "name": "丹房門口", "node": "alchemy-door" },
+    { "name": "演武區", "node": "yard-edge" },
+    { "name": "林地入口", "node": "forest-edge" },
+    { "name": "兔徑", "node": "rabbit-trail" }
+  ],
+  "route": ["村口", "小廣場", "丹房門口", "小廣場", "演武區", "小廣場", "林地入口", "兔徑"]
+}

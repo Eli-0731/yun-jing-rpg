@@ -1,6 +1,8 @@
 # 青溪新手村 v1｜A／B／C 協作者成果接入
 
-更新：2026-10-29。z1nnz 決定方向：先不把協作者作品塞進大世界（地形起伏、樹與既有建物會擋住模型、難以驗收），改做一個**平坦的小型新手村**，讓舊 10/29 工作包（`docs/execution/2026-10-29/01`–`03`）的完整作品能被看清楚、走得到、玩得到。整合由 z1nnz 指導、Claude Code 實作；模型與玩法的原作者如下表，未改動任何原件。
+更新：2026-10-29。z1nnz 決定方向：先不把協作者作品塞進大世界（地形起伏、樹與既有建物會擋住模型、難以驗收），改做一個**小型新手村**，讓舊 10/29 工作包（`docs/execution/2026-10-29/01`–`03`）的完整作品能被看清楚、走得到、玩得到。整合由 z1nnz 指導、Claude Code 實作；模型與玩法的原作者如下表，未改動任何原件。
+
+**地形輪（同日稍晚）：** 平坦地板和方塊路已換成連續地形，做法與 Codex 的入口試點（PR #48）相同：路線資料加地形高度、材質塗色和草的遮罩。地形、道路、平台和檢查點都寫在 `tools/qingxi-terrain/novice-village.json`。村口 0 m，往北緩升；廣場 0.5 m、林地 1.2 m，外圍山丘 3–5 m。每個協作者區塊站在一塊平台上，其他物件依地形高度落地。
 
 | 欄位 | 內容 |
 |---|---|
@@ -18,18 +20,18 @@
 
 | 方位 | 內容 | 原作者 |
 |---|---|---|
-| 南 | 村口（出生點） | 核心組灰盒 |
-| 中央 | 小廣場、告示牌 Q01、回村分揀角 C01–C08 | Eli-0731／Codex |
+| 南 | 村口（出生點） | 核心組 |
+| 中央 | 小廣場、告示牌 Q01；回村分揀角 C01–C08 在廣場東北（地形輪從往演武區的路上移開） | Eli-0731／Codex |
 | 西 | 溪畔丹房角 B01–B12，門口按 F 進入 B 的 `AlchemyRoom` 場景 | joshsu54 |
 | 東 | 演武區：演武棚、氣擊樁、身法樁、刻紋石、兵器架、旗幟 | Johnnnny0823 |
 | 北 | 林地山兔遭遇 A01–A12，避雨龕面向村子 | Johnnnny0823 |
 | 四周 | 線索牌 Q02–Q04、外圍松竹（CollaboratorWorldV1） | Eli-0731／既有交接素材 |
 
-地面、道路、廣場、三株靈草與丹房工作桌是**灰盒佔位**，物件名稱都標 `Placeholder`。
+地面是程式產生的 Unity Terrain，四層純色材質（草地、泥路、廣場石、林地土）是**佔位貼圖**。三株靈草與丹房工作桌仍是**灰盒佔位**，物件名稱都標 `Placeholder`。
 
 ![村口](../../art/previews/qingxi-novice-village-v1/01-gate-view.png)
 
-其他審圖：[俯視](../../art/previews/qingxi-novice-village-v1/00-overview.png)、[分揀角](../../art/previews/qingxi-novice-village-v1/02-plaza-return-C.png)、[丹房角](../../art/previews/qingxi-novice-village-v1/03-alchemy-B.png)、[演武區](../../art/previews/qingxi-novice-village-v1/04-training-yard.png)、[林地](../../art/previews/qingxi-novice-village-v1/05-forest-A.png)、[林地近景](../../art/previews/qingxi-novice-village-v1/06-forest-A-close.png)。
+其他審圖：[俯視](../../art/previews/qingxi-novice-village-v1/00-overview.png)、[分揀角](../../art/previews/qingxi-novice-village-v1/02-plaza-return-C.png)、[丹房角](../../art/previews/qingxi-novice-village-v1/03-alchemy-B.png)、[演武區](../../art/previews/qingxi-novice-village-v1/04-training-yard.png)、[林地](../../art/previews/qingxi-novice-village-v1/05-forest-A.png)、[林地近景](../../art/previews/qingxi-novice-village-v1/06-forest-A-close.png)；1.7 m 眼高：[廣場往林地](../../art/previews/qingxi-novice-village-v1/07-plaza-to-forest-eye.png)、[廣場往丹房](../../art/previews/qingxi-novice-village-v1/08-plaza-to-alchemy-eye.png)、[廣場往演武區](../../art/previews/qingxi-novice-village-v1/09-plaza-to-yard-eye.png)。
 
 ## 可以玩什麼
 
@@ -47,7 +49,8 @@
 | A 林地 A01–A12、山兔 v003、演武區 | 協作者原檔已在 main；本分支只加擺位資料，模型由生成器複製到 gitignore 目錄 | 是 | 是（遭遇、梯子、藤靶） | 否，僅本機演練 |
 | B 丹房角 B01–B12、`AlchemyRoom` | 原檔已在 main | 是 | 進出場景可以；煉製本身需本機 API | 煉製由 B 的服務端判定；本次未實跑一爐 |
 | C 回村 C01–C08、Q01–Q04 | 是（本分支新增轉出的 FBX 與貼圖，LFS） | 是 | 是（分揀與取消） | 否，僅本機演練 |
-| 地面、道路、三株靈草、工作桌 | 是（生成器內的灰盒） | 是 | 靈草可採 | 否 |
+| 地形、道路、平台 | 是（`novice-village.json` 與 `QingxiVillageTerrain.cs`；地形資產本身由生成器重建，不進 Git） | 是 | 可走 | 否 |
+| 三株靈草、工作桌 | 是（生成器內的灰盒） | 是 | 靈草可採 | 否 |
 | Windows 建置版 | 否（`artifacts/` 不進 Git） | — | — | — |
 
 ## 建置與驗證
@@ -57,7 +60,17 @@ node tools/qingxi-main-scene/build-data.mjs          # 由 A 原版規則錄製�
 blender -b --factory-startup --python-exit-code 1 -P tools/art/import_qingxi_return_c_to_unity.py   # C／Q 的 GLB 轉 FBX
 ./tools/unity.ps1 -Target NoviceVillageWindows       # 生成新手村、連接丹房並建置 Windows 版
 artifacts/windows-novice-village/YunJingNoviceVillage.exe -batchmode -nographics --abc-smoke
+node tools/qingxi-terrain/village-checks.mjs         # 由地形資料產生驗收設定
+node --test tools/qingxi-terrain/novice-village.test.mjs
+./tools/qingxi-terrain/check-grounding.ps1 -Config tools/qingxi-terrain/checks/novice-village.json
 ```
+
+地形輪實測：
+
+- 地形資料測試 5／5：道路接到已知節點、平台不重疊、相鄰平台之間的路坡度低於 20°（第一次執行時抓到廣場到演武區 22°，已把演武區平台東移並降到 0.6 m）。
+- 驗收 **失敗 0、警告 5**：73 件擺放模型都接地；路上沒有草；四條道路縱坡 6–17°、橫坡 0°；沒有路面疊面；七段路線直線試走與臨時 NavMesh 路徑都通過。
+- 警告逐條說明：A01／A02 地形磚報「埋太深 0.6 m」，這是 A 的設計值（`y: -0.6`）。「林地入口 → 兔徑」的直線被 A09 避雨龕擋住，但 NavMesh 找到 9.2 m 的繞行路徑，玩家可以走進去。
+- Windows 建置成功，建置版 `--abc-smoke` 在新地形上仍是 14 項全部通過。
 
 本次實測（Unity `6000.0.82f1`）：
 
@@ -72,7 +85,10 @@ artifacts/windows-novice-village/YunJingNoviceVillage.exe -batchmode -nographics
 - 未做真人鍵鼠完整試玩、手機觸控與效能；`--abc-smoke` 是程式腳本，不等於手感驗收。
 - 丹房內煉製需要本機 API，smoke 只驗證場景載入與往返，沒有跑完一爐。
 - 新手村使用 URP（與丹房同一管線）；大世界 `QingxiUnifiedWorld` 本次**未改動**，仍待日後整合。
-- 地面、道路、靈草、工作桌為灰盒；A 的地形磚 LOD、碰撞仍沿用模型網格，未做專用碰撞。
+- 靈草、工作桌為灰盒；地形四層材質是純色佔位貼圖。A 的地形磚 LOD、碰撞仍沿用模型網格，未做專用碰撞。
+- **草的細節層已產生（約 1.8 萬格），但批次截圖裡看不到草**，需要在有畫面的 Editor 裡確認是否有渲染。
+- 林地從村子走進去要繞過避雨龕；路上沒有畫出繞行小徑，玩家需要自己找路。是否在 A 的配置裡留一條明顯入口，要和 Johnnnny0823 討論。
+- NavMesh 只在驗收時臨時烘焙，不存進場景；村內的玩家移動不依賴 NavMesh。
 - 遭遇規則只在客戶端演練；正式命中與掉落仍需區域程序依 `tools/qingxi-encounter-a/CONTRACT.md` 重播驗證。
 - **沒有觸控操作。** 村內角色用 `QingxiFirstPerson`，只讀鍵鼠；遭遇的攻擊、試招、格擋、閃避和 F 互動也沒有螢幕按鈕。要做橫向觸控，需要給村內加一層虛擬搖桿和動作鈕。
 - PWA 入口（`tools/qingxi-trial/`）沒有加入新手村；目前只有 Unity 版。
@@ -81,4 +97,5 @@ artifacts/windows-novice-village/YunJingNoviceVillage.exe -batchmode -nographics
 
 - 本分支建在含 PR #46 的 main 上，只新增新手村檔案。既有檔案只小幅改了 `QingxiHud.cs`（改為 partial 並加面板）、`QingxiLocalForaging.cs`（加站點掛鉤）、`tools/unity.ps1`（新增兩個 target）、`.gitignore`（兩個複製模型目錄），並在 `docs/status.md`、`docs/work-ownership.md` 加註；大世界沒有改動。按手冊，`status`／`work-ownership` 原應在 PR 合併後才由核心組更新，開 PR 前可以考慮把這兩處拿掉。
 - 回退：直接 revert 這個提交即可。被複製進 gitignore 的模型資料夾可以直接刪除，生成器下次會重新複製。
+- 地形輪的 `QingxiGroundingCheck.cs` 修正：不把玩家自己的碰撞體當地面或障礙物、走在屋頂下不把屋頂當地面、LOD1／2 不算路面疊面、可臨時烘焙 NavMesh 判斷繞行。PR #48 也改了同一個檔案（`minPlacedModels`、`navMeshAsset`），兩邊合併時要手動整合。
 - 新的斷流工作包（`10`–`13`）交付後，同一個生成器可以在村內加北邊上游、水工場和村民回應三個位置。這次沒有做，要等三人的 PR 合併後再接。

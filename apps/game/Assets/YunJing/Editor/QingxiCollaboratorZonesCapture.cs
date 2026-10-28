@@ -20,9 +20,12 @@ namespace YunJing.Editor
             camera.fieldOfView = 50; camera.nearClipPlane = .05f; camera.farClipPlane = 400;
             var target = new RenderTexture(1600, 900, 24) { antiAliasing = 4 };
             camera.targetTexture = target;
+            // Heights below are above the local ground, so the shots follow the terrain relief.
+            var terrain = Terrain.activeTerrain;
+            Vector3 Lift(Vector3 p) => terrain ? p + Vector3.up * QingxiVillageTerrain.Ground(terrain, p.x, p.z) : p;
             void Shot(string file, Vector3 from, Vector3 at)
             {
-                camera.transform.position = from; camera.transform.LookAt(at); camera.Render();
+                camera.transform.position = Lift(from); camera.transform.LookAt(Lift(at)); camera.Render();
                 RenderTexture.active = target;
                 var image = new Texture2D(target.width, target.height, TextureFormat.RGB24, false);
                 image.ReadPixels(new Rect(0, 0, target.width, target.height), 0, 0); image.Apply();
@@ -31,11 +34,14 @@ namespace YunJing.Editor
             }
             Shot("00-overview", new Vector3(0, 46, -46), new Vector3(0, 0, 2));
             Shot("01-gate-view", new Vector3(0, 1.7f, -25), new Vector3(0, 1.2f, 0));
-            Shot("02-plaza-return-C", new Vector3(1.5f, 3.2f, -8), new Vector3(5.5f, .5f, -1));
+            Shot("02-plaza-return-C", new Vector3(1f, 3.2f, -5), new Vector3(5.5f, .5f, 2.2f));
             Shot("03-alchemy-B", new Vector3(-8, 4.5f, -6), new Vector3(-15, .6f, -2));
             Shot("04-training-yard", new Vector3(8, 5, -8), new Vector3(15, 1, -1));
             Shot("05-forest-A", new Vector3(0, 9, 4), new Vector3(0, 0, 20));
             Shot("06-forest-A-close", new Vector3(-4, 2.2f, 13), new Vector3(1, .6f, 22));
+            Shot("07-plaza-to-forest-eye", new Vector3(0, 1.7f, 3), new Vector3(0, 1.2f, 16));
+            Shot("08-plaza-to-alchemy-eye", new Vector3(-3, 1.7f, -2), new Vector3(-14, 1.2f, -2));
+            Shot("09-plaza-to-yard-eye", new Vector3(3, 1.7f, -2), new Vector3(14, 1.2f, -2));
             Debug.Log($"QINGXI_VILLAGE_CAPTURED to {dir} (pipeline: {(GraphicsSettings.currentRenderPipeline != null ? GraphicsSettings.currentRenderPipeline.name : "built-in")})");
         }
     }

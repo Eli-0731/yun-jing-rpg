@@ -9,17 +9,23 @@ using UnityEngine.Rendering;
 
 namespace YunJing.Editor
 {
-    // A small, flat novice village for reviewing the collaborators' complete deliveries without the
+    // A small novice village for reviewing the collaborators' complete deliveries without the
     // larger world's terrain, trees and buildings in the way:
     //   south  village gate (spawn)          centre  plaza, Eli-0731's notice board and return corner (C)
     //   west   joshsu54's alchemy corner (B), door into his AlchemyRoom scene
     //   east   Johnnnny0823's training yard  north   Johnnnny0823's forest rabbit encounter (A)
-    // Ground, paths and the herb markers are graybox placeholders and are named so.
+    // The ground is a continuous terrain from tools/qingxi-terrain/novice-village.json (QingxiVillageTerrain);
+    // every zone stands on a flat pad and everything else is dropped onto the terrain height.
+    // The herb markers are graybox placeholders and are named so.
     public static class QingxiNoviceVillageBuilder
     {
         public const string ScenePath = "Assets/YunJing/Generated/QingxiNoviceVillage.unity";
         const string AlchemyScenePath = "Assets/YunJing/Generated/AlchemyRoom.unity";
         const string MaterialFolder = "Assets/QingxiWorld/Generated/Materials/Collaborators";
+        static Terrain terrain;
+
+        static Vector3 At(float x, float z) => new Vector3(x, QingxiVillageTerrain.Ground(terrain, x, z), z);
+        static Vector3 At(Vector3 p) => At(p.x, p.z);
 
         [MenuItem("Yun Jing/Generate Qingxi novice village")]
         public static void Generate()
@@ -30,13 +36,16 @@ namespace YunJing.Editor
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             var village = new GameObject("QingxiNoviceVillage").transform;
             Lighting(village);
-            Ground(village);
+            terrain = QingxiVillageTerrain.Create(village);
+            Physics.SyncTransforms();
+            Boundary(village);
 
-            var player = Player(village, new Vector3(0, 0, -22));
+            var player = Player(village, At(0, -22));
             var zones = QingxiCollaboratorZonesBuilder.PlaceAt(player,
-                new Vector3(0, 0, 24), 0,                         // A: shelter (local -z) faces the plaza
-                new Vector3(-15, 0, -2), Facing(new Vector3(-15, 0, -2), Vector3.zero),
-                new Vector3(5.5f, 0, -1), Facing(new Vector3(5.5f, 0, -1), Vector3.zero));
+                At(0, 24), 0,                                     // A: shelter (local -z) faces the plaza
+                At(-15, -2), Facing(new Vector3(-15, 0, -2), Vector3.zero),
+                // C: north-east of the plaza, clear of the road to the training yard (z = -2).
+                At(5.5f, 2.2f), Facing(new Vector3(5.5f, 0, 2.2f), Vector3.zero));
             foreach (var zone in new[] { zones.forest, zones.alchemy, zones.ret }) zone.SetParent(village, true);
 
             var yard = TrainingYard(village, zones);
@@ -46,8 +55,8 @@ namespace YunJing.Editor
 
             var walker = player.GetComponent<global::QingxiWorld.QingxiFirstPerson>();
             var spots = new (string name, Vector3 at, Vector3 look)[] {
-                ("村口", new Vector3(0, 0, -22), Vector3.zero),
-                ("小廣場", new Vector3(0, 0, -6), new Vector3(0, 0, 10)),
+                ("村口", At(0, -22), Vector3.zero),
+                ("小廣場", At(0, -6), new Vector3(0, 0, 10)),
                 ("溪畔丹房", zones.alchemyDoor.position, zones.alchemy.position),
                 ("演武區", yard.position + new Vector3(-4, 0, 0), yard.position),
                 ("林地遭遇", zones.forest.Find("SafePoint_A09").position, zones.forest.Find("RabbitBurrow_A02").position),
@@ -103,39 +112,15 @@ namespace YunJing.Editor
             RenderSettings.fogStartDistance = 45; RenderSettings.fogEndDistance = 110;
         }
 
-        static void Ground(Transform village)
+        // Keep the traveller inside the review village; tall enough for the hills at the edge.
+        static void Boundary(Transform village)
         {
-            var grass = Surface("VillageGround_Placeholder", new Color(.38f, .5f, .3f));
-            var dirt = Surface("VillagePath_Placeholder", new Color(.52f, .44f, .32f));
-            var stone = Surface("VillagePlaza_Placeholder", new Color(.62f, .6f, .54f));
-            var ground = GameObject.CreatePrimitive(PrimitiveType.Plane);
-            ground.name = "Ground_Placeholder (graybox)"; ground.transform.SetParent(village, false);
-            ground.transform.localScale = new Vector3(10, 1, 10);   // 100 x 100 m
-            ground.GetComponent<Renderer>().sharedMaterial = grass;
-            Slab(village, "Path_GateToForest_Placeholder", new Vector3(0, 0, 0), new Vector3(3, .04f, 46), dirt);
-            Slab(village, "Path_Plaza_West_Placeholder", new Vector3(-7, 0, -2), new Vector3(14, .04f, 2.6f), dirt);
-            Slab(village, "Path_Plaza_East_Placeholder", new Vector3(7, 0, -2), new Vector3(14, .04f, 2.6f), dirt);
-            var plaza = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-            plaza.name = "Plaza_Placeholder (graybox)"; plaza.transform.SetParent(village, false);
-            plaza.transform.localPosition = new Vector3(0, .03f, -2); plaza.transform.localScale = new Vector3(11, .03f, 11);
-            plaza.GetComponent<Renderer>().sharedMaterial = stone;
-            UnityEngine.Object.DestroyImmediate(plaza.GetComponent<Collider>());
-            // Keep the traveller inside the review village.
             foreach (var (x, z, w, d) in new[] { (0f, 45f, 90f, 1f), (0f, -45f, 90f, 1f), (45f, 0f, 1f, 90f), (-45f, 0f, 1f, 90f) })
             {
                 var wall = new GameObject("Boundary"); wall.transform.SetParent(village, false);
-                wall.transform.localPosition = new Vector3(x, 2, z);
-                wall.AddComponent<BoxCollider>().size = new Vector3(w, 4, d);
+                wall.transform.localPosition = new Vector3(x, 5, z);
+                wall.AddComponent<BoxCollider>().size = new Vector3(w, 12, d);
             }
-        }
-
-        static void Slab(Transform parent, string name, Vector3 at, Vector3 size, Material material)
-        {
-            var slab = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            slab.name = name; slab.transform.SetParent(parent, false);
-            slab.transform.localPosition = at + Vector3.up * size.y / 2; slab.transform.localScale = size;
-            slab.GetComponent<Renderer>().sharedMaterial = material;
-            UnityEngine.Object.DestroyImmediate(slab.GetComponent<Collider>());
         }
 
         static GameObject Player(Transform village, Vector3 spawn)
@@ -158,7 +143,7 @@ namespace YunJing.Editor
         static Transform TrainingYard(Transform village, QingxiCollaboratorZonesBuilder.Result result)
         {
             var yard = new GameObject("CollaboratorZone_A_TrainingYard (Johnnnny0823)").transform;
-            yard.SetParent(village, false); yard.position = new Vector3(15, 0, -2);
+            yard.SetParent(village, false); yard.position = At(15, -2);
             yard.rotation = Quaternion.Euler(0, Facing(yard.position, Vector3.zero), 0);
             QingxiCollaboratorZonesBuilder.PlaceTrainingProp("training-shelter", yard, new Vector3(0, 0, 4), 180, result);
             QingxiCollaboratorZonesBuilder.PlaceTrainingProp("qi-striking-post", yard, new Vector3(-2.2f, 0, .5f), 0, result);
@@ -180,9 +165,9 @@ namespace YunJing.Editor
             };
             return places.Select(p =>
             {
-                var model = QingxiCollaboratorZonesBuilder.PlaceConverted(QingxiCollaboratorZonesBuilder.SignModels, p.Item1, root, p.Item2, p.Item3, result);
+                var model = QingxiCollaboratorZonesBuilder.PlaceConverted(QingxiCollaboratorZonesBuilder.SignModels, p.Item1, root, At(p.Item2), p.Item3, result);
                 var marker = new GameObject("TrailClue_" + p.Item1).transform;
-                marker.SetParent(root, false); marker.localPosition = p.Item2 + Quaternion.Euler(0, p.Item3, 0) * new Vector3(0, 0, -1.2f);
+                marker.SetParent(root, false); marker.localPosition = At(p.Item2 + Quaternion.Euler(0, p.Item3, 0) * new Vector3(0, 0, -1.2f));
                 return marker;
             }).ToArray();
         }
@@ -194,7 +179,7 @@ namespace YunJing.Editor
             var root = new GameObject("HerbNodes_Placeholder (graybox)").transform; root.SetParent(village, false);
             return new[] { new Vector3(-8, 0, 12), new Vector3(8.5f, 0, 11), new Vector3(-11, 0, 4) }.Select((at, i) =>
             {
-                var node = new GameObject($"HerbNode_0{i + 1}").transform; node.SetParent(root, false); node.localPosition = at;
+                var node = new GameObject($"HerbNode_0{i + 1}").transform; node.SetParent(root, false); node.localPosition = At(at);
                 for (int k = 0; k < 5; k++)
                 {
                     var blade = GameObject.CreatePrimitive(PrimitiveType.Capsule);
@@ -233,7 +218,8 @@ namespace YunJing.Editor
         {
             var tree = (GameObject)PrefabUtility.InstantiatePrefab(source);
             // Keep the FBX root's own axis rotation; only add the yaw.
-            tree.transform.SetParent(parent, false); tree.transform.localPosition = at;
+            // Sink the trunk base slightly so it never shows a gap on sloped ground.
+            tree.transform.SetParent(parent, false); tree.transform.localPosition = At(at) + Vector3.down * .15f;
             tree.transform.localRotation = Quaternion.Euler(0, yaw, 0) * source.transform.localRotation;
             var renderers = tree.GetComponentsInChildren<Renderer>();
             var b = renderers[0].bounds; foreach (var r in renderers) b.Encapsulate(r.bounds);

@@ -1,0 +1,103 @@
+{
+ "scene": "Assets/YunJing/Generated/QingxiNoviceVillage.unity",
+ "groundTolerance": 0.05,
+ "buriedLimit": 0.5,
+ "maxWalkSlope": 35,
+ "comfortSlope": 20,
+ "stepHeight": 0.3,
+ "roadEdgeAllowance": 0.15,
+ "grassPattern": "grass|fern|flower|reed|草",
+ "roadMeshPattern": "road|path|trail|approach|路",
+ "ignorePattern": "player|cultivator|camera|Body_",
+ "bakeNavMesh": true,
+ "roads": [
+  {
+   "id": "gate-plaza",
+   "width": 3,
+   "points": [
+    0,
+    -24,
+    0,
+    -2
+   ]
+  },
+  {
+   "id": "plaza-forest",
+   "width": 3,
+   "points": [
+    0,
+    -2,
+    0,
+    11
+   ]
+  },
+  {
+   "id": "plaza-alchemy",
+   "width": 2.6,
+   "points": [
+    0,
+    -2,
+    -10.5,
+    -2
+   ]
+  },
+  {
+   "id": "plaza-yard",
+   "width": 2.6,
+   "points": [
+    0,
+    -2,
+    10,
+    -2
+   ]
+  }
+ ],
+ "checkpoints": [
+  {
+   "name": "村口",
+   "x": 0,
+   "y": 0,
+   "z": -24
+  },
+  {
+   "name": "小廣場",
+   "x": 0,
+   "y": 0,
+   "z": -2
+  },
+  {
+   "name": "丹房門口",
+   "x": -10.5,
+   "y": 0,
+   "z": -2
+  },
+  {
+   "name": "演武區",
+   "x": 10,
+   "y": 0,
+   "z": -2
+  },
+  {
+   "name": "林地入口",
+   "x": 0,
+   "y": 0,
+   "z": 11
+  },
+  {
+   "name": "兔徑",
+   "x": 0,
+   "y": 0,
+   "z": 19
+  }
+ ],
+ "route": [
+  "村口",
+  "小廣場",
+  "丹房門口",
+  "小廣場",
+  "演武區",
+  "小廣場",
+  "林地入口",
+  "兔徑"
+ ]
+}

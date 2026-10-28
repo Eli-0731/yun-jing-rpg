@@ -47,6 +47,10 @@ node --test tools/qingxi-terrain/asset-inventory.test.mjs
 - **道路坡度**：「地面」取的是最高的碰撞體，路上若有障礙物，坡度會一起變陡；這通常代表路被擋住，仍值得看。
 - 草類物件以名稱判斷（`grassPattern`），沒命名的草不會被檢查到。
 
+## 新手村地形（`novice-village.json`）
+
+新手村的地形、道路、平台和檢查點都在 `novice-village.json`，由 `QingxiVillageTerrain.cs` 產生。`village-checks.mjs` 從同一份資料產生 `checks/novice-village.json`，所以道路只描述一次。設定開了 `bakeNavMesh`：直線試走被擋時，用臨時 NavMesh 判斷有沒有繞行路徑，有就只列為警告。說明與結果見 `docs/execution/qingxi-novice-village-v1.md`。
+
 ## 改造前基準（2026-10-29，現行 `QingxiWorldPreview`）
 
 失敗 38、警告 11。主要發現：
