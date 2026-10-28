@@ -29,3 +29,6 @@ test('responses cover all five known contexts and the animal nursery',()=>{
 test('prototype property names remain unknown outcomes',()=>{
  for(const id of ['__proto__','constructor','toString','hasOwnProperty']){const s=R.transition(R.initial(),{type:'load',input:{observationIds:[],outcomeId:id}}).state;assert.equal(R.view(s).key,'unknown');assert.equal(R.view(s).complete,false);}
 });
+test('file-compatible browser responses equal the source data',()=>{
+ assert.deepEqual(require('./responses.js'),responseData.responses);
+});

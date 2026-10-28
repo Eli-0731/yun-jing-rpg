@@ -34,7 +34,7 @@ BAMBOO=material('aged_bamboo',(.43,.385,.19),'wood');HEMP=material('natural_hemp
 STONE=material('warm_gray_stone',(.40,.43,.385),'stone');INSET=material('stone_recess',(.245,.285,.25),'stone')
 BRONZE=material('aged_bronze',(.30,.30,.18));OCHRE=material('dry_ochre',(.61,.37,.13));TEAL=material('restored_teal',(.12,.39,.37));WATER=material('opaque_water_sample',(.19,.48,.53));next(n for n in WATER.node_tree.nodes if n.type=='BSDF_PRINCIPLED').inputs['Roughness'].default_value=.25
 FLAG_WIP=material('work_in_progress_hemp',(.64,.48,.23),'cloth');FLAG_DONE=material('complete_sage_hemp',(.32,.45,.34),'cloth')
-MARK_DRY=material('soil_dry',(.45,.29,.16));MARK_WET=material('soil_moist',(.17,.20,.12));GOLD=material('record_choice',(.62,.49,.19))
+MARK_DRY=material('soil_dry',(.45,.29,.16));MARK_DAMP=material('soil_partly_moist',(.29,.26,.15));MARK_WET=material('soil_moist',(.17,.20,.12));GOLD=material('record_choice',(.62,.49,.19))
 
 def box(name,loc,size,mat,bevel=.006):
     bpy.ops.mesh.primitive_cube_add(size=1,location=loc);o=bpy.context.object;o.name=name;o.dimensions=size
@@ -89,6 +89,10 @@ def finish(id,before):
             bpy.ops.object.select_all(action='DESELECT');o.select_set(True);bpy.context.view_layer.objects.active=o
             if not o.data.uv_layers:
                 bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.uv.smart_project(island_margin=.02);bpy.ops.object.mode_set(mode='OBJECT')
+    if id=='C04':
+        floor=bounds(obs)[2][0]
+        for o in obs:
+            if o.parent==root:o.location.z-=floor
     groups[id]=obs;roots[id]=root
 
 # C01 is a new radial council table, not the earlier rectangular sorting table.
@@ -121,9 +125,9 @@ for x in [-.30,.30]:
 rod('horizontal_axle',(-.34,0,.90),(.34,0,.90),.020,BRONZE,12)
 beforePanel=set(bpy.data.objects)
 for i in range(5):box('reversible_panel_slat',(0,0,.70+i*.08),(.52,.052,.078),WOOD)
-rod('front_dry_circle',(0,-.030,.985),(0,-.040,.985),.043,OCHRE,24);wave('dry_line',-.037,.825,OCHRE)
-rod('back_recovered_circle',(0,.030,.815),(0,.040,.815),.043,TEAL,24)
-wave('flow_line_back_1',.037,.935,TEAL);wave('flow_line_back_2',.037,.875,TEAL)
+rod('front_dry_circle',(0,-.024,.985),(0,-.040,.985),.043,OCHRE,24);wave('dry_line',-.031,.825,OCHRE)
+rod('back_recovered_circle',(0,.024,.815),(0,.040,.815),.043,TEAL,24)
+wave('flow_line_back_1',.031,.935,TEAL);wave('flow_line_back_2',.031,.875,TEAL)
 panel=[o for o in bpy.data.objects if o not in beforePanel];pivot=empty('StatusPivot',(0,0,.90))
 for o in panel:parent_keep(o,pivot)
 pivot.rotation_euler.x=0;pivot.keyframe_insert(data_path='rotation_euler',frame=1);pivot.rotation_euler.x=math.pi;pivot.keyframe_insert(data_path='rotation_euler',frame=24);pivot.animation_data.action.name='WaterBoardFlip';scene.frame_set(1)
@@ -163,13 +167,16 @@ if args.batch==2:
     box('installed_stone_collar',(0,0,.025),(.11,.09,.05),STONE)
     profile=[(-.14*math.sin(i*math.pi/12),.25+.40*i/12) for i in range(13)]+[(.14*math.sin(i*math.pi/12),.25+.40*i/12) for i in range(12,-1,-1)]
     # Drop coincident leaf tips before creating a closed prism.
-    profile=[p for i,p in enumerate(profile) if i==0 or p!=profile[i-1]]
-    if profile[-1]==profile[0]:profile.pop()
+    clean=[]
+    for p in profile:
+        if not clean or math.hypot(p[0]-clean[-1][0],p[1]-clean[-1][1])>1e-6:clean.append(p)
+    if math.hypot(clean[-1][0]-clean[0][0],clean[-1][1]-clean[0][1])<1e-6:clean.pop()
+    profile=clean
     n=len(profile);v=[(x,y,z) for y in [-.022,.022] for x,z in profile];f=[tuple(range(n-1,-1,-1)),tuple(range(n,2*n))]+[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)];mesh('leaf_moisture_face',v,f,WOOD)
-    line('leaf_vein',[(0,-.027,.27),(0,-.027,.62)],.004,DARK)
+    line('leaf_vein',[(0,-.025,.27),(0,-.025,.62)],.004,DARK)
     for z in [.37,.44,.51]:
-        for sign in [-1,1]:line('leaf_side_vein',[(0,-.027,z),(sign*.08,-.027,z+.06)],.003,DARK)
-    for x in [-.065,0,.065]:rod('soil_dots',(x,-.027,.36),(x,-.035,.36),.014,MARK_DRY,12)
+        for sign in [-1,1]:line('leaf_side_vein',[(0,-.025,z),(sign*.08,-.025,z+.06)],.003,DARK)
+    for x in [-.065,0,.065]:rod('soil_dots',(x,-.020,.36),(x,-.035,.36),.014,MARK_DRY,12)
     soil=box('SoilMoisturePatch',(0,-.026,.29),(.115,.008,.035),MARK_DRY,.002)
     for z in [.34,.53]:box('back_crossbrace',(0,.03,z),(.21,.025,.028),DARK)
     finish('C05',s)
@@ -188,22 +195,24 @@ if args.batch==2:
     finish('C06',s)
     s=start()
     box('carrier_bottom',(0,0,.018),(.48,.28,.036),WOOD)
-    for y in [-.13,.13]:box('carrier_side',(0,y,.08),(.48,.02,.13),WOOD)
-    for x in [-.23,.23]:box('carrier_end',(x,0,.08),(.02,.25,.13),DARK)
+    for y in [-.13,.13]:box('carrier_side',(0,y,.101),(.48,.02,.13),WOOD)
+    for x in [-.23,.23]:box('carrier_end',(x,0,.101),(.02,.24,.13),DARK)
     line('arched_carry_handle',[(-.23,0,.13),(-.20,0,.24),(0,0,.32),(.20,0,.24),(.23,0,.13)],.015,DARK)
-    box('wood_mallet_head',(-.13,.055,.085),(.09,.07,.09),WOOD,.01);rod('wood_mallet_handle',(-.13,.055,.08),(.12,.055,.08),.012,DARK,10)
-    box('chisel_bronze_tip',(-.14,-.07,.054),(.095,.034,.012),BRONZE,.002);rod('chisel_wood_handle',(-.095,-.07,.06),(.07,-.07,.06),.014,DARK,10)
-    for i in range(4):ring('coiled_hemp_cord',(.145,-.01,.043+i*.009),.043,.005,HEMP)
+    box('wood_mallet_head',(-.13,.055,.081),(.09,.07,.09),WOOD,.01);rod('wood_mallet_handle',(-.13,.055,.076),(.12,.055,.076),.012,DARK,10)
+    box('chisel_bronze_tip',(-.14,-.07,.043),(.095,.034,.012),BRONZE,.002);rod('chisel_wood_handle',(-.095,-.07,.05),(.07,-.07,.05),.014,DARK,10)
+    for i in range(4):ring('coiled_hemp_cord',(.145,-.01,.041+i*.009),.043,.005,HEMP)
     finish('C07',s)
     s=start()
     box('record_plinth',(0,0,.045),(.60,.26,.09),STONE,.015)
     profile=[(-.255,.085),(-.265,.68),(-.19,.83),(-.03,.92),(.15,.87),(.26,.73),(.25,.085)];n=len(profile)
     verts=[(x,y,z) for y in [-.087,.087] for x,z in profile];faces=[tuple(range(n)),tuple(range(2*n-1,n-1,-1))]+[(i,i+n,(i+1)%n+n,(i+1)%n) for i in range(n)]
     tablet=mesh('record_tablet',verts,faces,STONE)
-    box('recessed_record_face',(0,-.090,.47),(.37,.010,.62),INSET,.009)
-    for z in [.69,.64]:wave('record_water_symbol',-.101,z,STONE,.015,.20)
-    line('record_joint_symbol',[(-.10,-.101,.46),(-.04,-.101,.46),(-.04,-.101,.50),(.04,-.101,.50),(.04,-.101,.46),(.10,-.101,.46)],.008,STONE)
-    leaf('record_nursery_symbol',(0,-.101,.29),.15,STONE)
+    cutter=box('record_recess_cutter',(0,-.085,.47),(.39,.030,.64),INSET,.006)
+    bpy.context.view_layer.objects.active=tablet;m=tablet.modifiers.new('true_shallow_recess','BOOLEAN');m.operation='DIFFERENCE';m.object=cutter;bpy.ops.object.modifier_apply(modifier=m.name);bpy.data.objects.remove(cutter,do_unlink=True)
+    box('recessed_record_face',(0,-.074,.47),(.37,.006,.62),INSET,.004)
+    for z in [.69,.64]:wave('record_water_symbol',-.081,z,STONE,.015,.20)
+    line('record_joint_symbol',[(-.10,-.081,.46),(-.04,-.081,.46),(-.04,-.081,.50),(.04,-.081,.50),(.04,-.081,.46),(.10,-.081,.46)],.006,STONE)
+    leaf('record_nursery_symbol',(0,-.081,.29),.15,STONE)
     box('back_support_peg',(0,.102,.14),(.07,.04,.15),DARK)
     finish('C08',s)
 
@@ -214,7 +223,7 @@ def visual(state):
         flag.data.materials[0]=FLAG_DONE if state=='restored' else FLAG_WIP
         for o in groups['C06']:
             if o.type=='MESH' and ('banner_work_circle' in o.name or 'banner_flow_mark' in o.name):o.data.materials[0]=TEAL if state=='restored' else OCHRE
-    if soil:soil.data.materials[0]=MARK_WET if state=='restored' else MARK_DRY
+    if soil:soil.data.materials[0]=MARK_WET if state=='restored' else MARK_DAMP if state=='partial' else MARK_DRY
     bpy.context.view_layer.update()
 visual('dry')
 report={'author':'Eli-0731 / Codex','batch':args.batch,'blender':bpy.app.version_string,'units':'m','axes':'Z-up, front -Y in Blender; glTF Y-up','reference_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in REF.glob('C*-three-view.png')},'assets':[]}
@@ -234,7 +243,7 @@ for id,obs in groups.items():
     for o in obs:o.select_set(True)
     bpy.context.view_layer.objects.active=roots[id]
     bpy.ops.export_scene.gltf(filepath=str(OUT/f'{id}.glb'),export_format='GLB',use_selection=True,export_apply=True,export_animations=False)
-    report['assets'].append({'id':id,'dimensions_xyz':[p[1]-p[0] for p in bound],'local_bounds_xyz':bound,'triangles':sum(len(p.vertices)-2 for o in meshes for p in o.data.polygons),'meshes':len(meshes),'materials':len({m.name for o in meshes for m in o.data.materials}),'errors':errors,'warnings':warnings,'morphs':sum(len(o.data.shape_keys.key_blocks)-1 for o in meshes if o.data.shape_keys),'lod_plan':'single prototype LOD; future remove small ties at 10m, cull small props at 25m; not measured','collision':'simple hull/boxes for structural parts; no collision for water, cloth, cord or icons'})
+    report['assets'].append({'id':id,'dimensions_xyz':[p[1]-p[0] for p in bound],'local_bounds_xyz':bound,'triangles':sum(len(p.vertices)-2 for o in meshes for p in o.data.polygons),'meshes':len(meshes),'materials':len({m.name for o in meshes for m in o.data.materials}),'errors':errors,'warnings':warnings,'morphs':sum(len(o.data.shape_keys.key_blocks)-1 for o in meshes if o.data.shape_keys),'lod_plan':'single prototype LOD; future remove small ties at 10m, cull small props at 25m; not measured','collision':'planned simple hull/boxes for structural parts; not authored; water, cloth, cord and icons should have no collision'})
 assert not any(a['errors'] for a in report['assets']),report
 # C06 second material variant is the same item with a different cloth state.
 if args.batch==2:
@@ -254,7 +263,7 @@ for id,obs in groups.items():
         for o in objects:o.hide_render=key!=id
     b=bounds(obs);size=[p[1]-p[0] for p in b];target=[sum(p)/2 for p in b]
     shot(f'{id}-close.png',target,(2,-4,2.0),max(size)*2.15)
-placements={'C01':[-.65,0,0],'C02':[-.90,1.4,0],'C03':[-.78,-1.30,0],'C04':[-.55,-2.0,0],'C05':[.18,1.25,.12],'C06':[.18,-.60,0],'C07':[-.65,.16,.62],'C08':[.15,2.05,0]}
+placements={'C01':[-.65,0,0],'C02':[-.90,1.4,0],'C03':[-.78,-1.30,0],'C04':[-.55,-2.0,0],'C05':[.18,1.25,0],'C06':[.18,-.60,0],'C07':[-.65,.16,.631],'C08':[.15,2.05,0]}
 for id,obs in groups.items():
     for o in obs:o.hide_render=False
     roots[id].location=placements[id]
@@ -272,6 +281,13 @@ visual('dry');bpy.ops.wm.save_as_mainfile(filepath=str(Path(__file__).parent/f'W
 for a in report['assets']:
     bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False);bpy.ops.import_scene.gltf(filepath=str(OUT/f"{a['id']}.glb"))
     imported=[o for o in scene.objects if o.type=='MESH'];b=bounds(imported);a['roundtrip_dimensions_xyz']=[p[1]-p[0] for p in b]
-    a['roundtrip_pass']=all(abs(x-y)<.002 for x,y in zip(a['dimensions_xyz'],a['roundtrip_dimensions_xyz'])) and all(o.data.uv_layers for o in imported)
+    a['roundtrip_morphs']=sum(len(o.data.shape_keys.key_blocks)-1 for o in imported if o.data.shape_keys)
+    a['roundtrip_pass']=all(abs(x-y)<.002 for x,y in zip(a['dimensions_xyz'],a['roundtrip_dimensions_xyz'])) and all(o.data.uv_layers for o in imported) and a['roundtrip_morphs']>=a['morphs']
+    if a['id']=='C02':a['roundtrip_pivot_preserved']=any(o.name.startswith('StatusPivot') for o in scene.objects);a['roundtrip_pass']=a['roundtrip_pass'] and a['roundtrip_pivot_preserved']
     assert a['roundtrip_pass'],a
+if args.batch==2:
+    bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False);bpy.ops.import_scene.gltf(filepath=str(OUT/'C06-complete.glb'))
+    variantMeshes=[o for o in scene.objects if o.type=='MESH'];b=bounds(variantMeshes);dims=[p[1]-p[0] for p in b];base=next(a for a in report['assets'] if a['id']=='C06')
+    report['cloth_variant']={'file':'C06-complete.glb','roundtrip_dimensions_xyz':dims,'pass':all(abs(x-y)<.002 for x,y in zip(dims,base['dimensions_xyz'])) and any(m.name.startswith('complete_sage_hemp') for o in variantMeshes for m in o.data.materials)}
+    assert report['cloth_variant']['pass']
 (OUT/f'batch{args.batch}-manifest.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8');print('WATER_REPORT_MODELS_PASS',N)

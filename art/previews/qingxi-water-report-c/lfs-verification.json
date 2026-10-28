@@ -1,0 +1,194 @@
+{
+  "scope": [
+    "art/references/qingxi-water-report-c/",
+    "art/source/qingxi-water-report-c/",
+    "art/exports/qingxi-water-report-c/",
+    "art/previews/qingxi-water-report-c/",
+    "tools/qingxi-water-report-c/"
+  ],
+  "note": "Package staged files only; baseline repository LFS objects were not all downloaded. Not a full repository fsck.",
+  "pass": true,
+  "count": 36,
+  "files": [
+    {
+      "path": "art/exports/qingxi-water-report-c/C01.glb",
+      "sha256": "2c461586eb1c3bf6a66fd34ab5a9180f5e7e773f257450278aa6a52df5247cd3",
+      "size": 171332
+    },
+    {
+      "path": "art/exports/qingxi-water-report-c/C02.glb",
+      "sha256": "1064e9b53f0dc06d3e6ee1ba16eb88d414fa6beccd4abb09e9d361f01fde1cec",
+      "size": 152848
+    },
+    {
+      "path": "art/exports/qingxi-water-report-c/C03.glb",
+      "sha256": "bd5546c887919d88dfda1926fd0eb0c2ce0a1d992377f6bec879990a079c3f12",
+      "size": 241000
+    },
+    {
+      "path": "art/exports/qingxi-water-report-c/C04.glb",
+      "sha256": "f1a96abca5fbdd362f3ee797e772e336cdac48cc1c4556f109f47c4f72d8fb14",
+      "size": 168280
+    },
+    {
+      "path": "art/exports/qingxi-water-report-c/C05.glb",
+      "sha256": "c1ecac307e49eaa147f99ffa2671d7bdb54e36399b1fd28cf6f7b0ec33512cfa",
+      "size": 102556
+    },
+    {
+      "path": "art/exports/qingxi-water-report-c/C06-complete.glb",
+      "sha256": "40a083dc1210089a7bd6069a8437dca5935f8176cb1750edb1e2e2b323b4e215",
+      "size": 145260
+    },
+    {
+      "path": "art/exports/qingxi-water-report-c/C06.glb",
+      "sha256": "c0196d4f4d6840b868db41f9838cf89b42e5a22a6c2cc12ef1f97cac240cf071",
+      "size": 145944
+    },
+    {
+      "path": "art/exports/qingxi-water-report-c/C07.glb",
+      "sha256": "c3f64fab116a9f039e0ef59e9cd76633d6f989baed3cc4091d6702cec8f77d21",
+      "size": 193188
+    },
+    {
+      "path": "art/exports/qingxi-water-report-c/C08.glb",
+      "sha256": "2a9e9a8415e774a36f23af6ddf30ad3fd8e96d197e02f132ccac0c08bff9bb1c",
+      "size": 104392
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/C01-close.png",
+      "sha256": "f8d6e007c179931049bc1d244af2b369544e27129443ba6e2104c516c0f681af",
+      "size": 904932
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/C02-close.png",
+      "sha256": "59492e39c16ee053832def81b3ac07520975884078d95921a3057b9c9fca1036",
+      "size": 870642
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/C03-close.png",
+      "sha256": "fd2ec9a208b8d155ba73147fd991c3df6a3bbdf06a20191016cb336ec81c7d42",
+      "size": 927407
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/C04-close.png",
+      "sha256": "963b889e1330004e6c63c1a6831d699ba4d3c752b07d183c34301a9ea383b900",
+      "size": 842755
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/C05-close.png",
+      "sha256": "ea297f3216286adc3670ba5daa0fd20b35999467ba91b56d5da3c2ee11f9d603",
+      "size": 883556
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/C06-close.png",
+      "sha256": "252f512ae7cbb119d324f7a59c1b8c0c869b48b164170a8b80b4904aba236010",
+      "size": 889828
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/C07-close.png",
+      "sha256": "779c4922327f4a23171f8aec7103eef4a5637a2538bfba534f44f3c8a88bf68f",
+      "size": 908135
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/C08-close.png",
+      "sha256": "84a65b3effbe6fa8ade15901873446dd2741388ed324af3189845c0e05d724c9",
+      "size": 862590
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/corner-dry.png",
+      "sha256": "dfba34e17c47fca1402d442aced41f42e20bb0fadc608bf46bf302d8f1f2596b",
+      "size": 842142
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/corner-partial.png",
+      "sha256": "97a8df85bd625e90074634acca30a081555a05b8e62727ed9e71bba948e61cb4",
+      "size": 842456
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/corner-restored.png",
+      "sha256": "0974829f4258222ece11ee1435968d197c9c79ab2eee2f592d57540fe95a918b",
+      "size": 843476
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/desktop-dry-1280x720.png",
+      "sha256": "aceb1b62c9dd4a6ea96ea91af27c81e3ebc417b6ae82e42b8fff9f6b4e6c2628",
+      "size": 304784
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/desktop-restored-1280x720.png",
+      "sha256": "a71dbc1d9320956f734b8ee17df58a125afce97bab4f3524a4f463f85ac97e61",
+      "size": 304603
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/eye-height-1p7m.png",
+      "sha256": "1ea387db0499c81313483c4409cb3ba820683b1d64cee567b6158d92c61fbddd",
+      "size": 911465
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/mobile-844x390.png",
+      "sha256": "62d7b8e2e3ba4494dc83a4727c13c73649d148175ee288fba99c93ac7245379c",
+      "size": 139568
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/plan-3x5m.png",
+      "sha256": "381d6d1889a4b43fd0c1d09a0ca228b0344bdebfdfe74d814edd5b92bdaba9d1",
+      "size": 852632
+    },
+    {
+      "path": "art/previews/qingxi-water-report-c/walkthrough.webm",
+      "sha256": "3197aec37f0d081ccec6a683a1fac95e4f2a41ea18037ca5cced28716d2bdf54",
+      "size": 774182
+    },
+    {
+      "path": "art/references/qingxi-water-report-c/C01-three-view.png",
+      "sha256": "80a01d43c04202ed6d78961babcb2a2d8f4d564b51cb451cba7b24e9258ee558",
+      "size": 2529463
+    },
+    {
+      "path": "art/references/qingxi-water-report-c/C02-three-view.png",
+      "sha256": "4867ef590565e78944f1cfc88ed84c7684332187b09c6f73a9f3faad506c64a0",
+      "size": 2116047
+    },
+    {
+      "path": "art/references/qingxi-water-report-c/C03-three-view.png",
+      "sha256": "f99713a20760fa2163b75d4ce64ddbc8548192cac0f355d327b8d510adb1d340",
+      "size": 2062736
+    },
+    {
+      "path": "art/references/qingxi-water-report-c/C04-three-view.png",
+      "sha256": "2c7860e282d23986b83e8051bbbfbfbd48a99aa413042620d124ab658e353ff1",
+      "size": 1766864
+    },
+    {
+      "path": "art/references/qingxi-water-report-c/C05-three-view.png",
+      "sha256": "b894d187cea1668b34bb9f4fc5fcb5f289a90ca117d0eb098a9d07f2fef39511",
+      "size": 1923464
+    },
+    {
+      "path": "art/references/qingxi-water-report-c/C06-three-view.png",
+      "sha256": "22d7a979988439c811661fd9c5fdd7eed14b6008ae1be16a6cafe12423828cfa",
+      "size": 1789465
+    },
+    {
+      "path": "art/references/qingxi-water-report-c/C07-three-view.png",
+      "sha256": "b6cf7b8288ebf8071bbc9aa4f2ed410125afbcb3750827e20adbc33b1ea58297",
+      "size": 2316965
+    },
+    {
+      "path": "art/references/qingxi-water-report-c/C08-three-view.png",
+      "sha256": "f4f5d309e0a04d2b45b4a6cbb6f550c09693c4ebd165d0b544038cd43c0906f7",
+      "size": 2567992
+    },
+    {
+      "path": "art/source/qingxi-water-report-c/WaterReportC_batch1.blend",
+      "sha256": "0adb99a9149d1102dfe9cf1553b92cf359df8e726ffd2f71c912230274d769e9",
+      "size": 1772865
+    },
+    {
+      "path": "art/source/qingxi-water-report-c/WaterReportC_batch2.blend",
+      "sha256": "fef0ae1df949f456bdad92792390c44fbfce3d84591d984cae0751b881370918",
+      "size": 2349321
+    }
+  ]
+}

@@ -5,7 +5,7 @@ try{
  const context=await browser.newContext({viewport:{width:1280,height:720},acceptDownloads:true,...(record?{recordVideo:{dir:path.join(dir,'artifacts/video'),size:{width:1280,height:720}}}:{})}),page=await context.newPage(),errors=[],requests=[],video=page.video();
  page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});page.on('request',r=>{if(r.method()!=='GET')requests.push(r.method()+' '+r.url());});
  const saved=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('qingxi-water-report-c-v1')));
- await page.goto('http://127.0.0.1:4322/');await page.locator('[data-choice="tell_shortage"]').press('Enter');assert.equal((await saved()).choice,'tell_shortage');
+ await page.goto('http://127.0.0.1:4322/');assert.equal(await page.locator('.credits').innerText(),'Eli-0731／Codex。');await page.locator('[data-choice="tell_shortage"]').press('Enter');assert.equal((await saved()).choice,'tell_shortage');
  for(let i=0;i<5;i++)await page.locator('[data-choice="tell_shortage"]').click();assert.equal((await saved()).events.length,1);
  await page.screenshot({path:path.join(pre,'desktop-dry-1280x720.png')});
  await page.locator('#fixture').selectOption('channel-restored');await page.locator('#scene-image').evaluate(img=>img.decode());assert.match(await page.locator('#scene-image').getAttribute('src'),/restored/);assert.match(await page.locator('#bucket-status').innerText(),/提高/);
