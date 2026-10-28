@@ -84,7 +84,8 @@
       { "id": "qingling-seed", "item": "qingling-seed", "quantity": 1, "price": 1 },
       { "id": "lotus-seed", "item": "lotus-seed", "quantity": 1, "price": 1 },
       { "id": "qingling-bundle", "item": "qingling-herb", "quantity": 3, "price": 4 },
-      { "id": "lotus-bundle", "item": "water-lotus", "quantity": 2, "price": 4 }
+      { "id": "lotus-bundle", "item": "water-lotus", "quantity": 2, "price": 4 },
+      { "id": "firewood-bundle", "item": "pine-firewood", "quantity": 5, "price": 1 }
     ]
   }
 }

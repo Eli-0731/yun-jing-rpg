@@ -82,5 +82,89 @@
   "generator": "OpenAI image generation via Codex CLI 0.163.0 (codex exec), 2026-10-28",
   "review": "樹根障礙：樹樁直徑 0.8 m、高 0.45 m，根系 2.6×2.2 m，每條根都入土，高度 0.35 m 內可小心跨過；不似爪或妖物。",
   "reviewed_by": "Claude Code (Claude Opus 5.5), before modelling"
+ },
+ {
+  "id": "A07",
+  "file": "A07_three_view.png",
+  "bytes": 2266576,
+  "sha256": "267f264d93e158681f7fd6575cff9314e324fd9fd22370ed805c3873acf83918",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI 0.163.0 (codex exec), 2026-10-28",
+  "review": "兔徑泥印地塊 4×2×0.15 m：草地中一條踩實的濕泥徑，成對前爪印與較長後腳印、兔糞、勾在草莖上的兔毛、順著兔徑倒伏的草；邊緣融入草地，沒有發光導引。",
+  "reviewed_by": "Claude Code (Claude Opus 5.5), before modelling"
+ },
+ {
+  "id": "A08",
+  "file": "A08_three_view.png",
+  "bytes": 1753314,
+  "sha256": "1c734b9fb306c91132bd51b087851d67b9185177f507ae1779b0af1280cd21a6",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI 0.163.0 (codex exec), 2026-10-28",
+  "review": "受損竹柵段 3 m、高 1.3 m：三根舊木柱、上下兩道竹橫竿、繩綁交叉結；左段兩根竹子斷裂斜倒、一根落地、一段繩子垂落，形成低矮缺口。安全側／遭遇側的界線。",
+  "reviewed_by": "Claude Code (Claude Opus 5.5), before modelling"
+ },
+ {
+  "id": "A09",
+  "file": "A09_three_view.png",
+  "bytes": 2057371,
+  "sha256": "ebae9a75de3188303b5cc769cb9ad7883c2f8e519ac235610933f75d098d8d2f",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI 0.163.0 (codex exec), 2026-10-28",
+  "review": "石製避雨龕 2.2×1.6×2.4 m：乾砌石牆三面、前方兩根木柱與斜撐、單坡青瓦頂（前高後低）、石凳、左側燈龕、石板地坪與前階；明確的安全休息點。",
+  "reviewed_by": "Claude Code (Claude Opus 5.5), before modelling"
+ },
+ {
+  "id": "A10",
+  "file": "A10_three_view.png",
+  "bytes": 1756491,
+  "sha256": "3d4eec058a3b2a6ea4c3b370fed3ee03a618067a8845372048efdf278599fc08",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI 0.163.0 (codex exec), 2026-10-28",
+  "review": "木製觀察台：平台 2.0×2.0 m 高 1.8 m、總高 2.8 m；四根原木腳、交叉斜撐、前方 7 階斜梯、三面雙道欄杆、繩綁接點。",
+  "reviewed_by": "Claude Code (Claude Opus 5.5), before modelling"
+ },
+ {
+  "id": "A11",
+  "file": "A11_three_view.png",
+  "bytes": 2052453,
+  "sha256": "55b3c4e234e34876b9f64ace5f88cc9eb8cfbcb9044374beca129471afa1c118",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI 0.163.0 (codex exec), 2026-10-28",
+  "review": "掛布警示架 1.4×1.9 m：兩柱一橫木，懸三條褪色赭紅與靛藍破布並繫乾草束、刻痕木牌（無可讀文字）、羽毛一束；柱腳三石堆。只用世界內物件示警。",
+  "reviewed_by": "Claude Code (Claude Opus 5.5), before modelling"
+ },
+ {
+  "id": "A12",
+  "file": "A12_three_view.png",
+  "bytes": 2167151,
+  "sha256": "583dc3f5c1d701329a65c6a4e5be21b683166293f41952fbe6169ab85d981f6b",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "BACK"
+  ],
+  "generator": "OpenAI image generation via Codex CLI 0.163.0 (codex exec), 2026-10-28",
+  "review": "藤靶 1.7 m、寬 0.95 m：木樁立於石座，藤草軀幹三道繩綁、雙臂、藤編圓頭、側面草編靶盤；完整版另做破損外皮狀態。",
+  "reviewed_by": "Claude Code (Claude Opus 5.5), before modelling"
  }
 ]

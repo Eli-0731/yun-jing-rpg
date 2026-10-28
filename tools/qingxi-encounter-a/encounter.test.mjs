@@ -179,6 +179,38 @@ test('falling to 0 HP retreats the rabbit and the player restarts at the safe po
   assert.equal(s.outcome, null);
 });
 
+test('a respawn spot inside the safe radius is used instead of the safe point centre', () => {
+  const e = new Encounter({ ...WORLD, respawn: { x: 0, z: -11 } });
+  e.resetAtSafePoint();
+  const s = e.snapshot();
+  assert.deepEqual([s.player.x, s.player.z], [0, -11]);
+  assert.ok(e.inSafeZone());
+});
+
 test('qi (法) is not playable yet and says so', () => {
   assert.throws(() => new Encounter(WORLD, { style: 'qi' }), /next version/);
+});
+
+test('the vine dummy takes aimed strikes in range, wears out after enough hits, and never touches the rabbit', () => {
+  const e = new Encounter({ ...WORLD, dummies: [{ x: 3, z: -9, r: 0.35, wearAt: 4 }] });
+  e.player.x = 3; e.player.z = -10.2; e.face(0);
+  e.attack(); e.step(0.6);
+  e.attack('technique'); e.step(0.6);
+  let ev = e.drainEvents().filter(x => x.type === 'dummy-hit');
+  assert.equal(ev.length, 2);
+  assert.equal(ev.at(-1).total, 3);
+  e.attack(); e.step(0.6);
+  ev = e.drainEvents().filter(x => x.type === 'dummy-hit');
+  assert.equal(ev.at(-1).worn, true);
+  assert.equal(e.rabbit.hp, PARAMS.rabbit.hp);
+  e.face(Math.PI); e.attack(); e.step(0.6);   // facing away: a whiff, not a dummy hit
+  assert.ok(e.drainEvents().some(x => x.type === 'whiff'));
+});
+
+test('an extra safe zone (watch platform) also calls the rabbit off', () => {
+  const e = new Encounter({ ...WORLD, safeZones: [{ x: 0, z: -3.5, r: 1.0 }] });
+  walkTo(e, 0, -3.5);
+  e.step(3);
+  assert.ok(['idle', 'retreat'].includes(e.rabbit.state));
+  assert.equal(e.player.hp, PARAMS.player.hp);
 });

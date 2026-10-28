@@ -29,7 +29,8 @@ const angleDiff = (a, b) => Math.atan2(Math.sin(a - b), Math.cos(a - b));
 const headingTo = (fx, fz, tx, tz) => Math.atan2(tx - fx, tz - fz);
 
 /**
- * world: { burrow:{x,z}, safe:{x,z}, start:{x,z}, cover:[{x,z,r}], walls:[{x,z,r}] }
+ * world: { burrow:{x,z}, safe:{x,z}, start:{x,z}, cover:[{x,z,r}], walls:[{x,z,r}],
+ *          safeZones?:[{x,z,r}] (e.g. the watch platform), dummies?:[{x,z,r,wearAt}] (A12 practice targets) }
  * cover circles block the rabbit's sight line; walls stop a charge (rabbit stuns itself) and the player.
  */
 export class Encounter {
@@ -47,6 +48,7 @@ export class Encounter {
       t: 0, seen: 0, dir: 0, travelled: 0, hitThisCharge: false, cooldown: 0, stagger: 0 };
     this.stats = { dodged: 0, blocked: 0, parried: 0, hitsTaken: 0, hitsLanded: 0, whiffs: 0, retreats: 0 };
     this.outcome = null; // 'won' | 'downed' | null
+    this.dummyHits = [];
   }
 
   // ------------------------------------------------------------ inputs (all validated by state)
@@ -159,7 +161,7 @@ export class Encounter {
     if (this.outcome === 'won' && r.state !== 'retreat') return;
     r.t += dt;
     const dPlayer = len(p.x - r.x, p.z - r.z);
-    const atSafe = len(p.x - this.world.safe.x, p.z - this.world.safe.z) < this.P.safeRadius;
+    const atSafe = this.inSafeZone();
     const leashed = len(p.x - this.world.burrow.x, p.z - this.world.burrow.z) > R.leashRadius;
     switch (r.state) {
       case 'idle': {
@@ -240,6 +242,15 @@ export class Encounter {
 
   #resolveAttack() {
     const p = this.player, r = this.rabbit, A = this.P.player.attack;
+    // practice dummies (A12) take any strike that is in range and aimed: warm-up before the real thing
+    for (const [i, dm] of (this.world.dummies || []).entries()) {
+      const dd = len(dm.x - p.x, dm.z - p.z);
+      if (dd <= A.range + dm.r && Math.abs(angleDiff(p.heading, headingTo(p.x, p.z, dm.x, dm.z))) < A.arc / 2) {
+        this.dummyHits[i] = (this.dummyHits[i] || 0) + (p.attackKind === 'technique' ? 2 : 1);
+        this.#emit('dummy-hit', { index: i, total: this.dummyHits[i], worn: this.dummyHits[i] >= (dm.wearAt || 8), kind: p.attackKind });
+        return;
+      }
+    }
     const d = len(r.x - p.x, r.z - p.z);
     const inArc = Math.abs(angleDiff(p.heading, headingTo(p.x, p.z, r.x, r.z))) < A.arc / 2;
     if (d > A.range + r.radius || !inArc || r.state === 'idle' || r.state === 'retreat') {
@@ -271,11 +282,18 @@ export class Encounter {
 
   #emit(type, data = {}) { this.events.push({ t: Math.round(this.time * 1000) / 1000, type, ...data }); }
 
+  /** On the safe point (A09) or any extra safe zone such as the watch platform (A10). */
+  inSafeZone() {
+    const p = this.player;
+    if (len(p.x - this.world.safe.x, p.z - this.world.safe.z) < this.P.safeRadius) return true;
+    return (this.world.safeZones || []).some(z => len(p.x - z.x, p.z - z.z) < z.r);
+  }
+
   drainEvents() { const e = this.events; this.events = []; return e; }
 
-  /** Restart from the safe point; nothing carries over (no permanent loss in the demo). */
+  /** Restart from the safe point (or world.respawn, a spot inside its radius); nothing carries over (no permanent loss in the demo). */
   resetAtSafePoint() {
-    const fresh = new Encounter({ ...this.world, start: this.world.safe }, { style: this.style, params: this.P });
+    const fresh = new Encounter({ ...this.world, start: this.world.respawn || this.world.safe }, { style: this.style, params: this.P });
     Object.assign(this, fresh);
     this.#emit('reset');
   }
