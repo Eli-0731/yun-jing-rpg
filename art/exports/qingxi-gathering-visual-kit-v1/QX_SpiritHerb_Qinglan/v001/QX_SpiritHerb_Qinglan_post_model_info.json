@@ -1,0 +1,93 @@
+{
+  "key": "QX_SpiritHerb_Qinglan_post",
+  "asset": "QX_SpiritHerb_Qinglan",
+  "state": "post",
+  "name_zh": "青溪蘭（靈草一）",
+  "state_zh": "採後",
+  "version": "v001",
+  "design": "Creek orchid (Cymbidium-like): fan clump of 18 keeled strap leaves arching in crossing S curves, papery sheaths and pseudobulbs, three scapes with bracts and 5-7 nodding jade blossoms (cupped sepals, hooded petals, spotted recurved lip, the top ones buds) in the lee of a mossy stone. Post: scapes cut to stubs, outer leaves sickle-cut, young leaves kept, two new shoots, cut leaves / scape / blossoms on the soil.",
+  "material_direction": "Glossy deep jade-green leaves (rough 0.32) with fine parallel veins, pale keel, yellow-green sheath base and a few straw-dry tips; blossoms pale jade with darker veins, ivory lip with red-violet spots, soft inner glow; papery straw sheaths.",
+  "units": "1 Blender unit = 1 m",
+  "front_axis": "-Y (Blender); GLB exported +Y up, so the front faces +Z in glTF space",
+  "origin": "bottom centre at ground level",
+  "dimensions_m": [
+    0.8222,
+    0.7566,
+    0.3042
+  ],
+  "bounds_min_m": [
+    -0.4212,
+    -0.3549,
+    -0.012
+  ],
+  "bounds_max_m": [
+    0.401,
+    0.4017,
+    0.2922
+  ],
+  "game_triangles": 23596,
+  "game_vertices": 16953,
+  "high_poly_bake_source_faces": 15428,
+  "texture_size_px": 1024,
+  "texture_maps": {
+    "BaseColor": {
+      "file": "textures/QX_SpiritHerb_Qinglan_post_BaseColor.png",
+      "uv_coverage_before_dilation": 0.4182
+    },
+    "Roughness": {
+      "file": "textures/QX_SpiritHerb_Qinglan_post_Roughness.png",
+      "uv_coverage_before_dilation": 0.4182
+    },
+    "Normal": {
+      "file": "textures/QX_SpiritHerb_Qinglan_post_Normal.png",
+      "uv_coverage_before_dilation": 0.4182
+    },
+    "Emission": {
+      "file": "textures/QX_SpiritHerb_Qinglan_post_Emission.png",
+      "uv_coverage_before_dilation": 0.4182
+    }
+  },
+  "bake": {
+    "engine": "Cycles CPU",
+    "samples": 8,
+    "groups": {
+      "A_low_poly_from_high_poly": {
+        "cage_extrusion_m": 0.06,
+        "max_ray_m": 0.12,
+        "sources": [
+          "Qinglan_Pebbles_HP",
+          "Qinglan_Stone_HP"
+        ]
+      },
+      "B_self": {
+        "cage_extrusion_m": 0.003,
+        "max_ray_m": 0.008,
+        "sources": 11
+      }
+    }
+  },
+  "not_reproduced_in_game_material": [
+    "leaf / petal back-light translucency",
+    "berry / blossom subsurface",
+    "crystal transmission (crystals are opaque with baked colour and emission)",
+    "iron metallic (baked as dark iron-grey dielectric: base colour mixed toward 0.055 grey by the metallic amount)"
+  ],
+  "files": {
+    "QX_SpiritHerb_Qinglan_post.glb": {
+      "bytes": 3632692,
+      "sha256": "523affea9ead156fd85cfee3b1d0ecfcdfb95e61080517837287e07fd0699f8f"
+    },
+    "QX_SpiritHerb_Qinglan_post.fbx": {
+      "bytes": 813596,
+      "sha256": "7a96385ce7a27ad5f62fa55a2a0a7cedcf773e422ede7546130e61e172ab7a72"
+    },
+    "QX_SpiritHerb_Qinglan_post.blend": {
+      "bytes": 1748916,
+      "sha256": "a9e4c7a0f53a9f10c118953fc203d1b58f12fa970adc1d0cde26317da4241e71"
+    }
+  },
+  "build_seconds": 33.5,
+  "build_notes": {
+    "state_change": "post: scapes cut to stubs, outer leaves sickle-cut, young leaves kept, two new shoots, cut leaves / scape / blossoms on the soil"
+  }
+}

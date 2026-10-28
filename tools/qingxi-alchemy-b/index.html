@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>溪畔煉製小工坊 · 本機演示</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="mode">本機演示 · 非正式結果（成品不入正式背包）</div>
+<aside id="steps"></aside>
+<aside id="preview"></aside>
+<section id="card" hidden></section>
+<div id="prompt" hidden></div>
+<div id="toast" hidden></div>
+<div id="help">WASD／方向鍵移動 · 點地面走過去 · E 或點擊提示互動</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>

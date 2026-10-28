@@ -1,0 +1,131 @@
+{
+ "id": "B04",
+ "name": "BambooSortingTrays",
+ "key": "B04_BambooSortingTrays",
+ "state": "default",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.626,
+  0.466,
+  0.665
+ ],
+ "triangles": 7824,
+ "lod_triangles": [
+  7824,
+  3912,
+  1720
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   0.62,
+   0.48,
+   0.68
+  ],
+  "center": [
+   0,
+   0,
+   0.34
+  ],
+  "note": "upper tray = jade-tagged property, lower tray = amber-tagged property"
+ },
+ "states": {
+  "default": "both trays empty; upper tag jade, lower tag amber"
+ },
+ "sockets": {
+  "tray_upper": [
+   0,
+   0,
+   0.5
+  ],
+  "tray_lower": [
+   0,
+   0,
+   0.245
+  ]
+ },
+ "validation": {
+  "asset": "B04",
+  "key": "B04_BambooSortingTrays",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.626,
+   0.466,
+   0.665
+  ],
+  "bbox_min": [
+   -0.313,
+   -0.233,
+   0.0
+  ],
+  "bbox_max": [
+   0.313,
+   0.233,
+   0.665
+  ],
+  "target_size_m": [
+   0.62,
+   0.48,
+   0.68
+  ],
+  "trianglesLOD": [
+   7824,
+   3912,
+   1720
+  ],
+  "budgetLOD0": 8000,
+  "withinBudget": true,
+  "vertices": 3996,
+  "materials": [
+   "M_B04_BambooSortingTrays"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B04_BambooSortingTrays_LOD0"
+  ],
+  "textures": [
+   "T_B04_BambooSortingTrays_BaseColor.png",
+   "T_B04_BambooSortingTrays_Normal.png",
+   "T_B04_BambooSortingTrays_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 7824,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B04_BambooSortingTrays.001"
+   ]
+  },
+  "files": {
+   "B04_BambooSortingTrays.glb": {
+    "bytes": 4004404,
+    "sha256": "cef7e4e820878605dd2180a1807a4a05c768027ee12ae7122a3efe6834a9b035"
+   },
+   "B04_BambooSortingTrays.fbx": {
+    "bytes": 1055324,
+    "sha256": "dd127a6e1893bd36789c2d0156db42244f26a870e80d00c1812d33cdb110f657"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B04_BambooSortingTrays": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 4.5,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

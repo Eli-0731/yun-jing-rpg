@@ -1,0 +1,103 @@
+{
+  "key": "QX_GatheringLandmark",
+  "asset": "QX_GatheringLandmark",
+  "state": "base",
+  "name_zh": "採藥山門（採集地標）",
+  "state_zh": "單一狀態",
+  "version": "v001",
+  "design": "Herb-gatherers’ timber paifang: clamp stones with iron hoops, hewn posts with raking struts, through-tenoned tie beam with wedges and drying herb bundles, framed emblem plaque, que-ti brackets, carved stone hip roof with tile rolls and a jade pearl; jade banners, a lantern and a herb basket.",
+  "material_direction": "Silver-weathered hewn timber with growth rings and checks, pale moss-spotted stone, dark forged iron, deep jade cloth with painted emblem, warm lantern paper, pale jade pearl.",
+  "units": "1 Blender unit = 1 m",
+  "front_axis": "-Y (Blender); GLB exported +Y up, so the front faces +Z in glTF space",
+  "origin": "bottom centre at ground level",
+  "dimensions_m": [
+    4.3965,
+    2.9024,
+    4.462
+  ],
+  "bounds_min_m": [
+    -2.1473,
+    -1.4156,
+    -0.012
+  ],
+  "bounds_max_m": [
+    2.2492,
+    1.4868,
+    4.45
+  ],
+  "game_triangles": 59882,
+  "game_vertices": 41332,
+  "high_poly_bake_source_faces": 337564,
+  "texture_size_px": 2048,
+  "texture_maps": {
+    "BaseColor": {
+      "file": "textures/QX_GatheringLandmark_BaseColor.png",
+      "uv_coverage_before_dilation": 0.3215
+    },
+    "Roughness": {
+      "file": "textures/QX_GatheringLandmark_Roughness.png",
+      "uv_coverage_before_dilation": 0.3215
+    },
+    "Normal": {
+      "file": "textures/QX_GatheringLandmark_Normal.png",
+      "uv_coverage_before_dilation": 0.3215
+    },
+    "Emission": {
+      "file": "textures/QX_GatheringLandmark_Emission.png",
+      "uv_coverage_before_dilation": 0.3215
+    }
+  },
+  "bake": {
+    "engine": "Cycles CPU",
+    "samples": 8,
+    "groups": {
+      "A_low_poly_from_high_poly": {
+        "cage_extrusion_m": 0.06,
+        "max_ray_m": 0.12,
+        "sources": [
+          "Gate_Threshold_Flagstones_HP",
+          "Gate_Clamp_Stones_L_HP",
+          "Gate_Clamp_Stones_R_HP",
+          "Gate_Stone_Roof_HP"
+        ]
+      },
+      "B_self": {
+        "cage_extrusion_m": 0.003,
+        "max_ray_m": 0.008,
+        "sources": 22
+      }
+    }
+  },
+  "not_reproduced_in_game_material": [
+    "leaf / petal back-light translucency",
+    "berry / blossom subsurface",
+    "crystal transmission (crystals are opaque with baked colour and emission)",
+    "iron metallic (baked as dark iron-grey dielectric: base colour mixed toward 0.055 grey by the metallic amount)"
+  ],
+  "files": {
+    "QX_GatheringLandmark.glb": {
+      "bytes": 10897120,
+      "sha256": "fc7ae5669d73702936dce9c46595243643d128804b8a430c7cc52b916dd112f8"
+    },
+    "QX_GatheringLandmark.fbx": {
+      "bytes": 1932284,
+      "sha256": "171b90dfa3641c340567f5aecc384818f3a569d8a021c626da6a0cb2fa8a2432"
+    },
+    "QX_GatheringLandmark.blend": {
+      "bytes": 14252141,
+      "sha256": "d051844b65c23bb8cfbccabf94a3587ce2f16131d4451b1f8315f5c80afacc73"
+    }
+  },
+  "build_seconds": 207.5,
+  "build_notes": {
+    "post_centres_x_m": [
+      -1.22,
+      1.22
+    ],
+    "clear_opening_m": 2.18,
+    "tie_beam_z_m": 2.62,
+    "lintel_z_m": 3.3,
+    "coping_z_m": 3.79,
+    "state_change": "none (landmark has one state)"
+  }
+}
