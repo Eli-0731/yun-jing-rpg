@@ -8,6 +8,10 @@ namespace YunJing.Alchemy
     // Code-built uGUI in a bamboo-slip palette (original styling, no external UI kit).
     public static class AlchemyUi
     {
+        /// Phone layout: taller touch targets and slightly smaller button text so two-column grids fit.
+        public static bool Compact;
+        public static int ButtonFont => Compact ? 22 : 26;
+        public static float ButtonHeight => Compact ? 64 : 58;
         public static readonly Color Bamboo = new Color(.86f, .80f, .62f, .96f);
         public static readonly Color BambooDark = new Color(.55f, .45f, .28f, 1f);
         public static readonly Color Ink = new Color(.16f, .12f, .08f, 1f);
@@ -69,16 +73,16 @@ namespace YunJing.Alchemy
             return label;
         }
 
-        public static Button Button(string name, Transform parent, string text, Action onClick, Color? color = null, int size = 26)
+        public static Button Button(string name, Transform parent, string text, Action onClick, Color? color = null, int size = 0)
         {
             var image = Panel(name, parent, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero, color ?? Jade);
             var button = image.gameObject.AddComponent<Button>();
             var colors = button.colors; colors.highlightedColor = new Color(1.1f, 1.1f, 1.05f); colors.pressedColor = new Color(.8f, .8f, .75f);
             colors.disabledColor = new Color(.6f, .6f, .6f, .55f); button.colors = colors;
             button.onClick.AddListener(() => onClick());
-            var label = Label("Text", image.transform, text, size, TextAnchor.MiddleCenter, Color.white);
+            var label = Label("Text", image.transform, text, size > 0 ? size : ButtonFont, TextAnchor.MiddleCenter, Color.white);
             label.GetComponent<RectTransform>().offsetMin = new Vector2(6, 2); label.GetComponent<RectTransform>().offsetMax = new Vector2(-6, -2);
-            var le = image.gameObject.AddComponent<LayoutElement>(); le.minHeight = 54; le.preferredHeight = 58;
+            var le = image.gameObject.AddComponent<LayoutElement>(); le.minHeight = ButtonHeight - 4; le.preferredHeight = ButtonHeight;
             return button;
         }
 
@@ -97,7 +101,7 @@ namespace YunJing.Alchemy
             var rt = Rect(name, parent, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
             var layout = rt.gameObject.AddComponent<HorizontalLayoutGroup>(); layout.spacing = spacing;
             layout.childControlHeight = true; layout.childControlWidth = true; layout.childForceExpandWidth = true; layout.childForceExpandHeight = true;
-            var le = rt.gameObject.AddComponent<LayoutElement>(); le.minHeight = 58; le.preferredHeight = 58; le.flexibleHeight = 0; // force-expand would otherwise soak up spare panel height
+            var le = rt.gameObject.AddComponent<LayoutElement>(); le.minHeight = ButtonHeight; le.preferredHeight = ButtonHeight; le.flexibleHeight = 0; // force-expand would otherwise soak up spare panel height
             return layout;
         }
 

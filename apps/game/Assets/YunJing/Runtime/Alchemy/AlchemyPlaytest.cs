@@ -22,12 +22,13 @@ namespace YunJing.Alchemy
             var args = Environment.GetCommandLineArgs(); int i = Array.IndexOf(args, name);
             return i >= 0 && i + 1 < args.Length ? args[i + 1] : null;
         }
-        static bool Flag(string name) => Environment.GetCommandLineArgs().Contains(name);
+        public static bool Flag(string name) => Environment.GetCommandLineArgs().Contains(name);
 
         void Start()
         {
             bool full = Flag("-alchemyPlaytest"), layout = Flag("-alchemyLayoutCheck");
             if (!full && !layout) { enabled = false; return; }
+            Application.runInBackground = true; // keep rendering (and capturing) when the test window loses focus
             ws = GetComponent<AlchemyWorkshop>(); outDir = Arg("-alchemyOut") ?? Path.Combine(Application.persistentDataPath, "playtest");
             Directory.CreateDirectory(outDir);
             report.alias = ws.Alias; report.started = DateTime.Now.ToString("s"); report.resolution = Screen.width + "x" + Screen.height;
@@ -141,7 +142,7 @@ namespace YunJing.Alchemy
             var chips = FindObjectsByType<HerbChip>(FindObjectsSortMode.None).ToDictionary(c => c.Herb);
             chips["water-lotus"].Dropped(chips["water-lotus"], ws.ZoneScreen("basket"));
             chips["qingling-herb"].Dropped(chips["qingling-herb"], ws.ZoneScreen("mortar"));
-            yield return Capture("table_topdown");
+            yield return Capture("table_topdown"); Check("工作台操作");
             var pad = FindAnyObjectByType<GrindPad>();
             while (!ws.Ground.Contains("qingling-herb") && Time.realtimeSinceStartup - t0 < 600) { pad.Stroke(.25f); yield return new WaitForSecondsRealtime(.08f); }
             Mark("工作台俯視：青靈草入石臼，研磨完成", ws.Ground.Contains("qingling-herb"));
@@ -177,7 +178,7 @@ namespace YunJing.Alchemy
                 if (condenseAt > 0 && Time.realtimeSinceStartup >= condenseAt) break;
                 if (f.CompleteTick != null) continue;
                 var p = phases[Math.Min(f.Phase, phases.Length - 1)]; double target = (p.low + p.high) / 2;
-                if (!hotShot && f.T > 40) { hotShot = true; yield return Capture("furnace_heating"); }
+                if (!hotShot && f.T > 40) { hotShot = true; yield return Capture("furnace_heating"); Check("控火"); }
                 if (!mouthShot && f.Phase == 1) { mouthShot = true; yield return Click("Mouth"); yield return new WaitForSecondsRealtime(.9f); yield return Capture("furnace_mouth"); yield return Click("Mouth"); }
                 float next = f.T < target - 3 ? 1 : f.T > target + 3 ? 0 : .5f;
                 if (next != vent) { vent = next; yield return Click(next == 0 ? "Vent0" : next == 1 ? "Vent1" : "Vent5"); }
@@ -193,7 +194,7 @@ namespace YunJing.Alchemy
             var r = ws.Api.State.player.alchemy.session?.result;
             Mark("丹香起後收丹、開爐演出、伺服器判定品質", r != null && r.success, r == null ? ws.Api.Status : $"{r.label} {r.score} 分・首次領悟 {r.firstUnlock}・熟練 +{r.xpGain}");
             report.result = r == null ? null : JsonUtility.ToJson(r);
-            yield return Capture("result");
+            yield return Capture("result"); Check("結果");
             yield return Click("Claim"); yield return new WaitForSecondsRealtime(.8f);
             Mark("以 B10 蠟封瓶裝瓶領取入包", Owned("huichun-pill") >= 1, $"回春丹 {Owned("huichun-pill")}"); yield return Capture("bottled");
             yield return Click("Claim");
@@ -217,7 +218,7 @@ namespace YunJing.Alchemy
             Mark("減少鏡頭運動：直接切換不播放過渡", !ws.Director.Blending && ws.Director.Current == Shot.Cabinet);
             yield return Leave(); ws.SetReducedMotion(false);
             report.inventory = ws.Api.State.player.inventory.Select(s => $"{s.item}×{s.quantity}（potency {s.potency}{(s.bound ? "，綁定" : "")}）").ToArray();
-            Finish();
+            Mark("各畫面版面無重疊、未超出安全區", overlapIssues.Count == 0, string.Join("；", overlapIssues)); Finish();
         }
 
         IEnumerator Layout()
@@ -226,12 +227,22 @@ namespace YunJing.Alchemy
             yield return Until(() => ws.Api.State != null && ws.Api.State.alchemy != null && !ws.Api.Busy, 30);
             Mark("登入", ws.Api.State?.alchemy != null); yield return new WaitForSecondsRealtime(1); yield return Capture("explore");
             yield return WalkTo("B05"); yield return Capture("prompt");
-            yield return Interact("B05"); yield return new WaitForSecondsRealtime(.4f); yield return Capture("cabinet");
-            yield return Leave(); yield return Interact("B11"); yield return Click("Tab_manuals"); yield return Capture("scroll");
-            yield return Leave(); yield return Interact("TABLE"); yield return Capture("table");
-            yield return Leave(); yield return Interact("B01"); yield return Capture("furnace");
-            Mark("各解析度版面截圖", true); Finish();
+            Check("探索");
+            yield return Interact("B05"); yield return new WaitForSecondsRealtime(.4f); yield return Capture("cabinet"); Check("藥櫃");
+            yield return Leave(); yield return Interact("B11"); yield return Click("Tab_manuals"); yield return Capture("scroll"); Check("竹簡");
+            yield return Leave(); yield return Interact("TABLE"); yield return Capture("table"); Check("工作台");
+            yield return Leave(); yield return Interact("B01"); yield return Capture("furnace"); Check("丹爐");
+            yield return Leave();
+            // tap-to-walk: tap the cabinet from the far side of the room; the walker should arrive and open it
+            var target = Station("B05"); var screen = Camera.main.WorldToScreenPoint(target.transform.position + Vector3.up * .5f);
+            ws.Tap(screen); yield return Until(() => ws.Active != null && ws.Active.Id == "B05" && !ws.Director.Blending, 12);
+            Mark("點擊藥櫃：自動走過去並打開", ws.Active != null && ws.Active.Id == "B05"); yield return Capture("tap_cabinet");
+            yield return Leave();
+            Mark("各解析度版面截圖與重疊檢查", overlapIssues.Count == 0, string.Join("；", overlapIssues)); Finish();
         }
+
+        readonly List<string> overlapIssues = new List<string>();
+        void Check(string where) { foreach (var o in ws.LayoutOverlaps()) { overlapIssues.Add(where + "：" + o); Debug.Log("LAYOUT_OVERLAP " + where + " " + o); } }
 
         void Finish()
         {

@@ -112,9 +112,78 @@ namespace YunJing.Alchemy
                 if (kb.eKey.wasPressedThisFrame && Active == null) TryInteract();
                 if (kb.escapeKey.wasPressedThisFrame) Back();
             }
+            HandleTap(); AutoWalk();
             AnimateProps();
             RefreshUi();
         }
+
+        // ---------------- tap a prop (touch or left click) to walk over and use it
+
+        AlchemyStation walkGoal; Vector3[] walkPath; int walkLeg; float walkUntil; Vector2 tapStart; float tapTime; bool tapTracking;
+
+        void HandleTap()
+        {
+            if (Active != null || RevealPlaying || Waiting || modal.gameObject.activeSelf) { tapTracking = false; return; }
+            Vector2? tap = null; var ts = Touchscreen.current;
+            if (ts != null)
+            {
+                var t = ts.primaryTouch; var pos = t.position.ReadValue();
+                if (t.press.wasPressedThisFrame) { tapStart = pos; tapTime = Time.unscaledTime; tapTracking = !OverUi(pos); }
+                if (t.press.wasReleasedThisFrame && tapTracking && Time.unscaledTime - tapTime < .35f && (pos - tapStart).magnitude < 25 * canvas.scaleFactor) tap = pos;
+            }
+            else if (Mouse.current != null && Mouse.current.leftButton.wasReleasedThisFrame && !OverUi(Mouse.current.position.ReadValue()))
+                tap = Mouse.current.position.ReadValue();
+            if (tap != null) Tap(tap.Value);
+        }
+
+        /// A tap at a screen point: open the prop if already beside it, otherwise walk there first (also used by the playtest).
+        public void Tap(Vector2 screen)
+        {
+            var station = StationAt(screen); if (station == null) return;
+            if (station == Near) Open(station); else WalkTo(station);
+        }
+
+        static bool OverUi(Vector2 screen)
+        {
+            if (UnityEngine.EventSystems.EventSystem.current == null) return false;
+            var hits = new List<UnityEngine.EventSystems.RaycastResult>();
+            UnityEngine.EventSystems.EventSystem.current.RaycastAll(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current) { position = screen }, hits);
+            return hits.Count > 0;
+        }
+
+        /// Prop under the finger; props without their own collider (table top items, scroll stand) resolve to the nearest station.
+        AlchemyStation StationAt(Vector2 screen)
+        {
+            var cam = Camera.main; if (cam == null) return null;
+            if (!Physics.Raycast(cam.ScreenPointToRay(screen), out var hit, 30, ~(1 << Director.PlayerLayer), QueryTriggerInteraction.Ignore)) return null;
+            var direct = hit.collider.GetComponentInParent<AlchemyStation>(); if (direct != null) return direct;
+            AlchemyStation best = null; float bestD = .8f; var at = new Vector3(hit.point.x, 0, hit.point.z);
+            foreach (var s in stations) { var d = Vector3.Distance(at, new Vector3(s.Point.x, 0, s.Point.z)); if (d < bestD) { bestD = d; best = s; } }
+            return best;
+        }
+
+        /// Walk via the room centre (clear of the furnace) to the front of the station, then open it on arrival.
+        void WalkTo(AlchemyStation s)
+        {
+            var approach = s.Point - s.transform.forward * .85f; approach.y = 0; var p = Walker.transform.position; p.y = 0;
+            walkPath = new[] { new Vector3(.2f, 0, -.1f), approach }; walkLeg = Vector3.Distance(p, approach) < Vector3.Distance(walkPath[0], approach) ? 1 : 0;
+            walkGoal = s; walkUntil = Time.unscaledTime + 10; Say($"前往{s.Label}…");
+        }
+
+        void AutoWalk()
+        {
+            if (walkGoal == null) return;
+            bool steering = TouchStick.Steering || (Keyboard.current != null && (Keyboard.current.wKey.isPressed || Keyboard.current.aKey.isPressed || Keyboard.current.sKey.isPressed || Keyboard.current.dKey.isPressed));
+            if (steering || Active != null || Time.unscaledTime > walkUntil) { StopWalk(); return; }
+            if (Near == walkGoal) { var s = walkGoal; StopWalk(); Open(s); return; }
+            var p = Walker.transform.position; var d = walkPath[walkLeg] - new Vector3(p.x, 0, p.z);
+            if (d.magnitude < .12f) { if (++walkLeg >= walkPath.Length) StopWalk(); return; }
+            var cam = Camera.main.transform; var f = Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized; var r = Vector3.ProjectOnPlane(cam.right, Vector3.up).normalized;
+            var dir = d.normalized * Mathf.Clamp01(d.magnitude * 2.5f + .2f);
+            Walker.ScriptedInput = new Vector2(Vector3.Dot(dir, r), Vector3.Dot(dir, f));
+        }
+
+        void StopWalk() { walkGoal = null; Walker.ScriptedInput = Vector2.zero; }
 
         void AdvanceFurnace()
         {
@@ -172,7 +241,7 @@ namespace YunJing.Alchemy
         /// Close-ups keep the prop in the left two thirds: the station panel occupies the right third.
         void Framed(Shot shot, Vector3 pos, Vector3 look, float fov)
         {
-            var right = Vector3.Cross(Vector3.up, (look - pos).normalized).normalized * Vector3.Distance(pos, look) * .26f;
+            var right = Vector3.Cross(Vector3.up, (look - pos).normalized).normalized * Vector3.Distance(pos, look) * (compact ? .34f : .26f); // phone panel is wider relative to the screen
             Director.Go(shot, pos + right, look + right, fov);
         }
 

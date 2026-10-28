@@ -15,55 +15,174 @@ namespace YunJing.Alchemy
         public string ScrollTab = "herbs";
         public readonly Dictionary<string, Button> Buttons = new Dictionary<string, Button>();
 
+        // Phone layout (landscape, 16:9 and wider) and the rects ApplyLayout repositions when the screen or safe area changes.
+        RectTransform safe, hud, hudCol, top, toastBg, promptBg, retryHolder, interactHolder, gaugeBar, panelView; ScrollRect panelScroll;
+        GridLayoutGroup furnaceGrid; bool compact; Vector2Int laidOutSize; Rect laidOutSafe;
+        static readonly Vector2 Zero = Vector2.zero, One = Vector2.one;
+
+        /// Touch-first UI: a real touchscreen, a mobile player, or -alchemyMobile to preview the phone layout on PC.
+        public bool MobileUi => Touchscreen.current != null || Application.isMobilePlatform || AlchemyPlaytest.Flag("-alchemyMobile");
+        /// Phones in landscape get the compact layout; tablets (narrower than 16:10) keep the desktop arrangement at touch scale.
+        bool WantCompact => MobileUi && Screen.width >= Screen.height * 1.6f;
+
         void BuildUi()
         {
-            canvas = AlchemyUi.Canvas("AlchemyCanvas"); var root = canvas.transform;
-            var hud = AlchemyUi.Slips("Hud", root, new Vector2(0, 1), new Vector2(0, 1), new Vector2(24, -196), new Vector2(720, -24));
-            var hudCol = AlchemyUi.Rect("Col", hud, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero); AlchemyUi.Column(hudCol, 4, 16);
+            canvas = AlchemyUi.Canvas("AlchemyCanvas");
+            safe = AlchemyUi.Rect("SafeArea", canvas.transform, Zero, One, Zero, Zero); var root = safe;
+            hud = AlchemyUi.Slips("Hud", root, Zero, Zero, Zero, Zero);
+            hudCol = AlchemyUi.Rect("Col", hud, Zero, One, Zero, Zero); AlchemyUi.Column(hudCol, 4, 16);
             hudTitle = AlchemyUi.Line(hudCol, "青溪丹房", 34, AlchemyUi.Ink, 40); hudTitle.fontStyle = FontStyle.Bold;
             hudLine = AlchemyUi.Line(hudCol, "", 22); hudGuide = AlchemyUi.Line(hudCol, "", 24, AlchemyUi.Cinnabar);
-            toast = AlchemyUi.Label("Toast", AlchemyUi.Panel("ToastBg", root, new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(-300, -290), new Vector2(300, -212), AlchemyUi.Shade).transform, "", 25, TextAnchor.MiddleCenter, Color.white); // below the HUD, left of the station panel
+            toastBg = (RectTransform)AlchemyUi.Panel("ToastBg", root, Zero, Zero, Zero, Zero, AlchemyUi.Shade).transform; toastBg.GetComponent<Image>().raycastTarget = false;
+            toast = AlchemyUi.Label("Toast", toastBg, "", 25, TextAnchor.MiddleCenter, Color.white);
             ((RectTransform)toast.transform).offsetMin = new Vector2(12, 4); ((RectTransform)toast.transform).offsetMax = new Vector2(-12, -4);
-            skipBar = AlchemyUi.Rect("RevealSkip", root, new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(-230, 40), new Vector2(230, 104)); AlchemyUi.Column(skipBar, 0, 0);
+            skipBar = AlchemyUi.Rect("RevealSkip", root, Zero, Zero, Zero, Zero); AlchemyUi.Column(skipBar, 0, 0);
             skipBar.gameObject.SetActive(false);
-            prompt = AlchemyUi.Label("Prompt", AlchemyUi.Panel("PromptBg", root, new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(-330, 40), new Vector2(330, 104), AlchemyUi.Shade).transform, "", 28, TextAnchor.MiddleCenter, Color.white);
-            var top = AlchemyUi.Rect("TopRight", root, new Vector2(1, 1), new Vector2(1, 1), new Vector2(-560, -96), new Vector2(-24, -24));
+            promptBg = (RectTransform)AlchemyUi.Panel("PromptBg", root, Zero, Zero, Zero, Zero, AlchemyUi.Shade).transform; promptBg.GetComponent<Image>().raycastTarget = false;
+            prompt = AlchemyUi.Label("Prompt", promptBg, "", 28, TextAnchor.MiddleCenter, Color.white);
+            top = AlchemyUi.Rect("TopRight", root, Zero, Zero, Zero, Zero);
             var topRow = top.gameObject.AddComponent<HorizontalLayoutGroup>(); topRow.spacing = 10; topRow.childForceExpandWidth = true; topRow.childControlWidth = true; topRow.childControlHeight = true;
             motionButton = AlchemyUi.Button("Btn_Motion", top, "", () => SetReducedMotion(!Director.ReducedMotion), AlchemyUi.BambooDark, 22);
             menuButton = AlchemyUi.Button("Btn_Menu", top, "返回／選單", Back, AlchemyUi.BambooDark, 22);
-            retryButton = AlchemyUi.Button("Btn_Retry", AlchemyUi.Rect("RetryHolder", root, new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(-150, -190), new Vector2(150, -124)), "連線中斷：重試", () => Api.Retry(), AlchemyUi.Cinnabar);
-            panel = AlchemyUi.Slips("Panel", root, new Vector2(1, 0), new Vector2(1, 1), new Vector2(-660, 130), new Vector2(-24, -120));
-            panelBody = AlchemyUi.Rect("Body", panel, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero); AlchemyUi.Column(panelBody, 8, 22);
-            gauge = AlchemyUi.Slips("FurnaceGauge", root, new Vector2(0, 0), new Vector2(0, 0), new Vector2(24, 24), new Vector2(760, 250));
-            var bar = AlchemyUi.Panel("Bar", gauge, new Vector2(0, 1), new Vector2(1, 1), new Vector2(24, -86), new Vector2(-24, -50), new Color(.25f, .2f, .14f, .9f));
-            gaugeFillImage = AlchemyUi.Panel("Fill", bar.transform, Vector2.zero, new Vector2(0, 1), Vector2.zero, Vector2.zero, AlchemyUi.Cinnabar); gaugeFill = (RectTransform)gaugeFillImage.transform;
-            bandMark = (RectTransform)AlchemyUi.Panel("Band", bar.transform, Vector2.zero, new Vector2(0, 1), new Vector2(0, -6), new Vector2(0, 6), new Color(.4f, .85f, .7f, .55f)).transform;
-            gaugeText = AlchemyUi.Label("Temp", gauge, "", 24, TextAnchor.UpperLeft, AlchemyUi.Ink); ((RectTransform)gaugeText.transform).offsetMin = new Vector2(24, 0); ((RectTransform)gaugeText.transform).offsetMax = new Vector2(-24, -12);
-            gaugeState = AlchemyUi.Label("State", gauge, "", 23, TextAnchor.LowerLeft, AlchemyUi.Ink); ((RectTransform)gaugeState.transform).offsetMin = new Vector2(24, 16); ((RectTransform)gaugeState.transform).offsetMax = new Vector2(-24, -96);
-            overlay = AlchemyUi.Rect("TableOverlay", root, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            retryHolder = AlchemyUi.Rect("RetryHolder", root, Zero, Zero, Zero, Zero);
+            retryButton = AlchemyUi.Button("Btn_Retry", retryHolder, "連線中斷：重試", () => Api.Retry(), AlchemyUi.Cinnabar);
+            // Station panel scrolls when its content is taller than the screen (always the case for the furnace on phones).
+            panel = AlchemyUi.Slips("Panel", root, Zero, Zero, Zero, Zero);
+            panelView = AlchemyUi.Rect("Viewport", panel, Zero, One, new Vector2(0, 14), new Vector2(0, -14)); panelView.gameObject.AddComponent<RectMask2D>();
+            panelBody = AlchemyUi.Rect("Body", panelView, new Vector2(0, 1), One, Zero, Zero); panelBody.pivot = new Vector2(.5f, 1);
+            AlchemyUi.Column(panelBody, 8, 22).padding.top = 8;
+            panelBody.gameObject.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+            panelScroll = panel.gameObject.AddComponent<ScrollRect>(); panelScroll.viewport = panelView; panelScroll.content = panelBody;
+            panelScroll.horizontal = false; panelScroll.movementType = ScrollRect.MovementType.Clamped; panelScroll.scrollSensitivity = 40;
+            gauge = AlchemyUi.Slips("FurnaceGauge", root, Zero, Zero, Zero, Zero);
+            gaugeBar = (RectTransform)AlchemyUi.Panel("Bar", gauge, new Vector2(0, 1), One, Zero, Zero, new Color(.25f, .2f, .14f, .9f)).transform;
+            gaugeFillImage = AlchemyUi.Panel("Fill", gaugeBar, Zero, new Vector2(0, 1), Zero, Zero, AlchemyUi.Cinnabar); gaugeFill = (RectTransform)gaugeFillImage.transform;
+            bandMark = (RectTransform)AlchemyUi.Panel("Band", gaugeBar, Zero, new Vector2(0, 1), new Vector2(0, -6), new Vector2(0, 6), new Color(.4f, .85f, .7f, .55f)).transform;
+            gaugeText = AlchemyUi.Label("Temp", gauge, "", 24, TextAnchor.UpperLeft, AlchemyUi.Ink);
+            gaugeState = AlchemyUi.Label("State", gauge, "", 23, TextAnchor.LowerLeft, AlchemyUi.Ink);
+            overlay = AlchemyUi.Rect("TableOverlay", root, Zero, One, Zero, Zero);
             foreach (var z in new[] { ("mortar", "石臼・研磨"), ("basket", "晾藥籃・陰乾"), ("main", "分料盤・君"), ("aux", "分料盤・臣") })
             {
-                var marker = AlchemyUi.Panel("Zone_" + z.Item1, overlay, new Vector2(0, 0), new Vector2(0, 0), new Vector2(-95, -34), new Vector2(95, 34), new Color(.95f, .9f, .75f, .78f));
+                var marker = AlchemyUi.Panel("Zone_" + z.Item1, overlay, Zero, Zero, Zero, Zero, new Color(.95f, .9f, .75f, .78f));
                 AlchemyUi.Label("T", marker.transform, z.Item2, 22, TextAnchor.MiddleCenter, AlchemyUi.Ink); zones[z.Item1] = (RectTransform)marker.transform;
             }
             for (int i = 0; i < Herbs.Length; i++)
             {
-                var chipBg = AlchemyUi.Panel("Chip_" + Herbs[i], overlay, new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(-420 + i * 290, 130), new Vector2(-150 + i * 290, 214), AlchemyUi.Jade);
+                var chipBg = AlchemyUi.Panel("Chip_" + Herbs[i], overlay, Zero, Zero, Zero, Zero, AlchemyUi.Jade);
                 AlchemyUi.Label("T", chipBg.transform, "", 22, TextAnchor.MiddleCenter, Color.white);
                 var chip = chipBg.gameObject.AddComponent<HerbChip>(); chip.Herb = Herbs[i]; chip.Dropped = OnChipDropped; chips[Herbs[i]] = chip;
             }
-            var pad = AlchemyUi.Panel("GrindPad", overlay, Vector2.zero, Vector2.zero, new Vector2(-150, -150), new Vector2(150, 150), new Color(1, 1, 1, .12f));
+            var pad = AlchemyUi.Panel("GrindPad", overlay, Zero, Zero, Zero, Zero, new Color(1, 1, 1, .12f));
             pad.gameObject.AddComponent<GrindPad>().Stroke = GrindStroke; grindPad = (RectTransform)pad.transform;
             grindText = AlchemyUi.Label("T", pad.transform, "", 24, TextAnchor.LowerCenter, Color.white);
             modal = AlchemyUi.Slips("Modal", root, new Vector2(.5f, .5f), new Vector2(.5f, .5f), new Vector2(-470, -330), new Vector2(470, 330));
-            modalBody = AlchemyUi.Rect("Body", modal, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero); AlchemyUi.Column(modalBody, 8, 30);
+            modalBody = AlchemyUi.Rect("Body", modal, Zero, One, Zero, Zero); AlchemyUi.Column(modalBody, 8, 30);
             modal.gameObject.SetActive(false);
-            interactButton = AlchemyUi.Button("Btn_Interact", AlchemyUi.Rect("InteractHolder", root, new Vector2(1, 0), new Vector2(1, 0), new Vector2(-260, 40), new Vector2(-40, 150)), "互動", TryInteract, AlchemyUi.Cinnabar, 30);
+            interactHolder = AlchemyUi.Rect("InteractHolder", root, Zero, Zero, Zero, Zero);
+            interactButton = AlchemyUi.Button("Btn_Interact", interactHolder, "互動", TryInteract, AlchemyUi.Cinnabar, 30);
             touchUi = new GameObject("TouchStick", typeof(RectTransform)); touchUi.transform.SetParent(root, false);
-            var stickPad = AlchemyUi.Panel("Pad", touchUi.transform, Vector2.zero, Vector2.zero, new Vector2(120, 120), new Vector2(340, 340), new Color(1, 1, 1, .12f));
-            var knob = AlchemyUi.Panel("Knob", touchUi.transform, Vector2.zero, Vector2.zero, new Vector2(185, 185), new Vector2(275, 275), new Color(1, 1, 1, .35f));
+            var stickPad = AlchemyUi.Panel("Pad", touchUi.transform, Zero, Zero, new Vector2(120, 120), new Vector2(340, 340), new Color(1, 1, 1, .12f));
+            var knob = AlchemyUi.Panel("Knob", touchUi.transform, Zero, Zero, new Vector2(185, 185), new Vector2(275, 275), new Color(1, 1, 1, .35f));
+            stickPad.raycastTarget = knob.raycastTarget = false;
             var stick = touchUi.AddComponent<TouchStick>(); stick.Pad = (RectTransform)stickPad.transform; stick.Knob = (RectTransform)knob.transform;
+            ApplyLayout();
             BuildPanel();
+        }
+
+        static void Set(RectTransform rt, Vector2 anchor, Vector2 min, Vector2 max) { rt.anchorMin = rt.anchorMax = anchor; rt.offsetMin = min; rt.offsetMax = max; }
+        static void Font(Component c, int size) { foreach (var t in c.GetComponentsInChildren<Text>(true)) t.fontSize = size; }
+
+        /// Lay the HUD out for desktop or phone, inside the device safe area (notches, rounded corners, home bar).
+        void ApplyLayout()
+        {
+            compact = WantCompact; laidOutSize = new Vector2Int(Screen.width, Screen.height); laidOutSafe = SafeArea();
+            AlchemyUi.Compact = compact;
+            var scaler = canvas.GetComponent<CanvasScaler>();
+            scaler.referenceResolution = compact ? new Vector2(1280, 720) : new Vector2(1920, 1080); scaler.matchWidthOrHeight = compact ? 1 : .5f;
+            var s = laidOutSafe; safe.anchorMin = new Vector2(s.xMin / Screen.width, s.yMin / Screen.height); safe.anchorMax = new Vector2(s.xMax / Screen.width, s.yMax / Screen.height);
+            safe.offsetMin = safe.offsetMax = Zero;
+            var col = hudCol.GetComponent<VerticalLayoutGroup>();
+            if (compact)
+            {
+                Set(hud, new Vector2(0, 1), new Vector2(12, -148), new Vector2(540, -10)); col.padding = new RectOffset(14, 14, 16, 16); col.spacing = 2;
+                hudTitle.fontSize = 26; hudTitle.GetComponent<LayoutElement>().minHeight = 34; hudLine.fontSize = 17; hudGuide.fontSize = 19;
+                Set(toastBg, new Vector2(0, 1), new Vector2(12, -214), new Vector2(540, -158)); toast.fontSize = 19;
+                Set(skipBar, new Vector2(.5f, 0), new Vector2(-180, 16), new Vector2(180, 80));
+                Set(promptBg, new Vector2(.5f, 0), new Vector2(-240, 16), new Vector2(240, 70)); prompt.fontSize = 21;
+                Set(top, new Vector2(1, 1), new Vector2(-380, -68), new Vector2(-12, -10)); Font(top, 18);
+                Set(retryHolder, new Vector2(.5f, 1), new Vector2(-130, -190), new Vector2(130, -126));
+                panel.anchorMin = new Vector2(1, 0); panel.anchorMax = One; panel.offsetMin = new Vector2(-512, 10); panel.offsetMax = new Vector2(-12, -76);
+                Set(gauge, Zero, new Vector2(12, 10), new Vector2(540, 166));
+                gaugeBar.offsetMin = new Vector2(18, -62); gaugeBar.offsetMax = new Vector2(-18, -38);
+                Place(gaugeText, new Vector2(18, 0), new Vector2(-18, -14), 19); Place(gaugeState, new Vector2(18, 18), new Vector2(-18, -66), 17);
+                for (int i = 0; i < Herbs.Length; i++) { Set((RectTransform)chips[Herbs[i]].transform, Zero, new Vector2(24 + i * 244, 14), new Vector2(252 + i * 244, 88)); Font(chips[Herbs[i]], 19); }
+                grindPad.sizeDelta = new Vector2(240, 240); grindText.fontSize = 20;
+                foreach (var z in zones.Values) { z.sizeDelta = new Vector2(168, 56); Font(z, 19); }
+                Set(interactHolder, new Vector2(1, 0), new Vector2(-196, 16), new Vector2(-16, 116)); Font(interactHolder, 28);
+                modal.sizeDelta = new Vector2(820, modal.sizeDelta.y);
+            }
+            else
+            {
+                Set(hud, new Vector2(0, 1), new Vector2(24, -196), new Vector2(720, -24)); col.padding = new RectOffset(16, 16, 16, 16); col.spacing = 4;
+                hudTitle.fontSize = 34; hudTitle.GetComponent<LayoutElement>().minHeight = 40; hudLine.fontSize = 22; hudGuide.fontSize = 24;
+                Set(toastBg, new Vector2(.5f, 1), new Vector2(-300, -290), new Vector2(300, -212)); toast.fontSize = 25; // below the HUD, left of the station panel
+                Set(skipBar, new Vector2(.5f, 0), new Vector2(-230, 40), new Vector2(230, 104));
+                Set(promptBg, new Vector2(.5f, 0), new Vector2(-330, 40), new Vector2(330, 104)); prompt.fontSize = 28;
+                Set(top, new Vector2(1, 1), new Vector2(-560, -96), new Vector2(-24, -24)); Font(top, 22);
+                Set(retryHolder, new Vector2(.5f, 1), new Vector2(-150, -190), new Vector2(150, -124));
+                panel.anchorMin = new Vector2(1, 0); panel.anchorMax = One; panel.offsetMin = new Vector2(-660, 130); panel.offsetMax = new Vector2(-24, -120);
+                Set(gauge, Zero, new Vector2(24, 24), new Vector2(760, 250));
+                gaugeBar.offsetMin = new Vector2(24, -86); gaugeBar.offsetMax = new Vector2(-24, -50);
+                Place(gaugeText, new Vector2(24, 0), new Vector2(-24, -12), 24); Place(gaugeState, new Vector2(24, 16), new Vector2(-24, -96), 23);
+                for (int i = 0; i < Herbs.Length; i++) { Set((RectTransform)chips[Herbs[i]].transform, new Vector2(.5f, 0), new Vector2(-420 + i * 290, 130), new Vector2(-150 + i * 290, 214)); Font(chips[Herbs[i]], 22); }
+                grindPad.sizeDelta = new Vector2(300, 300); grindText.fontSize = 24;
+                foreach (var z in zones.Values) { z.sizeDelta = new Vector2(190, 68); Font(z, 22); }
+                Set(interactHolder, new Vector2(1, 0), new Vector2(-260, 40), new Vector2(-40, 150)); Font(interactHolder, 30);
+                modal.sizeDelta = new Vector2(940, modal.sizeDelta.y);
+            }
+            foreach (var b in new[] { motionButton, menuButton, retryButton, interactButton }) { var le = b.GetComponent<LayoutElement>(); le.minHeight = AlchemyUi.ButtonHeight - 4; le.preferredHeight = AlchemyUi.ButtonHeight; }
+            if (modal.gameObject.activeSelf) StartCoroutine(FitModal());
+        }
+
+        /// Pairs of visible HUD elements whose screen rects overlap (layout check at each resolution).
+        public List<string> LayoutOverlaps()
+        {
+            var items = new List<(string name, RectTransform rt)> { ("HUD", hud), ("頂部按鈕", top), ("工作台面板", panel), ("爐溫", gauge), ("提示訊息", toastBg), ("互動提示", promptBg), ("互動鍵", interactHolder), ("略過", skipBar) };
+            foreach (var kv in chips) items.Add(("藥材 " + HerbLabel(kv.Key), (RectTransform)kv.Value.transform));
+            foreach (var kv in zones) items.Add(("區域 " + kv.Key, kv.Value));
+            var live = items.Where(i => i.rt != null && i.rt.gameObject.activeInHierarchy).Select(i => (i.name, rect: ScreenRect(i.rt))).ToList();
+            var found = new List<string>();
+            for (int a = 0; a < live.Count; a++) for (int b = a + 1; b < live.Count; b++)
+                {
+                    if (live[a].name.StartsWith("區域") && live[b].name.StartsWith("區域")) continue; // zones are separated by Separate()
+                    if (live[a].rect.Overlaps(live[b].rect)) found.Add(live[a].name + "／" + live[b].name);
+                }
+            var screen = new Rect(0, 0, Screen.width, Screen.height);
+            foreach (var l in live) if (!(screen.Contains(l.rect.min) && screen.Contains(l.rect.max - Vector2.one))) found.Add(l.name + " 超出畫面");
+            return found;
+        }
+
+        static Rect ScreenRect(RectTransform rt)
+        {
+            var c = new Vector3[4]; rt.GetWorldCorners(c); // overlay canvas: world corners are screen pixels
+            return Rect.MinMaxRect(c[0].x, c[0].y, c[2].x, c[2].y);
+        }
+
+        static void Place(Text t, Vector2 min, Vector2 max, int size) { var rt = (RectTransform)t.transform; rt.offsetMin = min; rt.offsetMax = max; t.fontSize = size; }
+
+        /// Screen.safeArea, or a simulated side inset (-alchemySafeInset px) to check notch handling on PC.
+        static Rect SafeArea()
+        {
+            var inset = AlchemyPlaytest.Arg("-alchemySafeInset");
+            if (inset != null && float.TryParse(inset, out var px)) return new Rect(px, px * .25f, Screen.width - 2 * px, Screen.height - px * .25f);
+            return Screen.safeArea;
+        }
+
+        /// The panel's own width decides the furnace button grid, so two columns always fit.
+        Vector2 GridCell()
+        {
+            float inner = panelBody.rect.width > 10 ? panelBody.rect.width : (compact ? 500 : 636);
+            return new Vector2(Mathf.Floor((inner - 44 - 10) / 2), AlchemyUi.ButtonHeight);
         }
 
         void RefreshUi()
@@ -74,17 +193,24 @@ namespace YunJing.Alchemy
                 $"煉丹熟練 Lv{v.level}（{v.into}/{v.need}）・丹經第 {v.manualTier} 卷・青靈草 {Owned(Herbs[0])}・淨水蓮 {Owned(Herbs[1])}・松柴 {v.fuel}・靈石 {Owned("spirit-stone")}";
             hudGuide.text = Guidance;
             toast.text = Toast; toast.transform.parent.gameObject.SetActive(!string.IsNullOrEmpty(Toast));
-            bool touch = Touchscreen.current != null;
+            if (laidOutSize.x != Screen.width || laidOutSize.y != Screen.height || laidOutSafe != SafeArea()) { ApplyLayout(); BuildPanel(); } // rotation, resize, safe-area change
+            bool touch = MobileUi;
             prompt.transform.parent.gameObject.SetActive(Near != null && Active == null && !RevealPlaying);
-            if (Near != null) prompt.text = (touch ? "點「互動」：" : "按 E：") + Near.Label + "・" + Near.Verb;
+            if (Near != null) prompt.text = (touch ? "點「互動」或點物件：" : "按 E：") + Near.Label + "・" + Near.Verb;
             interactButton.transform.parent.gameObject.SetActive(Near != null && Active == null && !RevealPlaying);
-            touchUi.SetActive(touch && Active == null);
+            touchUi.SetActive(touch && Active == null && !RevealPlaying);
             retryButton.transform.parent.gameObject.SetActive(Api != null && Api.HasPending && !Api.Busy);
             AlchemyUi.SetText(motionButton, Director.ReducedMotion ? "減少鏡頭運動：開" : "減少鏡頭運動：關");
             panel.gameObject.SetActive(Active != null && !RevealPlaying && !modal.gameObject.activeSelf);
             if (skipBar.gameObject.activeSelf != RevealPlaying) skipBar.gameObject.SetActive(RevealPlaying);
             foreach (var b in Buttons.Values) if (b != null) b.interactable = !Waiting;
             RefreshGauge(); RefreshTable();
+            // Phone: on the tabletop the toast sits above the herb chips so it never covers a drop zone.
+            if (compact)
+            {
+                bool table = overlay.gameObject.activeSelf;
+                Set(toastBg, table ? Zero : new Vector2(0, 1), table ? new Vector2(12, 100) : new Vector2(12, -214), table ? new Vector2(496, 156) : new Vector2(540, -158));
+            }
         }
 
         void RefreshGauge()
@@ -155,7 +281,7 @@ namespace YunJing.Alchemy
 
         public string ZoneAt(Vector2 screen)
         {
-            string best = null; float bestD = 120;
+            string best = null; float bestD = 120 * canvas.scaleFactor;
             foreach (var kv in zones) { if (!kv.Value.gameObject.activeSelf) continue; float d = Vector2.Distance(screen, kv.Value.position); if (d < bestD) { bestD = d; best = kv.Key; } }
             return best;
         }
@@ -272,7 +398,7 @@ namespace YunJing.Alchemy
             if (Stage == Stage.Idle) { AlchemyUi.Line(panelBody, "尚未開始：藥櫃取藥 → 柴箱取柴。", 22); var q = View?.recipes?.Where(r => r.quick).ToList(); if (q != null && q.Count > 0) AlchemyUi.Line(panelBody, "已掌握的丹方可在竹簡「丹方錄」快速煉製。", 22); return; }
             if (Furnace == null) return;
             var grid = AlchemyUi.Rect("Grid", panelBody, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-            var gl = grid.gameObject.AddComponent<GridLayoutGroup>(); gl.cellSize = new Vector2(286, 58); gl.spacing = new Vector2(10, 8);
+            var gl = grid.gameObject.AddComponent<GridLayoutGroup>(); gl.cellSize = GridCell(); gl.spacing = new Vector2(10, 8);
             grid.gameObject.AddComponent<LayoutElement>().minHeight = 5 * 66;
             Btn(grid, "Lid", lidOpen ? "合上爐蓋" : "掀開爐蓋", Lid);
             Btn(grid, "Water", $"注水（手上 {Ladles} 瓢）", PourWater);
@@ -336,7 +462,7 @@ namespace YunJing.Alchemy
         {
             yield return null;
             LayoutRebuilder.ForceRebuildLayoutImmediate(modalBody);
-            modal.sizeDelta = new Vector2(modal.sizeDelta.x, Mathf.Clamp(LayoutUtility.GetPreferredHeight(modalBody), 220, 900));
+            modal.sizeDelta = new Vector2(modal.sizeDelta.x, Mathf.Clamp(LayoutUtility.GetPreferredHeight(modalBody), 220, ((RectTransform)safe).rect.height - 24));
         }
 
         void ShowResult(AlchemyResult r, bool fresh)

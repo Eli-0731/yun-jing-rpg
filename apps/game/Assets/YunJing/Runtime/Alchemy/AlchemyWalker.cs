@@ -49,7 +49,9 @@ namespace YunJing.Alchemy
     /// Left-half virtual joystick for touch screens; writes the shared Cultivator.TouchInput.
     public sealed class TouchStick : MonoBehaviour
     {
-        int finger = -1; Vector2 origin; public RectTransform Knob, Pad;
+        int finger = -1; Vector2 origin; public RectTransform Knob, Pad; public float Radius = 100;
+        /// True while a finger is steering, so a tap elsewhere can be told apart from walking.
+        public static bool Steering;
         void Update()
         {
             var ts = Touchscreen.current; if (ts == null) return;
@@ -60,10 +62,12 @@ namespace YunJing.Alchemy
                 if (!touch.press.isPressed) continue;
                 if (finger < 0 && pos.x < Screen.width * .4f && pos.y < Screen.height * .6f) { finger = id; origin = pos; }
                 if (id != finger) continue;
-                found = true; var delta = Vector2.ClampMagnitude(pos - origin, 110);
-                Cultivator.TouchInput = delta / 110;
+                found = true; float r = Radius * (Pad ? Pad.lossyScale.x : 1); // canvas units, so the stick keeps its physical size on dense screens
+                var delta = Vector2.ClampMagnitude(pos - origin, r);
+                Cultivator.TouchInput = delta / r;
                 if (Pad) Pad.position = origin; if (Knob) Knob.position = origin + delta;
             }
+            Steering = found;
             if (!found) { finger = -1; Cultivator.TouchInput = Vector2.zero; if (Knob && Pad) Knob.position = Pad.position; }
         }
     }
