@@ -7,7 +7,7 @@ import estateContent from '../../../packages/content/estate.json';
 import huntingContent from '../../../packages/content/hunting.json';
 import techniqueContent from '../../../packages/content/techniques.json';
 import { AlchemyEvent, alchemyContent, judge, levelOf, modsFor, profileFor, simulate, validateLog, xpGain } from './alchemy';
-import { AlchemyState, AlchemyView, HuntDeath, HuntReceipt, HuntReward } from '../../../packages/contracts/types';
+import { AlchemyRecord, AlchemyState, AlchemyView, HuntDeath, HuntReceipt, HuntReward } from '../../../packages/contracts/types';
 
 export { content, estateContent, huntingContent, techniqueContent };
 export const SELECTION_DELAY_MS = 10 * 24 * 60 * 60 * 1000;
@@ -35,16 +35,31 @@ export function alchemyOf(player: Player): AlchemyState {
 const owned = (player: Player, item: string) => player.inventory.filter(x => x.item === item).reduce((sum, x) => sum + x.quantity, 0);
 const sectPath = (player: Player) => content.sects.find(x => x.id === player.sect)?.path ?? null;
 const gradeRank = (grade: string) => alchemyContent.grades.findIndex(x => x.id === grade);
+const PREP_LABEL: Record<string, string> = { raw: '生用', ground: '研末', dried: '陰乾', 'ground+dried': '研末又陰乾', scorched: '焦乾' };
+const herbName = (id: string) => alchemyContent.herbs.find(x => x.id === id)?.label ?? (id === 'water' ? '注水' : id);
+// Plain text lines for clients that cannot read keyed records (Unity JsonUtility).
+function recordSummary(rec: AlchemyRecord) {
+  return [
+    '配比　' + Object.entries(rec.ratio).map(([k, v]) => herbName(k) + v).join('：'),
+    '處理　' + Object.entries(rec.prep).map(([k, v]) => herbName(k) + (PREP_LABEL[v] ?? v)).join('、'),
+    '順序　' + rec.order.map(herbName).join(' → '),
+    '注水　' + rec.water + ' 瓢',
+    '火候　' + rec.fire.join('，'),
+    '收丹　丹香起後 ' + rec.condense.join('–') + ' 息',
+    '最佳　' + (alchemyContent.grades.find(g => g.id === rec.bestGrade)?.label ?? rec.bestGrade) + '（' + rec.bestScore + ' 分），共煉 ' + rec.brews + ' 爐',
+  ];
+}
 export function alchemyView(player: Player): AlchemyView {
   const a = player.alchemy ?? { xp: 0, identified: [], recipes: {}, perfect: [], session: null, history: [] };
   const lv = levelOf(a.xp);
   const unlocked = (m: { tier: number; level?: number; technique?: string }) => m.tier === 1 || lv.level >= (m.level ?? Infinity) || (!!m.technique && !!player.study?.mastered.includes(m.technique));
-  const manuals = alchemyContent.manuals.map(m => ({ tier: m.tier, label: m.label, requirement: m.requirement, unlocked: unlocked(m), hints: unlocked(m) ? m.hints : {} }));
+  const manuals = alchemyContent.manuals.map(m => ({ tier: m.tier, label: m.label, requirement: m.requirement, unlocked: unlocked(m), hints: unlocked(m) ? m.hints : {},
+    lines: unlocked(m) ? alchemyContent.recipes.map(r => ({ recipe: r.id, lines: (m.hints as Record<string, string[]>)[r.id] ?? [] })) : [] }));
   const profile = a.session ? profileFor(a.session.herbs) : null;
   return {
     level: lv.level, xp: a.xp, into: lv.into, need: lv.need, manualTier: Math.max(...manuals.filter(m => m.unlocked).map(m => m.tier)), manuals,
     herbs: alchemyContent.herbs.map(h => { const known = a.identified.includes(h.id); return { id: h.id, label: h.label, identified: known, owned: owned(player, h.id), nature: known ? h.nature : null, use: known ? h.use : null, identifyHint: h.identifyHint }; }),
-    recipes: alchemyContent.recipes.map(r => { const rec = a.recipes[r.id] ?? null; return { id: r.id, label: rec ? r.label : '？', known: !!rec, effect: rec ? r.effect : null, record: rec, quick: !!rec && gradeRank(rec.bestGrade) >= gradeRank(alchemyContent.mastery.minGrade) }; }),
+    recipes: alchemyContent.recipes.map(r => { const rec = a.recipes[r.id] ?? null; return { id: r.id, label: rec ? r.label : '？', known: !!rec, effect: rec ? r.effect : null, record: rec, summary: rec ? recordSummary(rec) : [], quick: !!rec && gradeRank(rec.bestGrade) >= gradeRank(alchemyContent.mastery.minGrade) }; }),
     fire: alchemyContent.fire, drying: { minSeconds: alchemyContent.drying.minSeconds, maxSeconds: alchemyContent.drying.maxSeconds }, grindStrokes: alchemyContent.grindStrokes,
     maxHerbEach: alchemyContent.maxHerbEach, maxFuel: alchemyContent.maxFuel, fuel: owned(player, alchemyContent.fuelItem),
     profile: profile && { recipe: profile.recipe, label: profile.label, phases: profile.phases },
@@ -538,7 +553,7 @@ export class Game {
       case 'alchemy-use': {
         ensure(action.item === 'huichun-pill' || action.item === 'juqi-pill', 'INVALID_PILL', '這不是可服用的丹藥');
         // spend() reports the highest potency, so pick one stack of the requested grade explicitly.
-        const potency = action.potency === undefined ? undefined : integer(action.potency, 1, 1000);
+        const potency = action.potency === undefined || action.potency === 0 ? undefined : integer(action.potency, 1, 1000);
         const stack = player.inventory.filter(x => x.item === action.item && x.quantity > 0 && (potency === undefined || x.potency === potency))
           .sort((a, b) => b.potency - a.potency)[0];
         ensure(stack, 'MATERIALS', '沒有這種丹藥');

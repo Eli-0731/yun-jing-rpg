@@ -28,3 +28,7 @@ apps/game/Assets/YunJing/Generated/
 apps/game/Assets/YunJing/Generated.meta
 apps/game/Assets/QingxiWorld/Generated/
 apps/game/Assets/QingxiWorld/Generated.meta
+
+# Alchemy room: copies of art/exports/qingxi-alchemy-b made by AlchemyRoomBuilder.CopyExports
+apps/game/Assets/YunJing/Models/AlchemyB/
+apps/game/Assets/YunJing/Models/AlchemyB.meta

@@ -76,9 +76,9 @@ export interface AlchemyState {
 }
 export interface AlchemyView {
   level: number; xp: number; into: number; need: number; manualTier: number;
-  manuals: { tier: number; label: string; requirement: string; unlocked: boolean; hints: Record<string, string[]> }[];
+  manuals: { tier: number; label: string; requirement: string; unlocked: boolean; hints: Record<string, string[]>; lines: { recipe: string; lines: string[] }[] }[];
   herbs: { id: string; label: string; identified: boolean; owned: number; nature: string | null; use: string | null; identifyHint: string }[];
-  recipes: { id: string; label: string; known: boolean; effect: string | null; record: AlchemyRecord | null; quick: boolean }[];
+  recipes: { id: string; label: string; known: boolean; effect: string | null; record: AlchemyRecord | null; summary: string[]; quick: boolean }[];
   fire: Record<string, number>; drying: { minSeconds: number; maxSeconds: number }; grindStrokes: number;
   maxHerbEach: number; maxFuel: number; fuel: number;
   profile: { recipe: string | null; label: string; phases: { label: string; fire: string; low: number; high: number; seconds: number }[] } | null;
