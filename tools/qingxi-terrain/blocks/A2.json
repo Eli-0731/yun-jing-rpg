@@ -1,0 +1,372 @@
+{
+  "version": 2,
+  "units": "metre",
+  "block": "A2",
+  "note": "A2 村外官道與茶亭。世界座標；見 docs/execution/blocks/A2-A3-block-plan.md。北邊接 A1 的 village-entry。",
+  "bounds": {
+    "minX": -50,
+    "minZ": -150,
+    "sizeX": 100,
+    "sizeZ": 100
+  },
+  "noise": 0.5,
+  "nodes": [
+    {
+      "id": "a2-south",
+      "x": 0,
+      "z": -149
+    },
+    {
+      "id": "a2-bend1",
+      "x": 7,
+      "z": -130
+    },
+    {
+      "id": "a2-bend2",
+      "x": -5,
+      "z": -112
+    },
+    {
+      "id": "a2-bend3",
+      "x": 6,
+      "z": -92
+    },
+    {
+      "id": "a2-bend4",
+      "x": -1,
+      "z": -72
+    },
+    {
+      "id": "a2-north",
+      "x": 0,
+      "z": -49
+    },
+    {
+      "id": "a2-tea-door",
+      "x": -10,
+      "z": -104
+    },
+    {
+      "id": "a2-shrine-step",
+      "x": 11,
+      "z": -88
+    }
+  ],
+  "edges": [
+    {
+      "id": "a2-road-1",
+      "from": "a2-south",
+      "to": "a2-bend1",
+      "width": 3.4,
+      "surface": "dirt"
+    },
+    {
+      "id": "a2-road-2",
+      "from": "a2-bend1",
+      "to": "a2-bend2",
+      "width": 3.4,
+      "surface": "dirt"
+    },
+    {
+      "id": "a2-road-3",
+      "from": "a2-bend2",
+      "to": "a2-bend3",
+      "width": 3.4,
+      "surface": "dirt"
+    },
+    {
+      "id": "a2-road-4",
+      "from": "a2-bend3",
+      "to": "a2-bend4",
+      "width": 3.4,
+      "surface": "dirt"
+    },
+    {
+      "id": "a2-road-5",
+      "from": "a2-bend4",
+      "to": "a2-north",
+      "width": 3.4,
+      "surface": "dirt"
+    },
+    {
+      "id": "a2-to-tea",
+      "from": "a2-bend2",
+      "to": "a2-tea-door",
+      "width": 2.4,
+      "surface": "dirt"
+    },
+    {
+      "id": "a2-to-shrine",
+      "from": "a2-bend3",
+      "to": "a2-shrine-step",
+      "width": 2.2,
+      "surface": "dirt"
+    }
+  ],
+  "pads": [
+    {
+      "id": "a2-start",
+      "x": 2,
+      "z": -132,
+      "halfX": 6,
+      "halfZ": 4,
+      "height": 0.2,
+      "surface": "dirt"
+    },
+    {
+      "id": "a2-tea",
+      "x": -17,
+      "z": -107,
+      "halfX": 7,
+      "halfZ": 5,
+      "height": 0.9,
+      "surface": "plaza"
+    },
+    {
+      "id": "a2-shrine",
+      "x": 17,
+      "z": -88,
+      "halfX": 4,
+      "halfZ": 3.5,
+      "height": 1.6,
+      "surface": "plaza"
+    },
+    {
+      "id": "a2-view",
+      "x": -6,
+      "z": -67,
+      "halfX": 4.5,
+      "halfZ": 4,
+      "height": 2.6,
+      "surface": "dirt"
+    }
+  ],
+  "heightPoints": [
+    {
+      "x": 30,
+      "z": -120,
+      "height": 2.2
+    },
+    {
+      "x": -35,
+      "z": -130,
+      "height": 1.4
+    },
+    {
+      "x": -30,
+      "z": -75,
+      "height": 3.0
+    },
+    {
+      "x": 32,
+      "z": -70,
+      "height": 2.4
+    }
+  ],
+  "placements": [
+    {
+      "id": "A2_RoadSign",
+      "zone": "a2-start",
+      "role": "岔路路牌（RK01）",
+      "model": "",
+      "x": -3.5,
+      "z": -131,
+      "yaw": 0,
+      "footprint": [
+        1.2,
+        0.4,
+        2.6
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A2_Milestone_1",
+      "zone": "a2-start",
+      "role": "里程石（RK02）",
+      "model": "",
+      "x": 2,
+      "z": -133.5,
+      "yaw": 0,
+      "footprint": [
+        0.6,
+        0.4,
+        1.2
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A2_TeaPavilion",
+      "zone": "a2-tea",
+      "role": "路邊茶亭（RK03）",
+      "model": "",
+      "x": -18,
+      "z": -108.5,
+      "yaw": 90,
+      "footprint": [
+        6,
+        5,
+        4.5
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A2_TeaStall",
+      "zone": "a2-tea",
+      "role": "茶亭旁小攤（RK04）",
+      "model": "",
+      "x": -12.5,
+      "z": -110,
+      "yaw": 90,
+      "footprint": [
+        3,
+        2,
+        2.6
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A2_Cart",
+      "zone": "a2-tea",
+      "role": "載貨板車（RK05）",
+      "model": "",
+      "x": -18,
+      "z": -103.6,
+      "yaw": 0,
+      "footprint": [
+        3.2,
+        1.6,
+        1.4
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A2_Shrine",
+      "zone": "a2-shrine",
+      "role": "土地祠・機緣點（RK06）",
+      "model": "",
+      "x": 18.5,
+      "z": -88,
+      "yaw": -90,
+      "footprint": [
+        2.4,
+        2,
+        2.8
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A2_LampPost_1",
+      "zone": "a2-shrine",
+      "role": "路燈柱（RK08）",
+      "model": "",
+      "x": 14.5,
+      "z": -90.5,
+      "yaw": 0,
+      "footprint": [
+        0.6,
+        0.6,
+        3
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A2_ViewBench",
+      "zone": "a2-view",
+      "role": "觀景石凳（RK09）",
+      "model": "",
+      "x": -6,
+      "z": -64.5,
+      "yaw": 0,
+      "footprint": [
+        2,
+        0.8,
+        0.6
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A2_Haystack",
+      "zone": "a2-view",
+      "role": "草垛（RK10）",
+      "model": "",
+      "x": -8.6,
+      "z": -69.4,
+      "yaw": 0,
+      "footprint": [
+        2.4,
+        2.4,
+        2.2
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A2_Wayfarer",
+      "zone": "a2-tea",
+      "role": "路人（靜態 NPC）",
+      "model": "",
+      "x": -14,
+      "z": -104.2,
+      "yaw": 180,
+      "footprint": [
+        0.8,
+        0.8,
+        1.75
+      ],
+      "owner": "joshsu54",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "joshsu54",
+      "note": ""
+    }
+  ],
+  "herbs": [],
+  "fortunes": [],
+  "checkpoints": [],
+  "route": []
+}

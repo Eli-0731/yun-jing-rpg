@@ -23,7 +23,7 @@ namespace YunJing.Editor
             camera.targetTexture = target;
             // Heights below are above the local ground, so the shots follow the terrain relief.
             var terrain = Terrain.activeTerrain;
-            Vector3 Lift(Vector3 p) => terrain ? p + Vector3.up * QingxiVillageTerrain.Ground(terrain, p.x, p.z) : p;
+            System.Func<Vector3, Vector3> Lift = p => terrain ? p + Vector3.up * QingxiVillageTerrain.Ground(terrain, p.x, p.z) : p;
             void Shot(string file, Vector3 from, Vector3 at)
             {
                 camera.transform.position = Lift(from); camera.transform.LookAt(Lift(at)); camera.Render();
@@ -53,6 +53,16 @@ namespace YunJing.Editor
             Shot("17-gate-square", new Vector3(6, 5, -40), new Vector3(0, 1, -28));
             Shot("18-homes-ne", new Vector3(14, 9, -2), new Vector3(27, 1, 18));
             Shot("19-smithy-shops", new Vector3(18, 9, -14), new Vector3(33, 1, -15));
+            // K5: the neighbouring blocks open next to the village, to check the seams and the far side.
+            foreach (var (id, _) in QingxiBlockBuilder.Blocks)
+                if (File.Exists(QingxiBlockBuilder.ScenePath(id))) EditorSceneManager.OpenScene(QingxiBlockBuilder.ScenePath(id), OpenSceneMode.Additive);
+            Physics.SyncTransforms();
+            Lift = p => { var hits = Physics.RaycastAll(new Vector3(p.x, 200, p.z), Vector3.down, 400).Where(h => h.collider is TerrainCollider).ToArray(); float g = hits.Length > 0 ? hits.Max(h => h.point.y) : 0; return p + Vector3.up * g; };
+            Shot("20-a1-to-a2-seam", new Vector3(14, 12, -36), new Vector3(0, 0, -62));
+            Shot("21-a2-road-eye", new Vector3(1, 1.7f, -120), new Vector3(-6, 1.5f, -100));
+            Shot("22-a2-view-to-village", new Vector3(-6, 1.7f, -66), new Vector3(0, 2, -28));
+            Shot("23-a3-bridge-mill", new Vector3(-108, 8, -6), new Vector3(-88, 1, 14));
+            Shot("24-a1-to-a3-seam", new Vector3(-36, 12, 22), new Vector3(-62, 0, 6));
             Debug.Log($"QINGXI_VILLAGE_CAPTURED to {dir} (pipeline: {(GraphicsSettings.currentRenderPipeline != null ? GraphicsSettings.currentRenderPipeline.name : "built-in")})");
         }
     }

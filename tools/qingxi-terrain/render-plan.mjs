@@ -15,7 +15,7 @@ const ownerColour = { core: '#7A8C9E', codex: '#5FA89A', joshsu54: '#B89468', Jo
 const surfaceColour = { plaza: '#D9CFBD', dirt: '#C8B48E', forest: '#9DB08A' };
 
 // ------------------------------------------------------------------ A1 village plan (1 m = S px)
-function villagePlan(layout) {
+function villagePlan(layout, title = 'A1 青溪村核心') {
   const S = 9, { minX, minZ, sizeX, sizeZ } = layout.bounds, pad = 60;
   const W = sizeX * S + pad * 2, H = sizeZ * S + pad * 2 + 150;
   const X = x => pad + (x - minX) * S, Y = z => pad + (minZ + sizeZ - z) * S;   // +Z (north) is up
@@ -63,7 +63,7 @@ function villagePlan(layout) {
     legend.push(`${n} ${s.role}（${s.owner}${s.footprint ? `，${s.footprint.join('×')} m` : ''}）`);
   }
   // title, scale and legend
-  out.push(`<text x="${pad}" y="30" font-size="20" font-weight="bold" fill="#1C1F1E">A1 青溪村核心｜區塊配置圖（${sizeX} × ${sizeZ} m，上方為北）</text>`);
+  out.push(`<text x="${pad}" y="30" font-size="20" font-weight="bold" fill="#1C1F1E">${title}｜區塊配置圖（${sizeX} × ${sizeZ} m，上方為北）</text>`);
   out.push(`<line x1="${W - pad - 10 * S}" y1="30" x2="${W - pad}" y2="30" stroke="#1C1F1E" stroke-width="3"/><text x="${W - pad - 5 * S}" y="22" font-size="12" text-anchor="middle">10 m</text>`);
   const ly = Y(minZ) + 40, cols = 3, colW = (W - pad * 2) / cols;
   out.push(`<text x="${pad}" y="${ly}" font-size="12" fill="#1C1F1E">實心＝已放置　半透明＝模型已有、自動放置　虛線＝待製作（遊戲裡顯示為灰盒）。顏色＝負責人：核心組 灰藍、Codex 玉綠、joshsu54 木褐。短線＝正面方向。</text>`);
@@ -97,6 +97,10 @@ function worldMap(world) {
 
 const layout = loadLayout();
 fs.writeFileSync(path.join(outDir, 'a1-village-plan.svg'), villagePlan(layout));
+for (const [id, title] of [['A2', 'A2 村外官道與茶亭'], ['A3', 'A3 西溪與水磨坊']]) {
+  const block = JSON.parse(fs.readFileSync(path.join(root, 'tools', 'qingxi-terrain', 'blocks', id + '.json'), 'utf8'));
+  fs.writeFileSync(path.join(outDir, id.toLowerCase() + '-block-plan.svg'), villagePlan(block, title));
+}
 const world = JSON.parse(fs.readFileSync(path.join(root, 'tools', 'qingxi-terrain', 'novice-world-blocks.json'), 'utf8'));
 fs.writeFileSync(path.join(outDir, 'novice-world-blocks.svg'), worldMap(world));
 console.log('maps written to', path.relative(root, outDir));

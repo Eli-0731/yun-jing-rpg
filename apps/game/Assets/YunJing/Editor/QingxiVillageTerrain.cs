@@ -95,9 +95,10 @@ namespace YunJing.Editor
             new Color(.40f, .50f, .31f), new Color(.56f, .44f, .30f), new Color(.52f, .50f, .45f), new Color(.30f, .33f, .22f)
         };
 
-        public static Layout Load()
+        // A1 (the novice village) by default; other blocks pass their file under tools/qingxi-terrain/blocks/.
+        public static Layout Load(string relative = "tools/qingxi-terrain/novice-village.json")
         {
-            var file = Path.GetFullPath(Path.Combine(Application.dataPath, "../../../tools/qingxi-terrain/novice-village.json"));
+            var file = Path.GetFullPath(Path.Combine(Application.dataPath, "../../..", relative));
             if (!File.Exists(file)) throw new FileNotFoundException("Novice village layout missing", file);
             var layout = JsonUtility.FromJson<Layout>(File.ReadAllText(file));
             if (layout == null || layout.version < 1 || layout.version > 2 || layout.bounds == null || layout.nodes == null || layout.edges == null || layout.pads == null)
@@ -164,6 +165,11 @@ namespace YunJing.Editor
             return best;
         }
 
+        // K5: one gentle height field shared by the whole world. Every block blends to it over its outer 12 m, so
+        // two neighbouring blocks meet at exactly the same height with no seam or cliff.
+        public static float WorldBase(float x, float z) =>
+            .7f + 1.1f * (Mathf.PerlinNoise(x * .011f + 3.3f, z * .011f + 8.1f) - .5f);
+
         public static float Height(Layout layout, float x, float z)
         {
             float h = BaseHeight(layout, x, z)
@@ -171,6 +177,9 @@ namespace YunJing.Editor
                 + layout.noise * (Mathf.PerlinNoise(x * .17f + 53f, z * .17f + 29f) - .5f);
             float road = RoadDistance(layout, x, z, out float roadHeight);
             h = Mathf.Lerp(roadHeight, h, Smooth(0f, RoadBlend, road));
+            var area = layout.bounds;
+            float border = Mathf.Min(Mathf.Min(x - area.minX, area.minX + area.sizeX - x), Mathf.Min(z - area.minZ, area.minZ + area.sizeZ - z));
+            h = Mathf.Lerp(WorldBase(x, z), h, Smooth(1f, 12f, border));
             // Creek: a flat bed (depth below the land at the centre line) easing up the banks.
             float creek = CreekDistance(layout, x, z, out float creekLand);
             if (!float.IsPositiveInfinity(creek))
@@ -192,15 +201,16 @@ namespace YunJing.Editor
         public static float Ground(Terrain terrain, float x, float z) =>
             terrain.SampleHeight(new Vector3(x, 0, z)) + terrain.transform.position.y;
 
-        public static Terrain Create(Transform parent)
+        public static Terrain Create(Transform parent) => Create(parent, Load(), "NoviceVillageTerrain", "NoviceVillageTerrain (route data)");
+
+        public static Terrain Create(Transform parent, Layout layout, string asset, string objectName)
         {
-            var layout = Load();
             var area = layout.bounds;
-            var data = AssetDatabase.LoadAssetAtPath<TerrainData>(Generated + "/NoviceVillageTerrain.asset");
+            var data = AssetDatabase.LoadAssetAtPath<TerrainData>(Generated + "/" + asset + ".asset");
             if (data == null)
             {
                 data = new TerrainData();
-                AssetDatabase.CreateAsset(data, Generated + "/NoviceVillageTerrain.asset");
+                AssetDatabase.CreateAsset(data, Generated + "/" + asset + ".asset");
             }
             data.heightmapResolution = HeightResolution;
             data.size = new Vector3(area.sizeX, HeightRange, area.sizeZ);
@@ -261,7 +271,7 @@ namespace YunJing.Editor
             EditorUtility.SetDirty(data);
 
             var go = Terrain.CreateTerrainGameObject(data);
-            go.name = "NoviceVillageTerrain (route data)";
+            go.name = objectName;
             go.transform.SetParent(parent, false);
             go.transform.position = new Vector3(area.minX, BaseY, area.minZ);
             var terrain = go.GetComponent<Terrain>();

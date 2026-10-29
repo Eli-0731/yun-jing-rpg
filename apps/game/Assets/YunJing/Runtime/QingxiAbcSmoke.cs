@@ -161,6 +161,26 @@ namespace YunJing
                 }
             }
 
+            // K5: walking to the south edge streams in block A2; its terrain holds the walker on the far side.
+            var streamer = QingxiBlockStreamer.Current;
+            var a2 = streamer != null ? streamer.blocks.FirstOrDefault(b => b.id == "A2") : null;
+            if (a2 != null && Application.CanStreamedLevelBeLoaded(a2.scene))
+            {
+                var edge = Physics.RaycastAll(new Vector3(0, 60, -45), Vector3.down, 200f, ~0, QueryTriggerInteraction.Ignore).FirstOrDefault(h => h.collider is TerrainCollider);
+                Teleport(walker, new Vector3(0, edge.collider != null ? edge.point.y : 1, -45));
+                float until = Time.realtimeSinceStartup + 15;
+                while (!streamer.IsLoaded("A2") && Time.realtimeSinceStartup < until) yield return null;
+                Check("walking to the south edge streams in block A2", streamer.IsLoaded("A2"));
+                yield return Frames(3);
+                var far = Physics.RaycastAll(new Vector3(0, 60, -80), Vector3.down, 200f, ~0, QueryTriggerInteraction.Ignore).FirstOrDefault(h => h.collider is TerrainCollider);
+                bool onA2 = far.collider != null && far.collider.name.Contains("BlockTerrain_A2");
+                if (onA2) { Teleport(walker, far.point); yield return Frames(30); }
+                Check($"block A2's ground holds the walker ({(onA2 ? "y " + walker.transform.position.y.ToString("0.0") + " on " + far.point.y.ToString("0.0") : "no A2 terrain")})",
+                    onA2 && Mathf.Abs(walker.transform.position.y - far.point.y) < 1.5f);
+                Spot(walker, "村口");
+                yield return Frames(5);
+            }
+
             // B: the door loads joshsu54's AlchemyRoom scene; Backspace / the button returns to the door.
             Spot(walker, "溪畔丹房");
             yield return Frames(5);

@@ -116,6 +116,12 @@ namespace YunJing.Editor
             hud.foraging = foraging; hud.forest = zones.encounter; hud.stations = stations;
             new GameObject("Qingxi ABC build smoke (--abc-smoke)").AddComponent<QingxiAbcSmoke>();
             new GameObject("Qingxi Server Link (K7)").AddComponent<QingxiServerLink>();   // online when the game server runs, offline otherwise
+            var streamer = new GameObject("Qingxi Block Streamer (K5)").AddComponent<QingxiBlockStreamer>();
+            streamer.blocks = QingxiBlockBuilder.Blocks.Select(b =>
+            {
+                var a = QingxiVillageTerrain.Load($"tools/qingxi-terrain/blocks/{b.id}.json").bounds;
+                return new QingxiBlockStreamer.Block { id = b.id, scene = "QingxiBlock_" + b.id, area = new Rect(a.minX, a.minZ, a.sizeX, a.sizeZ) };
+            }).ToArray();
 
             var converted = QingxiUrpUpgrade.UpgradeSceneMaterials();
             var swaying = WindFoliage(village);
@@ -128,9 +134,11 @@ namespace YunJing.Editor
             Debug.Log($"QINGXI_NOVICE_VILLAGE_GENERATED: collaborator models={zones.models}, placements={placed}, spots={spots.Length}, herbs={herbs.Length}, clues={foraging.clueNodes.Length}, URP copies={converted}, {trainingParity}\n" + string.Join("\n", zones.report));
             PrepareAlchemyRoom();
             QingxiLodgingInteriorBuilder.Generate();
+            QingxiBlockBuilder.GenerateAll();
         }
 
-        static string[] Scenes => new[] { ScenePath, AlchemyScenePath, QingxiLodgingInteriorBuilder.ScenePath };
+        static string[] Scenes => new[] { ScenePath, AlchemyScenePath, QingxiLodgingInteriorBuilder.ScenePath }
+            .Concat(QingxiBlockBuilder.Blocks.Select(b => QingxiBlockBuilder.ScenePath(b.id))).ToArray();
 
         static float Facing(Vector3 from, Vector3 target)
         {
@@ -196,9 +204,11 @@ namespace YunJing.Editor
         }
 
         // Keep the traveller inside the review village; tall enough for the hills at the edge.
+        // K5: the south side opens onto A2 and the west side onto A3 (streamed in by QingxiBlockStreamer), so only
+        // the north and east are walled until those blocks exist.
         static void Boundary(Transform village)
         {
-            foreach (var (x, z, w, d) in new[] { (0f, 45f, 90f, 1f), (0f, -45f, 90f, 1f), (45f, 0f, 1f, 90f), (-45f, 0f, 1f, 90f) })
+            foreach (var (x, z, w, d) in new[] { (0f, 45f, 90f, 1f), (45f, 0f, 1f, 90f) })
             {
                 var wall = new GameObject("Boundary"); wall.transform.SetParent(village, false);
                 wall.transform.localPosition = new Vector3(x, 5, z);
@@ -636,6 +646,45 @@ namespace YunJing.Editor
         }
 
         // Existing reviewed environment pieces (CollaboratorWorldV1) framing the village edge.
+        // K5: another block's content built by the village code on that block's data and terrain: slots (models
+        // or labelled frames), the brook with its water, a scatter of pines and bamboo, and plant wind.
+        internal static void BuildBlock(Transform root, QingxiVillageTerrain.Layout blockLayout, Terrain blockTerrain)
+        {
+            var (oldLayout, oldTerrain) = (layout, terrain);
+            layout = blockLayout; terrain = blockTerrain;
+            try
+            {
+                Placements(root);
+                Creek(root);
+                BlockTrees(root);
+                Debug.Log("QINGXI_WIND (block): " + WindFoliage(root) + " foliage renderers sway");
+            }
+            finally { layout = oldLayout; terrain = oldTerrain; }
+        }
+
+        // A loose grid with jitter: pines on dry ground, bamboo near water, nothing on pads, roads, the brook or
+        // in the 4 m along the block edge (where neighbouring blocks meet).
+        static void BlockTrees(Transform parent)
+        {
+            var root = new GameObject("BlockTrees (CollaboratorWorldV1)").transform; root.SetParent(parent, false);
+            var pine = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/YunJing/Models/CollaboratorWorldV1/CommonPine_v001.fbx");
+            var bamboo = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/YunJing/Models/CollaboratorWorldV1/BambooClump_v001.fbx");
+            if (pine == null || bamboo == null) throw new InvalidOperationException("CollaboratorWorldV1 pine/bamboo models missing");
+            var a = layout.bounds; var random = new System.Random((int)(a.minX * 31 + a.minZ * 17));
+            for (float gx = a.minX + 6; gx < a.minX + a.sizeX - 4; gx += 9)
+            for (float gz = a.minZ + 6; gz < a.minZ + a.sizeZ - 4; gz += 9)
+            {
+                if (random.NextDouble() > .42) continue;
+                float x = gx + (float)random.NextDouble() * 6 - 3, z = gz + (float)random.NextDouble() * 6 - 3;
+                if (QingxiVillageTerrain.PadDistance(layout, x, z, out _) < 3.5f || QingxiVillageTerrain.RoadDistance(layout, x, z, out _) < 3f) continue;
+                float creek = QingxiVillageTerrain.CreekDistance(layout, x, z, out _);
+                if (creek < 6f) continue;
+                bool wet = creek < 14f;
+                if (wet || random.NextDouble() < .2) Tree(bamboo, root, new Vector3(x, 0, z), 4.5f + (float)random.NextDouble(), (float)random.NextDouble() * 360);
+                else Tree(pine, root, new Vector3(x, 0, z), 8f + (float)random.NextDouble() * 4, (float)random.NextDouble() * 360);
+            }
+        }
+
         static void Scenery(Transform village)
         {
             var root = new GameObject("VillageEdgeTrees (CollaboratorWorldV1)").transform; root.SetParent(village, false);
