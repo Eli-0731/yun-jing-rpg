@@ -8,6 +8,7 @@ import huntingContent from '../../../packages/content/hunting.json';
 import techniqueContent from '../../../packages/content/techniques.json';
 import fortuneContent from '../../../packages/content/fortunes.json';
 import villageContent from '../../../packages/content/village.json';
+import waterlineContent from '../../../packages/content/waterline.json';
 import { AlchemyEvent, alchemyContent, judge, levelOf, modsFor, profileFor, simulate, validateLog, xpGain } from './alchemy';
 import { AlchemyRecord, AlchemyState, AlchemyView, HuntDeath, HuntReceipt, HuntReward } from '../../../packages/contracts/types';
 
@@ -142,6 +143,13 @@ function validateVillageContent() {
   }
 }
 validateVillageContent();
+function validateWaterlineContent() {
+  const ids = (list: { id: string }[]) => new Set(list.map(x => x.id)).size === list.length;
+  ensure(ids(waterlineContent.observations) && ids(waterlineContent.choices) && ids(waterlineContent.reports), 'WATERLINE_CONTENT', '斷流內容編號重複');
+  ensure(waterlineContent.minObservations >= 1 && waterlineContent.minObservations <= waterlineContent.observations.length, 'WATERLINE_CONTENT', '線索門檻無效');
+  for (const c of waterlineContent.choices) ensure(c.stone > 0 && c.channel > 0, 'WATERLINE_CONTENT', '導水方向的花費或成效無效');
+}
+validateWaterlineContent();
 function validateHuntingContent() {
   ensure(huntingContent.roomId === 'qingxi' && huntingContent.version.length > 0, 'HUNT_CONTENT', '狩獵內容版本或區域無效');
   ensure(huntingContent.maxParticipants >= 1 && huntingContent.maxParticipants <= 4 && huntingContent.eventMaxAgeSeconds > 0, 'HUNT_CONTENT', '狩獵人數或時間限制無效');
@@ -391,6 +399,35 @@ export class Game {
           if (fortune.item) grant(player, fortune.item, fortune.quantity ?? 1);
           mark(player, 'fortune');
         }
+        break;
+      }
+      // 斷流第一章: A's upstream clues, B's water routing, C's report to the village.
+      case 'observe-upstream': {
+        const id = text(action.observation);
+        ensure(waterlineContent.observations.some(x => x.id === id), 'INVALID_OBSERVATION', '未知的上游線索');
+        // Kept apart from the chapter clues: the old 'resolve' route counts those.
+        player.upstream ??= [];
+        if (!player.upstream.includes(id)) { player.upstream.push(id); mark(player, 'upstream-observed'); }
+        break;
+      }
+      case 'waterworks-commit': {
+        const choice = waterlineContent.choices.find(x => x.id === action.choice);
+        ensure(choice, 'INVALID_CHOICE', '未知的導水方向');
+        const seen = (player.upstream ?? []).length;
+        ensure(seen >= waterlineContent.minObservations, 'CLUE_REQUIRED', `先到上游找到至少 ${waterlineContent.minObservations} 處跡象`, 409);
+        ensure(!player.milestones.includes(`waterworks:${choice.id}`), 'ALREADY_BUILT', '這個方向你已經完成了', 409);
+        spend(player, 'stone', choice.stone);
+        world.channel = Math.min(world.required, world.channel + choice.channel);
+        if ('sanctuary' in choice && choice.sanctuary) world.sanctuary = true;
+        player.contribution++;
+        mark(player, `waterworks:${choice.id}`); mark(player, `outcome:${choice.outcome}`);
+        history(`導水：${choice.label}`); break;
+      }
+      case 'village-report': {
+        const report = waterlineContent.reports.find(x => x.id === action.report);
+        ensure(report, 'INVALID_REPORT', '未知的回報');
+        // Changing your mind is allowed; a report never grants anything.
+        if (player.waterReport !== report.id) { player.waterReport = report.id; mark(player, 'village-reported'); }
         break;
       }
       case 'investigate': {

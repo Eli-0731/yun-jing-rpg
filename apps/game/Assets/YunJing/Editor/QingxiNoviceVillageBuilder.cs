@@ -588,12 +588,13 @@ namespace YunJing.Editor
         }
 
         // A labelled box of the slot's footprint, coloured by owner, so the plan is visible in the game.
-        static void PlannedSlot(Transform root, QingxiVillageTerrain.Placement p)
+        // `at` places the frame directly (interior scenes have no village terrain to sample).
+        internal static Transform PlannedSlot(Transform root, QingxiVillageTerrain.Placement p, Vector3? at = null)
         {
             var fp = p.footprint ?? new[] { 2f, 2f, 2f };
             var slot = new GameObject($"PlannedSlot {p.id} - {p.owner}").transform;
             slot.SetParent(root, false);
-            slot.localPosition = At(p.x, p.z); slot.localRotation = Quaternion.Euler(0, p.yaw, 0);
+            slot.localPosition = at ?? At(p.x, p.z); slot.localRotation = Quaternion.Euler(0, p.yaw, 0);
             // An outline frame (12 thin edges) and a faint floor plate: reads as a plan, never fills the camera's
             // view when the player walks into it, and has no collider (the gate slot sits on the entry road).
             var colour = p.owner == "codex" ? new Color(.37f, .66f, .60f, .85f) : p.owner == "core" ? new Color(.48f, .55f, .62f, .85f) : new Color(.72f, .58f, .42f, .85f);
@@ -627,6 +628,7 @@ namespace YunJing.Editor
             label.characterSize = .045f; label.fontSize = 64; label.color = new Color(.11f, .12f, .12f);
             if (font != null) { label.font = font; label.GetComponent<MeshRenderer>().sharedMaterial = font.material; }
             label.gameObject.AddComponent<QingxiBillboard>();
+            return slot;
         }
 
         static Material PlannedSlotMaterial(string owner, Color colour)

@@ -30,6 +30,7 @@ namespace YunJing.Editor
             Shell(room);
             Lights(room);
             Yard(room, out var fields, out var practicePost);
+            TerritorySlots(room);
 
             var bed = Furniture("DiscipleBed", "DiscipleBed_v001", room, new Vector3(-W / 2 + .75f, 0, 1.0f), 90f);
             var chest = Furniture("StorageChest", "StorageChest_v001", room, new Vector3(W / 2 - .9f, 0, D / 2 - .6f), 180f);
@@ -172,6 +173,35 @@ namespace YunJing.Editor
 
             var result = new QingxiCollaboratorZonesBuilder.Result();
             practicePost = QingxiCollaboratorZonesBuilder.PlaceTrainingProp("agility-post", yard, new Vector3(0, 0, 8.3f), 180, result).transform;
+        }
+
+        // The 10/31 work packs' slots (docs/execution/2026-10-31/01-A, 02-B): outline frames with labels until the
+        // collaborators' models arrive. Scene coordinates; footprint is width × depth × height in metres.
+        static readonly (string id, string role, string owner, float x, float z, float yaw, float w, float d, float h)[] Slots =
+        {
+            ("TY_Field_1", "領地靈田（TY01）", "Johnnnny0823", -2.8f, 6.7f, 0, 2.6f, 3.4f, .5f),
+            ("TY_Field_2", "領地靈田（TY01）", "Johnnnny0823", 2.8f, 6.7f, 0, 2.6f, 3.4f, .5f),
+            ("TY_Practice", "練功地面（TY05）", "Johnnnny0823", 0, 10.8f, 0, 3.2f, 3.2f, .15f),
+            ("TY_Lantern", "院角舊石燈・守燈（TY04）", "Johnnnny0823", -5.2f, 12f, 0, .9f, .9f, 2f),
+            ("TY_Corner_R", "生活雜物組（TY09）", "Johnnnny0823", 5f, 11.5f, 0, 1.6f, 1.6f, 2f),
+            ("TY_Rack", "晾藥架（TY08）", "Johnnnny0823", 5.4f, 4f, 0, .8f, 2f, 1.8f),
+            ("TI_Shelf", "收藏架・博古架（TI01）", "joshsu54", 3.25f, -.6f, -90, 1.8f, .45f, 2f),
+            ("TI_Desk", "書案與椅凳（TI03）", "joshsu54", -2.6f, -1.6f, 90, 1.3f, .7f, .85f),
+            ("TI_Furnace", "小丹爐（TI02）", "joshsu54", 2.7f, -1.9f, -90, .8f, .8f, 1.1f),
+            ("TI_Lamp_1", "燈架（TI04）", "joshsu54", -1.6f, 2.1f, 0, .45f, .45f, 1.7f),
+            ("TI_Lamp_2", "燈架（TI04）", "joshsu54", 1.9f, -2.1f, 0, .45f, .45f, 1.7f),
+            ("TI_Screen", "屏風（TI05）", "joshsu54", -1.4f, .4f, 0, 1.8f, .35f, 1.75f),
+            ("TI_Rug", "地蓆（TI06）", "joshsu54", .6f, 0, 0, 2f, 1.4f, .03f),
+        };
+
+        static void TerritorySlots(Transform room)
+        {
+            var root = new GameObject("Territory_PlannedSlots").transform; root.SetParent(room, false);
+            foreach (var s in Slots)
+            {
+                var p = new QingxiVillageTerrain.Placement { id = s.id, role = s.role, owner = s.owner, status = "needed", yaw = s.yaw, footprint = new[] { s.w, s.d, s.h } };
+                QingxiNoviceVillageBuilder.PlannedSlot(root, p, new Vector3(s.x, 0, s.z));
+            }
         }
 
         static GameObject EstateModel(string key, string name, Transform parent, Vector3 at)

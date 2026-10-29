@@ -1,11 +1,18 @@
 param(
     [ValidateSet('Generate','WorldPreview','Walkthrough','WalkthroughWindows','UnifiedWorld','UnifiedWorldWindows','NoviceVillage','NoviceVillageWindows','NoviceVillageWebGL','Windows','Android','LinuxServer')] [string]$Target = 'Generate',
-    [string]$EditorPath = 'D:\DevTools\Unity\6000.0.82f1\Editor\Unity.exe'
+    [string]$EditorPath = ''
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $gamePath = Join-Path $projectRoot 'apps/game'
-if (-not (Test-Path -LiteralPath $EditorPath)) { throw "Unity not found: $EditorPath" }
+# Same search as tools/verify-unity-graybox.ps1 (PR #41): -EditorPath, $env:UNITY_EDITOR, the shared D:\DevTools
+# install, then the Unity Hub default, always for the pinned version.
+$version = ((Get-Content -LiteralPath (Join-Path $gamePath 'ProjectSettings/ProjectVersion.txt') | Select-String '^m_EditorVersion:\s*(\S+)').Matches[0].Groups[1].Value)
+$candidates = @($EditorPath, $env:UNITY_EDITOR,
+    "D:\DevTools\Unity\$version\Editor\Unity.exe",
+    (Join-Path $env:ProgramFiles "Unity\Hub\Editor\$version\Editor\Unity.exe")) | Where-Object { $_ }
+$EditorPath = $candidates | Where-Object { Test-Path -LiteralPath $_ } | Select-Object -First 1
+if (-not $EditorPath) { throw "Unity $version not found. Tried: $($candidates -join '; ')" }
 if ($Target -eq 'WalkthroughWindows' -or $Target -eq 'UnifiedWorldWindows' -or $Target -eq 'NoviceVillageWindows') {
     # Input backend changes made by scene generation take effect after an Editor restart.
     $prepass = if ($Target -eq 'WalkthroughWindows') { 'Walkthrough' } elseif ($Target -eq 'NoviceVillageWindows') { 'NoviceVillage' } else { 'UnifiedWorld' }
