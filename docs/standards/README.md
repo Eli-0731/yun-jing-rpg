@@ -23,6 +23,7 @@
 | 建模 | [`docs/art/modeling-style-spec-v1.md`](../art/modeling-style-spec-v1.md) | 風格、色彩、尺度、面數、命名、區域風格 |
 | 介面 | [`docs/art/ui-ux-direction-v1.md`](../art/ui-ux-direction-v1.md) | 玉紙墨銅、手機操作、HUD、圖示 |
 | 入境與載入 | [`docs/art/loading-experience-v1.md`](../art/loading-experience-v1.md) | 網頁外殼、下載體驗 |
+| 審查協作者 PR | [`docs/standards/pr-review.md`](pr-review.md) | 審查清單 A–E、回饋寫法、PR #45 實例 |
 | AI 代理人（Codex）流程 | [`docs/execution/codex-v2/00-operating-rules.md`](../execution/codex-v2/00-operating-rules.md) | 分階段製作、視覺檢查、效能預算 |
 | 本頁 | 世界與關卡設計、文字用語、程式、交件驗收 | 下面第 2–6 節 |
 

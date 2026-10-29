@@ -4,6 +4,7 @@
 
 | 檔案 | 內容 | 工作位置 | 需要生圖 |
 |---|---|---|---|
+| [01-world-update-2026-10-29.md](01-world-update-2026-10-29.md) | **遊戲更新總包（最新，開工前必讀）**：《承天》、世界不周、多文化地名、天樞、不交代、領地與大世界、先完成一個區域、規範入口。和 00 衝突時以這份為準 | — | — |
 | [00-operating-rules.md](00-operating-rules.md) | **共同規範**：角色、自主權限、環境、分析優先、分階段關卡、視覺檢查循環、效能、檔案安全、交付與報告 | — | — |
 | [C1-ui-concepts.md](C1-ui-concepts.md) | 介面概念圖三套＋像素版面線框（16 張圖） | `yun-jing-ui-concepts-v1\` | 多 |
 | [C2-interior-kit.md](C2-interior-kit.md) | 借住處室內模組 IK01–IK12＋組裝房間 | `yun-jing-rpg-interior-kit-v1` | 中 |
@@ -15,6 +16,11 @@
 | [C8-plaza-elder-tree.md](C8-plaza-elder-tree.md) | 村中古樹與廣場地標套件（8 件，約 24 小時） | `yun-jing-rpg-plaza-tree-c8`（自建） | 中 |
 | [C9-a3-watermill-kit.md](C9-a3-watermill-kit.md) | A3 西溪水磨坊套件：水車、引水渠、石橋、埠頭、低面數溪石與蘆葦（12 件，約 28 小時） | `yun-jing-rpg-a3-watermill-c9`（自建） | 中 |
 | [C10-a2-road-kit.md](C10-a2-road-kit.md) | A2 村外官道套件：茶亭、土地祠（機緣點）、板車、路牌、圍籬（12 件，約 24 小時） | `yun-jing-rpg-a2-roadkit-c10`（自建） | 中 |
+
+| [C11-collaborator-pack-audit.md](C11-collaborator-pack-audit.md) | 審查協作者工作包與開著的 PR，判斷是否符合現在的世界（只讀、只寫報告） | 主場景工作樹 `docs/execution/reviews/` | 無 |
+| [C12-collaborator-brief-standard.md](C12-collaborator-brief-standard.md) | 學會照新理念寫協作者工作包（範本＋規則），並寫出 A／B／C 下一批 | 主場景工作樹 `docs/execution/2026-10-30/` | 無 |
+
+**2026-10-29 晚上的新順序**：C11 → C12 → C7 → C8 → C9 → C10；C1–C5 的修正等 Claude Code 審完這一輪交件另外給。
 
 **第一輪檢查與下一輪順序**：[review-2026-10-29.md](review-2026-10-29.md)（C5 → C3 → C2 → C4 → C6 → C7 → C8 → C9 → C10，一次做完一項）。
 
