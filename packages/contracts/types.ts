@@ -24,6 +24,7 @@ export interface Player {
   journey?: Journey;
   study?: TechniqueStudy;
   alchemy?: AlchemyState;
+  fortunes?: string[];   // 機緣 found by this character (ids from packages/content/fortunes.json)
 }
 export interface World {
   channel: number; required: number; waterQuality: number; sanctuary: boolean;

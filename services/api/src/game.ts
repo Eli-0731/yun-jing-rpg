@@ -6,6 +6,7 @@ import { buildJournal, chapter } from './journal';
 import estateContent from '../../../packages/content/estate.json';
 import huntingContent from '../../../packages/content/hunting.json';
 import techniqueContent from '../../../packages/content/techniques.json';
+import fortuneContent from '../../../packages/content/fortunes.json';
 import { AlchemyEvent, alchemyContent, judge, levelOf, modsFor, profileFor, simulate, validateLog, xpGain } from './alchemy';
 import { AlchemyRecord, AlchemyState, AlchemyView, HuntDeath, HuntReceipt, HuntReward } from '../../../packages/contracts/types';
 
@@ -120,6 +121,15 @@ function text(value: unknown, max = 100): string {
 const mark = (player: Player, milestone: string) => { if (!player.milestones.includes(milestone)) player.milestones.push(milestone); };
 const fingerprint = (action: Action) => hash(JSON.stringify(Object.fromEntries(Object.entries(action).sort(([a], [b]) => a.localeCompare(b)))));
 const uuid = (value: unknown): value is string => typeof value === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
+// 機緣 (hidden finds): every reward item must exist and ids must be unique.
+function validateFortuneContent() {
+  const ids = new Set<string>();
+  for (const fortune of fortuneContent.fortunes as { id: string; item?: string; quantity?: number }[]) {
+    ensure(!ids.has(fortune.id), 'FORTUNE_CONTENT', '機緣編號重複'); ids.add(fortune.id);
+    if (fortune.item) ensure(content.items.some(x => x.id === fortune.item) && Number.isInteger(fortune.quantity ?? 1) && (fortune.quantity ?? 1) > 0, 'FORTUNE_CONTENT', '機緣獎勵定義無效');
+  }
+}
+validateFortuneContent();
 function validateHuntingContent() {
   ensure(huntingContent.roomId === 'qingxi' && huntingContent.version.length > 0, 'HUNT_CONTENT', '狩獵內容版本或區域無效');
   ensure(huntingContent.maxParticipants >= 1 && huntingContent.maxParticipants <= 4 && huntingContent.eventMaxAgeSeconds > 0, 'HUNT_CONTENT', '狩獵人數或時間限制無效');
@@ -344,6 +354,18 @@ export class Game {
         player.inventory = player.inventory.filter(x => x.quantity > 0);
         grant(player, 'spirit-stone', price * quantity);
         mark(player, 'sold-hunt');
+        break;
+      }
+      case 'discover-fortune': {
+        // Each find is granted once per character; finding it again is harmless (no second reward).
+        const fortune = (fortuneContent.fortunes as { id: string; item?: string; quantity?: number }[]).find(x => typeof action.fortune === 'string' && x.id === action.fortune);
+        ensure(fortune, 'INVALID_FORTUNE', '未知的機緣');
+        player.fortunes ??= [];
+        if (!player.fortunes.includes(fortune.id)) {
+          player.fortunes.push(fortune.id);
+          if (fortune.item) grant(player, fortune.item, fortune.quantity ?? 1);
+          mark(player, 'fortune');
+        }
         break;
       }
       case 'investigate': {

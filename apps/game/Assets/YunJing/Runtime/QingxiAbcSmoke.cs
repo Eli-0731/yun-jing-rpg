@@ -131,6 +131,36 @@ namespace YunJing
                 Check("walker free after the drill", !training.Frozen && walker.enabled);
             }
 
+            // 機緣 (K4/K7): a hidden find is revealed through the same F key, counted for the journal and, when the
+            // game server is reachable, settled there. Uses a find this character has not found yet (a server
+            // keeps finds across runs, so clearing the device record is not enough).
+            var fortunes = stations.fortunes;
+            if (fortunes != null && fortunes.fortunes.Length > 0)
+            {
+                QingxiFortunes.Fortune first = null;
+                foreach (var f in fortunes.fortunes)
+                {
+                    try { PlayerPrefs.DeleteKey("yj.fortune." + f.id); } catch { }
+                    if (!QingxiFortunes.IsFound(f)) { first = f; break; }
+                }
+                if (first == null) Check("every hidden find is already settled on the server", fortunes.Found == fortunes.fortunes.Length);
+                else
+                {
+                    int before = fortunes.Found;
+                    Teleport(walker, first.position + Vector3.back * .6f);
+                    yield return Frames(5);
+                    Check("a hidden find glints and can be examined", (foraging.Prompt(walker.transform.position) ?? "").Contains("微光"));
+                    foraging.TryInteract(walker.transform.position, out _);
+                    Check("the find is revealed and counted", QingxiFortunes.IsFound(first) && fortunes.Found == before + 1 && fortunes.JournalText().Contains(first.title));
+                    if (QingxiServerLink.Online)
+                    {
+                        float until = Time.realtimeSinceStartup + 6;
+                        while (!QingxiServerLink.Current.HasFortune(first.id) && Time.realtimeSinceStartup < until) yield return null;
+                        Check("the server settles the find", QingxiServerLink.Current.HasFortune(first.id));
+                    }
+                }
+            }
+
             // B: the door loads joshsu54's AlchemyRoom scene; Backspace / the button returns to the door.
             Spot(walker, "溪畔丹房");
             yield return Frames(5);

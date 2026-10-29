@@ -99,19 +99,27 @@ namespace YunJing.Editor
             training.qiPost = qiPost; training.blockPost = blockPost; training.walker = walker;
             TrainingGlow(training);
             stations.training = training;
+            var fortunes = player.AddComponent<QingxiFortunes>();
+            fortunes.glowDot = training.glowDot;
+            fortunes.fortunes = (layout.fortunes ?? new QingxiVillageTerrain.FortuneSpot[0]).Select(f => new QingxiFortunes.Fortune {
+                id = f.id, title = f.title, passage = f.passage, reward = f.reward, position = At(f.x, f.z) }).ToArray();
+            stations.fortunes = fortunes;
             // The lodging's front door (west side, facing the road) leads into its interior scene.
             var lodgingDoor = new GameObject("LodgingDoor_StarterHouse").transform;
             lodgingDoor.SetParent(village, false); lodgingDoor.position = At(11.8f, -19.5f); lodgingDoor.rotation = Quaternion.Euler(0, 90, 0);
             stations.lodgingDoor = lodgingDoor;
             var touch = player.AddComponent<QingxiTouchControls>();
-            touch.forest = zones.encounter; touch.training = training;
+            touch.forest = zones.encounter; touch.training = training; touch.foraging = foraging;
             var trainingParity = QingxiTrainingPracticeSmoke.Verify();
             foraging.abc = stations;
             walker.localForaging = foraging;
             hud.foraging = foraging; hud.forest = zones.encounter; hud.stations = stations;
             new GameObject("Qingxi ABC build smoke (--abc-smoke)").AddComponent<QingxiAbcSmoke>();
+            new GameObject("Qingxi Server Link (K7)").AddComponent<QingxiServerLink>();   // online when the game server runs, offline otherwise
 
             var converted = QingxiUrpUpgrade.UpgradeSceneMaterials();
+            var swaying = WindFoliage(village);
+            Debug.Log("QINGXI_WIND: " + swaying + " foliage renderers sway");
             PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
             PlayerSettings.defaultScreenWidth = 1280;
             PlayerSettings.defaultScreenHeight = 720;
@@ -536,6 +544,22 @@ namespace YunJing.Editor
                     var size = model.transform.InverseTransformVector(b.size);
                     box.size = new Vector3(Mathf.Abs(size.x), Mathf.Abs(size.y), Mathf.Abs(size.z));
                 }
+                else if (p.collider == "pillars")
+                {
+                    // Gates and archways: solid 0.6 m posts at both ends of the slot's width, the opening walkable.
+                    b = renderers[0].bounds; foreach (var r in renderers) b.Encapsulate(r.bounds);
+                    var pillars = new GameObject("Pillars").transform;
+                    pillars.SetParent(model.transform.parent, false);
+                    pillars.position = new Vector3(b.center.x, b.min.y, b.center.z);
+                    pillars.rotation = Quaternion.Euler(0, p.yaw, 0);
+                    float half = (p.footprint != null ? Mathf.Min(p.footprint[0], Mathf.Max(b.size.x, b.size.z)) : Mathf.Max(b.size.x, b.size.z)) / 2 - .3f;
+                    foreach (var side in new[] { -1f, 1f })
+                    {
+                        var post = pillars.gameObject.AddComponent<BoxCollider>();
+                        post.center = new Vector3(side * half, b.size.y / 2, 0);
+                        post.size = new Vector3(.6f, b.size.y, .6f);
+                    }
+                }
                 if (p.footprint != null && p.footprint.Length == 3)
                 {
                     b = renderers[0].bounds; foreach (var r in renderers) b.Encapsulate(r.bounds);
@@ -560,14 +584,30 @@ namespace YunJing.Editor
             var slot = new GameObject($"PlannedSlot {p.id} - {p.owner}").transform;
             slot.SetParent(root, false);
             slot.localPosition = At(p.x, p.z); slot.localRotation = Quaternion.Euler(0, p.yaw, 0);
-            var box = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            box.name = "Footprint"; box.transform.SetParent(slot, false);
-            box.transform.localPosition = new Vector3(0, fp[2] / 2, 0);
-            box.transform.localScale = new Vector3(fp[0], fp[2], fp[1]);
-            // Translucent and without a collider: a plan, not an obstacle (the gate slot sits on the entry road).
-            UnityEngine.Object.DestroyImmediate(box.GetComponent<Collider>());
-            var colour = p.owner == "codex" ? new Color(.37f, .66f, .60f, .45f) : p.owner == "core" ? new Color(.48f, .55f, .62f, .45f) : new Color(.72f, .58f, .42f, .45f);
-            box.GetComponent<Renderer>().sharedMaterial = PlannedSlotMaterial(p.owner, colour);
+            // An outline frame (12 thin edges) and a faint floor plate: reads as a plan, never fills the camera's
+            // view when the player walks into it, and has no collider (the gate slot sits on the entry road).
+            var colour = p.owner == "codex" ? new Color(.37f, .66f, .60f, .85f) : p.owner == "core" ? new Color(.48f, .55f, .62f, .85f) : new Color(.72f, .58f, .42f, .85f);
+            var edgeMat = PlannedSlotMaterial(p.owner, colour);
+            var plateMat = PlannedSlotMaterial(p.owner + "_Plate", new Color(colour.r, colour.g, colour.b, .22f));
+            void Bar(string name, Vector3 centre, Vector3 size, Material mat)
+            {
+                var bar = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                bar.name = name; bar.transform.SetParent(slot, false);
+                bar.transform.localPosition = centre; bar.transform.localScale = size;
+                UnityEngine.Object.DestroyImmediate(bar.GetComponent<Collider>());
+                bar.GetComponent<Renderer>().sharedMaterial = mat;
+                bar.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            }
+            float hw = fp[0] / 2, hd = fp[1] / 2, h = fp[2], t = .06f;
+            Bar("Footprint Plate", new Vector3(0, .02f, 0), new Vector3(fp[0], .02f, fp[1]), plateMat);
+            foreach (var y in new[] { t / 2, h - t / 2 })
+            {
+                Bar("Edge", new Vector3(0, y, -hd), new Vector3(fp[0], t, t), edgeMat); Bar("Edge", new Vector3(0, y, hd), new Vector3(fp[0], t, t), edgeMat);
+                Bar("Edge", new Vector3(-hw, y, 0), new Vector3(t, t, fp[1]), edgeMat); Bar("Edge", new Vector3(hw, y, 0), new Vector3(t, t, fp[1]), edgeMat);
+            }
+            foreach (var x in new[] { -hw, hw }) foreach (var z in new[] { -hd, hd }) Bar("Edge", new Vector3(x, h / 2, z), new Vector3(t, h, t), edgeMat);
+            // The front edge (+Z) in gold, so the facing reads in the game as on the plan map.
+            Bar("Front", new Vector3(0, .05f, hd), new Vector3(fp[0], .1f, .12f), PlannedSlotMaterial("Front", new Color(.91f, .78f, .47f, .9f)));
             var font = AssetDatabase.LoadAssetAtPath<Font>("Assets/YunJing/Resources/Fonts/NotoSansTC-Subset.ttf");
             var label = new GameObject("Label").AddComponent<TextMesh>();
             label.transform.SetParent(slot, false);
@@ -678,6 +718,55 @@ namespace YunJing.Editor
             }
             training.glowLine = Glow("TrainingGlowLine", null);
             training.glowDot = Glow("TrainingGlowDot", dot);
+        }
+
+        // K2: trees, bamboo, reeds and shrubs sway (YunJing/QingxiFoliageWind). Each foliage material gets a wind
+        // twin that keeps its colour map, tint and alpha cut-off; the sway height and strength follow the kind of
+        // plant. Matched by the name of the placed model, so a bamboo fence or a bamboo tray stays still.
+        static readonly (string key, float height, float strength)[] WindKinds = {
+            ("CommonPine", 7f, .12f), ("BambooClump", 6f, .32f), ("QX_WaterReeds", 1.8f, .12f), ("WildShrub", 1.5f, .06f),
+        };
+
+        static int WindFoliage(Transform village)
+        {
+            var shader = Shader.Find("YunJing/QingxiFoliageWind");
+            if (shader == null) { Debug.LogWarning("QINGXI_WIND: shader missing, foliage stays still"); return 0; }
+            var folder = MaterialFolder + "/Wind";
+            if (!AssetDatabase.IsValidFolder(folder)) AssetDatabase.CreateFolder(MaterialFolder, "Wind");
+            var twins = new System.Collections.Generic.Dictionary<(Material, string), Material>();
+            int count = 0;
+            foreach (var r in village.GetComponentsInChildren<MeshRenderer>(true))
+            {
+                (string key, float height, float strength) kind = default;
+                for (var t = r.transform; t != null && t != village && kind.key == null; t = t.parent)
+                    foreach (var k in WindKinds) if (t.name.Contains(k.key)) { kind = k; break; }
+                if (kind.key == null) continue;
+                var mats = r.sharedMaterials;
+                for (int i = 0; i < mats.Length; i++)
+                {
+                    var source = mats[i];
+                    if (source == null || source.shader == shader) continue;
+                    if (!twins.TryGetValue((source, kind.key), out var twin))
+                    {
+                        var path = $"{folder}/{source.name}_{kind.key}_Wind.mat";
+                        twin = AssetDatabase.LoadAssetAtPath<Material>(path);
+                        if (twin == null) { twin = new Material(shader); AssetDatabase.CreateAsset(twin, path); }
+                        twin.shader = shader;
+                        var map = source.HasProperty("_BaseMap") ? source.GetTexture("_BaseMap") : source.HasProperty("_MainTex") ? source.GetTexture("_MainTex") : null;
+                        twin.SetTexture("_BaseMap", map);
+                        twin.SetColor("_BaseColor", source.HasProperty("_BaseColor") ? source.GetColor("_BaseColor") : source.HasProperty("_Color") ? source.GetColor("_Color") : Color.white);
+                        bool clipped = source.IsKeywordEnabled("_ALPHATEST_ON") || (source.HasProperty("_AlphaClip") && source.GetFloat("_AlphaClip") > .5f);
+                        twin.SetFloat("_Cutoff", clipped && source.HasProperty("_Cutoff") ? source.GetFloat("_Cutoff") : 0f);
+                        twin.SetFloat("_Height", kind.height); twin.SetFloat("_Strength", kind.strength);
+                        EditorUtility.SetDirty(twin);
+                        twins[(source, kind.key)] = twin;
+                    }
+                    mats[i] = twin;
+                }
+                r.sharedMaterials = mats;
+                count++;
+            }
+            return count;
         }
 
         static Material UiMaterial()

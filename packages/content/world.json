@@ -41,6 +41,10 @@
     { "id": "water-purifier", "label": "淨水藥劑" },
     { "id": "companion-herb", "label": "樹伴靈草" },
     { "id": "rabbit-meat", "label": "山兔肉" },
-    { "id": "rabbit-hide", "label": "山兔皮" }
+    { "id": "rabbit-hide", "label": "山兔皮" },
+    { "id": "old-copper-coin", "label": "舊銅錢" },
+    { "id": "qing-mushroom", "label": "青蕈" },
+    { "id": "straw-charm", "label": "草結護符" },
+    { "id": "patterned-iron", "label": "奇紋鐵片" }
   ]
 }

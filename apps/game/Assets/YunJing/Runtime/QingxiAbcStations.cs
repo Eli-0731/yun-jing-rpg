@@ -21,6 +21,7 @@ namespace YunJing
         public QingxiForestEncounter forest;
         public QingxiFirstPerson walker;
         public QingxiTrainingPractice training;   // Johnnnny0823's training drills (posts, or the cushion indoors)
+        public QingxiFortunes fortunes;           // 機緣 (K4): hidden finds, checked after every station
 
         // Set by QingxiSceneReturn when the player leaves the alchemy room, and by the lodging exit door.
         public static bool ReturningFromAlchemy, ReturningFromLodging;
@@ -60,7 +61,7 @@ namespace YunJing
             if (alchemyDoor != null && Flat(position, alchemyDoor.position) <= Reach) return "F 進入溪畔丹房（joshsu54 煉製玩法，需本機 API）";
             if (returnTable != null && Flat(position, returnTable.position) <= Reach) return "F 在分揀桌整理回村樣本（保存／留待煉製／交委託展示）";
             if (forest != null && forest.NearLadder(position)) return forest.Climbed ? "F 爬下觀察台" : "F 爬上觀察台（安全點）";
-            return null;
+            return fortunes != null ? fortunes.Prompt(position) : null;
         }
 
         public bool TryInteract(Vector3 position, out string message)
@@ -111,7 +112,7 @@ namespace YunJing
                 return true;
             }
             if (forest != null && forest.NearLadder(position)) { message = forest.ToggleClimb(); return true; }
-            return false;
+            return fortunes != null && fortunes.TryInteract(position, out message);
         }
     }
 }
