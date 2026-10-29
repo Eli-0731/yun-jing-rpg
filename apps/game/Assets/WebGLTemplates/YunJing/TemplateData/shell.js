@@ -22,7 +22,7 @@
   const error = (message, kind) => {
     const raw = String(message || '未知錯誤');
     const lower = raw.toLowerCase();
-    q('yj-error-text').textContent = kind === 'webgl' ? '此瀏覽器無法開啟雲境。請改用最新版 Chrome、Edge 或 Safari。' : kind === 'memory' || lower.includes('memory') ? '裝置記憶體不足。請關閉其他分頁後重新整理。' : '入境失敗，可能是網路中斷。請檢查連線後重新整理。';
+    q('yj-error-text').textContent = kind === 'webgl' ? '此瀏覽器無法開啟承天。請改用最新版 Chrome、Edge 或 Safari。' : kind === 'memory' || lower.includes('memory') ? '裝置記憶體不足。請關閉其他分頁後重新整理。' : '入境失敗，可能是網路中斷。請檢查連線後重新整理。';
     q('yj-error-detail').textContent = raw;
     q('yj-error').hidden = false;
     progress.hidden = true; enter.hidden = true;
@@ -31,9 +31,9 @@
   const dismissed = () => { try { return localStorage.getItem('yj-install-dismissed') === '1'; } catch { return false; } };
   const showInstall = () => {
     if (isInstalled() || dismissed()) return;
-    if (deferredInstall) { q('yj-install-text').textContent = '將雲境加入主畫面'; installAction.hidden = false; install.hidden = false; }
+    if (deferredInstall) { q('yj-install-text').textContent = '將承天加入主畫面'; installAction.hidden = false; install.hidden = false; }
     else if (/iPad|iPhone|iPod/.test(navigator.userAgent)) { q('yj-install-text').textContent = '點分享 → 加入主畫面，即可全螢幕遊玩'; installAction.hidden = true; install.hidden = false; }
-    else if (preview && query.has('install')) { q('yj-install-text').textContent = '將雲境加入主畫面'; installAction.hidden = false; install.hidden = false; }
+    else if (preview && query.has('install')) { q('yj-install-text').textContent = '將承天加入主畫面'; installAction.hidden = false; install.hidden = false; }
   };
   const loaded = () => { ready = true; setProgress(1); progress.hidden = true; enter.hidden = false; showInstall(); };
   const start = () => {

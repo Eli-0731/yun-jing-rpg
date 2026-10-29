@@ -119,7 +119,7 @@ namespace YunJing.Editor
             services.AddComponent<AlchemyPlaytest>();
             services.AddComponent<AlchemyBootstrap>().Target = player.transform;
 
-            PlayerSettings.companyName = "YunJing"; PlayerSettings.productName = "雲境 · 青溪丹房";
+            PlayerSettings.companyName = "YunJing"; PlayerSettings.productName = "承天 · 青溪丹房";
             PlayerSettings.insecureHttpOption = InsecureHttpOption.DevelopmentOnly;
             if (!EditorSceneManager.SaveScene(scene, Scene)) throw new IOException("Could not save " + Scene);
             AssetDatabase.SaveAssets();

@@ -642,7 +642,7 @@ namespace YunJing
             if (Breath != null) Draw(new Rect(0, 0, w, h), vignetteTex, new Color(.04f, .16f, .13f, .55f));
             if (hitFlash > 0) Draw(new Rect(0, 0, w, h), vignetteTex, new Color(.67f, .12f, .08f, .6f * hitFlash));
             // Title block, top left.
-            GUI.Label(new Rect(20, 14, 400, 18), "雲境・青溪新手村", eyebrow);
+            GUI.Label(new Rect(20, 14, 400, 18), "承天・青溪新手村", eyebrow);
             GUI.Label(new Rect(18, 30, 400, 40), "公 共 演 武 區", title);
             var notice = new Rect(20, 74, 250, 26); Panel(notice, pillTex, 12); GUI.Label(notice, Rules.Notice, small);
             if (Breath != null) DrawQi(w, h);
