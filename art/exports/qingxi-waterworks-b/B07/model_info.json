@@ -1,0 +1,116 @@
+{
+  "id": "B07",
+  "name": "修補石鞍",
+  "family": "B07",
+  "variant": "B07",
+  "author": "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模",
+  "status": "建模完成（程序化母稿），待人工精修審核",
+  "reference": "art/references/qingxi-waterworks-b/B07_three_view_dry_v002.png",
+  "units": "m",
+  "up": "Blender +Z / glTF +Y",
+  "flow_axis": "入口在原點，水流朝 +Y",
+  "standard": {
+    "outer_w": 0.6,
+    "clear_w": 0.4,
+    "total_h": 0.4,
+    "floor_t": 0.1,
+    "water_z": 0.28,
+    "grid": 0.25
+  },
+  "ports": [],
+  "flows": [],
+  "water_polys": [],
+  "sockets": [
+    {
+      "name": "contact",
+      "pos": [
+        0,
+        0.031,
+        0.1
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "parts": [
+    "body"
+  ],
+  "footprint_cells": [],
+  "stats": {
+    "tris": 1288,
+    "verts": 680,
+    "materials": [
+      "ww_bronze",
+      "ww_seal",
+      "ww_stone",
+      "ww_wood"
+    ],
+    "bbox_min": [
+      -0.2276,
+      -0.077,
+      -0.002
+    ],
+    "bbox_max": [
+      0.2288,
+      0.039,
+      0.208
+    ],
+    "size": [
+      0.4564,
+      0.116,
+      0.21
+    ]
+  },
+  "qa": {
+    "body": {
+      "islands": 20,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    }
+  },
+  "notes": [
+    "背面（+Y）為接觸面，SOCKET_contact 在墊圈面中心；放在破損槽壁外側，頂緣鞍形對準牆頂。",
+    "實際裂縫大小未知（參考圖 A FIT: VERIFY），玩法以「修補位置」吸附，不做幾何密合。"
+  ],
+  "states": {},
+  "collision": "單一盒 45 × 9 × 20 cm",
+  "lod": {
+    "LOD0": 1288,
+    "LOD1": 578,
+    "LOD2": 230
+  },
+  "extra": {},
+  "exports": {
+    "glb": "B07.glb",
+    "fbx": "B07.fbx",
+    "lod1": "B07_LOD1.glb",
+    "lod2": "B07_LOD2.glb"
+  },
+  "reimport": {
+    "file": "art/exports/qingxi-waterworks-b/B07/B07.glb",
+    "tris": 1288,
+    "size": [
+      0.4564,
+      0.116,
+      0.21
+    ],
+    "materials": [
+      "ww_bronze.001",
+      "ww_seal.001",
+      "ww_stone.001",
+      "ww_wood.001"
+    ],
+    "empties": [
+      "SOCKET_contact.001"
+    ],
+    "size_error_m": 0.0,
+    "tris_match": true,
+    "textures_embedded": 4
+  }
+}

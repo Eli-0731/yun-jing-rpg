@@ -1,0 +1,1359 @@
+{
+  "set": "qingxi-waterworks-b",
+  "pieces": [
+    {
+      "id": "B01",
+      "name": "舊水路方形基座",
+      "tris": 9136,
+      "lod": {
+        "LOD0": 9136,
+        "LOD1": 4110,
+        "LOD2": 1644
+      },
+      "size_m": [
+        1.4476,
+        1.8,
+        0.4549
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B01_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B01/",
+      "notes": [
+        "整體 140 × 180 cm（含前後各 20 cm 短接口）；內淨 120 × 120 cm、底高 10 cm。",
+        "公共工程起點：後方 intake 接溪邊取水口，前方出口接 B02–B05；不是私人靈田床。"
+      ]
+    },
+    {
+      "id": "B02",
+      "name": "完整短直槽",
+      "tris": 2976,
+      "lod": {
+        "LOD0": 2976,
+        "LOD1": 1338,
+        "LOD2": 534
+      },
+      "size_m": [
+        0.732,
+        1.0,
+        0.4044
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_wood"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B02_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B02/",
+      "notes": [
+        "端柱上下兩塊疊砌、向外凸 1.5 cm（參考圖正視）；接口內緣仍為標準 40 cm 淨寬。",
+        "接口面平齊；參考圖的 20 mm 墊片凹座未建成幾何，墊片可作獨立件。"
+      ]
+    },
+    {
+      "id": "B02-V02",
+      "name": "磨損階梯牆直槽",
+      "tris": 5996,
+      "lod": {
+        "LOD0": 5996,
+        "LOD1": 2698,
+        "LOD2": 1078
+      },
+      "size_m": [
+        0.6228,
+        1.0,
+        0.4067
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_gasket",
+        "ww_stone",
+        "ww_stone_moss"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B02_V02_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B02-V02/",
+      "notes": [
+        "三層砌石 13／14／13 cm；中段牆頂 0.27 m，略低於運作水面 0.28 m，玩法中作為溢流／滲漏風險。",
+        "右牆 y ≈ 0.82 m 裂縫以直立銅片補釘（參考圖右視）。"
+      ]
+    },
+    {
+      "id": "B02-V03",
+      "name": "半埋基腳直槽",
+      "tris": 7140,
+      "lod": {
+        "LOD0": 7140,
+        "LOD1": 3212,
+        "LOD2": 1282
+      },
+      "size_m": [
+        1.1457,
+        1.0,
+        0.622
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_soil",
+        "ww_stone",
+        "ww_stone_moss"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B02_V03_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B02-V03/",
+      "notes": [
+        "中段外側三階退台 84／76／68 cm，高 10／8／8 cm；兩端 20 cm 斜過渡回標準 60 cm。",
+        "基腳底在 z = -0.20（參考圖土深 20 cm）；擺放時需挖入地面，接口仍以 z = 0 為槽底。",
+        "回填土為獨立 soil 部件，可在場景中改用地形。"
+      ]
+    },
+    {
+      "id": "B02-V04",
+      "name": "鍵槽短接頭",
+      "tris": 4132,
+      "lod": {
+        "LOD0": 4132,
+        "LOD1": 1858,
+        "LOD2": 742
+      },
+      "size_m": [
+        0.7498,
+        0.5,
+        0.4143
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss",
+        "ww_wood"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B02_V04_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B02-V04/",
+      "notes": [
+        "長度 0.50 m（推定設計：參考圖 40 cm，為對齊 0.25 m 拼接格調整；端石 15 cm、鍵塊 20 cm）。",
+        "用途：接舊渠斷口或補短缺口；鍵塊外面內退 1 cm、兩側青銅直條示意鍵槽。"
+      ]
+    },
+    {
+      "id": "B02-V05",
+      "name": "終止放流坡",
+      "tris": 8160,
+      "lod": {
+        "LOD0": 8160,
+        "LOD1": 3672,
+        "LOD2": 1468
+      },
+      "size_m": [
+        0.8936,
+        0.8427,
+        0.4044
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B02_V05_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B02-V05/",
+      "notes": [
+        "終止件：只有入口；水由前緣弧形放流口散出到溪道或田埂水溝。"
+      ]
+    },
+    {
+      "id": "B03",
+      "name": "直角彎槽（右）",
+      "tris": 5004,
+      "lod": {
+        "LOD0": 5004,
+        "LOD1": 2250,
+        "LOD2": 900
+      },
+      "size_m": [
+        1.09,
+        1.09,
+        0.4144
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B03_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B03/",
+      "notes": [
+        "出口在 (0.75, 0.75)：外框 105 × 105 cm（參考圖 100 × 100 cm，為 25 cm 拼接格取 0.75）。",
+        "內側轉角為一塊整石，水側圓角 r = 8 cm；底面連續無階。"
+      ]
+    },
+    {
+      "id": "B03-V02",
+      "name": "寬弧彎槽（右）",
+      "tris": 11180,
+      "lod": {
+        "LOD0": 11180,
+        "LOD1": 5030,
+        "LOD2": 2012
+      },
+      "size_m": [
+        1.3461,
+        1.3463,
+        0.4051
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss",
+        "ww_wood"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B03_V02_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B03-V02/",
+      "notes": [
+        "中心半徑 1.0 m：內牆面 0.8、外牆面 1.2（參考圖內 60／外 120 cm，配合拼接格放大 20 cm）。"
+      ]
+    },
+    {
+      "id": "B03-V03",
+      "name": "斜角扶壁彎槽（左）",
+      "tris": 4288,
+      "lod": {
+        "LOD0": 4288,
+        "LOD1": 1928,
+        "LOD2": 770
+      },
+      "size_m": [
+        1.0228,
+        0.9048,
+        0.4143
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss",
+        "ww_wood"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B03_V03_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B03-V03/",
+      "notes": [
+        "中心半徑 0.5 m；外角改斜牆並加扶壁，與 B03 方角外緣不同。"
+      ]
+    },
+    {
+      "id": "B03-V04",
+      "name": "掃弧階台彎槽（左）",
+      "tris": 11248,
+      "lod": {
+        "LOD0": 11248,
+        "LOD1": 5060,
+        "LOD2": 2024
+      },
+      "size_m": [
+        1.1534,
+        1.1549,
+        0.4143
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B03_V04_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B03-V04/",
+      "notes": [
+        "中心半徑 0.75 m（內牆面 0.55、外牆面 0.95），外加 12 cm 階台；與 B03-V03 弧度不同。"
+      ]
+    },
+    {
+      "id": "B04",
+      "name": "分流三通",
+      "tris": 4740,
+      "lod": {
+        "LOD0": 4740,
+        "LOD1": 2132,
+        "LOD2": 852
+      },
+      "size_m": [
+        1.0,
+        1.107,
+        0.4136
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss",
+        "ww_wood"
+      ],
+      "ports": 3,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B04_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B04/",
+      "notes": [
+        "外框 100 × 105 cm；參考圖 120 × 100 cm。出口收在 x = ±0.5、y = 0.75 以對齊 25 cm 拼接格（推定設計）。",
+        "分水尖為貼後牆的低矮三角錐（頂 24 cm、尖端 12 cm），不擋視線。",
+        "左出口預設接村田、右出口接支流；分流比例由玩法規則決定。"
+      ]
+    },
+    {
+      "id": "B04-V02",
+      "name": "圓缽分流三通",
+      "tris": 10320,
+      "lod": {
+        "LOD0": 10320,
+        "LOD1": 4644,
+        "LOD2": 1856
+      },
+      "size_m": [
+        1.5,
+        1.2135,
+        0.4142
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss"
+      ],
+      "ports": 3,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B04_V02_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B04-V02/",
+      "notes": [
+        "出口在 x = ±0.75（外寬 150 cm，參考 140 cm），為對齊 25 cm 拼接格的推定設計。",
+        "缽內淨半徑 30 cm、底板與三個接口同高；後側弧牆封閉。缽牆外側中段鼓出約 5 cm、頂緣內收成圓腹。",
+        "與 B04 的差別：中央圓缽取代直角橫槽與分水尖，水流在缽內轉向，三個接口仍為標準 U 形。"
+      ]
+    },
+    {
+      "id": "B05",
+      "name": "木製手動閘板",
+      "tris": 4112,
+      "lod": {
+        "LOD0": 4112,
+        "LOD1": 1848,
+        "LOD2": 738
+      },
+      "size_m": [
+        1.081,
+        1.0,
+        1.5623
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss",
+        "ww_wood"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B05_three_view_dry_v003_side_operation.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B05/",
+      "notes": [
+        "從入口看操作者站右岸（+X）；閘輪座在右柱外側 x = 0.392、z = 0.90（B06 對準點）。",
+        "齒條在右柱內側 x = 0.205；B06 小齒輪直徑 7 cm 由軸穿過右柱與之嚙合（推定設計，未做機構模擬）。",
+        "框架外寬 0.74 m、柱寬 15 cm、柱頂 1.56 m（參考圖 80／150 cm）。"
+      ]
+    },
+    {
+      "id": "B06",
+      "name": "青銅水位閘輪",
+      "tris": 1072,
+      "lod": {
+        "LOD0": 1072,
+        "LOD1": 482,
+        "LOD2": 190
+      },
+      "size_m": [
+        0.516,
+        0.5,
+        0.5
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B06_three_view_dry_v003_side_operation.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B06/",
+      "notes": [
+        "掛在 B05 的 SOCKET_wheel_mount；轉 1 圈閘板升降約 22 cm（小齒輪 Ø7 cm）。",
+        "輪心高 0.90 m、輪緣 0.65–1.15 m，對 1.75 m 角色為腰到胸高。"
+      ]
+    },
+    {
+      "id": "B07",
+      "name": "修補石鞍",
+      "tris": 1288,
+      "lod": {
+        "LOD0": 1288,
+        "LOD1": 578,
+        "LOD2": 230
+      },
+      "size_m": [
+        0.4564,
+        0.116,
+        0.21
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_seal",
+        "ww_stone",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B07_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B07/",
+      "notes": [
+        "背面（+Y）為接觸面，SOCKET_contact 在墊圈面中心；放在破損槽壁外側，頂緣鞍形對準牆頂。",
+        "實際裂縫大小未知（參考圖 A FIT: VERIFY），玩法以「修補位置」吸附，不做幾何密合。"
+      ]
+    },
+    {
+      "id": "B07-V02",
+      "name": "轉角L形修補鍵",
+      "tris": 524,
+      "lod": {
+        "LOD0": 524,
+        "LOD1": 234,
+        "LOD2": 94
+      },
+      "size_m": [
+        0.4096,
+        0.2708,
+        0.2117
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_seal",
+        "ww_stone",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B07_V02_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B07-V02/",
+      "notes": [
+        "長臂朝 -Y、短臂朝 +X，貼補槽體外轉角；兩個內側面為墊圈接觸面。",
+        "實際缺角大小未知（A FIT: VERIFY），玩法以轉角位置吸附。"
+      ]
+    },
+    {
+      "id": "B07-V03",
+      "name": "階梯底板修補塞",
+      "tris": 932,
+      "lod": {
+        "LOD0": 932,
+        "LOD1": 418,
+        "LOD2": 166
+      },
+      "size_m": [
+        0.408,
+        0.316,
+        0.0982
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B07_V03_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B07-V03/",
+      "notes": [
+        "裝在槽底破洞，上台頂面與槽底齊平（上台 3 cm 嵌入洞口）；實際洞口大小未知（A FIT: VERIFY）。",
+        "參考圖仰視的燕尾鍵槽只做到側面可見的木鍵與銅夾，底面未挖槽（推定簡化）。"
+      ]
+    },
+    {
+      "id": "B08",
+      "name": "河床清淤篩",
+      "tris": 1832,
+      "lod": {
+        "LOD0": 1832,
+        "LOD1": 824,
+        "LOD2": 328
+      },
+      "size_m": [
+        0.618,
+        1.5717,
+        0.6273
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_rope",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B08_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B08/",
+      "notes": [
+        "靜置姿勢：籃底平放地面、柄末端離地約 61 cm（參考圖右視）；握持姿勢由角色動畫決定。",
+        "網格 10 mm 淨開口、2.5 mm 青銅線；籃底泥污未建模，留給貼圖或頂點色。"
+      ]
+    },
+    {
+      "id": "B09",
+      "name": "流速指示浮標",
+      "tris": 1934,
+      "lod": {
+        "LOD0": 1934,
+        "LOD1": 870,
+        "LOD2": 348
+      },
+      "size_m": [
+        0.12,
+        0.8733,
+        0.575
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_cloth",
+        "ww_rope",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B09_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B09/",
+      "notes": [
+        "乾燥展示：龍骨著地、繩鬆垂、旗下垂；木樁在 -Y 上游 0.72 m，地下 20 cm。",
+        "緊繩姿勢（旗向後飄、浮體被拉向下游）由引擎內切換，母稿只做鬆繩版本。",
+        "參考圖 18 cm 是原水深標註，不是牆高；浮標不參與拼接。"
+      ]
+    },
+    {
+      "id": "B10",
+      "name": "石槽支架（排架）",
+      "tris": 404,
+      "lod": {
+        "LOD0": 404,
+        "LOD1": 180,
+        "LOD2": 72
+      },
+      "size_m": [
+        0.188,
+        1.0014,
+        0.808
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B10_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B10/",
+      "notes": [
+        "地面 z = 0；木柱尖頭入土 30 cm（z = -0.30）。梁頂 z = 0.50 與槽底貼合，無空隙。",
+        "參考圖正視即槽身長向，本件對應 Unity／Blender 的右視；18 cm 為原水深標註，不是牆高。"
+      ]
+    },
+    {
+      "id": "B10-V02",
+      "name": "低矮楔固枕木支架",
+      "tris": 1212,
+      "lod": {
+        "LOD0": 1212,
+        "LOD1": 544,
+        "LOD2": 218
+      },
+      "size_m": [
+        1.164,
+        0.412,
+        0.76
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_stone",
+        "ww_stone_moss",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B10_V02_three_view_original_dry.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B10-V02/",
+      "notes": [
+        "支承頂 z = 0.30（manifest 審核選 30 cm；原圖 25／30／46 cm 標註互相矛盾）。",
+        "木樁在 x = ±0.46，槽外寬 60 cm 落在兩組木樁之間，不與槽壁衝突；石墩入土 14 cm、木樁入土 30 cm。"
+      ]
+    },
+    {
+      "id": "B10-V03",
+      "name": "高四樁棧架",
+      "tris": 920,
+      "lod": {
+        "LOD0": 920,
+        "LOD1": 414,
+        "LOD2": 164
+      },
+      "size_m": [
+        0.8266,
+        1.09,
+        1.2047
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B10_V03_three_view_dry_v002.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B10-V03/",
+      "notes": [
+        "地上 80 cm、入土 40 cm（總樁長 120 cm，依 manifest 修正參考圖的 120 cm 地上標註）。",
+        "樁頭與四根頂梁頂面齊平於 z = 0.80，槽底直接坐上，無空隙。"
+      ]
+    },
+    {
+      "id": "B11",
+      "name": "兩輪手推車",
+      "tris": 4940,
+      "lod": {
+        "LOD0": 4940,
+        "LOD1": 2220,
+        "LOD2": 886
+      },
+      "size_m": [
+        1.1,
+        1.8358,
+        0.9475
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_iron",
+        "ww_rope",
+        "ww_stone",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B11_three_view_original_dry.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B11/",
+      "notes": [
+        "輪心在車床前端後方 60 cm（參考圖右視量取），駐車腳在車頭，握把末端高 0.93 m。",
+        "輪外寬約 1.08 m（參考圖 85 cm 為車框寬，木輪在框外）。cargo 部件可單獨隱藏。"
+      ]
+    },
+    {
+      "id": "B12",
+      "name": "完工紀錄碑座",
+      "tris": 2560,
+      "lod": {
+        "LOD0": 2560,
+        "LOD1": 1146,
+        "LOD2": 454
+      },
+      "size_m": [
+        0.8466,
+        0.6071,
+        1.1119
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_gasket",
+        "ww_stone",
+        "ww_stone_moss",
+        "ww_wood"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/B12_three_view_original_dry.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/B12/",
+      "notes": [
+        "三格箭頭對應三條路線方案：直箭頭＝直通村田、彎箭頭＝繞過育幼區、分岔＝先清淤再暫時導流（推定對應）。",
+        "木栓 peg_1–3 是獨立部件，完工時顯示；方孔為銅框淺槽。"
+      ]
+    },
+    {
+      "id": "F01",
+      "name": "灌溉田地",
+      "tris": 15476,
+      "lod": {
+        "LOD0": 15476,
+        "LOD1": 6962,
+        "LOD2": 2782
+      },
+      "size_m": [
+        6.0069,
+        4.0,
+        0.8363
+      ],
+      "materials": [
+        "ww_bronze",
+        "ww_field_soil",
+        "ww_grass",
+        "ww_iron",
+        "ww_stone",
+        "ww_stone_moss",
+        "ww_wood"
+      ],
+      "ports": 2,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/F01_irrigated_field_three_view_v001.png",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "PASS",
+        "tri_budget": "WARNING",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/F01/",
+      "notes": [
+        "依使用者提供的「灌溉田地｜三視圖」建模。參考圖含水；依套件規則，模型預覽一律不顯示水面，水面另存 F01_water.glb。",
+        "外框 6 × 4 m：俯視圖寬長比約 1.5，側視圖反而畫得比正視長，兩者矛盾，以俯視為準（推定設計）。",
+        "出入口為標準 U 形石槽口（外寬 60、淨寬 40、高 40、底板 10 cm），可直接和 B 系列石槽相接。",
+        "田埂頂高 0.40 m、頂寬約 0.30 m；溝底 z = 0.10 與石槽底板同高；田畦頂 0.34 m，水面 0.28 m；畦寬 0.64 m、畦間溝寬 0.26 m（推定）。",
+        "參考圖的水流方向（上緣分流 → 6 道畦溝 → 下緣集水 → 出水口）以溝的配置表現，水面為靜水，未做流動動畫。",
+        "每條田畦中心有 SOCKET_bed_1…5（田畦頂），供種植或互動掛點使用。",
+        "參考圖的出水口是全開的，水會一直流掉；依使用者要求改為疊板閘：4 片橫木板（鐵包角串成一組）平時升到頂卡滿擋水（堰頂 0.30），要放水時降下沉入溝底沉板槽（埋地石匣到 z = -0.15），板頂 0.10–0.30 m 連續可調；牆頂橫梁上的手輪 weir_wheel 轉一圈升降 2.5 cm（推定）。"
+      ]
+    },
+    {
+      "id": "S01",
+      "name": "溪流",
+      "tris": 10872,
+      "lod": {
+        "LOD0": 10872,
+        "LOD1": 4892,
+        "LOD2": 1956
+      },
+      "size_m": [
+        2.0196,
+        12.0314,
+        0.0704
+      ],
+      "materials": [
+        "ww_stream"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/S01_stream_three_view_v001.jpg",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "NOT_APPLICABLE",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/S01/",
+      "notes": [
+        "依使用者提供的溪流三視圖建模：參考圖只有水體，本件即水面（封閉薄透鏡體），不含河床與河岸。",
+        "使用者指示 demo 不必照 S 形：中線改為直段（中段 ±6 cm 擺動），全長 12.00 m、寬約 1.8 m（寬度依俯視圖量測換算，推定）。",
+        "側視、正視只見薄片：中央厚 6 cm、岸線收為 0；表面大波 ±1 cm、細漣漪 ±0.5 cm。",
+        "白色水花、光網、漣漪法線在 ww_stream 貼圖；深淺用頂點色（中央深、岸邊淺）。",
+        "兩端截面平直、與水流方向垂直，可接下一段溪流；與石槽套件的銜接透過 SOCKET_kit_B01（B01 取水口）。",
+        "本件是水，依套件規則「預覽不顯示水」不適用於本件，預覽直接呈現水面。"
+      ]
+    },
+    {
+      "id": "S02",
+      "name": "河床與河岸",
+      "tris": 9056,
+      "lod": {
+        "LOD0": 9056,
+        "LOD1": 4074,
+        "LOD2": 1630
+      },
+      "size_m": [
+        5.5977,
+        12.1002,
+        0.7908
+      ],
+      "materials": [
+        "ww_field_soil",
+        "ww_grass",
+        "ww_riverbed",
+        "ww_stone",
+        "ww_stone_moss"
+      ],
+      "ports": 0,
+      "status": "建模完成（程序化母稿），待人工精修審核",
+      "reference": "art/references/qingxi-waterworks-b/S02_riverbed_banks_three_view_v001.jpg",
+      "checks": {
+        "nonmanifold": "PASS",
+        "degenerate_faces": "PASS",
+        "inward_normals": "PASS",
+        "floating_islands": "PASS",
+        "port_overreach": "PASS",
+        "glb_reimport": "PASS",
+        "export_files": "PASS",
+        "ports_on_grid": "NOT_APPLICABLE",
+        "tri_budget": "PASS",
+        "preview_views": "PASS",
+        "reference_exists": "PASS",
+        "water_hidden_in_previews": "PASS",
+        "unity_import": "PASS",
+        "uv_unwrap": "WARNING",
+        "collision_mesh": "NOT_TESTED",
+        "visual_review": "PASS"
+      },
+      "missing_files": [],
+      "previews": "art/previews/qingxi-waterworks-b/S02/",
+      "notes": [
+        "依使用者提供的「河床與河岸｜三視圖」建模；參考圖為 S 形，但 S01 溪流已依使用者指示做成 demo 直段，河床與河岸沿用 S01 的中線與岸線（同原點），兩件疊放即對齊。",
+        "河床：水邊以內為淺碟形（中央低於水面 6.5 cm），往外 35 cm 收到岸腳；材質 ww_riverbed（沙礫）。",
+        "河岸：坡頂高出水面約 0.33 m，外側緩坡降到 −0.28 m（＝石槽、田地所在地面），坡頂草皮與草叢、坡面土層條紋。",
+        "右岸在 SOCKET_kit_B01（S01）處留 1.56 m 取水缺口，河床右緣縮到 B01 背牆內側，B01 可直接坐進去。",
+        "水邊碎石帶與河床大圓石依參考圖散佈（程序化、固定亂數種子）。"
+      ]
+    }
+  ],
+  "summary": {
+    "nonmanifold": {
+      "PASS": 27
+    },
+    "degenerate_faces": {
+      "PASS": 27
+    },
+    "inward_normals": {
+      "PASS": 27
+    },
+    "floating_islands": {
+      "PASS": 27
+    },
+    "port_overreach": {
+      "PASS": 27
+    },
+    "glb_reimport": {
+      "PASS": 27
+    },
+    "export_files": {
+      "PASS": 27
+    },
+    "ports_on_grid": {
+      "PASS": 14,
+      "NOT_APPLICABLE": 13
+    },
+    "tri_budget": {
+      "PASS": 26,
+      "WARNING": 1
+    },
+    "preview_views": {
+      "PASS": 27
+    },
+    "reference_exists": {
+      "PASS": 27
+    },
+    "water_hidden_in_previews": {
+      "PASS": 26,
+      "NOT_APPLICABLE": 1
+    },
+    "unity_import": {
+      "PASS": 27
+    },
+    "uv_unwrap": {
+      "WARNING": 27
+    },
+    "collision_mesh": {
+      "NOT_TESTED": 27
+    },
+    "visual_review": {
+      "PASS": 27
+    }
+  },
+  "tri_budget": 12000,
+  "legend": "PASS／FAIL／WARNING／NOT_TESTED／NOT_APPLICABLE；只依實際檔案判定"
+}

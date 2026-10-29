@@ -1,0 +1,204 @@
+{
+  "id": "B02-V04",
+  "name": "鍵槽短接頭",
+  "family": "B02",
+  "variant": "B02-V04",
+  "author": "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模",
+  "status": "建模完成（程序化母稿），待人工精修審核",
+  "reference": "art/references/qingxi-waterworks-b/B02_V04_three_view_dry_v002.png",
+  "units": "m",
+  "up": "Blender +Z / glTF +Y",
+  "flow_axis": "入口在原點，水流朝 +Y",
+  "standard": {
+    "outer_w": 0.6,
+    "clear_w": 0.4,
+    "total_h": 0.4,
+    "floor_t": 0.1,
+    "water_z": 0.28,
+    "grid": 0.25
+  },
+  "ports": [
+    {
+      "name": "in",
+      "pos": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dir": [
+        0,
+        -1
+      ],
+      "kind": "in"
+    },
+    {
+      "name": "out",
+      "pos": [
+        0.0,
+        0.5,
+        0.0
+      ],
+      "dir": [
+        0,
+        1
+      ],
+      "kind": "out"
+    }
+  ],
+  "flows": [
+    {
+      "name": "main",
+      "path": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.05
+        ],
+        [
+          0.0,
+          0.1
+        ],
+        [
+          0.0,
+          0.15
+        ],
+        [
+          0.0,
+          0.2
+        ],
+        [
+          0.0,
+          0.25
+        ],
+        [
+          0.0,
+          0.3
+        ],
+        [
+          0.0,
+          0.35
+        ],
+        [
+          0.0,
+          0.4
+        ],
+        [
+          0.0,
+          0.45
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "z0": 0.28,
+      "z1": 0.28,
+      "width": 0.39,
+      "frm": "in",
+      "to": "out"
+    }
+  ],
+  "water_polys": [],
+  "sockets": [],
+  "parts": [
+    "body"
+  ],
+  "footprint_cells": [
+    [
+      -1,
+      0
+    ],
+    [
+      -1,
+      1
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "stats": {
+    "tris": 4132,
+    "verts": 2212,
+    "materials": [
+      "ww_bronze",
+      "ww_stone",
+      "ww_stone_moss",
+      "ww_wood"
+    ],
+    "bbox_min": [
+      -0.3749,
+      0.0,
+      -0.0023
+    ],
+    "bbox_max": [
+      0.3749,
+      0.5,
+      0.412
+    ],
+    "size": [
+      0.7498,
+      0.5,
+      0.4143
+    ]
+  },
+  "qa": {
+    "body": {
+      "islands": 73,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    }
+  },
+  "notes": [
+    "長度 0.50 m（推定設計：參考圖 40 cm，為對齊 0.25 m 拼接格調整；端石 15 cm、鍵塊 20 cm）。",
+    "用途：接舊渠斷口或補短缺口；鍵塊外面內退 1 cm、兩側青銅直條示意鍵槽。"
+  ],
+  "states": {},
+  "collision": "以 footprint 盒＋各牆盒組成；水面不碰撞",
+  "lod": {
+    "LOD0": 4132,
+    "LOD1": 1858,
+    "LOD2": 742
+  },
+  "extra": {},
+  "exports": {
+    "glb": "B02-V04.glb",
+    "water_glb": "B02-V04_water.glb",
+    "water_fbx": "B02-V04_water.fbx",
+    "fbx": "B02-V04.fbx",
+    "lod1": "B02-V04_LOD1.glb",
+    "lod2": "B02-V04_LOD2.glb"
+  },
+  "reimport": {
+    "file": "art/exports/qingxi-waterworks-b/B02-V04/B02-V04.glb",
+    "tris": 4132,
+    "size": [
+      0.7498,
+      0.5,
+      0.4143
+    ],
+    "materials": [
+      "ww_bronze.001",
+      "ww_stone.001",
+      "ww_stone_moss.001",
+      "ww_wood.001"
+    ],
+    "empties": [
+      "SOCKET_in.004",
+      "SOCKET_out.005"
+    ],
+    "size_error_m": 0.0,
+    "tris_match": true,
+    "textures_embedded": 5
+  }
+}

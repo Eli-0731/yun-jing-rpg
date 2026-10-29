@@ -1,0 +1,20 @@
+{
+  "route": "stream_test",
+  "pieces": 9,
+  "scene": "tools/qingxi-waterworks-b/unity/Assets/QingxiWaterworksB/Scenes/StreamDemo.unity",
+  "weir_tests_ok": true,
+  "weir_tests": [
+    {"state":"full","crest_z":0.3,"weir_dy_m":0.02,"field_dy_m":0.02,"wheel_deg":71.99984,"wheel_deg_expected":71.99985,"field_visible":true,"field_low_visible":false,"ok":true},
+    {"state":"half","crest_z":0.19,"weir_dy_m":-0.09,"field_dy_m":-0.09,"wheel_deg":144,"wheel_deg_expected":144,"field_visible":true,"field_low_visible":false,"ok":true},
+    {"state":"drain","crest_z":0.1,"weir_dy_m":-0.18,"field_dy_m":-0.18,"wheel_deg":71.99996,"wheel_deg_expected":72,"field_visible":false,"field_low_visible":true,"ok":true}
+  ],
+  "network_tests_ok": true,
+  "network_tests": [
+    {"phase":"gate_closed_start","ok":true,"levels":{"B01.intake":1,"B01.basin":1,"B01.outlet":1,"B02.water":1,"B05.upstream":1,"B05.downstream":0,"B02.water":0,"F01.inlet":0,"F01.field":0,"F01.outlet":0,"B02-V05.water":0}},
+    {"phase":"gate_opened_planks_full","ok":true,"levels":{"B01.intake":1,"B01.basin":1,"B01.outlet":1,"B02.water":1,"B05.upstream":1,"B05.downstream":1,"B02.water":1,"F01.inlet":1,"F01.field":1,"F01.outlet":0,"B02-V05.water":0}},
+    {"phase":"planks_lowered","ok":true,"levels":{"B01.intake":1,"B01.basin":1,"B01.outlet":1,"B02.water":1,"B05.upstream":1,"B05.downstream":1,"B02.water":1,"F01.inlet":1,"F01.field":1,"F01.outlet":1,"B02-V05.water":1}},
+    {"phase":"gate_closed_drained","ok":true,"levels":{"B01.intake":1,"B01.basin":1,"B01.outlet":1,"B02.water":1,"B05.upstream":1,"B05.downstream":0,"B02.water":0,"F01.inlet":0,"F01.field":0,"F01.outlet":0,"B02-V05.water":0}},
+    {"phase":"planks_raised_refill","ok":true,"levels":{"B01.intake":1,"B01.basin":1,"B01.outlet":1,"B02.water":1,"B05.upstream":1,"B05.downstream":1,"B02.water":1,"F01.inlet":1,"F01.field":1,"F01.outlet":0,"B02-V05.water":0}}
+  ],
+  "player_build": "Succeeded"
+}

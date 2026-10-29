@@ -1,0 +1,371 @@
+{
+  "id": "B01",
+  "name": "舊水路方形基座",
+  "family": "B01",
+  "variant": "B01",
+  "author": "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模",
+  "status": "建模完成（程序化母稿），待人工精修審核",
+  "reference": "art/references/qingxi-waterworks-b/B01_three_view_dry_v002.png",
+  "units": "m",
+  "up": "Blender +Z / glTF +Y",
+  "flow_axis": "入口在原點，水流朝 +Y",
+  "standard": {
+    "outer_w": 0.6,
+    "clear_w": 0.4,
+    "total_h": 0.4,
+    "floor_t": 0.1,
+    "water_z": 0.28,
+    "grid": 0.25
+  },
+  "ports": [
+    {
+      "name": "out",
+      "pos": [
+        0,
+        0,
+        0.0
+      ],
+      "dir": [
+        0,
+        1
+      ],
+      "kind": "out"
+    },
+    {
+      "name": "intake",
+      "pos": [
+        0,
+        -1.8,
+        0.0
+      ],
+      "dir": [
+        0,
+        -1
+      ],
+      "kind": "intake"
+    }
+  ],
+  "flows": [
+    {
+      "name": "outlet",
+      "path": [
+        [
+          0.0,
+          -0.3
+        ],
+        [
+          0.0,
+          -0.25
+        ],
+        [
+          0.0,
+          -0.2
+        ],
+        [
+          0.0,
+          -0.15
+        ],
+        [
+          0.0,
+          -0.1
+        ],
+        [
+          0.0,
+          -0.05
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "z0": 0.28,
+      "z1": 0.28,
+      "width": 0.39,
+      "frm": "basin",
+      "to": "out"
+    },
+    {
+      "name": "intake",
+      "path": [
+        [
+          0.0,
+          -1.8
+        ],
+        [
+          0.0,
+          -1.7571
+        ],
+        [
+          0.0,
+          -1.7143
+        ],
+        [
+          0.0,
+          -1.6714
+        ],
+        [
+          0.0,
+          -1.6286
+        ],
+        [
+          0.0,
+          -1.5857
+        ],
+        [
+          0.0,
+          -1.5429
+        ],
+        [
+          0.0,
+          -1.5
+        ]
+      ],
+      "z0": 0.28,
+      "z1": 0.28,
+      "width": 0.39,
+      "frm": "intake",
+      "to": "basin"
+    }
+  ],
+  "water_polys": [
+    {
+      "name": "basin",
+      "poly": [
+        [
+          -0.595,
+          -1.495
+        ],
+        [
+          0.595,
+          -1.495
+        ],
+        [
+          0.595,
+          -0.305
+        ],
+        [
+          -0.595,
+          -0.305
+        ]
+      ],
+      "z": 0.28
+    }
+  ],
+  "sockets": [],
+  "parts": [
+    "body"
+  ],
+  "footprint_cells": [
+    [
+      -3,
+      -6
+    ],
+    [
+      -3,
+      -5
+    ],
+    [
+      -3,
+      -4
+    ],
+    [
+      -3,
+      -3
+    ],
+    [
+      -3,
+      -2
+    ],
+    [
+      -2,
+      -6
+    ],
+    [
+      -2,
+      -5
+    ],
+    [
+      -2,
+      -4
+    ],
+    [
+      -2,
+      -3
+    ],
+    [
+      -2,
+      -2
+    ],
+    [
+      -1,
+      -7
+    ],
+    [
+      -1,
+      -6
+    ],
+    [
+      -1,
+      -5
+    ],
+    [
+      -1,
+      -4
+    ],
+    [
+      -1,
+      -3
+    ],
+    [
+      -1,
+      -2
+    ],
+    [
+      -1,
+      -1
+    ],
+    [
+      0,
+      -7
+    ],
+    [
+      0,
+      -6
+    ],
+    [
+      0,
+      -5
+    ],
+    [
+      0,
+      -4
+    ],
+    [
+      0,
+      -3
+    ],
+    [
+      0,
+      -2
+    ],
+    [
+      0,
+      -1
+    ],
+    [
+      1,
+      -6
+    ],
+    [
+      1,
+      -5
+    ],
+    [
+      1,
+      -4
+    ],
+    [
+      1,
+      -3
+    ],
+    [
+      1,
+      -2
+    ],
+    [
+      2,
+      -6
+    ],
+    [
+      2,
+      -5
+    ],
+    [
+      2,
+      -4
+    ],
+    [
+      2,
+      -3
+    ],
+    [
+      2,
+      -2
+    ]
+  ],
+  "stats": {
+    "tris": 9136,
+    "verts": 4736,
+    "materials": [
+      "ww_bronze",
+      "ww_stone",
+      "ww_stone_moss"
+    ],
+    "bbox_min": [
+      -0.724,
+      -1.8,
+      -0.0024
+    ],
+    "bbox_max": [
+      0.7236,
+      0.0,
+      0.4525
+    ],
+    "size": [
+      1.4476,
+      1.8,
+      0.4549
+    ]
+  },
+  "qa": {
+    "body": {
+      "islands": 84,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    }
+  },
+  "notes": [
+    "整體 140 × 180 cm（含前後各 20 cm 短接口）；內淨 120 × 120 cm、底高 10 cm。",
+    "公共工程起點：後方 intake 接溪邊取水口，前方出口接 B02–B05；不是私人靈田床。"
+  ],
+  "states": {},
+  "collision": "以 footprint 盒＋各牆盒組成；水面不碰撞",
+  "lod": {
+    "LOD0": 9136,
+    "LOD1": 4110,
+    "LOD2": 1644
+  },
+  "extra": {},
+  "exports": {
+    "glb": "B01.glb",
+    "water_glb": "B01_water.glb",
+    "water_fbx": "B01_water.fbx",
+    "fbx": "B01.fbx",
+    "lod1": "B01_LOD1.glb",
+    "lod2": "B01_LOD2.glb"
+  },
+  "reimport": {
+    "file": "art/exports/qingxi-waterworks-b/B01/B01.glb",
+    "tris": 9136,
+    "size": [
+      1.4476,
+      1.8,
+      0.4549
+    ],
+    "materials": [
+      "ww_bronze.001",
+      "ww_stone.001",
+      "ww_stone_moss.001"
+    ],
+    "empties": [
+      "SOCKET_intake.001",
+      "SOCKET_out.001"
+    ],
+    "size_error_m": 0.0,
+    "tris_match": true,
+    "textures_embedded": 4
+  }
+}

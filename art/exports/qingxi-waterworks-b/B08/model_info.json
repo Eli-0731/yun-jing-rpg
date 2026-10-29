@@ -1,0 +1,115 @@
+{
+  "id": "B08",
+  "name": "河床清淤篩",
+  "family": "B08",
+  "variant": "B08",
+  "author": "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模",
+  "status": "建模完成（程序化母稿），待人工精修審核",
+  "reference": "art/references/qingxi-waterworks-b/B08_three_view_dry_v002.png",
+  "units": "m",
+  "up": "Blender +Z / glTF +Y",
+  "flow_axis": "入口在原點，水流朝 +Y",
+  "standard": {
+    "outer_w": 0.6,
+    "clear_w": 0.4,
+    "total_h": 0.4,
+    "floor_t": 0.1,
+    "water_z": 0.28,
+    "grid": 0.25
+  },
+  "ports": [],
+  "flows": [],
+  "water_polys": [],
+  "sockets": [],
+  "parts": [
+    "body"
+  ],
+  "footprint_cells": [
+    [
+      -1,
+      -1
+    ],
+    [
+      -1,
+      0
+    ],
+    [
+      0,
+      -1
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "stats": {
+    "tris": 1832,
+    "verts": 1130,
+    "materials": [
+      "ww_bronze",
+      "ww_rope",
+      "ww_wood"
+    ],
+    "bbox_min": [
+      -0.309,
+      -0.234,
+      -0.002
+    ],
+    "bbox_max": [
+      0.309,
+      1.3377,
+      0.6253
+    ],
+    "size": [
+      0.618,
+      1.5717,
+      0.6273
+    ]
+  },
+  "qa": {
+    "body": {
+      "islands": 107,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    }
+  },
+  "notes": [
+    "靜置姿勢：籃底平放地面、柄末端離地約 61 cm（參考圖右視）；握持姿勢由角色動畫決定。",
+    "網格 10 mm 淨開口、2.5 mm 青銅線；籃底泥污未建模，留給貼圖或頂點色。"
+  ],
+  "states": {},
+  "collision": "籃盒 60 × 45 × 12 cm＋柄膠囊 Ø4 cm",
+  "lod": {
+    "LOD0": 1832,
+    "LOD1": 824,
+    "LOD2": 328
+  },
+  "extra": {},
+  "exports": {
+    "glb": "B08.glb",
+    "fbx": "B08.fbx",
+    "lod1": "B08_LOD1.glb",
+    "lod2": "B08_LOD2.glb"
+  },
+  "reimport": {
+    "file": "art/exports/qingxi-waterworks-b/B08/B08.glb",
+    "tris": 1832,
+    "size": [
+      0.618,
+      1.5717,
+      0.6273
+    ],
+    "materials": [
+      "ww_bronze.001",
+      "ww_rope.001",
+      "ww_wood.001"
+    ],
+    "empties": [],
+    "size_error_m": 0.0,
+    "tris_match": true,
+    "textures_embedded": 2
+  }
+}
