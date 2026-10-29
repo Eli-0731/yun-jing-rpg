@@ -164,7 +164,7 @@ namespace YunJing.Editor
 
         // Morning sky: a procedural skybox tinted to the haze, so the horizon melts into the fog instead of
         // ending at a grey void.
-        static Material Sky()
+        internal static Material Sky()
         {
             var path = MaterialFolder + "/QingxiSky_Procedural.mat";
             var mat = AssetDatabase.LoadAssetAtPath<Material>(path);

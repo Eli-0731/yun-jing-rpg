@@ -67,6 +67,7 @@ export function alchemyView(player: Player): AlchemyView {
     profile: profile && { recipe: profile.recipe, label: profile.label, phases: profile.phases },
   };
 }
+export const TERRITORY_PLOTS = 2;
 export function estateOf(player: Player) { return player.estate ?? { cistern: false, bound: false, modes: ['rain','rain','rain','rain'] }; }
 export class GameError extends Error {
   constructor(public code: string, message: string, public status = 400) { super(message); }
@@ -258,8 +259,12 @@ export class Game {
       player.cooldowns[key] = now + seconds * 1000;
     };
     const history = (label: string) => { world.history.push({ player: player.name, action: label, at: now }); world.history = world.history.slice(-30); };
-    if(player.journey && ['plant','build-cistern','configure-irrigation'].includes(action.kind))
-      ensure(player.journey.housing==='cave','CAVE_REQUIRED','入宗獲得洞府與靈田後才能使用；目前可採集、修煉或研究配方',409);
+    // Newcomers farm their own territory (the lent old house) from day one, on its two fields.
+    // The cistern, irrigation and the other two fields come with the sect residence.
+    if(player.journey && ['build-cistern','configure-irrigation'].includes(action.kind))
+      ensure(player.journey.housing==='cave','CAVE_REQUIRED','入宗後宗門分派的住處才有蓄水池與水路；新手領地可以先種兩塊田',409);
+    if(player.journey && player.journey.housing==='lodging' && action.kind==='plant')
+      ensure(integer(action.plot,0,3)<TERRITORY_PLOTS,'PLOT_LOCKED','新手領地只有兩塊靈田；入宗後住處有四塊',409);
     switch (action.kind) {
       case 'appraise': {
         ensure(player.journey,'LEGACY_ASSESSED','既有測試角色已沿用原本資質紀錄',409);
@@ -416,6 +421,7 @@ export class Game {
         ensure(plot, 'EMPTY_PLOT', '這塊田沒有作物', 409); ensure(plot.readyAt <= now, 'NOT_READY', '作物尚未成熟', 409);
         const crop = content.crops.find(x => x.id === plot.crop)!;
         grant(player, crop.item, plot.harvestYield ?? crop.yield, plot.bound); player.plots = player.plots.filter(x => x.index !== index);
+        player.vein = (player.vein ?? 0) + 1; // 脈息: hidden, revealed by the story later (docs/story/world-lore-v1.md §七)
         mark(player, 'harvested'); break;
       }
       case 'craft': {

@@ -24,6 +24,7 @@ export interface Player {
   journey?: Journey;
   study?: TechniqueStudy;
   alchemy?: AlchemyState;
+  vein?: number;        // 脈息: harvests that fed the spirit vein; hidden from players for now
   fortunes?: string[];   // 機緣 found by this character (ids from packages/content/fortunes.json)
 }
 export interface World {

@@ -8,10 +8,12 @@ using UnityEngine.Rendering;
 
 namespace YunJing.Editor
 {
-    // Interior of the novice-village lodging (a separate scene, entered through the house door with a fade):
-    // joshsu54's disciple bed, storage chest and meditation cushion in a graybox room. The room shell is a
-    // placeholder until an interior kit is modelled (AI three-view first). F at the bed rests, at the chest
-    // opens it, at the cushion starts Johnnnny0823's qi breathing drill, at the door walks back out.
+    // The newcomer's own territory (K23; a private scene, entered through the lodging door with a fade): the old
+    // house Qingxi lends to newcomers, and its walled backyard. Inside: joshsu54's disciple bed, storage chest and
+    // meditation cushion (Johnnnny0823's qi breathing drill) in a graybox room. Out the back door: two spirit
+    // fields (QingxiTerritoryFields, planted and harvested through the server) and Johnnnny0823's agility post
+    // for the block drill. The front door walks back out into the shared world. Room and yard walls are
+    // placeholders until the interior kit (Codex C2) arrives.
     public static class QingxiLodgingInteriorBuilder
     {
         public const string ScenePath = "Assets/YunJing/Generated/QingxiLodgingInterior.unity";
@@ -27,6 +29,7 @@ namespace YunJing.Editor
             var room = new GameObject("QingxiLodgingInterior").transform;
             Shell(room);
             Lights(room);
+            Yard(room, out var fields, out var practicePost);
 
             var bed = Furniture("DiscipleBed", "DiscipleBed_v001", room, new Vector3(-W / 2 + .75f, 0, 1.0f), 90f);
             var chest = Furniture("StorageChest", "StorageChest_v001", room, new Vector3(W / 2 - .9f, 0, D / 2 - .6f), 180f);
@@ -38,7 +41,7 @@ namespace YunJing.Editor
             var player = QingxiNoviceVillageBuilder.Player(room, new Vector3(0, .05f, -D / 2 + 1.2f));
             var walker = player.GetComponent<global::QingxiWorld.QingxiFirstPerson>();
             walker.useDesignedHud = true;
-            walker.spotNames = new[] { "借住處室內" };
+            walker.spotNames = new[] { "我的領地" };
             walker.spotPositions = new[] { new Vector3(0, .05f, -D / 2 + 1.2f) };
             walker.spotYaws = new[] { 0f };
             walker.pointsOfInterest = new Transform[0];
@@ -48,11 +51,14 @@ namespace YunJing.Editor
             stations.exitDoor = exit; stations.bed = bed.transform; stations.chest = chest.transform; stations.walker = walker;
             var training = player.AddComponent<QingxiTrainingPractice>();
             training.qiPost = cushion.transform; training.qiLabel = "蒲團"; training.walker = walker;
+            training.blockPost = practicePost;
+            stations.fields = fields;
             QingxiNoviceVillageBuilder.TrainingGlow(training);
             stations.training = training;
             foraging.abc = stations;
             walker.localForaging = foraging;
             var hud = new GameObject("Interior HUD").AddComponent<QingxiInteriorHud>();
+            hud.place = "我的領地";
             hud.stations = stations; hud.training = training;
             var touch = player.AddComponent<QingxiTouchControls>(); touch.training = training;
 
@@ -69,7 +75,11 @@ namespace YunJing.Editor
             var beam = Surface("LodgingBeam_Placeholder", new Color(.30f, .20f, .13f));
             Box(room, "Placeholder_Floor", new Vector3(0, -.05f, 0), new Vector3(W, .1f, D), floor);
             Box(room, "Placeholder_Ceiling", new Vector3(0, H + .05f, 0), new Vector3(W, .1f, D), beam);
-            Box(room, "Placeholder_WallBack", new Vector3(0, H / 2, D / 2 + .05f), new Vector3(W, H, .1f), wall);
+            // Back wall with an open doorway to the backyard.
+            float back = (W - 1.2f) / 2;
+            Box(room, "Placeholder_WallBackLeft", new Vector3(-W / 2 + back / 2, H / 2, D / 2 + .05f), new Vector3(back, H, .1f), wall);
+            Box(room, "Placeholder_WallBackRight", new Vector3(W / 2 - back / 2, H / 2, D / 2 + .05f), new Vector3(back, H, .1f), wall);
+            Box(room, "Placeholder_WallBackTop", new Vector3(0, 2.2f + (H - 2.2f) / 2, D / 2 + .05f), new Vector3(1.2f, H - 2.2f, .1f), wall);
             Box(room, "Placeholder_WallLeft", new Vector3(-W / 2 - .05f, H / 2, 0), new Vector3(.1f, H, D), wall);
             Box(room, "Placeholder_WallRight", new Vector3(W / 2 + .05f, H / 2, 0), new Vector3(.1f, H, D), wall);
             // Front wall with the door opening (1.2 m wide, 2.2 m high); the opening is closed by a dark door panel.
@@ -97,6 +107,82 @@ namespace YunJing.Editor
             var window = new GameObject("Window light").AddComponent<Light>();
             window.transform.SetParent(room, false); window.transform.rotation = Quaternion.Euler(40, 120, 0);
             window.type = LightType.Directional; window.intensity = .5f; window.color = new Color(.85f, .9f, 1f);
+            // Daylight for the backyard; the roof keeps the room in shade.
+            var sun = new GameObject("Yard sun").AddComponent<Light>();
+            sun.transform.SetParent(room, false); sun.transform.rotation = Quaternion.Euler(48, -35, 0);
+            sun.type = LightType.Directional; sun.intensity = 1.15f; sun.color = new Color(1f, .93f, .82f); sun.shadows = LightShadows.Soft;
+            RenderSettings.skybox = QingxiNoviceVillageBuilder.Sky();
+        }
+
+        // Walled backyard behind the house: two spirit fields, a stone path and the practice post.
+        const float YardW = 12f, YardD = 10f;
+        static void Yard(Transform room, out QingxiTerritoryFields fields, out Transform practicePost)
+        {
+            var yard = new GameObject("Territory_Backyard").transform; yard.SetParent(room, false);
+            yard.localPosition = new Vector3(0, 0, D / 2);
+            var soil = Surface("TerritoryYard_Ground", new Color(.46f, .52f, .32f));
+            var stone = Surface("TerritoryYard_Path", new Color(.62f, .6f, .55f));
+            var fence = Surface("TerritoryYard_Fence", new Color(.36f, .26f, .17f));
+            var leaf = Surface("TerritoryYard_Sprout", new Color(.38f, .66f, .34f));
+            Box(yard, "Yard_Ground", new Vector3(0, -.05f, YardD / 2), new Vector3(YardW, .1f, YardD), soil);
+            Box(yard, "Yard_Path", new Vector3(0, .01f, YardD / 2), new Vector3(1.1f, .04f, YardD - .4f), stone);
+            const float F = 1.1f;
+            Box(yard, "Yard_FenceBack", new Vector3(0, F / 2, YardD), new Vector3(YardW, F, .12f), fence);
+            Box(yard, "Yard_FenceLeft", new Vector3(-YardW / 2, F / 2, YardD / 2), new Vector3(.12f, F, YardD), fence);
+            Box(yard, "Yard_FenceRight", new Vector3(YardW / 2, F / 2, YardD / 2), new Vector3(.12f, F, YardD), fence);
+            // The yard is wider than the house: close the gaps between the house and the side fences.
+            Box(yard, "Yard_FenceFrontLeft", new Vector3(-(YardW + W) / 4, F / 2, 0), new Vector3((YardW - W) / 2, F, .12f), fence);
+            Box(yard, "Yard_FenceFrontRight", new Vector3((YardW + W) / 4, F / 2, 0), new Vector3((YardW - W) / 2, F, .12f), fence);
+            // A taller invisible rim so nobody climbs out over the low fence.
+            foreach (var (n, at, size) in new[] {
+                ("Yard_Rim_Back", new Vector3(0, 2, YardD + .2f), new Vector3(YardW + 1, 4, .2f)),
+                ("Yard_Rim_Left", new Vector3(-YardW / 2 - .2f, 2, YardD / 2), new Vector3(.2f, 4, YardD + 1)),
+                ("Yard_Rim_Right", new Vector3(YardW / 2 + .2f, 2, YardD / 2), new Vector3(.2f, 4, YardD + 1)),
+                ("Yard_Rim_FrontLeft", new Vector3(-(YardW + W) / 4, 2, -.2f), new Vector3((YardW - W) / 2, 4, .2f)),
+                ("Yard_Rim_FrontRight", new Vector3((YardW + W) / 4, 2, -.2f), new Vector3((YardW - W) / 2, 4, .2f)) })
+            {
+                var rim = new GameObject(n).AddComponent<BoxCollider>(); rim.transform.SetParent(yard, false);
+                rim.transform.localPosition = at; rim.size = size;
+            }
+
+            fields = room.gameObject.AddComponent<QingxiTerritoryFields>();
+            var list = new System.Collections.Generic.List<QingxiTerritoryFields.Field>();
+            foreach (var x in new[] { -2.8f, 2.8f })
+            {
+                var bed = EstateModel("spirit-bed", "SpiritField_" + (list.Count + 1), yard, new Vector3(x, 0, 4.2f));
+                var crop = new GameObject("Crop").transform; crop.SetParent(yard, false);
+                crop.position = bed.transform.position + Vector3.up * .3f;
+                for (int r = 0; r < 4; r++)
+                    for (int c = 0; c < 3; c++)
+                    {
+                        var sprout = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+                        UnityEngine.Object.DestroyImmediate(sprout.GetComponent<Collider>());
+                        sprout.name = "Sprout"; sprout.transform.SetParent(crop, false);
+                        sprout.transform.localPosition = new Vector3((c - 1) * .6f, .22f, (r - 1.5f) * .62f);
+                        sprout.transform.localScale = new Vector3(.16f, .22f, .16f);
+                        sprout.GetComponent<Renderer>().sharedMaterial = leaf;
+                    }
+                var glow = new GameObject("RipeGlow").AddComponent<Light>(); glow.transform.SetParent(crop, false);
+                glow.transform.localPosition = new Vector3(0, .8f, 0);
+                glow.type = LightType.Point; glow.range = 3.2f; glow.intensity = 1.4f; glow.color = new Color(1f, .86f, .45f);
+                glow.gameObject.SetActive(false);
+                list.Add(new QingxiTerritoryFields.Field { bed = bed.transform, crop = crop });
+            }
+            fields.fields = list.ToArray();
+
+            var result = new QingxiCollaboratorZonesBuilder.Result();
+            practicePost = QingxiCollaboratorZonesBuilder.PlaceTrainingProp("agility-post", yard, new Vector3(0, 0, 8.3f), 180, result).transform;
+        }
+
+        static GameObject EstateModel(string key, string name, Transform parent, Vector3 at)
+        {
+            var source = AssetDatabase.LoadAssetAtPath<GameObject>($"Assets/YunJing/Models/IrrigationV2/{key}.fbx");
+            if (source == null) throw new FileNotFoundException("Spirit field model missing", key);
+            var model = (GameObject)PrefabUtility.InstantiatePrefab(source);
+            model.name = name + " - core (IrrigationV2)";
+            model.transform.SetParent(parent, false);
+            model.transform.localPosition = at;
+            return model;
         }
 
         static GameObject Furniture(string folder, string key, Transform room, Vector3 at, float yaw)

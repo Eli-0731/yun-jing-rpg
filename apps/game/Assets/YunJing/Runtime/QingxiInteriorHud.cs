@@ -19,7 +19,7 @@ namespace YunJing
             var previous = GUI.matrix;
             GUI.matrix = Matrix4x4.Scale(Vector3.one * scale);
             string prompt = stations != null ? stations.Prompt(walker.transform.position) : null;
-            GUI.Box(new Rect(16, 16, 420, 74), $"{place}（室內）\n{prompt ?? "WASD／搖桿 走動　F 互動"}\n{walker.LastLog}");
+            GUI.Box(new Rect(16, 16, 420, 74), $"{place}\n{prompt ?? "WASD／搖桿 走動　F 互動"}\n{walker.LastLog}");
             GUI.matrix = previous;
         }
     }

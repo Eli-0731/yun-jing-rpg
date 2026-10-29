@@ -21,6 +21,7 @@ namespace YunJing
         public QingxiForestEncounter forest;
         public QingxiFirstPerson walker;
         public QingxiTrainingPractice training;   // Johnnnny0823's training drills (posts, or the cushion indoors)
+        public QingxiTerritoryFields fields;     // K23: the spirit fields in the newcomer's own territory
         public QingxiFortunes fortunes;           // 機緣 (K4): hidden finds, checked after every station
 
         // Set by QingxiSceneReturn when the player leaves the alchemy room, and by the lodging exit door.
@@ -54,13 +55,15 @@ namespace YunJing
         {
             var practice = training != null ? training.Prompt(position) : null;
             if (practice != null) return practice;
-            if (lodgingDoor != null && Flat(position, lodgingDoor.position) <= Reach) return "F 推門進入借住處";
+            if (lodgingDoor != null && Flat(position, lodgingDoor.position) <= Reach) return "F 推門回到自己的領地";
             if (exitDoor != null && Flat(position, exitDoor.position) <= Reach) return "F 推門出去，回到青溪村";
             if (bed != null && Flat(position, bed.position) <= Reach) return "F 在床上歇息片刻";
             if (chest != null && Flat(position, chest.position) <= Reach) return "F 打開儲物箱";
             if (alchemyDoor != null && Flat(position, alchemyDoor.position) <= Reach) return "F 進入溪畔丹房（joshsu54 煉製玩法，需本機 API）";
             if (returnTable != null && Flat(position, returnTable.position) <= Reach) return "F 在分揀桌整理回村樣本（保存／留待煉製／交委託展示）";
             if (forest != null && forest.NearLadder(position)) return forest.Climbed ? "F 爬下觀察台" : "F 爬上觀察台（安全點）";
+            var field = fields != null ? fields.Prompt(position) : null;
+            if (field != null) return field;
             return fortunes != null ? fortunes.Prompt(position) : null;
         }
 
@@ -112,6 +115,7 @@ namespace YunJing
                 return true;
             }
             if (forest != null && forest.NearLadder(position)) { message = forest.ToggleClimb(); return true; }
+            if (fields != null && fields.TryInteract(position, out message)) return true;
             return fortunes != null && fortunes.TryInteract(position, out message);
         }
     }

@@ -216,7 +216,7 @@ namespace YunJing
                 var lodgingDoor = stations.lodgingDoor.position;
                 Teleport(walker, lodgingDoor);
                 yield return Frames(5);
-                Check("lodging door prompt", (foraging.Prompt(walker.transform.position) ?? "").Contains("借住處"));
+                Check("lodging door prompt", (foraging.Prompt(walker.transform.position) ?? "").Contains("領地"));
                 foraging.TryInteract(walker.transform.position, out _);
                 yield return new WaitForSecondsRealtime(2.5f);
                 walker = QingxiFirstPerson.Current;
@@ -235,6 +235,37 @@ namespace YunJing
                     Teleport(walker, inside.training.qiPost.position + Vector3.back * .9f);
                     yield return Frames(5);
                     Check("cushion offers breathing", (indoorForaging.Prompt(walker.transform.position) ?? "").Contains("蒲團"));
+                    // K23 territory: the backyard has two spirit fields and the practice post.
+                    var fields = inside.fields;
+                    Check("the territory has two spirit fields", fields != null && fields.fields.Length == 2);
+                    if (fields != null && fields.fields.Length == 2)
+                    {
+                        Teleport(walker, fields.fields[0].bed.position + Vector3.back * 1.9f);
+                        yield return Frames(5);
+                        var fieldPrompt = indoorForaging.Prompt(walker.transform.position) ?? "";
+                        Check($"the field offers planting, growth or harvest ({fieldPrompt})", fieldPrompt.Contains("種下") || fieldPrompt.Contains("生長中") || fieldPrompt.Contains("收成"));
+                        if (fieldPrompt.Contains("種下"))
+                        {
+                            indoorForaging.TryInteract(walker.transform.position, out _);
+                            yield return Frames(3);
+                            Check("planting shows a growing crop", (indoorForaging.Prompt(walker.transform.position) ?? "").Contains("生長中") && fields.fields[0].crop.gameObject.activeSelf);
+                            if (QingxiServerLink.Online)
+                            {
+                                float give = Time.realtimeSinceStartup + 10;
+                                bool kept = false;
+                                while (!kept && Time.realtimeSinceStartup < give)
+                                {
+                                    var plots = QingxiServerLink.Current.api.State.player.plots;
+                                    if (plots != null) foreach (var plot in plots) if (plot.index == 0) kept = true;
+                                    yield return null;
+                                }
+                                Check("the server keeps the planting", kept);
+                            }
+                        }
+                        Teleport(walker, inside.training.blockPost.position + Vector3.back * 1.4f);
+                        yield return Frames(5);
+                        Check("the yard practice post offers blocking", (indoorForaging.Prompt(walker.transform.position) ?? "").Contains("武技格擋"));
+                    }
                     Teleport(walker, inside.exitDoor.position);
                     yield return Frames(5);
                     indoorForaging.TryInteract(walker.transform.position, out _);
