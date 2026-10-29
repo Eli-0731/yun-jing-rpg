@@ -13,8 +13,8 @@
  "triangles": 1438,
  "lod_triangles": [
   1438,
-  639,
-  281
+  718,
+  214
  ],
  "collision": {
   "type": "box",
@@ -65,8 +65,8 @@
   ],
   "trianglesLOD": [
    1438,
-   639,
-   281
+   718,
+   214
   ],
   "budgetLOD0": 4000,
   "withinBudget": true,
@@ -96,12 +96,12 @@
   },
   "files": {
    "A09_WaterGauge.glb": {
-    "bytes": 298316,
-    "sha256": "1cffd73e75ce9218e1ca2a220e9c183284f42449ffa2388eb24f9d8d1c5eb124"
+    "bytes": 345200,
+    "sha256": "9f55c3aa4f17af05f5be64ee48c6e8f0d903fafb9e6fadd7a223283ce1e930a0"
    },
    "A09_WaterGauge.fbx": {
-    "bytes": 179932,
-    "sha256": "2b1f14d828699595a8a7cb70d494bc8ecbee9c3dab2fdeb9144edf184213ef78"
+    "bytes": 180940,
+    "sha256": "cad0fde20523934ea3dab5d06ae52ab6b6559ea7b56d3c28e3a5a1c0de5a259f"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A09_three_view.png",

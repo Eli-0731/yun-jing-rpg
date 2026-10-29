@@ -13,8 +13,8 @@
  "triangles": 4066,
  "lod_triangles": [
   4066,
-  2001,
-  880
+  2033,
+  576
  ],
  "collision": {
   "type": "mesh",
@@ -51,8 +51,8 @@
   ],
   "trianglesLOD": [
    4066,
-   2001,
-   880
+   2033,
+   576
   ],
   "budgetLOD0": 9000,
   "withinBudget": true,
@@ -74,7 +74,7 @@
   "glbRoundTrip": {
    "triangles": 4066,
    "trianglesMatch": true,
-   "bboxMatch": true,
+   "bboxMatch": false,
    "materials": [
     "LowWater.001",
     "M_A04_SiltBar.001"
@@ -82,12 +82,12 @@
   },
   "files": {
    "A04_SiltBar.glb": {
-    "bytes": 806096,
-    "sha256": "ffba8318d661404155dbc4485a16872718d3887b570c39e554afaf1a08f6e873"
+    "bytes": 937752,
+    "sha256": "d7198084c74f1f52ea810fe78df3d4e4bc8814bc64f586a1c00eb2abd2700121"
    },
    "A04_SiltBar.fbx": {
-    "bytes": 623452,
-    "sha256": "73a6cefd9629ae3149d3cd0fd41448e7e0279097365feeb929656a1f0dfd6caa"
+    "bytes": 582140,
+    "sha256": "41c7a88fd908379e8568ab713afd013d8278310015c3be5c56235aaf923bfeec"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A04_three_view.png",

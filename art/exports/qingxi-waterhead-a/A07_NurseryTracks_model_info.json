@@ -13,8 +13,8 @@
  "triangles": 5070,
  "lod_triangles": [
   5070,
-  2290,
-  1007
+  2535,
+  759
  ],
  "collision": {
   "type": "heightfield",
@@ -51,8 +51,8 @@
   ],
   "trianglesLOD": [
    5070,
-   2290,
-   1007
+   2535,
+   759
   ],
   "budgetLOD0": 7000,
   "withinBudget": true,
@@ -82,12 +82,12 @@
   },
   "files": {
    "A07_NurseryTracks.glb": {
-    "bytes": 1067784,
-    "sha256": "1c89ada91403176125174a4a5dbbf2c646fea113eed983f5462bcf33f0065f94"
+    "bytes": 1175660,
+    "sha256": "3928c99fb392ccd67e4b50020b49de1c96d4556ea9a560c8a0402f49406d116c"
    },
    "A07_NurseryTracks.fbx": {
-    "bytes": 591420,
-    "sha256": "849191bc4e37be871b94fc644877ffd637ff8af2eb8d71ae0f2d41d9b100076d"
+    "bytes": 584908,
+    "sha256": "234808b1fc96893d215399c2686d2e4a1eaf8a406db19fdd4a72a9be65800462"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A07_three_view.png",

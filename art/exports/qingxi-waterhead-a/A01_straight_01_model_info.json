@@ -8,13 +8,13 @@
  "dimensions_m": [
   7.0,
   6.0,
-  1.5822
+  1.5367
  ],
- "triangles": 18516,
+ "triangles": 19476,
  "lod_triangles": [
-  18516,
-  6968,
-  3065
+  19476,
+  9737,
+  2921
  ],
  "collision": {
   "type": "heightfield",
@@ -66,7 +66,7 @@
   "dimensions_m": [
    7.0,
    6.0,
-   1.5822
+   1.5367
   ],
   "bbox_min": [
    -3.5,
@@ -76,12 +76,12 @@
   "bbox_max": [
    3.5,
    6.0,
-   1.5822
+   1.5367
   ],
   "trianglesLOD": [
-   18516,
-   6968,
-   3065
+   19476,
+   9737,
+   2921
   ],
   "budgetLOD0": 20000,
   "withinBudget": true,
@@ -103,7 +103,7 @@
    "zeroAreaFaces": 0
   },
   "glbRoundTrip": {
-   "triangles": 18516,
+   "triangles": 19476,
    "trianglesMatch": true,
    "bboxMatch": true,
    "materials": [
@@ -114,12 +114,12 @@
   },
   "files": {
    "A01_straight_01.glb": {
-    "bytes": 3795256,
-    "sha256": "6b00b552507f8d552568bce1e2626206606dd62adc93860864ef7ba264f1312f"
+    "bytes": 4237500,
+    "sha256": "a2324edac9eb70bcc388cf5a6f0b1b8be9767f016cacc4f4e8a6477e4ccdfd52"
    },
    "A01_straight_01.fbx": {
-    "bytes": 2236316,
-    "sha256": "d72d30e0481883e703670918931967e4f07c1343bec7a0d6a4d9858afcc1c717"
+    "bytes": 2464252,
+    "sha256": "a0d3cea965533d12f891c0dee795cb4acacd7f0b8d0b75d9345abce9ade38df1"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A01_straight_three_view.png",
@@ -132,7 +132,7 @@
  },
  "river_interface": {
   "origin": "downstream port: channel centre at the tile base; upstream is +Y (Blender) / -Z (glTF)",
-  "channel_width_m": 2.4,
+  "channel_width_m": 2.6,
   "tile_width_m": 7.0,
   "bank_top_m": 1.15,
   "bed_m": 0.25,

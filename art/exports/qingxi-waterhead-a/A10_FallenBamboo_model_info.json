@@ -13,8 +13,8 @@
  "triangles": 9760,
  "lod_triangles": [
   9760,
-  3990,
-  1754
+  4880,
+  1464
  ],
  "collision": {
   "type": "capsules",
@@ -51,8 +51,8 @@
   ],
   "trianglesLOD": [
    9760,
-   3990,
-   1754
+   4880,
+   1464
   ],
   "budgetLOD0": 14000,
   "withinBudget": true,
@@ -82,12 +82,12 @@
   },
   "files": {
    "A10_FallenBamboo.glb": {
-    "bytes": 861080,
-    "sha256": "5d203a48abc1cab4ebcaf3cefad2aff5e831981b931aa579eaf942a910798a16"
+    "bytes": 1127568,
+    "sha256": "0ef9846809289267d4f026e6f0d95636bc60f909344050cdd37d240142c646f0"
    },
    "A10_FallenBamboo.fbx": {
-    "bytes": 1296220,
-    "sha256": "c1ad0fb5bc678344b3fbc6869d352594676195a81ff8f6c046f69e6b5611f1b2"
+    "bytes": 1349532,
+    "sha256": "9f5e73a3433ef2526d013def15db886a117f2cf20c583450613944652355519f"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A10_three_view.png",

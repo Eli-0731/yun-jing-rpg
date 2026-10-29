@@ -13,8 +13,8 @@
  "triangles": 10007,
  "lod_triangles": [
   10007,
-  4796,
-  2110
+  5002,
+  1473
  ],
  "collision": {
   "type": "capsule",
@@ -64,8 +64,8 @@
   ],
   "trianglesLOD": [
    10007,
-   4796,
-   2110
+   5002,
+   1473
   ],
   "budgetLOD0": 22000,
   "withinBudget": true,
@@ -89,7 +89,7 @@
   "glbRoundTrip": {
    "triangles": 10007,
    "trianglesMatch": true,
-   "bboxMatch": true,
+   "bboxMatch": false,
    "materials": [
     "GrassClump.001",
     "LowWater.001",
@@ -98,12 +98,12 @@
   },
   "files": {
    "A12_ResonanceStone.glb": {
-    "bytes": 1399572,
-    "sha256": "1c6f7fc59874a6b596535740f885f32f109648d071fd52d426d7b87dc5cd7215"
+    "bytes": 1644772,
+    "sha256": "9f6ec22fc31a2f15fa324eede895b5db1190a5afbc78054d7475091bcce33240"
    },
    "A12_ResonanceStone.fbx": {
-    "bytes": 1245932,
-    "sha256": "50903c7641a8432c95918578a165d7e164ed61c4fe0a57499f61cefa2b9e6000"
+    "bytes": 1211308,
+    "sha256": "ec24305040575d2ed4b6cd906261f85b3b32d88a2403db21bcf56fc80721a3dd"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A12_three_view.png",

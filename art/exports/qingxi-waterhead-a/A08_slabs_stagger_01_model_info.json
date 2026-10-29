@@ -8,13 +8,13 @@
  "dimensions_m": [
   3.1,
   2.5,
-  0.4178
+  0.3196
  ],
  "triangles": 4240,
  "lod_triangles": [
   4240,
   2120,
-  931
+  635
  ],
  "collision": {
   "type": "mesh",
@@ -35,22 +35,22 @@
   "dimensions_m": [
    3.1,
    2.5,
-   0.4178
+   0.3196
   ],
   "bbox_min": [
    -1.55,
    -1.25,
-   0.2152
+   0.2134
   ],
   "bbox_max": [
    1.55,
    1.25,
-   0.633
+   0.533
   ],
   "trianglesLOD": [
    4240,
    2120,
-   931
+   635
   ],
   "budgetLOD0": 9000,
   "withinBudget": true,
@@ -70,19 +70,19 @@
   "glbRoundTrip": {
    "triangles": 4240,
    "trianglesMatch": true,
-   "bboxMatch": true,
+   "bboxMatch": false,
    "materials": [
     "M_A08_slabs_stagger_01.001"
    ]
   },
   "files": {
    "A08_slabs_stagger_01.glb": {
-    "bytes": 589000,
-    "sha256": "68bde238c74fe097b39645296a6160a75998d105c0638ee1cb9869320444022c"
+    "bytes": 733264,
+    "sha256": "a3ad5bb2d635101516352f19249e3ad9be15260ca5106e0d772888e81ef60eae"
    },
    "A08_slabs_stagger_01.fbx": {
-    "bytes": 546892,
-    "sha256": "1b450144ae2c1b99e267ce3724e06dca228c609e0af04c7ace60fc91d00ce000"
+    "bytes": 513468,
+    "sha256": "90e73d927b48f15594b271938a8b370f11c46276039a3df8d51770b459973655"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A08_slabs_stagger_three_view.png",

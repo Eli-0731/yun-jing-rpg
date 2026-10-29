@@ -13,8 +13,8 @@
  "triangles": 2800,
  "lod_triangles": [
   2800,
-  840,
-  368
+  1400,
+  420
  ],
  "collision": {
   "type": "none",
@@ -51,8 +51,8 @@
   ],
   "trianglesLOD": [
    2800,
-   840,
-   368
+   1400,
+   420
   ],
   "budgetLOD0": 4000,
   "withinBudget": true,
@@ -82,12 +82,12 @@
   },
   "files": {
    "A05_WitheredSedge_03.glb": {
-    "bytes": 240112,
-    "sha256": "45f414b3fe9f507182efdb93ec8f73064f3760053b846764ec81adcd5bd0f651"
+    "bytes": 314604,
+    "sha256": "7698a0cf697740cfcd5aac9b8c988ecaf2f83bb2d43666e06bfcba353dd45045"
    },
    "A05_WitheredSedge_03.fbx": {
-    "bytes": 329676,
-    "sha256": "d27368b1ca41f905f7d5f3be1d468d20c47d43eb17875b454939b19610d04629"
+    "bytes": 366732,
+    "sha256": "994f89bb428b618090e87b335fed6a1cf5a8d9f4eab43f833be757dfbaeee340"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A05_low_mat_three_view.png",

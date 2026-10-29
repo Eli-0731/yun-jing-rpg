@@ -13,8 +13,8 @@
  "triangles": 7708,
  "lod_triangles": [
   7708,
-  3614,
-  1590
+  3854,
+  1156
  ],
  "collision": {
   "type": "box",
@@ -61,8 +61,8 @@
   ],
   "trianglesLOD": [
    7708,
-   3614,
-   1590
+   3854,
+   1156
   ],
   "budgetLOD0": 12000,
   "withinBudget": true,
@@ -92,12 +92,12 @@
   },
   "files": {
    "A11_PavilionRuin.glb": {
-    "bytes": 1065600,
-    "sha256": "85eba081df14f3cdf15b4f72e84008403530833b7924c175d15e51843a5791ad"
+    "bytes": 1330144,
+    "sha256": "d887fedeac5864a354508453a9be51bfb87d28670d24b8dcf0114f1e4a13a81e"
    },
    "A11_PavilionRuin.fbx": {
-    "bytes": 1043868,
-    "sha256": "5a00ea4c7a68370871904cd0678d958a96945270cdec052e9226d0504f7f04dd"
+    "bytes": 1007356,
+    "sha256": "3cd02ae8a500db7f32266eb64d3500bcbf0845ebad7ea2ad9ba6c3fe2dad8b6f"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A11_three_view.png",

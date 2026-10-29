@@ -13,8 +13,8 @@
  "triangles": 6080,
  "lod_triangles": [
   6080,
-  2920,
-  1284
+  3040,
+  910
  ],
  "collision": {
   "type": "capsule",
@@ -62,8 +62,8 @@
   ],
   "trianglesLOD": [
    6080,
-   2920,
-   1284
+   3040,
+   910
   ],
   "budgetLOD0": 7000,
   "withinBudget": true,
@@ -85,7 +85,7 @@
   "glbRoundTrip": {
    "triangles": 6080,
    "trianglesMatch": true,
-   "bboxMatch": true,
+   "bboxMatch": false,
    "materials": [
     "GrassClump.001",
     "M_A06_MarkerStone.001"
@@ -93,12 +93,12 @@
   },
   "files": {
    "A06_MarkerStone.glb": {
-    "bytes": 633636,
-    "sha256": "0f56110d256adfab893a7ac1fc970265fc6f76fe7a9eb382d689a20d477daa62"
+    "bytes": 814776,
+    "sha256": "75445e1cb66c9cbf4fc3c0816a0494b7bfb683cb63362460d1adbc0c4785ff78"
    },
    "A06_MarkerStone.fbx": {
-    "bytes": 845260,
-    "sha256": "17fdd99774cc8dcd7301f1b3cce2eb2142be8f325c5155d5d633a68201337f3a"
+    "bytes": 822828,
+    "sha256": "beeb82e1b7d285acbef273ddace1d8ab7b2add72be361d44bda777fd851e56ff"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A06_three_view.png",

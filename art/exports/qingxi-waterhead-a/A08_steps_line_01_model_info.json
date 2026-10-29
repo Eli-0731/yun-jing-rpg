@@ -8,13 +8,13 @@
  "dimensions_m": [
   3.1,
   2.5,
-  0.4244
+  0.3254
  ],
  "triangles": 4880,
  "lod_triangles": [
   4880,
   2440,
-  1073
+  731
  ],
  "collision": {
   "type": "mesh",
@@ -35,22 +35,22 @@
   "dimensions_m": [
    3.1,
    2.5,
-   0.4244
+   0.3254
   ],
   "bbox_min": [
    -1.55,
    -1.25,
-   0.2086
+   0.2076
   ],
   "bbox_max": [
    1.55,
    1.25,
-   0.633
+   0.533
   ],
   "trianglesLOD": [
    4880,
    2440,
-   1073
+   731
   ],
   "budgetLOD0": 9000,
   "withinBudget": true,
@@ -77,12 +77,12 @@
   },
   "files": {
    "A08_steps_line_01.glb": {
-    "bytes": 621020,
-    "sha256": "f61323153d528d98389dcaa4d49a1b447b3082e0cb1e43f692175d5a6bc959ba"
+    "bytes": 765308,
+    "sha256": "756506e03586e692f59cc890bbf46fc77513eee178cd8457db9392cc0556e4b0"
    },
    "A08_steps_line_01.fbx": {
-    "bytes": 607164,
-    "sha256": "b8d2b9f961ef42a0079ae03af86e21ca64a8321def4cf9484c99a4bf304993c4"
+    "bytes": 572012,
+    "sha256": "85c1717e2074a67850f6a9f3361cf024a5c7c13a04bd164406bd898d46f7ff44"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A08_steps_line_three_view.png",

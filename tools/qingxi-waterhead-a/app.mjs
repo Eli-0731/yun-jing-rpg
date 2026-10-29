@@ -56,7 +56,7 @@ function canvasTex(size, paint, repeat) {
 
 // ------------------------------------------------------------------ the river: A01 modules chained at their ports (art/exports/.../A01_*_model_info.json)
 // Blender (Z-up, upstream +Y) -> three (Y-up, upstream -Z). A Blender yaw maps to the same three rotation.y.
-const TOP = 1.15, BED = 0.25, WATER = 0.30, HALF_W = 1.2;
+const TOP = 1.15, BED = 0.25, WATER = 0.30, HALF_W = 1.3;   // 2.6 m channel, as build_waterhead.py
 const MODULES = {
   A01_straight_01: { L: 6.0, turn: 0 }, A01_bend_left_01: { L: 6.5, turn: 25 }, A01_narrow_01: { L: 6.0, turn: 0 }, A01_bend_right_01: { L: 6.5, turn: -40 },
   A01_end_source_01: { L: 4.0, turn: 0 },   // terminal: closes the run upstream (no out port)
@@ -236,6 +236,10 @@ for (const it of order) {
     if (o.visible) hullWalls.push({ poly: hullOutline(h), id: it.id });
     h.removeFromParent();
   }
+  // <key>_LOD1 / _LOD2 ship in the same GLB for the engine's LOD group; the demo always shows LOD0
+  const lods = [];
+  o.traverse(m => { if (/_LOD[12](_\d+)?$/.test(m.name)) lods.push(m); });
+  for (const l of lods) l.removeFromParent();
   o.traverse(m => { if (m.isMesh) { m.castShadow = !it.terrain; m.receiveShadow = true; if (m.material.transparent) { m.castShadow = false; m.material.depthWrite = false; } } });
   scene.add(o);
   if (it.terrain || it.walk) terrain.push(o);
@@ -606,7 +610,7 @@ globalThis.__wh = {
   route: ROUTE, chain: CHAIN, setPlan, eye(on) { viewMode = on ? 'eye' : 'play'; },
   colliders(on) { showColliders = on; if (!on && colliderGroup) { scene.remove(colliderGroup); colliderGroup = null; } },
   /** review only: the old high water (0.86 m) over the whole run, to show the fords under water */
-  highWater(on) { if (on && !highSheet) { const pts = centre.map(c => new THREE.Vector3(c.x, 0, c.z)); highSheet = ribbon(pts, 2.4, -TOP + 0.86); scene.add(highSheet); }
+  highWater(on) { if (on && !highSheet) { const pts = centre.map(c => new THREE.Vector3(c.x, 0, c.z)); highSheet = ribbon(pts, 2 * HALF_W, -TOP + 0.86); scene.add(highSheet); }
     if (highSheet) highSheet.visible = on; },
   more: { NURSERY, GAUGE, RESONANCE, BAMBOO, PAVILION, SILT2, SILT3, FORDS: FORDS.map(([id, q]) => ({ id, ...q })) },
   groundY, riverDist,

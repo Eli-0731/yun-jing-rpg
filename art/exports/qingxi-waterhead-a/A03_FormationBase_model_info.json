@@ -13,8 +13,8 @@
  "triangles": 7168,
  "lod_triangles": [
   7168,
-  3212,
-  1413
+  3562,
+  1063
  ],
  "collision": {
   "type": "cylinder",
@@ -62,8 +62,8 @@
   ],
   "trianglesLOD": [
    7168,
-   3212,
-   1413
+   3562,
+   1063
   ],
   "budgetLOD0": 9000,
   "withinBudget": true,
@@ -93,12 +93,12 @@
   },
   "files": {
    "A03_FormationBase.glb": {
-    "bytes": 729076,
-    "sha256": "47b1c2e98daa8db5ec249946d3f629f2dd8fecc745d6a870ce9a83c72f307ebe"
+    "bytes": 945192,
+    "sha256": "f0e7c1dd8c6f89eef1d616c66ce43ca5807b4d44507acb0588af6b79d260bf5a"
    },
    "A03_FormationBase.fbx": {
-    "bytes": 771708,
-    "sha256": "5a8205eca69ba74fe30607c4824b3bcd1afba40088767b0513d8a378a3cfaee3"
+    "bytes": 778892,
+    "sha256": "131d020d42b76a6cc6542f7a39123494eb4eed1d18b909ba1d4e69110fd3a75a"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A03_three_view.png",

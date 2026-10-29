@@ -35,7 +35,7 @@ TOP = 1.15        # bank top = surrounding ground; place tile origins at -TOP so
 BED = 0.25        # channel bed centre
 WATER = 0.30      # today's low water surface: a thin flow in the centre groove only
 OLD_HI = 0.86     # yesterday's water line: the pale dry band runs from just above WATER up to here
-HALF_W = 1.2      # channel half-width at the bed (2.4 m), same at both ends of every segment
+HALF_W = 1.3      # channel half-width at the bed (2.6 m, the narrowest creek width in tools/qingxi-terrain/novice-village.json), same at both ends of every segment
 TILE_HW = 3.5     # tile half-width across the stream (7 m)
 
 
@@ -637,7 +637,7 @@ def build_river(variant):
 
         def shape(u, s, w):   # pinched to ~1.2 m between two rock outcrops in the middle
             pinch = math.exp(-((u - 3.0) / 0.9) ** 2)
-            return gentle(u, s, w, hw_l=HALF_W - 0.62 * pinch, hw_r=HALF_W - 0.6 * pinch, slope_l=1.0 - 0.6 * pinch,
+            return gentle(u, s, w, hw_l=HALF_W - 0.72 * pinch, hw_r=HALF_W - 0.7 * pinch, slope_l=1.0 - 0.6 * pinch,
                           slope_r=1.0 - 0.6 * pinch)
         rocks = [(3.0, -1.35, (0.85, 0.75, 1.05)), (2.9, 1.4, (0.8, 0.85, 0.95)), (1.7, -1.9, (0.4, 0.35, 0.35)),
                  (4.3, 1.95, (0.45, 0.4, 0.4)), (3.5, -1.05, (0.35, 0.3, 0.45))]
@@ -1894,12 +1894,15 @@ def build_asset(aid):
     G.data.materials.clear()
     G.data.materials.append(gm)
     G.name = f'{key}_LOD0'
-    lods = Q.make_lods(G, gcoll=game)
+    clear = split_clear(K, key, game) if K else []      # water and foliage are separate nodes, never merged into the land
+    water = sum(Q.tri_count(o) for o in clear if o.name.endswith('_Water'))
+    # LOD1 ~50 % and LOD2 ~15 % of the whole LOD0 (land + water + foliage), as the core-team review asks; only the land
+    # mesh is reduced (foliage stays in LOD0 only, water is drawn at every level), so the land ratio leaves room for the water
+    total0, land = Q.tri_count(G) + sum(Q.tri_count(o) for o in clear), Q.tri_count(G)
+    lods = Q.make_lods(G, ratios=(min(0.95, (0.5 * total0 - water) / land), min(0.6, (0.15 * total0 - water) / land)), gcoll=game)
     for l, nm in zip(lods, ('LOD1', 'LOD2')):
         l.name = f'{key}_{nm}'
-    nodes = Q.split_nodes(G, key)
-    clear = split_clear(K, key, game) if K else []      # water and foliage are separate nodes, never merged into the land
-    nodes += clear
+    nodes = Q.split_nodes(G, key) + clear
     hull = collision_hull(parts, key, game)
     empties = socket_empties(key, game)
     src.hide_render = True
@@ -1909,7 +1912,7 @@ def build_asset(aid):
     glb, fbx = EXPORT / f'{key}.glb', EXPORT / f'{key}.fbx'
     shipped = nodes + ([hull] if hull else []) + empties
     Q.export(shipped, glb, fbx, shipped + lods)
-    Q.select_only(shipped, nodes[0])
+    Q.select_only(shipped + lods, nodes[0])   # the GLB carries <key>_LOD1 / _LOD2 too, like the FBX
     bpy.ops.export_scene.gltf(filepath=str(glb), export_format='GLB', use_selection=True, export_apply=True,
                               export_yup=True, export_image_format='WEBP', export_image_quality=88,
                               export_materials='EXPORT', export_extras=False)
@@ -1926,11 +1929,12 @@ def build_asset(aid):
     solid = [o for o in nodes if o not in clear]
     mn, mx = Q.bbox(nodes)
     dims = [round(mx[i] - mn[i], 4) for i in range(3)]
-    tris = [sum(Q.tri_count(o) for o in nodes)] + [Q.tri_count(o) for o in lods]
+    tris = [sum(Q.tri_count(o) for o in nodes)] + [Q.tri_count(o) + water for o in lods]   # what each level draws
     hs = [Q.mesh_health(o) for o in solid]
     health = {k: sum(h[k] for h in hs) for k in hs[0]}
     rt_tris, rmn, rmx, rmats = Q.glb_roundtrip(glb)
     rt_tris -= Q.tri_count(hull) if hull else 0          # the collision hull ships in the GLB but is not part of the visual budget
+    rt_tris -= sum(Q.tri_count(o) for o in lods)        # ...and neither are the LOD1 / LOD2 meshes
     v = {
         'asset': aid, 'dimensions_m': dims, 'bbox_min': [round(x, 4) for x in mn], 'bbox_max': [round(x, 4) for x in mx],
         'trianglesLOD': tris, 'budgetLOD0': a['budget'], 'withinBudget': tris[0] <= a['budget'],

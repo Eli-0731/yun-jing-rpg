@@ -13,8 +13,8 @@
  "triangles": 3356,
  "lod_triangles": [
   3356,
-  1500,
-  660
+  1678,
+  502
  ],
  "collision": {
   "type": "box",
@@ -107,8 +107,8 @@
   ],
   "trianglesLOD": [
    3356,
-   1500,
-   660
+   1678,
+   502
   ],
   "budgetLOD0": 9000,
   "withinBudget": true,
@@ -141,12 +141,12 @@
   },
   "files": {
    "A02_end_break_01.glb": {
-    "bytes": 468592,
-    "sha256": "cef79a43ddf516eac551d857409295d4eca033f8f233701d9518561daa159703"
+    "bytes": 572748,
+    "sha256": "8506aca6133ff8aea28ca781913c4dbadb5ab5b7ee506184dbf522b5da54d70e"
    },
    "A02_end_break_01.fbx": {
-    "bytes": 372908,
-    "sha256": "276df0d8ea214f807b9dafaaeacebee7f3d6c0be625d7651104e0a7100792d0f"
+    "bytes": 356268,
+    "sha256": "a228a269e4cf6f918f66f6d324ce974a2d9234651f16f4023a0d7f2a3ba7a787"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A02_end_break_three_view.png",
