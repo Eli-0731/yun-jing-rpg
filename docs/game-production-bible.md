@@ -2,6 +2,7 @@
 
 2026-10-29，依 z1nnz 的口述整理（Claude Code 撰寫）。這份是整個遊戲的**總綱**：要做什麼遊戲、世界怎麼構成、程式怎麼寫、模型怎麼建、團隊怎麼工作。細項分在其他文件：
 
+- **遊戲整體架構（2026-10-29 新決定：領地＋多人大世界＋世界觀）**：[遊戲整體架構 v1](game-structure-v1.md)、[世界觀總綱](story/world-lore-v1.md)、[製作規範總綱](standards/README.md)
 - 新手大世界的階段與時程：[新手大世界整體開發計畫](execution/novice-world-master-plan.md)
 - 美術方向：[璃月方向計畫](execution/liyue-direction-plan.md)、`docs/art/yunjing-visual-language.md`
 - 做事方法：`CLAUDE_CODE_WORKFLOW.md`、`AGENTS.md`
