@@ -2797,8 +2797,13 @@
   "collision": "河床為地面碰撞；河岸坡面與坡頂需碰撞（尚未製作）",
   "lod": {
     "LOD0": 9056,
-    "LOD1": 4074,
-    "LOD2": 1630
+    "LOD1": 4528,
+    "LOD2": 1358,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.15
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
   },
   "extra": {
     "pairs_with": "S01",
@@ -2807,9 +2812,7 @@
   },
   "exports": {
     "glb": "S02.glb",
-    "fbx": "S02.fbx",
-    "lod1": "S02_LOD1.glb",
-    "lod2": "S02_LOD2.glb"
+    "fbx": "S02.fbx"
   },
   "reimport": {
     "file": "art/exports/qingxi-waterworks-b/S02/S02.glb",
@@ -2829,6 +2832,10 @@
     "empties": [],
     "size_error_m": 0.0,
     "tris_match": true,
+    "lod_tris": {
+      "LOD1": 4123,
+      "LOD2": 865
+    },
     "textures_embedded": 7
   }
 }

@@ -59,17 +59,18 @@ def _bookend_wall(b, path, side, end_len=0.10, proud=0.0, cap=0.0, wear=0.0, mid
         for z0, z1 in zip(zz, zz[1:]):
             b.strip_prism("body", "ww_stone", offset_pts(st, ap), offset_pts(st, cp), z0, z1,
                           tint=b.stone_tint(0.97), bevel=0.016, wear=wear)
-    mid = subpath(path, end_len, L - end_len, step=0.05)
-    sub = [p for p in path]
     zs = [0.0, TOTAL_H - mid_drop] if mid_courses == 1 else [0.0, 0.2, TOTAL_H - mid_drop]
     for k in range(len(zs) - 1):
-        top = zs[k + 1]
-        if mid_height is not None and k == len(zs) - 2:
-            ss = [end_len + (L - 2 * end_len) * i / (len(mid) - 1) for i in range(len(mid))]
-            top = [min(zs[k + 1], mid_height(s)) for s in ss]
-        b.strip_prism("body", "ww_stone", offset_pts(mid, a), offset_pts(mid, c), zs[k], top,
-                      tint=b.stone_tint(1.0), bevel=0.02, wear=wear)
-    del sub
+        # v002：中段依層錯縫切成 24–40 cm 的石塊（第一輪 #51 的切石尺度），不再是一整條長石
+        cuts = course_breaks(L - 2 * end_len, b.rng, 0.24, 0.40, offset=(b.rng.uniform(0.12, 0.2) if k % 2 else 0.0))
+        for c0, c1 in zip(cuts, cuts[1:]):
+            mid = subpath(path, end_len + c0, end_len + c1, step=0.05)
+            top = zs[k + 1]
+            if mid_height is not None and k == len(zs) - 2:
+                ss = [end_len + c0 + (c1 - c0) * i / (len(mid) - 1) for i in range(len(mid))]
+                top = [min(zs[k + 1], mid_height(s)) for s in ss]
+            b.strip_prism("body", "ww_stone", offset_pts(mid, a), offset_pts(mid, c), zs[k], top,
+                          tint=b.stone_tint(1.0), bevel=0.02, wear=wear)
 
 
 # ------------------------------------------------------------------ B02 家族
@@ -81,8 +82,8 @@ def B02(b):
     b.port("in", (0, 0), (0, -1), "in")
     b.port("out", (0, 1.0), (0, 1), "out")
     floor_run(b, path, lo=0.46, hi=0.54)
-    _bookend_wall(b, path, "L", proud=0.015, post_courses=2)
-    _bookend_wall(b, path, "R", proud=0.015, post_courses=2)
+    _bookend_wall(b, path, "L", proud=0.015, post_courses=2, mid_courses=2)
+    _bookend_wall(b, path, "R", proud=0.015, post_courses=2, mid_courses=2)
     for s in (0.068, 0.932):
         _stake_and_strap(b, s, path, "L", proud=0.015)
         _stake_and_strap(b, s, path, "R", proud=0.015)
@@ -680,10 +681,10 @@ def B01(b):
               (CLEAR_W, 0.1, FLOOR_T), tint=b.stone_tint(0.97), bevel=0.006) if False else None
     # 前後牆（中央留 40 cm 開口）、左右牆、四角石
     for yc in (y_front - 0.05, y_back + 0.05):
-        wall_run(b, line((-0.6, yc), (-HALF_C, yc)), 0.05, -0.05, courses=1, lo=0.2, hi=0.4)
-        wall_run(b, line((HALF_C, yc), (0.6, yc)), 0.05, -0.05, courses=1, lo=0.2, hi=0.4)
+        wall_run(b, line((-0.6, yc), (-HALF_C, yc)), 0.05, -0.05, courses=2, lo=0.2, hi=0.4)
+        wall_run(b, line((HALF_C, yc), (0.6, yc)), 0.05, -0.05, courses=2, lo=0.2, hi=0.4)
     for xc in (-0.65, 0.65):
-        wall_run(b, line((xc, y_back + 0.1), (xc, y_front - 0.1)), 0.05, -0.05, courses=1, lo=0.32, hi=0.5)
+        wall_run(b, line((xc, y_back + 0.1), (xc, y_front - 0.1)), 0.05, -0.05, courses=2, lo=0.24, hi=0.4)
     for xc in (-0.65, 0.65):
         for yc in (y_front - 0.05, y_back + 0.05):
             b.box("body", "ww_stone", (xc, yc, TOTAL_H / 2), (0.1, 0.1, TOTAL_H), tint=b.stone_tint(0.93),

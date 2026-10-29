@@ -19,12 +19,16 @@
 
 ## 造型與材質
 
-- 砌石：每塊石頭是獨立封閉網格。圓角約為最小邊的 22%（上限 2.6 cm、3 段），相鄰石塊的圓角自然形成凹縫；
-  圓角區沿法線加低頻起伏（±6 mm）做手鑿邊；接口面與底面不動。
-- 凹縫明暗：依頂點法線偏離原始平面的角度壓暗頂點色（最多 42%），存在 `Col` 頂點色，glTF 匯入引擎後同樣生效。
-- 貼圖（程序生成、固定亂數種子，可重現）：`ww_stone`（1024² 鎚鑿卵面，石縫不畫在貼圖上）、`ww_stone_moss`、
-  `ww_stone_n` 法線、`ww_wood`、`ww_bronze`、`ww_soil`；盒狀投影 UV（比例 2.4 次／m）。
-- PBR：石 roughness 0.88；木 0.80；青銅 metallic 0.65／roughness 0.32；土 0.95；墊片純色。
+- 砌石（v002，2026-10-30 依核心組審查改回切石）：每塊石頭是獨立封閉網格，牆依層錯縫切成 20–40 cm 的石塊。
+  倒角約為最小邊的 12%（0.8–1.3 cm、2 段），面保持平整；相鄰石塊的倒角形成 V 形石縫。倒角區只加 ±2.5 mm 起伏。
+  物件套用加權法線（Weighted Normal，隨 FBX／GLB 輸出），平面受光平整、倒角圓滑。
+  （r2 首版是 22%／2.6 cm／3 段，牆面圓鼓像軟墊。）
+- 凹縫明暗：依頂點法線偏離原始平面的角度壓暗頂點色（最多 55%），存在 `Col` 頂點色，glTF 匯入引擎後同樣生效。
+- 貼圖（程序生成、固定亂數種子，可重現）：`ww_stone`（1024²，一張 = 1 m × 1 m：10–40 cm 的大斑與水漬、
+  點鑿麻點、斜向鑿痕、細砂粒；不再用 3 cm 的卵面小格）、`ww_stone_moss`、`ww_stone_n` 法線、`ww_wood`、`ww_bronze`、`ww_soil`。
+  石材 UV 為盒狀投影 1 次／m，每塊石頭取固定亂數位移，相鄰石塊不重複同一片紋理；其他材質 2.4 次／m。
+- 青銅（v002）：暗褐氧化銅底、少量綠鏽；鉚釘改成圓頭（Ø2.4–2.8 cm，一半埋進銅片）。
+- PBR：石 roughness 0.84；木 0.80；青銅 metallic 0.9／roughness 0.30；土 0.95；墊片純色。
 - 青苔：長在凹縫、低處與朝上面，接口附近收斂；部分低位石塊換成 `ww_stone_moss`。
 - 崩缺：只在真轉角（≥3 條硬邊）切 1.2–2.2 cm 斜面，避開接口 3 cm 與底面；切面略提亮。
 - 接口貼齊：`build.py` 的 `snap_to_ports` 把接口平面外 2 cm 內的頂點（含水面）壓回平面，QA 的 port_overreach 檢查 ≤ 1 mm；
@@ -69,13 +73,17 @@
 
 ## LOD 與預算
 
-- LOD0 完整幾何；LOD1 = 45%、LOD2 = 18%（Decimate collapse）。各件數字見 `qa_report.md`。
+- LOD0 完整幾何；LOD1 = 50%、LOD2 = 15%（Decimate collapse），與 LOD0 放在同一個 GLB／FBX。
+  LOD0 保留原名（閘板、疊板等程式以名稱查找），簡化網格命名 `<物件>_LOD1`／`_LOD2`，掛在對應的 LOD0 部件底下（會動的部件 LOD 一起動）。
+  Unity 由 `WaterworksModelPostprocessor` 在根物件建 LODGroup（門檻 0.30／0.10／0.012 螢幕高度，待手機實測調整）；
+  因為 LOD0 沒有 `_LOD0` 尾碼，Unity 不會自動建 LODGroup，接進主專案時要帶這支後處理或自行建。
+  LOD0／1／2 並排預覽：`<件號>_lods.png`（`render_lods.py` 讀匯出的 GLB 產生）。各件數字見 `qa_report.md`。
 - 單件 LOD0 預算暫定 12,000 三角面（推定值，待 Unity 場景實測調整）。
 
 ## 交付檔
 
 - 母稿：`art/source/qingxi-waterworks-b/qingxi-waterworks-b.blend`（貼圖打包），由 `build.py` 重建。
-- 匯出：`art/exports/qingxi-waterworks-b/<件號>/`：`.glb`、`_water.glb`、`.fbx`、`_water.fbx`、`_LOD1.glb`、`_LOD2.glb`、`model_info.json`。
+- 匯出：`art/exports/qingxi-waterworks-b/<件號>/`：`.glb`、`_water.glb`、`.fbx`、`_water.fbx`、`model_info.json`（LOD 在主檔內）。
 - 預覽：`art/previews/qingxi-waterworks-b/<件號>/`：四向正交、前後 3/4（中性光）、clay、線框、hero（風格光）、
   1.70 m 視角（含 1.75 m 比例人台）、`_compare.png`（三視圖對照表）。
 

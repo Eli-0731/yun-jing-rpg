@@ -40,27 +40,26 @@
   ],
   "footprint_cells": [],
   "stats": {
-    "tris": 1212,
-    "verts": 696,
+    "tris": 2156,
+    "verts": 1168,
     "materials": [
       "ww_bronze",
       "ww_stone",
-      "ww_stone_moss",
       "ww_wood"
     ],
     "bbox_min": [
       -0.582,
-      -0.206,
+      -0.21,
       -0.32
     ],
     "bbox_max": [
       0.582,
-      0.206,
+      0.21,
       0.44
     ],
     "size": [
       1.164,
-      0.412,
+      0.42,
       0.76
     ]
   },
@@ -81,29 +80,31 @@
   "states": {},
   "collision": "枕木盒＋兩石墩盒",
   "lod": {
-    "LOD0": 1212,
-    "LOD1": 544,
-    "LOD2": 218
+    "LOD0": 2156,
+    "LOD1": 1078,
+    "LOD2": 322,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.149
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
   },
   "extra": {},
   "exports": {
     "glb": "B10-V02.glb",
-    "fbx": "B10-V02.fbx",
-    "lod1": "B10-V02_LOD1.glb",
-    "lod2": "B10-V02_LOD2.glb"
+    "fbx": "B10-V02.fbx"
   },
   "reimport": {
     "file": "art/exports/qingxi-waterworks-b/B10-V02/B10-V02.glb",
-    "tris": 1212,
+    "tris": 2156,
     "size": [
       1.164,
-      0.412,
+      0.42,
       0.76
     ],
     "materials": [
       "ww_bronze.001",
       "ww_stone.001",
-      "ww_stone_moss.001",
       "ww_wood.001"
     ],
     "empties": [
@@ -111,6 +112,10 @@
     ],
     "size_error_m": 0.0,
     "tris_match": true,
-    "textures_embedded": 5
+    "lod_tris": {
+      "LOD1": 1078,
+      "LOD2": 322
+    },
+    "textures_embedded": 4
   }
 }

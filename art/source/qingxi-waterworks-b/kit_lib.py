@@ -36,11 +36,14 @@ AUTHOR = "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模"
 
 # ---------------------------------------------------------------- textures
 
-def _fbm(n, beta, seed, aniso=(1.0, 1.0)):
+def _fbm(n, beta, seed, aniso=(1.0, 1.0), angle=0.0):
     rng = np.random.default_rng(seed)
     white = rng.standard_normal((n, n))
-    fy = np.fft.fftfreq(n)[:, None] * aniso[1]
-    fx = np.fft.fftfreq(n)[None, :] * aniso[0]
+    fy0 = np.fft.fftfreq(n)[:, None]
+    fx0 = np.fft.fftfreq(n)[None, :]
+    ca, sa = math.cos(angle), math.sin(angle)          # 旋轉頻率座標：斜向鑿痕仍可平鋪
+    fx = (fx0 * ca - fy0 * sa) * aniso[0]
+    fy = (fx0 * sa + fy0 * ca) * aniso[1]
     f = np.sqrt(fx * fx + fy * fy)
     f[0, 0] = 1.0
     spec = np.fft.fft2(white) / f ** beta
@@ -106,39 +109,50 @@ def _save_png(name, rgb, color=True):
 def make_textures(n=512):
     """生成可平鋪貼圖（固定亂數種子，重跑結果相同）。"""
     imgs = {}
-    # 舊石（對照三視圖）：鎚鑿卵面——密集小隆起只做柔和明暗與法線浮雕，不畫深色裂線；
-    # 石塊之間的縫由幾何圓角＋頂點色產生。石材貼圖用 2 倍解析度。
+    # 舊石 v002（對照三視圖、第一輪 #51）：一張貼圖 = 1 m × 1 m（box_uv STONE_UV_SCALE），
+    # 明暗變化以 10–40 cm 的大斑為主，再疊點鑿麻點、斜向鑿痕與細砂粒；不再用 3 cm 的卵面小格。
+    # 每塊石頭在 box_uv 取不同的 UV 位移，相鄰石塊不會重複同一片花紋；石縫由幾何倒角＋頂點色產生。
     ns = n * 2
-    edge, ids = _voronoi(ns, 220, 15)
+    broad = _fbm(ns, 2.4, 11)                            # 30–100 cm：整面冷暖與深淺
+    blot = _fbm(ns, 1.6, 12)                             # 10–30 cm：水漬、風化斑
+    grain = _fbm(ns, 0.3, 13)                            # 細砂粒
+    strike = _fbm(ns, 1.0, 18, aniso=(1.0, 0.12), angle=0.55)   # 斜向鑿痕（拉長的細紋）
+    strike2 = _fbm(ns, 1.0, 19, aniso=(1.0, 0.12), angle=-0.95)
     rng = np.random.default_rng(16)
-    cell_k = rng.uniform(0.95, 1.05, ids.max() + 1)[ids]
-    dome = np.clip(edge / 24.0, 0, 1) ** 0.85
-    dome_c = np.clip(edge / 40.0, 0, 1)                 # 顏色用更寬的過渡
-    mott = _fbm(ns, 2.0, 11)
-    mid = _fbm(ns, 1.2, 12)
-    grain = _fbm(ns, 0.2, 13)
-    speck = _fbm(ns, 0.0, 14)
-    base = _srgb((150, 143, 130))
+    pits = np.zeros((ns, ns))
+    yy, xx = np.mgrid[0:ns, 0:ns]
+    for px, py, r in zip(rng.integers(0, ns, 1400), rng.integers(0, ns, 1400), rng.uniform(1.2, 3.2, 1400)):
+        x0, x1 = int(px - r - 1), int(px + r + 2)        # 點鑿麻點（約 2–7 mm），以環繞索引保持可平鋪
+        y0, y1 = int(py - r - 1), int(py + r + 2)
+        ix = np.arange(x0, x1) % ns
+        iy = np.arange(y0, y1) % ns
+        dx = np.arange(x0, x1) - px
+        dy = np.arange(y0, y1) - py
+        d = np.sqrt(dx[None, :] ** 2 + dy[:, None] ** 2)
+        pits[np.ix_(iy, ix)] = np.maximum(pits[np.ix_(iy, ix)], np.clip(1 - d / r, 0, 1))
+    tool = np.clip(np.abs(strike - 0.5) * 2, 0, 1) ** 6 + np.clip(np.abs(strike2 - 0.5) * 2, 0, 1) ** 6 * 0.6
+    # 淺起伏：5–15 cm 的柔和凹凸，只進法線，讓受光面不像塑膠平板（不畫格線、不做卵面小格）
+    swell = _fbm(ns, 1.9, 20)
+    base = _srgb((146, 138, 124))
     rgb = np.empty((ns, ns, 3))
-    warm = (mott - 0.5) * 0.07
+    bc = np.clip((broad - 0.5) * 2.2, -1, 1)            # 拉開大斑對比（_fbm 會把值壓在 0.3–0.7）
+    bl = np.clip((blot - 0.5) * 2.2, -1, 1)
+    warm = bc * 0.06 + bl * 0.03
     rgb[..., 0] = base[0] * (1 + warm)
-    rgb[..., 1] = base[1]
+    rgb[..., 1] = base[1] * (1 + warm * 0.3)
     rgb[..., 2] = base[2] * (1 - warm)
-    k = cell_k * (0.93 + 0.07 * dome_c) * (0.90 + 0.14 * mott) * (0.96 + 0.06 * grain)
-    k = k * np.where(speck > 0.88, 0.8, 1.0)
+    stain = np.clip(bl * 1.6 - 0.35, 0, 1)              # 深色水漬
+    k = ((1 + 0.16 * bc) * (1 - 0.18 * stain) * (0.94 + 0.10 * grain) * (1 - 0.16 * pits)
+         * (1 - 0.07 * tool))
     rgb *= k[..., None]
     imgs["ww_stone"] = _save_png("ww_stone", rgb)
-    patch = _fbm(ns, 1.7, 17)
-    crev = (1 - dome) ** 2
-    mossy = np.clip((patch - 0.55) * 2.5, 0, 1) * (0.35 + 0.65 * crev) + np.clip((mid - 0.72) * 2.5, 0, 1) * 0.2
-    mossy = np.clip(mossy, 0, 0.85)[..., None]
-    moss_col = _srgb((90, 104, 62)) * (0.8 + 0.3 * grain[..., None])
+    patch = _fbm(ns, 2.0, 17)
+    mossy = np.clip((patch - 0.58) * 2.4, 0, 1) * (0.45 + 0.55 * stain) + pits * 0.25 * np.clip((patch - 0.4) * 3, 0, 1)
+    mossy = np.clip(mossy, 0, 0.8)[..., None]
+    moss_col = _srgb((88, 104, 60)) * (0.8 + 0.3 * grain[..., None])
     imgs["ww_stone_moss"] = _save_png("ww_stone_moss", rgb * (1 - mossy) + moss_col * mossy)
-    height = dome * 0.75 + mid * 0.15 + grain * 0.10
-    for _ in range(6):  # 放寬卵面交界，避免出現細黑裂線
-        height = (height + np.roll(height, 1, 0) + np.roll(height, -1, 0) + np.roll(height, 1, 1)
-                  + np.roll(height, -1, 1)) / 5
-    imgs["ww_stone_n"] = _save_png("ww_stone_n", _normal_from_height(height, 1.5), color=False)
+    height = swell * 2.5 + bc * 0.25 + grain * 0.08 - tool * 0.08 - pits * 0.35
+    imgs["ww_stone_n"] = _save_png("ww_stone_n", _normal_from_height(height, 3.0), color=False)
 
     # 舊杉木：沿 U 方向的木紋
     g1 = _fbm(n, 1.4, 21, aniso=(0.08, 1.0))
@@ -151,14 +165,18 @@ def make_textures(n=512):
     rgb *= (0.92 + 0.12 * knots[..., None])
     imgs["ww_wood"] = _save_png("ww_wood", rgb)
 
-    # 舊青銅：褐銅底＋綠鏽斑
+    # 舊青銅 v002：暗褐氧化銅底、磨亮的高點、少量綠鏽（三視圖的銅箍偏深褐、有光澤，不是平橘色）
     pat = _fbm(n, 1.5, 31)
     fine = _fbm(n, 0.5, 32)
-    bronze = _srgb((158, 110, 64))
-    verd = _srgb((88, 128, 108))
-    m = np.clip((pat - 0.68) * 3, 0, 0.6)[..., None]
-    rgb = bronze * (1 - m) + verd * m
-    rgb *= (0.85 + 0.25 * fine[..., None])
+    tarnish = _fbm(n, 2.0, 33)
+    bronze = _srgb((112, 80, 52))
+    dark = _srgb((58, 44, 32))
+    verd = _srgb((82, 118, 98))
+    t = np.clip((tarnish - 0.35) * 1.6, 0, 1)[..., None]
+    rgb = bronze * (1 - t) + dark * t
+    m = np.clip((pat - 0.72) * 3, 0, 0.55)[..., None]
+    rgb = rgb * (1 - m) + verd * m
+    rgb *= (0.88 + 0.2 * fine[..., None])
     imgs["ww_bronze"] = _save_png("ww_bronze", rgb)
 
     # 濕土：褐土＋小卵石點
@@ -232,9 +250,9 @@ def make_textures(n=512):
 # ---------------------------------------------------------------- materials
 
 MAT_SPECS = {
-    "ww_stone": dict(rough=0.88, spec=0.15, metal=0.0),
+    "ww_stone": dict(rough=0.84, spec=0.18, metal=0.0),
     "ww_wood": dict(rough=0.80, spec=0.12, metal=0.0),
-    "ww_bronze": dict(rough=0.32, spec=0.5, metal=0.65),
+    "ww_bronze": dict(rough=0.30, spec=0.5, metal=0.9),
     "ww_stone_moss": dict(rough=0.92, spec=0.12, metal=0.0),
     "ww_soil": dict(rough=0.95, spec=0.08, metal=0.0),
     "ww_gasket": dict(rough=0.9, spec=0.1, metal=0.0, color=(0.10, 0.085, 0.07)),
@@ -386,7 +404,8 @@ class Builder:
         stone = mat == "ww_stone" and bevel > 0
         groove = None
         if stone:
-            # 石塊：圓角放大到約 22% 最小邊（上限 2.6 cm），相鄰石塊的圓角自然形成凹縫
+            # 石塊 v002：切石倒角約 12% 最小邊（上限 1.3 cm）、2 段，面保持平整；相鄰石塊的倒角形成 V 形石縫。
+            # （r2 首版用 22%／2.6 cm／3 段，牆面圓鼓像軟墊，核心組審查要求改回切石。）
             bmesh.ops.recalc_face_normals(bm_block, faces=bm_block.faces)
             bm_block.normal_update()
             xs = [v.co.x for v in bm_block.verts]
@@ -396,7 +415,7 @@ class Builder:
             if self.props.get("thin_min"):
                 thick = min(thick, self.props["thin_min"])
             # 牆石（指定圓角 ≥ 1 cm）放大圓角；底板等指定小圓角者只略放大，避免鋪面像階梯
-            bevel = max(bevel, min(0.026, 0.22 * thick)) if bevel >= 0.01 else max(bevel, 0.009)
+            bevel = min(0.013, max(0.008, 0.12 * thick)) if bevel >= 0.01 else max(bevel, 0.007)
             # 崩角候選：原始角點（不在接口面、不在底面），方向取相鄰面法線平均
             corners = []
             for v in bm_block.verts:
@@ -419,7 +438,7 @@ class Builder:
             for c, n in corners[:n_chip]:
                 tilt = Vector((self.rng.uniform(-0.35, 0.35), self.rng.uniform(-0.35, 0.35),
                                self.rng.uniform(-0.2, 0.35)))
-                chips.append((c, (n + tilt).normalized(), self.rng.uniform(0.012, 0.022) + 0.6 * min(0.026, 0.22 * thick)))
+                chips.append((c, (n + tilt).normalized(), self.rng.uniform(0.010, 0.020) + 0.6 * min(0.013, 0.12 * thick)))
             ref = bm_block.copy()
             bmesh.ops.triangulate(ref, faces=ref.faces)
             ref.normal_update()
@@ -428,9 +447,9 @@ class Builder:
             edges = [e for e in bm_block.edges
                      if len(e.link_faces) == 2 and e.calc_face_angle(0) > math.radians(30)]
             if edges:
-                segs = 3 if stone else (3 if bevel >= 0.012 else (2 if bevel >= 0.006 else 1))
+                segs = 2 if stone else (3 if bevel >= 0.012 else (2 if bevel >= 0.006 else 1))
                 bmesh.ops.bevel(bm_block, geom=edges, offset=bevel, segments=segs,
-                                affect="EDGES", profile=0.6 if stone else 0.5, clamp_overlap=True)
+                                affect="EDGES", profile=0.62 if stone else 0.5, clamp_overlap=True)
         if stone:
             bm_block.normal_update()
             groove = []
@@ -446,7 +465,7 @@ class Builder:
                     continue
                 q = v.co * 11.0 + seed
                 d = noise.noise(q) * 0.7 + noise.noise(q * 2.7) * 0.3
-                moves.append((v, v.normal * (d * 0.006 * min(1.0, e * 2.0))))
+                moves.append((v, v.normal * (d * 0.0025 * min(1.0, e * 2.0))))
             for v, mv in moves:
                 v.co += mv
             # 崩角：以斜平面削掉角點，形成平整斷面（接口面附近不削）
@@ -498,7 +517,7 @@ class Builder:
             for lp in f.loops:
                 e = groove[lp.vert.index - nv0] if groove else 0.0
                 r, g, bb = self._shade(lp.vert.co, f.normal, tint, mat, e)
-                k = 1.0 - 0.42 * e ** 1.3                      # 凹縫壓暗（頂點色，引擎內同樣有效）
+                k = 1.0 - 0.55 * e ** 1.2                      # 凹縫壓暗（頂點色，引擎內同樣有效）
                 if groove and chipped[lp.vert.index - nv0]:
                     k *= 1.07                                  # 崩口新鮮斷面略亮
                 lp[col] = (r * k, g * k, bb * k, 1.0)
@@ -622,8 +641,14 @@ class Builder:
 
     def cylinder(self, part, mat, center, radius, depth, axis="Z", segs=12, tint=None, **kw):
         bm = bmesh.new()
-        bmesh.ops.create_cone(bm, cap_ends=True, segments=segs, radius1=radius, radius2=radius,
-                              depth=depth)
+        if mat == "ww_bronze" and radius <= 0.013 and depth <= 0.014:
+            # 鉚釘 v002：圓頭（壓扁球，一半埋進銅片），放大到 Ø2.4–2.8 cm，遠看仍讀得出固定點
+            r = max(radius * 1.35, 0.012)
+            bmesh.ops.create_uvsphere(bm, u_segments=12, v_segments=6, radius=1.0)
+            bmesh.ops.scale(bm, vec=(r, r, max(depth * 0.75, 0.007)), verts=bm.verts)
+        else:
+            bmesh.ops.create_cone(bm, cap_ends=True, segments=segs, radius1=radius, radius2=radius,
+                                  depth=depth)
         rot = {"Z": Matrix.Identity(4), "X": Matrix.Rotation(math.pi / 2, 4, "Y"),
                "Y": Matrix.Rotation(math.pi / 2, 4, "X")}[axis]
         bmesh.ops.transform(bm, matrix=Matrix.Translation(center) @ rot, verts=bm.verts)
@@ -783,7 +808,7 @@ def build_objects(b, collection):
         mesh = bpy.data.meshes.new(f"{b.id}_{part}")
         merged.to_mesh(mesh)
         merged.free()
-        box_uv(mesh, fn=b.props.get("uv_fn"))
+        box_uv(mesh, fn=b.props.get("uv_fn"), mat_names=mat_names, seed=b.id)
         imgs = {k: bpy.data.images.get(k) for k in ("ww_stone", "ww_stone_moss", "ww_stone_n", "ww_wood",
                                                     "ww_bronze", "ww_soil", "ww_field_soil",
                                                     "ww_field_soil_n", "ww_stream", "ww_stream_n",
@@ -792,24 +817,59 @@ def build_objects(b, collection):
             mesh.materials.append(get_material(m, {k: v for k, v in imgs.items() if v}))
         mesh.color_attributes.active_color_name = "Col"
         mesh.shade_smooth()
-        mesh.set_sharp_from_angle(angle=math.radians(38))
+        mesh.set_sharp_from_angle(angle=math.radians(50))
         name = b.id if part == "body" else f"{b.id}_{part}"
         obj = bpy.data.objects.new(name, mesh)
         collection.objects.link(obj)
+        # 加權法線：平面維持平整受光、倒角保持圓滑（切石的硬邊感），自訂法線隨 FBX／GLB 輸出
+        if b.props.get("uv_fn") is None:
+            wn = obj.modifiers.new("wn", "WEIGHTED_NORMAL")
+            wn.keep_sharp = True
+            wn.weight = 50
+            with bpy.context.temp_override(object=obj, active_object=obj):
+                bpy.ops.object.modifier_apply(modifier=wn.name)
         objs[part] = obj
     return objs
 
 
-def box_uv(mesh, scale=2.4, fn=None):
+STONE_UV_SCALE = 1.0          # 石材：1 m = 一張貼圖（v002）；舊版 2.4 讓 3 cm 小格密集重複
+STONE_MATS = ("ww_stone", "ww_stone_moss")
+
+
+def box_uv(mesh, scale=2.4, fn=None, mat_names=(), seed=""):
     uv = mesh.uv_layers.new(name="UVMap")
     if fn is not None:                             # 件自訂 UV（S01：U 橫越水面、V 沿流向，可捲動做流動）
         per_v = [fn(v.co) for v in mesh.vertices]
         for li, lp in enumerate(mesh.loops):
             uv.data[li].uv = per_v[lp.vertex_index]
         return
+    # 每塊石頭（相連的面＝一個島）取固定亂數 UV 位移，相鄰石塊不會重複同一片紋理
+    parent = list(range(len(mesh.vertices)))
+
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    for e in mesh.edges:
+        a, c = find(e.vertices[0]), find(e.vertices[1])
+        if a != c:
+            parent[a] = c
+    rng = random.Random(f"uv-{seed}")
+    offsets = {}
     for poly in mesh.polygons:
         n = poly.normal
         ax = max(range(3), key=lambda i: abs(n[i]))
+        stone = poly.material_index < len(mat_names) and mat_names[poly.material_index] in STONE_MATS
+        k = STONE_UV_SCALE if stone else scale
+        if stone:
+            root = find(mesh.loops[poly.loop_indices[0]].vertex_index)
+            if root not in offsets:
+                offsets[root] = (rng.random(), rng.random())
+            du, dv = offsets[root]
+        else:
+            du = dv = 0.0
         for li in poly.loop_indices:
             co = mesh.vertices[mesh.loops[li].vertex_index].co
             if ax == 2:
@@ -818,7 +878,7 @@ def box_uv(mesh, scale=2.4, fn=None):
                 u, v = co.y, co.z
             else:
                 u, v = co.x, co.z
-            uv.data[li].uv = (u * scale, v * scale)
+            uv.data[li].uv = (u * k + du, v * k + dv)
 
 
 def water_objects(b, collection):

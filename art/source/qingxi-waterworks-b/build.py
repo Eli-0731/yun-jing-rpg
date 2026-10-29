@@ -38,7 +38,8 @@ for mod in (pieces_b1, pieces_b2, pieces_field, pieces_stream):
         if name[:1] in ("B", "F", "S") and name[1:3].isdigit() and callable(getattr(mod, name)):
             PIECES[name.replace("_", "-")] = getattr(mod, name)
 
-LOD_RATIOS = {"LOD1": 0.45, "LOD2": 0.18}
+# v002（核心組審查）：LOD1 約 50%、LOD2 約 15%，與 LOD0 放在同一個 GLB／FBX，物件名加 _LOD1／_LOD2
+LOD_RATIOS = {"LOD1": 0.50, "LOD2": 0.15}
 
 
 def parse_args():
@@ -81,9 +82,12 @@ def make_lod(obj, ratio, coll, suffix):
     mod = dup.modifiers.new("decimate", "DECIMATE")
     mod.ratio = ratio
     mod.use_collapse_triangulate = True
-    bpy.context.view_layer.objects.active = dup
-    dup.select_set(True)
-    bpy.ops.object.modifier_apply(modifier=mod.name)
+    with bpy.context.temp_override(object=dup, active_object=dup):
+        bpy.ops.object.modifier_apply(modifier=mod.name)
+    # 掛在對應的 LOD0 部件底下（零位移），閘板、疊板等會動的部件，LOD 網格跟著一起動
+    dup.parent = obj
+    dup.matrix_parent_inverse.identity()
+    dup.location, dup.rotation_euler, dup.scale = (0, 0, 0), (0, 0, 0), (1, 1, 1)
     return dup
 
 
@@ -121,13 +125,17 @@ def reimport_check(path, expect):
     new = [o for o in bpy.data.objects if o not in before]
     meshes = [o for o in new if o.type == "MESH"]
     bpy.context.view_layer.update()
+    base = lambda o: o.name.rsplit(".", 1)[0] if o.name[-4:-3] == "." else o.name   # 匯入後同名物件會加 .001
+    lods = {sfx: [o for o in meshes if base(o).endswith("_" + sfx)] for sfx in LOD_RATIOS}
+    meshes = [o for o in meshes if not any(o in v for v in lods.values())]
     st = K.mesh_stats(meshes) if meshes else dict(tris=0, size=[0, 0, 0], materials=[])
     empties = sorted(o.name for o in new if o.type == "EMPTY")
     # glTF 為 Y 向上；匯入器轉回 Z 向上，尺寸可直接比
     size_err = max(abs(a - b) for a, b in zip(st["size"], expect["size"]))
     res = dict(file=os.path.relpath(path, K.ROOT).replace("\\", "/"), tris=st["tris"],
                size=st["size"], materials=st["materials"], empties=empties,
-               size_error_m=round(size_err, 5), tris_match=st["tris"] == expect["tris"])
+               size_error_m=round(size_err, 5), tris_match=st["tris"] == expect["tris"],
+               lod_tris={sfx: K.mesh_stats(v)["tris"] if v else 0 for sfx, v in lods.items()})
     res["textures_embedded"] = len([i for i in bpy.data.images if i not in before_imgs])
     for o in new:
         data = o.data
@@ -237,8 +245,21 @@ def build_piece(pid, fn, root_coll, export):
     if export:
         out = os.path.join(K.EXPORT_DIR, pid)
         K.ensure_dirs(out)
+        for old in ("LOD1", "LOD2"):                   # 舊版分開的 LOD 檔改為併入主檔
+            stale = os.path.join(out, f"{pid}_{old}.glb")
+            if os.path.exists(stale):
+                os.remove(stale)
+        lod_coll = bpy.data.collections.new(f"{pid}_LOD")
+        coll.children.link(lod_coll)
+        lod_objs = []
+        for suffix, ratio in LOD_RATIOS.items():
+            lods = [make_lod(o, ratio, lod_coll, suffix) for o in solid]
+            info["lod"][suffix] = K.mesh_stats(lods)["tris"]
+            lod_objs += lods
+        info["lod"]["ratio"] = {k: round(info["lod"][k] / max(1, stats["tris"]), 3) for k in LOD_RATIOS}
+        info["lod"]["layout"] = "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
         main = os.path.join(out, f"{pid}.glb")
-        export_glb(solid + sockets, main)
+        export_glb(solid + lod_objs + sockets, main)
         info["exports"] = {"glb": f"{pid}.glb"}
         info["reimport"] = reimport_check(main, stats)
         if waters:
@@ -246,15 +267,8 @@ def build_piece(pid, fn, root_coll, export):
             info["exports"]["water_glb"] = f"{pid}_water.glb"
             export_fbx(waters, os.path.join(out, f"{pid}_water.fbx"))   # Unity 半透明流動水面（與本體同原點）
             info["exports"]["water_fbx"] = f"{pid}_water.fbx"
-        export_fbx(solid + sockets, os.path.join(out, f"{pid}.fbx"))
+        export_fbx(solid + lod_objs + sockets, os.path.join(out, f"{pid}.fbx"))
         info["exports"]["fbx"] = f"{pid}.fbx"
-        lod_coll = bpy.data.collections.new(f"{pid}_LOD")
-        coll.children.link(lod_coll)
-        for suffix, ratio in LOD_RATIOS.items():
-            lods = [make_lod(o, ratio, lod_coll, suffix) for o in solid]
-            info["lod"][suffix] = K.mesh_stats(lods)["tris"]
-            export_glb(lods, os.path.join(out, f"{pid}_{suffix}.glb"))
-            info["exports"][suffix.lower()] = f"{pid}_{suffix}.glb"
         lod_coll.hide_render = True
         lod_coll.hide_viewport = True
         K.write_json(os.path.join(out, "model_info.json"), info)

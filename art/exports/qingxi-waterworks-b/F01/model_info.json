@@ -1844,8 +1844,8 @@
     ]
   ],
   "stats": {
-    "tris": 15476,
-    "verts": 8494,
+    "tris": 12860,
+    "verts": 7198,
     "materials": [
       "ww_bronze",
       "ww_field_soil",
@@ -1858,22 +1858,22 @@
     "bbox_min": [
       -3.0033,
       0.0,
-      -0.1923
+      -0.1914
     ],
     "bbox_max": [
-      3.0036,
+      3.0034,
       4.0,
       0.644
     ],
     "size": [
-      6.0069,
+      6.0067,
       4.0,
-      0.8363
+      0.8354
     ]
   },
   "qa": {
     "body": {
-      "islands": 351,
+      "islands": 357,
       "nonmanifold_edges": 0,
       "degenerate_faces": 0,
       "inward_islands": 0,
@@ -1936,26 +1936,29 @@
   },
   "collision": "田埂、田畦各自盒狀或凸包碰撞；溝底為地面；水面不碰撞（尚未製作）",
   "lod": {
-    "LOD0": 15476,
-    "LOD1": 6962,
-    "LOD2": 2782
+    "LOD0": 12860,
+    "LOD1": 6430,
+    "LOD2": 1926,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.15
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
   },
   "extra": {},
   "exports": {
     "glb": "F01.glb",
     "water_glb": "F01_water.glb",
     "water_fbx": "F01_water.fbx",
-    "fbx": "F01.fbx",
-    "lod1": "F01_LOD1.glb",
-    "lod2": "F01_LOD2.glb"
+    "fbx": "F01.fbx"
   },
   "reimport": {
     "file": "art/exports/qingxi-waterworks-b/F01/F01.glb",
-    "tris": 15476,
+    "tris": 12860,
     "size": [
-      6.0069,
+      6.0067,
       4.0,
-      0.8363
+      0.8354
     ],
     "materials": [
       "ww_bronze.001",
@@ -1977,6 +1980,10 @@
     ],
     "size_error_m": 0.0,
     "tris_match": true,
+    "lod_tris": {
+      "LOD1": 6259,
+      "LOD2": 1629
+    },
     "textures_embedded": 7
   }
 }

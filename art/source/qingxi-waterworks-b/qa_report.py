@@ -61,7 +61,9 @@ def check_piece(pid):
     checks["glb_reimport"] = status(bool(r) and r.get("tris_match") and r.get("size_error_m", 1) < 1e-3)
     files = info.get("exports", {})
     missing = [f for f in files.values() if not os.path.exists(os.path.join(EXPORTS, pid, f))]
-    checks["export_files"] = status(not missing and {"glb", "fbx", "lod1", "lod2"} <= set(files))
+    # v002：LOD1／LOD2 併入主檔，以回匯時主 GLB 內的 _LOD1／_LOD2 面數確認
+    lod_in_main = all(r.get("lod_tris", {}).get(k, 0) > 0 for k in ("LOD1", "LOD2"))
+    checks["export_files"] = status(not missing and {"glb", "fbx"} <= set(files) and lod_in_main)
     # 只檢查套件互拼的 in／out 接口；intake（接溪邊）、discharge（放流）是接地形的終端口，不要求落格
     kit_ports = [p for p in info["ports"] if p["kind"] in ("in", "out")]
     checks["ports_on_grid"] = (status(all(on_grid(p["pos"][0]) and on_grid(p["pos"][1]) for p in kit_ports))

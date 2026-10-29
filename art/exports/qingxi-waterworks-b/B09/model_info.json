@@ -26,8 +26,8 @@
   ],
   "footprint_cells": [],
   "stats": {
-    "tris": 1934,
-    "verts": 993,
+    "tris": 2010,
+    "verts": 1031,
     "materials": [
       "ww_bronze",
       "ww_cloth",
@@ -76,20 +76,23 @@
   },
   "collision": "浮體盒 25 × 12 × 12 cm；繩與旗不碰撞",
   "lod": {
-    "LOD0": 1934,
-    "LOD1": 870,
-    "LOD2": 348
+    "LOD0": 2010,
+    "LOD1": 1004,
+    "LOD2": 300,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.149
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
   },
   "extra": {},
   "exports": {
     "glb": "B09.glb",
-    "fbx": "B09.fbx",
-    "lod1": "B09_LOD1.glb",
-    "lod2": "B09_LOD2.glb"
+    "fbx": "B09.fbx"
   },
   "reimport": {
     "file": "art/exports/qingxi-waterworks-b/B09/B09.glb",
-    "tris": 1934,
+    "tris": 2010,
     "size": [
       0.12,
       0.8733,
@@ -104,6 +107,10 @@
     "empties": [],
     "size_error_m": 0.0,
     "tris_match": true,
+    "lod_tris": {
+      "LOD1": 1004,
+      "LOD2": 300
+    },
     "textures_embedded": 2
   }
 }

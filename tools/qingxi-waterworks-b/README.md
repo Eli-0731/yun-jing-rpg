@@ -178,6 +178,16 @@ node --test tools/qingxi-waterworks-b/tests/waterworks-core.test.mjs
   - 錄影期間每格平均 8.4 ms（RTX 5060，含每 0.1 秒存一張 JPG）。
 - 錄完後只把「⚠」改成「！」（原字型沒有這個字），重新編譯通過，沒有重錄。
 
+## 外觀 v002 與 LOD（2026-10-30，核心組審查後）
+
+- 外觀以第一輪 #51 為準拉回：一塊塊錯縫切石（20–40 cm）、1 cm 左右的倒角與 V 形石縫、深褐有光澤的銅箍與圓頭鉚釘；
+  石紋改成 1 m 一張、每塊石頭取不同位置。改的是共用的 `kit_lib.py`，27 件一起重建。
+  三版對照：`art/previews/qingxi-waterworks-b/B01/B01_rounds_compare.png`、`B02/B02_rounds_compare.png`。
+- 面數：B01 8,904（r2 首版 9,136、#51 38,900）、B02 3,996（r2 2,976、#51 13,256）；外觀以渲染對照為準，面數仍低於 #51。
+- 每件 LOD1（50%）、LOD2（15%）放在同一個 FBX／GLB，Unity 匯入時建 LODGroup（見 `asset_spec.md`「LOD 與預算」）。
+  Unity 匯入檢查 27 件：LOD0 面數與 Blender 一致、LODGroup 3 層、材質全部對應（`unity_import_report.json`）。
+- R1 放進青溪村地圖的座標提案：`village/r1_village_layout.json`、`village/r1_village_top.png`（`village/r1_village_layout.py` 產生）。
+
 ## 已知限制
 
 - 只在桌機 Chrome 系瀏覽器檢查過：1280×720、800×600，以及模擬的 812×375 橫向（版面不橫捲、側欄 300 px）。觸控只依 pointer 事件實作，沒有在實體手機上測過。

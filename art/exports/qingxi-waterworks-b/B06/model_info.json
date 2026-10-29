@@ -78,15 +78,18 @@
   "collision": "輪盤圓柱 Ø0.5 × 0.05 m；不擋路",
   "lod": {
     "LOD0": 1072,
-    "LOD1": 482,
-    "LOD2": 190
+    "LOD1": 536,
+    "LOD2": 158,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.147
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
   },
   "extra": {},
   "exports": {
     "glb": "B06.glb",
-    "fbx": "B06.fbx",
-    "lod1": "B06_LOD1.glb",
-    "lod2": "B06_LOD2.glb"
+    "fbx": "B06.fbx"
   },
   "reimport": {
     "file": "art/exports/qingxi-waterworks-b/B06/B06.glb",
@@ -103,6 +106,10 @@
     "empties": [],
     "size_error_m": 0.0,
     "tris_match": true,
+    "lod_tris": {
+      "LOD1": 536,
+      "LOD2": 148
+    },
     "textures_embedded": 2
   }
 }

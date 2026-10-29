@@ -1178,8 +1178,13 @@
   "collision": "水面不碰撞；需要時以觸發體判定入水",
   "lod": {
     "LOD0": 10872,
-    "LOD1": 4892,
-    "LOD2": 1956
+    "LOD1": 5436,
+    "LOD2": 1630,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.15
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
   },
   "extra": {
     "is_water": true,
@@ -1614,9 +1619,7 @@
   },
   "exports": {
     "glb": "S01.glb",
-    "fbx": "S01.fbx",
-    "lod1": "S01_LOD1.glb",
-    "lod2": "S01_LOD2.glb"
+    "fbx": "S01.fbx"
   },
   "reimport": {
     "file": "art/exports/qingxi-waterworks-b/S01/S01.glb",
@@ -1634,6 +1637,10 @@
     ],
     "size_error_m": 0.0,
     "tris_match": true,
+    "lod_tris": {
+      "LOD1": 5436,
+      "LOD2": 1630
+    },
     "textures_embedded": 2
   }
 }

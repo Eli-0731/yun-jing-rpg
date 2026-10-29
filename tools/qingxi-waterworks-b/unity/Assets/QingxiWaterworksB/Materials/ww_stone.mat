@@ -34,8 +34,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BumpScale: 0.5
-    - _Glossiness: 0.120000005
+    - _BumpScale: 0.6
+    - _Glossiness: 0.16000003
     - _Metallic: 0
     - _UseVertexColor: 1
     m_Colors:

@@ -214,8 +214,8 @@
     ]
   ],
   "stats": {
-    "tris": 7140,
-    "verts": 3708,
+    "tris": 5864,
+    "verts": 3068,
     "materials": [
       "ww_bronze",
       "ww_soil",
@@ -240,7 +240,7 @@
   },
   "qa": {
     "body": {
-      "islands": 67,
+      "islands": 66,
       "nonmanifold_edges": 0,
       "degenerate_faces": 0,
       "inward_islands": 0,
@@ -264,22 +264,25 @@
   "states": {},
   "collision": "槽身同 B02；基腳在地下不需碰撞",
   "lod": {
-    "LOD0": 7140,
-    "LOD1": 3212,
-    "LOD2": 1282
+    "LOD0": 5864,
+    "LOD1": 2932,
+    "LOD2": 878,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.15
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
   },
   "extra": {},
   "exports": {
     "glb": "B02-V03.glb",
     "water_glb": "B02-V03_water.glb",
     "water_fbx": "B02-V03_water.fbx",
-    "fbx": "B02-V03.fbx",
-    "lod1": "B02-V03_LOD1.glb",
-    "lod2": "B02-V03_LOD2.glb"
+    "fbx": "B02-V03.fbx"
   },
   "reimport": {
     "file": "art/exports/qingxi-waterworks-b/B02-V03/B02-V03.glb",
-    "tris": 7140,
+    "tris": 5864,
     "size": [
       1.1457,
       1.0,
@@ -297,6 +300,10 @@
     ],
     "size_error_m": 0.0,
     "tris_match": true,
+    "lod_tris": {
+      "LOD1": 2932,
+      "LOD2": 878
+    },
     "textures_embedded": 5
   }
 }

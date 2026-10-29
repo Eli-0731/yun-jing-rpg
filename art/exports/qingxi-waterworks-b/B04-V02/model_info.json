@@ -408,8 +408,8 @@
     ]
   ],
   "stats": {
-    "tris": 10320,
-    "verts": 5296,
+    "tris": 8220,
+    "verts": 4246,
     "materials": [
       "ww_bronze",
       "ww_stone",
@@ -418,7 +418,7 @@
     "bbox_min": [
       -0.75,
       0.0,
-      -0.0022
+      -0.0023
     ],
     "bbox_max": [
       0.75,
@@ -428,7 +428,7 @@
     "size": [
       1.5,
       1.2135,
-      0.4142
+      0.4143
     ]
   },
   "qa": {
@@ -449,26 +449,29 @@
   "states": {},
   "collision": "以 footprint 盒＋各牆盒組成；水面不碰撞",
   "lod": {
-    "LOD0": 10320,
-    "LOD1": 4644,
-    "LOD2": 1856
+    "LOD0": 8220,
+    "LOD1": 4110,
+    "LOD2": 1232,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.15
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
   },
   "extra": {},
   "exports": {
     "glb": "B04-V02.glb",
     "water_glb": "B04-V02_water.glb",
     "water_fbx": "B04-V02_water.fbx",
-    "fbx": "B04-V02.fbx",
-    "lod1": "B04-V02_LOD1.glb",
-    "lod2": "B04-V02_LOD2.glb"
+    "fbx": "B04-V02.fbx"
   },
   "reimport": {
     "file": "art/exports/qingxi-waterworks-b/B04-V02/B04-V02.glb",
-    "tris": 10320,
+    "tris": 8220,
     "size": [
       1.5,
       1.2135,
-      0.4142
+      0.4143
     ],
     "materials": [
       "ww_bronze.001",
@@ -482,6 +485,10 @@
     ],
     "size_error_m": 0.0,
     "tris_match": true,
+    "lod_tris": {
+      "LOD1": 4110,
+      "LOD2": 1232
+    },
     "textures_embedded": 4
   }
 }

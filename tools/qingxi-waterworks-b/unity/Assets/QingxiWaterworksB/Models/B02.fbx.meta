@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: ww_stone_moss
+    second: {fileID: 2100000, guid: 8db4f69625d38e142b176927336ed591, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ww_wood
     second: {fileID: 2100000, guid: a25c22a9539e70d448340d290c4c7de1, type: 2}
   materials:

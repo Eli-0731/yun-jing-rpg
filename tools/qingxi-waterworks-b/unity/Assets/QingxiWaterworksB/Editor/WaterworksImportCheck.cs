@@ -26,10 +26,10 @@ public static class WaterworksImportCheck
     // 與 kit_lib.MAT_SPECS 對應：roughness → smoothness = 1 - roughness
     static readonly (string name, string tex, Color color, float metal, float rough, float normal)[] Specs =
     {
-        ("ww_stone", "ww_stone", Color.white, 0f, 0.88f, 0.5f),
-        ("ww_stone_moss", "ww_stone_moss", Color.white, 0f, 0.92f, 0.5f),
+        ("ww_stone", "ww_stone", Color.white, 0f, 0.84f, 0.6f),
+        ("ww_stone_moss", "ww_stone_moss", Color.white, 0f, 0.92f, 0.6f),
         ("ww_wood", "ww_wood", Color.white, 0f, 0.80f, 0f),
-        ("ww_bronze", "ww_bronze", Color.white, 0.65f, 0.32f, 0f),
+        ("ww_bronze", "ww_bronze", Color.white, 0.9f, 0.30f, 0f),
         ("ww_soil", "ww_soil", Color.white, 0f, 0.95f, 0f),
         ("ww_gasket", null, new Color(0.10f, 0.085f, 0.07f), 0f, 0.9f, 0f),
         ("ww_seal", null, new Color(0.40f, 0.20f, 0.12f), 0f, 0.95f, 0f),
@@ -347,12 +347,17 @@ public static class WaterworksImportCheck
         bool vcol = true;
         var matNames = new SortedSet<string>();
         var unmapped = new SortedSet<string>();
+        int lod1 = 0, lod2 = 0;
         foreach (var mf in go.GetComponentsInChildren<MeshFilter>(true))
         {
             var mesh = mf.sharedMesh;
-            tris += mesh.triangles.Length / 3;
+            var n = mesh.triangles.Length / 3;
+            if (mf.name.EndsWith("_LOD1")) lod1 += n;          // v002：LOD 與 LOD0 同一個 FBX，分開計數
+            else if (mf.name.EndsWith("_LOD2")) lod2 += n;
+            else tris += n;
             vcol &= mesh.colors32 != null && mesh.colors32.Length == mesh.vertexCount;
         }
+        var lodGroup = go.GetComponent<LODGroup>();
         foreach (var r in go.GetComponentsInChildren<Renderer>(true))
             foreach (var m in r.sharedMaterials)
             {
@@ -367,7 +372,8 @@ public static class WaterworksImportCheck
         var size = b.size;
         var minLocal = b.min - go.transform.position;
         var maxLocal = b.max - go.transform.position;
-        return $"{{\"id\":\"{id}\",\"tris\":{tris},\"size_m\":[{F(size.x)},{F(size.y)},{F(size.z)}]," +
+        return $"{{\"id\":\"{id}\",\"tris\":{tris},\"lod1_tris\":{lod1},\"lod2_tris\":{lod2}," +
+               $"\"lod_group_levels\":{(lodGroup != null ? lodGroup.lodCount : 0)},\"size_m\":[{F(size.x)},{F(size.y)},{F(size.z)}]," +
                $"\"min_m\":[{F(minLocal.x)},{F(minLocal.y)},{F(minLocal.z)}]," +
                $"\"max_m\":[{F(maxLocal.x)},{F(maxLocal.y)},{F(maxLocal.z)}]," +
                $"\"vertex_colors\":{(vcol ? "true" : "false")}," +

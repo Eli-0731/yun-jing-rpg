@@ -4,16 +4,21 @@
     {
       "id": "B01",
       "name": "舊水路方形基座",
-      "tris": 9136,
+      "tris": 8904,
       "lod": {
-        "LOD0": 9136,
-        "LOD1": 4110,
-        "LOD2": 1644
+        "LOD0": 8904,
+        "LOD1": 4452,
+        "LOD2": 1334,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        1.4476,
+        1.4468,
         1.8,
-        0.4549
+        0.4547
       ],
       "materials": [
         "ww_bronze",
@@ -51,20 +56,26 @@
     {
       "id": "B02",
       "name": "完整短直槽",
-      "tris": 2976,
+      "tris": 3996,
       "lod": {
-        "LOD0": 2976,
-        "LOD1": 1338,
-        "LOD2": 534
+        "LOD0": 3996,
+        "LOD1": 1998,
+        "LOD2": 598,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        0.732,
+        0.738,
         1.0,
-        0.4044
+        0.4047
       ],
       "materials": [
         "ww_bronze",
         "ww_stone",
+        "ww_stone_moss",
         "ww_wood"
       ],
       "ports": 2,
@@ -98,16 +109,21 @@
     {
       "id": "B02-V02",
       "name": "磨損階梯牆直槽",
-      "tris": 5996,
+      "tris": 3768,
       "lod": {
-        "LOD0": 5996,
-        "LOD1": 2698,
-        "LOD2": 1078
+        "LOD0": 3768,
+        "LOD1": 1884,
+        "LOD2": 564,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        0.6228,
+        0.6257,
         1.0,
-        0.4067
+        0.4065
       ],
       "materials": [
         "ww_bronze",
@@ -146,11 +162,16 @@
     {
       "id": "B02-V03",
       "name": "半埋基腳直槽",
-      "tris": 7140,
+      "tris": 5864,
       "lod": {
-        "LOD0": 7140,
-        "LOD1": 3212,
-        "LOD2": 1282
+        "LOD0": 5864,
+        "LOD1": 2932,
+        "LOD2": 878,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         1.1457,
@@ -195,16 +216,21 @@
     {
       "id": "B02-V04",
       "name": "鍵槽短接頭",
-      "tris": 4132,
+      "tris": 5508,
       "lod": {
-        "LOD0": 4132,
-        "LOD1": 1858,
-        "LOD2": 742
+        "LOD0": 5508,
+        "LOD1": 2754,
+        "LOD2": 826,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         0.7498,
         0.5,
-        0.4143
+        0.4139
       ],
       "materials": [
         "ww_bronze",
@@ -243,16 +269,21 @@
     {
       "id": "B02-V05",
       "name": "終止放流坡",
-      "tris": 8160,
+      "tris": 5304,
       "lod": {
-        "LOD0": 8160,
-        "LOD1": 3672,
-        "LOD2": 1468
+        "LOD0": 5304,
+        "LOD1": 2652,
+        "LOD2": 794,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        0.8936,
-        0.8427,
-        0.4044
+        0.8942,
+        0.8414,
+        0.4042
       ],
       "materials": [
         "ww_bronze",
@@ -289,11 +320,16 @@
     {
       "id": "B03",
       "name": "直角彎槽（右）",
-      "tris": 5004,
+      "tris": 4008,
       "lod": {
-        "LOD0": 5004,
-        "LOD1": 2250,
-        "LOD2": 900
+        "LOD0": 4008,
+        "LOD1": 2004,
+        "LOD2": 600,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         1.09,
@@ -336,16 +372,21 @@
     {
       "id": "B03-V02",
       "name": "寬弧彎槽（右）",
-      "tris": 11180,
+      "tris": 7672,
       "lod": {
-        "LOD0": 11180,
-        "LOD1": 5030,
-        "LOD2": 2012
+        "LOD0": 7672,
+        "LOD1": 3836,
+        "LOD2": 1150,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        1.3461,
-        1.3463,
-        0.4051
+        1.3466,
+        1.3454,
+        0.4049
       ],
       "materials": [
         "ww_bronze",
@@ -383,16 +424,21 @@
     {
       "id": "B03-V03",
       "name": "斜角扶壁彎槽（左）",
-      "tris": 4288,
+      "tris": 4276,
       "lod": {
-        "LOD0": 4288,
-        "LOD1": 1928,
-        "LOD2": 770
+        "LOD0": 4276,
+        "LOD1": 2138,
+        "LOD2": 640,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        1.0228,
-        0.9048,
-        0.4143
+        1.0234,
+        0.9098,
+        0.4144
       ],
       "materials": [
         "ww_bronze",
@@ -430,16 +476,21 @@
     {
       "id": "B03-V04",
       "name": "掃弧階台彎槽（左）",
-      "tris": 11248,
+      "tris": 8328,
       "lod": {
-        "LOD0": 11248,
-        "LOD1": 5060,
-        "LOD2": 2024
+        "LOD0": 8328,
+        "LOD1": 4164,
+        "LOD2": 1248,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        1.1534,
-        1.1549,
-        0.4143
+        1.1552,
+        1.1559,
+        0.4144
       ],
       "materials": [
         "ww_bronze",
@@ -476,16 +527,21 @@
     {
       "id": "B04",
       "name": "分流三通",
-      "tris": 4740,
+      "tris": 4380,
       "lod": {
-        "LOD0": 4740,
-        "LOD1": 2132,
-        "LOD2": 852
+        "LOD0": 4380,
+        "LOD1": 2190,
+        "LOD2": 656,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         1.0,
-        1.107,
-        0.4136
+        1.11,
+        0.4144
       ],
       "materials": [
         "ww_bronze",
@@ -525,16 +581,21 @@
     {
       "id": "B04-V02",
       "name": "圓缽分流三通",
-      "tris": 10320,
+      "tris": 8220,
       "lod": {
-        "LOD0": 10320,
-        "LOD1": 4644,
-        "LOD2": 1856
+        "LOD0": 8220,
+        "LOD1": 4110,
+        "LOD2": 1232,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         1.5,
         1.2135,
-        0.4142
+        0.4143
       ],
       "materials": [
         "ww_bronze",
@@ -573,16 +634,21 @@
     {
       "id": "B05",
       "name": "木製手動閘板",
-      "tris": 4112,
+      "tris": 5832,
       "lod": {
-        "LOD0": 4112,
-        "LOD1": 1848,
-        "LOD2": 738
+        "LOD0": 5832,
+        "LOD1": 2916,
+        "LOD2": 872,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        1.081,
+        1.0813,
         1.0,
-        1.5623
+        1.5622
       ],
       "materials": [
         "ww_bronze",
@@ -625,8 +691,13 @@
       "tris": 1072,
       "lod": {
         "LOD0": 1072,
-        "LOD1": 482,
-        "LOD2": 190
+        "LOD1": 536,
+        "LOD2": 158,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.147
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         0.516,
@@ -668,14 +739,19 @@
     {
       "id": "B07",
       "name": "修補石鞍",
-      "tris": 1288,
+      "tris": 1364,
       "lod": {
-        "LOD0": 1288,
-        "LOD1": 578,
-        "LOD2": 230
+        "LOD0": 1364,
+        "LOD1": 682,
+        "LOD2": 204,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        0.4564,
+        0.4533,
         0.116,
         0.21
       ],
@@ -716,15 +792,20 @@
     {
       "id": "B07-V02",
       "name": "轉角L形修補鍵",
-      "tris": 524,
+      "tris": 772,
       "lod": {
-        "LOD0": 524,
-        "LOD1": 234,
-        "LOD2": 94
+        "LOD0": 772,
+        "LOD1": 386,
+        "LOD2": 114,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.148
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        0.4096,
-        0.2708,
+        0.4073,
+        0.2736,
         0.2117
       ],
       "materials": [
@@ -764,21 +845,25 @@
     {
       "id": "B07-V03",
       "name": "階梯底板修補塞",
-      "tris": 932,
+      "tris": 1428,
       "lod": {
-        "LOD0": 932,
-        "LOD1": 418,
-        "LOD2": 166
+        "LOD0": 1428,
+        "LOD1": 714,
+        "LOD2": 214,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        0.408,
-        0.316,
-        0.0982
+        0.4053,
+        0.326,
+        0.0972
       ],
       "materials": [
         "ww_bronze",
         "ww_stone",
-        "ww_stone_moss",
         "ww_wood"
       ],
       "ports": 0,
@@ -812,15 +897,20 @@
     {
       "id": "B08",
       "name": "河床清淤篩",
-      "tris": 1832,
+      "tris": 2568,
       "lod": {
-        "LOD0": 1832,
-        "LOD1": 824,
-        "LOD2": 328
+        "LOD0": 2568,
+        "LOD1": 1284,
+        "LOD2": 384,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        0.618,
-        1.5717,
+        0.626,
+        1.5757,
         0.6273
       ],
       "materials": [
@@ -859,11 +949,16 @@
     {
       "id": "B09",
       "name": "流速指示浮標",
-      "tris": 1934,
+      "tris": 2010,
       "lod": {
-        "LOD0": 1934,
-        "LOD1": 870,
-        "LOD2": 348
+        "LOD0": 2010,
+        "LOD1": 1004,
+        "LOD2": 300,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.149
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         0.12,
@@ -908,14 +1003,19 @@
     {
       "id": "B10",
       "name": "石槽支架（排架）",
-      "tris": 404,
+      "tris": 772,
       "lod": {
-        "LOD0": 404,
-        "LOD1": 180,
-        "LOD2": 72
+        "LOD0": 772,
+        "LOD1": 386,
+        "LOD2": 114,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.148
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        0.188,
+        0.194,
         1.0014,
         0.808
       ],
@@ -954,21 +1054,25 @@
     {
       "id": "B10-V02",
       "name": "低矮楔固枕木支架",
-      "tris": 1212,
+      "tris": 2156,
       "lod": {
-        "LOD0": 1212,
-        "LOD1": 544,
-        "LOD2": 218
+        "LOD0": 2156,
+        "LOD1": 1078,
+        "LOD2": 322,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.149
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         1.164,
-        0.412,
+        0.42,
         0.76
       ],
       "materials": [
         "ww_bronze",
         "ww_stone",
-        "ww_stone_moss",
         "ww_wood"
       ],
       "ports": 0,
@@ -1002,14 +1106,19 @@
     {
       "id": "B10-V03",
       "name": "高四樁棧架",
-      "tris": 920,
+      "tris": 1472,
       "lod": {
-        "LOD0": 920,
-        "LOD1": 414,
-        "LOD2": 164
+        "LOD0": 1472,
+        "LOD1": 736,
+        "LOD2": 220,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.149
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        0.8266,
+        0.834,
         1.09,
         1.2047
       ],
@@ -1048,16 +1157,21 @@
     {
       "id": "B11",
       "name": "兩輪手推車",
-      "tris": 4940,
+      "tris": 6780,
       "lod": {
-        "LOD0": 4940,
-        "LOD1": 2220,
-        "LOD2": 886
+        "LOD0": 6780,
+        "LOD1": 3390,
+        "LOD2": 1016,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         1.1,
         1.8358,
-        0.9475
+        0.9485
       ],
       "materials": [
         "ww_bronze",
@@ -1097,16 +1211,21 @@
     {
       "id": "B12",
       "name": "完工紀錄碑座",
-      "tris": 2560,
+      "tris": 2612,
       "lod": {
-        "LOD0": 2560,
-        "LOD1": 1146,
-        "LOD2": 454
+        "LOD0": 2612,
+        "LOD1": 1306,
+        "LOD2": 388,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.149
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        0.8466,
-        0.6071,
-        1.1119
+        0.8451,
+        0.6068,
+        1.1117
       ],
       "materials": [
         "ww_bronze",
@@ -1146,16 +1265,21 @@
     {
       "id": "F01",
       "name": "灌溉田地",
-      "tris": 15476,
+      "tris": 12860,
       "lod": {
-        "LOD0": 15476,
-        "LOD1": 6962,
-        "LOD2": 2782
+        "LOD0": 12860,
+        "LOD1": 6430,
+        "LOD2": 1926,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
-        6.0069,
+        6.0067,
         4.0,
-        0.8363
+        0.8354
       ],
       "materials": [
         "ww_bronze",
@@ -1205,8 +1329,13 @@
       "tris": 10872,
       "lod": {
         "LOD0": 10872,
-        "LOD1": 4892,
-        "LOD2": 1956
+        "LOD1": 5436,
+        "LOD2": 1630,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         2.0196,
@@ -1254,8 +1383,13 @@
       "tris": 9056,
       "lod": {
         "LOD0": 9056,
-        "LOD1": 4074,
-        "LOD2": 1630
+        "LOD1": 4528,
+        "LOD2": 1358,
+        "ratio": {
+          "LOD1": 0.5,
+          "LOD2": 0.15
+        },
+        "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
       },
       "size_m": [
         5.5977,

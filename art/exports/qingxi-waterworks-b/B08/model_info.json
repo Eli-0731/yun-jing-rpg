@@ -43,26 +43,26 @@
     ]
   ],
   "stats": {
-    "tris": 1832,
-    "verts": 1130,
+    "tris": 2568,
+    "verts": 1498,
     "materials": [
       "ww_bronze",
       "ww_rope",
       "ww_wood"
     ],
     "bbox_min": [
-      -0.309,
-      -0.234,
+      -0.313,
+      -0.238,
       -0.002
     ],
     "bbox_max": [
-      0.309,
+      0.313,
       1.3377,
       0.6253
     ],
     "size": [
-      0.618,
-      1.5717,
+      0.626,
+      1.5757,
       0.6273
     ]
   },
@@ -83,23 +83,26 @@
   "states": {},
   "collision": "籃盒 60 × 45 × 12 cm＋柄膠囊 Ø4 cm",
   "lod": {
-    "LOD0": 1832,
-    "LOD1": 824,
-    "LOD2": 328
+    "LOD0": 2568,
+    "LOD1": 1284,
+    "LOD2": 384,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.15
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
   },
   "extra": {},
   "exports": {
     "glb": "B08.glb",
-    "fbx": "B08.fbx",
-    "lod1": "B08_LOD1.glb",
-    "lod2": "B08_LOD2.glb"
+    "fbx": "B08.fbx"
   },
   "reimport": {
     "file": "art/exports/qingxi-waterworks-b/B08/B08.glb",
-    "tris": 1832,
+    "tris": 2568,
     "size": [
-      0.618,
-      1.5717,
+      0.626,
+      1.5757,
       0.6273
     ],
     "materials": [
@@ -110,6 +113,10 @@
     "empties": [],
     "size_error_m": 0.0,
     "tris_match": true,
+    "lod_tris": {
+      "LOD1": 1284,
+      "LOD2": 307
+    },
     "textures_embedded": 2
   }
 }
