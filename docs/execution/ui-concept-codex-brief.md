@@ -1,3 +1,5 @@
+> **已被取代**：請改看主場景工作樹的 `docs/execution/codex-v2/`（2026-10-29）。本檔僅保留紀錄。
+
 # Codex 工作包：介面概念圖 v1（UI-C01）
 
 > 交給 Codex 的工作。依據：[介面與操作設計方向 v1](../art/ui-ux-direction-v1.md)（先完整讀完再開始）。
