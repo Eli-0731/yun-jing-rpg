@@ -141,12 +141,12 @@
   },
   "files": {
    "A02_end_break_01.glb": {
-    "bytes": 386232,
-    "sha256": "bc6514a5d4e0e9be1f2b4a7061658e8ac0d79ef62bf8526682aad4fbec6216bc"
+    "bytes": 468592,
+    "sha256": "cef79a43ddf516eac551d857409295d4eca033f8f233701d9518561daa159703"
    },
    "A02_end_break_01.fbx": {
-    "bytes": 371788,
-    "sha256": "01b7bf0ad02cacbea7c6d61f01973ce7607dec0842cad6a66f115b4b9f2af1de"
+    "bytes": 372908,
+    "sha256": "276df0d8ea214f807b9dafaaeacebee7f3d6c0be625d7651104e0a7100792d0f"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A02_end_break_three_view.png",

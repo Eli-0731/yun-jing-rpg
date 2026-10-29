@@ -82,12 +82,12 @@
   },
   "files": {
    "A08_gravel_bar_01.glb": {
-    "bytes": 434656,
-    "sha256": "d21fe731361216e7101c75af6036b269deb7c8cad6e2401607f222fecd9dfd9c"
+    "bytes": 652508,
+    "sha256": "08eef86ad590f71dcfe5dd71cffe5bb1f4ed2c132df0ba1d5c19e2d9885be730"
    },
    "A08_gravel_bar_01.fbx": {
-    "bytes": 520636,
-    "sha256": "0c15eb2774015361935a7c0ce5d4370abd65c8458d0be14d88fa5dc34221d9ff"
+    "bytes": 521772,
+    "sha256": "8567a1f3296d74cfddf7491f0785c0b26738d606e0405abcaeea4b1c84dbd989"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A08_gravel_bar_three_view.png",

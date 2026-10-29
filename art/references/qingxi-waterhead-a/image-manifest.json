@@ -1,5 +1,19 @@
 [
  {
+  "id": "A01_bed",
+  "file": "A01_bed_three_view.png",
+  "bytes": 2324532,
+  "sha256": "7bfe6d204448d95b64f4dd7aea240d9ec6a4eea603bb569d6ca3a168c85fb2a3",
+  "views": [
+   "FRONT",
+   "SIDE",
+   "TOP-DOWN"
+  ],
+  "generator": "OpenAI image generation via Codex CLI (codex exec), 2026-10-29; prompts in prompts.json",
+  "review": "河床材質參考（2026-10-29 補）：2.4×3 m 河床，混合 2–25 cm 的圓／次稜卵石半埋在濕沙與細礫裡，大卵石沿深槽聚集，中間細淺水流可見底石；邊緣是較淺的乾沙，少數卵石有苔，石縫夾落葉與細枝。第三格改為俯視圖（不是背面）。用來取代原本像龜裂磁磚的河床。",
+  "reviewed": "before modelling; build_waterhead.py refuses to build an asset whose three-view is missing"
+ },
+ {
   "id": "A01_bend_left",
   "file": "A01_bend_left_three_view.png",
   "bytes": 1606834,

@@ -93,12 +93,12 @@
   },
   "files": {
    "A04_SiltJam_03.glb": {
-    "bytes": 457432,
-    "sha256": "9abdaf1088388dd5f8c93d97cde7caa835cd5cf540e939a7c0f151b4e7add3fe"
+    "bytes": 539792,
+    "sha256": "adbdb77461bad1fbbb1b7cab15cd891cb7bf0ec03b56d11517082ae577320950"
    },
    "A04_SiltJam_03.fbx": {
-    "bytes": 379484,
-    "sha256": "96e6c35205689b40af4c4a0d49dae818e6106892ddcd8db8e769c7f9c4006460"
+    "bytes": 380620,
+    "sha256": "db778f588c9094702a7e86d0354bfc8e9d528ed45d98eac605eaf7a16ca97fb4"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A04_silt_jam_three_view.png",

@@ -10,11 +10,11 @@
   6.0,
   1.5822
  ],
- "triangles": 17796,
+ "triangles": 18516,
  "lod_triangles": [
-  17796,
-  6608,
-  2907
+  18516,
+  6968,
+  3065
  ],
  "collision": {
   "type": "heightfield",
@@ -79,9 +79,9 @@
    1.5822
   ],
   "trianglesLOD": [
-   17796,
-   6608,
-   2907
+   18516,
+   6968,
+   3065
   ],
   "budgetLOD0": 20000,
   "withinBudget": true,
@@ -98,12 +98,12 @@
   ],
   "originAtBase": true,
   "meshHealth": {
-   "nonManifoldEdges": 282,
+   "nonManifoldEdges": 882,
    "looseVerts": 0,
    "zeroAreaFaces": 0
   },
   "glbRoundTrip": {
-   "triangles": 17796,
+   "triangles": 18516,
    "trianglesMatch": true,
    "bboxMatch": true,
    "materials": [
@@ -114,12 +114,12 @@
   },
   "files": {
    "A01_straight_01.glb": {
-    "bytes": 3259560,
-    "sha256": "b3df3c96dec8c59652e8b77294e272e149c94039e9f8ed70f510324c9f671d23"
+    "bytes": 3795256,
+    "sha256": "6b00b552507f8d552568bce1e2626206606dd62adc93860864ef7ba264f1312f"
    },
    "A01_straight_01.fbx": {
-    "bytes": 2152796,
-    "sha256": "61059957cb24d65a58b233dd4ce046d799b134b0fd51fa6f821743cc5ab1508c"
+    "bytes": 2236316,
+    "sha256": "d72d30e0481883e703670918931967e4f07c1343bec7a0d6a4d9858afcc1c717"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A01_straight_three_view.png",

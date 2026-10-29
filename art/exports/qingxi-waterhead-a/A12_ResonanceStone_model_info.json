@@ -98,12 +98,12 @@
   },
   "files": {
    "A12_ResonanceStone.glb": {
-    "bytes": 1317212,
-    "sha256": "6c38822899e259e9f8b0d036e61bfa3d3ae35466f8f66a6f1cd00573868c6a5e"
+    "bytes": 1399572,
+    "sha256": "1c6f7fc59874a6b596535740f885f32f109648d071fd52d426d7b87dc5cd7215"
    },
    "A12_ResonanceStone.fbx": {
-    "bytes": 1244796,
-    "sha256": "1c600ec4d6fdd83e444d9c75db91e11045a4e0608b0cc30a0ad09c2a9da7f1d3"
+    "bytes": 1245932,
+    "sha256": "50903c7641a8432c95918578a165d7e164ed61c4fe0a57499f61cefa2b9e6000"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A12_three_view.png",

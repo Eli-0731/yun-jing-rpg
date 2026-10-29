@@ -216,6 +216,7 @@ const heightCache = new Map();
 const terrain = [];
 const occluders = [];
 const siltModels = {}, resonanceMats = [], riverWater = [], placedItems = [], hullWalls = [], sockets = [];
+const riverWaterMats = new Set();
 let loaded = 0;
 const progress = () => { loaded++; $('load-text').textContent = `載入模型 ${loaded}/${LAYOUT.length}`; $('load-bar').style.setProperty('--p', `${loaded / LAYOUT.length * 100}%`); };
 const cache = {};
@@ -241,7 +242,11 @@ for (const it of order) {
   else if (!it.plant) occluders.push(o);   // plants (sedge, the bamboo screen) never push the camera in
   if (it.silt) siltModels[it.silt] = o;
   if (it.resonance) o.traverse(m => { if (m.isMesh && m.material.emissiveMap) resonanceMats.push(m.material); });
-  if (it.terrain && it.id.startsWith('A01')) o.traverse(m => { if (m.isMesh && /_Water$/.test(m.name)) riverWater.push({ mesh: m, module: it.mi }); });   // water is its own node, apart from the land
+  if (it.terrain && it.id.startsWith('A01')) o.traverse(m => {   // water is its own node, apart from the land
+    if (!m.isMesh || !/_Water$/.test(m.name)) return;
+    riverWater.push({ mesh: m, module: it.mi });
+    if (m.material.normalMap) riverWaterMats.add(m.material);
+  });
   placedItems.push({ ...it, object: o });
   progress();
 }
@@ -548,6 +553,8 @@ function frame(ms) {
   // after the silt is raked open the water below it rises a little over a few seconds
   if (waterRise > 0 && waterRise < 1) waterRise = Math.min(1, waterRise + dt / 3);
   for (const w of riverWater) w.mesh.position.y = w.module <= at('A01_bend_left_01') ? 0.07 * waterRise : 0;
+  // the ripple normal (shared with the group-B waterworks kit) drifts downstream: river UV V grows upstream, 0.5 m per tile
+  for (const m of riverWaterMats) m.normalMap.offset.y += dt * (0.5 + 0.4 * waterRise);
   // third-person camera with collision (pattern from tools/qingxi-encounter-a)
   const fwdX = Math.sin(camYaw), fwdZ = Math.cos(camYaw), rightX = -fwdZ, rightZ = fwdX;
   const dist = 4.6, pitch = camPitch;

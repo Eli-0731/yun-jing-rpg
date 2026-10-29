@@ -77,12 +77,12 @@
   },
   "files": {
    "A08_slabs_stagger_01.glb": {
-    "bytes": 471264,
-    "sha256": "d6b80599134adc014820dbb49f5256d6bceea6c73159b0078c3f52ddeb503488"
+    "bytes": 589000,
+    "sha256": "68bde238c74fe097b39645296a6160a75998d105c0638ee1cb9869320444022c"
    },
    "A08_slabs_stagger_01.fbx": {
     "bytes": 546892,
-    "sha256": "8e0d190506a0384715cd31d99c056d577e333ee33ebea14072bb59b79efae6ec"
+    "sha256": "1b450144ae2c1b99e267ce3724e06dca228c609e0af04c7ace60fc91d00ce000"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A08_slabs_stagger_three_view.png",

@@ -79,6 +79,13 @@ async function walkTo(p, [i, u, s], look) {
   await eyeShot(p, '06-silt-before-raking-1280x720.png');
   await p.keyboard.press('KeyE'); await wait(3600);
   await eyeShot(p, '07-silt-raked-water-up-1280x720.png');
+  // the riverbed close-up the user flagged: play camera tipped down onto the channel bed just below the raked silt
+  await p.evaluate(() => {
+    const q = __wh.onRiver(1, 2.2, -1.3), c = __wh.onRiver(1, 1.2, 0.2);
+    __wh.teleport(q.x, q.z, 0); __wh.look(Math.atan2(c.x - q.x, c.z - q.z) * 180 / Math.PI, 1.0);
+  });
+  await wait(900);
+  await shot(p, '07b-riverbed-close-1280x720.png');
   const more = await p.evaluate(() => __wh.more);
   // hint: the water gauge (zero at the tile base: today 0.30 m, old high water 0.86 m)
   await p.evaluate(() => { const g = __wh.more.GAUGE, q = __wh.onRiver(0, 2.2, 0.3); __wh.teleport(q.x, q.z, 0); __wh.face(g.x, g.z); });

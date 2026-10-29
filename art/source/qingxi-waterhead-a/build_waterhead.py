@@ -55,10 +55,12 @@ def add_moss(m, amount=0.7, up=(0.35, 0.8), color=(0.035, 0.065, 0.012), cover=(
     return m
 
 
-def water_bands(m, z_off=0.0, wet_top=WATER + 0.1, old_lo=WATER + 0.16, old_hi=OLD_HI, strength=1.0, dry=((0.125, 0.115, 0.095), (0.09, 0.083, 0.07))):
+def water_bands(m, z_off=0.0, wet_top=WATER + 0.1, old_lo=WATER + 0.16, old_hi=OLD_HI, strength=1.0, dry=((0.125, 0.115, 0.095), (0.09, 0.083, 0.07)),
+                wet_mul=None):
     """Shared water-history bands on any river-side surface, by height above the tile base (part-local z + z_off):
     dark wet below today's water line, a pale dried silt band up to the old high-water line, a thin dark tide
-    mark at that line. Every A01 segment, rock and marker stone shows the same two levels."""
+    mark at that line. Every A01 segment, rock and marker stone shows the same two levels. wet_mul darkens the
+    surface's own colour instead of painting a flat wet colour (keeps the pebble bed readable under the water)."""
     nt = m.node_tree
     alb = next(n for n in nt.nodes if n.type == 'REROUTE' and n.name == 'CH_albedo')
     rr = next(n for n in nt.nodes if n.type == 'REROUTE' and n.name == 'CH_rough')
@@ -73,7 +75,15 @@ def water_bands(m, z_off=0.0, wet_top=WATER + 0.1, old_lo=WATER + 0.16, old_hi=O
     streak = Q.smooth(nt, Q.noise(nt, Q.coords(nt, (6.0, 6.0, 0.6), offset_by_seed=False), 4.0, 3), 0.45, 0.7)
     col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', drym, min(1.0, 0.32 * strength)), src, Q.mix(nt, streak, *dry))
     col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', tide, min(1.0, 0.9 * strength)), col, (0.03, 0.026, 0.02))
-    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', wet, min(1.0, 0.8 * strength)), col, Q.mix(nt, streak, (0.022, 0.024, 0.02), (0.04, 0.042, 0.035)))
+    if wet_mul is None:
+        wcol = Q.mix(nt, streak, (0.022, 0.024, 0.02), (0.04, 0.042, 0.035))
+    else:
+        wcol = Q.N(nt, 'ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY', clamp_factor=True)
+        wcol.inputs[0].default_value = 1.0
+        Q.L(nt, col, wcol.inputs[6])
+        wcol.inputs[7].default_value = (*wet_mul, 1)
+        wcol = wcol.outputs[2]
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', wet, min(1.0, 0.8 * strength)), col, wcol)
     Q.L(nt, col, alb.inputs[0])
     Q.L(nt, Q.mixf(nt, Q.math_(nt, 'MULTIPLY', wet, strength), Q.mixf(nt, drym, rsrc, 0.97), 0.48), rr.inputs[0])
     return m
@@ -98,19 +108,70 @@ def m_riverbank(name='Riverbank'):
     blades = Q.smooth(nt, Q.noise(nt, co, 80.0, 2, 0.5), 0.45, 0.72)
     grass = Q.mix(nt, Q.math_(nt, 'MULTIPLY', blades, 0.35), grass, (0.36, 0.30, 0.15))
     col = Q.mix(nt, meadow, col, grass)
-    # gravel in the channel: rounded pebbles with dark gaps
-    vo = Q.voronoi(nt, co, 9.0, 'F1', 'Color')
-    peb = Q.mix(nt, Q.sep(nt, vo)[0], (0.07, 0.066, 0.058), (0.19, 0.18, 0.16))
-    gap = Q.smooth(nt, Q.voronoi(nt, co, 9.0, 'DISTANCE_TO_EDGE'), 0.0, 0.06)
-    peb = Q.mix(nt, Q.math_(nt, 'SUBTRACT', 1.0, gap), peb, (0.04, 0.035, 0.03))
-    bed = Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, z, WATER + 0.02, WATER + 0.16))
-    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', bed, Q.smooth(nt, nz, 0.5, 0.8)), col, peb)
+    # channel bed (reference A01_bed): pale sand and grit with rounded stones of three sizes packed in it, thinning out
+    # up the lower banks; leaf litter caught between them. Heights are in metres (bump distance 1).
+    zj = Q.math_(nt, 'ADD', z, Q.math_(nt, 'MULTIPLY', Q.noise(nt, co, 2.5, 3), 0.12))
+    bed = Q.math_(nt, 'MULTIPLY', Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, zj, WATER + 0.1, WATER + 0.38)), Q.smooth(nt, nz, 0.45, 0.75))
+    sand = Q.mix(nt, Q.smooth(nt, Q.noise(nt, co, 5.0, 4, 0.6), 0.3, 0.7), (0.15, 0.12, 0.085), (0.25, 0.205, 0.15))
+    sand = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, Q.noise(nt, co, 0.9, 2), 0.55, 0.7), 0.6), sand, (0.09, 0.075, 0.055))   # damp silt patches
+    pcol, ph = sand, Q.math_(nt, 'MULTIPLY', Q.noise(nt, co, 60.0, 2), 0.002)
+    crev = None
+    for scale, fill, rad, cols in ((48.0, 0.8, 0.46, ((0.10, 0.095, 0.085), (0.25, 0.235, 0.21))),
+                                   (17.0, 0.78, 0.48, ((0.075, 0.078, 0.08), (0.27, 0.26, 0.24))),
+                                   (7.0, 0.6, 0.47, ((0.065, 0.07, 0.075), (0.30, 0.29, 0.265)))):
+        h, c, ring = pebble_layer(nt, co, scale, Q.math_(nt, 'MULTIPLY', bed, fill), rad, cols)
+        on = Q.math_(nt, 'MULTIPLY', Q.smooth(nt, Q.math_(nt, 'SUBTRACT', h, ph), -0.0005, 0.0005),   # the taller stone wins
+                     Q.smooth(nt, h, 0.0, 0.0008))
+        pcol = Q.mix(nt, on, pcol, c)
+        ph = Q.math_(nt, 'MAXIMUM', ph, h)
+        crev = ring if crev is None else Q.math_(nt, 'MAXIMUM', crev, ring)
+    pcol = Q.mix(nt, Q.math_(nt, 'MULTIPLY', crev, 0.45), pcol, (0.035, 0.028, 0.02))   # dark seams where stones sink into the sand
+    litter = Q.math_(nt, 'MULTIPLY', Q.smooth(nt, Q.noise(nt, Q.coords(nt, (1.0, 2.6, 1.0), offset_by_seed=False), 11.0, 3), 0.66, 0.70),
+                     Q.smooth(nt, ph, 0.004, 0.0))
+    pcol = Q.mix(nt, Q.math_(nt, 'MULTIPLY', litter, 0.85), pcol, Q.mix(nt, Q.noise(nt, co, 30.0, 2), (0.13, 0.055, 0.02), (0.28, 0.15, 0.06)))
+    col = Q.mix(nt, bed, col, pcol)
     cav, edge = Q.edge_cavity(nt, 0.08, 0.01)
     col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, cav, 0.1, 0.6), 0.55), col, (0.02, 0.018, 0.014))
     rough = Q.mixf(nt, n2, 0.82, 0.95)
-    hgt = Q.math_(nt, 'ADD', Q.math_(nt, 'MULTIPLY', n2, 0.5), Q.math_(nt, 'MULTIPLY', Q.math_(nt, 'MULTIPLY', gap, bed), 0.8))
-    Q.finish(m, nt, b, col, rough, 0.0, hgt, 0.006, 0.9)
-    return water_bands(m)
+    hgt = Q.math_(nt, 'ADD', Q.math_(nt, 'MULTIPLY', n2, 0.003), Q.math_(nt, 'MULTIPLY', ph, bed))
+    Q.finish(m, nt, b, col, rough, 0.0, hgt, 1.0, 0.8)
+    # today's flow darkens the bed without hiding it; just above it the sand is only damp
+    return water_bands(m, wet_top=WATER + 0.04, wet_mul=(0.42, 0.45, 0.47))
+
+
+def pebble_layer(nt, co, scale, fill, rad, cols):
+    """One size class of rounded stones on a warped Voronoi lattice: each cell holds an oval stone of random size, or
+    none where its random value is above `fill` (sand shows through). Returns (height m, colour, crevice ring)."""
+    wn = Q.N(nt, 'ShaderNodeTexNoise')
+    Q.L(nt, co, wn.inputs['Vector'])
+    wn.inputs['Scale'].default_value = scale * 0.7
+    wn.inputs['Detail'].default_value = 2.0
+    off = Q.N(nt, 'ShaderNodeVectorMath', operation='MULTIPLY_ADD')
+    Q.L(nt, wn.outputs['Color'], off.inputs[0])
+    off.inputs[1].default_value = (0.45 / scale,) * 3
+    st = Q.N(nt, 'ShaderNodeMapping')
+    Q.L(nt, co, st.inputs['Vector'])
+    st.inputs['Scale'].default_value = (1.0, 1.35, 1.0)                          # stones lie a little elongated along the flow
+    Q.L(nt, st.outputs[0], off.inputs[2])
+    vo = Q.N(nt, 'ShaderNodeTexVoronoi', feature='F1')
+    Q.L(nt, off.outputs[0], vo.inputs['Vector'])
+    vo.inputs['Scale'].default_value = scale
+    vo.inputs['Randomness'].default_value = 0.85
+    r, g, bl = Q.sep(nt, vo.outputs['Color'])
+    size = Q.math_(nt, 'MULTIPLY', Q.math_(nt, 'ADD', Q.math_(nt, 'MULTIPLY', g, 0.55), 0.6), rad)
+    t = Q.math_(nt, 'DIVIDE', vo.outputs['Distance'], size)
+    dome = Q.math_(nt, 'POWER', Q.math_(nt, 'MAXIMUM', Q.math_(nt, 'SUBTRACT', 1.0, Q.math_(nt, 'MULTIPLY', t, t)), 0.0), 0.7)
+    present = Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, r, fill, Q.math_(nt, 'ADD', fill, 0.02)))
+    h = Q.math_(nt, 'MULTIPLY', Q.math_(nt, 'MULTIPLY', dome, present), (0.55 / scale) * 0.45)
+    h = Q.math_(nt, 'MULTIPLY', h, Q.math_(nt, 'ADD', Q.math_(nt, 'MULTIPLY', size, 1.0 / rad), -0.2))
+    tone = Q.mix(nt, bl, *cols)
+    tone = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, r, 0.15, 0.1), 0.6), tone, (0.20, 0.155, 0.11))     # a few warm ochre stones
+    tone = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, g, 0.82, 0.9), Q.smooth(nt, Q.noise(nt, co, scale * 2.0, 3), 0.45, 0.6)),
+                 tone, (0.05, 0.075, 0.025))                                                                  # moss on some
+    tone = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, Q.noise(nt, co, scale * 6.0, 2), 0.4, 0.75), 0.35), tone, (0.0, 0.0, 0.0))   # speckle
+    tone = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, t, 0.7, 1.0), 0.35), tone, (0.02, 0.02, 0.02))              # shaded rim
+    ring = Q.math_(nt, 'MULTIPLY', present, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, t, 0.85, 1.0), Q.smooth(nt, t, 1.25, 1.0)))
+    return h, tone, ring
 
 
 def m_cutsoil(name='CutSoil'):
@@ -127,15 +188,55 @@ def m_cutsoil(name='CutSoil'):
     return Q.finish(m, nt, b, col, 0.95, 0.0, Q.noise(nt, co, 20.0, 3), 0.004, 0.8)
 
 
+WATER_TILE = 0.5   # metres per water-normal tile, as in the group-B waterworks kit (their ww_lib.WATER_TILE)
+
+
+def water_normal_image():
+    """Tileable flow-ripple normal map, crests along texture V (= the flow). Same algorithm, size and seed as group B's
+    ww_lib.water_textures(), so the PNG comes out identical to their T_WW_Water_Normal and both kits can share it."""
+    img = bpy.data.images.get('T_WW_Water_Normal')
+    if img:
+        return img
+    n = 1024
+    rng = np.random.default_rng(11)
+    F = np.fft.fft2(rng.standard_normal((n, n)))
+    ky = np.fft.fftfreq(n) * n
+    kx = np.fft.fftfreq(n) * n
+    KY, KX = np.meshgrid(ky, kx, indexing='ij')
+    K = np.sqrt(KX ** 2 + KY ** 2) + 1e-6
+    streak = np.exp(-(KY / (0.30 * np.abs(KX) + 2.0)) ** 2)
+    F = F * np.where(K < 2, 0, K ** -1.45 * np.exp(-(K / 70.0) ** 2) * (0.35 + 1.0 * streak))
+    gx = np.fft.ifft2(F * 1j * KX).real
+    gy = np.fft.ifft2(F * 1j * KY).real
+    s = 0.22 / np.sqrt((gx ** 2 + gy ** 2).mean())
+    nx, ny = -gx * s, -gy * s
+    ln = np.sqrt(nx ** 2 + ny ** 2 + 1.0)
+    rgba = np.stack([nx / ln * 0.5 + 0.5, ny / ln * 0.5 + 0.5, 1.0 / ln * 0.5 + 0.5, np.ones_like(nx)], -1)
+    tdir = EXPORT / 'textures'
+    tdir.mkdir(parents=True, exist_ok=True)
+    img = bpy.data.images.new('T_WW_Water_Normal', n, n, alpha=True)
+    img.pixels.foreach_set(np.ascontiguousarray(rgba, np.float32).ravel())
+    img.filepath_raw = str(tdir / 'T_WW_Water_Normal.png')
+    img.file_format = 'PNG'
+    img.save()
+    img.colorspace_settings.name = 'Non-Color'
+    return img
+
+
 def m_water(name='LowWater'):
-    """Unbaked translucent water (kept as its own node): low-saturation blue-green, slightly rough."""
-    m = bpy.data.materials.new(name)
-    m.use_nodes = True
-    b = m.node_tree.nodes.get('Principled BSDF')
-    b.inputs['Base Color'].default_value = (0.05, 0.11, 0.105, 1)
-    b.inputs['Roughness'].default_value = 0.08
-    b.inputs['Alpha'].default_value = 0.42
+    """Unbaked water (kept as its own node), matched to group B's WW_Water so the stream and their troughs read as one
+    water: same deep green base, gloss and ripple normal. Only the alpha is lower (0.6 vs their 0.8): the creek is a
+    few centimetres deep and its pebble bed should show; their 18 cm trough water is darker by depth anyway."""
+    m, nt, b = Q.new_mat(name)
+    b.inputs['Base Color'].default_value = (0.022, 0.045, 0.034, 1)
+    b.inputs['Roughness'].default_value = 0.035
+    b.inputs['Alpha'].default_value = 0.6
     b.inputs['IOR'].default_value = 1.33
+    tx = Q.N(nt, 'ShaderNodeTexImage', image=water_normal_image())
+    nm = Q.N(nt, 'ShaderNodeNormalMap')
+    nm.inputs['Strength'].default_value = 0.6
+    Q.L(nt, tx.outputs['Color'], nm.inputs['Color'])
+    Q.L(nt, nm.outputs['Normal'], b.inputs['Normal'])
     m.surface_render_method = 'BLENDED'
     m.use_backface_culling = False
     m['qa_nobake'] = True
@@ -403,6 +504,11 @@ def river_tile(name, course, shape, nu=44, ns=52, seed=1):
     return o
 
 
+def water_mesh(name, verts, faces):
+    """Flat water piece; UV = local XY / WATER_TILE like group B's water_plane, so the ripple normal has the same scale."""
+    return Y.make_mesh(name, verts, faces, [(v[0] / WATER_TILE, v[1] / WATER_TILE) for v in verts], [WATERM], coll=coll())
+
+
 def water_strip(name, course, shape, level, nu=40, u_max=None):
     """Water surface between the two points where the bed rises above `level` (per u); level(u) may vary. It is a part of
     its own (exported as the <key>_Water node), separate from the land, with flow-direction UVs."""
@@ -420,7 +526,7 @@ def water_strip(name, course, shape, level, nu=40, u_max=None):
         c = 0.5 * (edges[0] + edges[1])
         for k, s in enumerate((edges[0], c, edges[1])):
             verts.append(tuple(course.at(u, s, lv)))
-            uvs.append((k * 0.5, u))                 # V runs downstream->upstream in metres: a flow shader scrolls along it
+            uvs.append((s / WATER_TILE, u / WATER_TILE))   # V runs downstream->upstream, one tile per 0.5 m (group-B convention): the ripple normal streaks along the flow
     for j in range(nu):
         a = j * 3
         faces += [(a, a + 1, a + 4, a + 3), (a + 1, a + 2, a + 5, a + 4)]
@@ -443,8 +549,15 @@ def bed_stones(name, course, shape, n, seed, lo=-1.6, hi=1.6, size=(0.07, 0.2), 
         z = shape(u, s, w)
         r = rnd.uniform(*size) * (1.0 if rnd.random() < 0.8 else 1.6)
         p = course.at(u, s, z - r * 0.35)
-        boulder(f'{name}_{k}', (r, r * rnd.uniform(0.7, 1.0), r * rnd.uniform(0.45, 0.7)), tuple(p), PEBBLE,
-                seed=seed * 7 + k, subd=1 if r < 0.12 else 2, rough=0.12, rot=rnd.uniform(0, math.tau), ground=z - r * 0.4, cleave=1)
+        o = boulder(f'{name}_{k}', (r, r * rnd.uniform(0.7, 1.0), r * rnd.uniform(0.45, 0.7)), tuple(p), PEBBLE,
+                    seed=seed * 7 + k, subd=3 if r > 0.17 else 2, rough=0.12, rot=rnd.uniform(0, math.tau), ground=z - r * 0.4, cleave=1)
+        # the buried underside is never seen: drop it so a round silhouette costs about what a faceted one did
+        bm = bmesh.new()
+        bm.from_mesh(o.data)
+        floor = z - r * 0.4 - p.z + 1e-4
+        bmesh.ops.delete(bm, geom=[f for f in bm.faces if all(v.co.z <= floor for v in f.verts)], context='FACES')
+        bm.to_mesh(o.data)
+        bm.free()
         k += 1
 
 
@@ -602,8 +715,9 @@ def build_river(variant):
         r = rnd.uniform(0.12, 0.38) if k < 16 else rnd.uniform(0.08, 0.16)   # the extra ten are small half-buried stones
         slope_spots.append((u, side * rnd.uniform(1.35, 2.3), (r * 1.2, r, r * 0.8)))
     bank_rocks(f'A01_{variant}_slope', course, shape, slope_spots, seed=140 + len(variant))
-    bed_stones(f'A01_{variant}_peb', course, shape, 32 if variant == 'end_source' else 70, seed=70 + len(variant), lo=-1.9, hi=1.9, size=(0.05, 0.12))
-    bed_stones(f'A01_{variant}_cob', course, shape, 14, seed=170 + len(variant), lo=-1.4, hi=1.4, size=(0.14, 0.24))
+    # the small stones are in the bed texture now; geometry keeps the ones that break the silhouette
+    bed_stones(f'A01_{variant}_peb', course, shape, 20 if variant == 'end_source' else 36, seed=70 + len(variant), lo=-1.9, hi=1.9, size=(0.06, 0.12))
+    bed_stones(f'A01_{variant}_cob', course, shape, 12, seed=170 + len(variant), lo=-1.2, hi=1.2, size=(0.14, 0.24))
     top_grass(f'A01_{variant}_lip', course, shape, 60, seed=90, s_min=2.0, s_max=2.7)
     top_grass(f'A01_{variant}_slopegrass', course, shape, 18, seed=290, s_min=1.6, s_max=2.1)
     top_grass(f'A01_{variant}_grass', course, shape, 24, seed=190, s_min=2.7)
@@ -670,8 +784,7 @@ def build_A02(variant):
     socket('inlet', (-1.5, 0.0, 0.33), (1, 0, 0))
     socket('outlet', (1.5 if variant == 'side_crack' else 1.25, 0.0, 0.33), (1, 0, 0))
     socket('leak', leak, (0, -1, -1) if variant == 'side_crack' else (1, 0, -1))
-    Y.make_mesh('A02_water', [(-1.34, -0.2, 0.33), (xe, -0.2, 0.33), (xe, 0.2, 0.33), (-1.34, 0.2, 0.33)], [(0, 1, 2, 3)], None, [WATERM],
-                coll=coll())
+    water_mesh('A02_water', [(-1.34, -0.2, 0.33), (xe, -0.2, 0.33), (xe, 0.2, 0.33), (-1.34, 0.2, 0.33)], [(0, 1, 2, 3)])
     if variant == 'side_crack':   # a thin stream out of the side crack, curving down to the ground
         pts = [(leak[0], leak[1] - 0.12 * math.sin(t * 1.3), leak[2] * (1 - t) + 0.02) for t in np.linspace(0, 1, 7)]
         pud = (leak[0] + 0.05, -0.75)
@@ -820,7 +933,7 @@ def build_A04(cleared=False):
             boulder(f'A04_peb_{k}', (r, r * 0.8, r * 0.55), (x, y, max(0.0, mound_h(x, y) - r * 0.3)), PEBBLE, seed=440 + k, subd=1, rough=0.15, ground=0.0)
         # water pooled upstream (+Y) and the trickle past the low side
         pond = [(1.05 * math.cos(a) * (1 + 0.08 * math.sin(3 * a)), 1.15 + 0.62 * math.sin(a), 0.36) for a in np.linspace(0, math.tau, 28, endpoint=False)]
-        Y.make_mesh('A04_pond', pond, [tuple(range(len(pond)))], None, [WATERM], coll=coll())   # rounded pool behind the bar
+        water_mesh('A04_pond', pond, [tuple(range(len(pond)))])   # rounded pool behind the bar
         Y.tube('A04_trickle', [(0.98, 0.9, 0.3), (1.0, 0.2, 0.17), (0.96, -0.5, 0.1), (0.9, -1.2, 0.06)], lambda t: 0.06 - 0.02 * t, 6, coll(), [WATERM],
                caps=False).scale.z = 0.35
     else:
@@ -837,7 +950,8 @@ def build_A04(cleared=False):
             x, y = rnd.uniform(-0.8, 0.8), rnd.uniform(-1.0, 1.0)
             r = rnd.uniform(0.05, 0.1)
             boulder(f'A04_peb_{k}', (r, r * 0.8, r * 0.5), (x, y, 0.0), PEBBLE, seed=460 + k, subd=1, rough=0.15, ground=0.0)
-        Y.make_mesh('A04_flow', [(-0.9, -1.1, 0.1), (0.9, -1.1, 0.1), (0.9, 1.1, 0.1), (-0.9, 1.1, 0.1)], [(0, 1, 2, 3)], None, [WATERM], coll=coll())
+        # no water plane of its own: the river module's _Water runs through the opened gap (a second translucent sheet
+        # here stacked into a hard-edged dark rectangle)
 
 
 def build_A04_cleared():
@@ -1098,7 +1212,7 @@ def build_A08(variant):
         for t in np.linspace(0, 1, 9):
             for w in (-0.16, 0.0, 0.16):
                 rv.append((0.45 + w * (1 + 0.6 * t), 0.6 - 1.2 * t, WATER + 0.035 * (1 - t) + 0.01 * math.sin(t * 9 + w * 20)))
-        Y.make_mesh('A08_riffle', rv, [(j * 3 + i, j * 3 + i + 1, j * 3 + i + 4, j * 3 + i + 3) for j in range(8) for i in range(2)], None, [WATERM], coll=coll())
+        water_mesh('A08_riffle', rv, [(j * 3 + i, j * 3 + i + 1, j * 3 + i + 4, j * 3 + i + 3) for j in range(8) for i in range(2)])
     for k in range(40):                                               # pebbles between the stones
         x, y = rnd.uniform(-1.3, 1.3), rnd.uniform(-1.0, 1.0)
         r = rnd.uniform(0.04, 0.09)
@@ -1200,7 +1314,7 @@ def build_A04_jam():
         r = rnd.uniform(0.04, 0.1)
         boulder(f'A04j_peb_{k}', (r, r * 0.8, r * 0.5), (x, y, max(0.0, fan(x, y) - r * 0.3)), PEBBLE, seed=4030 + k, subd=1, rough=0.15, ground=0.0)
     pond = [(1.0 * math.cos(a), 1.15 + 0.45 * math.sin(a), 0.42) for a in np.linspace(0, math.tau, 24, endpoint=False)]
-    Y.make_mesh('A04j_pond', pond, [tuple(range(24))], None, [WATERM], coll=coll())
+    water_mesh('A04j_pond', pond, [tuple(range(24))])
     for k, x in enumerate((-0.45, 0.55)):                             # two trickles seeping under the log
         Y.tube(f'A04j_seep_{k}', [(x, -0.3, 0.12), (x + 0.02, -0.6, 0.05), (x + 0.05, -1.0, 0.03)], lambda t: 0.035 + 0.02 * t, 6, coll(), [WATERM], caps=False)
 
@@ -1612,8 +1726,8 @@ def build_A12():
         a, r = rnd.uniform(0, math.tau), rnd.uniform(0.32, 0.52)
         rr = rnd.uniform(0.02, 0.045)
         boulder(f'A12_peb_{k}', (rr, rr * 0.85, rr * 0.5), (r * math.cos(a), r * math.sin(a), 0.0), PEBBLE, seed=1240 + k, subd=1, rough=0.15, ground=0.0)
-    Y.make_mesh('A12_basin_water', [(0.56 * math.cos(a), 0.56 * math.sin(a), 0.035) for a in np.linspace(0, math.tau, 32, endpoint=False)],
-                [tuple(range(32))], None, [WATERM], coll=coll())
+    water_mesh('A12_basin_water', [(0.56 * math.cos(a), 0.56 * math.sin(a), 0.035) for a in np.linspace(0, math.tau, 32, endpoint=False)],
+                [tuple(range(32))])
     for k, a in enumerate((-2.6, -2.2, -0.7, -0.35, 0.5, 2.2, 2.7)):  # dry grass at the stone's foot, as in the three-view
         rr = rnd.uniform(0.34, 0.42)
         tuft(f'A12_grass_{k}', rr * math.cos(a), rr * math.sin(a) * 0.85, 0.02, h=rnd.uniform(0.24, 0.38), n=11, seed=1260 + k, droop=0.32)

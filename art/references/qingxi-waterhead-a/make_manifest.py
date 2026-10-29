@@ -6,6 +6,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 REVIEW = {
     'A01_straight': '直段：7 m 寬、6 m 長，河道 2.4 m、河床低於岸頂 0.9 m；中間細流，兩側露出卵石與濕泥，岸上一圈淺色舊水位。兩端剖面相同，可拼接。',
+    'A01_bed': '河床材質參考（2026-10-29 補）：2.4×3 m 河床，混合 2–25 cm 的圓／次稜卵石半埋在濕沙與細礫裡，大卵石沿深槽聚集，中間細淺水流可見底石；邊緣是較淺的乾沙，少數卵石有苔，石縫夾落葉與細枝。第三格改為俯視圖（不是背面）。用來取代原本像龜裂磁磚的河床。',
     'A01_bend_left': '左彎約 25°：內岸卵石灘、外岸斜倒大石；兩端剖面與直段相同。',
     'A01_bend_right': '右彎約 40°：外岸是有樹根的高層理岩壁，內岸低矮沙洲。圖中兩端畫成整齊石柱收邊，建模改為自然斷面。',
     'A01_narrow': '收窄：兩塊大岩把河道夾到約 1.2 m，有小落差與白水，兩端仍為 2.4 m 接口。圖中水畫得偏深，建模保持低水位。',
@@ -34,7 +35,8 @@ for p in sorted(HERE.glob('*_three_view.png')):
     key = p.name.replace('_three_view.png', '')
     out.append({
         'id': key, 'file': p.name, 'bytes': p.stat().st_size, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest(),
-        'views': ['FRONT', 'SIDE', 'BACK'], 'generator': 'OpenAI image generation via Codex CLI (codex exec), 2026-10-28; prompts in prompts.json',
+        'views': ['FRONT', 'SIDE', 'TOP-DOWN'] if key == 'A01_bed' else ['FRONT', 'SIDE', 'BACK'],
+        'generator': 'OpenAI image generation via Codex CLI (codex exec), ' + ('2026-10-29' if key == 'A01_bed' else '2026-10-28') + '; prompts in prompts.json',
         'review': REVIEW[key], 'reviewed': 'before modelling; build_waterhead.py refuses to build an asset whose three-view is missing',
     })
 (HERE / 'image-manifest.json').write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding='utf-8')

@@ -7,12 +7,12 @@
  "origin": "base centre",
  "dimensions_m": [
   2.7996,
-  2.2,
+  2.0863,
   0.1316
  ],
- "triangles": 1322,
+ "triangles": 1320,
  "lod_triangles": [
-  1322,
+  1320,
   660,
   290
  ],
@@ -24,9 +24,7 @@
   "land": [
    "A04_SiltBar_cleared_LOD0"
   ],
-  "water": [
-   "A04_SiltBar_cleared_Water"
-  ],
+  "water": [],
   "foliage": []
  },
  "collision_hull": null,
@@ -36,34 +34,32 @@
   "asset": "A04_SiltBar_cleared",
   "dimensions_m": [
    2.7996,
-   2.2,
+   2.0863,
    0.1316
   ],
   "bbox_min": [
    -1.3991,
-   -1.1,
+   -1.0733,
    0.0
   ],
   "bbox_max": [
    1.4005,
-   1.1,
+   1.013,
    0.1316
   ],
   "trianglesLOD": [
-   1322,
+   1320,
    660,
    290
   ],
   "budgetLOD0": 4000,
   "withinBudget": true,
   "materials": [
-   "LowWater",
    "M_A04_SiltBar_cleared"
   ],
   "textureResolution": 1024,
   "nodes": [
-   "A04_SiltBar_cleared_LOD0",
-   "A04_SiltBar_cleared_Water"
+   "A04_SiltBar_cleared_LOD0"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -72,22 +68,21 @@
    "zeroAreaFaces": 0
   },
   "glbRoundTrip": {
-   "triangles": 1322,
+   "triangles": 1320,
    "trianglesMatch": true,
    "bboxMatch": true,
    "materials": [
-    "LowWater.001",
     "M_A04_SiltBar_cleared.001"
    ]
   },
   "files": {
    "A04_SiltBar_cleared.glb": {
-    "bytes": 277760,
-    "sha256": "5b40173d97c2a26b44c07a3f3a3ac56a9410f4ae3d6b7140541df5f6a5b5b588"
+    "bytes": 276556,
+    "sha256": "8768a9987f03d7ac5e19b4d7e19d12966fd69dcf68cee505255b01842bd81575"
    },
    "A04_SiltBar_cleared.fbx": {
-    "bytes": 196092,
-    "sha256": "33f577792dd09ad8ef2bc77dec30600ebc148bbd2f80bbd839eceb54fdfbb4a2"
+    "bytes": 191420,
+    "sha256": "2841951c257c432314e20ce791fb2f79958766b8f6569fb127cad64f4b16eacc"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A04_three_view.png",
