@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
@@ -102,8 +103,9 @@ namespace YunJing.Editor
             var fortunes = player.AddComponent<QingxiFortunes>();
             fortunes.glowDot = training.glowDot;
             fortunes.fortunes = (layout.fortunes ?? new QingxiVillageTerrain.FortuneSpot[0]).Select(f => new QingxiFortunes.Fortune {
-                id = f.id, title = f.title, passage = f.passage, reward = f.reward, position = At(f.x, f.z) }).ToArray();
+                id = f.id, title = f.title, passage = f.passage, reward = f.reward, position = At(f.x, f.z), nightOnly = f.condition == "night" }).ToArray();
             stations.fortunes = fortunes;
+            DayNight(village, zones.alchemyDoor.position, qiPost.position);
             // The lodging's front door (west side, facing the road) leads into its interior scene.
             var lodgingDoor = new GameObject("LodgingDoor_StarterHouse").transform;
             lodgingDoor.SetParent(village, false); lodgingDoor.position = At(11.8f, -19.5f); lodgingDoor.rotation = Quaternion.Euler(0, 90, 0);
@@ -160,6 +162,70 @@ namespace YunJing.Editor
             RenderSettings.fogStartDistance = 45; RenderSettings.fogEndDistance = 120;
             RenderSettings.skybox = Sky();
             PostCard(village);
+        }
+
+        // K11: the day follows the real clock (QingxiDayNight). Night lights stand where people live and work:
+        // the gate lanterns (Codex C7 brings the stone lanterns), the lodging door, the market, the smithy's forge,
+        // the shops, the homes, the alchemy door and the training yard; and the "third lantern" of find A1-F08,
+        // which only ever shows at night. Point lights without shadows, a dozen at most, for phones.
+        static void DayNight(Transform village, Vector3 alchemyDoor, Vector3 trainingPost)
+        {
+            var root = new GameObject("Night Lights (K11)").transform; root.SetParent(village, false);
+            var warm = new Color(1f, .7f, .4f);
+            var lights = new List<Light>(); var glows = new List<Renderer>();
+            void Lamp(string name, Vector3 ground, float height, float intensity, float range, Color colour, bool glow = true)
+            {
+                var light = new GameObject("NightLight " + name).AddComponent<Light>();
+                light.transform.SetParent(root, false); light.transform.position = ground + Vector3.up * height;
+                light.type = LightType.Point; light.range = range * 1.35f; light.intensity = intensity * 1.6f; light.color = colour;
+                light.shadows = LightShadows.None; light.renderMode = LightRenderMode.Auto;
+                lights.Add(light);
+                if (!glow) return;
+                var dot = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                dot.name = "NightGlow " + name; dot.transform.SetParent(light.transform, false); dot.transform.localScale = Vector3.one * .22f;
+                UnityEngine.Object.DestroyImmediate(dot.GetComponent<Collider>());
+                var r = dot.GetComponent<Renderer>(); r.sharedMaterial = NightGlowMaterial(colour); r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                glows.Add(r);
+            }
+            Vector3 Front(string id, float extra)
+            {
+                var p = layout.placements.FirstOrDefault(x => x.id == id);
+                if (p == null) return Vector3.zero;
+                float depth = p.footprint != null ? p.footprint[1] / 2 : 1;
+                var forward = Quaternion.Euler(0, p.yaw, 0) * Vector3.forward;
+                return At(new Vector3(p.x, 0, p.z) + forward * (depth + extra));
+            }
+            foreach (var id in new[] { "Gate_Lantern_L", "Gate_Lantern_R" })
+            {
+                var p = layout.placements.FirstOrDefault(x => x.id == id);
+                if (p != null) Lamp(id, At(p.x, p.z), 1.9f, 2.4f, 8, warm);
+            }
+            Lamp("LodgingDoor", At(11.8f, -19.5f), 2.4f, 1.8f, 6, warm);
+            Lamp("Market", Front("Market_HerbalStall", .8f), 2.3f, 1.8f, 7, warm);
+            Lamp("SmithyForge", Front("Smithy_Blacksmith", .6f), 1.2f, 2.6f, 7, new Color(1f, .5f, .22f), glow: false);
+            Lamp("MaterialShop", Front("Shops_MaterialShop", .6f), 2.4f, 1.6f, 6, warm);
+            Lamp("Teahouse", Front("Shops_Teahouse", .4f), 2.3f, 1.6f, 6, warm);
+            Lamp("Homes", At(25, 13), 2.4f, 1.6f, 8, warm);
+            Lamp("PlazaNotice", Front("Plaza_NoticeBoard", .8f), 2.6f, 1.5f, 7, warm);
+            Lamp("AlchemyDoor", alchemyDoor, 2.3f, 1.6f, 6, warm);
+            Lamp("TrainingYard", trainingPost + new Vector3(2.2f, 0, 0), 2.6f, 1.4f, 7, warm);
+            // The third lantern: a cooler, quieter light just past the gate, where find A1-F08 waits.
+            var third = layout.fortunes?.FirstOrDefault(f => f.condition == "night");
+            if (third != null) Lamp("ThirdLantern", At(third.x, third.z), 1.6f, 1.2f, 5, new Color(.85f, .92f, 1f));
+            var dayNight = new GameObject("Qingxi Day and Night (K11)").AddComponent<QingxiDayNight>();
+            dayNight.sun = RenderSettings.sun; dayNight.sky = RenderSettings.skybox;
+            dayNight.nightLights = lights.ToArray(); dayNight.nightGlows = glows.ToArray();
+        }
+
+        static Material NightGlowMaterial(Color colour)
+        {
+            var path = $"{MaterialFolder}/NightGlow_{ColorUtility.ToHtmlStringRGB(colour)}_URP.mat";
+            var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (mat == null) { mat = new Material(Shader.Find("Universal Render Pipeline/Lit")); AssetDatabase.CreateAsset(mat, path); }
+            mat.SetColor("_BaseColor", Color.black); mat.SetColor("_EmissionColor", colour * 3.2f); mat.EnableKeyword("_EMISSION");
+            mat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+            EditorUtility.SetDirty(mat);
+            return mat;
         }
 
         // Morning sky: a procedural skybox tinted to the haze, so the horizon melts into the fog instead of

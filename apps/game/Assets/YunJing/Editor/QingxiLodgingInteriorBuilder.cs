@@ -113,6 +113,9 @@ namespace YunJing.Editor
             sun.transform.SetParent(room, false); sun.transform.rotation = Quaternion.Euler(48, -35, 0);
             sun.type = LightType.Directional; sun.intensity = 1.15f; sun.color = new Color(1f, .93f, .82f); sun.shadows = LightShadows.Soft;
             RenderSettings.skybox = QingxiNoviceVillageBuilder.Sky();
+            // K11: the backyard sky follows the same clock as the village; the room keeps its lantern.
+            var dayNight = new GameObject("Qingxi Day and Night (K11)").AddComponent<QingxiDayNight>();
+            dayNight.sun = sun; dayNight.sky = RenderSettings.skybox;
         }
 
         // Walled backyard behind the house: two spirit fields, a stone path and the practice post.

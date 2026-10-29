@@ -158,11 +158,13 @@ namespace YunJing
                 else
                 {
                     int before = fortunes.Found;
+                    if (first.nightOnly) QingxiDayNight.Current?.SetHour(22);
                     Teleport(walker, first.position + Vector3.back * .6f);
                     yield return Frames(5);
                     Check("a hidden find glints and can be examined", (foraging.Prompt(walker.transform.position) ?? "").Contains("微光"));
                     foraging.TryInteract(walker.transform.position, out _);
                     Check("the find is revealed and counted", QingxiFortunes.IsFound(first) && fortunes.Found == before + 1 && fortunes.JournalText().Contains(first.title));
+                    QingxiDayNight.Current?.SetHour(10);
                     if (QingxiServerLink.Online)
                     {
                         float until = Time.realtimeSinceStartup + 6;
@@ -170,6 +172,34 @@ namespace YunJing
                         Check("the server settles the find", QingxiServerLink.Current.HasFortune(first.id));
                     }
                 }
+            }
+
+            // K11: the clock. Automated runs start at 10:00; at 22:00 the night lights are on and the third
+            // lantern's find shows; back at 10:00 they are off again.
+            var dayNight = QingxiDayNight.Current;
+            Check("day and night runs (fixed at 10:00 for checks)", dayNight != null && Mathf.Abs(dayNight.Hour - 10) < .01f && !QingxiDayNight.IsNight);
+            if (dayNight != null)
+            {
+                float noonSun = dayNight.sun != null ? dayNight.sun.intensity : 0;
+                dayNight.SetHour(22);
+                yield return Frames(2);
+                bool lit = dayNight.nightLights.Length > 0 && Array.TrueForAll(dayNight.nightLights, l => l == null || l.enabled);
+                Check($"at 22:00 it is night: sun dims ({noonSun:0.00} → {(dayNight.sun ? dayNight.sun.intensity : 0):0.00}) and {dayNight.nightLights.Length} night lights are on",
+                    QingxiDayNight.IsNight && lit && dayNight.sun != null && dayNight.sun.intensity < noonSun * .4f);
+                var third = fortunes != null ? Array.Find(fortunes.fortunes, f => f.nightOnly) : null;
+                if (third != null && !QingxiFortunes.IsFound(third))
+                {
+                    Teleport(walker, third.position + Vector3.back * .6f);
+                    yield return Frames(3);
+                    bool atNight = (foraging.Prompt(walker.transform.position) ?? "").Contains("微光");
+                    dayNight.SetHour(10);
+                    yield return Frames(3);
+                    bool byDay = (foraging.Prompt(walker.transform.position) ?? "").Contains("微光");
+                    Check("the third lantern's find shows only at night", atNight && !byDay);
+                }
+                dayNight.SetHour(10);
+                yield return Frames(2);
+                Check("back at 10:00 the night lights are off", !QingxiDayNight.IsNight && Array.TrueForAll(dayNight.nightLights, l => l == null || !l.enabled));
             }
 
             // K5: walking to the south edge streams in block A2; its terrain holds the walker on the far side.

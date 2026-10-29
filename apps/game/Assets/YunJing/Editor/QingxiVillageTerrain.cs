@@ -34,7 +34,7 @@ namespace YunJing.Editor
             public bool Needed => status == "needed" || string.IsNullOrEmpty(model);
         }
         [Serializable] public class Herb { public string id, kind; public float x, z; }
-        [Serializable] public class FortuneSpot { public string id, title, passage, reward; public float x, z; }
+        [Serializable] public class FortuneSpot { public string id, title, passage, reward, condition; public float x, z; }
         [Serializable] public class Crossing { public float x, z; public int stones; }
         [Serializable]
         public class Creek

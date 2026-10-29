@@ -14,6 +14,7 @@ namespace YunJing
         {
             public string id, title, passage, reward;
             public Vector3 position;
+            public bool nightOnly;   // shows only after dusk (K11), e.g. the village's third lantern
         }
 
         const float Reach = 2.2f, Visible = 14f;
@@ -71,7 +72,7 @@ namespace YunJing
             {
                 var ps = glints[i];
                 if (ps == null) continue;
-                bool found = IsFound(fortunes[i]);
+                bool found = IsFound(fortunes[i]) || Hidden(fortunes[i]);
                 float d = Flat(walker.transform.position, fortunes[i].position);
                 // Invisible from afar, a faint shimmer within 14 m, full at arm's length; gone once found.
                 float strength = found ? 0 : Mathf.Clamp01(1 - (d - Reach) / (Visible - Reach));
@@ -79,11 +80,13 @@ namespace YunJing
             }
         }
 
+        static bool Hidden(Fortune f) => f.nightOnly && !QingxiDayNight.IsNight;
+
         static float Flat(Vector3 a, Vector3 b) => Vector2.Distance(new Vector2(a.x, a.z), new Vector2(b.x, b.z));
 
         Fortune Near(Vector3 position)
         {
-            foreach (var f in fortunes) if (!IsFound(f) && Flat(position, f.position) <= Reach) return f;
+            foreach (var f in fortunes) if (!IsFound(f) && !Hidden(f) && Flat(position, f.position) <= Reach) return f;
             return null;
         }
 
