@@ -18,7 +18,7 @@
 | [C10-a2-road-kit.md](C10-a2-road-kit.md) | A2 村外官道套件：茶亭、土地祠（機緣點）、板車、路牌、圍籬（12 件，約 24 小時） | `yun-jing-rpg-a2-roadkit-c10`（自建） | 中 |
 
 | [C11-collaborator-pack-audit.md](C11-collaborator-pack-audit.md) | 審查協作者工作包與開著的 PR，判斷是否符合現在的世界（只讀、只寫報告） | 主場景工作樹 `docs/execution/reviews/` | 無 |
-| [C12-collaborator-brief-standard.md](C12-collaborator-brief-standard.md) | 依開發階段與先後順序安排協作者工作包（範本＋規則），並寫出 A／B／C 下一批 | 主場景工作樹 `docs/execution/2026-10-30/` | 無 |
+| [C12-collaborator-brief-standard.md](C12-collaborator-brief-standard.md) | 依開發階段與先後順序安排協作者工作包（範本＋規則）；檢查 Claude Code 寫的 10/31 三份工作包，並提出 11/2 之後的方向 | 主場景工作樹 `docs/execution/2026-10-30/` | 無 |
 
 **2026-10-29 晚上的新順序**：C11 → C12 → C7 → C8 → C9 → C10；C1–C5 的修正等 Claude Code 審完這一輪交件另外給。
 
