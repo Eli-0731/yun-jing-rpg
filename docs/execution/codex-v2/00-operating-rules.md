@@ -307,6 +307,9 @@
 | 5 | `C5-alchemy-table-pbr.md` | 丹房工作桌 PBR |
 | 6 | `C6-ui-final-assets.md` | 介面定稿素材（等 Claude Code 檢查完 C1 才開始） |
 | 7 | `C7-village-slot-props.md` | 青溪村格位道具（石燈、水井、茶棚） |
+| 8 | `C8-plaza-elder-tree.md` | 村中古樹與廣場 |
+| 9 | `C9-a3-watermill-kit.md` | A3 西溪水磨坊套件 |
+| 10 | `C10-a2-road-kit.md` | A2 村外官道套件 |
 
 - 額度用完時，先做不需要生圖的部分：腳本、灰模、網頁程式、文件。
 - **每完成一項就回報**，不用等全部完成。格式：

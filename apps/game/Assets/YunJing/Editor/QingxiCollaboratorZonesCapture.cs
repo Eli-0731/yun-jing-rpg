@@ -18,6 +18,7 @@ namespace YunJing.Editor
             Directory.CreateDirectory(dir);
             var camera = new GameObject("Review Camera").AddComponent<Camera>();
             camera.fieldOfView = 50; camera.nearClipPlane = .05f; camera.farClipPlane = 400;
+            UnityEngine.Rendering.Universal.CameraExtensions.GetUniversalAdditionalCameraData(camera).renderPostProcessing = true;
             var target = new RenderTexture(1600, 900, 24) { antiAliasing = 4 };
             camera.targetTexture = target;
             // Heights below are above the local ground, so the shots follow the terrain relief.

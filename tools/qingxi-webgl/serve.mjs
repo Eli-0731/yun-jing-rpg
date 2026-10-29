@@ -14,6 +14,7 @@ const types = {
   '.html': 'text/html; charset=utf-8', '.js': 'application/javascript', '.json': 'application/json',
   '.webmanifest': 'application/manifest+json', '.wasm': 'application/wasm', '.data': 'application/octet-stream',
   '.png': 'image/png', '.ico': 'image/x-icon', '.css': 'text/css', '.svg': 'image/svg+xml',
+  '.webp': 'image/webp', '.avif': 'image/avif', '.woff2': 'font/woff2',
 };
 
 // A new build must never be hidden behind the old one: Unity keeps game data in IndexedDB and the PWA

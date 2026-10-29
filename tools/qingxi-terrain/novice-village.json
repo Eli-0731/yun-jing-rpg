@@ -630,7 +630,7 @@
       "block": "A1",
       "zone": "gate-square",
       "role": "村門牌樓（核心組 v13）",
-      "model": "",
+      "model": "Assets/YunJing/Models/QingxiEntryV13/QX_VillageGate_v13.fbx",
       "x": 0,
       "z": -25.8,
       "yaw": 180,
@@ -640,11 +640,11 @@
         5.5
       ],
       "owner": "core",
-      "status": "needed",
+      "status": "ready",
       "phase": "P1",
-      "collider": "box",
+      "collider": "none",
       "author": "核心組",
-      "note": "v13 GLB 已有，需匯出 FBX 並放進 Unity"
+      "note": "核心組 v13，tools/art/convert_village_gate_v13_to_unity.py 轉成單一網格（5.8×1.6×3.7 m，33,204 三角面）；之後補兩根柱子的碰撞"
     },
     {
       "id": "Gate_SpawnAltar",
@@ -720,12 +720,12 @@
         5.0,
         10.0
       ],
-      "owner": "core",
+      "owner": "codex",
       "status": "needed",
       "phase": "P1",
       "collider": "box",
-      "author": "核心組",
-      "note": "elder-world-tree-hero-v1（10.3×7.1×10 m）縮放後可用，需匯入 Unity"
+      "author": "Codex",
+      "note": "新做的村中古樹（Codex C8）。不使用 elder-tree-esg 的樹：那是另一個專案，且 13.6 萬面、16 MB"
     },
     {
       "id": "Plaza_NoticeBoard",

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#1C1F1E">
+  <title>雲境｜{{{ PRODUCT_NAME }}}</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" as="image" href="TemplateData/art/riverside-v001.webp" type="image/webp">
+  <link rel="stylesheet" href="TemplateData/shell.css">
+  <link rel="stylesheet" href="TemplateData/entry.css">
+#if SHOW_DIAGNOSTICS
+  <link rel="stylesheet" href="<<<TemplateData/diagnostics.css>>>">
+  <script src="<<<TemplateData/diagnostics.js>>>"></script>
+#endif
+</head>
+<body>
+  <canvas id="unity-canvas" tabindex="-1" aria-label="雲境遊戲畫面"></canvas>
+  <main id="yj-shell" aria-live="polite">
+    <div class="yj-sky"></div>
+    <div class="yj-landscape"></div>
+    <div class="yj-mist yj-mist-one"></div><div class="yj-mist yj-mist-two"></div>
+    <div class="yj-vignette"></div>
+    <section class="yj-content">
+      <div class="yj-eyebrow">青溪 · 山河初醒</div>
+      <h1 class="yj-title">雲境</h1>
+      <p class="yj-subtitle">一身凡骨，也能走出自己的仙途。</p>
+      <div id="yj-progress" class="yj-progress">
+        <svg viewBox="0 0 440 25" role="img" aria-label="載入進度"><path class="yj-ink-bg" d="M5 16 C90 10 160 18 248 13 S376 11 435 8"/><path id="yj-ink" class="yj-ink" d="M5 16 C90 10 160 18 248 13 S376 11 435 8" pathLength="100"/></svg>
+        <div id="yj-progress-text" class="yj-progress-text">凝氣中… 0%</div>
+        <div id="yj-progress-size" class="yj-progress-size"></div>
+      </div>
+      <button id="yj-enter" class="yj-enter" hidden><span class="yj-jade-dot"></span>點擊入境</button>
+    </section>
+    <aside id="yj-install" class="yj-install" hidden><span id="yj-install-text">加入主畫面</span><button id="yj-install-action" type="button">加入</button><button id="yj-install-close" type="button" aria-label="關閉加入主畫面提示">×</button></aside>
+    <section id="yj-error" class="yj-error" hidden><span class="yj-seal">境</span><h2>入境遇阻</h2><p id="yj-error-text"></p><button id="yj-reload" type="button">重新整理</button><details><summary>技術細節</summary><pre id="yj-error-detail"></pre></details></section>
+    <div class="yj-bottom-mark">YUN JING · 青溪</div>
+  </main>
+  <div id="yj-rotate" class="yj-rotate"><div class="yj-scroll"><span class="yj-phone">▯</span><p>請橫置手機，入境更佳</p></div></div>
+  <button id="yj-resume" class="yj-resume" hidden>◯　點擊畫面繼續</button>
+  <script>
+    const canvas = document.querySelector('#unity-canvas');
+    const buildUrl = 'Build';
+    const loaderUrl = buildUrl + '/{{{ LOADER_FILENAME }}}';
+    const config = {
+      arguments: [],
+      dataUrl: buildUrl + '/{{{ DATA_FILENAME }}}',
+      frameworkUrl: buildUrl + '/{{{ FRAMEWORK_FILENAME }}}',
+#if USE_THREADS
+      workerUrl: buildUrl + '/{{{ WORKER_FILENAME }}}',
+#endif
+#if USE_WASM
+      codeUrl: buildUrl + '/{{{ CODE_FILENAME }}}',
+#endif
+#if SYMBOLS_FILENAME
+      symbolsUrl: buildUrl + '/{{{ SYMBOLS_FILENAME }}}',
+#endif
+      streamingAssetsUrl: 'StreamingAssets',
+      companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+      productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+      productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+      showBanner: (message, type) => { if (type === 'error') window.yjShell?.error(message); }
+    };
+    window.yjBuild = { canvas, loaderUrl, config };
+  </script>
+  <script src="TemplateData/shell.js" defer></script>
+  <script src="TemplateData/entry.js" defer></script>
+</body>
+</html>

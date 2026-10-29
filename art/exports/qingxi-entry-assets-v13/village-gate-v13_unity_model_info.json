@@ -1,0 +1,73 @@
+{
+  "id": "QX_VillageGate",
+  "version": "v13",
+  "author": "核心組",
+  "source": "art\\exports\\qingxi-entry-assets-v13\\village-gate-v13.glb",
+  "unity_fbx": "apps\\game\\Assets\\YunJing\\Models\\QingxiEntryV13\\QX_VillageGate_v13.fbx",
+  "units": "metre",
+  "origin": "base centre",
+  "ground_z": 0,
+  "front": "-Y (Blender) / +Z (Unity)",
+  "dimensions_m": [
+    5.812,
+    1.571,
+    3.695
+  ],
+  "triangles": 33204,
+  "materials": [
+    "M_QX13_TimberEdge",
+    "M_QX13_RoofEdge",
+    "M_QX13_Limestone",
+    "M_QX13_DarkTimber",
+    "M_QX13_RoofTeal",
+    "M_QX13_Bronze"
+  ],
+  "objects_in_source": 319,
+  "collision": {
+    "type": "boxes",
+    "note": "the two pillars only; the opening stays walkable"
+  },
+  "qa": {
+    "ok": true,
+    "pass": true,
+    "errors": [],
+    "warnings": [
+      "SM_QX_VillageGate_v13: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+      "SM_QX_VillageGate_v13: duplicate verts=23762 loose verts=0"
+    ],
+    "ground_z": 0.0,
+    "zfighting": [],
+    "floating": [],
+    "back_to_back": [],
+    "enclosed": [],
+    "objects": {
+      "SM_QX_VillageGate_v13": {
+        "verts": 47824,
+        "faces": 33204,
+        "tris": 33204,
+        "ngons": 0,
+        "boundary_edges": 56958,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "zero_length_edges": 0,
+        "inconsistent_normals_edges": 0,
+        "duplicate_verts": 23762,
+        "islands": 3829,
+        "inside_out_islands": 0,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "materials": 6,
+        "uv_maps": 1,
+        "uv_oob_pct": 0.01,
+        "uv_zero_area_faces": 0,
+        "uv_overlap_pct": 100.0,
+        "uv_coverage_pct": 100.0
+      }
+    }
+  }
+}

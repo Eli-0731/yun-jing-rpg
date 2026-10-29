@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 namespace YunJing
 {
-    // Bundled Chinese fonts (Google Noto, SIL Open Font License; see Resources/Fonts/OFL-*.txt). The built-in
+    // Bundled Chinese fonts (Google Noto, SIL Open Font License; see Resources/Fonts/OFL-*.txt), cut to the
+    // common Traditional Chinese set by tools/qingxi-webgl/subset_fonts.py (full fonts in art/fonts/). The built-in
     // LegacyRuntime font has no CJK glyphs and a browser (WebGL/PWA) has no OS font to fall back on, so every
     // label would be blank there. Noto Sans TC is the UI face, Noto Serif TC the title and place-name face.
     public static class QingxiFonts
     {
         static Font ui, title;
-        public static Font Ui => ui != null ? ui : ui = Resources.Load<Font>("Fonts/NotoSansTC-Variable");
-        public static Font Title => title != null ? title : title = Resources.Load<Font>("Fonts/NotoSerifTC-Variable") ?? Ui;
+        public static Font Ui => ui != null ? ui : ui = Resources.Load<Font>("Fonts/NotoSansTC-Subset");
+        public static Font Title => title != null ? title : title = Resources.Load<Font>("Fonts/NotoSerifTC-Subset") ?? Ui;
 
         // Call at the top of OnGUI: IMGUI draws with the shared default skin.
         public static void ApplyImgui()

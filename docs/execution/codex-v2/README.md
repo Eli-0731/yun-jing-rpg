@@ -12,7 +12,10 @@
 | [C5-alchemy-table-pbr.md](C5-alchemy-table-pbr.md) | 丹房工作桌 v002：形體精修＋PBR（建模規格第一個試做） | `yun-jing-rpg-alchemy-table-pbr-v1` | 少 |
 | [C6-ui-final-assets.md](C6-ui-final-assets.md) | 圖示、九宮格、四區外觀、標誌（等 Claude Code 檢查 C1） | `yun-jing-ui-concepts-v1\final\` | 中 |
 | [C7-village-slot-props.md](C7-village-slot-props.md) | 青溪村格位道具：村口石燈、水井、井與洗衣石、茶棚（照區塊規劃的格位尺寸） | `yun-jing-rpg-village-props-c7`（Codex 自建工作樹） | 少 |
+| [C8-plaza-elder-tree.md](C8-plaza-elder-tree.md) | 村中古樹與廣場地標套件（8 件，約 24 小時） | `yun-jing-rpg-plaza-tree-c8`（自建） | 中 |
+| [C9-a3-watermill-kit.md](C9-a3-watermill-kit.md) | A3 西溪水磨坊套件：水車、引水渠、石橋、埠頭、低面數溪石與蘆葦（12 件，約 28 小時） | `yun-jing-rpg-a3-watermill-c9`（自建） | 中 |
+| [C10-a2-road-kit.md](C10-a2-road-kit.md) | A2 村外官道套件：茶亭、土地祠（機緣點）、板車、路牌、圍籬（12 件，約 24 小時） | `yun-jing-rpg-a2-roadkit-c10`（自建） | 中 |
 
-**第一輪檢查與下一輪順序**：[review-2026-10-29.md](review-2026-10-29.md)（C5 → C3 → C2 → C4 → C6 → C7，一次做完一項）。
+**第一輪檢查與下一輪順序**：[review-2026-10-29.md](review-2026-10-29.md)（C5 → C3 → C2 → C4 → C6 → C7 → C8 → C9 → C10，一次做完一項）。
 
 所有工作位置都在 `D:\yun-jing-rpg-workspace\` 底下。Codex 不 commit；Claude Code 檢查後以 z1nnz 名義提交。

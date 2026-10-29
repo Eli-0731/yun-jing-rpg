@@ -122,10 +122,10 @@
 | 6–9 | `Fields_SpiritBed_1–4` | 藥田 | fields | 見 JSON | 0 | （待補實測） | 核心組 | 已放置 | P0 |
 | 10 | `Fields_Cistern` | 蓄水池 | fields | (-30.5, -19.5) | 0 | （待補實測） | 核心組 | 已放置 | P0 |
 | 11 | `Fields_Herbalist` | 藥農 | fields | (-22, -21) | 135 | 0.8×0.8×1.75 | joshsu54 | 已放置（×1.2） | P0 |
-| 12 | `Gate_VillageGate` | 村門牌樓 | gate-square | (0, -25.8) | 180 | 7.0×1.6×5.5 | 核心組 | **待做**：v13 GLB 已有，要匯出 FBX | P1 |
+| 12 | `Gate_VillageGate` | 村門牌樓 | gate-square | (0, -25.8) | 180 | 7.0×1.6×5.5 | 核心組 | **已放入**：v13 轉成單一網格 FBX（5.8×1.6×3.7 m） | P1 |
 | 13 | `Gate_SpawnAltar` | 出生石台 | gate-square | (-3.8, -30.5) | 0 | 3.3×3.8×1.95 | joshsu54 | **本次放入** | P1 |
 | 14–15 | `Gate_Lantern_L/R` | 村口石燈 | gate-square | (±3.6, -27) | 0 | 0.6×0.6×2.2 | Codex | 待做 | P1 |
-| 16 | `Plaza_ElderTree` | 村中古樹（地標） | plaza | (-4.2, 2.6) | 0 | 5×5×10（樹冠可外伸） | 核心組 | 待做：elder-world-tree-hero-v1 可縮放使用 | P1 |
+| 16 | `Plaza_ElderTree` | 村中古樹（地標） | plaza | (-4.2, 2.6) | 0 | 5×5×10（樹冠可外伸） | Codex | 待做：Codex C8 新做。不使用 elder-tree-esg 的樹，那是另一個專案，而且太重 | P1 |
 | 17 | `Plaza_NoticeBoard` | 告示牌 | plaza | (-4.5, -7.6) | 0 | 3.3×1.1×3.0 | joshsu54 | **本次放入** | P1 |
 | 18 | `Plaza_Well` | 水井 | plaza | (4.5, -6.5) | 0 | 1.8×1.8×2.4 | Codex | 待做 | P1 |
 | 19 | `Homes_House_01` | 民居一（藥農家） | homes-ne | (20.5, 13) | 0 | 9.1×8.2×5.6 | joshsu54 | 待做：StarterHouse 變體，換屋頂、加曬架 | P2 |
@@ -181,8 +181,8 @@
 ## 7. 接下來
 
 1. **A1 補完（P1–P2）**：
-   - 核心組：把村門 v13 匯出成 FBX、古樹匯入 Unity。
-   - Codex：石燈、水井、茶棚。之後會寫進 Codex 工作包。
+   - 核心組：村門 v13 已轉入（之後補柱子碰撞）。
+   - Codex：石燈、水井、茶棚（C7），村中古樹（C8）。
    - joshsu54：民居四棟（StarterHouse 變體）、石拱橋的跨距調整。
    - 待確認：NPC 的比例。
 2. **下一個區塊**：照同樣方法規劃 A3（西溪與水磨坊）和 A2（村外官道），先出格位表和配置圖，再發工作。

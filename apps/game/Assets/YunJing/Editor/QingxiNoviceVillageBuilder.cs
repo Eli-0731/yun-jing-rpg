@@ -140,8 +140,51 @@ namespace YunJing.Editor
             RenderSettings.sun = sun;
             RenderSettings.ambientMode = AmbientMode.Trilight;
             RenderSettings.ambientSkyColor = new Color(.62f, .7f, .78f); RenderSettings.ambientEquatorColor = new Color(.55f, .58f, .52f); RenderSettings.ambientGroundColor = new Color(.32f, .3f, .26f);
-            RenderSettings.fog = true; RenderSettings.fogMode = FogMode.Linear; RenderSettings.fogColor = new Color(.74f, .8f, .82f);
-            RenderSettings.fogStartDistance = 45; RenderSettings.fogEndDistance = 110;
+            RenderSettings.fog = true; RenderSettings.fogMode = FogMode.Linear; RenderSettings.fogColor = new Color(.78f, .83f, .84f);
+            RenderSettings.fogStartDistance = 45; RenderSettings.fogEndDistance = 120;
+            RenderSettings.skybox = Sky();
+            PostCard(village);
+        }
+
+        // Morning sky: a procedural skybox tinted to the haze, so the horizon melts into the fog instead of
+        // ending at a grey void.
+        static Material Sky()
+        {
+            var path = MaterialFolder + "/QingxiSky_Procedural.mat";
+            var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (mat == null) { mat = new Material(Shader.Find("Skybox/Procedural")); AssetDatabase.CreateAsset(mat, path); }
+            mat.SetFloat("_SunSize", .035f); mat.SetFloat("_SunSizeConvergence", 6);
+            mat.SetFloat("_AtmosphereThickness", .85f); mat.SetFloat("_Exposure", 1.2f);
+            mat.SetColor("_SkyTint", new Color(.5f, .62f, .74f)); mat.SetColor("_GroundColor", new Color(.66f, .72f, .7f));
+            EditorUtility.SetDirty(mat);
+            return mat;
+        }
+
+        // The "postcard" grade for the novice village (P1): film tone mapping, a warm morning white balance,
+        // a little more contrast and colour, soft bloom on bright sky and water, and a light vignette.
+        // Cheap enough for phones: no depth of field, no SSAO.
+        public static void PostCard(Transform parent)
+        {
+            var path = MaterialFolder + "/QingxiPostCard_Volume.asset";
+            var profile = AssetDatabase.LoadAssetAtPath<UnityEngine.Rendering.VolumeProfile>(path);
+            if (profile == null) { profile = ScriptableObject.CreateInstance<UnityEngine.Rendering.VolumeProfile>(); AssetDatabase.CreateAsset(profile, path); }
+            T Get<T>() where T : UnityEngine.Rendering.VolumeComponent
+            {
+                if (!profile.TryGet<T>(out var c)) { c = profile.Add<T>(true); AssetDatabase.AddObjectToAsset(c, profile); }
+                c.active = true;
+                return c;
+            }
+            var tone = Get<UnityEngine.Rendering.Universal.Tonemapping>(); tone.mode.Override(UnityEngine.Rendering.Universal.TonemappingMode.ACES);
+            var colour = Get<UnityEngine.Rendering.Universal.ColorAdjustments>();
+            colour.postExposure.Override(.25f); colour.contrast.Override(12); colour.saturation.Override(10);
+            var white = Get<UnityEngine.Rendering.Universal.WhiteBalance>(); white.temperature.Override(8); white.tint.Override(-3);
+            var bloom = Get<UnityEngine.Rendering.Universal.Bloom>();
+            bloom.threshold.Override(1.05f); bloom.intensity.Override(.35f); bloom.scatter.Override(.7f); bloom.highQualityFiltering.Override(false);
+            var vignette = Get<UnityEngine.Rendering.Universal.Vignette>(); vignette.intensity.Override(.2f); vignette.smoothness.Override(.45f);
+            EditorUtility.SetDirty(profile);
+            var volume = new GameObject("PostCard Volume").AddComponent<UnityEngine.Rendering.Volume>();
+            volume.transform.SetParent(parent, false);
+            volume.isGlobal = true; volume.sharedProfile = profile;
         }
 
         // Keep the traveller inside the review village; tall enough for the hills at the edge.
@@ -163,6 +206,7 @@ namespace YunJing.Editor
             var cc = player.AddComponent<CharacterController>(); cc.radius = .35f; cc.height = 1.4f; cc.center = Vector3.up * .7f; cc.slopeLimit = 35; cc.stepOffset = .3f; cc.skinWidth = .03f;
             var camGo = new GameObject("PlayerCamera") { tag = "MainCamera" }; camGo.transform.SetParent(player.transform, false); camGo.transform.localPosition = Vector3.up * 1.2f;
             var cam = camGo.AddComponent<Camera>(); cam.fieldOfView = 70; cam.nearClipPlane = .05f; cam.farClipPlane = 400; camGo.AddComponent<AudioListener>();
+            UnityEngine.Rendering.Universal.CameraExtensions.GetUniversalAdditionalCameraData(cam).renderPostProcessing = true;
             // Original novice study mesh (saved AI three-view first); a walk-through avatar, not Heroine-01.
             var body = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/QingxiWorld/Models/ArtV001/NoviceCultivatorV1.fbx"));
             body.name = "Body_NoviceCultivatorV1"; body.transform.SetParent(player.transform, false);
@@ -514,7 +558,7 @@ namespace YunJing.Editor
             UnityEngine.Object.DestroyImmediate(box.GetComponent<Collider>());
             var colour = p.owner == "codex" ? new Color(.37f, .66f, .60f, .45f) : p.owner == "core" ? new Color(.48f, .55f, .62f, .45f) : new Color(.72f, .58f, .42f, .45f);
             box.GetComponent<Renderer>().sharedMaterial = PlannedSlotMaterial(p.owner, colour);
-            var font = AssetDatabase.LoadAssetAtPath<Font>("Assets/YunJing/Resources/Fonts/NotoSansTC-Variable.ttf");
+            var font = AssetDatabase.LoadAssetAtPath<Font>("Assets/YunJing/Resources/Fonts/NotoSansTC-Subset.ttf");
             var label = new GameObject("Label").AddComponent<TextMesh>();
             label.transform.SetParent(slot, false);
             label.transform.localPosition = new Vector3(0, fp[2] + .5f, 0);
@@ -651,6 +695,7 @@ namespace YunJing.Editor
             if (Scenes.Any(s => !File.Exists(s))) throw new InvalidOperationException("Generate the novice village in a previous Editor process.");
             QingxiUrpUpgrade.EnsurePipeline();
             PlayerSettings.productName = "雲境 · 青溪新手村";
+            PlayerSettings.SplashScreen.show = false;
             string path = "../../artifacts/windows-novice-village/YunJingNoviceVillage.exe";
             Directory.CreateDirectory(Path.GetDirectoryName(path));
             var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
@@ -661,14 +706,16 @@ namespace YunJing.Editor
             Debug.Log("QINGXI_NOVICE_VILLAGE_WINDOWS_BUILT: " + Path.GetFullPath(path));
         }
 
-        // Browser build with Unity's PWA template (web manifest, service worker, installable). Gzip with the
+        // Browser build with the YunJing PWA template (Codex C3: web manifest, service worker, installable;
+        // no Unity branding). Gzip with the
         // decompression fallback so any static server can host it; run tools/qingxi-webgl/serve.mjs to try it.
         public static void BuildWebGL()
         {
             if (Scenes.Any(s => !File.Exists(s))) throw new InvalidOperationException("Generate the novice village in a previous Editor process.");
             QingxiUrpUpgrade.EnsurePipeline();
             PlayerSettings.productName = "雲境 · 青溪新手村";
-            PlayerSettings.WebGL.template = "APPLICATION:PWA";
+            PlayerSettings.SplashScreen.show = false;   // the Unity logo alone is 2.7 MB of the download
+            PlayerSettings.WebGL.template = "PROJECT:YunJing";   // Codex C3 shell + entry layer (docs/art/loading-experience-v1.md)
             PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
             PlayerSettings.WebGL.decompressionFallback = true;
             PlayerSettings.WebGL.dataCaching = true;
