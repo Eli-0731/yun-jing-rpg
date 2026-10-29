@@ -9,7 +9,7 @@ import { loadLayout, buildConfig } from './village-checks.mjs';
 const here = dirname(fileURLToPath(import.meta.url));
 const village = loadLayout();
 const blocks = { A1: village };
-for (const id of ['A2', 'A3']) blocks[id] = JSON.parse(readFileSync(join(here, 'blocks', id + '.json'), 'utf8'));
+for (const id of ['A2', 'A3', 'D3']) blocks[id] = JSON.parse(readFileSync(join(here, 'blocks', id + '.json'), 'utf8'));
 
 const padEdge = (p, x, z) => Math.max(Math.abs(x - p.x) - p.halfX, Math.abs(z - p.z) - p.halfZ);
 

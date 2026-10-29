@@ -748,6 +748,27 @@
       "author": "joshsu54"
     },
     {
+      "id": "Plaza_WaterCouncil",
+      "role": "議水村角（C：村民回應 #47）",
+      "model": "",
+      "x": -4.1,
+      "z": -4.75,
+      "yaw": 0,
+      "author": "Eli-0731（a0902285608）",
+      "collider": "box",
+      "zone": "plaza",
+      "owner": "a0902285608",
+      "status": "needed",
+      "block": "A1",
+      "phase": "P2",
+      "footprint": [
+        5.0,
+        2.8,
+        1.6
+      ],
+      "note": "議事桌、翻面水情板、水桶、濕度木牌等八件；原設計 3 × 5 m，配合廣場道路改為 5 × 2.8 m"
+    },
+    {
       "id": "Plaza_Well",
       "block": "A1",
       "zone": "plaza",
