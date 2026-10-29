@@ -11,5 +11,6 @@
 | [C4-distant-peaks.md](C4-distant-peaks.md) | 遠景石峰、山稜、崖松、雲帶、瀑布＋擺放表 | `yun-jing-rpg-distant-peaks-v1` | 中 |
 | [C5-alchemy-table-pbr.md](C5-alchemy-table-pbr.md) | 丹房工作桌 v002：形體精修＋PBR（建模規格第一個試做） | `yun-jing-rpg-alchemy-table-pbr-v1` | 少 |
 | [C6-ui-final-assets.md](C6-ui-final-assets.md) | 圖示、九宮格、四區外觀、標誌（等 Claude Code 檢查 C1） | `yun-jing-ui-concepts-v1\final\` | 中 |
+| [C7-village-slot-props.md](C7-village-slot-props.md) | 青溪村格位道具：村口石燈、水井、井與洗衣石、茶棚（照區塊規劃的格位尺寸） | `yun-jing-rpg-village-props-c7`（Codex 自建工作樹） | 少 |
 
 所有工作位置都在 `D:\yun-jing-rpg-workspace\` 底下。Codex 不 commit；Claude Code 檢查後以 z1nnz 名義提交。

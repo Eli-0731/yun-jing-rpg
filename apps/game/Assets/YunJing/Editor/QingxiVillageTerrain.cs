@@ -23,7 +23,16 @@ namespace YunJing.Editor
         [Serializable] public class Pad { public string id, surface; public float x, z, halfX, halfZ, height; }
         [Serializable] public class HeightPoint { public float x, z, height; }
         [Serializable] public class Checkpoint { public string name, node; }
-        [Serializable] public class Placement { public string id, role, model, author, collider; public float x, z, yaw; }
+        // A slot in the village plan. footprint = width, depth, height (m) along the model's own X/Z before yaw;
+        // status: placed / ready (model exists, placed by the builder) / needed (no model yet, shown as a box).
+        [Serializable]
+        public class Placement
+        {
+            public string id, role, model, author, collider, block, zone, owner, status, phase, note;
+            public float x, z, yaw, scale;
+            public float[] footprint;
+            public bool Needed => status == "needed" || string.IsNullOrEmpty(model);
+        }
         [Serializable] public class Herb { public string id, kind; public float x, z; }
         [Serializable] public class Crossing { public float x, z; public int stones; }
         [Serializable]
@@ -48,6 +57,7 @@ namespace YunJing.Editor
             public Checkpoint[] checkpoints;
             public string[] route;
             public Placement[] placements;
+            public Placement[] crossingSlots;   // slots off the pads (bridges over the creek)
             public Herb[] herbs;
             public Creek creek;
         }
@@ -88,7 +98,7 @@ namespace YunJing.Editor
             var file = Path.GetFullPath(Path.Combine(Application.dataPath, "../../../tools/qingxi-terrain/novice-village.json"));
             if (!File.Exists(file)) throw new FileNotFoundException("Novice village layout missing", file);
             var layout = JsonUtility.FromJson<Layout>(File.ReadAllText(file));
-            if (layout == null || layout.version != 1 || layout.bounds == null || layout.nodes == null || layout.edges == null || layout.pads == null)
+            if (layout == null || layout.version < 1 || layout.version > 2 || layout.bounds == null || layout.nodes == null || layout.edges == null || layout.pads == null)
                 throw new InvalidDataException("Novice village layout is invalid");
             var ids = layout.nodes.Select(n => n.id).ToHashSet();
             foreach (var edge in layout.edges)

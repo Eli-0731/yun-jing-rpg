@@ -48,6 +48,7 @@ namespace YunJing.Editor
             stations.exitDoor = exit; stations.bed = bed.transform; stations.chest = chest.transform; stations.walker = walker;
             var training = player.AddComponent<QingxiTrainingPractice>();
             training.qiPost = cushion.transform; training.qiLabel = "蒲團"; training.walker = walker;
+            QingxiNoviceVillageBuilder.TrainingGlow(training);
             stations.training = training;
             foraging.abc = stations;
             walker.localForaging = foraging;

@@ -97,6 +97,7 @@ namespace YunJing.Editor
             stations.forest = zones.encounter; stations.walker = walker;
             var training = player.AddComponent<QingxiTrainingPractice>();
             training.qiPost = qiPost; training.blockPost = blockPost; training.walker = walker;
+            TrainingGlow(training);
             stations.training = training;
             // The lodging's front door (west side, facing the road) leads into its interior scene.
             var lodgingDoor = new GameObject("LodgingDoor_StarterHouse").transform;
@@ -448,19 +449,25 @@ namespace YunJing.Editor
             return mat;
         }
 
-        // Buildings and props from the layout data: each stands on its pad at the terrain height and keeps
-        // its FBX root rotation (Z-up exports carry an import rotation); only the yaw is added.
+        // Buildings and props from the slot registry (novice-village.json): each stands on its pad at the
+        // terrain height and keeps its FBX root rotation (Z-up exports carry an import rotation); only the yaw
+        // is added. Slots still waiting for a model are shown as a labelled box of their exact footprint, so the
+        // planned village can be walked before the models exist. Models larger than their footprint are logged.
         static int Placements(Transform village)
         {
             var root = new GameObject("VillagePlacements (novice-village.json)").transform; root.SetParent(village, false);
-            foreach (var p in layout.placements)
+            var all = layout.placements.Concat(layout.crossingSlots ?? new QingxiVillageTerrain.Placement[0]);
+            int needed = 0, oversize = 0;
+            foreach (var p in all)
             {
+                if (p.Needed) { PlannedSlot(root, p); needed++; continue; }
                 var source = AssetDatabase.LoadAssetAtPath<GameObject>(p.model);
                 if (source == null) throw new FileNotFoundException("Village placement model missing (Git LFS pulled?)", p.model);
                 var model = (GameObject)PrefabUtility.InstantiatePrefab(source);
                 model.name = $"{p.id} - {p.author}";
                 model.transform.SetParent(root, false);
                 model.transform.localRotation = Quaternion.Euler(0, p.yaw, 0) * source.transform.localRotation;
+                if (p.scale > 0) model.transform.localScale *= p.scale;
                 model.transform.localPosition = At(p.x, p.z);
                 // Rest the visual base on the ground even when the FBX origin is not at the base.
                 var renderers = model.GetComponentsInChildren<Renderer>();
@@ -475,8 +482,63 @@ namespace YunJing.Editor
                     var size = model.transform.InverseTransformVector(b.size);
                     box.size = new Vector3(Mathf.Abs(size.x), Mathf.Abs(size.y), Mathf.Abs(size.z));
                 }
+                if (p.footprint != null && p.footprint.Length == 3)
+                {
+                    b = renderers[0].bounds; foreach (var r in renderers) b.Encapsulate(r.bounds);
+                    // Compare in the slot's own frame: world bounds of a yawed model include the rotation.
+                    float a = p.yaw * Mathf.Deg2Rad, c = Mathf.Abs(Mathf.Cos(a)), s = Mathf.Abs(Mathf.Sin(a));
+                    float wantX = p.footprint[0] * c + p.footprint[1] * s, wantZ = p.footprint[0] * s + p.footprint[1] * c;
+                    if (b.size.x > wantX * 1.1f + .1f || b.size.z > wantZ * 1.1f + .1f || b.size.y > p.footprint[2] * 1.1f + .1f)
+                    {
+                        oversize++;
+                        Debug.LogWarning($"QINGXI_FOOTPRINT {p.id}: model {b.size.x:F1} × {b.size.z:F1} × {b.size.y:F1} m exceeds slot {wantX:F1} × {wantZ:F1} × {p.footprint[2]:F1} m");
+                    }
+                }
             }
-            return layout.placements.Length;
+            Debug.Log($"QINGXI_SLOTS: {all.Count()} slots, {needed} waiting for models (shown as boxes), {oversize} models larger than their slot");
+            return all.Count();
+        }
+
+        // A labelled box of the slot's footprint, coloured by owner, so the plan is visible in the game.
+        static void PlannedSlot(Transform root, QingxiVillageTerrain.Placement p)
+        {
+            var fp = p.footprint ?? new[] { 2f, 2f, 2f };
+            var slot = new GameObject($"PlannedSlot {p.id} - {p.owner}").transform;
+            slot.SetParent(root, false);
+            slot.localPosition = At(p.x, p.z); slot.localRotation = Quaternion.Euler(0, p.yaw, 0);
+            var box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            box.name = "Footprint"; box.transform.SetParent(slot, false);
+            box.transform.localPosition = new Vector3(0, fp[2] / 2, 0);
+            box.transform.localScale = new Vector3(fp[0], fp[2], fp[1]);
+            // Translucent and without a collider: a plan, not an obstacle (the gate slot sits on the entry road).
+            UnityEngine.Object.DestroyImmediate(box.GetComponent<Collider>());
+            var colour = p.owner == "codex" ? new Color(.37f, .66f, .60f, .45f) : p.owner == "core" ? new Color(.48f, .55f, .62f, .45f) : new Color(.72f, .58f, .42f, .45f);
+            box.GetComponent<Renderer>().sharedMaterial = PlannedSlotMaterial(p.owner, colour);
+            var font = AssetDatabase.LoadAssetAtPath<Font>("Assets/YunJing/Resources/Fonts/NotoSansTC-Variable.ttf");
+            var label = new GameObject("Label").AddComponent<TextMesh>();
+            label.transform.SetParent(slot, false);
+            label.transform.localPosition = new Vector3(0, fp[2] + .5f, 0);
+            label.text = $"{p.role}\n{p.id}・{p.owner}・{fp[0]:0.#}×{fp[1]:0.#}×{fp[2]:0.#} m";
+            label.anchor = TextAnchor.LowerCenter; label.alignment = TextAlignment.Center;
+            label.characterSize = .045f; label.fontSize = 64; label.color = new Color(.11f, .12f, .12f);
+            if (font != null) { label.font = font; label.GetComponent<MeshRenderer>().sharedMaterial = font.material; }
+            label.gameObject.AddComponent<QingxiBillboard>();
+        }
+
+        static Material PlannedSlotMaterial(string owner, Color colour)
+        {
+            var path = $"{MaterialFolder}/PlannedSlot_{owner}_URP.mat";
+            var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (mat == null) { mat = new Material(Shader.Find("Universal Render Pipeline/Lit")); AssetDatabase.CreateAsset(mat, path); }
+            mat.SetFloat("_Surface", 1); mat.SetFloat("_Blend", 0);
+            mat.SetFloat("_SrcBlend", (float)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            mat.SetFloat("_DstBlend", (float)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            mat.SetFloat("_ZWrite", 0);
+            mat.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+            mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+            mat.SetColor("_BaseColor", colour); mat.SetFloat("_Smoothness", .1f);
+            EditorUtility.SetDirty(mat);
+            return mat;
         }
 
         // Existing reviewed environment pieces (CollaboratorWorldV1) framing the village edge.
@@ -524,6 +586,44 @@ namespace YunJing.Editor
             mat.SetColor("_BaseColor", color); mat.SetFloat("_Smoothness", .08f);
             EditorUtility.SetDirty(mat);
             return mat;
+        }
+
+        // Additive glow for the training drills (rope bands, jade disc, qi motes, block sparks). Saved as assets so
+        // the URP particle shader ships in the player builds; the dot material carries a soft round texture.
+        public static void TrainingGlow(QingxiTrainingPractice training)
+        {
+            Directory.CreateDirectory(Path.Combine(Application.dataPath, MaterialFolder.Substring("Assets/".Length)));
+            Material Glow(string name, Texture2D tex)
+            {
+                var path = $"{MaterialFolder}/{name}_URP.mat";
+                var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
+                if (mat == null) { mat = new Material(Shader.Find("Universal Render Pipeline/Particles/Unlit")); AssetDatabase.CreateAsset(mat, path); }
+                mat.SetFloat("_Surface", 1); mat.SetFloat("_Blend", 2);
+                mat.SetFloat("_SrcBlend", (float)BlendMode.SrcAlpha); mat.SetFloat("_DstBlend", (float)BlendMode.One);
+                mat.SetFloat("_ZWrite", 0);
+                mat.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+                mat.renderQueue = (int)RenderQueue.Transparent;
+                mat.SetColor("_BaseColor", Color.white);
+                if (tex != null) mat.SetTexture("_BaseMap", tex);
+                EditorUtility.SetDirty(mat);
+                return mat;
+            }
+            var dotPath = MaterialFolder + "/TrainingGlowDot.asset";
+            var dot = AssetDatabase.LoadAssetAtPath<Texture2D>(dotPath);
+            if (dot == null)
+            {
+                dot = new Texture2D(64, 64, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp };
+                for (int y = 0; y < 64; y++)
+                    for (int x = 0; x < 64; x++)
+                    {
+                        float d = Vector2.Distance(new Vector2(x + .5f, y + .5f), new Vector2(32, 32)) / 32;
+                        dot.SetPixel(x, y, new Color(1, 1, 1, Mathf.Pow(Mathf.Clamp01(1 - d), 2)));
+                    }
+                dot.Apply();
+                AssetDatabase.CreateAsset(dot, dotPath);
+            }
+            training.glowLine = Glow("TrainingGlowLine", null);
+            training.glowDot = Glow("TrainingGlowDot", dot);
         }
 
         static Material UiMaterial()

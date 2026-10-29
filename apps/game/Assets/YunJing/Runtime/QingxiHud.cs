@@ -23,6 +23,7 @@ namespace YunJing
         Text activityResult;
         Button journalButton;
         Font font;
+        Canvas hudCanvas;
         bool open;
         int width, height;
 
@@ -33,6 +34,7 @@ namespace YunJing
             var canvas = new GameObject("Qingxi HUD Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             canvas.transform.SetParent(transform, false);
             var cv = canvas.GetComponent<Canvas>();
+            hudCanvas = cv;
             cv.renderMode = RenderMode.ScreenSpaceOverlay;
             cv.sortingOrder = 20;
             var scaler = canvas.GetComponent<CanvasScaler>();
@@ -117,6 +119,8 @@ namespace YunJing
 
         void Update()
         {
+            // Johnnnny0823's drills take the whole screen, as in his web demo.
+            if (hudCanvas != null) hudCanvas.enabled = !QingxiTrainingPractice.Practising;
             if (Screen.width != width || Screen.height != height) SafeArea();
             if (Keyboard.current != null && Keyboard.current.mKey.wasPressedThisFrame) ToggleJournal();
             if (foraging != null && interactionText != null)

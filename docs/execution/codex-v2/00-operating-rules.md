@@ -306,6 +306,7 @@
 | 4 | `C4-distant-peaks.md` | 遠景石峰與雲霧 |
 | 5 | `C5-alchemy-table-pbr.md` | 丹房工作桌 PBR |
 | 6 | `C6-ui-final-assets.md` | 介面定稿素材（等 Claude Code 檢查完 C1 才開始） |
+| 7 | `C7-village-slot-props.md` | 青溪村格位道具（石燈、水井、茶棚） |
 
 - 額度用完時，先做不需要生圖的部分：腳本、灰模、網頁程式、文件。
 - **每完成一項就回報**，不用等全部完成。格式：

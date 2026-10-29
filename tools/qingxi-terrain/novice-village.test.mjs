@@ -95,6 +95,54 @@ test('the creek keeps clear of pads, roads, herbs and buildings', () => {
   assert.ok(creekDistance(c.crossing.x, c.crossing.z) < 0.5, 'the crossing must sit on the creek');
 });
 
+// Slot registry: every building and prop has a footprint (w × d × h, along its own X/Z before yaw), an
+// owner and a status. Footprints are the contract with modellers: a delivered model must fit inside its box.
+const corners = s => {
+  const [w, d] = s.footprint, a = s.yaw * Math.PI / 180, c = Math.cos(a), n = Math.sin(a);
+  return [[-w / 2, -d / 2], [w / 2, -d / 2], [w / 2, d / 2], [-w / 2, d / 2]]
+    .map(([x, z]) => [s.x + x * c + z * n, s.z - x * n + z * c]);
+};
+// Separating-axis test for two rotated rectangles, shrunk by a small tolerance so touching is allowed.
+const overlaps = (a, b, tol = 0.05) => {
+  const pa = corners(a), pb = corners(b);
+  for (const poly of [pa, pb])
+    for (let i = 0; i < 4; i++) {
+      const [x1, z1] = poly[i], [x2, z2] = poly[(i + 1) % 4], ax = z1 - z2, az = x2 - x1;
+      const proj = p => p.map(([x, z]) => x * ax + z * az), len = Math.hypot(ax, az);
+      const A = proj(pa), B = proj(pb);
+      if (Math.max(...A) - tol * len <= Math.min(...B) || Math.max(...B) - tol * len <= Math.min(...A)) return false;
+    }
+  return true;
+};
+const slots = layout.placements.filter(p => p.footprint);
+
+test('every slot has an owner, a status and a footprint', () => {
+  for (const p of layout.placements) {
+    assert.ok(['core', 'codex', 'joshsu54', 'Johnnnny0823', 'a0902285608'].includes(p.owner), `${p.id} owner`);
+    assert.ok(['placed', 'ready', 'needed'].includes(p.status), `${p.id} status`);
+    assert.ok(p.status === 'needed' ? !p.model : p.model, `${p.id}: needed slots have no model, others do`);
+    assert.ok(layout.pads.some(pad => pad.id === p.zone), `${p.id} zone ${p.zone} is not a pad`);
+  }
+  // Irrigation pieces were placed before footprints existed; everything new must declare one.
+  assert.ok(layout.placements.filter(p => !p.footprint).every(p => p.id.startsWith('Fields_')));
+});
+
+test('slot footprints do not overlap each other', () => {
+  for (let i = 0; i < slots.length; i++)
+    for (let j = i + 1; j < slots.length; j++)
+      assert.ok(!overlaps(slots[i], slots[j]), `${slots[i].id} overlaps ${slots[j].id}`);
+});
+
+test('slot footprints keep off roads and stay on their pad', () => {
+  for (const s of slots) {
+    const pad = layout.pads.find(p => p.id === s.zone);
+    for (const [x, z] of corners(s)) {
+      assert.ok(roadDistance(x, z) > 0, `${s.id} corner ${x.toFixed(1)},${z.toFixed(1)} is on a road`);
+      assert.ok(padEdge(pad, x, z) <= 0.5, `${s.id} corner ${x.toFixed(1)},${z.toFixed(1)} sticks out of ${pad.id}`);
+    }
+  }
+});
+
 test('the check config mirrors the layout', () => {
   const config = buildConfig(layout);
   assert.equal(config.roads.length, layout.edges.length);
