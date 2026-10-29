@@ -264,6 +264,9 @@ namespace YunJing
 
         void ShowResult(string kind, string grade, string detail)
         {
+            // A passed drill counts as one basic practice on the server (qi needs a spirit root; the server decides).
+            bool passed = Breath != null ? Breath.Harmonised >= 1 : Block != null && Block.Blocked >= 8;
+            if (passed) QingxiServerLink.Current?.Submit(new GameAction { kind = "practice-basic", discipline = Breath != null ? "qi" : "body" });
             Sfx.BreathStop();
             Breath = null; Block = null;
             HideEffects(); RestArms();

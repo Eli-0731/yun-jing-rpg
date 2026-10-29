@@ -92,12 +92,23 @@ namespace YunJing
             foraging.TryInteract(walker.transform.position, out _);
             Check("climb down again", !forest.Climbed && body.enabled);
 
-            // Gather one herb so the trip through the alchemy room can prove the counts come back.
+            // Gather one herb so the trip through the alchemy room can prove the counts come back. Wait for the
+            // server link to settle first, so an online run can check the server kept the herb (K7).
+            var link = QingxiServerLink.Current;
+            float settle = Time.realtimeSinceStartup + 10;
+            while (link != null && link.Connecting && Time.realtimeSinceStartup < settle) yield return null;
+            int serverHerbs = QingxiServerLink.Online ? link.Quantity("chilu-ginseng") : 0;
             Teleport(walker, foraging.herbNodes[0].position);
             yield return Frames(5);
             foraging.TryInteract(walker.transform.position, out _);
             int herbs = foraging.Herbs;
             Check("herb gathered", herbs == 1);
+            if (QingxiServerLink.Online)
+            {
+                float until = Time.realtimeSinceStartup + 6;
+                while (link.Quantity("chilu-ginseng") <= serverHerbs && Time.realtimeSinceStartup < until) yield return null;
+                Check("the server keeps the gathered herb", link.Quantity("chilu-ginseng") == serverHerbs + 1);
+            }
             yield return Frames(2);
             var herbVisual = foraging.herbNodes[0].GetComponent<QingxiHerbVisual>();
             Check("herb switches to its harvested model", herbVisual != null && herbVisual.post.activeSelf && !herbVisual.pre.activeSelf);

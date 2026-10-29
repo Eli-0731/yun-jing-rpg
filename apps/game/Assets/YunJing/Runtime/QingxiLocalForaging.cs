@@ -6,7 +6,8 @@ using UnityEngine;
 
 namespace YunJing
 {
-    // A local, disposable play rehearsal. No persistent inventory, currency or API calls.
+    // The village play loop. The counters here are the local rehearsal shown in the HUD; when the game server is
+    // reachable, gathering and practice are also sent to it (QingxiServerLink, K7), which keeps the real results.
     public sealed class QingxiLocalForaging : MonoBehaviour
     {
         public Transform[] herbNodes;
@@ -72,6 +73,7 @@ namespace YunJing
                 }
                 harvestedUntil[herb] = now + herbRegrowSeconds;
                 Herbs++;
+                QingxiServerLink.Current?.Submit(new GameAction { kind = "village-gather", node = herb.name });
                 return Complete("採到一株靈草（本機試玩）", out message);
             }
 
@@ -116,6 +118,7 @@ namespace YunJing
                 }
                 basicPracticeCount++;
                 Insights++;
+                QingxiServerLink.Current?.Submit(new GameAction { kind = "practice-basic", discipline = "qi" });
                 return Complete("完成一次引氣訣練習，得到一點本機領悟", out message);
             }
             message = "附近沒有可互動的靈草、山兔或坊市";
@@ -165,6 +168,9 @@ namespace YunJing
             carried = null;
             Complete(arrival, out _);
         }
+
+        // A message from elsewhere (the server refusing an action) shown where village results appear.
+        public void Notice(string text) => Complete(text, out _);
 
         bool Complete(string result, out string message)
         {

@@ -7,6 +7,7 @@ import estateContent from '../../../packages/content/estate.json';
 import huntingContent from '../../../packages/content/hunting.json';
 import techniqueContent from '../../../packages/content/techniques.json';
 import fortuneContent from '../../../packages/content/fortunes.json';
+import villageContent from '../../../packages/content/village.json';
 import { AlchemyEvent, alchemyContent, judge, levelOf, modsFor, profileFor, simulate, validateLog, xpGain } from './alchemy';
 import { AlchemyRecord, AlchemyState, AlchemyView, HuntDeath, HuntReceipt, HuntReward } from '../../../packages/contracts/types';
 
@@ -130,6 +131,16 @@ function validateFortuneContent() {
   }
 }
 validateFortuneContent();
+// Village gathering nodes: every product must exist, ids unique, a positive regrow time.
+function validateVillageContent() {
+  ensure(Number.isInteger(villageContent.regrowSeconds) && villageContent.regrowSeconds > 0, 'VILLAGE_CONTENT', '採集再生時間無效');
+  const ids = new Set<string>();
+  for (const node of villageContent.nodes) {
+    ensure(!ids.has(node.id), 'VILLAGE_CONTENT', '採集點編號重複'); ids.add(node.id);
+    ensure(content.items.some(x => x.id === node.item), 'VILLAGE_CONTENT', '採集產物不存在');
+  }
+}
+validateVillageContent();
 function validateHuntingContent() {
   ensure(huntingContent.roomId === 'qingxi' && huntingContent.version.length > 0, 'HUNT_CONTENT', '狩獵內容版本或區域無效');
   ensure(huntingContent.maxParticipants >= 1 && huntingContent.maxParticipants <= 4 && huntingContent.eventMaxAgeSeconds > 0, 'HUNT_CONTENT', '狩獵人數或時間限制無效');
@@ -354,6 +365,15 @@ export class Game {
         player.inventory = player.inventory.filter(x => x.quantity > 0);
         grant(player, 'spirit-stone', price * quantity);
         mark(player, 'sold-hunt');
+        break;
+      }
+      case 'village-gather': {
+        // One herb per node; the node regrows for this character after regrowSeconds (server clock).
+        const node = villageContent.nodes.find(x => typeof action.node === 'string' && x.id === action.node);
+        ensure(node, 'INVALID_NODE', '未知採集點');
+        cooldown(`village:${node.id}`, villageContent.regrowSeconds);
+        grant(player, node.item, 1);
+        mark(player, 'gathered');
         break;
       }
       case 'discover-fortune': {
