@@ -864,7 +864,7 @@ namespace YunJing.Editor
             PlayerSettings.productName = "雲境 · 青溪新手村";
             PlayerSettings.SplashScreen.show = false;   // the Unity logo alone is 2.7 MB of the download
             PlayerSettings.WebGL.template = "PROJECT:YunJing";   // Codex C3 shell + entry layer (docs/art/loading-experience-v1.md)
-            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Brotli;   // K6: ~15–20% smaller than gzip
             PlayerSettings.WebGL.decompressionFallback = true;
             PlayerSettings.WebGL.dataCaching = true;
             PlayerSettings.WebGL.exceptionSupport = WebGLExceptionSupport.ExplicitlyThrownExceptionsOnly;
