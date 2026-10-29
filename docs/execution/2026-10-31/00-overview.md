@@ -3,13 +3,10 @@
 > z1nnz 指導，Claude Code 規劃。三人各約 **28 小時**，分兩批（第一批約 14 小時、第二批約 14 小時），**不要求一天連續做完**。
 > 本頁是三人共用的規則，個人細項在 `01-A`、`02-B`、`03-C`。開工前先讀完本頁。
 
-> **有些檔案還沒進 main**：
-> - 下列檔案在 PR #49 的分支 `feature/qingxi-main-scene-abc-v1`：
->   - `tools/qingxi-terrain/`（地圖資料）；
->   - `apps/game/Assets/YunJing/Editor/QingxiLodgingInteriorBuilder.cs`（新手領地場景）；
->   - `packages/content/fortunes.json`。
-> - 不用切換分支，用這個指令讀：`git fetch origin feature/qingxi-main-scene-abc-v1`，再 `git show origin/feature/qingxi-main-scene-abc-v1:<檔案路徑>`。
-> - 文件類（規範、世界觀、地圖圖片、本工作包）都已經在 main。
+> **檔案在哪裡**：這份工作包和它提到的所有文件、地圖資料、領地場景程式，都在分支 `feature/qingxi-main-scene-abc-v1`（還沒合併到 main）。
+> - 網頁上看：https://github.com/z1nnz/yun-jing-rpg/tree/feature/qingxi-main-scene-abc-v1/docs
+> - 本機讀：先 `git fetch origin feature/qingxi-main-scene-abc-v1`，再用 `git show origin/feature/qingxi-main-scene-abc-v1:<檔案路徑>`，不用切換分支。
+> - 你自己的新分支照樣從**最新 main** 開。
 
 ---
 
