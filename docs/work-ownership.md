@@ -1,6 +1,39 @@
 # 青溪工作與來源登記
 
-最新[協作者素材接入表](asset-integration-register.md)區分原作者、進儲存庫、進 Unity 與真正進試玩；[開發進度表](development-roadmap.md)記後續順序。z1nnz 已說明提供外來模型獲原作者授權可改造使用；整合時仍記原作者及改動，不將改色、改比例等修改署為全新獨作。
+## 2026-10-28 新版演武與林地接入
+
+| 內容 | 原始作者 | 本輪整合 | 未完成 |
+|---|---|---|---|
+| 演武區新版模型與調息／格擋玩法（PR #38） | Johnnnny0823／其協作工具 | z1nnz 指導／Codex 將新版 GLB 與玩法接入橫向入口；四件 FBX 另擺入 Unity 統一世界 | 正式角色進度、場景碰撞及手機效能 |
+| 山兔林地 A01–A06 與遭遇玩法（PR #39 第一批） | Johnnnny0823／其協作工具 | z1nnz 指導／Codex 將六件 GLB 及玩法接入橫向入口；四件障礙 FBX 另擺入 Unity 狩獵區 | A07–A12、正式戰鬥狀態、場景碰撞及手機效能 |
+| 青溪入口道路、地表、可動修行者試模與地標接線 | z1nnz 指導／Codex；道路和角色使用已保存的原創 AI 三視圖及既有母稿 | PR #27 草稿，Chrome 橫向試走與 Unity 批次生成通過；修行者試模也轉 FBX 放入 Unity 可操作角色 | Heroine-01 完成模型、完整動作、畫面精修及正式背包 |
+
+協作者的 GLB／FBX 及玩法原始提交保留其作者；本輪只負責擺放、轉接與驗證。小紅帽來源模型的本機頭部研究仍在 `D:\yun-jing-rpg-heroine-sculpt-v2\output\study-models\luoqian\`，未通過頭部 QA，不是已完成女主角，也未上傳到 GitHub。
+
+## 2026-10-28 核心組續作
+
+| 內容 | 製作與來源 | 目前狀態 | 協作者邊界 |
+|---|---|---|---|
+| 新手線索、引氣訣、簡易煉製與調息試玩 | z1nnz 指導／Codex 在原採獵循環上接線 | PR #27 草稿；固定 Unity 批次生成與 Windows 建置通過，本機非正式資產；見 [活動說明](execution/qingxi-novice-activities-v1.md) | A／B／C 不覆寫 `QingxiLocalForaging.cs` 與統一場景生成器；可交獨立對話或場景模組 |
+| 青溪彎曲土路近景 v13 | z1nnz 指導／Codex 精修 v12；沿用 [原創 AI 三視圖](../art/references/qingxi-winding-road-v1/three-view.png)、v12 碎石葉叢與既有河岸石材貼圖 | 獨立 Blender／GLB、雙視圖；QA 0 錯誤，尚未接 Unity；見 [資產紀錄](qingxi-road-v13.md) | 協作者 B 的三段道路與橋頭模組仍維持其原作者；不要以 v13 覆寫 B 的母檔 |
+
+## 2026-10-27 頭部與遊戲介面補記
+
+| 內容 | 來源／負責 | 實際狀態 | 協作者邊界 |
+|---|---|---|---|
+| 青溪 HUD、旅途手札、地點提示 | z1nnz 指導／Codex 接線；原創介面文字與布局 | PR #27 草稿；Windows 1280×720 顯示和編譯通過，按鈕與手機仍待操作驗證 | A／B／C 不覆寫 `QingxiHud.cs` 及 `QingxiUnifiedWorldBuilder.cs` |
+| Heroine-01 洛茜來源頭部本機研究 | 來源與作者詳見 [本機改造紀錄](art/heroine-local-source-study.md)；z1nnz 指導／Codex 試改 | 本機 `output/study-models/luoqian/`，未提交、未匯入遊戲；Blender QA 未通過，非完成角色 | 角色頭面與妝造由 z1nnz／Codex 負責，協作者不改原始外來檔或自行署名 |
+
+目前「進儲存庫」「放進 Unity 場景」「完成可玩互動」為三個不同階段；較大城鎮由 `apps/game/Assets/QingxiWorld/Editor/QingxiWorldBuilder.cs` 重建，小入口由 `apps/game/Assets/YunJing/Editor/QingxiWorldBuilder.cs` 重建。PR #27 草稿的 `QingxiUnifiedWorldBuilder.cs` 由 z1nnz 指導／Codex 接線，把較大城鎮、狩獵灰盒及聽風台組成統一場景；原模型及城鎮配置仍保留協作者來源署名。詳見[開發進度表](development-roadmap.md)和[協作者素材接入表](asset-integration-register.md)。z1nnz 已說明所提供外來模型取得原作者授權，可在《雲境》改造；修改時仍登記原作者與原始檔，不將改色或改面歸成全新原創。
+
+## 2026-10-27 入口補做範圍
+
+| 內容 | 製作／來源 | 現況與邊界 |
+|---|---|---|
+| 青溪聽風台 v1、村口 v14 組裝、橫向試玩主檔 | z1nnz 指導／其 Codex 製作；引用本儲存庫既有模型 | PR #27 草稿中的階段成果；可看圖與本機試走，Unity 僅有世界預覽匯入，未接多人或服務端資產。核心組接續，不請協作者修改母檔。 |
+| 聽風台 Unity FBX 匯入與村口擺位 | z1nnz 指導／其 Codex 由原創聽風台母稿匯出及接線 | 同一 PR #27；世界生成與編譯通過，實際走位及手機效能未驗。協作者勿覆寫 `QingxiWorldBuilder.cs` 與 `QingxiListeningTerraceV1`。 |
+| 雲境統一美術語言與核心組接續清單 | z1nnz 指導／其 Codex 編寫，整合使用者選定的原創參考圖 | [風格規範](art/yunjing-visual-language.md)及[續作清單](execution/2026-10-27/02-core-progress-and-next.md)；這是共同準則和待辦，不代表所有資產已符合。 |
+| 演武區、溪畔採集、村內告示與小事件 | A、B、C 各自新工作包 | [2026-10-27 工作包](execution/2026-10-27/01-novice-entry-parallel-work-42h.md)已派發，尚未視為交付；各自保留實際作者與獨立 PR。 |
 
 更新：2026-10-26。此表用來避免重做；「z1nnz／Codex 協作」表示由 z1nnz 指導、Codex 在其專案中製作或整合，不把協作者原創誤記為 z1nnz 獨作。
 
@@ -36,3 +69,8 @@
 現行[三人各 14 小時、合計 42 小時實作包](execution/2026-10-26/10-qingxi-three-collaborators-42h.md)取代舊 09 包的未開始部分；舊文件保留當時分工紀錄。A 負責藥鋪模型與服務端採藥委託，B 負責道路草石模型與可走採集路線，C 負責較容易的村口審圖導覽與素材索引。角色模型由 z1nnz／Codex 這一組製作，協作者不接手。
 
 山兔 v003 來源與作者：原外觀 Dondon v002；Johnnnny0823／其 Codex 完成骨架、動畫、LOD；z1nnz／Codex 只負責重跑驗證及合併。保留原提交 `440e3c7`，合併為 `842e6d6`。
+
+## 2026-10-27 本機試走與環境交接
+
+- z1nnz／Codex：QingxiWalkthroughBuilder、QingxiWalkthroughController、QingxiWalkthroughSmoke 與 tools/unity.ps1 接線，負責本機試走，不覆寫網路玩法；詳見 execution/qingxi-unity-walkthrough.md。
+- joshsu54：EnvironmentTransitionKit/v001 的 31 個環境模組，PR #29 合併 b2a5767；z1nnz／Codex 僅做審閱、完整性檢查與合併，不把模型署成自己原創。協作者不需重新製作這 31 件；後續依各自工作包做演武、採集與告示。

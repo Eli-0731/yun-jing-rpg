@@ -14,6 +14,7 @@ namespace YunJing.Editor
         const string ScenePath = Root + "/QingxiWorldPreview.unity";
         const string Models = "Assets/YunJing/Models/QingxiWorldV1/";
         const string CollaboratorModels = "Assets/YunJing/Models/CollaboratorWorldV1/";
+        const string ListeningTerraceModel = "Assets/YunJing/Models/QingxiListeningTerraceV1/qingxi-listening-terrace-v1.fbx";
 
         static Material Surface(string name, Color color)
         {
@@ -105,6 +106,36 @@ namespace YunJing.Editor
             return instance;
         }
 
+        static void ListeningTerrace(Vector3 position)
+        {
+            var source = AssetDatabase.LoadAssetAtPath<GameObject>(ListeningTerraceModel);
+            if (source == null) throw new FileNotFoundException("Listening terrace model missing", ListeningTerraceModel);
+            var instance = (GameObject)PrefabUtility.InstantiatePrefab(source);
+            instance.name = "Qingxi listening terrace";
+            instance.transform.position = position;
+            var stone = Surface("TerracePaleStone", new Color(.68f, .67f, .58f));
+            var darkStone = Surface("TerraceDarkStone", new Color(.42f, .46f, .43f));
+            var timber = Surface("TerraceTimber", new Color(.36f, .27f, .18f));
+            var bronze = Surface("TerraceBronze", new Color(.59f, .48f, .29f));
+            var plant = Surface("TerracePlant", new Color(.34f, .46f, .26f));
+            foreach (var part in instance.GetComponentsInChildren<Renderer>())
+            {
+                string n = part.gameObject.name;
+                part.sharedMaterial = n.Contains("Bamboo") || n.Contains("Flower") || n.Contains("Grass") ? plant :
+                    n.Contains("Bronze") || n.Contains("Bell") ? bronze :
+                    n.Contains("Timber") || n.Contains("Seat") || n.Contains("Rope") ? timber :
+                    n.Contains("Foundation") ? darkStone : stone;
+            }
+            // Only the principal stone structure receives collision. Thin ornament meshes stay decorative.
+            foreach (var filter in instance.GetComponentsInChildren<MeshFilter>())
+            {
+                string n = filter.gameObject.name;
+                if (!n.Contains("Foundation") && !n.Contains("Paving") && !n.Contains("EntryStep")) continue;
+                var collision = filter.gameObject.AddComponent<MeshCollider>();
+                collision.sharedMesh = filter.sharedMesh;
+            }
+        }
+
         [MenuItem("Yun Jing/Generate Qingxi world preview")]
         public static void Generate()
         {
@@ -125,7 +156,10 @@ namespace YunJing.Editor
             var field = Surface("Field", new Color(.39f,.31f,.20f));
 
             Block("Walkable valley foundation", new Vector3(0,-.35f,0), new Vector3(180,.7f,140), grass);
-            Block("Village to aptitude plaza path", new Vector3(0,.02f,14), new Vector3(3.2f,.04f,48), path,false);
+            Block("Village to aptitude plaza path", new Vector3(0,.02f,9), new Vector3(3.2f,.04f,58), path,false);
+            ListeningTerrace(new Vector3(-8, 0, -15));
+            Block("Listening terrace approach", new Vector3(-4, .025f, -19), new Vector3(8, .05f, 2.7f), path, false);
+            Block("Listening terrace stair approach", new Vector3(-8, .025f, -18), new Vector3(2.7f, .05f, 2), path, false);
             Block("Village to bridge path", new Vector3(15,.02f,5), new Vector3(31,.04f,2.6f),path,false);
             Block("Eastern forest road", new Vector3(50,.02f,5), new Vector3(42,.04f,2.6f),path,false);
             Block("Cave trail", new Vector3(70,.025f,27), new Vector3(2.5f,.05f,48),path,false);
