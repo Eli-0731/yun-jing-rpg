@@ -479,7 +479,17 @@ namespace YunJing.Editor
             var path = $"{MaterialFolder}/VillageCreekWater_URP.mat";
             var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
             if (mat == null) { mat = new Material(Shader.Find("Universal Render Pipeline/Lit")); AssetDatabase.CreateAsset(mat, path); }
-            // Clear blue-green, transparent, glossy: the direction images' creek water.
+            // Flowing water (K1): ripples drifting downstream, shallow banks, sky reflection, sun glints, foam.
+            var water = Shader.Find("YunJing/QingxiCreekWater");
+            if (water != null)
+            {
+                mat.shader = water;
+                mat.SetFloat("_Width", layout.creek.width);
+                mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+                EditorUtility.SetDirty(mat);
+                return mat;
+            }
+            // Fallback: clear blue-green, transparent, glossy URP Lit.
             mat.SetFloat("_Surface", 1); mat.SetFloat("_Blend", 0);
             mat.SetFloat("_SrcBlend", (float)UnityEngine.Rendering.BlendMode.SrcAlpha);
             mat.SetFloat("_DstBlend", (float)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
