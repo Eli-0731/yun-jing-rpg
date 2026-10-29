@@ -10,16 +10,56 @@
   6.0,
   1.9968
  ],
- "triangles": 18292,
+ "triangles": 18772,
  "lod_triangles": [
-  18292,
-  6856,
-  3016
+  18772,
+  7096,
+  3122
  ],
  "collision": {
   "type": "heightfield",
   "note": "pinch rocks are blockers; the sill can be stepped over"
  },
+ "nodes": {
+  "land": [
+   "A01_narrow_01_LOD0"
+  ],
+  "water": [
+   "A01_narrow_01_Water"
+  ],
+  "foliage": [
+   "A01_narrow_01_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [
+  {
+   "name": "SOCKET_downstream",
+   "loc": [
+    0.0,
+    0.0,
+    0.3
+   ],
+   "forward": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  },
+  {
+   "name": "SOCKET_upstream",
+   "loc": [
+    0.0,
+    6.0,
+    0.3
+   ],
+   "forward": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  }
+ ],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A01_narrow_01",
@@ -39,9 +79,9 @@
    1.9968
   ],
   "trianglesLOD": [
-   18292,
-   6856,
-   3016
+   18772,
+   7096,
+   3122
   ],
   "budgetLOD0": 20000,
   "withinBudget": true,
@@ -53,7 +93,8 @@
   "textureResolution": 4096,
   "nodes": [
    "A01_narrow_01_LOD0",
-   "A01_narrow_01_Clear"
+   "A01_narrow_01_Water",
+   "A01_narrow_01_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -62,7 +103,7 @@
    "zeroAreaFaces": 0
   },
   "glbRoundTrip": {
-   "triangles": 18292,
+   "triangles": 18772,
    "trianglesMatch": true,
    "bboxMatch": true,
    "materials": [
@@ -73,12 +114,12 @@
   },
   "files": {
    "A01_narrow_01.glb": {
-    "bytes": 3160952,
-    "sha256": "6811ee4e53f026ab10fc592fa89ab564fd4406fd33fd6d12e5e088fdc1c4a851"
+    "bytes": 3194944,
+    "sha256": "4389a72458f3a68147f5792f840486c7f197269829fc1bf7b810b2efc40568ec"
    },
    "A01_narrow_01.fbx": {
-    "bytes": 2148812,
-    "sha256": "8b7e5573272db53bb74957b7989fd9896945453eb1089fe1f2fabe48945dcb3a"
+    "bytes": 2281532,
+    "sha256": "7a8104b00647be4629da88f32cbf02e1474865e1441b8f99a2f422a56d899d86"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A01_narrow_three_view.png",

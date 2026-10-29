@@ -104,6 +104,13 @@ async function walkTo(p, [i, u, s], look) {
   await p.evaluate(() => { const q = __wh.onRiver(4, 0.4, -1.6); __wh.teleport(q.x, q.z, 180); });
   await walkTo(p, [4, 1.0, -1.8], { x: more.RESONANCE.x, z: more.RESONANCE.z, pitch: 0.6 });
   await p.keyboard.press('KeyE'); await wait(700);
+  // step back along the same bank (2.2 m downstream, still inside the hint range so it keeps glowing), level with it
+  await p.evaluate(() => {
+    const r = __wh.more.RESONANCE, q = __wh.onRiver(4, -0.6, -2.75);
+    __wh.teleport(q.x, q.z, 0); __wh.face(r.x, r.z);
+    __wh.look(__wh.state().player.heading * 180 / Math.PI, 0.82);
+  });
+  await wait(600);
   await eyeShot(p, '13-resonance-stone-hint-1280x720.png');
   // the bamboo screen: walk through its gap on the right bank
   const __bamboo = more.BAMBOO;

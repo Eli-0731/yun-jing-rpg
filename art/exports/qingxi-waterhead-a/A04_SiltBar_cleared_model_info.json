@@ -20,6 +20,17 @@
   "type": "none",
   "note": "walkable remnant; swap in when the silt is cleared"
  },
+ "nodes": {
+  "land": [
+   "A04_SiltBar_cleared_LOD0"
+  ],
+  "water": [
+   "A04_SiltBar_cleared_Water"
+  ],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A04_SiltBar_cleared",
@@ -52,7 +63,7 @@
   "textureResolution": 1024,
   "nodes": [
    "A04_SiltBar_cleared_LOD0",
-   "A04_SiltBar_cleared_Clear"
+   "A04_SiltBar_cleared_Water"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -71,12 +82,12 @@
   },
   "files": {
    "A04_SiltBar_cleared.glb": {
-    "bytes": 277748,
-    "sha256": "822d349011a1b01f2ca13cc7d8fc12040fd5ced13c9615be7135eb010b77814c"
+    "bytes": 277760,
+    "sha256": "5b40173d97c2a26b44c07a3f3a3ac56a9410f4ae3d6b7140541df5f6a5b5b588"
    },
    "A04_SiltBar_cleared.fbx": {
     "bytes": 196092,
-    "sha256": "fa2e15fbdc514ac66a22bab2961b3467d916890391c72899379d5b302b6eb12f"
+    "sha256": "33f577792dd09ad8ef2bc77dec30600ebc148bbd2f80bbd839eceb54fdfbb4a2"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A04_three_view.png",

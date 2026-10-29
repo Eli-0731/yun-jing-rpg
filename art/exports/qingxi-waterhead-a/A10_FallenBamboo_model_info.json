@@ -20,6 +20,17 @@
   "type": "capsules",
   "note": "screen x -1.9..0.3 blocks; the gap x 0.3..1.5 under the high arch (2.0 m) is walkable"
  },
+ "nodes": {
+  "land": [
+   "A10_FallenBamboo_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A10_FallenBamboo_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A10_FallenBamboo",
@@ -52,7 +63,7 @@
   "textureResolution": 1024,
   "nodes": [
    "A10_FallenBamboo_LOD0",
-   "A10_FallenBamboo_Clear"
+   "A10_FallenBamboo_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -72,11 +83,11 @@
   "files": {
    "A10_FallenBamboo.glb": {
     "bytes": 861080,
-    "sha256": "f74fcc0b7ac7ebff62567742b98a7ed3f32d7727d5c22f5475f12217afbc0fb6"
+    "sha256": "5d203a48abc1cab4ebcaf3cefad2aff5e831981b931aa579eaf942a910798a16"
    },
    "A10_FallenBamboo.fbx": {
-    "bytes": 1262956,
-    "sha256": "71a97700cb73ae5e610427a90faba402cf5e490c9464630fbf2d39de822d2c1c"
+    "bytes": 1296220,
+    "sha256": "ebeabcec11911a29444a594f63c6c3a0dee30764dc32933befdb2138e6ac5dbf"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A10_three_view.png",

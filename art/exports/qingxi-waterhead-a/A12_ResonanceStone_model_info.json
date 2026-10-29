@@ -6,15 +6,15 @@
  "forward": "-Y (Blender) / +Z (glTF)",
  "origin": "base centre",
  "dimensions_m": [
-  1.8369,
-  1.7152,
-  1.078
+  1.5716,
+  1.5618,
+  1.0743
  ],
- "triangles": 6782,
+ "triangles": 10007,
  "lod_triangles": [
-  6782,
-  3280,
-  1442
+  10007,
+  4796,
+  2110
  ],
  "collision": {
   "type": "capsule",
@@ -27,40 +27,58 @@
   ],
   "note": "hint resonance_stone: faint vein glow and hum, no arrow"
  },
+ "nodes": {
+  "land": [
+   "A12_ResonanceStone_LOD0"
+  ],
+  "water": [
+   "A12_ResonanceStone_Water"
+  ],
+  "foliage": [
+   "A12_ResonanceStone_Foliage"
+  ]
+ },
+ "collision_hull": {
+  "node": "A12_ResonanceStone_Collision",
+  "triangles": 472,
+  "note": "convex hull of the solid parts; use as a convex MeshCollider, never render"
+ },
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A12_ResonanceStone",
   "dimensions_m": [
-   1.8369,
-   1.7152,
-   1.078
+   1.5716,
+   1.5618,
+   1.0743
   ],
   "bbox_min": [
-   -0.9756,
-   -0.7315,
+   -0.7979,
+   -0.827,
    0.0
   ],
   "bbox_max": [
-   0.8613,
-   0.9837,
-   1.078
+   0.7737,
+   0.7347,
+   1.0743
   ],
   "trianglesLOD": [
-   6782,
-   3280,
-   1442
+   10007,
+   4796,
+   2110
   ],
-  "budgetLOD0": 8000,
+  "budgetLOD0": 22000,
   "withinBudget": true,
   "materials": [
    "GrassClump",
    "LowWater",
    "M_A12_ResonanceStone"
   ],
-  "textureResolution": 1024,
+  "textureResolution": 2048,
   "nodes": [
    "A12_ResonanceStone_LOD0",
-   "A12_ResonanceStone_Clear"
+   "A12_ResonanceStone_Water",
+   "A12_ResonanceStone_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -69,7 +87,7 @@
    "zeroAreaFaces": 0
   },
   "glbRoundTrip": {
-   "triangles": 6782,
+   "triangles": 10007,
    "trianglesMatch": true,
    "bboxMatch": true,
    "materials": [
@@ -80,12 +98,12 @@
   },
   "files": {
    "A12_ResonanceStone.glb": {
-    "bytes": 748144,
-    "sha256": "a9207d5729a164ec3da0b42b44c28d09da16b14a83a5c496e72ff8e9208d26d7"
+    "bytes": 1317212,
+    "sha256": "6c38822899e259e9f8b0d036e61bfa3d3ae35466f8f66a6f1cd00573868c6a5e"
    },
    "A12_ResonanceStone.fbx": {
-    "bytes": 938524,
-    "sha256": "f2d1e39afcb6606d484839c772ea110a0ee2c98786e6e8e3366e335f4dd618f8"
+    "bytes": 1244796,
+    "sha256": "1c600ec4d6fdd83e444d9c75db91e11045a4e0608b0cc30a0ad09c2a9da7f1d3"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A12_three_view.png",

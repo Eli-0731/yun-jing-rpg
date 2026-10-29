@@ -30,6 +30,17 @@
   ],
   "note": "steps on -Y; platform walkable; posts and bench block"
  },
+ "nodes": {
+  "land": [
+   "A11_PavilionRuin_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A11_PavilionRuin_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A11_PavilionRuin",
@@ -62,7 +73,7 @@
   "textureResolution": 2048,
   "nodes": [
    "A11_PavilionRuin_LOD0",
-   "A11_PavilionRuin_Clear"
+   "A11_PavilionRuin_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -82,11 +93,11 @@
   "files": {
    "A11_PavilionRuin.glb": {
     "bytes": 1065600,
-    "sha256": "c36d9e7c3af14b51701e23bae6a7510692a9a714db6ce233578524915689bd10"
+    "sha256": "85eba081df14f3cdf15b4f72e84008403530833b7924c175d15e51843a5791ad"
    },
    "A11_PavilionRuin.fbx": {
-    "bytes": 1036172,
-    "sha256": "d589a4401d0ff63dbb4d4503e04b9dab71e714c6e4eab56dfc342baa60cf1dbe"
+    "bytes": 1043868,
+    "sha256": "c7676e2ef5b7576bc894cc9fd408753d08ce39632a30a5bc1af3945fedba2015"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A11_three_view.png",

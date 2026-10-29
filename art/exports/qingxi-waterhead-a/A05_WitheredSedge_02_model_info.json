@@ -20,6 +20,17 @@
   "type": "none",
   "note": "non-blocking plant"
  },
+ "nodes": {
+  "land": [
+   "A05_WitheredSedge_02_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A05_WitheredSedge_02_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A05_WitheredSedge_02",
@@ -52,7 +63,7 @@
   "textureResolution": 512,
   "nodes": [
    "A05_WitheredSedge_02_LOD0",
-   "A05_WitheredSedge_02_Clear"
+   "A05_WitheredSedge_02_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -72,11 +83,11 @@
   "files": {
    "A05_WitheredSedge_02.glb": {
     "bytes": 139220,
-    "sha256": "dead918694707aa1c869695439999f30f997454ecd0d18448f823aeb8692b917"
+    "sha256": "bbefd63931fc6ab81b5e1d50619925011f089eb1d6b98491b02b61addd1209e6"
    },
    "A05_WitheredSedge_02.fbx": {
-    "bytes": 164508,
-    "sha256": "ff01439c01bbb009af75369c9b21a0c12d0b58c583f347883992f5ed0f3ddcf3"
+    "bytes": 167372,
+    "sha256": "37e53147598c94e3719e7081a66495ded02a3d59e974cd5f7ffc8ae8140e11b8"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A05_tall_sparse_three_view.png",

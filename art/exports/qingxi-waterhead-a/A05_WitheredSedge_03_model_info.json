@@ -20,6 +20,17 @@
   "type": "none",
   "note": "stones under the mat are step-over"
  },
+ "nodes": {
+  "land": [
+   "A05_WitheredSedge_03_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A05_WitheredSedge_03_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A05_WitheredSedge_03",
@@ -52,7 +63,7 @@
   "textureResolution": 512,
   "nodes": [
    "A05_WitheredSedge_03_LOD0",
-   "A05_WitheredSedge_03_Clear"
+   "A05_WitheredSedge_03_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -72,11 +83,11 @@
   "files": {
    "A05_WitheredSedge_03.glb": {
     "bytes": 240112,
-    "sha256": "d0b89342301f5c6095f5e375a02d82eb5c4fb13961784d01388ce896516b1fbb"
+    "sha256": "45f414b3fe9f507182efdb93ec8f73064f3760053b846764ec81adcd5bd0f651"
    },
    "A05_WitheredSedge_03.fbx": {
-    "bytes": 321068,
-    "sha256": "bd19e5d609e485126f3ce89e307ca02458e00aa3b979287fc9118499a5a5eb35"
+    "bytes": 329676,
+    "sha256": "ee6a6692469597d5fad74ff73c371a2171e20e05469305f98c5a3d0857c27dc2"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A05_low_mat_three_view.png",

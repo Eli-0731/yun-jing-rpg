@@ -13,13 +13,53 @@
  "triangles": 17632,
  "lod_triangles": [
   17632,
-  6525,
+  6526,
   2870
  ],
  "collision": {
   "type": "heightfield",
   "note": "inner gravel bar is the easy way down to the water"
  },
+ "nodes": {
+  "land": [
+   "A01_bend_left_01_LOD0"
+  ],
+  "water": [
+   "A01_bend_left_01_Water"
+  ],
+  "foliage": [
+   "A01_bend_left_01_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [
+  {
+   "name": "SOCKET_downstream",
+   "loc": [
+    0.0,
+    0.0,
+    0.3
+   ],
+   "forward": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  },
+  {
+   "name": "SOCKET_upstream",
+   "loc": [
+    -1.3957,
+    6.2957,
+    0.3
+   ],
+   "forward": [
+    0.4226,
+    -0.9063,
+    0.0
+   ]
+  }
+ ],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A01_bend_left_01",
@@ -40,7 +80,7 @@
   ],
   "trianglesLOD": [
    17632,
-   6525,
+   6526,
    2870
   ],
   "budgetLOD0": 20000,
@@ -53,7 +93,8 @@
   "textureResolution": 4096,
   "nodes": [
    "A01_bend_left_01_LOD0",
-   "A01_bend_left_01_Clear"
+   "A01_bend_left_01_Water",
+   "A01_bend_left_01_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -73,12 +114,12 @@
   },
   "files": {
    "A01_bend_left_01.glb": {
-    "bytes": 3204240,
-    "sha256": "55a178d5806a81535861876e370a51c4157122be4d48f7de552889fc82684c77"
+    "bytes": 3244920,
+    "sha256": "f9e163beb66f0514741137a953e983d20fe1d8d07d74b7afb6ff1a708b325f34"
    },
    "A01_bend_left_01.fbx": {
-    "bytes": 2134652,
-    "sha256": "297ccc1095b8e87f23b487e603006603ecdad40d9490c9bab7b75ef72c53660e"
+    "bytes": 2140892,
+    "sha256": "ac24a40c487fe5294b7edd747e6aa801cb1ec9dc750ae4efdd7a725de4433539"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A01_bend_left_three_view.png",

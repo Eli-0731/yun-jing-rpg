@@ -215,7 +215,7 @@ const ray = new THREE.Raycaster(), DOWN = new THREE.Vector3(0, -1, 0);
 const heightCache = new Map();
 const terrain = [];
 const occluders = [];
-const siltModels = {}, resonanceMats = [], riverWater = [], placedItems = [];
+const siltModels = {}, resonanceMats = [], riverWater = [], placedItems = [], hullWalls = [], sockets = [];
 let loaded = 0;
 const progress = () => { loaded++; $('load-text').textContent = `載入模型 ${loaded}/${LAYOUT.length}`; $('load-bar').style.setProperty('--p', `${loaded / LAYOUT.length * 100}%`); };
 const cache = {};
@@ -228,19 +228,36 @@ for (const it of order) {
   const y = it.y ?? groundY(it.x, it.z) - 0.02;
   o.position.set(it.x, y, it.z); o.rotation.y = it.rot; o.visible = !it.hidden;
   o.updateMatrixWorld(true);   // later props raycast onto this one before the first frame renders
+  // <key>_Collision is the model's convex collision hull: never drawn; its ground outline becomes a wall polygon.
+  const hulls = [];
+  o.traverse(m => { if (m.isMesh && /_Collision$/.test(m.name)) hulls.push(m); else if (/^SOCKET_/.test(m.name)) sockets.push({ name: m.name, node: m, item: it.id }); });
+  for (const h of hulls) {
+    if (o.visible) hullWalls.push({ poly: hullOutline(h), id: it.id });
+    h.removeFromParent();
+  }
   o.traverse(m => { if (m.isMesh) { m.castShadow = !it.terrain; m.receiveShadow = true; if (m.material.transparent) { m.castShadow = false; m.material.depthWrite = false; } } });
   scene.add(o);
   if (it.terrain || it.walk) terrain.push(o);
   else if (!it.plant) occluders.push(o);   // plants (sedge, the bamboo screen) never push the camera in
   if (it.silt) siltModels[it.silt] = o;
   if (it.resonance) o.traverse(m => { if (m.isMesh && m.material.emissiveMap) resonanceMats.push(m.material); });
-  if (it.terrain && it.id.startsWith('A01')) o.traverse(m => { if (m.isMesh && m.material.transparent) riverWater.push({ mesh: m, module: it.mi }); });
+  if (it.terrain && it.id.startsWith('A01')) o.traverse(m => { if (m.isMesh && /_Water$/.test(m.name)) riverWater.push({ mesh: m, module: it.mi }); });   // water is its own node, apart from the land
   placedItems.push({ ...it, object: o });
   progress();
 }
 heightCache.clear();   // heights sampled while models were still arriving are stale
 $('loading').classList.add('done');
 setTimeout(() => ($('loading').hidden = true), 700);
+
+/** 2D convex hull (x, z) of a hull mesh's world-space vertices (Andrew's monotone chain). */
+function hullOutline(mesh) {
+  const pos = mesh.geometry.attributes.position, v = new THREE.Vector3(), pts = [];
+  for (let i = 0; i < pos.count; i++) { v.fromBufferAttribute(pos, i).applyMatrix4(mesh.matrixWorld); pts.push([+v.x.toFixed(3), +v.z.toFixed(3)]); }
+  pts.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const half = list => { const h = []; for (const p of list) { while (h.length > 1 && cross(h[h.length - 2], h[h.length - 1], p) <= 0) h.pop(); h.push(p); } h.pop(); return h; };
+  return [...half(pts), ...half([...pts].reverse())];
+}
 
 // ------------------------------------------------------------------ ground height (visual + walkability): raycast onto tiles, silt and ground
 // The open ground is flat (y 0) outside the river trench, so only the river tiles and the silt bar are raycast;
@@ -289,11 +306,9 @@ const WORLD = {
     { id: 'resonance_stone', x: RESONANCE.x, z: RESONANCE.z, range: 2.8 }],
   zones: [{ id: 'nursery', x: NURSERY.x, z: NURSERY.z, r: 4.2 }],
   walls: [
-    ...[-1.2, -0.4, 0.4, 1.2].flatMap(t => [onRiver(0, 3.4 + t, 3.05), onRiver(at('A01_narrow_01'), 3.6 + t, 3.05)]).map(q => ({ x: q.x, z: q.z, r: 0.42 })),   // A02 troughs
-    { x: FORMATION.x, z: FORMATION.z, r: 0.95 }, { x: MARKER.x, z: MARKER.z, r: 0.5 },
+    ...hullWalls,   // A02 troughs, A03 formation, A06 marker, A09 gauge, A12 resonance stone: their real collision hulls
     { ...onRiver(at('A01_narrow_01'), 3.0, -1.35), r: 0.75 }, { ...onRiver(at('A01_narrow_01'), 2.9, 1.4), r: 0.75 },
     ...[1.2, 1.7, 2.2, 2.7, 3.2, 3.7, 4.2, 4.7, 5.2].map(u => ({ ...onRiver(at('A01_bend_right_01'), u, -1.4), r: 0.3 })),   // foot of the outer strata cliff
-    { x: GAUGE.x, z: GAUGE.z, r: 0.15 }, { x: RESONANCE.x, z: RESONANCE.z, r: 0.45 },
     // A10 bamboo screen (local x -1.9..0.3); its gap (local x 0.3..1.5) stays open
     ...[-1.7, -1.25, -0.8, -0.35, 0.1].flatMap(bx => [-0.6, 0, 0.6].map(by => localToWorld(BAMBOO, BAMBOO.yaw + Math.PI, bx, by, 0.36))),
     // the end-source boulder jam
@@ -448,7 +463,16 @@ function drawColliders() {
   colliderGroup = new THREE.Group();
   const red = new THREE.MeshBasicMaterial({ color: 0xe0563f, transparent: true, opacity: 0.55, depthTest: false });
   for (const w of WORLD.walls) {
-    const m = new THREE.Mesh(new THREE.CircleGeometry(w.r, 20).rotateX(-Math.PI / 2), red); m.position.set(w.x, 3, w.z); m.renderOrder = 5; colliderGroup.add(m);
+    let g;
+    if (w.poly) { const sh = new THREE.Shape(w.poly.map(([x, z]) => new THREE.Vector2(x, -z))); g = new THREE.ShapeGeometry(sh).rotateX(-Math.PI / 2); }
+    else g = new THREE.CircleGeometry(w.r, 20).rotateX(-Math.PI / 2).translate(w.x, 0, w.z);
+    const m = new THREE.Mesh(g, red); m.position.y = 3; m.renderOrder = 5; colliderGroup.add(m);
+  }
+  // water sockets (cyan arrows, pointing along the flow): where a diversion pipe or the B waterworks snaps on
+  for (const sk of sockets) {
+    const p = sk.node.getWorldPosition(new THREE.Vector3()), d = new THREE.Vector3(0, 1, 0).applyQuaternion(sk.node.getWorldQuaternion(new THREE.Quaternion()));
+    const a = new THREE.ArrowHelper(d.setY(0).normalize(), p.setY(3.05), 0.9, 0x4fd6d0, 0.3, 0.2);
+    a.traverse(c => { if (c.material) { c.material.depthTest = false; c.renderOrder = 7; } }); colliderGroup.add(a);
   }
   const seam = new THREE.LineBasicMaterial({ color: 0xffffff, depthTest: false });
   placed.forEach((m, i) => {

@@ -3,8 +3,8 @@
 Adapted from art/source/qingxi-alchemy-b/qa_lib.py (joshsu54 + Claude Code, main ebe57d4) so the
 training yard ships at the same level as the alchemy workshop: procedural materials with AO-driven
 edge/cavity weathering baked into one atlas per asset (BaseColor, ORM, Normal), LOD0-2, GLB + FBX.
-Differences from the original: the kit paths below, and UV islands are scaled by surface area before packing
-(large terrain tiles). The source file is not modified.
+Differences from the original: the kit paths below, UV islands scaled by surface area before packing (large terrain
+tiles), and unbaked parts keep their own UVs (water flow direction). The source file is not modified.
 
 Geometry helpers build real-scale parts (1 unit = 1 m, front -Y, origin at the base centre).
 Procedural Cycles materials expose channel reroutes (CH_albedo, CH_rough, CH_metal, CH_emit, CH_alpha) so
@@ -632,22 +632,51 @@ def game_mesh(name, objs, gcoll):
         c = bpy.data.objects.new(o.name + '_G', me); gcoll.objects.link(c)
         nob = any(m and m.get('qa_nobake') for m in me.materials)
         (keep if nob else bake).append(c)
-    def join(lst, nm):
+    def join(lst, nm, reset_uv=True):
         if not lst: return None
         select_only(lst, lst[0]); bpy.ops.object.join(); g = bpy.context.view_layer.objects.active; g.name = nm; g.data.name = nm + '_Mesh'
-        for uv in list(g.data.uv_layers): g.data.uv_layers.remove(uv)
-        g.data.uv_layers.new(name='UVMap'); return g
+        if reset_uv:   # the baked group gets a fresh atlas; unbaked parts (water flow UVs, foliage) keep their own UVs
+            for uv in list(g.data.uv_layers): g.data.uv_layers.remove(uv)
+            g.data.uv_layers.new(name='UVMap')
+        return g
     G = join(bake, name); dissolve_degenerate(G)
     for v in G.data.vertices:   # props rest on z = 0: jitter + bevel can push a sole a few mm below; flatten it, refuse anything larger
         if v.co.z < 0:
             assert v.co.z > -0.01, f'{name}: vertex {v.index} at z={v.co.z:.4f} is below the ground'
             v.co.z = 0.0
+    sq = bpy.data.images.get('QA_square') or bpy.data.images.new('QA_square', 8, 8)
+    for m in G.data.materials:   # UV unwrap/pack correct islands for the aspect of the active image node: make it a square one
+        if m and m.use_nodes:      # (the bake reuses this QA_BAKE node for its targets)
+            t = m.node_tree.nodes.get('QA_BAKE') or N(m.node_tree, 'ShaderNodeTexImage', 1100, 300)
+            t.name = 'QA_BAKE'; t.image = sq; m.node_tree.nodes.active = t
     select_only([G], G); bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
     bpy.ops.uv.smart_project(angle_limit=math.radians(62), island_margin=0.004, area_weight=0.0, correct_aspect=True, scale_to_bounds=False)
+    uvkeep = G.data.attributes.get('qa_uv_keep')   # FLOAT_VECTOR, not FLOAT2: a FLOAT2 corner attribute is a UV map and would be dropped above
+    if uvkeep:   # parts that bring their own unwrap (corner attribute qa_uv_keep, face flag qa_uv_keep_f) keep it instead of smart-project strips
+        bpy.ops.object.mode_set(mode='OBJECT')
+        uvkeep = G.data.attributes['qa_uv_keep']   # re-fetch: leaving edit mode rebuilt the mesh data
+        flag = G.data.attributes['qa_uv_keep_f'].data; uv = G.data.uv_layers.active.data
+        for poly in G.data.polygons:
+            if flag[poly.index].value:
+                for li in poly.loop_indices: uv[li].uv = uvkeep.data[li].vector[:2]
+        kept = {G.data.loops[li].edge_index for poly in G.data.polygons if flag[poly.index].value for li in poly.loop_indices}
+        for e in G.data.edges:   # smart-project's seams would cut the kept sheet into slivers when packing
+            if e.index in kept: e.use_seam = False
+        bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
+    bpy.context.scene.tool_settings.use_uv_select_sync = True   # UVs written from Python carry no UV selection: let the ops follow the mesh selection
     bpy.ops.uv.average_islands_scale()   # texel density follows real surface area: terrain gets the atlas, not grass blades
+    boost = {i: m['qa_texel'] for i, m in enumerate(G.data.materials) if m and m.get('qa_texel')}
+    if boost:   # hero surfaces (material['qa_texel'] = linear factor) get more of the atlas than their area alone gives them
+        bpy.ops.object.mode_set(mode='OBJECT')
+        uv = G.data.uv_layers.active.data
+        for poly in G.data.polygons:
+            f = boost.get(poly.material_index)
+            if f:
+                for li in poly.loop_indices: uv[li].uv = uv[li].uv * f
+        bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
     bpy.ops.uv.pack_islands(rotate=True, margin=0.004)
     bpy.ops.object.mode_set(mode='OBJECT')
-    K = join(keep, name + '_Clear')
+    K = join(keep, name + '_Clear', reset_uv=False)
     G['qa_nodes'] = json.dumps(sorted(ids, key=ids.get))
     return G, K
 

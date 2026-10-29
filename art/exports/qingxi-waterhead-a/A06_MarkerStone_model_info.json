@@ -27,6 +27,21 @@
   ],
   "note": "water lines at 0.35 m (today) and 0.86 m (old)"
  },
+ "nodes": {
+  "land": [
+   "A06_MarkerStone_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A06_MarkerStone_Foliage"
+  ]
+ },
+ "collision_hull": {
+  "node": "A06_MarkerStone_Collision",
+  "triangles": 386,
+  "note": "convex hull of the solid parts; use as a convex MeshCollider, never render"
+ },
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A06_MarkerStone",
@@ -59,7 +74,7 @@
   "textureResolution": 1024,
   "nodes": [
    "A06_MarkerStone_LOD0",
-   "A06_MarkerStone_Clear"
+   "A06_MarkerStone_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -78,12 +93,12 @@
   },
   "files": {
    "A06_MarkerStone.glb": {
-    "bytes": 603096,
-    "sha256": "2a1578ef92d84774372e59c103ffeff1f860a24256f2e283471d9b2684610fd2"
+    "bytes": 633636,
+    "sha256": "0f56110d256adfab893a7ac1fc970265fc6f76fe7a9eb382d689a20d477daa62"
    },
    "A06_MarkerStone.fbx": {
-    "bytes": 827756,
-    "sha256": "dede34578fd2f8c411e4de16e10e7a073f169c67f72b79fdd010c20fb498c0c3"
+    "bytes": 845260,
+    "sha256": "dce9fed63e780a334753246ebe74481cf326e1f35b61256b067e65d754b80d2e"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A06_three_view.png",

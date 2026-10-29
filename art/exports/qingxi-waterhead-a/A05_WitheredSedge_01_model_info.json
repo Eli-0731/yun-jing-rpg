@@ -20,6 +20,17 @@
   "type": "none",
   "note": "non-blocking plant; vertex-coloured leaves in the Clear node"
  },
+ "nodes": {
+  "land": [
+   "A05_WitheredSedge_01_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A05_WitheredSedge_01_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A05_WitheredSedge_01",
@@ -52,7 +63,7 @@
   "textureResolution": 512,
   "nodes": [
    "A05_WitheredSedge_01_LOD0",
-   "A05_WitheredSedge_01_Clear"
+   "A05_WitheredSedge_01_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -71,12 +82,12 @@
   },
   "files": {
    "A05_WitheredSedge_01.glb": {
-    "bytes": 318424,
-    "sha256": "35243e3869f9b15442b24f5665d8b44883dd862a8a5939ba4704b91a2da5a35f"
+    "bytes": 318336,
+    "sha256": "58717a3c34adda4f092baa08aaa3acf46d7f42077ae36393bc6a9d481f7fe8f3"
    },
    "A05_WitheredSedge_01.fbx": {
-    "bytes": 354140,
-    "sha256": "4970a7d8b62751cb627892693516e4fb936d6b43aa2b97de7a9facb37849383b"
+    "bytes": 366716,
+    "sha256": "d8b8ba6e29fd102b8901e4a49016a435b31e50d5f486f9b5feaa78c251caeed9"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A05_three_view.png",

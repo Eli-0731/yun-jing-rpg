@@ -20,6 +20,15 @@
   "type": "mesh",
   "note": "river tile frame: origin = tile base at the channel centre; place exactly like an A01 module"
  },
+ "nodes": {
+  "land": [
+   "A08_steps_line_01_LOD0"
+  ],
+  "water": [],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A08_steps_line_01",
@@ -73,7 +82,7 @@
    },
    "A08_steps_line_01.fbx": {
     "bytes": 607164,
-    "sha256": "25412c105f596aa297ddfbdb150fb872b30ea059462a916961ff0fc56428206d"
+    "sha256": "f8ff075a856089d6aa997b8a720b758e3fb559ec6a10236049199b0750e1fb37"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A08_steps_line_three_view.png",

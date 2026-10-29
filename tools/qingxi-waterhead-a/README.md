@@ -2,12 +2,41 @@
 
 斷流事件的第一段：玩家從下游入口沿溪往上游走，靠近觀察跡象，判斷水為什麼變少。這是調查，不是打怪；不發靈石、貢獻或材料。
 
+| 欄位 | 內容 |
+|---|---|
+| 玩家目標 | 沿青溪往上游走，找出下游水變少的原因，帶著線索回水務處討論導水方案 |
+| 輸入 | 10/29 工作包 A 個人單、`10-waterline-revised-brief.md`、PR #43 變體規則、23 張 AI 三視圖（`art/references/qingxi-waterhead-a/`）、PR #39 林地件（倒木、樹根） |
+| 輸出 | A01–A12 共 24 個形體／狀態（GLB／FBX／LOD）、本機三維展示、`observationIds` 資料契約、規則測試、預覽圖與實機錄影 |
+| 邊界 | 只改 `art/*/qingxi-waterhead-a/` 與本資料夾；不改 Unity 場景、伺服器或 B／C 組檔案；展示的線索簿只存在瀏覽器記憶體 |
+| 完成條件 | 三條線索、兩種場景變化、繞路都能用真按鍵跑完；模型拼接無縫；規則測試全過；已知缺口列在下方 |
+
+| 狀態 | 目前 |
+|---|---|
+| 檔案已進 Git | 是（`feature/qingxi-waterhead-a`，PR #45） |
+| 模型已在場景可見 | 只在本機 three.js 展示；**未放進 Unity 場景** |
+| 玩家能互動 | 只在本機展示可互動；Unity 內不行 |
+| 結果已由服務端保存 | **否**。只輸出 `observationIds` 給 B／C 組，沒有接伺服器 |
+
 ```powershell
 cd tools/qingxi-waterhead-a
 npm ci
 npm test          # 規則測試
 npm start         # http://127.0.0.1:4182 （只綁 loopback）
 ```
+
+## 水與土地分離、碰撞、接口
+
+- **水是獨立節點**：每段河床的 GLB／FBX 分成 `<key>_LOD0`（土地與石頭，烘焙）、`<key>_Water`（水面）、`<key>_Foliage`（草葉）。
+  - 水面的 UV 是「V＝沿河道往上游的公尺數」，流動 Shader 可以直接沿 V 捲動。
+  - 展示裡清泥沙後上升的就是 `_Water` 節點本身，土地不動。
+- **水接口 `SOCKET_*`**：模型裡的空物件，+Y 是水流方向，同時列在 `*_model_info.json` 的 `sockets`。
+  - A01 河段：`SOCKET_upstream`／`SOCKET_downstream`；源頭收尾件是 `SOCKET_spring`。
+  - A02 古石槽：`SOCKET_inlet`／`SOCKET_outlet`／`SOCKET_leak`（破口）。
+  - 導水方案要把水接進石槽，就是把河段的接口接到石槽的 `SOCKET_inlet`，和 B 組水利套件的接法相同。
+- **碰撞殼 `<key>_Collision`**：A02、A03、A06、A09、A12 附凸包碰撞殼，不渲染。
+  - 展示載入時把殼的地面輪廓轉成多邊形牆，玩家停在石槽、石頭真正的外緣，不再用估計的圓。
+  - 規則見 `investigation.mjs` 的 `polyDistance`，有測試。
+  - 碰撞檢視（主控台 `__wh.setPlan(true); __wh.colliders(true)`）畫出紅色碰撞多邊形與青色接口箭頭。
 
 ## 操作
 
@@ -82,7 +111,7 @@ npm start         # http://127.0.0.1:4182 （只綁 loopback）
 | 呼叫 | 內容 |
 |---|---|
 | `__wh.setPlan(true)` | 正交俯視圖，標出模組與所有道具的變體 ID |
-| `__wh.colliders(true)` | 再疊上模組接縫（白線）、碰撞圓（紅）、育幼警戒範圍（黃） |
+| `__wh.colliders(true)` | 再疊上模組接縫（白線）、碰撞多邊形／圓（紅）、水接口箭頭（青）、育幼警戒範圍（黃） |
 | `__wh.eye(true)` | 1.7 m 眼高視角（替身隱藏） |
 | `__wh.highWater(true)` | 舊高水位 0.86 m 的水面，看淺灘在水下的狀態 |
 

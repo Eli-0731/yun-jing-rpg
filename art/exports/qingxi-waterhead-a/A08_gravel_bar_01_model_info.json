@@ -20,6 +20,17 @@
   "type": "mesh",
   "note": "river tile frame; the bar stands just out of the water"
  },
+ "nodes": {
+  "land": [
+   "A08_gravel_bar_01_LOD0"
+  ],
+  "water": [
+   "A08_gravel_bar_01_Water"
+  ],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A08_gravel_bar_01",
@@ -52,7 +63,7 @@
   "textureResolution": 1024,
   "nodes": [
    "A08_gravel_bar_01_LOD0",
-   "A08_gravel_bar_01_Clear"
+   "A08_gravel_bar_01_Water"
   ],
   "originAtBase": false,
   "meshHealth": {
@@ -71,12 +82,12 @@
   },
   "files": {
    "A08_gravel_bar_01.glb": {
-    "bytes": 434652,
-    "sha256": "64cee39c051679bf8f67ee0b6949bb7a916102f9cf10e43ad9038018b9f75324"
+    "bytes": 434656,
+    "sha256": "d21fe731361216e7101c75af6036b269deb7c8cad6e2401607f222fecd9dfd9c"
    },
    "A08_gravel_bar_01.fbx": {
-    "bytes": 520508,
-    "sha256": "12747d175425decb26b3bb898e2dacfac3fab79acbff3de54f69e29dda3a88e6"
+    "bytes": 520636,
+    "sha256": "0c15eb2774015361935a7c0ce5d4370abd65c8458d0be14d88fa5dc34221d9ff"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A08_gravel_bar_three_view.png",

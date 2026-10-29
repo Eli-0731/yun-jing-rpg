@@ -30,6 +30,63 @@
   ],
   "note": "clue cracked_sluice: look at the -Y face"
  },
+ "nodes": {
+  "land": [
+   "A02_side_crack_01_LOD0"
+  ],
+  "water": [
+   "A02_side_crack_01_Water"
+  ],
+  "foliage": [
+   "A02_side_crack_01_Foliage"
+  ]
+ },
+ "collision_hull": {
+  "node": "A02_side_crack_01_Collision",
+  "triangles": 108,
+  "note": "convex hull of the solid parts; use as a convex MeshCollider, never render"
+ },
+ "sockets": [
+  {
+   "name": "SOCKET_inlet",
+   "loc": [
+    -1.5,
+    0.0,
+    0.33
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "SOCKET_outlet",
+   "loc": [
+    1.5,
+    0.0,
+    0.33
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "SOCKET_leak",
+   "loc": [
+    0.03,
+    -0.37,
+    0.36
+   ],
+   "forward": [
+    0.0,
+    -0.7071,
+    -0.7071
+   ]
+  }
+ ],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A02_side_crack_01",
@@ -63,7 +120,8 @@
   "textureResolution": 1024,
   "nodes": [
    "A02_side_crack_01_LOD0",
-   "A02_side_crack_01_Clear"
+   "A02_side_crack_01_Water",
+   "A02_side_crack_01_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -83,12 +141,12 @@
   },
   "files": {
    "A02_side_crack_01.glb": {
-    "bytes": 355400,
-    "sha256": "b71f116952f911496de748c75cf652dccd6bf77f1e9aeab730fcc7c7869a434e"
+    "bytes": 359056,
+    "sha256": "0b4182edd94dd4b93bb27683d5ff6475159b28428d6c64d00181d162632bbb05"
    },
    "A02_side_crack_01.fbx": {
-    "bytes": 346988,
-    "sha256": "f709b77e561ce7943f5513bf7932dc5b42d45f9f6f001a844a724e97d0a0afd8"
+    "bytes": 360012,
+    "sha256": "26a394da12f11c89ca667a252f1a5e52dd3058d5c44048cbb1cd48f1c5c19926"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A02_side_crack_three_view.png",

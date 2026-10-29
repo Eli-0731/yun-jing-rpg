@@ -10,16 +10,56 @@
   6.0,
   1.5822
  ],
- "triangles": 17556,
+ "triangles": 17796,
  "lod_triangles": [
-  17556,
-  6488,
-  2853
+  17796,
+  6608,
+  2907
  ],
  "collision": {
   "type": "heightfield",
   "note": "banks and channel walkable; datum: bank top 1.15 m above origin"
  },
+ "nodes": {
+  "land": [
+   "A01_straight_01_LOD0"
+  ],
+  "water": [
+   "A01_straight_01_Water"
+  ],
+  "foliage": [
+   "A01_straight_01_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [
+  {
+   "name": "SOCKET_downstream",
+   "loc": [
+    0.0,
+    0.0,
+    0.3
+   ],
+   "forward": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  },
+  {
+   "name": "SOCKET_upstream",
+   "loc": [
+    0.0,
+    6.0,
+    0.3
+   ],
+   "forward": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  }
+ ],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A01_straight_01",
@@ -39,9 +79,9 @@
    1.5822
   ],
   "trianglesLOD": [
-   17556,
-   6488,
-   2853
+   17796,
+   6608,
+   2907
   ],
   "budgetLOD0": 20000,
   "withinBudget": true,
@@ -53,7 +93,8 @@
   "textureResolution": 4096,
   "nodes": [
    "A01_straight_01_LOD0",
-   "A01_straight_01_Clear"
+   "A01_straight_01_Water",
+   "A01_straight_01_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -62,7 +103,7 @@
    "zeroAreaFaces": 0
   },
   "glbRoundTrip": {
-   "triangles": 17556,
+   "triangles": 17796,
    "trianglesMatch": true,
    "bboxMatch": true,
    "materials": [
@@ -73,12 +114,12 @@
   },
   "files": {
    "A01_straight_01.glb": {
-    "bytes": 3268828,
-    "sha256": "0ca7f11f0c86f55ccbe1517c837c4b294915bd94a6319da5bf3366b99c6003c0"
+    "bytes": 3259560,
+    "sha256": "b3df3c96dec8c59652e8b77294e272e149c94039e9f8ed70f510324c9f671d23"
    },
    "A01_straight_01.fbx": {
-    "bytes": 2042284,
-    "sha256": "cb535f25dfda4b4a83c080afd5aedcc42fc9c1eb3c8fa916376749324bfb7bc9"
+    "bytes": 2152796,
+    "sha256": "61059957cb24d65a58b233dd4ce046d799b134b0fd51fa6f821743cc5ab1508c"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A01_straight_three_view.png",

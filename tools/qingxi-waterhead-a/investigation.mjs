@@ -29,6 +29,20 @@ export const PARAMS = {
 
 const len = (x, z) => Math.hypot(x, z);
 
+/** Distance from (x, z) to a convex polygon [[x, z], ...] (either winding); 0 inside. Used for walls taken from the
+ *  models' collision hulls, so the player stops at the real outline of a trough or stone, not at a guessed circle. */
+export function polyDistance(poly, x, z) {
+  let inside = true, sign = 0, best = Infinity;
+  for (let i = 0; i < poly.length; i++) {
+    const [ax, az] = poly[i], [bx, bz] = poly[(i + 1) % poly.length];
+    const ex = bx - ax, ez = bz - az, cross = ex * (z - az) - ez * (x - ax);
+    if (cross !== 0) { if (sign && Math.sign(cross) !== sign) inside = false; sign ||= Math.sign(cross); }
+    const t = Math.max(0, Math.min(1, ((x - ax) * ex + (z - az) * ez) / (ex * ex + ez * ez || 1)));
+    best = Math.min(best, len(x - ax - ex * t, z - az - ez * t));
+  }
+  return inside ? 0 : best;
+}
+
 export class Investigation {
   constructor(world, opts = {}) {
     this.world = world;
@@ -114,7 +128,7 @@ export class Investigation {
 
   #blocked(x, z) {
     const r = this.P.playerRadius, w = this.world;
-    for (const c of w.walls || []) if (len(x - c.x, z - c.z) < c.r + r) return true;
+    for (const c of w.walls || []) if (c.poly ? polyDistance(c.poly, x, z) < r : len(x - c.x, z - c.z) < c.r + r) return true;
     if (w.walkable && !w.walkable(x, z)) return true;
     return false;
   }

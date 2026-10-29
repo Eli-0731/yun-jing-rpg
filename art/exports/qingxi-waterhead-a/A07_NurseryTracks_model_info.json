@@ -20,6 +20,17 @@
   "type": "heightfield",
   "note": "flat mud, walkable; clue nursery_tracks; the nursery side is a warning zone, never damage"
  },
+ "nodes": {
+  "land": [
+   "A07_NurseryTracks_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A07_NurseryTracks_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A07_NurseryTracks",
@@ -52,7 +63,7 @@
   "textureResolution": 2048,
   "nodes": [
    "A07_NurseryTracks_LOD0",
-   "A07_NurseryTracks_Clear"
+   "A07_NurseryTracks_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -71,12 +82,12 @@
   },
   "files": {
    "A07_NurseryTracks.glb": {
-    "bytes": 1067788,
-    "sha256": "3f2e1464e45b916f2a3a5a484b1dcaf89e0c9e3001e7ee38196079cca6c55806"
+    "bytes": 1067784,
+    "sha256": "1c89ada91403176125174a4a5dbbf2c646fea113eed983f5462bcf33f0065f94"
    },
    "A07_NurseryTracks.fbx": {
-    "bytes": 583356,
-    "sha256": "af387368a3881e010732947cdb83cee0d10a9833ca3e95480dc7ecef6260675e"
+    "bytes": 591420,
+    "sha256": "2b70e3a9fd07857d477734788867132f13e3d24293ac8d5129b5b9b30b8e029a"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A07_three_view.png",

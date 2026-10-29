@@ -31,6 +31,17 @@
   ],
   "note": "log blocks; silt walkable"
  },
+ "nodes": {
+  "land": [
+   "A04_SiltJam_03_LOD0"
+  ],
+  "water": [
+   "A04_SiltJam_03_Water"
+  ],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A04_SiltJam_03",
@@ -63,7 +74,7 @@
   "textureResolution": 1024,
   "nodes": [
    "A04_SiltJam_03_LOD0",
-   "A04_SiltJam_03_Clear"
+   "A04_SiltJam_03_Water"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -82,12 +93,12 @@
   },
   "files": {
    "A04_SiltJam_03.glb": {
-    "bytes": 459164,
-    "sha256": "ceb1f9ae8e9b7bf374175ba118c1ec668d85cfc41d324a0565ffe6bbe87cdaeb"
+    "bytes": 457432,
+    "sha256": "9abdaf1088388dd5f8c93d97cde7caa835cd5cf540e939a7c0f151b4e7add3fe"
    },
    "A04_SiltJam_03.fbx": {
-    "bytes": 379372,
-    "sha256": "a1f1c81673a04c6cc8b9e95d10114d2f74a748a2cd7b1e0879e3f3852fd243a7"
+    "bytes": 379484,
+    "sha256": "96e6c35205689b40af4c4a0d49dae818e6106892ddcd8db8e769c7f9c4006460"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A04_silt_jam_three_view.png",

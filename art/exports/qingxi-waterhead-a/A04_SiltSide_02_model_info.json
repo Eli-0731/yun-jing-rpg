@@ -20,6 +20,15 @@
   "type": "mesh",
   "note": "origin on the channel bed; lies along the left side, flow pushed right"
  },
+ "nodes": {
+  "land": [
+   "A04_SiltSide_02_LOD0"
+  ],
+  "water": [],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A04_SiltSide_02",
@@ -73,7 +82,7 @@
    },
    "A04_SiltSide_02.fbx": {
     "bytes": 439100,
-    "sha256": "0d4a0298dab033f9477f65bc90a7583924b71ddd9ecc6b16b8c94d3738a2db48"
+    "sha256": "8ee4a9a6a0abef1564374162fc3d51c9bfcc51eee0fd6fc7d609547aa960a8f2"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A04_silt_side_three_view.png",

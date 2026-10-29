@@ -20,6 +20,17 @@
   "type": "mesh",
   "note": "place on the channel bed (origin z = bed); clue silt_buildup; pond water is part of the Clear node"
  },
+ "nodes": {
+  "land": [
+   "A04_SiltBar_LOD0"
+  ],
+  "water": [
+   "A04_SiltBar_Water"
+  ],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A04_SiltBar",
@@ -52,7 +63,7 @@
   "textureResolution": 1024,
   "nodes": [
    "A04_SiltBar_LOD0",
-   "A04_SiltBar_Clear"
+   "A04_SiltBar_Water"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -71,12 +82,12 @@
   },
   "files": {
    "A04_SiltBar.glb": {
-    "bytes": 725144,
-    "sha256": "95610f5c409dffff9fc211dcb343ca8e223b44b35e2b47d5a60b1a9fb2599084"
+    "bytes": 723736,
+    "sha256": "418ea150ff8b6b634c17681e3acc1611a4349716d6bba58fdb501c68a7a51066"
    },
    "A04_SiltBar.fbx": {
-    "bytes": 622204,
-    "sha256": "5111ecdb2d1dacde66655fa3748c84d154cdc119e6e00ea3438ed604c0e473fc"
+    "bytes": 622316,
+    "sha256": "f2bce50ce693d098da4d1fa744c51271ee6bf1d7acfff455b8ffef7618ad9fe7"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A04_three_view.png",

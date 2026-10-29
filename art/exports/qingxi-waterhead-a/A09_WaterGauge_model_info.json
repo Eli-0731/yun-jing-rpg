@@ -30,6 +30,21 @@
   ],
   "note": "zero of the scale = river tile base: today 0.30 m, old high water 0.86 m (rope); hint water_gauge"
  },
+ "nodes": {
+  "land": [
+   "A09_WaterGauge_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A09_WaterGauge_Foliage"
+  ]
+ },
+ "collision_hull": {
+  "node": "A09_WaterGauge_Collision",
+  "triangles": 108,
+  "note": "convex hull of the solid parts; use as a convex MeshCollider, never render"
+ },
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A09_WaterGauge",
@@ -62,7 +77,7 @@
   "textureResolution": 1024,
   "nodes": [
    "A09_WaterGauge_LOD0",
-   "A09_WaterGauge_Clear"
+   "A09_WaterGauge_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -81,12 +96,12 @@
   },
   "files": {
    "A09_WaterGauge.glb": {
-    "bytes": 290672,
-    "sha256": "7758c776675d29597c8de3165d02139ad824962be4f1a0d3b839e651f0f31d6a"
+    "bytes": 298316,
+    "sha256": "1cffd73e75ce9218e1ca2a220e9c183284f42449ffa2388eb24f9d8d1c5eb124"
    },
    "A09_WaterGauge.fbx": {
-    "bytes": 173500,
-    "sha256": "c29e2169c156874018f273a1efc9e6296d2cbe12aa2cfda2a9e035b46ac23784"
+    "bytes": 179932,
+    "sha256": "7d39049ff92bbfa3ece379f6bb2af0b9dbcb6dee172ab6cdaa852588c2455dad"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A09_three_view.png",

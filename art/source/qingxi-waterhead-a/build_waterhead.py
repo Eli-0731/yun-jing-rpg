@@ -191,7 +191,8 @@ def make_materials():
     g['TIMBER'] = add_moss(Q.m_wood('OldTimber', (0.07, 0.055, 0.04), (0.16, 0.13, 0.10), axis='Z', ring=2.4, wear=0.55, rough=0.8), 0.35, (0.6, 0.95))
     g['TILE'] = Q.m_simple('RoofTileShard', (0.035, 0.04, 0.045), (0.075, 0.085, 0.095), rough=0.6, nscale=6.0, bump=0.001,
                            cav_col=(0.012, 0.013, 0.015), edge_col=(0.13, 0.135, 0.135))
-    g['VEINSTONE'] = add_moss(m_resonance(), 0.4, (0.75, 0.98), cover=(0.5, 0.6))
+    g['VEINSTONE'] = m_resonance()                   # moss is part of the vein-stone material (shaded back)
+    g['VEINSTONE']['qa_texel'] = 2.2                 # the hero stone takes most of the A12 atlas
     g['MUD'] = Q.m_simple('WetMud', (0.035, 0.026, 0.018), (0.07, 0.05, 0.032), rough=0.3, nscale=10.0, bump=0.002)
     globals().update(g)
 
@@ -219,6 +220,17 @@ def m_sluice_stone(name='SluiceStone'):
     col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, edge, 0.3, 0.8), 0.35), col, (0.36, 0.34, 0.30))
     hgt = Q.math_(nt, 'SUBTRACT', Q.math_(nt, 'MULTIPLY', n2, 0.4), Q.math_(nt, 'MULTIPLY', carve, 1.2))
     return Q.finish(m, nt, b, col, Q.mixf(nt, n2, 0.78, 0.92), 0.0, hgt, 0.004, 0.9)
+
+
+# ====================================================================== sockets (water routing points, like the B waterworks kit)
+SOCKETS = []
+
+
+def socket(name, loc, forward):
+    """Register an interface point: `forward` is the flow direction through it (Blender coords). Exported as an empty
+    named SOCKET_<name> (+Y of the empty = flow) and listed in model_info.json."""
+    f = Vector(forward).normalized()
+    SOCKETS.append(dict(name=f'SOCKET_{name}', loc=[round(v, 4) for v in loc], forward=[round(v, 4) for v in f]))
 
 
 # ====================================================================== shape helpers
@@ -392,8 +404,9 @@ def river_tile(name, course, shape, nu=44, ns=52, seed=1):
 
 
 def water_strip(name, course, shape, level, nu=40, u_max=None):
-    """Water surface between the two points where the bed rises above `level` (per u); level(u) may vary."""
-    verts, faces = [], []
+    """Water surface between the two points where the bed rises above `level` (per u); level(u) may vary. It is a part of
+    its own (exported as the <key>_Water node), separate from the land, with flow-direction UVs."""
+    verts, faces, uvs = [], [], []
     for j in range(nu + 1):
         u = (u_max or course.L) * j / nu
         w = course.w(u)
@@ -405,12 +418,13 @@ def water_strip(name, course, shape, level, nu=40, u_max=None):
                 s += side * 0.02
             edges.append(s + side * 0.03)   # tuck the edge just into the bank
         c = 0.5 * (edges[0] + edges[1])
-        for s in (edges[0], c, edges[1]):
+        for k, s in enumerate((edges[0], c, edges[1])):
             verts.append(tuple(course.at(u, s, lv)))
+            uvs.append((k * 0.5, u))                 # V runs downstream->upstream in metres: a flow shader scrolls along it
     for j in range(nu):
         a = j * 3
         faces += [(a, a + 1, a + 4, a + 3), (a + 1, a + 2, a + 5, a + 4)]
-    o = Y.make_mesh(name, verts, faces, None, [WATERM], coll=coll(), smooth_angle=80)
+    o = Y.make_mesh(name, verts, faces, uvs, [WATERM], coll=coll(), smooth_angle=80)
     return o
 
 
@@ -530,6 +544,13 @@ def build_river(variant):
     else:
         raise ValueError(variant)
     river_tile(f'A01_{variant}_bank', course, shape, seed=hash(variant) % 97)
+    p0, d0, _ = course.frame(0.0)
+    socket('downstream', (p0.x, p0.y, WATER), (-d0.x, -d0.y, 0.0))            # flow leaves the module here (towards the village)
+    if course.closed:
+        socket('spring', tuple(course.at(1.5, 0.0, WATER + 0.02)), (d0.x, -d0.y, 0.0))   # ...the source pool: where a diversion can draw water
+    else:
+        p1, d1, _ = course.frame(course.L)
+        socket('upstream', (p1.x, p1.y, WATER), (-d1.x, -d1.y, 0.0))     # flow enters the module here
 
     def level(u, w):
         if variant == 'narrow':   # water heaps up a little in the pinch
@@ -615,6 +636,7 @@ def build_A02(variant):
         if variant == 'end_break' and i == 2:
             continue
         parts.append(trough_block(f'A02_block_{i}', x0 + 0.004, x1 - 0.004))
+        parts[-1]['qa_hull'] = True
     for sx in (-1, 1):                         # end posts
         Y.block(f'A02_post_{sx}', (0.16, 0.74, 0.62), (sx * 1.42, 0.0, 0.12 + 0.31), coll(), [SLUICE], bev=0.02)
     if variant == 'side_crack':
@@ -645,6 +667,9 @@ def build_A02(variant):
         leak = (1.3, 0.0, 0.33)
     # low water inside (unbaked), the leak stream and a puddle with a dark wet stain on the ground
     xe = 1.34 if variant == 'side_crack' else 1.22
+    socket('inlet', (-1.5, 0.0, 0.33), (1, 0, 0))
+    socket('outlet', (1.5 if variant == 'side_crack' else 1.25, 0.0, 0.33), (1, 0, 0))
+    socket('leak', leak, (0, -1, -1) if variant == 'side_crack' else (1, 0, -1))
     Y.make_mesh('A02_water', [(-1.34, -0.2, 0.33), (xe, -0.2, 0.33), (xe, 0.2, 0.33), (-1.34, 0.2, 0.33)], [(0, 1, 2, 3)], None, [WATERM],
                 coll=coll())
     if variant == 'side_crack':   # a thin stream out of the side crack, curving down to the ground
@@ -683,7 +708,7 @@ def build_A03():
         a0, a1 = i * math.tau / 12 + 0.006, (i + 1) * math.tau / 12 - 0.006
         broken = gap[0] < (a0 + a1) / 2 < gap[1]
         top = H - (rnd.uniform(0.12, 0.26) if broken else rnd.uniform(0.0, 0.02))
-        sector(f'A03_curb_{i}', 0.62, R - (0.05 if broken else 0.0), a0, a1, 0.0, top, FSTONE)
+        sector(f'A03_curb_{i}', 0.62, R - (0.05 if broken else 0.0), a0, a1, 0.0, top, FSTONE)['qa_hull'] = True
     for i in range(6):                                    # top slabs; the carved rings run across them
         a0, a1 = i * math.tau / 6 + 0.004, (i + 1) * math.tau / 6 - 0.004
         broken = gap[0] < (a0 + a1) / 2 < gap[1]
@@ -882,7 +907,7 @@ def build_A05():
 # ====================================================================== A06 wet mossy marker stone
 def build_A06():
     rnd = random.Random(66)
-    boulder('A06_stone', (0.5, 0.42, 0.62), (0.0, 0.0, 0.58), MARKER, seed=6, subd=5, rough=0.14, box=2.25, cleave=4, squash_top=0.08)
+    boulder('A06_stone', (0.5, 0.42, 0.62), (0.0, 0.0, 0.58), MARKER, seed=6, subd=5, rough=0.14, box=2.25, cleave=4, squash_top=0.08)['qa_hull'] = True
     for k in range(9):
         a = rnd.uniform(0, math.tau)
         r = rnd.uniform(0.55, 0.85)
@@ -1103,7 +1128,7 @@ def m_gauge(name='GaugeWood'):
 
 def build_A09():
     rnd = random.Random(99)
-    Y.block('A09_post', (0.12, 0.12, 1.62), (0.0, 0.0, 0.81), coll(), [GAUGE], bev=0.012)
+    Y.block('A09_post', (0.12, 0.12, 1.62), (0.0, 0.0, 0.81), coll(), [GAUGE], bev=0.012)['qa_hull'] = True
     Y.block('A09_cap', (0.14, 0.14, 0.03), (0.0, 0.0, 1.63), coll(), [GAUGE], bev=0.01, rot=(0.04, -0.03, 0.1))
     pts = [(0.075 * math.cos(a) * 1.15, 0.075 * math.sin(a) * 1.15, OLD_HI + 0.012 * math.sin(a * 3)) for a in np.linspace(0, math.tau, 25)]
     Y.tube('A09_rope', pts, 0.012, 6, coll(), [ROPE], caps=False)
@@ -1360,44 +1385,238 @@ def build_A11():
 
 
 # ====================================================================== A12 water-vein resonance stone (faint cyan veins)
+A12_Z0, A12_H = 0.40, 1.2          # stone centre height; height range mapped onto the vein mask (v = world z / A12_H)
+A12_CIRC = 1.85                    # mean girth (m) the mask's u axis is drawn for
+
+
+def resonance_vein_mask(W=4096, H=4096):
+    """Fine water veins drawn as continuous, branching, tapering strokes on a cylindrical map round the stone
+    (u = angle, v = height); they stay below 0.85 m, where the crown flattens and a height map would smear them. Strokes are traced off the three-view: on the front a main vein running diagonally down
+    that splits in a Y with a tributary joining from the left, thin threads over both sides, a single one on the back. 1 px is about 0.5 mm, so the
+    1-3 cm veins stay crisp in the bake regardless of how far the mesh is decimated. Square, so u and v get the same
+    texel size."""
+    img = np.zeros((H, W), np.float32)
+    sx, sy = W / A12_CIRC, H / A12_H                               # px per metre
+
+    def seg(x0, y0, x1, y1, w):
+        """Anti-aliased capsule (metres), drawn three times across the u wrap."""
+        r = w * 0.5
+        for wrap in (-A12_CIRC, 0.0, A12_CIRC):
+            ax, bx = x0 + wrap, x1 + wrap
+            px0, px1 = int((min(ax, bx) - r) * sx) - 2, int((max(ax, bx) + r) * sx) + 3
+            py0, py1 = int((min(y0, y1) - r) * sy) - 2, int((max(y0, y1) + r) * sy) + 3
+            px0, px1, py0, py1 = max(px0, 0), min(px1, W), max(py0, 0), min(py1, H)
+            if px0 >= px1 or py0 >= py1:
+                continue
+            gx = (np.arange(px0, px1) + 0.5)[None, :] / sx
+            gy = (np.arange(py0, py1) + 0.5)[:, None] / sy
+            dx, dy = bx - ax, y1 - y0
+            t = np.clip(((gx - ax) * dx + (gy - y0) * dy) / (dx * dx + dy * dy + 1e-12), 0, 1)
+            d = np.hypot(gx - ax - dx * t, gy - y0 - dy * t)
+            v = np.clip(1.0 - (d - r * 0.55) / (r * 0.45 + 0.6 / sx), 0, 1)      # flat core, soft 1 px edge
+            blk = img[py0:py1, px0:px1]
+            np.maximum(blk, v, out=blk)
+
+    def vein(ctrl, w, seed_=0):
+        """Catmull-Rom stroke through hand-placed control points (arc metres from the view centre, height in metres),
+        with a hairline start, a slight pinch-and-swell along its length and a few mm of natural wobble."""
+        P = [Vector((x, y, 0)) for x, y in ctrl]
+        P = [P[0] * 2 - P[1]] + P + [P[-1] * 2 - P[-2]]
+        pts = []
+        for i in range(1, len(P) - 2):
+            for k in range(24):
+                t = k / 24
+                p0, p1, p2, p3 = P[i - 1], P[i], P[i + 1], P[i + 2]
+                pts.append(0.5 * (2 * p1 + (p2 - p0) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t * t + (3 * p1 - p0 - 3 * p2 + p3) * t ** 3))
+        pts.append(P[-2])
+        k = len(pts)
+        for i in range(k):
+            pts[i] = pts[i] + Vector((0.002 * noise.noise(Vector((pts[i].y * 40, seed_, 0))), 0, 0))
+        for i in range(k - 1):
+            t = i / (k - 2)
+            taper = min(1.0, t * 5.0) * (1.0 - 0.55 * t ** 3) * (0.85 + 0.25 * noise.noise(Vector((t * 9, seed_ * 3.1, 1))))
+            seg(pts[i].x, pts[i].y, pts[i + 1].x, pts[i + 1].y, max(w * taper, 0.003))
+
+    C = A12_CIRC                                                         # u = 0.25 front (-Y), 0.5 side (+X), 0.75 back (+Y)
+    def view(centre, strokes):                                           # strokes traced off the three-view, metres in that view
+        for ctrl, w in strokes:
+            vein([(centre + x * 1.1, y) for x, y in ctrl], w, seed_=len(ctrl) * 7 + int(w * 1000))
+    view(C * 0.25, [                                                     # FRONT: main vein splits in a Y, a tributary joins from the left
+        ([(-0.08, 0.84), (-0.04, 0.76), (-0.01, 0.66), (0.05, 0.53)], 0.032),
+        ([(0.05, 0.53), (0.11, 0.38), (0.19, 0.20), (0.24, 0.04)], 0.027),
+        ([(0.05, 0.53), (0.015, 0.40), (-0.02, 0.24), (-0.03, 0.05)], 0.023),
+        ([(-0.27, 0.80), (-0.18, 0.73), (-0.08, 0.66), (-0.012, 0.64)], 0.018),
+        ([(-0.28, 0.50), (-0.24, 0.34), (-0.21, 0.18), (-0.20, 0.05)], 0.015),
+        ([(-0.03, 0.74), (0.04, 0.79), (0.10, 0.83)], 0.010),
+        ([(0.11, 0.38), (0.19, 0.42), (0.26, 0.50)], 0.010),
+    ])
+    view(C * 0.50, [                                                     # SIDE (+X): two long threads
+        ([(-0.07, 0.83), (-0.06, 0.62), (-0.02, 0.36), (0.03, 0.06)], 0.016),
+        ([(0.12, 0.70), (0.10, 0.48), (0.12, 0.25), (0.15, 0.06)], 0.012),
+    ])
+    view(C * 0.75, [                                                     # BACK: one thread on the left (viewer's left = -u)
+        ([(-0.10, 0.83), (-0.15, 0.62), (-0.21, 0.36), (-0.25, 0.08)], 0.014),
+    ])
+    view(C * 1.00, [                                                     # SIDE (-X)
+        ([(0.05, 0.80), (0.02, 0.55), (0.04, 0.30), (0.0, 0.08)], 0.012),
+    ])
+    return img
+
+
 def m_resonance(name='VeinStone'):
+    """Dark blue-grey river stone. The fine water veins come from a drawn cylindrical mask (resonance_vein_mask)
+    sampled by angle and height, so they are millimetre-sharp in the bake: a pale mineral core, a wet teal rim, a
+    groove in the normal map and a faint cyan glow in the emissive map. Polygonal hairline fractures split the faces,
+    moss grows on the shaded back."""
     m, nt, b = Q.new_mat(name)
     co = Q.coords(nt, (1, 1, 1))
-    n1 = Q.noise(nt, co, 2.4, 6, 0.6)
-    col = Q.mix(nt, Q.smooth(nt, n1, 0.3, 0.75), (0.035, 0.045, 0.055), (0.09, 0.105, 0.12))
-    warp = Q.N(nt, 'ShaderNodeVectorMath', operation='ADD')
+    lc = Q.sep(nt, Q.attr(nt, 'qa_lc'))
+    wz = Q.attr(nt, 'qa_wz', 'fac')
+    uv = Q.N(nt, 'ShaderNodeCombineXYZ')
+    Q.L(nt, Q.math_(nt, 'ADD', Q.math_(nt, 'MULTIPLY', Q.math_(nt, 'ARCTAN2', lc[1], lc[0]), 1 / math.tau), 0.5), uv.inputs[0])
+    Q.L(nt, Q.math_(nt, 'MULTIPLY', wz, 1 / A12_H), uv.inputs[1])
+    ti = Q.N(nt, 'ShaderNodeTexImage', image=save_mask('P_ResonanceVeins', resonance_vein_mask()), extension='REPEAT', interpolation='Cubic')
+    Q.L(nt, uv.outputs[0], ti.inputs['Vector'])
+    vein = ti.outputs['Color']
+    core, rim = Q.smooth(nt, vein, 0.55, 0.95), Q.smooth(nt, vein, 0.02, 0.45)
+
+    n1, n2 = Q.noise(nt, co, 2.2, 6, 0.62), Q.noise(nt, co, 16.0, 4, 0.55)
+    col = Q.mix(nt, Q.smooth(nt, n1, 0.3, 0.75), (0.058, 0.070, 0.088), (0.140, 0.158, 0.182))
+    blot = Q.smooth(nt, Q.noise(nt, co, 5.5, 4, 0.6), 0.55, 0.7)                                    # lighter weathered patches
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', blot, 0.5), col, (0.17, 0.185, 0.20))
+    facet = Q.voronoi(nt, co, 3.2, 'F1', 'Color')                                                    # each split face a slightly different tone
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.sep(nt, facet)[0], 0.35), col, (0.03, 0.036, 0.045))
+    speck = Q.smooth(nt, Q.voronoi(nt, co, 140.0), 0.0, 0.18)                                       # mica flecks
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.math_(nt, 'SUBTRACT', 1.0, speck), 0.35), col, (0.22, 0.24, 0.26))
+    warp = Q.N(nt, 'ShaderNodeVectorMath', operation='ADD')                                         # hairline fractures, warped so they wander
     Q.L(nt, co, warp.inputs[0])
-    Q.L(nt, Q.N(nt, 'ShaderNodeTexNoise', noise_dimensions='3D').outputs['Color'], warp.inputs[1])
-    v1 = Q.voronoi(nt, Q.coords(nt, (3.6, 3.6, 1.4)), 1.0, 'DISTANCE_TO_EDGE')
-    v2 = Q.voronoi(nt, Q.coords(nt, (8.0, 8.0, 3.0)), 1.0, 'DISTANCE_TO_EDGE')
-    gate = Q.smooth(nt, Q.noise(nt, co, 1.6, 3), 0.42, 0.6)            # veins fade in and out like tributaries
-    vein = Q.math_(nt, 'MAXIMUM', Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, v1, 0.0, 0.012)),
-                   Q.math_(nt, 'MULTIPLY', Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, v2, 0.0, 0.01)), 0.6))
-    vein = Q.math_(nt, 'MULTIPLY', vein, gate)
-    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', vein, 0.8), col, (0.30, 0.62, 0.62))
-    cav, edge = Q.edge_cavity(nt, 0.04, 0.006)
-    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, cav, 0.1, 0.6), 0.5), col, (0.015, 0.018, 0.022))
-    emit = Q.mix(nt, Q.math_(nt, 'MULTIPLY', vein, 1.0), (0, 0, 0), (0.05, 0.21, 0.20))   # faint: a soft vein glow, not a beacon
-    return Q.finish(m, nt, b, col, Q.mixf(nt, n1, 0.35, 0.55), 0.0, Q.math_(nt, 'SUBTRACT', n1, Q.math_(nt, 'MULTIPLY', vein, 0.5)), 0.003, 0.8, emit=emit)
+    wn = Q.N(nt, 'ShaderNodeTexNoise'); Q.L(nt, co, wn.inputs['Vector']); wn.inputs['Scale'].default_value = 3.0
+    wsc = Q.N(nt, 'ShaderNodeVectorMath', operation='SCALE'); Q.L(nt, wn.outputs['Color'], wsc.inputs[0]); wsc.inputs['Scale'].default_value = 0.18
+    Q.L(nt, wsc.outputs[0], warp.inputs[1])
+    frac = Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, Q.voronoi(nt, warp.outputs[0], 5.5, 'DISTANCE_TO_EDGE'), 0.0, 0.006))
+    frac = Q.math_(nt, 'MULTIPLY', frac, Q.smooth(nt, Q.noise(nt, co, 2.4, 3), 0.5, 0.6))              # only some edges crack
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', frac, 0.5), col, (0.02, 0.022, 0.026))
+    plate = Q.smooth(nt, Q.voronoi(nt, warp.outputs[0], 6.0, 'DISTANCE_TO_EDGE'), 0.0, 0.05)         # chipped shards, only where the stone is fractured
+    plate = Q.math_(nt, 'SUBTRACT', 1.0, Q.math_(nt, 'MULTIPLY', Q.math_(nt, 'SUBTRACT', 1.0, plate), Q.smooth(nt, Q.noise(nt, co, 2.0, 3), 0.48, 0.62)))
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.math_(nt, 'SUBTRACT', 1.0, plate), 0.25), col, (0.035, 0.04, 0.05))
+    cav, edge = Q.edge_cavity(nt, 0.03, 0.005)
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, cav, 0.1, 0.6), 0.6), col, (0.012, 0.015, 0.02))
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', Q.smooth(nt, edge, 0.3, 0.8), 0.35), col, (0.17, 0.19, 0.21))
+    nrm = Q.sep(nt, Q.N(nt, 'ShaderNodeNewGeometry').outputs['Normal'])
+    moss = Q.math_(nt, 'MULTIPLY', Q.smooth(nt, Q.math_(nt, 'ADD', nrm[1], Q.math_(nt, 'MULTIPLY', nrm[2], 0.4)), 0.12, 0.6),   # back (+Y) and up
+                   Q.smooth(nt, Q.noise(nt, co, 3.2, 6, 0.65), 0.46, 0.6))
+    moss = Q.math_(nt, 'MULTIPLY', moss, Q.math_(nt, 'SUBTRACT', 1.0, rim))                          # moss never fills a vein
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', moss, 0.9), col, Q.mix(nt, n2, (0.035, 0.06, 0.014), (0.09, 0.12, 0.03)))
+    col = Q.mix(nt, rim, col, (0.035, 0.12, 0.12))                                                    # wet teal channel wall
+    col = Q.mix(nt, core, col, (0.36, 0.70, 0.68))                                                    # pale mineral thread
+    wet = Q.math_(nt, 'SUBTRACT', 1.0, Q.smooth(nt, wz, 0.05, 0.18))                                 # wet foot in the basin
+    col = Q.mix(nt, Q.math_(nt, 'MULTIPLY', wet, 0.6), col, (0.012, 0.016, 0.02))
+    rough = Q.mixf(nt, Q.math_(nt, 'MAXIMUM', wet, rim), Q.mixf(nt, n2, 0.55, 0.78), 0.12)
+    rough = Q.mixf(nt, moss, rough, 0.92)
+    emit = Q.mix(nt, core, (0, 0, 0), (0.06, 0.26, 0.25))                                            # faint: no beacon
+    hgt = Q.math_(nt, 'ADD', Q.math_(nt, 'MULTIPLY', n2, 0.4), Q.math_(nt, 'MULTIPLY', speck, -0.15))
+    hgt = Q.math_(nt, 'SUBTRACT', hgt, Q.math_(nt, 'ADD', Q.math_(nt, 'MULTIPLY', rim, 1.6), Q.math_(nt, 'MULTIPLY', frac, 0.6)))
+    hgt = Q.math_(nt, 'ADD', hgt, Q.math_(nt, 'ADD', Q.math_(nt, 'MULTIPLY', moss, 0.5), Q.math_(nt, 'MULTIPLY', plate, 0.35)))
+    return Q.finish(m, nt, b, col, rough, 0.0, hgt, 0.004, 1.0, emit=emit)
+
+
+def vein_stone(name, radii, z0, seed=12):
+    """Hero standing stone after the three-view: a tall ovoid, broad and buried at the foot, tapering to a rounded
+    crown, its faces broken into large split planes with chipped arrises. The veins are texture detail (see
+    m_resonance); the geometry carries the silhouette and the facets. Decimated to the game budget."""
+    rnd = random.Random(seed)
+    bm = bmesh.new()
+    bmesh.ops.create_icosphere(bm, subdivisions=6, radius=1.0)
+    off = Vector((seed * 1.37, seed * 2.11, seed * 0.73))
+    planes = []
+    for i in range(26):                                            # large split faces, mostly on the flanks
+        a, e = rnd.uniform(0, math.tau), rnd.uniform(-0.3, 0.45)
+        planes.append((Vector((math.cos(a) * math.cos(e), math.sin(a) * math.cos(e), math.sin(e))), rnd.uniform(0.84, 0.94)))
+    pos = []
+    for v in bm.verts:
+        d = v.co.normalized()
+        d = d / (abs(d.x) ** 2.1 + abs(d.y) ** 2.1 + abs(d.z) ** 2.5) ** (1 / 2.5) if d.z > 0 else d / (abs(d.x) ** 2.1 + abs(d.y) ** 2.1 + abs(d.z) ** 2.1) ** (1 / 2.1)
+        k = 1 + 0.08 * noise.fractal(d * 1.3 + off, 0.55, 2.0, 5) + 0.03 * noise.fractal(d * 4.0 + off, 0.5, 2.0, 3)
+        taper = 1.0 - 0.16 * smoothstep(0.3, 1.0, d.z)                # narrows a little towards a rounded crown
+        p = Vector((d.x * radii[0] * k * taper, d.y * radii[1] * k * taper, d.z * radii[2] * k))
+        if p.z < 0:
+            p.z *= 0.62                                                # broad, buried foot
+        for nrm, f in planes:
+            lim = f * (radii[0] * abs(nrm.x) + radii[1] * abs(nrm.y) + radii[2] * abs(nrm.z)) * (taper if nrm.z > 0.3 else 1.0)
+            dd = p.dot(nrm)
+            if dd > lim:
+                p -= nrm * (dd - lim) * 0.92
+        pos.append(p)
+    for v, p in zip(bm.verts, pos):
+        v.co = p
+    crown = [v for v in bm.verts if v.co.z > radii[2] * 0.55]
+    for _ in range(8):                                                 # rounded, weathered crown
+        bmesh.ops.smooth_vert(bm, verts=crown, factor=0.6, use_axis_x=True, use_axis_y=True, use_axis_z=True)
+    bm.normal_update()
+    for v in bm.verts:                                                 # small conchoidal chips along the faces
+        c = noise.noise(v.co * 7 + off)
+        if c > 0.38:
+            v.co -= v.normal * 0.012 * smoothstep(0.38, 0.6, c)
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me)
+    bm.free()
+    for p in me.polygons:
+        p.use_smooth = True
+    me.set_sharp_from_angle(angle=math.radians(50))
+    o = bpy.data.objects.new(name, me)
+    Q.link(o)
+    o.location = (0.0, 0.0, z0)
+    dec = o.modifiers.new('Budget', 'DECIMATE')                        # 82k -> ~12k triangles; split faces keep their edges
+    dec.ratio = 0.15
+    Q.apply_mods(o)
+    o.data.materials.append(VEINSTONE)                                 # applying the modifier replaced the mesh datablock
+    cylinder_unwrap(o.data, z0, radii[2] * 0.62)
+    return o
+
+
+def cylinder_unwrap(me, z0, crown):
+    """One continuous sheet round the body (u = arc length, v = height; a single seam on the -X side, where no vein
+    crosses) and a planar island for the crown, so veins and fractures are never cut into smart-project strips."""
+    uvk = me.attributes.new('qa_uv_keep', 'FLOAT_VECTOR', 'CORNER')
+    flag = me.attributes.new('qa_uv_keep_f', 'INT', 'FACE')
+    for poly in me.polygons:
+        flag.data[poly.index].value = 1
+        cos = [me.vertices[me.loops[li].vertex_index].co for li in poly.loop_indices]
+        if min(c.z for c in cos) > crown:                          # crown island, seen from above, set beside the sheet
+            for li, c in zip(poly.loop_indices, cos):
+                uvk.data[li].vector = (A12_CIRC + 0.6 + c.x, 0.6 + c.y, 0.0)
+            continue
+        us = [(math.atan2(c.y, c.x) / math.tau + 0.5) for c in cos]
+        if max(us) - min(us) > 0.5:
+            us = [u + 1.0 if u < 0.5 else u for u in us]
+        for li, u, c in zip(poly.loop_indices, us, cos):
+            uvk.data[li].vector = (u * A12_CIRC, c.z + z0, 0.0)
 
 
 def build_A12():
     rnd = random.Random(1212)
-    boulder('A12_stone', (0.34, 0.27, 0.58), (0.0, 0.0, 0.52), VEINSTONE, seed=12, subd=5, rough=0.1, box=2.15, cleave=3, squash_top=0.05)
-    for k in range(13):                                                # ring of flat stones round a shallow basin
-        a = k / 13 * math.tau + rnd.uniform(-0.1, 0.1)
-        r = rnd.uniform(0.11, 0.16)
-        boulder(f'A12_ring_{k}', (r, r * 0.8, 0.05), (0.62 * math.cos(a), 0.62 * math.sin(a), 0.0), ROCK, seed=1220 + k, subd=2, rough=0.12,
-                box=3.0, squash_top=0.4, ground=0.0)
-    for k in range(20):
-        a, r = rnd.uniform(0, math.tau), rnd.uniform(0.3, 0.5)
-        rr = rnd.uniform(0.03, 0.06)
+    stone = vein_stone('A12_stone', (0.37, 0.29, 0.68), A12_Z0)
+    stone['qa_hull'] = True
+    for k in range(15):                                                # ring of rounded, chipped cobbles round a shallow pool
+        a = k / 15 * math.tau + rnd.uniform(-0.08, 0.08)
+        r = rnd.uniform(0.09, 0.15)
+        rad = rnd.uniform(0.58, 0.68)
+        boulder(f'A12_ring_{k}', (r, r * rnd.uniform(0.7, 0.9), rnd.uniform(0.06, 0.09)), (rad * math.cos(a), rad * math.sin(a), 0.0), PEBBLE,
+                seed=1220 + k, subd=3, rough=0.14, box=2.6, squash_top=0.3, cleave=2, ground=0.0, rot=a + rnd.uniform(-0.3, 0.3))
+    for k in range(10):                                                # smaller stones between and outside the ring
+        a, rad = rnd.uniform(0, math.tau), rnd.uniform(0.66, 0.82)
+        r = rnd.uniform(0.035, 0.07)
+        boulder(f'A12_cob_{k}', (r, r * 0.85, r * 0.6), (rad * math.cos(a), rad * math.sin(a), 0.0), ROCK, seed=1300 + k, subd=2,
+                rough=0.15, box=2.4, cleave=2, ground=0.0, rot=a)
+    for k in range(46):                                                # gravel in the pool
+        a, r = rnd.uniform(0, math.tau), rnd.uniform(0.32, 0.52)
+        rr = rnd.uniform(0.02, 0.045)
         boulder(f'A12_peb_{k}', (rr, rr * 0.85, rr * 0.5), (r * math.cos(a), r * math.sin(a), 0.0), PEBBLE, seed=1240 + k, subd=1, rough=0.15, ground=0.0)
-    Y.make_mesh('A12_basin_water', [(0.55 * math.cos(a), 0.55 * math.sin(a), 0.04) for a in np.linspace(0, math.tau, 24, endpoint=False)],
-                [tuple(range(24))], None, [WATERM], coll=coll())
-    for k in range(5):
-        a = rnd.uniform(0, math.tau)
-        tuft(f'A12_grass_{k}', 0.8 * math.cos(a), 0.8 * math.sin(a), 0.0, h=rnd.uniform(0.18, 0.3), n=8, seed=1260 + k, droop=0.3)
+    Y.make_mesh('A12_basin_water', [(0.56 * math.cos(a), 0.56 * math.sin(a), 0.035) for a in np.linspace(0, math.tau, 32, endpoint=False)],
+                [tuple(range(32))], None, [WATERM], coll=coll())
+    for k, a in enumerate((-2.6, -2.2, -0.7, -0.35, 0.5, 2.2, 2.7)):  # dry grass at the stone's foot, as in the three-view
+        rr = rnd.uniform(0.34, 0.42)
+        tuft(f'A12_grass_{k}', rr * math.cos(a), rr * math.sin(a) * 0.85, 0.02, h=rnd.uniform(0.24, 0.38), n=11, seed=1260 + k, droop=0.32)
 
 
 # ====================================================================== pipeline
@@ -1456,11 +1675,72 @@ ASSETS = {
                              collision=dict(type='capsules', note='screen x -1.9..0.3 blocks; the gap x 0.3..1.5 under the high arch (2.0 m) is walkable')),
     'A11_PavilionRuin': dict(build=build_A11, ref=ref('A11'), res=2048, budget=12000, double=True, family='A11', variant='single',
                              collision=dict(type='box', size=[3.0, 3.0, 0.45], center=[0, 0, 0.225], note='steps on -Y; platform walkable; posts and bench block')),
-    'A12_ResonanceStone': dict(build=build_A12, ref=ref('A12'), res=1024, budget=8000, double=True, family='A12', variant='single',
+    'A12_ResonanceStone': dict(build=build_A12, ref=ref('A12'), res=2048, budget=22000, double=True, family='A12', variant='single',
                                collision=dict(type='capsule', radius=0.35, height=1.1, center=[0, 0, 0.55], note='hint resonance_stone: faint vein glow and hum, no arrow')),
     'A06_MarkerStone': dict(build=build_A06, ref=ref('A06'), res=1024, budget=7000, double=True, family='A06', variant='single',
                             collision=dict(type='capsule', radius=0.45, height=1.2, center=[0, 0, 0.6], note='water lines at 0.35 m (today) and 0.86 m (old)')),
 }
+
+
+def split_clear(K, key, gcoll):
+    """Split the unbaked group by material: <key>_Water (translucent water, flow UVs) and <key>_Foliage (vertex colour)."""
+    water = {i for i, m in enumerate(K.data.materials) if m and m.name.startswith('LowWater')}
+    out = []
+    for label, want_water in (('Water', True), ('Foliage', False)):
+        c = K.copy()
+        c.data = K.data.copy()
+        gcoll.objects.link(c)
+        bm = bmesh.new()
+        bm.from_mesh(c.data)
+        bmesh.ops.delete(bm, geom=[f for f in bm.faces if (f.material_index in water) != want_water], context='FACES')
+        bm.to_mesh(c.data)
+        bm.free()
+        if not c.data.polygons:
+            bpy.data.objects.remove(c)
+            continue
+        c.name = c.data.name = f'{key}_{label}'
+        out.append(c)
+    bpy.data.objects.remove(K)
+    return out
+
+
+def collision_hull(parts, key, gcoll):
+    """Convex hull of the parts tagged qa_hull (the solid body a player bumps into), in world space."""
+    body = [o for o in parts if o.get('qa_hull')]
+    if not body:
+        return None
+    dg = bpy.context.evaluated_depsgraph_get()
+    bm = bmesh.new()
+    for o in body:
+        me = o.evaluated_get(dg).to_mesh()
+        for v in me.vertices:
+            bm.verts.new(o.matrix_world @ v.co)
+        o.evaluated_get(dg).to_mesh_clear()
+    bmesh.ops.convex_hull(bm, input=bm.verts)
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context='VERTS')
+    bmesh.ops.dissolve_limit(bm, angle_limit=math.radians(4), verts=bm.verts, edges=bm.edges)
+    bmesh.ops.triangulate(bm, faces=bm.faces)
+    me = bpy.data.meshes.new(f'{key}_Collision')
+    bm.to_mesh(me)
+    bm.free()
+    o = bpy.data.objects.new(f'{key}_Collision', me)
+    gcoll.objects.link(o)
+    o.display_type = 'WIRE'
+    o.hide_render = True   # a physics shape only: never drawn (engines: convex MeshCollider, renderer off)
+    return o
+
+
+def socket_empties(key, gcoll):
+    out = []
+    for sk in SOCKETS:
+        e = bpy.data.objects.new(sk['name'], None)
+        e.empty_display_type = 'SINGLE_ARROW'
+        e.empty_display_size = 0.3
+        e.location = sk['loc']
+        e.rotation_euler = Vector(sk['forward']).to_track_quat('Y', 'Z').to_euler()
+        gcoll.objects.link(e)
+        out.append(e)
+    return out
 
 
 def build_asset(aid):
@@ -1473,6 +1753,7 @@ def build_asset(aid):
     src = Q.coll('10_Procedural_Source')
     Q.ACTIVE['coll'] = src
     make_materials()
+    SOCKETS.clear()
     course = a['build']()
     parts = [o for o in src.objects if o.type == 'MESH' and not o.get('qa_cutter')]
     bpy.context.view_layer.update()
@@ -1503,16 +1784,18 @@ def build_asset(aid):
     for l, nm in zip(lods, ('LOD1', 'LOD2')):
         l.name = f'{key}_{nm}'
     nodes = Q.split_nodes(G, key)
-    if K:
-        K.name = f'{key}_Clear'   # unbaked: translucent water + vertex-coloured grass clumps
-        nodes.append(K)
+    clear = split_clear(K, key, game) if K else []      # water and foliage are separate nodes, never merged into the land
+    nodes += clear
+    hull = collision_hull(parts, key, game)
+    empties = socket_empties(key, game)
     src.hide_render = True
     src.hide_viewport = True
     for l in lods:
         l.hide_render = True
     glb, fbx = EXPORT / f'{key}.glb', EXPORT / f'{key}.fbx'
-    Q.export(nodes, glb, fbx, nodes + lods)
-    Q.select_only(nodes, nodes[0])
+    shipped = nodes + ([hull] if hull else []) + empties
+    Q.export(shipped, glb, fbx, shipped + lods)
+    Q.select_only(shipped, nodes[0])
     bpy.ops.export_scene.gltf(filepath=str(glb), export_format='GLB', use_selection=True, export_apply=True,
                               export_yup=True, export_image_format='WEBP', export_image_quality=88,
                               export_materials='EXPORT', export_extras=False)
@@ -1526,13 +1809,14 @@ def build_asset(aid):
     bpy.ops.wm.save_as_mainfile(filepath=str(blend), compress=True, relative_remap=True)
     bpy.ops.file.make_paths_relative()
     bpy.ops.wm.save_mainfile(compress=True)
-    solid = [o for o in nodes if o is not K]
+    solid = [o for o in nodes if o not in clear]
     mn, mx = Q.bbox(nodes)
     dims = [round(mx[i] - mn[i], 4) for i in range(3)]
     tris = [sum(Q.tri_count(o) for o in nodes)] + [Q.tri_count(o) for o in lods]
     hs = [Q.mesh_health(o) for o in solid]
     health = {k: sum(h[k] for h in hs) for k in hs[0]}
     rt_tris, rmn, rmx, rmats = Q.glb_roundtrip(glb)
+    rt_tris -= Q.tri_count(hull) if hull else 0          # the collision hull ships in the GLB but is not part of the visual budget
     v = {
         'asset': aid, 'dimensions_m': dims, 'bbox_min': [round(x, 4) for x in mn], 'bbox_max': [round(x, 4) for x in mx],
         'trianglesLOD': tris, 'budgetLOD0': a['budget'], 'withinBudget': tris[0] <= a['budget'],
@@ -1546,7 +1830,11 @@ def build_asset(aid):
     }
     info = dict(id=a['family'], variant=a['variant'], key=key, units='metre', forward='-Y (Blender) / +Z (glTF)', origin='base centre',
                 dimensions_m=dims, triangles=tris[0], lod_triangles=tris, collision=a['collision'],
-                author='Johnnnny0823', validation=v)
+                nodes={'land': [o.name for o in nodes if o not in clear], 'water': [o.name for o in clear if o.name.endswith('_Water')],
+                       'foliage': [o.name for o in clear if o.name.endswith('_Foliage')]},
+                collision_hull=dict(node=hull.name, triangles=Q.tri_count(hull),
+                                    note='convex hull of the solid parts; use as a convex MeshCollider, never render') if hull else None,
+                sockets=SOCKETS, author='Johnnnny0823', validation=v)
     if isinstance(course, Course):
         info['river_interface'] = dict(
             origin='downstream port: channel centre at the tile base; upstream is +Y (Blender) / -Z (glTF)',

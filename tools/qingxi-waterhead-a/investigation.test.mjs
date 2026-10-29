@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { Investigation, OBSERVATION_IDS, PARAMS } from './investigation.mjs';
+import { Investigation, OBSERVATION_IDS, PARAMS, polyDistance } from './investigation.mjs';
 
 // Entrance downstream at z = 0, the stream runs towards +z.
 const WORLD = {
@@ -87,6 +87,20 @@ test('walls block the player; returning to the entrance keeps the clue book', ()
   assert.deepEqual(e.observationIds, ['cracked_sluice']);
   e.reset();
   assert.deepEqual(e.observationIds, []);
+});
+
+test('collision-hull polygons block at their real outline, not a circle', () => {
+  const box = [[-1, 2.8], [1, 2.8], [1, 3.2], [-1, 3.2]];          // a trough lying across the path
+  assert.equal(polyDistance(box, 0, 3), 0);
+  assert.ok(Math.abs(polyDistance(box, 0, 2) - 0.8) < 1e-9);
+  assert.ok(Math.abs(polyDistance([...box].reverse(), 2, 3) - 1) < 1e-9);
+  const e = new Investigation({ ...WORLD, walls: [{ poly: box }] });
+  for (let i = 0; i < 120; i++) e.step(DT, { moveX: 0, moveZ: 1 });
+  assert.ok(e.player.z <= 2.8 - PARAMS.playerRadius + 1e-6 && e.player.z > 2.8 - PARAMS.playerRadius - 0.1);
+  const f = new Investigation({ ...WORLD, walls: [{ poly: box }] });           // past the end of the trough the way is open
+  f.player.x = 1.6;
+  for (let i = 0; i < 120; i++) f.step(DT, { moveX: 0, moveZ: 1 });
+  assert.ok(f.player.z > 3.5);
 });
 
 test('walkable() keeps the player out of the deep channel', () => {

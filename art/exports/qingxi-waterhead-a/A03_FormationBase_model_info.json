@@ -27,6 +27,21 @@
   ],
   "note": "tilted 9 deg, sunk 0.1 m on the gap side; step-on not intended"
  },
+ "nodes": {
+  "land": [
+   "A03_FormationBase_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A03_FormationBase_Foliage"
+  ]
+ },
+ "collision_hull": {
+  "node": "A03_FormationBase_Collision",
+  "triangles": 600,
+  "note": "convex hull of the solid parts; use as a convex MeshCollider, never render"
+ },
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A03_FormationBase",
@@ -59,7 +74,7 @@
   "textureResolution": 1024,
   "nodes": [
    "A03_FormationBase_LOD0",
-   "A03_FormationBase_Clear"
+   "A03_FormationBase_Foliage"
   ],
   "originAtBase": true,
   "meshHealth": {
@@ -78,12 +93,12 @@
   },
   "files": {
    "A03_FormationBase.glb": {
-    "bytes": 682040,
-    "sha256": "c5375e6f5260beec080dbbe8661021883c23584f24142e684c7ac75831a9d8b7"
+    "bytes": 729076,
+    "sha256": "47b1c2e98daa8db5ec249946d3f629f2dd8fecc745d6a870ce9a83c72f307ebe"
    },
    "A03_FormationBase.fbx": {
-    "bytes": 739900,
-    "sha256": "5337b5eb0e05980d99412148685495019edfa39ab86d9cad5e7b1c4f87e5ebf6"
+    "bytes": 771708,
+    "sha256": "af5b5588e14f0902c62ae975cabf7f4628d7a2e7df62e5186f8ecf15985bb547"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A03_three_view.png",

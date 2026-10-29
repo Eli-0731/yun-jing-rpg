@@ -20,6 +20,15 @@
   "type": "mesh",
   "note": "river tile frame; step from slab to slab"
  },
+ "nodes": {
+  "land": [
+   "A08_slabs_stagger_01_LOD0"
+  ],
+  "water": [],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
  "author": "Johnnnny0823",
  "validation": {
   "asset": "A08_slabs_stagger_01",
@@ -73,7 +82,7 @@
    },
    "A08_slabs_stagger_01.fbx": {
     "bytes": 546892,
-    "sha256": "2e22b71d1a61e38f226d29b81e9f9acec98d81cafc3d68c481a12eff050c9dcf"
+    "sha256": "8e0d190506a0384715cd31d99c056d577e333ee33ebea14072bb59b79efae6ec"
    }
   },
   "reference": "art/references/qingxi-waterhead-a/A08_slabs_stagger_three_view.png",
