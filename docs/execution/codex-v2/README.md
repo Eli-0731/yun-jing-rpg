@@ -13,4 +13,6 @@
 | [C6-ui-final-assets.md](C6-ui-final-assets.md) | 圖示、九宮格、四區外觀、標誌（等 Claude Code 檢查 C1） | `yun-jing-ui-concepts-v1\final\` | 中 |
 | [C7-village-slot-props.md](C7-village-slot-props.md) | 青溪村格位道具：村口石燈、水井、井與洗衣石、茶棚（照區塊規劃的格位尺寸） | `yun-jing-rpg-village-props-c7`（Codex 自建工作樹） | 少 |
 
+**第一輪檢查與下一輪順序**：[review-2026-10-29.md](review-2026-10-29.md)（C5 → C3 → C2 → C4 → C6 → C7，一次做完一項）。
+
 所有工作位置都在 `D:\yun-jing-rpg-workspace\` 底下。Codex 不 commit；Claude Code 檢查後以 z1nnz 名義提交。
