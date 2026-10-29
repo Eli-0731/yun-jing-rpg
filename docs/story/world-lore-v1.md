@@ -20,7 +20,7 @@
 
 ---
 
-> **整個遊戲的劇本骨架**（宗門、七國、玩法怎麼串在一起）見 [全篇結構](grand-structure-v1.md)；感人的寫法見 [感人故事研究](moving-stories-study.md)。
+> 感人的寫法見 [感人故事研究](moving-stories-study.md)。
 
 ## 一、一句話
 
