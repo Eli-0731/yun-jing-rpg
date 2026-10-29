@@ -3,6 +3,7 @@
   "desktop": "1280x720",
   "touch": "844x390 Chrome emulation, not physical phone",
   "checks": [
+    "arrangement change preserves state",
     "no clues can report",
     "keyboard and repeat idempotency",
     "three choices",

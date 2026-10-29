@@ -1,0 +1,878 @@
+{
+  "author": "Eli-0731 / Codex",
+  "blender": "4.5.3 LTS",
+  "units": "m",
+  "review_sha256": "5c99abd610e9ae378699aba3b3023c3b1b0e58a6d13ca86a696a981e7e4580cf",
+  "variants": [
+    {
+      "id": "C03_tall_01",
+      "dimensions_xyz": [
+        0.37199997901916504,
+        0.34199997782707214,
+        0.42037326097488403
+      ],
+      "bounds_xyz": [
+        [
+          -0.18599998950958252,
+          0.18599998950958252
+        ],
+        [
+          -0.17099998891353607,
+          0.17099998891353607
+        ],
+        [
+          0.0,
+          0.42037326097488403
+        ]
+      ],
+      "triangles": 2462,
+      "materials": 4,
+      "morphs": 2,
+      "interface": {
+        "Lift_L": [
+          -0.16,
+          0,
+          0.3
+        ],
+        "Lift_R": [
+          0.16,
+          0,
+          0.3
+        ]
+      },
+      "construction": "Straight 16-stave cylinder; cleats; inset foot",
+      "normalized_geometry_sha256": "d5858284e6d4afd0bf31db255f7d2dc76800a9762f65768c64f120148dcbe834",
+      "reference_sha256": "d55e11c562e0a291c25b76b8bf7fea908efd20b4f4abacf92aa65acf70bad810",
+      "errors": [],
+      "collision": "prototype scene uses conservative whole-prop XZ AABBs; water and icons have no independent collider; not Unity collision",
+      "lod": "single prototype LOD; no measured mobile budget",
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C03_low_02",
+      "dimensions_xyz": [
+        0.45000001788139343,
+        0.4399999976158142,
+        0.3230000138282776
+      ],
+      "bounds_xyz": [
+        [
+          -0.22500000894069672,
+          0.22500000894069672
+        ],
+        [
+          -0.2199999988079071,
+          0.2199999988079071
+        ],
+        [
+          0.0,
+          0.3230000138282776
+        ]
+      ],
+      "triangles": 1630,
+      "materials": 5,
+      "morphs": 2,
+      "interface": {
+        "Lift_L": [
+          -0.16,
+          0,
+          0.3
+        ],
+        "Lift_R": [
+          0.16,
+          0,
+          0.3
+        ]
+      },
+      "construction": "Eight broad flat panels; wide octagonal basin; raised square ears",
+      "normalized_geometry_sha256": "ff1f06dce6b37a2b69b33245f3a0fb6848af2defcd0f0c7e221ac725de692524",
+      "reference_sha256": "fd5e3d6b82a7e38a60dd9f7932bfb27d25b48629a9e13fad13123d0cd1e1e2e4",
+      "errors": [],
+      "collision": "prototype scene uses conservative whole-prop XZ AABBs; water and icons have no independent collider; not Unity collision",
+      "lod": "single prototype LOD; no measured mobile budget",
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C03_bail_03",
+      "dimensions_xyz": [
+        0.3645976483821869,
+        0.3645976185798645,
+        0.5677942037582397
+      ],
+      "bounds_xyz": [
+        [
+          -0.18229882419109344,
+          0.18229882419109344
+        ],
+        [
+          -0.18229880928993225,
+          0.18229880928993225
+        ],
+        [
+          0.0,
+          0.5677942037582397
+        ]
+      ],
+      "triangles": 4082,
+      "materials": 5,
+      "morphs": 2,
+      "interface": {
+        "Lift_L": [
+          -0.16,
+          0,
+          0.3
+        ],
+        "Lift_R": [
+          0.16,
+          0,
+          0.3
+        ]
+      },
+      "construction": "Bowed belly, narrow mouth, two foot rails and rigid bamboo bail",
+      "normalized_geometry_sha256": "060fdcfabb172a6e44f656bbf416d8f965da3b2c77d6ba047aa49d9697d28774",
+      "reference_sha256": "0d7972314e66ab8215479121ae8c6de94ae2cd7e73005bf3c3aa0e54bf987a4c",
+      "errors": [],
+      "collision": "prototype scene uses conservative whole-prop XZ AABBs; water and icons have no independent collider; not Unity collision",
+      "lod": "single prototype LOD; no measured mobile budget",
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C05_notch_01",
+      "dimensions_xyz": [
+        0.30000001192092896,
+        0.14000000059604645,
+        0.8199999928474426
+      ],
+      "bounds_xyz": [
+        [
+          -0.15000000596046448,
+          0.15000000596046448
+        ],
+        [
+          -0.07000000029802322,
+          0.07000000029802322
+        ],
+        [
+          -0.12000000476837158,
+          0.699999988079071
+        ]
+      ],
+      "triangles": 756,
+      "materials": 6,
+      "morphs": 0,
+      "interface": {
+        "GroundSocket": [
+          0,
+          0,
+          0
+        ],
+        "PanelMount": [
+          0,
+          0,
+          0.46
+        ]
+      },
+      "construction": "Tall asymmetric broken/notched wood edge, straight square post and rectangular stone collar",
+      "normalized_geometry_sha256": "69f95675c01fbabf88eb1ca04b21e783b6f5a912359d57362af72a0b1c3392fa",
+      "reference_sha256": "788e4cce782814d228108441ce00a16ab06657ca0653c2e15907b371bc7e5ee6",
+      "errors": [],
+      "collision": "prototype scene uses conservative whole-prop XZ AABBs; water and icons have no independent collider; not Unity collision",
+      "lod": "single prototype LOD; no measured mobile budget",
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C05_fork_02",
+      "dimensions_xyz": [
+        0.36000001430511475,
+        0.14000000059604645,
+        0.7400000095367432
+      ],
+      "bounds_xyz": [
+        [
+          -0.18000000715255737,
+          0.18000000715255737
+        ],
+        [
+          -0.07000000029802322,
+          0.07000000029802322
+        ],
+        [
+          -0.12000000476837158,
+          0.6200000047683716
+        ]
+      ],
+      "triangles": 784,
+      "materials": 6,
+      "morphs": 0,
+      "interface": {
+        "GroundSocket": [
+          0,
+          0,
+          0
+        ],
+        "PanelMount": [
+          0,
+          0,
+          0.46
+        ]
+      },
+      "construction": "Two offset boards, stepped/chamfered silhouette, visible Y-braces and chamfered socket",
+      "normalized_geometry_sha256": "666d0b141059ab071c3a0acd97c1ff1dc13dff58d77a888b1c954f1271766c88",
+      "reference_sha256": "0bcae140e26f5b567d8bbb8a82caca12efd0f85c366dccbc0a7f5f92cd91e846",
+      "errors": [],
+      "collision": "prototype scene uses conservative whole-prop XZ AABBs; water and icons have no independent collider; not Unity collision",
+      "lod": "single prototype LOD; no measured mobile budget",
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C06_fork_01",
+      "dimensions_xyz": [
+        0.46000000834465027,
+        0.2199999988079071,
+        0.8500000238418579
+      ],
+      "bounds_xyz": [
+        [
+          -0.23000000417232513,
+          0.23000000417232513
+        ],
+        [
+          -0.10999999940395355,
+          0.10999999940395355
+        ],
+        [
+          0.0,
+          0.8500000238418579
+        ]
+      ],
+      "triangles": 1536,
+      "materials": 6,
+      "morphs": 0,
+      "interface": {
+        "ClothTie_Left": [
+          -0.16,
+          0,
+          0.79
+        ],
+        "ClothTie_Center": [
+          0,
+          0,
+          0.79
+        ],
+        "ClothTie_Right": [
+          0.16,
+          0,
+          0.79
+        ]
+      },
+      "construction": "Deep V notch with two pointed swallowtail ends; central mast",
+      "normalized_geometry_sha256": "d492e5fb59ded665a69e4e22a7a6079929689997cb9d77ec915cf6c09bd1c78c",
+      "reference_sha256": "5cee6eeaf6b95aba4395afbf4c89b2a718c0beb70bc0787d6ad00d33bbf882b1",
+      "errors": [],
+      "collision": "prototype scene uses conservative whole-prop XZ AABBs; water and icons have no independent collider; not Unity collision",
+      "lod": "single prototype LOD; no measured mobile budget",
+      "roundtrip_pass": true,
+      "complete_state_roundtrip_pass": true
+    },
+    {
+      "id": "C06_slant_02",
+      "dimensions_xyz": [
+        0.46000000834465027,
+        0.2199999988079071,
+        0.8500000238418579
+      ],
+      "bounds_xyz": [
+        [
+          -0.23000000417232513,
+          0.23000000417232513
+        ],
+        [
+          -0.10999999940395355,
+          0.10999999940395355
+        ],
+        [
+          0.0,
+          0.8500000238418579
+        ]
+      ],
+      "triangles": 1540,
+      "materials": 6,
+      "morphs": 0,
+      "interface": {
+        "ClothTie_Left": [
+          -0.16,
+          0,
+          0.79
+        ],
+        "ClothTie_Center": [
+          0,
+          0,
+          0.79
+        ],
+        "ClothTie_Right": [
+          0.16,
+          0,
+          0.79
+        ]
+      },
+      "construction": "Asymmetric diagonal hem with short bottom and clipped right corner; central mast",
+      "normalized_geometry_sha256": "f4b0fa5baaa1d3feb3d264e6a9a1a672f58df22d6d4d3c286a3b604b1c971e3f",
+      "reference_sha256": "040aa85a0ef69c0e809156b5f405f9601aa94652c9cee8c36e5299738ed3662e",
+      "errors": [],
+      "collision": "prototype scene uses conservative whole-prop XZ AABBs; water and icons have no independent collider; not Unity collision",
+      "lod": "single prototype LOD; no measured mobile budget",
+      "roundtrip_pass": true,
+      "complete_state_roundtrip_pass": true
+    }
+  ],
+  "layouts": {
+    "a": {
+      "instances": [
+        {
+          "id": "C03_tall_01",
+          "position": [
+            -1.1200000047683716,
+            -1.100000023841858,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -1.305999994277954,
+              -0.9340000152587891
+            ],
+            [
+              -1.2710000276565552,
+              -0.9290000200271606
+            ],
+            [
+              0.0,
+              0.42037326097488403
+            ]
+          ]
+        },
+        {
+          "id": "C03_low_02",
+          "position": [
+            -0.5099999904632568,
+            -1.5499999523162842,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.73499995470047,
+              -0.2849999964237213
+            ],
+            [
+              -1.7699999809265137,
+              -1.3299999237060547
+            ],
+            [
+              0.0,
+              0.3230000138282776
+            ]
+          ]
+        },
+        {
+          "id": "C03_bail_03",
+          "position": [
+            -0.3499999940395355,
+            -0.9399999976158142,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.5322988033294678,
+              -0.16770116984844208
+            ],
+            [
+              -1.1222988367080688,
+              -0.7577011585235596
+            ],
+            [
+              0.0,
+              0.5677942037582397
+            ]
+          ]
+        },
+        {
+          "id": "C05_notch_01",
+          "position": [
+            0.12999999523162842,
+            1.0800000429153442,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.02000001072883606,
+              0.2800000011920929
+            ],
+            [
+              1.0099999904632568,
+              1.1500000953674316
+            ],
+            [
+              -0.12000000476837158,
+              0.699999988079071
+            ]
+          ]
+        },
+        {
+          "id": "C05_fork_02",
+          "position": [
+            -0.5299999713897705,
+            2.119999885559082,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.7099999785423279,
+              -0.34999996423721313
+            ],
+            [
+              2.049999952316284,
+              2.18999981880188
+            ],
+            [
+              -0.12000000476837158,
+              0.6200000047683716
+            ]
+          ]
+        },
+        {
+          "id": "C06_fork_01",
+          "position": [
+            0.15000000596046448,
+            -0.6100000143051147,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.07999999821186066,
+              0.3800000250339508
+            ],
+            [
+              -0.7200000286102295,
+              -0.5
+            ],
+            [
+              0.0,
+              0.8500000238418579
+            ]
+          ]
+        },
+        {
+          "id": "C06_slant_02",
+          "position": [
+            -0.9800000190734863,
+            0.6899999976158142,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -1.2100000381469727,
+              -0.75
+            ],
+            [
+              0.5799999833106995,
+              0.800000011920929
+            ],
+            [
+              0.0,
+              0.8500000238418579
+            ]
+          ]
+        },
+        {
+          "id": "C01",
+          "position": [
+            -0.6800000071525574,
+            0.0,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -1.2299901247024536,
+              -0.13000988960266113
+            ],
+            [
+              -0.5484971404075623,
+              0.5484971404075623
+            ],
+            [
+              0.0,
+              0.6304640769958496
+            ]
+          ]
+        },
+        {
+          "id": "C02",
+          "position": [
+            -0.9800000190734863,
+            1.4299999475479126,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -1.340000033378601,
+              -0.6200000047683716
+            ],
+            [
+              1.25,
+              1.6099998950958252
+            ],
+            [
+              0.0,
+              1.1100000143051147
+            ]
+          ]
+        },
+        {
+          "id": "C04",
+          "position": [
+            -0.550000011920929,
+            -2.0999999046325684,
+            0.031000014394521713
+          ],
+          "bounds_xyz": [
+            [
+              -1.17795991897583,
+              0.07795989513397217
+            ],
+            [
+              -2.41019606590271,
+              -2.0999999046325684
+            ],
+            [
+              -1.3550530697514773e-09,
+              0.062000006437301636
+            ]
+          ]
+        },
+        {
+          "id": "C07",
+          "position": [
+            -0.6800000071525574,
+            0.1599999964237213,
+            0.6309999823570251
+          ],
+          "bounds_xyz": [
+            [
+              -0.9225326776504517,
+              -0.4374673366546631
+            ],
+            [
+              0.019999995827674866,
+              0.30000001192092896
+            ],
+            [
+              0.6309999823570251,
+              0.963990330696106
+            ]
+          ]
+        },
+        {
+          "id": "C08",
+          "position": [
+            0.11999999731779099,
+            2.049999952316284,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.18000000715255737,
+              0.42000001668930054
+            ],
+            [
+              1.9199999570846558,
+              2.179999828338623
+            ],
+            [
+              0.0,
+              0.9200000166893005
+            ]
+          ]
+        }
+      ],
+      "route_x": [
+        0.52,
+        1.5
+      ],
+      "character_reference_m": 1.75,
+      "eye_height_m": 1.7
+    },
+    "b": {
+      "instances": [
+        {
+          "id": "C03_tall_01",
+          "position": [
+            -0.5199999809265137,
+            -1.5199999809265137,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.7059999704360962,
+              -0.33399996161460876
+            ],
+            [
+              -1.690999984741211,
+              -1.3489999771118164
+            ],
+            [
+              0.0,
+              0.42037326097488403
+            ]
+          ]
+        },
+        {
+          "id": "C03_low_02",
+          "position": [
+            -1.1200000047683716,
+            -1.0199999809265137,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -1.3450000286102295,
+              -0.8950000405311584
+            ],
+            [
+              -1.2400000095367432,
+              -0.7999999523162842
+            ],
+            [
+              0.0,
+              0.3230000138282776
+            ]
+          ]
+        },
+        {
+          "id": "C03_bail_03",
+          "position": [
+            -0.05000000074505806,
+            -1.1799999475479126,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.2322988212108612,
+              0.13229882717132568
+            ],
+            [
+              -1.3622987270355225,
+              -0.9977011680603027
+            ],
+            [
+              0.0,
+              0.5677942037582397
+            ]
+          ]
+        },
+        {
+          "id": "C05_notch_01",
+          "position": [
+            -0.5400000214576721,
+            2.119999885559082,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.690000057220459,
+              -0.39000001549720764
+            ],
+            [
+              2.049999952316284,
+              2.18999981880188
+            ],
+            [
+              -0.12000000476837158,
+              0.699999988079071
+            ]
+          ]
+        },
+        {
+          "id": "C05_fork_02",
+          "position": [
+            0.14000000059604645,
+            1.1100000143051147,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.040000006556510925,
+              0.3199999928474426
+            ],
+            [
+              1.0399999618530273,
+              1.1800000667572021
+            ],
+            [
+              -0.12000000476837158,
+              0.6200000047683716
+            ]
+          ]
+        },
+        {
+          "id": "C06_fork_01",
+          "position": [
+            -1.0299999713897705,
+            0.800000011920929,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -1.2599999904632568,
+              -0.7999999523162842
+            ],
+            [
+              0.6899999976158142,
+              0.9100000262260437
+            ],
+            [
+              0.0,
+              0.8500000238418579
+            ]
+          ]
+        },
+        {
+          "id": "C06_slant_02",
+          "position": [
+            0.12999999523162842,
+            -0.5400000214576721,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.10000000894069672,
+              0.36000001430511475
+            ],
+            [
+              -0.6500000357627869,
+              -0.4300000071525574
+            ],
+            [
+              0.0,
+              0.8500000238418579
+            ]
+          ]
+        },
+        {
+          "id": "C01",
+          "position": [
+            -0.6800000071525574,
+            0.11999999731779099,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -1.2299901247024536,
+              -0.13000988960266113
+            ],
+            [
+              -0.4284971356391907,
+              0.6684971451759338
+            ],
+            [
+              0.0,
+              0.6304640769958496
+            ]
+          ]
+        },
+        {
+          "id": "C02",
+          "position": [
+            -0.9800000190734863,
+            1.5499999523162842,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -1.340000033378601,
+              -0.6200000047683716
+            ],
+            [
+              1.369999885559082,
+              1.7300000190734863
+            ],
+            [
+              0.0,
+              1.1100000143051147
+            ]
+          ]
+        },
+        {
+          "id": "C04",
+          "position": [
+            -0.550000011920929,
+            -2.0999999046325684,
+            0.031000014394521713
+          ],
+          "bounds_xyz": [
+            [
+              -1.17795991897583,
+              0.07795989513397217
+            ],
+            [
+              -2.41019606590271,
+              -2.0999999046325684
+            ],
+            [
+              -1.3550530697514773e-09,
+              0.062000006437301636
+            ]
+          ]
+        },
+        {
+          "id": "C07",
+          "position": [
+            -0.6800000071525574,
+            0.2800000011920929,
+            0.6309999823570251
+          ],
+          "bounds_xyz": [
+            [
+              -0.9225326776504517,
+              -0.4374673366546631
+            ],
+            [
+              0.14000000059604645,
+              0.42000001668930054
+            ],
+            [
+              0.6309999823570251,
+              0.963990330696106
+            ]
+          ]
+        },
+        {
+          "id": "C08",
+          "position": [
+            0.11999999731779099,
+            2.049999952316284,
+            0.0
+          ],
+          "bounds_xyz": [
+            [
+              -0.18000000715255737,
+              0.42000001668930054
+            ],
+            [
+              1.9199999570846558,
+              2.179999828338623
+            ],
+            [
+              0.0,
+              0.9200000166893005
+            ]
+          ]
+        }
+      ],
+      "route_x": [
+        0.52,
+        1.5
+      ],
+      "character_reference_m": 1.75,
+      "eye_height_m": 1.7
+    }
+  }
+}

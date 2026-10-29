@@ -17,4 +17,6 @@ Eli-0731／Codex。這是獨立本機 fixture 契約，不是正式 API。
 
 匯出的 `qingxi-water-report-c/v1` 固定 `mode=local-demo` 和 `requiresServerValidation=true`，僅含線索 ID、上游 outcomeId 及單一回報意圖，不含庫存、物品數量、貢獻、排行或獎勵。若未來轉成正式公共工程回報，核心組須驗證玩家／工程身分、區域距離、實際上游收據、當前狀態，以及 requestId 與 payload 綁定；在同一服務端交易保存／回傳唯一收據。不能接受前端自報工程完成或發獎。正式取消亦需服務端判定是否仍可逆，本機取消不代表撤回已提交的共同世界結果。
 
-模型接線：C02 `StatusPivot` 可繞本機 X 軸旋轉 π；C03 兩個 `WaterSurface` 的 `Filled` 形態鍵可在 0–1 切換；C06 原始施工版與 `C06-complete.glb` 為同一件的材質變體。三種場景 PNG 是上述母稿狀態的實際渲染。此 PWA 使用圖片與物件標示互動，沒有即時載入 GLB 或 Unity 世界，也沒有正式場景碰撞。
+模型接線：C02 `StatusPivot` 可繞本機 X 軸旋轉 π。新版 C03 三個獨立形體的 `WaterSurface_C03…` 各有 Empty 基底與 `HalfFull`、`Filled` 兩鍵：空時兩鍵為 0，半滿只開 HalfFull，滿時只開 Filled。不要同時疊加兩鍵。C05 的 SoilMoisturePatch 只示範收到的村田狀態；C06 兩種裁切各有施工／完成 GLB，完成版改用閉口圈與水紋，不只是改色。共用接口見 README，各空節點採 `變體ID__接口名`。
+
+`index.html` 以實際模型渲染圖呈現 A/B 兩個排列，換排列不改回報決定或上游結果。`walk3d.html` 則真的載入組裝 GLB、允許 1.7 m 眼高移動與觸控；水情選擇只是本機檢視，不回寫正式工程。碰撞為保守整件包圍盒與 0.16 m 玩家半徑，沒有 Unity 主場景或精細逐面碰撞。固定 Three.js 0.186.1；3D 頁需 npm ci 與本機伺服器，不能用 file:// 取代模型載入驗收。

@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "loadedGroups": 12,
+  "shapeVariants": 7,
+  "eyeHeight": 1.7,
+  "checks": [
+    "both arrangements load actual GLBs",
+    "three bucket morphs change",
+    "north and south eye views",
+    "layout A clear route traversed",
+    "stone collision blocks lateral movement",
+    "layout B clear route traversed",
+    "ID labels",
+    "touch hold movement and landscape layout",
+    "offline 3D reload"
+  ],
+  "errors": [],
+  "bad": []
+}
