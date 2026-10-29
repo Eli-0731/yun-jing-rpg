@@ -86,7 +86,7 @@
 | 代號 | 工作 | 文件 |
 |---|---|---|
 | C11 | 審查協作者的工作包與 PR，判斷是否符合現在的世界 | `C11-collaborator-pack-audit.md` |
-| C12 | 學會照新理念寫協作者工作包，並寫出下一批 | `C12-collaborator-brief-standard.md` |
+| C12 | 依開發順序（先做什麼、後做什麼）安排協作者工作包，並寫出下一批 | `C12-collaborator-brief-standard.md` |
 | C7–C10 | 格位道具、村中古樹、A3 水磨坊、A2 官道（這一輪還沒開始） | 各自的工作單 |
 | C1–C5 修正 | Claude Code 審完這一輪交件後另外給 | `review-*.md` |
 
