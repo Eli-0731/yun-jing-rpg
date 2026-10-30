@@ -126,5 +126,261 @@
     0.101
    ]
   }
+ },
+ "A3-F02": {
+  "id": "A3-F02",
+  "dimensions_xyz_m": [
+   0.2623,
+   0.055,
+   0.1832
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 7674,
+   "LOD1": 3856,
+   "LOD2": 1261
+  },
+  "materials": 1,
+  "source_parts": 9,
+  "reference": "art/references/qingxi-sightings-c/A3-F02-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.262,
+    0.055,
+    0.183
+   ]
+  }
+ },
+ "A3-F03": {
+  "id": "A3-F03",
+  "dimensions_xyz_m": [
+   0.2468,
+   0.2059,
+   0.2549
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 7806,
+   "LOD1": 3903,
+   "LOD2": 1170
+  },
+  "materials": 1,
+  "source_parts": 17,
+  "reference": "art/references/qingxi-sightings-c/A3-F03-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.247,
+    0.206,
+    0.255
+   ]
+  }
+ },
+ "A3-F04": {
+  "id": "A3-F04",
+  "dimensions_xyz_m": [
+   0.2171,
+   0.1523,
+   0.1023
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 23812,
+   "LOD1": 11906,
+   "LOD2": 3570
+  },
+  "materials": 1,
+  "source_parts": 25,
+  "reference": "art/references/qingxi-sightings-c/A3-F04-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.217,
+    0.152,
+    0.102
+   ]
+  }
+ },
+ "A3-F05": {
+  "id": "A3-F05",
+  "dimensions_xyz_m": [
+   0.2488,
+   0.0506,
+   0.0502
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 1427,
+   "LOD1": 714,
+   "LOD2": 213
+  },
+  "materials": 1,
+  "source_parts": 2,
+  "reference": "art/references/qingxi-sightings-c/A3-F05-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.249,
+    0.051,
+    0.05
+   ]
+  }
+ },
+ "HOME-F01": {
+  "id": "HOME-F01",
+  "dimensions_xyz_m": [
+   0.168,
+   0.1008,
+   0.0298
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 6930,
+   "LOD1": 3466,
+   "LOD2": 1038
+  },
+  "materials": 1,
+  "source_parts": 6,
+  "reference": "art/references/qingxi-sightings-c/HOME-F01-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.168,
+    0.101,
+    0.03
+   ]
+  }
+ },
+ "HOME-F02": {
+  "id": "HOME-F02",
+  "dimensions_xyz_m": [
+   0.2206,
+   0.0755,
+   0.2425
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 12980,
+   "LOD1": 6490,
+   "LOD2": 1946
+  },
+  "materials": 1,
+  "source_parts": 18,
+  "reference": "art/references/qingxi-sightings-c/HOME-F02-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.221,
+    0.076,
+    0.243
+   ]
+  }
+ },
+ "A2-F05": {
+  "id": "A2-F05",
+  "dimensions_xyz_m": [
+   0.2686,
+   0.0559,
+   0.0574
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 3757,
+   "LOD1": 1880,
+   "LOD2": 564
+  },
+  "materials": 1,
+  "source_parts": 2,
+  "reference": "art/references/qingxi-sightings-c/A2-F05-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.269,
+    0.056,
+    0.057
+   ]
+  }
+ },
+ "A3-F01": {
+  "id": "A3-F01",
+  "dimensions_xyz_m": [
+   0.2194,
+   0.0869,
+   0.2237
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 6104,
+   "LOD1": 3052,
+   "LOD2": 914
+  },
+  "materials": 1,
+  "source_parts": 18,
+  "reference": "art/references/qingxi-sightings-c/A3-F01-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.219,
+    0.087,
+    0.224
+   ]
+  }
  }
 }

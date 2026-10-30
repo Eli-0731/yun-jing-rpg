@@ -49,6 +49,17 @@ def make_sources():
     S['clay']=(lerp((.45,.24,.15),(.62,.38,.26),fbm(10,4)),fbm(20,3),2.0,.9,0)
     S['glaze']=(lerp((.20,.40,.38),(.33,.52,.48),fbm(6,3)),.3*fbm(30,2)+fbm(6,3),.8,.20,0)
     S['moss']=(lerp((.17,.24,.12),(.33,.40,.20),fbm(16,4)),fbm(16,4),4.0,.95,0)
+    nodes=np.clip(1-np.abs(((Y*4)%1)-.5)*40,0,1);S['bamboo']=(lerp((.42,.40,.22),(.62,.56,.33),.5*streak+.5*fbm(6,2))*(1-.3*nodes[...,None]),.4*streak+nodes,2.0,.6,0)
+    wx=((X*24)%1<.5);wy=((Y*24)%1<.5);ov=np.where(wx^wy,.5+.5*np.sin(X*24*math.pi*2)**2,.5+.5*np.sin(Y*24*math.pi*2)**2)
+    S['weave']=(lerp((.30,.26,.15),(.55,.47,.30),ov*.8+.2*fbm(20,2))*np.where(((Y*6)%1<.18)[...,None],np.array([.72,.92,.78]),1),ov,3.0,.8,0)
+    S['oilpaper']=(lerp((.30,.22,.12),(.52,.40,.24),np.clip(fbm(5,4)+.25*fbm(40,2),0,1)),fbm(30,3)+np.clip((fbm(12,2,aniso=1)-.6)*3,0,1),2.0,.45,0)
+    S['paper']=(lerp((.74,.70,.60),(.86,.83,.74),fbm(20,3))*(1-.5*np.clip((fbm(30,2)-.7)*6,0,1))[...,None],fbm(40,2),1.0,.9,0)
+    S['seal']=(lerp((.55,.10,.07),(.72,.18,.10),fbm(20,2)),fbm(20,2),1.0,.8,0)
+    S['cloth']=(lerp((.10,.13,.17),(.20,.24,.28),np.clip(fbm(6,4)+.2*np.sin((X+Y)*300),0,1)),.5*np.sin(X*500)+.5*np.sin(Y*500)+fbm(8,3),1.4,.88,0)
+    S['bone']=(lerp((.70,.66,.56),(.86,.83,.74),fbm(10,4))*(1-.25*np.clip((fbm(6,3)-.62)*4,0,1))[...,None],fbm(30,3),2.0,.6,0)
+    sw=.5+.5*np.sin(X*96*math.pi*2+np.sin(Y*30)*.6);S['straw']=(lerp((.48,.38,.18),(.72,.58,.32),np.clip(sw*.7+.3*fbm(20,2),0,1)),sw,1.4,.85,0)
+    S['glow']=(lerp((.35,.80,.78),(.55,.95,.90),fbm(30,2)),fbm(60,2),1.0,.5,0)
+    S['pebble']=(lerp((.18,.22,.22),(.34,.38,.36),fbm(4,4)),fbm(20,3),1.0,.28,0)
     out={}
     for k,(alb,h,s,r,m) in S.items():
         mat=bpy.data.materials.new('src_'+k);mat.use_nodes=True;nt=mat.node_tree;bs=nt.nodes['Principled BSDF']
@@ -297,7 +308,262 @@ def A2_F04(M):
     tube('Shard_Lip',[to_cyl(x,.050,.002) for x in np.linspace(-W+.002,W-.002,30)],.0065,M['glaze'][0],10,.04)
     return {'wear_zone':'edge','mud':True,'paint':'hesper','Rj':Rj}
 
-PROPS={'A2-F01':A2_F01,'A2-F02':A2_F02,'A2-F03':A2_F03,'A2-F04':A2_F04}
+def carve(o,cutters):
+    """boolean-cut each cutter object out of o, then drop the stray UV layers booleans leave behind"""
+    for c in cutters:
+        m=o.modifiers.new('carve','BOOLEAN');m.operation='DIFFERENCE';m.solver='EXACT';m.object=c
+        bpy.context.view_layer.objects.active=o;bpy.ops.object.modifier_apply(modifier=m.name);bpy.data.objects.remove(c)
+        assert len(o.data.polygons)>0,f'{o.name}: boolean removed everything'
+def cutter(bm,name='cut'):
+    me=bpy.data.meshes.new(name);bm.to_mesh(me);bm.free();c=bpy.data.objects.new(name,me);bpy.context.scene.collection.objects.link(c);return c
+def reproject(o,mat,scale):
+    """re-run the tiled box projection after booleans (new faces have no UVs)"""
+    bm=bmesh.new();bm.from_mesh(o.data);name=o.name;parts.remove(o);bpy.data.objects.remove(o)
+    for l in [l for l in bm.loops.layers.uv.keys() if l!='Tiled']:bm.loops.layers.uv.remove(bm.loops.layers.uv[l])
+    mats=None
+    n=finish(name,bm,mat,scale);return n
+def lie(objs_before):
+    """rotate everything made since objs_before to lie along X (long props rest on the shelf on their side)"""
+    for o in parts[objs_before:]:o.data.transform(Matrix.Rotation(math.radians(90),4,'Y'))
+
+def A2_F05(M):
+    """枯線鐵楔: hand-forged square wedge stake 0.28 m, hammered head, three diagonal chisel grooves, rust"""
+    n0=len(parts);L=.25
+    bm=bmesh.new();loops=[]
+    for i,(z,w) in enumerate([(0,.0012),(.02,.007),(.08,.015),(.16,.021),(.22,.025),(L,.028)]):
+        loops.append([bm.verts.new((x*w/2,y*w/2,z)) for x,y in ((1,1),(-1,1),(-1,-1),(1,-1))])
+    for a,b in zip(loops,loops[1:]):
+        for k in range(4):bm.faces.new((a[k],a[(k+1)%4],b[(k+1)%4],b[k]))
+    bm.faces.new(list(reversed(loops[0])));bm.faces.new(loops[-1])
+    shank=finish('Wedge_Shank',bm,M['iron'][0],.06);bevel(shank,.0012,1,40)
+    hb=box_bm((.056,.054,.018),(0,0,L+.008));head=finish('Wedge_Head',hb,M['iron'][0],.06);bevel(head,.004,2,30)
+    for o in (shank,head):
+        bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.subdivide_edges(bm,edges=bm.edges[:],cuts=3,use_grid_fill=True);bm.to_mesh(o.data);bm.free()
+        jitter(o,.0008,11,90);jitter(o,.0004,12,240)   # hammer facets + scale
+    cs=[]
+    for k in range(3):   # diagonal grooves on the +X face, upper third
+        b=box_bm((.004,.03,.0024),(0,0,0));bmesh.ops.rotate(b,verts=b.verts,cent=(0,0,0),matrix=Matrix.Rotation(math.radians(35),3,'Y'))
+        z=.205-.018*k;w=np.interp(z,[0,.02,.08,.16,.22,L],[.0012,.007,.015,.021,.025,.028])
+        bmesh.ops.translate(b,verts=b.verts,vec=Vector((w/2,0,z)));cs.append(cutter(b))
+    carve(shank,cs);reproject(shank,M['iron'][0],.06)
+    lie(n0);return {'mud':True}
+
+def A3_F01(M):
+    """螢砂木齒: replaced mill-gear tooth — trapezoid block with tenon, split crack packed with glowing sand, two nails"""
+    bm=bmesh.new()
+    def trap(z0,z1,wb,wt,d):
+        lo=[bm.verts.new((x*wb/2,y*d/2,z0)) for x,y in ((1,1),(-1,1),(-1,-1),(1,-1))];hi=[bm.verts.new((x*wt/2,y*d*.86/2,z1)) for x,y in ((1,1),(-1,1),(-1,-1),(1,-1))]
+        bm.faces.new(list(reversed(lo)));bm.faces.new(hi)
+        for k in range(4):bm.faces.new((lo[k],lo[(k+1)%4],hi[(k+1)%4],hi[k]))
+    trap(.075,.22,.22,.15,.085)
+    body=finish('Cog_Body',bm,M['wood'][0],.12);bevel(body,.006,2,30)
+    tb=box_bm((.055,.055,.08),(0,0,.04));tenon=finish('Cog_Tenon',tb,M['wood'][0],.12);bevel(tenon,.004,2,30)
+    for o in (body,tenon):
+        bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.subdivide_edges(bm,edges=bm.edges[:],cuts=4,use_grid_fill=True);bm.to_mesh(o.data);bm.free()
+        jitter(o,.0012,21,60)
+    # split crack (cut) and the sand filling it
+    crack=[(-.010+.006*math.sin(z*60),-.05,z) for z in np.linspace(.08,.222,14)]
+    def front_y(z):return -(.085*(1-(z-.075)/.145*(1-.86)))/2-.0006   # front face of the tapering block
+    for s in (-1,1):   # split lips: dark, slightly raised wood either side of the crack
+        tube(f'Crack_Lip_{s}',[(x+s*.0032,front_y(z),z) for x,_,z in crack],.0016,M['wood'][0],5,.02)
+    for k,(x,y,z) in enumerate(crack[1:-1]):
+        g=bmesh.new();bmesh.ops.create_icosphere(g,subdivisions=1,radius=.0034)
+        for v in g.verts:v.co=Vector((v.co.x*.7,v.co.y*9,v.co.z))
+        for v in g.verts:v.co=Vector((v.co.x,v.co.y/9*.5,v.co.z))
+        bmesh.ops.translate(g,verts=g.verts,vec=Vector((x,front_y(z),z)));finish(f'Glow_Sand_{k}',g,M['glow'][0],.02)
+    for k,(x,z) in enumerate(((-.055,.175),(.04,.135))):   # forged nails
+        lathe(f'Nail_{k}',[(0,0),(.0075,0),(.0072,.0018),(.005,.0032),(0,.0036)],M['iron'][0],16,.02).data.transform(Matrix.Translation((x,-.0405+.0,z))@Matrix.Rotation(math.radians(90),4,'X'))
+    return {'mud':False}
+
+def A3_F02(M):
+    """無名刻石: flat river slab 0.26 × 0.05 × 0.17, five invented glyphs (not any real script), bamboo roots wrapped round"""
+    W,T,H=.25,.045,.165;r=random.Random(31)
+    outline=[((W/2)*math.cos(t)*(1+.06*math.sin(3*t+1)),(H/2)*math.sin(t)*(1+.08*math.cos(2*t))+H/2) for t in np.linspace(0,math.tau,40,endpoint=False)]
+    bm=bmesh.new();n=len(outline);rings=[]
+    for y,s in ((-T/2,.9),(-T/2+.006,1.0),(T/2-.006,1.0),(T/2,.88)):
+        rings.append([bm.verts.new((x*s,y,(z-H/2)*s+H/2)) for x,z in outline])
+    for a,b in zip(rings,rings[1:]):
+        for i in range(n):bm.faces.new((a[i],a[(i+1)%n],b[(i+1)%n],b[i]))
+    bm.faces.new(list(reversed(rings[0])));bm.faces.new(rings[-1])
+    o=finish('Slab',bm,M['stone'][0],.12);bevel(o,.004,2,30)
+    bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.subdivide_edges(bm,edges=[e for e in bm.edges if e.calc_length()>.012],cuts=2,use_grid_fill=True);bm.to_mesh(o.data);bm.free()
+    jitter(o,.0018,33,30);jitter(o,.0007,34,110)
+    # invented glyphs: stroke paths cut 2.5 mm into the -Y face
+    G=[[[(0,.03),(-.008,.0),(.008,-.012),(0,-.03)],[(-.012,.012),(.012,.012)]],
+       [[(-.012,.015),(.0,.028),(.012,.015),(.0,.0),(-.012,.015)],[(0,0),(0,-.03)],[(-.01,-.018),(.01,-.018)]],
+       [[(.006,.03),(-.006,.012),(.008,-.004),(-.004,-.03)],[(.014,.02)],[(.014,.006)],[(.014,-.008)]],
+       [[(-.014,.0),(-.004,.02),(.008,.0),(-.002,-.02),(.012,-.03)],[(.012,.026),(.002,.012)]],
+       [[(0,.03),(0,-.03)],[(-.014,.008),(.0,-.006),(.014,.008)],[(-.012,-.02)]]]
+    cs=[]
+    for k,g in enumerate(G):
+        cx=-.085+k*.042
+        for s in g:
+            pts=[(cx+x,-T/2+.0005,H*.52+z) for x,z in s]
+            if len(pts)==1:
+                b=bmesh.new();bmesh.ops.create_icosphere(b,subdivisions=2,radius=.0032);bmesh.ops.translate(b,verts=b.verts,vec=Vector(pts[0]));cs.append(cutter(b))
+            else:   # one cutter per stroke segment: merged overlapping cutters self-intersect and break the boolean
+                P=[Vector(p) for p in pts];dense=[P[0]]
+                for a_,b_ in zip(P,P[1:]):
+                    for t in np.linspace(0,1,4)[1:]:dense.append(a_+(b_-a_)*t)
+                for p,q in zip(dense,dense[1:]):
+                    c=bmesh.new();bmesh.ops.create_cone(c,cap_ends=True,segments=8,radius1=.0022,radius2=.0022,depth=(q-p).length+.0018)
+                    bmesh.ops.rotate(c,verts=c.verts,cent=(0,0,0),matrix=(q-p).to_track_quat('Z','Y').to_matrix());bmesh.ops.translate(c,verts=c.verts,vec=(p+q)/2)
+                    cs.append(cutter(c))
+    carve(o,cs);o=reproject(o,M['stone'][0],.12)
+    # bamboo roots wrapping the slab + one culm stub with nodes
+    for k in range(5):
+        a0=r.uniform(0,math.tau);sp=r.uniform(.8,1.6);pts=[]
+        for t in np.linspace(0,1,22):
+            a=a0+t*sp*math.pi;rx=(W/2+.004)*math.cos(a);rz=(H/2+.004)*math.sin(a)+H/2;pts.append((rx,(T/2+.003)*math.sin(t*math.tau*1.5+k),rz))
+        tube(f'Root_{k}',pts,r.uniform(.0018,.0034),M['bamboo'][0],6,.04)
+    cpts=[(-W/2+.012,0,.0),(-W/2+.006,0,.06),(-W/2+.016,0,.13),(-W/2+.03,.0,.175)]
+    tube('Bamboo_Culm',cpts,.0065,M['bamboo'][0],10,.05)
+    for z in (.055,.115):lathe(f'Culm_Node_{z}',[(.0066,-.002),(.0078,0),(.0066,.002)],M['bamboo'][0],12,.02).data.transform(Matrix.Translation(Vector(np.interp(z,[p[2] for p in cpts],[p[0] for p in cpts]).item() if False else (-W/2+.007+.0,0,z))))
+    return {'mud':True}
+
+def A3_F03(M):
+    """拭石魚簍: woven bamboo creel 0.25 m, crushed on one side, wooden lid peg, hemp shoulder loop, seven rubbed pebbles"""
+    prof=[(0,0),(.070,0),(.080,.004),(.095,.04),(.103,.09),(.098,.14),(.082,.185),(.066,.215),(.064,.228)]
+    o=lathe('Creel_Wall',prof,M['weave'][0],40,.06,smooth=False)
+    inner=lathe('Creel_Inside',[(.0,.004),(.074,.004),(.090,.04),(.098,.09),(.093,.14),(.078,.185),(.060,.226)][::-1],M['weave'][0],40,.06,smooth=False)
+    for p in inner.data.polygons:p.flip()
+    for ob in (o,inner):   # crushed dent on the -Y side
+        for v in ob.data.vertices:
+            a=math.atan2(v.co.y,v.co.x);d=abs(((a+math.pi/2+math.pi)%math.tau)-math.pi)
+            if d<.7 and .03<v.co.z<.16:v.co.xy*=1-.16*(1-d/.7)*math.sin((v.co.z-.03)/.13*math.pi)
+    lathe('Creel_Rim',[(.060,.222),(.072,.224),(.074,.232),(.068,.238),(.058,.234)],M['bamboo'][0],40,.04)
+    for z in (.205,.06):tube(f'Creel_Hoop_{z}',[(np.interp(z,[p[1] for p in prof],[p[0] for p in prof])+.002)*Vector((math.cos(t),math.sin(t),0))+Vector((0,0,z)) for t in np.linspace(0,math.tau,41)],.0028,M['bamboo'][0],6,.04)
+    tube('Lid_Peg',[(-.085,0,.247),(.085,0,.247)],.008,M['wood'][0],10,.05)
+    for x in (-.0,):tube('Peg_Lash',[(x+.009*math.cos(t),.011*math.sin(t),.247+.011*math.cos(t)*0) for t in np.linspace(0,math.tau*3,30)],.0022,M['hemp'][0],6,.03)
+    rope('Shoulder_Loop',[(-.098,0,.20),(-.12,.0,.13),(-.10,.0,.05),(0,0,.01),(.10,0,.05),(.12,0,.13),(.098,0,.20)],.0045,M['hemp'][0],twist=14)
+    r=random.Random(7)
+    for k in range(7):   # seven rubbed pebbles filling the neck
+        a=k/6*math.tau if k else 0;rr=0 if k==0 else .034
+        b=bmesh.new();bmesh.ops.create_icosphere(b,subdivisions=3,radius=.022)
+        for v in b.verts:v.co=Vector((v.co.x*1.25,v.co.y*.95,v.co.z*.75))
+        bmesh.ops.rotate(b,verts=b.verts,cent=(0,0,0),matrix=Matrix.Rotation(r.uniform(0,3),3,'Z'))
+        bmesh.ops.translate(b,verts=b.verts,vec=Vector((rr*math.cos(a),rr*math.sin(a),.205+.006*(k%2))))
+        p=finish(f'Pebble_{k}',b,M['pebble'][0],.03)
+        for poly in p.data.polygons:poly.use_smooth=True
+    return {'mud':True}
+
+def A3_F04(M):
+    """三村契紙: oiled-paper bundle 0.20 × 0.13 × 0.09 tied with hemp string and bow; torn corner shows a deed with a red seal"""
+    b=box_bm((.20,.13,.085),(0,0,.0425));o=finish('Bundle',b,M['oilpaper'][0],.08);bevel(o,.012,3,30)
+    bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.subdivide_edges(bm,edges=bm.edges[:],cuts=6,use_grid_fill=True);bm.to_mesh(o.data);bm.free()
+    jitter(o,.0016,41,70);jitter(o,.0006,42,200)
+    carve(o,[cutter(box_bm((.08,.03,.05),(.075,-.064,.048)),'tear')]);o=reproject(o,M['oilpaper'][0],.08)
+    for k in range(3):   # layered deed sheets inside the tear
+        dp=box_bm((.07,.002,.04),(.072-.004*k,-.054+.004*k,.046+.003*k));bmesh.ops.rotate(dp,verts=dp.verts,cent=(.072,-.054,.046),matrix=Matrix.Rotation(math.radians(-8+5*k),3,'Y'))
+        finish(f'Deed_Sheet_{k}',dp,M['paper'][0],.05)
+    sl=lathe('Seal',[(0,0),(.009,0),(.009,.0006),(0,.0006)],M['seal'][0],20,.02);sl.data.transform(Matrix.Translation((.092,-.0545,.04))@Matrix.Rotation(math.radians(90),4,'X'))
+    flap=box_bm((.07,.0025,.035),(.07,-.072,.074));bmesh.ops.rotate(flap,verts=flap.verts,cent=(.07,-.066,.074),matrix=Matrix.Rotation(math.radians(-35),3,'X'))
+    f=finish('Torn_Flap',flap,M['oilpaper'][0],.05);jitter(f,.0008,43,150)
+    # string: one band round the long way, one round the short way, bow on top
+    def band(axis):
+        pts=[]
+        for t in np.linspace(0,math.tau,49):
+            c,s=math.cos(t),math.sin(t);y=.068*np.sign(c)*min(1,abs(c)*1.6);z=.0425+.046*np.sign(s)*min(1,abs(s)*1.6)
+            pts.append((0,y,z) if axis=='x' else (y*1.55,0,z))
+        return pts
+    rope('String_Short',band('x'),.0022,M['hemp'][0],twist=26);rope('String_Long',band('y'),.0022,M['hemp'][0],twist=38)
+    for s in (-1,1):
+        loop=[(0,0,.089)]+[(s*(.012+.012*math.cos(t)),.014*math.sin(t),.091+.004*math.sin(t)) for t in np.linspace(math.pi,0 if s>0 else math.tau,14)]
+        rope(f'Bow_{s}',[(s*.024*abs(math.cos(t))*(1 if s>0 else 1),.012*math.sin(t),.090) for t in np.linspace(0,math.pi,14)],.002,M['hemp'][0],twist=6)
+        rope(f'Tail_{s}',[(0,0,.090),(s*.018,.02,.088),(s*.03,.036,.087)],.002,M['hemp'][0],twist=4)
+    k_=bmesh.new();bmesh.ops.create_icosphere(k_,subdivisions=2,radius=.0055);bmesh.ops.translate(k_,verts=k_.verts,vec=Vector((0,0,.091)));finish('Bow_Knot',k_,M['hemp'][0],.02)
+    return {'mud':False,'paint':'deed'}
+
+def A3_F05(M):
+    """空心骨: hollow long bone 0.24 m, flared broken ends, five small holes along one side, water-polished"""
+    n0=len(parts)
+    prof=[(.016,0),(.024,.004),(.025,.014),(.019,.034),(.0145,.07),(.0135,.12),(.0145,.17),(.019,.205),(.024,.226),(.023,.236),(.016,.24)]
+    o=lathe('Bone_Outer',prof,M['bone'][0],28,.06)
+    inner=lathe('Bone_Inner',[(r*.62,z) for r,z in prof][::-1],M['bone'][0],28,.06)
+    for p in inner.data.polygons:p.flip()
+    for ob in (o,inner):   # broken, uneven rims and a slight bend
+        for v in ob.data.vertices:
+            a=math.atan2(v.co.y,v.co.x)
+            if v.co.z<.006:v.co.z+=.003*math.sin(a*5)+.002*math.sin(a*11)
+            if v.co.z>.234:v.co.z+=.003*math.sin(a*4+1)+.0015*math.sin(a*9)
+            v.co.x+=.006*math.sin(v.co.z/.24*math.pi)
+    jitter(o,.0007,51,80)
+    cs=[]
+    for k in range(5):
+        c=bmesh.new();bmesh.ops.create_cone(c,cap_ends=True,segments=12,radius1=.0028-.0002*k,radius2=.0028-.0002*k,depth=.04)
+        bmesh.ops.rotate(c,verts=c.verts,cent=(0,0,0),matrix=Matrix.Rotation(math.radians(90),3,'X'));bmesh.ops.translate(c,verts=c.verts,vec=Vector((.004,-.02,.165-.023*k)))
+        cs.append(cutter(c))
+    carve(o,cs);o=reproject(o,M['bone'][0],.06)
+    lie(n0);return {'mud':False}
+
+def HOME_F01(M):
+    """刻痕小刀: small whittling chisel with cord-wrapped handle, beside a door-frame offcut with height notches and 遠"""
+    n0=len(parts)
+    # chisel, built along +Z then laid flat at y = +0.03
+    lathe('Chisel_Handle',[(0,.068),(.0105,.068),(.0125,.08),(.0135,.11),(.0128,.14),(.0115,.158),(.0105,.163),(0,.164)],M['wood'][0],20,.04)
+    for z0,z1 in ((.062,.071),(.160,.168)):lathe(f'Ferrule_{z0}',[(.0098,z0),(.0118,z0+.001),(.0118,z1-.001),(.0098,z1)],M['iron'][0],20,.02)
+    tube('Cord_Wrap',[(.0132*math.cos(t),.0132*math.sin(t),.084+.0035*t/math.tau) for t in np.linspace(0,math.tau*7,140)],.0019,M['hemp'][0],5,.02)
+    bl=bmesh.new();loops=[]
+    for z,w,th in ((0,.022,.0012),(.004,.022,.004),(.040,.018,.0055),(.052,.007,.006),(.064,.007,.006)):
+        loops.append([bm_v for bm_v in [bl.verts.new((x*w/2,y*th/2,z)) for x,y in ((1,1),(-1,1),(-1,-1),(1,-1))]])
+    for a,b in zip(loops,loops[1:]):
+        for k in range(4):bl.faces.new((a[k],a[(k+1)%4],b[(k+1)%4],b[k]))
+    bl.faces.new(list(reversed(loops[0])));bl.faces.new(loops[-1])
+    blade=finish('Chisel_Blade',bl,M['iron'][0],.04);bevel(blade,.0006,1,40)
+    for o in parts[n0:]:o.data.transform(Matrix.Translation((0,.034,-.082)))
+    lie(n0)
+    for o in parts[n0:]:o.data.transform(Matrix.Translation((0,0,.0136)))
+    # door-frame offcut lying flat, notches on its edge, 遠 carved near the top notch
+    p=box_bm((.15,.042,.016),(0,-.03,.008));plank=finish('Frame_Offcut',p,M['wood'][0],.08);bevel(plank,.0015,2,30)
+    bm=bmesh.new();bm.from_mesh(plank.data);bmesh.ops.subdivide_edges(bm,edges=bm.edges[:],cuts=4,use_grid_fill=True);bm.to_mesh(plank.data);bm.free();jitter(plank,.0006,61,90)
+    cs=[cutter(box_bm((.0035,.014,.03),(x,-.051+.006,.008)),'notch') for x in (-.055,-.03,-.004,.024,.05)]
+    tb=text_mesh('Yuan','遠',.022,M['wood'][0],.006,bold=True);bmesh.ops.translate(tb,verts=tb.verts,vec=Vector((.050,-.026,.0162)));cs.append(cutter(tb,'yuan'))
+    carve(plank,cs);reproject(plank,M['wood'][0],.08)
+    return {'mud':False}
+
+def HOME_F02(M):
+    """未遠草鞋: pair of straw sandals standing sole to sole, bound with an indigo oiled cloth tied in a careful knot"""
+    def sole(x,name):
+        out=[((.045)*math.cos(t)*(1-.12*math.sin(t)),(.115)*math.sin(t)) for t in np.linspace(0,math.tau,32,endpoint=False)]
+        bm=bmesh.new();n=len(out);rs=[]
+        for y,s in ((-.008,.94),(-.006,1.0),(.006,1.0),(.008,.94)):
+            rs.append([bm.verts.new((x+y,px*s,pz*s+.118)) for px,pz in out])
+        for a,b in zip(rs,rs[1:]):
+            for i in range(n):bm.faces.new((a[i],a[(i+1)%n],b[(i+1)%n],b[i]))
+        bm.faces.new(list(reversed(rs[0])));bm.faces.new(rs[-1])
+        o=finish(name,bm,M['straw'][0],.05);jitter(o,.0008,len(parts),120)
+        rope(name+'_Rim',[(x+(.0095 if x>0 else -.0095),(.047)*math.cos(t)*(1-.12*math.sin(t)),(.117)*math.sin(t)+.118) for t in np.linspace(0,math.tau,40)],.0042,M['straw'][0],twist=40)
+        sx=x+(.012 if x>0 else -.012)
+        rope(name+'_Strap',[(sx,-.03,.07),(sx+(.012 if x>0 else -.012),-.012,.15),(sx+(.006 if x>0 else -.006),0,.205),(sx+(.012 if x>0 else -.012),.012,.15),(sx,.03,.07)],.0026,M['straw'][0],twist=12)
+    sole(-.024,'Sandal_L');sole(.024,'Sandal_R')
+    n0=len(parts)
+    # thin cloth band wrapped round both soles (elliptical ring, 5 cm tall, 4 mm thick, wrinkled), knot and ragged ends at the front
+    bm=bmesh.new();seg=48;rows=[]
+    for zi,z in enumerate(np.linspace(.092,.142,5)):
+        for rr in (0,1):
+            rows.append([bm.verts.new(((.104+.004*rr)*math.cos(t)*(1+.03*math.sin(5*t+zi)),(.024+.004*rr)*math.sin(t)*(1+.05*math.cos(4*t)),z+.004*math.sin(3*t+zi))) for t in np.linspace(0,math.tau,seg,endpoint=False)])
+    inner=rows[0::2];outer=rows[1::2]
+    for L,flip in ((outer,False),(inner,True)):
+        for a_,b_ in zip(L,L[1:]):
+            for i in range(seg):
+                q=(a_[i],a_[(i+1)%seg],b_[(i+1)%seg],b_[i]);bm.faces.new(q[::-1] if flip else q)
+    for i in range(seg):
+        j=(i+1)%seg;bm.faces.new((inner[0][i],inner[0][j],outer[0][j],outer[0][i]));bm.faces.new((outer[-1][i],outer[-1][j],inner[-1][j],inner[-1][i]))
+    band=finish('Cloth_Band',bm,M['cloth'][0],.05);jitter(band,.0012,70,80)
+    k=bmesh.new();bmesh.ops.create_icosphere(k,subdivisions=2,radius=.015)
+    for v in k.verts:v.co=Vector((v.co.x*1.3,v.co.y*.8,v.co.z))
+    bmesh.ops.translate(k,verts=k.verts,vec=Vector((0,-.034,.118)));kn=finish('Cloth_Knot',k,M['cloth'][0],.03);jitter(kn,.0016,71,60)
+    for s in (-1,1):
+        e=box_bm((.034,.003,.03),(s*.026,-.036,.094));bmesh.ops.subdivide_edges(e,edges=e.edges[:],cuts=3,use_grid_fill=True)
+        bmesh.ops.rotate(e,verts=e.verts,cent=(0,-.036,.118),matrix=Matrix.Rotation(math.radians(s*35),3,'Y'));ee=finish(f'Cloth_End_{s}',e,M['cloth'][0],.04);jitter(ee,.0018,72+s,90)
+    # soles were built in the YZ plane: turn the pair so the soles face the front (-Y), like the three-view
+    for o in parts[:n0]:
+        o.data.transform(Matrix.Rotation(math.radians(90),4,'Z'))
+        o.data.transform(Matrix.Translation((-.050,.024,0) if 'Sandal_L' in o.name else (.050,-.024,0)))   # side by side, both soles to the front
+    return {'mud':False}
+
+PROPS={'A2-F01':A2_F01,'A2-F02':A2_F02,'A2-F03':A2_F03,'A2-F04':A2_F04,'A2-F05':A2_F05,'A3-F01':A3_F01,'A3-F02':A3_F02,
+       'A3-F03':A3_F03,'A3-F04':A3_F04,'A3-F05':A3_F05,'HOME-F01':HOME_F01,'HOME-F02':HOME_F02}
 
 # ---------------- bake / LOD / export ----------------
 def run(pid):
@@ -370,6 +636,10 @@ def run(pid):
                 lx,lz=a-(ax+s*.013),z-(.022+.003*s);lf=band&((lx/.0068)**2+(lz/.0030)**2<1)
                 col=np.where(lf[...,None],np.array([.20,.36,.27]),col)
         crack=outer&(np.abs(np.sin(px*900+np.sin(z*700)*2))<.02);col=np.where(crack[...,None],col*.7,col)   # crazing in the glaze
+    if meta.get('paint')=='deed':   # blurred ink columns on the exposed deed sheet
+        q=pos-meta['offset'];ink=filled&(np.abs(q[...,1]+.054)<.004)&(q[...,0]>.04)&(q[...,0]<.085)&(q[...,2]>.03)&(q[...,2]<.064)
+        strokes=(np.abs(np.sin(q[...,0]*520))<.35)&(np.abs(np.sin(q[...,2]*900+np.sin(q[...,0]*300)))<.6)
+        col=np.where((ink&strokes)[...,None],col*.35+np.array([.06,.06,.07])*.65,col)
     def save(name,rgba,data=False):
         im=bpy.data.images.new(name,RES,RES,alpha=True)
         if data:im.colorspace_settings.name='Non-Color'
