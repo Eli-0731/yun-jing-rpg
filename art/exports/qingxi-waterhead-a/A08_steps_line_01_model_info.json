@@ -1,0 +1,96 @@
+{
+ "id": "A08",
+ "variant": "tread 1: six stepping stones in a line",
+ "key": "A08_steps_line_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  3.1,
+  2.5,
+  0.3254
+ ],
+ "triangles": 4880,
+ "lod_triangles": [
+  4880,
+  2440,
+  731
+ ],
+ "collision": {
+  "type": "mesh",
+  "note": "river tile frame: origin = tile base at the channel centre; place exactly like an A01 module"
+ },
+ "nodes": {
+  "land": [
+   "A08_steps_line_01_LOD0"
+  ],
+  "water": [],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A08_steps_line_01",
+  "dimensions_m": [
+   3.1,
+   2.5,
+   0.3254
+  ],
+  "bbox_min": [
+   -1.55,
+   -1.25,
+   0.2076
+  ],
+  "bbox_max": [
+   1.55,
+   1.25,
+   0.533
+  ],
+  "trianglesLOD": [
+   4880,
+   2440,
+   731
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "M_A08_steps_line_01"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A08_steps_line_01_LOD0"
+  ],
+  "originAtBase": false,
+  "meshHealth": {
+   "nonManifoldEdges": 132,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 4880,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A08_steps_line_01.001"
+   ]
+  },
+  "files": {
+   "A08_steps_line_01.glb": {
+    "bytes": 765308,
+    "sha256": "756506e03586e692f59cc890bbf46fc77513eee178cd8457db9392cc0556e4b0"
+   },
+   "A08_steps_line_01.fbx": {
+    "bytes": 572012,
+    "sha256": "85c1717e2074a67850f6a9f3361cf024a5c7c13a04bd164406bd898d46f7ff44"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A08_steps_line_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

@@ -1,0 +1,160 @@
+{
+ "id": "A02",
+ "variant": "side crack",
+ "key": "A02_side_crack_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  3.0293,
+  1.6825,
+  0.74
+ ],
+ "triangles": 3298,
+ "lod_triangles": [
+  3298,
+  1648,
+  494
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   3.0,
+   0.8,
+   0.67
+  ],
+  "center": [
+   0,
+   0,
+   0.335
+  ],
+  "note": "clue cracked_sluice: look at the -Y face"
+ },
+ "nodes": {
+  "land": [
+   "A02_side_crack_01_LOD0"
+  ],
+  "water": [
+   "A02_side_crack_01_Water"
+  ],
+  "foliage": [
+   "A02_side_crack_01_Foliage"
+  ]
+ },
+ "collision_hull": {
+  "node": "A02_side_crack_01_Collision",
+  "triangles": 108,
+  "note": "convex hull of the solid parts; use as a convex MeshCollider, never render"
+ },
+ "sockets": [
+  {
+   "name": "SOCKET_inlet",
+   "loc": [
+    -1.5,
+    0.0,
+    0.33
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "SOCKET_outlet",
+   "loc": [
+    1.5,
+    0.0,
+    0.33
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "SOCKET_leak",
+   "loc": [
+    0.03,
+    -0.37,
+    0.36
+   ],
+   "forward": [
+    0.0,
+    -0.7071,
+    -0.7071
+   ]
+  }
+ ],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A02_side_crack_01",
+  "dimensions_m": [
+   3.0293,
+   1.6825,
+   0.74
+  ],
+  "bbox_min": [
+   -1.5293,
+   -1.1127,
+   0.0
+  ],
+  "bbox_max": [
+   1.5,
+   0.5699,
+   0.74
+  ],
+  "trianglesLOD": [
+   3298,
+   1648,
+   494
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "LowWater",
+   "M_A02_side_crack_01"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A02_side_crack_01_LOD0",
+   "A02_side_crack_01_Water",
+   "A02_side_crack_01_Foliage"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 3298,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "LowWater.001",
+    "M_A02_side_crack_01.001"
+   ]
+  },
+  "files": {
+   "A02_side_crack_01.glb": {
+    "bytes": 539060,
+    "sha256": "f07134a0d2fc2cf25c4b7c4bf86cf3c50d0d7653b8b35d6317f008740fca2d71"
+   },
+   "A02_side_crack_01.fbx": {
+    "bytes": 340300,
+    "sha256": "3317209b1288950765213fb4edb4f9c7a569d322e1cb178d58e97f28ad8e4cb3"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A02_side_crack_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
