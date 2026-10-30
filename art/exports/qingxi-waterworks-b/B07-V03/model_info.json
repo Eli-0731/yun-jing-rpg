@@ -1,0 +1,122 @@
+{
+  "id": "B07-V03",
+  "name": "階梯底板修補塞",
+  "family": "B07",
+  "variant": "B07-V03",
+  "author": "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模",
+  "status": "建模完成（程序化母稿），待人工精修審核",
+  "reference": "art/references/qingxi-waterworks-b/B07_V03_three_view_dry_v002.png",
+  "units": "m",
+  "up": "Blender +Z / glTF +Y",
+  "flow_axis": "入口在原點，水流朝 +Y",
+  "standard": {
+    "outer_w": 0.6,
+    "clear_w": 0.4,
+    "total_h": 0.4,
+    "floor_t": 0.1,
+    "water_z": 0.28,
+    "grid": 0.25
+  },
+  "ports": [],
+  "flows": [],
+  "water_polys": [],
+  "sockets": [],
+  "parts": [
+    "body"
+  ],
+  "footprint_cells": [
+    [
+      -1,
+      -1
+    ],
+    [
+      -1,
+      0
+    ],
+    [
+      0,
+      -1
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "stats": {
+    "tris": 1428,
+    "verts": 760,
+    "materials": [
+      "ww_bronze",
+      "ww_stone",
+      "ww_wood"
+    ],
+    "bbox_min": [
+      -0.2036,
+      -0.163,
+      -0.0023
+    ],
+    "bbox_max": [
+      0.2017,
+      0.163,
+      0.095
+    ],
+    "size": [
+      0.4053,
+      0.326,
+      0.0972
+    ]
+  },
+  "qa": {
+    "body": {
+      "islands": 23,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    }
+  },
+  "notes": [
+    "裝在槽底破洞，上台頂面與槽底齊平（上台 3 cm 嵌入洞口）；實際洞口大小未知（A FIT: VERIFY）。",
+    "參考圖仰視的燕尾鍵槽只做到側面可見的木鍵與銅夾，底面未挖槽（推定簡化）。"
+  ],
+  "states": {},
+  "collision": "底座盒 40 × 30 × 5 cm",
+  "lod": {
+    "LOD0": 1428,
+    "LOD1": 714,
+    "LOD2": 214,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.15
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
+  },
+  "extra": {},
+  "exports": {
+    "glb": "B07-V03.glb",
+    "fbx": "B07-V03.fbx"
+  },
+  "reimport": {
+    "file": "art/exports/qingxi-waterworks-b/B07-V03/B07-V03.glb",
+    "tris": 1428,
+    "size": [
+      0.4053,
+      0.326,
+      0.0972
+    ],
+    "materials": [
+      "ww_bronze.001",
+      "ww_stone.001",
+      "ww_wood.001"
+    ],
+    "empties": [],
+    "size_error_m": 0.0,
+    "tris_match": true,
+    "lod_tris": {
+      "LOD1": 714,
+      "LOD2": 214
+    },
+    "textures_embedded": 4
+  }
+}

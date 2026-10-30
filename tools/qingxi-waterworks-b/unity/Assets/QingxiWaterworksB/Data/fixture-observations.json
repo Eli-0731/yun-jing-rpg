@@ -1,0 +1,38 @@
+{
+ "note": "本機 fixture：模擬 A（上游調查）交給 B 的 observationIds。不是正式存檔，不連伺服器。網址 ?obs=<key> 選一組。",
+ "default": "full",
+ "sets": {
+  "full": {
+   "label": "完整線索",
+   "observationIds": [
+    "cracked_sluice",
+    "silt_buildup",
+    "nursery_tracks"
+   ]
+  },
+  "partial": {
+   "label": "只找到破槽",
+   "observationIds": [
+    "cracked_sluice"
+   ]
+  },
+  "none": {
+   "label": "沒有線索",
+   "observationIds": []
+  }
+ },
+ "observations": {
+  "cracked_sluice": {
+   "label": "破槽",
+   "text": "P4 舊槽西側牆外有一道直裂縫，水位到 28 cm 就會滲出（槽壁裂口，適合石鞍 B07）。"
+  },
+  "silt_buildup": {
+   "label": "淤積",
+   "text": "取水口後的 P1 舊槽淤了約一半深的泥沙，水量只剩六成。"
+  },
+  "nursery_tracks": {
+   "label": "育幼區足跡",
+   "text": "育幼區西側有孩子的腳印橫過舊渠，常有人在渠邊玩水。"
+  }
+ }
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "B01",
+    "file": "B01_three_view_dry_v002.png",
+    "bytes": 2021233,
+    "sha256": "B46380E66102D702AD7020AA212CFADD84B1056DF22E43EEF87F0A327F00FCC3"
+  },
+  {
+    "id": "B02",
+    "file": "B02_three_view_dry_v002.png",
+    "bytes": 2017367,
+    "sha256": "30C08D20BB38A92E0C44751199E165A311EA76A53ED2A4FD8FC5B89453CABB4D"
+  },
+  {
+    "id": "B02_V02",
+    "file": "B02_V02_three_view_dry_v002.png",
+    "bytes": 2125451,
+    "sha256": "2A76436A16D83BC1E140F4802A1A595DA14C96B90E3D6C1353492649645B79AB"
+  },
+  {
+    "id": "B02_V03",
+    "file": "B02_V03_three_view_dry_v002.png",
+    "bytes": 2133593,
+    "sha256": "BE149192C58ED6F4D722C11D0CB12C64D81CC7B5D67D8F5F9044250D0C22EA9B"
+  },
+  {
+    "id": "B02_V04",
+    "file": "B02_V04_three_view_dry_v002.png",
+    "bytes": 2185219,
+    "sha256": "B191470845D5397CDA6CD338CF5EE25F2D28071A60C284302D6AEF3AC117EB87"
+  },
+  {
+    "id": "B02_V05",
+    "file": "B02_V05_three_view_dry_v002.png",
+    "bytes": 2119541,
+    "sha256": "3EDA0438E3A327BD63B6CD62C383F8023641E39ED95BD677A39553AFEFB152DA"
+  },
+  {
+    "id": "B03",
+    "file": "B03_three_view_dry_v002.png",
+    "bytes": 2000088,
+    "sha256": "441CA5E8178A97AC46A903E36792CF2C3E1538BC738F696D76C68C101D7C5B4B"
+  },
+  {
+    "id": "B03_V02",
+    "file": "B03_V02_three_view_dry_v002.png",
+    "bytes": 2128715,
+    "sha256": "BC9A825EBEF5B10BEF796E65CAB3F2324F8AC07D1F3E82343FB173B4B4071832"
+  },
+  {
+    "id": "B03_V03",
+    "file": "B03_V03_three_view_dry_v002.png",
+    "bytes": 2092758,
+    "sha256": "2803BDCFE14097559E5F21BA627D2AB4DCC17162AA4E9339FEE09A26CC8D4C5B"
+  },
+  {
+    "id": "B03_V04",
+    "file": "B03_V04_three_view_dry_v002.png",
+    "bytes": 2034993,
+    "sha256": "BB086AA716CEBA92EB2BB6F4F5AB48F8EDEAC1C05456F015439FE84E07BDE25A"
+  },
+  {
+    "id": "B04",
+    "file": "B04_three_view_dry_v002.png",
+    "bytes": 2062306,
+    "sha256": "775DD686F0402892137215359CD5FB459E6AD399D3343A38D4F1049108414C1D"
+  },
+  {
+    "id": "B04_V02",
+    "file": "B04_V02_three_view_dry_v002.png",
+    "bytes": 2300343,
+    "sha256": "34A34B10AD186077B9A05EBB528CB67E19EFC9E56EBA0D5AED182C863125C179"
+  },
+  {
+    "id": "B05",
+    "file": "B05_three_view_dry_v003_side_operation.png",
+    "bytes": 2093790,
+    "sha256": "E35D532DAA898949A015511825294735BDD887601FB144722A5014DE64F22D29"
+  },
+  {
+    "id": "B06",
+    "file": "B06_three_view_dry_v003_side_operation.png",
+    "bytes": 2339684,
+    "sha256": "6FFFD02CEDCB7419F6FD1902FEE3CCA624B1942AEE352932729C0F6E4ACAB26D"
+  },
+  {
+    "id": "B07",
+    "file": "B07_three_view_dry_v002.png",
+    "bytes": 2262786,
+    "sha256": "DAD75DEBFE64F0FF1692623ADC8EB9EA4D4A4B08803233FFCD79D4620E3CD5D6"
+  },
+  {
+    "id": "B07_V02",
+    "file": "B07_V02_three_view_dry_v002.png",
+    "bytes": 2297001,
+    "sha256": "11F058828274E383F67B8039FE639ED68420679888ADD9CE9B752EB0997E82B7"
+  },
+  {
+    "id": "B07_V03",
+    "file": "B07_V03_three_view_dry_v002.png",
+    "bytes": 2215502,
+    "sha256": "D045BC63C5A74D4C3E431A4D1D609D44A0E0116A3E430CF9C738E8209C566EA5"
+  },
+  {
+    "id": "B08",
+    "file": "B08_three_view_dry_v002.png",
+    "bytes": 1861632,
+    "sha256": "E81D0E464355276BCA6929A29A28EDDFC48FE22538F188A4E1DDD4ED2251EB6D"
+  },
+  {
+    "id": "B09",
+    "file": "B09_three_view_dry_v002.png",
+    "bytes": 1886124,
+    "sha256": "8C39BE8F2C05002C61380E25C8BEDA337CC26EBEC981685E818FDB39A9E02FE3"
+  },
+  {
+    "id": "B10",
+    "file": "B10_three_view_dry_v002.png",
+    "bytes": 2402677,
+    "sha256": "7396901697929DB8F843542B86C8A90A8DEE31FEA5171FEDE51D939D374D6AA3"
+  },
+  {
+    "id": "B10_V02",
+    "file": "B10_V02_three_view_original_dry.png",
+    "bytes": 2546530,
+    "sha256": "6445280BBB859E6D7D44DC4B1E21977C97F340D38FE22ED72262C9B5B1CC4A85"
+  },
+  {
+    "id": "B10_V03",
+    "file": "B10_V03_three_view_dry_v002.png",
+    "bytes": 2181855,
+    "sha256": "676918CB07CEC5A9B91ABE7162009C0529C6F4E9DB6F3438CB966D6AE6883760"
+  },
+  {
+    "id": "B11",
+    "file": "B11_three_view_original_dry.png",
+    "bytes": 2088257,
+    "sha256": "96421F99C48E80CC367DAFB25BCF14F2DB33F2C04D52E404614D9896DB8BD4BD"
+  },
+  {
+    "id": "B12",
+    "file": "B12_three_view_original_dry.png",
+    "bytes": 2098397,
+    "sha256": "30E8164D86C19F17EC71C11EB2321876041C5F89E12C9FF187593B36006EBFED"
+  }
+]

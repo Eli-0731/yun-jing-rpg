@@ -1,0 +1,37 @@
+{
+  "tool": "OpenAI built-in image_gen",
+  "date": "2026-10-29",
+  "scope": [
+    "B01",
+    "B02"
+  ],
+  "status": "dry reference images, not a model revision",
+  "references": "D:/yun-jing-waterworks-b/art/references/qingxi-waterworks-b",
+  "review": {
+    "water": "No water visible in the three elevations, plan views or section insets.",
+    "B01": "Corrected far rear port and raised sill depiction; both opposing openings now visible.",
+    "B02": "Removed duplicate interior-height label; floor thickness indicated.",
+    "limitations": "AI concept sheets retain mild perspective and imperfect dimension-line placement. Use the numerical interface specification, not pixel measurements. These images do not validate existing 3D meshes."
+  },
+  "interface_cm": {
+    "outer_width": 60,
+    "clear_width": 40,
+    "total_height": 40,
+    "floor_thickness": 10,
+    "wall_thickness": 10
+  },
+  "items": [
+    {
+      "id": "B01",
+      "file": "B01_three_view_dry_v002.png",
+      "prompt": "Use case: precise-object-edit. Edit the attached B01 production reference sheet into a DRY EMPTY CONSTRUCTION reference, version dry v002. Keep the SAME object identity, construction, stone blocks, timber mortise joinery, bronze clamps, dimensions, and overall pale parchment technical-sheet composition. Square foundation outer 140 x 140 cm, overall height 40 cm. Preserve BOTH opposing open U-profile ports front and back, external port width 60 cm, clear opening 40 cm, floor thickness 10 cm, walls 10 cm. Interior stone floor is flat at 10 cm above ground and continuously connects both open ports. TOP PRIORITY: REMOVE ALL WATER FROM EVERY SINGLE VIEW AND EVERY DETAIL INSET. Reveal dry matte grey stone bottom and dry inner walls underneath. Remove every waterfall, stream, splash, pool, liquid film, turquoise/blue translucent fill, ripple, wet glint, wet darkening, and blue flow arrow. Do not replace water with a solid infill: the channel remains hollow and open. Main row must show FRONT / RIGHT SIDE / BACK of the same asset, same scale, same ground baseline, orthographic elevations as closely as possible; retain a dry TOP VIEW below so the unobstructed cavity and both open ends can be inspected. All section diagrams must also be EMPTY and DRY. Retain geometric dimensions in cm and mm, including 20 mm joint recess, but DELETE 18 cm water-depth annotations and all text describing visible water. Add small title 'B01 - DRY EMPTY - v002' and note 'Stone body only. Water is a separate runtime mesh.' Neutral light, readable semirealistic old Qingxi masonry, subdued timber and patinated bronze. No new object, no redesign, no added ornaments, no environment water. Complete dry object, never a filled stone box.",
+      "correction": "Precise correction of this DRY B01 technical reference sheet. Keep all existing dry stone materials, same construction, dimensions, panels, labels and bronze/timber details. CRITICAL correct geometric view consistency: in the TOP LEFT FRONT panel, the FAR BACK wall is incorrectly uninterrupted; cut a centered 40 cm clear U-shaped OPENING in that far rear wall, extending all the way down to the SAME flat cavity floor at 10 cm ground height. The rear opening must be clearly visible aligned behind the near front opening, as already shown in the TOP RIGHT BACK panel and the plan view. There are TWO opposing unobstructed ports. In all views and the center U-profile detail, remove any raised transverse stone sill across either port; the floor must remain flat and flush along the water passage with no step or obstruction. Keep side walls and their joinery. Do not add water anywhere. Entire sheet stays dry empty, matte stone. No blue lines, no liquids. Change bottom-right caption from WATER FLOOR SECTION to DRY FLOOR SECTION. Only correct these opening/floor details and caption; preserve the rest."
+    },
+    {
+      "id": "B02",
+      "file": "B02_three_view_dry_v002.png",
+      "prompt": "Use case: precise-object-edit. Edit the attached B02 production reference sheet into a DRY EMPTY CONSTRUCTION reference, version dry v002. Keep the SAME object identity, construction, stone blocks, timber mortise joinery, bronze clamps, dimensions, and overall pale parchment technical-sheet composition. Short straight trough length 100 cm, width 60 cm, height 40 cm. BOTH ends fully OPEN U-profile, clear channel width 40 cm, floor thickness 10 cm, walls 10 cm. No end caps, no transverse sill obstructing flow. Flat dry floor continuous from front to back. TOP PRIORITY: REMOVE ALL WATER FROM EVERY SINGLE VIEW AND EVERY DETAIL INSET. Reveal dry matte grey stone bottom and dry inner walls underneath. Remove every waterfall, stream, splash, pool, liquid film, turquoise/blue translucent fill, ripple, wet glint, wet darkening, and blue flow arrow. Do not replace water with a solid infill: the channel remains hollow and open. Main row must show FRONT / RIGHT SIDE / BACK of the same asset, same scale, same ground baseline, orthographic elevations as closely as possible; retain a dry TOP VIEW below so the unobstructed cavity and both open ends can be inspected. All section diagrams must also be EMPTY and DRY. Retain geometric dimensions in cm and mm, including 20 mm joint recess, but DELETE 18 cm water-depth annotations and all text describing visible water. Add small title 'B02 - DRY EMPTY - v002' and note 'Stone body only. Water is a separate runtime mesh.' Neutral light, readable semirealistic old Qingxi masonry, subdued timber and patinated bronze. No new object, no redesign, no added ornaments, no environment water. Complete dry object, never a filled stone box.",
+      "correction": "Precise text-only correction of the attached B02 DRY EMPTY v002 technical sheet. Preserve absolutely all object imagery, dry empty channel, layout, dimensions elsewhere, material and all three views. In the bottom-row CROSS SECTION inset only: there are TWO vertical labels saying 40 cm, one interior and one outer. Delete the interior 40 cm annotation and its interior dimension line completely. KEEP the outer total-height 40 cm annotation and the width annotations. In its place add a small clear dimension for the bottom stone slab thickness labeled '10 cm', with arrow spanning only the slab. Do not change anything else. No water anywhere, no change to the dry appearance or form."
+    }
+  ]
+}

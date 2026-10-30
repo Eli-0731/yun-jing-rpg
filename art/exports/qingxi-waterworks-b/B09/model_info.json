@@ -1,0 +1,116 @@
+{
+  "id": "B09",
+  "name": "流速指示浮標",
+  "family": "B09",
+  "variant": "B09",
+  "author": "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模",
+  "status": "建模完成（程序化母稿），待人工精修審核",
+  "reference": "art/references/qingxi-waterworks-b/B09_three_view_dry_v002.png",
+  "units": "m",
+  "up": "Blender +Z / glTF +Y",
+  "flow_axis": "入口在原點，水流朝 +Y",
+  "standard": {
+    "outer_w": 0.6,
+    "clear_w": 0.4,
+    "total_h": 0.4,
+    "floor_t": 0.1,
+    "water_z": 0.28,
+    "grid": 0.25
+  },
+  "ports": [],
+  "flows": [],
+  "water_polys": [],
+  "sockets": [],
+  "parts": [
+    "body"
+  ],
+  "footprint_cells": [],
+  "stats": {
+    "tris": 2010,
+    "verts": 1031,
+    "materials": [
+      "ww_bronze",
+      "ww_cloth",
+      "ww_rope",
+      "ww_wood"
+    ],
+    "bbox_min": [
+      -0.06,
+      -0.7483,
+      -0.2
+    ],
+    "bbox_max": [
+      0.06,
+      0.125,
+      0.375
+    ],
+    "size": [
+      0.12,
+      0.8733,
+      0.575
+    ]
+  },
+  "qa": {
+    "body": {
+      "islands": 18,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    }
+  },
+  "notes": [
+    "乾燥展示：龍骨著地、繩鬆垂、旗下垂；木樁在 -Y 上游 0.72 m，地下 20 cm。",
+    "緊繩姿勢（旗向後飄、浮體被拉向下游）由引擎內切換，母稿只做鬆繩版本。",
+    "參考圖 18 cm 是原水深標註，不是牆高；浮標不參與拼接。"
+  ],
+  "states": {
+    "slack": {
+      "rope": "sag"
+    },
+    "taut": {
+      "rope": "straight",
+      "float_offset_y": 0.0
+    }
+  },
+  "collision": "浮體盒 25 × 12 × 12 cm；繩與旗不碰撞",
+  "lod": {
+    "LOD0": 2010,
+    "LOD1": 1004,
+    "LOD2": 300,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.149
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
+  },
+  "extra": {},
+  "exports": {
+    "glb": "B09.glb",
+    "fbx": "B09.fbx"
+  },
+  "reimport": {
+    "file": "art/exports/qingxi-waterworks-b/B09/B09.glb",
+    "tris": 2010,
+    "size": [
+      0.12,
+      0.8733,
+      0.575
+    ],
+    "materials": [
+      "ww_bronze.001",
+      "ww_cloth.001",
+      "ww_rope.001",
+      "ww_wood.001"
+    ],
+    "empties": [],
+    "size_error_m": 0.0,
+    "tris_match": true,
+    "lod_tris": {
+      "LOD1": 1004,
+      "LOD2": 300
+    },
+    "textures_embedded": 2
+  }
+}
