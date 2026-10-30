@@ -1,0 +1,66 @@
+[
+  {
+    "id": "B03",
+    "source": "D:/yun-jing-waterworks-b/art/references/qingxi-waterworks-b/B03_three_view.png",
+    "generated": "C:\\Users\\joshs\\.codex\\generated_images\\01a185ef-5442-7b33-b232-eefa68269c54\\exec-24747d3e-70b0-4456-a616-191733aed6cb.png",
+    "file": "B03_three_view_dry_v002.png",
+    "prompt": "Use case: precise-object-edit. Convert the attached B03 Qingxi waterworks reference sheet to DRY EMPTY construction state, keeping its original object identity and shape, stone/cedar/bronze materials, panel composition, all dimensions and FRONT / RIGHT SIDE / BACK views. Keep the exact L-shaped channel and turn handedness. Both perpendicular U-profile ports remain OPEN, linked by a continuous DRY floor around the corner. Remove the blue arrows and 18 cm water annotation in every panel including section. Preserve the 100 x 100 x 40 cm overall and 60 cm outer / 40 cm clear port. ABSOLUTELY NO WATER anywhere, including ALL top views, sections, installation insets, and repair/status thumbnails. Expose matte dry stone bottom and inner wall surfaces formerly hidden by water. No blue translucent fill, pools, ripples, waterfalls, wet glints, or water effects. Do not fill the hollow channel with stone or cap a port. Remove liquid-level annotations, keep construction dimensions. Add small legible label 'B03 - DRY v002' and 'Water mesh separate'. Pale parchment backdrop and original semirealistic material style. This is the same design in dry state, not a new shape variant.",
+    "review": "dry; geometry correction pending"
+  },
+  {
+    "id": "B04",
+    "source": "D:/yun-jing-waterworks-b/art/references/qingxi-waterworks-b/B04_three_view.png",
+    "generated": "C:\\Users\\joshs\\.codex\\generated_images\\01a185ef-5442-7b33-b232-eefa68269c54\\exec-90e7f65b-c2b2-4ac8-98c6-419c1330e5cc.png",
+    "file": "B04_three_view_dry_v002.png",
+    "prompt": "Use case: precise-object-edit. Convert the attached B04 Qingxi waterworks reference sheet to DRY EMPTY construction state, keeping its original object identity and shape, stone/cedar/bronze materials, panel composition, all dimensions and FRONT / RIGHT SIDE / BACK views. Keep the exact T-junction: one front stem and left and right open outlets, rear closed wall. All three ports must remain open to the same flat dry stone floor. Preserve the low chamfered splitter nose. Replace water in splitter detail too. Preserve 120 x 100 x 40 cm and 60 cm outer/40 cm clear port. Remove blue arrows. ABSOLUTELY NO WATER anywhere, including ALL top views, sections, installation insets, and repair/status thumbnails. Expose matte dry stone bottom and inner wall surfaces formerly hidden by water. No blue translucent fill, pools, ripples, waterfalls, wet glints, or water effects. Do not fill the hollow channel with stone or cap a port. Remove liquid-level annotations, keep construction dimensions. Add small legible label 'B04 - DRY v002' and 'Water mesh separate'. Pale parchment backdrop and original semirealistic material style. This is the same design in dry state, not a new shape variant.",
+    "review": "dry; geometry correction pending"
+  },
+  {
+    "id": "B05",
+    "source": "D:/yun-jing-waterworks-b/art/references/qingxi-waterworks-b/B05_three_view.png",
+    "generated": "C:\\Users\\joshs\\.codex\\generated_images\\01a185ef-5442-7b33-b232-eefa68269c54\\exec-1d652353-ec87-4b01-80ea-7ec9f1e4c5bf.png",
+    "file": "B05_three_view_dry_v002.png",
+    "prompt": "Use case: precise-object-edit. Convert the attached B05 Qingxi waterworks reference sheet to DRY EMPTY construction state, keeping its original object identity and shape, stone/cedar/bronze materials, panel composition, all dimensions and FRONT / RIGHT SIDE / BACK views. Keep the manual wooden gate including closed and raised-open operating state insets, rack, guide, bronze fittings and shaft connector. CLOSED gate bottom must reach the dry stone channel floor (10 cm above ground); OPEN state raises the very same panel 32 cm, showing empty air and dry floor underneath. No liquid in any main view or inset. Preserve 150 cm height, 80 cm frame width, panel 44 x 40 x 5 cm, axle height 90 cm and grip 105 cm. Delete 18 cm water-depth marks only. ABSOLUTELY NO WATER anywhere, including ALL top views, sections, installation insets, and repair/status thumbnails. Expose matte dry stone bottom and inner wall surfaces formerly hidden by water. No blue translucent fill, pools, ripples, waterfalls, wet glints, or water effects. Do not fill the hollow channel with stone or cap a port. Remove liquid-level annotations, keep construction dimensions. Add small legible label 'B05 - DRY v002' and 'Water mesh separate'. Pale parchment backdrop and original semirealistic material style. This is the same design in dry state, not a new shape variant.",
+    "review": "visually inspected: no water in main views or insets; AI projection and dimension annotations remain illustrative"
+  },
+  {
+    "id": "B06",
+    "source": "D:/yun-jing-waterworks-b/art/references/qingxi-waterworks-b/B06_three_view.png",
+    "generated": "C:\\Users\\joshs\\.codex\\generated_images\\01a185ef-5442-7b33-b232-eefa68269c54\\exec-1415f484-92c5-4444-bf99-4e51b5279e0c.png",
+    "file": "B06_three_view_dry_v002.png",
+    "prompt": "Use case: precise-object-edit. Convert the attached B06 Qingxi waterworks reference sheet to DRY EMPTY construction state, keeping its original object identity and shape, stone/cedar/bronze materials, panel composition, all dimensions and FRONT / RIGHT SIDE / BACK views. Preserve the gate wheel itself exactly, including bronze patina, wooden spokes and handle, axle, gear, square coupling and the three main views. This wheel is already dry. Remove ONLY the blue liquid fill in bottom-left B05 interface cross section and any liquid elsewhere. That section must be hollow empty U profile with a dry stone floor. The gray contextual B05 gate installation stays gray and dry. Preserve axle center height 90 cm, wheel diameter 50 cm, shaft 35 cm. Do not confuse bronze turquoise patina with water; preserve patina. ABSOLUTELY NO WATER anywhere, including ALL top views, sections, installation insets, and repair/status thumbnails. Expose matte dry stone bottom and inner wall surfaces formerly hidden by water. No blue translucent fill, pools, ripples, waterfalls, wet glints, or water effects. Do not fill the hollow channel with stone or cap a port. Remove liquid-level annotations, keep construction dimensions. Add small legible label 'B06 - DRY v002' and 'Water mesh separate'. Pale parchment backdrop and original semirealistic material style. This is the same design in dry state, not a new shape variant.",
+    "review": "visually inspected: no water in main views or insets; AI projection and dimension annotations remain illustrative"
+  },
+  {
+    "id": "B07",
+    "source": "D:/yun-jing-waterworks-b/art/references/qingxi-waterworks-b/B07_three_view.png",
+    "generated": "C:\\Users\\joshs\\.codex\\generated_images\\01a185ef-5442-7b33-b232-eefa68269c54\\exec-05be3329-af22-477f-9bce-4ea7b6b5fb25.png",
+    "file": "B07_three_view_dry_v002.png",
+    "prompt": "Use case: precise-object-edit. Edit attached B07 Qingxi reference sheet to dry construction state. Preserve the repair saddle 45 x 20 x 8 cm, straps and clay seal. Main object already dry: change only liquid in BEFORE and AFTER installation examples to dry empty trough. BEFORE shows a clearly open wall crack without leaking liquid. AFTER shows the patch fitted over the same crack without liquid. Preserve 'A FIT: VERIFY'. Remove claims of currently flowing/leaking water and blue arrows. Preserve original same design, materials, numbered identity and FRONT / RIGHT SIDE / BACK three views. Absolutely NO LIQUID anywhere on the sheet, including tiny sections, diagrams and background. No puddles, ripples, wet highlights, blue transparent fills. Preserve aged copper patina and existing dry moss. Add small 'B07 - DRY v002' and 'Water mesh separate'. All geometric dimensions retained, no new assets, no redesign.",
+    "review": "visually inspected: no water in main views or insets; AI projection and dimension annotations remain illustrative"
+  },
+  {
+    "id": "B08",
+    "source": "D:/yun-jing-waterworks-b/art/references/qingxi-waterworks-b/B08_three_view.png",
+    "generated": "C:\\Users\\joshs\\.codex\\generated_images\\01a185ef-5442-7b33-b232-eefa68269c54\\exec-7f326f18-29f6-4627-b4fa-22fabd2873f9.png",
+    "file": "B08_three_view_dry_v002.png",
+    "prompt": "Use case: precise-object-edit. Edit attached B08 Qingxi reference sheet to dry construction state. Preserve cedar dredging sieve 60 x 45 x 12 cm, bronze mesh with 10 mm holes and 110 cm handle. Main views already dry. Remove water from bottom channel-section inset and working-state inset. Show sieve resting on a dry sand-and-pebble riverbed, handle held by existing scale silhouette, no blue arrows, no wet mud, no splash. All apertures of sieve stay open. Preserve original same design, materials, numbered identity and FRONT / RIGHT SIDE / BACK three views. Absolutely NO LIQUID anywhere on the sheet, including tiny sections, diagrams and background. No puddles, ripples, wet highlights, blue transparent fills. Preserve aged copper patina and existing dry moss. Add small 'B08 - DRY v002' and 'Water mesh separate'. All geometric dimensions retained, no new assets, no redesign.",
+    "review": "visually inspected: no water in main views or insets; AI projection and dimension annotations remain illustrative"
+  },
+  {
+    "id": "B09",
+    "source": "D:/yun-jing-waterworks-b/art/references/qingxi-waterworks-b/B09_three_view.png",
+    "generated": "C:\\Users\\joshs\\.codex\\generated_images\\01a185ef-5442-7b33-b232-eefa68269c54\\exec-74223822-feb9-4533-bdb3-563a7ff6daa5.png",
+    "file": "B09_three_view_dry_v002.png",
+    "prompt": "Use case: precise-object-edit. Edit attached B09 Qingxi reference sheet to dry construction state. Preserve the identical boat-shaped wooden float, bronze keel, red pennant, rope and anchor stake. Remove waterline from FRONT RIGHT BACK and expose entire dry hull with complete keel. Replace bottom slow/fast water demonstrations with dry hardware pose diagrams on neutral background: SLACK TETHER and TAUT TETHER, preserving rope and flag pose difference, NO water, wakes or arrows. Dry display poses are diagrams, not a claim it floats without water. Remove all liquid from channel-section inset. Preserve hull 25 x 12 x 10 cm, mast20 cm and rope60 cm. Preserve original same design, materials, numbered identity and FRONT / RIGHT SIDE / BACK three views. Absolutely NO LIQUID anywhere on the sheet, including tiny sections, diagrams and background. No puddles, ripples, wet highlights, blue transparent fills. Preserve aged copper patina and existing dry moss. Add small 'B09 - DRY v002' and 'Water mesh separate'. All geometric dimensions retained, no new assets, no redesign.",
+    "review": "visually inspected: no water in main views or insets; AI projection and dimension annotations remain illustrative"
+  },
+  {
+    "id": "B10",
+    "source": "D:/yun-jing-waterworks-b/art/references/qingxi-waterworks-b/B10_three_view.png",
+    "generated": "C:\\Users\\joshs\\.codex\\generated_images\\01a185ef-5442-7b33-b232-eefa68269c54\\exec-63a6cb4e-57a0-4506-8c46-2ac3a2ff6520.png",
+    "file": "B10_three_view_dry_v002.png",
+    "prompt": "Use case: precise-object-edit. Edit attached B10 Qingxi reference sheet to dry construction state. Preserve wooden support bent and joinery; two 12 x12 posts driven 30 cm into visible soil cutaway, beam top50 cm, beam100 x16 x16. Remove ALL pale blue water fills from ghosted supported stone trough in main three views AND installation context; contextual trough must be hollow dry stone or neutral gray linework. Remove water arrow and 18 cm water depth note. Trough bottom must sit directly on beam top, no floating gap. Preserve scale and underground roots. Preserve original same design, materials, numbered identity and FRONT / RIGHT SIDE / BACK three views. Absolutely NO LIQUID anywhere on the sheet, including tiny sections, diagrams and background. No puddles, ripples, wet highlights, blue transparent fills. Preserve aged copper patina and existing dry moss. Add small 'B10 - DRY v002' and 'Water mesh separate'. All geometric dimensions retained, no new assets, no redesign.",
+    "review": "visually inspected: no water in main views or insets; AI projection and dimension annotations remain illustrative"
+  }
+]
