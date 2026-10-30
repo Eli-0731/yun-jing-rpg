@@ -1,0 +1,115 @@
+{
+ "id": "A09",
+ "variant": "single",
+ "key": "A09_WaterGauge",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.7,
+  0.7759,
+  1.6492
+ ],
+ "triangles": 1438,
+ "lod_triangles": [
+  1438,
+  718,
+  214
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   0.14,
+   0.14,
+   1.65
+  ],
+  "center": [
+   0,
+   0,
+   0.82
+  ],
+  "note": "zero of the scale = river tile base: today 0.30 m, old high water 0.86 m (rope); hint water_gauge"
+ },
+ "nodes": {
+  "land": [
+   "A09_WaterGauge_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A09_WaterGauge_Foliage"
+  ]
+ },
+ "collision_hull": {
+  "node": "A09_WaterGauge_Collision",
+  "triangles": 108,
+  "note": "convex hull of the solid parts; use as a convex MeshCollider, never render"
+ },
+ "sockets": [],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A09_WaterGauge",
+  "dimensions_m": [
+   0.7,
+   0.7759,
+   1.6492
+  ],
+  "bbox_min": [
+   -0.35,
+   -0.4259,
+   0.0
+  ],
+  "bbox_max": [
+   0.35,
+   0.35,
+   1.6492
+  ],
+  "trianglesLOD": [
+   1438,
+   718,
+   214
+  ],
+  "budgetLOD0": 4000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A09_WaterGauge"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A09_WaterGauge_LOD0",
+   "A09_WaterGauge_Foliage"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 108,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 1438,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "M_A09_WaterGauge.001"
+   ]
+  },
+  "files": {
+   "A09_WaterGauge.glb": {
+    "bytes": 345200,
+    "sha256": "9f55c3aa4f17af05f5be64ee48c6e8f0d903fafb9e6fadd7a223283ce1e930a0"
+   },
+   "A09_WaterGauge.fbx": {
+    "bytes": 180940,
+    "sha256": "cad0fde20523934ea3dab5d06ae52ab6b6559ea7b56d3c28e3a5a1c0de5a259f"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A09_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
