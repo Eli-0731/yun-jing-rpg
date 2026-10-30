@@ -48,7 +48,7 @@ namespace YunJing.Editor
                 throw new InvalidOperationException("Local walkthrough must not contain network or account services.");
             if (UnityEngine.Object.FindAnyObjectByType<QingxiWalkthroughController>() == null || Camera.main == null)
                 throw new InvalidOperationException("Walkthrough player or camera missing.");
-            if (GameObject.Find("Qingxi listening terrace") == null || GameObject.Find("Qingxi timber bridge") == null)
+            if (GameObject.Find("Qingxi listening terrace") == null || GameObject.Find("Qingxi stone bridge") == null)
                 throw new InvalidOperationException("Walkthrough world landmarks missing.");
         }
 

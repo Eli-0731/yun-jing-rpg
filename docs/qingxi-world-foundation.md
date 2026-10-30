@@ -1,5 +1,7 @@
 # 青溪初始世界雛形 v1
 
+> **2026-10-29：** 本文提到的古樹 v1 與木橋 v1已依 z1nnz 指示從 repo 刪除，連結的模型、三視圖與母稿不再存在。原因與找回方式見 [舊模型清理](execution/legacy-model-cleanup-2026-10-29.md)。
+
 這是一個可供決定比例、視線與遊玩路線的**大世界第一塊區域**，不是完整州域或完成美術。以先前選定的 [世界方向圖](../art/references/world-master-v1/yun-jing-starting-world-master.png) 為基準，先讓村落與河對岸有明確的空間關係。
 
 ![青溪世界俯視雛形](../art/previews/qingxi-world-v1/qingxi-world-blockout-v1.png)

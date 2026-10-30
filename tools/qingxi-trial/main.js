@@ -162,7 +162,6 @@ async function placeModel(path, x, z, extent, axis = 'width', rotation = 0) {
 const assets = [
   ['../../art/exports/qingxi-road-props-v13/qingxi-road-v13.glb', 0, 6, 17, 'width'],
   ['../../art/exports/qingxi-entry-assets-v13/village-gate-v13.glb', 0, 8, 6.5, 'width'],
-  ['../../art/exports/qingxi-riverside-house-v1/qingxi-riverside-house-v1.glb', 5.4, 2.4, 7, 'width'],
   ['../../art/exports/elder-world-tree-hero-v1/elder-world-tree-hero-v1.glb', -5, 7, 6.8, 'height'],
   ['../../art/exports/qingxi-listening-terrace-v1.glb', 14.6, 6, 9, 'width'],
   ['../../art/exports/qingxi-riverbank-v2/qingxi-riverbank-v2.glb', -6.5, 12, 12, 'width', Math.PI],
@@ -205,7 +204,7 @@ const loading = Promise.allSettled(assets.map(async ([path, x, z, extent, axis, 
       flowingWater.push(part.material.map);
     });
   }
-  if (path.includes('village-gate') || path.includes('riverside-house') || path.includes('elder-world-tree')) cameraBlockers.push(loaded.root);
+  if (path.includes('village-gate') || path.includes('elder-world-tree')) cameraBlockers.push(loaded.root);
   return loaded;
 }));
 // The larger Unity town uses its own builder. This is its walkable entrance
@@ -323,7 +322,7 @@ function distance(object) { return Math.hypot(player.position.x - object.positio
 function nearest() {
   return [['青溪入口告示', entrance], ['村門演武', practice], ['青溪靈草', herb],
     ['回村分揀桌', returnTable], ['溪畔煉製工坊', workshop], ['山兔林地遭遇', forest],
-    ['客舍商販', vendor], ['聽風台', terrace]]
+    ['路邊商販', vendor], ['聽風台', terrace]]
     .map(([name, object]) => ({ name, object, d: distance(object) })).sort((a, b) => a.d - b.d)[0];
 }
 function interact() {
