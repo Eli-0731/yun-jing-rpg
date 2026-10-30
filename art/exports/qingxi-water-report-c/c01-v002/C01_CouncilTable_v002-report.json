@@ -1,0 +1,48 @@
+{
+ "asset": "C01_CouncilTable_v002",
+ "authors": "Eli-0731",
+ "reference": "art/references/qingxi-water-report-c/C01-three-view.png",
+ "dimensions_xyz_m": [
+  1.0992,
+  1.1028,
+  0.625
+ ],
+ "source_parts": 65,
+ "stats": {
+  "C01_CouncilTable_LOD0": {
+   "triangles": 6860,
+   "vertices": 3502,
+   "materials": 5
+  },
+  "C01_CouncilTable_LOD1": {
+   "triangles": 2734,
+   "vertices": 1415,
+   "materials": 5
+  },
+  "C01_CouncilTable_LOD2": {
+   "triangles": 568,
+   "vertices": 316,
+   "materials": 3
+  },
+  "C01_CouncilTable_Collider": {
+   "triangles": 44,
+   "vertices": 24,
+   "materials": 0
+  }
+ },
+ "open_edge_parts": {},
+ "textures": {
+  "C01_bronze_albedo.png": "512x512",
+  "C01_hemp_albedo.png": "512x512",
+  "C01_inlay_albedo.png": "512x512",
+  "C01_stone_albedo.png": "512x512",
+  "C01_wood_albedo.png": "512x512"
+ },
+ "materials": [
+  "C01_Wood",
+  "C01_AgedBronze",
+  "C01_InlayRecess",
+  "C01_Hemp",
+  "C01_Stone"
+ ]
+}
