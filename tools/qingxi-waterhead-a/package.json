@@ -1,0 +1,1 @@
+{"name":"qingxi-waterhead-a","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test investigation.test.mjs"},"dependencies":{"three":"0.170.0"}}

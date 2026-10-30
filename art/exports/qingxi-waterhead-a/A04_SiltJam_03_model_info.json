@@ -1,0 +1,112 @@
+{
+ "id": "A04",
+ "variant": "mound 03: log jam",
+ "key": "A04_SiltJam_03",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  2.93,
+  2.6044,
+  0.508
+ ],
+ "triangles": 2640,
+ "lod_triangles": [
+  2640,
+  1320,
+  378
+ ],
+ "collision": {
+  "type": "capsule",
+  "radius": 0.17,
+  "from_": [
+   -1.45,
+   -0.45,
+   0.14
+  ],
+  "to": [
+   1.45,
+   -0.42,
+   0.13
+  ],
+  "note": "log blocks; silt walkable"
+ },
+ "nodes": {
+  "land": [
+   "A04_SiltJam_03_LOD0"
+  ],
+  "water": [
+   "A04_SiltJam_03_Water"
+  ],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A04_SiltJam_03",
+  "dimensions_m": [
+   2.93,
+   2.6044,
+   0.508
+  ],
+  "bbox_min": [
+   -1.465,
+   -1.0044,
+   0.0
+  ],
+  "bbox_max": [
+   1.465,
+   1.6,
+   0.508
+  ],
+  "trianglesLOD": [
+   2640,
+   1320,
+   378
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "LowWater",
+   "M_A04_SiltJam_03"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A04_SiltJam_03_LOD0",
+   "A04_SiltJam_03_Water"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 652,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 2640,
+   "trianglesMatch": true,
+   "bboxMatch": false,
+   "materials": [
+    "LowWater.001",
+    "M_A04_SiltJam_03.001"
+   ]
+  },
+  "files": {
+   "A04_SiltJam_03.glb": {
+    "bytes": 614272,
+    "sha256": "23bef2a8bb52fda398825e05a4cc6c7cd7025935f3e247c761be3fc699e9d7a5"
+   },
+   "A04_SiltJam_03.fbx": {
+    "bytes": 353532,
+    "sha256": "c4f60acbee7406dcd421164d9384c2413c6bf7b357440851ff1ad38bfc0018dc"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A04_silt_jam_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
