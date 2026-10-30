@@ -1,0 +1,248 @@
+{
+  "id": "B02-V05",
+  "name": "終止放流坡",
+  "family": "B02",
+  "variant": "B02-V05",
+  "author": "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模",
+  "status": "建模完成（程序化母稿），待人工精修審核",
+  "reference": "art/references/qingxi-waterworks-b/B02_V05_three_view_dry_v002.png",
+  "units": "m",
+  "up": "Blender +Z / glTF +Y",
+  "flow_axis": "入口在原點，水流朝 +Y",
+  "standard": {
+    "outer_w": 0.6,
+    "clear_w": 0.4,
+    "total_h": 0.4,
+    "floor_t": 0.1,
+    "water_z": 0.28,
+    "grid": 0.25
+  },
+  "ports": [
+    {
+      "name": "in",
+      "pos": [
+        0,
+        0,
+        0.0
+      ],
+      "dir": [
+        0,
+        -1
+      ],
+      "kind": "in"
+    },
+    {
+      "name": "discharge",
+      "pos": [
+        0,
+        0.8,
+        0.0
+      ],
+      "dir": [
+        0,
+        1
+      ],
+      "kind": "discharge"
+    }
+  ],
+  "flows": [
+    {
+      "name": "main",
+      "path": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.05
+        ],
+        [
+          0.0,
+          0.1
+        ],
+        [
+          0.0,
+          0.15
+        ],
+        [
+          0.0,
+          0.2
+        ],
+        [
+          0.0,
+          0.25
+        ],
+        [
+          0.0,
+          0.3
+        ],
+        [
+          0.0,
+          0.35
+        ],
+        [
+          0.0,
+          0.4
+        ],
+        [
+          0.0,
+          0.45
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.55
+        ],
+        [
+          0.0,
+          0.6
+        ],
+        [
+          0.0,
+          0.65
+        ],
+        [
+          0.0,
+          0.7
+        ],
+        [
+          0.0,
+          0.75
+        ],
+        [
+          0.0,
+          0.8
+        ]
+      ],
+      "z0": 0.28,
+      "z1": 0.09,
+      "width": 0.39,
+      "frm": "in",
+      "to": "discharge"
+    }
+  ],
+  "water_polys": [],
+  "sockets": [],
+  "parts": [
+    "body"
+  ],
+  "footprint_cells": [
+    [
+      -2,
+      2
+    ],
+    [
+      -1,
+      0
+    ],
+    [
+      -1,
+      1
+    ],
+    [
+      -1,
+      2
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "stats": {
+    "tris": 5304,
+    "verts": 2756,
+    "materials": [
+      "ww_bronze",
+      "ww_stone",
+      "ww_stone_moss"
+    ],
+    "bbox_min": [
+      -0.4471,
+      0.0,
+      -0.0024
+    ],
+    "bbox_max": [
+      0.4471,
+      0.8414,
+      0.4018
+    ],
+    "size": [
+      0.8942,
+      0.8414,
+      0.4042
+    ]
+  },
+  "qa": {
+    "body": {
+      "islands": 52,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    }
+  },
+  "notes": [
+    "終止件：只有入口；水由前緣弧形放流口散出到溪道或田埂水溝。"
+  ],
+  "states": {},
+  "collision": "以 footprint 盒＋各牆盒組成；水面不碰撞",
+  "lod": {
+    "LOD0": 5304,
+    "LOD1": 2652,
+    "LOD2": 794,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.15
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
+  },
+  "extra": {},
+  "exports": {
+    "glb": "B02-V05.glb",
+    "water_glb": "B02-V05_water.glb",
+    "water_fbx": "B02-V05_water.fbx",
+    "fbx": "B02-V05.fbx"
+  },
+  "reimport": {
+    "file": "art/exports/qingxi-waterworks-b/B02-V05/B02-V05.glb",
+    "tris": 5304,
+    "size": [
+      0.8942,
+      0.8414,
+      0.4042
+    ],
+    "materials": [
+      "ww_bronze.001",
+      "ww_stone.001",
+      "ww_stone_moss.001"
+    ],
+    "empties": [
+      "SOCKET_discharge.001",
+      "SOCKET_in.005"
+    ],
+    "size_error_m": 0.0,
+    "tris_match": true,
+    "lod_tris": {
+      "LOD1": 2652,
+      "LOD2": 794
+    },
+    "textures_embedded": 4
+  }
+}

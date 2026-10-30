@@ -1,0 +1,115 @@
+{
+  "id": "B06",
+  "name": "青銅水位閘輪",
+  "family": "B06",
+  "variant": "B06",
+  "author": "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模",
+  "status": "建模完成（程序化母稿），待人工精修審核",
+  "reference": "art/references/qingxi-waterworks-b/B06_three_view_dry_v003_side_operation.png",
+  "units": "m",
+  "up": "Blender +Z / glTF +Y",
+  "flow_axis": "入口在原點，水流朝 +Y",
+  "standard": {
+    "outer_w": 0.6,
+    "clear_w": 0.4,
+    "total_h": 0.4,
+    "floor_t": 0.1,
+    "water_z": 0.28,
+    "grid": 0.25
+  },
+  "ports": [],
+  "flows": [],
+  "water_polys": [],
+  "sockets": [],
+  "parts": [
+    "body",
+    "wheel"
+  ],
+  "footprint_cells": [],
+  "stats": {
+    "tris": 1072,
+    "verts": 580,
+    "materials": [
+      "ww_bronze",
+      "ww_wood"
+    ],
+    "bbox_min": [
+      -0.165,
+      -0.25,
+      -0.25
+    ],
+    "bbox_max": [
+      0.351,
+      0.25,
+      0.25
+    ],
+    "size": [
+      0.516,
+      0.5,
+      0.5
+    ]
+  },
+  "qa": {
+    "body": {
+      "islands": 1,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    },
+    "wheel": {
+      "islands": 22,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    }
+  },
+  "notes": [
+    "掛在 B05 的 SOCKET_wheel_mount；轉 1 圈閘板升降約 22 cm（小齒輪 Ø7 cm）。",
+    "輪心高 0.90 m、輪緣 0.65–1.15 m，對 1.75 m 角色為腰到胸高。"
+  ],
+  "states": {
+    "rotate_axis": "X",
+    "deg_per_open": 523.8
+  },
+  "collision": "輪盤圓柱 Ø0.5 × 0.05 m；不擋路",
+  "lod": {
+    "LOD0": 1072,
+    "LOD1": 536,
+    "LOD2": 158,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.147
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
+  },
+  "extra": {},
+  "exports": {
+    "glb": "B06.glb",
+    "fbx": "B06.fbx"
+  },
+  "reimport": {
+    "file": "art/exports/qingxi-waterworks-b/B06/B06.glb",
+    "tris": 1072,
+    "size": [
+      0.516,
+      0.5,
+      0.5
+    ],
+    "materials": [
+      "ww_bronze.001",
+      "ww_wood.001"
+    ],
+    "empties": [],
+    "size_error_m": 0.0,
+    "tris_match": true,
+    "lod_tris": {
+      "LOD1": 536,
+      "LOD2": 148
+    },
+    "textures_embedded": 2
+  }
+}

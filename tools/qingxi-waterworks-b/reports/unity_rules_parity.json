@@ -1,0 +1,27 @@
+{
+ "note": "Unity C# 規則與 JS 規則核心逐案比對（data/scenarios.json）。由 WaterworksRulesParity.Run 在 Unity 批次模式產生。",
+ "unity": "6000.0.85f1",
+ "scenarios": [
+  { "name": "direct_restore", "pass": true, "checks": 59, "diffs": [] },
+  { "name": "direct_protect_refused", "pass": true, "checks": 37, "diffs": [] },
+  { "name": "bypass_protect", "pass": true, "checks": 47, "diffs": [] },
+  { "name": "bypass_restore_refused", "pass": true, "checks": 40, "diffs": [] },
+  { "name": "desilt_then_direct", "pass": true, "checks": 44, "diffs": [] },
+  { "name": "direct_gate_closed", "pass": true, "checks": 35, "diffs": [] },
+  { "name": "direct_mud_refused", "pass": true, "checks": 41, "diffs": [] },
+  { "name": "wrong_tee", "pass": true, "checks": 73, "diffs": [] },
+  { "name": "wrong_bend", "pass": true, "checks": 36, "diffs": [] },
+  { "name": "dead_end", "pass": true, "checks": 35, "diffs": [] },
+  { "name": "overlap", "pass": true, "checks": 59, "diffs": [] },
+  { "name": "gap", "pass": true, "checks": 43, "diffs": [] },
+  { "name": "gate_spill", "pass": true, "checks": 38, "diffs": [] },
+  { "name": "wrong_patch", "pass": true, "checks": 50, "diffs": [] },
+  { "name": "no_clues_direct", "pass": true, "checks": 44, "diffs": [] },
+  { "name": "partial_direct_unpatched", "pass": true, "checks": 44, "diffs": [] },
+  { "name": "undo_redo", "pass": true, "checks": 35, "diffs": [] },
+  { "name": "refusals", "pass": true, "checks": 49, "diffs": [] }
+ ],
+ "passed": 18,
+ "total": 18,
+ "checks": 809
+}
