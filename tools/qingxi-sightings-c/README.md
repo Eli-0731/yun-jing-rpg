@@ -106,7 +106,19 @@ npm test                                                      # 規則測試
 
 瀏覽器實測（Claude 內建瀏覽器）：A2 撿銅鈴（連按兩次 F 只記一次）、A3 夜裡撿木齒、雨後撿油紙包、後院撿草鞋、重新整理後進度保留、收藏頁順序正確、844 × 390 橫向手機版面正常。
 
+## 短錄影
+
+`art/previews/qingxi-sightings-c/demo/walkthrough-1min.mp4`（62 秒，1440 × 900，30 fps，H.264，無聲）。一鏡到底實玩：A2 官道走到銅鈴 → 細看、卡片旋轉 → 往北撿一線枯草 → 切夜晚／雨後 → A3 夜裡磨坊微光、白天消失、撿舊木齒 → 收藏頁重新翻開。畫面下方字幕是錄影時疊上的，不在展示頁裡。
+
+重錄：先 `npm start`，再
+
+```bash
+node tools/qingxi-sightings-c/record.mjs <暫存資料夾>/frames
+blender -b --factory-startup -P art/source/qingxi-sightings-c/encode_video.py -- <暫存資料夾>/frames walkthrough-1min.mp4
+```
+
+`record.mjs` 用本機 Chrome（可用環境變數 `CHROME` 指定路徑）的 DevTools 螢幕串流與真按鍵操作，不需安裝額外套件；`encode_video.py` 以 Blender 內建 FFmpeg 依時間戳轉成固定 30 fps。
+
 ## 尚未完成
 
-- 1 分鐘短錄影。
 - 已知限制：A2-F03 斷碑外形仍偏方；A3-F02 自創字形由直線段刻成，筆畫轉角較硬；HOME-F02 右鞋鞋帶在背面。
