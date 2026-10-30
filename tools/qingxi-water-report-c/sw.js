@@ -1,0 +1,8 @@
+const CACHE='qingxi-water-report-c-variants-v1';
+const P='../../art/previews/qingxi-water-report-c/';
+const VARIANTS=['C03_tall_01','C03_low_02','C03_bail_03','C05_notch_01','C05_fork_02','C06_fork_01','C06_slant_02'];
+const FILES=['./index.html','style.css','world-markers.css','fixtures.js','responses.js','state.js','app.js','icon.svg','manifest.webmanifest','walk3d.html','walk3d.css','walk3d.mjs','node_modules/three/build/three.module.js','node_modules/three/build/three.core.js','node_modules/three/examples/jsm/loaders/GLTFLoader.js','node_modules/three/examples/jsm/utils/BufferGeometryUtils.js',...['dry','partial','restored'].flatMap(x=>[P+'corner-'+x+'.png',P+'corner-b-'+x+'.png']),...['C01','C02','C04','C07','C08'].map(x=>P+x+'-close.png'),...VARIANTS.map(x=>P+'variants/'+x+'-close.png'),...['south','north'].map(x=>P+'variants/eye-a-'+x+'-1p7m.png'),...['VillageCorner-a.glb','VillageCorner-b.glb','C06_fork_01-complete.glb','C06_slant_02-complete.glb'].map(x=>'../../art/exports/qingxi-water-report-c/variants/'+x)];
+FILES.push('node_modules/three/examples/jsm/utils/SkeletonUtils.js');
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(x=>x.startsWith('qingxi-water-report-c-')&&x!==CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method==='GET'&&u.origin===location.origin&&['/tools/qingxi-water-report-c/','/art/previews/qingxi-water-report-c/','/art/exports/qingxi-water-report-c/'].some(p=>u.pathname.startsWith(p)))e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request)));});

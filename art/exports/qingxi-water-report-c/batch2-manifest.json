@@ -1,0 +1,383 @@
+{
+  "author": "Eli-0731 / Codex",
+  "batch": 2,
+  "blender": "4.5.3 LTS",
+  "units": "m",
+  "axes": "Z-up, front -Y in Blender; glTF Y-up",
+  "reference_sha256": {
+    "C01-three-view.png": "80a01d43c04202ed6d78961babcb2a2d8f4d564b51cb451cba7b24e9258ee558",
+    "C02-three-view.png": "4867ef590565e78944f1cfc88ed84c7684332187b09c6f73a9f3faad506c64a0",
+    "C03-three-view.png": "f99713a20760fa2163b75d4ce64ddbc8548192cac0f355d327b8d510adb1d340",
+    "C04-three-view.png": "2c7860e282d23986b83e8051bbbfbfbd48a99aa413042620d124ab658e353ff1",
+    "C05-three-view.png": "b894d187cea1668b34bb9f4fc5fcb5f289a90ca117d0eb098a9d07f2fef39511",
+    "C06-three-view.png": "22d7a979988439c811661fd9c5fdd7eed14b6008ae1be16a6cafe12423828cfa",
+    "C07-three-view.png": "b6cf7b8288ebf8071bbc9aa4f2ed410125afbcb3750827e20adbc33b1ea58297",
+    "C08-three-view.png": "f4f5d309e0a04d2b45b4a6cbb6f550c09693c4ebd165d0b544038cd43c0906f7"
+  },
+  "assets": [
+    {
+      "id": "C01",
+      "dimensions_xyz": [
+        1.0999802350997925,
+        1.0969942808151245,
+        0.6304640769958496
+      ],
+      "local_bounds_xyz": [
+        [
+          -0.5499901175498962,
+          0.5499901175498962
+        ],
+        [
+          -0.5484971404075623,
+          0.5484971404075623
+        ],
+        [
+          0.0,
+          0.6304640769958496
+        ]
+      ],
+      "triangles": 2020,
+      "meshes": 23,
+      "materials": 6,
+      "errors": [],
+      "warnings": [],
+      "morphs": 0,
+      "lod_plan": "single prototype LOD; future remove small ties at 10m, cull small props at 25m; not measured",
+      "collision": "planned simple hull/boxes for structural parts; not authored; water, cloth, cord and icons should have no collision",
+      "roundtrip_dimensions_xyz": [
+        1.0999802350997925,
+        1.0969942808151245,
+        0.6304640769958496
+      ],
+      "roundtrip_morphs": 0,
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C02",
+      "dimensions_xyz": [
+        0.7200000286102295,
+        0.36000001430511475,
+        1.1100000143051147
+      ],
+      "local_bounds_xyz": [
+        [
+          -0.36000001430511475,
+          0.36000001430511475
+        ],
+        [
+          -0.18000000715255737,
+          0.18000000715255737
+        ],
+        [
+          0.0,
+          1.1100000143051147
+        ]
+      ],
+      "triangles": 2092,
+      "meshes": 18,
+      "materials": 6,
+      "errors": [],
+      "warnings": [],
+      "morphs": 0,
+      "lod_plan": "single prototype LOD; future remove small ties at 10m, cull small props at 25m; not measured",
+      "collision": "planned simple hull/boxes for structural parts; not authored; water, cloth, cord and icons should have no collision",
+      "roundtrip_dimensions_xyz": [
+        0.7200000286102295,
+        0.36000001430511475,
+        1.1100000143051147
+      ],
+      "roundtrip_morphs": 0,
+      "roundtrip_pass": true,
+      "roundtrip_pivot_preserved": true
+    },
+    {
+      "id": "C03",
+      "dimensions_xyz": [
+        0.6728253662586212,
+        0.3188210427761078,
+        0.5577942132949829
+      ],
+      "local_bounds_xyz": [
+        [
+          -0.35141268372535706,
+          0.32141268253326416
+        ],
+        [
+          -0.1594105213880539,
+          0.1594105213880539
+        ],
+        [
+          0.0,
+          0.5577942132949829
+        ]
+      ],
+      "triangles": 3172,
+      "meshes": 50,
+      "materials": 5,
+      "errors": [],
+      "warnings": [
+        "WaterSurface: intentional single water surface",
+        "WaterSurface.001: intentional single water surface"
+      ],
+      "morphs": 2,
+      "lod_plan": "single prototype LOD; future remove small ties at 10m, cull small props at 25m; not measured",
+      "collision": "planned simple hull/boxes for structural parts; not authored; water, cloth, cord and icons should have no collision",
+      "roundtrip_dimensions_xyz": [
+        0.6728253662586212,
+        0.3188210427761078,
+        0.5577942132949829
+      ],
+      "roundtrip_morphs": 2,
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C04",
+      "dimensions_xyz": [
+        1.2559198141098022,
+        0.06200000271201134,
+        0.3101961314678192
+      ],
+      "local_bounds_xyz": [
+        [
+          -0.6279599070549011,
+          0.6279599070549011
+        ],
+        [
+          -0.03100000135600567,
+          0.03100000135600567
+        ],
+        [
+          0.0,
+          0.3101961314678192
+        ]
+      ],
+      "triangles": 2424,
+      "meshes": 8,
+      "materials": 3,
+      "errors": [],
+      "warnings": [],
+      "morphs": 0,
+      "lod_plan": "single prototype LOD; future remove small ties at 10m, cull small props at 25m; not measured",
+      "collision": "planned simple hull/boxes for structural parts; not authored; water, cloth, cord and icons should have no collision",
+      "roundtrip_dimensions_xyz": [
+        1.2559198141098022,
+        0.06200000271201134,
+        0.3101961612701416
+      ],
+      "roundtrip_morphs": 0,
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C05",
+      "dimensions_xyz": [
+        0.2800000011920929,
+        0.09000000357627869,
+        0.7699999809265137
+      ],
+      "local_bounds_xyz": [
+        [
+          -0.14000000059604645,
+          0.14000000059604645
+        ],
+        [
+          -0.04500000178813934,
+          0.04500000178813934
+        ],
+        [
+          -0.12000000476837158,
+          0.6499999761581421
+        ]
+      ],
+      "triangles": 824,
+      "meshes": 16,
+      "materials": 4,
+      "errors": [],
+      "warnings": [],
+      "morphs": 0,
+      "lod_plan": "single prototype LOD; future remove small ties at 10m, cull small props at 25m; not measured",
+      "collision": "planned simple hull/boxes for structural parts; not authored; water, cloth, cord and icons should have no collision",
+      "roundtrip_dimensions_xyz": [
+        0.2800000011920929,
+        0.09000000357627869,
+        0.7699999809265137
+      ],
+      "roundtrip_morphs": 0,
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C06",
+      "dimensions_xyz": [
+        0.46000000834465027,
+        0.2199999988079071,
+        0.8500000238418579
+      ],
+      "local_bounds_xyz": [
+        [
+          -0.23000000417232513,
+          0.23000000417232513
+        ],
+        [
+          -0.10999999940395355,
+          0.10999999940395355
+        ],
+        [
+          0.0,
+          0.8500000238418579
+        ]
+      ],
+      "triangles": 1256,
+      "meshes": 9,
+      "materials": 5,
+      "errors": [],
+      "warnings": [],
+      "morphs": 0,
+      "lod_plan": "single prototype LOD; future remove small ties at 10m, cull small props at 25m; not measured",
+      "collision": "planned simple hull/boxes for structural parts; not authored; water, cloth, cord and icons should have no collision",
+      "roundtrip_dimensions_xyz": [
+        0.46000000834465027,
+        0.2199999988079071,
+        0.8500000238418579
+      ],
+      "roundtrip_morphs": 0,
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C07",
+      "dimensions_xyz": [
+        0.4850653111934662,
+        0.2800000011920929,
+        0.3329903781414032
+      ],
+      "local_bounds_xyz": [
+        [
+          -0.2425326555967331,
+          0.2425326555967331
+        ],
+        [
+          -0.14000000059604645,
+          0.14000000059604645
+        ],
+        [
+          0.0,
+          0.3329903781414032
+        ]
+      ],
+      "triangles": 2420,
+      "meshes": 14,
+      "materials": 4,
+      "errors": [],
+      "warnings": [],
+      "morphs": 0,
+      "lod_plan": "single prototype LOD; future remove small ties at 10m, cull small props at 25m; not measured",
+      "collision": "planned simple hull/boxes for structural parts; not authored; water, cloth, cord and icons should have no collision",
+      "roundtrip_dimensions_xyz": [
+        0.4850653111934662,
+        0.2800000011920929,
+        0.3329903781414032
+      ],
+      "roundtrip_morphs": 0,
+      "roundtrip_pass": true
+    },
+    {
+      "id": "C08",
+      "dimensions_xyz": [
+        0.6000000238418579,
+        0.25999999046325684,
+        0.9200000166893005
+      ],
+      "local_bounds_xyz": [
+        [
+          -0.30000001192092896,
+          0.30000001192092896
+        ],
+        [
+          -0.12999999523162842,
+          0.12999999523162842
+        ],
+        [
+          0.0,
+          0.9200000166893005
+        ]
+      ],
+      "triangles": 1378,
+      "meshes": 8,
+      "materials": 3,
+      "errors": [],
+      "warnings": [],
+      "morphs": 0,
+      "lod_plan": "single prototype LOD; future remove small ties at 10m, cull small props at 25m; not measured",
+      "collision": "planned simple hull/boxes for structural parts; not authored; water, cloth, cord and icons should have no collision",
+      "roundtrip_dimensions_xyz": [
+        0.6000000238418579,
+        0.25999999046325684,
+        0.9200000166893005
+      ],
+      "roundtrip_morphs": 0,
+      "roundtrip_pass": true
+    }
+  ],
+  "plot_m": [
+    3,
+    5
+  ],
+  "placements_xyz": {
+    "C01": [
+      -0.65,
+      0,
+      0
+    ],
+    "C02": [
+      -0.9,
+      1.4,
+      0
+    ],
+    "C03": [
+      -0.78,
+      -1.3,
+      0
+    ],
+    "C04": [
+      -0.55,
+      -2.0,
+      0
+    ],
+    "C05": [
+      0.18,
+      1.25,
+      0
+    ],
+    "C06": [
+      0.18,
+      -0.6,
+      0
+    ],
+    "C07": [
+      -0.65,
+      0.16,
+      0.631
+    ],
+    "C08": [
+      0.15,
+      2.05,
+      0
+    ]
+  },
+  "character_reference_m": 1.75,
+  "clearance": {
+    "reserved_route_x": [
+      0.52,
+      1.5
+    ],
+    "actual_prop_max_x": 0.45000001788139343,
+    "main_road": "outside the 3x5m proxy; no main-scene edits"
+  },
+  "cloth_variant": {
+    "file": "C06-complete.glb",
+    "roundtrip_dimensions_xyz": [
+      0.46000000834465027,
+      0.2199999988079071,
+      0.8500000238418579
+    ],
+    "pass": true
+  }
+}

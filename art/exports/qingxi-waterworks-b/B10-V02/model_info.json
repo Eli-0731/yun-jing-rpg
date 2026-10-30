@@ -1,0 +1,121 @@
+{
+  "id": "B10-V02",
+  "name": "低矮楔固枕木支架",
+  "family": "B10",
+  "variant": "B10-V02",
+  "author": "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模",
+  "status": "建模完成（程序化母稿），待人工精修審核",
+  "reference": "art/references/qingxi-waterworks-b/B10_V02_three_view_original_dry.png",
+  "units": "m",
+  "up": "Blender +Z / glTF +Y",
+  "flow_axis": "入口在原點，水流朝 +Y",
+  "standard": {
+    "outer_w": 0.6,
+    "clear_w": 0.4,
+    "total_h": 0.4,
+    "floor_t": 0.1,
+    "water_z": 0.28,
+    "grid": 0.25
+  },
+  "ports": [],
+  "flows": [],
+  "water_polys": [],
+  "sockets": [
+    {
+      "name": "trough",
+      "pos": [
+        0,
+        -0.5,
+        0.3
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "parts": [
+    "body"
+  ],
+  "footprint_cells": [],
+  "stats": {
+    "tris": 2156,
+    "verts": 1168,
+    "materials": [
+      "ww_bronze",
+      "ww_stone",
+      "ww_wood"
+    ],
+    "bbox_min": [
+      -0.582,
+      -0.21,
+      -0.32
+    ],
+    "bbox_max": [
+      0.582,
+      0.21,
+      0.44
+    ],
+    "size": [
+      1.164,
+      0.42,
+      0.76
+    ]
+  },
+  "qa": {
+    "body": {
+      "islands": 45,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    }
+  },
+  "notes": [
+    "支承頂 z = 0.30（manifest 審核選 30 cm；原圖 25／30／46 cm 標註互相矛盾）。",
+    "木樁在 x = ±0.46，槽外寬 60 cm 落在兩組木樁之間，不與槽壁衝突；石墩入土 14 cm、木樁入土 30 cm。"
+  ],
+  "states": {},
+  "collision": "枕木盒＋兩石墩盒",
+  "lod": {
+    "LOD0": 2156,
+    "LOD1": 1078,
+    "LOD2": 322,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.149
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
+  },
+  "extra": {},
+  "exports": {
+    "glb": "B10-V02.glb",
+    "fbx": "B10-V02.fbx"
+  },
+  "reimport": {
+    "file": "art/exports/qingxi-waterworks-b/B10-V02/B10-V02.glb",
+    "tris": 2156,
+    "size": [
+      1.164,
+      0.42,
+      0.76
+    ],
+    "materials": [
+      "ww_bronze.001",
+      "ww_stone.001",
+      "ww_wood.001"
+    ],
+    "empties": [
+      "SOCKET_trough.002"
+    ],
+    "size_error_m": 0.0,
+    "tris_match": true,
+    "lod_tris": {
+      "LOD1": 1078,
+      "LOD2": 322
+    },
+    "textures_embedded": 4
+  }
+}

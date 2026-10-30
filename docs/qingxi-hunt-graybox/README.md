@@ -52,6 +52,8 @@ npm test
 
 指定 Unity：**6000.0.82f1**，2026-10-25 已實際啟動並確認 Unity Personal 授權。
 
+`verify-unity-graybox.ps1` 依 `ProjectSettings/ProjectVersion.txt` 的版本號找 Unity，順序為：`-EditorPath` 參數 → `UNITY_EDITOR` 環境變數 → `D:\DevTools\Unity\<版本>` → Unity Hub 預設的 `C:\Program Files\Unity\Hub\Editor\<版本>`。都找不到時，會列出試過的路徑並失敗。
+
 ### 編譯阻擋的原因與修正
 
 原先 FishNet `4.7.4` tag（`a3627529c1875ebe6313c2fc9e2326cbd5d76719`）的公開原始碼殘留不完整 Yak 呼叫：`IterateIncoming`、`SendToServer`、`SendToClient`、`OnLocalServerConnectionState`，造成五個 CS1061／CS0103 錯誤。本機快取與官方該 tag 的錯誤檔案逐一比對一致，並非本機快取損壞。
