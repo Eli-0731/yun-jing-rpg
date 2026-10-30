@@ -17,28 +17,28 @@ v001（`../build.py`、`exports/.../C01.glb`）完全保留未改。
 
 | 類別 | 路徑 |
 |---|---|
-| Source | `C01_CouncilTable_v002.blend`（`C01_v002_Parts` 65 個具名零件；`C01_v002_Export` 為合併匯出物） |
-| 腳本 | `build_c01_v002.py`（重建全部）、`render_rig.py`（固定鏡頭／燈光，匯入匯出檔後渲染） |
+| Source | `C01_CouncilTable_v002.blend`：`C01_v002_Parts_LOD0/1/2` 為各級具名零件（平鋪來源材質），`C01_CouncilTable_Export_LOD*` 為烘焙後單一材質 |
+| 腳本 | `build_c01_v002.py`（三級幾何＋平鋪材質）→ `bake_c01_v002.py`（獨立 UV 烘焙、匯出）；`render_rig.py`（固定鏡頭／燈光，`--ruler` 加 1.75 m 人形尺） |
 | Export | `art/exports/qingxi-water-report-c/c01-v002/C01_CouncilTable_v002.fbx`（Unity：LOD0/1/2＋Collider）、`.glb`（PWA：LOD0）、`-report.json` |
-| Textures | `art/textures/qingxi-water-report-c/c01-v002/`：wood／bronze／stone／hemp／inlay 五張 512² albedo，程序生成可平鋪 |
-| Preview | `art/previews/qingxi-water-report-c/c01-v002/`：`before-v001/`、`after-v002/`（中性光與專案風格光 × 正／側／背／三分之四、線框、contact sheet）、`before-after-threequarter.png` |
+| Textures | `art/textures/qingxi-water-report-c/c01-v002/C01_CouncilTable_v002_{Albedo,Normal,MaskURP,ORM}.png`（1024²）；`C01_*_albedo/normal.png` 為平鋪來源 |
+| Preview | `art/previews/qingxi-water-report-c/c01-v002/`：`before-v001/`、`after-v002/`（含 `ruler/`）、`before-after-threequarter.png` |
 
 ## 技術數據（實測，匯出檔）
 
 | 項目 | LOD0 | LOD1 | LOD2 | Collider |
 |---|---:|---:|---:|---:|
-| Triangles | 6,860 | 2,734 | 568 | 44 |
-| Vertices | 3,502 | 1,415 | 316 | 24 |
-| Materials | 5 | 5 | 3 | 0 |
+| Triangles | 6,932 | 2,528 | 708 | 44 |
+| 比例 | 100% | 36% | 10% | — |
+| Materials | 1 | 1 | 1 | 0 |
 
-- 尺寸 1.099 × 1.103 × 0.625 m（三視圖 1.10 × 0.62 m），Pivot 在地面中心，Z-up；FBX 以專案既有設定 `-Z forward / Y up / FBX_SCALE_ALL` 輸出。
-- 貼圖 5 張 512²，1024 px/m；Source 零件 65；開放邊 0（每個零件皆封閉）。
-- 檔案大小：FBX 280 KB、GLB 1.2 MB（內嵌貼圖）、.blend 1.6 MB、貼圖合計 780 KB。
-- FBX 回匯：4 個物件、三角面、材質與尺寸與輸出一致。
+- 尺寸 1.09 × 1.10 × 0.625 m（三視圖 1.10 × 0.62 m），原點在地面中心；FBX 以專案既有設定 `-Z forward / Y up / FBX_SCALE_ALL` 輸出，三角化後再算切線。
+- **LOD 為手工分級**（`build_c01_v002.py` 的 `LODS`）：LOD1 去掉蝴蝶榫、托木、銅片，四圈繩綁改為一條繩帶、圓弧段數減少；LOD2 再去掉符號與繩、嵌片簡化成圓片。LOD1／LOD2 以 UV 轉移共用 LOD0 的烘焙貼圖。
+- **烘焙材質**：一張材質、四張 1024²：Albedo（含 AO、邊緣磨亮、桌面中圈手摸磨亮、刀痕與杯印、腳下沾泥）、Normal（切線空間）、MaskURP（R 金屬、G AO、A 光滑度，給 URP Lit）、ORM（glTF）。
+- 開放邊 0；UV 全在 0–1。
 
 ### 手機預算（估計值，未經實機）
 
-LOD0 ≤ 7k（僅 3 m 內近景）；LOD1 約 2.7k 作為村角常態距離；LOD2 0.6k 作 15 m 以外；建議 Unity LODGroup 切換 25%／8%／2% 螢幕高。5 個材質槽＝LOD0 5 個 draw call，若場景同時擺多張可把五張貼圖合成 1024² 圖集降為 1–2 槽。無透明材質，無 overdraw 風險。貼圖建議 ASTC 6×6。
+LOD0 ≈ 7k（3 m 內）、LOD1 ≈ 2.5k（村角常態距離）、LOD2 ≈ 0.7k（15 m 外）；建議 LODGroup 切換 25%／8%／2% 螢幕高。單一材質＝每級 1 個 draw call；無透明材質。貼圖建議 ASTC 6×6。
 
 ## Visual Review
 
@@ -69,25 +69,24 @@ LOD0 ≤ 7k（僅 3 m 內近景）；LOD1 約 2.7k 作為村角常態距離；LO
 
 | 項目 | 狀態 |
 |---|---|
-| 已完成 | 依三視圖重建、65 零件 Source、LOD0/1/2、碰撞代理、5 材質＋5 貼圖、FBX／GLB |
-| 技術驗證 | 尺寸、開放邊 0、材質數、FBX 回匯 |
-| 視覺驗證 | Blender Cycles 固定鏡頭 4 輪，正／側／背／三分之四＋線框（已親自檢視渲染圖） |
-| 引擎測試 | **未做**：Unity 匯入、URP Lit 外觀、LODGroup、手機效能皆 UNVERIFIED |
+| 已完成 | 依三視圖重建、手工三級 LOD、碰撞代理、單一烘焙材質、FBX／GLB |
+| 技術驗證 | 尺寸、開放邊 0、UV 範圍、FBX 回匯 |
+| 視覺驗證 | Blender Cycles 固定鏡頭，正／側／背／三分之四、線框、1.75 m 人形尺（已逐輪檢視渲染圖） |
+| 引擎測試 | **未做**：這台電腦沒有安裝 Unity Editor；URP 外觀、LODGroup、手機效能皆未驗證 |
 
-### 已知限制／需人工介入
+### 已知限制
 
-1. **只有 albedo**：無法線、AO、邊緣磨損烘焙；木板表面缺參考圖的裂紋與手工刨痕，需高模烘焙或手繪貼圖。
-2. **LOD1/2 用 Decimate**：LOD1 繩環可見三角化痕跡，需人工清理或重做簡模。
-3. **UV 為世界尺度投影**，非攤平的 0–1 UV，貼圖平鋪；適合 tileable 材質，但不能直接畫獨特細節。
-4. **腿頂繩綁是環狀疊放**，非連續螺旋；近看不如參考圖的纏繞感。
-5. 參考圖的推測部分：桌底結構（托木）與第三條腿位於後方中心，皆為依三視圖推定。
-6. FBX 的貼圖是相對路徑引用（未內嵌）；匯入 Unity 時需連同 `art/textures/.../c01-v002/` 一起帶入並重新指定 URP 材質。
-7. 本版尚未接入 PWA 村角展示（仍用 v001 的 `C01.glb`），也未提交 Git。
+1. 桌面刀痕、杯印、磨亮與沾泥是程序生成的貼圖，近看仍比手繪貼圖規律。
+2. 腿頂繩綁是環狀疊放，非連續螺旋。
+3. 桌底托木與第三條腿位於後方中心，依三視圖推定。
+4. FBX 的貼圖為相對路徑引用；匯入 Unity 時需連同 `art/textures/.../c01-v002/` 一起帶入，並把 MaskURP 指定給 URP Lit 的 Metallic／Occlusion。
+5. PWA 村角仍使用 v001。
 
 ## 重建
 
 ```bash
 blender -b --factory-startup -P art/source/qingxi-water-report-c/c01-v002/build_c01_v002.py
-blender -b --factory-startup -P art/source/qingxi-water-report-c/c01-v002/render_rig.py -- --glb <abs>/C01_CouncilTable_v002.glb --out <abs>/after-v002 --wire
+blender -b --factory-startup -P art/source/qingxi-water-report-c/c01-v002/bake_c01_v002.py
+blender -b --factory-startup -P art/source/qingxi-water-report-c/c01-v002/render_rig.py -- --glb <abs>/C01_CouncilTable_v002.glb --out <abs>/after-v002 --wire [--ruler]
 ```
-`--out` 請使用絕對路徑（相對路徑時 Blender 不會寫到預期位置）。
+`--out` 請使用絕對路徑。
