@@ -33,6 +33,8 @@
 - 2026-10-27：獨立橫向 Windows 試走版已建置，移動、鏡頭跟隨、跳躍落地與回入口的成品程序測試通過；畫面仍有灰盒，人工走位與手機未驗證。見 [試走方式與限制](execution/qingxi-unity-walkthrough.md)。
 - PR #29 已合併到 main：joshsu54 的 31 個道路／河岸／橋頭模組完成交接，508 個 LFS 物件完整性與兩項 CI 通過。只代表素材交接完成，尚未全部放入可玩場景。原作者署名保留。
 
+**2026-10-28 新手村：** 依 z1nnz 指示，先不把協作者作品放進大世界，改做平坦小型新手村 `QingxiNoviceVillage`：西側丹房（joshsu54，門通往其 AlchemyRoom）、東側演武區與北側林地山兔遭遇（Johnnnny0823）、中央回村分揀與告示（Eli-0731）。Windows 建置與 `--abc-smoke` 14 項通過；真人試玩、手機與正式結算未驗證。詳見[新手村紀錄](execution/qingxi-novice-village-v1.md)。
+
 ## 已完成並有測試
 
 - NestJS API、PGlite 本機持久化及本機驗證頁。

@@ -24,6 +24,10 @@ export interface Player {
   journey?: Journey;
   study?: TechniqueStudy;
   alchemy?: AlchemyState;
+  upstream?: string[];  // 斷流第一章: upstream signs this character found (ids from packages/content/waterline.json)
+  waterReport?: string; // 斷流第一章: what this character told the village (tell_shortage | inspect_crack | protect_nursery)
+  vein?: number;        // 脈息: harvests that fed the spirit vein; hidden from players for now
+  fortunes?: string[];   // 機緣 found by this character (ids from packages/content/fortunes.json)
 }
 export interface World {
   channel: number; required: number; waterQuality: number; sanctuary: boolean;

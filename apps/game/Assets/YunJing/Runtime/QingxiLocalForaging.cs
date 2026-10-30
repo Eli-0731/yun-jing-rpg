@@ -1,17 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using QingxiWorld;
 using UnityEngine;
 
 namespace YunJing
 {
-    // A local, disposable play rehearsal. No persistent inventory, currency or API calls.
+    // The village play loop. The counters here are the local rehearsal shown in the HUD; when the game server is
+    // reachable, gathering and practice are also sent to it (QingxiServerLink, K7), which keeps the real results.
     public sealed class QingxiLocalForaging : MonoBehaviour
     {
         public Transform[] herbNodes;
         public Transform[] clueNodes;
         public Transform marketEntrance;
         public Transform trainingSpot;
+        public QingxiAbcStations abc;
         public float herbRegrowSeconds = 60f;
 
         readonly Dictionary<Transform, float> harvestedUntil = new Dictionary<Transform, float>();
@@ -32,6 +35,8 @@ namespace YunJing
 
         public string Prompt(Vector3 playerPosition)
         {
+            var station = abc != null ? abc.Prompt(playerPosition) : null;
+            if (station != null) return station;
             foreach (var herb in herbNodes ?? Array.Empty<Transform>())
                 if (herb != null && Distance(playerPosition, herb.position) <= 2.4f)
                     return harvestedUntil.TryGetValue(herb, out var until) && Time.time < until
@@ -49,12 +54,15 @@ namespace YunJing
             return "探索線索、採藥、追兔，或回聽風台練氣";
         }
 
+        public bool IsHarvested(Transform herb) => harvestedUntil.TryGetValue(herb, out var until) && Time.time < until;
+
         public bool TryInteract(Vector3 playerPosition, out string message) =>
             TryInteractAt(playerPosition, Time.time, out message);
 
         // Explicit time permits deterministic Editor checks without changing the system clock.
         public bool TryInteractAt(Vector3 playerPosition, float now, out string message)
         {
+            if (abc != null && abc.TryInteract(playerPosition, out message)) return Complete(message, out message);
             foreach (var herb in herbNodes ?? Array.Empty<Transform>())
             {
                 if (herb == null || Distance(playerPosition, herb.position) > 2.4f) continue;
@@ -65,6 +73,7 @@ namespace YunJing
                 }
                 harvestedUntil[herb] = now + herbRegrowSeconds;
                 Herbs++;
+                QingxiServerLink.Current?.Submit(new GameAction { kind = "village-gather", node = herb.name });
                 return Complete("採到一株靈草（本機試玩）", out message);
             }
 
@@ -109,6 +118,7 @@ namespace YunJing
                 }
                 basicPracticeCount++;
                 Insights++;
+                QingxiServerLink.Current?.Submit(new GameAction { kind = "practice-basic", discipline = "qi" });
                 return Complete("完成一次引氣訣練習，得到一點本機領悟", out message);
             }
             message = "附近沒有可互動的靈草、山兔或坊市";
@@ -134,6 +144,33 @@ namespace YunJing
             message = "這裡沒有煉製或服用操作";
             return false;
         }
+
+        // Rehearsal counts survive a visit to another scene (alchemy room, lodging interior) within one run only.
+        sealed class Carried { public int herbs, rabbits, stones, trades, insights, pellets, practice; public string[] clues; }
+        static Carried carried;
+        // Clues seen in the village stay remembered while the player is in a scene without those clue nodes.
+        static string[] pendingClues = Array.Empty<string>();
+
+        public void Carry() => carried = new Carried { herbs = Herbs, rabbits = Rabbits, stones = PracticeStones, trades = Trades,
+            insights = Insights, pellets = PracticePellets, practice = basicPracticeCount,
+            clues = Array.ConvertAll(Array.FindAll(clueNodes ?? Array.Empty<Transform>(), c => c != null && observedClues.Contains(c)), c => c.name)
+                .Concat(pendingClues).Distinct().ToArray() };
+
+        public void RestoreCarried(string arrival = "離開丹房，回到青溪街上")
+        {
+            if (carried == null) return;
+            Herbs = carried.herbs; Rabbits = carried.rabbits; PracticeStones = carried.stones; Trades = carried.trades;
+            Insights = carried.insights; PracticePellets = carried.pellets; basicPracticeCount = carried.practice;
+            var restored = new HashSet<string>();
+            foreach (var clue in clueNodes ?? Array.Empty<Transform>())
+                if (clue != null && Array.IndexOf(carried.clues, clue.name) >= 0) { observedClues.Add(clue); restored.Add(clue.name); }
+            pendingClues = carried.clues.Where(c => !restored.Contains(c)).ToArray();
+            carried = null;
+            Complete(arrival, out _);
+        }
+
+        // A message from elsewhere (the server refusing an action) shown where village results appear.
+        public void Notice(string text) => Complete(text, out _);
 
         bool Complete(string result, out string message)
         {

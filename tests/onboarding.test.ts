@@ -70,11 +70,13 @@ test('人人領煉氣訣：凡骨第一天可練武，無根仍不能引氣；�
   assert.ok(gains[0]<gains[1]&&gains[1]<gains[2]);
 });
 
-test('入宗前田地鎖定；測資與入宗後配發使用權，重入不重置水池與物資',async()=>{
-  const id=await create();await reject(act(id,{kind:'plant',plot:0,crop:'qingling'}),'CAVE_REQUIRED');
+test('新手領地第一天就能種兩塊田；蓄水池與另外兩塊田等入宗後的住處，重入不重置水池與物資',async()=>{
+  const id=await create();await reject(act(id,{kind:'plant',plot:2,crop:'qingling'}),'PLOT_LOCKED');
+  const planted=await act(id,{kind:'plant',plot:1,crop:'qingling'});assert.equal(planted.player.plots[0].index,1);
   await reject(act(id,{kind:'build-cistern'}),'CAVE_REQUIRED');
   now=(await game.snapshot(id)).player.journey!.selectionAt;await act(id,{kind:'appraise'});
-  await reject(act(id,{kind:'plant',plot:0,crop:'qingling'}),'CAVE_REQUIRED');
+  const harvested=await act(id,{kind:'harvest',plot:1});assert.equal(harvested.player.vein,1);
+  await reject(act(id,{kind:'plant',plot:3,crop:'qingling'}),'PLOT_LOCKED');
   const enrolled=await act(id,{kind:'enroll',sect:'xuanyue'});assert.equal(enrolled.player.journey!.housing,'cave');
   await act(id,{kind:'gather',node:'quarry'});now+=15001;await act(id,{kind:'gather',node:'quarry'});await act(id,{kind:'build-cistern'});
   const before=await game.snapshot(id),again=await act(id,{kind:'enroll',sect:'xuanyue'});

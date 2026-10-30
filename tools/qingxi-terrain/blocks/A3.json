@@ -1,0 +1,367 @@
+{
+  "version": 2,
+  "units": "metre",
+  "block": "A3",
+  "note": "A3 西溪與水磨坊。世界座標；見 docs/execution/blocks/A2-A3-block-plan.md。東邊接 A1 的 west-road。",
+  "bounds": {
+    "minX": -150,
+    "minZ": -50,
+    "sizeX": 100,
+    "sizeZ": 100
+  },
+  "noise": 0.6,
+  "nodes": [
+    {
+      "id": "a3-east",
+      "x": -49,
+      "z": 8
+    },
+    {
+      "id": "a3-fork",
+      "x": -70,
+      "z": 10
+    },
+    {
+      "id": "a3-mill-front",
+      "x": -76.5,
+      "z": 13
+    },
+    {
+      "id": "a3-bank-east",
+      "x": -93,
+      "z": 4
+    },
+    {
+      "id": "a3-bank-west",
+      "x": -106,
+      "z": 2
+    },
+    {
+      "id": "a3-west",
+      "x": -131,
+      "z": 0
+    },
+    {
+      "id": "a3-grove",
+      "x": -114,
+      "z": 17
+    },
+    {
+      "id": "a3-fish-path",
+      "x": -110.5,
+      "z": -14
+    }
+  ],
+  "edges": [
+    {
+      "id": "a3-road-1",
+      "from": "a3-east",
+      "to": "a3-fork",
+      "width": 2.8,
+      "surface": "dirt"
+    },
+    {
+      "id": "a3-to-mill",
+      "from": "a3-fork",
+      "to": "a3-mill-front",
+      "width": 2.4,
+      "surface": "dirt"
+    },
+    {
+      "id": "a3-road-2",
+      "from": "a3-fork",
+      "to": "a3-bank-east",
+      "width": 2.6,
+      "surface": "dirt"
+    },
+    {
+      "id": "a3-road-3",
+      "from": "a3-bank-west",
+      "to": "a3-west",
+      "width": 2.6,
+      "surface": "dirt"
+    },
+    {
+      "id": "a3-to-grove",
+      "from": "a3-bank-west",
+      "to": "a3-grove",
+      "width": 2.0,
+      "surface": "dirt"
+    },
+    {
+      "id": "a3-to-fish",
+      "from": "a3-bank-west",
+      "to": "a3-fish-path",
+      "width": 2.0,
+      "surface": "dirt"
+    }
+  ],
+  "pads": [
+    {
+      "id": "a3-mill",
+      "x": -84,
+      "z": 17,
+      "halfX": 8,
+      "halfZ": 7,
+      "height": 0.9,
+      "surface": "dirt"
+    },
+    {
+      "id": "a3-bamboo",
+      "x": -125,
+      "z": 26,
+      "halfX": 11,
+      "halfZ": 8,
+      "height": 1.6,
+      "surface": "forest"
+    },
+    {
+      "id": "a3-fish",
+      "x": -114,
+      "z": -20,
+      "halfX": 4,
+      "halfZ": 3,
+      "height": 0.4,
+      "surface": "dirt"
+    },
+    {
+      "id": "a3-west",
+      "x": -131,
+      "z": 0,
+      "halfX": 4.5,
+      "halfZ": 4,
+      "height": 0.8,
+      "surface": "dirt"
+    }
+  ],
+  "heightPoints": [
+    {
+      "x": -70,
+      "z": 38,
+      "height": 2.6
+    },
+    {
+      "x": -140,
+      "z": -35,
+      "height": 1.0
+    },
+    {
+      "x": -75,
+      "z": -35,
+      "height": 1.8
+    }
+  ],
+  "creek": {
+    "width": 4.5,
+    "depth": 1.0,
+    "bank": 3,
+    "waterLevel": 0.6,
+    "points": [
+      -95,
+      49,
+      -97,
+      30,
+      -100,
+      10,
+      -99,
+      -6,
+      -103,
+      -26,
+      -110,
+      -49
+    ],
+    "crossing": {
+      "x": -99.4,
+      "z": -10,
+      "stones": 4
+    }
+  },
+  "placements": [
+    {
+      "id": "A3_MillHouse",
+      "zone": "a3-mill",
+      "role": "水磨坊主屋（WM01）",
+      "model": "",
+      "x": -86,
+      "z": 20,
+      "yaw": 90,
+      "footprint": [
+        8,
+        6,
+        6
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A3_Millstones",
+      "zone": "a3-mill",
+      "role": "磨盤堆與麻袋（WM04）",
+      "model": "",
+      "x": -80,
+      "z": 21.5,
+      "yaw": 0,
+      "footprint": [
+        2,
+        1.5,
+        1
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A3_Miller",
+      "zone": "a3-mill",
+      "role": "磨坊主（NPC）",
+      "model": "",
+      "x": -79.5,
+      "z": 17,
+      "yaw": -90,
+      "footprint": [
+        0.8,
+        0.8,
+        1.75
+      ],
+      "owner": "joshsu54",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "joshsu54",
+      "note": ""
+    },
+    {
+      "id": "A3_BambooPavilion",
+      "zone": "a3-bamboo",
+      "role": "竹林小亭（WM09）",
+      "model": "",
+      "x": -125,
+      "z": 27,
+      "yaw": 0,
+      "footprint": [
+        3.5,
+        3.5,
+        4
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A3_FishPlatform_Bank",
+      "zone": "a3-fish",
+      "role": "釣魚台岸邊（WM06 接岸處）",
+      "model": "",
+      "x": -113,
+      "z": -20,
+      "yaw": 90,
+      "footprint": [
+        4,
+        3,
+        1.5
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    },
+    {
+      "id": "A3_WestSign",
+      "zone": "a3-west",
+      "role": "往湖岸路牌",
+      "model": "",
+      "x": -129,
+      "z": 2.8,
+      "yaw": 90,
+      "footprint": [
+        1.2,
+        0.4,
+        2.6
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    }
+  ],
+  "crossingSlots": [
+    {
+      "id": "A3_StoneBridge",
+      "zone": "a3-crossing",
+      "role": "單拱石橋（WM07）",
+      "model": "",
+      "x": -99.5,
+      "z": 3,
+      "yaw": 90,
+      "footprint": [
+        4,
+        12,
+        4
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": "跨溪 6 m，兩端接 a3-bank-east／a3-bank-west"
+    },
+    {
+      "id": "A3_WaterWheel",
+      "zone": "a3-mill-race",
+      "role": "水車（WM02）",
+      "model": "",
+      "x": -91.8,
+      "z": 20,
+      "yaw": 90,
+      "footprint": [
+        1.2,
+        5,
+        5
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": "原點在轉軸；引水渠段 WM03 由溪流接到這裡"
+    },
+    {
+      "id": "A3_WashSteps",
+      "zone": "a3-bank",
+      "role": "洗衣石階埠頭（WM05）",
+      "model": "",
+      "x": -95.5,
+      "z": -14,
+      "yaw": -90,
+      "footprint": [
+        6,
+        3,
+        1.2
+      ],
+      "owner": "codex",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Codex",
+      "note": ""
+    }
+  ],
+  "herbs": [],
+  "fortunes": [],
+  "checkpoints": [],
+  "route": []
+}

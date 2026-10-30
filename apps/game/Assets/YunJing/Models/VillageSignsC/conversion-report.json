@@ -1,0 +1,62 @@
+[
+  {
+    "id": "Q01",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-village-signs-v1/Q01.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageSignsC/Q01.fbx",
+    "meshes": 40,
+    "triangles": 4248,
+    "size_m": [
+      1.25,
+      0.553,
+      1.765
+    ],
+    "bytes": 275740,
+    "roundtrip": true
+  },
+  {
+    "id": "Q02",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-village-signs-v1/Q02.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageSignsC/Q02.fbx",
+    "meshes": 6,
+    "triangles": 376,
+    "size_m": [
+      0.48,
+      0.363,
+      0.829
+    ],
+    "bytes": 47564,
+    "roundtrip": true
+  },
+  {
+    "id": "Q03",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-village-signs-v1/Q03.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageSignsC/Q03.fbx",
+    "meshes": 17,
+    "triangles": 1136,
+    "size_m": [
+      0.247,
+      0.217,
+      1.05
+    ],
+    "bytes": 107868,
+    "roundtrip": true
+  },
+  {
+    "id": "Q04",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-village-signs-v1/Q04.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageSignsC/Q04.fbx",
+    "meshes": 28,
+    "triangles": 3488,
+    "size_m": [
+      0.85,
+      0.42,
+      1.241
+    ],
+    "bytes": 219196,
+    "roundtrip": true
+  }
+]

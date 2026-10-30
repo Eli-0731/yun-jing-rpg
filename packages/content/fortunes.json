@@ -1,0 +1,14 @@
+{
+  "version": "2026-10-29",
+  "note": "機緣 (hidden finds). Positions live in tools/qingxi-terrain/novice-village.json; the server only knows ids and rewards. A find is granted once per character.",
+  "fortunes": [
+    { "id": "A1-F01", "title": "古樹根下的舊銅錢", "item": "old-copper-coin", "quantity": 1 },
+    { "id": "A1-F02", "title": "溪邊的白石" },
+    { "id": "A1-F03", "title": "倒木下的青蕈", "item": "qing-mushroom", "quantity": 2 },
+    { "id": "A1-F04", "title": "屋後的碎瓦" },
+    { "id": "A1-F05", "title": "田埂邊的草結", "item": "straw-charm", "quantity": 1 },
+    { "id": "A1-F06", "title": "爐灰裡的鐵片", "item": "patterned-iron", "quantity": 1 },
+    { "id": "A1-F07", "title": "空屋的門檻" },
+    { "id": "A1-F08", "title": "村口的第三盞燈" }
+  ]
+}

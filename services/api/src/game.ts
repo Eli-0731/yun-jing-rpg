@@ -6,6 +6,9 @@ import { buildJournal, chapter } from './journal';
 import estateContent from '../../../packages/content/estate.json';
 import huntingContent from '../../../packages/content/hunting.json';
 import techniqueContent from '../../../packages/content/techniques.json';
+import fortuneContent from '../../../packages/content/fortunes.json';
+import villageContent from '../../../packages/content/village.json';
+import waterlineContent from '../../../packages/content/waterline.json';
 import { AlchemyEvent, alchemyContent, judge, levelOf, modsFor, profileFor, simulate, validateLog, xpGain } from './alchemy';
 import { AlchemyRecord, AlchemyState, AlchemyView, HuntDeath, HuntReceipt, HuntReward } from '../../../packages/contracts/types';
 
@@ -65,6 +68,7 @@ export function alchemyView(player: Player): AlchemyView {
     profile: profile && { recipe: profile.recipe, label: profile.label, phases: profile.phases },
   };
 }
+export const TERRITORY_PLOTS = 2;
 export function estateOf(player: Player) { return player.estate ?? { cistern: false, bound: false, modes: ['rain','rain','rain','rain'] }; }
 export class GameError extends Error {
   constructor(public code: string, message: string, public status = 400) { super(message); }
@@ -120,6 +124,32 @@ function text(value: unknown, max = 100): string {
 const mark = (player: Player, milestone: string) => { if (!player.milestones.includes(milestone)) player.milestones.push(milestone); };
 const fingerprint = (action: Action) => hash(JSON.stringify(Object.fromEntries(Object.entries(action).sort(([a], [b]) => a.localeCompare(b)))));
 const uuid = (value: unknown): value is string => typeof value === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
+// 機緣 (hidden finds): every reward item must exist and ids must be unique.
+function validateFortuneContent() {
+  const ids = new Set<string>();
+  for (const fortune of fortuneContent.fortunes as { id: string; item?: string; quantity?: number }[]) {
+    ensure(!ids.has(fortune.id), 'FORTUNE_CONTENT', '機緣編號重複'); ids.add(fortune.id);
+    if (fortune.item) ensure(content.items.some(x => x.id === fortune.item) && Number.isInteger(fortune.quantity ?? 1) && (fortune.quantity ?? 1) > 0, 'FORTUNE_CONTENT', '機緣獎勵定義無效');
+  }
+}
+validateFortuneContent();
+// Village gathering nodes: every product must exist, ids unique, a positive regrow time.
+function validateVillageContent() {
+  ensure(Number.isInteger(villageContent.regrowSeconds) && villageContent.regrowSeconds > 0, 'VILLAGE_CONTENT', '採集再生時間無效');
+  const ids = new Set<string>();
+  for (const node of villageContent.nodes) {
+    ensure(!ids.has(node.id), 'VILLAGE_CONTENT', '採集點編號重複'); ids.add(node.id);
+    ensure(content.items.some(x => x.id === node.item), 'VILLAGE_CONTENT', '採集產物不存在');
+  }
+}
+validateVillageContent();
+function validateWaterlineContent() {
+  const ids = (list: { id: string }[]) => new Set(list.map(x => x.id)).size === list.length;
+  ensure(ids(waterlineContent.observations) && ids(waterlineContent.choices) && ids(waterlineContent.reports), 'WATERLINE_CONTENT', '斷流內容編號重複');
+  ensure(waterlineContent.minObservations >= 1 && waterlineContent.minObservations <= waterlineContent.observations.length, 'WATERLINE_CONTENT', '線索門檻無效');
+  for (const c of waterlineContent.choices) ensure(c.stone > 0 && c.channel > 0, 'WATERLINE_CONTENT', '導水方向的花費或成效無效');
+}
+validateWaterlineContent();
 function validateHuntingContent() {
   ensure(huntingContent.roomId === 'qingxi' && huntingContent.version.length > 0, 'HUNT_CONTENT', '狩獵內容版本或區域無效');
   ensure(huntingContent.maxParticipants >= 1 && huntingContent.maxParticipants <= 4 && huntingContent.eventMaxAgeSeconds > 0, 'HUNT_CONTENT', '狩獵人數或時間限制無效');
@@ -237,8 +267,12 @@ export class Game {
       player.cooldowns[key] = now + seconds * 1000;
     };
     const history = (label: string) => { world.history.push({ player: player.name, action: label, at: now }); world.history = world.history.slice(-30); };
-    if(player.journey && ['plant','build-cistern','configure-irrigation'].includes(action.kind))
-      ensure(player.journey.housing==='cave','CAVE_REQUIRED','入宗獲得洞府與靈田後才能使用；目前可採集、修煉或研究配方',409);
+    // Newcomers farm their own territory (the lent old house) from day one, on its two fields.
+    // The cistern, irrigation and the other two fields come with the sect residence.
+    if(player.journey && ['build-cistern','configure-irrigation'].includes(action.kind))
+      ensure(player.journey.housing==='cave','CAVE_REQUIRED','入宗後宗門分派的住處才有蓄水池與水路；新手領地可以先種兩塊田',409);
+    if(player.journey && player.journey.housing==='lodging' && action.kind==='plant')
+      ensure(integer(action.plot,0,3)<TERRITORY_PLOTS,'PLOT_LOCKED','新手領地只有兩塊靈田；入宗後住處有四塊',409);
     switch (action.kind) {
       case 'appraise': {
         ensure(player.journey,'LEGACY_ASSESSED','既有測試角色已沿用原本資質紀錄',409);
@@ -346,6 +380,56 @@ export class Game {
         mark(player, 'sold-hunt');
         break;
       }
+      case 'village-gather': {
+        // One herb per node; the node regrows for this character after regrowSeconds (server clock).
+        const node = villageContent.nodes.find(x => typeof action.node === 'string' && x.id === action.node);
+        ensure(node, 'INVALID_NODE', '未知採集點');
+        cooldown(`village:${node.id}`, villageContent.regrowSeconds);
+        grant(player, node.item, 1);
+        mark(player, 'gathered');
+        break;
+      }
+      case 'discover-fortune': {
+        // Each find is granted once per character; finding it again is harmless (no second reward).
+        const fortune = (fortuneContent.fortunes as { id: string; item?: string; quantity?: number }[]).find(x => typeof action.fortune === 'string' && x.id === action.fortune);
+        ensure(fortune, 'INVALID_FORTUNE', '未知的機緣');
+        player.fortunes ??= [];
+        if (!player.fortunes.includes(fortune.id)) {
+          player.fortunes.push(fortune.id);
+          if (fortune.item) grant(player, fortune.item, fortune.quantity ?? 1);
+          mark(player, 'fortune');
+        }
+        break;
+      }
+      // 斷流第一章: A's upstream clues, B's water routing, C's report to the village.
+      case 'observe-upstream': {
+        const id = text(action.observation);
+        ensure(waterlineContent.observations.some(x => x.id === id), 'INVALID_OBSERVATION', '未知的上游線索');
+        // Kept apart from the chapter clues: the old 'resolve' route counts those.
+        player.upstream ??= [];
+        if (!player.upstream.includes(id)) { player.upstream.push(id); mark(player, 'upstream-observed'); }
+        break;
+      }
+      case 'waterworks-commit': {
+        const choice = waterlineContent.choices.find(x => x.id === action.choice);
+        ensure(choice, 'INVALID_CHOICE', '未知的導水方向');
+        const seen = (player.upstream ?? []).length;
+        ensure(seen >= waterlineContent.minObservations, 'CLUE_REQUIRED', `先到上游找到至少 ${waterlineContent.minObservations} 處跡象`, 409);
+        ensure(!player.milestones.includes(`waterworks:${choice.id}`), 'ALREADY_BUILT', '這個方向你已經完成了', 409);
+        spend(player, 'stone', choice.stone);
+        world.channel = Math.min(world.required, world.channel + choice.channel);
+        if ('sanctuary' in choice && choice.sanctuary) world.sanctuary = true;
+        player.contribution++;
+        mark(player, `waterworks:${choice.id}`); mark(player, `outcome:${choice.outcome}`);
+        history(`導水：${choice.label}`); break;
+      }
+      case 'village-report': {
+        const report = waterlineContent.reports.find(x => x.id === action.report);
+        ensure(report, 'INVALID_REPORT', '未知的回報');
+        // Changing your mind is allowed; a report never grants anything.
+        if (player.waterReport !== report.id) { player.waterReport = report.id; mark(player, 'village-reported'); }
+        break;
+      }
       case 'investigate': {
         const clue = text(action.clue);
         ensure(chapter.clues.some(x => x.id === clue), 'INVALID_CLUE', '未知線索');
@@ -374,6 +458,7 @@ export class Game {
         ensure(plot, 'EMPTY_PLOT', '這塊田沒有作物', 409); ensure(plot.readyAt <= now, 'NOT_READY', '作物尚未成熟', 409);
         const crop = content.crops.find(x => x.id === plot.crop)!;
         grant(player, crop.item, plot.harvestYield ?? crop.yield, plot.bound); player.plots = player.plots.filter(x => x.index !== index);
+        player.vein = (player.vein ?? 0) + 1; // 脈息: hidden, revealed by the story later (docs/story/world-lore-v1.md §七)
         mark(player, 'harvested'); break;
       }
       case 'craft': {

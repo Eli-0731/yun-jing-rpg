@@ -50,9 +50,6 @@ namespace YunJing.Editor
             GraphicsSettings.defaultRenderPipeline = pipeline; QualitySettings.renderPipeline = pipeline;
             var grass = Material("Moss", new Color(.23f, .35f, .28f));
             var stone = Material("Stone", new Color(.48f, .48f, .39f));
-            var soil = Material("Earth", new Color(.26f, .20f, .13f));
-            var plaster = Material("Plaster", new Color(.78f, .73f, .58f));
-            var roof = Material("Roof", new Color(.13f, .23f, .24f));
             var water = Material("Water", new Color(.18f, .44f, .46f));
             Box("Courtyard ground", new Vector3(0,-.3f,0), new Vector3(30,.6f,26), grass);
             Box("Stone path", new Vector3(0,.02f,0), new Vector3(3,.1f,23), stone);
@@ -65,18 +62,8 @@ namespace YunJing.Editor
                 new Vector3(-6 + i%2*3,0,-5 + i/2*4), new Vector3(2.4f,.3f,3.2f));
             EstateModel("cistern", "Irrigation cistern (art preview)", new Vector3(-10,0,-5), new Vector3(2,1.1f,2));
             EstateModel("water-channel", "Irrigation channel (art preview)", new Vector3(-10,0,-2.8f), new Vector3(.6f,.24f,2));
-            for (int i=0; i<2; i++)
-            {
-                float x = -7 + i*14;
-                Box("House", new Vector3(x,1.6f,8), new Vector3(5,3.2f,4), plaster);
-                var r = Box("Roof", new Vector3(x,3.6f,8), new Vector3(6,.5f,5), roof); r.transform.rotation = Quaternion.Euler(0,0,6);
-                Box("Door", new Vector3(x,1,5.98f), new Vector3(1.2f,2,.1f), roof);
-            }
-            Box("Broken array", new Vector3(10,.4f,5), new Vector3(2,.8f,2), stone);
-            Box("Lotus bed", new Vector3(10,.15f,-6), new Vector3(2,.3f,2), soil);
-            Box("Beast sanctuary", new Vector3(-10,.3f,1), new Vector3(3,.6f,3), soil);
-            var furnace = GameObject.CreatePrimitive(PrimitiveType.Cylinder); furnace.name = "Alchemy furnace";
-            furnace.transform.position = new Vector3(-5,1,4); furnace.GetComponent<Renderer>().sharedMaterial = roof;
+            // The box houses, broken array, lotus bed, beast sanctuary and cylinder furnace placeholders were removed
+            // on 2026-10-29: they are not modelled assets and kept showing up in the Qingxi previews.
             var sun = new GameObject("Morning sun").AddComponent<Light>(); sun.type = LightType.Directional; sun.intensity = 1.5f;
             sun.transform.rotation = Quaternion.Euler(48,-30,0); sun.shadows = LightShadows.Soft;
             RenderSettings.ambientLight = new Color(.55f,.62f,.63f); RenderSettings.fog = true;
@@ -100,7 +87,7 @@ namespace YunJing.Editor
             var manager = services.AddComponent<NetworkManager>(); manager.SpawnablePrefabs = prefabs;
             services.AddComponent<GameApi>(); services.AddComponent<TicketAuthenticator>(); services.AddComponent<QingxiClient>();
             services.AddComponent<PlayerSpawner>().SetPlayerPrefab(prefab.GetComponent<NetworkObject>());
-            PlayerSettings.companyName = "YunJing"; PlayerSettings.productName = "雲境 · 青溪開發版";
+            PlayerSettings.companyName = "YunJing"; PlayerSettings.productName = "承天 · 青溪開發版";
             PlayerSettings.defaultInterfaceOrientation = UIOrientation.LandscapeLeft;
             // This sample is loopback-only; production must use HTTPS and disable insecure HTTP.
             PlayerSettings.insecureHttpOption = InsecureHttpOption.DevelopmentOnly;

@@ -13,12 +13,12 @@ namespace YunJing
     [Serializable] public class Plot { public int index; public string crop; public double readyAt; }
     [Serializable] public class Job { public string id, recipe; public double readyAt; public bool claimed; }
     [Serializable] public class Journey { public double createdAt, selectionAt, assessedAt; public string manual, housing; }
-    [Serializable] public class Player { public string id, name, sect, path; public int realm, body, qi, apertures; public string[] roots, clues, milestones; public Stack[] inventory; public Plot[] plots; public Job[] jobs; public Journey journey; public AlchemyState alchemy; }
+    [Serializable] public class Player { public string id, name, sect, path; public int realm, body, qi, apertures; public string[] roots, clues, milestones, fortunes, upstream; public string waterReport; public int vein; public Stack[] inventory; public Plot[] plots; public Job[] jobs; public Journey journey; public AlchemyState alchemy; }
     [Serializable] public class World { public int channel, required, waterQuality; public bool sanctuary; }
     [Serializable] public class Snapshot { public Player player; public Birth birth; public bool birthAssigned; public World world; public double serverTime; public int version; public AlchemyView alchemy; }
     [Serializable] public class RoomTicket { public string ticket, roomId, host; public ushort port; }
     [Serializable] public class ErrorBody { public string message; }
-    [Serializable] public class GameAction { public string kind, node, clue, crop, recipe, job, sect, route, discipline, item; public int plot, quantity; public bool useCompanion;
+    [Serializable] public class GameAction { public string kind, node, clue, crop, recipe, job, sect, route, discipline, item, fortune, observation, choice, report; public int plot, quantity; public bool useCompanion;
         public string offer; public int packs, fuel, potency; public AlchemyHerbLock[] herbs; public AlchemyEvent[] log; }
     [Serializable] class ActionRequest { public string requestId; public GameAction action; }
     [Serializable] class AliasRequest { public string alias; }

@@ -74,3 +74,9 @@
 
 - z1nnz／Codex：QingxiWalkthroughBuilder、QingxiWalkthroughController、QingxiWalkthroughSmoke 與 tools/unity.ps1 接線，負責本機試走，不覆寫網路玩法；詳見 execution/qingxi-unity-walkthrough.md。
 - joshsu54：EnvironmentTransitionKit/v001 的 31 個環境模組，PR #29 合併 b2a5767；z1nnz／Codex 僅做審閱、完整性檢查與合併，不把模型署成自己原創。協作者不需重新製作這 31 件；後續依各自工作包做演武、採集與告示。
+
+## 2026-10-28 青溪新手村整合
+
+- 整合：z1nnz 指導、Claude Code 實作 `QingxiNoviceVillageBuilder`、`QingxiCollaboratorZonesBuilder`、`QingxiForestEncounterRules`（移植 A 的 encounter.mjs）、`QingxiReturnSorting`（移植 C 的 state.js）、丹房門與 HUD 面板。只做擺放、轉檔與接線，不修改協作者原件。
+- 原作者：A01–A12 與演武區六件 Johnnnny0823（山兔 v003 外觀 Dondon、骨架動畫 Johnnnny0823）；B01–B12 與 AlchemyRoom 場景 joshsu54；C01–C08、Q01–Q04 Eli-0731／Codex。C／Q 只有 GLB，由 `tools/art/import_qingxi_return_c_to_unity.py` 轉 FBX 並解出原貼圖，網格未改。
+- 詳見 [execution/qingxi-novice-village-v1.md](execution/qingxi-novice-village-v1.md)。
