@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>青溪見聞</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+<header>
+  <h1>青溪見聞</h1>
+  <nav role="tablist">
+    <button role="tab" id="tab-map" aria-selected="true" aria-controls="page-map">地圖</button>
+    <button role="tab" id="tab-book" aria-selected="false" aria-controls="page-book">收藏 <span id="count">0／12</span></button>
+  </nav>
+</header>
+<main>
+  <section id="page-map" role="tabpanel" aria-labelledby="tab-map">
+    <div class="bar">
+      <label>區塊 <select id="area"><option value="A2">A2 官道</option><option value="A3">A3 西溪</option><option value="HOME">新手的家</option></select></label>
+      <fieldset class="seg"><legend>時辰</legend>
+        <label><input type="radio" name="time" value="day" checked>白天</label>
+        <label><input type="radio" name="time" value="night">夜晚</label>
+      </fieldset>
+      <label class="chk"><input type="checkbox" id="rain">雨後</label>
+    </div>
+    <div class="stage">
+      <canvas id="map" aria-label="俯視地圖。方向鍵或 WASD 移動，靠近微光按 F 細看。"></canvas>
+      <p id="hint" aria-live="polite">走一走，草叢裡偶爾有微光。</p>
+      <button id="inspect" disabled>細看（F）</button>
+    </div>
+    <p class="note">本機展示：找到的東西只存在這個瀏覽器，不發正式物品；正式結果由伺服器的 discover-fortune 決定。</p>
+  </section>
+  <section id="page-book" role="tabpanel" aria-labelledby="tab-book" hidden>
+    <p id="empty">還沒有見聞。回到地圖走走看。</p>
+    <ol id="book"></ol>
+    <button id="reset" class="ghost">清除本機紀錄</button>
+  </section>
+</main>
+<dialog id="card" aria-labelledby="card-title">
+  <div class="seal" aria-hidden="true">見<br>聞</div>
+  <h2 id="card-title"></h2>
+  <p id="card-text"></p>
+  <div id="viewer" aria-label="拖曳旋轉道具"></div>
+  <p id="card-item" class="small"></p>
+  <form method="dialog"><button id="card-close">收進乾坤袋</button></form>
+</dialog>
+<script src="state.js"></script>
+<script type="module" src="app.mjs"></script>
+</body>
+</html>

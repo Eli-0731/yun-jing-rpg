@@ -1,0 +1,1 @@
+{"name":"qingxi-sightings-c","private":true,"scripts":{"start":"node server.mjs","test":"node --test state.test.cjs"},"dependencies":{"three":"0.186.1"}}
