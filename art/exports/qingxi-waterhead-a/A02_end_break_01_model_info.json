@@ -1,0 +1,160 @@
+{
+ "id": "A02",
+ "variant": "broken end joint",
+ "key": "A02_end_break_01",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  3.7187,
+  1.2008,
+  0.74
+ ],
+ "triangles": 3356,
+ "lod_triangles": [
+  3356,
+  1678,
+  502
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   3.0,
+   0.8,
+   0.67
+  ],
+  "center": [
+   0,
+   0,
+   0.335
+  ],
+  "note": "clue cracked_sluice: the tipped end at +X"
+ },
+ "nodes": {
+  "land": [
+   "A02_end_break_01_LOD0"
+  ],
+  "water": [
+   "A02_end_break_01_Water"
+  ],
+  "foliage": [
+   "A02_end_break_01_Foliage"
+  ]
+ },
+ "collision_hull": {
+  "node": "A02_end_break_01_Collision",
+  "triangles": 108,
+  "note": "convex hull of the solid parts; use as a convex MeshCollider, never render"
+ },
+ "sockets": [
+  {
+   "name": "SOCKET_inlet",
+   "loc": [
+    -1.5,
+    0.0,
+    0.33
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "SOCKET_outlet",
+   "loc": [
+    1.25,
+    0.0,
+    0.33
+   ],
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "SOCKET_leak",
+   "loc": [
+    1.3,
+    0.0,
+    0.33
+   ],
+   "forward": [
+    0.7071,
+    0.0,
+    -0.7071
+   ]
+  }
+ ],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A02_end_break_01",
+  "dimensions_m": [
+   3.7187,
+   1.2008,
+   0.74
+  ],
+  "bbox_min": [
+   -1.5,
+   -0.5837,
+   0.0
+  ],
+  "bbox_max": [
+   2.2187,
+   0.6171,
+   0.74
+  ],
+  "trianglesLOD": [
+   3356,
+   1678,
+   502
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "LowWater",
+   "M_A02_end_break_01"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A02_end_break_01_LOD0",
+   "A02_end_break_01_Water",
+   "A02_end_break_01_Foliage"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 3356,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "LowWater.001",
+    "M_A02_end_break_01.001"
+   ]
+  },
+  "files": {
+   "A02_end_break_01.glb": {
+    "bytes": 572748,
+    "sha256": "8506aca6133ff8aea28ca781913c4dbadb5ab5b7ee506184dbf522b5da54d70e"
+   },
+   "A02_end_break_01.fbx": {
+    "bytes": 356268,
+    "sha256": "a228a269e4cf6f918f66f6d324ce974a2d9234651f16f4023a0d7f2a3ba7a787"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A02_end_break_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}
