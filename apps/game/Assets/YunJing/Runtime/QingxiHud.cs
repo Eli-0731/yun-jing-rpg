@@ -9,7 +9,7 @@ using UnityEngine.UI;
 namespace YunJing
 {
     // Local Qingxi walkthrough UI. No account, inventory or reward authority.
-    public sealed class QingxiHud : MonoBehaviour
+    public sealed partial class QingxiHud : MonoBehaviour
     {
         public QingxiFirstPerson walker;
         public QingxiLocalForaging foraging;
@@ -23,16 +23,19 @@ namespace YunJing
         Text activityResult;
         Button journalButton;
         Font font;
+        Canvas hudCanvas;
+        Text fortuneText;
         bool open;
         int width, height;
 
         void Start()
         {
             if (walker == null) { enabled = false; return; }
-            font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            font = QingxiFonts.Ui != null ? QingxiFonts.Ui : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             var canvas = new GameObject("Qingxi HUD Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             canvas.transform.SetParent(transform, false);
             var cv = canvas.GetComponent<Canvas>();
+            hudCanvas = cv;
             cv.renderMode = RenderMode.ScreenSpaceOverlay;
             cv.sortingOrder = 20;
             var scaler = canvas.GetComponent<CanvasScaler>();
@@ -87,7 +90,7 @@ namespace YunJing
             }
 
             journal = Panel("Journey Journal", safe, new Vector2(.5f, .5f), new Vector2(.5f, .5f),
-                Vector2.zero, new Vector2(510, 338), new Color(.055f, .095f, .10f, .96f)).gameObject;
+                Vector2.zero, new Vector2(510, 470), new Color(.055f, .095f, .10f, .96f)).gameObject;
             var page = journal.GetComponent<RectTransform>();
             Label("Journal Title", page, "青溪 · 初入世", 29, FontStyle.Bold,
                 new Vector2(28, -26), new Vector2(450, 42), new Color(.94f, .87f, .65f));
@@ -95,16 +98,21 @@ namespace YunJing
                 "青溪沒有必做的每日任務。\n\n可觀察山道線索，回聽風台練氣；\n採草後在坊市交換，或煉調息散。\n想活動筋骨，也可追蹤山兔。",
                 18, FontStyle.Normal, new Vector2(28, -85), new Vector2(450, 143),
                 new Color(.9f, .92f, .87f));
+            // 機緣 (K4): found finds by title; the rest only as a count.
+            fortuneText = Label("Journal Fortunes", page, "", 15, FontStyle.Normal, new Vector2(28, -236), new Vector2(450, 150),
+                new Color(.93f, .84f, .62f));
             Action("Go Plaza", page, "回廣場", new Vector2(0, 0), new Vector2(28, 25),
                 new Vector2(128, 48), () => { walker.Teleport(0); ToggleJournal(); });
-            Action("Go Terrace", page, "聽風台入口", new Vector2(0, 0), new Vector2(172, 25),
-                new Vector2(146, 48), () => { walker.Teleport(8); ToggleJournal(); });
+            if (walker.spotNames.Length > 8)
+                Action("Go Terrace", page, "聽風台入口", new Vector2(0, 0), new Vector2(172, 25),
+                    new Vector2(146, 48), () => { walker.Teleport(8); ToggleJournal(); });
             Action("Close Journal", page, "繼續探索", new Vector2(0, 0), new Vector2(334, 25),
                 new Vector2(148, 48), ToggleJournal);
             journal.SetActive(false);
             walker.useDesignedHud = true;
             walker.LocationChanged += OnLocation;
             OnLocation("青溪小鎮");
+            BuildCollaboratorPanels();
         }
 
         void OnDestroy()
@@ -113,12 +121,37 @@ namespace YunJing
             if (foraging != null) foraging.Changed -= RefreshForaging;
         }
 
+        // With on-screen controls the lower corners belong to the joystick and the button arc: the keyboard
+        // hint goes away and the foraging panel moves up under the journal button.
+        bool touchLayout;
+        void TouchLayout(bool touch)
+        {
+            touchLayout = touch;
+            var hint = hudCanvas != null ? hudCanvas.transform.Find("Safe Area/Control Hint") ?? FindDeep(hudCanvas.transform, "Control Hint") : null;
+            if (hint != null) hint.gameObject.SetActive(!touch);
+            var activity = hudCanvas != null ? FindDeep(hudCanvas.transform, "Local Foraging") as RectTransform : null;
+            if (activity == null) return;
+            var corner = touch ? new Vector2(1, 1) : new Vector2(1, 0);
+            activity.anchorMin = activity.anchorMax = activity.pivot = corner;
+            activity.anchoredPosition = touch ? new Vector2(-22, -205) : new Vector2(-22, 22);
+        }
+
+        static Transform FindDeep(Transform root, string name)
+        {
+            foreach (var t in root.GetComponentsInChildren<Transform>(true)) if (t.name == name) return t;
+            return null;
+        }
+
         void Update()
         {
+            // Johnnnny0823's drills take the whole screen, as in his web demo.
+            if (hudCanvas != null) hudCanvas.enabled = !QingxiTrainingPractice.Practising;
+            if (QingxiTouchControls.Active != touchLayout) TouchLayout(QingxiTouchControls.Active);
             if (Screen.width != width || Screen.height != height) SafeArea();
             if (Keyboard.current != null && Keyboard.current.mKey.wasPressedThisFrame) ToggleJournal();
             if (foraging != null && interactionText != null)
                 interactionText.text = foraging.Prompt(walker.transform.position);
+            UpdateCollaboratorPanels();
         }
 
         void RefreshForaging()
@@ -140,6 +173,7 @@ namespace YunJing
             open = !open;
             journal.SetActive(open);
             walker.SetMenuOpen(open);
+            if (open && fortuneText != null) fortuneText.text = QingxiFortunes.Current != null ? QingxiFortunes.Current.JournalText() : "";
             if (open && EventSystem.current != null)
             {
                 var button = journal.transform.Find("Close Journal")?.gameObject;
@@ -187,7 +221,7 @@ namespace YunJing
             var rect = Rect(name, parent, new Vector2(0, 1), new Vector2(0, 1), offset, bounds,
                 new Vector2(0, 1));
             var t = rect.gameObject.AddComponent<Text>();
-            t.font = font; t.text = value; t.fontSize = size; t.fontStyle = style;
+            t.font = style == FontStyle.Bold && size >= 18 && QingxiFonts.Title != null ? QingxiFonts.Title : font; t.text = value; t.fontSize = size; t.fontStyle = style;
             if (uiMaterial != null) t.material = uiMaterial;
             t.color = color; t.alignment = TextAnchor.UpperLeft;
             t.horizontalOverflow = HorizontalWrapMode.Wrap;

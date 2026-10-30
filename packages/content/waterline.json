@@ -1,0 +1,20 @@
+{
+  "version": "2026-10-30",
+  "note": "斷流第一章（10/29 工作包 A／B／C）。A 的上游線索、B 的導水方向、C 的回村回報；伺服器只信這份資料，不信前端算出的結果。",
+  "observations": [
+    { "id": "cracked_sluice", "label": "破裂的古石槽" },
+    { "id": "silt_buildup", "label": "泥沙堆積" },
+    { "id": "nursery_tracks", "label": "育幼足跡" }
+  ],
+  "minObservations": 2,
+  "choices": [
+    { "id": "clear_silt", "outcome": "wwb.clear_silt.diverted", "label": "先清淤", "stone": 4, "channel": 2 },
+    { "id": "restore_channel", "outcome": "wwb.restore_channel.direct", "label": "修回舊渠", "stone": 6, "channel": 4 },
+    { "id": "protect_nursery", "outcome": "wwb.protect_nursery.bypass", "label": "保護育幼區", "stone": 12, "channel": 3, "sanctuary": true }
+  ],
+  "reports": [
+    { "id": "tell_shortage", "label": "告訴村民缺水的情況" },
+    { "id": "inspect_crack", "label": "請工匠檢查舊槽" },
+    { "id": "protect_nursery", "label": "請大家留意育幼區" }
+  ]
+}

@@ -1,0 +1,404 @@
+{
+  "version": 2,
+  "units": "metre",
+  "block": "D3",
+  "note": "D3 上游溪谷（cell [-1, 1]）。青溪從 A1 北邊往西北上溯；步道走西南岸，育幼區在東北岸，經 A08 淺灘過溪。溪寬 2.6 m（上游比村裡窄，對齊 #45 的河段）；水位低，表現斷流。東南角接 D1（尚未建），南緣步道接 A3。",
+  "bounds": {
+    "minX": -150,
+    "minZ": 50,
+    "sizeX": 100,
+    "sizeZ": 100
+  },
+  "noise": 0.8,
+  "nodes": [
+    {
+      "id": "d3-south",
+      "x": -66.0,
+      "z": 50.5
+    },
+    {
+      "id": "d3-t1",
+      "x": -86.0,
+      "z": 62.8
+    },
+    {
+      "id": "d3-t2",
+      "x": -96.1,
+      "z": 74.7
+    },
+    {
+      "id": "d3-t3",
+      "x": -106.3,
+      "z": 84.9
+    },
+    {
+      "id": "d3-t4",
+      "x": -123.7,
+      "z": 98.4
+    },
+    {
+      "id": "d3-t5",
+      "x": -137.9,
+      "z": 114.4
+    }
+  ],
+  "edges": [
+    {
+      "id": "d3-trail-1",
+      "from": "d3-south",
+      "to": "d3-t1",
+      "width": 2.0,
+      "surface": "forest"
+    },
+    {
+      "id": "d3-trail-2",
+      "from": "d3-t1",
+      "to": "d3-t2",
+      "width": 2.0,
+      "surface": "forest"
+    },
+    {
+      "id": "d3-trail-3",
+      "from": "d3-t2",
+      "to": "d3-t3",
+      "width": 2.0,
+      "surface": "forest"
+    },
+    {
+      "id": "d3-trail-4",
+      "from": "d3-t3",
+      "to": "d3-t4",
+      "width": 2.0,
+      "surface": "forest"
+    },
+    {
+      "id": "d3-trail-5",
+      "from": "d3-t4",
+      "to": "d3-t5",
+      "width": 2.0,
+      "surface": "forest"
+    }
+  ],
+  "pads": [
+    {
+      "id": "d3-gauge",
+      "x": -77.5,
+      "z": 68.1,
+      "halfX": 4.5,
+      "halfZ": 4.5,
+      "height": 3.5,
+      "surface": "forest"
+    },
+    {
+      "id": "d3-sluice",
+      "x": -88.1,
+      "z": 81.6,
+      "halfX": 5.5,
+      "halfZ": 5.5,
+      "height": 5.0,
+      "surface": "forest"
+    },
+    {
+      "id": "d3-nursery",
+      "x": -84.6,
+      "z": 111.8,
+      "halfX": 5.0,
+      "halfZ": 5.0,
+      "height": 6.0,
+      "surface": "forest"
+    },
+    {
+      "id": "d3-ruin",
+      "x": -117.2,
+      "z": 106.0,
+      "halfX": 5.0,
+      "halfZ": 5.0,
+      "height": 8.0,
+      "surface": "forest"
+    },
+    {
+      "id": "d3-source",
+      "x": -130.7,
+      "z": 120.6,
+      "halfX": 5.0,
+      "halfZ": 5.0,
+      "height": 11.0,
+      "surface": "forest"
+    }
+  ],
+  "heightPoints": [
+    {
+      "x": -60,
+      "z": 60,
+      "height": 3.0
+    },
+    {
+      "x": -100,
+      "z": 90,
+      "height": 7.0
+    },
+    {
+      "x": -140,
+      "z": 140,
+      "height": 15.0
+    },
+    {
+      "x": -60,
+      "z": 140,
+      "height": 12.0
+    },
+    {
+      "x": -140,
+      "z": 60,
+      "height": 6.0
+    }
+  ],
+  "creek": {
+    "note": "上游河道：A01 河段家族沿線拼接（見 creekKit），水位低。",
+    "width": 2.6,
+    "depth": 0.8,
+    "bank": 2.5,
+    "waterLevel": 0.3,
+    "points": [
+      -50,
+      54,
+      -62,
+      66,
+      -72,
+      82,
+      -84,
+      96,
+      -98,
+      106,
+      -112,
+      118,
+      -124,
+      132,
+      -134,
+      148
+    ],
+    "crossing": {
+      "x": -90.3,
+      "z": 100.5,
+      "stones": 4
+    }
+  },
+  "creekKit": [
+    {
+      "from": 0,
+      "to": 30,
+      "pieces": "A01_straight_01, A01_bend_left_01",
+      "note": "下游段"
+    },
+    {
+      "from": 30,
+      "to": 55,
+      "pieces": "A01_narrow_01, A04_SiltBar / A04_SiltJam_03",
+      "note": "泥沙阻塞，清淤前後兩種狀態"
+    },
+    {
+      "from": 58,
+      "to": 66,
+      "pieces": "A08_slabs_stagger_01 / A08_steps_line_01",
+      "note": "過溪淺灘（creek.crossing）"
+    },
+    {
+      "from": 66,
+      "to": 105,
+      "pieces": "A01_bend_right_01, A01_straight_01",
+      "note": "沿岸散 A05 枯草"
+    },
+    {
+      "from": 105,
+      "to": 125,
+      "pieces": "A01_narrow_01, A01_end_source_01",
+      "note": "源頭收尾"
+    }
+  ],
+  "placements": [
+    {
+      "id": "D3_WaterGauge",
+      "zone": "d3-gauge",
+      "role": "木樁水位尺（A09）",
+      "model": "",
+      "x": -76.0,
+      "z": 69.6,
+      "yaw": 0,
+      "footprint": [
+        0.8,
+        0.8,
+        1.7
+      ],
+      "owner": "Johnnnny0823",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Johnnnny0823（#45 上游調查）",
+      "note": "立在近溪那側，玩家從步道看得到刻度"
+    },
+    {
+      "id": "D3_MarkerStone",
+      "zone": "d3-gauge",
+      "role": "濕潤青苔示跡石（A06）",
+      "model": "",
+      "x": -79.3,
+      "z": 66.6,
+      "yaw": 30,
+      "footprint": [
+        1.7,
+        1.7,
+        1.2
+      ],
+      "owner": "Johnnnny0823",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Johnnnny0823（#45 上游調查）",
+      "note": ""
+    },
+    {
+      "id": "D3_CrackedSluice",
+      "zone": "d3-sluice",
+      "role": "裂開的古導水石槽（A02）",
+      "model": "",
+      "x": -86.1,
+      "z": 83.1,
+      "yaw": 45,
+      "footprint": [
+        3.8,
+        1.8,
+        0.8
+      ],
+      "owner": "Johnnnny0823",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Johnnnny0823（#45 上游調查）",
+      "note": "破口朝步道，不能被陣基或草擋住"
+    },
+    {
+      "id": "D3_FormationBase",
+      "zone": "d3-sluice",
+      "role": "半埋舊陣基（A03）",
+      "model": "",
+      "x": -90.6,
+      "z": 79.6,
+      "yaw": 15,
+      "footprint": [
+        2.5,
+        2.6,
+        0.5
+      ],
+      "owner": "Johnnnny0823",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Johnnnny0823（#45 上游調查）",
+      "note": ""
+    },
+    {
+      "id": "D3_NurseryTracks",
+      "zone": "d3-nursery",
+      "role": "妖獸育幼足跡泥面（A07）",
+      "model": "",
+      "x": -85.6,
+      "z": 110.3,
+      "yaw": 0,
+      "footprint": [
+        3.2,
+        2.6,
+        0.2
+      ],
+      "owner": "Johnnnny0823",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Johnnnny0823（#45 上游調查）",
+      "note": "非戰鬥警戒區"
+    },
+    {
+      "id": "D3_FallenBamboo",
+      "zone": "d3-nursery",
+      "role": "倒伏竹林束（A10）",
+      "model": "",
+      "x": -83.1,
+      "z": 114.0,
+      "yaw": 75,
+      "footprint": [
+        4.7,
+        2.6,
+        2.5
+      ],
+      "owner": "Johnnnny0823",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Johnnnny0823（#45 上游調查）",
+      "note": "留可通行缺口"
+    },
+    {
+      "id": "D3_PavilionRuin",
+      "zone": "d3-ruin",
+      "role": "小型觀測亭殘基（A11）",
+      "model": "",
+      "x": -117.2,
+      "z": 106.0,
+      "yaw": 40,
+      "footprint": [
+        3.6,
+        4.1,
+        2.4
+      ],
+      "owner": "Johnnnny0823",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Johnnnny0823（#45 上游調查）",
+      "note": "可停下來比較三處線索"
+    },
+    {
+      "id": "D3_ResonanceStone",
+      "zone": "d3-source",
+      "role": "水脈共鳴石（A12）",
+      "model": "",
+      "x": -129.2,
+      "z": 122.6,
+      "yaw": 0,
+      "footprint": [
+        1.6,
+        1.6,
+        1.1
+      ],
+      "owner": "Johnnnny0823",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "Johnnnny0823（#45 上游調查）",
+      "note": "玩家第一個摸得到的小天樞線索；文字照不交代原則"
+    },
+    {
+      "id": "D3_DamRemains",
+      "zone": "d3-source",
+      "role": "斷流石壩遺跡（區塊地標，待規劃）",
+      "model": "",
+      "x": -132.7,
+      "z": 118.1,
+      "yaw": 40,
+      "footprint": [
+        4.0,
+        2.0,
+        2.5
+      ],
+      "owner": "core",
+      "status": "needed",
+      "phase": "P2",
+      "collider": "box",
+      "author": "核心組",
+      "note": "壩的主體橫在溪上，由核心組另做；這個格位放岸上的壩頭"
+    }
+  ],
+  "herbs": [],
+  "fortunes": [],
+  "checkpoints": [],
+  "route": []
+}

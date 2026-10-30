@@ -1,0 +1,122 @@
+[
+  {
+    "id": "C01",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-return-c/C01.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageReturnC/C01.fbx",
+    "meshes": 30,
+    "triangles": 1956,
+    "size_m": [
+      0.481,
+      0.392,
+      0.6
+    ],
+    "bytes": 172796,
+    "roundtrip": true
+  },
+  {
+    "id": "C02",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-return-c/C02.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageReturnC/C02.fbx",
+    "meshes": 14,
+    "triangles": 1512,
+    "size_m": [
+      1.15,
+      0.635,
+      0.66
+    ],
+    "bytes": 107196,
+    "roundtrip": true
+  },
+  {
+    "id": "C03",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-return-c/C03.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageReturnC/C03.fbx",
+    "meshes": 21,
+    "triangles": 2400,
+    "size_m": [
+      0.481,
+      0.325,
+      0.281
+    ],
+    "bytes": 158428,
+    "roundtrip": true
+  },
+  {
+    "id": "C04",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-return-c/C04.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageReturnC/C04.fbx",
+    "meshes": 7,
+    "triangles": 712,
+    "size_m": [
+      0.351,
+      0.296,
+      0.162
+    ],
+    "bytes": 64812,
+    "roundtrip": true
+  },
+  {
+    "id": "C05",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-return-c/C05.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageReturnC/C05.fbx",
+    "meshes": 5,
+    "triangles": 816,
+    "size_m": [
+      0.4,
+      0.293,
+      0.254
+    ],
+    "bytes": 61836,
+    "roundtrip": true
+  },
+  {
+    "id": "C06",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-return-c/C06.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageReturnC/C06.fbx",
+    "meshes": 9,
+    "triangles": 972,
+    "size_m": [
+      0.8,
+      0.335,
+      0.45
+    ],
+    "bytes": 74812,
+    "roundtrip": true
+  },
+  {
+    "id": "C07",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-return-c/C07.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageReturnC/C07.fbx",
+    "meshes": 16,
+    "triangles": 1044,
+    "size_m": [
+      0.28,
+      0.28,
+      0.587
+    ],
+    "bytes": 100940,
+    "roundtrip": true
+  },
+  {
+    "id": "C08",
+    "originalAuthor": "Eli-0731 / Codex",
+    "source": "art/exports/qingxi-return-c/C08.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/VillageReturnC/C08.fbx",
+    "meshes": 11,
+    "triangles": 1188,
+    "size_m": [
+      0.382,
+      0.29,
+      0.101
+    ],
+    "bytes": 92508,
+    "roundtrip": true
+  }
+]

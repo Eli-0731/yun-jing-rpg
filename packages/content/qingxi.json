@@ -15,7 +15,7 @@
       "optional": false, "requires": ["meet-mentor"],
       "objectives": [{ "kind": "milestone", "keys": ["harvested"], "target": 1, "label": "完成一次收成" }],
       "rewards": [{ "item": "lotus-seed", "quantity": 1 }],
-      "hint": "新入世角色滿十個現實日測資、入宗取得靈田後，可種青靈草或淨水蓮。等待期間可採集野生靈草；缺種子可向補給商人購買。"
+      "hint": "推門回到自己的領地，後院有兩塊靈田，第一天就能種青靈草或淨水蓮。缺種子可向補給商人購買；入宗後宗門分派的住處有四塊田與蓄水池。"
     },
     {
       "id": "first-formula", "title": "藥性初識", "description": "從材料變成可用的藥，才算真正掌握第一張配方。淬體藥浴幫助煉體，淨水藥劑則能改善青溪。",

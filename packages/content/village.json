@@ -1,0 +1,10 @@
+{
+  "version": "2026-10-29",
+  "note": "青溪村（A1）的採集點。位置在 tools/qingxi-terrain/novice-village.json 的 herbs；伺服器只認編號、產物與再生時間。",
+  "regrowSeconds": 60,
+  "nodes": [
+    { "id": "HerbNode_01", "item": "chilu-ginseng" },
+    { "id": "HerbNode_02", "item": "qingxi-orchid" },
+    { "id": "HerbNode_03", "item": "qingxi-orchid" }
+  ]
+}

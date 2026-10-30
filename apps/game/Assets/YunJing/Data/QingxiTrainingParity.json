@@ -1,0 +1,419 @@
+{
+ "source": "tools/training-yard-demo/practice.mjs (Johnnnny0823)",
+ "patterns": [
+  {
+   "seed": 7,
+   "strikes": [
+    {
+     "at": 2,
+     "side": "left",
+     "phrase": 0
+    },
+    {
+     "at": 3.25,
+     "side": "low",
+     "phrase": 0
+    },
+    {
+     "at": 4.5,
+     "side": "right",
+     "phrase": 0
+    },
+    {
+     "at": 5.75,
+     "side": "low",
+     "phrase": 0
+    },
+    {
+     "at": 7.9,
+     "side": "left",
+     "phrase": 1
+    },
+    {
+     "at": 8.9,
+     "side": "low",
+     "phrase": 1
+    },
+    {
+     "at": 9.9,
+     "side": "right",
+     "phrase": 1
+    },
+    {
+     "at": 10.9,
+     "side": "left",
+     "phrase": 1
+    },
+    {
+     "at": 12.8,
+     "side": "left",
+     "phrase": 2
+    },
+    {
+     "at": 13.6,
+     "side": "low",
+     "phrase": 2
+    },
+    {
+     "at": 14.4,
+     "side": "right",
+     "phrase": 2
+    },
+    {
+     "at": 15.2,
+     "side": "low",
+     "phrase": 2
+    }
+   ]
+  },
+  {
+   "seed": 3,
+   "strikes": [
+    {
+     "at": 2,
+     "side": "left",
+     "phrase": 0
+    },
+    {
+     "at": 3.25,
+     "side": "right",
+     "phrase": 0
+    },
+    {
+     "at": 4.5,
+     "side": "low",
+     "phrase": 0
+    },
+    {
+     "at": 5.75,
+     "side": "left",
+     "phrase": 0
+    },
+    {
+     "at": 7.9,
+     "side": "low",
+     "phrase": 1
+    },
+    {
+     "at": 8.9,
+     "side": "right",
+     "phrase": 1
+    },
+    {
+     "at": 9.9,
+     "side": "low",
+     "phrase": 1
+    },
+    {
+     "at": 10.9,
+     "side": "left",
+     "phrase": 1
+    },
+    {
+     "at": 12.8,
+     "side": "low",
+     "phrase": 2
+    },
+    {
+     "at": 13.6,
+     "side": "right",
+     "phrase": 2
+    },
+    {
+     "at": 14.4,
+     "side": "low",
+     "phrase": 2
+    },
+    {
+     "at": 15.2,
+     "side": "low",
+     "phrase": 2
+    }
+   ]
+  }
+ ],
+ "breath": [
+  {
+   "name": "follow",
+   "step": 0.016666666666666666,
+   "frames": 1567,
+   "toggles": [
+    91,
+    343,
+    582,
+    834,
+    1074,
+    1326,
+    1567
+   ],
+   "done": true,
+   "qi": 0.002604,
+   "harmonised": 3,
+   "scores": [
+    0.999998,
+    0.990309,
+    0.990321
+   ],
+   "grades": [
+    "圓融",
+    "圓融",
+    "圓融"
+   ]
+  },
+  {
+   "name": "always-hold",
+   "step": 0.016666666666666666,
+   "frames": 1567,
+   "toggles": [
+    1
+   ],
+   "done": true,
+   "qi": 1,
+   "harmonised": 0,
+   "scores": [
+    0.319721,
+    0.319373,
+    0.319025
+   ],
+   "grades": [
+    "散亂",
+    "散亂",
+    "散亂"
+   ]
+  },
+  {
+   "name": "early-release-30fps",
+   "step": 0.03333333333333333,
+   "frames": 783,
+   "toggles": [
+    45,
+    136,
+    292,
+    382,
+    537,
+    627,
+    783
+   ],
+   "done": true,
+   "qi": 0.010417,
+   "harmonised": 0,
+   "scores": [
+    0.596849,
+    0.59597,
+    0.57832
+   ],
+   "grades": [
+    "散亂",
+    "散亂",
+    "散亂"
+   ]
+  }
+ ],
+ "block": [
+  {
+   "name": "perfect",
+   "seed": 7,
+   "inputs": [
+    {
+     "t": 2.02,
+     "side": "left",
+     "repeat": false
+    },
+    {
+     "t": 3.27,
+     "side": "low",
+     "repeat": false
+    },
+    {
+     "t": 4.52,
+     "side": "right",
+     "repeat": false
+    },
+    {
+     "t": 5.77,
+     "side": "low",
+     "repeat": false
+    },
+    {
+     "t": 7.92,
+     "side": "left",
+     "repeat": false
+    },
+    {
+     "t": 8.92,
+     "side": "low",
+     "repeat": false
+    },
+    {
+     "t": 9.92,
+     "side": "right",
+     "repeat": false
+    },
+    {
+     "t": 10.92,
+     "side": "left",
+     "repeat": false
+    },
+    {
+     "t": 12.82,
+     "side": "left",
+     "repeat": false
+    },
+    {
+     "t": 13.620000000000001,
+     "side": "low",
+     "repeat": false
+    },
+    {
+     "t": 14.420000000000002,
+     "side": "right",
+     "repeat": false
+    },
+    {
+     "t": 15.220000000000002,
+     "side": "low",
+     "repeat": false
+    }
+   ],
+   "judged": [
+    "perfect",
+    "perfect",
+    "perfect",
+    "perfect",
+    "perfect",
+    "perfect",
+    "perfect",
+    "perfect",
+    "perfect",
+    "perfect",
+    "perfect",
+    "perfect"
+   ],
+   "done": true,
+   "blocked": 12,
+   "perfect": 12,
+   "bestCombo": 12,
+   "flinches": 0,
+   "grade": "身法如風"
+  },
+  {
+   "name": "sloppy",
+   "seed": 7,
+   "inputs": [
+    {
+     "t": 1.5,
+     "side": "low",
+     "repeat": false
+    },
+    {
+     "t": 2.03,
+     "side": "left",
+     "repeat": false
+    },
+    {
+     "t": 2.04,
+     "side": "left",
+     "repeat": true
+    },
+    {
+     "t": 3.37,
+     "side": "low",
+     "repeat": false
+    },
+    {
+     "t": 4.5,
+     "side": "left",
+     "repeat": false
+    },
+    {
+     "t": 6.15,
+     "side": "",
+     "repeat": false
+    },
+    {
+     "t": 7.4,
+     "side": "low",
+     "repeat": false
+    },
+    {
+     "t": 7.930000000000001,
+     "side": "left",
+     "repeat": false
+    },
+    {
+     "t": 7.94,
+     "side": "left",
+     "repeat": true
+    },
+    {
+     "t": 9.02,
+     "side": "low",
+     "repeat": false
+    },
+    {
+     "t": 9.9,
+     "side": "left",
+     "repeat": false
+    },
+    {
+     "t": 11.3,
+     "side": "",
+     "repeat": false
+    },
+    {
+     "t": 12.3,
+     "side": "low",
+     "repeat": false
+    },
+    {
+     "t": 12.83,
+     "side": "left",
+     "repeat": false
+    },
+    {
+     "t": 12.84,
+     "side": "left",
+     "repeat": true
+    },
+    {
+     "t": 13.72,
+     "side": "low",
+     "repeat": false
+    },
+    {
+     "t": 14.400000000000002,
+     "side": "left",
+     "repeat": false
+    },
+    {
+     "t": 15.600000000000003,
+     "side": "",
+     "repeat": false
+    }
+   ],
+   "judged": [
+    "flinch",
+    "perfect",
+    "ignored",
+    "good",
+    "hit",
+    "flinch",
+    "perfect",
+    "ignored",
+    "good",
+    "hit",
+    "flinch",
+    "perfect",
+    "ignored",
+    "good",
+    "hit"
+   ],
+   "done": true,
+   "blocked": 6,
+   "perfect": 3,
+   "bestCombo": 2,
+   "flinches": 3,
+   "grade": "再練一輪"
+  }
+ ]
+}

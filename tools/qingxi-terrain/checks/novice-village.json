@@ -1,0 +1,176 @@
+{
+ "scene": "Assets/YunJing/Generated/QingxiNoviceVillage.unity",
+ "groundTolerance": 0.05,
+ "buriedLimit": 0.5,
+ "maxWalkSlope": 35,
+ "comfortSlope": 20,
+ "stepHeight": 0.3,
+ "roadEdgeAllowance": 0.15,
+ "grassPattern": "grass|fern|flower|reed|草",
+ "roadMeshPattern": "road|path|trail|approach|路",
+ "ignorePattern": "player|cultivator|camera|Body_",
+ "bakeNavMesh": true,
+ "roads": [
+  {
+   "id": "gate-lodging",
+   "width": 3,
+   "points": [
+    0,
+    -24,
+    0,
+    -19
+   ]
+  },
+  {
+   "id": "lodging-market",
+   "width": 3,
+   "points": [
+    0,
+    -19,
+    0,
+    -14
+   ]
+  },
+  {
+   "id": "market-plaza",
+   "width": 3,
+   "points": [
+    0,
+    -14,
+    0,
+    -2
+   ]
+  },
+  {
+   "id": "plaza-forest",
+   "width": 3,
+   "points": [
+    0,
+    -2,
+    0,
+    11
+   ]
+  },
+  {
+   "id": "plaza-alchemy",
+   "width": 2.6,
+   "points": [
+    0,
+    -2,
+    -10.5,
+    -2
+   ]
+  },
+  {
+   "id": "plaza-yard",
+   "width": 2.6,
+   "points": [
+    0,
+    -2,
+    10,
+    -2
+   ]
+  },
+  {
+   "id": "to-lodging",
+   "width": 2.4,
+   "points": [
+    0,
+    -19,
+    10.5,
+    -19
+   ]
+  },
+  {
+   "id": "to-market",
+   "width": 2.4,
+   "points": [
+    0,
+    -14,
+    -6,
+    -14
+   ]
+  },
+  {
+   "id": "market-fields",
+   "width": 2,
+   "points": [
+    -6,
+    -14,
+    -18,
+    -21
+   ]
+  }
+ ],
+ "checkpoints": [
+  {
+   "name": "村口",
+   "x": 0,
+   "y": 0,
+   "z": -24
+  },
+  {
+   "name": "小廣場",
+   "x": 0,
+   "y": 0,
+   "z": -2
+  },
+  {
+   "name": "丹房門口",
+   "x": -10.5,
+   "y": 0,
+   "z": -2
+  },
+  {
+   "name": "演武區",
+   "x": 10,
+   "y": 0,
+   "z": -2
+  },
+  {
+   "name": "林地入口",
+   "x": 0,
+   "y": 0,
+   "z": 11
+  },
+  {
+   "name": "兔徑",
+   "x": 0,
+   "y": 0,
+   "z": 19
+  },
+  {
+   "name": "借住處",
+   "x": 10.5,
+   "y": 0,
+   "z": -19
+  },
+  {
+   "name": "坊市",
+   "x": -6,
+   "y": 0,
+   "z": -14
+  },
+  {
+   "name": "藥田",
+   "x": -18,
+   "y": 0,
+   "z": -21
+  }
+ ],
+ "route": [
+  "村口",
+  "借住處",
+  "村口",
+  "坊市",
+  "藥田",
+  "坊市",
+  "小廣場",
+  "丹房門口",
+  "小廣場",
+  "演武區",
+  "小廣場",
+  "林地入口",
+  "兔徑"
+ ]
+}

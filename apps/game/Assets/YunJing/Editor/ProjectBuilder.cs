@@ -87,7 +87,7 @@ namespace YunJing.Editor
             var manager = services.AddComponent<NetworkManager>(); manager.SpawnablePrefabs = prefabs;
             services.AddComponent<GameApi>(); services.AddComponent<TicketAuthenticator>(); services.AddComponent<QingxiClient>();
             services.AddComponent<PlayerSpawner>().SetPlayerPrefab(prefab.GetComponent<NetworkObject>());
-            PlayerSettings.companyName = "YunJing"; PlayerSettings.productName = "雲境 · 青溪開發版";
+            PlayerSettings.companyName = "YunJing"; PlayerSettings.productName = "承天 · 青溪開發版";
             PlayerSettings.defaultInterfaceOrientation = UIOrientation.LandscapeLeft;
             // This sample is loopback-only; production must use HTTPS and disable insecure HTTP.
             PlayerSettings.insecureHttpOption = InsecureHttpOption.DevelopmentOnly;
