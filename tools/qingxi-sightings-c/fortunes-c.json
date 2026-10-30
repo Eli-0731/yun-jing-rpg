@@ -1,0 +1,80 @@
+{
+ "version": "2026-10-31-draft",
+ "note": "照 packages/content/fortunes.json 格式；由核心組放入 packages/content。condition 為新欄位（night／after_rain），見 README。",
+ "fortunes": [
+  {
+   "id": "A2-F01",
+   "title": "草根裡的銅鈴",
+   "item": "far-bell",
+   "quantity": 1
+  },
+  {
+   "id": "A2-F02",
+   "title": "倒扣的粗碗",
+   "item": "notched-bowl",
+   "quantity": 1
+  },
+  {
+   "id": "A2-F03",
+   "title": "祠後的斷碑",
+   "item": "stele-fragment",
+   "quantity": 1
+  },
+  {
+   "id": "A2-F04",
+   "title": "石凳下的陶片",
+   "item": "hesper-shard",
+   "quantity": 1
+  },
+  {
+   "id": "A2-F05",
+   "title": "一線枯草",
+   "item": "rusted-wedge",
+   "quantity": 1
+  },
+  {
+   "id": "A3-F01",
+   "title": "磨坊的舊木齒",
+   "item": "glowing-cog",
+   "quantity": 1,
+   "condition": "night"
+  },
+  {
+   "id": "A3-F02",
+   "title": "竹根纏著的石",
+   "item": "glyph-stone",
+   "quantity": 1
+  },
+  {
+   "id": "A3-F03",
+   "title": "擦亮的石子",
+   "item": "stone-creel",
+   "quantity": 1
+  },
+  {
+   "id": "A3-F04",
+   "title": "路牌下的油紙包",
+   "item": "water-stained-deed",
+   "quantity": 1,
+   "condition": "after_rain"
+  },
+  {
+   "id": "A3-F05",
+   "title": "淺灘的空心骨",
+   "item": "hollow-bone",
+   "quantity": 1
+  },
+  {
+   "id": "HOME-F01",
+   "title": "門框上的刻痕",
+   "item": "notch-knife",
+   "quantity": 1
+  },
+  {
+   "id": "HOME-F02",
+   "title": "柴堆下的草鞋",
+   "item": "unworn-sandals",
+   "quantity": 1
+  }
+ ]
+}

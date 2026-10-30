@@ -1,0 +1,130 @@
+{
+ "A2-F01": {
+  "id": "A2-F01",
+  "dimensions_xyz_m": [
+   0.0681,
+   0.0624,
+   0.0921
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 16166,
+   "LOD1": 8083,
+   "LOD2": 2424
+  },
+  "materials": 1,
+  "source_parts": 45,
+  "reference": "art/references/qingxi-sightings-c/A2-F01-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.068,
+    0.062,
+    0.092
+   ]
+  }
+ },
+ "A2-F02": {
+  "id": "A2-F02",
+  "dimensions_xyz_m": [
+   0.1314,
+   0.1307,
+   0.061
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 3538,
+   "LOD1": 1768,
+   "LOD2": 530
+  },
+  "materials": 1,
+  "source_parts": 11,
+  "reference": "art/references/qingxi-sightings-c/A2-F02-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.131,
+    0.131,
+    0.061
+   ]
+  }
+ },
+ "A2-F03": {
+  "id": "A2-F03",
+  "dimensions_xyz_m": [
+   0.3087,
+   0.1834,
+   0.2486
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 9981,
+   "LOD1": 4993,
+   "LOD2": 1497
+  },
+  "materials": 1,
+  "source_parts": 6,
+  "reference": "art/references/qingxi-sightings-c/A2-F03-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.309,
+    0.183,
+    0.249
+   ]
+  }
+ },
+ "A2-F04": {
+  "id": "A2-F04",
+  "dimensions_xyz_m": [
+   0.1718,
+   0.0467,
+   0.1008
+  ],
+  "collection_limit_m": [
+   0.35,
+   0.3,
+   0.35
+  ],
+  "fits_shelf": true,
+  "triangles": {
+   "LOD0": 1540,
+   "LOD1": 770,
+   "LOD2": 230
+  },
+  "materials": 1,
+  "source_parts": 2,
+  "reference": "art/references/qingxi-sightings-c/A2-F04-three-view.png",
+  "origin": "bottom centre",
+  "textures": "1024² Albedo/Normal/MaskURP/ORM",
+  "collision": {
+   "shape": "box",
+   "size_m": [
+    0.172,
+    0.047,
+    0.101
+   ]
+  }
+ }
+}

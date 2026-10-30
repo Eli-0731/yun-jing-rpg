@@ -1,0 +1,93 @@
+{
+ "authors": "Eli-0731",
+ "generator": "Codex built-in image generation (codex exec), one image per prop",
+ "generated": "2026-10-30",
+ "sequence": "每件先生成並保存三視圖；檢視後才建模。第一批 A2-F01–F04 已檢視並建模。",
+ "items": {
+  "A2-F01": {
+   "file": "A2-F01-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset A2-F01. a small old bronze traveler's bell, 0.07 m tall, rounded mouth, a worn wooden clapper instead of metal, a short faded braided cord loop on top; foreign far-east style decoration of thin cloud-wave bands, slightly different from local village bells. Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "鈴身、雲紋帶、木鈴舌、麻繩結與三視圖一致；比例以 0.07 m 鈴身為準。",
+   "reviewed": true
+  },
+  "A2-F02": {
+   "file": "A2-F02-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset A2-F02. a rough hand-thrown stoneware tea bowl, 0.13 m wide, 0.06 m tall, uneven warm grey-brown glaze with drips, small chip on the rim; on the unglazed foot underneath, a small carved symbol of a circle with one corner missing like a crescent notch (show it clearly in the bottom view). Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "粗陶碗、灰藍釉流、口沿缺口、碗底缺月記號清楚；模型做成灰褐底上灰藍釉。",
+   "reviewed": true
+  },
+  "A2-F03": {
+   "file": "A2-F03-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset A2-F03. a broken fragment of an old grey-blue stone stele, irregular snapped top edge, 0.30 m wide, 0.12 m thick, 0.24 m tall; one face has a few weathered carved Chinese characters in a column, the lower part rough as if pulled from soil, moss in the grooves. Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "斷碑形體、斜斷頂、外框線可用。圖中的字是 AI 生成的無意義字形，模型改刻見聞文字「各守一方」「以石鎮」。",
+   "reviewed": true
+  },
+  "A2-F04": {
+   "file": "A2-F04-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset A2-F04. a curved pottery shard from a large glazed jar, 0.18 m across, brighter glossy glaze than local wares, painted with a band of small round golden fruits and leaves in a far-western style, broken edges show reddish clay body. Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "月牙形口沿殘片、捲唇、青綠釉、米色帶上的金果與藍藤、內側紅陶清楚；模型依此重建。",
+   "reviewed": true
+  },
+  "A2-F05": {
+   "file": "A2-F05-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset A2-F05. a hand-forged iron wedge stake, 0.28 m long, square shank tapering to a point, wide flat head with hammer marks, heavy orange-brown rust and a few remnants of an old carved groove line along one side. Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "已保存，尚未逐張檢視（第二批建模前檢視）",
+   "reviewed": false
+  },
+  "A3-F01": {
+   "file": "A3-F01-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset A3-F01. an old replaced wooden gear tooth (cog) from a water mill, chunky trapezoid block 0.22 m long with a tenon end, water-darkened and worn smooth, iron nail holes, a thin line of fine glowing pale-cyan sand packed in one crack. Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "已保存，尚未逐張檢視（第二批建模前檢視）",
+   "reviewed": false
+  },
+  "A3-F02": {
+   "file": "A3-F02-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset A3-F02. a flat river stone slab, 0.26 m wide, 0.05 m thick, partly wrapped by two old bamboo roots; its face carved with four or five unreadable ancient glyphs that look like writing but match no known script (original invented glyphs, not Chinese characters, not runes). Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "已保存，尚未逐張檢視（第二批建模前檢視）",
+   "reviewed": false
+  },
+  "A3-F03": {
+   "file": "A3-F03-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset A3-F03. a small old bamboo fish creel basket, 0.25 m tall, woven bamboo with a hemp shoulder loop and a wooden lid peg, slightly crushed on one side; inside, seven smooth round river pebbles each rubbed shiny (show the open top view with seven pebbles). Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "已保存，尚未逐張檢視（第二批建模前檢視）",
+   "reviewed": false
+  },
+  "A3-F04": {
+   "file": "A3-F04-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset A3-F04. a small bundle wrapped in brown oiled paper and tied with hemp string, 0.20 × 0.13 m, slightly damp and wrinkled, one corner open revealing a folded deed paper with water-blurred ink and a red seal stain. Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "已保存，尚未逐張檢視（第二批建模前檢視）",
+   "reviewed": false
+  },
+  "A3-F05": {
+   "file": "A3-F05-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset A3-F05. a single hollow animal bone, 0.24 m long, chalky white, light, both ends broken open showing the hollow inside, a few tiny natural holes along one side like a flute, water-polished. Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "已保存，尚未逐張檢視（第二批建模前檢視）",
+   "reviewed": false
+  },
+  "HOME-F01": {
+   "file": "HOME-F01-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset HOME-F01. a small old woodworking whittling tool for carving marks into wood: short flat iron chisel tip on a round wooden handle wrapped with worn cord, 0.16 m long, shown lying flat; next to it a separate short offcut of an old door-frame plank 0.15 m long with several horizontal height-mark notches, the top notch with one carved character 遠. Household carpentry tool, peaceful domestic object Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "已保存，尚未逐張檢視（第二批建模前檢視）",
+   "reviewed": false,
+   "note": "第一次提示詞（含 knife）被產圖安全系統拒絕；改用木工刻具的中性描述重產，設計不變。"
+  },
+  "HOME-F02": {
+   "file": "HOME-F02-three-view.png",
+   "exists": true,
+   "prompt": "Use case: stylized-concept. Original game modeling reference, Qingxi valley sightings, asset HOME-F02. a pair of straw sandals (Chinese caoxie) bundled together and half-wrapped in a cloth of dark oiled fabric tied with a careful knot, soles almost unworn, straw still golden, neat braided straps. Style: Lightly stylized lived-in Chinese rural cultivation world (Qingxi valley): warm weathered timber, aged bamboo, hemp, warm grey-blue stone, restrained bronze, low-saturation teal-green accents; used and old, with wear, not new. ONE technical reference sheet with FRONT, RIGHT SIDE, BACK orthographic views of EXACTLY the same object, all complete and clearly separated, consistent measurements; optional TOP view and close-up details. Neutral warm ivory background, soft even lighting, minimal shadows, no people, no scenery, no text except the id and view names. Original game prop design, not from any existing game.",
+   "review": "已保存，尚未逐張檢視（第二批建模前檢視）",
+   "reviewed": false
+  }
+ }
+}

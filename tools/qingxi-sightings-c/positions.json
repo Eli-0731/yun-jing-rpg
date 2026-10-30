@@ -1,0 +1,93 @@
+{
+ "version": "2026-10-31-draft",
+ "units": "m, world x/z (A2/A3); territory scene x/z (HOME)",
+ "rule": "可走到、不在路中、不被格位模型蓋住；由核心組複核",
+ "positions": [
+  {
+   "id": "A2-F01",
+   "area": "A2",
+   "pad": "a2-start",
+   "x": -2.2,
+   "z": -135.0
+  },
+  {
+   "id": "A2-F02",
+   "area": "A2",
+   "pad": "a2-tea",
+   "x": -22.6,
+   "z": -110.8
+  },
+  {
+   "id": "A2-F03",
+   "area": "A2",
+   "pad": "a2-shrine",
+   "x": 20.6,
+   "z": -85.4
+  },
+  {
+   "id": "A2-F04",
+   "area": "A2",
+   "pad": "a2-view",
+   "x": -4.4,
+   "z": -64.0
+  },
+  {
+   "id": "A2-F05",
+   "area": "A2",
+   "pad": null,
+   "near": "a2-bend3",
+   "x": 2.0,
+   "z": -90.0
+  },
+  {
+   "id": "A3-F01",
+   "area": "A3",
+   "pad": "a3-mill",
+   "x": -90.6,
+   "z": 14.2
+  },
+  {
+   "id": "A3-F02",
+   "area": "A3",
+   "pad": "a3-bamboo",
+   "x": -117.5,
+   "z": 31.0
+  },
+  {
+   "id": "A3-F03",
+   "area": "A3",
+   "pad": "a3-fish",
+   "x": -116.2,
+   "z": -18.4
+  },
+  {
+   "id": "A3-F04",
+   "area": "A3",
+   "pad": "a3-west",
+   "x": -128.6,
+   "z": 3.9
+  },
+  {
+   "id": "A3-F05",
+   "area": "A3",
+   "pad": null,
+   "near": "crossing",
+   "x": -96.4,
+   "z": -12.6
+  },
+  {
+   "id": "HOME-F01",
+   "area": "HOME",
+   "space": "territory-interior",
+   "x": 0.9,
+   "z": -2.2
+  },
+  {
+   "id": "HOME-F02",
+   "area": "HOME",
+   "space": "territory-backyard",
+   "x": -5.4,
+   "z": 3.4
+  }
+ ]
+}
