@@ -173,10 +173,14 @@ def apply(o,m):
 def subdiv(o,cuts):
     bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.subdivide_edges(bm,edges=bm.edges,cuts=cuts,use_grid_fill=True);bm.to_mesh(o.data);bm.free()
 def jitter(o,amt,seed=1,freq=6):
-    r=random.Random(seed);ph=[r.uniform(0,9) for _ in range(6)];o.data.update()
-    for v in o.data.vertices:
-        p=v.co;n=v.normal;d=amt*(math.sin(p.x*freq+ph[0])*math.sin(p.y*freq*1.3+ph[1])+.6*math.sin(p.z*freq*.8+ph[2])*math.sin((p.x+p.y)*freq*2.1+ph[3]))
-        v.co=p+n*d
+    # normals snapshotted first: reading v.normal after moving vertices re-derives it from the half-moved mesh and folds the surface
+    r=random.Random(seed);ph=[r.uniform(0,9) for _ in range(6)];me=o.data;me.update();n=len(me.vertices)
+    co=np.empty(n*3);me.vertices.foreach_get('co',co);co=co.reshape(n,3);nr=np.empty(n*3);me.vertices.foreach_get('normal',nr);nr=nr.reshape(n,3)
+    x,y,z=co[:,0],co[:,1],co[:,2]
+    d=amt*(np.sin(x*freq+ph[0])*np.sin(y*freq*1.3+ph[1])+.6*np.sin(z*freq*.8+ph[2])*np.sin((x+y)*freq*2.1+ph[3]))
+    d[nr[:,2]<-.85]=0   # bed faces stay flat so stones sit on the ground / on each other
+    out=co+nr*d[:,None];out[:,2]=np.maximum(out[:,2],z.min())
+    me.vertices.foreach_set('co',out.ravel());me.update()
 def box(name,size,center,mat,grp,bev=.01,segs=2,scale=.4,cuts=0,jit=0,seed=1,rot=None):
     o=finish(name,box_bm(size),mat,grp,scale)
     if cuts:subdiv(o,cuts)
@@ -671,7 +675,7 @@ def collision(pid,meta,dims):
         for sy in (-1,1):add('box',(1.3,.30,.45),(0,.05+sy*.74,.45+.225))
         add('box',(.36,.36,.36),(1.30,.85,.45+.18))
     elif pid in ('G01','TY04'):
-        w=.6 if pid=='G01' else .8;add('box',(w,w,dims[2]),(0,0,dims[2]/2))
+        w=.6 if pid=='G01' else .8;add('box',(w,w,dims[2]),(0,0,dims[2]/2-float(meta['offset'][2])))   # dims are already recentred
     elif pid=='TY08':
         for sx in (-1,1):add('box',(.12,.80,1.78),(sx*.91,0,.89))
         add('box',(1.9,.14,.10),(0,0,1.10))
