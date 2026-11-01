@@ -679,6 +679,7 @@ def collision(pid,meta,dims):
         for k,v in meta['pieces'].items():
             c=v.get('collision')
             if c:prims.append({'type':'cylinder','piece':k,'radius':c['radius'],'height':c['height'],'center':[v['centre'][0],v['centre'][1],c['height']/2]})
+    for p in prims:p['center']=[round(p['center'][i]+float(meta['offset'][i]),3) for i in range(3)]   # follow the footprint recentring, like the light socket
     objs=[]
     for p in prims:
         if p['type']=='box':bm=box_bm(p['size'],p['center'])
@@ -857,6 +858,8 @@ def run(pid):
           'textures':'per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]','collision':{'mesh':f'{pid}_Collision','primitives':prims}}
     for k in ('crescent','states','pieces'):
         if k in meta:info[k]=meta[k]
+    for v in info.get('pieces',{}).values():   # piece centres in the exported (recentred) frame, same as the collision
+        if 'centre' in v:v['centre']=[round(v['centre'][i]+float(meta['offset'][i]),3) for i in range(2)]
     if meta.get('light'):info['light_socket']=[round(float(v),3) for v in Vector(meta['light'])+Vector(meta['offset'])]
     print('DAY12_DONE',json.dumps(info,ensure_ascii=False));return info
 ids=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else list(PROPS)

@@ -144,9 +144,31 @@
   - 茶亭和借住處（dondon 的 StarterHouse v004）並排。
   - 院子件和議水角落（PR #55 的 C01 議事桌、C02、C04）並排。
 
+## Unity 驗證（`art/previews/qingxi-day12-c/unity/`）
+
+用專案固定的 Unity `6000.0.82f1`（URP）跑 [`QingxiDay12Verify.cs`](../../../apps/game/Assets/YunJing/Editor/QingxiDay12Verify.cs)。它把 FBX 和貼圖複製進 `apps/game/Assets/YunJing/Models/Day12C`（gitignore，走遊戲的匯入預算：網格中度壓縮、貼圖最大 1024），每組建一個 URP Lit 材質，再逐項檢查。結果在 `unity/report.txt`，67 項全部通過：
+
+- **尺寸**：匯入後和 `model_info.json` 一致，都在上限內，底面在 y = 0。
+- **LOD**：Unity 依 `_LOD0/1/2` 名字自動建 LODGroup，每級的 Renderer 數等於材質組數；三角面和 `model_info.json` 一致（50% / 15%）。
+- **碰撞**：`<ID>_Collision` 當 MeshCollider，不渲染，範圍在模型內。
+- **根節點**：`<ID>_GroundOrigin` 是 FBX 唯一的根，Unity 會把它併成 prefab 根（改名成檔名，例如 `RK03`），所有網格都掛在它下面。
+- **燈**：`<ID>_LightSocket` 高度正確；燈室是獨立發光材質。亮度用材質的 Emission 強度控制（G01 0／1.2；TY04 0／0.35／0.9／1.7／2.8），插槽上放同強度的點光源。FBX 不會帶 Blender 的 `glow_level` 驅動，遊戲端要照上面的表設定強度。
+- **茶亭走得進去**：用 1.75 m、半徑 0.3 m 的玩家膠囊，以 CharacterController 預設的 0.3 m 跨階高度，從官道走上兩級台階、穿過欄杆中間的開口，到長凳旁、茶桌旁、後角，每一點都放得下，每級升高 0.15 m。
+- **方向**：Blender 的前方（−Y）匯入後是 Unity 的 −Z。
+
+圖：每件的四視圖與 LOD0／1／2 強制比較、G01 日夜亮／不亮、TY04 日夜五段亮度、缺月近拍、TY08 空架、1.7 m 眼高四張（官道看茶亭、村口雙燈日夜、從後門看院子）。
+
+重跑（需要顯示裝置，不能加 `-nographics`）：
+
+```bash
+D:/DevTools/Unity/6000.0.82f1/Editor/Unity.exe -batchmode -quit -projectPath apps/game -executeMethod YunJing.Editor.QingxiDay12Verify.Run -logFile artifacts/unity-day12.log
+```
+
+Unity 驗證時發現並修正：**TY09 與 RK03 的碰撞沒有跟著模型置中**。建模時整件會平移到腳印中心，燈插槽有跟著移，碰撞沒有。TY09 的水缸、竹籃、木桶圓柱因此偏了約 6 cm（木桶的碰撞凸出模型外），RK03 偏 1.4 cm。現在碰撞和 `pieces` 的中心都換算到匯出後的座標，兩件已重建。
+
 ## 和要求不同、或還沒做到的地方
 
-- **沒有在遊戲裡截圖**：使用者指定這一輪不用 Unity，驗證與擺放都在 Blender 做。眼高圖與並排圖都是 Blender 渲染，不是遊戲畫面。
+- **沒有在完整遊戲場景裡試玩**：Unity 驗證是在獨立的檢查場景裡放模型，沒有接進青溪新手村場景、沒有角色實際走動，也沒有手機效能實測。並排比較圖仍是 Blender 渲染。
 - **AI 三視圖沒有 seed**：工具沒有回報。
 - **RK03 屋頂的三角面數**：屋頂有 19 萬面，因為筒瓦一壟一壟都是幾何，工作包說品質優先、不要求降面數。LOD1、LOD2 照比例減。
 - **RK03 招牌、G01／TY04 燈室**：招牌照提示詞做成無字。燈室窗紙是平的，沒有破洞。
