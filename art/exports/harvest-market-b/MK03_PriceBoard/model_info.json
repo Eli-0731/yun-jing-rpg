@@ -1,0 +1,200 @@
+{
+  "asset": "MK03_PriceBoard",
+  "version": "v001",
+  "name_zh": "價目木牌＋錢串",
+  "slot": "Market_HerbalStall 攤前",
+  "note": "木牌牌面空白（UI 疊字）；Plate_Demand 是可替換小木片，掛在 SOCKET_plate_demand 的木釘上，正面 SOCKET_demand_icon 貼今天收的圖示；錢串（10 枚）、散錢 3 枚、錢袋各自獨立，出售結束落在 SOCKET_coins_drop",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    0.8585,
+    0.1788,
+    0.6961
+  ],
+  "size_limit_m": null,
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.5003,
+        0.048,
+        0.6961
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "PlateDemand": {
+      "dims_m": [
+        0.1,
+        0.012,
+        0.1418
+      ],
+      "pivot": [
+        0.0169,
+        0.0429,
+        0.522
+      ],
+      "min_z_local": -0.135
+    },
+    "CoinString": {
+      "dims_m": [
+        0.1248,
+        0.024,
+        0.024
+      ],
+      "pivot": [
+        0.3669,
+        -0.0506,
+        0.002
+      ],
+      "min_z_local": 0.0
+    },
+    "LooseCoins": {
+      "dims_m": [
+        0.0739,
+        0.042,
+        0.0018
+      ],
+      "pivot": [
+        0.3719,
+        0.0104,
+        0.002
+      ],
+      "min_z_local": 0.0
+    },
+    "Purse": {
+      "dims_m": [
+        0.1322,
+        0.1133,
+        0.1387
+      ],
+      "pivot": [
+        -0.3631,
+        -0.0328,
+        0.001
+      ],
+      "min_z_local": 0.0
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 3252,
+      "LOD1": 1626,
+      "LOD2": 486
+    },
+    "PlateDemand": {
+      "LOD0": 436,
+      "LOD1": 218,
+      "LOD2": 64
+    },
+    "CoinString": {
+      "LOD0": 6884,
+      "LOD1": 3442,
+      "LOD2": 1032
+    },
+    "LooseCoins": {
+      "LOD0": 1968,
+      "LOD1": 984,
+      "LOD2": 294
+    },
+    "Purse": {
+      "LOD0": 7952,
+      "LOD1": 3976,
+      "LOD2": 1192
+    }
+  },
+  "lod_totals": {
+    "LOD0": 20492,
+    "LOD1": 10246,
+    "LOD2": 3068
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_MK03_PriceBoard_Main"
+  ],
+  "textures": [
+    "MK03_PriceBoard_BaseColor.png",
+    "MK03_PriceBoard_Metallic.png",
+    "MK03_PriceBoard_MetallicSmoothness.png",
+    "MK03_PriceBoard_Normal.png",
+    "MK03_PriceBoard_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "BaseColor": "MK03_PriceBoard_BaseColor.png",
+    "Normal": "MK03_PriceBoard_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "MK03_PriceBoard_MetallicSmoothness.png (R metallic, A smoothness)",
+    "Emission": null,
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import"
+  },
+  "collision": false,
+  "collision_note": "hand-held / tabletop / worn props: nothing here blocks the player (00-overview 2: only blocking pieces get _Collision)",
+  "sockets_blender_xyz": {
+    "SOCKET_plate_demand": [
+      0.0169,
+      0.0429,
+      0.522
+    ],
+    "SOCKET_demand_icon": [
+      0.0169,
+      0.0359,
+      0.447
+    ],
+    "SOCKET_coins_drop": [
+      0.3669,
+      -0.0506,
+      0.002
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "SOCKET_coins_drop.001": [
+      0.3669,
+      -0.0506,
+      0.002
+    ],
+    "SOCKET_demand_icon.001": [
+      0.0169,
+      0.0359,
+      0.447
+    ],
+    "SOCKET_plate_demand.001": [
+      0.0169,
+      0.0429,
+      0.522
+    ]
+  },
+  "states": [
+    "Plate_Demand 可替換"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "MK03_PriceBoard.001",
+    "MK03_PriceBoard_CoinString_LOD0.001",
+    "MK03_PriceBoard_CoinString_LOD1.001",
+    "MK03_PriceBoard_CoinString_LOD2.001",
+    "MK03_PriceBoard_LOD0.001",
+    "MK03_PriceBoard_LOD1.001",
+    "MK03_PriceBoard_LOD2.001",
+    "MK03_PriceBoard_LooseCoins_LOD0.001",
+    "MK03_PriceBoard_LooseCoins_LOD1.001",
+    "MK03_PriceBoard_LooseCoins_LOD2.001",
+    "MK03_PriceBoard_PlateDemand_LOD0.001",
+    "MK03_PriceBoard_PlateDemand_LOD1.001",
+    "MK03_PriceBoard_PlateDemand_LOD2.001",
+    "MK03_PriceBoard_Purse_LOD0.001",
+    "MK03_PriceBoard_Purse_LOD1.001",
+    "MK03_PriceBoard_Purse_LOD2.001",
+    "SOCKET_coins_drop.001",
+    "SOCKET_demand_icon.001",
+    "SOCKET_plate_demand.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/harvest-market-b/mk_assets.py, mk_herbs.py); procedural shaders (mk_mats.py) baked to a UV atlas",
+  "reference": "art/references/MK03/v002/selected.png (AI three-view, not measured)",
+  "unity_import_verified": false
+}

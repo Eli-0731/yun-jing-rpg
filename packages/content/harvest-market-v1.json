@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "note": "Day 4 first harvest (work pack 02-B). Pull six qingling herbs from TY_Field01, sort them onto three bundles, sell at Market_HerbalStall. Light and short, never a loss: no haggling, nothing thrown away, the lowest grade still pays. Pure rules in tools/harvest-market/rules.ts; HarvestMarketSim.cs mirrors them for Unity.",
+  "item": "qingling-herb",
+  "currency": "spirit-stone",
+  "stall": "Market_HerbalStall",
+  "fields": [
+    { "id": "TY_Field01", "plants": ["mid", "top", "low", "mid", "top", "mid"] }
+  ],
+  "pull": { "pullSafeSeconds": 0.8 },
+  "grades": [
+    { "id": "top", "label": "上品", "look": "look.top", "bundlePrice": 5, "glow": 1 },
+    { "id": "mid", "label": "中品", "look": "look.mid", "bundlePrice": 3, "glow": 0 },
+    { "id": "low", "label": "次品", "look": "look.low", "bundlePrice": 2, "glow": 0 }
+  ],
+  "looks": {
+    "look.top": "葉子完整，葉尖微微發光",
+    "look.mid": "葉子完整，不發光",
+    "look.low": "葉子有破洞，邊緣發黃"
+  },
+  "bundleSize": 3,
+  "sortBonus": { "perBundle": 1, "note": "A sold bundle whose every plant really is the bundle grade earns this much more. A reward for careful sorting, never a penalty: mixed bundles still pay by real grade." },
+  "dailyDemand": [
+    { "day": 4, "item": "qingling-herb", "bonusPerBundle": 1 }
+  ],
+  "lines": [
+    { "id": "mixed-lower", "text": "這捆裡混了一株次一等的，我照實際的算給你。" },
+    { "id": "mixed-higher", "text": "這捆裡藏了一株好的，照實算，不讓你吃虧。" },
+    { "id": "all-top", "text": "整捆都是上品，好眼力！" },
+    { "id": "demand-bonus", "text": "今天坊市正缺青靈草，每捆多給一點。" },
+    { "id": "kept-all", "text": "都留著也好，煉丹、泡茶都用得上。" },
+    { "id": "thanks", "text": "收下了。下回收成再來。" }
+  ]
+}

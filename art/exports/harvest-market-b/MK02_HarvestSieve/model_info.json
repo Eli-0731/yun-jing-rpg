@@ -1,0 +1,233 @@
+{
+  "asset": "MK02_HarvestSieve",
+  "version": "v001",
+  "name_zh": "收成竹篩＋三級草藥捆",
+  "slot": "TY_Field01 田邊（分揀）",
+  "note": "竹篩（Main；篩底的落葉與土屑是獨立的 Litter，原點與 Main 相同，可隱藏）、三種草藥捆（BundleTop/Mid/Low）、三種單株（PlantTop/Mid/Low，拖曳用）各自是獨立物件，pivot 在各自底部中心；上品的葉子在 Glow 材質槽，發光強度 = Unity _Glow（0–1）",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    0.7089,
+    1.2276,
+    0.3685
+  ],
+  "size_limit_m": null,
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.591,
+        0.591,
+        0.0791
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0025
+    },
+    "Litter": {
+      "dims_m": [
+        0.4305,
+        0.372,
+        0.017
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0139
+    },
+    "BundleTop": {
+      "dims_m": [
+        0.2719,
+        0.2833,
+        0.3576
+      ],
+      "pivot": [
+        -0.2185,
+        0.4589,
+        0.0004
+      ],
+      "min_z_local": 0.0
+    },
+    "PlantTop": {
+      "dims_m": [
+        0.2036,
+        0.2221,
+        0.3107
+      ],
+      "pivot": [
+        -0.1549,
+        -0.5028,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "BundleMid": {
+      "dims_m": [
+        0.2914,
+        0.2789,
+        0.3672
+      ],
+      "pivot": [
+        -0.0312,
+        0.4574,
+        0.0013
+      ],
+      "min_z_local": 0.0
+    },
+    "PlantMid": {
+      "dims_m": [
+        0.2043,
+        0.1855,
+        0.3142
+      ],
+      "pivot": [
+        0.0318,
+        -0.4991,
+        0.0017
+      ],
+      "min_z_local": 0.0
+    },
+    "BundleLow": {
+      "dims_m": [
+        0.2645,
+        0.2886,
+        0.351
+      ],
+      "pivot": [
+        0.1924,
+        0.4695,
+        0.0036
+      ],
+      "min_z_local": 0.0
+    },
+    "PlantLow": {
+      "dims_m": [
+        0.2189,
+        0.1847,
+        0.319
+      ],
+      "pivot": [
+        0.245,
+        -0.5067,
+        0.0007
+      ],
+      "min_z_local": 0.0
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 21360,
+      "LOD1": 10680,
+      "LOD2": 3204
+    },
+    "Litter": {
+      "LOD0": 2912,
+      "LOD1": 1455,
+      "LOD2": 436
+    },
+    "BundleTop": {
+      "LOD0": 29900,
+      "LOD1": 14950,
+      "LOD2": 4485
+    },
+    "PlantTop": {
+      "LOD0": 7208,
+      "LOD1": 3603,
+      "LOD2": 1081
+    },
+    "BundleMid": {
+      "LOD0": 29900,
+      "LOD1": 14950,
+      "LOD2": 4485
+    },
+    "PlantMid": {
+      "LOD0": 7208,
+      "LOD1": 3602,
+      "LOD2": 1081
+    },
+    "BundleLow": {
+      "LOD0": 28824,
+      "LOD1": 14411,
+      "LOD2": 4323
+    },
+    "PlantLow": {
+      "LOD0": 6920,
+      "LOD1": 3460,
+      "LOD2": 1037
+    }
+  },
+  "lod_totals": {
+    "LOD0": 134232,
+    "LOD1": 67111,
+    "LOD2": 20132
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_MK02_HarvestSieve_Glow",
+    "M_MK02_HarvestSieve_Main"
+  ],
+  "textures": [
+    "MK02_HarvestSieve_BaseColor.png",
+    "MK02_HarvestSieve_Emission.png",
+    "MK02_HarvestSieve_Metallic.png",
+    "MK02_HarvestSieve_MetallicSmoothness.png",
+    "MK02_HarvestSieve_Normal.png",
+    "MK02_HarvestSieve_Roughness.png"
+  ],
+  "texture_size_px": 4096,
+  "unity": {
+    "pipeline": "URP Lit",
+    "BaseColor": "MK02_HarvestSieve_BaseColor.png",
+    "Normal": "MK02_HarvestSieve_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "MK02_HarvestSieve_MetallicSmoothness.png (R metallic, A smoothness)",
+    "Emission": "MK02_HarvestSieve_Emission.png",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import"
+  },
+  "collision": false,
+  "collision_note": "hand-held / tabletop / worn props: nothing here blocks the player (00-overview 2: only blocking pieces get _Collision)",
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "states": [
+    "_Glow 0–1（上品葉尖發光）",
+    "Litter 可隱藏"
+  ],
+  "state_renders": {
+    "glow_1": "state_glow_1.png"
+  },
+  "fbx_objects": [
+    "MK02_HarvestSieve.001",
+    "MK02_HarvestSieve_BundleLow_LOD0.001",
+    "MK02_HarvestSieve_BundleLow_LOD1.001",
+    "MK02_HarvestSieve_BundleLow_LOD2.001",
+    "MK02_HarvestSieve_BundleMid_LOD0.001",
+    "MK02_HarvestSieve_BundleMid_LOD1.001",
+    "MK02_HarvestSieve_BundleMid_LOD2.001",
+    "MK02_HarvestSieve_BundleTop_LOD0.001",
+    "MK02_HarvestSieve_BundleTop_LOD1.001",
+    "MK02_HarvestSieve_BundleTop_LOD2.001",
+    "MK02_HarvestSieve_LOD0.001",
+    "MK02_HarvestSieve_LOD1.001",
+    "MK02_HarvestSieve_LOD2.001",
+    "MK02_HarvestSieve_Litter_LOD0.001",
+    "MK02_HarvestSieve_Litter_LOD1.001",
+    "MK02_HarvestSieve_Litter_LOD2.001",
+    "MK02_HarvestSieve_PlantLow_LOD0.001",
+    "MK02_HarvestSieve_PlantLow_LOD1.001",
+    "MK02_HarvestSieve_PlantLow_LOD2.001",
+    "MK02_HarvestSieve_PlantMid_LOD0.001",
+    "MK02_HarvestSieve_PlantMid_LOD1.001",
+    "MK02_HarvestSieve_PlantMid_LOD2.001",
+    "MK02_HarvestSieve_PlantTop_LOD0.001",
+    "MK02_HarvestSieve_PlantTop_LOD1.001",
+    "MK02_HarvestSieve_PlantTop_LOD2.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/harvest-market-b/mk_assets.py, mk_herbs.py); procedural shaders (mk_mats.py) baked to a UV atlas",
+  "reference": "art/references/MK02/v002/selected.png (AI three-view, not measured)",
+  "unity_import_verified": false
+}

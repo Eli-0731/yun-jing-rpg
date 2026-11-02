@@ -43,5 +43,13 @@ apps/game/Assets/YunJing/Models/GatheringB/
 apps/game/Assets/YunJing/Models/GatheringB.meta
 apps/game/Assets/YunJing/Models/LodgingInterior/
 apps/game/Assets/YunJing/Models/LodgingInterior.meta
+ feature/day12-models-c
 apps/game/Assets/YunJing/Models/Day12C/
 apps/game/Assets/YunJing/Models/Day12C.meta
+
+# Harvest market 02-B: copies of art/exports/harvest-market-b + HerbalStall v002 made by HarvestMarketSceneBuilder.CopyExports
+apps/game/Assets/YunJing/Models/HarvestMarketB/
+apps/game/Assets/YunJing/Models/HarvestMarketB.meta
+apps/game/Assets/YunJing/Models/TeaBrewingB/
+apps/game/Assets/YunJing/Models/TeaBrewingB.meta
+ main

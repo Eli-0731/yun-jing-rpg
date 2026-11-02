@@ -1,0 +1,243 @@
+{
+  "asset": "MK02_HarvestSieve",
+  "checks": [
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.3545,
+          -0.6138,
+          0.0
+        ],
+        "max": [
+          0.3545,
+          0.6138,
+          0.3685
+        ]
+      }
+    },
+    {
+      "check": "sieve_0.6_by_0.08",
+      "pass": true,
+      "detail": {
+        "sieve_dims_m": [
+          0.591,
+          0.591,
+          0.0791
+        ]
+      }
+    },
+    {
+      "check": "BundleTop_about_0.35_long",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.2719,
+          0.2833,
+          0.3576
+        ]
+      }
+    },
+    {
+      "check": "BundleMid_about_0.35_long",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.2914,
+          0.2789,
+          0.3672
+        ]
+      }
+    },
+    {
+      "check": "BundleLow_about_0.35_long",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.2645,
+          0.2886,
+          0.351
+        ]
+      }
+    },
+    {
+      "check": "PlantTop_about_0.3_long",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.2036,
+          0.2221,
+          0.3107
+        ]
+      }
+    },
+    {
+      "check": "PlantMid_about_0.3_long",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.2043,
+          0.1855,
+          0.3142
+        ]
+      }
+    },
+    {
+      "check": "PlantLow_about_0.3_long",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.2189,
+          0.1847,
+          0.319
+        ]
+      }
+    },
+    {
+      "check": "pivots_at_bottom_centre",
+      "pass": true,
+      "detail": {
+        "BundleTop": 0.0,
+        "PlantTop": 0.0,
+        "BundleMid": 0.0,
+        "PlantMid": 0.0,
+        "BundleLow": 0.0,
+        "PlantLow": 0.0
+      }
+    },
+    {
+      "check": "litter_shares_main_origin",
+      "pass": true,
+      "detail": {
+        "Main": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Litter": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 134232,
+          "LOD1": 67111,
+          "LOD2": 20132
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 21360,
+            "LOD1": 10680,
+            "LOD2": 3204
+          },
+          "Litter": {
+            "LOD0": 2912,
+            "LOD1": 1455,
+            "LOD2": 436
+          },
+          "BundleTop": {
+            "LOD0": 29900,
+            "LOD1": 14950,
+            "LOD2": 4485
+          },
+          "PlantTop": {
+            "LOD0": 7208,
+            "LOD1": 3603,
+            "LOD2": 1081
+          },
+          "BundleMid": {
+            "LOD0": 29900,
+            "LOD1": 14950,
+            "LOD2": 4485
+          },
+          "PlantMid": {
+            "LOD0": 7208,
+            "LOD1": 3602,
+            "LOD2": 1081
+          },
+          "BundleLow": {
+            "LOD0": 28824,
+            "LOD1": 14411,
+            "LOD2": 4323
+          },
+          "PlantLow": {
+            "LOD0": 6920,
+            "LOD1": 3460,
+            "LOD2": 1037
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          0.7089,
+          1.2276,
+          0.3685
+        ],
+        "blend_dims_m": [
+          0.7089,
+          1.2276,
+          0.3685
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "MK02_HarvestSieve.001",
+        "MK02_HarvestSieve_BundleLow_LOD0.001",
+        "MK02_HarvestSieve_BundleLow_LOD1.001",
+        "MK02_HarvestSieve_BundleLow_LOD2.001",
+        "MK02_HarvestSieve_BundleMid_LOD0.001",
+        "MK02_HarvestSieve_BundleMid_LOD1.001",
+        "MK02_HarvestSieve_BundleMid_LOD2.001",
+        "MK02_HarvestSieve_BundleTop_LOD0.001",
+        "MK02_HarvestSieve_BundleTop_LOD1.001",
+        "MK02_HarvestSieve_BundleTop_LOD2.001",
+        "MK02_HarvestSieve_LOD0.001",
+        "MK02_HarvestSieve_LOD1.001",
+        "MK02_HarvestSieve_LOD2.001",
+        "MK02_HarvestSieve_Litter_LOD0.001",
+        "MK02_HarvestSieve_Litter_LOD1.001",
+        "MK02_HarvestSieve_Litter_LOD2.001",
+        "MK02_HarvestSieve_PlantLow_LOD0.001",
+        "MK02_HarvestSieve_PlantLow_LOD1.001",
+        "MK02_HarvestSieve_PlantLow_LOD2.001",
+        "MK02_HarvestSieve_PlantMid_LOD0.001",
+        "MK02_HarvestSieve_PlantMid_LOD1.001",
+        "MK02_HarvestSieve_PlantMid_LOD2.001",
+        "MK02_HarvestSieve_PlantTop_LOD0.001",
+        "MK02_HarvestSieve_PlantTop_LOD1.001",
+        "MK02_HarvestSieve_PlantTop_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 232,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

@@ -1,0 +1,572 @@
+{
+ "cases": [
+  {
+   "name": "careful-sort-sell-all-day4",
+   "day": 4,
+   "fieldId": "TY_Field01",
+   "pullSeconds": [
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2
+   ],
+   "bins": [
+    "mid",
+    "top",
+    "low",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "sell": [
+    true,
+    true,
+    true
+   ],
+   "plants": [
+    "mid",
+    "top",
+    "low",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "bundles": [
+    {
+     "bin": "top",
+     "grades": [
+      "top",
+      "top"
+     ],
+     "quality": "top",
+     "sold": true,
+     "coins": 5,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "mid",
+     "grades": [
+      "mid",
+      "mid",
+      "mid"
+     ],
+     "quality": "mid",
+     "sold": true,
+     "coins": 5,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "low",
+     "grades": [
+      "low"
+     ],
+     "quality": "low",
+     "sold": true,
+     "coins": 2,
+     "line": "",
+     "sorted": true
+    }
+   ],
+   "totalCoins": 12,
+   "kept": [],
+   "lines": [
+    "demand-bonus",
+    "thanks"
+   ]
+  },
+  {
+   "name": "careful-sort-sell-all-day5",
+   "day": 5,
+   "fieldId": "TY_Field01",
+   "pullSeconds": [
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2
+   ],
+   "bins": [
+    "mid",
+    "top",
+    "low",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "sell": [
+    true,
+    true,
+    true
+   ],
+   "plants": [
+    "mid",
+    "top",
+    "low",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "bundles": [
+    {
+     "bin": "top",
+     "grades": [
+      "top",
+      "top"
+     ],
+     "quality": "top",
+     "sold": true,
+     "coins": 5,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "mid",
+     "grades": [
+      "mid",
+      "mid",
+      "mid"
+     ],
+     "quality": "mid",
+     "sold": true,
+     "coins": 4,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "low",
+     "grades": [
+      "low"
+     ],
+     "quality": "low",
+     "sold": true,
+     "coins": 2,
+     "line": "",
+     "sorted": true
+    }
+   ],
+   "totalCoins": 11,
+   "kept": [],
+   "lines": [
+    "thanks"
+   ]
+  },
+  {
+   "name": "recorded-run",
+   "day": 4,
+   "fieldId": "TY_Field01",
+   "pullSeconds": [
+    1.2,
+    0.3,
+    1.2,
+    1.2,
+    1.2,
+    1.2
+   ],
+   "bins": [
+    "mid",
+    "mid",
+    "mid",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "sell": [
+    true,
+    true,
+    false
+   ],
+   "plants": [
+    "mid",
+    "mid",
+    "low",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "bundles": [
+    {
+     "bin": "top",
+     "grades": [
+      "top"
+     ],
+     "quality": "top",
+     "sold": true,
+     "coins": 3,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "mid",
+     "grades": [
+      "mid",
+      "mid",
+      "low"
+     ],
+     "quality": "low",
+     "sold": true,
+     "coins": 4,
+     "line": "mixed-lower",
+     "sorted": false
+    },
+    {
+     "bin": "mid",
+     "grades": [
+      "mid",
+      "mid"
+     ],
+     "quality": "mid",
+     "sold": false,
+     "coins": 0,
+     "line": "",
+     "sorted": true
+    }
+   ],
+   "totalCoins": 7,
+   "kept": [
+    {
+     "item": "qingling-herb",
+     "quality": "mid",
+     "quantity": 2
+    }
+   ],
+   "lines": [
+    "mixed-lower",
+    "demand-bonus",
+    "thanks"
+   ]
+  },
+  {
+   "name": "all-rushed",
+   "day": 4,
+   "fieldId": "TY_Field01",
+   "pullSeconds": [
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    0.3
+   ],
+   "bins": [
+    "low",
+    "mid",
+    "low",
+    "low",
+    "mid",
+    "low"
+   ],
+   "sell": [
+    true,
+    true,
+    true
+   ],
+   "plants": [
+    "low",
+    "mid",
+    "low",
+    "low",
+    "mid",
+    "low"
+   ],
+   "bundles": [
+    {
+     "bin": "mid",
+     "grades": [
+      "mid",
+      "mid"
+     ],
+     "quality": "mid",
+     "sold": true,
+     "coins": 4,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "low",
+     "grades": [
+      "low",
+      "low",
+      "low"
+     ],
+     "quality": "low",
+     "sold": true,
+     "coins": 4,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "low",
+     "grades": [
+      "low"
+     ],
+     "quality": "low",
+     "sold": true,
+     "coins": 2,
+     "line": "",
+     "sorted": true
+    }
+   ],
+   "totalCoins": 10,
+   "kept": [],
+   "lines": [
+    "demand-bonus",
+    "thanks"
+   ]
+  },
+  {
+   "name": "keep-everything",
+   "day": 4,
+   "fieldId": "TY_Field01",
+   "pullSeconds": [
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2
+   ],
+   "bins": [
+    "mid",
+    "top",
+    "low",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "sell": [
+    false,
+    false,
+    false
+   ],
+   "plants": [
+    "mid",
+    "top",
+    "low",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "bundles": [
+    {
+     "bin": "top",
+     "grades": [
+      "top",
+      "top"
+     ],
+     "quality": "top",
+     "sold": false,
+     "coins": 0,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "mid",
+     "grades": [
+      "mid",
+      "mid",
+      "mid"
+     ],
+     "quality": "mid",
+     "sold": false,
+     "coins": 0,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "low",
+     "grades": [
+      "low"
+     ],
+     "quality": "low",
+     "sold": false,
+     "coins": 0,
+     "line": "",
+     "sorted": true
+    }
+   ],
+   "totalCoins": 0,
+   "kept": [
+    {
+     "item": "qingling-herb",
+     "quality": "top",
+     "quantity": 2
+    },
+    {
+     "item": "qingling-herb",
+     "quality": "mid",
+     "quantity": 3
+    },
+    {
+     "item": "qingling-herb",
+     "quality": "low",
+     "quantity": 1
+    }
+   ],
+   "lines": [
+    "kept-all"
+   ]
+  },
+  {
+   "name": "everything-on-one-bundle",
+   "day": 4,
+   "fieldId": "TY_Field01",
+   "pullSeconds": [
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2
+   ],
+   "bins": [
+    "top",
+    "top",
+    "top",
+    "top",
+    "top",
+    "top"
+   ],
+   "sell": [
+    true,
+    true
+   ],
+   "plants": [
+    "mid",
+    "top",
+    "low",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "bundles": [
+    {
+     "bin": "top",
+     "grades": [
+      "mid",
+      "top",
+      "low"
+     ],
+     "quality": "low",
+     "sold": true,
+     "coins": 5,
+     "line": "mixed-lower",
+     "sorted": false
+    },
+    {
+     "bin": "top",
+     "grades": [
+      "mid",
+      "top",
+      "mid"
+     ],
+     "quality": "mid",
+     "sold": true,
+     "coins": 5,
+     "line": "mixed-lower",
+     "sorted": false
+    }
+   ],
+   "totalCoins": 10,
+   "kept": [],
+   "lines": [
+    "mixed-lower",
+    "demand-bonus",
+    "thanks"
+   ]
+  },
+  {
+   "name": "single-low-plant",
+   "day": 4,
+   "fieldId": "TY_Field01",
+   "pullSeconds": [
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2,
+    1.2
+   ],
+   "bins": [
+    "mid",
+    "top",
+    "low",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "sell": [
+    false,
+    false,
+    true
+   ],
+   "plants": [
+    "mid",
+    "top",
+    "low",
+    "mid",
+    "top",
+    "mid"
+   ],
+   "bundles": [
+    {
+     "bin": "top",
+     "grades": [
+      "top",
+      "top"
+     ],
+     "quality": "top",
+     "sold": false,
+     "coins": 0,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "mid",
+     "grades": [
+      "mid",
+      "mid",
+      "mid"
+     ],
+     "quality": "mid",
+     "sold": false,
+     "coins": 0,
+     "line": "",
+     "sorted": true
+    },
+    {
+     "bin": "low",
+     "grades": [
+      "low"
+     ],
+     "quality": "low",
+     "sold": true,
+     "coins": 2,
+     "line": "",
+     "sorted": true
+    }
+   ],
+   "totalCoins": 2,
+   "kept": [
+    {
+     "item": "qingling-herb",
+     "quality": "top",
+     "quantity": 2
+    },
+    {
+     "item": "qingling-herb",
+     "quality": "mid",
+     "quantity": 3
+    }
+   ],
+   "lines": [
+    "demand-bonus",
+    "thanks"
+   ]
+  }
+ ]
+}

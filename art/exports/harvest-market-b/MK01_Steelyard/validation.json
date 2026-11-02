@@ -1,0 +1,173 @@
+{
+  "asset": "MK01_Steelyard",
+  "checks": [
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.3975,
+          -0.1235,
+          0.0
+        ],
+        "max": [
+          0.3975,
+          0.1235,
+          0.59
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.795,
+          0.247,
+          0.59
+        ],
+        "limit_m": [
+          0.8,
+          0.3,
+          0.6
+        ]
+      }
+    },
+    {
+      "check": "beam_length_max_0.7",
+      "pass": true,
+      "detail": {
+        "beam_m": 0.7
+      }
+    },
+    {
+      "check": "pan_diameter_max_0.25",
+      "pass": true,
+      "detail": {
+        "pan_dims_m": [
+          0.247,
+          0.247,
+          0.4511
+        ]
+      }
+    },
+    {
+      "check": "hung_height_max_0.6",
+      "pass": true,
+      "detail": {
+        "height_m": 0.59
+      }
+    },
+    {
+      "check": "weight_slides_0_to_0.5_on_beam",
+      "pass": true,
+      "detail": {
+        "rest_x": -0.194,
+        "max_x": 0.306,
+        "beam_end_x": 0.376
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 14158,
+          "LOD1": 7075,
+          "LOD2": 2120
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 6560,
+            "LOD1": 3279,
+            "LOD2": 982
+          },
+          "Pan": {
+            "LOD0": 6192,
+            "LOD1": 3094,
+            "LOD2": 928
+          },
+          "Weight": {
+            "LOD0": 1406,
+            "LOD1": 702,
+            "LOD2": 210
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          0.795,
+          0.247,
+          0.59
+        ],
+        "blend_dims_m": [
+          0.795,
+          0.247,
+          0.59
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "MK01_Steelyard.001",
+        "MK01_Steelyard_LOD0.001",
+        "MK01_Steelyard_LOD1.001",
+        "MK01_Steelyard_LOD2.001",
+        "MK01_Steelyard_Pan_LOD0.001",
+        "MK01_Steelyard_Pan_LOD1.001",
+        "MK01_Steelyard_Pan_LOD2.001",
+        "MK01_Steelyard_Weight_LOD0.001",
+        "MK01_Steelyard_Weight_LOD1.001",
+        "MK01_Steelyard_Weight_LOD2.001",
+        "SOCKET_hook.001",
+        "SOCKET_pan.001",
+        "SOCKET_weight_max.001",
+        "SOCKET_weight_rest.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "SOCKET_hook.001": [
+          -0.2561,
+          0.0,
+          0.5839
+        ],
+        "SOCKET_pan.001": [
+          -0.274,
+          0.0,
+          0.448
+        ],
+        "SOCKET_weight_max.001": [
+          0.306,
+          0.0,
+          0.47
+        ],
+        "SOCKET_weight_rest.001": [
+          -0.194,
+          0.0,
+          0.47
+        ]
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 82,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}
