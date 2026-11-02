@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "note": "Novice bare-hand combat shared by every later fight. Seconds, metres, degrees. Rules: tools/basic-combat/basic-combat-rules.mjs (C# port QingxiBasicCombatRules.cs).",
+  "light": [
+    { "id": "palm1", "windup": 0.12, "active": 0.08, "recovery": 0.30, "chainFrom": 0.04, "damage": 8,  "range": 1.7, "arc": 70, "lunge": 0.25, "hitStop": 0.05, "shake": 0.03 },
+    { "id": "palm2", "windup": 0.10, "active": 0.08, "recovery": 0.32, "chainFrom": 0.04, "damage": 9,  "range": 1.7, "arc": 75, "lunge": 0.30, "hitStop": 0.05, "shake": 0.035 },
+    { "id": "palm3", "windup": 0.18, "active": 0.10, "recovery": 0.45, "chainFrom": 0.0,  "damage": 14, "range": 1.9, "arc": 90, "lunge": 0.45, "hitStop": 0.08, "shake": 0.06, "knockback": 0.8 }
+  ],
+  "heavy": {
+    "id": "heavy",
+    "chargeMin": 0.35,
+    "chargeMax": 1.2,
+    "windup": 0.14,
+    "active": 0.12,
+    "recovery": 0.50,
+    "damageMin": 22,
+    "damageMax": 40,
+    "knockbackMin": 1.6,
+    "knockbackMax": 3.4,
+    "range": 2.1,
+    "arc": 100,
+    "lunge": 0.6,
+    "cooldown": 4.0,
+    "hitStop": 0.11,
+    "shake": 0.12
+  },
+  "dodge": {
+    "distance": 2.5,
+    "duration": 0.30,
+    "iframes": 0.35,
+    "cooldown": 0.55,
+    "cancelsRecovery": true
+  },
+  "facing": { "autoFaceRadius": 4.0 },
+  "feedback": { "flashSeconds": 0.12, "debris": 10, "debrisHeavy": 22 },
+  "touch": { "minButtonPx": 88 }
+}
