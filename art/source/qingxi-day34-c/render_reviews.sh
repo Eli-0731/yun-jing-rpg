@@ -48,4 +48,13 @@ if [ -n "$D12" ] && [ -f "$D12/G01.glb" ]; then
     r --glb $E/UP06.glb,$D12/G01.glb,$D12/TY04.glb --at="-.8,0,0;.2,0,0;1.4,0,0" --out $P/compare --tag lanterns-UP06-G01-TY04-$L --views front --glow $gl --light $L
   done
 fi
+# 7. close-ups at the distance the round-two references were judged at (afternoon light, no ruler)
+C=$P/closeup
+r --glb $E/UP01.glb --out $C --tag UP01-new-sluice --views "" --no-ruler --light afternoon --cam=-1.6,-3.6,2.6,0,-.2,2.3,35 --res 1400x1000
+r --glb $E/UP01.glb --out $C --tag UP01-new-face --views "" --no-ruler --light afternoon --cam=-6,-9,3.2,0,0,1.4,30 --res 1600x900
+r --glb $E/UP02_01.glb --out $C --tag UP02_01-new --views "" --no-ruler --light afternoon --cam=1.3,-1.6,1.0,0,0,0.2,45 --res 1200x800
+r --glb $E/UP03.glb --out $C --tag UP03-new --views "" --no-ruler --light afternoon --cam=-.9,-1.6,1.1,0,0,.7,40 --res 900x1200
+r --glb $E/UP04.glb --out $C --tag UP04-new --views "" --no-ruler --light afternoon --cam=1.2,-1.5,1.2,0,0,.1,40 --res 1300x900
+r --glb $E/UP05_Table.glb,$E/UP05_Burner.glb,$E/UP05_CushionNew.glb,$E/UP05_CushionOld.glb --at="0,0,0;0.035,0.06,0,0.3;-0.25,-0.55,0;0.4,-0.55,0" --out $C --tag UP05-new --views "" --no-ruler --light afternoon --cam=.9,-1.7,.85,0.05,-.2,.12,40 --res 1400x900
+r --glb $E/UP06.glb --out $C --tag UP06-new --views "" --no-ruler --light afternoon --glow 0 --cam=.45,-.55,.75,.1,0,.63,50 --res 900x900
 echo REVIEWS_DONE

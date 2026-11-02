@@ -8,6 +8,10 @@
 建模時的差異：照工作包尺寸：蒲團 Ø0.55 × 0.12（圖裡偏高）、矮几 0.8 × 0.45 × 0.3、香爐 Ø0.15 × 0.12。四件分開交：UP05_CushionNew、UP05_CushionOld、UP05_Table、UP05_Burner。
 沒選的：UP05-cand-2.png, UP05-cand-3.png, UP05-cand-4.png（保留，看得出取捨）
 
+第二輪（2026-11-02，使用者要求打磨細節）：用 Codex CLI 的 GPT-6-Astra（推理 xhigh）以同一段提示詞原文重新獨立生成 4 張，再以選定圖為參考生成轉面圖／細節圖並寫建模清單，全部存在 v2/。Codex 中途用量到上限，UP01、UP04 沒有轉面圖，UP01、UP04、UP05 沒有 details.md，這三件照細節圖自己比對。
+第二輪選用：UP05-v2-cand-4.png（v2 轉面圖、細節圖）
+第二輪改了什麼：桌面改三塊厚板、階梯形牙板、外露榫頭與木釘、偏紅褐舊木；蒲團改細辮多圈、頂面放射綁線、側面六條捻繩加結，舊的加灰布補丁；香爐改方框浮雕帶與方耳。
+
 ## 提示詞（原文，一字未改）
 
 Three-view orthographic turnaround sheet of a small meditation lesson set laid out together: two round woven straw meditation cushions about 0.55 m wide (one fresh, one old and flattened), a low old wooden table about 0.8 m wide, 0.45 m deep and 0.3 m tall with one corner worn shiny where a hand often rests, and a small three-legged bronze incense burner about 0.15 m wide on the table, made of woven straw, aged elm wood and patinated bronze, showing frayed straw edges, a water ring on the table, ash spilled near the burner, used on an open stone terrace where a teacher shows newcomers how to draw in spiritual breath. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background.

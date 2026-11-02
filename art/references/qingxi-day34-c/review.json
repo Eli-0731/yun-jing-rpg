@@ -14,7 +14,13 @@
     "UP01-cand-4.png"
    ],
    "why": "弧形壩身（向上游拱）、閘框兩根石柱加頂上的絞盤橫梁、閘口被斷木與水草塞住、一塊淺色補石都清楚；側視圖看得出下游面陡、上游面斜。1 號閘框太細像木架；2 號壩身是直線、閘口雜物太少；3 號閘板上方空著，看不出塞住。",
-   "modelling_differences": "壩頂可走寬 0.9 m 照工作包；石柱只佔壩頂上游一側，人從石柱前面走過去，頭頂沒有橫梁。壩頂高 2.2 m、閘框頂 3.1 m、絞盤最高約 3.45 m；閘板 0.25–1.85 m，上游靜水面訂在 1.8 m（閘板頂之下），上游面一路做到 z = 0（水線以下 1.8 m）。閘板往上拉 1.2 m 後頂在 3.05 m，仍在閘框頂之下。"
+   "modelling_differences": "壩頂可走寬 0.9 m 照工作包；石柱只佔壩頂上游一側，人從石柱前面走過去，頭頂沒有橫梁。壩頂高 2.2 m、閘框頂 3.1 m、絞盤最高約 3.45 m；閘板 0.25–1.85 m，上游靜水面訂在 1.8 m（閘板頂之下），上游面一路做到 z = 0（水線以下 1.8 m）。閘板往上拉 1.2 m 後頂在 3.05 m，仍在閘框頂之下。",
+   "v2": {
+    "generator": "Codex CLI (OpenAI) gpt-6-astra, reasoning xhigh, built-in image generation; 4 independent generations of the same verbatim prompt, then turnaround / detail sheets from the pick",
+    "picked": "v2/UP01-v2-cand-2.png",
+    "sheets": "v2 細節圖（絞盤木架與鐵件、閘板鉚釘鐵條、壓頂石、石縫蕨、斷木水草、腳邊落石）",
+    "modelling_changes": "壩面石塊做得更鼓、接縫更深；兩岸改成斷裂面花崗岩、腳下補一圈碎石與十二塊落石；絞盤加粗、加木架、鐵箍與螺栓板；閘板鐵條加方頭鉚釘；石縫加蕨與草。"
+   }
   },
   "UP02": {
    "picked": "UP02-cand-3.png",
@@ -25,7 +31,13 @@
     "UP02-cand-4.png"
    ],
    "why": "三顆的大小、高矮、裂紋走向都不同；裂紋裡的琥珀色很淡、只在暗面看得出來，苔蘚在石頭周圍一圈偏黃變乾，最接近「好像怪怪的」。4 號裂紋太亮太橘；1、2 號三種外形太像。",
-   "modelling_differences": "每一種做成一個主石加一到兩顆小卵石和碎石，三種分開交（UP02_01..03）。溫度不靠貼圖寫死：_Warmth 0–1 在冷、溫兩張底色之間插值，並控制裂紋的淡琥珀自發光。"
+   "modelling_differences": "每一種做成一個主石加一到兩顆小卵石和碎石，三種分開交（UP02_01..03）。溫度不靠貼圖寫死：_Warmth 0–1 在冷、溫兩張底色之間插值，並控制裂紋的淡琥珀自發光。",
+   "v2": {
+    "generator": "Codex CLI (OpenAI) gpt-6-astra, reasoning xhigh, built-in image generation; 4 independent generations of the same verbatim prompt, then turnaround / detail sheets from the pick",
+    "picked": "v2/UP02-v2-cand-1.png",
+    "sheets": "v2 轉面圖、細節圖、details.md",
+    "modelling_changes": "主石改回磨圓溪石（少數柔和大面），頂上加真的苔蘚墊、石色分塊斑駁、地衣斑；腳邊一圈蕨與草。三種仍各自分開交（UP02_01..03），不做成三石一組。"
+   }
   },
   "UP03": {
    "picked": "UP03-cand-3.png",
@@ -36,7 +48,13 @@
     "UP03-cand-4.png"
    ],
    "why": "刻痕長短、深淺、間距不一，每道旁一個小圓點，最上面一道旁有小波浪記號；石樁頂角缺一塊、地衣斑點、遠高於地面的一圈深色舊水漬都對。1 號底部外擴像樹根；2、4 號刻痕太整齊像尺。",
-   "modelling_differences": "最低一道刻在離地 0.55 m，比現在的水面高很多；刻痕是模型凹槽，苔長在槽裡。沒有任何字或數字。"
+   "modelling_differences": "最低一道刻在離地 0.55 m，比現在的水面高很多；刻痕是模型凹槽，苔長在槽裡。沒有任何字或數字。",
+   "v2": {
+    "generator": "Codex CLI (OpenAI) gpt-6-astra, reasoning xhigh, built-in image generation; 4 independent generations of the same verbatim prompt, then turnaround / detail sheets from the pick",
+    "picked": "v2/UP03-v2-cand-2.png",
+    "sheets": "v2 轉面圖、細節圖、details.md",
+    "modelling_changes": "前左長條崩稜（四組崩片）、頂冠崩口、柱腳崩面；各面裂縫系統；八道刻槽與八個圓點、波浪記號移到最高一道上方；舊水痕改在 0.80–0.96 m 並往下流；柱腳改成有稜角的石塊。尺寸照上限 0.5 × 0.4，柱身 0.34 × 0.29（details.md 寫 0.40 見方會超過深度上限）。"
+   }
   },
   "UP04": {
    "picked": "UP04-cand-2.png",
@@ -47,7 +65,13 @@
     "UP04-cand-4.png"
    ],
    "why": "彎曲的溪用雙線畫、分出幾條水路、圓圈和箭頭，像孩子畫的機關圖，沒有字；石頭頂面平、邊緣圓、側面有地衣；炭棒放在邊上。1 號畫了山和輪子太講究；3 號漩渦太大；4 號石頭太高。",
-   "modelling_differences": "畫做成獨立的貼花網格 UP04_Drawing（自己的透明貼圖），先交「畫了一半」：主溪畫完、右邊兩條支流只畫到一半。炭棒是獨立物件 UP04_Charcoal。"
+   "modelling_differences": "畫做成獨立的貼花網格 UP04_Drawing（自己的透明貼圖），先交「畫了一半」：主溪畫完、右邊兩條支流只畫到一半。炭棒是獨立物件 UP04_Charcoal。",
+   "v2": {
+    "generator": "Codex CLI (OpenAI) gpt-6-astra, reasoning xhigh, built-in image generation; 4 independent generations of the same verbatim prompt, then turnaround / detail sheets from the pick",
+    "picked": "v2/UP04-v2-cand-4.png",
+    "sheets": "v2 細節圖",
+    "modelling_changes": "側面加層理退階與縱裂、頂面細裂；炭筆畫加樹根狀分叉、流向箭頭、虛線與同心圓；側面地衣放大、苔加多；石腳一圈草與蕨。"
+   }
   },
   "UP05": {
    "picked": "UP05-cand-1.png",
@@ -58,7 +82,13 @@
     "UP05-cand-4.png"
    ],
    "why": "矮几几面有一圈水漬、一角手扶磨亮、香爐旁灑了香灰；蒲團一個飽滿一個壓扁、草編是一圈圈盤起來的粗辮；香爐三足雙耳青銅。2、4 號蒲團太高像鼓；3 號香爐有蓋，太像擺設。",
-   "modelling_differences": "照工作包尺寸：蒲團 Ø0.55 × 0.12（圖裡偏高）、矮几 0.8 × 0.45 × 0.3、香爐 Ø0.15 × 0.12。四件分開交：UP05_CushionNew、UP05_CushionOld、UP05_Table、UP05_Burner。"
+   "modelling_differences": "照工作包尺寸：蒲團 Ø0.55 × 0.12（圖裡偏高）、矮几 0.8 × 0.45 × 0.3、香爐 Ø0.15 × 0.12。四件分開交：UP05_CushionNew、UP05_CushionOld、UP05_Table、UP05_Burner。",
+   "v2": {
+    "generator": "Codex CLI (OpenAI) gpt-6-astra, reasoning xhigh, built-in image generation; 4 independent generations of the same verbatim prompt, then turnaround / detail sheets from the pick",
+    "picked": "v2/UP05-v2-cand-4.png",
+    "sheets": "v2 轉面圖、細節圖",
+    "modelling_changes": "桌面改三塊厚板、階梯形牙板、外露榫頭與木釘、偏紅褐舊木；蒲團改細辮多圈、頂面放射綁線、側面六條捻繩加結，舊的加灰布補丁；香爐改方框浮雕帶與方耳。"
+   }
   },
   "UP06": {
    "picked": "UP06-cand-4.png",
@@ -69,7 +99,18 @@
     "UP06-cand-4.png"
    ],
    "why": "燈籠細長、月白紙、竹肋、補過的破洞、頂上一圈淡淡的煙燻；竹桿握的地方纏了布，最樸素。1、2 號燈籠是腰鼓形，比較像村裡的燈；3 號燈籠太胖。",
-   "modelling_differences": "四張圖的提桿都是橫的，但工作包上限是 0.3 × 0.3 × 0.9（含提桿），所以模型把竹桿立起來、桿頭自然彎出一小段，燈籠掛在彎出來的地方；拿在手上時由 Socket_Hand 決定角度。"
+   "modelling_differences": "四張圖的提桿都是橫的，但工作包上限是 0.3 × 0.3 × 0.9（含提桿），所以模型把竹桿立起來、桿頭自然彎出一小段，燈籠掛在彎出來的地方；拿在手上時由 Socket_Hand 決定角度。",
+   "v2": {
+    "generator": "Codex CLI (OpenAI) gpt-6-astra, reasoning xhigh, built-in image generation; 4 independent generations of the same verbatim prompt, then turnaround / detail sheets from the pick",
+    "picked": "v2/UP06-v2-cand-4.png",
+    "sheets": "v2 轉面圖、細節圖、details.md",
+    "modelling_changes": "照 details.md 的承重順序：竿頭綁結→雙股短繩→小鐵環→四股吊繩→木領與低拱蓋→六根帶竹節的竹肋（上下各綁）→竹箍→三短腳木座；紙在肋間微鼓、皺紙起伏；補紙改成實體薄片加三根竹釘。竹竿仍直立（尺寸上限 0.3 × 0.3 × 0.9，橫竿放不下），持握角度由 Socket_Hand 決定。"
+   }
   }
+ },
+ "round2": {
+  "date": "2026-11-02",
+  "why": "user asked for more detail; earlier models missed many details of the references",
+  "codex_usage_limit": "hit before UP01/UP04 turnarounds and UP01/UP04/UP05 details.md were written"
  }
 }

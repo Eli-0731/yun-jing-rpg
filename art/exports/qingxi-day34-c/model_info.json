@@ -4,9 +4,9 @@
   "slot": "D3_Weir",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   13.902,
-   3.943,
-   3.449
+   13.733,
+   3.972,
+   3.478
   ],
   "size_limit_m": [
    14,
@@ -19,9 +19,9 @@
     "material": "UP01_Weir",
     "texture_px": 4096,
     "triangles": [
-     95340,
-     47670,
-     14300
+     200910,
+     100454,
+     30136
     ],
     "maps": [
      "alb",
@@ -33,9 +33,9 @@
     "material": "UP01_Gate",
     "texture_px": 1024,
     "triangles": [
-     2600,
-     1300,
-     390
+     4868,
+     2434,
+     730
     ],
     "maps": [
      "alb",
@@ -62,9 +62,9 @@
     "material": "UP01_Plants",
     "texture_px": 1024,
     "triangles": [
-     21906,
-     10953,
-     3285
+     42210,
+     21105,
+     6331
     ],
     "maps": [
      "alb",
@@ -74,11 +74,11 @@
    }
   },
   "triangles_total": [
-   127230,
-   63615,
-   19082
+   255372,
+   127685,
+   38304
   ],
-  "source_parts": 1888,
+  "source_parts": 3422,
   "reference": "art/references/qingxi-day34-c/UP01/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
@@ -195,7 +195,7 @@
       "parts": [
        "UP01_Drum"
       ],
-      "triangles": 108
+      "triangles": 116
      },
      {
       "type": "hull",
@@ -426,67 +426,67 @@
       "parts": [
        "UP01_Bank-10"
       ],
-      "triangles": 758
+      "triangles": 860
      },
      {
       "type": "hull",
       "parts": [
        "UP01_Bank-11"
       ],
-      "triangles": 662
+      "triangles": 800
      },
      {
       "type": "hull",
       "parts": [
        "UP01_Bank-12"
       ],
-      "triangles": 834
+      "triangles": 916
      },
      {
       "type": "hull",
       "parts": [
        "UP01_Bank-13"
       ],
-      "triangles": 762
+      "triangles": 792
      },
      {
       "type": "hull",
       "parts": [
        "UP01_Bank10"
       ],
-      "triangles": 740
+      "triangles": 914
      },
      {
       "type": "hull",
       "parts": [
        "UP01_Bank11"
       ],
-      "triangles": 716
+      "triangles": 690
      },
      {
       "type": "hull",
       "parts": [
        "UP01_Bank12"
       ],
-      "triangles": 774
+      "triangles": 932
      },
      {
       "type": "hull",
       "parts": [
        "UP01_Bank13"
       ],
-      "triangles": 758
+      "triangles": 878
      }
     ],
     "bounds_min": [
-     -6.951,
-     -1.971,
+     -6.866,
+     -1.889,
      0.005
     ],
     "bounds_max": [
-     6.951,
-     1.969,
-     3.442
+     6.866,
+     1.984,
+     3.475
     ]
    },
    "UP01_Collision_Debris": {
@@ -549,13 +549,13 @@
      }
     ],
     "bounds_min": [
-     -0.826,
-     -1.427,
+     -0.857,
+     -1.413,
      0.012
     ],
     "bounds_max": [
-     0.868,
-     1.953,
+     0.836,
+     1.967,
      2.355
     ]
    },
@@ -577,13 +577,13 @@
      }
     ],
     "bounds_min": [
-     -0.702,
-     0.473,
+     -0.733,
+     0.487,
      0.263
     ],
     "bounds_max": [
-     0.772,
-     0.586,
+     0.741,
+     0.6,
      1.849
     ]
    }
@@ -592,8 +592,8 @@
   "pivots": {
    "UP01_Gate": {
     "position": [
-     0.037,
-     0.553,
+     0.005,
+     0.567,
      3.112
     ],
     "objects": [
@@ -638,9 +638,9 @@
   "slot": "D3_WarmStone_01",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.891,
+   0.892,
    0.628,
-   0.573
+   0.568
   ],
   "size_limit_m": [
    0.9,
@@ -653,9 +653,9 @@
     "material": "UP02_01_Stone",
     "texture_px": 2048,
     "triangles": [
-     23040,
-     11520,
-     3456
+     38296,
+     19148,
+     5744
     ],
     "maps": [
      "Albedo_Warm",
@@ -670,9 +670,9 @@
     "material": "UP02_01_Gravel",
     "texture_px": 512,
     "triangles": [
-     3100,
-     1550,
-     464
+     12400,
+     6200,
+     1860
     ],
     "maps": [
      "alb",
@@ -684,9 +684,9 @@
     "material": "UP02_01_Plants",
     "texture_px": 512,
     "triangles": [
-     1708,
-     854,
-     256
+     5472,
+     2736,
+     820
     ],
     "maps": [
      "Albedo_Warm",
@@ -698,11 +698,11 @@
    }
   },
   "triangles_total": [
-   27848,
-   13924,
-   4176
+   56168,
+   28084,
+   8424
   ],
-  "source_parts": 176,
+  "source_parts": 448,
   "reference": "art/references/qingxi-day34-c/UP02/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
@@ -714,26 +714,26 @@
       "parts": [
        "UP02_01_Main"
       ],
-      "triangles": 2894
+      "triangles": 1028
      }
     ],
     "bounds_min": [
-     -0.346,
-     -0.271,
-     0.001
+     -0.342,
+     -0.263,
+     0.002
     ],
     "bounds_max": [
-     0.359,
-     0.238,
-     0.571
+     0.336,
+     0.245,
+     0.562
     ]
    }
   },
   "sockets": {
    "Socket_Steam": [
-    -0.01,
     -0.009,
-    0.583
+    -0.008,
+    0.572
    ]
   },
   "state": {
@@ -756,9 +756,9 @@
   "slot": "D3_WarmStone_02",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.707,
-   0.558,
-   0.533
+   0.699,
+   0.575,
+   0.504
   ],
   "size_limit_m": [
    0.9,
@@ -771,9 +771,9 @@
     "material": "UP02_02_Stone",
     "texture_px": 2048,
     "triangles": [
-     21760,
-     10880,
-     3264
+     31936,
+     15967,
+     4789
     ],
     "maps": [
      "Albedo_Warm",
@@ -788,9 +788,9 @@
     "material": "UP02_02_Gravel",
     "texture_px": 512,
     "triangles": [
-     2600,
-     1300,
-     390
+     10400,
+     5200,
+     1560
     ],
     "maps": [
      "alb",
@@ -802,9 +802,9 @@
     "material": "UP02_02_Plants",
     "texture_px": 512,
     "triangles": [
-     1708,
-     854,
-     256
+     9208,
+     4603,
+     1381
     ],
     "maps": [
      "Albedo_Warm",
@@ -816,20 +816,20 @@
    }
   },
   "triangles_total": [
-   26068,
-   13034,
-   3910
+   51544,
+   25770,
+   7730
   ],
-  "source_parts": 168,
+  "source_parts": 706,
   "reference": "art/references/qingxi-day34-c/UP02/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
   "collision": {},
   "sockets": {
    "Socket_Steam": [
-    0.016,
-    -0.024,
-    0.543
+    0.022,
+    -0.016,
+    0.508
    ]
   },
   "state": {
@@ -852,9 +852,9 @@
   "slot": "D3_WarmStone_03",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.53,
-   0.496,
-   0.191
+   0.589,
+   0.532,
+   0.166
   ],
   "size_limit_m": [
    0.9,
@@ -867,9 +867,9 @@
     "material": "UP02_03_Stone",
     "texture_px": 2048,
     "triangles": [
-     23040,
-     11520,
-     3456
+     38589,
+     19293,
+     5787
     ],
     "maps": [
      "Albedo_Warm",
@@ -884,9 +884,9 @@
     "material": "UP02_03_Gravel",
     "texture_px": 512,
     "triangles": [
-     2160,
-     1080,
-     324
+     8640,
+     4320,
+     1296
     ],
     "maps": [
      "alb",
@@ -898,9 +898,9 @@
     "material": "UP02_03_Plants",
     "texture_px": 512,
     "triangles": [
-     128,
-     64,
-     19
+     9324,
+     4662,
+     1398
     ],
     "maps": [
      "Albedo_Warm",
@@ -912,20 +912,20 @@
    }
   },
   "triangles_total": [
-   25328,
-   12664,
-   3799
+   56553,
+   28275,
+   8481
   ],
-  "source_parts": 47,
+  "source_parts": 704,
   "reference": "art/references/qingxi-day34-c/UP02/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
   "collision": {},
   "sockets": {
    "Socket_Steam": [
-    -0.008,
-    -0.035,
-    0.201
+    -0.014,
+    -0.02,
+    0.173
    ]
   },
   "state": {
@@ -948,9 +948,9 @@
   "slot": "D3_WaterMark",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.478,
-   0.346,
-   1.341
+   0.48,
+   0.392,
+   1.338
   ],
   "size_limit_m": [
    0.5,
@@ -963,9 +963,9 @@
     "material": "UP03_Stone",
     "texture_px": 2048,
     "triangles": [
-     10897,
-     5450,
-     1634
+     82532,
+     41266,
+     12378
     ],
     "maps": [
      "alb",
@@ -977,9 +977,9 @@
     "material": "UP03_Gravel",
     "texture_px": 512,
     "triangles": [
-     340,
-     170,
-     50
+     1520,
+     760,
+     228
     ],
     "maps": [
      "alb",
@@ -991,9 +991,9 @@
     "material": "UP03_Plants",
     "texture_px": 512,
     "triangles": [
-     336,
-     168,
-     50
+     640,
+     320,
+     96
     ],
     "maps": [
      "alb",
@@ -1003,11 +1003,11 @@
    }
   },
   "triangles_total": [
-   11573,
-   5788,
-   1734
+   84692,
+   42346,
+   12702
   ],
-  "source_parts": 46,
+  "source_parts": 67,
   "reference": "art/references/qingxi-day34-c/UP03/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
@@ -1018,32 +1018,32 @@
       "type": "box",
       "size": [
        0.34,
-       0.27,
+       0.29,
        1.33
       ],
       "center": [
-       0.009,
-       -0.012,
-       0.672
+       0.003,
+       -0.02,
+       0.669
       ]
      }
     ],
     "bounds_min": [
-     -0.161,
-     -0.147,
-     0.007
+     -0.167,
+     -0.165,
+     0.004
     ],
     "bounds_max": [
-     0.179,
-     0.123,
-     1.337
+     0.173,
+     0.125,
+     1.334
     ]
    }
   },
   "sockets": {},
   "notes": {
-   "marks": "7 level lines (lowest at 0.55 m, highest at 1.02 m), a dot beside each, a small wave sign by the top line; no letters, no numbers",
-   "stain": "old waterline stain band about 1.05-1.17 m"
+   "marks": "8 level lines (lowest at 0.40 m, highest at 1.24 m), a dot beside each, a small wave sign by the top line; no letters, no numbers",
+   "stain": "old high-water stain band about 0.80-0.96 m"
   }
  },
  "UP04": {
@@ -1051,9 +1051,9 @@
   "slot": "D3_DrawingStone",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   1.368,
-   0.915,
-   0.312
+   1.398,
+   0.996,
+   0.314
   ],
   "size_limit_m": [
    1.4,
@@ -1108,9 +1108,9 @@
     "material": "UP04_Gravel",
     "texture_px": 512,
     "triangles": [
-     480,
-     240,
-     72
+     1920,
+     960,
+     288
     ],
     "maps": [
      "alb",
@@ -1122,9 +1122,9 @@
     "material": "UP04_Plants",
     "texture_px": 512,
     "triangles": [
-     512,
-     256,
-     76
+     8960,
+     4479,
+     1343
     ],
     "maps": [
      "alb",
@@ -1134,11 +1134,11 @@
    }
   },
   "triangles_total": [
-   21628,
-   10813,
-   3241
+   31516,
+   15756,
+   4724
   ],
-  "source_parts": 50,
+  "source_parts": 643,
   "reference": "art/references/qingxi-day34-c/UP04/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
@@ -1150,18 +1150,18 @@
       "parts": [
        "UP04_Slab"
       ],
-      "triangles": 640
+      "triangles": 642
      }
     ],
     "bounds_min": [
-     -0.612,
-     -0.457,
-     0.0
+     -0.602,
+     -0.498,
+     0.002
     ],
     "bounds_max": [
-     0.66,
-     0.457,
-     0.289
+     0.665,
+     0.41,
+     0.291
     ]
    }
   },
@@ -1178,9 +1178,9 @@
   "slot": "LT_QiLesson",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.144,
-   0.144,
-   0.117
+   0.143,
+   0.143,
+   0.12
   ],
   "size_limit_m": [
    0.15,
@@ -1193,9 +1193,9 @@
     "material": "UP05_Burner_Burner",
     "texture_px": 1024,
     "triangles": [
-     5000,
-     2500,
-     750
+     5832,
+     2916,
+     874
     ],
     "maps": [
      "alb",
@@ -1205,11 +1205,11 @@
    }
   },
   "triangles_total": [
-   5000,
-   2500,
-   750
+   5832,
+   2916,
+   874
   ],
-  "source_parts": 38,
+  "source_parts": 30,
   "reference": "art/references/qingxi-day34-c/UP05/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
@@ -1230,9 +1230,9 @@
   "slot": "LT_QiLesson",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.541,
-   0.54,
-   0.117
+   0.525,
+   0.525,
+   0.116
   ],
   "size_limit_m": [
    0.55,
@@ -1245,9 +1245,9 @@
     "material": "UP05_CushionNew_Cushion",
     "texture_px": 1024,
     "triangles": [
-     26838,
-     13418,
-     4024
+     57628,
+     28814,
+     8644
     ],
     "maps": [
      "alb",
@@ -1257,11 +1257,11 @@
    }
   },
   "triangles_total": [
-   26838,
-   13418,
-   4024
+   57628,
+   28814,
+   8644
   ],
-  "source_parts": 14,
+  "source_parts": 53,
   "reference": "art/references/qingxi-day34-c/UP05/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
@@ -1278,8 +1278,8 @@
   "device": "OPTIX",
   "dimensions_xyz_m": [
    0.515,
-   0.508,
-   0.087
+   0.499,
+   0.086
   ],
   "size_limit_m": [
    0.55,
@@ -1292,9 +1292,9 @@
     "material": "UP05_CushionOld_Cushion",
     "texture_px": 1024,
     "triangles": [
-     27246,
-     13622,
-     4086
+     48372,
+     24185,
+     7255
     ],
     "maps": [
      "alb",
@@ -1304,11 +1304,11 @@
    }
   },
   "triangles_total": [
-   27246,
-   13622,
-   4086
+   48372,
+   24185,
+   7255
   ],
-  "source_parts": 48,
+  "source_parts": 89,
   "reference": "art/references/qingxi-day34-c/UP05/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
@@ -1339,9 +1339,9 @@
     "material": "UP05_Table_Table",
     "texture_px": 2048,
     "triangles": [
-     1980,
-     990,
-     296
+     3908,
+     1954,
+     586
     ],
     "maps": [
      "alb",
@@ -1351,11 +1351,11 @@
    }
   },
   "triangles_total": [
-   1980,
-   990,
-   296
+   3908,
+   1954,
+   586
   ],
-  "source_parts": 17,
+  "source_parts": 31,
   "reference": "art/references/qingxi-day34-c/UP05/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
@@ -1404,9 +1404,9 @@
   "slot": "Socket_Hand (Liu Zhiwei)",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.212,
-   0.153,
-   0.884
+   0.211,
+   0.152,
+   0.883
   ],
   "size_limit_m": [
    0.3,
@@ -1419,9 +1419,9 @@
     "material": "UP06_Frame",
     "texture_px": 1024,
     "triangles": [
-     5178,
-     2589,
-     776
+     24794,
+     12396,
+     3718
     ],
     "maps": [
      "alb",
@@ -1433,9 +1433,9 @@
     "material": "UP06_Lamp",
     "texture_px": 1024,
     "triangles": [
-     576,
-     287,
-     86
+     5682,
+     2841,
+     852
     ],
     "maps": [
      "Emission",
@@ -1446,25 +1446,25 @@
    }
   },
   "triangles_total": [
-   5754,
-   2876,
-   862
+   30476,
+   15237,
+   4570
   ],
-  "source_parts": 33,
+  "source_parts": 77,
   "reference": "art/references/qingxi-day34-c/UP06/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission, state maps]",
   "collision": {},
   "sockets": {
    "Socket_Hand": [
-    -0.086,
-    0.0,
-    0.22
+    -0.088,
+    -0.0,
+    0.24
    ],
    "UP06_LightSocket": [
-    0.029,
-    0.0,
-    0.682
+    0.027,
+    -0.0,
+    0.631
    ]
   },
   "state": {
@@ -1480,7 +1480,7 @@
   },
   "notes": {
    "hold": "Socket_Hand is the grip centre on the cloth wrap; the pole stands upright in the file, the hand socket sets the carrying angle",
-   "mend": "a mended tear on the front-left of the paper; faint soot at the top of the shade"
+   "mend": "a pinned paper patch on the front-left of the shade; faint soot under the lid"
   }
  }
 }
