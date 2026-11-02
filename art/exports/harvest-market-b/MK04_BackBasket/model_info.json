@@ -1,0 +1,123 @@
+{
+  "asset": "MK04_BackBasket",
+  "version": "v001",
+  "name_zh": "背簍",
+  "slot": "角色背上（Socket_Back）",
+  "note": "原點在背部貼身那一面的中間（Socket_Back，同一點），核心組把 Socket_Back 掛到角色背上；裝滿是另一個子網格 _Fill（三捆草藥露出口外），整個開關",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "back-contact face centre (Socket_Back)",
+  "dimensions_m": [
+    0.417,
+    0.3378,
+    0.5943
+  ],
+  "size_limit_m": [
+    0.45,
+    0.35,
+    0.6
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.417,
+        0.3378,
+        0.476
+      ],
+      "pivot": [
+        -0.0,
+        -0.1721,
+        -0.28
+      ],
+      "min_z_local": 0.0
+    },
+    "Fill": {
+      "dims_m": [
+        0.3689,
+        0.2171,
+        0.2435
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0708
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 45268,
+      "LOD1": 22634,
+      "LOD2": 6790
+    },
+    "Fill": {
+      "LOD0": 34872,
+      "LOD1": 17436,
+      "LOD2": 5230
+    }
+  },
+  "lod_totals": {
+    "LOD0": 80140,
+    "LOD1": 40070,
+    "LOD2": 12020
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_MK04_BackBasket_Main"
+  ],
+  "textures": [
+    "MK04_BackBasket_BaseColor.png",
+    "MK04_BackBasket_Metallic.png",
+    "MK04_BackBasket_MetallicSmoothness.png",
+    "MK04_BackBasket_Normal.png",
+    "MK04_BackBasket_Roughness.png"
+  ],
+  "texture_size_px": 4096,
+  "unity": {
+    "pipeline": "URP Lit",
+    "BaseColor": "MK04_BackBasket_BaseColor.png",
+    "Normal": "MK04_BackBasket_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "MK04_BackBasket_MetallicSmoothness.png (R metallic, A smoothness)",
+    "Emission": null,
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import"
+  },
+  "collision": false,
+  "collision_note": "hand-held / tabletop / worn props: nothing here blocks the player (00-overview 2: only blocking pieces get _Collision)",
+  "sockets_blender_xyz": {
+    "Socket_Back": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Back.001": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "states": [
+    "empty",
+    "full (Fill on)"
+  ],
+  "state_renders": {
+    "empty": "state_empty.png",
+    "full": "MK04_BackBasket_hero.png"
+  },
+  "fbx_objects": [
+    "MK04_BackBasket.001",
+    "MK04_BackBasket_Fill_LOD0.001",
+    "MK04_BackBasket_Fill_LOD1.001",
+    "MK04_BackBasket_Fill_LOD2.001",
+    "MK04_BackBasket_LOD0.001",
+    "MK04_BackBasket_LOD1.001",
+    "MK04_BackBasket_LOD2.001",
+    "Socket_Back.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/harvest-market-b/mk_assets.py, mk_herbs.py); procedural shaders (mk_mats.py) baked to a UV atlas",
+  "reference": "art/references/MK04/v002/selected.png (AI three-view, not measured)",
+  "unity_import_verified": false
+}

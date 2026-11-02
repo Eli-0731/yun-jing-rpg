@@ -1,0 +1,167 @@
+{
+  "asset": "MK03_PriceBoard",
+  "checks": [
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.4292,
+          -0.0894,
+          0.0
+        ],
+        "max": [
+          0.4292,
+          0.0894,
+          0.6961
+        ]
+      }
+    },
+    {
+      "check": "board_0.5_0.04_0.7",
+      "pass": true,
+      "detail": {
+        "board_dims_m": [
+          0.5003,
+          0.048,
+          0.6961
+        ],
+        "note": "depth includes nail heads and the tag peg"
+      }
+    },
+    {
+      "check": "coin_string_about_0.12",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.1248,
+          0.024,
+          0.024
+        ]
+      }
+    },
+    {
+      "check": "purse_about_0.15",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.1322,
+          0.1133,
+          0.1387
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 20492,
+          "LOD1": 10246,
+          "LOD2": 3068
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 3252,
+            "LOD1": 1626,
+            "LOD2": 486
+          },
+          "PlateDemand": {
+            "LOD0": 436,
+            "LOD1": 218,
+            "LOD2": 64
+          },
+          "CoinString": {
+            "LOD0": 6884,
+            "LOD1": 3442,
+            "LOD2": 1032
+          },
+          "LooseCoins": {
+            "LOD0": 1968,
+            "LOD1": 984,
+            "LOD2": 294
+          },
+          "Purse": {
+            "LOD0": 7952,
+            "LOD1": 3976,
+            "LOD2": 1192
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          0.8585,
+          0.1788,
+          0.6961
+        ],
+        "blend_dims_m": [
+          0.8585,
+          0.1788,
+          0.6961
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "MK03_PriceBoard.001",
+        "MK03_PriceBoard_CoinString_LOD0.001",
+        "MK03_PriceBoard_CoinString_LOD1.001",
+        "MK03_PriceBoard_CoinString_LOD2.001",
+        "MK03_PriceBoard_LOD0.001",
+        "MK03_PriceBoard_LOD1.001",
+        "MK03_PriceBoard_LOD2.001",
+        "MK03_PriceBoard_LooseCoins_LOD0.001",
+        "MK03_PriceBoard_LooseCoins_LOD1.001",
+        "MK03_PriceBoard_LooseCoins_LOD2.001",
+        "MK03_PriceBoard_PlateDemand_LOD0.001",
+        "MK03_PriceBoard_PlateDemand_LOD1.001",
+        "MK03_PriceBoard_PlateDemand_LOD2.001",
+        "MK03_PriceBoard_Purse_LOD0.001",
+        "MK03_PriceBoard_Purse_LOD1.001",
+        "MK03_PriceBoard_Purse_LOD2.001",
+        "SOCKET_coins_drop.001",
+        "SOCKET_demand_icon.001",
+        "SOCKET_plate_demand.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "SOCKET_coins_drop.001": [
+          0.3669,
+          -0.0506,
+          0.002
+        ],
+        "SOCKET_demand_icon.001": [
+          0.0169,
+          0.0359,
+          0.447
+        ],
+        "SOCKET_plate_demand.001": [
+          0.0169,
+          0.0429,
+          0.522
+        ]
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 154,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

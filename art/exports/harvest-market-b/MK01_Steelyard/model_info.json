@@ -1,0 +1,175 @@
+{
+  "asset": "MK01_Steelyard",
+  "version": "v001",
+  "name_zh": "桿秤",
+  "slot": "Market_HerbalStall / Socket_Scale",
+  "note": "秤砣（_Weight）是獨立物件，沿秤桿局部 X 軸 0–0.5 m 滑動（SOCKET_weight_rest → SOCKET_weight_max）；秤盤（_Pan）三條麻繩掛在秤桿下的銅環，pivot 在掛環；SOCKET_hook 是整把秤掛到攤子 Socket_Scale 的點",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    0.795,
+    0.247,
+    0.59
+  ],
+  "size_limit_m": [
+    0.8,
+    0.3,
+    0.6
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.7462,
+        0.045,
+        0.144
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.446
+    },
+    "Pan": {
+      "dims_m": [
+        0.247,
+        0.247,
+        0.4511
+      ],
+      "pivot": [
+        -0.274,
+        0.0,
+        0.448
+      ],
+      "min_z_local": -0.448
+    },
+    "Weight": {
+      "dims_m": [
+        0.0784,
+        0.0784,
+        0.2657
+      ],
+      "pivot": [
+        -0.194,
+        0.0,
+        0.47
+      ],
+      "min_z_local": -0.243
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 6560,
+      "LOD1": 3279,
+      "LOD2": 982
+    },
+    "Pan": {
+      "LOD0": 6192,
+      "LOD1": 3094,
+      "LOD2": 928
+    },
+    "Weight": {
+      "LOD0": 1406,
+      "LOD1": 702,
+      "LOD2": 210
+    }
+  },
+  "lod_totals": {
+    "LOD0": 14158,
+    "LOD1": 7075,
+    "LOD2": 2120
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_MK01_Steelyard_Main"
+  ],
+  "textures": [
+    "MK01_Steelyard_BaseColor.png",
+    "MK01_Steelyard_Metallic.png",
+    "MK01_Steelyard_MetallicSmoothness.png",
+    "MK01_Steelyard_Normal.png",
+    "MK01_Steelyard_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "BaseColor": "MK01_Steelyard_BaseColor.png",
+    "Normal": "MK01_Steelyard_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "MK01_Steelyard_MetallicSmoothness.png (R metallic, A smoothness)",
+    "Emission": null,
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import"
+  },
+  "collision": false,
+  "collision_note": "hand-held / tabletop / worn props: nothing here blocks the player (00-overview 2: only blocking pieces get _Collision)",
+  "sockets_blender_xyz": {
+    "SOCKET_hook": [
+      -0.2561,
+      0.0,
+      0.5839
+    ],
+    "SOCKET_pan": [
+      -0.274,
+      0.0,
+      0.448
+    ],
+    "SOCKET_weight_rest": [
+      -0.194,
+      0.0,
+      0.47
+    ],
+    "SOCKET_weight_max": [
+      0.306,
+      0.0,
+      0.47
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "SOCKET_hook.001": [
+      -0.2561,
+      0.0,
+      0.5839
+    ],
+    "SOCKET_pan.001": [
+      -0.274,
+      0.0,
+      0.448
+    ],
+    "SOCKET_weight_max.001": [
+      0.306,
+      0.0,
+      0.47
+    ],
+    "SOCKET_weight_rest.001": [
+      -0.194,
+      0.0,
+      0.47
+    ]
+  },
+  "states": [
+    "weight 0–0.5 m on local X"
+  ],
+  "state_renders": {
+    "weight_max": "state_weight_max.png"
+  },
+  "fbx_objects": [
+    "MK01_Steelyard.001",
+    "MK01_Steelyard_LOD0.001",
+    "MK01_Steelyard_LOD1.001",
+    "MK01_Steelyard_LOD2.001",
+    "MK01_Steelyard_Pan_LOD0.001",
+    "MK01_Steelyard_Pan_LOD1.001",
+    "MK01_Steelyard_Pan_LOD2.001",
+    "MK01_Steelyard_Weight_LOD0.001",
+    "MK01_Steelyard_Weight_LOD1.001",
+    "MK01_Steelyard_Weight_LOD2.001",
+    "SOCKET_hook.001",
+    "SOCKET_pan.001",
+    "SOCKET_weight_max.001",
+    "SOCKET_weight_rest.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/harvest-market-b/mk_assets.py, mk_herbs.py); procedural shaders (mk_mats.py) baked to a UV atlas",
+  "reference": "art/references/MK01/v002/selected.png (AI three-view, not measured)",
+  "unity_import_verified": false
+}

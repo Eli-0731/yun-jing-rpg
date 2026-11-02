@@ -1,0 +1,24 @@
+{
+  "asset": "HerbalStall",
+  "version": "v002",
+  "based_on": "v001 (unchanged file, sha256 58a2954f5ca08d099c087578300e038bef1330563f70d7b687885dfd72473962)",
+  "change": "added Socket_Scale empty + iron staple and eye ring under the front canopy crossbeam (work pack 02-B, MK01 hangs here)",
+  "units": "meters",
+  "front": "-Y",
+  "dimensions_m": [
+    3.4134,
+    1.7328,
+    2.6626
+  ],
+  "sockets": {
+    "Socket_Scale": [
+      0.45,
+      -0.649,
+      2.005
+    ]
+  },
+  "mesh_objects": 108,
+  "uv_baked": false,
+  "collision": false,
+  "lod": false
+}

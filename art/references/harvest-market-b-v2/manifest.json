@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-01",
+  "version": "v002",
+  "tool": "built-in image_gen",
+  "assessment": "Codex 主觀概念參考圖目視評分，不是外部認證、毫米級正交工程圖驗收或 3D 模型驗證。",
+  "rubric": [
+    {
+      "name": "三視圖一致性",
+      "max": 30
+    },
+    {
+      "name": "規格與比例",
+      "max": 25
+    },
+    {
+      "name": "結構合理性",
+      "max": 20
+    },
+    {
+      "name": "美術風格",
+      "max": 15
+    },
+    {
+      "name": "畫面清楚度",
+      "max": 10
+    }
+  ],
+  "assets": [
+    {
+      "id": "MK01",
+      "title": "桿秤",
+      "selected": 3,
+      "score": 96,
+      "breakdown": [
+        28,
+        23,
+        20,
+        15,
+        10
+      ],
+      "change": "支點與秤盤吊點分離；縮小秤盤，保留可辨識的獨立秤砣與滑環。",
+      "deductions": "三視的繩結與木紋仍有小差異（2 分）；圖面盤桿比例已接近要求，總高仍須用 0.6 m 上限校準（2 分）。",
+      "revisions": [
+        {
+          "filename": "revision-01.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-dc2e5840-bd28-47d2-9558-e748341d9995.png",
+          "promptFile": "prompt-revision-01.txt"
+        },
+        {
+          "filename": "revision-02.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-37258248-40b7-4dce-9e29-403a90b905e0.png",
+          "promptFile": "prompt-revision-02.txt"
+        },
+        {
+          "filename": "revision-03.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-dd2a2b56-2eb4-46e9-b3b5-330262594ef4.png",
+          "promptFile": "prompt-revision-03.txt"
+        }
+      ]
+    },
+    {
+      "id": "MK02",
+      "title": "收成竹篩＋三級草藥捆",
+      "selected": 2,
+      "score": 95,
+      "breakdown": [
+        28,
+        23,
+        19,
+        15,
+        10
+      ],
+      "change": "竹篩正背面接近圓形、側面收成薄輪廓；縮小草藥捆與根球，保留三級葉色與葉尖發光差異。",
+      "deductions": "修補位置與葉序並非逐點一致（2 分）；草藥相對竹篩仍略大（2 分）；每捆主莖數有遮擋，需建模時拆出三株（1 分）。",
+      "revisions": [
+        {
+          "filename": "revision-01.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-53c32b67-b9dc-43e1-b1ec-ca6ce82e4550.png",
+          "promptFile": "prompt-revision-01.txt"
+        },
+        {
+          "filename": "revision-02.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-5a6dad8b-5e19-41ac-88db-2ae682c3c73a.png",
+          "promptFile": "prompt-revision-02.txt"
+        }
+      ]
+    },
+    {
+      "id": "MK03",
+      "title": "價目木牌＋錢串",
+      "selected": 10,
+      "score": 95,
+      "breakdown": [
+        29,
+        22,
+        20,
+        14,
+        10
+      ],
+      "change": "重生成後，移除背面多餘小木片；正背錢串與端視、三枚散錢側面均有對應，配件縮小。",
+      "deductions": "正背木紋非逐點一致（1 分）；錢串與錢袋仍略大，最終尺寸須按 0.12 m／0.15 m 校準，小尺寸銅錢輪廓不作逐枚幾何驗證（3 分）；木紋較其他三件偏寫實（1 分）。",
+      "revisions": [
+        {
+          "filename": "revision-01.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-6c31608c-2948-453c-a3c3-b4f4990f5191.png",
+          "promptFile": "prompt-revision-01.txt"
+        },
+        {
+          "filename": "revision-02.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-9a44d732-c490-412a-94f3-0debfc4ad3ef.png",
+          "promptFile": "prompt-revision-02.txt"
+        },
+        {
+          "filename": "revision-03.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-913bc49d-63e1-4c60-9b84-eba308e00a2b.png",
+          "promptFile": "prompt-revision-03.txt"
+        },
+        {
+          "filename": "revision-04.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-8bc9597a-23b0-4f7a-9217-2197b1dc2391.png",
+          "promptFile": "prompt-revision-04.txt"
+        },
+        {
+          "filename": "revision-05.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-2cc29705-45f2-4038-a82f-5e98f8ab24ef.png",
+          "promptFile": "prompt-revision-05.txt"
+        },
+        {
+          "filename": "revision-06.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-23c299a0-d7de-40e3-ac82-bc6e59b2e8b5.png",
+          "promptFile": "prompt-revision-06.txt"
+        },
+        {
+          "filename": "revision-07.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-042e1ad7-53bb-4965-9f70-d32f04e2dc84.png",
+          "promptFile": "prompt-revision-07.txt"
+        },
+        {
+          "filename": "revision-08.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-f2c68550-3762-4871-b702-57537ed50e4c.png",
+          "promptFile": "prompt-revision-08.txt"
+        },
+        {
+          "filename": "revision-09.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-00c16a03-0a9d-453d-976f-728b26c8a2ea.png",
+          "promptFile": "prompt-revision-09.txt"
+        },
+        {
+          "filename": "revision-10.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-5d45020b-6158-4521-bc54-4e292c5799ef.png",
+          "promptFile": "prompt-revision-10.txt"
+        }
+      ]
+    },
+    {
+      "id": "MK04",
+      "title": "背簍",
+      "selected": 2,
+      "score": 96,
+      "breakdown": [
+        28,
+        24,
+        19,
+        15,
+        10
+      ],
+      "change": "移除花卉與混雜植物，換成三捆同種草藥；側面加寬，移除背面多餘肩帶圈。",
+      "deductions": "側面細節與正背木框不是逐點一致（2 分）；填充草藥突出高度仍需尺寸校準（1 分）；肩帶實際長度與貼背間隙需建模時核對（1 分）。",
+      "revisions": [
+        {
+          "filename": "revision-01.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-943001ae-2609-4d7d-bfbf-c6b0abb5d7ef.png",
+          "promptFile": "prompt-revision-01.txt"
+        },
+        {
+          "filename": "revision-02.png",
+          "source": "C:/Users/joshs/.codex/generated_images/01a1976b-fe06-7dc3-b558-7c44c98ffa44/exec-10c21394-a7c9-470e-b6b5-e3586489dd8c.png",
+          "promptFile": "prompt-revision-02.txt"
+        }
+      ]
+    }
+  ]
+}

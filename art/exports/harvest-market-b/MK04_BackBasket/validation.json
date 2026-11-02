@@ -1,0 +1,118 @@
+{
+  "asset": "MK04_BackBasket",
+  "checks": [
+    {
+      "check": "origin_on_back_contact_face",
+      "pass": true,
+      "detail": {
+        "socket": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_y": -0.0032,
+        "note": "work pack 2.4: origin at the middle of the face against the back"
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.417,
+          0.3378,
+          0.5943
+        ],
+        "limit_m": [
+          0.45,
+          0.35,
+          0.6
+        ]
+      }
+    },
+    {
+      "check": "fill_is_separate_object",
+      "pass": true,
+      "detail": [
+        "Main",
+        "Fill"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 80140,
+          "LOD1": 40070,
+          "LOD2": 12020
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 45268,
+            "LOD1": 22634,
+            "LOD2": 6790
+          },
+          "Fill": {
+            "LOD0": 34872,
+            "LOD1": 17436,
+            "LOD2": 5230
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          0.417,
+          0.3378,
+          0.5943
+        ],
+        "blend_dims_m": [
+          0.417,
+          0.3378,
+          0.5943
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "MK04_BackBasket.001",
+        "MK04_BackBasket_Fill_LOD0.001",
+        "MK04_BackBasket_Fill_LOD1.001",
+        "MK04_BackBasket_Fill_LOD2.001",
+        "MK04_BackBasket_LOD0.001",
+        "MK04_BackBasket_LOD1.001",
+        "MK04_BackBasket_LOD2.001",
+        "Socket_Back.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Back.001": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 259,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

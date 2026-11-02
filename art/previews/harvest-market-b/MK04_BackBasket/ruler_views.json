@@ -1,0 +1,20 @@
+{
+  "asset": "MK04_BackBasket",
+  "model": "MK04_BackBasket_v001.fbx LOD0",
+  "figure_height_m": 1.75,
+  "ruler_ticks_m": 0.25,
+  "camera": "orthographic, 8 deg above horizontal",
+  "views": [
+    "ruler_01_front.png",
+    "ruler_02_side.png",
+    "ruler_03_rear.png",
+    "ruler_04_three_quarter.png",
+    "ruler_05_worn_side.png",
+    "ruler_06_worn_back34.png"
+  ],
+  "model_dimensions_m": [
+    0.417,
+    0.338,
+    0.594
+  ]
+}

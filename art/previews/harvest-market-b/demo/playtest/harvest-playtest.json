@@ -1,0 +1,191 @@
+{
+    "started": "2026-11-02T05:11:11",
+    "resolution": "1280x720",
+    "input": "virtual Input System Touchscreen (one finger)",
+    "pass": true,
+    "frameEvery": 0.10000000149011612,
+    "frames": 488,
+    "steps": [
+        {
+            "index": 1,
+            "name": "start",
+            "pass": true,
+            "note": "TY_Field01：6 株，原等級 mid top low mid top mid",
+            "seconds": 0.0007762908935546875,
+            "shot": "01_field.png"
+        },
+        {
+            "index": 2,
+            "name": "pull_ring",
+            "pass": true,
+            "note": "按住 0.45 s：根計時圈未滿（琥珀色），草繃緊抖動、掉土",
+            "seconds": 1.4835572242736817,
+            "shot": "02_pull_ring.png"
+        },
+        {
+            "index": 3,
+            "name": "pull_ring_safe",
+            "pass": true,
+            "note": "按住 0.95 s：圈滿變綠「根鬆了，拉！」",
+            "seconds": 1.983541488647461,
+            "shot": "03_pull_ring_safe.png"
+        },
+        {
+            "index": 4,
+            "name": "pull_1",
+            "pass": true,
+            "note": "中品 → 中品，1.05s",
+            "seconds": 3.066854476928711,
+            "shot": ""
+        },
+        {
+            "index": 5,
+            "name": "pull_2",
+            "pass": true,
+            "note": "上品 → 中品，0.26s（斷根）",
+            "seconds": 3.600125789642334,
+            "shot": "05_pull_snapped.png"
+        },
+        {
+            "index": 6,
+            "name": "pull_3",
+            "pass": true,
+            "note": "次品 → 次品，0.97s",
+            "seconds": 6.0421061515808109,
+            "shot": ""
+        },
+        {
+            "index": 7,
+            "name": "pull_4",
+            "pass": true,
+            "note": "中品 → 中品，1.01s",
+            "seconds": 8.033403396606446,
+            "shot": ""
+        },
+        {
+            "index": 8,
+            "name": "pull_5",
+            "pass": true,
+            "note": "上品 → 上品，1.13s",
+            "seconds": 10.158523559570313,
+            "shot": ""
+        },
+        {
+            "index": 9,
+            "name": "pull_6",
+            "pass": true,
+            "note": "中品 → 中品，0.98s",
+            "seconds": 12.091760635375977,
+            "shot": ""
+        },
+        {
+            "index": 10,
+            "name": "sieve_open",
+            "pass": true,
+            "note": "6 株躺在 MK02 竹篩上（3D 分揀台）",
+            "seconds": 14.491878509521485,
+            "shot": "10_sieve.png"
+        },
+        {
+            "index": 11,
+            "name": "inspect",
+            "pass": true,
+            "note": "拿起第 3 株細看（卡片列出看到的特徵）",
+            "seconds": 20.08403205871582,
+            "shot": "11_inspect.png"
+        },
+        {
+            "index": 12,
+            "name": "sorted",
+            "pass": true,
+            "note": "中品→中品捆 中品→中品捆 次品→中品捆 中品→中品捆 上品→上品捆 中品→中品捆",
+            "seconds": 20.601604461669923,
+            "shot": "12_sorted.png"
+        },
+        {
+            "index": 13,
+            "name": "harvest_completed",
+            "pass": true,
+            "note": "{\"fieldId\":\"TY_Field01\",\"plants\":[{\"quality\":\"mid\"},{\"quality\":\"mid\"},{\"quality\":\"low\"},{\"quality\":\"mid\"},{\"quality\":\"top\"},{\"quality\":\"mid\"}]}",
+            "seconds": 21.3596248626709,
+            "shot": ""
+        },
+        {
+            "index": 14,
+            "name": "stall_open",
+            "pass": true,
+            "note": "上品捆 1 株，中品捆 3 株，中品捆 2 株",
+            "seconds": 25.159114837646486,
+            "shot": "14_stall.png"
+        },
+        {
+            "index": 15,
+            "name": "keep_one",
+            "pass": true,
+            "note": "第三捆改成「留著」",
+            "seconds": 25.821971893310548,
+            "shot": "15_keep_one.png"
+        },
+        {
+            "index": 16,
+            "name": "weighing",
+            "pass": true,
+            "note": "鏡頭推近秤與櫃台，草藥捆落進秤盤；秤砣在內側，秤尾翹起",
+            "seconds": 27.283958435058595,
+            "shot": "16_weigh_droop.png"
+        },
+        {
+            "index": 17,
+            "name": "level_reading",
+            "pass": true,
+            "note": "第一次手動秤：秤桿平，秤砣上的讀數定在 7 靈石，秤桿上標 2–12 秤星",
+            "seconds": 29.425369262695314,
+            "shot": "17_weigh_reading.png"
+        },
+        {
+            "index": 18,
+            "name": "balanced",
+            "pass": true,
+            "note": "拖秤砣過頭（秤尾垂下）再收回平衡點，放手後秤桿平",
+            "seconds": 29.693836212158204,
+            "shot": "18_coins_on_counter.png"
+        },
+        {
+            "index": 19,
+            "name": "settled",
+            "pass": true,
+            "note": "得 7：上品捆 3、中品捆 4、中品捆 留著；攤主 mixed-lower／demand-bonus／thanks",
+            "seconds": 37.250701904296878,
+            "shot": "19_keeper.png"
+        },
+        {
+            "index": 20,
+            "name": "market_sold",
+            "pass": true,
+            "note": "{\"day\":4,\"bundles\":[{\"quality\":\"top\",\"sold\":true,\"coins\":3},{\"quality\":\"low\",\"sold\":true,\"coins\":4},{\"quality\":\"mid\",\"sold\":false,\"coins\":0}],\"totalCoins\":7}",
+            "seconds": 37.90079116821289,
+            "shot": ""
+        },
+        {
+            "index": 21,
+            "name": "kept_in_bag",
+            "pass": true,
+            "note": "留下 中品 2 株；身上 7 靈石",
+            "seconds": 37.90098571777344,
+            "shot": ""
+        },
+        {
+            "index": 22,
+            "name": "auto_weigh",
+            "pass": true,
+            "note": "第二次賣（2 株中品）：按秤後不碰，2.2 s 自己秤平，得 4",
+            "seconds": 41.95087432861328,
+            "shot": "22_auto_weigh.png"
+        }
+    ],
+    "events": [
+        "harvest.completed {\"fieldId\":\"TY_Field01\",\"plants\":[{\"quality\":\"mid\"},{\"quality\":\"mid\"},{\"quality\":\"low\"},{\"quality\":\"mid\"},{\"quality\":\"top\"},{\"quality\":\"mid\"}]}",
+        "market.sold {\"day\":4,\"bundles\":[{\"quality\":\"top\",\"sold\":true,\"coins\":3},{\"quality\":\"low\",\"sold\":true,\"coins\":4},{\"quality\":\"mid\",\"sold\":false,\"coins\":0}],\"totalCoins\":7}",
+        "market.sold {\"day\":4,\"bundles\":[{\"quality\":\"mid\",\"sold\":true,\"coins\":4}],\"totalCoins\":4}"
+    ]
+}
