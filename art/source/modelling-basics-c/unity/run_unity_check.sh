@@ -8,10 +8,13 @@ U="${UNITY:?set UNITY to Unity.exe (6000.0.82f1)}";HERE=art/source/modelling-bas
 ED=apps/game/Assets/YunJing/Editor;M=apps/game/Assets/YunJing/Models/BasicsC
 cleanup(){
   rm -f "$ED/QingxiBasicsVerify.cs" "$ED/QingxiBasicsVerify.cs.meta"; rm -rf "$M" "$M.meta"
-  git checkout -- apps/game/ProjectSettings/GraphicsSettings.asset apps/game/ProjectSettings/QualitySettings.asset 2>/dev/null || true
+  git checkout -- apps/game/ProjectSettings/GraphicsSettings.asset apps/game/ProjectSettings/QualitySettings.asset apps/game/ProjectSettings/ShaderGraphSettings.asset 2>/dev/null || true
 }
 trap cleanup EXIT
 cp "$HERE/QingxiBasicsVerify.cs" "$ED/"
 mkdir -p artifacts
 "$U" -batchmode -quit -projectPath apps/game -executeMethod YunJing.Editor.QingxiBasicsVerify.Run -logFile artifacts/unity-basics.log || true
 grep -E "BASICS_VERIFY|error CS" artifacts/unity-basics.log || echo "no verify line, see artifacts/unity-basics.log"
+# style guide §6: the Unity shot beside the closest direction image (A, warm river valley)
+python art/source/modelling-basics-c/compose_direction.py art/previews/modelling-basics-c/unity/BM01-set-threequarter.png \
+  art/references/world-directions-v1/A-river-valley.png art/previews/modelling-basics-c/unity/BM01-vs-direction-A.png || true

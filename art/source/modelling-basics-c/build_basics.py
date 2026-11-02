@@ -53,21 +53,22 @@ def board(dark,light,grey,bleach,crack_amt,seed_shift=0.):
     fib=fbm(128,2,aniso=64);streak=fbm(5,3,aniso=18);cr=np.clip((fbm(36,2,aniso=24)-.74)*8,0,1)*crack_amt
     dirt=np.clip((fbm(12,3,aniso=10)-.58)*3,0,1)   # dirt worked into the grain, in streaks
     t=np.clip(.55+.6*(streak-.5)-.2*knot+.3*(fib-.5)+.15*(rings-.5),0,1)
-    col=lerp(dark,light,t);g=np.clip((fbm(2,3)-.42)*2.0,0,1)*bleach;col=col*(1-g[...,None])+np.asarray(grey)[None,None,:]*g[...,None]
-    col=col*(1-.32*lines[...,None])*(1-.42*cr[...,None])*(1-.15*knot[...,None])*(1-.2*dirt[...,None])*(.88+.24*fib)[...,None]
+    col=lerp(dark,light,t);g=np.clip((fbm(2,3)-.40)*2.8,0,1)*bleach;col=col*(1-g[...,None])+np.asarray(grey)[None,None,:]*g[...,None]
+    col=col*(1-.45*lines[...,None])*(1-.5*cr[...,None])*(1-.2*knot[...,None])*(1-.3*dirt[...,None])*(.88+.24*fib)[...,None]
     return col,.12*lines+.35*fib+1.5*cr+.15*streak+.4*knot
 def make_sources():
     S={}
-    # three weathered board stocks, picked at random per board, so neighbouring boards differ like the reference
-    S['crate']=(*board((.23,.18,.14),(.47,.39,.30),(.46,.44,.41),.5,1.0),1.6,.86,0,0)
-    S['crate_b']=(*board((.20,.15,.11),(.42,.33,.24),(.40,.37,.33),.3,1.0,.4),1.6,.86,0,0)
-    S['crate_c']=(*board((.27,.24,.20),(.50,.46,.40),(.52,.50,.47),.75,.8,.7),1.6,.88,0,0)
-    S['batten']=(*board((.20,.16,.12),(.43,.35,.26),(.43,.41,.37),.4,.8,.3),1.6,.86,0,0)
-    S['newboard']=(*board((.36,.33,.28),(.52,.48,.41),(.50,.49,.46),.3,.3,.6),1.4,.8,0,0)
+    # three weathered board stocks, picked at random per board, so neighbouring boards differ like the reference.
+    # Colours sit in the style guide's timber swatch #6a4630 → #a87a50 after the AO / grime finish (sources are a step lighter).
+    S['crate']=(*board((.48,.34,.24),(.68,.52,.37),(.56,.52,.47),.6,1.0),1.6,.86,0,0)
+    S['crate_b']=(*board((.43,.30,.21),(.62,.46,.32),(.52,.48,.43),.45,1.0,.4),1.6,.86,0,0)
+    S['crate_c']=(*board((.50,.40,.31),(.68,.58,.47),(.60,.57,.53),.75,.8,.7),1.6,.88,0,0)
+    S['batten']=(*board((.44,.31,.22),(.64,.48,.34),(.54,.50,.45),.5,.8,.3),1.6,.86,0,0)
+    S['newboard']=(*board((.58,.52,.43),(.74,.68,.58),(.68,.66,.62),.3,.3,.6),1.4,.8,0,0)
     S['iron']=(lerp((.13,.11,.10),(.36,.20,.11),np.clip((fbm(6,4)-.35)*1.8,0,1)),fbm(18,3),2.4,.8,.25,0)
     tw=.5+.5*np.sin(math.tau*((X+Y)*16));fib=fbm(30,2,aniso=6)
     S['hemp']=(lerp((.36,.29,.19),(.62,.51,.34),np.clip(tw*.55+.3*fbm(4,3)+.15*fib,0,1)),tw+.4*fib,1.4,.92,0,0)
-    S['grass']=(lerp((.22,.30,.11),(.50,.56,.24),np.clip(.6*fbm(6,2)+.4*Y,0,1)),fbm(20,2),1,.85,0,0)
+    S['grass']=(lerp((.24,.42,.16),(.62,.76,.36),np.clip(.6*fbm(6,2)+.4*Y,0,1)),fbm(20,2),1,.85,0,0)   # guide grass #3e6a2a → #6fa443 → #b8d468
     out={}
     for k,(alb,h,s,r,m,glow) in S.items():
         mat=bpy.data.materials.new('src_'+k);mat.use_nodes=True;nt=mat.node_tree;bs=nt.nodes['Principled BSDF']
@@ -414,7 +415,7 @@ def run(pid):
         cool=np.array([.30,.32,.42]);col=alb[...,:3]*(.45+.55*ao[...,None])+(1-ao[...,None])*cool*.08
         col=col*(1-.5*cav[...,None])+cav[...,None]*np.array([.08,.07,.05])*.5
         col=col*(1+.05*np.clip(pz/max(hi[2]-lo[2],.3),0,1)[...,None]*np.array([1.0,.88,.7]))
-        wear=np.clip(edge,0,1)[...,None]*(met[...,None]<.1)*meta.get('wear',1);col=np.clip(col*(1+.22*wear)+wear*np.array([.04,.04,.035]),0,1)
+        wear=np.clip(edge,0,1)[...,None]*(met[...,None]<.1)*meta.get('wear',1);col=np.clip(col*(1+.10*wear)+wear*np.array([.03,.03,.03]),0,1)
         mn=np.clip((onrm[...,2]-.35)/.5,0,1)
         n1=np.sin(px*9.3+np.sin(py*7.1+pz*3.3)*1.7)*np.sin(py*8.7+np.sin(pz*6.3+px*2.1)*1.9);n2=np.sin(px*31.1+np.sin(py*27.7)*1.3)*np.sin(pz*29.3+py*17.9)
         noise=np.clip(.5+.42*n1+.18*n2,0,1);m=np.zeros_like(pz);amt=MOSS.get(pid,{}).get(g,0)
@@ -423,7 +424,7 @@ def run(pid):
             low=np.clip(1-pz/mh,0,1)*ml;creep=np.clip(1-pz/(mh*.6),0,1)*ml*.9+cav*meta.get('moss_cav',.5)*np.clip(1-pz/(mh*1.6),0,1)
             n3=.5+.5*np.sin(px*83.1+np.sin(pz*61.7)*2.1)*np.sin(pz*77.3+py*59.9+np.sin(px*47.3)*1.7)   # small clumps, so it is not an airbrushed band
             m=np.clip((mn*(low+meta.get('moss_top',.15))+creep)*amt*2*np.clip((noise*.6+n3*.4-.45)*5,0,1),0,1)*filled
-            mcol=np.array((.24,.30,.11))+np.array([.10,.10,.04])*noise[...,None]
+            mcol=np.array((.24,.38,.15))+np.array([.10,.14,.06])*noise[...,None]   # guide grass swatch, root end #3e6a2a
             col=col*(1-m[...,None])+mcol*m[...,None];rough=np.clip(rough+.12*m,0,1)
         if meta.get('soil'):
             s_=np.clip((meta['soil']-pz)/meta['soil'],0,1)**1.4*filled*(met<.5)*(.6+.4*noise);col=col*(1-.5*s_[...,None])+np.array([.24,.19,.13])*.5*s_[...,None]
