@@ -1,0 +1,408 @@
+{
+  "BM09_01": {
+    "id": "BM09_01",
+    "dimensions_xyz_m": [
+      1.154744,
+      1.194764,
+      0.8
+    ],
+    "body_dimensions_xyz_m": [
+      1.154744,
+      1.194764,
+      0.8
+    ],
+    "target_axis": "z",
+    "target_m": 0.8,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_DryFronds"
+    ],
+    "detailMeshes": [
+      "BM09_01_Detail_DryFronds_LOD0",
+      "BM09_01_Detail_DryFronds_LOD1",
+      "BM09_01_Detail_DryFronds_LOD2"
+    ],
+    "groups": {
+      "Fronds": {
+        "material": "BM09_01_Fronds",
+        "texture_px": 2048,
+        "triangles": [
+          9504,
+          4752,
+          1512
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      },
+      "Rachis": {
+        "material": "BM09_01_Rachis",
+        "texture_px": 512,
+        "triangles": [
+          4016,
+          2048,
+          576
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      },
+      "Detail_DryFronds": {
+        "material": "BM09_01_Detail_DryFronds",
+        "texture_px": 512,
+        "triangles": [
+          492,
+          240,
+          72
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      14012,
+      7040,
+      2160
+    ],
+    "triangles_without_detail": [
+      13520,
+      6800,
+      2088
+    ],
+    "reference": "art/references/BM09/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Fronds": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_01_Fronds_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_01_Fronds_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_01_Fronds_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_01_Fronds_ORM.png"
+      },
+      "Rachis": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_01_Rachis_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_01_Rachis_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_01_Rachis_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_01_Rachis_ORM.png"
+      },
+      "Detail_DryFronds": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "Curved rachis, paired bent alpha pinnae, older brown outer tips, coiled croziers; atlas groups preserve leaf silhouette at LOD1.",
+      "detail": "Detail_DryFronds can be hidden; no baked detail shadows on body.",
+      "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
+      "validation": "Blender export/import only; Unity and mobile performance not tested."
+    }
+  },
+  "BM09_02": {
+    "id": "BM09_02",
+    "dimensions_xyz_m": [
+      0.467151,
+      0.439852,
+      0.3
+    ],
+    "body_dimensions_xyz_m": [
+      0.467151,
+      0.439852,
+      0.3
+    ],
+    "target_axis": "z",
+    "target_m": 0.3,
+    "minTier": "high",
+    "detailObjects": [
+      "Detail_DryFronds"
+    ],
+    "detailMeshes": [
+      "BM09_02_Detail_DryFronds_LOD0",
+      "BM09_02_Detail_DryFronds_LOD1",
+      "BM09_02_Detail_DryFronds_LOD2"
+    ],
+    "groups": {
+      "Fronds": {
+        "material": "BM09_02_Fronds",
+        "texture_px": 2048,
+        "triangles": [
+          2496,
+          1248,
+          336
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      },
+      "Rachis": {
+        "material": "BM09_02_Rachis",
+        "texture_px": 512,
+        "triangles": [
+          2748,
+          1404,
+          444
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      },
+      "Detail_DryFronds": {
+        "material": "BM09_02_Detail_DryFronds",
+        "texture_px": 512,
+        "triangles": [
+          492,
+          240,
+          72
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      5736,
+      2892,
+      852
+    ],
+    "triangles_without_detail": [
+      5244,
+      2652,
+      780
+    ],
+    "reference": "art/references/BM09/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Fronds": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_02_Fronds_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_02_Fronds_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_02_Fronds_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_02_Fronds_ORM.png"
+      },
+      "Rachis": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_02_Rachis_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_02_Rachis_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_02_Rachis_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_02_Rachis_ORM.png"
+      },
+      "Detail_DryFronds": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "Curved rachis, paired bent alpha pinnae, older brown outer tips, coiled croziers; atlas groups preserve leaf silhouette at LOD1.",
+      "detail": "Detail_DryFronds can be hidden; no baked detail shadows on body.",
+      "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
+      "validation": "Blender export/import only; Unity and mobile performance not tested."
+    }
+  },
+  "BM10_01": {
+    "id": "BM10_01",
+    "dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "body_dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "target_axis": "x",
+    "target_m": 1.0,
+    "minTier": "ultra",
+    "detailObjects": [],
+    "detailMeshes": [],
+    "groups": {
+      "Ground": {
+        "material": "BM10_01_Ground",
+        "texture_px": 2048,
+        "triangles": [
+          128,
+          64,
+          18
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      128,
+      64,
+      18
+    ],
+    "triangles_without_detail": [
+      128,
+      64,
+      18
+    ],
+    "reference": "art/references/BM10/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Ground": {
+        "Albedo": "art/textures/modelling-basics-c/BM10_01_Ground_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM10_01_Ground_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM10_01_Ground_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM10_01_Ground_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+      "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
+      "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
+      "validation": "Blender export/import only; Unity and mobile performance not tested."
+    }
+  },
+  "BM10_02": {
+    "id": "BM10_02",
+    "dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "body_dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "target_axis": "x",
+    "target_m": 1.0,
+    "minTier": "ultra",
+    "detailObjects": [],
+    "detailMeshes": [],
+    "groups": {
+      "Ground": {
+        "material": "BM10_02_Ground",
+        "texture_px": 2048,
+        "triangles": [
+          128,
+          64,
+          18
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      128,
+      64,
+      18
+    ],
+    "triangles_without_detail": [
+      128,
+      64,
+      18
+    ],
+    "reference": "art/references/BM10/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Ground": {
+        "Albedo": "art/textures/modelling-basics-c/BM10_02_Ground_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM10_02_Ground_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM10_02_Ground_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM10_02_Ground_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+      "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
+      "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
+      "validation": "Blender export/import only; Unity and mobile performance not tested."
+    }
+  },
+  "BM10_03": {
+    "id": "BM10_03",
+    "dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "body_dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "target_axis": "x",
+    "target_m": 1.0,
+    "minTier": "ultra",
+    "detailObjects": [],
+    "detailMeshes": [],
+    "groups": {
+      "Ground": {
+        "material": "BM10_03_Ground",
+        "texture_px": 2048,
+        "triangles": [
+          128,
+          64,
+          18
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      128,
+      64,
+      18
+    ],
+    "triangles_without_detail": [
+      128,
+      64,
+      18
+    ],
+    "reference": "art/references/BM10/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Ground": {
+        "Albedo": "art/textures/modelling-basics-c/BM10_03_Ground_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM10_03_Ground_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM10_03_Ground_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM10_03_Ground_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+      "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
+      "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
+      "validation": "Blender export/import only; Unity and mobile performance not tested."
+    }
+  }
+}

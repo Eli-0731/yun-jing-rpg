@@ -2,7 +2,7 @@
 Imports the exported GLB or FBX (what the engine receives). --lod N shows LOD N instead of LOD0 (FBX only: the GLB carries LOD0);
 --hide Detail_ switches the quality-tier detail meshes off (the standard tier view).
 blender -b -P render_basics.py -- --glb <path> --out <dir> --tag <name> [--views front,side,back,threequarter] [--light day|neutral|afternoon]
-      [--lod 0|1|2] [--hide <name substring>] [--no-ruler] [--wire] [--res 1280x960] [--at x,y,yaw;...] [--cam x,y,z,tx,ty,tz,lens]
+      [--lod 0|1|2] [--hide <name substring>] [--no-ruler] [--wire] [--clay] [--res 1280x960] [--at x,y,yaw;...] [--cam x,y,z,tx,ty,tz,lens]
 Every view carries a 1.75 m figure (review spec), unless --no-ruler.
 """
 import bpy,math,sys,argparse
@@ -10,7 +10,7 @@ from pathlib import Path
 from mathutils import Vector
 a=argparse.ArgumentParser()
 for k,d in (('--glb',None),('--out',None),('--tag','view'),('--views','front,side,back,threequarter'),('--light','day'),('--hide',''),('--eye',''),('--res','1280x960'),('--ruler-x',''),('--at',''),('--cam',''),('--state',''),('--move','')):a.add_argument(k,default=d)
-a.add_argument('--glow',type=float,default=None);a.add_argument('--lod',type=int,default=0);a.add_argument('--samples',type=int,default=64);a.add_argument('--no-ruler',action='store_true');a.add_argument('--wire',action='store_true')
+a.add_argument('--glow',type=float,default=None);a.add_argument('--lod',type=int,default=0);a.add_argument('--samples',type=int,default=64);a.add_argument('--no-ruler',action='store_true');a.add_argument('--wire',action='store_true');a.add_argument('--clay',action='store_true')
 args=a.parse_args(sys.argv[sys.argv.index('--')+1:]);out=Path(args.out).resolve();out.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc=bpy.context.scene;sc.render.engine='CYCLES';sc.cycles.samples=args.samples;sc.cycles.use_denoising=True
@@ -45,12 +45,20 @@ bpy.context.view_layer.update()
 for o in list(sc.objects):
     if args.hide and any(s and s in o.name for s in args.hide.split(',')):bpy.data.objects.remove(o)
 obs=[o for o in sc.objects if o.type=='MESH' and not o.hide_render]
+if args.clay:   # grey model (work pack §1.3): one flat grey, no colour, no normal map; alpha cut-outs (leaf cards) keep their alpha
+    for m in bpy.data.materials:
+        bs=m.node_tree.nodes.get('Principled BSDF') if m.use_nodes else None
+        if not bs:continue
+        for k in ('Base Color','Normal','Roughness','Metallic','Emission Color'):
+            for l in list(bs.inputs[k].links):m.node_tree.links.remove(l)
+        bs.inputs['Base Color'].default_value=(.62,.62,.60,1);bs.inputs['Roughness'].default_value=.75;bs.inputs['Metallic'].default_value=0;bs.inputs['Emission Strength'].default_value=0
 if args.glow is not None:
     for m in bpy.data.materials:
         bs=m.node_tree.nodes.get('Principled BSDF') if m.use_nodes else None
         if bs and bs.inputs['Emission Color'].is_linked:bs.inputs['Emission Strength'].default_value=args.glow   # only the lamp materials (emission texture)
 pts=[o.matrix_world@Vector(c) for o in obs for c in o.bound_box]
 lo=Vector([min(p[i] for p in pts) for i in range(3)]);hi=Vector([max(p[i] for p in pts) for i in range(3)])
+olo,ohi=lo.copy(),hi.copy()   # the asset alone, before the figure widens the frame
 if not args.no_ruler:   # 1.75 m figure beside the asset
     fm=bpy.data.materials.new('ruler');fm.use_nodes=True;fm.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.30,.42,.55,1)
     x0=float(args.ruler_x) if args.ruler_x else hi.x+.45
@@ -59,6 +67,7 @@ if not args.no_ruler:   # 1.75 m figure beside the asset
     for z in (0.5,1.0,1.5,1.75):
         bpy.ops.mesh.primitive_cube_add(size=1,location=(x0+.24,0,z));t_=bpy.context.object;t_.dimensions=(.10,.01,.006);t_.data.materials.append(fm)
     lo.x=min(lo.x,x0-.2);hi.x=max(hi.x,x0+.3);hi.z=max(hi.z,1.75)
+rul=[o for o in sc.objects if o.type=='MESH' and o.active_material and o.active_material.name.startswith('ruler')]
 ctr=(lo+hi)/2;rad=(hi-lo).length/2
 bpy.ops.mesh.primitive_plane_add(size=60,location=(0,0,0));g=bpy.context.object
 gm=bpy.data.materials.new('ground');gm.use_nodes=True;gb=gm.node_tree.nodes['Principled BSDF'];gb.inputs['Base Color'].default_value=(.40,.38,.33,1);gb.inputs['Roughness'].default_value=.95;g.data.materials.append(gm)
@@ -80,8 +89,13 @@ else:   # style guide: low warm morning sun, blue-violet sky fill, rim from behi
     sun('key',(math.radians(62),0,math.radians(-40)),3.6,(1,.84,.62),.06);sun('rim',(math.radians(-62),0,math.radians(160)),2.0,(1,.86,.66),.1)
 views={'front':(0,-1,.12),'side':(1,0,.12),'back':(0,1,.12),'threequarter':(-.72,-.72,.50)}
 def shoot(v,d):
-    dist=max(rad*3.9,(hi.z-lo.z)*3.0,(hi.x-lo.x)*2.4);cam.location=ctr+Vector(d).normalized()*dist;aim(cam,ctr)
+    t=ctr.copy();mv=Vector()
+    if v=='side' and rul:   # the figure stands on +X, right in front of the side camera: move it beside the asset (+Y, the right of the frame)
+        mv=Vector(((olo.x+ohi.x)/2-x0,ohi.y+.45,0));t.x=(olo.x+ohi.x)/2;t.y=(olo.y+ohi.y+.65)/2
+        for o in rul:o.location+=mv
+    dist=max(rad*3.9,(hi.z-lo.z)*3.0,(hi.x-lo.x)*2.4);cam.location=t+Vector(d).normalized()*dist;aim(cam,t)
     sc.render.filepath=str(out/f'{args.tag}-{v}.png');bpy.ops.render.render(write_still=True)
+    for o in rul:o.location-=mv
 if args.eye:
     e=[float(x) for x in args.eye.split(',')];cam.location=Vector(e[:3]);aim(cam,Vector(e[3:]));cam.data.lens=28
     sc.render.filepath=str(out/f'{args.tag}.png');bpy.ops.render.render(write_still=True)

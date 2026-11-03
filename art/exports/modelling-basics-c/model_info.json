@@ -1,377 +1,2610 @@
 {
- "BM01_01": {
-  "id": "BM01_01",
-  "device": "OPTIX",
-  "dimensions_xyz_m": [
-   0.507,
-   0.363,
-   0.289
-  ],
-  "body_dimensions_xyz_m": [
-   0.502,
-   0.341,
-   0.289
-  ],
-  "target_width_m": 0.5,
-  "minTier": "standard",
-  "detailObjects": [
-   "Detail_Nails",
-   "Detail_Grass"
-  ],
-  "detailMeshes": [
-   "BM01_01_Detail_Nails_LOD0",
-   "BM01_01_Detail_Nails_LOD1",
-   "BM01_01_Detail_Nails_LOD2",
-   "BM01_01_Detail_Grass_LOD0",
-   "BM01_01_Detail_Grass_LOD1",
-   "BM01_01_Detail_Grass_LOD2"
-  ],
-  "groups": {
-   "Wood": {
-    "material": "BM01_01_Wood",
-    "texture_px": 1024,
-    "triangles": [
-     9852,
-     4926,
-     1476
+  "BM01_01": {
+    "id": "BM01_01",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.507,
+      0.363,
+      0.289
     ],
-    "maps": [
-     "alb",
-     "nrm",
-     "orm"
-    ]
-   },
-   "Detail_Nails": {
-    "material": "BM01_01_Detail_Nails",
-    "texture_px": 256,
-    "triangles": [
-     1584,
-     792,
-     236
+    "body_dimensions_xyz_m": [
+      0.502,
+      0.341,
+      0.289
     ],
-    "maps": [
-     "alb",
-     "nrm",
-     "orm"
-    ]
-   },
-   "Detail_Grass": {
-    "material": "BM01_01_Detail_Grass",
-    "texture_px": 256,
-    "triangles": [
-     176,
-     88,
-     26
+    "target_axis": "x",
+    "target_m": 0.5,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Nails",
+      "Detail_Grass"
     ],
-    "maps": [
-     "alb",
-     "nrm",
-     "orm"
-    ]
-   }
+    "detailMeshes": [
+      "BM01_01_Detail_Nails_LOD0",
+      "BM01_01_Detail_Nails_LOD1",
+      "BM01_01_Detail_Nails_LOD2",
+      "BM01_01_Detail_Grass_LOD0",
+      "BM01_01_Detail_Grass_LOD1",
+      "BM01_01_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Wood": {
+        "material": "BM01_01_Wood",
+        "texture_px": 1024,
+        "triangles": [
+          9852,
+          4926,
+          1476
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Nails": {
+        "material": "BM01_01_Detail_Nails",
+        "texture_px": 256,
+        "triangles": [
+          1584,
+          792,
+          236
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM01_01_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          176,
+          88,
+          26
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      11612,
+      5806,
+      1738
+    ],
+    "triangles_without_detail": [
+      9852,
+      4926,
+      1476
+    ],
+    "source_parts": 73,
+    "reference": "art/references/BM01/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM01_01_Collision": {
+        "primitives": [
+          {
+            "type": "box",
+            "size": [
+              0.5,
+              0.34,
+              0.28
+            ],
+            "center": [
+              -0.001,
+              0.0,
+              0.142
+            ]
+          }
+        ],
+        "bounds_min": [
+          -0.251,
+          -0.17,
+          0.002
+        ],
+        "bounds_max": [
+          0.249,
+          0.17,
+          0.282
+        ]
+      }
+    },
+    "notes": {
+      "build": "3 board rows per face, 3 lid boards, battens proud of the boards by 0.016 m and of the lid by 6 mm",
+      "detail": "Detail_Nails (nail heads), Detail_Grass (tufts at the foot) are separate meshes; the standard tier hides them"
+    }
   },
-  "triangles_total": [
-   11612,
-   5806,
-   1738
-  ],
-  "triangles_without_detail": [
-   9852,
-   4926,
-   1476
-  ],
-  "source_parts": 73,
-  "reference": "art/references/BM01/prompt.txt",
-  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
-  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
-  "collision": {
-   "BM01_01_Collision": {
-    "primitives": [
-     {
-      "type": "box",
-      "size": [
-       0.5,
-       0.34,
-       0.28
-      ],
-      "center": [
-       -0.001,
-       0.0,
-       0.142
-      ]
-     }
+  "BM01_02": {
+    "id": "BM01_02",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.837,
+      0.546,
+      0.401
     ],
-    "bounds_min": [
-     -0.251,
-     -0.17,
-     0.002
+    "body_dimensions_xyz_m": [
+      0.802,
+      0.483,
+      0.39
     ],
-    "bounds_max": [
-     0.249,
-     0.17,
-     0.282
-    ]
-   }
+    "target_axis": "x",
+    "target_m": 0.8,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Nails",
+      "Detail_Rope",
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM01_02_Detail_Nails_LOD0",
+      "BM01_02_Detail_Nails_LOD1",
+      "BM01_02_Detail_Nails_LOD2",
+      "BM01_02_Detail_Rope_LOD0",
+      "BM01_02_Detail_Rope_LOD1",
+      "BM01_02_Detail_Rope_LOD2",
+      "BM01_02_Detail_Grass_LOD0",
+      "BM01_02_Detail_Grass_LOD1",
+      "BM01_02_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Wood": {
+        "material": "BM01_02_Wood",
+        "texture_px": 2048,
+        "triangles": [
+          11148,
+          5574,
+          1672
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Nails": {
+        "material": "BM01_02_Detail_Nails",
+        "texture_px": 256,
+        "triangles": [
+          1628,
+          814,
+          244
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Rope": {
+        "material": "BM01_02_Detail_Rope",
+        "texture_px": 1024,
+        "triangles": [
+          18570,
+          9284,
+          2784
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM01_02_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          304,
+          152,
+          45
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      31650,
+      15824,
+      4745
+    ],
+    "triangles_without_detail": [
+      11148,
+      5574,
+      1672
+    ],
+    "source_parts": 105,
+    "reference": "art/references/BM01/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM01_02_Collision": {
+        "primitives": [
+          {
+            "type": "box",
+            "size": [
+              0.8,
+              0.48,
+              0.38
+            ],
+            "center": [
+              0.0,
+              0.0,
+              0.193
+            ]
+          }
+        ],
+        "bounds_min": [
+          -0.4,
+          -0.24,
+          0.003
+        ],
+        "bounds_max": [
+          0.4,
+          0.24,
+          0.383
+        ]
+      }
+    },
+    "notes": {
+      "build": "4 board rows per face, 4 lid boards, battens proud of the boards by 0.018 m and of the lid by 6 mm",
+      "detail": "Detail_Nails (nail heads), Detail_Rope (girth and cross rope, knot, hanging bight), Detail_Grass (tufts at the foot) are separate meshes; the standard tier hides them"
+    }
   },
-  "notes": {
-   "build": "3 board rows per face, 3 lid boards, battens proud of the boards by 0.016 m and of the lid by 6 mm",
-   "detail": "Detail_Nails (nail heads), Detail_Grass (tufts at the foot) are separate meshes; the standard tier hides them"
+  "BM01_03": {
+    "id": "BM01_03",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      1.107,
+      0.623,
+      0.532
+    ],
+    "body_dimensions_xyz_m": [
+      1.103,
+      0.583,
+      0.532
+    ],
+    "target_axis": "x",
+    "target_m": 1.1,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Nails",
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM01_03_Detail_Nails_LOD0",
+      "BM01_03_Detail_Nails_LOD1",
+      "BM01_03_Detail_Nails_LOD2",
+      "BM01_03_Detail_Grass_LOD0",
+      "BM01_03_Detail_Grass_LOD1",
+      "BM01_03_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Wood": {
+        "material": "BM01_03_Wood",
+        "texture_px": 2048,
+        "triangles": [
+          11748,
+          5874,
+          1762
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Nails": {
+        "material": "BM01_03_Detail_Nails",
+        "texture_px": 512,
+        "triangles": [
+          1936,
+          968,
+          290
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM01_03_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          432,
+          216,
+          64
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      14116,
+      7058,
+      2116
+    ],
+    "triangles_without_detail": [
+      11748,
+      5874,
+      1762
+    ],
+    "source_parts": 102,
+    "reference": "art/references/BM01/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM01_03_Collision": {
+        "primitives": [
+          {
+            "type": "box",
+            "size": [
+              1.1,
+              0.58,
+              0.52
+            ],
+            "center": [
+              -0.001,
+              -0.0,
+              0.264
+            ]
+          }
+        ],
+        "bounds_min": [
+          -0.551,
+          -0.29,
+          0.004
+        ],
+        "bounds_max": [
+          0.549,
+          0.29,
+          0.524
+        ]
+      }
+    },
+    "notes": {
+      "build": "4 board rows per face, 4 lid boards, battens proud of the boards by 0.022 m and of the lid by 6 mm",
+      "detail": "Detail_Nails (nail heads), Detail_Grass (tufts at the foot) are separate meshes; the standard tier hides them"
+    }
+  },
+  "BM02_01": {
+    "id": "BM02_01",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.378,
+      0.37,
+      0.819
+    ],
+    "body_dimensions_xyz_m": [
+      0.232,
+      0.17,
+      0.806
+    ],
+    "target_axis": "z",
+    "target_m": 0.8,
+    "minTier": "high",
+    "detailObjects": [
+      "Detail_Stones",
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM02_01_Detail_Stones_LOD0",
+      "BM02_01_Detail_Stones_LOD1",
+      "BM02_01_Detail_Stones_LOD2",
+      "BM02_01_Detail_Grass_LOD0",
+      "BM02_01_Detail_Grass_LOD1",
+      "BM02_01_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Wood": {
+        "material": "BM02_01_Wood",
+        "texture_px": 2048,
+        "triangles": [
+          27904,
+          13952,
+          4184
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Stones": {
+        "material": "BM02_01_Detail_Stones",
+        "texture_px": 512,
+        "triangles": [
+          880,
+          440,
+          132
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM02_01_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          736,
+          368,
+          110
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      29520,
+      14760,
+      4426
+    ],
+    "triangles_without_detail": [
+      27904,
+      13952,
+      4184
+    ],
+    "source_parts": 58,
+    "reference": "art/references/BM02/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {},
+    "notes": {
+      "build": "round log 0.19 x 0.16 m, rope groove 0.15 m below the top (deeper towards the pull), 10 long checks, knot scar, branch stub, rounded sawn top with radial checks",
+      "collision": "none: the work pack marks BM02 minTier high (a dressing prop the standard tier does not show), and the quality tiers keep collision the same on every tier, so it must not block the way",
+      "detail": "Detail_Stones (stones round the foot), Detail_Grass (weeds and tufts) are separate meshes; the standard tier hides them"
+    }
+  },
+  "BM02_02": {
+    "id": "BM02_02",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.405,
+      0.395,
+      1.119
+    ],
+    "body_dimensions_xyz_m": [
+      0.212,
+      0.225,
+      1.106
+    ],
+    "target_axis": "z",
+    "target_m": 1.1,
+    "minTier": "high",
+    "detailObjects": [
+      "Detail_Stones",
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM02_02_Detail_Stones_LOD0",
+      "BM02_02_Detail_Stones_LOD1",
+      "BM02_02_Detail_Stones_LOD2",
+      "BM02_02_Detail_Grass_LOD0",
+      "BM02_02_Detail_Grass_LOD1",
+      "BM02_02_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Wood": {
+        "material": "BM02_02_Wood",
+        "texture_px": 2048,
+        "triangles": [
+          37376,
+          18688,
+          5606
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Stones": {
+        "material": "BM02_02_Detail_Stones",
+        "texture_px": 512,
+        "triangles": [
+          1040,
+          520,
+          156
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM02_02_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          944,
+          472,
+          141
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      39360,
+      19680,
+      5903
+    ],
+    "triangles_without_detail": [
+      37376,
+      18688,
+      5606
+    ],
+    "source_parts": 73,
+    "reference": "art/references/BM02/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {},
+    "notes": {
+      "build": "round log 0.20 x 0.18 m, rope groove 0.15 m below the top (deeper towards the pull), 8 long checks, knot scar, branch stub, rounded sawn top with radial checks",
+      "collision": "none: the work pack marks BM02 minTier high (a dressing prop the standard tier does not show), and the quality tiers keep collision the same on every tier, so it must not block the way",
+      "detail": "Detail_Stones (stones round the foot), Detail_Grass (weeds and tufts) are separate meshes; the standard tier hides them"
+    }
+  },
+  "BM03_01": {
+    "id": "BM03_01",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.38,
+      0.453,
+      0.314
+    ],
+    "body_dimensions_xyz_m": [
+      0.38,
+      0.384,
+      0.305
+    ],
+    "target_axis": "z",
+    "target_m": 0.3,
+    "minTier": "high",
+    "detailObjects": [
+      "Detail_Shards"
+    ],
+    "detailMeshes": [
+      "BM03_01_Detail_Shards_LOD0",
+      "BM03_01_Detail_Shards_LOD1",
+      "BM03_01_Detail_Shards_LOD2"
+    ],
+    "groups": {
+      "Jar": {
+        "material": "BM03_01_Jar",
+        "texture_px": 1024,
+        "triangles": [
+          18816,
+          9408,
+          2822
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Shards": {
+        "material": "BM03_01_Detail_Shards",
+        "texture_px": 256,
+        "triangles": [
+          28,
+          14,
+          4
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      18844,
+      9422,
+      2826
+    ],
+    "triangles_without_detail": [
+      18816,
+      9408,
+      2822
+    ],
+    "source_parts": 2,
+    "reference": "art/references/BM03/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {},
+    "notes": {
+      "build": "thrown jar 0.30 m tall, wall 11 mm, hollow to a floor, dark glaze from 0.12 m up with 22 runs, 1 rim chip(s)",
+      "collision": "none: the work pack marks BM03 minTier high (a dressing prop the standard tier does not show), and the quality tiers keep collision the same on every tier, so it must not block the way",
+      "detail": "Detail_Shards (the broken-off rim pieces at the foot) are separate meshes; the standard tier hides them"
+    }
+  },
+  "BM03_02": {
+    "id": "BM03_02",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.265,
+      0.399,
+      0.517
+    ],
+    "body_dimensions_xyz_m": [
+      0.265,
+      0.262,
+      0.506
+    ],
+    "target_axis": "z",
+    "target_m": 0.5,
+    "minTier": "high",
+    "detailObjects": [
+      "Detail_Shards"
+    ],
+    "detailMeshes": [
+      "BM03_02_Detail_Shards_LOD0",
+      "BM03_02_Detail_Shards_LOD1",
+      "BM03_02_Detail_Shards_LOD2"
+    ],
+    "groups": {
+      "Jar": {
+        "material": "BM03_02_Jar",
+        "texture_px": 1024,
+        "triangles": [
+          27072,
+          13536,
+          4060
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Shards": {
+        "material": "BM03_02_Detail_Shards",
+        "texture_px": 256,
+        "triangles": [
+          56,
+          28,
+          8
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      27128,
+      13564,
+      4068
+    ],
+    "triangles_without_detail": [
+      27072,
+      13536,
+      4060
+    ],
+    "source_parts": 3,
+    "reference": "art/references/BM03/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {},
+    "notes": {
+      "build": "thrown jar 0.50 m tall, wall 12 mm, hollow to a floor, dark glaze from 0.29 m up with 26 runs, 2 rim chip(s)",
+      "collision": "none: the work pack marks BM03 minTier high (a dressing prop the standard tier does not show), and the quality tiers keep collision the same on every tier, so it must not block the way",
+      "detail": "Detail_Shards (the broken-off rim pieces at the foot) are separate meshes; the standard tier hides them"
+    }
+  },
+  "BM03_03": {
+    "id": "BM03_03",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.537,
+      0.731,
+      0.825
+    ],
+    "body_dimensions_xyz_m": [
+      0.537,
+      0.531,
+      0.808
+    ],
+    "target_axis": "z",
+    "target_m": 0.8,
+    "minTier": "high",
+    "detailObjects": [
+      "Detail_Shards"
+    ],
+    "detailMeshes": [
+      "BM03_03_Detail_Shards_LOD0",
+      "BM03_03_Detail_Shards_LOD1",
+      "BM03_03_Detail_Shards_LOD2"
+    ],
+    "groups": {
+      "Jar": {
+        "material": "BM03_03_Jar",
+        "texture_px": 2048,
+        "triangles": [
+          33600,
+          16800,
+          5040
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Shards": {
+        "material": "BM03_03_Detail_Shards",
+        "texture_px": 256,
+        "triangles": [
+          84,
+          42,
+          12
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      33684,
+      16842,
+      5052
+    ],
+    "triangles_without_detail": [
+      33600,
+      16800,
+      5040
+    ],
+    "source_parts": 4,
+    "reference": "art/references/BM03/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {},
+    "notes": {
+      "build": "thrown jar 0.80 m tall, wall 16 mm, hollow to a floor, dark glaze from 0.48 m up with 34 runs, 2 rim chip(s)",
+      "collision": "none: the work pack marks BM03 minTier high (a dressing prop the standard tier does not show), and the quality tiers keep collision the same on every tier, so it must not block the way",
+      "detail": "Detail_Shards (the broken-off rim pieces at the foot) are separate meshes; the standard tier hides them"
+    }
+  },
+  "BM04_01": {
+    "id": "BM04_01",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      1.556,
+      1.037,
+      0.9
+    ],
+    "body_dimensions_xyz_m": [
+      1.5,
+      0.95,
+      0.9
+    ],
+    "target_axis": "x",
+    "target_m": 1.5,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM04_01_Detail_Grass_LOD0",
+      "BM04_01_Detail_Grass_LOD1",
+      "BM04_01_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM04_01_Stone",
+        "texture_px": 2048,
+        "triangles": [
+          10000,
+          5000,
+          1500
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM04_01_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          528,
+          264,
+          79
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      10528,
+      5264,
+      1579
+    ],
+    "triangles_without_detail": [
+      10000,
+      5000,
+      1500
+    ],
+    "source_parts": 34,
+    "reference": "art/references/BM04/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM04_01_Collision": {
+        "primitives": [
+          {
+            "type": "convex_hull",
+            "triangles": 300
+          }
+        ],
+        "bounds_min": [
+          -0.75,
+          -0.475,
+          -0.0
+        ],
+        "bounds_max": [
+          0.75,
+          0.475,
+          0.9
+        ]
+      }
+    },
+    "notes": {
+      "build": "weathered block 1.50 x 0.95 m, 0.90 m above the soil; the buried part is not modelled (cut flat at the ground, hidden cap)",
+      "collision": "convex hull of the stone (simplified), the work pack asks for it on the largest stone only",
+      "detail": "Detail_Grass (tufts at the base) is a separate mesh; the standard tier hides it"
+    }
+  },
+  "BM04_02": {
+    "id": "BM04_02",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      1.0,
+      0.7,
+      0.55
+    ],
+    "body_dimensions_xyz_m": [
+      1.0,
+      0.7,
+      0.55
+    ],
+    "target_axis": "x",
+    "target_m": 1.0,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM04_02_Detail_Grass_LOD0",
+      "BM04_02_Detail_Grass_LOD1",
+      "BM04_02_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM04_02_Stone",
+        "texture_px": 2048,
+        "triangles": [
+          7000,
+          3500,
+          1050
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM04_02_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          336,
+          168,
+          50
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      7336,
+      3668,
+      1100
+    ],
+    "triangles_without_detail": [
+      7000,
+      3500,
+      1050
+    ],
+    "source_parts": 22,
+    "reference": "art/references/BM04/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {},
+    "notes": {
+      "build": "weathered block 1.00 x 0.70 m, 0.55 m above the soil; the buried part is not modelled (cut flat at the ground, hidden cap)",
+      "collision": "none: the work pack puts _Collision on the largest stone only; the smaller ones are kerb dressing a player steps round",
+      "detail": "Detail_Grass (tufts at the base) is a separate mesh; the standard tier hides it"
+    }
+  },
+  "BM04_03": {
+    "id": "BM04_03",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.7,
+      0.598,
+      0.42
+    ],
+    "body_dimensions_xyz_m": [
+      0.7,
+      0.549,
+      0.42
+    ],
+    "target_axis": "x",
+    "target_m": 0.7,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM04_03_Detail_Grass_LOD0",
+      "BM04_03_Detail_Grass_LOD1",
+      "BM04_03_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM04_03_Stone",
+        "texture_px": 1024,
+        "triangles": [
+          5000,
+          2500,
+          750
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM04_03_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          272,
+          136,
+          40
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      5272,
+      2636,
+      790
+    ],
+    "triangles_without_detail": [
+      5000,
+      2500,
+      750
+    ],
+    "source_parts": 18,
+    "reference": "art/references/BM04/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {},
+    "notes": {
+      "build": "weathered block 0.70 x 0.55 m, 0.42 m above the soil; the buried part is not modelled (cut flat at the ground, hidden cap)",
+      "collision": "none: the work pack puts _Collision on the largest stone only; the smaller ones are kerb dressing a player steps round",
+      "detail": "Detail_Grass (tufts at the base) is a separate mesh; the standard tier hides it"
+    }
+  },
+  "BM04_04": {
+    "id": "BM04_04",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.4,
+      0.389,
+      0.2
+    ],
+    "body_dimensions_xyz_m": [
+      0.4,
+      0.34,
+      0.2
+    ],
+    "target_axis": "x",
+    "target_m": 0.4,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM04_04_Detail_Grass_LOD0",
+      "BM04_04_Detail_Grass_LOD1",
+      "BM04_04_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM04_04_Stone",
+        "texture_px": 1024,
+        "triangles": [
+          2800,
+          1400,
+          420
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM04_04_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          112,
+          56,
+          16
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      2912,
+      1456,
+      436
+    ],
+    "triangles_without_detail": [
+      2800,
+      1400,
+      420
+    ],
+    "source_parts": 8,
+    "reference": "art/references/BM04/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {},
+    "notes": {
+      "build": "weathered block 0.40 x 0.34 m, 0.20 m above the soil; the buried part is not modelled (cut flat at the ground, hidden cap)",
+      "collision": "none: the work pack puts _Collision on the largest stone only; the smaller ones are kerb dressing a player steps round",
+      "detail": "Detail_Grass (tufts at the base) is a separate mesh; the standard tier hides it"
+    }
+  },
+  "BM05_01": {
+    "id": "BM05_01",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      1.001,
+      1.002,
+      0.754
+    ],
+    "body_dimensions_xyz_m": [
+      1.001,
+      1.002,
+      0.754
+    ],
+    "target_axis": "z",
+    "target_m": 0.75,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM05_01_Detail_Grass_LOD0",
+      "BM05_01_Detail_Grass_LOD1",
+      "BM05_01_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM05_01_Stone",
+        "texture_px": 2048,
+        "triangles": [
+          12000,
+          6000,
+          1800
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM05_01_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          288,
+          144,
+          43
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      12288,
+      6144,
+      1843
+    ],
+    "triangles_without_detail": [
+      12000,
+      6000,
+      1800
+    ],
+    "source_parts": 19,
+    "reference": "art/references/BM05/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM05_01_Collision": {
+        "primitives": [
+          {
+            "type": "convex_hull",
+            "triangles": 300
+          }
+        ],
+        "bounds_min": [
+          -0.501,
+          -0.501,
+          0.0
+        ],
+        "bounds_max": [
+          0.501,
+          0.501,
+          0.754
+        ]
+      }
+    },
+    "notes": {
+      "build": "round table: slab Ø1.0 m x 0.095 m with rounded arris and two chips, hourglass pedestal on a moulded foot, height 0.75 m",
+      "collision": "simplified convex hull: it blocks the way (the space under the slab is not walkable anyway)",
+      "detail": "Detail_Grass (tufts at the foot); the standard tier hides it"
+    }
+  },
+  "BM05_02": {
+    "id": "BM05_02",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.38,
+      0.382,
+      0.453
+    ],
+    "body_dimensions_xyz_m": [
+      0.38,
+      0.382,
+      0.453
+    ],
+    "target_axis": "z",
+    "target_m": 0.45,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM05_02_Detail_Grass_LOD0",
+      "BM05_02_Detail_Grass_LOD1",
+      "BM05_02_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM05_02_Stone",
+        "texture_px": 1024,
+        "triangles": [
+          5998,
+          2998,
+          898
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM05_02_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          112,
+          56,
+          16
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      6110,
+      3054,
+      914
+    ],
+    "triangles_without_detail": [
+      5998,
+      2998,
+      898
+    ],
+    "source_parts": 8,
+    "reference": "art/references/BM05/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM05_02_Collision": {
+        "primitives": [
+          {
+            "type": "convex_hull",
+            "triangles": 300
+          }
+        ],
+        "bounds_min": [
+          -0.19,
+          -0.192,
+          0.0
+        ],
+        "bounds_max": [
+          0.19,
+          0.189,
+          0.453
+        ]
+      }
+    },
+    "notes": {
+      "build": "drum stool Ø0.38 m x 0.45 m, rounded rims, one chip on the seat edge",
+      "collision": "simplified convex hull",
+      "detail": "Detail_Grass (tufts at the foot)"
+    }
+  },
+  "BM05_03": {
+    "id": "BM05_03",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.419,
+      0.394,
+      0.452
+    ],
+    "body_dimensions_xyz_m": [
+      0.373,
+      0.371,
+      0.452
+    ],
+    "target_axis": "z",
+    "target_m": 0.45,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM05_03_Detail_Grass_LOD0",
+      "BM05_03_Detail_Grass_LOD1",
+      "BM05_03_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM05_03_Stone",
+        "texture_px": 1024,
+        "triangles": [
+          4500,
+          2250,
+          674
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM05_03_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          112,
+          56,
+          16
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      4612,
+      2306,
+      690
+    ],
+    "triangles_without_detail": [
+      4500,
+      2250,
+      674
+    ],
+    "source_parts": 8,
+    "reference": "art/references/BM05/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM05_03_Collision": {
+        "primitives": [
+          {
+            "type": "convex_hull",
+            "triangles": 300
+          }
+        ],
+        "bounds_min": [
+          -0.186,
+          -0.186,
+          -0.0
+        ],
+        "bounds_max": [
+          0.186,
+          0.186,
+          0.452
+        ]
+      }
+    },
+    "notes": {
+      "build": "square stool 0.37 x 0.37 x 0.45 m, a slight taper, worn rounded arrises, the front-right top corner broken off",
+      "collision": "simplified convex hull",
+      "detail": "Detail_Grass (tufts at the foot)"
+    }
+  },
+  "BM06_01": {
+    "id": "BM06_01",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.797,
+      0.788,
+      0.452
+    ],
+    "body_dimensions_xyz_m": [
+      0.797,
+      0.788,
+      0.452
+    ],
+    "target_axis": "x",
+    "target_m": 0.8,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM06_01_Detail_Grass_LOD0",
+      "BM06_01_Detail_Grass_LOD1",
+      "BM06_01_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM06_01_Stone",
+        "texture_px": 2048,
+        "triangles": [
+          15954,
+          7976,
+          2392
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Water": {
+        "material": "BM06_01_Water",
+        "texture_px": 256,
+        "triangles": [
+          62,
+          31,
+          9
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM06_01_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          256,
+          128,
+          38
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      16272,
+      8135,
+      2439
+    ],
+    "triangles_without_detail": [
+      16016,
+      8007,
+      2401
+    ],
+    "source_parts": 18,
+    "reference": "art/references/BM06/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM06_01_Collision": {
+        "primitives": [
+          {
+            "type": "convex_hull",
+            "triangles": 300
+          }
+        ],
+        "bounds_min": [
+          -0.398,
+          -0.394,
+          -0.0
+        ],
+        "bounds_max": [
+          0.398,
+          0.394,
+          0.452
+        ]
+      }
+    },
+    "notes": {
+      "build": "lobed basin 0.80 m wide, 0.45 m tall: foot ring, 8 lobes, rolled rim, hollow with a water surface; recessed panels with a cloud relief front and back; chipped rim",
+      "collision": "simplified convex hull of the stone",
+      "detail": "Detail_Grass (tufts at the foot)"
+    }
+  },
+  "BM06_02": {
+    "id": "BM06_02",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      0.799,
+      0.79,
+      0.452
+    ],
+    "body_dimensions_xyz_m": [
+      0.799,
+      0.79,
+      0.452
+    ],
+    "target_axis": "x",
+    "target_m": 0.8,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Iron",
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM06_02_Detail_Iron_LOD0",
+      "BM06_02_Detail_Iron_LOD1",
+      "BM06_02_Detail_Iron_LOD2",
+      "BM06_02_Detail_Grass_LOD0",
+      "BM06_02_Detail_Grass_LOD1",
+      "BM06_02_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM06_02_Stone",
+        "texture_px": 2048,
+        "triangles": [
+          15954,
+          7976,
+          2392
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Water": {
+        "material": "BM06_02_Water",
+        "texture_px": 256,
+        "triangles": [
+          62,
+          31,
+          9
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Iron": {
+        "material": "BM06_02_Detail_Iron",
+        "texture_px": 256,
+        "triangles": [
+          24,
+          12,
+          4
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM06_02_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          256,
+          128,
+          38
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      16296,
+      8147,
+      2443
+    ],
+    "triangles_without_detail": [
+      16016,
+      8007,
+      2401
+    ],
+    "source_parts": 20,
+    "reference": "art/references/BM06/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM06_02_Collision": {
+        "primitives": [
+          {
+            "type": "convex_hull",
+            "triangles": 300
+          }
+        ],
+        "bounds_min": [
+          -0.4,
+          -0.395,
+          -0.0
+        ],
+        "bounds_max": [
+          0.4,
+          0.395,
+          0.452
+        ]
+      }
+    },
+    "notes": {
+      "build": "lobed basin 0.80 m wide, 0.45 m tall: foot ring, 8 lobes, rolled rim, hollow with a water surface; recessed panels with a cloud relief front and back; chipped rim, two iron staples across a crack (Detail_Iron)",
+      "collision": "simplified convex hull of the stone",
+      "detail": "Detail_Grass (tufts at the foot), Detail_Iron (staples)"
+    }
+  },
+  "BM06_03": {
+    "id": "BM06_03",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      1.31,
+      0.907,
+      0.905
+    ],
+    "body_dimensions_xyz_m": [
+      1.203,
+      0.804,
+      0.422
+    ],
+    "target_axis": "x",
+    "target_m": 1.2,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Plant",
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM06_03_Detail_Plant_LOD0",
+      "BM06_03_Detail_Plant_LOD1",
+      "BM06_03_Detail_Plant_LOD2",
+      "BM06_03_Detail_Grass_LOD0",
+      "BM06_03_Detail_Grass_LOD1",
+      "BM06_03_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM06_03_Stone",
+        "texture_px": 2048,
+        "triangles": [
+          14768,
+          7384,
+          2214
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Plant": {
+        "material": "BM06_03_Detail_Plant",
+        "texture_px": 1024,
+        "triangles": [
+          3544,
+          1772,
+          531
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM06_03_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          240,
+          120,
+          36
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      18552,
+      9276,
+      2781
+    ],
+    "triangles_without_detail": [
+      14768,
+      7384,
+      2214
+    ],
+    "source_parts": 703,
+    "reference": "art/references/BM06/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM06_03_Collision": {
+        "primitives": [
+          {
+            "type": "convex_hull",
+            "triangles": 300
+          }
+        ],
+        "bounds_min": [
+          -0.602,
+          -0.402,
+          0.0
+        ],
+        "bounds_max": [
+          0.602,
+          0.402,
+          0.422
+        ]
+      }
+    },
+    "notes": {
+      "build": "planter 1.2 x 0.8 x 0.42 m: corner posts, wall slabs lifted off the ground between the corner feet, soil inside, cloud relief panels on both long faces, one corner broken; a small shrub in Detail_Plant",
+      "collision": "simplified convex hull of the stone and soil (the plant is left out)",
+      "detail": "Detail_Plant (the shrub or grass), Detail_Grass (tufts at the foot); the standard tier shows an earth-filled planter"
+    }
+  },
+  "BM06_04": {
+    "id": "BM06_04",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      1.293,
+      0.89,
+      0.702
+    ],
+    "body_dimensions_xyz_m": [
+      1.204,
+      0.805,
+      0.422
+    ],
+    "target_axis": "x",
+    "target_m": 1.2,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Plant",
+      "Detail_Grass"
+    ],
+    "detailMeshes": [
+      "BM06_04_Detail_Plant_LOD0",
+      "BM06_04_Detail_Plant_LOD1",
+      "BM06_04_Detail_Plant_LOD2",
+      "BM06_04_Detail_Grass_LOD0",
+      "BM06_04_Detail_Grass_LOD1",
+      "BM06_04_Detail_Grass_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM06_04_Stone",
+        "texture_px": 2048,
+        "triangles": [
+          14768,
+          7383,
+          2215
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Plant": {
+        "material": "BM06_04_Detail_Plant",
+        "texture_px": 1024,
+        "triangles": [
+          3744,
+          1872,
+          561
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Grass": {
+        "material": "BM06_04_Detail_Grass",
+        "texture_px": 256,
+        "triangles": [
+          240,
+          120,
+          36
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      18752,
+      9375,
+      2812
+    ],
+    "triangles_without_detail": [
+      14768,
+      7383,
+      2215
+    ],
+    "source_parts": 251,
+    "reference": "art/references/BM06/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM06_04_Collision": {
+        "primitives": [
+          {
+            "type": "convex_hull",
+            "triangles": 300
+          }
+        ],
+        "bounds_min": [
+          -0.602,
+          -0.402,
+          0.0
+        ],
+        "bounds_max": [
+          0.602,
+          0.402,
+          0.422
+        ]
+      }
+    },
+    "notes": {
+      "build": "planter 1.2 x 0.8 x 0.42 m: corner posts, wall slabs lifted off the ground between the corner feet, soil inside, cloud relief panels on both long faces, one corner broken; grass in Detail_Plant",
+      "collision": "simplified convex hull of the stone and soil (the plant is left out)",
+      "detail": "Detail_Plant (the shrub or grass), Detail_Grass (tufts at the foot); the standard tier shows an earth-filled planter"
+    }
+  },
+  "BM07_01": {
+    "id": "BM07_01",
+    "device": "OPTIX",
+    "dimensions_xyz_m": [
+      1.111,
+      0.52,
+      2.308
+    ],
+    "body_dimensions_xyz_m": [
+      1.111,
+      0.515,
+      2.308
+    ],
+    "target_axis": "z",
+    "target_m": 2.3,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Litter"
+    ],
+    "detailMeshes": [
+      "BM07_01_Detail_Litter_LOD0",
+      "BM07_01_Detail_Litter_LOD1",
+      "BM07_01_Detail_Litter_LOD2"
+    ],
+    "groups": {
+      "Stone": {
+        "material": "BM07_01_Stone",
+        "texture_px": 2048,
+        "triangles": [
+          12000,
+          6000,
+          1800
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      },
+      "Detail_Litter": {
+        "material": "BM07_01_Detail_Litter",
+        "texture_px": 512,
+        "triangles": [
+          1452,
+          726,
+          216
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      13452,
+      6726,
+      2016
+    ],
+    "triangles_without_detail": [
+      12000,
+      6000,
+      1800
+    ],
+    "source_parts": 240,
+    "reference": "art/references/BM07/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+    "collision": {
+      "BM07_01_Collision": {
+        "primitives": [
+          {
+            "type": "convex_hull",
+            "triangles": 300
+          }
+        ],
+        "bounds_min": [
+          -0.556,
+          -0.257,
+          0.0
+        ],
+        "bounds_max": [
+          0.555,
+          0.258,
+          2.308
+        ]
+      }
+    },
+    "notes": {
+      "build": "stele 0.88 x 0.30 x 2.0 m with a round-shouldered top on a 1.1 x 0.5 x 0.3 m base; faces worn smooth (no letters), arrises rough-hewn; a chiselled strip right of centre on the front, recessed ~12 mm, its marks baked from the dense mesh",
+      "collision": "simplified convex hull of the stone",
+      "detail": "Detail_Litter (pine needles and dead leaves on the base); the standard tier hides it"
+    }
+  },
+  "BM09_01": {
+    "id": "BM09_01",
+    "dimensions_xyz_m": [
+      1.154744,
+      1.194764,
+      0.8
+    ],
+    "body_dimensions_xyz_m": [
+      1.154744,
+      1.194764,
+      0.8
+    ],
+    "target_axis": "z",
+    "target_m": 0.8,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_DryFronds"
+    ],
+    "detailMeshes": [
+      "BM09_01_Detail_DryFronds_LOD0",
+      "BM09_01_Detail_DryFronds_LOD1",
+      "BM09_01_Detail_DryFronds_LOD2"
+    ],
+    "groups": {
+      "Fronds": {
+        "material": "BM09_01_Fronds",
+        "texture_px": 2048,
+        "triangles": [
+          9504,
+          4752,
+          1512
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      },
+      "Rachis": {
+        "material": "BM09_01_Rachis",
+        "texture_px": 512,
+        "triangles": [
+          4016,
+          2048,
+          576
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      },
+      "Detail_DryFronds": {
+        "material": "BM09_01_Detail_DryFronds",
+        "texture_px": 512,
+        "triangles": [
+          492,
+          240,
+          72
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      14012,
+      7040,
+      2160
+    ],
+    "triangles_without_detail": [
+      13520,
+      6800,
+      2088
+    ],
+    "reference": "art/references/BM09/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Fronds": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_01_Fronds_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_01_Fronds_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_01_Fronds_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_01_Fronds_ORM.png"
+      },
+      "Rachis": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_01_Rachis_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_01_Rachis_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_01_Rachis_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_01_Rachis_ORM.png"
+      },
+      "Detail_DryFronds": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "Curved rachis, paired bent alpha pinnae, older brown outer tips, coiled croziers; atlas groups preserve leaf silhouette at LOD1.",
+      "detail": "Detail_DryFronds can be hidden; no baked detail shadows on body.",
+      "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
+      "validation": "Blender export/import only; Unity and mobile performance not tested."
+    }
+  },
+  "BM09_02": {
+    "id": "BM09_02",
+    "dimensions_xyz_m": [
+      0.467151,
+      0.439852,
+      0.3
+    ],
+    "body_dimensions_xyz_m": [
+      0.467151,
+      0.439852,
+      0.3
+    ],
+    "target_axis": "z",
+    "target_m": 0.3,
+    "minTier": "high",
+    "detailObjects": [
+      "Detail_DryFronds"
+    ],
+    "detailMeshes": [
+      "BM09_02_Detail_DryFronds_LOD0",
+      "BM09_02_Detail_DryFronds_LOD1",
+      "BM09_02_Detail_DryFronds_LOD2"
+    ],
+    "groups": {
+      "Fronds": {
+        "material": "BM09_02_Fronds",
+        "texture_px": 2048,
+        "triangles": [
+          2496,
+          1248,
+          336
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      },
+      "Rachis": {
+        "material": "BM09_02_Rachis",
+        "texture_px": 512,
+        "triangles": [
+          2748,
+          1404,
+          444
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      },
+      "Detail_DryFronds": {
+        "material": "BM09_02_Detail_DryFronds",
+        "texture_px": 512,
+        "triangles": [
+          492,
+          240,
+          72
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      5736,
+      2892,
+      852
+    ],
+    "triangles_without_detail": [
+      5244,
+      2652,
+      780
+    ],
+    "reference": "art/references/BM09/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Fronds": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_02_Fronds_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_02_Fronds_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_02_Fronds_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_02_Fronds_ORM.png"
+      },
+      "Rachis": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_02_Rachis_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_02_Rachis_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_02_Rachis_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_02_Rachis_ORM.png"
+      },
+      "Detail_DryFronds": {
+        "Albedo": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "Curved rachis, paired bent alpha pinnae, older brown outer tips, coiled croziers; atlas groups preserve leaf silhouette at LOD1.",
+      "detail": "Detail_DryFronds can be hidden; no baked detail shadows on body.",
+      "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
+      "validation": "Blender export/import only; Unity and mobile performance not tested."
+    }
+  },
+  "BM10_01": {
+    "id": "BM10_01",
+    "dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "body_dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "target_axis": "x",
+    "target_m": 1.0,
+    "minTier": "ultra",
+    "detailObjects": [],
+    "detailMeshes": [],
+    "groups": {
+      "Ground": {
+        "material": "BM10_01_Ground",
+        "texture_px": 2048,
+        "triangles": [
+          128,
+          64,
+          18
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      128,
+      64,
+      18
+    ],
+    "triangles_without_detail": [
+      128,
+      64,
+      18
+    ],
+    "reference": "art/references/BM10/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Ground": {
+        "Albedo": "art/textures/modelling-basics-c/BM10_01_Ground_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM10_01_Ground_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM10_01_Ground_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM10_01_Ground_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+      "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
+      "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
+      "validation": "Blender export/import only; Unity and mobile performance not tested."
+    }
+  },
+  "BM10_02": {
+    "id": "BM10_02",
+    "dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "body_dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "target_axis": "x",
+    "target_m": 1.0,
+    "minTier": "ultra",
+    "detailObjects": [],
+    "detailMeshes": [],
+    "groups": {
+      "Ground": {
+        "material": "BM10_02_Ground",
+        "texture_px": 2048,
+        "triangles": [
+          128,
+          64,
+          18
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      128,
+      64,
+      18
+    ],
+    "triangles_without_detail": [
+      128,
+      64,
+      18
+    ],
+    "reference": "art/references/BM10/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Ground": {
+        "Albedo": "art/textures/modelling-basics-c/BM10_02_Ground_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM10_02_Ground_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM10_02_Ground_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM10_02_Ground_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+      "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
+      "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
+      "validation": "Blender export/import only; Unity and mobile performance not tested."
+    }
+  },
+  "BM10_03": {
+    "id": "BM10_03",
+    "dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "body_dimensions_xyz_m": [
+      1.0,
+      1.0,
+      0.006
+    ],
+    "target_axis": "x",
+    "target_m": 1.0,
+    "minTier": "ultra",
+    "detailObjects": [],
+    "detailMeshes": [],
+    "groups": {
+      "Ground": {
+        "material": "BM10_03_Ground",
+        "texture_px": 2048,
+        "triangles": [
+          128,
+          64,
+          18
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ]
+      }
+    },
+    "triangles_total": [
+      128,
+      64,
+      18
+    ],
+    "triangles_without_detail": [
+      128,
+      64,
+      18
+    ],
+    "reference": "art/references/BM10/prompt.txt",
+    "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Ground": {
+        "Albedo": "art/textures/modelling-basics-c/BM10_03_Ground_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM10_03_Ground_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM10_03_Ground_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM10_03_Ground_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+      "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
+      "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
+      "validation": "Blender export/import only; Unity and mobile performance not tested."
+    }
+  },
+  "BM08_01": {
+    "id": "BM08_01",
+    "dimensions_xyz_m": [
+      1.498686,
+      1.294991,
+      1.2
+    ],
+    "body_dimensions_xyz_m": [
+      1.498686,
+      1.294991,
+      1.2
+    ],
+    "target_axis": "z",
+    "target_m": 1.2,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Litter"
+    ],
+    "detailMeshes": [
+      "BM08_01_Detail_Litter_LOD0",
+      "BM08_01_Detail_Litter_LOD1",
+      "BM08_01_Detail_Litter_LOD2"
+    ],
+    "groups": {
+      "Leaves": {
+        "material": "BM08_01_Leaves",
+        "texture_px": 2048,
+        "triangles": [
+          9240,
+          4284,
+          2268
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0.45
+      },
+      "Branches": {
+        "material": "BM08_01_Branches",
+        "texture_px": 512,
+        "triangles": [
+          7812,
+          3804,
+          312
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0
+      },
+      "Detail_Litter": {
+        "material": "BM08_01_Detail_Litter",
+        "texture_px": 512,
+        "triangles": [
+          52,
+          28,
+          12
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0.45
+      }
+    },
+    "triangles_total": [
+      17104,
+      8116,
+      2592
+    ],
+    "triangles_without_detail": [
+      17052,
+      8088,
+      2580
+    ],
+    "leaf_cards": [
+      770,
+      357,
+      189
+    ],
+    "reference": "art/references/BM08/prompt.txt",
+    "origin": "crown centre at the soil line, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Leaves": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_01_Leaves_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_01_Leaves_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_01_Leaves_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_01_Leaves_ORM.png"
+      },
+      "Branches": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_01_Branches_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_01_Branches_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_01_Branches_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_01_Branches_ORM.png"
+      },
+      "Detail_Litter": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_01_Detail_Litter_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_01_Detail_Litter_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_01_Detail_Litter_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_01_Detail_Litter_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "round dense creek willow: 13 stems, twigs grown to an ellipsoid crown shell, narrow willow-leaf sprays on bent alpha cards",
+      "lod": "authored: LOD1 keeps half the cards 1.32x larger, LOD2 the outer cards (willow 30% at 1.62x, berry 15% at 2.1x) and only the stems; tube sides 6/4/3",
+      "collision": "none: a shrub to brush past, nothing to stop on",
+      "detail": "Detail_Litter (fallen leaves at the base); the standard tier hides it",
+      "material": "Leaves and litter are alpha-cut (cutoff 0.45), double-sided; leaf normals lean on the crown ellipsoid. Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. Drawn procedurally, no photo sources."
+    }
+  },
+  "BM08_02": {
+    "id": "BM08_02",
+    "dimensions_xyz_m": [
+      1.313963,
+      1.120405,
+      1.0
+    ],
+    "body_dimensions_xyz_m": [
+      1.313963,
+      1.120405,
+      1.0
+    ],
+    "target_axis": "z",
+    "target_m": 1.0,
+    "minTier": "high",
+    "detailObjects": [
+      "Detail_Litter"
+    ],
+    "detailMeshes": [
+      "BM08_02_Detail_Litter_LOD0",
+      "BM08_02_Detail_Litter_LOD1",
+      "BM08_02_Detail_Litter_LOD2"
+    ],
+    "groups": {
+      "Leaves": {
+        "material": "BM08_02_Leaves",
+        "texture_px": 2048,
+        "triangles": [
+          4620,
+          2280,
+          768
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0.45
+      },
+      "Branches": {
+        "material": "BM08_02_Branches",
+        "texture_px": 512,
+        "triangles": [
+          3708,
+          1944,
+          492
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0
+      },
+      "Berries": {
+        "material": "BM08_02_Berries",
+        "texture_px": 256,
+        "triangles": [
+          6280,
+          3160,
+          960
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0
+      },
+      "Detail_Litter": {
+        "material": "BM08_02_Detail_Litter",
+        "texture_px": 512,
+        "triangles": [
+          52,
+          28,
+          12
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0.45
+      }
+    },
+    "triangles_total": [
+      14660,
+      7412,
+      2232
+    ],
+    "triangles_without_detail": [
+      14608,
+      7384,
+      2220
+    ],
+    "leaf_cards": [
+      385,
+      190,
+      64
+    ],
+    "reference": "art/references/BM08/prompt.txt",
+    "origin": "crown centre at the soil line, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Leaves": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_02_Leaves_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_02_Leaves_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_02_Leaves_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_02_Leaves_ORM.png"
+      },
+      "Branches": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_02_Branches_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_02_Branches_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_02_Branches_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_02_Branches_ORM.png"
+      },
+      "Detail_Litter": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_02_Detail_Litter_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_02_Detail_Litter_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_02_Detail_Litter_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_02_Detail_Litter_ORM.png"
+      },
+      "Berries": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_02_Berries_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_02_Berries_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_02_Berries_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_02_Berries_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "loose forest-edge shrub: 8 stems with long arching canes, leaves in clumps with gaps so twigs show, red berry clusters as geometry and in the atlas",
+      "lod": "authored: LOD1 keeps half the cards 1.32x larger, LOD2 15% of the outer cards 2.1x larger and only the stems; tube sides 6/4/3",
+      "collision": "none: a shrub to brush past, nothing to stop on",
+      "detail": "Detail_Litter (fallen leaves at the base); the standard tier hides it",
+      "material": "Leaves and litter are alpha-cut (cutoff 0.45), double-sided; leaf normals lean on the crown ellipsoid. Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. Drawn procedurally, no photo sources."
+    }
   }
- },
- "BM01_02": {
-  "id": "BM01_02",
-  "device": "OPTIX",
-  "dimensions_xyz_m": [
-   0.837,
-   0.546,
-   0.401
-  ],
-  "body_dimensions_xyz_m": [
-   0.802,
-   0.483,
-   0.39
-  ],
-  "target_width_m": 0.8,
-  "minTier": "standard",
-  "detailObjects": [
-   "Detail_Nails",
-   "Detail_Rope",
-   "Detail_Grass"
-  ],
-  "detailMeshes": [
-   "BM01_02_Detail_Nails_LOD0",
-   "BM01_02_Detail_Nails_LOD1",
-   "BM01_02_Detail_Nails_LOD2",
-   "BM01_02_Detail_Rope_LOD0",
-   "BM01_02_Detail_Rope_LOD1",
-   "BM01_02_Detail_Rope_LOD2",
-   "BM01_02_Detail_Grass_LOD0",
-   "BM01_02_Detail_Grass_LOD1",
-   "BM01_02_Detail_Grass_LOD2"
-  ],
-  "groups": {
-   "Wood": {
-    "material": "BM01_02_Wood",
-    "texture_px": 2048,
-    "triangles": [
-     11148,
-     5574,
-     1672
-    ],
-    "maps": [
-     "alb",
-     "nrm",
-     "orm"
-    ]
-   },
-   "Detail_Nails": {
-    "material": "BM01_02_Detail_Nails",
-    "texture_px": 256,
-    "triangles": [
-     1628,
-     814,
-     244
-    ],
-    "maps": [
-     "alb",
-     "nrm",
-     "orm"
-    ]
-   },
-   "Detail_Rope": {
-    "material": "BM01_02_Detail_Rope",
-    "texture_px": 1024,
-    "triangles": [
-     18570,
-     9284,
-     2784
-    ],
-    "maps": [
-     "alb",
-     "nrm",
-     "orm"
-    ]
-   },
-   "Detail_Grass": {
-    "material": "BM01_02_Detail_Grass",
-    "texture_px": 256,
-    "triangles": [
-     304,
-     152,
-     45
-    ],
-    "maps": [
-     "alb",
-     "nrm",
-     "orm"
-    ]
-   }
-  },
-  "triangles_total": [
-   31650,
-   15824,
-   4745
-  ],
-  "triangles_without_detail": [
-   11148,
-   5574,
-   1672
-  ],
-  "source_parts": 105,
-  "reference": "art/references/BM01/prompt.txt",
-  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
-  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
-  "collision": {
-   "BM01_02_Collision": {
-    "primitives": [
-     {
-      "type": "box",
-      "size": [
-       0.8,
-       0.48,
-       0.38
-      ],
-      "center": [
-       0.0,
-       0.0,
-       0.193
-      ]
-     }
-    ],
-    "bounds_min": [
-     -0.4,
-     -0.24,
-     0.003
-    ],
-    "bounds_max": [
-     0.4,
-     0.24,
-     0.383
-    ]
-   }
-  },
-  "notes": {
-   "build": "4 board rows per face, 4 lid boards, battens proud of the boards by 0.018 m and of the lid by 6 mm",
-   "detail": "Detail_Nails (nail heads), Detail_Rope (girth and cross rope, knot, hanging bight), Detail_Grass (tufts at the foot) are separate meshes; the standard tier hides them"
-  }
- },
- "BM01_03": {
-  "id": "BM01_03",
-  "device": "OPTIX",
-  "dimensions_xyz_m": [
-   1.107,
-   0.623,
-   0.532
-  ],
-  "body_dimensions_xyz_m": [
-   1.103,
-   0.583,
-   0.532
-  ],
-  "target_width_m": 1.1,
-  "minTier": "standard",
-  "detailObjects": [
-   "Detail_Nails",
-   "Detail_Grass"
-  ],
-  "detailMeshes": [
-   "BM01_03_Detail_Nails_LOD0",
-   "BM01_03_Detail_Nails_LOD1",
-   "BM01_03_Detail_Nails_LOD2",
-   "BM01_03_Detail_Grass_LOD0",
-   "BM01_03_Detail_Grass_LOD1",
-   "BM01_03_Detail_Grass_LOD2"
-  ],
-  "groups": {
-   "Wood": {
-    "material": "BM01_03_Wood",
-    "texture_px": 2048,
-    "triangles": [
-     11748,
-     5874,
-     1762
-    ],
-    "maps": [
-     "alb",
-     "nrm",
-     "orm"
-    ]
-   },
-   "Detail_Nails": {
-    "material": "BM01_03_Detail_Nails",
-    "texture_px": 512,
-    "triangles": [
-     1936,
-     968,
-     290
-    ],
-    "maps": [
-     "alb",
-     "nrm",
-     "orm"
-    ]
-   },
-   "Detail_Grass": {
-    "material": "BM01_03_Detail_Grass",
-    "texture_px": 256,
-    "triangles": [
-     432,
-     216,
-     64
-    ],
-    "maps": [
-     "alb",
-     "nrm",
-     "orm"
-    ]
-   }
-  },
-  "triangles_total": [
-   14116,
-   7058,
-   2116
-  ],
-  "triangles_without_detail": [
-   11748,
-   5874,
-   1762
-  ],
-  "source_parts": 102,
-  "reference": "art/references/BM01/prompt.txt",
-  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
-  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
-  "collision": {
-   "BM01_03_Collision": {
-    "primitives": [
-     {
-      "type": "box",
-      "size": [
-       1.1,
-       0.58,
-       0.52
-      ],
-      "center": [
-       -0.001,
-       -0.0,
-       0.264
-      ]
-     }
-    ],
-    "bounds_min": [
-     -0.551,
-     -0.29,
-     0.004
-    ],
-    "bounds_max": [
-     0.549,
-     0.29,
-     0.524
-    ]
-   }
-  },
-  "notes": {
-   "build": "4 board rows per face, 4 lid boards, battens proud of the boards by 0.022 m and of the lid by 6 mm",
-   "detail": "Detail_Nails (nail heads), Detail_Grass (tufts at the foot) are separate meshes; the standard tier hides them"
-  }
- }
 }
