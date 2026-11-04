@@ -216,9 +216,9 @@
       "LOD2": 778
     },
     "Detail_Flour": {
-      "LOD0": 360,
-      "LOD1": 191,
-      "LOD2": 191
+      "LOD0": 300,
+      "LOD1": 150,
+      "LOD2": 45
     },
     "Detail_Noodles": {
       "LOD0": 4088,
@@ -246,14 +246,14 @@
       "LOD2": 86
     },
     "Bowl_Full": {
-      "LOD0": 1650,
-      "LOD1": 824,
-      "LOD2": 246
+      "LOD0": 1634,
+      "LOD1": 816,
+      "LOD2": 244
     },
     "Bowl_Empty": {
-      "LOD0": 616,
-      "LOD1": 308,
-      "LOD2": 92
+      "LOD0": 600,
+      "LOD1": 300,
+      "LOD2": 90
     },
     "Detail_Chopsticks": {
       "LOD0": 3460,
@@ -267,9 +267,9 @@
     }
   },
   "lod_totals": {
-    "LOD0": 167816,
-    "LOD1": 83917,
-    "LOD2": 25299
+    "LOD0": 167724,
+    "LOD1": 83860,
+    "LOD2": 25149
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

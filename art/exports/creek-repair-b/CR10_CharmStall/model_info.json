@@ -437,9 +437,9 @@
       "LOD2": 7580
     },
     "Detail_Small": {
-      "LOD0": 16174,
-      "LOD1": 8086,
-      "LOD2": 2426
+      "LOD0": 16046,
+      "LOD1": 8022,
+      "LOD2": 2406
     },
     "CharmString_01": {
       "LOD0": 1332,
@@ -577,9 +577,9 @@
       "LOD2": 504
     },
     "Stool": {
-      "LOD0": 1064,
-      "LOD1": 532,
-      "LOD2": 159
+      "LOD0": 1030,
+      "LOD1": 514,
+      "LOD2": 153
     },
     "Banner": {
       "LOD0": 7088,
@@ -588,9 +588,9 @@
     }
   },
   "lod_totals": {
-    "LOD0": 126434,
-    "LOD1": 63216,
-    "LOD2": 18937
+    "LOD0": 126272,
+    "LOD1": 63134,
+    "LOD2": 18911
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

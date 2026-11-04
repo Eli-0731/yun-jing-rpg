@@ -5,7 +5,7 @@ Run one asset per process:
   ... -- CR09_A_RopeGate --preview <dir>     quick procedural look, no bake or export
 An asset whose validation.json exists is skipped unless --force is given.
 
-ti_core / ti_mats / ti_pipeline / mk_mats are copied unchanged from art/source/harvest-market-b. LOD1/LOD2 land on about
+ti_core / ti_mats / mk_mats are copied unchanged from art/source/harvest-market-b; ti_pipeline started from there and now also cleans faces and UVs. LOD1/LOD2 land on about
 50% / 15% of LOD0. Each export group is its own object with its own pivot; one baked atlas per asset.
 Writes:
   art/source/creek-repair-b/blend/<ID>_v001.blend
@@ -123,6 +123,7 @@ def make_lods():
                     if abs(n - want) <= max(2, want * .01): break
                     m.ratio = min(1., m.ratio * want / max(n, 1))
                 bpy.ops.object.modifier_apply(modifier=m.name)
+                pl.orient_faces(o.data, flush=False); pl.spread_zero_uv([o])   # the collapse can leave slivers and turn a thin piece inside out
             try: bpy.ops.mesh.customdata_custom_splitnormals_clear()
             except Exception: pass
             bpy.ops.object.shade_smooth_by_angle(angle=math.radians(38))
@@ -290,7 +291,7 @@ def run(aid, force=False):
     bpy.context.view_layer.update()
     lo0, hi0 = pl.eval_bounds(S['parts']); shift = -Vector(((lo0.x + hi0.x) / 2, (lo0.y + hi0.y) / 2, lo0.z))
     pl.normalise(); route_details()
-    pl.join_groups(); set_pivots(cfg); pl.uv_atlas(cfg.get('uv_weight'))
+    pl.join_groups(); set_pivots(cfg); pl.uv_atlas(cfg.get('uv_weight')); pl.spread_zero_uv()
     pl.bake(exp / 'Textures', cfg['tex'])
     lod_report = make_lods(); pl.export_materials()
     make_collision(aid, shift)
