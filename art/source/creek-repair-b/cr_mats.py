@@ -348,6 +348,28 @@ def moss_tuft(name, slot='Main', soft=False):
     return m
 
 
+def packed_earth(name, dark=(.032, .022, .013), light=(.098, .066, .04), rough=.85, wet_top=.17, wet_low=.11, dry_low=.3, dry_top=.4, slot='Main'):
+    """Banked ditch earth: wet and dark up to the water mark, layered where it was cut, sun-dried and paler along the top, small stones showing through."""
+    m, g = tm._new(name, slot)
+    P, Z, up = _p(g)
+    big = g.noise(P, 3.2, 4, .58); fine = g.noise(P, 42.0, 4, .6); grit = g.noise(P, 160.0, 2, .5)
+    t = g.math('ADD', g.math('MULTIPLY', big, .65), g.math('MULTIPLY', fine, .35))
+    col = g.ramp(t, [(.34, dark), (.68, light)])
+    strata = g.wave(P, 16.0, 2.2, 'BANDS', 'Z', 3)
+    col = g.mix(g.math('MULTIPLY', g.maprange(strata, .35, .75), .3), col, tuple(c * .62 for c in light))
+    dry = g.maprange(Z, dry_low, dry_top)
+    col = g.mix(g.math('MULTIPLY', dry, .55), col, tuple(min(1, c * 1.32 + .012) for c in light))
+    wet = g.maprange(Z, wet_top, wet_low)
+    wet_edge = g.math('MULTIPLY', wet, g.maprange(big, .3, .6, 1., .75))
+    col = g.mix(g.math('MULTIPLY', wet_edge, .8), col, tuple(c * .62 for c in dark))
+    stones = g.math('MULTIPLY', g.maprange(g.noise(P, 74.0, 2, .5), .7, .74), .45)
+    col = g.mix(stones, col, (.085, .07, .05))
+    ao = g.ao(.04)
+    col = g.mul(1.0, col, g.ramp(ao, [(0, (.45, .42, .4)), (1, (1, 1, 1))]))
+    tm._finish(g, col, g.maprange(Z, wet_low, wet_top, .38, rough), 0.0, g.bump(g.math('ADD', g.math('MULTIPLY', fine, .7), g.math('MULTIPLY', grit, .3)), .5, .006), spec=.4)
+    return m
+
+
 def mud(name, dark=(.022, .016, .01), light=(.09, .062, .036), rough=.7, slot='Main'):
     """Wet creek silt or packed earth: dark, lumpy, gleaming where it is wettest."""
     m, g = tm._new(name, slot)

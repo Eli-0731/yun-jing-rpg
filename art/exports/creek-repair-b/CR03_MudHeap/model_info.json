@@ -24,7 +24,7 @@
     "Stage_Low": {
       "dims_m": [
         1.1383,
-        1.2092,
+        1.2195,
         0.3267
       ],
       "pivot": [
@@ -63,25 +63,25 @@
   },
   "lods": {
     "Stage_Low": {
-      "LOD0": 15088,
-      "LOD1": 7543,
-      "LOD2": 2262
+      "LOD0": 16384,
+      "LOD1": 8191,
+      "LOD2": 2456
     },
     "Stage_Mid": {
-      "LOD0": 15480,
-      "LOD1": 7740,
-      "LOD2": 2321
+      "LOD0": 17144,
+      "LOD1": 8571,
+      "LOD2": 2570
     },
     "Stage_High": {
-      "LOD0": 15408,
-      "LOD1": 7704,
-      "LOD2": 2310
+      "LOD0": 17344,
+      "LOD1": 8672,
+      "LOD2": 2600
     }
   },
   "lod_totals": {
-    "LOD0": 45976,
-    "LOD1": 22987,
-    "LOD2": 6893
+    "LOD0": 50872,
+    "LOD1": 25434,
+    "LOD2": 7626
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [
