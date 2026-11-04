@@ -1,0 +1,340 @@
+{
+  "asset": "CR12_RankingBoard",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.495,
+          -0.298,
+          0.0
+        ],
+        "max": [
+          1.495,
+          0.298,
+          2.7861
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          2.99,
+          0.596,
+          2.7861
+        ],
+        "limit_m": [
+          3.0,
+          0.6,
+          2.8
+        ]
+      }
+    },
+    {
+      "check": "twelve_slips_separate",
+      "pass": true,
+      "detail": [
+        "Detail_Small",
+        "Main",
+        "Slip_01",
+        "Slip_02",
+        "Slip_03",
+        "Slip_04",
+        "Slip_05",
+        "Slip_06",
+        "Slip_07",
+        "Slip_08",
+        "Slip_09",
+        "Slip_10",
+        "Slip_11",
+        "Slip_12",
+        "TeaCup"
+      ]
+    },
+    {
+      "check": "tea_cup_separate",
+      "pass": true,
+      "detail": [
+        "Main",
+        "Detail_Small",
+        "Slip_01",
+        "Slip_02",
+        "Slip_03",
+        "Slip_04",
+        "Slip_05",
+        "Slip_06",
+        "Slip_07",
+        "Slip_08",
+        "Slip_09",
+        "Slip_10",
+        "Slip_11",
+        "Slip_12",
+        "TeaCup"
+      ]
+    },
+    {
+      "check": "slip_01_is_largest",
+      "pass": true,
+      "detail": {
+        "Slip_01": [
+          0.98,
+          0.2931,
+          0.3281
+        ],
+        "Slip_02": [
+          0.2623,
+          0.0399,
+          0.3476
+        ],
+        "Slip_03": [
+          0.2624,
+          0.0451,
+          0.3491
+        ],
+        "Slip_04": [
+          0.2623,
+          0.0546,
+          0.345
+        ],
+        "Slip_05": [
+          0.2623,
+          0.0387,
+          0.3473
+        ],
+        "Slip_06": [
+          0.2623,
+          0.0459,
+          0.3465
+        ],
+        "Slip_07": [
+          0.2623,
+          0.0525,
+          0.344
+        ],
+        "Slip_08": [
+          0.2623,
+          0.0513,
+          0.3465
+        ],
+        "Slip_09": [
+          0.2621,
+          0.0609,
+          0.3443
+        ],
+        "Slip_10": [
+          0.2623,
+          0.0412,
+          0.343
+        ],
+        "Slip_11": [
+          0.2623,
+          0.051,
+          0.3444
+        ],
+        "Slip_12": [
+          0.2621,
+          0.0601,
+          0.3428
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 129788,
+          "LOD1": 64894,
+          "LOD2": 19458
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 74124,
+            "LOD1": 37062,
+            "LOD2": 11118
+          },
+          "Detail_Small": {
+            "LOD0": 28300,
+            "LOD1": 14150,
+            "LOD2": 4244
+          },
+          "Slip_01": {
+            "LOD0": 3324,
+            "LOD1": 1662,
+            "LOD2": 498
+          },
+          "Slip_02": {
+            "LOD0": 2096,
+            "LOD1": 1048,
+            "LOD2": 314
+          },
+          "Slip_03": {
+            "LOD0": 2096,
+            "LOD1": 1048,
+            "LOD2": 314
+          },
+          "Slip_04": {
+            "LOD0": 2196,
+            "LOD1": 1098,
+            "LOD2": 328
+          },
+          "Slip_05": {
+            "LOD0": 2096,
+            "LOD1": 1048,
+            "LOD2": 314
+          },
+          "Slip_06": {
+            "LOD0": 2096,
+            "LOD1": 1048,
+            "LOD2": 314
+          },
+          "Slip_07": {
+            "LOD0": 2096,
+            "LOD1": 1048,
+            "LOD2": 314
+          },
+          "Slip_08": {
+            "LOD0": 2096,
+            "LOD1": 1048,
+            "LOD2": 314
+          },
+          "Slip_09": {
+            "LOD0": 2196,
+            "LOD1": 1098,
+            "LOD2": 328
+          },
+          "Slip_10": {
+            "LOD0": 2096,
+            "LOD1": 1048,
+            "LOD2": 314
+          },
+          "Slip_11": {
+            "LOD0": 2096,
+            "LOD1": 1048,
+            "LOD2": 314
+          },
+          "Slip_12": {
+            "LOD0": 2096,
+            "LOD1": 1048,
+            "LOD2": 314
+          },
+          "TeaCup": {
+            "LOD0": 784,
+            "LOD1": 392,
+            "LOD2": 116
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          2.99,
+          0.596,
+          2.7861
+        ],
+        "blend_dims_m": [
+          2.99,
+          0.596,
+          2.7861
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR12_RankingBoard.001",
+        "CR12_RankingBoard_Collision.001",
+        "CR12_RankingBoard_Detail_Small_LOD0.001",
+        "CR12_RankingBoard_Detail_Small_LOD1.001",
+        "CR12_RankingBoard_Detail_Small_LOD2.001",
+        "CR12_RankingBoard_LOD0.001",
+        "CR12_RankingBoard_LOD1.001",
+        "CR12_RankingBoard_LOD2.001",
+        "CR12_RankingBoard_Slip_01_LOD0.001",
+        "CR12_RankingBoard_Slip_01_LOD1.001",
+        "CR12_RankingBoard_Slip_01_LOD2.001",
+        "CR12_RankingBoard_Slip_02_LOD0.001",
+        "CR12_RankingBoard_Slip_02_LOD1.001",
+        "CR12_RankingBoard_Slip_02_LOD2.001",
+        "CR12_RankingBoard_Slip_03_LOD0.001",
+        "CR12_RankingBoard_Slip_03_LOD1.001",
+        "CR12_RankingBoard_Slip_03_LOD2.001",
+        "CR12_RankingBoard_Slip_04_LOD0.001",
+        "CR12_RankingBoard_Slip_04_LOD1.001",
+        "CR12_RankingBoard_Slip_04_LOD2.001",
+        "CR12_RankingBoard_Slip_05_LOD0.001",
+        "CR12_RankingBoard_Slip_05_LOD1.001",
+        "CR12_RankingBoard_Slip_05_LOD2.001",
+        "CR12_RankingBoard_Slip_06_LOD0.001",
+        "CR12_RankingBoard_Slip_06_LOD1.001",
+        "CR12_RankingBoard_Slip_06_LOD2.001",
+        "CR12_RankingBoard_Slip_07_LOD0.001",
+        "CR12_RankingBoard_Slip_07_LOD1.001",
+        "CR12_RankingBoard_Slip_07_LOD2.001",
+        "CR12_RankingBoard_Slip_08_LOD0.001",
+        "CR12_RankingBoard_Slip_08_LOD1.001",
+        "CR12_RankingBoard_Slip_08_LOD2.001",
+        "CR12_RankingBoard_Slip_09_LOD0.001",
+        "CR12_RankingBoard_Slip_09_LOD1.001",
+        "CR12_RankingBoard_Slip_09_LOD2.001",
+        "CR12_RankingBoard_Slip_10_LOD0.001",
+        "CR12_RankingBoard_Slip_10_LOD1.001",
+        "CR12_RankingBoard_Slip_10_LOD2.001",
+        "CR12_RankingBoard_Slip_11_LOD0.001",
+        "CR12_RankingBoard_Slip_11_LOD1.001",
+        "CR12_RankingBoard_Slip_11_LOD2.001",
+        "CR12_RankingBoard_Slip_12_LOD0.001",
+        "CR12_RankingBoard_Slip_12_LOD1.001",
+        "CR12_RankingBoard_Slip_12_LOD2.001",
+        "CR12_RankingBoard_TeaCup_LOD0.001",
+        "CR12_RankingBoard_TeaCup_LOD1.001",
+        "CR12_RankingBoard_TeaCup_LOD2.001",
+        "Socket_LeanRail.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_LeanRail.001": [
+          0.0,
+          -0.2652,
+          1.0071
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 168,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

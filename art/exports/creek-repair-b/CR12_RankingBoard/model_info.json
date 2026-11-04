@@ -1,0 +1,473 @@
+{
+  "asset": "CR12_RankingBoard",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR12_RankingBoard_Detail_Small"
+  ],
+  "name_zh": "榜單告示欄",
+  "slot": "山城（格位由核心組放置）",
+  "note": "12 張空白榜單紙條（_Slip_01..12）各自獨立、紙面無字；_Slip_01 是榜首，最舊、最大、邊角最捲。爛茶杯 _TeaCup 獨立，放在磨亮的欄杆上。_Collision 為立柱和欄杆。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    2.99,
+    0.596,
+    2.7861
+  ],
+  "size_limit_m": [
+    3.0,
+    0.6,
+    2.8
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        2.99,
+        0.5787,
+        2.7861
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        2.8787,
+        0.5874,
+        2.6485
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0048
+    },
+    "Slip_01": {
+      "dims_m": [
+        0.98,
+        0.2931,
+        0.3281
+      ],
+      "pivot": [
+        -0.1,
+        -0.1385,
+        1.9831
+      ],
+      "min_z_local": -0.164
+    },
+    "Slip_02": {
+      "dims_m": [
+        0.2623,
+        0.0399,
+        0.3476
+      ],
+      "pivot": [
+        -0.92,
+        -0.0114,
+        1.6134
+      ],
+      "min_z_local": -0.1738
+    },
+    "Slip_03": {
+      "dims_m": [
+        0.2624,
+        0.0451,
+        0.3491
+      ],
+      "pivot": [
+        -0.547,
+        -0.0132,
+        1.6067
+      ],
+      "min_z_local": -0.1745
+    },
+    "Slip_04": {
+      "dims_m": [
+        0.2623,
+        0.0546,
+        0.345
+      ],
+      "pivot": [
+        -0.184,
+        -0.0182,
+        1.6027
+      ],
+      "min_z_local": -0.1725
+    },
+    "Slip_05": {
+      "dims_m": [
+        0.2623,
+        0.0387,
+        0.3473
+      ],
+      "pivot": [
+        0.189,
+        -0.011,
+        1.6136
+      ],
+      "min_z_local": -0.1736
+    },
+    "Slip_06": {
+      "dims_m": [
+        0.2623,
+        0.0459,
+        0.3465
+      ],
+      "pivot": [
+        0.552,
+        -0.0135,
+        1.608
+      ],
+      "min_z_local": -0.1733
+    },
+    "Slip_07": {
+      "dims_m": [
+        0.2623,
+        0.0525,
+        0.344
+      ],
+      "pivot": [
+        0.925,
+        -0.0183,
+        1.6032
+      ],
+      "min_z_local": -0.172
+    },
+    "Slip_08": {
+      "dims_m": [
+        0.2623,
+        0.0513,
+        0.3465
+      ],
+      "pivot": [
+        -0.76,
+        -0.0162,
+        1.204
+      ],
+      "min_z_local": -0.1733
+    },
+    "Slip_09": {
+      "dims_m": [
+        0.2621,
+        0.0609,
+        0.3443
+      ],
+      "pivot": [
+        -0.387,
+        -0.0223,
+        1.213
+      ],
+      "min_z_local": -0.1722
+    },
+    "Slip_10": {
+      "dims_m": [
+        0.2623,
+        0.0412,
+        0.343
+      ],
+      "pivot": [
+        0.0,
+        -0.0124,
+        1.2057
+      ],
+      "min_z_local": -0.1715
+    },
+    "Slip_11": {
+      "dims_m": [
+        0.2623,
+        0.051,
+        0.3444
+      ],
+      "pivot": [
+        0.373,
+        -0.0175,
+        1.2131
+      ],
+      "min_z_local": -0.1722
+    },
+    "Slip_12": {
+      "dims_m": [
+        0.2621,
+        0.0601,
+        0.3428
+      ],
+      "pivot": [
+        0.76,
+        -0.0223,
+        1.2057
+      ],
+      "min_z_local": -0.1714
+    },
+    "TeaCup": {
+      "dims_m": [
+        0.088,
+        0.088,
+        0.066
+      ],
+      "pivot": [
+        0.98,
+        -0.1832,
+        1.0521
+      ],
+      "min_z_local": 0.0
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 74124,
+      "LOD1": 37062,
+      "LOD2": 11118
+    },
+    "Detail_Small": {
+      "LOD0": 28300,
+      "LOD1": 14150,
+      "LOD2": 4244
+    },
+    "Slip_01": {
+      "LOD0": 3324,
+      "LOD1": 1662,
+      "LOD2": 498
+    },
+    "Slip_02": {
+      "LOD0": 2096,
+      "LOD1": 1048,
+      "LOD2": 314
+    },
+    "Slip_03": {
+      "LOD0": 2096,
+      "LOD1": 1048,
+      "LOD2": 314
+    },
+    "Slip_04": {
+      "LOD0": 2196,
+      "LOD1": 1098,
+      "LOD2": 328
+    },
+    "Slip_05": {
+      "LOD0": 2096,
+      "LOD1": 1048,
+      "LOD2": 314
+    },
+    "Slip_06": {
+      "LOD0": 2096,
+      "LOD1": 1048,
+      "LOD2": 314
+    },
+    "Slip_07": {
+      "LOD0": 2096,
+      "LOD1": 1048,
+      "LOD2": 314
+    },
+    "Slip_08": {
+      "LOD0": 2096,
+      "LOD1": 1048,
+      "LOD2": 314
+    },
+    "Slip_09": {
+      "LOD0": 2196,
+      "LOD1": 1098,
+      "LOD2": 328
+    },
+    "Slip_10": {
+      "LOD0": 2096,
+      "LOD1": 1048,
+      "LOD2": 314
+    },
+    "Slip_11": {
+      "LOD0": 2096,
+      "LOD1": 1048,
+      "LOD2": 314
+    },
+    "Slip_12": {
+      "LOD0": 2096,
+      "LOD1": 1048,
+      "LOD2": 314
+    },
+    "TeaCup": {
+      "LOD0": 784,
+      "LOD1": 392,
+      "LOD2": 116
+    }
+  },
+  "lod_totals": {
+    "LOD0": 129788,
+    "LOD1": 64894,
+    "LOD2": 19458
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR12_RankingBoard_Main"
+  ],
+  "textures": [
+    "CR12_RankingBoard_BaseColor.png",
+    "CR12_RankingBoard_Metallic.png",
+    "CR12_RankingBoard_MetallicSmoothness.png",
+    "CR12_RankingBoard_Normal.png",
+    "CR12_RankingBoard_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR12_RankingBoard_BaseColor.png",
+    "Normal": "CR12_RankingBoard_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR12_RankingBoard_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR12_RankingBoard_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -1.33,
+        -0.13,
+        0
+      ],
+      [
+        -1.0699999999999998,
+        0.13,
+        2.3
+      ]
+    ],
+    [
+      [
+        1.0699999999999998,
+        -0.13,
+        0
+      ],
+      [
+        1.33,
+        0.13,
+        2.3
+      ]
+    ],
+    [
+      [
+        -1.13,
+        -0.01,
+        0.88
+      ],
+      [
+        1.13,
+        0.1,
+        2.2
+      ]
+    ],
+    [
+      [
+        -1.47,
+        -0.295,
+        0
+      ],
+      [
+        -1.2899999999999998,
+        -0.11499999999999999,
+        1.1
+      ]
+    ],
+    [
+      [
+        1.2899999999999998,
+        -0.295,
+        0
+      ],
+      [
+        1.47,
+        -0.11499999999999999,
+        1.1
+      ]
+    ],
+    [
+      [
+        -1.38,
+        -0.265,
+        0.5
+      ],
+      [
+        1.38,
+        -0.145,
+        1.04
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {
+    "Socket_LeanRail": [
+      0.0,
+      -0.2652,
+      1.0071
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_LeanRail.001": [
+      0.0,
+      -0.2652,
+      1.0071
+    ]
+  },
+  "states": [
+    "Slip_01..12 各自獨立，原點在紙面中心、紙面朝 -Y，字由 UI 疊上"
+  ],
+  "state_renders": {
+    "no_slips": "state_no_slips.png"
+  },
+  "fbx_objects": [
+    "CR12_RankingBoard.001",
+    "CR12_RankingBoard_Collision.001",
+    "CR12_RankingBoard_Detail_Small_LOD0.001",
+    "CR12_RankingBoard_Detail_Small_LOD1.001",
+    "CR12_RankingBoard_Detail_Small_LOD2.001",
+    "CR12_RankingBoard_LOD0.001",
+    "CR12_RankingBoard_LOD1.001",
+    "CR12_RankingBoard_LOD2.001",
+    "CR12_RankingBoard_Slip_01_LOD0.001",
+    "CR12_RankingBoard_Slip_01_LOD1.001",
+    "CR12_RankingBoard_Slip_01_LOD2.001",
+    "CR12_RankingBoard_Slip_02_LOD0.001",
+    "CR12_RankingBoard_Slip_02_LOD1.001",
+    "CR12_RankingBoard_Slip_02_LOD2.001",
+    "CR12_RankingBoard_Slip_03_LOD0.001",
+    "CR12_RankingBoard_Slip_03_LOD1.001",
+    "CR12_RankingBoard_Slip_03_LOD2.001",
+    "CR12_RankingBoard_Slip_04_LOD0.001",
+    "CR12_RankingBoard_Slip_04_LOD1.001",
+    "CR12_RankingBoard_Slip_04_LOD2.001",
+    "CR12_RankingBoard_Slip_05_LOD0.001",
+    "CR12_RankingBoard_Slip_05_LOD1.001",
+    "CR12_RankingBoard_Slip_05_LOD2.001",
+    "CR12_RankingBoard_Slip_06_LOD0.001",
+    "CR12_RankingBoard_Slip_06_LOD1.001",
+    "CR12_RankingBoard_Slip_06_LOD2.001",
+    "CR12_RankingBoard_Slip_07_LOD0.001",
+    "CR12_RankingBoard_Slip_07_LOD1.001",
+    "CR12_RankingBoard_Slip_07_LOD2.001",
+    "CR12_RankingBoard_Slip_08_LOD0.001",
+    "CR12_RankingBoard_Slip_08_LOD1.001",
+    "CR12_RankingBoard_Slip_08_LOD2.001",
+    "CR12_RankingBoard_Slip_09_LOD0.001",
+    "CR12_RankingBoard_Slip_09_LOD1.001",
+    "CR12_RankingBoard_Slip_09_LOD2.001",
+    "CR12_RankingBoard_Slip_10_LOD0.001",
+    "CR12_RankingBoard_Slip_10_LOD1.001",
+    "CR12_RankingBoard_Slip_10_LOD2.001",
+    "CR12_RankingBoard_Slip_11_LOD0.001",
+    "CR12_RankingBoard_Slip_11_LOD1.001",
+    "CR12_RankingBoard_Slip_11_LOD2.001",
+    "CR12_RankingBoard_Slip_12_LOD0.001",
+    "CR12_RankingBoard_Slip_12_LOD1.001",
+    "CR12_RankingBoard_Slip_12_LOD2.001",
+    "CR12_RankingBoard_TeaCup_LOD0.001",
+    "CR12_RankingBoard_TeaCup_LOD1.001",
+    "CR12_RankingBoard_TeaCup_LOD2.001",
+    "Socket_LeanRail.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR12/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

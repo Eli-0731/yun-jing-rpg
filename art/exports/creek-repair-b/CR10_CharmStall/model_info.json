@@ -1,0 +1,1039 @@
+{
+  "asset": "CR10_CharmStall",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR10_CharmStall_Detail_Bells",
+    "CR10_CharmStall_Detail_Goods",
+    "CR10_CharmStall_Detail_Gourds",
+    "CR10_CharmStall_Detail_Small"
+  ],
+  "name_zh": "符紙飾品攤",
+  "slot": "A4_山城街",
+  "note": "小瓦頂推車；符紙只有抽象硃砂圈紋，無字；車頂歪布幡無圖案。短腳墊磚。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    3.2075,
+    1.8208,
+    2.7899
+  ],
+  "size_limit_m": [
+    3.5,
+    2.0,
+    2.8
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        3.2075,
+        1.66,
+        2.7899
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        3.0716,
+        1.606,
+        2.3173
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.4091
+    },
+    "CharmString_01": {
+      "dims_m": [
+        0.096,
+        0.023,
+        0.45
+      ],
+      "pivot": [
+        -1.1413,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.45
+    },
+    "CharmString_02": {
+      "dims_m": [
+        0.096,
+        0.023,
+        0.615
+      ],
+      "pivot": [
+        -0.9751,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.615
+    },
+    "CharmString_03": {
+      "dims_m": [
+        0.096,
+        0.0533,
+        0.49
+      ],
+      "pivot": [
+        -0.809,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.49
+    },
+    "CharmString_04": {
+      "dims_m": [
+        0.0958,
+        0.0262,
+        0.615
+      ],
+      "pivot": [
+        -0.6428,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.615
+    },
+    "CharmString_05": {
+      "dims_m": [
+        0.0958,
+        0.0257,
+        0.45
+      ],
+      "pivot": [
+        -0.4767,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.45
+    },
+    "CharmString_06": {
+      "dims_m": [
+        0.0956,
+        0.0533,
+        0.655
+      ],
+      "pivot": [
+        -0.3105,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.655
+    },
+    "CharmString_07": {
+      "dims_m": [
+        0.096,
+        0.023,
+        0.45
+      ],
+      "pivot": [
+        -0.1443,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.45
+    },
+    "CharmString_08": {
+      "dims_m": [
+        0.096,
+        0.0266,
+        0.615
+      ],
+      "pivot": [
+        0.0218,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.615
+    },
+    "CharmString_09": {
+      "dims_m": [
+        0.0958,
+        0.0533,
+        0.49
+      ],
+      "pivot": [
+        0.188,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.49
+    },
+    "CharmString_10": {
+      "dims_m": [
+        0.096,
+        0.0261,
+        0.615
+      ],
+      "pivot": [
+        0.3541,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.615
+    },
+    "CharmString_11": {
+      "dims_m": [
+        0.0954,
+        0.0272,
+        0.45
+      ],
+      "pivot": [
+        0.5203,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.45
+    },
+    "CharmString_12": {
+      "dims_m": [
+        0.0959,
+        0.0533,
+        0.655
+      ],
+      "pivot": [
+        0.6864,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.655
+    },
+    "CharmString_13": {
+      "dims_m": [
+        0.0942,
+        0.0411,
+        0.45
+      ],
+      "pivot": [
+        0.8526,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.45
+    },
+    "CharmString_14": {
+      "dims_m": [
+        0.096,
+        0.0388,
+        0.615
+      ],
+      "pivot": [
+        1.0187,
+        -0.5196,
+        1.54
+      ],
+      "min_z_local": -0.615
+    },
+    "CharmString_15": {
+      "dims_m": [
+        0.096,
+        0.0533,
+        0.49
+      ],
+      "pivot": [
+        -1.1113,
+        0.5304,
+        1.54
+      ],
+      "min_z_local": -0.49
+    },
+    "CharmString_16": {
+      "dims_m": [
+        0.096,
+        0.0289,
+        0.615
+      ],
+      "pivot": [
+        -0.8779,
+        0.5304,
+        1.54
+      ],
+      "min_z_local": -0.615
+    },
+    "CharmString_17": {
+      "dims_m": [
+        0.0959,
+        0.0263,
+        0.45
+      ],
+      "pivot": [
+        -0.6446,
+        0.5304,
+        1.54
+      ],
+      "min_z_local": -0.45
+    },
+    "CharmString_18": {
+      "dims_m": [
+        0.0958,
+        0.0533,
+        0.655
+      ],
+      "pivot": [
+        -0.4113,
+        0.5304,
+        1.54
+      ],
+      "min_z_local": -0.655
+    },
+    "CharmString_19": {
+      "dims_m": [
+        0.096,
+        0.0273,
+        0.45
+      ],
+      "pivot": [
+        -0.1779,
+        0.5304,
+        1.54
+      ],
+      "min_z_local": -0.45
+    },
+    "CharmString_20": {
+      "dims_m": [
+        0.0956,
+        0.0326,
+        0.615
+      ],
+      "pivot": [
+        0.0554,
+        0.5304,
+        1.54
+      ],
+      "min_z_local": -0.615
+    },
+    "CharmString_21": {
+      "dims_m": [
+        0.096,
+        0.0533,
+        0.49
+      ],
+      "pivot": [
+        0.2887,
+        0.5304,
+        1.54
+      ],
+      "min_z_local": -0.49
+    },
+    "CharmString_22": {
+      "dims_m": [
+        0.096,
+        0.023,
+        0.615
+      ],
+      "pivot": [
+        0.5221,
+        0.5304,
+        1.54
+      ],
+      "min_z_local": -0.615
+    },
+    "CharmString_23": {
+      "dims_m": [
+        0.096,
+        0.023,
+        0.45
+      ],
+      "pivot": [
+        0.7554,
+        0.5304,
+        1.54
+      ],
+      "min_z_local": -0.45
+    },
+    "CharmString_24": {
+      "dims_m": [
+        0.096,
+        0.0533,
+        0.655
+      ],
+      "pivot": [
+        0.9887,
+        0.5304,
+        1.54
+      ],
+      "min_z_local": -0.655
+    },
+    "Detail_Bells": {
+      "dims_m": [
+        2.108,
+        0.0647,
+        0.135
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 1.435
+    },
+    "Detail_Gourds": {
+      "dims_m": [
+        1.967,
+        0.4315,
+        0.4565
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.895
+    },
+    "Detail_Goods": {
+      "dims_m": [
+        2.0337,
+        0.3045,
+        0.3378
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.8919
+    },
+    "Stool": {
+      "dims_m": [
+        0.32,
+        0.2616,
+        0.4562
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Banner": {
+      "dims_m": [
+        1.5601,
+        0.0472,
+        0.3752
+      ],
+      "pivot": [
+        -0.5013,
+        0.0802,
+        2.3799
+      ],
+      "min_z_local": 0.0
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 50544,
+      "LOD1": 25272,
+      "LOD2": 7580
+    },
+    "Detail_Small": {
+      "LOD0": 16174,
+      "LOD1": 8086,
+      "LOD2": 2426
+    },
+    "CharmString_01": {
+      "LOD0": 1332,
+      "LOD1": 666,
+      "LOD2": 198
+    },
+    "CharmString_02": {
+      "LOD0": 1920,
+      "LOD1": 960,
+      "LOD2": 288
+    },
+    "CharmString_03": {
+      "LOD0": 1412,
+      "LOD1": 706,
+      "LOD2": 210
+    },
+    "CharmString_04": {
+      "LOD0": 1920,
+      "LOD1": 960,
+      "LOD2": 288
+    },
+    "CharmString_05": {
+      "LOD0": 1332,
+      "LOD1": 666,
+      "LOD2": 198
+    },
+    "CharmString_06": {
+      "LOD0": 2000,
+      "LOD1": 1000,
+      "LOD2": 300
+    },
+    "CharmString_07": {
+      "LOD0": 1332,
+      "LOD1": 666,
+      "LOD2": 198
+    },
+    "CharmString_08": {
+      "LOD0": 1920,
+      "LOD1": 960,
+      "LOD2": 288
+    },
+    "CharmString_09": {
+      "LOD0": 1412,
+      "LOD1": 706,
+      "LOD2": 210
+    },
+    "CharmString_10": {
+      "LOD0": 1920,
+      "LOD1": 960,
+      "LOD2": 288
+    },
+    "CharmString_11": {
+      "LOD0": 1332,
+      "LOD1": 666,
+      "LOD2": 198
+    },
+    "CharmString_12": {
+      "LOD0": 2000,
+      "LOD1": 1000,
+      "LOD2": 300
+    },
+    "CharmString_13": {
+      "LOD0": 1332,
+      "LOD1": 666,
+      "LOD2": 198
+    },
+    "CharmString_14": {
+      "LOD0": 1920,
+      "LOD1": 960,
+      "LOD2": 288
+    },
+    "CharmString_15": {
+      "LOD0": 1412,
+      "LOD1": 706,
+      "LOD2": 210
+    },
+    "CharmString_16": {
+      "LOD0": 1920,
+      "LOD1": 960,
+      "LOD2": 288
+    },
+    "CharmString_17": {
+      "LOD0": 1332,
+      "LOD1": 666,
+      "LOD2": 198
+    },
+    "CharmString_18": {
+      "LOD0": 2000,
+      "LOD1": 1000,
+      "LOD2": 300
+    },
+    "CharmString_19": {
+      "LOD0": 1332,
+      "LOD1": 666,
+      "LOD2": 198
+    },
+    "CharmString_20": {
+      "LOD0": 1920,
+      "LOD1": 960,
+      "LOD2": 288
+    },
+    "CharmString_21": {
+      "LOD0": 1412,
+      "LOD1": 706,
+      "LOD2": 210
+    },
+    "CharmString_22": {
+      "LOD0": 1920,
+      "LOD1": 960,
+      "LOD2": 288
+    },
+    "CharmString_23": {
+      "LOD0": 1332,
+      "LOD1": 666,
+      "LOD2": 198
+    },
+    "CharmString_24": {
+      "LOD0": 2000,
+      "LOD1": 1000,
+      "LOD2": 300
+    },
+    "Detail_Bells": {
+      "LOD0": 2052,
+      "LOD1": 1026,
+      "LOD2": 306
+    },
+    "Detail_Gourds": {
+      "LOD0": 6480,
+      "LOD1": 3240,
+      "LOD2": 972
+    },
+    "Detail_Goods": {
+      "LOD0": 3368,
+      "LOD1": 1684,
+      "LOD2": 504
+    },
+    "Stool": {
+      "LOD0": 1064,
+      "LOD1": 532,
+      "LOD2": 159
+    },
+    "Banner": {
+      "LOD0": 7088,
+      "LOD1": 3544,
+      "LOD2": 1062
+    }
+  },
+  "lod_totals": {
+    "LOD0": 126434,
+    "LOD1": 63216,
+    "LOD2": 18937
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR10_CharmStall_Main"
+  ],
+  "textures": [
+    "CR10_CharmStall_BaseColor.png",
+    "CR10_CharmStall_Metallic.png",
+    "CR10_CharmStall_MetallicSmoothness.png",
+    "CR10_CharmStall_Normal.png",
+    "CR10_CharmStall_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR10_CharmStall_BaseColor.png",
+    "Normal": "CR10_CharmStall_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR10_CharmStall_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR10_CharmStall_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -1.32,
+        -0.58,
+        0
+      ],
+      [
+        1.32,
+        0.58,
+        0.89
+      ]
+    ],
+    [
+      [
+        -1.24,
+        0.39,
+        0.86
+      ],
+      [
+        1.24,
+        0.49,
+        1.9
+      ]
+    ],
+    [
+      [
+        -1.29,
+        -0.63,
+        0
+      ],
+      [
+        -0.35,
+        -0.51,
+        0.94
+      ]
+    ],
+    [
+      [
+        -1.29,
+        0.51,
+        0
+      ],
+      [
+        -0.35,
+        0.63,
+        0.94
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {
+    "Socket_Charm_01": [
+      -1.1413,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_02": [
+      -0.9751,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_03": [
+      -0.809,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_04": [
+      -0.6428,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_05": [
+      -0.4767,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_06": [
+      -0.3105,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_07": [
+      -0.1443,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_08": [
+      0.0218,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_09": [
+      0.188,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_10": [
+      0.3541,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_11": [
+      0.5203,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_12": [
+      0.6864,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_13": [
+      0.8526,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_14": [
+      1.0187,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_15": [
+      -1.1113,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_16": [
+      -0.8779,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_17": [
+      -0.6446,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_18": [
+      -0.4113,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_19": [
+      -0.1779,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_20": [
+      0.0554,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_21": [
+      0.2887,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_22": [
+      0.5221,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_23": [
+      0.7554,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_24": [
+      0.9887,
+      0.5304,
+      1.54
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Charm_01.001": [
+      -1.1413,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_02.001": [
+      -0.9751,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_03.001": [
+      -0.809,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_04.001": [
+      -0.6428,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_05.001": [
+      -0.4767,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_06.001": [
+      -0.3105,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_07.001": [
+      -0.1443,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_08.001": [
+      0.0218,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_09.001": [
+      0.188,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_10.001": [
+      0.3541,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_11.001": [
+      0.5203,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_12.001": [
+      0.6864,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_13.001": [
+      0.8526,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_14.001": [
+      1.0187,
+      -0.5196,
+      1.54
+    ],
+    "Socket_Charm_15.001": [
+      -1.1113,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_16.001": [
+      -0.8779,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_17.001": [
+      -0.6446,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_18.001": [
+      -0.4113,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_19.001": [
+      -0.1779,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_20.001": [
+      0.0554,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_21.001": [
+      0.2887,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_22.001": [
+      0.5221,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_23.001": [
+      0.7554,
+      0.5304,
+      1.54
+    ],
+    "Socket_Charm_24.001": [
+      0.9887,
+      0.5304,
+      1.54
+    ]
+  },
+  "states": [
+    "CharmString_01..24 原點在各串頂端，可在風中晃"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "CR10_CharmStall.001",
+    "CR10_CharmStall_Banner_LOD0.001",
+    "CR10_CharmStall_Banner_LOD1.001",
+    "CR10_CharmStall_Banner_LOD2.001",
+    "CR10_CharmStall_CharmString_01_LOD0.001",
+    "CR10_CharmStall_CharmString_01_LOD1.001",
+    "CR10_CharmStall_CharmString_01_LOD2.001",
+    "CR10_CharmStall_CharmString_02_LOD0.001",
+    "CR10_CharmStall_CharmString_02_LOD1.001",
+    "CR10_CharmStall_CharmString_02_LOD2.001",
+    "CR10_CharmStall_CharmString_03_LOD0.001",
+    "CR10_CharmStall_CharmString_03_LOD1.001",
+    "CR10_CharmStall_CharmString_03_LOD2.001",
+    "CR10_CharmStall_CharmString_04_LOD0.001",
+    "CR10_CharmStall_CharmString_04_LOD1.001",
+    "CR10_CharmStall_CharmString_04_LOD2.001",
+    "CR10_CharmStall_CharmString_05_LOD0.001",
+    "CR10_CharmStall_CharmString_05_LOD1.001",
+    "CR10_CharmStall_CharmString_05_LOD2.001",
+    "CR10_CharmStall_CharmString_06_LOD0.001",
+    "CR10_CharmStall_CharmString_06_LOD1.001",
+    "CR10_CharmStall_CharmString_06_LOD2.001",
+    "CR10_CharmStall_CharmString_07_LOD0.001",
+    "CR10_CharmStall_CharmString_07_LOD1.001",
+    "CR10_CharmStall_CharmString_07_LOD2.001",
+    "CR10_CharmStall_CharmString_08_LOD0.001",
+    "CR10_CharmStall_CharmString_08_LOD1.001",
+    "CR10_CharmStall_CharmString_08_LOD2.001",
+    "CR10_CharmStall_CharmString_09_LOD0.001",
+    "CR10_CharmStall_CharmString_09_LOD1.001",
+    "CR10_CharmStall_CharmString_09_LOD2.001",
+    "CR10_CharmStall_CharmString_10_LOD0.001",
+    "CR10_CharmStall_CharmString_10_LOD1.001",
+    "CR10_CharmStall_CharmString_10_LOD2.001",
+    "CR10_CharmStall_CharmString_11_LOD0.001",
+    "CR10_CharmStall_CharmString_11_LOD1.001",
+    "CR10_CharmStall_CharmString_11_LOD2.001",
+    "CR10_CharmStall_CharmString_12_LOD0.001",
+    "CR10_CharmStall_CharmString_12_LOD1.001",
+    "CR10_CharmStall_CharmString_12_LOD2.001",
+    "CR10_CharmStall_CharmString_13_LOD0.001",
+    "CR10_CharmStall_CharmString_13_LOD1.001",
+    "CR10_CharmStall_CharmString_13_LOD2.001",
+    "CR10_CharmStall_CharmString_14_LOD0.001",
+    "CR10_CharmStall_CharmString_14_LOD1.001",
+    "CR10_CharmStall_CharmString_14_LOD2.001",
+    "CR10_CharmStall_CharmString_15_LOD0.001",
+    "CR10_CharmStall_CharmString_15_LOD1.001",
+    "CR10_CharmStall_CharmString_15_LOD2.001",
+    "CR10_CharmStall_CharmString_16_LOD0.001",
+    "CR10_CharmStall_CharmString_16_LOD1.001",
+    "CR10_CharmStall_CharmString_16_LOD2.001",
+    "CR10_CharmStall_CharmString_17_LOD0.001",
+    "CR10_CharmStall_CharmString_17_LOD1.001",
+    "CR10_CharmStall_CharmString_17_LOD2.001",
+    "CR10_CharmStall_CharmString_18_LOD0.001",
+    "CR10_CharmStall_CharmString_18_LOD1.001",
+    "CR10_CharmStall_CharmString_18_LOD2.001",
+    "CR10_CharmStall_CharmString_19_LOD0.001",
+    "CR10_CharmStall_CharmString_19_LOD1.001",
+    "CR10_CharmStall_CharmString_19_LOD2.001",
+    "CR10_CharmStall_CharmString_20_LOD0.001",
+    "CR10_CharmStall_CharmString_20_LOD1.001",
+    "CR10_CharmStall_CharmString_20_LOD2.001",
+    "CR10_CharmStall_CharmString_21_LOD0.001",
+    "CR10_CharmStall_CharmString_21_LOD1.001",
+    "CR10_CharmStall_CharmString_21_LOD2.001",
+    "CR10_CharmStall_CharmString_22_LOD0.001",
+    "CR10_CharmStall_CharmString_22_LOD1.001",
+    "CR10_CharmStall_CharmString_22_LOD2.001",
+    "CR10_CharmStall_CharmString_23_LOD0.001",
+    "CR10_CharmStall_CharmString_23_LOD1.001",
+    "CR10_CharmStall_CharmString_23_LOD2.001",
+    "CR10_CharmStall_CharmString_24_LOD0.001",
+    "CR10_CharmStall_CharmString_24_LOD1.001",
+    "CR10_CharmStall_CharmString_24_LOD2.001",
+    "CR10_CharmStall_Collision.001",
+    "CR10_CharmStall_Detail_Bells_LOD0.001",
+    "CR10_CharmStall_Detail_Bells_LOD1.001",
+    "CR10_CharmStall_Detail_Bells_LOD2.001",
+    "CR10_CharmStall_Detail_Goods_LOD0.001",
+    "CR10_CharmStall_Detail_Goods_LOD1.001",
+    "CR10_CharmStall_Detail_Goods_LOD2.001",
+    "CR10_CharmStall_Detail_Gourds_LOD0.001",
+    "CR10_CharmStall_Detail_Gourds_LOD1.001",
+    "CR10_CharmStall_Detail_Gourds_LOD2.001",
+    "CR10_CharmStall_Detail_Small_LOD0.001",
+    "CR10_CharmStall_Detail_Small_LOD1.001",
+    "CR10_CharmStall_Detail_Small_LOD2.001",
+    "CR10_CharmStall_LOD0.001",
+    "CR10_CharmStall_LOD1.001",
+    "CR10_CharmStall_LOD2.001",
+    "CR10_CharmStall_Stool_LOD0.001",
+    "CR10_CharmStall_Stool_LOD1.001",
+    "CR10_CharmStall_Stool_LOD2.001",
+    "Socket_Charm_01.001",
+    "Socket_Charm_02.001",
+    "Socket_Charm_03.001",
+    "Socket_Charm_04.001",
+    "Socket_Charm_05.001",
+    "Socket_Charm_06.001",
+    "Socket_Charm_07.001",
+    "Socket_Charm_08.001",
+    "Socket_Charm_09.001",
+    "Socket_Charm_10.001",
+    "Socket_Charm_11.001",
+    "Socket_Charm_12.001",
+    "Socket_Charm_13.001",
+    "Socket_Charm_14.001",
+    "Socket_Charm_15.001",
+    "Socket_Charm_16.001",
+    "Socket_Charm_17.001",
+    "Socket_Charm_18.001",
+    "Socket_Charm_19.001",
+    "Socket_Charm_20.001",
+    "Socket_Charm_21.001",
+    "Socket_Charm_22.001",
+    "Socket_Charm_23.001",
+    "Socket_Charm_24.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR10/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

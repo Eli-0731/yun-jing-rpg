@@ -1,0 +1,216 @@
+{
+  "asset": "CR11_NoodleStall",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -2.1986,
+          -1.6901,
+          0.0
+        ],
+        "max": [
+          2.1986,
+          1.6901,
+          2.7914
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          4.3972,
+          3.3802,
+          2.7914
+        ],
+        "limit_m": [
+          4.5,
+          3.5,
+          2.8
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 167816,
+          "LOD1": 83917,
+          "LOD2": 25299
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.151,
+        "per_group": {
+          "Main": {
+            "LOD0": 90216,
+            "LOD1": 45108,
+            "LOD2": 13532
+          },
+          "Detail_Small": {
+            "LOD0": 47852,
+            "LOD1": 23926,
+            "LOD2": 7176
+          },
+          "Detail_Stitches": {
+            "LOD0": 5188,
+            "LOD1": 2594,
+            "LOD2": 778
+          },
+          "Detail_Flour": {
+            "LOD0": 360,
+            "LOD1": 191,
+            "LOD2": 191
+          },
+          "Detail_Noodles": {
+            "LOD0": 4088,
+            "LOD1": 2044,
+            "LOD2": 612
+          },
+          "Detail_Bowls": {
+            "LOD0": 3192,
+            "LOD1": 1596,
+            "LOD2": 478
+          },
+          "Detail_Ladles": {
+            "LOD0": 2952,
+            "LOD1": 1476,
+            "LOD2": 442
+          },
+          "Bench_Front": {
+            "LOD0": 728,
+            "LOD1": 364,
+            "LOD2": 108
+          },
+          "Bench_Back": {
+            "LOD0": 576,
+            "LOD1": 288,
+            "LOD2": 86
+          },
+          "Bowl_Full": {
+            "LOD0": 1650,
+            "LOD1": 824,
+            "LOD2": 246
+          },
+          "Bowl_Empty": {
+            "LOD0": 616,
+            "LOD1": 308,
+            "LOD2": 92
+          },
+          "Detail_Chopsticks": {
+            "LOD0": 3460,
+            "LOD1": 1730,
+            "LOD2": 518
+          },
+          "Sign": {
+            "LOD0": 6938,
+            "LOD1": 3468,
+            "LOD2": 1040
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          4.3972,
+          3.3802,
+          2.7914
+        ],
+        "blend_dims_m": [
+          4.3972,
+          3.3802,
+          2.7914
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR11_NoodleStall.001",
+        "CR11_NoodleStall_Bench_Back_LOD0.001",
+        "CR11_NoodleStall_Bench_Back_LOD1.001",
+        "CR11_NoodleStall_Bench_Back_LOD2.001",
+        "CR11_NoodleStall_Bench_Front_LOD0.001",
+        "CR11_NoodleStall_Bench_Front_LOD1.001",
+        "CR11_NoodleStall_Bench_Front_LOD2.001",
+        "CR11_NoodleStall_Bowl_Empty_LOD0.001",
+        "CR11_NoodleStall_Bowl_Empty_LOD1.001",
+        "CR11_NoodleStall_Bowl_Empty_LOD2.001",
+        "CR11_NoodleStall_Bowl_Full_LOD0.001",
+        "CR11_NoodleStall_Bowl_Full_LOD1.001",
+        "CR11_NoodleStall_Bowl_Full_LOD2.001",
+        "CR11_NoodleStall_Collision.001",
+        "CR11_NoodleStall_Detail_Bowls_LOD0.001",
+        "CR11_NoodleStall_Detail_Bowls_LOD1.001",
+        "CR11_NoodleStall_Detail_Bowls_LOD2.001",
+        "CR11_NoodleStall_Detail_Chopsticks_LOD0.001",
+        "CR11_NoodleStall_Detail_Chopsticks_LOD1.001",
+        "CR11_NoodleStall_Detail_Chopsticks_LOD2.001",
+        "CR11_NoodleStall_Detail_Flour_LOD0.001",
+        "CR11_NoodleStall_Detail_Flour_LOD1.001",
+        "CR11_NoodleStall_Detail_Flour_LOD2.001",
+        "CR11_NoodleStall_Detail_Ladles_LOD0.001",
+        "CR11_NoodleStall_Detail_Ladles_LOD1.001",
+        "CR11_NoodleStall_Detail_Ladles_LOD2.001",
+        "CR11_NoodleStall_Detail_Noodles_LOD0.001",
+        "CR11_NoodleStall_Detail_Noodles_LOD1.001",
+        "CR11_NoodleStall_Detail_Noodles_LOD2.001",
+        "CR11_NoodleStall_Detail_Small_LOD0.001",
+        "CR11_NoodleStall_Detail_Small_LOD1.001",
+        "CR11_NoodleStall_Detail_Small_LOD2.001",
+        "CR11_NoodleStall_Detail_Stitches_LOD0.001",
+        "CR11_NoodleStall_Detail_Stitches_LOD1.001",
+        "CR11_NoodleStall_Detail_Stitches_LOD2.001",
+        "CR11_NoodleStall_LOD0.001",
+        "CR11_NoodleStall_LOD1.001",
+        "CR11_NoodleStall_LOD2.001",
+        "CR11_NoodleStall_Sign_LOD0.001",
+        "CR11_NoodleStall_Sign_LOD1.001",
+        "CR11_NoodleStall_Sign_LOD2.001",
+        "Socket_Steam.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Steam.001": [
+          1.2029,
+          1.0139,
+          1.106
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 181,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

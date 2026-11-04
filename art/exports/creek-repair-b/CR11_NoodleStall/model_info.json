@@ -1,0 +1,509 @@
+{
+  "asset": "CR11_NoodleStall",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR11_NoodleStall_Detail_Bowls",
+    "CR11_NoodleStall_Detail_Chopsticks",
+    "CR11_NoodleStall_Detail_Flour",
+    "CR11_NoodleStall_Detail_Ladles",
+    "CR11_NoodleStall_Detail_Noodles",
+    "CR11_NoodleStall_Detail_Small",
+    "CR11_NoodleStall_Detail_Stitches"
+  ],
+  "name_zh": "麵攤",
+  "slot": "A4_山城街",
+  "note": "單坡披棚：補丁帆布、板牆竹編；磚灶大鍋、案板、碗架、方桌、兩條長凳（一條墊腳）；招牌布無字。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    4.3972,
+    3.3802,
+    2.7914
+  ],
+  "size_limit_m": [
+    4.5,
+    3.5,
+    2.8
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        4.361,
+        3.277,
+        2.7771
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.011
+    },
+    "Detail_Small": {
+      "dims_m": [
+        4.3972,
+        3.3802,
+        2.7914
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Stitches": {
+      "dims_m": [
+        3.4044,
+        2.4841,
+        0.4231
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 2.3012
+    },
+    "Detail_Flour": {
+      "dims_m": [
+        0.7666,
+        0.4179,
+        0.001
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.8925
+    },
+    "Detail_Noodles": {
+      "dims_m": [
+        0.8821,
+        0.2854,
+        0.0393
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.894
+    },
+    "Detail_Bowls": {
+      "dims_m": [
+        1.064,
+        0.1989,
+        0.624
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 1.076
+    },
+    "Detail_Ladles": {
+      "dims_m": [
+        0.882,
+        0.1024,
+        0.4492
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 1.301
+    },
+    "Bench_Front": {
+      "dims_m": [
+        0.2601,
+        1.252,
+        0.4743
+      ],
+      "pivot": [
+        -0.9971,
+        -0.4864,
+        0.0391
+      ],
+      "min_z_local": 0.0
+    },
+    "Bench_Back": {
+      "dims_m": [
+        0.2576,
+        1.2498,
+        0.4729
+      ],
+      "pivot": [
+        1.004,
+        -0.487,
+        0.0405
+      ],
+      "min_z_local": 0.0
+    },
+    "Bowl_Full": {
+      "dims_m": [
+        0.204,
+        0.204,
+        0.083
+      ],
+      "pivot": [
+        -0.2171,
+        -0.7061,
+        0.821
+      ],
+      "min_z_local": 0.0
+    },
+    "Bowl_Empty": {
+      "dims_m": [
+        0.204,
+        0.204,
+        0.083
+      ],
+      "pivot": [
+        0.2629,
+        -0.2861,
+        0.821
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Chopsticks": {
+      "dims_m": [
+        0.1041,
+        0.104,
+        0.25
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.821
+    },
+    "Sign": {
+      "dims_m": [
+        0.6229,
+        0.187,
+        0.7943
+      ],
+      "pivot": [
+        -1.7285,
+        -1.4559,
+        1.1149
+      ],
+      "min_z_local": 0.0
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 90216,
+      "LOD1": 45108,
+      "LOD2": 13532
+    },
+    "Detail_Small": {
+      "LOD0": 47852,
+      "LOD1": 23926,
+      "LOD2": 7176
+    },
+    "Detail_Stitches": {
+      "LOD0": 5188,
+      "LOD1": 2594,
+      "LOD2": 778
+    },
+    "Detail_Flour": {
+      "LOD0": 360,
+      "LOD1": 191,
+      "LOD2": 191
+    },
+    "Detail_Noodles": {
+      "LOD0": 4088,
+      "LOD1": 2044,
+      "LOD2": 612
+    },
+    "Detail_Bowls": {
+      "LOD0": 3192,
+      "LOD1": 1596,
+      "LOD2": 478
+    },
+    "Detail_Ladles": {
+      "LOD0": 2952,
+      "LOD1": 1476,
+      "LOD2": 442
+    },
+    "Bench_Front": {
+      "LOD0": 728,
+      "LOD1": 364,
+      "LOD2": 108
+    },
+    "Bench_Back": {
+      "LOD0": 576,
+      "LOD1": 288,
+      "LOD2": 86
+    },
+    "Bowl_Full": {
+      "LOD0": 1650,
+      "LOD1": 824,
+      "LOD2": 246
+    },
+    "Bowl_Empty": {
+      "LOD0": 616,
+      "LOD1": 308,
+      "LOD2": 92
+    },
+    "Detail_Chopsticks": {
+      "LOD0": 3460,
+      "LOD1": 1730,
+      "LOD2": 518
+    },
+    "Sign": {
+      "LOD0": 6938,
+      "LOD1": 3468,
+      "LOD2": 1040
+    }
+  },
+  "lod_totals": {
+    "LOD0": 167816,
+    "LOD1": 83917,
+    "LOD2": 25299
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR11_NoodleStall_Main"
+  ],
+  "textures": [
+    "CR11_NoodleStall_BaseColor.png",
+    "CR11_NoodleStall_Emission.png",
+    "CR11_NoodleStall_Metallic.png",
+    "CR11_NoodleStall_MetallicSmoothness.png",
+    "CR11_NoodleStall_Normal.png",
+    "CR11_NoodleStall_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR11_NoodleStall_BaseColor.png",
+    "Normal": "CR11_NoodleStall_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR11_NoodleStall_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR11_NoodleStall_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        0.6499999999999999,
+        0.5249999999999999,
+        0
+      ],
+      [
+        1.75,
+        1.375,
+        1.1
+      ]
+    ],
+    [
+      [
+        -0.8600000000000001,
+        0.6699999999999999,
+        0
+      ],
+      [
+        0.46,
+        1.33,
+        0.85
+      ]
+    ],
+    [
+      [
+        -0.5,
+        -1.03,
+        0
+      ],
+      [
+        0.5,
+        -0.07000000000000006,
+        0.78
+      ]
+    ],
+    [
+      [
+        -1.1,
+        -1.17,
+        0
+      ],
+      [
+        -0.9,
+        0.06999999999999995,
+        0.47
+      ]
+    ],
+    [
+      [
+        0.9,
+        -1.17,
+        0
+      ],
+      [
+        1.1,
+        0.06999999999999995,
+        0.47
+      ]
+    ],
+    [
+      [
+        -1.98,
+        1.46,
+        0
+      ],
+      [
+        1.98,
+        1.54,
+        2.56
+      ]
+    ],
+    [
+      [
+        -2.05,
+        -1.59,
+        0
+      ],
+      [
+        -1.91,
+        -1.45,
+        2.1
+      ]
+    ],
+    [
+      [
+        1.91,
+        -1.59,
+        0
+      ],
+      [
+        2.05,
+        -1.45,
+        2.1
+      ]
+    ],
+    [
+      [
+        -2.05,
+        1.39,
+        0
+      ],
+      [
+        -1.91,
+        1.53,
+        2.56
+      ]
+    ],
+    [
+      [
+        1.91,
+        1.39,
+        0
+      ],
+      [
+        2.05,
+        1.53,
+        2.56
+      ]
+    ],
+    [
+      [
+        -0.07,
+        1.39,
+        0
+      ],
+      [
+        0.07,
+        1.53,
+        2.56
+      ]
+    ],
+    [
+      [
+        -2.05,
+        0.03,
+        0
+      ],
+      [
+        -1.91,
+        0.17,
+        2.3500671140939597
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {
+    "Socket_Steam": [
+      1.2029,
+      1.0139,
+      1.106
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Steam.001": [
+      1.2029,
+      1.0139,
+      1.106
+    ]
+  },
+  "states": [
+    "Bowl_Full / Bowl_Empty 麵碗獨立，同一個位置一次顯示一個",
+    "Socket_Steam 在大鍋上方，蒸氣由遊戲放"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "CR11_NoodleStall.001",
+    "CR11_NoodleStall_Bench_Back_LOD0.001",
+    "CR11_NoodleStall_Bench_Back_LOD1.001",
+    "CR11_NoodleStall_Bench_Back_LOD2.001",
+    "CR11_NoodleStall_Bench_Front_LOD0.001",
+    "CR11_NoodleStall_Bench_Front_LOD1.001",
+    "CR11_NoodleStall_Bench_Front_LOD2.001",
+    "CR11_NoodleStall_Bowl_Empty_LOD0.001",
+    "CR11_NoodleStall_Bowl_Empty_LOD1.001",
+    "CR11_NoodleStall_Bowl_Empty_LOD2.001",
+    "CR11_NoodleStall_Bowl_Full_LOD0.001",
+    "CR11_NoodleStall_Bowl_Full_LOD1.001",
+    "CR11_NoodleStall_Bowl_Full_LOD2.001",
+    "CR11_NoodleStall_Collision.001",
+    "CR11_NoodleStall_Detail_Bowls_LOD0.001",
+    "CR11_NoodleStall_Detail_Bowls_LOD1.001",
+    "CR11_NoodleStall_Detail_Bowls_LOD2.001",
+    "CR11_NoodleStall_Detail_Chopsticks_LOD0.001",
+    "CR11_NoodleStall_Detail_Chopsticks_LOD1.001",
+    "CR11_NoodleStall_Detail_Chopsticks_LOD2.001",
+    "CR11_NoodleStall_Detail_Flour_LOD0.001",
+    "CR11_NoodleStall_Detail_Flour_LOD1.001",
+    "CR11_NoodleStall_Detail_Flour_LOD2.001",
+    "CR11_NoodleStall_Detail_Ladles_LOD0.001",
+    "CR11_NoodleStall_Detail_Ladles_LOD1.001",
+    "CR11_NoodleStall_Detail_Ladles_LOD2.001",
+    "CR11_NoodleStall_Detail_Noodles_LOD0.001",
+    "CR11_NoodleStall_Detail_Noodles_LOD1.001",
+    "CR11_NoodleStall_Detail_Noodles_LOD2.001",
+    "CR11_NoodleStall_Detail_Small_LOD0.001",
+    "CR11_NoodleStall_Detail_Small_LOD1.001",
+    "CR11_NoodleStall_Detail_Small_LOD2.001",
+    "CR11_NoodleStall_Detail_Stitches_LOD0.001",
+    "CR11_NoodleStall_Detail_Stitches_LOD1.001",
+    "CR11_NoodleStall_Detail_Stitches_LOD2.001",
+    "CR11_NoodleStall_LOD0.001",
+    "CR11_NoodleStall_LOD1.001",
+    "CR11_NoodleStall_LOD2.001",
+    "CR11_NoodleStall_Sign_LOD0.001",
+    "CR11_NoodleStall_Sign_LOD1.001",
+    "CR11_NoodleStall_Sign_LOD2.001",
+    "Socket_Steam.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR11/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}
