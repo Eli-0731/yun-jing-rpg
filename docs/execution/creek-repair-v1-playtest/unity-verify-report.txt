@@ -64,7 +64,7 @@ PASS CR03_MudHeap: base on origin height (min y 0.0000)
 INFO CR03_MudHeap: minTier standard
 PASS CR03_MudHeap: origin at footprint centre
 PASS CR03_MudHeap: LODGroup with 3 levels
-INFO CR03_MudHeap: triangles LOD0 45592, LOD1 22603, LOD2 6509
+INFO CR03_MudHeap: triangles LOD0 50488, LOD1 25050, LOD2 7242
 PASS CR03_MudHeap: CR03_MudHeap_Collision imported as MeshCollider (12 triangles), renderer hidden
 PASS CR03_MudHeap: the collider stays on the model
 PASS CR03_MudHeap: no error shaders
@@ -140,7 +140,7 @@ PASS CR15_DitchCross: base on origin height (min y 0.0000)
 INFO CR15_DitchCross: minTier standard
 PASS CR15_DitchCross: origin at footprint centre
 PASS CR15_DitchCross: LODGroup with 3 levels
-INFO CR15_DitchCross: triangles LOD0 61068, LOD1 30623, LOD2 9186
+INFO CR15_DitchCross: triangles LOD0 62972, LOD1 31575, LOD2 9472
 PASS CR15_DitchCross: CR15_DitchCross_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR15_DitchCross: no error shaders
 PASS CR08_Trestle_080: imported size 1.020 x 0.158 x 0.800 m matches model_info (max error 0.0 mm)

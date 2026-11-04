@@ -1,22 +1,22 @@
 {
-    "started": "2026-11-05T00:49:23",
+    "started": "2026-11-05T02:07:18",
     "method": "clear_silt",
     "resolution": "1280x720",
     "input": "virtual Input System Touchscreen (one finger)",
     "party": 1,
-    "frames": 3614,
+    "frames": 3615,
     "pass": true,
     "frameEvery": 0.10000000149011612,
-    "totalSeconds": 362.2107849121094,
+    "totalSeconds": 362.2969970703125,
     "frameMsMedian": 16.666702270507814,
-    "frameMsP95": 16.669492721557618,
+    "frameMsP95": 16.669095993041993,
     "steps": [
         {
             "index": 1,
             "name": "picker",
             "pass": true,
             "note": "測試入口：三個修法",
-            "seconds": 1.0043892860412598,
+            "seconds": 1.0038485527038575,
             "shot": "01_picker.jpg"
         },
         {
@@ -24,7 +24,7 @@
             "name": "begin",
             "pass": true,
             "note": "先清淤，1 人，淤泥 34，接渠 2 段",
-            "seconds": 1.9740257263183594,
+            "seconds": 1.9889788627624512,
             "shot": "02_site.jpg"
         },
         {
@@ -32,7 +32,7 @@
             "name": "wheel_refused",
             "pass": true,
             "note": "還有淤泥沒清完，水過不去",
-            "seconds": 5.540571212768555,
+            "seconds": 5.556500434875488,
             "shot": "03_wheel_refused.jpg"
         },
         {
@@ -40,7 +40,7 @@
             "name": "chant_playing",
             "pass": true,
             "note": "號子開始",
-            "seconds": 8.740686416625977,
+            "seconds": 8.756510734558106,
             "shot": ""
         },
         {
@@ -48,7 +48,7 @@
             "name": "first_person_in",
             "pass": true,
             "note": "點泥堆，鏡頭切到第一視角",
-            "seconds": 9.790907859802246,
+            "seconds": 9.806681632995606,
             "shot": "05_first_person_silt_1.jpg"
         },
         {
@@ -56,7 +56,7 @@
             "name": "mud_fills_channel",
             "pass": true,
             "note": "整段渠道的淤泥 39 公升",
-            "seconds": 9.8054780960083,
+            "seconds": 9.821791648864746,
             "shot": ""
         },
         {
@@ -64,7 +64,7 @@
             "name": "mud_on_screen",
             "pass": true,
             "note": "泥床有畫出來；挖掘時讓開 1 件高過渠道的東西",
-            "seconds": 9.80565071105957,
+            "seconds": 9.821961402893067,
             "shot": "07_mud_before.jpg"
         },
         {
@@ -72,15 +72,15 @@
             "name": "light_touch",
             "pass": true,
             "note": "輕輕碰一下只動一點點（0.00），也沒有失敗訊息",
-            "seconds": 10.619339942932129,
+            "seconds": 10.636066436767579,
             "shot": "08_bow_on_blade.jpg"
         },
         {
             "index": 9,
             "name": "heaved_out",
             "pass": true,
-            "note": "放手甩走 0.90，這堆剩 4.10",
-            "seconds": 12.46857738494873,
+            "note": "放手甩走 0.91，這堆剩 4.09",
+            "seconds": 12.503803253173829,
             "shot": "09_heave.jpg"
         },
         {
@@ -88,7 +88,7 @@
             "name": "spoil_grows",
             "pass": true,
             "note": "渠外泥堆 5.7 公升",
-            "seconds": 13.268647193908692,
+            "seconds": 13.314008712768555,
             "shot": "10_spoil_heap.jpg"
         },
         {
@@ -96,7 +96,7 @@
             "name": "mud_conserved",
             "pass": true,
             "note": "床上 32.9 ＋搬走 5.7 ＝原本 38.6 公升",
-            "seconds": 13.282212257385254,
+            "seconds": 13.327993392944336,
             "shot": ""
         },
         {
@@ -104,7 +104,7 @@
             "name": "first_person_out",
             "pass": true,
             "note": "按起身，鏡頭拉回",
-            "seconds": 15.051711082458496,
+            "seconds": 15.10794448852539,
             "shot": ""
         },
         {
@@ -112,7 +112,7 @@
             "name": "wrong_piece",
             "pass": true,
             "note": "直角彎槽（右）的出水口落在 (-1.5, 2.5)，下一段入口在 (-1.75, 1.75)，差 79 cm",
-            "seconds": 17.82089614868164,
+            "seconds": 17.891735076904298,
             "shot": "13_wrong_piece.jpg"
         },
         {
@@ -120,23 +120,23 @@
             "name": "right_piece",
             "pass": true,
             "note": "L1 接上了",
-            "seconds": 24.504928588867189,
+            "seconds": 24.576499938964845,
             "shot": "14_right_piece.jpg"
         },
         {
             "index": 15,
             "name": "on_the_beat",
             "pass": true,
-            "note": "喲的時候放手，這一鏟 0.73",
-            "seconds": 26.61876678466797,
+            "note": "喲的時候放手，這一鏟 0.71",
+            "seconds": 26.6600284576416,
             "shot": "15_cut_seeping.jpg"
         },
         {
             "index": 16,
             "name": "stones_show",
             "pass": true,
-            "note": "還剩 1.8 的泥時，泥退開露出 3 塊舊石",
-            "seconds": 35.78512191772461,
+            "note": "還剩 1.9 的泥時，泥退開露出 3 塊舊石",
+            "seconds": 35.72789764404297,
             "shot": "16_stones_show.jpg"
         },
         {
@@ -144,7 +144,7 @@
             "name": "spade_probe_live",
             "pass": true,
             "note": "穿模探針看得到閘板，也看得到接上的渠底",
-            "seconds": 42.20720672607422,
+            "seconds": 42.263214111328128,
             "shot": ""
         },
         {
@@ -152,15 +152,15 @@
             "name": "spade_clear",
             "pass": true,
             "note": "鏟子離渠牆最近 5.0 cm，柄埋進泥最深 0.0 cm，穿過：",
-            "seconds": 42.207847595214847,
+            "seconds": 42.26369094848633,
             "shot": ""
         },
         {
             "index": 19,
             "name": "gets_heavy",
             "pass": true,
-            "note": "空鏟 0.73 m/s → 堆滿 0.24 m/s（鏟前泥 0.92）",
-            "seconds": 42.2080078125,
+            "note": "空鏟 0.79 m/s → 堆滿 0.25 m/s（鏟前泥 0.93）",
+            "seconds": 42.2637939453125,
             "shot": ""
         },
         {
@@ -168,7 +168,7 @@
             "name": "pile_cleared",
             "pass": true,
             "note": "床上剩 0.3 公升",
-            "seconds": 43.20553207397461,
+            "seconds": 43.26124954223633,
             "shot": "20_pile_clear.jpg"
         },
         {
@@ -176,7 +176,7 @@
             "name": "joined_L2",
             "pass": true,
             "note": "終止放流坡",
-            "seconds": 47.49972152709961,
+            "seconds": 47.54472732543945,
             "shot": "21_joined_L2.jpg"
         },
         {
@@ -184,15 +184,15 @@
             "name": "save_restore",
             "pass": true,
             "note": "存檔重開後淤泥 29，接渠還有 0 段",
-            "seconds": 48.50785446166992,
+            "seconds": 48.558250427246097,
             "shot": "22_restored.jpg"
         },
         {
             "index": 23,
             "name": "hard_is_slower",
             "pass": true,
-            "note": "硬泥最快 0.38 m/s，軟泥 0.73 m/s",
-            "seconds": 51.03699493408203,
+            "note": "硬泥最快 0.38 m/s，軟泥 0.79 m/s",
+            "seconds": 51.07378387451172,
             "shot": "23_crack_silt_3.jpg"
         },
         {
@@ -200,7 +200,7 @@
             "name": "slump_silt_3_a",
             "pass": true,
             "note": "鏟子拖過裂縫，整片泥塌下來了",
-            "seconds": 77.4584732055664,
+            "seconds": 77.4642333984375,
             "shot": "24_slump_silt_3_a.jpg"
         },
         {
@@ -208,7 +208,7 @@
             "name": "weed_wrong_way",
             "pass": true,
             "note": "水草纏住了，要往渠外拉",
-            "seconds": 94.44490051269531,
+            "seconds": 94.46580505371094,
             "shot": "25_crack_silt_4.jpg"
         },
         {
@@ -216,7 +216,7 @@
             "name": "slump_silt_4_a",
             "pass": true,
             "note": "鏟子拖過裂縫，整片泥塌下來了",
-            "seconds": 98.25396728515625,
+            "seconds": 98.27719116210938,
             "shot": "26_crack_silt_5.jpg"
         },
         {
@@ -224,7 +224,7 @@
             "name": "slump_silt_5_a",
             "pass": true,
             "note": "鏟子拖過裂縫，整片泥塌下來了",
-            "seconds": 109.93942260742188,
+            "seconds": 110.0252685546875,
             "shot": "27_slump_silt_5_a.jpg"
         },
         {
@@ -232,7 +232,7 @@
             "name": "slump_silt_5_b",
             "pass": true,
             "note": "鏟子拖過裂縫，整片泥塌下來了",
-            "seconds": 112.95960998535156,
+            "seconds": 113.04447937011719,
             "shot": "28_slump_silt_5_b.jpg"
         },
         {
@@ -240,7 +240,7 @@
             "name": "chant_stops",
             "pass": true,
             "note": "清完淤泥，號子停",
-            "seconds": 118.53072357177735,
+            "seconds": 118.61489868164063,
             "shot": ""
         },
         {
@@ -248,7 +248,7 @@
             "name": "work_completed",
             "pass": true,
             "note": "creek.workCompleted {\"method\":\"clear_silt\",\"layout\":{\"L1\":\"B02\",\"L2\":\"B02-V05\",\"P2\":\"B04-V02\",\"R1\":\"B05\"},\"patches\":{}}",
-            "seconds": 118.53162384033203,
+            "seconds": 118.61585998535156,
             "shot": "30_work_done.jpg"
         },
         {
@@ -256,7 +256,7 @@
             "name": "dry_before_gate",
             "pass": true,
             "note": "開閘前水面 0 個",
-            "seconds": 121.54484558105469,
+            "seconds": 121.62886047363281,
             "shot": ""
         },
         {
@@ -264,7 +264,7 @@
             "name": "plan_sign",
             "pass": true,
             "note": "點分水牌，看三塊田各開多少",
-            "seconds": 123.6299819946289,
+            "seconds": 123.728271484375,
             "shot": "32_plan_sign.jpg"
         },
         {
@@ -272,7 +272,7 @@
             "name": "preset_plan",
             "pass": true,
             "note": "照牌子預先設好三個閘門",
-            "seconds": 131.24688720703126,
+            "seconds": 131.3450469970703,
             "shot": "33_gates_set.jpg"
         },
         {
@@ -280,7 +280,7 @@
             "name": "no_water_yet",
             "pass": true,
             "note": "設閘門時還沒有水",
-            "seconds": 132.7611846923828,
+            "seconds": 132.86007690429688,
             "shot": ""
         },
         {
@@ -288,7 +288,7 @@
             "name": "to_the_wheel",
             "pass": true,
             "note": "鏡頭回到主閘輪",
-            "seconds": 135.030029296875,
+            "seconds": 135.12828063964845,
             "shot": ""
         },
         {
@@ -296,7 +296,7 @@
             "name": "gate_half",
             "pass": true,
             "note": "閘輪 400°",
-            "seconds": 140.4633331298828,
+            "seconds": 140.5785369873047,
             "shot": "36_gate_half.jpg"
         },
         {
@@ -304,7 +304,7 @@
             "name": "gate_open",
             "pass": true,
             "note": "閘開了，水來了",
-            "seconds": 145.92079162597657,
+            "seconds": 146.01673889160157,
             "shot": ""
         },
         {
@@ -312,7 +312,7 @@
             "name": "water_after_gate",
             "pass": true,
             "note": "開閘後水面 1 個",
-            "seconds": 146.42086791992188,
+            "seconds": 146.51675415039063,
             "shot": "38_gate_open.jpg"
         },
         {
@@ -320,7 +320,7 @@
             "name": "canal_full",
             "pass": true,
             "note": "水到配水渠，閘門分水",
-            "seconds": 268.936279296875,
+            "seconds": 269.0498962402344,
             "shot": "39_canal_full.jpg"
         },
         {
@@ -328,7 +328,7 @@
             "name": "field_wet_3",
             "pass": true,
             "note": "field_c",
-            "seconds": 270.45050048828127,
+            "seconds": 270.5650329589844,
             "shot": "40_field_3.jpg"
         },
         {
@@ -336,7 +336,7 @@
             "name": "flow_completed",
             "pass": true,
             "note": "creek.flowCompleted {\"method\":\"clear_silt\"}",
-            "seconds": 340.361328125,
+            "seconds": 340.4628601074219,
             "shot": ""
         },
         {
@@ -344,7 +344,7 @@
             "name": "filled_together",
             "pass": true,
             "note": "三塊田一起灌滿了",
-            "seconds": 340.36151123046877,
+            "seconds": 340.4630126953125,
             "shot": "42_end.jpg"
         },
         {
@@ -352,7 +352,7 @@
             "name": "events_once",
             "pass": true,
             "note": "flowReached 11 次（路線 8 節點＋3 塊田）",
-            "seconds": 346.3785705566406,
+            "seconds": 346.4771423339844,
             "shot": ""
         },
         {
@@ -360,7 +360,7 @@
             "name": "water_close_1",
             "pass": true,
             "note": "",
-            "seconds": 351.36572265625,
+            "seconds": 351.46221923828127,
             "shot": "44_water_close_1.jpg"
         },
         {
@@ -368,7 +368,7 @@
             "name": "water_close_2",
             "pass": true,
             "note": "",
-            "seconds": 356.3659973144531,
+            "seconds": 356.4622802734375,
             "shot": "45_water_close_2.jpg"
         },
         {
@@ -376,7 +376,7 @@
             "name": "water_close_3",
             "pass": true,
             "note": "",
-            "seconds": 361.3661193847656,
+            "seconds": 361.4622497558594,
             "shot": "46_water_close_3.jpg"
         },
         {
@@ -384,7 +384,7 @@
             "name": "spade_clear_all",
             "pass": true,
             "note": "整趟：離渠牆最近 5.0 cm，柄埋進泥最深 0.0 cm，穿過：",
-            "seconds": 362.2105407714844,
+            "seconds": 362.29681396484377,
             "shot": ""
         }
     ],
