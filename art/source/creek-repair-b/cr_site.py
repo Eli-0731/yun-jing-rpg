@@ -97,7 +97,7 @@ def cr03_timber(P):
 
 # ------------------------------------------------------------------ CR03 mud
 def mud_palette():
-    P = {'mud': cm.mud('Creek_Silt'), 'plank': cm.wood('Walk_Plank', (.1, .062, .032), (.3, .2, .11), ground_h=0, grey=.3, wet_z=None), 'stone': cm.stone('Silt_Stones', light=(.2, .185, .155), dark=(.08, .07, .055), moss=.2, lichen=0, crack=.2)}
+    P = {'mud': cm.mud('Creek_Silt'), 'plank': cm.wood('Walk_Plank', (.055, .036, .02), (.17, .115, .068), ground_h=0, grey=.4, wet_z=None), 'stone': cm.stone('Silt_Stones', light=(.2, .185, .155), dark=(.08, .07, .055), moss=.2, lichen=0, crack=.2)}
     return P
 
 
@@ -124,6 +124,11 @@ def cr03_mud(P):
             x, y = math.cos(a) * r, math.sin(a) * r
             return (x, y, height(x, y, a, d))
         surface('Heap', 128, 56, fn_, P['mud'], closed_u=True, group=st, grain='z')
+        # clods thrown up by the spade, rolled down and lying where they stopped
+        for k in range(int(34 * rad)):
+            a = R.uniform(0, math.tau); d = R.uniform(.3, 1.) ** .7; r_ = d * edge(a) * rad; x_, y_ = math.cos(a) * r_, math.sin(a) * r_
+            s_ = R.uniform(.022, .06) * (.65 + rad * .35)
+            rbox('Clod', (x_, y_, height(x_, y_, a, d) + s_ * .12), (s_ * R.uniform(1., 1.5), s_, s_ * R.uniform(.45, .7)), P['mud'], r=s_ * .22, amp=s_ * .2, freq=1 / s_ * 1.2, seed=k + int(seed) * 7, div=s_ * .45, rot=(0, 0, R.uniform(0, 3.14)), group=st, detail=1)
         if plank:
             # a board laid up the slope from the ground: raised until nothing of the heap pokes through it
             foot = Vector((rad * .92, -rad * .46, .018)); run = Vector((-rad * 1.3, rad * .24, 0)).normalized(); L = plank[1] * 1.5; slope = 0.
@@ -271,7 +276,7 @@ EARTH = [(-.44, 0.), (-.44, .2), (-.44, .385), (-.42, .405), (-.36, .415), (-.29
 
 
 def channel_palette():
-    P = {'earth': cm.mud('Packed_Earth', dark=(.032, .022, .013), light=(.098, .066, .04), rough=.85), 'stake': cm.wood('Weathered_Stake', (.09, .055, .028), (.27, .18, .1), ground_h=.1, grey=.35)}
+    P = {'earth': cm.packed_earth('Packed_Earth'), 'stake': cm.wood('Weathered_Stake', (.09, .055, .028), (.27, .18, .1), ground_h=.1, grey=.35)}
     P['willow'] = cm.wood('Willow_Withy', (.09, .052, .022), (.24, .145, .06), ground_h=0, grey=.1); P['stone'] = cm.stone('Old_Channel_Stone', light=(.2, .19, .155), dark=(.1, .095, .08), ochre=(.17, .15, .1), moss=.75, wet_z=.3); P['hemp'] = mm.hemp('Withy_Tie', (.17, .105, .05), twist=40.0)
     P['grass'] = cm.moss_tuft('Bank_Grass'); P['moss'] = cm.moss_tuft('Bank_Moss', soft=True)
     return P
@@ -388,6 +393,10 @@ def cr15_cross(P):
         end_cap('Earth_End', lambda t, q=q, n=n: (q * (1 - t), n), 0., EARTH, P['earth'])
     for sx in (-1, 1):
         for sy in (-1, 1):
+            # guard stones where the water turns and cuts hardest
+            rbox('Guard_Stone', (sx * .232, sy * .232, .17), (.15, .13, .15), P['stone'], r=.016, amp=.012, freq=11., chips=4, hew=4, seed=int(sx * 3 + sy + 40), div=.03, rot=(0, 0, math.pi / 4 + sx * sy * .2))
+            rbox('Guard_Stone', (sx * .3, sy * .205, .135), (.11, .09, .08), P['stone'], r=.012, amp=.01, freq=13., chips=3, hew=4, seed=int(sx * 5 + sy + 50), div=.03, rot=(0, 0, .3 * sx), detail=1)
+            rbox('Guard_Stone', (sx * .205, sy * .3, .13), (.09, .1, .07), P['stone'], r=.012, amp=.01, freq=13., chips=3, hew=4, seed=int(sx * 7 + sy + 60), div=.03, rot=(0, 0, -.25 * sy), detail=1)
             # the same staked, woven outer face as CR06, round each inner corner
             line = [(sx * .462, sy * CROSS), (sx * .462, sy * .462), (sx * CROSS, sy * .462)]
             def on(t):

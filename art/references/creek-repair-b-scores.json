@@ -1,0 +1,218 @@
+{
+  "date": "2026-11-05",
+  "scorer": "Claude（作者自評，非驗收）",
+  "bar": 95,
+  "basis": "看 Blender 渲染圖與面數給分。拓樸沒有逐件看線框，只依程序化生成方式與面數判斷；材質沒有在遊戲最終光照下評。取代先前只看外觀給的 89–92 分。",
+  "scores": {
+    "WM01_MillHouse": {
+      "form_25": 23,
+      "topology_20": 15,
+      "materials_lighting_20": 17,
+      "style_15": 14,
+      "animation_interaction_10": 8,
+      "performance_export_10": 6,
+      "total": 83,
+      "main_deduction": "灰牆貼圖近看偏糊；面數高"
+    },
+    "WM02_WaterWheel": {
+      "form_25": 22,
+      "topology_20": 16,
+      "materials_lighting_20": 16,
+      "style_15": 13,
+      "animation_interaction_10": 9,
+      "performance_export_10": 8,
+      "total": 84,
+      "main_deduction": "鐵件少，木料偏新"
+    },
+    "WM04_Millstones": {
+      "form_25": 21,
+      "topology_20": 15,
+      "materials_lighting_20": 16,
+      "style_15": 13,
+      "animation_interaction_10": 7,
+      "performance_export_10": 8,
+      "total": 80,
+      "main_deduction": "麻袋形狀鼓脹，布紋太平"
+    },
+    "WM05_WashSteps": {
+      "form_25": 21,
+      "topology_20": 16,
+      "materials_lighting_20": 16,
+      "style_15": 13,
+      "animation_interaction_10": 7,
+      "performance_export_10": 8,
+      "total": 81,
+      "main_deduction": "階面磨損不夠"
+    },
+    "WM07_StoneBridge": {
+      "form_25": 23,
+      "topology_20": 15,
+      "materials_lighting_20": 17,
+      "style_15": 14,
+      "animation_interaction_10": 7,
+      "performance_export_10": 7,
+      "total": 83,
+      "main_deduction": "橋面偏乾淨"
+    },
+    "WM09_BambooPavilion": {
+      "form_25": 23,
+      "topology_20": 15,
+      "materials_lighting_20": 17,
+      "style_15": 14,
+      "animation_interaction_10": 7,
+      "performance_export_10": 5,
+      "total": 81,
+      "main_deduction": "地面石板單調；面數最高"
+    },
+    "CR10_CharmStall": {
+      "form_25": 23,
+      "topology_20": 15,
+      "materials_lighting_20": 17,
+      "style_15": 14,
+      "animation_interaction_10": 8,
+      "performance_export_10": 6,
+      "total": 83,
+      "main_deduction": "布旗偏新；面數高"
+    },
+    "CR11_NoodleStall": {
+      "form_25": 22,
+      "topology_20": 14,
+      "materials_lighting_20": 15,
+      "style_15": 13,
+      "animation_interaction_10": 8,
+      "performance_export_10": 5,
+      "total": 77,
+      "main_deduction": "帆布皺褶少，補丁生硬；面數高"
+    },
+    "CR12_RankingBoard": {
+      "form_25": 21,
+      "topology_20": 14,
+      "materials_lighting_20": 16,
+      "style_15": 14,
+      "animation_interaction_10": 8,
+      "performance_export_10": 6,
+      "total": 79,
+      "main_deduction": "紙張偏乾淨；面數高"
+    },
+    "CR03_StonePile": {
+      "form_25": 20,
+      "topology_20": 16,
+      "materials_lighting_20": 16,
+      "style_15": 12,
+      "animation_interaction_10": 8,
+      "performance_export_10": 9,
+      "total": 81,
+      "main_deduction": "石塊太方正，顏色分上下兩層"
+    },
+    "CR03_TimberRack": {
+      "form_25": 21,
+      "topology_20": 16,
+      "materials_lighting_20": 15,
+      "style_15": 13,
+      "animation_interaction_10": 8,
+      "performance_export_10": 9,
+      "total": 82,
+      "main_deduction": "木料偏乾淨、太整齊"
+    },
+    "CR03_MudHeap": {
+      "form_25": 17,
+      "topology_20": 15,
+      "materials_lighting_20": 14,
+      "style_15": 12,
+      "animation_interaction_10": 7,
+      "performance_export_10": 9,
+      "total": 74,
+      "main_deduction": "土塊像小木樁，整體仍像一團"
+    },
+    "CR04_Tools": {
+      "form_25": 17,
+      "topology_20": 16,
+      "materials_lighting_20": 15,
+      "style_15": 12,
+      "animation_interaction_10": 8,
+      "performance_export_10": 9,
+      "total": 77,
+      "main_deduction": "木槌頭像方塊，工具偏新"
+    },
+    "CR05_WorkShelter": {
+      "form_25": 20,
+      "topology_20": 15,
+      "materials_lighting_20": 15,
+      "style_15": 13,
+      "animation_interaction_10": 7,
+      "performance_export_10": 8,
+      "total": 78,
+      "main_deduction": "棚頂偏平，垂褶很淡"
+    },
+    "CR06_Channel": {
+      "form_25": 21,
+      "topology_20": 15,
+      "materials_lighting_20": 16,
+      "style_15": 12,
+      "animation_interaction_10": 8,
+      "performance_export_10": 8,
+      "total": 80,
+      "main_deduction": "堤岸太光滑、太規則"
+    },
+    "CR07_Celebration": {
+      "form_25": 20,
+      "topology_20": 15,
+      "materials_lighting_20": 14,
+      "style_15": 13,
+      "animation_interaction_10": 7,
+      "performance_export_10": 8,
+      "total": 77,
+      "main_deduction": "燈籠紙過曝，新舊看不出差別"
+    },
+    "CR08_Flume": {
+      "form_25": 20,
+      "topology_20": 16,
+      "materials_lighting_20": 15,
+      "style_15": 13,
+      "animation_interaction_10": 7,
+      "performance_export_10": 9,
+      "total": 80,
+      "main_deduction": "木板太平整，水垢少"
+    },
+    "CR09_Gates": {
+      "form_25": 22,
+      "topology_20": 15,
+      "materials_lighting_20": 17,
+      "style_15": 13,
+      "animation_interaction_10": 9,
+      "performance_export_10": 8,
+      "total": 84,
+      "main_deduction": "石塊尺度偏大、接縫乾淨"
+    },
+    "CR14_WeedClump": {
+      "form_25": 19,
+      "topology_20": 15,
+      "materials_lighting_20": 15,
+      "style_15": 11,
+      "animation_interaction_10": 7,
+      "performance_export_10": 8,
+      "total": 75,
+      "main_deduction": "葉子稜角硬，比參考圖稀；顏色比場景跳；水珠沒做"
+    },
+    "CR15_DitchCross": {
+      "form_25": 18,
+      "topology_20": 15,
+      "materials_lighting_20": 15,
+      "style_15": 12,
+      "animation_interaction_10": 8,
+      "performance_export_10": 8,
+      "total": 76,
+      "main_deduction": "四個土丘像枕頭，護岸石大半埋在土裡"
+    },
+    "F01_Field": {
+      "form_25": 15,
+      "topology_20": 13,
+      "materials_lighting_20": 12,
+      "style_15": 10,
+      "animation_interaction_10": 6,
+      "performance_export_10": 4,
+      "total": 60,
+      "main_deduction": "沿用舊田；原點和碰撞驗證未過"
+    }
+  }
+}
