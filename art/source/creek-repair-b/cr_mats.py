@@ -314,6 +314,20 @@ def fern(name, slot='Main'):
     return m
 
 
+def weed_leaf(name, base, mid, tip, slot='Main'):
+    """Waterweed leaf on 'cuv': deep green where it leaves the stem, clear yellow-green along the blade, a touch of teal at the tip and rims."""
+    m, g = tm._new(name, slot)
+    P, Z, up = _p(g)
+    C = g.attr('cuv'); cs = g.node('ShaderNodeSeparateXYZ'); g.link(C, cs.inputs[0])
+    u, v = cs.outputs['X'], cs.outputs['Y']
+    col = g.ramp(v, [(.05, base), (.45, mid), (.78, mid), (1., tip)])
+    rim = g.maprange(g.math('ABSOLUTE', g.math('SUBTRACT', u, .5)), .32, .5)
+    col = g.mix(g.math('MULTIPLY', rim, .22), col, tip)
+    n = g.noise(P, 60.0, 2, .5)
+    tm._finish(g, col, .62, 0.0, g.bump(n, .05, .001), spec=.12)
+    return m
+
+
 def moss_tuft(name, slot='Main', soft=False):
     if soft:
         m, g = tm._new(name, slot)
