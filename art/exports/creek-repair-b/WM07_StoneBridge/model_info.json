@@ -1,0 +1,161 @@
+{
+  "asset": "WM07_StoneBridge",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "WM07_StoneBridge_Detail_Small"
+  ],
+  "name_zh": "單拱石橋",
+  "slot": "A3_StoneBridge",
+  "note": "單拱跨距 6 m、橋面寬 2.4 m、坡度約 13.8 度；Socket_RoadEnd_* 為兩端路面。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    3.8025,
+    12.0,
+    3.9545
+  ],
+  "size_limit_m": [
+    4.0,
+    12.0,
+    4.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        3.8025,
+        12.0,
+        3.9545
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        3.5699,
+        11.555,
+        3.518
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0123
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 63632,
+      "LOD1": 31816,
+      "LOD2": 9544
+    },
+    "Detail_Small": {
+      "LOD0": 50720,
+      "LOD1": 25360,
+      "LOD2": 7608
+    }
+  },
+  "lod_totals": {
+    "LOD0": 114352,
+    "LOD1": 57176,
+    "LOD2": 17152
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_WM07_StoneBridge_Main"
+  ],
+  "textures": [
+    "WM07_StoneBridge_BaseColor.png",
+    "WM07_StoneBridge_Metallic.png",
+    "WM07_StoneBridge_MetallicSmoothness.png",
+    "WM07_StoneBridge_Normal.png",
+    "WM07_StoneBridge_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "WM07_StoneBridge_BaseColor.png",
+    "Normal": "WM07_StoneBridge_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "WM07_StoneBridge_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "WM07_StoneBridge_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -1.6,
+        -6,
+        0
+      ],
+      [
+        1.6,
+        -3,
+        1.6
+      ]
+    ],
+    [
+      [
+        -1.6,
+        3,
+        0
+      ],
+      [
+        1.6,
+        6,
+        1.6
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {
+    "Socket_RoadEnd_Front": [
+      -0.0014,
+      -5.9895,
+      1.9353
+    ],
+    "Socket_RoadEnd_Rear": [
+      -0.0014,
+      5.9932,
+      1.9353
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_RoadEnd_Front.001": [
+      -0.0014,
+      -5.9895,
+      1.9353
+    ],
+    "Socket_RoadEnd_Rear.001": [
+      -0.0014,
+      5.9932,
+      1.9353
+    ]
+  },
+  "states": [
+    "碰撞：橋面斜面可走，兩側有欄杆牆"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "Socket_RoadEnd_Front.001",
+    "Socket_RoadEnd_Rear.001",
+    "WM07_StoneBridge.001",
+    "WM07_StoneBridge_Collision.001",
+    "WM07_StoneBridge_Detail_Small_LOD0.001",
+    "WM07_StoneBridge_Detail_Small_LOD1.001",
+    "WM07_StoneBridge_Detail_Small_LOD2.001",
+    "WM07_StoneBridge_LOD0.001",
+    "WM07_StoneBridge_LOD1.001",
+    "WM07_StoneBridge_LOD2.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/WM07/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

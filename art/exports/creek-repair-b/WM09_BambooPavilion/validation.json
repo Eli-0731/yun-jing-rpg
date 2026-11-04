@@ -1,0 +1,137 @@
+{
+  "asset": "WM09_BambooPavilion",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        0.991,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.7244,
+          -1.75,
+          0.0
+        ],
+        "max": [
+          1.7244,
+          1.75,
+          3.9758
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          3.4489,
+          3.5,
+          3.9758
+        ],
+        "limit_m": [
+          3.5,
+          3.5,
+          4.0
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 226264,
+          "LOD1": 113131,
+          "LOD2": 34394
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.152,
+        "per_group": {
+          "Main": {
+            "LOD0": 59564,
+            "LOD1": 29781,
+            "LOD2": 8934
+          },
+          "Detail_Small": {
+            "LOD0": 159500,
+            "LOD1": 79750,
+            "LOD2": 23924
+          },
+          "Detail_Straw": {
+            "LOD0": 3280,
+            "LOD1": 1640,
+            "LOD2": 492
+          },
+          "Detail_Vines": {
+            "LOD0": 3920,
+            "LOD1": 1960,
+            "LOD2": 1044
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          3.4489,
+          3.5,
+          3.9758
+        ],
+        "blend_dims_m": [
+          3.4489,
+          3.5,
+          3.9758
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "WM09_BambooPavilion.001",
+        "WM09_BambooPavilion_Collision.001",
+        "WM09_BambooPavilion_Detail_Small_LOD0.001",
+        "WM09_BambooPavilion_Detail_Small_LOD1.001",
+        "WM09_BambooPavilion_Detail_Small_LOD2.001",
+        "WM09_BambooPavilion_Detail_Straw_LOD0.001",
+        "WM09_BambooPavilion_Detail_Straw_LOD1.001",
+        "WM09_BambooPavilion_Detail_Straw_LOD2.001",
+        "WM09_BambooPavilion_Detail_Vines_LOD0.001",
+        "WM09_BambooPavilion_Detail_Vines_LOD1.001",
+        "WM09_BambooPavilion_Detail_Vines_LOD2.001",
+        "WM09_BambooPavilion_LOD0.001",
+        "WM09_BambooPavilion_LOD1.001",
+        "WM09_BambooPavilion_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 122,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

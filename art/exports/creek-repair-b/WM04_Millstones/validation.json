@@ -1,0 +1,129 @@
+{
+  "asset": "WM04_Millstones",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.9745,
+          -0.6192,
+          0.0
+        ],
+        "max": [
+          0.9745,
+          0.6192,
+          0.9247
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          1.949,
+          1.2383,
+          0.9247
+        ],
+        "limit_m": [
+          2.0,
+          1.5,
+          1.0
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 39530,
+          "LOD1": 19763,
+          "LOD2": 5946
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 34346,
+            "LOD1": 17172,
+            "LOD2": 5151
+          },
+          "Detail_Small": {
+            "LOD0": 5040,
+            "LOD1": 2520,
+            "LOD2": 756
+          },
+          "Detail_Flour": {
+            "LOD0": 144,
+            "LOD1": 71,
+            "LOD2": 39
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.949,
+          1.2383,
+          0.9247
+        ],
+        "blend_dims_m": [
+          1.949,
+          1.2383,
+          0.9247
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "WM04_Millstones.001",
+        "WM04_Millstones_Collision.001",
+        "WM04_Millstones_Detail_Flour_LOD0.001",
+        "WM04_Millstones_Detail_Flour_LOD1.001",
+        "WM04_Millstones_Detail_Flour_LOD2.001",
+        "WM04_Millstones_Detail_Small_LOD0.001",
+        "WM04_Millstones_Detail_Small_LOD1.001",
+        "WM04_Millstones_Detail_Small_LOD2.001",
+        "WM04_Millstones_LOD0.001",
+        "WM04_Millstones_LOD1.001",
+        "WM04_Millstones_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 127,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "asset": "WM02_WaterWheel",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_at_axle_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.6,
+          -2.3011,
+          -2.3009
+        ],
+        "max": [
+          0.6,
+          2.3011,
+          2.3009
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          1.2,
+          4.6022,
+          4.6018
+        ],
+        "limit_m": [
+          1.2,
+          5.0,
+          5.0
+        ]
+      }
+    },
+    {
+      "check": "wheel_diameter_4.6",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          1.2,
+          4.602,
+          4.602
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 68500,
+          "LOD1": 34250,
+          "LOD2": 10274
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 30068,
+            "LOD1": 15034,
+            "LOD2": 4510
+          },
+          "Detail_Small": {
+            "LOD0": 38432,
+            "LOD1": 19216,
+            "LOD2": 5764
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.2,
+          4.6022,
+          4.6018
+        ],
+        "blend_dims_m": [
+          1.2,
+          4.6022,
+          4.6018
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "WM02_WaterWheel.001",
+        "WM02_WaterWheel_Collision.001",
+        "WM02_WaterWheel_Detail_Small_LOD0.001",
+        "WM02_WaterWheel_Detail_Small_LOD1.001",
+        "WM02_WaterWheel_Detail_Small_LOD2.001",
+        "WM02_WaterWheel_LOD0.001",
+        "WM02_WaterWheel_LOD1.001",
+        "WM02_WaterWheel_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 108,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

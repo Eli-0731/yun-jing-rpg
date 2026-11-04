@@ -1,0 +1,136 @@
+{
+  "asset": "WM01_MillHouse",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -3.9135,
+          -2.9422,
+          0.0
+        ],
+        "max": [
+          3.9135,
+          2.9422,
+          5.9307
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          7.827,
+          5.8844,
+          5.9307
+        ],
+        "limit_m": [
+          8.0,
+          6.0,
+          6.0
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 174708,
+          "LOD1": 87353,
+          "LOD2": 26203
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 108600,
+            "LOD1": 54300,
+            "LOD2": 16290
+          },
+          "Detail_Small": {
+            "LOD0": 55956,
+            "LOD1": 27978,
+            "LOD2": 8392
+          },
+          "Detail_Sacks": {
+            "LOD0": 10152,
+            "LOD1": 5075,
+            "LOD2": 1521
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          7.827,
+          5.8844,
+          5.9307
+        ],
+        "blend_dims_m": [
+          7.827,
+          5.8844,
+          5.9307
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_WheelAxle.001",
+        "WM01_MillHouse.001",
+        "WM01_MillHouse_Collision.001",
+        "WM01_MillHouse_Detail_Sacks_LOD0.001",
+        "WM01_MillHouse_Detail_Sacks_LOD1.001",
+        "WM01_MillHouse_Detail_Sacks_LOD2.001",
+        "WM01_MillHouse_Detail_Small_LOD0.001",
+        "WM01_MillHouse_Detail_Small_LOD1.001",
+        "WM01_MillHouse_Detail_Small_LOD2.001",
+        "WM01_MillHouse_LOD0.001",
+        "WM01_MillHouse_LOD1.001",
+        "WM01_MillHouse_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_WheelAxle.001": [
+          3.18,
+          0.1087,
+          1.7584
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 141,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}
