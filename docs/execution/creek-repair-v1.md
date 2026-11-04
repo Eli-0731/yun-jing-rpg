@@ -133,3 +133,7 @@ artifacts/creek-repair-build/CreekRepair.exe -creekPlaytest -creekMethod clear_s
 - `clear_silt` 走 R1 加土溝只用於這個玩法，核心組對「今天村田 0%」的判定沒有重新判過。
 - `joinLeader` 只在 TS 規則裡，Unity 沒有接；連線由核心組做。
 - 部分模型尺寸超限幾毫米到幾公分，以單軸縮放修正，上限 3.5%，記在 `validation.json` 的 `axis_fit_scale`。
+
+### 水草改版（2026-11-05）
+
+`CR14_WeedClump` 改以 `art/references/CR14/selected_v002.png`（使用者提供的「碧靈水草」三視圖）重做：細莖星形張開、三葉輪生、彎月形葉。原本貼地寬葉的概念圖只留作紀錄。一開始沿用 16 叢時，水草蓋住泥堆和鏟子，所以 `AddWeed` 改成 8 小叢、收在泥堆範圍內。LOD0 約 8,400 三角形，同一泥堆約 7 萬；手機效能未驗證。

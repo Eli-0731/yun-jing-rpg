@@ -58,13 +58,13 @@ INFO CR03_TimberRack: triangles LOD0 113392, LOD1 56696, LOD2 17004
 PASS CR03_TimberRack: CR03_TimberRack_Collision imported as MeshCollider (12 triangles), renderer hidden
 PASS CR03_TimberRack: the collider stays on the model
 PASS CR03_TimberRack: no error shaders
-PASS CR03_MudHeap: imported size 1.898 x 1.897 x 0.787 m matches model_info (max error 0.0 mm)
+PASS CR03_MudHeap: imported size 1.897 x 1.897 x 0.800 m matches model_info (max error 0.0 mm)
 PASS CR03_MudHeap: within limit 2 x 2 x 0.8 m
 PASS CR03_MudHeap: base on origin height (min y 0.0000)
 INFO CR03_MudHeap: minTier standard
 PASS CR03_MudHeap: origin at footprint centre
 PASS CR03_MudHeap: LODGroup with 3 levels
-INFO CR03_MudHeap: triangles LOD0 45664, LOD1 22639, LOD2 6520
+INFO CR03_MudHeap: triangles LOD0 45592, LOD1 22603, LOD2 6509
 PASS CR03_MudHeap: CR03_MudHeap_Collision imported as MeshCollider (12 triangles), renderer hidden
 PASS CR03_MudHeap: the collider stays on the model
 PASS CR03_MudHeap: no error shaders
@@ -83,7 +83,7 @@ PASS CR06_Straight: base on origin height (min y 0.0000)
 INFO CR06_Straight: minTier standard
 PASS CR06_Straight: origin at footprint centre
 PASS CR06_Straight: LODGroup with 3 levels
-INFO CR06_Straight: triangles LOD0 74236, LOD1 37267, LOD2 11178
+INFO CR06_Straight: triangles LOD0 74236, LOD1 37268, LOD2 11178
 PASS CR06_Straight: CR06_Straight_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR06_Straight: no error shaders
 PASS CR06_Short: imported size 1.008 x 0.564 x 0.491 m matches model_info (max error 0.0 mm)
@@ -92,7 +92,7 @@ PASS CR06_Short: base on origin height (min y 0.0000)
 INFO CR06_Short: minTier standard
 PASS CR06_Short: origin at footprint centre
 PASS CR06_Short: LODGroup with 3 levels
-INFO CR06_Short: triangles LOD0 32952, LOD1 16516, LOD2 4954
+INFO CR06_Short: triangles LOD0 32952, LOD1 16515, LOD2 4953
 PASS CR06_Short: CR06_Short_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR06_Short: no error shaders
 PASS CR06_Bend: imported size 1.770 x 1.770 x 0.492 m matches model_info (max error 0.0 mm)
@@ -101,7 +101,7 @@ PASS CR06_Bend: base on origin height (min y 0.0000)
 INFO CR06_Bend: minTier standard
 PASS CR06_Bend: origin at footprint centre
 PASS CR06_Bend: LODGroup with 3 levels
-INFO CR06_Bend: triangles LOD0 74096, LOD1 37197, LOD2 11158
+INFO CR06_Bend: triangles LOD0 74096, LOD1 37197, LOD2 11157
 PASS CR06_Bend: CR06_Bend_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR06_Bend: no error shaders
 PASS CR08_Straight: imported size 0.681 x 2.000 x 0.451 m matches model_info (max error 0.0 mm)
@@ -124,13 +124,13 @@ INFO CR08_Bend: triangles LOD0 121134, LOD1 60566, LOD2 18168
 PASS CR08_Bend: CR08_Bend_Collision imported as MeshCollider (68 triangles), renderer hidden
 PASS CR08_Bend: the collider stays on the model
 PASS CR08_Bend: no error shaders
-PASS CR14_WeedClump: imported size 0.203 x 0.347 x 0.096 m matches model_info (max error 0.0 mm)
+PASS CR14_WeedClump: imported size 0.241 x 0.202 x 0.248 m matches model_info (max error 0.0 mm)
 PASS CR14_WeedClump: within limit 0.5 x 0.5 x 0.25 m
 PASS CR14_WeedClump: base on origin height (min y 0.0000)
 INFO CR14_WeedClump: minTier standard
 PASS CR14_WeedClump: origin at footprint centre
 PASS CR14_WeedClump: LODGroup with 3 levels
-INFO CR14_WeedClump: triangles LOD0 536, LOD1 268, LOD2 79
+INFO CR14_WeedClump: triangles LOD0 8392, LOD1 4188, LOD2 1244
 PASS CR14_WeedClump: CR14_WeedClump_Collision imported as MeshCollider (12 triangles), renderer hidden
 PASS CR14_WeedClump: the collider stays on the model
 PASS CR14_WeedClump: no error shaders
@@ -140,7 +140,7 @@ PASS CR15_DitchCross: base on origin height (min y 0.0000)
 INFO CR15_DitchCross: minTier standard
 PASS CR15_DitchCross: origin at footprint centre
 PASS CR15_DitchCross: LODGroup with 3 levels
-INFO CR15_DitchCross: triangles LOD0 60684, LOD1 30431, LOD2 9128
+INFO CR15_DitchCross: triangles LOD0 61068, LOD1 30623, LOD2 9186
 PASS CR15_DitchCross: CR15_DitchCross_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR15_DitchCross: no error shaders
 PASS CR08_Trestle_080: imported size 1.020 x 0.158 x 0.800 m matches model_info (max error 0.0 mm)

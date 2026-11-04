@@ -449,12 +449,12 @@ namespace YunJing.CreekRepair
         {
             var list = weeds[pile.id] = new List<WeedStrand>(); var rand = new System.Random(pile.id.GetHashCode() ^ 311);
             var pull = new Vector2(pile.pull[0], pile.pull[1]); var across = new Vector2(-pull.y, pull.x); var fit = PileFit(pile);
-            for (int i = 0; i < 16; i++)
+            for (int i = 0; i < 8; i++)
             {
                 var clump = Instantiate(weedClump, root).transform; clump.name = "Weed_" + i;
-                // a mat on the slope facing the pull, clear of the crack on the near side; all of it leaning the way it has to come out
-                var from = across * (.14f - (i + (float)rand.NextDouble()) / 16 * .58f) + pull * ((float)rand.NextDouble() * .34f + .1f);
-                float size = .5f + (float)rand.NextDouble() * .4f; var yaw = Mathf.Atan2(pull.x, pull.y) * Mathf.Rad2Deg + (float)(rand.NextDouble() - .5) * 34;
+                // tufts on the slope facing the pull, clear of the crack on the near side and small enough that the mud under them still shows; all of them leaning the way they have to come out
+                var from = across * (.12f - (i + (float)rand.NextDouble()) / 8 * .44f) + pull * ((float)rand.NextDouble() * .24f + .08f);
+                float size = .3f + (float)rand.NextDouble() * .2f; var yaw = Mathf.Atan2(pull.x, pull.y) * Mathf.Rad2Deg + (float)(rand.NextDouble() - .5) * 34;
                 clump.rotation = Quaternion.Euler(0, yaw, 0) * clump.rotation; clump.localScale = new Vector3(size / fit.x, size, size / fit.z);
                 list.Add(new WeedStrand { clump = clump, from = from });
             }
