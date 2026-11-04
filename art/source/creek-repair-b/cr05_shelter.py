@@ -19,7 +19,7 @@ def palette():
     P['culm'] = cm.culm('Bamboo_Post', green=(.048, .058, .02), straw=(.17, .125, .05), mud_h=.7)
     P['culm_beam'] = cm.culm('Bamboo_Beam', green=(.058, .066, .027), straw=(.22, .165, .07), mud_h=0)
     P['hemp'] = mm.hemp('Hemp_Lashing', (.2, .125, .052), twist=40.0)
-    P['canvas'] = cm.canvas('Canvas_Roof', seams=(.62,), dirt=.5)
+    P['canvas'] = cm.canvas('Canvas_Roof', base=(.19, .145, .085), stain=(.09, .062, .035), faded=.04, seams=(.62,), dirt=1.)
     P['patch'] = cm.canvas('Canvas_Patch', base=(.2, .17, .12), stain=(.09, .07, .05), faded=.2, dirt=.4)
     P['towel'] = cm.canvas('Towel_Cloth', base=(.55, .52, .44), stain=(.26, .2, .13), faded=.2, dirt=.45)
     P['towel2'] = cm.canvas('Towel_Grey', base=(.32, .33, .32), stain=(.16, .13, .09), faded=.3, dirt=.5)
