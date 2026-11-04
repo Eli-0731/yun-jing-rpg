@@ -4,7 +4,7 @@ PASS CR05_WorkShelter: base on origin height (min y 0.0000)
 INFO CR05_WorkShelter: minTier standard
 PASS CR05_WorkShelter: origin at footprint centre
 PASS CR05_WorkShelter: LODGroup with 3 levels
-INFO CR05_WorkShelter: triangles LOD0 173770, LOD1 86854, LOD2 26006
+INFO CR05_WorkShelter: triangles LOD0 173770, LOD1 86882, LOD2 26054
 PASS CR05_WorkShelter: CR05_WorkShelter_Collision imported as MeshCollider (48 triangles), renderer hidden
 PASS CR05_WorkShelter: the collider stays on the model
 PASS CR05_WorkShelter: no error shaders
@@ -14,7 +14,7 @@ PASS CR09_A_RopeGate: base on origin height (min y 0.0000)
 INFO CR09_A_RopeGate: minTier standard
 PASS CR09_A_RopeGate: origin at footprint centre
 PASS CR09_A_RopeGate: LODGroup with 3 levels
-INFO CR09_A_RopeGate: triangles LOD0 62580, LOD1 31290, LOD2 9382
+INFO CR09_A_RopeGate: triangles LOD0 62578, LOD1 31287, LOD2 9383
 PASS CR09_A_RopeGate: CR09_A_RopeGate_Collision imported as MeshCollider (24 triangles), renderer hidden
 PASS CR09_A_RopeGate: the collider stays on the model
 PASS CR09_A_RopeGate: no error shaders
@@ -64,7 +64,7 @@ PASS CR03_MudHeap: base on origin height (min y 0.0000)
 INFO CR03_MudHeap: minTier standard
 PASS CR03_MudHeap: origin at footprint centre
 PASS CR03_MudHeap: LODGroup with 3 levels
-INFO CR03_MudHeap: triangles LOD0 50488, LOD1 25050, LOD2 7242
+INFO CR03_MudHeap: triangles LOD0 50488, LOD1 25242, LOD2 7570
 PASS CR03_MudHeap: CR03_MudHeap_Collision imported as MeshCollider (12 triangles), renderer hidden
 PASS CR03_MudHeap: the collider stays on the model
 PASS CR03_MudHeap: no error shaders
@@ -74,7 +74,7 @@ PASS CR04_Tools: base on origin height (min y 0.0000)
 INFO CR04_Tools: minTier standard
 PASS CR04_Tools: origin at footprint centre
 PASS CR04_Tools: LODGroup with 3 levels
-INFO CR04_Tools: triangles LOD0 38106, LOD1 19024, LOD2 5664
+INFO CR04_Tools: triangles LOD0 38106, LOD1 19052, LOD2 5710
 PASS CR04_Tools: CR04_Tools_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR04_Tools: no error shaders
 PASS CR06_Straight: imported size 1.000 x 2.000 x 0.493 m matches model_info (max error 0.0 mm)
@@ -83,7 +83,7 @@ PASS CR06_Straight: base on origin height (min y 0.0000)
 INFO CR06_Straight: minTier standard
 PASS CR06_Straight: origin at footprint centre
 PASS CR06_Straight: LODGroup with 3 levels
-INFO CR06_Straight: triangles LOD0 74236, LOD1 37268, LOD2 11178
+INFO CR06_Straight: triangles LOD0 74236, LOD1 37118, LOD2 11134
 PASS CR06_Straight: CR06_Straight_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR06_Straight: no error shaders
 PASS CR06_Short: imported size 1.008 x 0.564 x 0.491 m matches model_info (max error 0.0 mm)
@@ -92,7 +92,7 @@ PASS CR06_Short: base on origin height (min y 0.0000)
 INFO CR06_Short: minTier standard
 PASS CR06_Short: origin at footprint centre
 PASS CR06_Short: LODGroup with 3 levels
-INFO CR06_Short: triangles LOD0 32952, LOD1 16515, LOD2 4953
+INFO CR06_Short: triangles LOD0 32952, LOD1 16475, LOD2 4941
 PASS CR06_Short: CR06_Short_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR06_Short: no error shaders
 PASS CR06_Bend: imported size 1.770 x 1.770 x 0.492 m matches model_info (max error 0.0 mm)
@@ -101,7 +101,7 @@ PASS CR06_Bend: base on origin height (min y 0.0000)
 INFO CR06_Bend: minTier standard
 PASS CR06_Bend: origin at footprint centre
 PASS CR06_Bend: LODGroup with 3 levels
-INFO CR06_Bend: triangles LOD0 74096, LOD1 37197, LOD2 11157
+INFO CR06_Bend: triangles LOD0 74096, LOD1 37047, LOD2 11113
 PASS CR06_Bend: CR06_Bend_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR06_Bend: no error shaders
 PASS CR08_Straight: imported size 0.681 x 2.000 x 0.451 m matches model_info (max error 0.0 mm)
@@ -130,7 +130,7 @@ PASS CR14_WeedClump: base on origin height (min y 0.0000)
 INFO CR14_WeedClump: minTier standard
 PASS CR14_WeedClump: origin at footprint centre
 PASS CR14_WeedClump: LODGroup with 3 levels
-INFO CR14_WeedClump: triangles LOD0 8392, LOD1 4188, LOD2 1244
+INFO CR14_WeedClump: triangles LOD0 8392, LOD1 4196, LOD2 1256
 PASS CR14_WeedClump: CR14_WeedClump_Collision imported as MeshCollider (12 triangles), renderer hidden
 PASS CR14_WeedClump: the collider stays on the model
 PASS CR14_WeedClump: no error shaders
@@ -140,7 +140,7 @@ PASS CR15_DitchCross: base on origin height (min y 0.0000)
 INFO CR15_DitchCross: minTier standard
 PASS CR15_DitchCross: origin at footprint centre
 PASS CR15_DitchCross: LODGroup with 3 levels
-INFO CR15_DitchCross: triangles LOD0 62972, LOD1 31575, LOD2 9472
+INFO CR15_DitchCross: triangles LOD0 62972, LOD1 31485, LOD2 9444
 PASS CR15_DitchCross: CR15_DitchCross_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR15_DitchCross: no error shaders
 PASS CR08_Trestle_080: imported size 1.020 x 0.158 x 0.800 m matches model_info (max error 0.0 mm)
@@ -179,7 +179,7 @@ PASS CR07_Celebration: base on origin height (min y 0.0000)
 INFO CR07_Celebration: minTier high
 PASS CR07_Celebration: origin at footprint centre
 PASS CR07_Celebration: LODGroup with 3 levels
-INFO CR07_Celebration: triangles LOD0 95800, LOD1 47890, LOD2 14363
+INFO CR07_Celebration: triangles LOD0 95800, LOD1 47900, LOD2 14361
 PASS CR07_Celebration: CR07_Celebration_Collision imported as MeshCollider (36 triangles), renderer hidden
 PASS CR07_Celebration: the collider stays on the model
 PASS CR07_Celebration: no error shaders
@@ -189,7 +189,7 @@ PASS CR10_CharmStall: base on origin height (min y 0.0000)
 INFO CR10_CharmStall: minTier standard
 PASS CR10_CharmStall: origin at footprint centre
 PASS CR10_CharmStall: LODGroup with 3 levels
-INFO CR10_CharmStall: triangles LOD0 126272, LOD1 63054, LOD2 18787
+INFO CR10_CharmStall: triangles LOD0 126272, LOD1 63134, LOD2 18911
 PASS CR10_CharmStall: CR10_CharmStall_Collision imported as MeshCollider (48 triangles), renderer hidden
 PASS CR10_CharmStall: the collider stays on the model
 PASS CR10_CharmStall: no error shaders
@@ -199,7 +199,7 @@ PASS CR11_NoodleStall: base on origin height (min y 0.0000)
 INFO CR11_NoodleStall: minTier standard
 PASS CR11_NoodleStall: origin at footprint centre
 PASS CR11_NoodleStall: LODGroup with 3 levels
-INFO CR11_NoodleStall: triangles LOD0 167728, LOD1 83829, LOD2 25239
+INFO CR11_NoodleStall: triangles LOD0 167724, LOD1 83860, LOD2 25149
 PASS CR11_NoodleStall: CR11_NoodleStall_Collision imported as MeshCollider (144 triangles), renderer hidden
 PASS CR11_NoodleStall: the collider stays on the model
 PASS CR11_NoodleStall: no error shaders
@@ -209,7 +209,7 @@ PASS WM01_MillHouse: base on origin height (min y 0.0000)
 INFO WM01_MillHouse: minTier standard
 PASS WM01_MillHouse: origin at footprint centre
 PASS WM01_MillHouse: LODGroup with 3 levels
-INFO WM01_MillHouse: triangles LOD0 168822, LOD1 84887, LOD2 26017
+INFO WM01_MillHouse: triangles LOD0 168822, LOD1 84411, LOD2 25322
 PASS WM01_MillHouse: WM01_MillHouse_Collision imported as MeshCollider (96 triangles), renderer hidden
 PASS WM01_MillHouse: the collider stays on the model
 PASS WM01_MillHouse: no error shaders
@@ -229,7 +229,7 @@ PASS WM04_Millstones: base on origin height (min y 0.0000)
 INFO WM04_Millstones: minTier standard
 PASS WM04_Millstones: origin at footprint centre
 PASS WM04_Millstones: LODGroup with 3 levels
-INFO WM04_Millstones: triangles LOD0 38980, LOD1 19513, LOD2 5696
+INFO WM04_Millstones: triangles LOD0 38980, LOD1 19490, LOD2 5845
 PASS WM04_Millstones: WM04_Millstones_Collision imported as MeshCollider (24 triangles), renderer hidden
 PASS WM04_Millstones: the collider stays on the model
 PASS WM04_Millstones: no error shaders
@@ -239,7 +239,7 @@ PASS WM05_WashSteps: base on origin height (min y 0.0000)
 INFO WM05_WashSteps: minTier standard
 PASS WM05_WashSteps: origin at footprint centre
 PASS WM05_WashSteps: LODGroup with 3 levels
-INFO WM05_WashSteps: triangles LOD0 38500, LOD1 19210, LOD2 5974
+INFO WM05_WashSteps: triangles LOD0 38494, LOD1 19246, LOD2 5772
 PASS WM05_WashSteps: WM05_WashSteps_Collision imported as MeshCollider (96 triangles), renderer hidden
 PASS WM05_WashSteps: the collider stays on the model
 PASS WM05_WashSteps: no error shaders
@@ -249,7 +249,7 @@ PASS WM07_StoneBridge: base on origin height (min y 0.0000)
 INFO WM07_StoneBridge: minTier standard
 PASS WM07_StoneBridge: origin at footprint centre
 PASS WM07_StoneBridge: LODGroup with 3 levels
-INFO WM07_StoneBridge: triangles LOD0 112432, LOD1 57176, LOD2 17152
+INFO WM07_StoneBridge: triangles LOD0 112432, LOD1 56216, LOD2 16864
 PASS WM07_StoneBridge: WM07_StoneBridge_Collision imported as MeshCollider (312 triangles), renderer hidden
 PASS WM07_StoneBridge: the collider stays on the model
 PASS WM07_StoneBridge: no error shaders
@@ -259,7 +259,7 @@ PASS WM09_BambooPavilion: base on origin height (min y 0.0000)
 INFO WM09_BambooPavilion: minTier standard
 PASS WM09_BambooPavilion: origin at footprint centre
 PASS WM09_BambooPavilion: LODGroup with 3 levels
-INFO WM09_BambooPavilion: triangles LOD0 225756, LOD1 112759, LOD2 34022
+INFO WM09_BambooPavilion: triangles LOD0 225568, LOD1 112784, LOD2 33833
 PASS WM09_BambooPavilion: WM09_BambooPavilion_Collision imported as MeshCollider (84 triangles), renderer hidden
 PASS WM09_BambooPavilion: the collider stays on the model
 PASS WM09_BambooPavilion: no error shaders

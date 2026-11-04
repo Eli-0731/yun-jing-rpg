@@ -406,8 +406,10 @@ namespace YunJing.Editor
             var soil = new List<Renderer>(); var fieldWater = new List<Transform>(); var fieldGates = new List<CreekRepairDirector.FieldGate>();
             for (int i = 0; i < 3; i++)
             {
-                var f = Put(world, Fbx("F01_Field"), new Vector3(fieldXs[i], 0, FieldZ)); f.name = "Field_" + i;
-                soil.AddRange(f.GetComponentsInChildren<Renderer>().Take(1));
+                // F01_Field has its origin at the bottom centre; F01_water keeps F01's, so the field goes back by the offset in its validation.json
+                var f = Put(world, Fbx("F01_Field"), new Vector3(fieldXs[i], -.191f, FieldZ + 2)); f.name = "Field_" + i;
+                foreach (var r in f.GetComponentsInChildren<MeshRenderer>(true).Where(r => r.name.EndsWith("_Collision"))) r.enabled = false;
+                soil.AddRange(f.GetComponentsInChildren<Renderer>().Where(r => !r.name.EndsWith("_Collision")).Take(1));
                 // the fields' outer edges only just meet: earth in the crack between them, so grass does not show through
                 if (i > 0) Box(world, "FieldSeam_" + i, new Vector3(fieldXs[i] / 2, .04f, FieldZ + 2), new Vector3(.6f, .1f, f.GetComponentInChildren<Renderer>().bounds.size.z), Mat("Field_Seam", new Color(.06f, .026f, .012f)));
                 var w = Put(world, Fbx("F01", "_water"), new Vector3(fieldXs[i], 0, FieldZ)); w.name = "FieldWater_" + i; fieldWater.Add(w.transform);
