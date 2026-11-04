@@ -9,7 +9,7 @@ from ti_core import S, RX, RZ, T, cyl, lathe, mesh, socket, sphere, surface, tor
 import ti_mats as tm
 import mk_mats as mm
 import cr_mats as cm
-from cr_parts import rbox, rope, lash, xlash, pole, sheet, log, between, tuft
+from cr_parts import set_attr_list, rbox, rope, lash, xlash, pole, sheet, log, between, tuft
 
 STAGES = ('Stage_Low', 'Stage_Mid', 'Stage_High')
 CLEAR, FLOOR, WALL, WATER = .2, .1, .4, .28
@@ -20,8 +20,8 @@ def collide(*boxes): S['collision'] = list(boxes)
 
 # ------------------------------------------------------------------ CR03 stone
 def stone_palette():
-    P = {'stone': cm.stone('Granite_Block', light=(.3, .285, .25), dark=(.13, .12, .1), ochre=(.27, .22, .14), moss=.55, lichen=.4, crack=.7), 'broken': cm.stone('Granite_Broken', light=(.36, .33, .27), dark=(.17, .155, .125), moss=.1, lichen=.1, crack=.9)}
-    P['chip'] = cm.stone('Granite_Chips', moss=0, lichen=0, crack=.2); P['moss'] = cm.moss_tuft('Joint_Moss', soft=True)
+    P = {'stone': cm.stone('Granite_Block', light=(.245, .232, .2), dark=(.105, .098, .08), ochre=(.21, .175, .11), moss=.55, lichen=.4, crack=.7), 'broken': cm.stone('Granite_Broken', light=(.3, .275, .225), dark=(.14, .128, .103), moss=.1, lichen=.1, crack=.9)}
+    P['chip'] = cm.stone('Granite_Chips', light=(.26, .245, .21), dark=(.12, .112, .095), moss=0, lichen=0, crack=.2); P['moss'] = cm.moss_tuft('Joint_Moss', soft=True)
     return P
 
 
@@ -109,7 +109,7 @@ def cr03_mud(P):
         def edge(a, seed=seed):
             return min(1., (1 + .1 * math.sin(a * 3 + seed) + .06 * math.sin(a * 5 + seed * 2) + .03 * math.sin(a * 11)) * .9)
         def height(x, y, a, d, rad=rad, h=h, seed=seed, plank=plank):
-            dome = max(0., 1 - d) ** .8
+            dome = max(0., 1 - d * d) ** .85
             fall = min(1., dome * 2.5)
             n = noise.fractal(Vector((x * 2.2 / rad + seed, y * 2.2 / rad, 0)), 1., 2., 4) * .13
             lumps = (abs(noise.noise(Vector((x * 6.5, y * 6.5, seed)))) * .1 + abs(noise.noise(Vector((x * 15, y * 15, seed + 4)))) * .055 + abs(noise.noise(Vector((x * 34, y * 34, seed + 9)))) * .022) * fall
@@ -271,7 +271,7 @@ EARTH = [(-.44, 0.), (-.44, .2), (-.44, .385), (-.42, .405), (-.36, .415), (-.29
 
 
 def channel_palette():
-    P = {'earth': cm.mud('Packed_Earth', dark=(.05, .034, .02), light=(.15, .1, .06), rough=.85), 'stake': cm.wood('Weathered_Stake', (.09, .055, .028), (.27, .18, .1), ground_h=.1, grey=.35)}
+    P = {'earth': cm.mud('Packed_Earth', dark=(.032, .022, .013), light=(.098, .066, .04), rough=.85), 'stake': cm.wood('Weathered_Stake', (.09, .055, .028), (.27, .18, .1), ground_h=.1, grey=.35)}
     P['willow'] = cm.wood('Willow_Withy', (.09, .052, .022), (.24, .145, .06), ground_h=0, grey=.1); P['stone'] = cm.stone('Old_Channel_Stone', light=(.2, .19, .155), dark=(.1, .095, .08), ochre=(.17, .15, .1), moss=.75, wet_z=.3); P['hemp'] = mm.hemp('Withy_Tie', (.17, .105, .05), twist=40.0)
     P['grass'] = cm.moss_tuft('Bank_Grass'); P['moss'] = cm.moss_tuft('Bank_Moss', soft=True)
     return P
@@ -296,7 +296,7 @@ def channel(P, path, seed, amount=1.):
         p, n = path(v); x, z = prof(u)
         c = min(1., min(v, 1 - v) * 14)
         top = .25 < abs(x) < .43
-        lump = noise.fractal(Vector((p.x * 5.1, p.y * 5.1, seed + (1 if x > 0 else 0) * 3)), 1., 2., 4) * .022 * c if top else noise.noise(Vector((p.x * 7, p.y * 7, seed))) * .004 * c
+        lump = noise.fractal(Vector((p.x * 5.1, p.y * 5.1, seed + (1 if x > 0 else 0) * 3)), 1., 2., 4) * .034 * c if top else noise.noise(Vector((p.x * 7, p.y * 7, seed))) * .004 * c
         dent = 0.
         q = math.hypot((v - .36) / .05, (x + .36) / .05)
         if q < 1: dent = .018 * (1 - q * q)
@@ -365,7 +365,7 @@ def cross_height(x, y, seed):
             z = za + (zb - za) * (d - a) / max(b - a, 1e-6)
             break
     edge = min(1., (CROSS - max(abs(x), abs(y))) * 14)
-    return z + (noise.fractal(Vector((x * 5.1, y * 5.1, seed)), 1., 2., 4) * .022 * edge if .25 < d < .43 else noise.noise(Vector((x * 7, y * 7, seed))) * .004 * edge)
+    return z + (noise.fractal(Vector((x * 5.1, y * 5.1, seed)), 1., 2., 4) * .034 * edge if .25 < d < .43 else noise.noise(Vector((x * 7, y * 7, seed))) * .004 * edge)
 
 
 def cr15_cross(P):
@@ -383,6 +383,9 @@ def cr15_cross(P):
             if all(cross_height(x, y, seed) < 0 for x, y in corners): continue
             faces.append((at(i, j), at(i + 1, j), at(i + 1, j + 1), at(i, j + 1)))
     mesh('Earth_Bed', verts, faces, P['earth'], grain='y', smooth=True)
+    # the ports meet the next piece, but on their own they must read as solid earth, not a draped sheet
+    for q, n in ((Vector((0, -CROSS, 0)), Vector((1, 0, 0))), (Vector((0, CROSS, 0)), Vector((-1, 0, 0))), (Vector((-CROSS, 0, 0)), Vector((0, -1, 0))), (Vector((CROSS, 0, 0)), Vector((0, 1, 0)))):
+        end_cap('Earth_End', lambda t, q=q, n=n: (q * (1 - t), n), 0., EARTH, P['earth'])
     for sx in (-1, 1):
         for sy in (-1, 1):
             # the same staked, woven outer face as CR06, round each inner corner
@@ -522,23 +525,55 @@ def cr08_bend(P): flume(P, path_bend, 82)
 
 
 def weed_palette():
-    return {'blade': cm.moss_tuft('Weed_Blade', soft=True), 'root': cm.moss_tuft('Weed_Root', soft=True)}
+    return {'leaf': cm.weed_leaf('Weed_Leaf', (.02, .11, .012), (.07, .24, .012), (.05, .3, .16)), 'light': cm.weed_leaf('Weed_Leaf_Light', (.035, .16, .012), (.13, .34, .014), (.08, .38, .2)), 'shade': cm.weed_leaf('Weed_Leaf_Shade', (.012, .07, .012), (.03, .15, .016), (.03, .2, .11)),
+            'stem': tm.plain('Weed_Stem', (.035, .2, .04), rough=.5, noise=.15), 'mud': tm.plain('Weed_Mud', (.07, .05, .033), rough=.5, noise=.45), 'root': tm.plain('Weed_Root', (.3, .22, .11), rough=.8, noise=.25)}
 
 
 def cr14_weed(P):
-    """Waterweed the current laid over: strap leaves from one matted root, all leaning towards +Y, the way it has to be pulled."""
+    """碧靈水草 (references/CR14/selected_v002.png): seven long stems spreading star-wise from one crown, two short ones in the middle, crescent leaves in whorls of three from just above the base to a crowded tip, fine pale roots over a small lump of wet silt. The current leans it slightly towards +Y, the way it has to be pulled."""
     R = random.Random(1401)
-    tuft('Root', (0, 0, .012), .05, P['root'], seed=3)
-    for b in range(16):
-        a = R.uniform(0, math.tau); r = R.uniform(.005, .055)
-        base = Vector((math.cos(a) * r, math.sin(a) * r * .8, .012))
-        L, w, lean, side = R.uniform(.2, .36), R.uniform(.006, .011), R.uniform(.7, 1.), R.uniform(-.3, .3)
-        def blade_at(u, v, base=base, L=L, w=w, lean=lean, side=side):
-            up = math.sin(min(v * 2.4, 1.) * math.pi / 2) * L * .24 * (1 - .75 * v * v)     # up out of the mud, then over
-            out = L * lean * v * v
-            width = w * (1 - v ** 2.2) * (u - .5) * 2
-            return tuple(base + Vector((side * out + width, out, up + abs(u - .5) * .004)))
-        sheet('Blade', 2, 6, blade_at, P['blade'], solid=None, grain='z')
+    def lump_z(x, y):
+        q = (x / .06) ** 2 + ((y + .005) / .07) ** 2
+        return .026 * max(0., 1 - q) ** .55 + .004 * noise.noise(Vector((x * 34, y * 34, 1.))) * max(0., min(1., (1 - q) * 4))
+    def lump(u, v):
+        a = u * math.tau; ca, sa = math.cos(a), math.sin(a); wob = 1 + .14 * noise.noise(Vector((ca * 2.2, sa * 2.2, 3.)))
+        x, y = ca * .06 * v * wob, -.005 + sa * .07 * v * wob
+        return (x, y, max(0., lump_z(x, y)))
+    surface('Mud_Lump', 16, 5, lump, P['mud'], closed_u=True)
+    # fine pale roots spread from the crown over the silt
+    for k in range(9):
+        a = k / 9 * math.tau + R.uniform(-.25, .25); bend = R.uniform(-.5, .5); reach = R.uniform(.032, .052); pts = []
+        for j in range(4):
+            t = j / 3; ang = a + bend * t; x, y = math.cos(ang) * (.006 + t * reach), -.005 + math.sin(ang) * (.006 + t * reach)
+            pts.append((x, y, lump_z(x, y) + .001))
+        log('Root', pts, .00055 + .00025 * (k % 2), P['root'], seg=4, lump=.2, seed=k, detail=1, step=.014)
+    def leaf(c, along, out, L, w, rise, droop, mat):
+        """A closed crescent sliver, sixteen triangles: two rows across the blade with a ridge above and below, 'cuv' running base to tip."""
+        side = along.cross(out).normalized()
+        def spine(v): return c + out * (L * v) + along * (L * (rise * math.sin(v * math.pi * .75) - droop * v ** 3))
+        flat = side.cross((spine(1.) - c).normalized()).normalized(); th = w * .2
+        v1, v2 = .34, .68; a1, a2 = spine(v1), spine(v2); w1, w2 = w, w * .72
+        verts = [c, spine(1.), a1 + side * w1, a1 - side * w1, a2 + side * w2, a2 - side * w2, a1 + flat * th, a1 - flat * th, a2 + flat * th * .7, a2 - flat * th * .7]
+        faces = [(0, 2, 6), (0, 6, 3), (2, 4, 8), (2, 8, 6), (6, 8, 5), (6, 5, 3), (4, 1, 8), (8, 1, 5), (0, 7, 2), (0, 3, 7), (2, 9, 4), (2, 7, 9), (7, 5, 9), (7, 3, 5), (4, 9, 1), (9, 5, 1)]
+        o = mesh('Leaf', [tuple(v) for v in verts], faces, mat, smooth=False, grain='z')
+        set_attr_list(o, 'cuv', [(.5, 0., 0.), (.5, 1., 0.), (0., v1, 0.), (1., v1, 0.), (0., v2, 0.), (1., v2, 0.), (.5, v1, 0.), (.5, v1, 0.), (.5, v2, 0.), (.5, v2, 0.)])
+    for s_ in range(9):
+        inner = s_ >= 7
+        a = (s_ + R.uniform(-.2, .2)) / 7 * math.tau + .3; fan = R.uniform(.012, .025) if inner else R.uniform(.075, .125); h = R.uniform(.1, .13) if inner else .15 + .075 * (s_ * 3 % 7) / 6; lean = R.uniform(.005, .025); sway = R.uniform(0, 6)
+        base = Vector((math.cos(a) * .004, -.005 + math.sin(a) * .004, lump_z(0, -.005) - .003))
+        def stem(t, base=base, a=a, fan=fan, h=h, lean=lean, sway=sway):
+            return base + Vector((math.cos(a) * fan * t ** 1.25 + .004 * math.sin(t * 5 + sway), math.sin(a) * fan * .82 * t ** 1.25 + lean * t ** 1.5, h * t * (1 - .06 * t * t)))
+        log('Stem', [tuple(stem(i / 6)) for i in range(7)], .0012, P['stem'], seg=4, lump=.08, seed=s_, step=.022)
+        n = int(12 + h * 32)
+        for j in range(n):
+            t = .15 + .85 * (1 - (1 - (j + .5) / n) ** 1.3)   # bare just above the crown, crowding together towards the tip
+            c = stem(t); along = (stem(min(1., t + .02)) - stem(max(0., t - .02))).normalized()
+            ref = Vector((0, 0, 1)) if abs(along.z) < .9 else Vector((1, 0, 0)); e1 = along.cross(ref).normalized(); e2 = along.cross(e1)
+            for q in range(3):
+                ang = j * math.pi / 3 + q * math.tau / 3 + R.uniform(-.2, .2); out = (e1 * math.cos(ang) + e2 * math.sin(ang)).normalized()
+                L = R.uniform(.031, .039) * (1.05 - .55 * t ** 3); roll = R.random()
+                mat = P['shade'] if t < .3 or roll < .14 else P['light'] if t > .72 or roll > .75 else P['leaf']
+                leaf(c, along, out, L, L * .13, .42 + .35 * t, .3, mat)
     collide(((-.08, -.08, 0), (.08, .08, .05)))
 
 

@@ -21,9 +21,9 @@ CLEAR = .2; FLOOR = .1; TOP = .52; BOARD_HW = .224; BOARD_T = .036; BOARD_TOP = 
 def palette(variant):
     P = {}
     if variant == 'A':
-        P['stone'] = cm.stone('Stone_Rough', wet_z=WET, moss=1.0, lichen=.6)
+        P['stone'] = cm.stone('Stone_Rough', light=(.27, .255, .22), dark=(.125, .118, .1), wet_z=WET, moss=1.0, lichen=.6)
     else:
-        P['stone'] = cm.stone('Stone_Dressed', light=(.42, .385, .31), dark=(.2, .18, .15), ochre=(.3, .25, .16), wet_z=WET, moss=.82, lichen=.3, crack=.4)
+        P['stone'] = cm.stone('Stone_Dressed', light=(.31, .285, .23), dark=(.15, .135, .11), ochre=(.23, .19, .12), wet_z=WET, moss=.82, lichen=.3, crack=.4)
     P['board'] = cm.wood('Gate_Cedar', (.075, .04, .02), (.25, .14, .068), wet_z=WET, ground_h=0, grey=.18)
     P['board_new'] = cm.wood('Gate_Cedar_New', (.13, .07, .03), (.36, .21, .095), wet_z=WET, ground_h=0, grey=.05)
     P['core'] = cm.wood('Gate_Core', (.02, .012, .008), (.04, .025, .015), ground_h=0, grey=0)
