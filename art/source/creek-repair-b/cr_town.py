@@ -20,10 +20,10 @@ def dipper(name, q, handle_dir, mat, group=None, **kw):
 
 # ------------------------------------------------------------------ CR07 celebration set
 def cele_palette():
-    P = {'plank': [cm.wood('Plank_Weathered', (.1, .075, .05), (.36, .28, .18), ground_h=0, grey=.5), cm.wood('Plank_Red', (.11, .05, .03), (.34, .16, .1), ground_h=0, grey=.3), cm.wood('Plank_Blue', (.07, .085, .09), (.2, .25, .27), ground_h=0, grey=.5), cm.wood('Plank_Honey', (.13, .08, .04), (.42, .29, .15), ground_h=0, grey=.2)]}
+    P = {'plank': [cm.wood('Plank_Weathered', (.1, .075, .05), (.36, .28, .18), ground_h=0, grey=.5), cm.wood('Plank_Red', (.1, .058, .034), (.3, .19, .12), ground_h=0, grey=.4), cm.wood('Plank_Blue', (.075, .072, .062), (.25, .235, .2), ground_h=0, grey=.6), cm.wood('Plank_Honey', (.13, .08, .04), (.42, .29, .15), ground_h=0, grey=.2)]}
     P['trestle'] = cm.wood('Trestle', (.06, .036, .018), (.22, .13, .07), ground_h=.15, grey=.25); P['ring'] = tm.plain('Water_Ring', (.09, .055, .035), rough=.5, noise=.1); P['iron'] = mm.cast_iron('Table_Iron')
     P['culm'] = cm.culm('Pole_Bamboo', green=(.14, .17, .05), straw=(.34, .27, .12), mud_h=.25); P['hemp'] = mm.hemp('Hemp_Rope', (.3, .2, .09), twist=40.0); P['paper'] = cm.paper('Lantern_Paper', base=(.66, .56, .34), edge=(.42, .27, .13), age=.15); P['mend'] = cm.paper('Lantern_Mend', base=(.42, .2, .13), age=.4)
-    P['lit'] = tm.paper('Lantern_Lit', (.85, .62, .3), 'Main', emit=(1., .68, .32)); P['rib'] = mm.bamboo('Lantern_Rib'); P['brass'] = mm.brass('Lantern_Brass', base=(.46, .27, .1), amt=.3); P['tassel'] = mm.cloth('Lantern_Tassel', (.36, .09, .06), dirt=.3)
+    P['paper_old'] = cm.paper('Lantern_Paper_Old', base=(.5, .39, .21), edge=(.3, .18, .08), age=.35); P['lit'] = tm.paper('Lantern_Lit', (.85, .62, .3), 'Main', emit=(1., .68, .32)); P['rib'] = mm.bamboo('Lantern_Rib'); P['brass'] = mm.brass('Lantern_Brass', base=(.46, .27, .1), amt=.3); P['tassel'] = mm.cloth('Lantern_Tassel', (.36, .09, .06), dirt=.3)
     P['jar'] = cm.clay('Wine_Jar', body=(.2, .085, .045), glaze=(.13, .055, .03)); P['jar2'] = cm.clay('Wine_Jar_Small', body=(.17, .08, .04), glaze=(.1, .05, .028)); P['cap'] = mm.cloth('Jar_Cap', (.3, .055, .04), dirt=.3)
     P['basket'] = mm.bamboo('Basket_Bamboo'); P['grass'] = cm.moss_tuft('Foot_Grass', soft=True); P['rag'] = cm.canvas('Line_Rag', base=(.62, .55, .4), stain=(.34, .27, .16), faded=.2, dirt=.5)
     P['orange'] = tm.plain('Fruit_Orange', (.66, .34, .06), rough=.5, noise=.12); P['peach'] = tm.plain('Fruit_Peach', (.68, .25, .17), rough=.6, noise=.2); P['leaf'] = tm.plain('Fruit_Leaf', (.08, .17, .04), rough=.6, noise=.2)
@@ -31,10 +31,10 @@ def cele_palette():
 
 
 def lantern(P, i, c):
-    g = f'Lantern_{i:02d}'; R, H = .15, .13
+    g = f'Lantern_{i:02d}'; R, H = .15 * (1 + .07 * math.sin(i * 2.3)), .13 * (1 + .09 * math.sin(i * 4.1 + 1.))
     prof = [(max(.035, R * math.cos(t)), H * math.sin(t)) for t in [-1.3 + k * 2.6 / 12 for k in range(13)]]
     prof = [(0, prof[0][1])] + prof + [(0, prof[-1][1])]
-    lathe('Paper', prof, c, P['paper'], seg=20, group=g)
+    lathe('Paper', prof, c, P['paper_old'] if i % 3 == 1 else P['paper'], seg=20, group=g)
     if i == 3:   # the mended lantern: two stitched-on squares
         for j, (a0, h0, da, dh) in enumerate(((-1.95, -.1, .75, .75), (-.9, .2, .5, .55))):
             def mend(u, v, a0=a0, h0=h0, da=da, dh=dh):
