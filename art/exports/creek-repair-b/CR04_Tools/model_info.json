@@ -104,20 +104,20 @@
       "LOD2": 768
     },
     "MortarBucket": {
-      "LOD0": 3872,
-      "LOD1": 1936,
-      "LOD2": 580
+      "LOD0": 3848,
+      "LOD1": 1924,
+      "LOD2": 576
     },
     "Trowel": {
-      "LOD0": 948,
-      "LOD1": 474,
-      "LOD2": 142
+      "LOD0": 916,
+      "LOD1": 458,
+      "LOD2": 136
     }
   },
   "lod_totals": {
-    "LOD0": 38162,
-    "LOD1": 19080,
-    "LOD2": 5720
+    "LOD0": 38106,
+    "LOD1": 19052,
+    "LOD2": 5710
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

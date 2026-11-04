@@ -149,7 +149,8 @@
       "pass": true,
       "detail": {
         "path_length_m": 1.963,
-        "uv_v_length": 2
+        "uv_v_length": 2,
+        "note": "a piece under 1 m still runs v 0..1, so the pattern joins its neighbours"
       }
     },
     {
@@ -159,7 +160,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 115,
+  "seconds": 111,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

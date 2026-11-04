@@ -1,0 +1,142 @@
+{
+ "F01_Field_LOD0": {
+  "tris": 14102,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 12,
+  "coplanar_two_sides": 2375,
+  "closed_pieces": 73,
+  "open_pieces": 785,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -0.6,
+     0.44,
+     0.0
+    ],
+    2
+   ],
+   [
+    [
+     -1.38,
+     1.09,
+     0.0
+    ],
+    2
+   ],
+   [
+    [
+     1.05,
+     0.22,
+     -0.0
+    ],
+    1
+   ],
+   [
+    [
+     1.95,
+     0.22,
+     -0.0
+    ],
+    1
+   ],
+   [
+    [
+     -1.22,
+     1.09,
+     0.0
+    ],
+    1
+   ],
+   [
+    [
+     -1.05,
+     1.09,
+     0.0
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "F01_LOD1": {
+  "tris": 6884,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 73,
+  "open_pieces": 729,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "F01_LOD2": {
+  "tris": 2063,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 46,
+  "open_pieces": 375,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "F01_weir_LOD1": {
+  "tris": 390,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 23,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "F01_weir_LOD2": {
+  "tris": 111,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 18,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "F01_weir_wheel_LOD1": {
+  "tris": 176,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 7,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "F01_weir_wheel_LOD2": {
+  "tris": 47,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 2,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

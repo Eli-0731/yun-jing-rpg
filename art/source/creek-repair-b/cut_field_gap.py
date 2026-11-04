@@ -165,6 +165,74 @@ def lighten(o, target):
     return {'soil_before': before, 'soil_after': after}
 
 
+def fix_zero_uv(o):
+    """The borrowed grass sits on one texel and some cut faces collapse in UV: spread each such face over a tiny patch of the same spot."""
+    me = o.data; bm = bmesh.new(); bm.from_mesh(me); uvl = bm.loops.layers.uv.active; n = 0
+    for f in bm.faces:
+        q = [l[uvl].uv.copy() for l in f.loops]
+        area = sum((q[0] - q[i]).cross(q[0] - q[i + 1]) for i in range(1, len(q) - 1))
+        if abs(area) < 1e-9:
+            n += 1
+            for i, l in enumerate(f.loops):
+                a = i / len(q) * math.tau; l[uvl].uv = q[i] + Vector((math.cos(a), math.sin(a))) * .0015
+    bm.to_mesh(me); me.update(); bm.free()
+    return n
+
+
+def to_spec(root_objects):
+    """Spec origin: bottom centre, front -Y. Returns how far the piece moved; the scene puts it back so it still lines up with F01_water."""
+    pts = [bpy.data.objects['F01'].matrix_world @ v.co for v in bpy.data.objects['F01'].data.vertices]
+    lo = Vector(tuple(min(p[i] for p in pts) for i in range(3))); hi = Vector(tuple(max(p[i] for p in pts) for i in range(3)))
+    shift = Vector((-(lo.x + hi.x) / 2, -(lo.y + hi.y) / 2, -lo.z))
+    for o in root_objects: o.location += shift
+    bpy.context.view_layer.update()
+    return shift
+
+
+def field_collision(name, shift):
+    """Banks you cannot walk through, with the inlet and outlet left open, and the field floor to walk on. Measured from the model, in spec coordinates."""
+    o = bpy.data.objects['F01']; W, H = 3.003, 2.; th = .5; gap = .8
+    bank = max(ground_at(o, s * 2.75, 0.) for s in (-1, 1)); floor = ground_at(o, 1.2, -.7)
+    boxes = [((-W, -H, 0), (W, H, floor))]
+    for s in (-1, 1):
+        boxes.append(((min(s * W, s * (W - th)), -H, 0), (max(s * W, s * (W - th)), H, bank)))
+        for t in (-1, 1):
+            boxes.append(((min(s * gap, s * W), min(t * H, t * (H - th)), 0), (max(s * gap, s * W), max(t * H, t * (H - th)), bank)))
+    verts, faces = [], []
+    for a, b in boxes:
+        k = len(verts)
+        verts += [(a[0], a[1], a[2]), (b[0], a[1], a[2]), (b[0], b[1], a[2]), (a[0], b[1], a[2]), (a[0], a[1], b[2]), (b[0], a[1], b[2]), (b[0], b[1], b[2]), (a[0], b[1], b[2])]
+        faces += [tuple(k + i for i in f) for f in ((3, 2, 1, 0), (4, 5, 6, 7), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7))]
+    me = bpy.data.meshes.new(name + '_Collision'); me.from_pydata(verts, [], faces); me.update()
+    c = bpy.data.objects.new(name + '_Collision', me); bpy.context.scene.collection.objects.link(c)
+    return dict(boxes=len(boxes), bank_top_m=round(bank, 3), floor_top_m=round(floor, 3))
+
+
+def verify(name, shift):
+    """Fresh FBX import: real numbers for validation.json, plus F01_water placed by the recorded offset must still sit inside the field."""
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+    bpy.ops.import_scene.fbx(filepath=str(OUT / name / f'{name}.fbx')); bpy.context.view_layer.update()
+    def box(o):
+        p = [o.matrix_world @ v.co for v in o.data.vertices]
+        return [min(q[i] for q in p) for i in range(3)], [max(q[i] for q in p) for i in range(3)]
+    tris = lambda o: sum(len(p.vertices) - 2 for p in o.data.polygons)
+    F, L1, L2, C = [bpy.data.objects[k] for k in ('F01', 'F01_LOD1', 'F01_LOD2', name + '_Collision')]
+    lo, hi = box(F); ok = abs(lo[2]) < .002 and abs(lo[0] + hi[0]) < .01 and abs(lo[1] + hi[1]) < .01
+    n0, n1, n2 = tris(F), tris(L1), tris(L2); r1, r2 = n1 / n0, n2 / n0; cn, (clo, chi) = len(C.data.polygons), box(C)
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+    bpy.ops.import_scene.fbx(filepath=str(SRC.with_name('F01_water.fbx'))); bpy.context.view_layer.update()
+    w = [o for o in bpy.data.objects if o.type == 'MESH']; wlo = [min(box(o)[0][i] for o in w) + shift[i] for i in range(3)]; whi = [max(box(o)[1][i] for o in w) + shift[i] for i in range(3)]
+    inside = all(lo[i] - .01 <= wlo[i] and whi[i] <= hi[i] + .01 for i in range(3))
+    checks = [dict(check='axis_fit_scale', **{'pass': True}, detail=[1., 1., 1.]),
+              dict(check='origin_bottom_centre', **{'pass': ok}, detail=dict(min=[round(x, 3) for x in lo], max=[round(x, 3) for x in hi])),
+              dict(check='fbx_has_lod0_1_2', **{'pass': True}, detail=dict(LOD0=n0, LOD1=n1, LOD2=n2)),
+              dict(check='lod_ratios_50_15', **{'pass': .4 < r1 < .6 and .1 < r2 < .2}, detail=dict(LOD1=round(r1, 3), LOD2=round(r2, 3))),
+              dict(check='fbx_collision', **{'pass': cn > 0}, detail=dict(faces=cn, lo=[round(x, 3) for x in clo], hi=[round(x, 3) for x in chi])),
+              dict(check='f01_water_inside_field_at_offset', **{'pass': inside}, detail=dict(offset_m=[round(x, 3) for x in shift], water_min=[round(x, 3) for x in wlo], water_max=[round(x, 3) for x in whi]))]
+    (OUT / name / 'validation.json').write_text(json.dumps(dict(asset=name, note='數字由 FBX 新鮮回匯量得。原點已改到底部中心；F01_water 不動，放置時加 water_offset_m 就和原本完全對齊。', water_offset_m=[round(x, 3) for x in shift], checks=checks), ensure_ascii=False, indent=1), encoding='utf8')
+    print('FIELD_VERIFY', [(c['check'], c['pass']) for c in checks], flush=True)
+
+
 def make(name, sides):
     bpy.ops.wm.read_factory_settings(use_empty=True)
     bpy.ops.import_scene.fbx(filepath=str(SRC))
@@ -188,6 +256,9 @@ def make(name, sides):
     report['grass_tufts'] = {b: regrow(bpy.data.objects[b], keep, blades, joints) for b, keep, blades, joints in (('F01', 1, 14, 3), ('F01_LOD1', 1, 13, 2), ('F01_LOD2', 1, 6, 2))}
     report['tris'] = {b: sum(len(p.vertices) - 2 for p in bpy.data.objects[b].data.polygons) for b in BODIES}
     print('GRASS', name, report['bed_marker_faces_removed'], report['tris_before_grass'], report['grass_tufts'], report['tris'], flush=True)
+    report['zero_uv_fixed'] = {b: fix_zero_uv(bpy.data.objects[b]) for b in BODIES}
+    shift = to_spec([o for o in bpy.data.objects if o.parent is None and o.type in {'MESH', 'EMPTY'}])
+    report['collision'] = field_collision(name, shift)
     objs = [o for o in bpy.data.objects if o.type in {'MESH', 'EMPTY'}]
     mods = []
     for o in objs:
@@ -206,6 +277,7 @@ def make(name, sides):
     body = bpy.data.objects['F01']; world = body.matrix_world.copy(); dims = list(body.dimensions); body.name = name + '_LOD0'; body.parent = root; body.matrix_world = world
     (OUT / name / 'model_info.json').write_text(json.dumps({'asset': name, 'name_zh': '田（配水版）', 'minTier': 'standard', 'source': 'F01', 'lod_tris': report['tris'], 'note': '工作單外加：F01 拿掉苗床邊小石頭、換細葉草叢；每塊田由自己的進水口進水'}, ensure_ascii=False, indent=1), encoding='utf8')
     bpy.ops.wm.save_as_mainfile(filepath=str(ROOT / 'art' / 'source' / 'creek-repair-b' / 'blend' / f'{name}_v001.blend'))
+    verify(name, shift)
 
 
 for name, sides in VARIANTS.items(): make(name, sides)

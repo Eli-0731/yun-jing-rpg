@@ -47,9 +47,9 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 38162,
-          "LOD1": 19080,
-          "LOD2": 5720
+          "LOD0": 38106,
+          "LOD1": 19052,
+          "LOD2": 5710
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
@@ -70,14 +70,14 @@
             "LOD2": 768
           },
           "MortarBucket": {
-            "LOD0": 3872,
-            "LOD1": 1936,
-            "LOD2": 580
+            "LOD0": 3848,
+            "LOD1": 1924,
+            "LOD2": 576
           },
           "Trowel": {
-            "LOD0": 948,
-            "LOD1": 474,
-            "LOD2": 142
+            "LOD0": 916,
+            "LOD1": 458,
+            "LOD2": 136
           }
         }
       }
@@ -168,7 +168,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 157,
+  "seconds": 92,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

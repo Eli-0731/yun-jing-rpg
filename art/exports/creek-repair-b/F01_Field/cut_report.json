@@ -30,6 +30,16 @@
    "F01": 14102,
    "F01_LOD1": 6884,
    "F01_LOD2": 2063
+  },
+  "zero_uv_fixed": {
+   "F01": 2352,
+   "F01_LOD1": 1456,
+   "F01_LOD2": 696
+  },
+  "collision": {
+   "boxes": 7,
+   "bank_top_m": 0.591,
+   "floor_top_m": 0.347
   }
  },
  "heights_m": {

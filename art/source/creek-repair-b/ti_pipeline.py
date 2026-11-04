@@ -68,9 +68,15 @@ def join_groups():
     S['lod0'] = out
     return out
 
-def orient_faces(me):
-    """Unity culls back faces. Each connected piece faces outward; an open piece (terrain skin, water) that lies mostly flat faces up."""
-    bm = bmesh.new(); bm.from_mesh(me); bm.faces.ensure_lookup_table(); seen = set()
+def orient_faces(me, flush=True):
+    """Unity culls back faces. Drop zero-area faces (they get zero-area UVs), then each connected piece faces outward; an open piece (terrain skin, water) that lies mostly flat faces up."""
+    bm = bmesh.new(); bm.from_mesh(me)
+    bmesh.ops.dissolve_degenerate(bm, dist=1e-5, edges=bm.edges[:])
+    dead = [f for f in bm.faces if f.calc_area() < 1e-10]
+    if dead: bmesh.ops.delete(bm, geom=dead, context='FACES_ONLY')
+    loose = [v for v in bm.verts if not v.link_faces]
+    if loose: bmesh.ops.delete(bm, geom=loose, context='VERTS')
+    bm.faces.ensure_lookup_table(); seen = set()
     for f0 in bm.faces:
         if f0.index in seen: continue
         island, todo = [], [f0]; seen.add(f0.index)
@@ -83,7 +89,91 @@ def orient_faces(me):
         if any(e.is_boundary for f in island for e in f.edges):
             n = sum((f.normal * f.calc_area() for f in island), Vector())
             if n.z < 0 and abs(n.z) > .6 * n.length: bmesh.ops.reverse_faces(bm, faces=island)
+        else:
+            if _signed_volume(island) < 0: bmesh.ops.reverse_faces(bm, faces=island)
     bm.to_mesh(me); bm.free(); me.update()
+    if flush:
+        for _ in range(6):
+            if not separate_flush(me): break
+
+
+def _signed_volume(faces):
+    """In doubles and about the piece's own first vertex: on a sheet this flat, single-precision world coordinates only give rounding noise."""
+    o = faces[0].verts[0].co; ox, oy, oz = float(o.x), float(o.y), float(o.z); vol = 0.
+    for f in faces:
+        q = [(float(v.co.x) - ox, float(v.co.y) - oy, float(v.co.z) - oz) for v in f.verts]
+        for k in range(1, len(q) - 1):
+            (ax, ay, az), (bx, by, bz), (cx, cy, cz) = q[0], q[k], q[k + 1]
+            vol += (ax * (by * cz - bz * cy) + ay * (bz * cx - bx * cz) + az * (bx * cy - by * cx)) / 6
+    return vol
+
+
+def _flush_pairs(bm, tol=.0005):
+    """Same-facing triangles of two pieces lying in one plane and overlapping: they z-fight. Faces flat on the ground are never seen."""
+    planes = {}
+    for f in bm.faces:
+        if f.calc_area() < 1e-8: continue
+        n = f.normal
+        if n.z < -.9 and f.verts[0].co.z < .002: continue
+        planes.setdefault((round(n.x, 2), round(n.y, 2), round(n.z, 2)), []).append((n.dot(f.verts[0].co), f))
+    pairs = []
+    for key, fs in planes.items():
+        if len(fs) < 2: continue
+        fs.sort(key=lambda q: q[0]); n = Vector(key).normalized(); u = n.orthogonal().normalized(); v = n.cross(u)
+        tris = [[(p.co.dot(u), p.co.dot(v)) for p in q[1].verts] for q in fs]
+        def apart(A, B):
+            for P, Q in ((A, B), (B, A)):
+                for i in range(3):
+                    ex, ey = P[(i + 1) % 3][0] - P[i][0], P[(i + 1) % 3][1] - P[i][1]; L = math.hypot(ex, ey)
+                    if L < 1e-9: return True
+                    a = [(y * ex - x * ey) / L for x, y in P]; b = [(y * ex - x * ey) / L for x, y in Q]
+                    if max(a) <= min(b) + 1e-5 or max(b) <= min(a) + 1e-5: return True
+            return False
+        for i in range(len(fs)):
+            j = i + 1
+            while j < len(fs) and fs[j][0] - fs[i][0] <= tol:
+                if not apart(tris[i], tris[j]): pairs.append((fs[i][1], fs[j][1]))
+                j += 1
+    return pairs
+
+
+def separate_flush(me, push=.0009):
+    """Where two pieces share a face plane, swell the smaller piece a hair so it sits proud; never below the ground. Returns how many pairs it found."""
+    bm = bmesh.new(); bm.from_mesh(me); bmesh.ops.triangulate(bm, faces=bm.faces[:]); bm.verts.ensure_lookup_table(); bm.normal_update()
+    root = list(range(len(bm.verts)))
+    def find(i):
+        while root[i] != i: root[i] = root[root[i]]; i = root[i]
+        return i
+    for e in bm.edges: root[find(e.verts[0].index)] = find(e.verts[1].index)
+    area = {}
+    for f in bm.faces:
+        k = find(f.verts[0].index); area[k] = area.get(k, 0.) + f.calc_area()
+    lo = [min(v.co[k] for v in bm.verts) for k in range(3)]; hi = [max(v.co[k] for v in bm.verts) for k in range(3)]
+    span = {}
+    for v in bm.verts:
+        k = find(v.index); s = span.setdefault(k, [list(v.co), list(v.co)])
+        for i in range(3): s[0][i] = min(s[0][i], v.co[i]); s[1][i] = max(s[1][i], v.co[i])
+    def thin(k): return min(b - a for a, b in zip(*span[k])) < 4 * push    # swelling would turn it inside out
+    pairs = _flush_pairs(bm); grow = set(); shift = {}
+    for f, g in pairs:
+        a, b = find(f.verts[0].index), find(g.verts[0].index)
+        if a == b: continue
+        k, face = (a, f) if area[a] < area[b] else (b, g)
+        n = face.normal
+        if any(not lo[i] - 1e-6 <= v.co[i] + n[i] * push <= hi[i] + 1e-6 for v in face.verts for i in range(3)): shift[k] = -n * push * (1 + k % 5)    # on the mesh's outer bound: sink it, sizes and ports stay exact
+        elif thin(k): shift[k] = n * push * (1 + k % 5)    # a row of equal pieces must not move as one; swelling would turn it inside out: slide it clear
+        else: grow.add(k)
+    moved = {}
+    if grow or shift:
+        for v in bm.verts:
+            k = find(v.index)
+            if k not in shift and k not in grow: continue
+            q = v.co + shift[k] if k in shift else v.co + v.normal * push
+            moved[v.index] = tuple(min(max(q[i], lo[i]), hi[i]) for i in range(3))
+    bm.free()
+    for i, q in moved.items(): me.vertices[i].co = q
+    me.update()
+    return len(grow) + len(shift)
 
 
 def _dedupe_slots(me):
@@ -133,6 +223,21 @@ def _img(name, size, color=True, alpha=False):
     im = bpy.data.images.new(name, size, size, alpha=alpha, float_buffer=not color)
     im.colorspace_settings.name = 'sRGB' if color else 'Non-Color'
     return im
+
+def spread_zero_uv(objs=None, eps=1e-10):
+    """A sliver can pack to no area in the atlas: open it to a patch under one texel of the same spot."""
+    n = 0
+    for o in (S['lod0'].values() if objs is None else objs):
+        bm = bmesh.new(); bm.from_mesh(o.data); uvl = bm.loops.layers.uv.active
+        for f in bm.faces:
+            q = [l[uvl].uv.copy() for l in f.loops]
+            if min(abs((q[i] - q[0]).cross(q[i + 1] - q[0])) * .5 for i in range(1, len(q) - 1)) < eps:
+                n += 1
+                for i, l in enumerate(f.loops):
+                    a = i / len(q) * math.tau; l[uvl].uv = q[i] + Vector((math.cos(a), math.sin(a))) * .0003
+        bm.to_mesh(o.data); bm.free(); o.data.update()
+    return n
+
 
 def bake(tex_dir, size):
     """Bake colour/roughness/metal/emission through an Emission shader, then a tangent normal map."""
@@ -208,6 +313,7 @@ def make_lods():
             m = o.modifiers.new('LOD_decimate', 'DECIMATE'); m.ratio = ratio; m.use_collapse_triangulate = True
             bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active = o
             bpy.ops.object.modifier_apply(modifier=m.name)
+            orient_faces(o.data, flush=False)   # the collapse can leave slivers and turn a thin piece inside out
             with bpy.context.temp_override(object=o, active_object=o, selected_objects=[o], selected_editable_objects=[o]):
                 try: bpy.ops.mesh.customdata_custom_splitnormals_clear()
                 except Exception: pass

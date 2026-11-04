@@ -362,9 +362,9 @@
       "LOD2": 100
     },
     "FruitBasket": {
-      "LOD0": 13064,
-      "LOD1": 6532,
-      "LOD2": 1958
+      "LOD0": 13044,
+      "LOD1": 6522,
+      "LOD2": 1956
     },
     "Jar_1": {
       "LOD0": 1656,
@@ -478,9 +478,9 @@
     }
   },
   "lod_totals": {
-    "LOD0": 95820,
-    "LOD1": 47910,
-    "LOD2": 14363
+    "LOD0": 95800,
+    "LOD1": 47900,
+    "LOD2": 14361
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

@@ -1,11 +1,91 @@
 {
-  "asset": "F01_Field",
-  "note": "F01 的複本（art/exports/qingxi-waterworks-b/F01），幾何與 F01_water 對齊，所以原點和底部沿用原檔，沒有改。數字由 FBX 回匯量得。",
-  "checks": [
-    {"check": "axis_fit_scale", "pass": true, "detail": [1.0, 1.0, 1.0]},
-    {"check": "origin_bottom_centre", "pass": false, "detail": {"min": [-3.003, 0.0, -0.191], "max": [3.003, 4.0, 0.644], "reason": "沿用 F01：原點在 Y 邊緣，土堤底部埋入地下約 0.19 m"}},
-    {"check": "fbx_has_lod0_1_2", "pass": true, "detail": {"F01": 14102, "F01_LOD1": 6884, "F01_LOD2": 2063}},
-    {"check": "lod_ratios_50_15", "pass": true, "detail": {"LOD1": 0.488, "LOD2": 0.146}},
-    {"check": "fbx_collision", "pass": false, "detail": "沒有 _Collision，土堤可跨過，沿用 F01"}
-  ]
+ "asset": "F01_Field",
+ "note": "數字由 FBX 新鮮回匯量得。原點已改到底部中心；F01_water 不動，放置時加 water_offset_m 就和原本完全對齊。",
+ "water_offset_m": [
+  -0.0,
+  -2.0,
+  0.191
+ ],
+ "checks": [
+  {
+   "check": "axis_fit_scale",
+   "pass": true,
+   "detail": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "check": "origin_bottom_centre",
+   "pass": true,
+   "detail": {
+    "min": [
+     -3.003,
+     -2.0,
+     -0.0
+    ],
+    "max": [
+     3.003,
+     2.0,
+     0.805
+    ]
+   }
+  },
+  {
+   "check": "fbx_has_lod0_1_2",
+   "pass": true,
+   "detail": {
+    "LOD0": 14102,
+    "LOD1": 6884,
+    "LOD2": 2063
+   }
+  },
+  {
+   "check": "lod_ratios_50_15",
+   "pass": true,
+   "detail": {
+    "LOD1": 0.488,
+    "LOD2": 0.146
+   }
+  },
+  {
+   "check": "fbx_collision",
+   "pass": true,
+   "detail": {
+    "faces": 84,
+    "lo": [
+     -3.003,
+     -2.0,
+     -0.0
+    ],
+    "hi": [
+     3.003,
+     2.0,
+     0.591
+    ]
+   }
+  },
+  {
+   "check": "f01_water_inside_field_at_offset",
+   "pass": true,
+   "detail": {
+    "offset_m": [
+     -0.0,
+     -2.0,
+     0.191
+    ],
+    "water_min": [
+     -2.41,
+     -2.0,
+     0.316
+    ],
+    "water_max": [
+     2.41,
+     2.0,
+     0.473
+    ]
+   }
+  }
+ ]
 }
