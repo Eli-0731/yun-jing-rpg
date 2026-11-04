@@ -20,7 +20,7 @@ def palette():
     P['culm_beam'] = cm.culm('Bamboo_Beam', green=(.058, .066, .027), straw=(.22, .165, .07), mud_h=0)
     P['hemp'] = mm.hemp('Hemp_Lashing', (.2, .125, .052), twist=40.0)
     P['canvas'] = cm.canvas('Canvas_Roof', base=(.19, .145, .085), stain=(.09, .062, .035), faded=.04, seams=(.62,), dirt=1.)
-    P['patch'] = cm.canvas('Canvas_Patch', base=(.2, .17, .12), stain=(.09, .07, .05), faded=.2, dirt=.4)
+    P['patch'] = cm.canvas('Canvas_Patch', base=(.17, .14, .095), stain=(.085, .065, .042), faded=.1, dirt=.7)
     P['towel'] = cm.canvas('Towel_Cloth', base=(.55, .52, .44), stain=(.26, .2, .13), faded=.2, dirt=.45)
     P['towel2'] = cm.canvas('Towel_Grey', base=(.32, .33, .32), stain=(.16, .13, .09), faded=.3, dirt=.5)
     P['sack'] = cm.canvas('Sack_Hemp', base=(.3, .22, .12), stain=(.12, .08, .04), faded=.15, dirt=.5)
@@ -121,6 +121,7 @@ def canvas(P):
             ang = math.atan2(d.y, d.x); dist = d.length
             z += .018 * math.sin(ang * 11 + cx) * math.exp(-dist / .5)
         z += .016 * noise.noise(p * 1.6) + .005 * noise.noise(p * 6.)
+        z += (.016 * math.sin(x * 6.3 + 1.1 * math.sin(y * 1.7) + .8) + .007 * math.sin(x * 14.1 + 2.1 * math.sin(y * 2.3))) * math.sin(math.pi * t) * across ** .5
         edge = min(u, 1 - u, v, 1 - v)
         q = Vector((u * 22, v * 22, 2.))
         z += .05 * math.exp(-edge / .02) * noise.noise(q)          # hem not quite level
