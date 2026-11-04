@@ -1,0 +1,144 @@
+{
+  "asset": "CR03_StonePile",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [],
+  "name_zh": "石料堆（少中多）",
+  "slot": "修水路工地",
+  "note": "三個階段各自完整；_Collision 以最多階段為準。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    2.0,
+    1.5,
+    0.9929
+  ],
+  "size_limit_m": [
+    2.0,
+    1.5,
+    1.0
+  ],
+  "pieces": {
+    "Stage_Low": {
+      "dims_m": [
+        1.9796,
+        0.8668,
+        0.4772
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0053
+    },
+    "Stage_Mid": {
+      "dims_m": [
+        1.9673,
+        1.4728,
+        0.4825
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": -0.0
+    },
+    "Stage_High": {
+      "dims_m": [
+        1.9989,
+        1.5,
+        0.9899
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.003
+    }
+  },
+  "lods": {
+    "Stage_Low": {
+      "LOD0": 9828,
+      "LOD1": 4914,
+      "LOD2": 1474
+    },
+    "Stage_Mid": {
+      "LOD0": 18916,
+      "LOD1": 9458,
+      "LOD2": 2836
+    },
+    "Stage_High": {
+      "LOD0": 27380,
+      "LOD1": 13690,
+      "LOD2": 4106
+    }
+  },
+  "lod_totals": {
+    "LOD0": 56124,
+    "LOD1": 28062,
+    "LOD2": 8416
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR03_StonePile_Main"
+  ],
+  "textures": [
+    "CR03_StonePile_BaseColor.png",
+    "CR03_StonePile_Metallic.png",
+    "CR03_StonePile_MetallicSmoothness.png",
+    "CR03_StonePile_Normal.png",
+    "CR03_StonePile_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR03_StonePile_BaseColor.png",
+    "Normal": "CR03_StonePile_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR03_StonePile_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR03_StonePile_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -0.96,
+        -0.72,
+        0
+      ],
+      [
+        0.96,
+        0.68,
+        1.0
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "states": [
+    "Stage_Low / Stage_Mid / Stage_High 三個獨立物件，原點相同，一次顯示一個"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "CR03_StonePile.001",
+    "CR03_StonePile_Collision.001",
+    "CR03_StonePile_Stage_High_LOD0.001",
+    "CR03_StonePile_Stage_High_LOD1.001",
+    "CR03_StonePile_Stage_High_LOD2.001",
+    "CR03_StonePile_Stage_Low_LOD0.001",
+    "CR03_StonePile_Stage_Low_LOD1.001",
+    "CR03_StonePile_Stage_Low_LOD2.001",
+    "CR03_StonePile_Stage_Mid_LOD0.001",
+    "CR03_StonePile_Stage_Mid_LOD1.001",
+    "CR03_StonePile_Stage_Mid_LOD2.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR03/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

@@ -1,0 +1,188 @@
+{
+  "asset": "CR03_TimberRack",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR03_TimberRack_Detail_Small"
+  ],
+  "name_zh": "木料架（少中多）",
+  "slot": "修水路工地",
+  "note": "架子常駐；三個階段只換料。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    2.4805,
+    0.9803,
+    1.2
+  ],
+  "size_limit_m": [
+    2.5,
+    1.0,
+    1.2
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        2.4805,
+        0.9689,
+        1.2
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        2.2168,
+        0.9795,
+        1.0767
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0968
+    },
+    "Stage_Low": {
+      "dims_m": [
+        2.0108,
+        0.6522,
+        0.0939
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.2234
+    },
+    "Stage_Mid": {
+      "dims_m": [
+        2.361,
+        0.6522,
+        0.6032
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.2233
+    },
+    "Stage_High": {
+      "dims_m": [
+        2.3611,
+        0.6529,
+        0.7238
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.2234
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 12544,
+      "LOD1": 6272,
+      "LOD2": 1880
+    },
+    "Detail_Small": {
+      "LOD0": 80524,
+      "LOD1": 40262,
+      "LOD2": 12078
+    },
+    "Stage_Low": {
+      "LOD0": 2304,
+      "LOD1": 1152,
+      "LOD2": 344
+    },
+    "Stage_Mid": {
+      "LOD0": 5832,
+      "LOD1": 2916,
+      "LOD2": 874
+    },
+    "Stage_High": {
+      "LOD0": 12188,
+      "LOD1": 6094,
+      "LOD2": 1828
+    }
+  },
+  "lod_totals": {
+    "LOD0": 113392,
+    "LOD1": 56696,
+    "LOD2": 17004
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR03_TimberRack_Main"
+  ],
+  "textures": [
+    "CR03_TimberRack_BaseColor.png",
+    "CR03_TimberRack_Metallic.png",
+    "CR03_TimberRack_MetallicSmoothness.png",
+    "CR03_TimberRack_Normal.png",
+    "CR03_TimberRack_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR03_TimberRack_BaseColor.png",
+    "Normal": "CR03_TimberRack_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR03_TimberRack_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR03_TimberRack_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -1.25,
+        -0.52,
+        0
+      ],
+      [
+        1.25,
+        0.52,
+        1.2
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "states": [
+    "架子是 Main，Stage_Low / Stage_Mid / Stage_High 是架上的料，一次顯示一個"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "CR03_TimberRack.001",
+    "CR03_TimberRack_Collision.001",
+    "CR03_TimberRack_Detail_Small_LOD0.001",
+    "CR03_TimberRack_Detail_Small_LOD1.001",
+    "CR03_TimberRack_Detail_Small_LOD2.001",
+    "CR03_TimberRack_LOD0.001",
+    "CR03_TimberRack_LOD1.001",
+    "CR03_TimberRack_LOD2.001",
+    "CR03_TimberRack_Stage_High_LOD0.001",
+    "CR03_TimberRack_Stage_High_LOD1.001",
+    "CR03_TimberRack_Stage_High_LOD2.001",
+    "CR03_TimberRack_Stage_Low_LOD0.001",
+    "CR03_TimberRack_Stage_Low_LOD1.001",
+    "CR03_TimberRack_Stage_Low_LOD2.001",
+    "CR03_TimberRack_Stage_Mid_LOD0.001",
+    "CR03_TimberRack_Stage_Mid_LOD1.001",
+    "CR03_TimberRack_Stage_Mid_LOD2.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR03/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

@@ -1,0 +1,128 @@
+{
+  "asset": "CR08_Trestle_250",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        0.9942
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.8529,
+          -0.0793,
+          0.0
+        ],
+        "max": [
+          0.8529,
+          0.0793,
+          2.5
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          1.7058,
+          0.1586,
+          2.5
+        ],
+        "limit_m": [
+          2.1,
+          0.6,
+          2.5
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 30072,
+          "LOD1": 15036,
+          "LOD2": 4510
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 1440,
+            "LOD1": 720,
+            "LOD2": 216
+          },
+          "Detail_Small": {
+            "LOD0": 28632,
+            "LOD1": 14316,
+            "LOD2": 4294
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.7058,
+          0.1586,
+          2.5
+        ],
+        "blend_dims_m": [
+          1.7058,
+          0.1586,
+          2.5
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR08_Trestle_250.001",
+        "CR08_Trestle_250_Collision.001",
+        "CR08_Trestle_250_Detail_Small_LOD0.001",
+        "CR08_Trestle_250_Detail_Small_LOD1.001",
+        "CR08_Trestle_250_Detail_Small_LOD2.001",
+        "CR08_Trestle_250_LOD0.001",
+        "CR08_Trestle_250_LOD1.001",
+        "CR08_Trestle_250_LOD2.001",
+        "Socket_TroughSeat.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_TroughSeat.001": [
+          -0.0075,
+          0.0,
+          2.4968
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 119,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

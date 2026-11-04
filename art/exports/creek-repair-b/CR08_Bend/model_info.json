@@ -1,0 +1,159 @@
+{
+  "asset": "CR08_Bend",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR08_Bend_Detail_Small"
+  ],
+  "name_zh": "竹木渡槽（彎段）",
+  "slot": "protect_nursery",
+  "note": "半徑 1.25 m；接口與 B03 相同。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    1.5605,
+    1.561,
+    0.4514
+  ],
+  "size_limit_m": [
+    2.0,
+    2.0,
+    0.5
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        1.5605,
+        1.561,
+        0.4332
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0006
+    },
+    "Detail_Small": {
+      "dims_m": [
+        1.3508,
+        1.351,
+        0.4514
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 18724,
+      "LOD1": 9362,
+      "LOD2": 2808
+    },
+    "Detail_Small": {
+      "LOD0": 102410,
+      "LOD1": 51204,
+      "LOD2": 15360
+    }
+  },
+  "lod_totals": {
+    "LOD0": 121134,
+    "LOD1": 60566,
+    "LOD2": 18168
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR08_Bend_Main"
+  ],
+  "textures": [
+    "CR08_Bend_BaseColor.png",
+    "CR08_Bend_Metallic.png",
+    "CR08_Bend_MetallicSmoothness.png",
+    "CR08_Bend_Normal.png",
+    "CR08_Bend_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR08_Bend_BaseColor.png",
+    "Normal": "CR08_Bend_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR08_Bend_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR08_Bend_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [],
+  "sockets_blender_xyz": {
+    "Socket_PortIn": [
+      -0.4701,
+      -0.7802,
+      0.1016
+    ],
+    "Socket_PortOut": [
+      0.7799,
+      0.4698,
+      0.1016
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_PortIn.001": [
+      -0.4701,
+      -0.7802,
+      0.1016
+    ],
+    "Socket_PortOut.001": [
+      0.7799,
+      0.4698,
+      0.1016
+    ]
+  },
+  "states": [
+    "水面是獨立模型 <ID>_water_v001.fbx，不在渠身 FBX 裡：原點與渠身相同，放同一位置；UV u 0–1 橫跨、v 沿水流每公尺 +1，材質用流動 shader，沒有烘貼圖"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "CR08_Bend.001",
+    "CR08_Bend_Collision.001",
+    "CR08_Bend_Detail_Small_LOD0.001",
+    "CR08_Bend_Detail_Small_LOD1.001",
+    "CR08_Bend_Detail_Small_LOD2.001",
+    "CR08_Bend_LOD0.001",
+    "CR08_Bend_LOD1.001",
+    "CR08_Bend_LOD2.001",
+    "Socket_PortIn.001",
+    "Socket_PortOut.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR08/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file",
+  "water": {
+    "file": "CR08_Bend_water_v001.fbx",
+    "objects": [
+      "CR08_Bend_water_LOD0",
+      "CR08_Bend_water_LOD1",
+      "CR08_Bend_water_LOD2"
+    ],
+    "triangles": {
+      "LOD0": 384,
+      "LOD1": 192,
+      "LOD2": 56
+    },
+    "origin": "same as the body FBX",
+    "dimensions_m": [
+      1.45,
+      1.45,
+      0.0
+    ],
+    "uv": "u 0..1 across the channel, v in metres downstream, whole metres per piece",
+    "path_length_m": 1.963,
+    "textures": "none",
+    "unity_shader": "YunJing/CreekFlowWater (apps/game/Assets/YunJing/Runtime/CreekRepair/CreekFlowWater.shader): moves on _Time, no script needed"
+  }
+}

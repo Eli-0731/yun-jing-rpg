@@ -1,0 +1,175 @@
+{
+  "asset": "CR04_Tools",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.2555,
+          -0.6354,
+          0.0
+        ],
+        "max": [
+          1.2555,
+          0.6354,
+          0.4862
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          2.511,
+          1.2708,
+          0.4862
+        ],
+        "limit_m": [
+          3.0,
+          1.45,
+          0.55
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 38162,
+          "LOD1": 19080,
+          "LOD2": 5720
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Spade": {
+            "LOD0": 7332,
+            "LOD1": 3666,
+            "LOD2": 1098
+          },
+          "Basket": {
+            "LOD0": 20880,
+            "LOD1": 10440,
+            "LOD2": 3132
+          },
+          "Tamper": {
+            "LOD0": 5130,
+            "LOD1": 2564,
+            "LOD2": 768
+          },
+          "MortarBucket": {
+            "LOD0": 3872,
+            "LOD1": 1936,
+            "LOD2": 580
+          },
+          "Trowel": {
+            "LOD0": 948,
+            "LOD1": 474,
+            "LOD2": 142
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          2.511,
+          1.2708,
+          0.4862
+        ],
+        "blend_dims_m": [
+          2.511,
+          1.2708,
+          0.4862
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR04_Tools.001",
+        "CR04_Tools_Basket_LOD0.001",
+        "CR04_Tools_Basket_LOD1.001",
+        "CR04_Tools_Basket_LOD2.001",
+        "CR04_Tools_MortarBucket_LOD0.001",
+        "CR04_Tools_MortarBucket_LOD1.001",
+        "CR04_Tools_MortarBucket_LOD2.001",
+        "CR04_Tools_Spade_LOD0.001",
+        "CR04_Tools_Spade_LOD1.001",
+        "CR04_Tools_Spade_LOD2.001",
+        "CR04_Tools_Tamper_LOD0.001",
+        "CR04_Tools_Tamper_LOD1.001",
+        "CR04_Tools_Tamper_LOD2.001",
+        "CR04_Tools_Trowel_LOD0.001",
+        "CR04_Tools_Trowel_LOD1.001",
+        "CR04_Tools_Trowel_LOD2.001",
+        "Socket_Hand_Basket.001",
+        "Socket_Hand_MortarBucket.001",
+        "Socket_Hand_Spade.001",
+        "Socket_Hand_Tamper.001",
+        "Socket_Hand_Trowel.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Hand_Basket.001": [
+          -0.3705,
+          0.1682,
+          0.4643
+        ],
+        "Socket_Hand_MortarBucket.001": [
+          0.7995,
+          -0.0118,
+          0.4093
+        ],
+        "Socket_Hand_Spade.001": [
+          -1.1374,
+          0.4029,
+          0.0283
+        ],
+        "Socket_Hand_Tamper.001": [
+          0.2594,
+          0.2859,
+          0.0979
+        ],
+        "Socket_Hand_Trowel.001": [
+          1.1995,
+          -0.2218,
+          0.0613
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "手持工具，不擋人"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 157,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "asset": "CR14_WeedClump",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR14_WeedClump_Detail_Small"
+  ],
+  "name_zh": "泥上的水草叢",
+  "slot": "水草泥堆",
+  "note": "工作單外加的：取代原本用線條畫的水草。草葉一律倒向 +Y，也就是要拉的方向；根部是一團泥苔。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    0.2029,
+    0.3473,
+    0.0958
+  ],
+  "size_limit_m": [
+    0.5,
+    0.5,
+    0.25
+  ],
+  "pieces": {
+    "Detail_Small": {
+      "dims_m": [
+        0.1059,
+        0.0818,
+        0.0393
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Main": {
+      "dims_m": [
+        0.2029,
+        0.3394,
+        0.0768
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.019
+    }
+  },
+  "lods": {
+    "Detail_Small": {
+      "LOD0": 152,
+      "LOD1": 76,
+      "LOD2": 22
+    },
+    "Main": {
+      "LOD0": 384,
+      "LOD1": 192,
+      "LOD2": 57
+    }
+  },
+  "lod_totals": {
+    "LOD0": 536,
+    "LOD1": 268,
+    "LOD2": 79
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR14_WeedClump_Main"
+  ],
+  "textures": [
+    "CR14_WeedClump_BaseColor.png",
+    "CR14_WeedClump_Metallic.png",
+    "CR14_WeedClump_MetallicSmoothness.png",
+    "CR14_WeedClump_Normal.png",
+    "CR14_WeedClump_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR14_WeedClump_BaseColor.png",
+    "Normal": "CR14_WeedClump_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR14_WeedClump_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR14_WeedClump_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -0.08,
+        -0.08,
+        0
+      ],
+      [
+        0.08,
+        0.08,
+        0.05
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "states": [
+    "一叢一個物件，遊戲依水草剩餘量一叢叢收掉"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "CR14_WeedClump.001",
+    "CR14_WeedClump_Collision.001",
+    "CR14_WeedClump_Detail_Small_LOD0.001",
+    "CR14_WeedClump_Detail_Small_LOD1.001",
+    "CR14_WeedClump_Detail_Small_LOD2.001",
+    "CR14_WeedClump_LOD0.001",
+    "CR14_WeedClump_LOD1.001",
+    "CR14_WeedClump_LOD2.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR14/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

@@ -1,0 +1,220 @@
+{
+  "asset": "CR09_B_TenonGate",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR09_B_TenonGate_Detail_Small"
+  ],
+  "name_zh": "每戶分水小閘（木榫）",
+  "slot": "每戶田口 flowRoute kind=gate",
+  "note": "閘板 _Gate 是獨立物件，沿 Z 往上 0.3 m；關閉時總高 0.6 m，全開時 0.9 m（都在 0.9 m 內）。這戶用木榫：修整過的方石加蓋石、方把手貫穿榫加楔、橫檔用木釘，比 A 整齊。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    0.8,
+    0.5,
+    0.5999
+  ],
+  "size_limit_m": [
+    0.8,
+    0.5,
+    0.9
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.8,
+        0.5,
+        0.5207
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.2942,
+        0.3564,
+        0.1428
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0862
+    },
+    "Gate": {
+      "dims_m": [
+        0.4473,
+        0.1015,
+        0.4985
+      ],
+      "pivot": [
+        -0.0003,
+        -0.0072,
+        0.1014
+      ],
+      "min_z_local": 0.0
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 23870,
+      "LOD1": 11934,
+      "LOD2": 3580
+    },
+    "Detail_Small": {
+      "LOD0": 912,
+      "LOD1": 456,
+      "LOD2": 136
+    },
+    "Gate": {
+      "LOD0": 13872,
+      "LOD1": 6936,
+      "LOD2": 2080
+    }
+  },
+  "lod_totals": {
+    "LOD0": 38654,
+    "LOD1": 19326,
+    "LOD2": 5796
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR09_B_TenonGate_Main"
+  ],
+  "textures": [
+    "CR09_B_TenonGate_BaseColor.png",
+    "CR09_B_TenonGate_Metallic.png",
+    "CR09_B_TenonGate_MetallicSmoothness.png",
+    "CR09_B_TenonGate_Normal.png",
+    "CR09_B_TenonGate_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR09_B_TenonGate_BaseColor.png",
+    "Normal": "CR09_B_TenonGate_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR09_B_TenonGate_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR09_B_TenonGate_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -0.4,
+        -0.25,
+        0
+      ],
+      [
+        -0.2,
+        0.25,
+        0.52
+      ]
+    ],
+    [
+      [
+        0.2,
+        -0.25,
+        0
+      ],
+      [
+        0.4,
+        0.25,
+        0.52
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {
+    "Socket_GateHandle": [
+      0.0,
+      0.0,
+      0.57
+    ],
+    "Socket_GateOpen": [
+      0.0,
+      0.0,
+      0.402
+    ],
+    "Socket_PortFront": [
+      0.0,
+      -0.25,
+      0.1
+    ],
+    "Socket_PortBack": [
+      0.0,
+      0.25,
+      0.1
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_GateHandle.001": [
+      0.0,
+      0.0,
+      0.57
+    ],
+    "Socket_GateOpen.001": [
+      0.0,
+      0.0,
+      0.402
+    ],
+    "Socket_PortBack.001": [
+      0.0,
+      0.25,
+      0.1
+    ],
+    "Socket_PortFront.001": [
+      0.0,
+      -0.25,
+      0.1
+    ]
+  },
+  "states": [
+    "Gate 關：局部 Z +0",
+    "Gate 開：局部 Z +0.3 m（Socket_GateOpen）"
+  ],
+  "state_renders": {
+    "gate_open": "state_gate_open.png"
+  },
+  "fbx_objects": [
+    "CR09_B_TenonGate.001",
+    "CR09_B_TenonGate_Collision.001",
+    "CR09_B_TenonGate_Detail_Small_LOD0.001",
+    "CR09_B_TenonGate_Detail_Small_LOD1.001",
+    "CR09_B_TenonGate_Detail_Small_LOD2.001",
+    "CR09_B_TenonGate_Gate_LOD0.001",
+    "CR09_B_TenonGate_Gate_LOD1.001",
+    "CR09_B_TenonGate_Gate_LOD2.001",
+    "CR09_B_TenonGate_LOD0.001",
+    "CR09_B_TenonGate_LOD1.001",
+    "CR09_B_TenonGate_LOD2.001",
+    "Socket_GateHandle.001",
+    "Socket_GateOpen.001",
+    "Socket_PortBack.001",
+    "Socket_PortFront.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR09/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file",
+  "channel_interface": {
+    "clear_width_m": 0.4,
+    "floor_top_z_m": 0.1,
+    "wall_top_z_m": 0.4,
+    "outer_width_at_port_m": 0.6,
+    "port_y_m": [
+      -0.25,
+      0.25
+    ],
+    "flow_axis": "Y",
+    "water_opening_when_open_m": 0.3,
+    "note": "same numbers as B02/B03; fit against CR06 and CR08 is not tested because they are not built yet"
+  }
+}

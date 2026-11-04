@@ -1,0 +1,396 @@
+{
+  "asset": "CR05_WorkShelter",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR05_WorkShelter_Detail_Small"
+  ],
+  "name_zh": "工地涼棚和茶水",
+  "slot": "修水路工地",
+  "note": "四根竹柱、一片補過的帆布頂（_Canopy）、一張長凳（_Bench）、茶水桶（_TeaBucket）、水瓢（_Ladle）、四個碗（_Bowl_01..04）、木箱（_Crate）都是獨立物件；_Collision 只有四根柱子，長凳和茶水不擋人。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    3.9553,
+    2.8096,
+    2.7801
+  ],
+  "size_limit_m": [
+    4.0,
+    3.0,
+    2.8
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        3.9553,
+        2.7481,
+        2.7731
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.007
+    },
+    "Detail_Small": {
+      "dims_m": [
+        3.7924,
+        2.7822,
+        2.7075
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0017
+    },
+    "Canopy": {
+      "dims_m": [
+        3.8478,
+        2.806,
+        0.823
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 1.8196
+    },
+    "Crate": {
+      "dims_m": [
+        1.1358,
+        0.9645,
+        0.4249
+      ],
+      "pivot": [
+        0.8383,
+        -0.2049,
+        0.0075
+      ],
+      "min_z_local": 0.0
+    },
+    "Bench": {
+      "dims_m": [
+        1.6476,
+        0.4428,
+        0.4591
+      ],
+      "pivot": [
+        -0.5234,
+        -0.1133,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "TeaBucket": {
+      "dims_m": [
+        0.557,
+        0.5568,
+        0.344
+      ],
+      "pivot": [
+        0.5458,
+        0.0266,
+        0.3081
+      ],
+      "min_z_local": 0.0
+    },
+    "Ladle": {
+      "dims_m": [
+        0.6366,
+        0.2097,
+        0.1735
+      ],
+      "pivot": [
+        0.8364,
+        -0.0175,
+        0.5561
+      ],
+      "min_z_local": 0.0
+    },
+    "Bowl_01": {
+      "dims_m": [
+        0.166,
+        0.166,
+        0.077
+      ],
+      "pivot": [
+        0.8966,
+        -0.5123,
+        0.4241
+      ],
+      "min_z_local": 0.0
+    },
+    "Bowl_02": {
+      "dims_m": [
+        0.166,
+        0.166,
+        0.077
+      ],
+      "pivot": [
+        1.0771,
+        -0.3128,
+        0.4241
+      ],
+      "min_z_local": 0.0
+    },
+    "Bowl_03": {
+      "dims_m": [
+        0.166,
+        0.166,
+        0.077
+      ],
+      "pivot": [
+        1.0764,
+        -0.3139,
+        0.4541
+      ],
+      "min_z_local": 0.0
+    },
+    "Bowl_04": {
+      "dims_m": [
+        0.166,
+        0.166,
+        0.077
+      ],
+      "pivot": [
+        1.2551,
+        -0.4747,
+        0.4241
+      ],
+      "min_z_local": 0.0
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 34590,
+      "LOD1": 17294,
+      "LOD2": 5188
+    },
+    "Detail_Small": {
+      "LOD0": 58772,
+      "LOD1": 29386,
+      "LOD2": 8814
+    },
+    "Canopy": {
+      "LOD0": 53298,
+      "LOD1": 26648,
+      "LOD2": 7994
+    },
+    "Crate": {
+      "LOD0": 9460,
+      "LOD1": 4730,
+      "LOD2": 1418
+    },
+    "Bench": {
+      "LOD0": 3124,
+      "LOD1": 1562,
+      "LOD2": 468
+    },
+    "TeaBucket": {
+      "LOD0": 9962,
+      "LOD1": 4980,
+      "LOD2": 1494
+    },
+    "Ladle": {
+      "LOD0": 1804,
+      "LOD1": 902,
+      "LOD2": 270
+    },
+    "Bowl_01": {
+      "LOD0": 704,
+      "LOD1": 352,
+      "LOD2": 104
+    },
+    "Bowl_02": {
+      "LOD0": 704,
+      "LOD1": 352,
+      "LOD2": 104
+    },
+    "Bowl_03": {
+      "LOD0": 704,
+      "LOD1": 352,
+      "LOD2": 104
+    },
+    "Bowl_04": {
+      "LOD0": 704,
+      "LOD1": 352,
+      "LOD2": 104
+    }
+  },
+  "lod_totals": {
+    "LOD0": 173826,
+    "LOD1": 86910,
+    "LOD2": 26062
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR05_WorkShelter_Main"
+  ],
+  "textures": [
+    "CR05_WorkShelter_BaseColor.png",
+    "CR05_WorkShelter_Metallic.png",
+    "CR05_WorkShelter_MetallicSmoothness.png",
+    "CR05_WorkShelter_Normal.png",
+    "CR05_WorkShelter_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR05_WorkShelter_BaseColor.png",
+    "Normal": "CR05_WorkShelter_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR05_WorkShelter_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR05_WorkShelter_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -1.81,
+        -1.29,
+        0
+      ],
+      [
+        -1.63,
+        -1.1099999999999999,
+        2.4
+      ]
+    ],
+    [
+      [
+        -1.81,
+        1.1099999999999999,
+        0
+      ],
+      [
+        -1.63,
+        1.29,
+        2.72
+      ]
+    ],
+    [
+      [
+        1.63,
+        -1.29,
+        0
+      ],
+      [
+        1.81,
+        -1.1099999999999999,
+        2.4
+      ]
+    ],
+    [
+      [
+        1.63,
+        1.1099999999999999,
+        0
+      ],
+      [
+        1.81,
+        1.29,
+        2.72
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {
+    "Socket_Sit_01": [
+      -0.9243,
+      -0.1135,
+      0.4531
+    ],
+    "Socket_Sit_02": [
+      -0.1243,
+      -0.1135,
+      0.4531
+    ],
+    "Socket_TeaSurface": [
+      0.5457,
+      0.0265,
+      0.5981
+    ],
+    "Socket_Serve": [
+      1.0557,
+      -0.4135,
+      0.4241
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Serve.001": [
+      1.0557,
+      -0.4135,
+      0.4241
+    ],
+    "Socket_Sit_01.001": [
+      -0.9243,
+      -0.1135,
+      0.4531
+    ],
+    "Socket_Sit_02.001": [
+      -0.1243,
+      -0.1135,
+      0.4531
+    ],
+    "Socket_TeaSurface.001": [
+      0.5457,
+      0.0265,
+      0.5981
+    ]
+  },
+  "states": [
+    "茶水桶、水瓢、碗、木箱、長凳各自獨立，可移動；Canopy 原點與整件相同"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "CR05_WorkShelter.001",
+    "CR05_WorkShelter_Bench_LOD0.001",
+    "CR05_WorkShelter_Bench_LOD1.001",
+    "CR05_WorkShelter_Bench_LOD2.001",
+    "CR05_WorkShelter_Bowl_01_LOD0.001",
+    "CR05_WorkShelter_Bowl_01_LOD1.001",
+    "CR05_WorkShelter_Bowl_01_LOD2.001",
+    "CR05_WorkShelter_Bowl_02_LOD0.001",
+    "CR05_WorkShelter_Bowl_02_LOD1.001",
+    "CR05_WorkShelter_Bowl_02_LOD2.001",
+    "CR05_WorkShelter_Bowl_03_LOD0.001",
+    "CR05_WorkShelter_Bowl_03_LOD1.001",
+    "CR05_WorkShelter_Bowl_03_LOD2.001",
+    "CR05_WorkShelter_Bowl_04_LOD0.001",
+    "CR05_WorkShelter_Bowl_04_LOD1.001",
+    "CR05_WorkShelter_Bowl_04_LOD2.001",
+    "CR05_WorkShelter_Canopy_LOD0.001",
+    "CR05_WorkShelter_Canopy_LOD1.001",
+    "CR05_WorkShelter_Canopy_LOD2.001",
+    "CR05_WorkShelter_Collision.001",
+    "CR05_WorkShelter_Crate_LOD0.001",
+    "CR05_WorkShelter_Crate_LOD1.001",
+    "CR05_WorkShelter_Crate_LOD2.001",
+    "CR05_WorkShelter_Detail_Small_LOD0.001",
+    "CR05_WorkShelter_Detail_Small_LOD1.001",
+    "CR05_WorkShelter_Detail_Small_LOD2.001",
+    "CR05_WorkShelter_LOD0.001",
+    "CR05_WorkShelter_LOD1.001",
+    "CR05_WorkShelter_LOD2.001",
+    "CR05_WorkShelter_Ladle_LOD0.001",
+    "CR05_WorkShelter_Ladle_LOD1.001",
+    "CR05_WorkShelter_Ladle_LOD2.001",
+    "CR05_WorkShelter_TeaBucket_LOD0.001",
+    "CR05_WorkShelter_TeaBucket_LOD1.001",
+    "CR05_WorkShelter_TeaBucket_LOD2.001",
+    "Socket_Serve.001",
+    "Socket_Sit_01.001",
+    "Socket_Sit_02.001",
+    "Socket_TeaSurface.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR05/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

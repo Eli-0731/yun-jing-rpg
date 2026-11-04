@@ -1,0 +1,166 @@
+{
+  "asset": "CR06_Bend",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.8852,
+          -0.8851,
+          0.0
+        ],
+        "max": [
+          0.8852,
+          0.8851,
+          0.492
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          1.7704,
+          1.7703,
+          0.492
+        ],
+        "limit_m": [
+          2.0,
+          2.0,
+          0.5
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 74396,
+          "LOD1": 37197,
+          "LOD2": 11158
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 19268,
+            "LOD1": 9633,
+            "LOD2": 2890
+          },
+          "Detail_Small": {
+            "LOD0": 55128,
+            "LOD1": 27564,
+            "LOD2": 8268
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.7704,
+          1.7703,
+          0.492
+        ],
+        "blend_dims_m": [
+          1.7704,
+          1.7703,
+          0.492
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR06_Bend.001",
+        "CR06_Bend_Detail_Small_LOD0.001",
+        "CR06_Bend_Detail_Small_LOD1.001",
+        "CR06_Bend_Detail_Small_LOD2.001",
+        "CR06_Bend_LOD0.001",
+        "CR06_Bend_LOD1.001",
+        "CR06_Bend_LOD2.001",
+        "Socket_PortIn.001",
+        "Socket_PortOut.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_PortIn.001": [
+          -0.3821,
+          -0.8682,
+          0.1008
+        ],
+        "Socket_PortOut.001": [
+          0.8679,
+          0.3818,
+          0.1008
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "低土堤可跨過，不擋人"
+    },
+    {
+      "check": "water_is_its_own_fbx",
+      "pass": true,
+      "detail": {
+        "water_file": "CR06_Bend_water_v001.fbx",
+        "body_objects_with_water": []
+      }
+    },
+    {
+      "check": "water_fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx": [
+          1.45,
+          1.45,
+          0.0
+        ],
+        "blend": [
+          1.45,
+          1.45,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "water_flow_uv_whole_metres",
+      "pass": true,
+      "detail": {
+        "path_length_m": 1.963,
+        "uv_v_length": 2,
+        "note": "a piece under 1 m still runs v 0..1, so the pattern joins its neighbours"
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 106,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

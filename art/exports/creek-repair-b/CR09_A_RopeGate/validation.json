@@ -1,0 +1,195 @@
+{
+  "asset": "CR09_A_RopeGate",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.4,
+          -0.25,
+          0.0
+        ],
+        "max": [
+          0.4,
+          0.25,
+          0.5977
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.8,
+          0.5,
+          0.5977
+        ],
+        "limit_m": [
+          0.8,
+          0.5,
+          0.9
+        ]
+      }
+    },
+    {
+      "check": "gate_is_separate_object",
+      "pass": true,
+      "detail": [
+        "Main",
+        "Detail_Small",
+        "Gate"
+      ]
+    },
+    {
+      "check": "open_top_within_0.9",
+      "pass": true,
+      "detail": {
+        "closed_top_m": 0.5977,
+        "open_top_m": 0.8977
+      }
+    },
+    {
+      "check": "gate_keeps_groove_engagement",
+      "pass": true,
+      "detail": {
+        "open_bottom_m": 0.4014,
+        "groove_top_m": 0.52
+      }
+    },
+    {
+      "check": "port_sockets_at_floor_0.1",
+      "pass": true,
+      "detail": {
+        "Socket_PortFront": [
+          0.0,
+          -0.25,
+          0.1
+        ],
+        "Socket_PortBack": [
+          0.0,
+          0.25,
+          0.1
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 62580,
+          "LOD1": 31290,
+          "LOD2": 9382
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 23864,
+            "LOD1": 11932,
+            "LOD2": 3578
+          },
+          "Detail_Small": {
+            "LOD0": 1824,
+            "LOD1": 912,
+            "LOD2": 272
+          },
+          "Gate": {
+            "LOD0": 36892,
+            "LOD1": 18446,
+            "LOD2": 5532
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          0.8,
+          0.5,
+          0.5977
+        ],
+        "blend_dims_m": [
+          0.8,
+          0.5,
+          0.5977
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR09_A_RopeGate.001",
+        "CR09_A_RopeGate_Collision.001",
+        "CR09_A_RopeGate_Detail_Small_LOD0.001",
+        "CR09_A_RopeGate_Detail_Small_LOD1.001",
+        "CR09_A_RopeGate_Detail_Small_LOD2.001",
+        "CR09_A_RopeGate_Gate_LOD0.001",
+        "CR09_A_RopeGate_Gate_LOD1.001",
+        "CR09_A_RopeGate_Gate_LOD2.001",
+        "CR09_A_RopeGate_LOD0.001",
+        "CR09_A_RopeGate_LOD1.001",
+        "CR09_A_RopeGate_LOD2.001",
+        "Socket_GateHandle.001",
+        "Socket_GateOpen.001",
+        "Socket_PortBack.001",
+        "Socket_PortFront.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_GateHandle.001": [
+          0.0,
+          0.0,
+          0.564
+        ],
+        "Socket_GateOpen.001": [
+          0.0,
+          0.0,
+          0.402
+        ],
+        "Socket_PortBack.001": [
+          0.0,
+          0.25,
+          0.1
+        ],
+        "Socket_PortFront.001": [
+          0.0,
+          -0.25,
+          0.1
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 206,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

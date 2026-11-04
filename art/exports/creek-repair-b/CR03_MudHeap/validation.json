@@ -1,0 +1,129 @@
+{
+  "asset": "CR03_MudHeap",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.9489,
+          -0.9484,
+          0.0
+        ],
+        "max": [
+          0.9489,
+          0.9484,
+          0.7873
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          1.8977,
+          1.8969,
+          0.7873
+        ],
+        "limit_m": [
+          2.0,
+          2.0,
+          0.8
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 46048,
+          "LOD1": 23023,
+          "LOD2": 6904
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Stage_Low": {
+            "LOD0": 15088,
+            "LOD1": 7544,
+            "LOD2": 2263
+          },
+          "Stage_Mid": {
+            "LOD0": 15504,
+            "LOD1": 7752,
+            "LOD2": 2324
+          },
+          "Stage_High": {
+            "LOD0": 15456,
+            "LOD1": 7727,
+            "LOD2": 2317
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.8977,
+          1.8969,
+          0.7873
+        ],
+        "blend_dims_m": [
+          1.8977,
+          1.8969,
+          0.7873
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR03_MudHeap.001",
+        "CR03_MudHeap_Collision.001",
+        "CR03_MudHeap_Stage_High_LOD0.001",
+        "CR03_MudHeap_Stage_High_LOD1.001",
+        "CR03_MudHeap_Stage_High_LOD2.001",
+        "CR03_MudHeap_Stage_Low_LOD0.001",
+        "CR03_MudHeap_Stage_Low_LOD1.001",
+        "CR03_MudHeap_Stage_Low_LOD2.001",
+        "CR03_MudHeap_Stage_Mid_LOD0.001",
+        "CR03_MudHeap_Stage_Mid_LOD1.001",
+        "CR03_MudHeap_Stage_Mid_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 96,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "asset": "CR14_WeedClump",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.1014,
+          -0.1736,
+          0.0
+        ],
+        "max": [
+          0.1014,
+          0.1736,
+          0.0958
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          0.2029,
+          0.3473,
+          0.0958
+        ],
+        "limit_m": [
+          0.5,
+          0.5,
+          0.25
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 536,
+          "LOD1": 268,
+          "LOD2": 79
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.147,
+        "per_group": {
+          "Detail_Small": {
+            "LOD0": 152,
+            "LOD1": 76,
+            "LOD2": 22
+          },
+          "Main": {
+            "LOD0": 384,
+            "LOD1": 192,
+            "LOD2": 57
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          0.2029,
+          0.3473,
+          0.0958
+        ],
+        "blend_dims_m": [
+          0.2029,
+          0.3473,
+          0.0958
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR14_WeedClump.001",
+        "CR14_WeedClump_Collision.001",
+        "CR14_WeedClump_Detail_Small_LOD0.001",
+        "CR14_WeedClump_Detail_Small_LOD1.001",
+        "CR14_WeedClump_Detail_Small_LOD2.001",
+        "CR14_WeedClump_LOD0.001",
+        "CR14_WeedClump_LOD1.001",
+        "CR14_WeedClump_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "軟草，不擋人"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 61,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

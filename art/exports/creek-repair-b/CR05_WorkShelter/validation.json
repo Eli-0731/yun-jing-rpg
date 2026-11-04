@@ -1,0 +1,242 @@
+{
+  "asset": "CR05_WorkShelter",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.9776,
+          -1.4048,
+          0.0
+        ],
+        "max": [
+          1.9776,
+          1.4048,
+          2.7801
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          3.9553,
+          2.8096,
+          2.7801
+        ],
+        "limit_m": [
+          4.0,
+          3.0,
+          2.8
+        ]
+      }
+    },
+    {
+      "check": "independent_objects",
+      "pass": true,
+      "detail": [
+        "Bench",
+        "Bowl_01",
+        "Bowl_02",
+        "Bowl_03",
+        "Bowl_04",
+        "Canopy",
+        "Crate",
+        "Detail_Small",
+        "Ladle",
+        "Main",
+        "TeaBucket"
+      ]
+    },
+    {
+      "check": "canopy_clears_1.75_m_head",
+      "pass": true,
+      "detail": {
+        "canopy_min_z_m": 1.8196
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 173826,
+          "LOD1": 86910,
+          "LOD2": 26062
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 34590,
+            "LOD1": 17294,
+            "LOD2": 5188
+          },
+          "Detail_Small": {
+            "LOD0": 58772,
+            "LOD1": 29386,
+            "LOD2": 8814
+          },
+          "Canopy": {
+            "LOD0": 53298,
+            "LOD1": 26648,
+            "LOD2": 7994
+          },
+          "Crate": {
+            "LOD0": 9460,
+            "LOD1": 4730,
+            "LOD2": 1418
+          },
+          "Bench": {
+            "LOD0": 3124,
+            "LOD1": 1562,
+            "LOD2": 468
+          },
+          "TeaBucket": {
+            "LOD0": 9962,
+            "LOD1": 4980,
+            "LOD2": 1494
+          },
+          "Ladle": {
+            "LOD0": 1804,
+            "LOD1": 902,
+            "LOD2": 270
+          },
+          "Bowl_01": {
+            "LOD0": 704,
+            "LOD1": 352,
+            "LOD2": 104
+          },
+          "Bowl_02": {
+            "LOD0": 704,
+            "LOD1": 352,
+            "LOD2": 104
+          },
+          "Bowl_03": {
+            "LOD0": 704,
+            "LOD1": 352,
+            "LOD2": 104
+          },
+          "Bowl_04": {
+            "LOD0": 704,
+            "LOD1": 352,
+            "LOD2": 104
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          3.9553,
+          2.8096,
+          2.7801
+        ],
+        "blend_dims_m": [
+          3.9553,
+          2.8096,
+          2.7801
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR05_WorkShelter.001",
+        "CR05_WorkShelter_Bench_LOD0.001",
+        "CR05_WorkShelter_Bench_LOD1.001",
+        "CR05_WorkShelter_Bench_LOD2.001",
+        "CR05_WorkShelter_Bowl_01_LOD0.001",
+        "CR05_WorkShelter_Bowl_01_LOD1.001",
+        "CR05_WorkShelter_Bowl_01_LOD2.001",
+        "CR05_WorkShelter_Bowl_02_LOD0.001",
+        "CR05_WorkShelter_Bowl_02_LOD1.001",
+        "CR05_WorkShelter_Bowl_02_LOD2.001",
+        "CR05_WorkShelter_Bowl_03_LOD0.001",
+        "CR05_WorkShelter_Bowl_03_LOD1.001",
+        "CR05_WorkShelter_Bowl_03_LOD2.001",
+        "CR05_WorkShelter_Bowl_04_LOD0.001",
+        "CR05_WorkShelter_Bowl_04_LOD1.001",
+        "CR05_WorkShelter_Bowl_04_LOD2.001",
+        "CR05_WorkShelter_Canopy_LOD0.001",
+        "CR05_WorkShelter_Canopy_LOD1.001",
+        "CR05_WorkShelter_Canopy_LOD2.001",
+        "CR05_WorkShelter_Collision.001",
+        "CR05_WorkShelter_Crate_LOD0.001",
+        "CR05_WorkShelter_Crate_LOD1.001",
+        "CR05_WorkShelter_Crate_LOD2.001",
+        "CR05_WorkShelter_Detail_Small_LOD0.001",
+        "CR05_WorkShelter_Detail_Small_LOD1.001",
+        "CR05_WorkShelter_Detail_Small_LOD2.001",
+        "CR05_WorkShelter_LOD0.001",
+        "CR05_WorkShelter_LOD1.001",
+        "CR05_WorkShelter_LOD2.001",
+        "CR05_WorkShelter_Ladle_LOD0.001",
+        "CR05_WorkShelter_Ladle_LOD1.001",
+        "CR05_WorkShelter_Ladle_LOD2.001",
+        "CR05_WorkShelter_TeaBucket_LOD0.001",
+        "CR05_WorkShelter_TeaBucket_LOD1.001",
+        "CR05_WorkShelter_TeaBucket_LOD2.001",
+        "Socket_Serve.001",
+        "Socket_Sit_01.001",
+        "Socket_Sit_02.001",
+        "Socket_TeaSurface.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Serve.001": [
+          1.0557,
+          -0.4135,
+          0.4241
+        ],
+        "Socket_Sit_01.001": [
+          -0.9243,
+          -0.1135,
+          0.4531
+        ],
+        "Socket_Sit_02.001": [
+          -0.1243,
+          -0.1135,
+          0.4531
+        ],
+        "Socket_TeaSurface.001": [
+          0.5457,
+          0.0265,
+          0.5981
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 197,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}
