@@ -61,7 +61,7 @@ def theirs(path, at, base=None, lod0_only=True):
     new = set(bpy.data.objects) - before
     if lod0_only:
         for o in list(new):
-            if o.name.split('.')[0].endswith(('_LOD1', '_LOD2', '_Collision')):
+            if o.name.split('.')[0].endswith(('_LOD1', '_LOD2')) or '_Collision' in o.name:
                 new.discard(o); bpy.data.objects.remove(o, do_unlink=True)
     for o in new:
         if o.parent is None: o.matrix_world = Matrix.Translation(at) @ o.matrix_world
@@ -102,6 +102,14 @@ def cr05():
     theirs(r / 'RK04_TeaStall_v001.fbx', Vector((2.1, 0, 0)), r / 'Textures/RK04_TeaStall_BaseColor.png')
     figure(Vector((.15, -1.3, 0)))
     shoot('CR05_WorkShelter', 'compare_CR05_RK04.png', (0, 0, 1.25), (.05, -1, .22), 9.2)
+
+
+def cr10():
+    reset(); ours('CR10_CharmStall', Vector((-2.2, 0, 0)))
+    r = ART / 'exports/tea-brewing-b/RK04_TeaStall/v001'
+    theirs(r / 'RK04_TeaStall_v001.fbx', Vector((2.1, 0, 0)), r / 'Textures/RK04_TeaStall_BaseColor.png')
+    figure(Vector((.15, -1.3, 0)))
+    shoot('CR10_CharmStall', 'compare_CR10_RK04.png', (0, 0, 1.25), (.05, -1, .22), 9.2)
 
 
 def cr09():
@@ -164,5 +172,5 @@ def wm_town():
 
 if __name__ == '__main__':
     argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
-    for key, fn in (('CR05', cr05), ('CR09', cr09), ('CR12', cr12), ('WM_HOUSE', wm_house), ('WM_RIVER', wm_river), ('SITE', site), ('WM_TOWN', wm_town)):
+    for key, fn in (('CR05', cr05), ('CR10', cr10), ('CR09', cr09), ('CR12', cr12), ('WM_HOUSE', wm_house), ('WM_RIVER', wm_river), ('SITE', site), ('WM_TOWN', wm_town)):
         if not argv or key in argv: fn()

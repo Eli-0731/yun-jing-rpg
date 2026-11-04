@@ -47,22 +47,22 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 226264,
-          "LOD1": 113131,
-          "LOD2": 34394
+          "LOD0": 225568,
+          "LOD1": 112784,
+          "LOD2": 33833
         },
         "LOD1": 0.5,
-        "LOD2": 0.152,
+        "LOD2": 0.15,
         "per_group": {
           "Main": {
             "LOD0": 59564,
-            "LOD1": 29781,
-            "LOD2": 8934
+            "LOD1": 29782,
+            "LOD2": 8933
           },
           "Detail_Small": {
-            "LOD0": 159500,
-            "LOD1": 79750,
-            "LOD2": 23924
+            "LOD0": 159364,
+            "LOD1": 79682,
+            "LOD2": 23904
           },
           "Detail_Straw": {
             "LOD0": 3280,
@@ -70,9 +70,9 @@
             "LOD2": 492
           },
           "Detail_Vines": {
-            "LOD0": 3920,
-            "LOD1": 1960,
-            "LOD2": 1044
+            "LOD0": 3360,
+            "LOD1": 1680,
+            "LOD2": 504
           }
         }
       }
@@ -130,7 +130,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 122,
+  "seconds": 126,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

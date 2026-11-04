@@ -540,7 +540,7 @@ PY, PZ_HI, PZ_LO = .62, 3.16, 2.72 # the pent eave: reach, height at the wall, h
 
 def mill_palette():
     P = {'plinths': stone_set('Plinth_Granite', 4, light=(.3, .28, .225), dark=(.13, .12, .095), wet_z=.65, moss=1., lichen=.4, crack=.55), 'timber': cm.wood('Frame_Timber', (.05, .03, .016), (.18, .105, .055), ground_h=0, grey=.28), 'plank': cm.wood('Wall_Plank', (.07, .043, .023), (.23, .14, .075), ground_h=0, grey=.34)}
-    P['plaster'] = cm.canvas('Lime_Plaster', base=(.52, .47, .37), stain=(.26, .2, .13), faded=.2, dirt=.55); P['paper'] = cm.paper('Window_Paper', base=(.62, .55, .4), age=.25); P['tile'] = cm.tile('Roof_Tile'); P['tile_new'] = cm.tile('Roof_Tile_New', base=(.1, .12, .14), light=(.2, .22, .24), moss=0)
+    P['plaster'] = cm.lime_plaster('Lime_Plaster'); P['paper'] = cm.paper('Window_Paper', base=(.62, .55, .4), age=.25); P['tile'] = cm.tile('Roof_Tile'); P['tile_new'] = cm.tile('Roof_Tile_New', base=(.1, .12, .14), light=(.2, .22, .24), moss=0)
     P['ridge'] = cm.tile('Ridge_Tile', base=(.028, .038, .05), light=(.07, .088, .1), moss=1.3); P['deck'] = cm.wood('Roof_Deck', (.05, .045, .04), (.13, .115, .1), ground_h=0, grey=.1); P['dark'] = tm.plain('Interior_Dark', (.07, .056, .042), rough=.9, noise=.15); P['floor'] = cm.wood('Floor_Boards', (.045, .028, .016), (.13, .08, .045), ground_h=0, grey=.1)
     P['mill'] = cm.stone('House_Millstone', light=(.46, .43, .36), dark=(.24, .22, .18), moss=0, lichen=0, crack=.3); P['sack'] = mm.cloth('Grain_Sack', (.27, .21, .12), dirt=.45); P['hemp'] = mm.hemp('Sack_Tie', (.2, .125, .055), twist=40.0); P['iron'] = mm.cast_iron('Door_Iron'); P['flour'] = tm.plain('Flour_Dust', (.7, .67, .59), rough=.95, noise=.12); P['moss'] = cm.moss_tuft('Moss_Soft', soft=True)
     return P

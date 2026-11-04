@@ -66,25 +66,25 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 34346,
-      "LOD1": 17172,
-      "LOD2": 5151
+      "LOD0": 34112,
+      "LOD1": 17056,
+      "LOD2": 5116
     },
     "Detail_Small": {
-      "LOD0": 5040,
-      "LOD1": 2520,
-      "LOD2": 756
+      "LOD0": 4736,
+      "LOD1": 2368,
+      "LOD2": 710
     },
     "Detail_Flour": {
-      "LOD0": 144,
-      "LOD1": 71,
-      "LOD2": 39
+      "LOD0": 132,
+      "LOD1": 66,
+      "LOD2": 19
     }
   },
   "lod_totals": {
-    "LOD0": 39530,
-    "LOD1": 19763,
-    "LOD2": 5946
+    "LOD0": 38980,
+    "LOD1": 19490,
+    "LOD2": 5845
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

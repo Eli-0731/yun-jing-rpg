@@ -1,0 +1,152 @@
+{
+ "WM01_MillHouse_Detail_Sacks_LOD0": {
+  "tris": 9966,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 6,
+  "open_pieces": 6,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM01_MillHouse_Detail_Sacks_LOD1": {
+  "tris": 4983,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 6,
+  "open_pieces": 6,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM01_MillHouse_Detail_Sacks_LOD2": {
+  "tris": 1494,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 6,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM01_MillHouse_Detail_Small_LOD0": {
+  "tris": 50256,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 8,
+  "coplanar_two_sides": 143,
+  "closed_pieces": 161,
+  "open_pieces": 456,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -1.17,
+     2.33,
+     0.02
+    ],
+    3
+   ],
+   [
+    [
+     -1.18,
+     2.33,
+     0.02
+    ],
+    2
+   ],
+   [
+    [
+     -1.15,
+     2.33,
+     0.02
+    ],
+    2
+   ],
+   [
+    [
+     -1.19,
+     2.33,
+     0.02
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "WM01_MillHouse_Detail_Small_LOD1": {
+  "tris": 25128,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 161,
+  "open_pieces": 114,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM01_MillHouse_Detail_Small_LOD2": {
+  "tris": 7538,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 161,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM01_MillHouse_LOD0": {
+  "tris": 108600,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 525,
+  "closed_pieces": 1004,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM01_MillHouse_LOD1": {
+  "tris": 54300,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 1004,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM01_MillHouse_LOD2": {
+  "tris": 16290,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 1004,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

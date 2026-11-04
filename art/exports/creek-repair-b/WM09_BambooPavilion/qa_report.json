@@ -1,0 +1,183 @@
+{
+ "WM09_BambooPavilion_Detail_Small_LOD0": {
+  "tris": 159364,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 10,
+  "closed_pieces": 119,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_Detail_Small_LOD1": {
+  "tris": 79682,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 85,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_Detail_Small_LOD2": {
+  "tris": 23904,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 85,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_Detail_Straw_LOD0": {
+  "tris": 3280,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 820,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_Detail_Straw_LOD1": {
+  "tris": 1640,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 820,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_Detail_Straw_LOD2": {
+  "tris": 492,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 492,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_Detail_Vines_LOD0": {
+  "tris": 3360,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 70,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_Detail_Vines_LOD1": {
+  "tris": 1680,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 70,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_Detail_Vines_LOD2": {
+  "tris": 504,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 70,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_LOD0": {
+  "tris": 59564,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 3,
+  "coplanar_two_sides": 43,
+  "closed_pieces": 97,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     0.62,
+     -0.51,
+     2.94
+    ],
+    1
+   ],
+   [
+    [
+     0.1,
+     -0.47,
+     3.29
+    ],
+    1
+   ],
+   [
+    [
+     0.09,
+     -0.48,
+     3.27
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_LOD1": {
+  "tris": 29782,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 97,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM09_BambooPavilion_LOD2": {
+  "tris": 8933,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 97,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

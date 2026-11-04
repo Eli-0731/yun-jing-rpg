@@ -348,6 +348,27 @@ def moss_tuft(name, slot='Main', soft=False):
     return m
 
 
+def lime_plaster(name, base=(.36, .3, .21), grime=(.15, .115, .075), lath=(.115, .08, .05), plinth=.6, slot='Main'):
+    """Old lime wall, kept to the same tone as H01: uneven trowelled coats, rain streaks under the eaves, damp and dirt rising from the plinth, hairline cracks, a few spots where the coat fell off the lath."""
+    m, g = tm._new(name, slot)
+    P, Z, up = _p(g)
+    big = g.noise(P, 1.5, 4, .55); mid = g.noise(P, 7.0, 4, .55); fine = g.noise(P, 60.0, 3, .55)
+    t = g.math('ADD', g.math('MULTIPLY', big, .6), g.math('MULTIPLY', mid, .4))
+    col = g.ramp(t, [(.34, tuple(c * .74 for c in base)), (.52, base), (.7, tuple(min(1, c * 1.2) for c in base))])
+    streak = g.math('MULTIPLY', g.maprange(g.wave(P, 7.0, 2.5, 'BANDS', 'X', 4), .55, .85), g.maprange(g.wave(P, 7.0, 2.5, 'BANDS', 'Y', 4), .4, .8, .5, 1.))
+    col = g.mix(g.math('MULTIPLY', streak, .34), col, tuple(c * .62 for c in base))
+    damp = g.maprange(g.math('ADD', Z, g.math('MULTIPLY', big, .5)), plinth + .25, plinth + .95, 1., 0.)
+    col = g.mix(g.math('MULTIPLY', damp, .75), col, grime)
+    crack = g.maprange(g.math('ABSOLUTE', g.math('SUBTRACT', g.noise(P, 5.0, 3, .6), .5)), .004, .0, 0., 1.)
+    col = g.mix(g.math('MULTIPLY', crack, .55), col, tuple(c * .5 for c in grime))
+    fallen = g.maprange(g.noise(P, 2.6, 4, .6), .685, .7)
+    col = g.mix(fallen, col, lath)
+    ao = g.ao(.05)
+    col = g.mul(1.0, col, g.ramp(ao, [(0, (.45, .43, .4)), (1, (1, 1, 1))]))
+    tm._finish(g, col, .9, 0.0, g.bump(g.math('ADD', g.math('MULTIPLY', mid, .6), g.math('MULTIPLY', fine, .4)), .55, .01), spec=.15)
+    return m
+
+
 def packed_earth(name, dark=(.032, .022, .013), light=(.098, .066, .04), rough=.85, wet_top=.17, wet_low=.11, dry_low=.3, dry_top=.4, slot='Main'):
     """Banked ditch earth: wet and dark up to the water mark, layered where it was cut, sun-dried and paler along the top, small stones showing through."""
     m, g = tm._new(name, slot)

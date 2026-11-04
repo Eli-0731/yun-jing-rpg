@@ -1,0 +1,178 @@
+{
+ "WM07_StoneBridge_Detail_Small_LOD0": {
+  "tris": 48800,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 13,
+  "coplanar_two_sides": 451,
+  "closed_pieces": 440,
+  "open_pieces": 64,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     1.66,
+     5.54,
+     1.33
+    ],
+    2
+   ],
+   [
+    [
+     1.6,
+     5.49,
+     1.27
+    ],
+    2
+   ],
+   [
+    [
+     1.58,
+     5.47,
+     1.28
+    ],
+    1
+   ],
+   [
+    [
+     1.61,
+     5.5,
+     1.29
+    ],
+    1
+   ],
+   [
+    [
+     1.62,
+     5.51,
+     1.32
+    ],
+    1
+   ],
+   [
+    [
+     1.54,
+     5.44,
+     1.21
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "WM07_StoneBridge_Detail_Small_LOD1": {
+  "tris": 24400,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 160,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM07_StoneBridge_Detail_Small_LOD2": {
+  "tris": 7320,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 160,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM07_StoneBridge_LOD0": {
+  "tris": 63632,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 9,
+  "coplanar_two_sides": 763,
+  "closed_pieces": 406,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     1.26,
+     1.68,
+     2.02
+    ],
+    2
+   ],
+   [
+    [
+     1.48,
+     -2.01,
+     1.78
+    ],
+    1
+   ],
+   [
+    [
+     -1.32,
+     1.44,
+     2.16
+    ],
+    1
+   ],
+   [
+    [
+     1.31,
+     3.96,
+     2.42
+    ],
+    1
+   ],
+   [
+    [
+     1.53,
+     -2.11,
+     1.69
+    ],
+    1
+   ],
+   [
+    [
+     1.31,
+     -2.19,
+     1.62
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "WM07_StoneBridge_LOD1": {
+  "tris": 31816,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 406,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM07_StoneBridge_LOD2": {
+  "tris": 9544,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 406,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

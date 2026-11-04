@@ -1,0 +1,80 @@
+{
+ "WM05_WashSteps_Detail_Small_LOD0": {
+  "tris": 11278,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 149,
+  "closed_pieces": 72,
+  "open_pieces": 86,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM05_WashSteps_Detail_Small_LOD1": {
+  "tris": 5638,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 72,
+  "open_pieces": 23,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM05_WashSteps_Detail_Small_LOD2": {
+  "tris": 1690,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 2,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM05_WashSteps_LOD0": {
+  "tris": 27216,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 1,
+  "closed_pieces": 60,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM05_WashSteps_LOD1": {
+  "tris": 13608,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 60,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM05_WashSteps_LOD2": {
+  "tris": 4082,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 60,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}
