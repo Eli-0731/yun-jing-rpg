@@ -930,7 +930,7 @@ namespace YunJing.CreekRepair
             var cam = view.transform; bool walled = pile.channelWidth > 0; var homeward = new Vector3(pile.stand[0], 0, pile.stand[1]);
             homeward = walled ? (Mathf.Abs(homeward.x) > Mathf.Abs(homeward.z) ? new Vector3(Mathf.Sign(homeward.x), 0, 0) : new Vector3(0, 0, Mathf.Sign(homeward.z))) : OpenWay(bladeAt, Flat(cam.position - bladeAt).normalized);
             float under = Mathf.Max(SurfaceY(root, bladeAt), Mathf.Max(SurfaceY(root, bladeAt + homeward * .12f) - .03f, SurfaceY(root, bladeAt + homeward * .22f) - .05f));   // the blade lies on the mud, not in it
-            if (walled) foreach (var side in new[] { -SpadeHalf, 0, SpadeHalf }) foreach (var along in new[] { -.03f, .06f, .14f, .22f, .3f }) under = Mathf.Max(under, FloorAt(bladeAt + digRight * side + homeward * along, under));   // nor in the stone: the floor is not one height
+            if (walled) foreach (var side in new[] { -SpadeHalf, 0, SpadeHalf }) foreach (var along in new[] { -.03f, .06f, .14f, .22f, .3f }) under = Mathf.Max(under, Mathf.Max(FloorAt(bladeAt + digRight * side + homeward * along, under), spade.gameObject.activeSelf ? FloorAt(bladeAt + spade.right * side + homeward * along, under) : under));   // nor in the stone: the floor is not one height
             var tip = bladeAt + Vector3.up * (under + hover + .2f * Mathf.Sin(bladeLift * Mathf.PI));
             // the weight comes up through the arms and the eye drops with it
             float dipTo = stroking && bladeIn ? .012f + .05f * Mathf.Min(1, load) : 0; digDip = Mathf.Lerp(digDip, dipTo, Mathf.Clamp01(Time.deltaTime * (dipTo > digDip ? 4 : 9)));
@@ -957,6 +957,32 @@ namespace YunJing.CreekRepair
             clear = Mathf.Min(clear, ShaftSteepest);
             bladeLean = bladeLean <= 0 ? Mathf.Max(lean, clear) : Mathf.Max(clear, Mathf.MoveTowards(bladeLean, Mathf.Max(lean, clear), Time.deltaTime * 130));
             Pose(bladeLean);
+            // swung round, or dug beside a piece rather than in one, the blade no longer lies along any channel: whatever of the stone floor is under it where it really is, it rides over
+            {
+                var bladeEnd = spade.TransformPoint(0, bentTip.y + bladeReach, 0); float ride = 0;
+                for (float along = 0; along <= 1.001f; along += .125f) for (float across = -1; across <= 1.001f; across += .5f)
+                { var p = Vector3.Lerp(seat, bladeEnd, along) + spade.right * SpadeHalf * across; float rise = FloorAt(p, p.y) - p.y; if (rise < .08f) ride = Mathf.Max(ride, rise); }   // higher than that is the top of a wall, which the slide above has dealt with
+                if (ride > 0) { spade.position += Vector3.up * (ride + .004f); seat += Vector3.up * (ride + .004f); }
+                // nor does an edge of it go on through a wall that crosses the channel where the piece ends, seen from either side of the wall: the blade stops short of it
+                var side_ = spade.right * SpadeHalf;
+                for (int pass = 0; pass < 3; pass++)
+                {
+                    bladeEnd = spade.TransformPoint(0, bentTip.y + bladeReach, 0); var back = Vector3.zero;
+                    foreach (var (from, to) in new[] { (seat + side_, bladeEnd + side_), (bladeEnd + side_, seat + side_), (seat - side_, bladeEnd - side_), (bladeEnd - side_, seat - side_), (seat + side_, seat - side_), (seat - side_, seat + side_) })
+                    {
+                        var way = to - from; float nearest = way.magnitude;
+                        bool hitWall = false;
+                        foreach (var hit in Physics.RaycastAll(from, way, way.magnitude, 1 << ProbeLayer))
+                        {
+                            var shown = hit.collider.transform.parent != null ? hit.collider.transform.parent.GetComponent<Renderer>() : null;
+                            if (shown != null && shown.enabled && hit.distance <= nearest) { nearest = hit.distance; hitWall = true; }
+                        }
+                        if (hitWall) { float past = way.magnitude - nearest; var push = Flat(way).normalized * (nearest < past ? nearest + .012f : -(past + .012f)); if (push.sqrMagnitude > back.sqrMagnitude) back = push; }
+                    }
+                    if (back == Vector3.zero) break;
+                    spade.position += back; seat += back;
+                }
+            }
             MeasureSpade(pile, root, seat, shaft);
             if (dragLine.enabled)
             {
@@ -1014,7 +1040,7 @@ namespace YunJing.CreekRepair
                 foreach (var hit in Physics.RaycastAll(pair.Item1, pair.Item2 - pair.Item1, (pair.Item2 - pair.Item1).magnitude, 1 << ProbeLayer))
                 {
                     var shown = hit.collider.transform.parent != null ? hit.collider.transform.parent.GetComponent<Renderer>() : null;
-                    if (shown != null && shown.enabled && SpadeHits.Add(shown.name)) Debug.Log($"CREEK spade through {shown.name} digging {digging?.id} at {hit.point} from {a} to {b}");
+                    if (shown != null && shown.enabled && SpadeHits.Add(shown.name)) Debug.Log($"CREEK spade through {shown.name} digging {digging?.id} at {hit.point} from {pair.Item1} to {pair.Item2} normal {hit.normal} seat {spade.position}");
                 }
         }
         /// Whether a shown solid lies between two points, from either side of its surface.

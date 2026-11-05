@@ -116,7 +116,7 @@ artifacts/creek-repair-build/CreekRepair.exe -creekPlaytest -creekMethod clear_s
 - 測試場景沒有玩家角色，「走到泥堆」現在是點一下由鏡頭移過去；正式的走路和互動範圍要等核心組接。
 - 挖泥只有一種工具（鏟子）；工具棚和「用對工具比較快」還沒做。
 - `CR14_WeedClump`、`CR15_DitchCross` 和 `F01_Field` 是工作單外加的，模型先做好，4 張候選概念圖是事後補的（`art/references/CR14`、`CR15`、`F01`），不是模型的依據；三件都有四視圖加人形尺和 LOD0／LOD1 對照（`F01_Field` 由 `ruler_views.py`＋`field_look.py` 和 `field_lod_compare.py` 出，含閘具 LOD0 15,234、LOD1 7,450 三角形）。
-- `F01_Field` 的新草叢讓 LOD0 比原本的 F01 多（14,102 比 11,728 三角形）。
+- `F01_Field` 的新草叢讓 LOD0 比原本的 F01 多（45,486 比 11,728 三角形，土面重做後）。
 - 影格時間只在開發機的 Windows 視窗量過（1280×720，錄影中，中位數與 P95 都約 16.7 ms，也就是被鎖在 60 fps），沒有在手機上量過。
 - 場景裡看不到村民：閘門自己動，只有號子聲和一句提示。
 - 育幼區只是地面上一片不規則的草色，沒有立體的苗木。
@@ -145,3 +145,15 @@ artifacts/creek-repair-build/CreekRepair.exe -creekPlaytest -creekMethod clear_s
 ### 水草改版（2026-11-05）
 
 `CR14_WeedClump` 改以 `art/references/CR14/selected_v002.png`（使用者提供的「碧靈水草」三視圖）重做：細莖星形張開、三葉輪生、彎月形葉。原本貼地寬葉的概念圖只留作紀錄。一開始沿用 16 叢時，水草蓋住泥堆和鏟子，所以 `AddWeed` 改成 8 小叢、收在泥堆範圍內。LOD0 約 8,400 三角形，同一泥堆約 7 萬；手機效能未驗證。
+
+### 改到 90 分（2026-11-06）
+
+作者自評（`art/references/creek-repair-b-scores.json`）：21 件中 19 件到 90 以上，大多壓線；`CR15_DitchCross` 89，`F01_Field` 88，沒有到。這是作者並排看圖的評分，不是驗收。
+
+- 這一輪把模型和原三視圖並排重看。`CR06`、`CR15` 堤頂加苔和草、木樁切面；`CR14` 改亮色細葉；`CR04` 夯錘改回三視圖的方塊；其餘多為木色、帆布、燈籠、茅草、泥土的顏色。
+- `CR06` 外牆腳的石頭沒有做：木樁已到 1 m 寬上限，放不下。`CR15` 的扣分是上面 x = 0.6 m 那條走動測試，留給核心組判定。
+- `F01_Field` 的土面重做成規則高度網格，原點、碰撞、水面位置沒動。它還是沿用舊田佈局，不是先圖後模。
+- LOD0 削減：只減 6000 三角形以上的分組，比例在 `build_creek_repair_b.py` 的 `LOD0_TRIM`。新舊並排在 `art/previews/creek-repair-b/_qa/lod0_cut_*`；舊圖材質較早，比對只看形體。`CR11` 從 0.56 退回 0.65，竹牆出現細斑。
+- 鏟子：`clear_silt` 的 `silt_3` 在渠外，鏟面曾穿過旁邊 B02 的牆。鏟面現在不分渠內外都會騎上地面、停在牆前（`CreekRepairDirector`）。三段虛擬觸控都沒有穿模紀錄。
+
+真人鍵鼠、手機、Unity 6000.0.82f1、音訊聽感、橋上走動仍未驗證。
