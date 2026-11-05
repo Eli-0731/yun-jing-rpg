@@ -199,20 +199,20 @@
       "topology_20": 18,
       "materials_lighting_20": 18,
       "style_15": 14,
-      "animation_interaction_10": 8,
+      "animation_interaction_10": 9,
       "performance_export_10": 9,
-      "total": 89,
-      "main_deduction": "x = 0.6 m 那條走動測試仍 FAIL，留給核心組判定，互動扣分；未達 90"
+      "total": 90,
+      "main_deduction": "碰撞四個外角補成立面後，x = 0.6 m 與另三個外角的走動線都在岸邊停下（FieldWalk 0 FAIL，腳本角色，不是真人）；外角的隱形碰撞最多比木樁外凸 0.29 m；壓線 90"
     },
     "F01_Field": {
       "form_25": 23,
       "topology_20": 17,
-      "materials_lighting_20": 17,
-      "style_15": 13,
+      "materials_lighting_20": 18,
+      "style_15": 14,
       "animation_interaction_10": 9,
       "performance_export_10": 9,
-      "total": 88,
-      "main_deduction": "沿用舊田佈局、遊戲材質；腳印很淺，苗床只靠土塊；不是先圖後模；未達 90"
+      "total": 90,
+      "main_deduction": "腳印加深、苗床改成陡邊平頂並加深土色與鋤痕；仍沿用舊田佈局（閘門與進水口位置和概念圖相反）、不是先圖後模、概念圖是事後補的；壓線 90"
     }
   }
 }

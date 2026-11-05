@@ -99,9 +99,26 @@ def route_details():
 LOD0_TRIM = {'WM09_BambooPavilion': .62, 'WM01_MillHouse': .68, 'CR05_WorkShelter': .68, 'CR11_NoodleStall': .65, 'WM05_WashSteps': .75, 'WM02_WaterWheel': .82, 'CR10_CharmStall': .7, 'CR12_RankingBoard': .52, 'CR08_Straight': .65, 'CR08_Bend': .65, 'CR03_TimberRack': .68, 'WM07_StoneBridge': .75}
 
 
+def part_twins(me):
+    """A thin piece collapsed to one sheet keeps two faces on the same vertices, one facing each way. Blender's FBX import merges such a pair and Unity keeps both,
+    so the two counted LOD triangles differently (review, 2026-11-06). The second face gets vertices of its own: both sides still draw, each with its own normal."""
+    bm = bmesh.new(); bm.from_mesh(me); seen, twins = set(), []
+    for f in bm.faces:
+        k = frozenset(v.index for v in f.verts)
+        (twins.append(f) if k in seen else seen.add(k))
+    if twins: bmesh.ops.split(bm, geom=twins)
+    bm.to_mesh(me); bm.free(); me.update()
+    return len(twins)
+
+
 def make_lods():
     """LOD1/LOD2 per export group: drop small parts while enough triangles remain, then collapse to the target."""
     tris = lambda me: sum(len(p.vertices) - 2 for p in me.polygons)
+    # five- and six-sided faces go out as triangles: Unity split a few concave ones of CR09_A into fewer triangles than Blender, 62,556 against 62,586 (2026-11-06)
+    for src in S['lod0'].values():
+        bm = bmesh.new(); bm.from_mesh(src.data); big = [f for f in bm.faces if len(f.verts) > 4]
+        if big: bmesh.ops.triangulate(bm, faces=big, quad_method='BEAUTY', ngon_method='BEAUTY')
+        bm.to_mesh(src.data); bm.free(); S.setdefault('ngons_split', {})[src.name] = len(big)
     if S.get('lod0_ratio'):   # the densest pieces carry triangles the eye never sees: collapse only groups big enough to spare them; compared side by side in _qa/lod0_cut_*
         for gname, src in S['lod0'].items():
             if tris(src.data) < 6000: continue
@@ -109,6 +126,7 @@ def make_lods():
             m = src.modifiers.new('LOD0_trim', 'DECIMATE'); m.use_collapse_triangulate = True; m.ratio = S['lod0_ratio']
             bpy.ops.object.modifier_apply(modifier=m.name)
             pl.orient_faces(src.data, flush=False); pl.spread_zero_uv([src])
+            S.setdefault('twins_parted', {})[src.name] = part_twins(src.data)
     lods = {0: dict(S['lod0'])}; report = {}
     for lv in (1, 2):
         lods[lv] = {}
@@ -134,6 +152,7 @@ def make_lods():
                     m.ratio = min(1., m.ratio * want / max(n, 1))
                 bpy.ops.object.modifier_apply(modifier=m.name)
                 pl.orient_faces(o.data, flush=False); pl.spread_zero_uv([o])   # the collapse can leave slivers and turn a thin piece inside out
+                S.setdefault('twins_parted', {})[o.name] = part_twins(o.data)
             try: bpy.ops.mesh.customdata_custom_splitnormals_clear()
             except Exception: pass
             bpy.ops.object.shade_smooth_by_angle(angle=math.radians(38))
@@ -401,7 +420,7 @@ def run(aid, force=False):
         'asset': aid, 'version': VER, 'minTier': cfg.get('minTier', 'standard'), 'detailObjects': sorted(f'{aid}_{g}' for g in S['lods'][0] if g.startswith('Detail_')), 'name_zh': cfg['zh'], 'slot': cfg['slot'], 'note': cfg['note'],
         'units': 'meters', 'front': '-Y (Blender)', 'up': '+Z (Blender); FBX exported Y-up, -Z forward, transforms baked',
         'origin': 'axle centre' if cfg.get('axle_origin') else 'bottom centre', 'dimensions_m': [round(v, 4) for v in dims], 'size_limit_m': cfg['limit'], 'pieces': pieces,
-        'lods': lod_report, 'lod_totals': tot, 'lod_rule': 'LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)',
+        'lods': lod_report, 'twins_parted': {k: v for k, v in S.get('twins_parted', {}).items() if v}, 'ngons_split': {k: v for k, v in S.get('ngons_split', {}).items() if v}, 'lod_totals': tot, 'lod_rule': 'LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)',
         'materials': mats, 'textures': sorted(p.name for p in (exp / 'Textures').glob('*.png')), 'texture_size_px': cfg['tex'],
         'unity': {'pipeline': 'URP Lit', 'axes': 'imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)', 'BaseColor': f'{aid}_BaseColor.png', 'Normal': f'{aid}_Normal.png (OpenGL +Y)',
                   'MetallicSmoothness': f'{aid}_MetallicSmoothness.png (R metallic, A smoothness)',
