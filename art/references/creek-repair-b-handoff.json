@@ -538,7 +538,7 @@
   "lod_tris": {
    "LOD0": 102200,
    "LOD1": 51098,
-   "LOD2": 15298
+   "LOD2": 15301
   },
   "reimport_size_m": [
    3.2075,
@@ -623,8 +623,8 @@
   "fbx": "CR12_RankingBoard_v001.fbx",
   "lod_tris": {
    "LOD0": 80622,
-   "LOD1": 40309,
-   "LOD2": 12081
+   "LOD1": 40310,
+   "LOD2": 12082
   },
   "reimport_size_m": [
    2.99,
@@ -658,7 +658,7 @@
   "lod_tris": {
    "LOD0": 14006,
    "LOD1": 7002,
-   "LOD2": 1803
+   "LOD2": 2099
   },
   "reimport_size_m": [
    0.2289,
@@ -710,7 +710,7 @@
    0.0
   ],
   "bottom_z_m": -0.0,
-  "collision_tris": 226,
+  "collision_tris": 234,
   "minTier": "standard",
   "detail_in_fbx": [
    "Detail_Small"
@@ -756,7 +756,7 @@
   "lod_tris": {
    "LOD0": 114655,
    "LOD1": 57040,
-   "LOD2": 17188
+   "LOD2": 17195
   },
   "reimport_size_m": [
    7.827,

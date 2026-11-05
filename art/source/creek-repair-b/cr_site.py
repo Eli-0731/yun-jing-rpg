@@ -483,12 +483,12 @@ def cr15_cross(P):
         sphere('Pebble', (x, y, .102), R.uniform(.007, .016), P['stone'], scale=(1.2, 1, .55), seg=8, ring=5, detail=2)
     S['water_cross'] = CROSS
     for name, q in (('Socket_PortIn', (0, -CROSS)), ('Socket_PortWest', (-CROSS, 0)), ('Socket_PortEast', (CROSS, 0)), ('Socket_PortNorth', (0, CROSS))): socket(name, (q[0], q[1], FLOOR))
-    # the same section as CR06 on all four arms: height by distance from the nearer axis, nothing in the four outer corners
-    # a walker meets the arms at their outer corners here, where a top below the stakes (.49) reads as a step: 45 degrees on the capsule
+    # the same section as CR06 on all four arms: height by distance from the nearer axis, and the four outer corners filled to the bank top.
+    # The notch between two arms is .29 m, narrower than a .6 m capsule: left open, a walker on the .6 m line was pushed off its corner and rode up over
+    # the end of the next arm (FieldWalk, 2026-11-06). Filled, every side of the piece is one flat face; the corner block is never more than .29 m past the stakes.
     H = {abs(x): .49 if z > .4 else z for x, z in BANK_SECTION}; line = [-CROSS] + [x for x, z in BANK_SECTION] + [CROSS]
     top = [(x, y, H.get(min(abs(x), abs(y)), H[.46])) for y in line for x in line]; W = len(line)
-    skirted(top, [(j * W + i, j * W + i + 1, (j + 1) * W + i + 1, (j + 1) * W + i) for j in range(W - 1) for i in range(W - 1)
-                  if not (min(abs(line[i]), abs(line[i + 1])) >= .46 and min(abs(line[j]), abs(line[j + 1])) >= .46)])
+    skirted(top, [(j * W + i, j * W + i + 1, (j + 1) * W + i + 1, (j + 1) * W + i) for j in range(W - 1) for i in range(W - 1)])
 
 
 def cr06_straight(P): channel(P, path_straight, 61)

@@ -234,23 +234,27 @@ def field_surface(base, x, y, bottom):
     inner = d > BUND + .01; bed = inner and base > BED_FOOT; furrow = inner and not bed
     if bed:   # hoe-turned clods and shallow lines across the bed; only ever up, so the bed never drops under the water
         top = min(1., (base - BED_FOOT) / .08)
-        z = base + top * (abs(n(13., 1.)) * .017 + abs(n(29., 3.)) * .009 + .007 * math.sin(y * math.tau / .31 + 1.6 * n(2., 9.)))
+        # the hoe lines across the bed are deep enough to throw a shadow when the whole field is in view (review, 2026-11-06)
+        # the old beds rise .1 m over a long, soft shoulder: twice as steep, same top, so a bed reads as a dug block and not a mound
+        rise = base - BED_FOOT; z = base + min(.105, rise * 2.) - min(.105, rise)
+        z += top * (abs(n(13., 1.)) * .022 + abs(n(29., 3.)) * .01 + .013 * math.sin(y * math.tau / .31 + 1.6 * n(2., 9.)))
     elif furrow: z = base + n(6., 5.) * .004
     else:     # banks: slumped lumps, rain gullies down the outer face, the crest beaten flatter along its middle
         slope = max(0., min(1., 1 - (d - .25) / .1)); run = y if abs(x) > W_ / 2 - .5 else x
         gully = -abs(noise.noise(Vector((run * 3.1 + 11., d * .9, 4.)))) * .055 * slope * min(1., d / .1) + .012 * slope
         crest = 1 - .65 * max(0., 1 - abs(d - .4) / .12)
-        z = base + near_port * (n(2.1, 7.) * .03 * crest + n(7., 2.) * .014 * crest + n(17., 8.) * .007 + gully) - .014 * trodden(x, y)
+        z = base + near_port * (n(2.1, 7.) * .03 * crest + n(7., 2.) * .014 * crest + n(17., 8.) * .007 + gully) - .032 * trodden(x, y)
     foot = 1 - d / .25
     if d < .25 and not port: z += bottom * foot ** 1.5
     # colour multiplies the soil texture: dry pale crest, dark wet near the water, moss where the bank stays damp
     dry = max(0., min(1., (z - .3) / .09)) * (0. if bed else 1.); wet = max(0., min(1., (.3 - z) / .07)) if inner else 0.
     c = Vector((.68, .67, .6)).lerp(Vector((.88, .88, .76)), dry * (.55 + .45 * max(0., n(1.7, 4.) * 2.2 + .6))).lerp(Vector((.38, .36, .32)), wet * .9)
-    if bed: c = Vector((.56, .53, .46)) * (.82 + abs(n(13., 1.)) * 1.1 + abs(n(29., 3.)) * .5)
+    if bed:   # fresh-dug: a darker, warmer brown than the beaten banks, darkest in the hoe lines
+        c = Vector((.5, .43, .34)) * (.8 + abs(n(13., 1.)) * 1.1 + abs(n(29., 3.)) * .5) * (.88 + .12 * math.sin(y * math.tau / .31 + 1.6 * n(2., 9.)))
     if not bed and not furrow:
         patch = max(0., min(1., (n(1.6, 13.) + .5 * n(5., 6.) + .1 - (.0 if d < .3 or d > .52 else .16)) * 3.2))
         c = c.lerp(Vector((.46, .53, .25)), patch * .72)
-    if not inner: c = c * (1 - .3 * trodden(x, y))
+    if not inner: c = c * (1 - .5 * trodden(x, y))
     c = c * (.93 + n(31., 2.) * .14)
     return z, (c.x, c.y, c.z)
 

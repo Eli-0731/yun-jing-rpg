@@ -44,8 +44,8 @@
   },
   "collision": {
    "boxes": 7,
-   "bank_top_m": 0.693,
-   "floor_top_m": 0.345
+   "bank_top_m": 0.689,
+   "floor_top_m": 0.353
   }
  },
  "heights_m": {

@@ -80,6 +80,11 @@
       "LOD2": 5532
     }
   },
+  "twins_parted": {},
+  "ngons_split": {
+    "CR09_A_RopeGate_LOD0": 130,
+    "CR09_A_RopeGate_Gate_LOD0": 56
+  },
   "lod_totals": {
     "LOD0": 62586,
     "LOD1": 31292,

@@ -62,6 +62,9 @@
       "LOD2": 250
     }
   },
+  "twins_parted": {
+    "CR14_WeedClump_LOD2": 296
+  },
   "lod_totals": {
     "LOD0": 14006,
     "LOD1": 7002,

@@ -11,9 +11,9 @@
    "state_alternatives": 0,
    "same_underside_on_ground": 0,
    "same_between": 217,
-   "same_inside": 80,
-   "same": 297,
-   "two_sides": 179,
+   "same_inside": 72,
+   "same": 289,
+   "two_sides": 161,
    "groups": {
     "RopeGate_Gate|same_between": {
      "pairs": 217,
@@ -32,16 +32,16 @@
      "overlap_cm2": 1.42
     },
     "RopeGate|two_sides_inside": {
-     "pairs": 43,
-     "overlap_cm2": 2.91
+     "pairs": 25,
+     "overlap_cm2": 0.72
     },
     "RopeGate_Gate|two_sides_between": {
      "pairs": 19,
      "overlap_cm2": 0.82
     },
     "RopeGate|same_inside": {
-     "pairs": 10,
-     "overlap_cm2": 0.68
+     "pairs": 2,
+     "overlap_cm2": 0.05
     },
     "RopeGate/RopeGate_Gate|two_sides_between": {
      "pairs": 1,
@@ -127,9 +127,9 @@
    "state_alternatives": 0,
    "same_underside_on_ground": 0,
    "same_between": 209,
-   "same_inside": 80,
-   "same": 289,
-   "two_sides": 93,
+   "same_inside": 72,
+   "same": 281,
+   "two_sides": 76,
    "groups": {
     "RopeGate_Gate|same_between": {
      "pairs": 209,
@@ -139,25 +139,25 @@
      "pairs": 70,
      "overlap_cm2": 2.79
     },
-    "RopeGate|two_sides_inside": {
-     "pairs": 42,
-     "overlap_cm2": 1.91
-    },
     "RopeGate|two_sides_between": {
      "pairs": 27,
      "overlap_cm2": 8.82
+    },
+    "RopeGate|two_sides_inside": {
+     "pairs": 25,
+     "overlap_cm2": 0.72
     },
     "RopeGate_Gate|two_sides_inside": {
      "pairs": 16,
      "overlap_cm2": 0.45
     },
-    "RopeGate|same_inside": {
-     "pairs": 10,
-     "overlap_cm2": 0.68
-    },
     "RopeGate_Gate|two_sides_between": {
      "pairs": 8,
      "overlap_cm2": 0.39
+    },
+    "RopeGate|same_inside": {
+     "pairs": 2,
+     "overlap_cm2": 0.05
     }
    },
    "same_at": [
@@ -239,9 +239,9 @@
    "state_alternatives": 0,
    "same_underside_on_ground": 0,
    "same_between": 185,
-   "same_inside": 73,
-   "same": 258,
-   "two_sides": 40,
+   "same_inside": 70,
+   "same": 255,
+   "two_sides": 25,
    "groups": {
     "RopeGate_Gate|same_between": {
      "pairs": 185,
@@ -252,16 +252,16 @@
      "overlap_cm2": 2.75
     },
     "RopeGate|two_sides_inside": {
-     "pairs": 38,
-     "overlap_cm2": 1.74
-    },
-    "RopeGate|same_inside": {
-     "pairs": 5,
-     "overlap_cm2": 0.1
+     "pairs": 23,
+     "overlap_cm2": 0.66
     },
     "RopeGate_Gate|two_sides_inside": {
      "pairs": 2,
      "overlap_cm2": 0.04
+    },
+    "RopeGate|same_inside": {
+     "pairs": 2,
+     "overlap_cm2": 0.05
     }
    },
    "same_at": [
@@ -341,23 +341,19 @@
   }
  },
  "zero_uv": {
-  "1e-12": 1,
-  "1e-10": 1,
-  "1e-09": 3,
-  "1e-08": 6
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 2,
+  "1e-08": 3
  },
  "zero_uv_by_object": {
-  "1e-12": {
-   "CR09_A_RopeGate_LOD0": 1
-  },
-  "1e-10": {
-   "CR09_A_RopeGate_LOD0": 1
-  },
+  "1e-12": {},
+  "1e-10": {},
   "1e-09": {
-   "CR09_A_RopeGate_LOD0": 3
+   "CR09_A_RopeGate_LOD0": 2
   },
   "1e-08": {
-   "CR09_A_RopeGate_LOD0": 6
+   "CR09_A_RopeGate_LOD0": 3
   }
  },
  "pieces": 64,
