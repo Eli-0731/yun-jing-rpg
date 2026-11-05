@@ -2,10 +2,11 @@
 Same kinds of findings as the core group's Blender asset QA: no UV map, zero-area UV faces, coplanar overlapping
 triangles (z-fighting), floating/detached islands, unapplied scale. One finding per object and kind, with a count.
 
-  blender -b --factory-startup -P tools/art/qa_lod0_basic.py -- <out.json> <a.glb> [<b.glb> ...]
+  blender -b --factory-startup -P tools/art/qa_lod0_basic.py -- [--loose] <out.json> <a.glb> [<b.glb> ...]
 
 Coplanar pairs: two triangles of LOD0 (same object or not) that share no vertex, face the same or the opposite way
 within 1.5 degrees, lie within 0.5 mm of each other's plane and overlap by more than 1 mm inside that plane.
+--loose counts only pairs facing the same way, widened to 10 degrees, 2 mm and 0.1 mm of overlap, which reproduces the reviewer's counts (#69: BM08_01 branches).
 Floating island: a connected piece that cannot reach the ground (lowest point under 2.5 cm) through a chain of
 pieces each within 2.5 cm of the next. Alpha-cut cards are checked like any other mesh.
 """
@@ -15,8 +16,11 @@ from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 from mathutils.kdtree import KDTree
 
-TOL=.025;PLANE=.0005;ANG=math.cos(math.radians(1.5));PEN=.001;UVEPS=1e-10
-args=sys.argv[sys.argv.index('--')+1:];out=Path(args[0]);files=args[1:]
+TOL=.025;PLANE=.0005;ANG=math.cos(math.radians(1.5));PEN=.001;UVEPS=1e-10;SAME=False
+args=sys.argv[sys.argv.index('--')+1:]
+if '--loose' in args:   # the reviewer's 'same-facing coplanar' as far as its counts can be reproduced: 10 degrees, 2 mm, 0.1 mm of overlap
+    args.remove('--loose');PLANE=.002;ANG=math.cos(math.radians(10));PEN=.0001;SAME=True
+out=Path(args[0]);files=args[1:]
 
 def tris_world(o):
     bm=bmesh.new();bm.from_mesh(o.data);bm.transform(o.matrix_world);bmesh.ops.triangulate(bm,faces=bm.faces[:])
@@ -70,15 +74,16 @@ def check(path):
     for t in alltri:
         r=fd(t[0])
         for k in t[1:]:par[fd(k)]=r
+    W=[weld[key(v)] for v in allv]   # glTF splits vertices on UV seams: neighbours across a seam share a position, not an index
     tree=BVHTree.FromPolygons(allv,alltri,all_triangles=True,epsilon=PLANE)
     pairs={};where={};nkey={}
     for i,j in tree.overlap(tree):
-        if i>=j or set(alltri[i])&set(alltri[j]):continue
+        if i>=j or {W[k] for k in alltri[i]}&{W[k] for k in alltri[j]}:continue
         A=[allv[k] for k in alltri[i]];B=[allv[k] for k in alltri[j]]
         na=(A[1]-A[0]).cross(A[2]-A[0]);nb=(B[1]-B[0]).cross(B[2]-B[0])
         if na.length<1e-12 or nb.length<1e-12:continue
         na.normalize();nb.normalize()
-        if abs(na.dot(nb))<ANG:continue
+        if (na.dot(nb) if SAME else abs(na.dot(nb)))<ANG:continue
         if max(abs((p-A[0]).dot(na)) for p in B)>PLANE:continue
         if sat_overlap(A,B,na)<PEN:continue
         key=tuple(sorted((owner[i],owner[j])));pairs[key]=pairs.get(key,0)+1

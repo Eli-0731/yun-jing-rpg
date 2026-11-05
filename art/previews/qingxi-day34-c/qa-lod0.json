@@ -15,12 +15,6 @@
     "object": "UP01_Debris_LOD0",
     "count": 3,
     "note": "3 triangle pairs {'side two pieces': 3}, e.g. at [[0.324, -0.509, 0.95, 'n+0-1+0'], [0.344, -0.55, 0.847, 'n+0-1+0'], [0.343, -0.561, 0.827, 'n+0-1+0']]"
-   },
-   {
-    "kind": "coplanar overlap",
-    "object": "UP01_Weir_LOD0",
-    "count": 4,
-    "note": "4 triangle pairs {'side one piece': 4}, e.g. at [[4.331, -0.669, 2.007, 'n+0+1-0'], [4.02, -0.613, 2.007, 'n+0+1+0'], [6.155, -1.203, 1.596, 'n-0-1-1'], [6.174, -1.519, 1.33, 'n-0-1+1']]"
    }
   ]
  },
@@ -53,14 +47,7 @@
   "file": "art\\exports\\qingxi-day34-c\\UP03.glb",
   "objects": 3,
   "triangles": 76106,
-  "findings": [
-   {
-    "kind": "coplanar overlap",
-    "object": "UP03_Stone_LOD0",
-    "count": 1,
-    "note": "1 triangle pairs {'side one piece': 1}, e.g. at [[-0.027, -0.161, 0.882, 'n+0+1+0']]"
-   }
-  ]
+  "findings": []
  },
  {
   "file": "art\\exports\\qingxi-day34-c\\UP04.glb",
