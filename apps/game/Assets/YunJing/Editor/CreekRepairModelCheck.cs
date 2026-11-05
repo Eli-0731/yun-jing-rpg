@@ -113,6 +113,28 @@ namespace YunJing.Editor
                 Walk("in through the near gap", new Vector3(0, 0, -3.4f), new Vector3(0, 0, 0));
                 Walk("out through the far gap", new Vector3(0, 0, 0), new Vector3(0, 0, 3.4f));
                 Walk("down off the ridge into the field and back up", new Vector3(2.72f, 0, 0), new Vector3(1, 0, 0), new Vector3(2.72f, 0, 0));
+                // the channel banks: a walker coming from outside has to stop at the outer face
+                UnityEngine.Object.DestroyImmediate(field);
+                void Blocked(string id, Vector3 from, Vector3 to)
+                {
+                    var piece = (GameObject)UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>($"{Root}/{id}/{id}_v001.fbx"));
+                    var box = piece.GetComponentsInChildren<MeshFilter>(true).FirstOrDefault(m => m.name == id + "_Collision");
+                    Check(box != null, $"{id}: has a _Collision");
+                    if (box != null)
+                    {
+                        box.gameObject.AddComponent<MeshCollider>().sharedMesh = box.sharedMesh;
+                        cc.enabled = false; cc.transform.position = from + Vector3.up * .1f; cc.enabled = true; Physics.SyncTransforms();
+                        var way = (to - from).normalized; float length = (to - from).magnitude; float gone = 0;
+                        float high = 0; for (int i = 0; i < 400; i++) { cc.Move(way * .035f + Vector3.down * .06f); gone = Vector3.Dot(cc.transform.position - from, way); high = Mathf.Max(high, cc.transform.position.y); }
+                        Check(gone < length / 2 - .3f && high < .12f, $"{id}: stopped at the bank after {gone:F2} of {length:F2} m, feet never above {high:F3} m (skin .08)");
+                    }
+                    UnityEngine.Object.DestroyImmediate(piece);
+                }
+                Blocked("CR06_Straight", new Vector3(-1.5f, 0, 0), new Vector3(1.5f, 0, 0));
+                Blocked("CR06_Short", new Vector3(1.5f, 0, 0), new Vector3(-1.5f, 0, 0));
+                Blocked("CR06_Bend", new Vector3(-1.32f, 0, 1.32f), new Vector3(.8f, 0, -.8f));
+                Blocked("CR15_DitchCross", new Vector3(.6f, 0, -1.5f), new Vector3(.6f, 0, 1.5f));
+                Blocked("CR15_DitchCross", new Vector3(1.5f, 0, 1.5f), new Vector3(-1.5f, 0, -1.5f));
                 UnityEngine.Object.DestroyImmediate(cc.gameObject);
             }
             Directory.CreateDirectory(Out);
@@ -221,7 +243,8 @@ namespace YunJing.Editor
             int tri(string s) => go.GetComponentsInChildren<MeshFilter>(true).Where(m => m.name.EndsWith(s)).Sum(m => m.sharedMesh.triangles.Length / 3);
             Report.Add($"INFO {id}: triangles LOD0 {tri("_LOD0")}, LOD1 {tri("_LOD1")}, LOD2 {tri("_LOD2")}");
             var col = go.GetComponentsInChildren<MeshCollider>(true).FirstOrDefault(c => c.name == id + "_Collision");
-            Check(id == "CR04_Tools" || id == "CR14_WeedClump" || id.StartsWith("CR06") || id == "CR15_DitchCross" || (col != null && col.sharedMesh.triangles.Length > 0), $"{id}: {id}_Collision imported as MeshCollider ({(col ? col.sharedMesh.triangles.Length / 3 : 0)} triangles), renderer hidden");
+            if (id == "CR04_Tools") Report.Add($"INFO {id}: no _Collision, hand tools do not block");
+            else Check(col != null && col.sharedMesh.triangles.Length > 0, $"{id}: {id}_Collision imported as MeshCollider ({(col ? col.sharedMesh.triangles.Length / 3 : 0)} triangles), renderer hidden");
             if (col != null)
             {
                 var seen = go.GetComponentsInChildren<MeshFilter>(true).Where(m => m.name.EndsWith("_LOD0")).Select(MeshBounds).ToArray(); var all = seen[0]; foreach (var one in seen) all.Encapsulate(one);

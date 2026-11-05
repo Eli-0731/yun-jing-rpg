@@ -75,7 +75,7 @@ INFO CR04_Tools: minTier standard
 PASS CR04_Tools: origin at footprint centre
 PASS CR04_Tools: LODGroup with 3 levels
 INFO CR04_Tools: triangles LOD0 38106, LOD1 19052, LOD2 5710
-PASS CR04_Tools: CR04_Tools_Collision imported as MeshCollider (0 triangles), renderer hidden
+INFO CR04_Tools: no _Collision, hand tools do not block
 PASS CR04_Tools: no error shaders
 PASS CR06_Straight: imported size 1.000 x 2.000 x 0.493 m matches model_info (max error 0.0 mm)
 PASS CR06_Straight: within limit 1 x 2 x 0.5 m
@@ -84,7 +84,8 @@ INFO CR06_Straight: minTier standard
 PASS CR06_Straight: origin at footprint centre
 PASS CR06_Straight: LODGroup with 3 levels
 INFO CR06_Straight: triangles LOD0 74158, LOD1 37078, LOD2 11122
-PASS CR06_Straight: CR06_Straight_Collision imported as MeshCollider (0 triangles), renderer hidden
+PASS CR06_Straight: CR06_Straight_Collision imported as MeshCollider (64 triangles), renderer hidden
+PASS CR06_Straight: the collider stays on the model
 PASS CR06_Straight: no error shaders
 PASS CR06_Short: imported size 1.008 x 0.564 x 0.491 m matches model_info (max error 0.0 mm)
 PASS CR06_Short: within limit 1.1 x 0.6 x 0.5 m
@@ -93,7 +94,8 @@ INFO CR06_Short: minTier standard
 PASS CR06_Short: origin at footprint centre
 PASS CR06_Short: LODGroup with 3 levels
 INFO CR06_Short: triangles LOD0 32952, LOD1 16476, LOD2 4941
-PASS CR06_Short: CR06_Short_Collision imported as MeshCollider (0 triangles), renderer hidden
+PASS CR06_Short: CR06_Short_Collision imported as MeshCollider (64 triangles), renderer hidden
+PASS CR06_Short: the collider stays on the model
 PASS CR06_Short: no error shaders
 PASS CR06_Bend: imported size 1.770 x 1.770 x 0.492 m matches model_info (max error 0.0 mm)
 PASS CR06_Bend: within limit 2 x 2 x 0.5 m
@@ -102,7 +104,8 @@ INFO CR06_Bend: minTier standard
 PASS CR06_Bend: origin at footprint centre
 PASS CR06_Bend: LODGroup with 3 levels
 INFO CR06_Bend: triangles LOD0 73874, LOD1 36935, LOD2 11079
-PASS CR06_Bend: CR06_Bend_Collision imported as MeshCollider (0 triangles), renderer hidden
+PASS CR06_Bend: CR06_Bend_Collision imported as MeshCollider (172 triangles), renderer hidden
+PASS CR06_Bend: the collider stays on the model
 PASS CR06_Bend: no error shaders
 PASS CR08_Straight: imported size 0.681 x 2.000 x 0.451 m matches model_info (max error 0.0 mm)
 PASS CR08_Straight: within limit 0.7 x 2 x 0.5 m
@@ -141,7 +144,8 @@ INFO CR15_DitchCross: minTier standard
 PASS CR15_DitchCross: origin at footprint centre
 PASS CR15_DitchCross: LODGroup with 3 levels
 INFO CR15_DitchCross: triangles LOD0 62944, LOD1 31471, LOD2 9440
-PASS CR15_DitchCross: CR15_DitchCross_Collision imported as MeshCollider (0 triangles), renderer hidden
+PASS CR15_DitchCross: CR15_DitchCross_Collision imported as MeshCollider (226 triangles), renderer hidden
+PASS CR15_DitchCross: the collider stays on the model
 PASS CR15_DitchCross: no error shaders
 PASS CR08_Trestle_080: imported size 1.020 x 0.158 x 0.800 m matches model_info (max error 0.0 mm)
 PASS CR08_Trestle_080: within limit 1.3 x 0.6 x 0.8 m
@@ -416,19 +420,19 @@ SHOT CR12_cup_closeup
 SHOT CR09_A_closeup
 SHOT CR09_B_open_closeup
 FLICKER CR10_CharmStall distance 5.1 m: A-B-A pixels per frame mean 26.8, worst 36, of 518400
-FLICKER CR10_CharmStall distance 12.0 m: A-B-A pixels per frame mean 9.4, worst 15, of 518400
-FLICKER CR11_NoodleStall distance 6.8 m: A-B-A pixels per frame mean 56.7, worst 71, of 518400
-FLICKER CR11_NoodleStall distance 16.1 m: A-B-A pixels per frame mean 41.5, worst 55, of 518400
+FLICKER CR10_CharmStall distance 12.0 m: A-B-A pixels per frame mean 9.7, worst 15, of 518400
+FLICKER CR11_NoodleStall distance 6.8 m: A-B-A pixels per frame mean 58.1, worst 75, of 518400
+FLICKER CR11_NoodleStall distance 16.1 m: A-B-A pixels per frame mean 43.8, worst 56, of 518400
 FLICKER CR12_RankingBoard distance 4.5 m: A-B-A pixels per frame mean 31.0, worst 42, of 518400
 FLICKER CR12_RankingBoard distance 10.7 m: A-B-A pixels per frame mean 67.7, worst 86, of 518400
-FLICKER CR05_WorkShelter distance 6.2 m: A-B-A pixels per frame mean 31.9, worst 40, of 518400
-FLICKER CR05_WorkShelter distance 14.5 m: A-B-A pixels per frame mean 38.0, worst 47, of 518400
-FLICKER WM01_MillHouse distance 12.6 m: A-B-A pixels per frame mean 109.2, worst 135, of 518400
-FLICKER WM01_MillHouse distance 29.8 m: A-B-A pixels per frame mean 90.4, worst 103, of 518400
-FLICKER WM07_StoneBridge distance 14.5 m: A-B-A pixels per frame mean 106.6, worst 118, of 518400
-FLICKER WM07_StoneBridge distance 34.3 m: A-B-A pixels per frame mean 19.8, worst 28, of 518400
-FLICKER WM02_WaterWheel distance 7.3 m: A-B-A pixels per frame mean 122.2, worst 135, of 518400
-FLICKER WM02_WaterWheel distance 17.2 m: A-B-A pixels per frame mean 108.9, worst 122, of 518400
+FLICKER CR05_WorkShelter distance 6.2 m: A-B-A pixels per frame mean 32.0, worst 40, of 518400
+FLICKER CR05_WorkShelter distance 14.5 m: A-B-A pixels per frame mean 37.6, worst 46, of 518400
+FLICKER WM01_MillHouse distance 12.6 m: A-B-A pixels per frame mean 111.4, worst 135, of 518400
+FLICKER WM01_MillHouse distance 29.8 m: A-B-A pixels per frame mean 99.7, worst 112, of 518400
+FLICKER WM07_StoneBridge distance 14.5 m: A-B-A pixels per frame mean 110.6, worst 122, of 518400
+FLICKER WM07_StoneBridge distance 34.3 m: A-B-A pixels per frame mean 21.0, worst 32, of 518400
+FLICKER WM02_WaterWheel distance 7.3 m: A-B-A pixels per frame mean 127.3, worst 145, of 518400
+FLICKER WM02_WaterWheel distance 17.2 m: A-B-A pixels per frame mean 111.6, worst 131, of 518400
 FLICKER CR03_TimberRack distance 3.2 m: A-B-A pixels per frame mean 19.2, worst 29, of 518400
 FLICKER CR03_TimberRack distance 7.6 m: A-B-A pixels per frame mean 6.3, worst 11, of 518400
 

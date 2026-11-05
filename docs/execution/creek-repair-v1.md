@@ -134,6 +134,14 @@ artifacts/creek-repair-build/CreekRepair.exe -creekPlaytest -creekMethod clear_s
 - `joinLeader` 只在 TS 規則裡，Unity 沒有接；連線由核心組做。
 - 部分模型尺寸超限幾毫米到幾公分，以單軸縮放修正，上限 3.5%，記在 `validation.json` 的 `axis_fit_scale`。
 
+### 水渠碰撞（2026-11-05）
+
+`CR06_*`、`CR15_DitchCross` 原本寫「低土堤可跨過，不擋人」，沒有 `_Collision`。實際外牆約 0.41 m，高過 0.3 m 的跨步，所以補上：外牆加渠底，水面不碰撞。CR06 頂面 0.47 m、CR15 頂面 0.49 m，比土堤略高，貼近木樁頂，因為土堤本身的高度會被腳本角色走上去。
+
+`CreekRepairModelCheck.FieldWalk` 用 1.75 m、半徑 0.3 m、stepOffset 0.3、slopeLimit 45 的 CharacterController 走：CR06 三件和 CR15 對角都被擋下；**從 CR15 東側 x = 0.6 m 往北那條線沒被擋，腳本走過去了，報告裡是 FAIL**。那條線上的凹口只有 0.29 m 寬，比角色窄，我認為是撞上外角造成，原因沒有查清。CR15 和別的水路接上後，那幾個端面會被蓋住，但外角還在。
+
+渠道不能跨之後，人要過渠得靠核心組放橋或留缺口。測試場景沒有角色，所以沒有影響玩法；正式放置時要考慮。
+
 ### 水草改版（2026-11-05）
 
 `CR14_WeedClump` 改以 `art/references/CR14/selected_v002.png`（使用者提供的「碧靈水草」三視圖）重做：細莖星形張開、三葉輪生、彎月形葉。原本貼地寬葉的概念圖只留作紀錄。一開始沿用 16 叢時，水草蓋住泥堆和鏟子，所以 `AddWeed` 改成 8 小叢、收在泥堆範圍內。LOD0 約 8,400 三角形，同一泥堆約 7 萬；手機效能未驗證。
