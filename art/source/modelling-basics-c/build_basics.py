@@ -1,8 +1,9 @@
 """承天 · 基礎建模練習（C 包 modelling-basics-c）— Eli-0731, Blender 4.5.3 LTS.
 BM01 舊木箱 ×3：BM01_01 0.5 m、BM01_02 0.8 m（綁麻繩）、BM01_03 1.1 m（正面換過一塊板）。
 Each item is modelled only after its AI three-view candidates are saved and one is picked in art/references/<ID>/prompt.txt
-(AGENTS.md order). Look: semi-realistic, as the user asked on 2026-11-02 — believable wood grain, fibres and weathering with only a
-light painterly colour variation, no outlines (prompt.txt records the change from the style guide's hand-painted fixed paragraph).
+(AGENTS.md order). Look: round 1 was semi-realistic (user's choice, 2026-11-02); the #67 review asked to return to the style
+guide's fixed paragraph 5.2 + negative 5.3 and to match C07 (the old warm-dark joinery in the game), so round 2 keeps the sizes and
+structure and repaints the wood: large soft colour patches, varied board widths and tones, local edge wear, no all-over noise.
 Pipeline (as the day 3-4 package): named parts with tiled source materials, tagged into bake groups → each group joined, unique UV,
 Cycles bake (diffuse colour, AO, roughness, tangent normal, object normal, metal, edge pointiness, position) → numpy finish
 (cool AO shade, worn pale edges, moss and soil at the foot, knot holes) → one material per group with Albedo / Normal / MaskURP / ORM
@@ -43,28 +44,31 @@ def nmap(name,h,s):
 X=np.arange(R)[None,:]/R;Y=np.arange(R)[:,None]/R
 GLOW={}
 def board(dark,light,grey,bleach,crack_amt,seed_shift=0.):
-    """weathered flat-sawn pine: wavy, unevenly spaced late-wood lines (strong low-frequency warp, so they bunch and
-    spread like cathedral grain instead of even stripes), fine fibres along the board, long tonal streaks, sun-greyed
-    patches, a few open checks. The relief is mostly fibre and checks, so the boards do not read as corrugated.
+    """old timber in the style guide's hand-painted look (5.2, round 2 after the #67 review): large soft colour gradients
+    along the board, a handful of long darker grain strokes and a few pale ones, one or two knots, sun-greyed areas and a
+    few open checks. No fine all-over stripes or noise in the colour: the fibre lives only in the normal map.
     Returns (albedo, height)."""
-    knot=np.clip((fbm(3,2)-.76)*6,0,1)**1.5;warp=2.2*fbm(2,3,aniso=6)+.8*fbm(5,2,aniso=10)+1.2*knot
-    rings=.5+.5*np.sin(math.tau*(X*7+warp+seed_shift))   # a few broad cathedral bands
-    lines=np.maximum(np.clip((fbm(20,3,aniso=40)-.60)*5,0,1),.7*np.clip((rings-.86)*7,0,1))   # unevenly spaced dark grain lines
-    fib=fbm(128,2,aniso=64);streak=fbm(5,3,aniso=18);cr=np.clip((fbm(36,2,aniso=24)-.74)*8,0,1)*crack_amt
-    dirt=np.clip((fbm(12,3,aniso=10)-.58)*3,0,1)   # dirt worked into the grain, in streaks
-    t=np.clip(.55+.6*(streak-.5)-.2*knot+.3*(fib-.5)+.15*(rings-.5),0,1)
-    col=lerp(dark,light,t);g=np.clip((fbm(2,3)-.40)*2.8,0,1)*bleach;col=col*(1-g[...,None])+np.asarray(grey)[None,None,:]*g[...,None]
-    col=col*(1-.45*lines[...,None])*(1-.5*cr[...,None])*(1-.2*knot[...,None])*(1-.3*dirt[...,None])*(.88+.24*fib)[...,None]
-    return col,.12*lines+.35*fib+1.5*cr+.15*streak+.4*knot
+    knot=np.clip((fbm(3,2)-.78)*6,0,1)**1.5;warp=1.6*fbm(2,3,aniso=6)+.9*knot
+    broad=fbm(3,3,aniso=8)   # big soft patches stretched along the board
+    rings=.5+.5*np.sin(math.tau*(X*3+warp+seed_shift))
+    dark_st=np.maximum(np.clip((fbm(24,2,aniso=8)-.70)*5,0,1),.7*np.clip((rings-.9)*8,0,1))   # thin brush strokes ~1 × 10 cm, not blobs (aniso ≤ c0/2, or the noise has one cell along the board and turns into full-length stripes)
+    pale_st=np.clip((fbm(10,2,aniso=4)-.70)*4,0,1)*(1-dark_st)
+    fib=fbm(128,2,aniso=64);cr=np.clip((fbm(24,2,aniso=30)-.80)*8,0,1)*crack_amt
+    slash=np.clip((fbm(40,2,aniso=8)-.80)*9,0,1)*np.clip((fbm(3,2)-.35)*3,0,1)   # sparse lens-shaped dark slashes (painted checks), as on C07
+    t=np.clip(.5+1.1*(broad-.5)+.10*(rings-.5)-.3*knot,0,1)
+    col=lerp(dark,light,t);g=np.clip((fbm(2,2)-.45)*2.5,0,1)*bleach;col=col*(1-g[...,None])+np.asarray(grey)[None,None,:]*g[...,None]
+    col=col*(1-.42*dark_st[...,None])*(1-.55*cr[...,None])*(1-.6*slash[...,None])*(1-.12*knot[...,None])+.10*pale_st[...,None]*np.asarray(light)[None,None,:]
+    return col,.25*dark_st+.30*fib+1.4*cr+.8*slash+.25*broad+.4*knot
 def make_sources():
     S={}
-    # three weathered board stocks, picked at random per board, so neighbouring boards differ like the reference.
-    # Colours sit in the style guide's timber swatch #6a4630 → #a87a50 after the AO / grime finish (sources are a step lighter).
-    S['crate']=(*board((.48,.34,.24),(.68,.52,.37),(.56,.52,.47),.6,1.0),1.6,.86,0,0)
-    S['crate_b']=(*board((.43,.30,.21),(.62,.46,.32),(.52,.48,.43),.45,1.0,.4),1.6,.86,0,0)
-    S['crate_c']=(*board((.50,.40,.31),(.68,.58,.47),(.60,.57,.53),.75,.8,.7),1.6,.88,0,0)
-    S['batten']=(*board((.44,.31,.22),(.64,.48,.34),(.54,.50,.45),.5,.8,.3),1.6,.86,0,0)
-    S['newboard']=(*board((.58,.52,.43),(.74,.68,.58),(.68,.66,.62),.3,.3,.6),1.4,.8,0,0)
+    # three board stocks (mid, dark, sun-greyed) and darker battens, after C07 the repair toolbox (old warm-dark joinery, albedo
+    # mean #4c3724): sources sit a step lighter than that, the AO / grime finish brings them down. The renewed board is
+    # fresher pine, paler and warmer, still not grey-white.
+    S['crate']=(*board((.34,.22,.13),(.56,.38,.23),(.46,.40,.33),.30,1.0),1.6,.86,0,0)
+    S['crate_b']=(*board((.26,.16,.09),(.43,.28,.17),(.38,.33,.28),.20,1.0,.4),1.6,.86,0,0)
+    S['crate_c']=(*board((.40,.30,.21),(.60,.47,.34),(.55,.50,.44),.55,.8,.7),1.6,.88,0,0)
+    S['batten']=(*board((.25,.15,.085),(.40,.26,.15),(.36,.31,.26),.20,.8,.3),1.6,.86,0,0)
+    S['newboard']=(*board((.55,.40,.25),(.72,.56,.38),(.66,.60,.52),.15,.3,.6),1.4,.8,0,0)
     S['iron']=(lerp((.13,.11,.10),(.36,.20,.11),np.clip((fbm(6,4)-.35)*1.8,0,1)),fbm(18,3),2.4,.8,.25,0)
     tw=.5+.5*np.sin(math.tau*((X+Y)*16));fib=fbm(30,2,aniso=6)
     S['hemp']=(lerp((.36,.29,.19),(.62,.51,.34),np.clip(tw*.55+.3*fbm(4,3)+.15*fib,0,1)),tw+.4*fib,1.4,.92,0,0)
@@ -83,6 +87,41 @@ def make_sources():
 # ---------------- geometry helpers ----------------
 parts=[];uvr=random.Random(77)
 def link(o,grp):bpy.context.scene.collection.objects.link(o);o['grp']=grp;parts.append(o);return o
+def separate_coplanar(bm,lift=.001):
+    """two separate pieces (weed strands, grass blades, stacked stones) with triangles lying in one plane z-fight:
+    lift the smaller piece 1 mm along its own face normal. Same test as tools/art/qa_lod0_basic.py."""
+    from mathutils.bvhtree import BVHTree
+    bm.faces.ensure_lookup_table();bm.verts.ensure_lookup_table();bm.normal_update()
+    isl=[-1]*len(bm.verts);n=0
+    for v in bm.verts:   # connected pieces
+        if isl[v.index]>=0:continue
+        st=[v];isl[v.index]=n
+        while st:
+            w=st.pop()
+            for e in w.link_edges:
+                u=e.other_vert(w)
+                if isl[u.index]<0:isl[u.index]=n;st.append(u)
+        n+=1
+    size=[0]*n
+    for v in bm.verts:size[isl[v.index]]+=1
+    tree=BVHTree.FromBMesh(bm,epsilon=.0005);moved=set()
+    for i,j in tree.overlap(tree):
+        if i>=j:continue
+        a,b=bm.faces[i],bm.faces[j];ia,ib=isl[a.verts[0].index],isl[b.verts[0].index]
+        if ia==ib or ia in moved or ib in moved or abs(a.normal.dot(b.normal))<math.cos(math.radians(1.5)):continue
+        if max(abs((v.co-a.verts[0].co).dot(a.normal)) for v in b.verts)>.0005:continue
+        u_=(a.verts[1].co-a.verts[0].co).normalized();w_=a.normal.cross(u_)
+        P=[Vector((v.co.dot(u_),v.co.dot(w_))) for v in a.verts];Q=[Vector((v.co.dot(u_),v.co.dot(w_))) for v in b.verts];pen=1e9
+        for poly in (P,Q):   # in-plane overlap deeper than 1 mm (separating axes), not just touching edges
+            for t in range(3):
+                e_=poly[(t+1)%3]-poly[t];ax=Vector((-e_.y,e_.x))
+                if ax.length<1e-12:pen=0;break
+                ax.normalize();pa=[p.dot(ax) for p in P];pb=[p.dot(ax) for p in Q];pen=min(pen,min(max(pa),max(pb))-max(min(pa),min(pb)))
+        if pen<.001:continue
+        f,k=(a,ia) if size[ia]<=size[ib] else (b,ib);d=f.normal*lift;moved.add(k)
+        for v in bm.verts:
+            if isl[v.index]==k:v.co+=d
+    return len(moved)
 def finish(name,bm,mat,grp,scale=TILE):
     """tiled UV: box projection on the part's principal axes, the long axis along V (the grain runs along the board);
     every part starts at a random place in the tile so neighbouring boards do not repeat the same grain"""
@@ -110,11 +149,8 @@ def tube(name,pts,r,mat,grp,sides=8,scale=.3,caps=True):
             f=bm.faces.new((a[k],a[(k+1)%sides],b[(k+1)%sides],b[k]));f[flag]=1
             sg=int(su[i]/Lmax);u0=sg*Lmax   # long tubes are cut into pieces of at most ~10 circumferences so they pack
             for l,(uu,vv) in zip(f.loops,((su[i],k),(su[i],k+1),(su[i+1],k+1),(su[i+1],k))):l[lay].uv=(uu-u0,vv/sides*circ+sg*circ*1.5)
-    if caps:   # caps fold onto the strip's end ring (zero area), so they join its island instead of adding tiny ones
-        for ring,i,rev in ((rings[0],0,True),(rings[-1],len(rings)-1,False)):
-            f=bm.faces.new(list(reversed(ring)) if rev else ring);f[flag]=1
-            sg=int(su[max(i-1,0)]/Lmax);u0=sg*Lmax
-            for l in f.loops:l[lay].uv=(su[i]-u0,ring.index(l.vert)/sides*circ+sg*circ*1.5)
+    if caps:   # caps keep the smart-project UV (folding them onto the strip's end ring gave zero-area UV faces in the #67 QA)
+        for ring,rev in ((rings[0],True),(rings[-1],False)):bm.faces.new(list(reversed(ring)) if rev else ring)
     for f in bm.faces:f.smooth=True
     return finish(name,bm,mat,grp,scale)
 def rope(name,pts,r,mat,grp,plies=3,sides=5,twist_pitch=None):
@@ -213,14 +249,19 @@ def crate(pid,M,W,D,H,rows,seed,t=.02,bw=.07,bt=.02,lid_n=3,replaced=(),knots=()
     a hidden bottom board. W × D × H are the outside sizes over the battens.
     replaced = [(face, row)] boards renewed in the middle span (paler, two nails each side on the old ends);
     knots = [(face, x, z, r)] knot holes painted into the finish; rope_tie: girth + vertical loop with a knot and a hanging bight"""
-    r=random.Random(seed);W_=W-2*bt;D_=D-2*bt;Hw=H-t;gap=.0045;meta={'moss_low':1.0,'moss_h':.16,'moss_top':.0,'moss_cav':.45,'soil':.05,'wear':.75}
+    r=random.Random(seed);emb=.003;W_=W-2*bt+2*emb;D_=D-2*bt+2*emb;Hw=H-t;gap=.0045;meta={'moss_low':.8,'moss_h':.10,'moss_top':.0,'moss_cav':.35,'soil':.07,'wear':0}
     nails=[]
-    hs=[r.uniform(.9,1.1) for _ in range(rows)];k=(Hw-(rows-1)*gap)/sum(hs);hs=[h*k for h in hs]
+    # board widths with a rhythm (#67 review: the even rows read as machine-cut slats): one wide, one narrow, the rest in between
+    base=[1.35,.72,1.0,1.15,.85][:rows];r.shuffle(base);hs=[h*r.uniform(.95,1.05) for h in base];k=(Hw-(rows-1)*gap)/sum(hs);hs=[h*k for h in hs]
     zr=[];z=0
     for h in hs:zr.append((z,z+h));z+=h+gap
     ins=.03+.02*W;xb=W_/2-ins-bw/2;yb=D_/2-.025-bw/2   # batten centre lines on the long and short faces
     def tilt(ax):return Matrix.Rotation(r.uniform(-.006,.006),4,ax)
-    def stock():return M[r.choice(('crate','crate','crate_b','crate_c'))]
+    last=[None]
+    def stock():   # tone rhythm: mostly mid boards with dark and sun-greyed ones mixed in, rarely two of the same in a row
+        k=r.choices(('crate','crate_b','crate_c'),(.45,.33,.22))[0]
+        if k==last[0] and r.random()<.75:k=r.choices(('crate','crate_b','crate_c'),(.45,.33,.22))[0]
+        last[0]=k;return M[k]
     for face,sy in (('Front',-1),('Back',1)):
         y=sy*(D_/2-t/2)
         for i,(z0,z1) in enumerate(zr):
@@ -229,36 +270,37 @@ def crate(pid,M,W,D,H,rows,seed,t=.02,bw=.07,bt=.02,lid_n=3,replaced=(),knots=()
                 xa=xb-bw/2-.07*W;old=stock()   # both ends are what is left of one board
                 for s in (-1,1):
                     box(f'{pid}_{face}Board{i}_old{s:+d}',(W_/2-xa,t,hh),(s*(xa+W_/2)/2,y,cz),old,'Wood',bev=.004,cuts=2,jit=.0012,seed=seed+i*7+s)
-                    for dz in (-hh*.26,hh*.26):nails.append(((s*(xa+.025),y+sy*(t/2+.0015),cz+dz),'y'))
+                    for dz in (-hh*.26,hh*.26):nails.append(((s*(xa+.025),y+sy*(t/2+.001),cz+dz),'y'))
                 box(f'{pid}_{face}Board{i}_new',(2*xa-.006,t+.002,hh-.002),(0,y+sy*.001,cz),M['newboard'],'Wood',bev=.0022,cuts=3,jit=.0008,seed=seed+i*11)
                 for s in (-1,1):
-                    for dz in (-hh*.26,hh*.26):nails.append(((s*(xa-.03),y+sy*(t/2+.0025),cz+dz),'y'))
+                    for dz in (-hh*.26,hh*.26):nails.append(((s*(xa-.03),y+sy*(t/2+.0035),cz+dz),'y'))   # the renewed board stands 2 mm proud: the nail sits 0.5 mm into it
             else:
-                box(f'{pid}_{face}Board{i}',(W_,t,hh),(0,y,cz),stock(),'Wood',bev=.004,cuts=3,jit=.0015,seed=seed+i*13+(sy>0),rot=tilt('Y'))
+                box(f'{pid}_{face}Board{i}',(W_,t,hh),(0,y,cz),stock(),'Wood',bev=.0065,cuts=3,jit=.0018,seed=seed+i*13+(sy>0),rot=tilt('Y'))
     for face,sx in (('Left',-1),('Right',1)):
         x=sx*(W_/2-t/2)
         for i,(z0,z1) in enumerate(zr):
             cz=(z0+z1)/2;hh=z1-z0
             if (face,i) in replaced:mat=M['newboard']
             else:mat=stock()
-            box(f'{pid}_{face}Board{i}',(t,D_-2*t-.002,hh),(x,0,cz),mat,'Wood',bev=.004,cuts=2,jit=.0012,seed=seed+i*17+(sx>0),rot=tilt('X'))
+            box(f'{pid}_{face}Board{i}',(t,D_-2*t-.002,hh),(x,0,cz),mat,'Wood',bev=.0065,cuts=2,jit=.0015,seed=seed+i*17+(sx>0),rot=tilt('X'))
     # lid boards across the width, a hidden bottom board
     ws=[r.uniform(.9,1.1) for _ in range(lid_n)];k=(D_-(lid_n-1)*gap)/sum(ws);ws=[w*k for w in ws];y=-D_/2
     for i,w in enumerate(ws):
-        box(f'{pid}_Lid{i}',(W_,w,t),(0,y+w/2,H-t/2+r.uniform(-.001,.001)),stock(),'Wood',bev=.004,cuts=3,jit=.0015,seed=seed+i*19,rot=tilt('X'))
-        for s in (-1,1):nails.append(((s*(W_/2-t/2),y+w/2+r.uniform(-.01,.01),H+.0015),'z'))
+        box(f'{pid}_Lid{i}',(W_,w,t),(0,y+w/2,H-t/2-emb+r.uniform(-.0005,.0005)),stock(),'Wood',bev=.0065,cuts=3,jit=.0018,seed=seed+i*19,rot=tilt('X'))
+        for s in (-1,1):nails.append(((s*(W_/2-t/2),y+w/2+r.uniform(-.01,.01),H-emb+.001),'z'))
         y+=w+gap
     box(f'{pid}_Bottom',(W_-2*t-.004,D_-2*t-.004,t),(0,0,t/2+.002),stock(),'Wood',bev=.003)
-    # battens: proud of the boards (bt) and of the lid (+6 mm), one nail per board row
+    # battens: proud of the boards (bt) and of the lid (+6 mm), one nail per board row; they sit emb deep in the boards they cover, so
+    # their contact faces are not coplanar with the board faces (the #67 QA found z-fighting pairs there)
     top=H+.006
     for sy in (-1,1):
         for s in (-1,1):
-            box(f'{pid}_Batten{"FB"[sy>0]}{s:+d}',(bw,bt,top),(s*xb,sy*(D_/2+bt/2),top/2),M['batten'],'Wood',bev=.005,cuts=3,jit=.0015,seed=seed+s*3+sy*5,rot=tilt('Y'))
-            for z0,z1 in zr:nails.append(((s*xb+r.uniform(-.006,.006),sy*(D_/2+bt+.0015),(z0+z1)/2+r.uniform(-.008,.008)),'y'))
+            box(f'{pid}_Batten{"FB"[sy>0]}{s:+d}',(bw,bt,top),(s*xb,sy*(D_/2+bt/2-emb),top/2),M['batten'],'Wood',bev=.008,cuts=3,jit=.0018,seed=seed+s*3+sy*5,rot=tilt('Y'))
+            for z0,z1 in zr:nails.append(((s*xb+r.uniform(-.006,.006),sy*(D_/2+bt-emb-.0003),(z0+z1)/2+r.uniform(-.008,.008)),'y'))
     for sx in (-1,1):
         for s in (-1,1):
-            box(f'{pid}_Batten{"LR"[sx>0]}{s:+d}',(bt,bw*.85,top),(sx*(W_/2+bt/2),s*yb,top/2),M['batten'],'Wood',bev=.005,cuts=3,jit=.0015,seed=seed+s*7+sx*9,rot=tilt('X'))
-            for z0,z1 in zr:nails.append(((sx*(W_/2+bt+.0015),s*yb+r.uniform(-.005,.005),(z0+z1)/2+r.uniform(-.008,.008)),'x'))
+            box(f'{pid}_Batten{"LR"[sx>0]}{s:+d}',(bt,bw*.85,top),(sx*(W_/2+bt/2-emb),s*yb,top/2),M['batten'],'Wood',bev=.008,cuts=3,jit=.0018,seed=seed+s*7+sx*9,rot=tilt('X'))
+            for z0,z1 in zr:nails.append(((sx*(W_/2+bt-emb-.0003),s*yb+r.uniform(-.005,.005),(z0+z1)/2+r.uniform(-.008,.008)),'x'))
     # hand-forged nail heads: small square domes, a few bent or missing
     for i,(p,ax) in enumerate(nails):
         if r.random()<.07:continue
@@ -300,9 +342,27 @@ def crate_paint(g,col,rough,q,onrm,ao,cav,edge,m,filled,glow,noise,RES,meta=None
         else:sgn=-1 if face=='Left' else 1;on=(x*sgn>W/2-.06)&(np.abs(onrm[...,0]*sgn-1)<.4);u=y-kx
         d=np.sqrt((u/1.4)**2+(z-kz)**2)/kr;hole=np.clip((1-d)*3,0,1)*on;rim=np.clip((1.6-d)*2,0,1)*on*(1-hole)   # dark hole, a soft darker rim
         col=col*(1-.8*hole[...,None])*(1-.18*rim[...,None])+np.array([.05,.035,.025])*.8*hole[...,None];rough=np.clip(rough+.08*hole,0,1)
-    # rain grime: faint darker runs below the lid line on the sides
-    side=(np.abs(onrm[...,2])<.4)&filled;run=np.clip((z-(H-.12))/.1,0,1)*np.clip(np.sin(x*41+y*37)*.5+.5-.35,0,1)*side
-    col=col*(1-.18*run[...,None]);return col,rough,{}
+    # #67 review (style guide 5.2): large colour patches and local wear instead of even slats; nothing over the whole box
+    def lf(f,o):   # smooth low-frequency field in object space (0..1), a few soft blobs per box
+        return .5+.5*np.sin(x*f*1.3+o+np.sin(z*f*1.7+o*2)*1.4)*np.sin(z*f*1.1+y*f*.9+o*3+np.sin(x*f*.8)*1.2)
+    side=(np.abs(onrm[...,2])<.4)&filled;top=(onrm[...,2]>.6)&filled
+    # damp darkening from the foot, uneven along the box (C07's dark lower band)
+    streaks=np.clip(.5+.5*np.sin(x*57+y*49+np.sin(x*11.3+y*9.7)*2.6)+.25*(lf(21,5.5)-.5),0,1)   # grime rising in vertical streaks
+    damp=np.clip(1-z/(H*(.30+.25*streaks)),0,1)**1.2*(.55+.45*lf(9,1.7))*filled;col=col*(1-.38*damp[...,None])+np.array([.10,.07,.045])*.25*damp[...,None]
+    # a few big darker and sun-greyed patches across neighbouring boards
+    dk=np.clip((lf(6,4.1)-.62)*3.5,0,1)*side;col=col*(1-.22*dk[...,None])
+    sun=np.clip((lf(5,.9)-.6)*3,0,1)*np.clip(z/H,0,1)*filled+.35*top*np.clip((lf(4,2.3)-.35)*2,0,1)
+    grey=np.array([.47,.42,.36]);col=col*(1-.30*sun[...,None])+grey*.30*sun[...,None]
+    # rain grime: irregular darker runs down from the lid joints, not a regular comb
+    runs=np.clip((np.sin(x*23+np.sin(x*7.3+y*5.1)*3.1+y*19)*.5+.5-.55)*3,0,1)*np.clip((lf(13,6.2)-.35)*2.5,0,1)
+    run=np.clip((z-(H-.16))/.14,0,1)*runs*side;col=col*(1-.20*run[...,None])
+    # worn edges only where hands and knocks reach: the lid rim, the top of the battens, the corners; warm pale wood, not white
+    reach=np.clip((z-H*.55)/(H*.45),0,1)*.8+np.clip((np.abs(x)-(W/2-.07))/.05,0,1)*.6+np.clip((np.abs(y)-(D/2-.06))/.05,0,1)*.4
+    # every board edge carries a soft painted highlight (the hand-painted look of the v2 reference), the worn spots a stronger one
+    hl=np.clip(edge*1.6,0,1)*filled*(.6+.4*lf(11,7.7));col=col*(1-.22*hl[...,None])+np.array([.60,.45,.30])*.22*hl[...,None]
+    wear=np.clip(edge*2.0,0,1)*np.clip(reach,0,1)*np.clip((lf(17,3.3)-.25)*2.5,0,1)*filled
+    col=col*(1-.7*wear[...,None])+np.array([.64,.49,.33])*.7*wear[...,None];rough=np.clip(rough-.10*wear,0,1)
+    return col,rough,{}
 
 PROPS={'BM01_01':BM01_01,'BM01_02':BM01_02,'BM01_03':BM01_03}
 REFDIR={'BM01_01':'BM01','BM01_02':'BM01','BM01_03':'BM01'}
@@ -311,7 +371,7 @@ WIDTH={'BM01_01':.5,'BM01_02':.8,'BM01_03':1.1}   # work pack: 0.5 / 0.8 / 1.1 m
 GROUP_RES={'BM01_01':{'Wood':1024,'Detail_Nails':256,'Detail_Grass':256},
            'BM01_02':{'Wood':2048,'Detail_Nails':256,'Detail_Rope':1024,'Detail_Grass':256},
            'BM01_03':{'Wood':2048,'Detail_Nails':512,'Detail_Grass':256}}
-MOSS={k:{'Wood':.55} for k in PROPS}
+MOSS={k:{'Wood':.35} for k in PROPS}   # a little moss at the foot only (C07 has none)
 PAINT={k:crate_paint for k in PROPS}
 
 # ---------------- collision ----------------
@@ -350,7 +410,10 @@ def run(pid):
         cp=[]
         for o in objs:d=o.copy();d.data=o.data.copy();sc.collection.objects.link(d);cp.append(d)
         sel(*cp);bpy.ops.object.join();o=bpy.context.object;o.name=o.data.name=f'{pid}_{g}_LOD0'
-        bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.triangulate(bm,faces=bm.faces);bm.to_mesh(o.data);bm.free()
+        bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.triangulate(bm,faces=bm.faces)
+        # #67 QA: sub-millimetre slivers bake to zero-area UV (collapse them); separate pieces with triangles in one plane z-fight (lift the smaller 1 mm)
+        bmesh.ops.dissolve_degenerate(bm,dist=.0008,edges=list({e for f in bm.faces if f.calc_area()<4e-7 for e in f.edges}))
+        bmesh.ops.triangulate(bm,faces=bm.faces[:]);separate_coplanar(bm);bm.to_mesh(o.data);bm.free()
         for u in [u for u in o.data.uv_layers if u.name not in ('Tiled','Strip')]:o.data.uv_layers.remove(u)
         bu=o.data.uv_layers.new(name='Bake');o.data.uv_layers.active=bu;sel(o)
         res=GROUP_RES[pid][g];mg=16/res   # island gap 16 px > bake bleed 6 px

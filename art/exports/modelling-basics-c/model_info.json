@@ -3,14 +3,14 @@
   "id": "BM01_01",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.507,
+   0.504,
    0.363,
-   0.289
+   0.29
   ],
   "body_dimensions_xyz_m": [
-   0.502,
+   0.503,
    0.341,
-   0.289
+   0.29
   ],
   "target_width_m": 0.5,
   "minTier": "standard",
@@ -31,9 +31,9 @@
     "material": "BM01_01_Wood",
     "texture_px": 1024,
     "triangles": [
-     9852,
-     4926,
-     1476
+     9038,
+     4518,
+     1354
     ],
     "maps": [
      "alb",
@@ -45,9 +45,9 @@
     "material": "BM01_01_Detail_Nails",
     "texture_px": 256,
     "triangles": [
-     1584,
-     792,
-     236
+     1540,
+     770,
+     230
     ],
     "maps": [
      "alb",
@@ -71,16 +71,16 @@
    }
   },
   "triangles_total": [
-   11612,
-   5806,
-   1738
+   10754,
+   5376,
+   1610
   ],
   "triangles_without_detail": [
-   9852,
-   4926,
-   1476
+   9038,
+   4518,
+   1354
   ],
-  "source_parts": 73,
+  "source_parts": 72,
   "reference": "art/references/BM01/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
@@ -97,19 +97,19 @@
       "center": [
        -0.001,
        0.0,
-       0.142
+       0.143
       ]
      }
     ],
     "bounds_min": [
      -0.251,
      -0.17,
-     0.002
+     0.003
     ],
     "bounds_max": [
      0.249,
      0.17,
-     0.282
+     0.283
     ]
    }
   },
@@ -124,12 +124,12 @@
   "dimensions_xyz_m": [
    0.837,
    0.546,
-   0.401
+   0.402
   ],
   "body_dimensions_xyz_m": [
-   0.802,
+   0.803,
    0.483,
-   0.39
+   0.391
   ],
   "target_width_m": 0.8,
   "minTier": "standard",
@@ -154,9 +154,9 @@
     "material": "BM01_02_Wood",
     "texture_px": 2048,
     "triangles": [
-     11148,
-     5574,
-     1672
+     10104,
+     5052,
+     1514
     ],
     "maps": [
      "alb",
@@ -168,9 +168,9 @@
     "material": "BM01_02_Detail_Nails",
     "texture_px": 256,
     "triangles": [
-     1628,
-     814,
-     244
+     1716,
+     858,
+     256
     ],
     "maps": [
      "alb",
@@ -208,16 +208,16 @@
    }
   },
   "triangles_total": [
-   31650,
-   15824,
-   4745
+   30694,
+   15346,
+   4599
   ],
   "triangles_without_detail": [
-   11148,
-   5574,
-   1672
+   10104,
+   5052,
+   1514
   ],
-  "source_parts": 105,
+  "source_parts": 107,
   "reference": "art/references/BM01/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
@@ -233,19 +233,19 @@
       ],
       "center": [
        0.0,
-       0.0,
+       0.001,
        0.193
       ]
      }
     ],
     "bounds_min": [
      -0.4,
-     -0.24,
+     -0.239,
      0.003
     ],
     "bounds_max": [
      0.4,
-     0.24,
+     0.241,
      0.383
     ]
    }
@@ -259,14 +259,14 @@
   "id": "BM01_03",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   1.107,
+   1.104,
    0.623,
-   0.532
+   0.531
   ],
   "body_dimensions_xyz_m": [
    1.103,
-   0.583,
-   0.532
+   0.584,
+   0.531
   ],
   "target_width_m": 1.1,
   "minTier": "standard",
@@ -287,9 +287,9 @@
     "material": "BM01_03_Wood",
     "texture_px": 2048,
     "triangles": [
-     11748,
-     5874,
-     1762
+     11332,
+     5666,
+     1698
     ],
     "maps": [
      "alb",
@@ -301,9 +301,9 @@
     "material": "BM01_03_Detail_Nails",
     "texture_px": 512,
     "triangles": [
-     1936,
-     968,
-     290
+     1892,
+     946,
+     282
     ],
     "maps": [
      "alb",
@@ -327,16 +327,16 @@
    }
   },
   "triangles_total": [
-   14116,
-   7058,
-   2116
+   13656,
+   6828,
+   2044
   ],
   "triangles_without_detail": [
-   11748,
-   5874,
-   1762
+   11332,
+   5666,
+   1698
   ],
-  "source_parts": 102,
+  "source_parts": 101,
   "reference": "art/references/BM01/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
@@ -353,19 +353,19 @@
       "center": [
        -0.001,
        -0.0,
-       0.264
+       0.263
       ]
      }
     ],
     "bounds_min": [
      -0.551,
      -0.29,
-     0.004
+     0.003
     ],
     "bounds_max": [
      0.549,
      0.29,
-     0.524
+     0.523
     ]
    }
   },

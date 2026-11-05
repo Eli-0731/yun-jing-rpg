@@ -1,0 +1,27 @@
+[
+ {
+  "file": "art\\exports\\modelling-basics-c\\BM01_01.glb",
+  "objects": 3,
+  "triangles": 10754,
+  "findings": []
+ },
+ {
+  "file": "art\\exports\\modelling-basics-c\\BM01_02.glb",
+  "objects": 4,
+  "triangles": 30694,
+  "findings": []
+ },
+ {
+  "file": "art\\exports\\modelling-basics-c\\BM01_03.glb",
+  "objects": 3,
+  "triangles": 13656,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "BM01_03_Wood_LOD0",
+    "count": 1,
+    "note": "1 triangle pairs {'down one piece': 1}, e.g. at [[-0.527, -0.252, 0.081, 'n+0+0-1']]"
+   }
+  ]
+ }
+]

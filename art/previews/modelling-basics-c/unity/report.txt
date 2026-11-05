@@ -3,10 +3,10 @@ PASS BM01_01_Detail_Grass: Albedo / MaskURP / Normal textures found
 PASS BM01_01_Detail_Nails: Albedo / MaskURP / Normal textures found
 PASS BM01_01_Wood: Albedo / MaskURP / Normal textures found
 PASS BM01_01: BM01_01_GroundOrigin is the model root (Unity names it BM01_01); all LOD meshes hang under it
-PASS BM01_01: imported size 0.507 x 0.363 x 0.289 m matches model_info 0.507 x 0.363 x 0.289
-PASS BM01_01: crate body 0.502 x 0.341 x 0.289 m, width within 1.5 cm of the work pack's 0.5 m
+PASS BM01_01: imported size 0.504 x 0.363 x 0.290 m matches model_info 0.504 x 0.363 x 0.29
+PASS BM01_01: crate body 0.503 x 0.341 x 0.290 m, width within 1.5 cm of the work pack's 0.5 m
 PASS BM01_01: base at y = 0.000 (origin on the ground)
-PASS BM01_01: triangles LOD0/1/2 = 11612 / 5806 / 1738 (50% / 15%), model_info 11612 / 5806 / 1738
+PASS BM01_01: triangles LOD0/1/2 = 10754 / 5376 / 1610 (50% / 15%), model_info 10754 / 5376 / 1610
 PASS BM01_01: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
 PASS BM01_01: minTier = standard (a crate can block the way: standard, seen by every player)
 PASS BM01_01: detailObjects Detail_Nails, Detail_Grass → 6 meshes present
@@ -19,10 +19,10 @@ PASS BM01_02_Detail_Nails: Albedo / MaskURP / Normal textures found
 PASS BM01_02_Detail_Rope: Albedo / MaskURP / Normal textures found
 PASS BM01_02_Wood: Albedo / MaskURP / Normal textures found
 PASS BM01_02: BM01_02_GroundOrigin is the model root (Unity names it BM01_02); all LOD meshes hang under it
-PASS BM01_02: imported size 0.837 x 0.546 x 0.401 m matches model_info 0.837 x 0.546 x 0.401
-PASS BM01_02: crate body 0.802 x 0.483 x 0.390 m, width within 1.5 cm of the work pack's 0.8 m
+PASS BM01_02: imported size 0.837 x 0.546 x 0.402 m matches model_info 0.837 x 0.546 x 0.402
+PASS BM01_02: crate body 0.803 x 0.483 x 0.391 m, width within 1.5 cm of the work pack's 0.8 m
 PASS BM01_02: base at y = 0.000 (origin on the ground)
-PASS BM01_02: triangles LOD0/1/2 = 31650 / 15824 / 4745 (50% / 15%), model_info 31650 / 15824 / 4745
+PASS BM01_02: triangles LOD0/1/2 = 30694 / 15346 / 4599 (50% / 15%), model_info 30694 / 15346 / 4599
 PASS BM01_02: 1 LODGroup(s) with 3 levels covering all 4 LOD0 renderers
 PASS BM01_02: minTier = standard (a crate can block the way: standard, seen by every player)
 PASS BM01_02: detailObjects Detail_Nails, Detail_Rope, Detail_Grass → 9 meshes present
@@ -34,10 +34,10 @@ PASS BM01_03_Detail_Grass: Albedo / MaskURP / Normal textures found
 PASS BM01_03_Detail_Nails: Albedo / MaskURP / Normal textures found
 PASS BM01_03_Wood: Albedo / MaskURP / Normal textures found
 PASS BM01_03: BM01_03_GroundOrigin is the model root (Unity names it BM01_03); all LOD meshes hang under it
-PASS BM01_03: imported size 1.107 x 0.623 x 0.532 m matches model_info 1.107 x 0.623 x 0.532
-PASS BM01_03: crate body 1.103 x 0.583 x 0.532 m, width within 1.5 cm of the work pack's 1.1 m
+PASS BM01_03: imported size 1.104 x 0.623 x 0.531 m matches model_info 1.104 x 0.623 x 0.531
+PASS BM01_03: crate body 1.103 x 0.584 x 0.531 m, width within 1.5 cm of the work pack's 1.1 m
 PASS BM01_03: base at y = 0.000 (origin on the ground)
-PASS BM01_03: triangles LOD0/1/2 = 14116 / 7058 / 2116 (50% / 15%), model_info 14116 / 7058 / 2116
+PASS BM01_03: triangles LOD0/1/2 = 13656 / 6828 / 2044 (50% / 15%), model_info 13656 / 6828 / 2044
 PASS BM01_03: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
 PASS BM01_03: minTier = standard (a crate can block the way: standard, seen by every player)
 PASS BM01_03: detailObjects Detail_Nails, Detail_Grass → 6 meshes present
