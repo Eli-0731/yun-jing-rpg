@@ -116,6 +116,41 @@ def make_sources():
 # ---------------- geometry helpers ----------------
 parts=[]
 def link(o,grp):bpy.context.scene.collection.objects.link(o);o['grp']=grp;parts.append(o);return o
+def separate_coplanar(bm,lift=.001):
+    """two separate pieces (weed strands, grass blades, stacked stones) with triangles lying in one plane z-fight:
+    lift the smaller piece 1 mm along its own face normal. Same test as tools/art/qa_lod0_basic.py."""
+    from mathutils.bvhtree import BVHTree
+    bm.faces.ensure_lookup_table();bm.verts.ensure_lookup_table();bm.normal_update()
+    isl=[-1]*len(bm.verts);n=0
+    for v in bm.verts:   # connected pieces
+        if isl[v.index]>=0:continue
+        st=[v];isl[v.index]=n
+        while st:
+            w=st.pop()
+            for e in w.link_edges:
+                u=e.other_vert(w)
+                if isl[u.index]<0:isl[u.index]=n;st.append(u)
+        n+=1
+    size=[0]*n
+    for v in bm.verts:size[isl[v.index]]+=1
+    tree=BVHTree.FromBMesh(bm,epsilon=.0005);moved=set()
+    for i,j in tree.overlap(tree):
+        if i>=j:continue
+        a,b=bm.faces[i],bm.faces[j];ia,ib=isl[a.verts[0].index],isl[b.verts[0].index]
+        if ia==ib or ia in moved or ib in moved or abs(a.normal.dot(b.normal))<math.cos(math.radians(1.5)):continue
+        if max(abs((v.co-a.verts[0].co).dot(a.normal)) for v in b.verts)>.0005:continue
+        u_=(a.verts[1].co-a.verts[0].co).normalized();w_=a.normal.cross(u_)
+        P=[Vector((v.co.dot(u_),v.co.dot(w_))) for v in a.verts];Q=[Vector((v.co.dot(u_),v.co.dot(w_))) for v in b.verts];pen=1e9
+        for poly in (P,Q):   # in-plane overlap deeper than 1 mm (separating axes), not just touching edges
+            for t in range(3):
+                e_=poly[(t+1)%3]-poly[t];ax=Vector((-e_.y,e_.x))
+                if ax.length<1e-12:pen=0;break
+                ax.normalize();pa=[p.dot(ax) for p in P];pb=[p.dot(ax) for p in Q];pen=min(pen,min(max(pa),max(pb))-max(min(pa),min(pb)))
+        if pen<.001:continue
+        f,k=(a,ia) if size[ia]<=size[ib] else (b,ib);d=f.normal*lift;moved.add(k)
+        for v in bm.verts:
+            if isl[v.index]==k:v.co+=d
+    return len(moved)
 def finish(name,bm,mat,grp,scale=.4,uv=None):
     """tiled UV: box projection on principal axes, or uv=(u,v) callables of a world point for cylinders"""
     bmesh.ops.recalc_face_normals(bm,faces=bm.faces);lay=bm.loops.layers.uv.get('Tiled') or bm.loops.layers.uv.new('Tiled')
@@ -165,11 +200,8 @@ def tube(name,pts,r,mat,grp,sides=8,scale=.3,caps=True,radii=None):
             f=bm.faces.new((a[k],a[(k+1)%sides],b[(k+1)%sides],b[k]));f[flag]=1
             sg=int(su[i]/Lmax);u0=sg*Lmax   # long tubes are cut into pieces of at most ~10 circumferences so they pack
             for l,(uu,vv) in zip(f.loops,((su[i],k),(su[i],k+1),(su[i+1],k+1),(su[i+1],k))):l[lay].uv=(uu-u0,vv/sides*circ+sg*circ*1.5)
-    if caps:   # caps fold onto the strip's end ring (zero area), so they join its island instead of adding tiny ones
-        for ring,i,rev in ((rings[0],0,True),(rings[-1],len(rings)-1,False)):
-            f=bm.faces.new(list(reversed(ring)) if rev else ring);f[flag]=1
-            sg=int(su[max(i-1,0)]/Lmax);u0=sg*Lmax
-            for l in f.loops:l[lay].uv=(su[i]-u0,ring.index(l.vert)/sides*circ+sg*circ*1.5)
+    if caps:   # caps keep the smart-project UV (a small island of their own); folding them onto the end ring gave zero-area UV faces
+        for ring,rev in ((rings[0],True),(rings[-1],False)):bm.faces.new(list(reversed(ring)) if rev else ring)
     for f in bm.faces:f.smooth=True
     return finish(name,bm,mat,grp,scale)
 def rope(name,pts,r,mat,grp,plies=3,twist=None,sides=5):
@@ -524,7 +556,7 @@ def UP01(M):
         o=tube(name,pts,r0,M[mat],D,14,.3,radii=[r0*r_.uniform(.85,1.1) for _ in pts]);jitter(o,r0*.08,seed,40);return o
     log('UP01_Log0',(-.66,yd(.3)+.25,.30),(.55,yd(1.3)+.9,1.32),.11,401)
     log('UP01_Log1',(-.85,yd(.9)+.42,.86),(.82,yd(.9)+.36,.92),.09,402,'bark')
-    log('UP01_Log2',(-.45,GY+1.25,1.0),(.62,GY+.62,2.25),.10,403,'bark')
+    log('UP01_Log2',(-.45,GY+1.1,.5),(.6,GY+.17,2.0),.10,403,'bark')   # foot buried in the upstream silt, top leaning on the pillar's inner face (it floated before)
     log('UP01_Log4',(.6,yd(.4)+.3,.45),(-.5,yd(1.5)+.75,1.55),.075,405,'bark')
     log('UP01_Log3',(.68,yd(.2)+.1,.18),(-.2,yd(.2)-.55,.12),.07,404)
     for i in range(28):   # dead branches with a fork, poking out of the jam
@@ -541,17 +573,24 @@ def UP01(M):
     for j in range(12):   # fallen face blocks: squared stones with broken arrises, some tilted
         x=r.choice((-1,1))*r.uniform(1.4,5.6);sz=(r.uniform(.38,.6),r.uniform(.28,.4),r.uniform(.2,.32))
         rock(f'UP01_Fallen{j}',sz,(x,yd(0)-r.uniform(.12,.28),0),M[r.choice(('granite','granite_b'))],W,600+j,cuts=8,frac=(.9,.97),flat=.15,round_=.04,lumps=.02,ncracks=1,rot=r.uniform(-.5,.5),vox=35,target=900)
-    for j in range(46):   # rubble and cobbles along the downstream foot
+    for j in range(80):   # rubble and cobbles heaped along the downstream foot (round three: denser, as in the reference; kept inside the 4 m depth)
         x=r.uniform(-6.2,6.2)
         if abs(x)<1.25:continue
-        sz=r.uniform(.07,.2);rock(f'UP01_Rubble{j}',(sz*r.uniform(1,1.5),sz,sz*r.uniform(.5,.8)),(x,yd(0)-r.uniform(.02,.3),0),M[r.choice(('granite','granite_b','creekstone'))],W,640+j,cuts=7,flat=.3,round_=.08,ncracks=0,rot=r.uniform(0,3),vox=18,target=220)
+        sz=r.uniform(.08,.26);rock(f'UP01_Rubble{j}',(sz*r.uniform(1,1.5),sz,sz*r.uniform(.5,.8)),(x,yd(0)-r.uniform(.0,.18),0),M[r.choice(('granite','granite_b','creekstone'))],W,640+j,cuts=7,flat=.3,round_=.08,ncracks=0,rot=r.uniform(0,3),vox=18,target=220)
+    for j in range(16):   # larger talus stones heaped against the foot, as in the reference (round three)
+        x=r.choice((-1,1))*r.uniform(1.5,5.8);sz=(r.uniform(.4,.6),r.uniform(.28,.36),r.uniform(.25,.4))
+        rock(f'UP01_Talus{j}',sz,(x,yd(0)+.05-r.uniform(0,.1),0),M[r.choice(('granite','granite_b','creekstone'))],W,760+j,cuts=9,flat=.25,round_=.06,lumps=.03,ncracks=1,rot=r.uniform(0,3),vox=30,target=900)
     # ferns in the joints of the downstream face, grass on the bank rocks and the crest
     for j in range(20):
         x=r.choice((-1,1))*r.uniform(1.4,5.8);z=r.uniform(.15,1.95);fern(f'UP01_Fern{j}',(x,yd(z)-.02,z),M,P,700+j,n=5,L=r.uniform(.18,.34),up=(0,-.7,.7))
     for j in range(14):   # grass tufts in the face joints
         x=r.choice((-1,1))*r.uniform(1.4,5.8);z=r.uniform(.2,1.9);tuft(f'UP01_JointTuft{j}',(x,yd(z)-.03,z),M,P,760+j,n=6,h=.13)
-    for j in range(10):
+    for j in range(22):
         x=r.choice((-1,1))*r.uniform(5.4,6.4);tuft(f'UP01_Tuft{j}',(x,r.uniform(-.9,1.2),0),M,P,800+j,n=8,h=.22)
+    for j in range(26):   # ferns and grass among the rubble at the downstream foot
+        x=r.choice((-1,1))*r.uniform(1.4,6.0);c=(x,yd(0)-r.uniform(.05,.2),0)
+        if j%2:fern(f'UP01_FootFern{j}',c,M,P,900+j,n=6,L=r.uniform(.2,.32))
+        else:tuft(f'UP01_FootTuft{j}',c,M,P,940+j,n=9,h=r.uniform(.14,.24))
     for j in range(5):
         x=r.choice((-1,1))*r.uniform(1.5,5.5);tuft(f'UP01_CrestTuft{j}',(x,r.uniform(.25,.65),CREST),M,P,850+j,n=6,h=.14)
     for j in range(9):   # ivy hanging over the coping down the downstream face
@@ -592,14 +631,14 @@ def warm_stone(pid,M,size,seed,comps,crack_starts,plants):
     moss_pad(f'{pid}_MossPad',o,M['moss'],S,seed+5,cover=.55,thick=min(size)*.03,up=.35,zmin=.3)
     R0=max(size[0],size[1])/2;lim=LIMITS[pid]
     inside=lambda c:abs(c[0])>lim[0]/2-.05 or abs(c[1])>lim[1]/2-.05
-    pebbles(f'{pid}_Gravel',M,'Gravel',seed+40,(0,0),R0*.6,R0*1.15,int(70*R0/.4),avoid=inside)
+    pebbles(f'{pid}_Gravel',M,'Gravel',seed+40,(0,0),R0*.6,R0*1.2,int(125*R0/.4),avoid=inside)
     for j,(c,kind) in enumerate(plants):
         if kind=='fern':fern(f'{pid}_Fern{j}',c,M,P,seed+60+j,n=6,L=.11)
         else:tuft(f'{pid}_Tuft{j}',c,M,P,seed+70+j,n=8,h=.14)
-    for j in range(14):   # grass and small ferns tucked against the foot of the stone all round
-        a=math.tau*j/14+r.uniform(-.2,.2);c=(size[0]/2*.95*math.cos(a),size[1]/2*.95*math.sin(a),0)
-        if abs(c[0])>lim[0]/2-.17 or abs(c[1])>lim[1]/2-.17:continue
-        if j%3==0:fern(f'{pid}_RingFern{j}',c,M,P,seed+80+j,n=5,L=.12)
+    for j in range(22):   # grass and small ferns tucked against the foot of the stone all round
+        a=math.tau*j/22+r.uniform(-.15,.15);c=(size[0]/2*.86*math.cos(a),size[1]/2*.86*math.sin(a),0)   # just under the stone's bulge, so they stay inside the size limit
+        if abs(c[0])>lim[0]/2-.09 or abs(c[1])>lim[1]/2-.09:continue
+        if j%2==0:fern(f'{pid}_RingFern{j}',c,M,P,seed+80+j,n=6,L=.14)
         else:tuft(f'{pid}_RingTuft{j}',c,M,P,seed+90+j,n=9,h=r.uniform(.09,.16))
     meta['sockets']={'Socket_Steam':(0,0,max(v.co.z for v in o.data.vertices)+.01)}
     meta['collisions']={'Collision':[{'type':'hull','parts':[f'{pid}_Main'],'simplify':8}]} if size[0]>=.7 else {}
@@ -686,7 +725,7 @@ def UP03(M):
     for j in range(7):   # angular foot stones and gravel kept inside the 0.5 x 0.4 footprint
         a=math.tau*j/7+r.uniform(-.3,.3);c=(.18*math.cos(a),.135*math.sin(a),0);rock(f'UP03_Foot{j}',(r.uniform(.07,.1),r.uniform(.055,.07),r.uniform(.05,.08)),c,M['granite'],S,330+j,cuts=10,round_=.04,ncracks=0,rot=a,vox=40,target=1500)
     pebbles('UP03_Gravel',M,'Gravel',340,(0,0),.19,.24,30,size=(.02,.04),avoid=lambda c:abs(c[0])>.22 or abs(c[1])>.17)
-    for j,c in enumerate(((-.195,.08,0),(.195,.1,0),(-.19,-.1,0),(.2,-.06,0),(.02,.165,0))):tuft(f'UP03_Tuft{j}',c,M,P,360+j,n=8,h=.085)
+    for j,c in enumerate(((-.195,.08,0),(.195,.1,0),(-.19,-.1,0),(.2,-.06,0),(.02,.165,0),(-.08,-.12,0),(.1,-.12,0))):tuft(f'UP03_Tuft{j}',c,M,P,360+j,n=8,h=.085)   # tuft size as before, so the 0.5 x 0.4 footprint holds
     UP03_LINES[:]=lines;meta['collisions']={'Collision':[{'type':'box','size':(w,d,h),'center':(0,0,h/2)}]}
     meta['notes']={'marks':f'8 level lines (lowest at {lines[0][2]:.2f} m, highest at {lines[-1][2]:.2f} m), a dot beside each, a small wave sign by the top line; no letters, no numbers',
                    'stain':'old high-water stain band about 0.80-0.96 m'}
@@ -696,7 +735,8 @@ def up03_paint(g,col,rough,q,onrm,ao,cav,edge,m,filled,glow,noise,RES):
     z=q[...,2];post=filled&(np.abs(q[...,0])<.19)&(np.abs(q[...,1])<.165)&(z>.1)
     n1=vnoise3(q,9,1);n2=vnoise3(q,38,2);v1=vnoise3(q,3,5,3)
     col=col*(.84+.3*v1[...,None])*(1+np.array([.05,.0,-.06])*(n1[...,None]-.5)*2)   # tonal patches
-    col=np.clip(col*np.array([1.34,1.26,1.12]),0,1)   # warm light granite, as in the v2 sheet
+    col=np.clip(col*np.array([1.16,1.10,1.03]),0,1)   # warm grey granite, as in the v2 sheet (round three: was too orange)
+    lum=col.mean(-1,keepdims=True);col=col*.55+lum*np.array([1.0,.97,.9])*.45;col=np.clip(col-np.clip(lum-.6,0,None)*.7,0,1)   # toward warm grey; tone down the big pale palette spots
     edge_=.88+.025*(n1-.5)*2;band=np.clip(1-np.abs(z-edge_)/.085,0,1)**.45*post*(.75+.25*n2)
     drip=np.clip((vnoise3(q*np.array([1,1,.12]),40,7,2)-.55)*4,0,1)*np.clip((edge_-z)/.03,0,1)*np.clip(1-(edge_-z)/.35,0,1)   # streaks running down from the old waterline
     under=np.clip((edge_-z)/.45,0,1)*post*.25*(.6+.4*n1)+.5*drip*post;band=np.clip(band*1.1,0,1)
@@ -706,8 +746,8 @@ def up03_paint(g,col,rough,q,onrm,ao,cav,edge,m,filled,glow,noise,RES):
         gr=np.maximum(gr,((q[...,0]>x0-.004)&(q[...,0]<x1+.004)&(np.abs(z-zc)<.008)&(q[...,1]>-.145-.004)&(q[...,1]<-.145+dep+.004)).astype(np.float32))
     gr=gr*post*np.clip((n2-.25)*2.2,0,1);mc=np.array([.24,.29,.13])
     col=col*(1-.7*gr[...,None])+mc*.7*gr[...,None]
-    lich=np.clip((vnoise3(q,22,3,2)-.66)*7,0,1)*np.clip((vnoise3(q,5,4,1)-.35)*3,0,1)*post*(z>.3)
-    col=col*(1-.45*lich[...,None])+np.array([.62,.64,.52])*.45*lich[...,None]
+    lich=np.clip((vnoise3(q,38,3,2)-.68)*8,0,1)*np.clip((vnoise3(q,5,4,1)-.3)*3,0,1)*post*(z>.2)   # small rosettes, not blobs
+    col=col*(1-.55*lich[...,None])+np.array([.80,.80,.70])*.55*lich[...,None]
     return col,rough,{}
 
 # ---------------- UP04 畫了水路的平石 ----------------
@@ -783,7 +823,7 @@ def drawing_rgba(RES,dw,dh):
         a[j0:j1,i0:i1]=np.maximum(a[j0:j1,i0:i1],np.clip((w-dist)/(w*.45),0,1))
     def line(pts,w,amp=.003):
         pts=[(x*dw+r.uniform(-amp,amp),y*dh+r.uniform(-amp,amp)) for x,y in pts]
-        for p,q in zip(pts,pts[1:]):seg(p,q,w*r.uniform(.8,1.1))
+        for p,q in zip(pts,pts[1:]):seg(p,q,1.5*w*r.uniform(.8,1.1))   # round three: bolder charcoal, reads from standing height as in the reference
     def circle(cx,cy,R,w):line([(cx+R*math.cos(t)/dw,cy+R*math.sin(t)/dh) for t in np.linspace(0,math.tau,28)],w,.0015)
     creek=[(.03+.94*t,.52+.16*math.sin(t*math.tau*1.25+.4)+.05*math.sin(t*math.tau*3.1)) for t in np.linspace(0,1,60)]
     for off in (-.035,.035):line([(x,y+off) for x,y in creek],.0062)
@@ -796,14 +836,14 @@ def drawing_rgba(RES,dw,dh):
             (x0,y0),(x1,y1)=pts[-2],pts[-1];ang=math.atan2((y1-y0)*dh,(x1-x0)*dw)
             for s in (-1,1):a2=ang+math.pi+s*.5;line([(x1,y1),(x1+.035*math.cos(a2)/dw,y1+.035*math.sin(a2)/dh)],.003)
         return pts[m-1]
-    ends=[branch(10,.10,.26,6),branch(22,.05,-.30,6),branch(34,.16,.22,7)]
+    ends=[branch(10,.10,.26,6),branch(22,.05,-.30,6),branch(34,.16,.22,7),branch(16,-.06,-.28,6),branch(28,.08,.30,6)]
     def fork(x,y,dx,dy,lev):   # root-like forks off a channel end
         if lev==0:return
         for s_ in (-1,1):
             nx_,ny_=x+dx*.5+s_*dy*.25,y+dy*.5-s_*dx*.25;line([(x,y),((x+nx_)/2+r.uniform(-.008,.008),(y+ny_)/2+r.uniform(-.008,.008)),(nx_,ny_)],.0022);fork(nx_,ny_,dx*.6,dy*.6,lev-1)
-    for (x,y),(dx,dy) in zip(ends,((.05,.10),(.03,-.12),(.07,.09))):fork(x,y,dx,dy,2)
-    for k in range(7):   # flow arrows beside the creek
-        i=4+k*7;(x0,y0),(x1,y1)=creek[i],creek[i+2];off=.075*(1 if k%2 else -1);ang=math.atan2((y1-y0)*dh,(x1-x0)*dw)
+    for (x,y),(dx,dy) in zip(ends,((.05,.10),(.03,-.12),(.07,.09),(-.04,-.1),(.05,.1))):fork(x,y,dx,dy,3)
+    for k in range(12):   # flow arrows beside the creek
+        i=3+k*4;(x0,y0),(x1,y1)=creek[i],creek[i+2];off=.075*(1 if k%2 else -1);ang=math.atan2((y1-y0)*dh,(x1-x0)*dw)
         p0=(x0,y0+off);p1=(x0+.05*math.cos(ang)/dw,y0+off+.05*math.sin(ang)/dh);line([p0,p1],.0024)
         for s_ in (-1,1):a2=ang+math.pi+s_*.55;line([p1,(p1[0]+.018*math.cos(a2)/dw,p1[1]+.018*math.sin(a2)/dh)],.0024)
     for (x0,y0),(x1,y1) in (((.30,.15),(.45,.24)),((.55,.85),(.40,.80)),((.08,.30),(.20,.38))):   # dashed guide lines
@@ -813,8 +853,8 @@ def drawing_rgba(RES,dw,dh):
     branch(44,.12,-.24,6,done=.5);branch(53,.10,.28,6,done=.4)   # the half-drawn channels
     for (x,y) in ends[:2]:circle(x,y+.03*math.copysign(1,y-.5),.022,.003)
     circle(.72,.22,.05,.003);circle(.72,.22,.022,.0026)   # the circle-in-circle "machine"
-    for k in range(8):   # little circles along the creek, like stepping stones
-        x,y=creek[6+k*6];circle(x,y+r.choice((-1,1))*.09,r.uniform(.008,.014),.0022)
+    for k in range(14):   # little circles along the creek, like stepping stones
+        x,y=creek[4+k*4];circle(x,y+r.choice((-1,1))*.09,r.uniform(.008,.014),.0022)
     g=np.random.default_rng(7).random(a.shape).astype(np.float32);a=a*np.clip(.55+.6*g,0,1)   # grainy charcoal on rough stone
     return np.dstack([.07+0*a,.065+0*a,.06+0*a,np.clip(a*.92,0,1)])
 
@@ -840,10 +880,9 @@ def cushion(pid,M,mat,h,squash,seed,R=.25):
         lathe(f'{pid}_Knot{k}',[(0,-.006),(.0062,-.004),(.0068,0),(.0062,.004),(0,.006)],M[mat],C,seg=8,center=(rr*math.cos(a),rr*math.sin(a),hb*.5))
     for k in range(16):   # radial ties stitched over the top spiral
         a=math.tau*k/16;tube(f'{pid}_Spoke{k}',[(.02*math.cos(a),.02*math.sin(a),h-.002),((R-.04)*math.cos(a),(R-.04)*math.sin(a),h-.003-squash*.004)],.0018,M[mat],C,4,.05)
-    if squash:
-        for i in range(34):   # frayed straws sticking out of the old cushion
-            a=r.uniform(0,math.tau);z=r.uniform(.01,hb);p=Vector(((R+.005)*math.cos(a),(R+.005)*math.sin(a),z));d=Vector((math.cos(a+r.uniform(-.8,.8)),math.sin(a+r.uniform(-.8,.8)),r.uniform(-.3,.4))).normalized()
-            tube(f'{pid}_Straw{i}',[p,p+d*r.uniform(.012,.024)],.0012,M[mat],C,4,.05)
+    for i in range(64 if squash else 20):   # frayed straws sticking out of the rim (round three: the new one frays a little too, as in the reference)
+        a=r.uniform(0,math.tau);z=r.uniform(.01,hb);p=Vector(((R+.005)*math.cos(a),(R+.005)*math.sin(a),z));d=Vector((math.cos(a+r.uniform(-.8,.8)),math.sin(a+r.uniform(-.8,.8)),r.uniform(-.3,.4))).normalized()
+        tube(f'{pid}_Straw{i}',[p,p+d*r.uniform(.012,.03 if squash else .02)],.0012,M[mat],C,4,.05)
     if squash:   # grey cloth band patched over a broken side coil, a few running stitches
         a0=r.uniform(0,math.tau);bm=bmesh.new();G=[]
         for i in range(9):
@@ -895,8 +934,8 @@ def up05_table_paint(g,col,rough,q,onrm,ao,cav,edge,m,filled,glow,noise,RES):
     col=col*(1+.35*corner[...,None])+np.array([.07,.045,.02])*corner[...,None];rough=np.clip(rough-.45*corner,.2,1)
     rr=np.hypot(q[...,0]-.22,q[...,1]-(-.06));ring=np.clip(1-np.abs(rr-.035)/.004,0,1)*top*.7
     col=col*(1-.35*ring[...,None])+np.array([.18,.12,.08])*.35*ring[...,None]
-    ad=np.hypot(q[...,0]-.035,q[...,1]-.06);ash=np.clip((.075-ad)/.04,0,1)*top*np.clip((noise-.45)*2.4,0,1)*np.clip(np.sin(q[...,0]*420)*np.sin(q[...,1]*390)+.4,0,1)
-    col=col*(1-.45*ash[...,None])+np.array([.46,.45,.42])*.45*ash[...,None];rough=np.clip(rough+.3*ash,0,1)
+    ad=np.hypot((q[...,0]-.13)*.8,q[...,1]-.035);ash=np.clip((.06-ad)/.035,0,1)*top*np.clip((noise-.4)*2.2,0,1)*np.clip((vnoise3(q,70,11,2)-.3)*3,0,1)   # speckled spill (a sin x sin mask printed a checkerboard)
+    col=col*(1-.6*ash[...,None])+np.array([.52,.51,.48])*.6*ash[...,None];rough=np.clip(rough+.3*ash,0,1)
     return col,rough,{}
 def UP05_Burner(M):
     """小香爐 · patinated bronze, three legs, two upright loop ears, ash inside; Socket_Smoke over the ash; Ø0.15 x 0.12"""
@@ -1026,7 +1065,7 @@ GROUP_RES={'UP01':{'Weir':4096,'Gate':1024,'Debris':2048,'Plants':1024},
            'UP05_CushionNew':{'Cushion':1024},'UP05_CushionOld':{'Cushion':1024},'UP05_Table':{'Table':2048},'UP05_Burner':{'Burner':1024},'UP06':{'Frame':1024,'Lamp':1024}}
 MOSS={'UP01':{'Weir':.42,'Debris':.06},**{k:{'Stone':.5} for k in ('UP02_01','UP02_02','UP02_03')},'UP03':{'Stone':.45},'UP04':{'Stone':.6}}
 MOTTLE={'UP01':{'Weir':.09},**{k:{'Stone':.035,'Gravel':.03} for k in ('UP02_01','UP02_02','UP02_03')},'UP03':{'Stone':.035},'UP04':{'Stone':.045}}   # patch size m
-LICHEN={'UP01':{'Weir':(.10,.3)},**{k:{'Stone':(.035,.4)} for k in ('UP02_01','UP02_02','UP02_03')},'UP03':{'Stone':(.09,.45)},'UP04':{'Stone':(.12,.45)}}   # (cell m, share of cells)
+LICHEN={'UP01':{'Weir':(.10,.3)},**{k:{'Stone':(.035,.4)} for k in ('UP02_01','UP02_02','UP02_03')},'UP03':{'Stone':(.09,.45)},'UP04':{'Stone':(.07,.5)}}   # (cell m, share of cells)
 def up01_paint(g,col,rough,q,onrm,ao,cav,edge,m,filled,glow,noise,RES):
     if g not in ('Weir','Debris'):return col,rough,{}
     z=q[...,2];P_=q.astype(np.float32)
@@ -1128,7 +1167,15 @@ def run(pid):
         cp=[]
         for o in objs:d=o.copy();d.data=o.data.copy();sc.collection.objects.link(d);cp.append(d)
         sel(*cp);bpy.ops.object.join();o=bpy.context.object;o.name=o.data.name=f'{pid}_{g}_LOD0'
-        bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.triangulate(bm,faces=bm.faces);bm.to_mesh(o.data);bm.free()
+        bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.triangulate(bm,faces=bm.faces)
+        # faces lying on the ground and facing straight down are never seen, and where two parts stand side by side
+        # their bottoms overlap in one plane (z-fighting in QA): drop them
+        bm.normal_update();bmesh.ops.delete(bm,geom=[f for f in bm.faces if f.normal.z<-.95 and max(v.co.z for v in f.verts)<.02],context='FACES')
+        # sub-pixel crumbs left by remeshing (edges under 2 mm on triangles under 2 mm2) bake to zero-area UV: collapse them
+        bmesh.ops.dissolve_degenerate(bm,dist=.002,edges=list({e for f in bm.faces if f.calc_area()<2e-6 for e in f.edges}))
+        bmesh.ops.triangulate(bm,faces=bm.faces[:]);separate_coplanar(bm)
+        bmesh.ops.delete(bm,geom=[v for v in bm.verts if not v.link_faces],context='VERTS')   # loose vertices: Unity and glTF drop them, but they widened model_info's size (UP05_CushionOld 0.531 vs 0.495)
+        bm.to_mesh(o.data);bm.free()
         if g in decals:   # decal sheet keeps its own 0-1 UV ('Tiled'), no bake
             o.data.uv_layers['Tiled'].name='Bake';G[g]=o;continue
         for u in [u for u in o.data.uv_layers if u.name not in ('Tiled','Strip')]:o.data.uv_layers.remove(u)
@@ -1164,7 +1211,14 @@ def run(pid):
     def save(name,rgba,RES,data=False):
         rgba=pad(np.asarray(rgba,dtype=np.float32));im=bpy.data.images.new(name,RES,RES,alpha=True)
         if data:im.colorspace_settings.name='Non-Color'
-        im.pixels.foreach_set(np.ascontiguousarray(rgba,dtype=np.float32).ravel());im.filepath_raw=str(TEX/f'{name}.png');im.file_format='PNG';im.save();return im
+        im.pixels.foreach_set(np.ascontiguousarray(rgba,dtype=np.float32).ravel());im.filepath_raw=str(TEX/f'{name}.png');im.file_format='PNG'
+        for t_ in range(4):   # Windows sometimes refuses to overwrite a PNG another process just read ("Invalid argument"): drop the old file and retry
+            try:
+                (TEX/f'{name}.png').unlink(missing_ok=True);im.save();break
+            except (RuntimeError,PermissionError):
+                if t_==3:raise
+                import time;time.sleep(2)
+        return im
     for g,o in G.items():
         RES=GROUP_RES[pid][g];key=f'{pid}_{g}';one=np.ones((RES,RES),np.float32);padmask[0]=None
         if g in decals:   # painted directly: RGBA charcoal lines, alpha-blended
@@ -1310,7 +1364,10 @@ def run(pid):
     for k in ('states','notes','heights'):
         if k in meta:info[k]=meta[k]
     print('DAY34_DONE',json.dumps(info,ensure_ascii=False));return info
-ids=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else list(PROPS)
+ids=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [k for k in PROPS if k!='UP05_Burner']
+if 'UP05_Burner' in ids and '--old-burner' not in sys.argv:   # round 3: the shipped burner is the Codex build (build_up05_burner.py)
+    sys.exit('UP05_Burner now comes from build_up05_burner.py; pass --old-burner to rebuild the round-2 version')
+ids=[i for i in ids if i!='--old-burner']
 infos=[run(i) for i in ids]
 mf=OUT/'model_info.json';old=json.loads(mf.read_text(encoding='utf-8')) if mf.exists() else {}
 old.update({i['id']:i for i in infos});mf.write_text(json.dumps(dict(sorted(old.items())),ensure_ascii=False,indent=1),encoding='utf-8')
