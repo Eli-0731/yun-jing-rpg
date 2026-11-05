@@ -2,51 +2,31 @@
  {
   "file": "art\\exports\\qingxi-day34-c\\UP01.glb",
   "objects": 4,
-  "triangles": 318061,
-  "findings": [
-   {
-    "kind": "zero-area UV",
-    "object": "UP01_Weir_LOD0",
-    "count": 2,
-    "note": "2 of 235606 faces"
-   },
-   {
-    "kind": "coplanar overlap",
-    "object": "UP01_Debris_LOD0",
-    "count": 3,
-    "note": "3 triangle pairs {'side two pieces': 3}, e.g. at [[0.324, -0.509, 0.95, 'n+0-1+0'], [0.344, -0.55, 0.847, 'n+0-1+0'], [0.343, -0.561, 0.827, 'n+0-1+0']]"
-   }
-  ]
+  "triangles": 317890,
+  "findings": []
  },
  {
   "file": "art\\exports\\qingxi-day34-c\\UP02_01.glb",
   "objects": 3,
-  "triangles": 79075,
+  "triangles": 79054,
   "findings": []
  },
  {
   "file": "art\\exports\\qingxi-day34-c\\UP02_02.glb",
   "objects": 3,
-  "triangles": 72064,
-  "findings": [
-   {
-    "kind": "coplanar overlap",
-    "object": "UP02_02_Plants_LOD0 x UP02_02_Stone_LOD0",
-    "count": 1,
-    "note": "1 triangle pairs {'side two pieces': 1}, e.g. at [[0.166, -0.14, 0.045, 'n+1-1-0']]"
-   }
-  ]
+  "triangles": 72045,
+  "findings": []
  },
  {
   "file": "art\\exports\\qingxi-day34-c\\UP02_03.glb",
   "objects": 3,
-  "triangles": 71464,
+  "triangles": 71456,
   "findings": []
  },
  {
   "file": "art\\exports\\qingxi-day34-c\\UP03.glb",
   "objects": 3,
-  "triangles": 76106,
+  "triangles": 76092,
   "findings": []
  },
  {
@@ -64,13 +44,13 @@
  {
   "file": "art\\exports\\qingxi-day34-c\\UP05_CushionNew.glb",
   "objects": 1,
-  "triangles": 57139,
+  "triangles": 57119,
   "findings": []
  },
  {
   "file": "art\\exports\\qingxi-day34-c\\UP05_CushionOld.glb",
   "objects": 1,
-  "triangles": 47388,
+  "triangles": 47370,
   "findings": []
  },
  {
@@ -82,7 +62,7 @@
  {
   "file": "art\\exports\\qingxi-day34-c\\UP06.glb",
   "objects": 2,
-  "triangles": 30450,
+  "triangles": 14414,
   "findings": []
  }
 ]

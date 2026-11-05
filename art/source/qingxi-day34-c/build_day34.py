@@ -168,6 +168,43 @@ def settle(pid,link_=.003,touch=.001,embed=.003):
         reach*=2
         if reach>4:break
     return moves
+def _sat(A,B,n):   # in-plane overlap depth of two coplanar triangles (separating axes), 0 when they only touch
+    u_=(A[1]-A[0]).normalized();w_=n.cross(u_);P=[Vector((p.dot(u_),p.dot(w_))) for p in A];Q=[Vector((p.dot(u_),p.dot(w_))) for p in B];pen=1e9
+    for poly in (P,Q):
+        for t in range(3):
+            e_=poly[(t+1)%3]-poly[t];ax=Vector((-e_.y,e_.x))
+            if ax.length<1e-12:return 0
+            ax.normalize();pa=[p.dot(ax) for p in P];pb=[p.dot(ax) for p in Q];pen=min(pen,min(max(pa),max(pb))-max(min(pa),min(pb)))
+    return max(pen,0)
+def unfold(bm,passes=4):
+    """#64 follow-up: two neighbouring triangles (sharing a corner) that face opposite ways and lie on top of each other in one
+    plane are a fold: a strip 1-2.5 mm high flipped over on a capstone joint, a sliver turned back by the decimation. The QA
+    used to see them only where a UV seam split the shared corner. The shortest edge of the smaller triangle is collapsed, which
+    takes the flipped sliver out and leaves the surface closed (no hole). Returns the number of edges collapsed."""
+    key=lambda v:(round(v.co.x/1e-5),round(v.co.y/1e-5),round(v.co.z/1e-5));done=0;cos_=math.cos(math.radians(3))   # a margin over the QA's 1.5 degrees / 0.5 mm / 1 mm
+    for _ in range(passes):
+        # neighbours are found through corners at one position, not a BVH self-overlap: Blender's self-overlap skips
+        # triangles that share a vertex, which is exactly what a fold is (the first version of this found nothing)
+        bm.faces.ensure_lookup_table();bm.normal_update();at={};edges=set()
+        for f in bm.faces:
+            for v in f.verts:at.setdefault(key(v),[]).append(f)
+        seen=set()
+        for fs in at.values():
+            for x in range(len(fs)):
+                for y in range(x+1,len(fs)):
+                    a,b=fs[x],fs[y]
+                    if a is b or len(a.verts)!=3 or len(b.verts)!=3:continue
+                    k=(min(a.index,b.index),max(a.index,b.index))
+                    if k in seen:continue
+                    seen.add(k)
+                    if a.normal.length<1e-9 or b.normal.length<1e-9 or a.normal.dot(b.normal)>-cos_:continue
+                    A=[v.co for v in a.verts];B=[v.co for v in b.verts]
+                    if max(abs((p-A[0]).dot(a.normal)) for p in B)>.001 or _sat(A,B,a.normal)<.0008:continue
+                    f=a if a.calc_area()<=b.calc_area() else b;edges.add(min(f.edges,key=lambda e:e.calc_length()))
+        if not edges:break
+        bmesh.ops.collapse(bm,edges=list(edges));done+=len(edges)
+        bmesh.ops.triangulate(bm,faces=[f for f in bm.faces if len(f.verts)>3])
+    return done
 def separate_coplanar(bm,lift=.001):
     """two separate pieces (weed strands, grass blades, stacked stones) with triangles lying in one plane z-fight:
     lift the smaller piece 1 mm along its own face normal. Same test as tools/art/qa_lod0_basic.py."""
@@ -1228,7 +1265,13 @@ def run(pid):
         bm.normal_update();bmesh.ops.delete(bm,geom=[f for f in bm.faces if f.normal.z<-.95 and max(v.co.z for v in f.verts)<.02],context='FACES')
         # sub-pixel crumbs left by remeshing (edges under 2 mm on triangles under 2 mm2) bake to zero-area UV: collapse them
         bmesh.ops.dissolve_degenerate(bm,dist=.002,edges=list({e for f in bm.faces if f.calc_area()<2e-6 for e in f.edges}))
-        bmesh.ops.triangulate(bm,faces=bm.faces[:]);separate_coplanar(bm)
+        bmesh.ops.triangulate(bm,faces=bm.faces[:])
+        sl={min(f.edges,key=lambda e:e.calc_length()) for f in bm.faces if f.calc_area()<1e-6 and min(e.calc_length() for e in f.edges)<.001}
+        if sl:bmesh.ops.collapse(bm,edges=list(sl));bmesh.ops.triangulate(bm,faces=[f for f in bm.faces if len(f.verts)>3])   # #64 follow-up: slivers under 1 mm2 with a sub-mm side (two on the weir crest still had a zero-area UV)
+        meta.setdefault('slivers',{})[g]=len(sl)
+        meta.setdefault('unfolded',{})[g]=unfold(bm);print('@@UNFOLD',pid,g,meta['unfolded'][g],'slivers',meta['slivers'][g],len(bm.faces))   # #64 follow-up: folds the QA used to find only across UV seams
+        for _ in range(6):   # #64 follow-up: one 1 mm lift left three weed strands still overlapping; repeat until none are
+            if not separate_coplanar(bm):break
         bmesh.ops.delete(bm,geom=[v for v in bm.verts if not v.link_faces],context='VERTS')   # loose vertices: Unity and glTF drop them, but they widened model_info's size (UP05_CushionOld 0.531 vs 0.495)
         bm.to_mesh(o.data);bm.free()
         if g in decals:   # decal sheet keeps its own 0-1 UV ('Tiled'), no bake
@@ -1252,6 +1295,35 @@ def run(pid):
         # 'SCALED' margin shrinks with the island count; a group of only a few islands (the 3-island charcoal stick) came out 2 px apart: pack those at an exact fraction
         bpy.ops.uv.pack_islands(margin=mg,rotate=True,**({'margin_method':'FRACTION'} if (pid,g) in EXACT_MARGIN else {}))
         bpy.ops.object.mode_set(mode='OBJECT');G[g]=o
+    # #64 follow-up: a loose piece (a grass blade the settle step laid on a stone) lying flat against another group's face
+    # z-fights across the two objects; it moves 1 mm off that face, along the face's normal
+    from mathutils.bvhtree import BVHTree
+    for lg in [g for g in G if g in ('Plants','Debris','Gravel')]:
+        for og in [g for g in G if g!=lg and g not in decals]:
+            for _ in range(4):
+                bl=bmesh.new();bl.from_mesh(G[lg].data);bo=bmesh.new();bo.from_mesh(G[og].data)
+                for b_ in (bl,bo):b_.faces.ensure_lookup_table();b_.normal_update()
+                tl=BVHTree.FromBMesh(bl,epsilon=.0005);to=BVHTree.FromBMesh(bo,epsilon=.0005);mv={}
+                for i,j in tl.overlap(to):
+                    a,b=bl.faces[i],bo.faces[j]
+                    if abs(a.normal.dot(b.normal))<math.cos(math.radians(1.5)):continue
+                    A=[v.co for v in a.verts];B=[v.co for v in b.verts]
+                    if max(abs((p-B[0]).dot(b.normal)) for p in A)>.0005 or _sat(A,B,b.normal)<.001:continue
+                    mv.setdefault(a.verts[0].index,b.normal.copy())
+                if mv:
+                    isl=[-1]*len(bl.verts);bl.verts.ensure_lookup_table()
+                    for s0,nrm in mv.items():   # the whole connected piece moves
+                        if isl[s0]>=0:continue
+                        st=[bl.verts[s0]];isl[s0]=1;piece=[]
+                        while st:
+                            w=st.pop();piece.append(w)
+                            for e in w.link_edges:
+                                u=e.other_vert(w)
+                                if isl[u.index]<0:isl[u.index]=1;st.append(u)
+                        for w in piece:G[lg].data.vertices[w.index].co+=nrm*.001
+                    G[lg].data.update();meta.setdefault('lifted_off',{}).setdefault(f'{lg} x {og}',0);meta['lifted_off'][f'{lg} x {og}']+=len(mv)
+                bl.free();bo.free()
+                if not mv:break
     for o in sc.objects:o.hide_render=o not in G.values() or o.name.split('_LOD')[0][len(pid)+1:] in decals
     tex={}
     padmask=[None]

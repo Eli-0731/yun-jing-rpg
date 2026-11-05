@@ -19,9 +19,9 @@
     "material": "UP01_Weir",
     "texture_px": 4096,
     "triangles": [
-     235606,
-     117802,
-     35340
+     235437,
+     117717,
+     35315
     ],
     "maps": [
      "alb",
@@ -48,9 +48,9 @@
     "material": "UP01_Debris",
     "texture_px": 2048,
     "triangles": [
-     7321,
+     7319,
      3659,
-     1097
+     1096
     ],
     "maps": [
      "alb",
@@ -74,9 +74,9 @@
    }
   },
   "triangles_total": [
-   318061,
-   159028,
-   47706
+   317890,
+   158943,
+   47680
   ],
   "source_parts": 5471,
   "reference": "art/references/qingxi-day34-c/UP01/prompt.txt",
@@ -653,9 +653,9 @@
     "material": "UP02_01_Stone",
     "texture_px": 2048,
     "triangles": [
-     37095,
-     18546,
-     5564
+     37074,
+     18537,
+     5561
     ],
     "maps": [
      "Albedo_Warm",
@@ -698,9 +698,9 @@
    }
   },
   "triangles_total": [
-   79075,
-   39535,
-   11859
+   79054,
+   39526,
+   11856
   ],
   "source_parts": 1853,
   "reference": "art/references/qingxi-day34-c/UP02/prompt.txt",
@@ -771,9 +771,9 @@
     "material": "UP02_02_Stone",
     "texture_px": 2048,
     "triangles": [
-     31383,
-     15691,
-     4706
+     31364,
+     15682,
+     4703
     ],
     "maps": [
      "Albedo_Warm",
@@ -804,7 +804,7 @@
     "triangles": [
      24464,
      12231,
-     3669
+     3668
     ],
     "maps": [
      "Albedo_Warm",
@@ -816,9 +816,9 @@
    }
   },
   "triangles_total": [
-   72064,
-   36030,
-   10807
+   72045,
+   36021,
+   10803
   ],
   "source_parts": 1844,
   "reference": "art/references/qingxi-day34-c/UP02/prompt.txt",
@@ -867,9 +867,9 @@
     "material": "UP02_03_Stone",
     "texture_px": 2048,
     "triangles": [
-     35287,
-     17643,
-     5293
+     35279,
+     17639,
+     5291
     ],
     "maps": [
      "Albedo_Warm",
@@ -912,9 +912,9 @@
    }
   },
   "triangles_total": [
-   71464,
-   35729,
-   10718
+   71456,
+   35725,
+   10716
   ],
   "source_parts": 1694,
   "reference": "art/references/qingxi-day34-c/UP02/prompt.txt",
@@ -963,9 +963,9 @@
     "material": "UP03_Stone",
     "texture_px": 2048,
     "triangles": [
-     73927,
-     36962,
-     11089
+     73913,
+     36956,
+     11085
     ],
     "maps": [
      "alb",
@@ -1003,9 +1003,9 @@
    }
   },
   "triangles_total": [
-   76106,
-   38050,
-   11415
+   76092,
+   38044,
+   11411
   ],
   "source_parts": 83,
   "reference": "art/references/qingxi-day34-c/UP03/prompt.txt",
@@ -1238,8 +1238,8 @@
   "slot": "LT_QiLesson",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.535,
-   0.542,
+   0.525,
+   0.525,
    0.116
   ],
   "size_limit_m": [
@@ -1253,9 +1253,9 @@
     "material": "UP05_CushionNew_Cushion",
     "texture_px": 1024,
     "triangles": [
-     57139,
-     28568,
-     8570
+     57119,
+     28558,
+     8566
     ],
     "maps": [
      "alb",
@@ -1265,9 +1265,9 @@
    }
   },
   "triangles_total": [
-   57139,
-   28568,
-   8570
+   57119,
+   28558,
+   8566
   ],
   "source_parts": 73,
   "reference": "art/references/qingxi-day34-c/UP05/prompt.txt",
@@ -1300,9 +1300,9 @@
     "material": "UP05_CushionOld_Cushion",
     "texture_px": 1024,
     "triangles": [
-     47388,
-     23694,
-     7108
+     47370,
+     23684,
+     7104
     ],
     "maps": [
      "alb",
@@ -1312,9 +1312,9 @@
    }
   },
   "triangles_total": [
-   47388,
-   23694,
-   7108
+   47370,
+   23684,
+   7104
   ],
   "source_parts": 119,
   "reference": "art/references/qingxi-day34-c/UP05/prompt.txt",

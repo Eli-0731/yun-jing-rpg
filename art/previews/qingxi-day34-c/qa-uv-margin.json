@@ -5,7 +5,7 @@
    {
     "object": "UP01_Debris_LOD0",
     "res": "2048x2048",
-    "faces": 7321,
+    "faces": 7319,
     "islands": 328,
     "uv_outside": 0,
     "overlap_px": 0,
@@ -44,8 +44,8 @@
    {
     "object": "UP01_Weir_LOD0",
     "res": "4096x4096",
-    "faces": 235606,
-    "islands": 7668,
+    "faces": 235437,
+    "islands": 7629,
     "uv_outside": 0,
     "overlap_px": 0,
     "overlap_pairs": 0,
@@ -88,8 +88,8 @@
    {
     "object": "UP02_01_Stone_LOD0",
     "res": "2048x2048",
-    "faces": 37095,
-    "islands": 1427,
+    "faces": 37074,
+    "islands": 1580,
     "uv_outside": 0,
     "overlap_px": 0,
     "overlap_pairs": 0,
@@ -132,8 +132,8 @@
    {
     "object": "UP02_02_Stone_LOD0",
     "res": "2048x2048",
-    "faces": 31383,
-    "islands": 1014,
+    "faces": 31364,
+    "islands": 1009,
     "uv_outside": 0,
     "overlap_px": 0,
     "overlap_pairs": 0,
@@ -176,8 +176,8 @@
    {
     "object": "UP02_03_Stone_LOD0",
     "res": "2048x2048",
-    "faces": 35287,
-    "islands": 968,
+    "faces": 35279,
+    "islands": 962,
     "uv_outside": 0,
     "overlap_px": 0,
     "overlap_pairs": 0,
@@ -220,8 +220,8 @@
    {
     "object": "UP03_Stone_LOD0",
     "res": "2048x2048",
-    "faces": 73927,
-    "islands": 917,
+    "faces": 73913,
+    "islands": 919,
     "uv_outside": 0,
     "overlap_px": 0,
     "overlap_pairs": 0,
@@ -326,7 +326,7 @@
    {
     "object": "UP05_CushionNew_Cushion_LOD0",
     "res": "1024x1024",
-    "faces": 57139,
+    "faces": 57119,
     "islands": 349,
     "uv_outside": 0,
     "overlap_px": 0,
@@ -344,7 +344,7 @@
    {
     "object": "UP05_CushionOld_Cushion_LOD0",
     "res": "1024x1024",
-    "faces": 47388,
+    "faces": 47370,
     "islands": 304,
     "uv_outside": 0,
     "overlap_px": 0,
