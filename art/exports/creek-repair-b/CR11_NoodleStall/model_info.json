@@ -21,7 +21,7 @@
   "dimensions_m": [
     4.3972,
     3.3802,
-    2.7914
+    2.7895
   ],
   "size_limit_m": [
     4.5,
@@ -32,8 +32,8 @@
     "Main": {
       "dims_m": [
         4.361,
-        3.277,
-        2.7865
+        3.2773,
+        2.774
       ],
       "pivot": [
         0.0,
@@ -46,7 +46,7 @@
       "dims_m": [
         4.3972,
         3.3802,
-        2.7914
+        2.7895
       ],
       "pivot": [
         0.0,
@@ -57,16 +57,16 @@
     },
     "Detail_Stitches": {
       "dims_m": [
-        3.4044,
-        2.4841,
-        0.4224
+        3.364,
+        2.4507,
+        0.4479
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 2.3012
+      "min_z_local": 2.28
     },
     "Detail_Flour": {
       "dims_m": [
@@ -201,19 +201,19 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 90216,
-      "LOD1": 45108,
-      "LOD2": 13532
+      "LOD0": 65878,
+      "LOD1": 32938,
+      "LOD2": 9880
     },
     "Detail_Small": {
-      "LOD0": 47852,
-      "LOD1": 23926,
-      "LOD2": 7176
+      "LOD0": 31102,
+      "LOD1": 15550,
+      "LOD2": 4664
     },
     "Detail_Stitches": {
-      "LOD0": 5188,
-      "LOD1": 2594,
-      "LOD2": 778
+      "LOD0": 5212,
+      "LOD1": 2606,
+      "LOD2": 780
     },
     "Detail_Flour": {
       "LOD0": 300,
@@ -261,15 +261,15 @@
       "LOD2": 518
     },
     "Sign": {
-      "LOD0": 6938,
-      "LOD1": 3468,
-      "LOD2": 1040
+      "LOD0": 4508,
+      "LOD1": 2254,
+      "LOD2": 676
     }
   },
   "lod_totals": {
-    "LOD0": 167430,
-    "LOD1": 83714,
-    "LOD2": 25105
+    "LOD0": 123936,
+    "LOD1": 61966,
+    "LOD2": 18579
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

@@ -5,7 +5,7 @@
  "unsupported": [
   {
    "object": "CR10_CharmStall_Detail_Small",
-   "verts": 14,
+   "verts": 10,
    "centre": [
     1.224,
     -0.077,
@@ -16,9 +16,9 @@
     0.051,
     0.001
    ],
-   "gap_mm": 7.2,
+   "gap_mm": 7.7,
    "nearest": "CR10_CharmStall_Detail_Small",
-   "drop_mm": 7.4
+   "drop_mm": 7.9
   }
  ]
 }

@@ -1,10 +1,10 @@
 {
  "CR10_CharmStall_Banner_LOD0": {
-  "tris": 7088,
+  "tris": 4956,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 10,
+  "coplanar_two_sides": 23,
   "closed_pieces": 6,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -15,7 +15,7 @@
   "inverted_at": []
  },
  "CR10_CharmStall_Banner_LOD1": {
-  "tris": 3544,
+  "tris": 2478,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -30,7 +30,7 @@
   "inverted_at": []
  },
  "CR10_CharmStall_Banner_LOD2": {
-  "tris": 1062,
+  "tris": 742,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -1215,7 +1215,7 @@
   "inverted_at": []
  },
  "CR10_CharmStall_Detail_Gourds_LOD0": {
-  "tris": 6480,
+  "tris": 4536,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -1230,7 +1230,7 @@
   "inverted_at": []
  },
  "CR10_CharmStall_Detail_Gourds_LOD1": {
-  "tris": 3240,
+  "tris": 2268,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -1245,7 +1245,7 @@
   "inverted_at": []
  },
  "CR10_CharmStall_Detail_Gourds_LOD2": {
-  "tris": 972,
+  "tris": 680,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -1260,11 +1260,11 @@
   "inverted_at": []
  },
  "CR10_CharmStall_Detail_Small_LOD0": {
-  "tris": 16022,
+  "tris": 11214,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 8,
-  "coplanar_two_sides": 61,
+  "coplanar_two_sides": 33,
   "closed_pieces": 94,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -1291,23 +1291,23 @@
    [
     [
      1.17,
-     0.03,
-     0.5
+     0.02,
+     0.51
     ],
     2
    ],
    [
     [
      1.17,
-     0.02,
-     0.51
+     0.03,
+     0.5
     ],
     1
    ],
    [
     [
      1.17,
-     0.01,
+     0.02,
      0.5
     ],
     1
@@ -1316,7 +1316,7 @@
   "inverted_at": []
  },
  "CR10_CharmStall_Detail_Small_LOD1": {
-  "tris": 8010,
+  "tris": 5606,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -1331,7 +1331,7 @@
   "inverted_at": []
  },
  "CR10_CharmStall_Detail_Small_LOD2": {
-  "tris": 2402,
+  "tris": 1682,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -1346,11 +1346,11 @@
   "inverted_at": []
  },
  "CR10_CharmStall_LOD0": {
-  "tris": 50544,
+  "tris": 35380,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 1,
-  "coplanar_two_sides": 67,
+  "coplanar_two_sides": 66,
   "closed_pieces": 445,
   "open_pieces": 2,
   "inverted_closed": 0,
@@ -1370,7 +1370,7 @@
   "inverted_at": []
  },
  "CR10_CharmStall_LOD1": {
-  "tris": 25272,
+  "tris": 17690,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -1385,7 +1385,7 @@
   "inverted_at": []
  },
  "CR10_CharmStall_LOD2": {
-  "tris": 7580,
+  "tris": 5306,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,

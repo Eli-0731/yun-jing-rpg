@@ -1,10 +1,10 @@
 {
  "CR12_RankingBoard_Detail_Small_LOD0": {
-  "tris": 28300,
+  "tris": 14714,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 576,
+  "coplanar_two_sides": 24,
   "closed_pieces": 166,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -15,7 +15,7 @@
   "inverted_at": []
  },
  "CR12_RankingBoard_Detail_Small_LOD1": {
-  "tris": 14150,
+  "tris": 7356,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -30,7 +30,7 @@
   "inverted_at": []
  },
  "CR12_RankingBoard_Detail_Small_LOD2": {
-  "tris": 4244,
+  "tris": 2206,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -45,11 +45,11 @@
   "inverted_at": []
  },
  "CR12_RankingBoard_LOD0": {
-  "tris": 74124,
+  "tris": 38544,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 21,
+  "coplanar_two_sides": 33,
   "closed_pieces": 420,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -60,7 +60,7 @@
   "inverted_at": []
  },
  "CR12_RankingBoard_LOD1": {
-  "tris": 37062,
+  "tris": 19272,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -75,7 +75,7 @@
   "inverted_at": []
  },
  "CR12_RankingBoard_LOD2": {
-  "tris": 11118,
+  "tris": 5780,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,

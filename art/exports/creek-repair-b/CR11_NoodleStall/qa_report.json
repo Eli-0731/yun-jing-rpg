@@ -422,11 +422,11 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_Detail_Small_LOD0": {
-  "tris": 47852,
+  "tris": 31102,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 1,
+  "coplanar_two_sides": 0,
   "closed_pieces": 131,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -437,7 +437,7 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_Detail_Small_LOD1": {
-  "tris": 23926,
+  "tris": 15550,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -452,7 +452,7 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_Detail_Small_LOD2": {
-  "tris": 7176,
+  "tris": 4664,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -467,7 +467,7 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_Detail_Stitches_LOD0": {
-  "tris": 5188,
+  "tris": 5212,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -482,7 +482,7 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_Detail_Stitches_LOD1": {
-  "tris": 2594,
+  "tris": 2606,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -497,7 +497,7 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_Detail_Stitches_LOD2": {
-  "tris": 778,
+  "tris": 780,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -512,11 +512,11 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_LOD0": {
-  "tris": 90216,
+  "tris": 65878,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 14,
-  "coplanar_two_sides": 66,
+  "coplanar_same_facing": 4,
+  "coplanar_two_sides": 60,
   "closed_pieces": 257,
   "open_pieces": 1,
   "inverted_closed": 0,
@@ -526,49 +526,33 @@
   "same_at": [
    [
     [
-     1.21,
-     0.82,
-     2.64
-    ],
-    2
-   ],
-   [
-    [
-     1.09,
-     0.81,
-     2.65
-    ],
-    2
-   ],
-   [
-    [
-     -1.29,
-     0.23,
-     2.53
-    ],
-    1
-   ],
-   [
-    [
-     0.93,
-     -0.71,
+     -1.61,
+     -0.29,
      2.43
     ],
     1
    ],
    [
     [
-     0.86,
-     -1.17,
-     2.34
+     1.21,
+     -1.18,
+     2.31
     ],
     1
    ],
    [
     [
-     1.24,
-     -1.19,
-     2.32
+     0.87,
+     -0.83,
+     2.39
+    ],
+    1
+   ],
+   [
+    [
+     1.22,
+     -0.72,
+     2.37
     ],
     1
    ]
@@ -576,7 +560,7 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_LOD1": {
-  "tris": 45108,
+  "tris": 32938,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -591,7 +575,7 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_LOD2": {
-  "tris": 13532,
+  "tris": 9880,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -606,11 +590,11 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_Sign_LOD0": {
-  "tris": 6938,
+  "tris": 4508,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 7,
+  "coplanar_two_sides": 5,
   "closed_pieces": 3,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -621,7 +605,7 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_Sign_LOD1": {
-  "tris": 3468,
+  "tris": 2254,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -636,7 +620,7 @@
   "inverted_at": []
  },
  "CR11_NoodleStall_Sign_LOD2": {
-  "tris": 1040,
+  "tris": 676,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,

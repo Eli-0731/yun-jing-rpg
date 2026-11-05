@@ -43,7 +43,7 @@
       "dims_m": [
         3.0716,
         1.606,
-        2.3153
+        2.3152
       ],
       "pivot": [
         0.0,
@@ -432,14 +432,14 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 50544,
-      "LOD1": 25272,
-      "LOD2": 7580
+      "LOD0": 35380,
+      "LOD1": 17690,
+      "LOD2": 5306
     },
     "Detail_Small": {
-      "LOD0": 16022,
-      "LOD1": 8010,
-      "LOD2": 2402
+      "LOD0": 11214,
+      "LOD1": 5606,
+      "LOD2": 1682
     },
     "CharmString_01": {
       "LOD0": 1332,
@@ -567,9 +567,9 @@
       "LOD2": 306
     },
     "Detail_Gourds": {
-      "LOD0": 6480,
-      "LOD1": 3240,
-      "LOD2": 972
+      "LOD0": 4536,
+      "LOD1": 2268,
+      "LOD2": 680
     },
     "Detail_Goods": {
       "LOD0": 3368,
@@ -582,15 +582,15 @@
       "LOD2": 153
     },
     "Banner": {
-      "LOD0": 7088,
-      "LOD1": 3544,
-      "LOD2": 1062
+      "LOD0": 4956,
+      "LOD1": 2478,
+      "LOD2": 742
     }
   },
   "lod_totals": {
-    "LOD0": 126248,
-    "LOD1": 63122,
-    "LOD2": 18907
+    "LOD0": 102200,
+    "LOD1": 51098,
+    "LOD2": 15301
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

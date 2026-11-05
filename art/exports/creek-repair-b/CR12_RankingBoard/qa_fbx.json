@@ -1,6 +1,6 @@
 {
  "asset": "CR12_RankingBoard_v001",
- "tris": 129788,
+ "tris": 80622,
  "objects": [
   "CR12_RankingBoard_Detail_Small_LOD0",
   "CR12_RankingBoard_LOD0",
@@ -23,41 +23,37 @@
    "state_alternatives": 0,
    "same_underside_on_ground": 0,
    "same_between": 0,
-   "same_inside": 22,
-   "same": 22,
-   "two_sides": 3800,
+   "same_inside": 5,
+   "same": 5,
+   "two_sides": 1205,
    "groups": {
     "Detail_Small|two_sides_inside": {
-     "pairs": 3653,
-     "overlap_cm2": 1317.61
+     "pairs": 1173,
+     "overlap_cm2": 716.78
     },
     "RankingBoard|two_sides_between": {
-     "pairs": 80,
-     "overlap_cm2": 164.05
-    },
-    "Detail_Small/RankingBoard|two_sides_between": {
-     "pairs": 48,
-     "overlap_cm2": 113.31
+     "pairs": 14,
+     "overlap_cm2": 23.55
     },
     "Detail_Small|same_inside": {
-     "pairs": 22,
-     "overlap_cm2": 0.77
+     "pairs": 5,
+     "overlap_cm2": 0.22
     },
     "Slip_10|two_sides_inside": {
      "pairs": 4,
      "overlap_cm2": 4.43
     },
-    "RankingBoard|two_sides_inside": {
-     "pairs": 4,
-     "overlap_cm2": 9.06
-    },
     "Slip_05|two_sides_inside": {
      "pairs": 4,
      "overlap_cm2": 5.84
     },
+    "Detail_Small/Slip_02|two_sides_between": {
+     "pairs": 3,
+     "overlap_cm2": 0.52
+    },
     "RankingBoard/Slip_08|two_sides_between": {
      "pairs": 2,
-     "overlap_cm2": 1.03
+     "overlap_cm2": 2.07
     },
     "Slip_08|two_sides_inside": {
      "pairs": 2,
@@ -74,75 +70,33 @@
    },
    "same_at": [
     [
-     -0.18,
+     1.12,
      0.01,
-     1.5,
-     4
-    ],
-    [
-     0.6,
-     0.01,
-     1.85,
-     3
+     2.14,
+     1
     ],
     [
      -0.61,
      0.01,
      1.85,
-     2
-    ],
-    [
-     0.59,
-     0.01,
-     1.86,
-     2
-    ],
-    [
-     1.11,
-     0.01,
-     2.15,
      1
     ],
     [
-     -0.62,
+     -0.19,
      0.01,
-     1.85,
+     1.44,
      1
     ],
     [
-     -0.58,
+     -0.2,
      0.01,
-     1.84,
+     1.45,
      1
     ],
     [
-     -0.56,
+     0.6,
      0.01,
-     1.86,
-     1
-    ],
-    [
-     -0.57,
-     0.01,
-     1.86,
-     1
-    ],
-    [
-     -0.16,
-     0.01,
-     1.48,
-     1
-    ],
-    [
-     -0.18,
-     0.01,
-     1.51,
-     1
-    ],
-    [
-     0.3,
-     0.01,
-     1.43,
+     1.89,
      1
     ]
    ]
@@ -151,86 +105,50 @@
    "state_alternatives": 0,
    "same_underside_on_ground": 0,
    "same_between": 0,
-   "same_inside": 14,
-   "same": 14,
-   "two_sides": 40,
+   "same_inside": 4,
+   "same": 4,
+   "two_sides": 23,
    "groups": {
     "Detail_Small|two_sides_inside": {
-     "pairs": 18,
-     "overlap_cm2": 0.51
-    },
-    "RankingBoard|two_sides_between": {
-     "pairs": 18,
-     "overlap_cm2": 29.4
+     "pairs": 19,
+     "overlap_cm2": 5.48
     },
     "Detail_Small|same_inside": {
-     "pairs": 14,
-     "overlap_cm2": 0.56
-    },
-    "RankingBoard|two_sides_inside": {
      "pairs": 4,
-     "overlap_cm2": 9.06
+     "overlap_cm2": 0.16
+    },
+    "RankingBoard/Slip_08|two_sides_between": {
+     "pairs": 2,
+     "overlap_cm2": 2.07
+    },
+    "RankingBoard|two_sides_between": {
+     "pairs": 2,
+     "overlap_cm2": 5.17
     }
    },
    "same_at": [
     [
-     0.6,
-     0.01,
-     1.85,
-     3
-    ],
-    [
      -0.61,
      0.01,
      1.85,
-     2
-    ],
-    [
-     0.59,
-     0.01,
-     1.86,
-     2
-    ],
-    [
-     1.11,
-     0.01,
-     2.15,
      1
     ],
     [
-     -0.62,
+     -0.19,
      0.01,
-     1.85,
+     1.44,
      1
     ],
     [
-     -0.56,
+     -0.2,
      0.01,
-     1.86,
+     1.45,
      1
     ],
     [
-     -0.16,
+     0.6,
      0.01,
-     1.48,
-     1
-    ],
-    [
-     0.3,
-     0.01,
-     1.43,
-     1
-    ],
-    [
-     0.59,
-     0.01,
-     1.85,
-     1
-    ],
-    [
-     0.61,
-     0.01,
-     1.86,
+     1.89,
      1
     ]
    ]
@@ -239,58 +157,47 @@
    "state_alternatives": 0,
    "same_underside_on_ground": 0,
    "same_between": 0,
-   "same_inside": 2,
-   "same": 2,
-   "two_sides": 14,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 2,
    "groups": {
     "Detail_Small|two_sides_inside": {
-     "pairs": 10,
-     "overlap_cm2": 0.3
-    },
-    "RankingBoard|two_sides_inside": {
-     "pairs": 4,
-     "overlap_cm2": 9.06
-    },
-    "Detail_Small|same_inside": {
      "pairs": 2,
-     "overlap_cm2": 0.1
+     "overlap_cm2": 0.17
     }
    },
-   "same_at": [
-    [
-     -0.61,
-     0.01,
-     1.85,
-     1
-    ],
-    [
-     -0.56,
-     0.01,
-     1.86,
-     1
-    ]
-   ]
+   "same_at": []
   }
  },
  "zero_uv": {
   "1e-12": 0,
   "1e-10": 0,
-  "1e-09": 4,
-  "1e-08": 29
+  "1e-09": 0,
+  "1e-08": 2
  },
  "zero_uv_by_object": {
   "1e-12": {},
   "1e-10": {},
-  "1e-09": {
-   "CR12_RankingBoard_Detail_Small_LOD0": 4
-  },
+  "1e-09": {},
   "1e-08": {
-   "CR12_RankingBoard_Detail_Small_LOD0": 19,
-   "CR12_RankingBoard_LOD0": 8,
    "CR12_RankingBoard_TeaCup_LOD0": 2
   }
  },
  "pieces": 627,
- "loose_over_5mm": 0,
- "loose_list": []
+ "loose_over_5mm": 1,
+ "loose_list": [
+  {
+   "verts": 29,
+   "centre": [
+    -1.382,
+    -0.194,
+    1.108
+   ],
+   "size": [
+    0.118,
+    0.118,
+    0.03
+   ]
+  }
+ ]
 }

@@ -1,6 +1,6 @@
 {
  "asset": "CR11_NoodleStall_v001",
- "tris": 167430,
+ "tris": 123936,
  "objects": [
   "CR11_NoodleStall_Bench_Back_LOD0",
   "CR11_NoodleStall_Bench_Front_LOD0",
@@ -23,7 +23,7 @@
    "same_between": 7,
    "same_inside": 0,
    "same": 7,
-   "two_sides": 93,
+   "two_sides": 79,
    "groups": {
     "Bowl_Empty|two_sides_inside": {
      "pairs": 32,
@@ -34,8 +34,8 @@
      "overlap_cm2": 21.25
     },
     "Detail_Small/NoodleStall|two_sides_between": {
-     "pairs": 24,
-     "overlap_cm2": 160.21
+     "pairs": 10,
+     "overlap_cm2": 55.86
     },
     "Detail_Chopsticks|same_between": {
      "pairs": 7,
@@ -89,11 +89,15 @@
    "same_between": 7,
    "same_inside": 0,
    "same": 7,
-   "two_sides": 0,
+   "two_sides": 4,
    "groups": {
     "Detail_Chopsticks|same_between": {
      "pairs": 7,
      "overlap_cm2": 1.15
+    },
+    "Detail_Small/NoodleStall|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 12.74
     }
    },
    "same_at": [
@@ -162,13 +166,15 @@
   "1e-12": 0,
   "1e-10": 0,
   "1e-09": 0,
-  "1e-08": 0
+  "1e-08": 1
  },
  "zero_uv_by_object": {
   "1e-12": {},
   "1e-10": {},
   "1e-09": {},
-  "1e-08": {}
+  "1e-08": {
+   "CR11_NoodleStall_Bowl_Empty_LOD0": 1
+  }
  },
  "pieces": 576,
  "loose_over_5mm": 38,
@@ -200,11 +206,11 @@
    ]
   },
   {
-   "verts": 58,
+   "verts": 39,
    "centre": [
-    0.003,
+    0.007,
     -0.866,
-    0.683
+    0.682
    ],
    "size": [
     0.86,
@@ -213,11 +219,11 @@
    ]
   },
   {
-   "verts": 50,
+   "verts": 39,
    "centre": [
     -0.457,
-    -0.486,
-    0.683
+    -0.485,
+    0.684
    ],
    "size": [
     0.03,
@@ -226,11 +232,11 @@
    ]
   },
   {
-   "verts": 50,
+   "verts": 39,
    "centre": [
     0.463,
-    -0.486,
-    0.683
+    -0.485,
+    0.684
    ],
    "size": [
     0.03,
