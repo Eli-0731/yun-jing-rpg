@@ -88,6 +88,7 @@
       "pass": true,
       "detail": [
         "CR06_Straight.001",
+        "CR06_Straight_Collision.001",
         "CR06_Straight_Detail_Small_LOD0.001",
         "CR06_Straight_Detail_Small_LOD1.001",
         "CR06_Straight_Detail_Small_LOD2.001",
@@ -117,7 +118,7 @@
     {
       "check": "fbx_collision",
       "pass": true,
-      "detail": "低土堤可跨過，不擋人"
+      "detail": "collision mesh present"
     },
     {
       "check": "water_is_its_own_fbx",
@@ -159,7 +160,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 356,
+  "seconds": 137,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

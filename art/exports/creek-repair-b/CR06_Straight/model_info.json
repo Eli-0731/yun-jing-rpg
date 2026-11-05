@@ -120,6 +120,7 @@
   "state_renders": {},
   "fbx_objects": [
     "CR06_Straight.001",
+    "CR06_Straight_Collision.001",
     "CR06_Straight_Detail_Small_LOD0.001",
     "CR06_Straight_Detail_Small_LOD1.001",
     "CR06_Straight_Detail_Small_LOD2.001",

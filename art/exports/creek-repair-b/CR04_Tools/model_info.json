@@ -140,7 +140,7 @@
     "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
     "collision": "CR04_Tools_Collision: add a MeshCollider (convex off); hide its renderer"
   },
-  "collision": true,
+  "collision": false,
   "collision_shapes": [],
   "sockets_blender_xyz": {
     "Socket_Hand_Spade": [

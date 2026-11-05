@@ -140,6 +140,7 @@
   "state_renders": {},
   "fbx_objects": [
     "CR15_DitchCross.001",
+    "CR15_DitchCross_Collision.001",
     "CR15_DitchCross_Detail_Small_LOD0.001",
     "CR15_DitchCross_Detail_Small_LOD1.001",
     "CR15_DitchCross_Detail_Small_LOD2.001",

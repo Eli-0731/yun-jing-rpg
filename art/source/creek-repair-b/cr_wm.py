@@ -22,6 +22,9 @@ def ferns(name, q, mat, seed, n=6, L=.2, **kw):
         sheet(name, 1, 5, lambda u, v, a=a, base=base: tuple(base + Vector((math.cos(a) * (v * L * .8 + (u - .5) * .03 * (1 - v)), math.sin(a) * (v * L * .8 + (u - .5) * .03 * (1 - v)), math.sin(v * 2.4) * L * .5))), mat, solid=.001, detail=2, grain='z', **kw)
 
 
+GREY_OCHRE = (.25, .225, .175)   # the staining in the A3 stone: warm grey to stand with H01 and the waterworks, not olive
+
+
 def stone_set(name, n=3, **kw):
     """A few stones of one quarry, a little lighter, darker, warmer, so that a wall is not one flat colour."""
     light = kw.pop('light', (.33, .315, .27)); dark = kw.pop('dark', (.165, .155, .13))
@@ -50,7 +53,7 @@ R_TIP, R_RIM, W = 2.3, 2.03, 1.2
 
 
 def wheel_palette():
-    P = {'oak': cm.wood('Wet_Oak', (.03, .02, .012), (.13, .082, .045), ground_h=0, grey=.28), 'paddle': cm.wood('Paddle_Oak', (.035, .023, .014), (.15, .095, .05), ground_h=0, grey=.3)}
+    P = {'oak': cm.wood('Wet_Oak', (.05, .032, .018), (.18, .112, .06), ground_h=0, grey=.28), 'paddle': cm.wood('Paddle_Oak', (.058, .037, .021), (.21, .13, .068), ground_h=0, grey=.3)}
     P['algae'] = cm.wood('Paddle_Algae', (.026, .034, .018), (.085, .105, .05), ground_h=0, grey=.15); P['new'] = cm.wood('Paddle_New', (.12, .075, .036), (.34, .22, .11), ground_h=0, grey=.03)
     P['iron'] = mm.cast_iron('Band_Iron'); P['hemp'] = mm.hemp('Hemp_Rope', (.09, .06, .032), twist=40.0); P['axle'] = cm.wood('Axle_Oak', (.05, .03, .016), (.17, .1, .052), ground_h=0, polish=.25, grey=.1)
     return P
@@ -210,8 +213,8 @@ def wm04(P):
 
 # ------------------------------------------------------------------ WM05 washing steps
 def steps_palette():
-    P = {'stone': stone_set('Step_Granite', 4, light=(.235, .205, .155), dark=(.1, .085, .062), wet_z=.45, moss=1., lichen=.35, crack=.55), 'wall': stone_set('Cheek_Rubble', 4, light=(.26, .235, .185), dark=(.11, .095, .075), wet_z=.35, moss=.9, lichen=.4, crack=.6)}
-    P['low'] = worn(cm.stone('Step_Lowest_Worn', light=(.27, .245, .2), dark=(.12, .11, .085), moss=.1, lichen=0, crack=.2, wet_z=.5), .32)
+    P = {'stone': stone_set('Step_Granite', 4, light=(.27, .25, .21), dark=(.125, .113, .092), ochre=GREY_OCHRE, wet_z=.45, moss=.7, lichen=.25, crack=.55), 'wall': stone_set('Cheek_Rubble', 4, light=(.27, .25, .21), dark=(.12, .108, .09), ochre=GREY_OCHRE, wet_z=.35, moss=.8, lichen=.3, crack=.6)}
+    P['low'] = worn(cm.stone('Step_Lowest_Worn', light=(.37, .35, .305), dark=(.225, .208, .178), ochre=(.31, .29, .245), moss=.05, lichen=0, crack=.12), .32)
     P['scrub'] = worn(cm.stone('Scrub_Stone', light=(.26, .24, .205), moss=0, lichen=0, crack=.2), .12); P['wood'] = cm.wood('Tie_Post', (.05, .03, .016), (.18, .11, .058), wet_z=.45, ground_h=.1, polish=.2, grey=.35)
     P['hemp'] = mm.hemp('Hemp_Rope', (.18, .11, .05), twist=40.0); P['moss'] = cm.moss_tuft('Moss_Soft', soft=True); P['fern'] = cm.fern('Fern_Green')
     return P
@@ -284,8 +287,8 @@ def arch_z(y):
 
 
 def bridge_palette():
-    P = {'stones': stone_set('Bridge_Granite', 4, light=(.27, .24, .185), dark=(.12, .105, .08), wet_z=.9, moss=.85, lichen=.45, crack=.45), 'deck': worn(cm.stone('Deck_Worn', light=(.235, .208, .16), dark=(.115, .1, .075), moss=.12, lichen=.05, crack=.25), .16)}
-    P['rail'] = cm.stone('Rail_Granite', light=(.24, .215, .165), dark=(.11, .098, .075), moss=.7, lichen=.5, crack=.4); P['stone'] = P['stones'][0]; P['moss'] = cm.moss_tuft('Moss_Soft', soft=True); P['fern'] = cm.fern('Fern_Green')
+    P = {'stones': stone_set('Bridge_Granite', 4, light=(.29, .27, .228), dark=(.13, .118, .098), ochre=GREY_OCHRE, wet_z=.9, moss=.7, lichen=.3, crack=.45), 'deck': worn(cm.stone('Deck_Worn', light=(.3, .28, .24), dark=(.205, .19, .16), ochre=(.27, .25, .21), moss=.08, lichen=.03, crack=.2), .16)}
+    P['rail'] = cm.stone('Rail_Granite', light=(.27, .25, .21), dark=(.12, .11, .09), ochre=GREY_OCHRE, moss=.55, lichen=.3, crack=.4); P['stone'] = P['stones'][0]; P['moss'] = cm.moss_tuft('Moss_Soft', soft=True); P['fern'] = cm.fern('Fern_Green')
     return P
 
 
@@ -539,10 +542,10 @@ PY, PZ_HI, PZ_LO = .62, 3.16, 2.72 # the pent eave: reach, height at the wall, h
 
 
 def mill_palette():
-    P = {'plinths': stone_set('Plinth_Granite', 4, light=(.3, .28, .225), dark=(.13, .12, .095), wet_z=.65, moss=1., lichen=.4, crack=.55), 'timber': cm.wood('Frame_Timber', (.05, .03, .016), (.18, .105, .055), ground_h=0, grey=.28), 'plank': cm.wood('Wall_Plank', (.07, .043, .023), (.23, .14, .075), ground_h=0, grey=.34)}
+    P = {'plinths': stone_set('Plinth_Granite', 4, light=(.3, .28, .235), dark=(.135, .122, .1), ochre=GREY_OCHRE, wet_z=.65, moss=.75, lichen=.3, crack=.55), 'timber': cm.wood('Frame_Timber', (.05, .03, .016), (.18, .105, .055), ground_h=0, grey=.28), 'plank': cm.wood('Wall_Plank', (.07, .043, .023), (.23, .14, .075), ground_h=0, grey=.34)}
     P['plaster'] = cm.lime_plaster('Lime_Plaster'); P['paper'] = cm.paper('Window_Paper', base=(.62, .55, .4), age=.25); P['tile'] = cm.tile('Roof_Tile'); P['tile_new'] = cm.tile('Roof_Tile_New', base=(.1, .12, .14), light=(.2, .22, .24), moss=0)
     P['ridge'] = cm.tile('Ridge_Tile', base=(.028, .038, .05), light=(.07, .088, .1), moss=1.3); P['deck'] = cm.wood('Roof_Deck', (.05, .045, .04), (.13, .115, .1), ground_h=0, grey=.1); P['dark'] = tm.plain('Interior_Dark', (.07, .056, .042), rough=.9, noise=.15); P['floor'] = cm.wood('Floor_Boards', (.045, .028, .016), (.13, .08, .045), ground_h=0, grey=.1)
-    P['mill'] = cm.stone('House_Millstone', light=(.46, .43, .36), dark=(.24, .22, .18), moss=0, lichen=0, crack=.3); P['sack'] = mm.cloth('Grain_Sack', (.27, .21, .12), dirt=.45); P['hemp'] = mm.hemp('Sack_Tie', (.2, .125, .055), twist=40.0); P['iron'] = mm.cast_iron('Door_Iron'); P['flour'] = tm.plain('Flour_Dust', (.7, .67, .59), rough=.95, noise=.12); P['moss'] = cm.moss_tuft('Moss_Soft', soft=True)
+    P['mill'] = cm.stone('House_Millstone', light=(.46, .43, .36), dark=(.24, .22, .18), moss=0, lichen=0, crack=.3); P['sack'] = mm.cloth('Grain_Sack', (.19, .145, .085), dirt=1., weave_=380.0); P['hemp'] = mm.hemp('Sack_Tie', (.2, .125, .055), twist=40.0); P['iron'] = mm.cast_iron('Door_Iron'); P['flour'] = tm.plain('Flour_Dust', (.7, .67, .59), rough=.95, noise=.12); P['moss'] = cm.moss_tuft('Moss_Soft', soft=True)
     return P
 
 

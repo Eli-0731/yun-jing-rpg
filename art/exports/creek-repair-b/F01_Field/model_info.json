@@ -8,5 +8,19 @@
   "F01_LOD1": 6884,
   "F01_LOD2": 2063
  },
- "note": "工作單外加：F01 拿掉苗床邊小石頭、換細葉草叢；每塊田由自己的進水口進水"
+ "note": "工作單外加：F01 拿掉苗床邊小石頭、換細葉草叢；每塊田由自己的進水口進水",
+ "lod_totals": {
+  "LOD0": 15234,
+  "LOD1": 7450,
+  "LOD2": 2221
+ },
+ "dimensions_m": [
+  6.0067,
+  4.0,
+  0.8354
+ ],
+ "collision": true,
+ "collision_faces": 84,
+ "detailObjects": [],
+ "detail_note": "苗床草叢和本體同一個物件，沒有分成 Detail_*"
 }
