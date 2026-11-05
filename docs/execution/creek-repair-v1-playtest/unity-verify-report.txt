@@ -1,4 +1,4 @@
-PASS CR05_WorkShelter: imported size 3.955 x 2.810 x 2.780 m matches model_info (max error 0.0 mm)
+PASS CR05_WorkShelter: imported size 3.955 x 2.811 x 2.780 m matches model_info (max error 0.0 mm)
 PASS CR05_WorkShelter: within limit 4 x 3 x 2.8 m
 PASS CR05_WorkShelter: base on origin height (min y 0.0000)
 INFO CR05_WorkShelter: minTier standard
@@ -14,7 +14,7 @@ PASS CR09_A_RopeGate: base on origin height (min y 0.0000)
 INFO CR09_A_RopeGate: minTier standard
 PASS CR09_A_RopeGate: origin at footprint centre
 PASS CR09_A_RopeGate: LODGroup with 3 levels
-INFO CR09_A_RopeGate: triangles LOD0 62578, LOD1 31287, LOD2 9383
+INFO CR09_A_RopeGate: triangles LOD0 62555, LOD1 31287, LOD2 9383
 PASS CR09_A_RopeGate: CR09_A_RopeGate_Collision imported as MeshCollider (24 triangles), renderer hidden
 PASS CR09_A_RopeGate: the collider stays on the model
 PASS CR09_A_RopeGate: no error shaders
@@ -38,7 +38,7 @@ INFO CR12_RankingBoard: triangles LOD0 129788, LOD1 64894, LOD2 19458
 PASS CR12_RankingBoard: CR12_RankingBoard_Collision imported as MeshCollider (72 triangles), renderer hidden
 PASS CR12_RankingBoard: the collider stays on the model
 PASS CR12_RankingBoard: no error shaders
-PASS CR03_StonePile: imported size 2.000 x 1.500 x 0.993 m matches model_info (max error 0.0 mm)
+PASS CR03_StonePile: imported size 2.000 x 1.500 x 0.992 m matches model_info (max error 0.0 mm)
 PASS CR03_StonePile: within limit 2 x 1.5 x 1 m
 PASS CR03_StonePile: base on origin height (min y 0.0000)
 INFO CR03_StonePile: minTier standard
@@ -68,7 +68,7 @@ INFO CR03_MudHeap: triangles LOD0 50488, LOD1 25242, LOD2 7570
 PASS CR03_MudHeap: CR03_MudHeap_Collision imported as MeshCollider (12 triangles), renderer hidden
 PASS CR03_MudHeap: the collider stays on the model
 PASS CR03_MudHeap: no error shaders
-PASS CR04_Tools: imported size 2.511 x 1.271 x 0.486 m matches model_info (max error 0.0 mm)
+PASS CR04_Tools: imported size 2.511 x 1.271 x 0.482 m matches model_info (max error 0.0 mm)
 PASS CR04_Tools: within limit 3 x 1.45 x 0.55 m
 PASS CR04_Tools: base on origin height (min y 0.0000)
 INFO CR04_Tools: minTier standard
@@ -83,7 +83,7 @@ PASS CR06_Straight: base on origin height (min y 0.0000)
 INFO CR06_Straight: minTier standard
 PASS CR06_Straight: origin at footprint centre
 PASS CR06_Straight: LODGroup with 3 levels
-INFO CR06_Straight: triangles LOD0 74236, LOD1 37118, LOD2 11134
+INFO CR06_Straight: triangles LOD0 74158, LOD1 37078, LOD2 11122
 PASS CR06_Straight: CR06_Straight_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR06_Straight: no error shaders
 PASS CR06_Short: imported size 1.008 x 0.564 x 0.491 m matches model_info (max error 0.0 mm)
@@ -92,7 +92,7 @@ PASS CR06_Short: base on origin height (min y 0.0000)
 INFO CR06_Short: minTier standard
 PASS CR06_Short: origin at footprint centre
 PASS CR06_Short: LODGroup with 3 levels
-INFO CR06_Short: triangles LOD0 32952, LOD1 16475, LOD2 4941
+INFO CR06_Short: triangles LOD0 32952, LOD1 16476, LOD2 4941
 PASS CR06_Short: CR06_Short_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR06_Short: no error shaders
 PASS CR06_Bend: imported size 1.770 x 1.770 x 0.492 m matches model_info (max error 0.0 mm)
@@ -101,7 +101,7 @@ PASS CR06_Bend: base on origin height (min y 0.0000)
 INFO CR06_Bend: minTier standard
 PASS CR06_Bend: origin at footprint centre
 PASS CR06_Bend: LODGroup with 3 levels
-INFO CR06_Bend: triangles LOD0 74096, LOD1 37047, LOD2 11113
+INFO CR06_Bend: triangles LOD0 73874, LOD1 36935, LOD2 11079
 PASS CR06_Bend: CR06_Bend_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR06_Bend: no error shaders
 PASS CR08_Straight: imported size 0.681 x 2.000 x 0.451 m matches model_info (max error 0.0 mm)
@@ -140,7 +140,7 @@ PASS CR15_DitchCross: base on origin height (min y 0.0000)
 INFO CR15_DitchCross: minTier standard
 PASS CR15_DitchCross: origin at footprint centre
 PASS CR15_DitchCross: LODGroup with 3 levels
-INFO CR15_DitchCross: triangles LOD0 62972, LOD1 31485, LOD2 9444
+INFO CR15_DitchCross: triangles LOD0 62944, LOD1 31471, LOD2 9440
 PASS CR15_DitchCross: CR15_DitchCross_Collision imported as MeshCollider (0 triangles), renderer hidden
 PASS CR15_DitchCross: no error shaders
 PASS CR08_Trestle_080: imported size 1.020 x 0.158 x 0.800 m matches model_info (max error 0.0 mm)
@@ -179,7 +179,7 @@ PASS CR07_Celebration: base on origin height (min y 0.0000)
 INFO CR07_Celebration: minTier high
 PASS CR07_Celebration: origin at footprint centre
 PASS CR07_Celebration: LODGroup with 3 levels
-INFO CR07_Celebration: triangles LOD0 95800, LOD1 47900, LOD2 14361
+INFO CR07_Celebration: triangles LOD0 95800, LOD1 47900, LOD2 14360
 PASS CR07_Celebration: CR07_Celebration_Collision imported as MeshCollider (36 triangles), renderer hidden
 PASS CR07_Celebration: the collider stays on the model
 PASS CR07_Celebration: no error shaders
@@ -189,7 +189,7 @@ PASS CR10_CharmStall: base on origin height (min y 0.0000)
 INFO CR10_CharmStall: minTier standard
 PASS CR10_CharmStall: origin at footprint centre
 PASS CR10_CharmStall: LODGroup with 3 levels
-INFO CR10_CharmStall: triangles LOD0 126272, LOD1 63134, LOD2 18911
+INFO CR10_CharmStall: triangles LOD0 126248, LOD1 63122, LOD2 18907
 PASS CR10_CharmStall: CR10_CharmStall_Collision imported as MeshCollider (48 triangles), renderer hidden
 PASS CR10_CharmStall: the collider stays on the model
 PASS CR10_CharmStall: no error shaders
@@ -199,7 +199,7 @@ PASS CR11_NoodleStall: base on origin height (min y 0.0000)
 INFO CR11_NoodleStall: minTier standard
 PASS CR11_NoodleStall: origin at footprint centre
 PASS CR11_NoodleStall: LODGroup with 3 levels
-INFO CR11_NoodleStall: triangles LOD0 167724, LOD1 83860, LOD2 25149
+INFO CR11_NoodleStall: triangles LOD0 167430, LOD1 83714, LOD2 25105
 PASS CR11_NoodleStall: CR11_NoodleStall_Collision imported as MeshCollider (144 triangles), renderer hidden
 PASS CR11_NoodleStall: the collider stays on the model
 PASS CR11_NoodleStall: no error shaders
@@ -209,7 +209,7 @@ PASS WM01_MillHouse: base on origin height (min y 0.0000)
 INFO WM01_MillHouse: minTier standard
 PASS WM01_MillHouse: origin at footprint centre
 PASS WM01_MillHouse: LODGroup with 3 levels
-INFO WM01_MillHouse: triangles LOD0 168822, LOD1 84411, LOD2 25322
+INFO WM01_MillHouse: triangles LOD0 168612, LOD1 84305, LOD2 25290
 PASS WM01_MillHouse: WM01_MillHouse_Collision imported as MeshCollider (96 triangles), renderer hidden
 PASS WM01_MillHouse: the collider stays on the model
 PASS WM01_MillHouse: no error shaders
@@ -239,7 +239,7 @@ PASS WM05_WashSteps: base on origin height (min y 0.0000)
 INFO WM05_WashSteps: minTier standard
 PASS WM05_WashSteps: origin at footprint centre
 PASS WM05_WashSteps: LODGroup with 3 levels
-INFO WM05_WashSteps: triangles LOD0 38494, LOD1 19246, LOD2 5772
+INFO WM05_WashSteps: triangles LOD0 38384, LOD1 19192, LOD2 5756
 PASS WM05_WashSteps: WM05_WashSteps_Collision imported as MeshCollider (96 triangles), renderer hidden
 PASS WM05_WashSteps: the collider stays on the model
 PASS WM05_WashSteps: no error shaders
@@ -249,7 +249,7 @@ PASS WM07_StoneBridge: base on origin height (min y 0.0000)
 INFO WM07_StoneBridge: minTier standard
 PASS WM07_StoneBridge: origin at footprint centre
 PASS WM07_StoneBridge: LODGroup with 3 levels
-INFO WM07_StoneBridge: triangles LOD0 112432, LOD1 56216, LOD2 16864
+INFO WM07_StoneBridge: triangles LOD0 111762, LOD1 55880, LOD2 16762
 PASS WM07_StoneBridge: WM07_StoneBridge_Collision imported as MeshCollider (312 triangles), renderer hidden
 PASS WM07_StoneBridge: the collider stays on the model
 PASS WM07_StoneBridge: no error shaders
@@ -259,12 +259,12 @@ PASS WM09_BambooPavilion: base on origin height (min y 0.0000)
 INFO WM09_BambooPavilion: minTier standard
 PASS WM09_BambooPavilion: origin at footprint centre
 PASS WM09_BambooPavilion: LODGroup with 3 levels
-INFO WM09_BambooPavilion: triangles LOD0 225568, LOD1 112784, LOD2 33833
+INFO WM09_BambooPavilion: triangles LOD0 225564, LOD1 112781, LOD2 33833
 PASS WM09_BambooPavilion: WM09_BambooPavilion_Collision imported as MeshCollider (84 triangles), renderer hidden
 PASS WM09_BambooPavilion: the collider stays on the model
 PASS WM09_BambooPavilion: no error shaders
 PASS CR09_A_RopeGate: Gate is its own object
-PASS CR09_A_RopeGate: Socket_GateOpen is 0.301 m above the gate pivot
+PASS CR09_A_RopeGate: Socket_GateOpen is 0.300 m above the gate pivot
 PASS CR09_A_RopeGate: top 0.598 m closed, 0.898 m open (limit 0.9)
 PASS CR09_A_RopeGate: channel ports at floor 0.10 m, 0.50 m apart along the flow
 PASS CR09_B_TenonGate: Gate is its own object
@@ -415,5 +415,21 @@ SHOT CR12_slips_closeup
 SHOT CR12_cup_closeup
 SHOT CR09_A_closeup
 SHOT CR09_B_open_closeup
+FLICKER CR10_CharmStall distance 5.1 m: A-B-A pixels per frame mean 26.8, worst 36, of 518400
+FLICKER CR10_CharmStall distance 12.0 m: A-B-A pixels per frame mean 9.4, worst 15, of 518400
+FLICKER CR11_NoodleStall distance 6.8 m: A-B-A pixels per frame mean 56.7, worst 71, of 518400
+FLICKER CR11_NoodleStall distance 16.1 m: A-B-A pixels per frame mean 41.5, worst 55, of 518400
+FLICKER CR12_RankingBoard distance 4.5 m: A-B-A pixels per frame mean 31.0, worst 42, of 518400
+FLICKER CR12_RankingBoard distance 10.7 m: A-B-A pixels per frame mean 67.7, worst 86, of 518400
+FLICKER CR05_WorkShelter distance 6.2 m: A-B-A pixels per frame mean 31.9, worst 40, of 518400
+FLICKER CR05_WorkShelter distance 14.5 m: A-B-A pixels per frame mean 38.0, worst 47, of 518400
+FLICKER WM01_MillHouse distance 12.6 m: A-B-A pixels per frame mean 109.2, worst 135, of 518400
+FLICKER WM01_MillHouse distance 29.8 m: A-B-A pixels per frame mean 90.4, worst 103, of 518400
+FLICKER WM07_StoneBridge distance 14.5 m: A-B-A pixels per frame mean 106.6, worst 118, of 518400
+FLICKER WM07_StoneBridge distance 34.3 m: A-B-A pixels per frame mean 19.8, worst 28, of 518400
+FLICKER WM02_WaterWheel distance 7.3 m: A-B-A pixels per frame mean 122.2, worst 135, of 518400
+FLICKER WM02_WaterWheel distance 17.2 m: A-B-A pixels per frame mean 108.9, worst 122, of 518400
+FLICKER CR03_TimberRack distance 3.2 m: A-B-A pixels per frame mean 19.2, worst 29, of 518400
+FLICKER CR03_TimberRack distance 7.6 m: A-B-A pixels per frame mean 6.3, worst 11, of 518400
 
 Unity 6000.0.85f1; failed checks: 0

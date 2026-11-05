@@ -43,6 +43,9 @@ namespace YunJing.Editor
             Report.Clear(); failed = 0;
             UsePipeline();
             Directory.CreateDirectory(Out);
+            // the models come in three PRs: this check needs all of them in the checkout
+            var missing = Ids.Where(id => !Directory.Exists(Path.Combine(Exports, id))).ToArray();
+            if (missing.Length > 0) throw new DirectoryNotFoundException("merge the model PRs first, missing: " + string.Join(", ", missing));
             foreach (var id in Ids) Copy(id);
             AssetDatabase.Refresh();
             foreach (var id in Ids) Configure(id);
@@ -60,6 +63,71 @@ namespace YunJing.Editor
             File.WriteAllText(Path.Combine(Out, "unity-verify-report.txt"), string.Join("\n", Report) + $"\n\nUnity {Application.unityVersion}; failed checks: {failed}\n");
             Debug.Log("CREEK_MODELS_" + (failed == 0 ? "PASS" : "FAIL") + "\n" + string.Join("\n", Report));
             if (failed > 0 && Application.isBatchMode) EditorApplication.Exit(1);
+        }
+
+        // Run after CreekRepairSceneBuilder.Build: in the saved scene the field's collision mesh must not draw and must collide. Then, with only that collision and a flat ground
+        // (the test scene has no walking character and its spade probes are not walkable), a 1.75 m capsule walks the ridges and in and out of the water gaps.
+        // Scripted steps, an aid only: it does not replace a person walking it with keyboard and mouse.
+        public static void FieldWalk()
+        {
+            Report.Clear(); failed = 0;
+            EditorSceneManager.OpenScene("Assets/YunJing/Generated/CreekRepair.unity", OpenSceneMode.Single);
+            var field = GameObject.Find("Field_0");
+            Check(field != null, "Field_0 is in the scene");
+            if (field != null)
+            {
+                var col = field.GetComponentsInChildren<Transform>(true).Where(t => t.name.EndsWith("_Collision")).ToArray();
+                Check(col.Length > 0, "F01 has a _Collision object");
+                Check(col.All(t => t.GetComponent<Renderer>() == null || !t.GetComponent<Renderer>().enabled), "F01 collision mesh does not draw");
+                Check(col.All(t => t.GetComponent<MeshCollider>() != null), "F01 collision mesh has a MeshCollider");
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/YunJing/Generated/CreekRepairScene/F01_Field/F01_Field.fbx");
+                EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+                field = (GameObject)UnityEngine.Object.Instantiate(prefab); field.transform.position = new Vector3(0, -.191f, 0);
+                foreach (var t in field.GetComponentsInChildren<Transform>(true).Where(t => t.name.EndsWith("_Collision"))) t.gameObject.AddComponent<MeshCollider>().sharedMesh = t.GetComponent<MeshFilter>().sharedMesh;
+                var flat = GameObject.CreatePrimitive(PrimitiveType.Plane); flat.transform.localScale = Vector3.one * 5;
+                var cc = new GameObject("WalkProbe", typeof(CharacterController)).GetComponent<CharacterController>(); cc.height = 1.75f; cc.radius = .3f; cc.center = Vector3.up * .875f; cc.stepOffset = .3f; cc.slopeLimit = 50;
+                // field local: x across, z along, half sizes 3.003 and 2; banks .5 wide; the gaps are the middle 1.6 m of the near and far banks
+                var o = field.transform.position;
+                void Walk(string what, params Vector3[] path)
+                {
+                    cc.enabled = false; cc.transform.position = o + path[0] + Vector3.up * .9f; cc.enabled = true; Physics.SyncTransforms();
+                    for (int i = 0; i < 80; i++) cc.Move(Vector3.down * .05f);
+                    float lowest = cc.transform.position.y, highest = lowest; bool reached = true;
+                    for (int leg = 1; leg < path.Length && reached; leg++)
+                    {
+                        var goal = o + path[leg]; int steps = 0;
+                        while (true)
+                        {
+                            var d = goal - cc.transform.position; d.y = 0;
+                            if (d.magnitude < .12f) break;
+                            if (++steps > 800) { reached = false; break; }
+                            cc.Move(d.normalized * .035f + Vector3.down * .06f); lowest = Mathf.Min(lowest, cc.transform.position.y); highest = Mathf.Max(highest, cc.transform.position.y);
+                        }
+                    }
+                    var end = cc.transform.position - o;
+                    Check(reached && lowest - o.y > -.01f, $"walk {what}: ended at ({end.x:F2}, {end.y:F2}, {end.z:F2}), feet between {lowest - o.y:F3} and {highest - o.y:F3} m from the field base");
+                }
+                Walk("east ridge end to end", new Vector3(2.72f, 0, -1.72f), new Vector3(2.72f, 0, 1.72f));
+                Walk("near ridge, right of the gap", new Vector3(1.2f, 0, -1.75f), new Vector3(2.6f, 0, -1.75f));
+                Walk("far ridge, left of the gap", new Vector3(-2.6f, 0, 1.75f), new Vector3(-1.2f, 0, 1.75f));
+                Walk("in through the near gap", new Vector3(0, 0, -3.4f), new Vector3(0, 0, 0));
+                Walk("out through the far gap", new Vector3(0, 0, 0), new Vector3(0, 0, 3.4f));
+                Walk("down off the ridge into the field and back up", new Vector3(2.72f, 0, 0), new Vector3(1, 0, 0), new Vector3(2.72f, 0, 0));
+                UnityEngine.Object.DestroyImmediate(cc.gameObject);
+            }
+            Directory.CreateDirectory(Out);
+            File.WriteAllText(Path.Combine(Out, "field-walk-report.txt"), string.Join("\n", Report) + $"\n\nUnity {Application.unityVersion}; failed checks: {failed}; scripted CharacterController, not a person\n");
+            Debug.Log("CREEK_FIELDWALK_" + (failed == 0 ? "PASS" : "FAIL") + "\n" + string.Join("\n", Report));
+            if (failed > 0 && Application.isBatchMode) EditorApplication.Exit(1);
+        }
+
+        // The test scene needs only the site models, so it builds without the stall and A3 PRs and without running this check first.
+        internal static void ImportForScene()
+        {
+            var have = Ids.Where(id => Directory.Exists(Path.Combine(Exports, id))).ToArray();
+            foreach (var id in have) Copy(id);
+            AssetDatabase.Refresh();
+            foreach (var id in have) { Configure(id); Mat(id); }
         }
 
         static void Copy(string id)
@@ -300,6 +368,37 @@ namespace YunJing.Editor
             gate.position += Vector3.up * .3f;
             Shot("CR09_B_open_closeup", LodBounds(models[Ids[2]]).center, new Vector3(-.4f, .28f, -1.1f));
             gate.position -= Vector3.up * .3f;
+            Flicker(models);
+        }
+
+        // A surface fighting another one flips colour and flips back as the camera turns a hair: count pixels that go A, B, A over three frames.
+        static void Flicker(Dictionary<string, GameObject> models)
+        {
+            const int W = 960, H = 540, Frames = 24;
+            var cam = Camera.main; var rt = new RenderTexture(W, H, 24, RenderTextureFormat.ARGB32); var tex = new Texture2D(W, H, TextureFormat.RGB24, false); var back = cam.backgroundColor;
+            foreach (var id in new[] { "CR10_CharmStall", "CR11_NoodleStall", "CR12_RankingBoard", "CR05_WorkShelter", "WM01_MillHouse", "WM07_StoneBridge", "WM02_WaterWheel", "CR03_TimberRack" })
+            {
+                if (!models.ContainsKey(id)) continue;
+                var b = LodBounds(models[id]);
+                foreach (var far in new[] { 1.1f, 2.6f })
+                {
+                    var look = new float[Frames][]; float d = b.size.magnitude * far; var off = new Vector3(.7f, .35f, -.85f).normalized * d;
+                    for (int i = 0; i < Frames; i++)
+                    {
+                        cam.transform.position = b.center + Quaternion.Euler(0, i * .12f, 0) * off; cam.transform.LookAt(b.center); cam.fieldOfView = 35; cam.targetTexture = rt; cam.Render();
+                        RenderTexture.active = rt; tex.ReadPixels(new Rect(0, 0, W, H), 0, 0); tex.Apply(); look[i] = tex.GetPixels().Select(c => c.r * .2126f + c.g * .7152f + c.b * .0722f).ToArray();
+                    }
+                    RenderTexture.active = null; cam.targetTexture = null; int worst = 0, all = 0;
+                    for (int i = 0; i + 2 < Frames; i++)
+                    {
+                        int n = 0;
+                        for (int k = 0; k < look[i].Length; k++) if (Mathf.Abs(look[i][k] - look[i + 1][k]) > .2f && Mathf.Abs(look[i][k] - look[i + 2][k]) < .05f) n++;
+                        worst = Mathf.Max(worst, n); all += n;
+                    }
+                    Report.Add($"FLICKER {id} distance {d:0.0} m: A-B-A pixels per frame mean {all / (float)(Frames - 2):0.0}, worst {worst}, of {W * H}");
+                }
+            }
+            UnityEngine.Object.DestroyImmediate(tex); cam.backgroundColor = back;
         }
 
         static void T(GameObject go, string name, out Vector3 at)

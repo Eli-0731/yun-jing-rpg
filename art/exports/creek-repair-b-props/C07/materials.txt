@@ -1,0 +1,4 @@
+aged_bronze|||0.3000|0.3000|0.1800|0.780
+natural_hemp|natural_hemp_base.png||0.8000|0.8000|0.8000|0.780
+old_joinery|old_joinery_base.png||0.8000|0.8000|0.8000|0.780
+warm_weathered_wood|warm_weathered_wood_base.png||0.8000|0.8000|0.8000|0.780

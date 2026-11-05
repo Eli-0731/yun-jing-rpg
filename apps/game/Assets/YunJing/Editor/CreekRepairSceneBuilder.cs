@@ -101,7 +101,7 @@ namespace YunJing.Editor
             foreach (var id in Props)
             {
                 var dst = Path.Combine(abs, id); Directory.CreateDirectory(dst);
-                foreach (var f in Directory.GetFiles(Path.Combine(Repo, "artifacts", "creek-c-fbx", id))) File.Copy(f, Path.Combine(dst, Path.GetFileName(f)), true);
+                foreach (var f in Directory.GetFiles(Path.Combine(Repo, "art", "exports", "creek-repair-b-props", id))) File.Copy(f, Path.Combine(dst, Path.GetFileName(f)), true);
             }
             AssetDatabase.Refresh();
             foreach (var id in Pieces.Concat(FieldGaps).Concat(Props))
@@ -350,7 +350,7 @@ namespace YunJing.Editor
 
         public static void Generate()
         {
-            UsePipeline(); CopyImport();
+            UsePipeline(); CreekRepairModelCheck.ImportForScene(); CopyImport();
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             var world = new GameObject("CreekRepair").transform;
             RenderSettings.ambientMode = AmbientMode.Trilight;
@@ -408,7 +408,7 @@ namespace YunJing.Editor
             {
                 // F01_Field has its origin at the bottom centre; F01_water keeps F01's, so the field goes back by the offset in its validation.json
                 var f = Put(world, Fbx("F01_Field"), new Vector3(fieldXs[i], -.191f, FieldZ + 2)); f.name = "Field_" + i;
-                foreach (var r in f.GetComponentsInChildren<MeshRenderer>(true).Where(r => r.name.EndsWith("_Collision"))) r.enabled = false;
+                foreach (var r in f.GetComponentsInChildren<MeshRenderer>(true).Where(r => r.name.EndsWith("_Collision"))) { r.enabled = false; r.gameObject.AddComponent<MeshCollider>().sharedMesh = r.GetComponent<MeshFilter>().sharedMesh; }
                 soil.AddRange(f.GetComponentsInChildren<Renderer>().Where(r => !r.name.EndsWith("_Collision")).Take(1));
                 // the fields' outer edges only just meet: earth in the crack between them, so grass does not show through
                 if (i > 0) Box(world, "FieldSeam_" + i, new Vector3(fieldXs[i] / 2, .04f, FieldZ + 2), new Vector3(.6f, .1f, f.GetComponentInChildren<Renderer>().bounds.size.z), Mat("Field_Seam", new Color(.06f, .026f, .012f)));
@@ -470,7 +470,7 @@ namespace YunJing.Editor
             // what the spade is measured against: not drawn, and on a layer nothing else casts at
             foreach (var f in world.GetComponentsInChildren<MeshFilter>(true))
             {
-                if (f.sharedMesh == null || f.name.Contains("LOD1") || f.name.Contains("LOD2") || f.name.StartsWith("Placeholder") || f.name.ToLowerInvariant().Contains("water")) continue;
+                if (f.sharedMesh == null || f.name.Contains("LOD1") || f.name.Contains("LOD2") || f.name.StartsWith("Placeholder") || f.name.EndsWith("_Collision") || f.name.ToLowerInvariant().Contains("water")) continue;
                 var probe = new GameObject("SpadeProbe") { layer = CreekRepairDirector.ProbeLayer }; probe.transform.SetParent(f.transform, false); probe.AddComponent<MeshCollider>().sharedMesh = f.sharedMesh;
             }
             AssetDatabase.SaveAssets();

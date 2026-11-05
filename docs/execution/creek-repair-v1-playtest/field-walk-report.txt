@@ -1,0 +1,12 @@
+PASS Field_0 is in the scene
+PASS F01 has a _Collision object
+PASS F01 collision mesh does not draw
+PASS F01 collision mesh has a MeshCollider
+PASS walk east ridge end to end: ended at (2.72, 0.67, 1.61), feet between 0.671 and 0.671 m from the field base
+PASS walk near ridge, right of the gap: ended at (2.50, 0.67, -1.75), feet between 0.671 and 0.671 m from the field base
+PASS walk far ridge, left of the gap: ended at (-1.31, 0.67, 1.75), feet between 0.671 and 0.671 m from the field base
+PASS walk in through the near gap: ended at (0.00, 0.43, -0.11), feet between 0.271 and 0.427 m from the field base
+PASS walk out through the far gap: ended at (0.00, 0.27, 3.29), feet between 0.271 and 0.427 m from the field base
+PASS walk down off the ridge into the field and back up: ended at (2.62, 0.67, 0.00), feet between 0.427 and 0.671 m from the field base
+
+Unity 6000.0.85f1; failed checks: 0; scripted CharacterController, not a person
