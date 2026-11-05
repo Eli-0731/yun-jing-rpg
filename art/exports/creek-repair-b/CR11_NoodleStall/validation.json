@@ -47,9 +47,9 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 167724,
-          "LOD1": 83860,
-          "LOD2": 25149
+          "LOD0": 167430,
+          "LOD1": 83714,
+          "LOD2": 25105
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
@@ -100,9 +100,9 @@
             "LOD2": 86
           },
           "Bowl_Full": {
-            "LOD0": 1634,
-            "LOD1": 816,
-            "LOD2": 244
+            "LOD0": 1340,
+            "LOD1": 670,
+            "LOD2": 200
           },
           "Bowl_Empty": {
             "LOD0": 600,
@@ -209,7 +209,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 187,
+  "seconds": 531,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

@@ -200,7 +200,7 @@ def plate(name, c, yaw, r, w, mat, group, turn=1., seg=18):
     def fn(u, v):
         a = v * turn * math.tau; rr = (r if turn == 1. else r * (.2 + .8 * v)) + (u - .5) * w
         return (c[0] + math.cos(a) * rr * ca, c[1] + math.cos(a) * rr * sa, c[2] + math.sin(a) * rr)
-    sheet(name, 1, seg, fn, mat, solid=.0028, group=group, detail=1)
+    sheet(name, 1, seg, fn, mat, solid=.0034, group=group, detail=1)
 
 
 def charm_string(P, i, x, y, ztop, n, seed):
