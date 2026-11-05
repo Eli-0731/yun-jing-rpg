@@ -587,6 +587,9 @@
       "LOD2": 742
     }
   },
+  "twins_parted": {
+    "CR10_CharmStall_Detail_Small_LOD2": 3
+  },
   "lod_totals": {
     "LOD0": 102200,
     "LOD1": 51098,

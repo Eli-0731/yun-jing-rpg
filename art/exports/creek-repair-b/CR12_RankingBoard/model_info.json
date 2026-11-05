@@ -296,6 +296,10 @@
       "LOD2": 116
     }
   },
+  "twins_parted": {
+    "CR12_RankingBoard_Detail_Small_LOD1": 1,
+    "CR12_RankingBoard_Detail_Small_LOD2": 1
+  },
   "lod_totals": {
     "LOD0": 80622,
     "LOD1": 40310,

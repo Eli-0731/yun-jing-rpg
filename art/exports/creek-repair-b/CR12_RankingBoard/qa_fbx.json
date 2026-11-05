@@ -25,11 +25,11 @@
    "same_between": 0,
    "same_inside": 5,
    "same": 5,
-   "two_sides": 1205,
+   "two_sides": 1210,
    "groups": {
     "Detail_Small|two_sides_inside": {
-     "pairs": 1173,
-     "overlap_cm2": 716.78
+     "pairs": 1178,
+     "overlap_cm2": 717.42
     },
     "RankingBoard|two_sides_between": {
      "pairs": 14,
