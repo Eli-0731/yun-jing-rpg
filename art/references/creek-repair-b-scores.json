@@ -7,21 +7,21 @@
     "WM01_MillHouse": {
       "form_25": 23,
       "topology_20": 17,
-      "materials_lighting_20": 18,
+      "materials_lighting_20": 19,
       "style_15": 14,
       "animation_interaction_10": 8,
       "performance_export_10": 6,
-      "total": 86,
+      "total": 87,
       "main_deduction": "牆有層次但裂紋和脫落比 H01 少；面數高"
     },
     "WM02_WaterWheel": {
       "form_25": 22,
       "topology_20": 18,
-      "materials_lighting_20": 17,
+      "materials_lighting_20": 18,
       "style_15": 13,
       "animation_interaction_10": 9,
       "performance_export_10": 8,
-      "total": 87,
+      "total": 88,
       "main_deduction": "鐵件少，木料偏新"
     },
     "WM04_Millstones": {
@@ -37,21 +37,21 @@
     "WM05_WashSteps": {
       "form_25": 21,
       "topology_20": 18,
-      "materials_lighting_20": 17,
+      "materials_lighting_20": 18,
       "style_15": 13,
       "animation_interaction_10": 7,
       "performance_export_10": 8,
-      "total": 84,
+      "total": 85,
       "main_deduction": "階面磨損不夠"
     },
     "WM07_StoneBridge": {
       "form_25": 23,
       "topology_20": 17,
-      "materials_lighting_20": 18,
+      "materials_lighting_20": 19,
       "style_15": 14,
       "animation_interaction_10": 7,
       "performance_export_10": 7,
-      "total": 86,
+      "total": 87,
       "main_deduction": "橋面偏乾淨"
     },
     "WM09_BambooPavilion": {
