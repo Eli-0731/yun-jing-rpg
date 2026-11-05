@@ -292,6 +292,32 @@ def end_cap(name, path, t, section, mat, depth=.012):
     return mesh(name, verts, faces, mat, grain='z')
 
 
+# the top is the height of the stakes: at the bank's own .41 m a .3 m step plus .08 skin walks up onto the short walls of CR15
+BANK_SECTION = [(-.46, .47), (-.29, .47), (-.215, .31), (-.12, .1), (.12, .1), (.215, .31), (.29, .47), (.46, .47)]
+
+
+def skirted(top, quads):
+    """A collision solid from its top surface: every open edge drops a wall to z 0, so outer faces and port ends close by themselves."""
+    verts = list(top); faces = list(quads); uses = {}
+    for q in quads:
+        for a, b in zip(q, q[1:] + q[:1]): uses[a, b] = True
+    for (a, b) in uses:
+        if (b, a) in uses: continue
+        k = len(verts)
+        verts += [(top[a][0], top[a][1], 0.), (top[b][0], top[b][1], 0.)]
+        faces.append((k, k + 1, b, a))
+    S['collision_mesh'] = (verts, faces); S['collision'] = []
+
+
+def channel_collision(path, sections):
+    """The banks stop a walker and the bed is floor; the outer face is .47 m, above a .3 m step. Water does not collide."""
+    W = len(BANK_SECTION); top = []
+    for i in range(sections + 1):
+        p, n = path(i / sections)
+        top += [tuple(p + n * x + Vector((0, 0, z))) for x, z in BANK_SECTION]
+    skirted(top, [(i * W + k, i * W + k + 1, (i + 1) * W + k + 1, (i + 1) * W + k) for i in range(sections) for k in range(W - 1)])
+
+
 def channel(P, path, seed, amount=1.):
     R = random.Random(seed); N = len(EARTH) - 1   # amount: how much of a 2 m piece's stakes and growth this piece carries
     def prof(u):
@@ -355,7 +381,7 @@ def channel(P, path, seed, amount=1.):
     S['water_path'] = path          # the water is its own model: build_creek_repair_b.export_water
     a, an = path(0), path(1)
     socket('Socket_PortIn', tuple(a[0] + Vector((0, 0, FLOOR)))); socket('Socket_PortOut', tuple(an[0] + Vector((0, 0, FLOOR))))
-    S['collision'] = []
+    channel_collision(path, 8 if path is path_bend else 2)
 
 
 CROSS = .75
@@ -425,7 +451,12 @@ def cr15_cross(P):
         sphere('Pebble', (x, y, .102), R.uniform(.007, .016), P['stone'], scale=(1.2, 1, .55), seg=8, ring=5, detail=2)
     S['water_cross'] = CROSS
     for name, q in (('Socket_PortIn', (0, -CROSS)), ('Socket_PortWest', (-CROSS, 0)), ('Socket_PortEast', (CROSS, 0)), ('Socket_PortNorth', (0, CROSS))): socket(name, (q[0], q[1], FLOOR))
-    S['collision'] = []
+    # the same section as CR06 on all four arms: height by distance from the nearer axis, nothing in the four outer corners
+    # a walker meets the arms at their outer corners here, where a top below the stakes (.49) reads as a step: 45 degrees on the capsule
+    H = {abs(x): .49 if z > .4 else z for x, z in BANK_SECTION}; line = [-CROSS] + [x for x, z in BANK_SECTION] + [CROSS]
+    top = [(x, y, H.get(min(abs(x), abs(y)), H[.46])) for y in line for x in line]; W = len(line)
+    skirted(top, [(j * W + i, j * W + i + 1, (j + 1) * W + i + 1, (j + 1) * W + i) for j in range(W - 1) for i in range(W - 1)
+                  if not (min(abs(line[i]), abs(line[i + 1])) >= .46 and min(abs(line[j]), abs(line[j + 1])) >= .46)])
 
 
 def cr06_straight(P): channel(P, path_straight, 61)
