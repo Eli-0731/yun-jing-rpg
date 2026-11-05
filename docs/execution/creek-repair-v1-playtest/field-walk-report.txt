@@ -2,12 +2,12 @@ PASS Field_0 is in the scene
 PASS F01 has a _Collision object
 PASS F01 collision mesh does not draw
 PASS F01 collision mesh has a MeshCollider
-PASS walk east ridge end to end: ended at (2.72, 0.77, 1.61), feet between 0.773 and 0.773 m from the field base
-PASS walk near ridge, right of the gap: ended at (2.50, 0.77, -1.75), feet between 0.773 and 0.773 m from the field base
-PASS walk far ridge, left of the gap: ended at (-1.31, 0.77, 1.75), feet between 0.773 and 0.773 m from the field base
-PASS walk in through the near gap: ended at (0.00, 0.42, -0.11), feet between 0.271 and 0.425 m from the field base
-PASS walk out through the far gap: ended at (0.00, 0.27, 3.29), feet between 0.271 and 0.425 m from the field base
-PASS walk down off the ridge into the field and back up: ended at (2.62, 0.77, 0.00), feet between 0.425 and 0.773 m from the field base
+PASS walk east ridge end to end: ended at (2.72, 0.77, 1.61), feet between 0.769 and 0.769 m from the field base
+PASS walk near ridge, right of the gap: ended at (2.50, 0.77, -1.75), feet between 0.769 and 0.769 m from the field base
+PASS walk far ridge, left of the gap: ended at (-1.31, 0.77, 1.75), feet between 0.769 and 0.769 m from the field base
+PASS walk in through the near gap: ended at (0.00, 0.43, -0.11), feet between 0.271 and 0.433 m from the field base
+PASS walk out through the far gap: ended at (0.00, 0.27, 3.29), feet between 0.271 and 0.433 m from the field base
+PASS walk down off the ridge into the field and back up: ended at (2.62, 0.77, 0.00), feet between 0.433 and 0.769 m from the field base
 PASS CR06_Straight: has a _Collision
 PASS CR06_Straight: stopped at the bank after 0.74 of 3.00 m, feet never above 0.080 m (skin .08)
 PASS CR06_Short: has a _Collision
@@ -15,8 +15,14 @@ PASS CR06_Short: stopped at the bank after 0.74 of 3.00 m, feet never above 0.08
 PASS CR06_Bend: has a _Collision
 PASS CR06_Bend: stopped at the bank after 1.05 of 3.00 m, feet never above 0.080 m (skin .08)
 PASS CR15_DitchCross: has a _Collision
-FAIL CR15_DitchCross: stopped at the bank after 12.93 of 3.00 m, feet never above 0.438 m (skin .08)
+PASS CR15_DitchCross: stopped at the bank after 0.44 of 3.00 m, feet never above 0.080 m (skin .08)
 PASS CR15_DitchCross: has a _Collision
-PASS CR15_DitchCross: stopped at the bank after 1.02 of 4.24 m, feet never above 0.080 m (skin .08)
+PASS CR15_DitchCross: stopped at the bank after 0.76 of 4.24 m, feet never above 0.080 m (skin .08)
+PASS CR15_DitchCross: has a _Collision
+PASS CR15_DitchCross: stopped at the bank after 0.44 of 3.00 m, feet never above 0.080 m (skin .08)
+PASS CR15_DitchCross: has a _Collision
+PASS CR15_DitchCross: stopped at the bank after 0.44 of 3.00 m, feet never above 0.080 m (skin .08)
+PASS CR15_DitchCross: has a _Collision
+PASS CR15_DitchCross: stopped at the bank after 0.44 of 3.00 m, feet never above 0.080 m (skin .08)
 
-Unity 6000.0.85f1; failed checks: 1; scripted CharacterController, not a person
+Unity 6000.0.85f1; failed checks: 0; scripted CharacterController, not a person

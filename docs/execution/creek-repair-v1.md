@@ -157,3 +157,17 @@ artifacts/creek-repair-build/CreekRepair.exe -creekPlaytest -creekMethod clear_s
 - 鏟子：`clear_silt` 的 `silt_3` 在渠外，鏟面曾穿過旁邊 B02 的牆。鏟面現在不分渠內外都會騎上地面、停在牆前（`CreekRepairDirector`）。三段虛擬觸控都沒有穿模紀錄。
 
 真人鍵鼠、手機、Unity 6000.0.82f1、音訊聽感、橋上走動仍未驗證。
+
+### 審查回覆：CR15 碰撞、F01、LOD 三角形數（2026-11-06）
+
+**CR15 x = 0.6 m 走動 FAIL 的原因（已修）。** 撞擊位置、膠囊和碰撞剖面畫在 `art/previews/creek-repair-b/_qa/CR15_walk_x06_before_after.png`，資料來自 `FieldWalk` 新寫出的 `walk-trace-*.json`（每步位置與第一次撞擊點）；畫圖腳本 `art/source/creek-repair-b/walk_figure.py`。
+
+- 改前：兩臂之間的外角凹口只有 0.29 m，比半徑 0.3 m 的膠囊（直徑 0.6 m）窄。角色在 (0.46, 0.49, −0.75) 先撞到南臂端的外角，被推往 +x，滑到 x ≈ 1.0；再擦過東臂端 (0.75, −0.46) 的角時，膠囊下半球只壓到牆頂邊緣 5 cm，接觸點低於 stepOffset 0.3 m，所以被當成台階爬上去，腳到 0.438 m，然後沿東臂端外側一路走出去。另外三個外角的同樣走法也一樣 FAIL（之前只測了一條）。
+- 這裡本來就該擋：水渠的外牆要擋人，過渠要靠橋或缺口（見上方「水渠碰撞」）。所以沒有改測試預期，而是改碰撞：`cr_site.py` 的 CR15 碰撞把四個外角補到與堤頂同高（0.49 m），每一側都變成一整面平牆。外觀模型和 LOD 沒動（69,209／34,604／10,380）。代價是外角的隱形碰撞最多比木樁外凸 0.29 m，而且這個凹口本來就塞不進角色。
+- `FieldWalk` 加測另外三個外角（x = −0.6 從北、z = 0.6 從東、z = −0.6 從西）。五條 CR15 線都在 0.44～0.76 m 處停下，腳不超過 0.08 m，整份報告 0 FAIL。這仍是腳本 CharacterController，不是真人走。
+
+**F01。** 腳印的凹陷從 0.014 m 加深到 0.032 m，顏色也更深；苗床側邊陡一倍、頂面高度不變，鋤痕加深，土色改成比田埂深的新翻土。原點、碰撞、水面位置和三角形數都沒變。同角度比較圖（概念圖／改前／改後）在 `_qa/F01_concept_vs_model_main.png` 和 `_top.png`。它仍沿用舊田佈局，閘門和進水口的位置跟概念圖前後相反；概念圖是事後補的，不是先圖後模。
+
+**LOD 三角形數。** 審查用 Blender 回匯得到的 LOD2／LOD1 比 `model_info.json` 少幾個，原因是 LOD 削減時，有些薄片收成「同三個頂點、一正一反」的兩個面：Blender 匯入 FBX 會把這對面併成一個，Unity 則兩個都保留。受影響的是 CR10 LOD2（3 對）、CR12 LOD1／LOD2（各 1 對）、CR14 LOD2（296 對，水草葉片）、WM01 LOD2（7 對）。`build_creek_repair_b.py` 的 `part_twins` 讓每對的第二個面使用自己的頂點，兩面仍都會畫出來，數量記在 `model_info.json` 的 `twins_parted`。新工具 `qa_lod_totals.py` 從最終 FBX 回匯計數，28 件與 `model_info.json` 全部一致（`art/references/creek-repair-b-lod-totals.json`）。Unity 模型檢查也新增「匯入的 LOD 三角形數等於 model_info」這一項。這一項一加上就抓到 `CR09_A_RopeGate` 的 LOD0：Unity 數到 62,556 個三角形，Blender 是 62,586 個，之前的報告也是 62,556，只是當時沒有比對。原因是 LOD0 帶著五邊和六邊的面，Unity 拆其中幾個凹形面時，拆出的三角形比 Blender 少。現在五邊以上的面在匯出前就先拆成三角形，數量記在 `model_info.json` 的 `ngons_split`；三角形總數不變。
+
+作者自評：`CR15_DitchCross` 90、`F01_Field` 90，都是壓線，仍是作者自評，不是驗收。真人鍵鼠、手機、Unity 6000.0.82f1 和音訊聽感都還沒驗證。

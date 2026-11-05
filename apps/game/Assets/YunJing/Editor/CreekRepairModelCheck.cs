@@ -25,7 +25,8 @@ namespace YunJing.Editor
         static readonly List<string> Report = new List<string>();
         static int failed;
 
-        [Serializable] class ModelInfo { public float[] dimensions_m; public float[] size_limit_m; public string minTier; }
+        [Serializable] class ModelInfo { public float[] dimensions_m; public float[] size_limit_m; public string minTier; public LodTotals lod_totals; }
+        [Serializable] class LodTotals { public int LOD0, LOD1, LOD2; }
 
         static void Check(bool ok, string what) { Report.Add((ok ? "PASS " : "FAIL ") + what); if (!ok) failed++; }
 
@@ -125,8 +126,21 @@ namespace YunJing.Editor
                         box.gameObject.AddComponent<MeshCollider>().sharedMesh = box.sharedMesh;
                         cc.enabled = false; cc.transform.position = from + Vector3.up * .1f; cc.enabled = true; Physics.SyncTransforms();
                         var way = (to - from).normalized; float length = (to - from).magnitude; float gone = 0;
-                        float high = 0; for (int i = 0; i < 400; i++) { cc.Move(way * .035f + Vector3.down * .06f); gone = Vector3.Dot(cc.transform.position - from, way); high = Mathf.Max(high, cc.transform.position.y); }
+                        // every step is kept, with the first place the capsule touches the collision, so a failure can be drawn against the collision section
+                        float high = 0; var trace = new List<string>(); string touch = "none";
+                        for (int i = 0; i < 400; i++)
+                        {
+                            var p = cc.transform.position; var step = way * .035f + Vector3.down * .06f;
+                            var hit = Physics.CapsuleCastAll(p + Vector3.up * cc.radius, p + Vector3.up * (cc.height - cc.radius), cc.radius, way, .035f + cc.skinWidth).Where(h => h.collider.gameObject != flat && h.distance > 0).OrderBy(h => h.distance).FirstOrDefault();
+                            if (touch == "none" && hit.collider != null)
+                                touch = $"{{\"step\":{i},\"capsule\":[{p.x:F4},{p.y:F4},{p.z:F4}],\"point\":[{hit.point.x:F4},{hit.point.y:F4},{hit.point.z:F4}],\"normal\":[{hit.normal.x:F3},{hit.normal.y:F3},{hit.normal.z:F3}]}}";
+                            var flags = cc.Move(step); p = cc.transform.position;
+                            trace.Add($"[{p.x:F4},{p.y:F4},{p.z:F4},{(int)flags}]");
+                            gone = Vector3.Dot(p - from, way); high = Mathf.Max(high, p.y);
+                        }
                         Check(gone < length / 2 - .3f && high < .12f, $"{id}: stopped at the bank after {gone:F2} of {length:F2} m, feet never above {high:F3} m (skin .08)");
+                        Directory.CreateDirectory(Out);
+                        File.WriteAllText(Path.Combine(Out, $"walk-trace-{id}-{from.x:F1}_{from.z:F1}.json"), $"{{\"id\":\"{id}\",\"from\":[{from.x:F3},{from.z:F3}],\"to\":[{to.x:F3},{to.z:F3}],\"radius\":{cc.radius},\"height\":{cc.height},\"stepOffset\":{cc.stepOffset},\"skin\":{cc.skinWidth},\"first_touch\":{touch},\"trace\":[{string.Join(",", trace)}]}}");
                     }
                     UnityEngine.Object.DestroyImmediate(piece);
                 }
@@ -135,6 +149,10 @@ namespace YunJing.Editor
                 Blocked("CR06_Bend", new Vector3(-1.32f, 0, 1.32f), new Vector3(.8f, 0, -.8f));
                 Blocked("CR15_DitchCross", new Vector3(.6f, 0, -1.5f), new Vector3(.6f, 0, 1.5f));
                 Blocked("CR15_DitchCross", new Vector3(1.5f, 0, 1.5f), new Vector3(-1.5f, 0, -1.5f));
+                // the other three outer corners, from the other sides: a 0.6 m capsule does not fit the 0.29 m notch between two arms, so each of these meets the corner face
+                Blocked("CR15_DitchCross", new Vector3(-.6f, 0, 1.5f), new Vector3(-.6f, 0, -1.5f));
+                Blocked("CR15_DitchCross", new Vector3(1.5f, 0, .6f), new Vector3(-1.5f, 0, .6f));
+                Blocked("CR15_DitchCross", new Vector3(-1.5f, 0, -.6f), new Vector3(1.5f, 0, -.6f));
                 UnityEngine.Object.DestroyImmediate(cc.gameObject);
             }
             Directory.CreateDirectory(Out);
@@ -242,6 +260,10 @@ namespace YunJing.Editor
             Check(lod != null && lod.GetLODs().Length == 3, $"{id}: LODGroup with 3 levels");
             int tri(string s) => go.GetComponentsInChildren<MeshFilter>(true).Where(m => m.name.EndsWith(s)).Sum(m => m.sharedMesh.triangles.Length / 3);
             Report.Add($"INFO {id}: triangles LOD0 {tri("_LOD0")}, LOD1 {tri("_LOD1")}, LOD2 {tri("_LOD2")}");
+            // the same final FBX, counted by Unity's importer, against the totals the build wrote
+            if (info.lod_totals != null && info.lod_totals.LOD0 > 0)
+                Check(tri("_LOD0") == info.lod_totals.LOD0 && tri("_LOD1") == info.lod_totals.LOD1 && tri("_LOD2") == info.lod_totals.LOD2,
+                      $"{id}: imported LOD triangles {tri("_LOD0")}/{tri("_LOD1")}/{tri("_LOD2")} equal model_info {info.lod_totals.LOD0}/{info.lod_totals.LOD1}/{info.lod_totals.LOD2}");
             var col = go.GetComponentsInChildren<MeshCollider>(true).FirstOrDefault(c => c.name == id + "_Collision");
             if (id == "CR04_Tools") Report.Add($"INFO {id}: no _Collision, hand tools do not block");
             else Check(col != null && col.sharedMesh.triangles.Length > 0, $"{id}: {id}_Collision imported as MeshCollider ({(col ? col.sharedMesh.triangles.Length / 3 : 0)} triangles), renderer hidden");
