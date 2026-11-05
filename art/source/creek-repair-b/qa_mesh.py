@@ -1,6 +1,8 @@
-"""Mesh QA on a saved asset .blend, reads only: zero-area UV and degenerate triangles, coplanar overlapping triangles (same-facing pairs z-fight; opposite-facing pairs are the two sides of a thin sheet), closed pieces with inverted normals.
+"""Mesh QA on a saved asset .blend, reads only: zero-area UV and degenerate triangles, coplanar overlapping triangles (same-facing pairs z-fight; opposite-facing pairs are the two sides of a thin sheet), closed pieces with inverted normals, faces whose UV centre lands on an unbaked (near-black) texel.
 blender --background <asset>.blend --python qa_mesh.py [-- out.json]"""
 import bpy, bmesh, collections, json, math, sys
+import numpy as np
+from pathlib import Path
 from mathutils import Vector
 
 EPS_AREA, EPS_UV = 1e-10, 1e-12
@@ -64,8 +66,27 @@ def islands(bm):
     return closed, opened, inverted, spots[:6]
 
 
+def base_colour():
+    a = Path(bpy.data.filepath).stem.replace('_v001', '')
+    p = Path(bpy.data.filepath).parents[3] / 'exports' / 'creek-repair-b' / a / 'Textures' / f'{a}_BaseColor.png'
+    if not p.exists(): return None
+    im = bpy.data.images.load(str(p)); w, h = im.size
+    px = np.empty(w * h * 4, dtype=np.float32); im.pixels.foreach_get(px)
+    return px.reshape(h, w, 4), w, h
+
+
+def black_faces(bm, uv, tex):
+    if not (uv and tex): return 0, 0.
+    px, w, h = tex; n = 0; area = 0.
+    for f in bm.faces:
+        c = sum((l[uv].uv for l in f.loops), f.loops[0][uv].uv * 0) / len(f.loops)
+        if px[min(h - 1, max(0, int(c.y * h))), min(w - 1, max(0, int(c.x * w)))][:3].sum() < .03:
+            n += 1; area += f.calc_area()
+    return n, round(area, 4)
+
+
 def main():
-    report = {}
+    report = {}; tex = base_colour()
     for o in sorted((o for o in bpy.data.objects if o.type == 'MESH' and '_LOD' in o.name), key=lambda o: o.name):
         bm = bmesh.new(); bm.from_mesh(o.data); bmesh.ops.triangulate(bm, faces=bm.faces[:]); bm.faces.ensure_lookup_table(); bm.normal_update()
         uv = bm.loops.layers.uv.active; deg = zero = 0; spots = collections.Counter()
@@ -77,13 +98,14 @@ def main():
             if d or z:
                 q = f.calc_center_median(); spots[(round(q.x, 2), round(q.y, 2), round(q.z, 2))] += 1
         same, opp, csp = coplanar(bm) if o.name.endswith('_LOD0') else (0, 0, [])
+        black, black_m2 = black_faces(bm, uv, tex)
         closed, opened, inv, isp = islands(bm)
-        report[o.name] = dict(tris=len(bm.faces), degenerate=deg, zero_uv=zero, coplanar_same_facing=same, coplanar_two_sides=opp, closed_pieces=closed, open_pieces=opened, inverted_closed=inv, zero_at=spots.most_common(4), same_at=csp, inverted_at=isp)
+        report[o.name] = dict(tris=len(bm.faces), degenerate=deg, zero_uv=zero, coplanar_same_facing=same, coplanar_two_sides=opp, closed_pieces=closed, open_pieces=opened, inverted_closed=inv, black_faces=black, black_m2=black_m2, zero_at=spots.most_common(4), same_at=csp, inverted_at=isp)
         bm.free()
     for k, r in report.items():
-        if r['degenerate'] or r['zero_uv'] or r['coplanar_same_facing'] or r['inverted_closed']:
-            print('QA', k, {a: r[a] for a in ('tris', 'degenerate', 'zero_uv', 'coplanar_same_facing', 'coplanar_two_sides', 'inverted_closed')}, 'zero', r['zero_at'][:2], 'same', r['same_at'][:3], 'inv', r['inverted_at'][:3])
-    t = {a: sum(r[a] for r in report.values()) for a in ('tris', 'degenerate', 'zero_uv', 'coplanar_same_facing', 'coplanar_two_sides', 'inverted_closed')}
+        if r['degenerate'] or r['zero_uv'] or r['coplanar_same_facing'] or r['inverted_closed'] or r['black_faces']:
+            print('QA', k, {a: r[a] for a in ('tris', 'degenerate', 'zero_uv', 'coplanar_same_facing', 'coplanar_two_sides', 'inverted_closed', 'black_faces')}, 'zero', r['zero_at'][:2], 'same', r['same_at'][:3], 'inv', r['inverted_at'][:3])
+    t = {a: sum(r[a] for r in report.values()) for a in ('tris', 'degenerate', 'zero_uv', 'coplanar_same_facing', 'coplanar_two_sides', 'inverted_closed', 'black_faces')}
     print('QATOTAL', bpy.path.basename(bpy.data.filepath), t)
     if '--' in sys.argv:
         args = sys.argv[sys.argv.index('--') + 1:]

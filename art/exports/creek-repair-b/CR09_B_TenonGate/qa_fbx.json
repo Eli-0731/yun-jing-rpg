@@ -1,0 +1,146 @@
+{
+ "asset": "CR09_B_TenonGate_v001",
+ "tris": 38654,
+ "objects": [
+  "CR09_B_TenonGate_Detail_Small_LOD0",
+  "CR09_B_TenonGate_Gate_LOD0",
+  "CR09_B_TenonGate_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 3,
+   "same": 3,
+   "two_sides": 487,
+   "groups": {
+    "TenonGate|two_sides_between": {
+     "pairs": 287,
+     "overlap_cm2": 146.8
+    },
+    "TenonGate|two_sides_inside": {
+     "pairs": 185,
+     "overlap_cm2": 35.63
+    },
+    "TenonGate_Gate|two_sides_between": {
+     "pairs": 15,
+     "overlap_cm2": 10.75
+    },
+    "TenonGate|same_inside": {
+     "pairs": 3,
+     "overlap_cm2": 0.06
+    }
+   },
+   "same_at": [
+    [
+     0.35,
+     -0.03,
+     0.39,
+     2
+    ],
+    [
+     -0.38,
+     -0.11,
+     0.26,
+     1
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 3,
+   "same": 3,
+   "two_sides": 304,
+   "groups": {
+    "TenonGate|two_sides_inside": {
+     "pairs": 180,
+     "overlap_cm2": 35.51
+    },
+    "TenonGate|two_sides_between": {
+     "pairs": 124,
+     "overlap_cm2": 68.95
+    },
+    "TenonGate|same_inside": {
+     "pairs": 3,
+     "overlap_cm2": 0.06
+    }
+   },
+   "same_at": [
+    [
+     0.35,
+     -0.03,
+     0.39,
+     2
+    ],
+    [
+     -0.38,
+     -0.11,
+     0.26,
+     1
+    ]
+   ]
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 3,
+   "same": 3,
+   "two_sides": 168,
+   "groups": {
+    "TenonGate|two_sides_inside": {
+     "pairs": 165,
+     "overlap_cm2": 30.01
+    },
+    "TenonGate|same_inside": {
+     "pairs": 3,
+     "overlap_cm2": 0.06
+    },
+    "TenonGate|two_sides_between": {
+     "pairs": 3,
+     "overlap_cm2": 1.05
+    }
+   },
+   "same_at": [
+    [
+     0.35,
+     -0.03,
+     0.39,
+     2
+    ],
+    [
+     -0.38,
+     -0.11,
+     0.26,
+     1
+    ]
+   ]
+  }
+ },
+ "zero_uv": {
+  "1e-12": 1,
+  "1e-10": 1,
+  "1e-09": 1,
+  "1e-08": 5
+ },
+ "zero_uv_by_object": {
+  "1e-12": {
+   "CR09_B_TenonGate_LOD0": 1
+  },
+  "1e-10": {
+   "CR09_B_TenonGate_LOD0": 1
+  },
+  "1e-09": {
+   "CR09_B_TenonGate_LOD0": 1
+  },
+  "1e-08": {
+   "CR09_B_TenonGate_LOD0": 5
+  }
+ },
+ "pieces": 84,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

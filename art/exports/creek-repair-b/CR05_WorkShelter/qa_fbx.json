@@ -1,0 +1,209 @@
+{
+ "asset": "CR05_WorkShelter_v001",
+ "tris": 173770,
+ "objects": [
+  "CR05_WorkShelter_Bench_LOD0",
+  "CR05_WorkShelter_Bowl_01_LOD0",
+  "CR05_WorkShelter_Bowl_02_LOD0",
+  "CR05_WorkShelter_Bowl_03_LOD0",
+  "CR05_WorkShelter_Bowl_04_LOD0",
+  "CR05_WorkShelter_Canopy_LOD0",
+  "CR05_WorkShelter_Crate_LOD0",
+  "CR05_WorkShelter_Detail_Small_LOD0",
+  "CR05_WorkShelter_LOD0",
+  "CR05_WorkShelter_Ladle_LOD0",
+  "CR05_WorkShelter_TeaBucket_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 6,
+   "same_inside": 2,
+   "same": 8,
+   "two_sides": 191,
+   "groups": {
+    "Crate/TeaBucket|two_sides_between": {
+     "pairs": 55,
+     "overlap_cm2": 76.07
+    },
+    "Detail_Small|two_sides_inside": {
+     "pairs": 48,
+     "overlap_cm2": 9.89
+    },
+    "Bowl_02/Crate|two_sides_between": {
+     "pairs": 46,
+     "overlap_cm2": 20.8
+    },
+    "Crate|two_sides_between": {
+     "pairs": 25,
+     "overlap_cm2": 2.86
+    },
+    "Bowl_01/Crate|two_sides_between": {
+     "pairs": 8,
+     "overlap_cm2": 5.36
+    },
+    "Detail_Small|two_sides_between": {
+     "pairs": 5,
+     "overlap_cm2": 0.77
+    },
+    "Canopy|same_between": {
+     "pairs": 3,
+     "overlap_cm2": 0.87
+    },
+    "Canopy/Detail_Small|same_between": {
+     "pairs": 3,
+     "overlap_cm2": 1.03
+    },
+    "Canopy|two_sides_inside": {
+     "pairs": 2,
+     "overlap_cm2": 3.82
+    },
+    "Bench|two_sides_between": {
+     "pairs": 1,
+     "overlap_cm2": 0.72
+    },
+    "Canopy|two_sides_between": {
+     "pairs": 1,
+     "overlap_cm2": 0.07
+    },
+    "WorkShelter|same_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.21
+    },
+    "TeaBucket|same_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.01
+    }
+   },
+   "same_at": [
+    [
+     -1.88,
+     1.15,
+     2.52,
+     2
+    ],
+    [
+     -1.88,
+     1.13,
+     2.51,
+     1
+    ],
+    [
+     -1.89,
+     1.22,
+     2.54,
+     1
+    ],
+    [
+     -1.88,
+     1.21,
+     2.56,
+     1
+    ],
+    [
+     -1.75,
+     1.37,
+     2.49,
+     1
+    ],
+    [
+     1.67,
+     1.21,
+     2.72,
+     1
+    ],
+    [
+     0.81,
+     0.03,
+     0.61,
+     1
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 1,
+   "same_inside": 0,
+   "same": 1,
+   "two_sides": 47,
+   "groups": {
+    "Detail_Small|two_sides_inside": {
+     "pairs": 24,
+     "overlap_cm2": 5.45
+    },
+    "Crate/TeaBucket|two_sides_between": {
+     "pairs": 18,
+     "overlap_cm2": 26.14
+    },
+    "Detail_Small|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 0.73
+    },
+    "Canopy|two_sides_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.62
+    },
+    "Canopy/Detail_Small|same_between": {
+     "pairs": 1,
+     "overlap_cm2": 0.27
+    }
+   },
+   "same_at": [
+    [
+     -1.75,
+     1.37,
+     2.49,
+     1
+    ]
+   ]
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 1,
+   "groups": {
+    "Canopy|two_sides_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.62
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 8
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "CR05_WorkShelter_Crate_LOD0": 8
+  }
+ },
+ "pieces": 210,
+ "loose_over_5mm": 1,
+ "loose_list": [
+  {
+   "verts": 202,
+   "centre": [
+    -0.524,
+    -0.113,
+    0.258
+   ],
+   "size": [
+    1.201,
+    0.062,
+    0.063
+   ]
+  }
+ ]
+}

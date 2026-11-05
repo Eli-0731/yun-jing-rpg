@@ -49,7 +49,7 @@
         "triangles": {
           "LOD0": 95800,
           "LOD1": 47900,
-          "LOD2": 14361
+          "LOD2": 14360
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
@@ -72,7 +72,7 @@
           "Jar_1": {
             "LOD0": 1656,
             "LOD1": 828,
-            "LOD2": 248
+            "LOD2": 247
           },
           "Jar_2": {
             "LOD0": 1536,
@@ -305,7 +305,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 151,
+  "seconds": 177,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

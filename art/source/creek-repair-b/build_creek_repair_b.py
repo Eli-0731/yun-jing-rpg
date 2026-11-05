@@ -291,7 +291,7 @@ def run(aid, force=False):
     bpy.context.view_layer.update()
     lo0, hi0 = pl.eval_bounds(S['parts']); shift = -Vector(((lo0.x + hi0.x) / 2, (lo0.y + hi0.y) / 2, lo0.z))
     pl.normalise(); route_details()
-    pl.join_groups(); set_pivots(cfg); pl.uv_atlas(cfg.get('uv_weight')); pl.spread_zero_uv()
+    pl.join_groups(); pl.settle_loose(); pl.separate_objects(); set_pivots(cfg); pl.uv_atlas(cfg.get('uv_weight'), cfg['tex']); pl.spread_zero_uv()
     pl.bake(exp / 'Textures', cfg['tex'])
     lod_report = make_lods(); pl.export_materials()
     make_collision(aid, shift)
@@ -301,6 +301,14 @@ def run(aid, force=False):
     if cfg.get('axle_origin'):
         # the wheel turns about its origin: move the meshes, the collision and the sockets down to the axle
         drop = Matrix.Translation((0, 0, -(lo.z + hi.z) / 2))
+        for groups in S['lods'].values():
+            for o in groups.values(): o.data.transform(drop)
+        if S.get('collision_obj'): S['collision_obj'].data.transform(drop)
+        bpy.context.view_layer.update()
+        lo, hi = pl.eval_bounds(lod0); dims = hi - lo
+    elif 1e-5 < abs(lo.z) < .005 or max(abs(lo.x + hi.x), abs(lo.y + hi.y)) / 2 > 5e-4:
+        # settling a part or pulling flush pieces apart can move the outermost one by a few millimetres: the asset still stands centred on z = 0
+        drop = Matrix.Translation((-(lo.x + hi.x) / 2, -(lo.y + hi.y) / 2, -lo.z))
         for groups in S['lods'].values():
             for o in groups.values(): o.data.transform(drop)
         if S.get('collision_obj'): S['collision_obj'].data.transform(drop)

@@ -8,6 +8,8 @@
   "closed_pieces": 13,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -21,6 +23,8 @@
   "closed_pieces": 13,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -34,6 +38,8 @@
   "closed_pieces": 9,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -47,6 +53,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -60,6 +68,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -73,6 +83,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -86,6 +98,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -99,6 +113,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -112,6 +128,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -125,6 +143,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -138,6 +158,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -151,6 +173,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -164,6 +188,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -177,6 +203,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -190,6 +218,8 @@
   "closed_pieces": 1,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -198,13 +228,39 @@
   "tris": 53298,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 16,
-  "coplanar_two_sides": 327,
+  "coplanar_same_facing": 34,
+  "coplanar_two_sides": 341,
   "closed_pieces": 46,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [
+   [
+    [
+     1.14,
+     -0.64,
+     2.26
+    ],
+    2
+   ],
+   [
+    [
+     1.05,
+     -0.43,
+     2.24
+    ],
+    2
+   ],
+   [
+    [
+     1.05,
+     -0.38,
+     2.25
+    ],
+    2
+   ],
    [
     [
      0.97,
@@ -215,41 +271,17 @@
    ],
    [
     [
-     0.77,
+     0.75,
      -0.46,
-     2.19
+     2.2
     ],
     1
    ],
    [
     [
-     0.85,
-     -0.17,
-     2.22
-    ],
-    1
-   ],
-   [
-    [
-     0.95,
+     0.93,
      -0.17,
      2.24
-    ],
-    1
-   ],
-   [
-    [
-     0.97,
-     -0.44,
-     2.22
-    ],
-    1
-   ],
-   [
-    [
-     0.87,
-     -0.37,
-     2.2
     ],
     1
    ]
@@ -265,6 +297,8 @@
   "closed_pieces": 10,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -278,6 +312,8 @@
   "closed_pieces": 6,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -291,6 +327,8 @@
   "closed_pieces": 41,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -304,6 +342,8 @@
   "closed_pieces": 31,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -317,6 +357,8 @@
   "closed_pieces": 30,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -330,6 +372,8 @@
   "closed_pieces": 64,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -343,6 +387,8 @@
   "closed_pieces": 58,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -356,6 +402,8 @@
   "closed_pieces": 58,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -369,6 +417,8 @@
   "closed_pieces": 13,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -382,6 +432,8 @@
   "closed_pieces": 13,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -395,6 +447,8 @@
   "closed_pieces": 13,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -408,6 +462,8 @@
   "closed_pieces": 2,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -421,6 +477,8 @@
   "closed_pieces": 2,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -434,6 +492,8 @@
   "closed_pieces": 2,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -447,6 +507,8 @@
   "closed_pieces": 26,
   "open_pieces": 1,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -460,6 +522,8 @@
   "closed_pieces": 26,
   "open_pieces": 1,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -473,6 +537,8 @@
   "closed_pieces": 26,
   "open_pieces": 1,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []

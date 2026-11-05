@@ -16,7 +16,7 @@
       "detail": {
         "min": [
           -0.7802,
-          -0.7805,
+          -0.7802,
           0.0
         ],
         "max": [
@@ -32,7 +32,7 @@
       "detail": {
         "dims_m": [
           1.5605,
-          1.561,
+          1.5607,
           0.4514
         ],
         "limit_m": [
@@ -73,12 +73,12 @@
       "detail": {
         "fbx_lod0_dims_m": [
           1.5605,
-          1.561,
+          1.5607,
           0.4514
         ],
         "blend_dims_m": [
           1.5605,
-          1.561,
+          1.5607,
           0.4514
         ]
       }
@@ -160,7 +160,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 111,
+  "seconds": 399,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

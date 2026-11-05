@@ -1,0 +1,24 @@
+{
+ "asset": "F01_Field",
+ "pieces": 888,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "F01",
+   "verts": 7,
+   "centre": [
+    -2.603,
+    0.225,
+    0.594
+   ],
+   "size": [
+    0.019,
+    0.029,
+    0.016
+   ],
+   "gap_mm": 7.6,
+   "nearest": "F01",
+   "drop_mm": 394.2
+  }
+ ]
+}

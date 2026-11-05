@@ -1,0 +1,240 @@
+{
+ "asset": "CR08_Bend_v001",
+ "tris": 121134,
+ "objects": [
+  "CR08_Bend_Detail_Small_LOD0",
+  "CR08_Bend_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 72,
+   "same_between": 36,
+   "same_inside": 1048,
+   "same": 1084,
+   "two_sides": 544,
+   "groups": {
+    "Detail_Small|same_inside": {
+     "pairs": 1048,
+     "overlap_cm2": 48.99
+    },
+    "Bend|two_sides_between": {
+     "pairs": 542,
+     "overlap_cm2": 8374.55
+    },
+    "Bend|same_between": {
+     "pairs": 36,
+     "overlap_cm2": 85.07
+    },
+    "Detail_Small|two_sides_between": {
+     "pairs": 2,
+     "overlap_cm2": 0.06
+    }
+   },
+   "same_at": [
+    [
+     -0.54,
+     -0.1,
+     0.01,
+     6
+    ],
+    [
+     -0.22,
+     -0.28,
+     0.01,
+     6
+    ],
+    [
+     -0.11,
+     -0.32,
+     0.19,
+     6
+    ],
+    [
+     -0.26,
+     0.24,
+     0.01,
+     6
+    ],
+    [
+     -0.41,
+     -0.19,
+     0.01,
+     5
+    ],
+    [
+     -0.4,
+     -0.17,
+     0.01,
+     5
+    ],
+    [
+     -0.34,
+     -0.2,
+     0.01,
+     5
+    ],
+    [
+     -0.34,
+     -0.21,
+     0.01,
+     5
+    ],
+    [
+     -0.28,
+     -0.24,
+     0.01,
+     5
+    ],
+    [
+     -0.21,
+     -0.26,
+     0.01,
+     5
+    ],
+    [
+     -0.14,
+     -0.31,
+     0.01,
+     5
+    ],
+    [
+     -0.25,
+     0.25,
+     0.01,
+     5
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 48,
+   "same_between": 7,
+   "same_inside": 781,
+   "same": 788,
+   "two_sides": 345,
+   "groups": {
+    "Detail_Small|same_inside": {
+     "pairs": 781,
+     "overlap_cm2": 41.29
+    },
+    "Bend|two_sides_between": {
+     "pairs": 343,
+     "overlap_cm2": 5304.07
+    },
+    "Bend|same_between": {
+     "pairs": 7,
+     "overlap_cm2": 22.11
+    },
+    "Detail_Small|two_sides_between": {
+     "pairs": 2,
+     "overlap_cm2": 0.06
+    }
+   },
+   "same_at": [
+    [
+     -0.54,
+     -0.1,
+     0.01,
+     6
+    ],
+    [
+     -0.22,
+     -0.28,
+     0.01,
+     6
+    ],
+    [
+     -0.11,
+     -0.32,
+     0.19,
+     6
+    ],
+    [
+     -0.41,
+     -0.19,
+     0.01,
+     5
+    ],
+    [
+     -0.4,
+     -0.17,
+     0.01,
+     5
+    ],
+    [
+     -0.34,
+     -0.2,
+     0.01,
+     5
+    ],
+    [
+     -0.34,
+     -0.21,
+     0.01,
+     5
+    ],
+    [
+     -0.28,
+     -0.24,
+     0.01,
+     5
+    ],
+    [
+     -0.21,
+     -0.26,
+     0.01,
+     5
+    ],
+    [
+     -0.14,
+     -0.31,
+     0.01,
+     5
+    ],
+    [
+     -0.55,
+     -0.12,
+     0.01,
+     4
+    ],
+    [
+     -0.35,
+     -0.22,
+     0.01,
+     4
+    ]
+   ]
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 231,
+   "groups": {
+    "Bend|two_sides_between": {
+     "pairs": 231,
+     "overlap_cm2": 3218.93
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 126,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

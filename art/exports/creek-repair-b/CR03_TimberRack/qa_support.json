@@ -1,0 +1,24 @@
+{
+ "asset": "CR03_TimberRack_v001",
+ "pieces": 158,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "CR03_TimberRack",
+   "verts": 58,
+   "centre": [
+    -0.1,
+    -0.482,
+    0.17
+   ],
+   "size": [
+    0.523,
+    0.017,
+    0.134
+   ],
+   "gap_mm": 2.0,
+   "nearest": "CR03_TimberRack",
+   "drop_mm": 103.6
+  }
+ ]
+}

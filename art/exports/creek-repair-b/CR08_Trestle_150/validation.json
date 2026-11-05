@@ -7,7 +7,7 @@
       "detail": [
         1.0,
         1.0,
-        0.9897
+        0.9886
       ]
     },
     {
@@ -105,7 +105,7 @@
         "Socket_TroughSeat.001": [
           -0.0074,
           0.0,
-          1.4968
+          1.4952
         ]
       }
     },
@@ -121,7 +121,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 68,
+  "seconds": 220,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

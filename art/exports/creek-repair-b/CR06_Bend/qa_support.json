@@ -1,0 +1,41 @@
+{
+ "asset": "CR06_Bend_v001",
+ "pieces": 432,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 78,
+   "centre": [
+    -0.753,
+    -0.778,
+    0.406
+   ],
+   "size": [
+    0.047,
+    0.037,
+    0.014
+   ],
+   "gap_mm": 3.3,
+   "nearest": "CR06_Bend",
+   "drop_mm": 398.8
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 78,
+   "centre": [
+    -0.023,
+    -0.489,
+    0.392
+   ],
+   "size": [
+    0.047,
+    0.037,
+    0.019
+   ],
+   "gap_mm": 2.7,
+   "nearest": "CR06_Bend",
+   "drop_mm": 382.4
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "asset": "CR07_Celebration_v001",
+ "tris": 95800,
+ "objects": [
+  "CR07_Celebration_Detail_Rings_LOD0",
+  "CR07_Celebration_Detail_Small_LOD0",
+  "CR07_Celebration_FruitBasket_LOD0",
+  "CR07_Celebration_Jar_1_LOD0",
+  "CR07_Celebration_Jar_2_LOD0",
+  "CR07_Celebration_LOD0",
+  "CR07_Celebration_Lantern_01_LOD0",
+  "CR07_Celebration_Lantern_01_Lit_LOD0",
+  "CR07_Celebration_Lantern_02_LOD0",
+  "CR07_Celebration_Lantern_02_Lit_LOD0",
+  "CR07_Celebration_Lantern_03_LOD0",
+  "CR07_Celebration_Lantern_03_Lit_LOD0",
+  "CR07_Celebration_Lantern_04_LOD0",
+  "CR07_Celebration_Lantern_04_Lit_LOD0",
+  "CR07_Celebration_Lantern_05_LOD0",
+  "CR07_Celebration_Lantern_05_Lit_LOD0",
+  "CR07_Celebration_Lantern_06_LOD0",
+  "CR07_Celebration_Lantern_06_Lit_LOD0",
+  "CR07_Celebration_Lantern_07_LOD0",
+  "CR07_Celebration_Lantern_07_Lit_LOD0",
+  "CR07_Celebration_Lantern_08_LOD0",
+  "CR07_Celebration_Lantern_08_Lit_LOD0",
+  "CR07_Celebration_Lantern_09_LOD0",
+  "CR07_Celebration_Lantern_09_Lit_LOD0",
+  "CR07_Celebration_Table_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 426,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 86,
+   "groups": {
+    "FruitBasket|two_sides_inside": {
+     "pairs": 43,
+     "overlap_cm2": 119.13
+    },
+    "FruitBasket|two_sides_between": {
+     "pairs": 12,
+     "overlap_cm2": 2.96
+    },
+    "Lantern_01|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 0.18
+    },
+    "Lantern_02|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 0.18
+    },
+    "Lantern_04|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 0.18
+    },
+    "Lantern_06|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 0.18
+    },
+    "Lantern_07|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 0.18
+    },
+    "Lantern_08|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 0.18
+    },
+    "Lantern_09|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 0.18
+    },
+    "Lantern_05|two_sides_between": {
+     "pairs": 3,
+     "overlap_cm2": 0.17
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 12,
+   "groups": {
+    "FruitBasket|two_sides_between": {
+     "pairs": 12,
+     "overlap_cm2": 2.96
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 0,
+   "groups": {},
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 238,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

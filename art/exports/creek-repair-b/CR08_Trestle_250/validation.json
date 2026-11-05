@@ -121,7 +121,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 65,
+  "seconds": 185,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

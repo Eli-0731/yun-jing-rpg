@@ -1,0 +1,315 @@
+{
+ "asset": "CR08_Straight_v001",
+ "tris": 114494,
+ "objects": [
+  "CR08_Straight_Detail_Small_LOD0",
+  "CR08_Straight_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 49,
+   "same_inside": 5070,
+   "same": 5119,
+   "two_sides": 362,
+   "groups": {
+    "Detail_Small|same_inside": {
+     "pairs": 5070,
+     "overlap_cm2": 141.04
+    },
+    "Straight|two_sides_between": {
+     "pairs": 362,
+     "overlap_cm2": 5763.78
+    },
+    "Straight|same_between": {
+     "pairs": 49,
+     "overlap_cm2": 20.06
+    }
+   },
+   "same_at": [
+    [
+     -0.25,
+     -0.8,
+     0.07,
+     16
+    ],
+    [
+     -0.25,
+     -0.8,
+     0.23,
+     16
+    ],
+    [
+     -0.25,
+     -0.4,
+     0.07,
+     16
+    ],
+    [
+     -0.25,
+     -0.4,
+     0.23,
+     16
+    ],
+    [
+     -0.25,
+     -0.0,
+     0.07,
+     16
+    ],
+    [
+     -0.25,
+     -0.0,
+     0.23,
+     16
+    ],
+    [
+     -0.25,
+     0.4,
+     0.07,
+     16
+    ],
+    [
+     -0.25,
+     0.4,
+     0.23,
+     16
+    ],
+    [
+     -0.25,
+     0.8,
+     0.07,
+     16
+    ],
+    [
+     -0.25,
+     0.8,
+     0.23,
+     16
+    ],
+    [
+     -0.25,
+     -0.8,
+     0.3,
+     15
+    ],
+    [
+     -0.25,
+     -0.79,
+     0.07,
+     15
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 49,
+   "same_inside": 3705,
+   "same": 3754,
+   "two_sides": 132,
+   "groups": {
+    "Detail_Small|same_inside": {
+     "pairs": 3705,
+     "overlap_cm2": 100.1
+    },
+    "Straight|two_sides_between": {
+     "pairs": 132,
+     "overlap_cm2": 2633.6
+    },
+    "Straight|same_between": {
+     "pairs": 49,
+     "overlap_cm2": 20.06
+    }
+   },
+   "same_at": [
+    [
+     -0.25,
+     -0.8,
+     0.29,
+     12
+    ],
+    [
+     -0.25,
+     -0.4,
+     0.29,
+     12
+    ],
+    [
+     -0.25,
+     -0.0,
+     0.29,
+     12
+    ],
+    [
+     -0.25,
+     0.4,
+     0.29,
+     12
+    ],
+    [
+     -0.25,
+     0.8,
+     0.29,
+     12
+    ],
+    [
+     -0.25,
+     -0.8,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     -0.81,
+     0.36,
+     10
+    ],
+    [
+     -0.25,
+     -0.8,
+     0.36,
+     10
+    ],
+    [
+     -0.25,
+     -0.79,
+     0.29,
+     10
+    ],
+    [
+     -0.25,
+     -0.4,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     -0.41,
+     0.36,
+     10
+    ],
+    [
+     -0.25,
+     -0.4,
+     0.36,
+     10
+    ]
+   ]
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 49,
+   "same_inside": 45,
+   "same": 94,
+   "two_sides": 19,
+   "groups": {
+    "Straight|same_between": {
+     "pairs": 49,
+     "overlap_cm2": 20.06
+    },
+    "Detail_Small|same_inside": {
+     "pairs": 45,
+     "overlap_cm2": 0.73
+    },
+    "Straight|two_sides_between": {
+     "pairs": 19,
+     "overlap_cm2": 427.21
+    }
+   },
+   "same_at": [
+    [
+     0.16,
+     1.0,
+     0.1,
+     6
+    ],
+    [
+     0.16,
+     1.0,
+     0.07,
+     6
+    ],
+    [
+     0.23,
+     1.0,
+     0.09,
+     6
+    ],
+    [
+     0.2,
+     1.0,
+     0.05,
+     5
+    ],
+    [
+     0.2,
+     1.0,
+     0.1,
+     4
+    ],
+    [
+     0.16,
+     1.0,
+     0.05,
+     3
+    ],
+    [
+     -0.22,
+     1.0,
+     0.36,
+     3
+    ],
+    [
+     0.22,
+     1.0,
+     0.36,
+     3
+    ],
+    [
+     -0.25,
+     -0.81,
+     0.19,
+     2
+    ],
+    [
+     -0.25,
+     -0.41,
+     0.19,
+     2
+    ],
+    [
+     -0.25,
+     -0.01,
+     0.19,
+     2
+    ],
+    [
+     -0.25,
+     0.39,
+     0.19,
+     2
+    ]
+   ]
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 2
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "CR08_Straight_LOD0": 2
+  }
+ },
+ "pieces": 37,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}
