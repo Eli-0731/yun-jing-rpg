@@ -49,14 +49,14 @@
     },
     "Tamper": {
       "dims_m": [
-        0.2419,
-        1.0974,
-        0.2149
+        0.2354,
+        1.1048,
+        0.2039
       ],
       "pivot": [
-        0.1927,
-        -0.0168,
-        0.0479
+        0.1934,
+        -0.0204,
+        0.0489
       ],
       "min_z_local": 0.0
     },
@@ -89,19 +89,19 @@
   },
   "lods": {
     "Spade": {
-      "LOD0": 7332,
-      "LOD1": 3666,
-      "LOD2": 1098
+      "LOD0": 7812,
+      "LOD1": 3906,
+      "LOD2": 1170
     },
     "Basket": {
-      "LOD0": 20880,
-      "LOD1": 10440,
-      "LOD2": 3132
+      "LOD0": 21648,
+      "LOD1": 10824,
+      "LOD2": 3246
     },
     "Tamper": {
-      "LOD0": 5130,
-      "LOD1": 2564,
-      "LOD2": 768
+      "LOD0": 6022,
+      "LOD1": 3010,
+      "LOD2": 902
     },
     "MortarBucket": {
       "LOD0": 3848,
@@ -115,9 +115,9 @@
     }
   },
   "lod_totals": {
-    "LOD0": 38106,
-    "LOD1": 19052,
-    "LOD2": 5710
+    "LOD0": 40246,
+    "LOD1": 20122,
+    "LOD2": 6030
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

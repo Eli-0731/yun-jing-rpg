@@ -8,38 +8,44 @@
    "F01_LOD2": 194
   },
   "tris_before_grass": {
-   "F01": {
-    "soil_before": 6036,
-    "soil_after": 6036
-   },
-   "F01_LOD1": {
-    "soil_before": 3078,
-    "soil_after": 3078
-   },
-   "F01_LOD2": {
-    "soil_before": 576,
-    "soil_after": 576
-   }
+   "F01": 11088,
+   "F01_LOD1": 6016,
+   "F01_LOD2": 2160
+  },
+  "bed_clods": {
+   "F01": 340,
+   "F01_LOD1": 180,
+   "F01_LOD2": 70
+  },
+  "bank_gravel": {
+   "F01": 190,
+   "F01_LOD1": 70,
+   "F01_LOD2": 20
+  },
+  "foot_stones": {
+   "F01": 17,
+   "F01_LOD1": 17,
+   "F01_LOD2": 7
   },
   "grass_tufts": {
-   "F01": 28,
-   "F01_LOD1": 28,
-   "F01_LOD2": 29
+   "F01": 132,
+   "F01_LOD1": 127,
+   "F01_LOD2": 137
   },
   "tris": {
-   "F01": 14102,
-   "F01_LOD1": 6884,
-   "F01_LOD2": 2063
+   "F01": 44354,
+   "F01_LOD1": 19074,
+   "F01_LOD2": 5913
   },
   "zero_uv_fixed": {
-   "F01": 2352,
-   "F01_LOD1": 1456,
-   "F01_LOD2": 696
+   "F01": 10296,
+   "F01_LOD1": 4064,
+   "F01_LOD2": 1370
   },
   "collision": {
    "boxes": 7,
-   "bank_top_m": 0.591,
-   "floor_top_m": 0.347
+   "bank_top_m": 0.693,
+   "floor_top_m": 0.345
   }
  },
  "heights_m": {

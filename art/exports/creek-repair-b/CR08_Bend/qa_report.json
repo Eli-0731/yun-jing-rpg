@@ -1,9 +1,9 @@
 {
  "CR08_Bend_Detail_Small_LOD0": {
-  "tris": 102410,
+  "tris": 66566,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 36,
+  "coplanar_same_facing": 3,
   "coplanar_two_sides": 0,
   "closed_pieces": 21,
   "open_pieces": 0,
@@ -14,49 +14,25 @@
   "same_at": [
    [
     [
-     0.07,
-     -0.08,
-     0.33
-    ],
-    2
-   ],
-   [
-    [
-     0.08,
-     -0.07,
-     0.33
-    ],
-    2
-   ],
-   [
-    [
-     0.06,
-     -0.08,
-     0.2
+     -0.28,
+     0.29,
+     0.32
     ],
     1
    ],
    [
     [
-     0.07,
-     -0.07,
-     0.2
+     -0.28,
+     0.28,
+     0.32
     ],
     1
    ],
    [
     [
-     0.08,
-     -0.06,
-     0.2
-    ],
-    1
-   ],
-   [
-    [
-     0.06,
-     -0.09,
-     0.2
+     -0.29,
+     0.28,
+     0.32
     ],
     1
    ]
@@ -64,7 +40,7 @@
   "inverted_at": []
  },
  "CR08_Bend_Detail_Small_LOD1": {
-  "tris": 51204,
+  "tris": 33282,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -79,7 +55,7 @@
   "inverted_at": []
  },
  "CR08_Bend_Detail_Small_LOD2": {
-  "tris": 15360,
+  "tris": 9984,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -94,11 +70,11 @@
   "inverted_at": []
  },
  "CR08_Bend_LOD0": {
-  "tris": 18724,
+  "tris": 12170,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 7,
-  "coplanar_two_sides": 285,
+  "coplanar_same_facing": 4,
+  "coplanar_two_sides": 31,
   "closed_pieces": 105,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -108,33 +84,33 @@
   "same_at": [
    [
     [
-     -0.21,
-     -0.61,
+     -0.13,
+     -0.17,
      0.08
     ],
-    2
+    1
    ],
    [
     [
-     -0.22,
-     -0.63,
-     0.07
+     -0.05,
+     0.05,
+     0.04
     ],
-    2
+    1
    ],
    [
     [
-     0.08,
-     0.5,
+     0.45,
+     0.25,
      0.05
     ],
-    2
+    1
    ],
    [
     [
-     0.1,
-     0.53,
-     0.05
+     0.78,
+     0.69,
+     0.4
     ],
     1
    ]
@@ -142,7 +118,7 @@
   "inverted_at": []
  },
  "CR08_Bend_LOD1": {
-  "tris": 9362,
+  "tris": 6084,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -157,7 +133,7 @@
   "inverted_at": []
  },
  "CR08_Bend_LOD2": {
-  "tris": 2808,
+  "tris": 1824,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,

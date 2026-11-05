@@ -38,8 +38,8 @@
     },
     "Detail_Small": {
       "dims_m": [
-        1.3508,
-        1.351,
+        1.3506,
+        1.3509,
         0.4514
       ],
       "pivot": [
@@ -52,20 +52,20 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 18724,
-      "LOD1": 9362,
-      "LOD2": 2808
+      "LOD0": 12170,
+      "LOD1": 6084,
+      "LOD2": 1824
     },
     "Detail_Small": {
-      "LOD0": 102410,
-      "LOD1": 51204,
-      "LOD2": 15360
+      "LOD0": 66566,
+      "LOD1": 33282,
+      "LOD2": 9984
     }
   },
   "lod_totals": {
-    "LOD0": 121134,
-    "LOD1": 60566,
-    "LOD2": 18168
+    "LOD0": 78736,
+    "LOD1": 39366,
+    "LOD2": 11808
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

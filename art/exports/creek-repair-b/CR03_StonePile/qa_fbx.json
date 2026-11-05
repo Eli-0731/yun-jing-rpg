@@ -8,7 +8,7 @@
  ],
  "near_coplanar": {
   "1mm": {
-   "state_alternatives": 36159,
+   "state_alternatives": 35926,
    "same_underside_on_ground": 0,
    "same_between": 0,
    "same_inside": 0,
@@ -18,7 +18,7 @@
    "same_at": []
   },
   "0.5mm": {
-   "state_alternatives": 30002,
+   "state_alternatives": 27188,
    "same_underside_on_ground": 0,
    "same_between": 0,
    "same_inside": 0,
@@ -28,7 +28,7 @@
    "same_at": []
   },
   "0.1mm": {
-   "state_alternatives": 17812,
+   "state_alternatives": 10362,
    "same_underside_on_ground": 0,
    "same_between": 0,
    "same_inside": 0,
@@ -51,6 +51,20 @@
   "1e-08": {}
  },
  "pieces": 121,
- "loose_over_5mm": 0,
- "loose_list": []
+ "loose_over_5mm": 1,
+ "loose_list": [
+  {
+   "verts": 748,
+   "centre": [
+    -0.088,
+    0.15,
+    0.826
+   ],
+   "size": [
+    0.586,
+    0.449,
+    0.29
+   ]
+  }
+ ]
 }

@@ -4,6 +4,23 @@
  "touch_m": 0.002,
  "unsupported": [
   {
+   "object": "CR03_TimberRack_Stage_High",
+   "verts": 85,
+   "centre": [
+    -0.522,
+    0.012,
+    0.439
+   ],
+   "size": [
+    0.951,
+    0.217,
+    0.049
+   ],
+   "gap_mm": 3.3,
+   "nearest": "CR03_TimberRack_Stage_High",
+   "drop_mm": 3.3
+  },
+  {
    "object": "CR03_TimberRack",
    "verts": 58,
    "centre": [

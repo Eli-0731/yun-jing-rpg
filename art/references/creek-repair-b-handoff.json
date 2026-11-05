@@ -2,23 +2,23 @@
  "CR03_MudHeap": {
   "fbx": "CR03_MudHeap_v001.fbx",
   "lod_tris": {
-   "LOD0": 50488,
-   "LOD1": 25242,
-   "LOD2": 7570
+   "LOD0": 50184,
+   "LOD1": 25090,
+   "LOD2": 7524
   },
   "reimport_size_m": [
-   1.8968,
+   1.8984,
    1.8969,
    0.8
   ],
   "model_info_size_m": [
-   1.8968,
+   1.8984,
    1.8969,
    0.8
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
-   -0.0,
+   0.0,
    0.0
   ],
   "bottom_z_m": 0.0,
@@ -39,12 +39,12 @@
   "reimport_size_m": [
    2.0,
    1.5,
-   0.9915
+   0.9706
   ],
   "model_info_size_m": [
    2.0,
    1.5,
-   0.9915
+   0.9706
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
@@ -62,9 +62,9 @@
  "CR03_TimberRack": {
   "fbx": "CR03_TimberRack_v001.fbx",
   "lod_tris": {
-   "LOD0": 113392,
-   "LOD1": 56696,
-   "LOD2": 17004
+   "LOD0": 79196,
+   "LOD1": 39598,
+   "LOD2": 11876
   },
   "reimport_size_m": [
    2.4805,
@@ -96,9 +96,9 @@
  "CR04_Tools": {
   "fbx": "CR04_Tools_v001.fbx",
   "lod_tris": {
-   "LOD0": 38106,
-   "LOD1": 19052,
-   "LOD2": 5710
+   "LOD0": 40246,
+   "LOD1": 20122,
+   "LOD2": 6030
   },
   "reimport_size_m": [
    2.511,
@@ -126,24 +126,24 @@
  "CR05_WorkShelter": {
   "fbx": "CR05_WorkShelter_v001.fbx",
   "lod_tris": {
-   "LOD0": 173770,
-   "LOD1": 86882,
-   "LOD2": 26054
+   "LOD0": 120656,
+   "LOD1": 60324,
+   "LOD2": 18088
   },
   "reimport_size_m": [
    3.9553,
-   2.8112,
+   2.8111,
    2.7801
   ],
   "model_info_size_m": [
    3.9553,
-   2.8112,
+   2.8111,
    2.7801
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
    0.0,
-   -0.0008
+   0.0
   ],
   "bottom_z_m": -0.0,
   "collision_tris": 48,
@@ -160,19 +160,19 @@
  "CR06_Bend": {
   "fbx": "CR06_Bend_v001.fbx",
   "lod_tris": {
-   "LOD0": 73874,
-   "LOD1": 36935,
-   "LOD2": 11079
+   "LOD0": 81024,
+   "LOD1": 40511,
+   "LOD2": 12153
   },
   "reimport_size_m": [
    1.7704,
    1.7703,
-   0.492
+   0.4924
   ],
   "model_info_size_m": [
    1.7704,
    1.7703,
-   0.492
+   0.4924
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
@@ -194,18 +194,18 @@
  "CR06_Short": {
   "fbx": "CR06_Short_v001.fbx",
   "lod_tris": {
-   "LOD0": 32952,
-   "LOD1": 16476,
-   "LOD2": 4941
+   "LOD0": 34940,
+   "LOD1": 17470,
+   "LOD2": 5240
   },
   "reimport_size_m": [
    1.008,
-   0.5639,
+   0.5768,
    0.4905
   ],
   "model_info_size_m": [
    1.008,
-   0.5639,
+   0.5768,
    0.4905
   ],
   "size_error_m": 0.0,
@@ -228,19 +228,19 @@
  "CR06_Straight": {
   "fbx": "CR06_Straight_v001.fbx",
   "lod_tris": {
-   "LOD0": 74158,
-   "LOD1": 37078,
-   "LOD2": 11122
+   "LOD0": 81075,
+   "LOD1": 40536,
+   "LOD2": 12159
   },
   "reimport_size_m": [
    1.0,
    2.0,
-   0.493
+   0.4954
   ],
   "model_info_size_m": [
    1.0,
    2.0,
-   0.493
+   0.4954
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
@@ -298,9 +298,9 @@
  "CR08_Bend": {
   "fbx": "CR08_Bend_v001.fbx",
   "lod_tris": {
-   "LOD0": 121134,
-   "LOD1": 60566,
-   "LOD2": 18168
+   "LOD0": 78736,
+   "LOD1": 39366,
+   "LOD2": 11808
   },
   "reimport_size_m": [
    1.5605,
@@ -332,9 +332,9 @@
  "CR08_Straight": {
   "fbx": "CR08_Straight_v001.fbx",
   "lod_tris": {
-   "LOD0": 114494,
-   "LOD1": 57246,
-   "LOD2": 17172
+   "LOD0": 74420,
+   "LOD1": 37208,
+   "LOD2": 11162
   },
   "reimport_size_m": [
    0.6808,
@@ -468,9 +468,9 @@
  "CR09_A_RopeGate": {
   "fbx": "CR09_A_RopeGate_v001.fbx",
   "lod_tris": {
-   "LOD0": 62578,
-   "LOD1": 31287,
-   "LOD2": 9383
+   "LOD0": 62586,
+   "LOD1": 31292,
+   "LOD2": 9384
   },
   "reimport_size_m": [
    0.8,
@@ -502,9 +502,9 @@
  "CR09_B_TenonGate": {
   "fbx": "CR09_B_TenonGate_v001.fbx",
   "lod_tris": {
-   "LOD0": 38654,
-   "LOD1": 19326,
-   "LOD2": 5796
+   "LOD0": 38708,
+   "LOD1": 19354,
+   "LOD2": 5804
   },
   "reimport_size_m": [
    0.8,
@@ -536,9 +536,9 @@
  "CR10_CharmStall": {
   "fbx": "CR10_CharmStall_v001.fbx",
   "lod_tris": {
-   "LOD0": 126248,
-   "LOD1": 63122,
-   "LOD2": 18907
+   "LOD0": 102200,
+   "LOD1": 51098,
+   "LOD2": 15298
   },
   "reimport_size_m": [
    3.2075,
@@ -576,19 +576,19 @@
  "CR11_NoodleStall": {
   "fbx": "CR11_NoodleStall_v001.fbx",
   "lod_tris": {
-   "LOD0": 167430,
-   "LOD1": 83714,
-   "LOD2": 25105
+   "LOD0": 123936,
+   "LOD1": 61966,
+   "LOD2": 18579
   },
   "reimport_size_m": [
    4.3972,
    3.3802,
-   2.7914
+   2.7895
   ],
   "model_info_size_m": [
    4.3972,
    3.3802,
-   2.7914
+   2.7895
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
@@ -622,9 +622,9 @@
  "CR12_RankingBoard": {
   "fbx": "CR12_RankingBoard_v001.fbx",
   "lod_tris": {
-   "LOD0": 129788,
-   "LOD1": 64894,
-   "LOD2": 19457
+   "LOD0": 80622,
+   "LOD1": 40309,
+   "LOD2": 12081
   },
   "reimport_size_m": [
    2.99,
@@ -656,19 +656,19 @@
  "CR14_WeedClump": {
   "fbx": "CR14_WeedClump_v001.fbx",
   "lod_tris": {
-   "LOD0": 8392,
-   "LOD1": 4145,
-   "LOD2": 802
+   "LOD0": 14006,
+   "LOD1": 7002,
+   "LOD2": 1803
   },
   "reimport_size_m": [
-   0.2414,
-   0.2025,
-   0.2478
+   0.2289,
+   0.2085,
+   0.2479
   ],
   "model_info_size_m": [
-   0.2414,
-   0.2025,
-   0.2478
+   0.2289,
+   0.2085,
+   0.2479
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
@@ -690,19 +690,19 @@
  "CR15_DitchCross": {
   "fbx": "CR15_DitchCross_v001.fbx",
   "lod_tris": {
-   "LOD0": 62944,
-   "LOD1": 31471,
-   "LOD2": 9440
+   "LOD0": 69209,
+   "LOD1": 34604,
+   "LOD2": 10380
   },
   "reimport_size_m": [
    1.5379,
    1.5378,
-   0.4908
+   0.4924
   ],
   "model_info_size_m": [
    1.5379,
    1.5378,
-   0.4908
+   0.4924
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
@@ -724,19 +724,19 @@
  "F01_Field": {
   "fbx": "F01_Field.fbx",
   "lod_tris": {
-   "LOD0": 15234,
-   "LOD1": 7450,
-   "LOD2": 2221
+   "LOD0": 45486,
+   "LOD1": 19640,
+   "LOD2": 6071
   },
   "reimport_size_m": [
-   6.0067,
-   4.0,
-   0.8354
+   6.129,
+   4.1503,
+   0.838
   ],
   "model_info_size_m": [
-   6.0067,
-   4.0,
-   0.8354
+   6.129,
+   4.1503,
+   0.838
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
@@ -754,19 +754,19 @@
  "WM01_MillHouse": {
   "fbx": "WM01_MillHouse_v001.fbx",
   "lod_tris": {
-   "LOD0": 168612,
-   "LOD1": 84305,
-   "LOD2": 25290
+   "LOD0": 114655,
+   "LOD1": 57040,
+   "LOD2": 17188
   },
   "reimport_size_m": [
    7.827,
    5.8844,
-   5.9307
+   5.931
   ],
   "model_info_size_m": [
    7.827,
    5.8844,
-   5.9307
+   5.931
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
@@ -790,26 +790,26 @@
  "WM02_WaterWheel": {
   "fbx": "WM02_WaterWheel_v001.fbx",
   "lod_tris": {
-   "LOD0": 68500,
-   "LOD1": 34250,
-   "LOD2": 10274
+   "LOD0": 70232,
+   "LOD1": 35114,
+   "LOD2": 10534
   },
   "reimport_size_m": [
    1.2,
    4.6022,
-   4.6018
+   4.602
   ],
   "model_info_size_m": [
    1.2,
    4.6022,
-   4.6018
+   4.602
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
    0.0,
    0.0
   ],
-  "bottom_z_m": -2.3009,
+  "bottom_z_m": -2.301,
   "collision_tris": 92,
   "minTier": "standard",
   "detail_in_fbx": [
@@ -826,21 +826,21 @@
   "lod_tris": {
    "LOD0": 38980,
    "LOD1": 19490,
-   "LOD2": 5845
+   "LOD2": 5844
   },
   "reimport_size_m": [
-   1.949,
+   1.9441,
    1.2383,
    0.9247
   ],
   "model_info_size_m": [
-   1.949,
+   1.9441,
    1.2383,
    0.9247
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
-   0.0,
+   -0.0,
    0.0
   ],
   "bottom_z_m": 0.0,
@@ -860,24 +860,24 @@
  "WM05_WashSteps": {
   "fbx": "WM05_WashSteps_v001.fbx",
   "lod_tris": {
-   "LOD0": 38384,
-   "LOD1": 19192,
-   "LOD2": 5756
+   "LOD0": 53778,
+   "LOD1": 26887,
+   "LOD2": 8066
   },
   "reimport_size_m": [
    5.9883,
-   2.9654,
-   1.1924
+   2.9671,
+   1.1926
   ],
   "model_info_size_m": [
    5.9883,
-   2.9654,
-   1.1924
+   2.9671,
+   1.1926
   ],
   "size_error_m": 0.0,
   "origin_offset_m": [
    0.0,
-   -0.0
+   0.0
   ],
   "bottom_z_m": -0.0,
   "collision_tris": 96,
@@ -894,9 +894,9 @@
  "WM07_StoneBridge": {
   "fbx": "WM07_StoneBridge_v001.fbx",
   "lod_tris": {
-   "LOD0": 111762,
-   "LOD1": 55880,
-   "LOD2": 16762
+   "LOD0": 96299,
+   "LOD1": 48147,
+   "LOD2": 14442
   },
   "reimport_size_m": [
    3.8025,
@@ -911,7 +911,7 @@
   "size_error_m": 0.0,
   "origin_offset_m": [
    0.0,
-   0.0
+   0.0001
   ],
   "bottom_z_m": -0.0,
   "collision_tris": 312,
@@ -928,9 +928,9 @@
  "WM09_BambooPavilion": {
   "fbx": "WM09_BambooPavilion_v001.fbx",
   "lod_tris": {
-   "LOD0": 225564,
-   "LOD1": 112781,
-   "LOD2": 33833
+   "LOD0": 144632,
+   "LOD1": 72316,
+   "LOD2": 21694
   },
   "reimport_size_m": [
    3.4489,

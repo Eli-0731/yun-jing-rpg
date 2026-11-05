@@ -1,6 +1,6 @@
 {
  "CR03_MudHeap_Stage_High_LOD0": {
-  "tris": 17216,
+  "tris": 17176,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -15,7 +15,7 @@
   "inverted_at": []
  },
  "CR03_MudHeap_Stage_High_LOD1": {
-  "tris": 8607,
+  "tris": 8587,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -30,7 +30,7 @@
   "inverted_at": []
  },
  "CR03_MudHeap_Stage_High_LOD2": {
-  "tris": 2581,
+  "tris": 2576,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -45,7 +45,7 @@
   "inverted_at": []
  },
  "CR03_MudHeap_Stage_Low_LOD0": {
-  "tris": 16256,
+  "tris": 16096,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -60,7 +60,7 @@
   "inverted_at": []
  },
  "CR03_MudHeap_Stage_Low_LOD1": {
-  "tris": 8127,
+  "tris": 8048,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -75,7 +75,7 @@
   "inverted_at": []
  },
  "CR03_MudHeap_Stage_Low_LOD2": {
-  "tris": 2437,
+  "tris": 2413,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -90,7 +90,7 @@
   "inverted_at": []
  },
  "CR03_MudHeap_Stage_Mid_LOD0": {
-  "tris": 17016,
+  "tris": 16912,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -105,7 +105,7 @@
   "inverted_at": []
  },
  "CR03_MudHeap_Stage_Mid_LOD1": {
-  "tris": 8508,
+  "tris": 8455,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -120,7 +120,7 @@
   "inverted_at": []
  },
  "CR03_MudHeap_Stage_Mid_LOD2": {
-  "tris": 2552,
+  "tris": 2535,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,

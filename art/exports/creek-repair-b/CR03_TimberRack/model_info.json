@@ -38,88 +38,88 @@
     },
     "Detail_Small": {
       "dims_m": [
-        2.2168,
-        0.9795,
-        1.0767
+        2.2163,
+        0.9796,
+        1.0761
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 0.0968
+      "min_z_local": 0.097
     },
     "Stage_Low": {
       "dims_m": [
-        2.0108,
-        0.6522,
-        0.094
+        2.0456,
+        0.6594,
+        0.1034
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 0.2234
+      "min_z_local": 0.2199
     },
     "Stage_Mid": {
       "dims_m": [
         2.361,
-        0.6528,
-        0.6061
+        0.6671,
+        0.6094
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 0.2204
+      "min_z_local": 0.2171
     },
     "Stage_High": {
       "dims_m": [
         2.3611,
-        0.6535,
-        0.708
+        0.6735,
+        0.7143
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 0.2221
+      "min_z_local": 0.2159
     }
   },
   "lods": {
     "Main": {
-      "LOD0": 12544,
-      "LOD1": 6272,
-      "LOD2": 1880
+      "LOD0": 8528,
+      "LOD1": 4264,
+      "LOD2": 1278
     },
     "Detail_Small": {
-      "LOD0": 80524,
-      "LOD1": 40262,
-      "LOD2": 12078
+      "LOD0": 54756,
+      "LOD1": 27378,
+      "LOD2": 8212
     },
     "Stage_Low": {
-      "LOD0": 2304,
-      "LOD1": 1152,
-      "LOD2": 344
+      "LOD0": 2176,
+      "LOD1": 1088,
+      "LOD2": 326
     },
     "Stage_Mid": {
-      "LOD0": 5832,
-      "LOD1": 2916,
-      "LOD2": 874
+      "LOD0": 5656,
+      "LOD1": 2828,
+      "LOD2": 848
     },
     "Stage_High": {
-      "LOD0": 12188,
-      "LOD1": 6094,
-      "LOD2": 1828
+      "LOD0": 8080,
+      "LOD1": 4040,
+      "LOD2": 1212
     }
   },
   "lod_totals": {
-    "LOD0": 113392,
-    "LOD1": 56696,
-    "LOD2": 17004
+    "LOD0": 79196,
+    "LOD1": 39598,
+    "LOD2": 11876
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

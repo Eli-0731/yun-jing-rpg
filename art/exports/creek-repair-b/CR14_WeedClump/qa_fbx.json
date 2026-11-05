@@ -1,6 +1,6 @@
 {
  "asset": "CR14_WeedClump_v001",
- "tris": 8392,
+ "tris": 14006,
  "objects": [
   "CR14_WeedClump_Detail_Small_LOD0",
   "CR14_WeedClump_LOD0"
@@ -12,15 +12,15 @@
    "same_between": 0,
    "same_inside": 0,
    "same": 0,
-   "two_sides": 94,
+   "two_sides": 587,
    "groups": {
+    "WeedClump|two_sides_inside": {
+     "pairs": 494,
+     "overlap_cm2": 7.14
+    },
     "Detail_Small|two_sides_inside": {
      "pairs": 93,
      "overlap_cm2": 2.68
-    },
-    "WeedClump|two_sides_between": {
-     "pairs": 1,
-     "overlap_cm2": 0.02
     }
    },
    "same_at": []
@@ -31,13 +31,8 @@
    "same_between": 0,
    "same_inside": 0,
    "same": 0,
-   "two_sides": 1,
-   "groups": {
-    "WeedClump|two_sides_between": {
-     "pairs": 1,
-     "overlap_cm2": 0.02
-    }
-   },
+   "two_sides": 0,
+   "groups": {},
    "same_at": []
   },
   "0.1mm": {
@@ -63,7 +58,7 @@
   "1e-09": {},
   "1e-08": {}
  },
- "pieces": 478,
+ "pieces": 502,
  "loose_over_5mm": 0,
  "loose_list": []
 }

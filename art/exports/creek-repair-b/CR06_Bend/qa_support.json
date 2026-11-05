@@ -1,41 +1,228 @@
 {
  "asset": "CR06_Bend_v001",
- "pieces": 432,
+ "pieces": 704,
  "touch_m": 0.002,
  "unsupported": [
   {
    "object": "CR06_Bend_Detail_Small",
-   "verts": 78,
+   "verts": 34,
    "centre": [
-    -0.753,
-    -0.778,
-    0.406
+    0.643,
+    0.233,
+    0.103
    ],
    "size": [
-    0.047,
-    0.037,
-    0.014
+    0.017,
+    0.014,
+    0.008
    ],
-   "gap_mm": 3.3,
+   "gap_mm": 6.6,
    "nearest": "CR06_Bend",
-   "drop_mm": 398.8
+   "drop_mm": 98.7
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 40,
+   "centre": [
+    0.213,
+    -0.075,
+    0.28
+   ],
+   "size": [
+    0.034,
+    0.105,
+    0.177
+   ],
+   "gap_mm": 5.1,
+   "nearest": "CR06_Bend",
+   "drop_mm": 191.1
   },
   {
    "object": "CR06_Bend_Detail_Small",
    "verts": 78,
    "centre": [
-    -0.023,
-    -0.489,
-    0.392
+    0.231,
+    0.642,
+    0.404
    ],
    "size": [
-    0.047,
-    0.037,
-    0.019
+    0.066,
+    0.054,
+    0.028
    ],
-   "gap_mm": 2.7,
+   "gap_mm": 4.7,
    "nearest": "CR06_Bend",
-   "drop_mm": 382.4
+   "drop_mm": 389.4
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 34,
+   "centre": [
+    -0.262,
+    -0.641,
+    0.103
+   ],
+   "size": [
+    0.019,
+    0.016,
+    0.009
+   ],
+   "gap_mm": 3.8,
+   "nearest": "CR06_Bend",
+   "drop_mm": 98.3
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 40,
+   "centre": [
+    -0.013,
+    -0.336,
+    0.277
+   ],
+   "size": [
+    0.017,
+    0.108,
+    0.182
+   ],
+   "gap_mm": 3.3,
+   "nearest": "CR06_Bend",
+   "drop_mm": 185.6
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 34,
+   "centre": [
+    -0.322,
+    -0.608,
+    0.103
+   ],
+   "size": [
+    0.019,
+    0.016,
+    0.009
+   ],
+   "gap_mm": 3.1,
+   "nearest": "CR06_Bend",
+   "drop_mm": 98.2
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 34,
+   "centre": [
+    -0.266,
+    -0.737,
+    0.103
+   ],
+   "size": [
+    0.018,
+    0.015,
+    0.009
+   ],
+   "gap_mm": 3.0,
+   "nearest": "CR06_Bend",
+   "drop_mm": 98.5
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 34,
+   "centre": [
+    0.154,
+    0.034,
+    0.103
+   ],
+   "size": [
+    0.019,
+    0.015,
+    0.009
+   ],
+   "gap_mm": 2.9,
+   "nearest": "CR06_Bend",
+   "drop_mm": 98.4
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 40,
+   "centre": [
+    -0.512,
+    -0.36,
+    0.283
+   ],
+   "size": [
+    0.101,
+    0.092,
+    0.172
+   ],
+   "gap_mm": 2.8,
+   "nearest": "CR06_Bend",
+   "drop_mm": 196.8
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 34,
+   "centre": [
+    0.332,
+    0.15,
+    0.103
+   ],
+   "size": [
+    0.02,
+    0.017,
+    0.01
+   ],
+   "gap_mm": 2.6,
+   "nearest": "CR06_Bend",
+   "drop_mm": 97.9
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 34,
+   "centre": [
+    -0.095,
+    -0.221,
+    0.103
+   ],
+   "size": [
+    0.018,
+    0.015,
+    0.009
+   ],
+   "gap_mm": 2.3,
+   "nearest": "CR06_Bend",
+   "drop_mm": 98.4
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 34,
+   "centre": [
+    0.331,
+    0.401,
+    0.103
+   ],
+   "size": [
+    0.031,
+    0.026,
+    0.015
+   ],
+   "gap_mm": 2.2,
+   "nearest": "CR06_Bend",
+   "drop_mm": 95.3
+  },
+  {
+   "object": "CR06_Bend_Detail_Small",
+   "verts": 34,
+   "centre": [
+    0.296,
+    0.326,
+    0.103
+   ],
+   "size": [
+    0.021,
+    0.017,
+    0.01
+   ],
+   "gap_mm": 2.1,
+   "nearest": "CR06_Bend",
+   "drop_mm": 97.8
   }
  ]
 }

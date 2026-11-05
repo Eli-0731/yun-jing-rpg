@@ -8,17 +8,34 @@
    "verts": 416,
    "centre": [
     -0.289,
-    -0.171,
-    0.335
+    0.169,
+    0.34
    ],
    "size": [
-    0.168,
-    0.158,
-    0.131
+    0.169,
+    0.157,
+    0.121
    ],
-   "gap_mm": 3.7,
+   "gap_mm": 6.7,
    "nearest": "CR09_B_TenonGate",
-   "drop_mm": 3.8
+   "drop_mm": 15.7
+  },
+  {
+   "object": "CR09_B_TenonGate",
+   "verts": 210,
+   "centre": [
+    0.355,
+    0.005,
+    0.334
+   ],
+   "size": [
+    0.034,
+    0.174,
+    0.119
+   ],
+   "gap_mm": 2.7,
+   "nearest": "CR09_B_TenonGate",
+   "drop_mm": 21.2
   }
  ]
 }

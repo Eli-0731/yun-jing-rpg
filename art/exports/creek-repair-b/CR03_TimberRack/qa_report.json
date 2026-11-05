@@ -1,6 +1,6 @@
 {
  "CR03_TimberRack_Detail_Small_LOD0": {
-  "tris": 80524,
+  "tris": 54756,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -15,7 +15,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Detail_Small_LOD1": {
-  "tris": 40262,
+  "tris": 27378,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -30,7 +30,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Detail_Small_LOD2": {
-  "tris": 12078,
+  "tris": 8212,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -45,7 +45,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_LOD0": {
-  "tris": 12544,
+  "tris": 8528,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -60,7 +60,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_LOD1": {
-  "tris": 6272,
+  "tris": 4264,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -75,7 +75,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_LOD2": {
-  "tris": 1880,
+  "tris": 1278,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -90,11 +90,11 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Stage_High_LOD0": {
-  "tris": 12188,
+  "tris": 8080,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 5,
+  "coplanar_two_sides": 3,
   "closed_pieces": 35,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -105,7 +105,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Stage_High_LOD1": {
-  "tris": 6094,
+  "tris": 4040,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -120,7 +120,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Stage_High_LOD2": {
-  "tris": 1828,
+  "tris": 1212,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -135,11 +135,11 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Stage_Low_LOD0": {
-  "tris": 2304,
+  "tris": 2176,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 0,
+  "coplanar_two_sides": 3,
   "closed_pieces": 12,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -150,7 +150,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Stage_Low_LOD1": {
-  "tris": 1152,
+  "tris": 1088,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -165,7 +165,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Stage_Low_LOD2": {
-  "tris": 344,
+  "tris": 326,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -180,11 +180,11 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Stage_Mid_LOD0": {
-  "tris": 5832,
+  "tris": 5656,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 0,
+  "coplanar_two_sides": 1,
   "closed_pieces": 20,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -195,7 +195,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Stage_Mid_LOD1": {
-  "tris": 2916,
+  "tris": 2828,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -210,7 +210,7 @@
   "inverted_at": []
  },
  "CR03_TimberRack_Stage_Mid_LOD2": {
-  "tris": 874,
+  "tris": 848,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,

@@ -15,7 +15,7 @@
   "dimensions_m": [
     1.5379,
     1.5378,
-    0.4908
+    0.4924
   ],
   "size_limit_m": [
     1.6,
@@ -25,9 +25,9 @@
   "pieces": {
     "Main": {
       "dims_m": [
-        1.5212,
-        1.5224,
-        0.4745
+        1.5176,
+        1.5278,
+        0.4911
       ],
       "pivot": [
         0.0,
@@ -40,32 +40,32 @@
       "dims_m": [
         1.5379,
         1.5378,
-        0.4523
+        0.4542
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 0.0384
+      "min_z_local": 0.0382
     }
   },
   "lods": {
     "Main": {
-      "LOD0": 15312,
-      "LOD1": 7655,
-      "LOD2": 2296
+      "LOD0": 17592,
+      "LOD1": 8796,
+      "LOD2": 2638
     },
     "Detail_Small": {
-      "LOD0": 47632,
-      "LOD1": 23816,
-      "LOD2": 7144
+      "LOD0": 51617,
+      "LOD1": 25808,
+      "LOD2": 7742
     }
   },
   "lod_totals": {
-    "LOD0": 62944,
-    "LOD1": 31471,
-    "LOD2": 9440
+    "LOD0": 69209,
+    "LOD1": 34604,
+    "LOD2": 10380
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [
@@ -94,44 +94,44 @@
     "Socket_PortIn": [
       -0.0001,
       -0.7502,
-      0.1008
+      0.1005
     ],
     "Socket_PortWest": [
       -0.7501,
       -0.0002,
-      0.1008
+      0.1005
     ],
     "Socket_PortEast": [
       0.7499,
       -0.0002,
-      0.1008
+      0.1005
     ],
     "Socket_PortNorth": [
       -0.0001,
       0.7498,
-      0.1008
+      0.1005
     ]
   },
   "sockets_fbx_reimport_xyz": {
     "Socket_PortEast.001": [
       0.7499,
       -0.0002,
-      0.1008
+      0.1005
     ],
     "Socket_PortIn.001": [
       -0.0001,
       -0.7502,
-      0.1008
+      0.1005
     ],
     "Socket_PortNorth.001": [
       -0.0001,
       0.7498,
-      0.1008
+      0.1005
     ],
     "Socket_PortWest.001": [
       -0.7501,
       -0.0002,
-      0.1008
+      0.1005
     ]
   },
   "states": [

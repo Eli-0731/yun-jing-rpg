@@ -96,9 +96,19 @@ def route_details():
             o['group'] = 'Detail_Small'
 
 
+LOD0_TRIM = {'WM09_BambooPavilion': .62, 'WM01_MillHouse': .68, 'CR05_WorkShelter': .68, 'CR11_NoodleStall': .65, 'WM05_WashSteps': .75, 'WM02_WaterWheel': .82, 'CR10_CharmStall': .7, 'CR12_RankingBoard': .52, 'CR08_Straight': .65, 'CR08_Bend': .65, 'CR03_TimberRack': .68, 'WM07_StoneBridge': .75}
+
+
 def make_lods():
     """LOD1/LOD2 per export group: drop small parts while enough triangles remain, then collapse to the target."""
     tris = lambda me: sum(len(p.vertices) - 2 for p in me.polygons)
+    if S.get('lod0_ratio'):   # the densest pieces carry triangles the eye never sees: collapse only groups big enough to spare them; compared side by side in _qa/lod0_cut_*
+        for gname, src in S['lod0'].items():
+            if tris(src.data) < 6000: continue
+            bpy.ops.object.select_all(action='DESELECT'); src.select_set(True); bpy.context.view_layer.objects.active = src
+            m = src.modifiers.new('LOD0_trim', 'DECIMATE'); m.use_collapse_triangulate = True; m.ratio = S['lod0_ratio']
+            bpy.ops.object.modifier_apply(modifier=m.name)
+            pl.orient_faces(src.data, flush=False); pl.spread_zero_uv([src])
     lods = {0: dict(S['lod0'])}; report = {}
     for lv in (1, 2):
         lods[lv] = {}
@@ -293,7 +303,7 @@ def run(aid, force=False):
     pl.normalise(); route_details()
     pl.join_groups(); pl.settle_loose(); pl.separate_objects(); set_pivots(cfg); pl.uv_atlas(cfg.get('uv_weight'), cfg['tex']); pl.spread_zero_uv()
     pl.bake(exp / 'Textures', cfg['tex'])
-    lod_report = make_lods(); pl.export_materials()
+    S['lod0_ratio'] = LOD0_TRIM.get(aid); lod_report = make_lods(); pl.export_materials()
     make_collision(aid, shift)
     S['col'].hide_render = True; S['col'].hide_viewport = True
     lod0 = list(S['lods'][0].values())

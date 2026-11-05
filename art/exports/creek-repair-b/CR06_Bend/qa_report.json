@@ -1,26 +1,35 @@
 {
  "CR06_Bend_Detail_Small_LOD0": {
-  "tris": 54606,
+  "tris": 61496,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 0,
+  "coplanar_same_facing": 1,
   "coplanar_two_sides": 0,
-  "closed_pieces": 123,
-  "open_pieces": 290,
+  "closed_pieces": 165,
+  "open_pieces": 508,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
   "zero_at": [],
-  "same_at": [],
+  "same_at": [
+   [
+    [
+     0.01,
+     0.35,
+     0.33
+    ],
+    1
+   ]
+  ],
   "inverted_at": []
  },
  "CR06_Bend_Detail_Small_LOD1": {
-  "tris": 27302,
+  "tris": 30748,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 62,
+  "closed_pieces": 80,
   "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -30,12 +39,12 @@
   "inverted_at": []
  },
  "CR06_Bend_Detail_Small_LOD2": {
-  "tris": 8190,
+  "tris": 9224,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 62,
+  "closed_pieces": 80,
   "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -45,13 +54,13 @@
   "inverted_at": []
  },
  "CR06_Bend_LOD0": {
-  "tris": 19268,
+  "tris": 19528,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 8,
+  "coplanar_same_facing": 25,
   "coplanar_two_sides": 0,
   "closed_pieces": 18,
-  "open_pieces": 1,
+  "open_pieces": 13,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -75,47 +84,47 @@
    ],
    [
     [
-     -0.63,
-     -0.86,
-     0.0
+     0.86,
+     -0.06,
+     0.14
     ],
-    1
-   ],
-   [
-    [
-     -0.03,
-     -0.86,
-     0.0
-    ],
-    1
+    2
    ],
    [
     [
      0.86,
-     0.63,
-     0.0
+     -0.06,
+     0.04
     ],
-    1
+    2
    ],
    [
     [
      0.86,
-     0.03,
-     0.0
+     -0.06,
+     0.12
     ],
-    1
+    2
+   ],
+   [
+    [
+     0.86,
+     -0.06,
+     0.03
+    ],
+    2
    ]
   ],
   "inverted_at": []
  },
  "CR06_Bend_LOD1": {
-  "tris": 9633,
+  "tris": 9763,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
   "closed_pieces": 18,
-  "open_pieces": 1,
+  "open_pieces": 13,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -124,13 +133,13 @@
   "inverted_at": []
  },
  "CR06_Bend_LOD2": {
-  "tris": 2889,
+  "tris": 2929,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
   "closed_pieces": 18,
-  "open_pieces": 1,
+  "open_pieces": 13,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,

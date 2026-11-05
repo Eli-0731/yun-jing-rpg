@@ -1,6 +1,6 @@
 {
  "asset": "CR08_Bend_v001",
- "tris": 121134,
+ "tris": 78736,
  "objects": [
   "CR08_Bend_Detail_Small_LOD0",
   "CR08_Bend_LOD0"
@@ -8,201 +8,193 @@
  "near_coplanar": {
   "1mm": {
    "state_alternatives": 0,
-   "same_underside_on_ground": 72,
-   "same_between": 36,
-   "same_inside": 1048,
-   "same": 1084,
-   "two_sides": 544,
+   "same_underside_on_ground": 93,
+   "same_between": 29,
+   "same_inside": 1559,
+   "same": 1588,
+   "two_sides": 339,
    "groups": {
     "Detail_Small|same_inside": {
-     "pairs": 1048,
-     "overlap_cm2": 48.99
+     "pairs": 1559,
+     "overlap_cm2": 133.79
     },
     "Bend|two_sides_between": {
-     "pairs": 542,
-     "overlap_cm2": 8374.55
+     "pairs": 339,
+     "overlap_cm2": 4246.48
     },
     "Bend|same_between": {
-     "pairs": 36,
-     "overlap_cm2": 85.07
-    },
-    "Detail_Small|two_sides_between": {
-     "pairs": 2,
-     "overlap_cm2": 0.06
+     "pairs": 29,
+     "overlap_cm2": 86.46
     }
    },
    "same_at": [
     [
-     -0.54,
-     -0.1,
+     0.58,
+     0.51,
      0.01,
-     6
+     9
     ],
     [
-     -0.22,
-     -0.28,
+     0.59,
+     0.42,
      0.01,
-     6
+     9
     ],
     [
-     -0.11,
-     -0.32,
-     0.19,
-     6
+     0.6,
+     0.44,
+     0.01,
+     9
     ],
     [
-     -0.26,
-     0.24,
+     0.55,
+     0.64,
      0.01,
-     6
+     8
     ],
     [
-     -0.41,
-     -0.19,
+     0.56,
+     0.57,
      0.01,
-     5
+     8
     ],
     [
-     -0.4,
-     -0.17,
+     0.58,
+     0.43,
      0.01,
-     5
+     8
     ],
     [
-     -0.34,
-     -0.2,
+     0.61,
+     0.35,
      0.01,
-     5
+     8
     ],
     [
-     -0.34,
-     -0.21,
-     0.01,
-     5
+     0.63,
+     0.21,
+     0.16,
+     8
     ],
     [
-     -0.28,
-     -0.24,
-     0.01,
-     5
+     0.54,
+     0.7,
+     0.09,
+     7
     ],
     [
-     -0.21,
-     -0.26,
+     0.6,
+     0.42,
      0.01,
-     5
+     7
     ],
     [
-     -0.14,
-     -0.31,
+     0.62,
+     0.28,
      0.01,
-     5
+     7
     ],
     [
-     -0.25,
-     0.25,
-     0.01,
-     5
+     0.63,
+     0.21,
+     0.14,
+     7
     ]
    ]
   },
   "0.5mm": {
    "state_alternatives": 0,
-   "same_underside_on_ground": 48,
-   "same_between": 7,
-   "same_inside": 781,
-   "same": 788,
-   "two_sides": 345,
+   "same_underside_on_ground": 39,
+   "same_between": 4,
+   "same_inside": 679,
+   "same": 683,
+   "two_sides": 63,
    "groups": {
     "Detail_Small|same_inside": {
-     "pairs": 781,
-     "overlap_cm2": 41.29
+     "pairs": 679,
+     "overlap_cm2": 48.16
     },
     "Bend|two_sides_between": {
-     "pairs": 343,
-     "overlap_cm2": 5304.07
+     "pairs": 63,
+     "overlap_cm2": 795.83
     },
     "Bend|same_between": {
-     "pairs": 7,
-     "overlap_cm2": 22.11
-    },
-    "Detail_Small|two_sides_between": {
-     "pairs": 2,
-     "overlap_cm2": 0.06
+     "pairs": 4,
+     "overlap_cm2": 1.32
     }
    },
    "same_at": [
     [
-     -0.54,
-     -0.1,
+     0.59,
+     0.42,
      0.01,
      6
     ],
     [
-     -0.22,
-     -0.28,
-     0.01,
+     0.63,
+     0.21,
+     0.16,
      6
     ],
     [
-     -0.11,
-     -0.32,
-     0.19,
-     6
+     0.54,
+     0.7,
+     0.09,
+     5
     ],
     [
-     -0.41,
-     -0.19,
+     0.6,
+     0.44,
      0.01,
      5
     ],
     [
-     -0.4,
-     -0.17,
-     0.01,
-     5
-    ],
-    [
-     -0.34,
-     -0.2,
-     0.01,
-     5
-    ],
-    [
-     -0.34,
-     -0.21,
-     0.01,
-     5
-    ],
-    [
-     -0.28,
-     -0.24,
-     0.01,
-     5
-    ],
-    [
-     -0.21,
-     -0.26,
-     0.01,
-     5
-    ],
-    [
-     -0.14,
-     -0.31,
-     0.01,
-     5
-    ],
-    [
-     -0.55,
-     -0.12,
+     0.56,
+     0.61,
      0.01,
      4
     ],
     [
-     -0.35,
-     -0.22,
+     0.58,
+     0.42,
      0.01,
      4
+    ],
+    [
+     0.6,
+     0.42,
+     0.01,
+     4
+    ],
+    [
+     0.63,
+     0.25,
+     0.01,
+     4
+    ],
+    [
+     0.62,
+     0.2,
+     0.16,
+     4
+    ],
+    [
+     0.11,
+     0.56,
+     0.32,
+     3
+    ],
+    [
+     0.11,
+     0.56,
+     0.13,
+     3
+    ],
+    [
+     0.11,
+     0.56,
+     0.28,
+     3
     ]
    ]
   },
@@ -210,16 +202,39 @@
    "state_alternatives": 0,
    "same_underside_on_ground": 0,
    "same_between": 0,
-   "same_inside": 0,
-   "same": 0,
-   "two_sides": 231,
+   "same_inside": 3,
+   "same": 3,
+   "two_sides": 11,
    "groups": {
     "Bend|two_sides_between": {
-     "pairs": 231,
-     "overlap_cm2": 3218.93
+     "pairs": 11,
+     "overlap_cm2": 98.44
+    },
+    "Detail_Small|same_inside": {
+     "pairs": 3,
+     "overlap_cm2": 0.36
     }
    },
-   "same_at": []
+   "same_at": [
+    [
+     0.61,
+     0.2,
+     0.39,
+     1
+    ],
+    [
+     0.62,
+     0.2,
+     0.39,
+     1
+    ],
+    [
+     0.63,
+     0.21,
+     0.39,
+     1
+    ]
+   ]
   }
  },
  "zero_uv": {

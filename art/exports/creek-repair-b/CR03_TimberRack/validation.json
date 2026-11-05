@@ -16,12 +16,12 @@
       "detail": {
         "min": [
           -1.2403,
-          -0.4901,
+          -0.4902,
           0.0
         ],
         "max": [
           1.2403,
-          0.4901,
+          0.4902,
           1.2
         ]
       }
@@ -47,37 +47,37 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 113392,
-          "LOD1": 56696,
-          "LOD2": 17004
+          "LOD0": 79196,
+          "LOD1": 39598,
+          "LOD2": 11876
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
         "per_group": {
           "Main": {
-            "LOD0": 12544,
-            "LOD1": 6272,
-            "LOD2": 1880
+            "LOD0": 8528,
+            "LOD1": 4264,
+            "LOD2": 1278
           },
           "Detail_Small": {
-            "LOD0": 80524,
-            "LOD1": 40262,
-            "LOD2": 12078
+            "LOD0": 54756,
+            "LOD1": 27378,
+            "LOD2": 8212
           },
           "Stage_Low": {
-            "LOD0": 2304,
-            "LOD1": 1152,
-            "LOD2": 344
+            "LOD0": 2176,
+            "LOD1": 1088,
+            "LOD2": 326
           },
           "Stage_Mid": {
-            "LOD0": 5832,
-            "LOD1": 2916,
-            "LOD2": 874
+            "LOD0": 5656,
+            "LOD1": 2828,
+            "LOD2": 848
           },
           "Stage_High": {
-            "LOD0": 12188,
-            "LOD1": 6094,
-            "LOD2": 1828
+            "LOD0": 8080,
+            "LOD1": 4040,
+            "LOD2": 1212
           }
         }
       }
@@ -138,7 +138,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 460,
+  "seconds": 340,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

@@ -30,16 +30,16 @@
  ],
  "near_coplanar": {
   "1mm": {
-   "state_alternatives": 426,
+   "state_alternatives": 419,
    "same_underside_on_ground": 0,
    "same_between": 0,
    "same_inside": 0,
    "same": 0,
-   "two_sides": 86,
+   "two_sides": 83,
    "groups": {
     "FruitBasket|two_sides_inside": {
-     "pairs": 43,
-     "overlap_cm2": 119.13
+     "pairs": 40,
+     "overlap_cm2": 119.12
     },
     "FruitBasket|two_sides_between": {
      "pairs": 12,

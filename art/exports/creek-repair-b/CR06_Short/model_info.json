@@ -14,7 +14,7 @@
   "origin": "bottom centre",
   "dimensions_m": [
     1.008,
-    0.5639,
+    0.5768,
     0.4905
   ],
   "size_limit_m": [
@@ -25,9 +25,9 @@
   "pieces": {
     "Main": {
       "dims_m": [
-        0.9905,
-        0.5536,
-        0.4652
+        0.989,
+        0.5489,
+        0.4559
       ],
       "pivot": [
         0.0,
@@ -39,7 +39,7 @@
     "Detail_Small": {
       "dims_m": [
         1.008,
-        0.5639,
+        0.5768,
         0.4523
       ],
       "pivot": [
@@ -52,20 +52,20 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 16160,
-      "LOD1": 8080,
-      "LOD2": 2423
+      "LOD0": 16280,
+      "LOD1": 8140,
+      "LOD2": 2442
     },
     "Detail_Small": {
-      "LOD0": 16792,
-      "LOD1": 8396,
-      "LOD2": 2518
+      "LOD0": 18660,
+      "LOD1": 9330,
+      "LOD2": 2798
     }
   },
   "lod_totals": {
-    "LOD0": 32952,
-    "LOD1": 16476,
-    "LOD2": 4941
+    "LOD0": 34940,
+    "LOD1": 17470,
+    "LOD2": 5240
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [
@@ -93,24 +93,24 @@
   "sockets_blender_xyz": {
     "Socket_PortIn": [
       -0.0001,
-      -0.2502,
+      -0.2567,
       0.1005
     ],
     "Socket_PortOut": [
       -0.0001,
-      0.2498,
+      0.2433,
       0.1005
     ]
   },
   "sockets_fbx_reimport_xyz": {
     "Socket_PortIn.001": [
       -0.0001,
-      -0.2502,
+      -0.2567,
       0.1005
     ],
     "Socket_PortOut.001": [
       -0.0001,
-      0.2498,
+      0.2433,
       0.1005
     ]
   },

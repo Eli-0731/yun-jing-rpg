@@ -1,12 +1,12 @@
 {
  "F01_Field_LOD0": {
-  "tris": 14102,
+  "tris": 44354,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 12,
-  "coplanar_two_sides": 2375,
-  "closed_pieces": 73,
-  "open_pieces": 785,
+  "coplanar_same_facing": 10,
+  "coplanar_two_sides": 10453,
+  "closed_pieces": 612,
+  "open_pieces": 3434,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -14,63 +14,39 @@
   "same_at": [
    [
     [
-     -0.6,
+     2.46,
+     0.79,
+     0.41
+    ],
+    4
+   ],
+   [
+    [
+     2.46,
+     0.79,
+     0.39
+    ],
+    4
+   ],
+   [
+    [
+     2.87,
      0.44,
-     0.0
+     0.42
     ],
     2
-   ],
-   [
-    [
-     -1.38,
-     1.09,
-     0.0
-    ],
-    2
-   ],
-   [
-    [
-     1.05,
-     0.22,
-     -0.0
-    ],
-    1
-   ],
-   [
-    [
-     1.95,
-     0.22,
-     -0.0
-    ],
-    1
-   ],
-   [
-    [
-     -1.22,
-     1.09,
-     0.0
-    ],
-    1
-   ],
-   [
-    [
-     -1.05,
-     1.09,
-     0.0
-    ],
-    1
    ]
   ],
   "inverted_at": []
  },
  "F01_LOD1": {
-  "tris": 6884,
+  "tris": 19074,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 73,
-  "open_pieces": 729,
+  "closed_pieces": 332,
+  "open_pieces": 2034,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -79,13 +55,13 @@
   "inverted_at": []
  },
  "F01_LOD2": {
-  "tris": 2063,
+  "tris": 5913,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 46,
-  "open_pieces": 375,
+  "closed_pieces": 135,
+  "open_pieces": 1398,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,

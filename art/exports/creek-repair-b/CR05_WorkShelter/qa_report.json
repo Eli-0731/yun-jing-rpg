@@ -225,11 +225,11 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_Canopy_LOD0": {
-  "tris": 53298,
+  "tris": 36260,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 34,
-  "coplanar_two_sides": 341,
+  "coplanar_same_facing": 18,
+  "coplanar_two_sides": 206,
   "closed_pieces": 46,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -239,49 +239,49 @@
   "same_at": [
    [
     [
-     1.14,
-     -0.64,
-     2.26
-    ],
-    2
-   ],
-   [
-    [
-     1.05,
-     -0.43,
-     2.24
-    ],
-    2
-   ],
-   [
-    [
-     1.05,
-     -0.38,
-     2.25
-    ],
-    2
-   ],
-   [
-    [
-     0.97,
-     -0.66,
-     2.21
+     0.73,
+     -0.09,
+     2.18
     ],
     1
    ],
    [
     [
-     0.75,
-     -0.46,
-     2.2
+     0.73,
+     -0.33,
+     2.16
     ],
     1
    ],
    [
     [
-     0.93,
-     -0.17,
-     2.24
+     0.86,
+     -0.67,
+     2.18
+    ],
+    1
+   ],
+   [
+    [
+     0.82,
+     -0.47,
+     2.17
+    ],
+    1
+   ],
+   [
+    [
+     0.98,
+     -0.39,
+     2.17
+    ],
+    1
+   ],
+   [
+    [
+     1.03,
+     -0.53,
+     2.18
     ],
     1
    ]
@@ -289,7 +289,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_Canopy_LOD1": {
-  "tris": 26648,
+  "tris": 18130,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -304,7 +304,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_Canopy_LOD2": {
-  "tris": 7994,
+  "tris": 5438,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -319,11 +319,11 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_Crate_LOD0": {
-  "tris": 9460,
+  "tris": 6432,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 0,
+  "coplanar_two_sides": 6,
   "closed_pieces": 41,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -334,7 +334,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_Crate_LOD1": {
-  "tris": 4730,
+  "tris": 3216,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -349,7 +349,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_Crate_LOD2": {
-  "tris": 1418,
+  "tris": 964,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -364,11 +364,11 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_Detail_Small_LOD0": {
-  "tris": 58772,
+  "tris": 39964,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 1,
+  "coplanar_two_sides": 0,
   "closed_pieces": 64,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -379,7 +379,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_Detail_Small_LOD1": {
-  "tris": 29386,
+  "tris": 19980,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -394,7 +394,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_Detail_Small_LOD2": {
-  "tris": 8814,
+  "tris": 5994,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -409,11 +409,11 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_LOD0": {
-  "tris": 34534,
+  "tris": 23482,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 11,
+  "coplanar_two_sides": 15,
   "closed_pieces": 13,
   "open_pieces": 0,
   "inverted_closed": 0,
@@ -424,7 +424,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_LOD1": {
-  "tris": 17266,
+  "tris": 11740,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -439,7 +439,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_LOD2": {
-  "tris": 5180,
+  "tris": 3522,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -499,7 +499,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_TeaBucket_LOD0": {
-  "tris": 9962,
+  "tris": 6774,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -514,7 +514,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_TeaBucket_LOD1": {
-  "tris": 4980,
+  "tris": 3386,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -529,7 +529,7 @@
   "inverted_at": []
  },
  "CR05_WorkShelter_TeaBucket_LOD2": {
-  "tris": 1494,
+  "tris": 1016,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,

@@ -1,12 +1,12 @@
 {
  "CR15_DitchCross_Detail_Small_LOD0": {
-  "tris": 47632,
+  "tris": 51617,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 106,
-  "open_pieces": 176,
+  "closed_pieces": 126,
+  "open_pieces": 311,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -15,7 +15,7 @@
   "inverted_at": []
  },
  "CR15_DitchCross_Detail_Small_LOD1": {
-  "tris": 23816,
+  "tris": 25808,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -30,7 +30,7 @@
   "inverted_at": []
  },
  "CR15_DitchCross_Detail_Small_LOD2": {
-  "tris": 7144,
+  "tris": 7742,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -45,13 +45,13 @@
   "inverted_at": []
  },
  "CR15_DitchCross_LOD0": {
-  "tris": 15312,
+  "tris": 17592,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 7,
+  "coplanar_same_facing": 10,
   "coplanar_two_sides": 0,
-  "closed_pieces": 20,
-  "open_pieces": 1,
+  "closed_pieces": 36,
+  "open_pieces": 13,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -59,33 +59,25 @@
   "same_at": [
    [
     [
-     0.74,
-     -0.06,
-     0.1
-    ],
-    1
-   ],
-   [
-    [
-     0.74,
-     -0.07,
-     0.1
-    ],
-    1
-   ],
-   [
-    [
-     0.04,
-     0.74,
-     0.1
-    ],
-    1
-   ],
-   [
-    [
-     0.08,
      0.75,
-     0.1
+     0.15,
+     0.0
+    ],
+    3
+   ],
+   [
+    [
+     0.74,
+     -0.15,
+     0.0
+    ],
+    3
+   ],
+   [
+    [
+     0.17,
+     -0.75,
+     0.14
     ],
     1
    ],
@@ -104,18 +96,26 @@
      0.17
     ],
     1
+   ],
+   [
+    [
+     -0.17,
+     0.75,
+     0.14
+    ],
+    1
    ]
   ],
   "inverted_at": []
  },
  "CR15_DitchCross_LOD1": {
-  "tris": 7655,
+  "tris": 8796,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 20,
-  "open_pieces": 1,
+  "closed_pieces": 36,
+  "open_pieces": 13,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -124,13 +124,13 @@
   "inverted_at": []
  },
  "CR15_DitchCross_LOD2": {
-  "tris": 2296,
+  "tris": 2638,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 20,
-  "open_pieces": 1,
+  "closed_pieces": 36,
+  "open_pieces": 13,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,

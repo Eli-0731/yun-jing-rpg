@@ -14,7 +14,7 @@
   "origin": "bottom centre",
   "dimensions_m": [
     3.9553,
-    2.8112,
+    2.8111,
     2.7801
   ],
   "size_limit_m": [
@@ -38,9 +38,9 @@
     },
     "Detail_Small": {
       "dims_m": [
-        3.7924,
-        2.7822,
-        2.7075
+        3.7905,
+        2.7806,
+        2.7058
       ],
       "pivot": [
         0.0,
@@ -51,16 +51,16 @@
     },
     "Canopy": {
       "dims_m": [
-        3.8478,
+        3.8473,
         2.806,
-        0.8212
+        0.8342
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 1.8196
+      "min_z_local": 1.8158
     },
     "Crate": {
       "dims_m": [
@@ -90,8 +90,8 @@
     },
     "TeaBucket": {
       "dims_m": [
-        0.557,
         0.5568,
+        0.5562,
         0.344
       ],
       "pivot": [
@@ -169,24 +169,24 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 34534,
-      "LOD1": 17266,
-      "LOD2": 5180
+      "LOD0": 23482,
+      "LOD1": 11740,
+      "LOD2": 3522
     },
     "Detail_Small": {
-      "LOD0": 58772,
-      "LOD1": 29386,
-      "LOD2": 8814
+      "LOD0": 39964,
+      "LOD1": 19980,
+      "LOD2": 5994
     },
     "Canopy": {
-      "LOD0": 53298,
-      "LOD1": 26648,
-      "LOD2": 7994
+      "LOD0": 36260,
+      "LOD1": 18130,
+      "LOD2": 5438
     },
     "Crate": {
-      "LOD0": 9460,
-      "LOD1": 4730,
-      "LOD2": 1418
+      "LOD0": 6432,
+      "LOD1": 3216,
+      "LOD2": 964
     },
     "Bench": {
       "LOD0": 3124,
@@ -194,9 +194,9 @@
       "LOD2": 468
     },
     "TeaBucket": {
-      "LOD0": 9962,
-      "LOD1": 4980,
-      "LOD2": 1494
+      "LOD0": 6774,
+      "LOD1": 3386,
+      "LOD2": 1016
     },
     "Ladle": {
       "LOD0": 1804,
@@ -225,9 +225,9 @@
     }
   },
   "lod_totals": {
-    "LOD0": 173770,
-    "LOD1": 86882,
-    "LOD2": 26054
+    "LOD0": 120656,
+    "LOD1": 60324,
+    "LOD2": 18088
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

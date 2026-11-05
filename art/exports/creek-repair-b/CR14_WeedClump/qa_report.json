@@ -1,11 +1,11 @@
 {
  "CR14_WeedClump_Detail_Small_LOD0": {
-  "tris": 260,
+  "tris": 1668,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 9,
+  "closed_pieces": 31,
   "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -15,12 +15,12 @@
   "inverted_at": []
  },
  "CR14_WeedClump_Detail_Small_LOD1": {
-  "tris": 130,
+  "tris": 834,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 9,
+  "closed_pieces": 31,
   "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -30,12 +30,12 @@
   "inverted_at": []
  },
  "CR14_WeedClump_Detail_Small_LOD2": {
-  "tris": 38,
+  "tris": 250,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 9,
+  "closed_pieces": 31,
   "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -45,12 +45,12 @@
   "inverted_at": []
  },
  "CR14_WeedClump_LOD0": {
-  "tris": 8132,
+  "tris": 12338,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 3,
-  "closed_pieces": 468,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 470,
   "open_pieces": 1,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -60,12 +60,12 @@
   "inverted_at": []
  },
  "CR14_WeedClump_LOD1": {
-  "tris": 4066,
+  "tris": 6168,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 468,
+  "closed_pieces": 470,
   "open_pieces": 1,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -75,12 +75,12 @@
   "inverted_at": []
  },
  "CR14_WeedClump_LOD2": {
-  "tris": 1218,
+  "tris": 1849,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 468,
+  "closed_pieces": 470,
   "open_pieces": 1,
   "inverted_closed": 0,
   "black_faces": 0,

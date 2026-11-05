@@ -1,12 +1,12 @@
 {
  "CR06_Straight_Detail_Small_LOD0": {
-  "tris": 54750,
+  "tris": 61407,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 0,
-  "closed_pieces": 123,
-  "open_pieces": 298,
+  "coplanar_two_sides": 4,
+  "closed_pieces": 164,
+  "open_pieces": 509,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -15,12 +15,12 @@
   "inverted_at": []
  },
  "CR06_Straight_Detail_Small_LOD1": {
-  "tris": 27374,
+  "tris": 30702,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 62,
+  "closed_pieces": 80,
   "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -30,12 +30,12 @@
   "inverted_at": []
  },
  "CR06_Straight_Detail_Small_LOD2": {
-  "tris": 8212,
+  "tris": 9210,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 62,
+  "closed_pieces": 80,
   "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -45,18 +45,26 @@
   "inverted_at": []
  },
  "CR06_Straight_LOD0": {
-  "tris": 19408,
+  "tris": 19668,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 19,
-  "coplanar_two_sides": 10,
+  "coplanar_same_facing": 21,
+  "coplanar_two_sides": 0,
   "closed_pieces": 18,
-  "open_pieces": 1,
+  "open_pieces": 13,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
   "zero_at": [],
   "same_at": [
+   [
+    [
+     -0.42,
+     -0.99,
+     0.4
+    ],
+    2
+   ],
    [
     [
      -0.05,
@@ -96,26 +104,18 @@
      0.04
     ],
     2
-   ],
-   [
-    [
-     0.25,
-     1.0,
-     0.04
-    ],
-    2
    ]
   ],
   "inverted_at": []
  },
  "CR06_Straight_LOD1": {
-  "tris": 9704,
+  "tris": 9834,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
   "closed_pieces": 18,
-  "open_pieces": 1,
+  "open_pieces": 13,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -124,13 +124,13 @@
   "inverted_at": []
  },
  "CR06_Straight_LOD2": {
-  "tris": 2910,
+  "tris": 2949,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
   "closed_pieces": 18,
-  "open_pieces": 1,
+  "open_pieces": 13,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,

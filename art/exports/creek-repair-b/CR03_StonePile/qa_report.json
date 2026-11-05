@@ -4,7 +4,7 @@
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 0,
+  "coplanar_two_sides": 2,
   "closed_pieces": 51,
   "open_pieces": 0,
   "inverted_closed": 0,

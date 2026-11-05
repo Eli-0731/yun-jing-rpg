@@ -16,12 +16,12 @@
       "detail": {
         "min": [
           -1.9776,
-          -1.4064,
+          -1.4055,
           0.0
         ],
         "max": [
           1.9776,
-          1.4048,
+          1.4055,
           2.7801
         ]
       }
@@ -32,7 +32,7 @@
       "detail": {
         "dims_m": [
           3.9553,
-          2.8112,
+          2.8111,
           2.7801
         ],
         "limit_m": [
@@ -63,7 +63,7 @@
       "check": "canopy_clears_1.75_m_head",
       "pass": true,
       "detail": {
-        "canopy_min_z_m": 1.8196
+        "canopy_min_z_m": 1.8158
       }
     },
     {
@@ -71,32 +71,32 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 173770,
-          "LOD1": 86882,
-          "LOD2": 26054
+          "LOD0": 120656,
+          "LOD1": 60324,
+          "LOD2": 18088
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
         "per_group": {
           "Main": {
-            "LOD0": 34534,
-            "LOD1": 17266,
-            "LOD2": 5180
+            "LOD0": 23482,
+            "LOD1": 11740,
+            "LOD2": 3522
           },
           "Detail_Small": {
-            "LOD0": 58772,
-            "LOD1": 29386,
-            "LOD2": 8814
+            "LOD0": 39964,
+            "LOD1": 19980,
+            "LOD2": 5994
           },
           "Canopy": {
-            "LOD0": 53298,
-            "LOD1": 26648,
-            "LOD2": 7994
+            "LOD0": 36260,
+            "LOD1": 18130,
+            "LOD2": 5438
           },
           "Crate": {
-            "LOD0": 9460,
-            "LOD1": 4730,
-            "LOD2": 1418
+            "LOD0": 6432,
+            "LOD1": 3216,
+            "LOD2": 964
           },
           "Bench": {
             "LOD0": 3124,
@@ -104,9 +104,9 @@
             "LOD2": 468
           },
           "TeaBucket": {
-            "LOD0": 9962,
-            "LOD1": 4980,
-            "LOD2": 1494
+            "LOD0": 6774,
+            "LOD1": 3386,
+            "LOD2": 1016
           },
           "Ladle": {
             "LOD0": 1804,
@@ -142,12 +142,12 @@
       "detail": {
         "fbx_lod0_dims_m": [
           3.9553,
-          2.8112,
+          2.8111,
           2.7801
         ],
         "blend_dims_m": [
           3.9553,
-          2.8112,
+          2.8111,
           2.7801
         ]
       }
@@ -235,7 +235,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 538,
+  "seconds": 355,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

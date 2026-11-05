@@ -88,17 +88,17 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 38654,
-          "LOD1": 19326,
-          "LOD2": 5796
+          "LOD0": 38708,
+          "LOD1": 19354,
+          "LOD2": 5804
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
         "per_group": {
           "Main": {
-            "LOD0": 23870,
-            "LOD1": 11934,
-            "LOD2": 3580
+            "LOD0": 23924,
+            "LOD1": 11962,
+            "LOD2": 3588
           },
           "Detail_Small": {
             "LOD0": 912,
@@ -188,7 +188,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 446,
+  "seconds": 409,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

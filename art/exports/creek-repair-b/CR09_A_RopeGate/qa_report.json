@@ -139,13 +139,13 @@
   "inverted_at": []
  },
  "CR09_A_RopeGate_LOD0": {
-  "tris": 23862,
+  "tris": 23870,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 15,
-  "coplanar_two_sides": 57,
-  "closed_pieces": 14,
-  "open_pieces": 1,
+  "coplanar_two_sides": 102,
+  "closed_pieces": 15,
+  "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -153,25 +153,49 @@
   "same_at": [
    [
     [
-     0.36,
-     0.07,
-     0.15
+     -0.18,
+     -0.24,
+     0.04
     ],
-    12
+    3
    ],
    [
     [
-     0.35,
-     0.07,
-     0.15
+     0.19,
+     -0.06,
+     0.09
+    ],
+    3
+   ],
+   [
+    [
+     0.33,
+     -0.06,
+     0.17
     ],
     2
    ],
    [
     [
-     0.36,
-     0.06,
-     0.15
+     -0.19,
+     -0.1,
+     0.03
+    ],
+    1
+   ],
+   [
+    [
+     -0.19,
+     -0.11,
+     0.02
+    ],
+    1
+   ],
+   [
+    [
+     -0.19,
+     -0.1,
+     0.01
     ],
     1
    ]
@@ -179,13 +203,13 @@
   "inverted_at": []
  },
  "CR09_A_RopeGate_LOD1": {
-  "tris": 11929,
+  "tris": 11934,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 14,
-  "open_pieces": 1,
+  "closed_pieces": 15,
+  "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
@@ -194,13 +218,13 @@
   "inverted_at": []
  },
  "CR09_A_RopeGate_LOD2": {
-  "tris": 3579,
+  "tris": 3580,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 14,
-  "open_pieces": 1,
+  "closed_pieces": 15,
+  "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,

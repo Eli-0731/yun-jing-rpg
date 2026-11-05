@@ -232,6 +232,8 @@ def paper(name, base=(.5, .35, .165), edge=(.2, .11, .04), age=.5, slot='Main'):
     col = g.mix(g.math('MULTIPLY', g.maprange(rim, .03 + .1 * age, .0), .85), col, edge)
     fox = g.math('MULTIPLY', g.maprange(g.noise(P, 18.0, 4, .6), .6, .66), age)
     col = g.mix(g.math('MULTIPLY', fox, .55), col, tuple(c * .9 for c in edge))
+    n_ = g.noise(P, 6.0, 5, .62)
+    col = g.mix(g.math('MULTIPLY', g.math('MULTIPLY', g.maprange(n_, .55, .59), g.maprange(n_, .55, .7, .85, .25)), age), col, tuple(c * .72 for c in edge))
     col = g.mix(g.math('MULTIPLY', fib, .08), col, tuple(c * .7 for c in base))
     ao = g.ao(.02)
     col = g.mul(1.0, col, g.ramp(ao, [(0, (.5, .46, .44)), (1, (1, 1, 1))]))
@@ -359,9 +361,10 @@ def lime_plaster(name, base=(.36, .3, .21), grime=(.15, .115, .075), lath=(.115,
     col = g.mix(g.math('MULTIPLY', streak, .34), col, tuple(c * .62 for c in base))
     damp = g.maprange(g.math('ADD', Z, g.math('MULTIPLY', big, .5)), plinth + .25, plinth + .95, 1., 0.)
     col = g.mix(g.math('MULTIPLY', damp, .75), col, grime)
-    crack = g.maprange(g.math('ABSOLUTE', g.math('SUBTRACT', g.noise(P, 5.0, 3, .6), .5)), .004, .0, 0., 1.)
-    col = g.mix(g.math('MULTIPLY', crack, .55), col, tuple(c * .5 for c in grime))
-    fallen = g.maprange(g.noise(P, 2.6, 4, .6), .685, .7)
+    crack = g.maprange(g.math('ABSOLUTE', g.math('SUBTRACT', g.noise(P, 5.0, 3, .6), .5)), .011, .0, 0., 1.)
+    crack = g.math('MAXIMUM', crack, g.math('MULTIPLY', g.maprange(g.math('ABSOLUTE', g.math('SUBTRACT', g.noise(P, 2.1, 4, .65), .5)), .0075, .0, 0., 1.), .95))
+    col = g.mix(g.math('MULTIPLY', crack, .95), col, tuple(c * .35 for c in grime))
+    fallen = g.maprange(g.noise(P, 2.6, 4, .6), .625, .64)
     col = g.mix(fallen, col, lath)
     ao = g.ao(.05)
     col = g.mul(1.0, col, g.ramp(ao, [(0, (.45, .43, .4)), (1, (1, 1, 1))]))
@@ -369,7 +372,7 @@ def lime_plaster(name, base=(.36, .3, .21), grime=(.15, .115, .075), lath=(.115,
     return m
 
 
-def packed_earth(name, dark=(.032, .022, .013), light=(.098, .066, .04), rough=.85, wet_top=.17, wet_low=.11, dry_low=.3, dry_top=.4, slot='Main'):
+def packed_earth(name, dark=(.032, .022, .013), light=(.098, .066, .04), rough=.85, crumb=0., wet_top=.17, wet_low=.11, dry_low=.3, dry_top=.4, slot='Main', moss=0.):
     """Banked ditch earth: wet and dark up to the water mark, layered where it was cut, sun-dried and paler along the top, small stones showing through."""
     m, g = tm._new(name, slot)
     P, Z, up = _p(g)
@@ -387,11 +390,21 @@ def packed_earth(name, dark=(.032, .022, .013), light=(.098, .066, .04), rough=.
     col = g.mix(stones, col, (.085, .07, .05))
     ao = g.ao(.04)
     col = g.mul(1.0, col, g.ramp(ao, [(0, (.45, .42, .4)), (1, (1, 1, 1))]))
-    tm._finish(g, col, g.maprange(Z, wet_low, wet_top, .38, rough), 0.0, g.bump(g.math('ADD', g.math('MULTIPLY', fine, .7), g.math('MULTIPLY', grit, .3)), .5, .006), spec=.4)
+    h = g.math('ADD', g.math('MULTIPLY', fine, .7), g.math('MULTIPLY', grit, .3)); bump_ = .006
+    if crumb:   # crumbled, spade-cut earth: clods catch the light and shade between them
+        clod = g.noise(P, 19.0, 3, .62)
+        col = g.mix(g.math('MULTIPLY', g.maprange(clod, .42, .6), .24 * crumb), col, tuple(min(1, c * 1.35) for c in light))
+        col = g.mix(g.math('MULTIPLY', g.maprange(clod, .4, .3), .6 * crumb), col, tuple(c * .6 for c in dark))
+        h = g.math('ADD', h, g.math('MULTIPLY', clod, 2.2 * crumb)); bump_ = .012
+    if moss:   # the bank top has grown over: moss in drifts along the crest, thinning down the faces, bare where the noise opens
+        drift = g.maprange(g.noise(P, 6.0, 5, .62), .42, .54); top_ = g.maprange(Z, .335, .385)
+        col = g.mix(g.math('MULTIPLY', g.math('MULTIPLY', drift, top_), .92 * moss), col, (.05, .082, .017))
+        col = g.mix(g.math('MULTIPLY', g.math('MULTIPLY', g.maprange(g.noise(P, 21.0, 4, .6), .48, .62), g.math('MULTIPLY', drift, top_)), .8 * moss), col, (.13, .17, .03))
+    tm._finish(g, col, g.maprange(Z, wet_low, wet_top, .38, rough), 0.0, g.bump(h, .6, bump_), spec=.4)
     return m
 
 
-def mud(name, dark=(.022, .016, .01), light=(.09, .062, .036), rough=.7, slot='Main'):
+def mud(name, dark=(.022, .016, .01), light=(.09, .062, .036), rough=.7, slot='Main', crust=None):
     """Wet creek silt or packed earth: dark, lumpy, gleaming where it is wettest."""
     m, g = tm._new(name, slot)
     P, Z, up = _p(g)
@@ -401,6 +414,9 @@ def mud(name, dark=(.022, .016, .01), light=(.09, .062, .036), rough=.7, slot='M
     col = g.mix(g.math('MULTIPLY', g.maprange(grit, .62, .7), .2), col, tuple(c * 1.4 for c in light))
     ao = g.ao(.04)
     col = g.mul(1.0, col, g.ramp(ao, [(0, (.45, .42, .4)), (1, (1, 1, 1))]))
+    if crust:   # the top dries out paler in patches, the foot stays wet and dark
+        dry = g.math('MULTIPLY', g.maprange(Z, .08, .42), g.maprange(g.noise(P, 7.0, 3, .55), .4, .58))
+        col = g.mix(g.math('MULTIPLY', dry, .85), col, crust)
     wet = g.maprange(big, .42, .62, rough, min(.95, rough + .4))
     tm._finish(g, col, wet, 0.0, g.bump(g.math('ADD', g.math('MULTIPLY', fine, .7), g.math('MULTIPLY', grit, .3)), .5, .006), spec=.45)
     return m

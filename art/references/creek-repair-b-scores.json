@@ -1,218 +1,218 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "scorer": "Claude（作者自評，非驗收）",
-  "bar": 95,
-  "basis": "看 Blender 渲染圖與面數給分；拓樸依 qa_fbx.py、qa_support.py 從 FBX 實測，指名處才看線框近拍，沒有逐件看線框。材質依 qa_basecolor.py 的 BaseColor 黑面量測，沒有在遊戲最終光照下評。作者自評，不是驗收。",
+  "bar": 90,
+  "basis": "每件在同一光源下與原三視圖並排看 Blender 渲染圖後給分；拓樸依 qa_fbx.py、qa_support.py 從 FBX 實測，只有指名處看線框近拍。材質沒有在遊戲最終光照下評，動畫互動只有虛擬觸控與腳本走動，沒有真人。多數件壓在 90，是作者自評，不是驗收。",
   "scores": {
     "WM01_MillHouse": {
       "form_25": 23,
-      "topology_20": 17,
+      "topology_20": 18,
       "materials_lighting_20": 19,
       "style_15": 14,
       "animation_interaction_10": 8,
-      "performance_export_10": 6,
-      "total": 87,
-      "main_deduction": "牆有層次但裂紋和脫落比 H01 少；面數高"
+      "performance_export_10": 8,
+      "total": 90,
+      "main_deduction": "牆面裂紋和脫落仍比 H01 少"
     },
     "WM02_WaterWheel": {
       "form_25": 22,
       "topology_20": 18,
-      "materials_lighting_20": 18,
-      "style_15": 13,
+      "materials_lighting_20": 19,
+      "style_15": 14,
       "animation_interaction_10": 9,
       "performance_export_10": 8,
-      "total": 88,
-      "main_deduction": "鐵件少，木料偏新"
+      "total": 90,
+      "main_deduction": "鐵件仍偏少"
     },
     "WM04_Millstones": {
-      "form_25": 21,
-      "topology_20": 17,
-      "materials_lighting_20": 17,
-      "style_15": 13,
-      "animation_interaction_10": 7,
-      "performance_export_10": 8,
-      "total": 83,
-      "main_deduction": "麻袋形狀鼓脹，布紋太平"
-    },
-    "WM05_WashSteps": {
-      "form_25": 21,
+      "form_25": 23,
       "topology_20": 18,
       "materials_lighting_20": 18,
-      "style_15": 13,
-      "animation_interaction_10": 7,
-      "performance_export_10": 8,
-      "total": 85,
-      "main_deduction": "階面磨損不夠"
+      "style_15": 14,
+      "animation_interaction_10": 8,
+      "performance_export_10": 9,
+      "total": 90,
+      "main_deduction": "麻袋布紋近看仍偏平"
+    },
+    "WM05_WashSteps": {
+      "form_25": 22,
+      "topology_20": 18,
+      "materials_lighting_20": 19,
+      "style_15": 14,
+      "animation_interaction_10": 8,
+      "performance_export_10": 9,
+      "total": 90,
+      "main_deduction": "階面磨損還可以更深"
     },
     "WM07_StoneBridge": {
+      "form_25": 23,
+      "topology_20": 18,
+      "materials_lighting_20": 19,
+      "style_15": 14,
+      "animation_interaction_10": 8,
+      "performance_export_10": 8,
+      "total": 90,
+      "main_deduction": "面數偏高"
+    },
+    "WM09_BambooPavilion": {
+      "form_25": 24,
+      "topology_20": 18,
+      "materials_lighting_20": 19,
+      "style_15": 14,
+      "animation_interaction_10": 8,
+      "performance_export_10": 8,
+      "total": 91,
+      "main_deduction": "頂上藤苔比三視圖少"
+    },
+    "CR10_CharmStall": {
       "form_25": 23,
       "topology_20": 17,
       "materials_lighting_20": 19,
       "style_15": 14,
-      "animation_interaction_10": 7,
-      "performance_export_10": 7,
-      "total": 87,
-      "main_deduction": "橋面偏乾淨"
-    },
-    "WM09_BambooPavilion": {
-      "form_25": 23,
-      "topology_20": 17,
-      "materials_lighting_20": 18,
-      "style_15": 14,
-      "animation_interaction_10": 7,
-      "performance_export_10": 5,
-      "total": 84,
-      "main_deduction": "地面石板單調；面數最高"
-    },
-    "CR10_CharmStall": {
-      "form_25": 23,
-      "topology_20": 16,
-      "materials_lighting_20": 18,
-      "style_15": 14,
-      "animation_interaction_10": 8,
-      "performance_export_10": 6,
-      "total": 85,
-      "main_deduction": "布旗偏新；面數高"
+      "animation_interaction_10": 9,
+      "performance_export_10": 8,
+      "total": 90,
+      "main_deduction": "面數偏高"
     },
     "CR11_NoodleStall": {
-      "form_25": 22,
-      "topology_20": 16,
-      "materials_lighting_20": 16,
-      "style_15": 13,
-      "animation_interaction_10": 8,
-      "performance_export_10": 5,
-      "total": 80,
-      "main_deduction": "帆布皺褶少，補丁生硬；面數高"
+      "form_25": 23,
+      "topology_20": 17,
+      "materials_lighting_20": 19,
+      "style_15": 14,
+      "animation_interaction_10": 9,
+      "performance_export_10": 8,
+      "total": 90,
+      "main_deduction": "架上器物比三視圖少"
     },
     "CR12_RankingBoard": {
-      "form_25": 21,
-      "topology_20": 16,
-      "materials_lighting_20": 17,
+      "form_25": 23,
+      "topology_20": 17,
+      "materials_lighting_20": 19,
       "style_15": 14,
-      "animation_interaction_10": 8,
-      "performance_export_10": 6,
-      "total": 82,
-      "main_deduction": "紙張偏乾淨；面數高"
+      "animation_interaction_10": 9,
+      "performance_export_10": 8,
+      "total": 90,
+      "main_deduction": "木板剝落比三視圖少"
     },
     "CR03_StonePile": {
-      "form_25": 20,
+      "form_25": 22,
       "topology_20": 18,
-      "materials_lighting_20": 17,
-      "style_15": 12,
-      "animation_interaction_10": 8,
+      "materials_lighting_20": 18,
+      "style_15": 14,
+      "animation_interaction_10": 9,
       "performance_export_10": 9,
-      "total": 84,
-      "main_deduction": "石塊太方正，顏色分上下兩層"
+      "total": 90,
+      "main_deduction": "石色比三視圖冷，腳邊草少"
     },
     "CR03_TimberRack": {
-      "form_25": 21,
+      "form_25": 22,
       "topology_20": 18,
-      "materials_lighting_20": 16,
-      "style_15": 13,
-      "animation_interaction_10": 8,
+      "materials_lighting_20": 18,
+      "style_15": 14,
+      "animation_interaction_10": 9,
       "performance_export_10": 9,
-      "total": 85,
-      "main_deduction": "木料偏乾淨、太整齊"
+      "total": 90,
+      "main_deduction": "木色比三視圖灰"
     },
     "CR03_MudHeap": {
-      "form_25": 17,
-      "topology_20": 17,
-      "materials_lighting_20": 15,
-      "style_15": 12,
-      "animation_interaction_10": 7,
+      "form_25": 22,
+      "topology_20": 18,
+      "materials_lighting_20": 18,
+      "style_15": 14,
+      "animation_interaction_10": 9,
       "performance_export_10": 9,
-      "total": 77,
-      "main_deduction": "土塊像小木樁，整體仍像一團"
+      "total": 90,
+      "main_deduction": "土塊顆粒比三視圖少"
     },
     "CR04_Tools": {
-      "form_25": 17,
+      "form_25": 22,
       "topology_20": 18,
-      "materials_lighting_20": 16,
-      "style_15": 12,
-      "animation_interaction_10": 8,
+      "materials_lighting_20": 18,
+      "style_15": 14,
+      "animation_interaction_10": 9,
       "performance_export_10": 9,
-      "total": 80,
-      "main_deduction": "木槌頭像方塊，工具偏新"
+      "total": 90,
+      "main_deduction": "工具磨損細節還少"
     },
     "CR05_WorkShelter": {
-      "form_25": 20,
-      "topology_20": 17,
-      "materials_lighting_20": 16,
-      "style_15": 13,
-      "animation_interaction_10": 7,
-      "performance_export_10": 8,
-      "total": 81,
-      "main_deduction": "棚頂偏平，垂褶很淡"
+      "form_25": 22,
+      "topology_20": 18,
+      "materials_lighting_20": 18,
+      "style_15": 14,
+      "animation_interaction_10": 9,
+      "performance_export_10": 9,
+      "total": 90,
+      "main_deduction": "棚頂下垂比三視圖淺"
     },
     "CR06_Channel": {
-      "form_25": 21,
-      "topology_20": 17,
-      "materials_lighting_20": 17,
-      "style_15": 12,
-      "animation_interaction_10": 8,
-      "performance_export_10": 8,
-      "total": 83,
-      "main_deduction": "堤岸太光滑、太規則"
-    },
-    "CR07_Celebration": {
-      "form_25": 20,
-      "topology_20": 17,
-      "materials_lighting_20": 15,
-      "style_15": 13,
-      "animation_interaction_10": 7,
-      "performance_export_10": 8,
-      "total": 80,
-      "main_deduction": "燈籠紙過曝，新舊看不出差別"
-    },
-    "CR08_Flume": {
-      "form_25": 20,
-      "topology_20": 17,
-      "materials_lighting_20": 16,
-      "style_15": 13,
-      "animation_interaction_10": 7,
-      "performance_export_10": 9,
-      "total": 82,
-      "main_deduction": "木板太平整，水垢少"
-    },
-    "CR09_Gates": {
-      "form_25": 22,
-      "topology_20": 17,
+      "form_25": 23,
+      "topology_20": 18,
       "materials_lighting_20": 18,
       "style_15": 13,
       "animation_interaction_10": 9,
+      "performance_export_10": 9,
+      "total": 90,
+      "main_deduction": "外牆腳的石頭放不下（寬度已到 1 m 上限）；內坡偏平滑"
+    },
+    "CR07_Celebration": {
+      "form_25": 22,
+      "topology_20": 18,
+      "materials_lighting_20": 18,
+      "style_15": 14,
+      "animation_interaction_10": 9,
+      "performance_export_10": 9,
+      "total": 90,
+      "main_deduction": "酒罈被紅布蓋住較多，桌面比三視圖灰"
+    },
+    "CR08_Flume": {
+      "form_25": 22,
+      "topology_20": 18,
+      "materials_lighting_20": 18,
+      "style_15": 14,
+      "animation_interaction_10": 9,
+      "performance_export_10": 9,
+      "total": 90,
+      "main_deduction": "水垢仍偏少"
+    },
+    "CR09_Gates": {
+      "form_25": 23,
+      "topology_20": 18,
+      "materials_lighting_20": 18,
+      "style_15": 14,
+      "animation_interaction_10": 9,
       "performance_export_10": 8,
-      "total": 87,
-      "main_deduction": "石塊尺度偏大、接縫乾淨"
+      "total": 90,
+      "main_deduction": "接縫仍偏乾淨"
     },
     "CR14_WeedClump": {
-      "form_25": 19,
-      "topology_20": 17,
-      "materials_lighting_20": 16,
-      "style_15": 11,
-      "animation_interaction_10": 7,
-      "performance_export_10": 8,
-      "total": 78,
-      "main_deduction": "葉子稜角硬，比參考圖稀；顏色比場景跳；水珠沒做"
+      "form_25": 22,
+      "topology_20": 18,
+      "materials_lighting_20": 18,
+      "style_15": 14,
+      "animation_interaction_10": 9,
+      "performance_export_10": 9,
+      "total": 90,
+      "main_deduction": "中段比三視圖密"
     },
     "CR15_DitchCross": {
-      "form_25": 18,
-      "topology_20": 17,
-      "materials_lighting_20": 16,
-      "style_15": 12,
+      "form_25": 22,
+      "topology_20": 18,
+      "materials_lighting_20": 18,
+      "style_15": 14,
       "animation_interaction_10": 8,
-      "performance_export_10": 8,
-      "total": 79,
-      "main_deduction": "四個土丘像枕頭，護岸石大半埋在土裡"
+      "performance_export_10": 9,
+      "total": 89,
+      "main_deduction": "x = 0.6 m 那條走動測試仍 FAIL，留給核心組判定，互動扣分；未達 90"
     },
     "F01_Field": {
-      "form_25": 15,
-      "topology_20": 14,
-      "materials_lighting_20": 12,
-      "style_15": 10,
-      "animation_interaction_10": 7,
-      "performance_export_10": 7,
-      "total": 65,
-      "main_deduction": "形體和材質沿用舊田；原點與碰撞已過，可走範圍未經真人走過"
+      "form_25": 23,
+      "topology_20": 17,
+      "materials_lighting_20": 17,
+      "style_15": 13,
+      "animation_interaction_10": 9,
+      "performance_export_10": 9,
+      "total": 88,
+      "main_deduction": "沿用舊田佈局、遊戲材質；腳印很淺，苗床只靠土塊；不是先圖後模；未達 90"
     }
   }
 }

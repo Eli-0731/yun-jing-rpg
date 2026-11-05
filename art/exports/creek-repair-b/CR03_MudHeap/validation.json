@@ -7,7 +7,7 @@
       "detail": [
         1.0,
         1.0,
-        0.9998
+        0.9867
       ]
     },
     {
@@ -15,12 +15,12 @@
       "pass": true,
       "detail": {
         "min": [
-          -0.9484,
+          -0.9492,
           -0.9484,
           0.0
         ],
         "max": [
-          0.9484,
+          0.9492,
           0.9484,
           0.8
         ]
@@ -31,7 +31,7 @@
       "pass": true,
       "detail": {
         "dims_m": [
-          1.8968,
+          1.8984,
           1.8969,
           0.8
         ],
@@ -47,27 +47,27 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 50488,
-          "LOD1": 25242,
-          "LOD2": 7570
+          "LOD0": 50184,
+          "LOD1": 25090,
+          "LOD2": 7524
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
         "per_group": {
           "Stage_Low": {
-            "LOD0": 16256,
-            "LOD1": 8127,
-            "LOD2": 2437
+            "LOD0": 16096,
+            "LOD1": 8048,
+            "LOD2": 2413
           },
           "Stage_Mid": {
-            "LOD0": 17016,
-            "LOD1": 8508,
-            "LOD2": 2552
+            "LOD0": 16912,
+            "LOD1": 8455,
+            "LOD2": 2535
           },
           "Stage_High": {
-            "LOD0": 17216,
-            "LOD1": 8607,
-            "LOD2": 2581
+            "LOD0": 17176,
+            "LOD1": 8587,
+            "LOD2": 2576
           }
         }
       }
@@ -77,12 +77,12 @@
       "pass": true,
       "detail": {
         "fbx_lod0_dims_m": [
-          1.8968,
+          1.8984,
           1.8969,
           0.8
         ],
         "blend_dims_m": [
-          1.8968,
+          1.8984,
           1.8969,
           0.8
         ]
@@ -122,7 +122,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 453,
+  "seconds": 234,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]

@@ -1,6 +1,6 @@
 {
  "asset": "CR04_Tools_v001",
- "tris": 38106,
+ "tris": 40246,
  "objects": [
   "CR04_Tools_Basket_LOD0",
   "CR04_Tools_MortarBucket_LOD0",
@@ -74,7 +74,7 @@
   "1e-09": {},
   "1e-08": {}
  },
- "pieces": 83,
+ "pieces": 108,
  "loose_over_5mm": 0,
  "loose_list": []
 }

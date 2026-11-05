@@ -22,9 +22,9 @@ def dipper(name, q, handle_dir, mat, group=None, **kw):
 def cele_palette():
     P = {'plank': [cm.wood('Plank_Weathered', (.1, .075, .05), (.36, .28, .18), ground_h=0, grey=.5), cm.wood('Plank_Red', (.1, .058, .034), (.3, .19, .12), ground_h=0, grey=.4), cm.wood('Plank_Blue', (.075, .072, .062), (.25, .235, .2), ground_h=0, grey=.6), cm.wood('Plank_Honey', (.13, .08, .04), (.42, .29, .15), ground_h=0, grey=.2)]}
     P['trestle'] = cm.wood('Trestle', (.06, .036, .018), (.22, .13, .07), ground_h=.15, grey=.25); P['ring'] = tm.plain('Water_Ring', (.09, .055, .035), rough=.5, noise=.1); P['iron'] = mm.cast_iron('Table_Iron')
-    P['culm'] = cm.culm('Pole_Bamboo', green=(.14, .17, .05), straw=(.34, .27, .12), mud_h=.25); P['hemp'] = mm.hemp('Hemp_Rope', (.3, .2, .09), twist=40.0); P['paper'] = cm.paper('Lantern_Paper', base=(.66, .56, .34), edge=(.42, .27, .13), age=.15); P['mend'] = cm.paper('Lantern_Mend', base=(.42, .2, .13), age=.4)
-    P['paper_old'] = cm.paper('Lantern_Paper_Old', base=(.5, .39, .21), edge=(.3, .18, .08), age=.35); P['lit'] = tm.paper('Lantern_Lit', (.85, .62, .3), 'Main', emit=(1., .68, .32)); P['rib'] = mm.bamboo('Lantern_Rib'); P['brass'] = mm.brass('Lantern_Brass', base=(.46, .27, .1), amt=.3); P['tassel'] = mm.cloth('Lantern_Tassel', (.36, .09, .06), dirt=.3)
-    P['jar'] = cm.clay('Wine_Jar', body=(.2, .085, .045), glaze=(.13, .055, .03)); P['jar2'] = cm.clay('Wine_Jar_Small', body=(.17, .08, .04), glaze=(.1, .05, .028)); P['cap'] = mm.cloth('Jar_Cap', (.3, .055, .04), dirt=.3)
+    P['culm'] = cm.culm('Pole_Bamboo', green=(.14, .17, .05), straw=(.34, .27, .12), mud_h=.25); P['hemp'] = mm.hemp('Hemp_Rope', (.3, .2, .09), twist=40.0); P['paper'] = cm.paper('Lantern_Paper', base=(.44, .23, .065), edge=(.3, .13, .03), age=.15); P['mend'] = cm.paper('Lantern_Mend', base=(.42, .2, .13), age=.4)
+    P['paper_old'] = cm.paper('Lantern_Paper_Old', base=(.3, .16, .05), edge=(.15, .07, .02), age=.95); P['lit'] = tm.paper('Lantern_Lit', (.85, .62, .3), 'Main', emit=(1., .68, .32)); P['rib'] = mm.bamboo('Lantern_Rib'); P['brass'] = mm.brass('Lantern_Brass', base=(.46, .27, .1), amt=.3); P['tassel'] = mm.cloth('Lantern_Tassel', (.42, .06, .04), dirt=.2)
+    P['jar'] = cm.clay('Wine_Jar', body=(.11, .035, .02), glaze=(.06, .02, .012)); P['jar2'] = cm.clay('Wine_Jar_Small', body=(.1, .036, .02), glaze=(.055, .022, .013)); P['cap'] = mm.cloth('Jar_Cap', (.17, .03, .022), dirt=.3)
     P['basket'] = mm.bamboo('Basket_Bamboo'); P['grass'] = cm.moss_tuft('Foot_Grass', soft=True); P['rag'] = cm.canvas('Line_Rag', base=(.62, .55, .4), stain=(.34, .27, .16), faded=.2, dirt=.5)
     P['orange'] = tm.plain('Fruit_Orange', (.66, .34, .06), rough=.5, noise=.12); P['peach'] = tm.plain('Fruit_Peach', (.68, .25, .17), rough=.6, noise=.2); P['leaf'] = tm.plain('Fruit_Leaf', (.08, .17, .04), rough=.6, noise=.2)
     return P
@@ -186,7 +186,7 @@ def gable_tiles(P, XR, YR, zf, pitch=.17, courses=5, solid=.01):
 def charm_palette():
     P = {'old': cm.wood('Old_Timber', (.07, .04, .022), (.26, .155, .08), ground_h=.15, grey=.25), 'green': cm.wood('Painted_Green', (.05, .075, .06), (.15, .23, .18), ground_h=.1, grey=.2), 'gold': mm.brass('Peeling_Gilt', base=(.56, .38, .1), amt=.4)}
     P['slip'] = cm.paper('Charm_Yellow', base=(.72, .54, .13), edge=(.5, .32, .08), age=.3); P['ink'] = tm.plain('Cinnabar_Swirl', (.5, .06, .03), rough=.65, noise=.15); P['thread'] = mm.hemp('Red_Thread', (.42, .06, .04), twist=40.0)
-    P['banner'] = cm.canvas('Pale_Banner', base=(.42, .345, .235), stain=(.2, .145, .085), faded=.12, dirt=.8); P['patch'] = cm.canvas('Banner_Patch', base=(.34, .265, .17), stain=(.18, .125, .075), faded=.2, dirt=.4)
+    P['banner'] = cm.canvas('Pale_Banner', base=(.31, .25, .165), stain=(.12, .085, .045), faded=.3, dirt=1.); P['patch'] = cm.canvas('Banner_Patch', base=(.34, .265, .17), stain=(.18, .125, .075), faded=.2, dirt=.4)
     P['red'] = mm.cloth('Red_Valance', (.19, .07, .05), dirt=.55); P['yellow'] = mm.cloth('Yellow_Stripe', (.3, .2, .08), dirt=.5); P['cushion'] = mm.cloth('Worn_Cushion', (.3, .07, .06), dirt=.5, worn=.4)
     P['brick'] = cm.stone('Prop_Brick', light=(.36, .16, .1), dark=(.16, .07, .045), ochre=(.28, .13, .08), moss=.1, crack=.3, lichen=0); P['gourd'] = mm.brass('Gilded_Gourd', base=(.6, .4, .1), amt=.2); P['bell'] = mm.brass('Tiny_Bell', base=(.5, .32, .09), amt=.3)
     P['tile'] = cm.tile('Roof_Tile'); P['ridge'] = cm.tile('Ridge_Tile', base=(.03, .04, .052), light=(.075, .09, .1), moss=.7); P['deck'] = cm.wood('Roof_Deck', (.03, .02, .014), (.09, .06, .04), ground_h=0, grey=.1)
@@ -418,7 +418,7 @@ def cr10(P):
     def bn(u, v):
         x = -1.22 + u * 1.56; zt = arm(x) - .015; bot = 2.38 + .05 * abs(math.sin(u * 23)) * abs(math.sin(u * 61 + 1)) + .04 * abs(noise.noise(Vector((u * 14, 2, 0)))) + max(0., u - .84) * 1.5
         return (x, .012 * math.sin(u * 13 + v * 3) * (1 - v), bot + (zt - bot) * v)
-    sheet('Banner', 70, 8, bn, P['banner'], solid=.0018, grain='z', group='Banner', keep=lambda u, v: not (.68 < u < .74 and .1 < v < .35))
+    sheet('Banner', 70, 8, bn, P['banner'], solid=.0018, grain='z', group='Banner', keep=lambda u, v: not (.68 < u < .74 and .1 < v < .35) and not (.24 < u < .28 and v < .13) and not (v < .05 and noise.noise(Vector((u * 34, 1., 2.))) > -.05))
     sheet('Banner_Patch', 4, 4, lambda u, v: (-1.14 + u * .2, -.003, 2.44 + v * .13 + .01 * math.sin(u * 7)), P['patch'], solid=.0015, grain='z', group='Banner', detail=1)
     for x in (-1.0, -.55, -.1, .25):
         lash('Cloth_Tie', (x, 0, arm(x) - .005), (1, 0, 0), .016, .03, .004, P['thread'], turns=3, group='Banner', detail=1)
@@ -428,7 +428,7 @@ def cr10(P):
 # ------------------------------------------------------------------ CR11 noodle stall
 def noodle_palette():
     P = {'post': cm.wood('Round_Post', (.05, .03, .017), (.2, .125, .065), ground_h=.15, grey=.2), 'beam': cm.wood('Smoked_Beam', (.04, .025, .015), (.16, .1, .055), ground_h=0, grey=.15), 'board': cm.wood('Worn_Table', (.1, .06, .03), (.34, .22, .11), ground_h=0, polish=.3, grey=.12), 'bench': cm.wood('Bench_Plank', (.08, .048, .025), (.28, .17, .09), ground_h=.1, grey=.25), 'wall': cm.wood('Wall_Plank', (.055, .035, .02), (.2, .13, .075), ground_h=.15, grey=.35)}
-    P['canvas'] = cm.canvas('Awning', base=(.19, .145, .085), stain=(.09, .062, .035), faded=.04, dirt=1.); P['blue'] = cm.canvas('Awning_Blue', base=(.09, .088, .078), stain=(.05, .046, .038), faded=.03, dirt=.7); P['rust'] = cm.canvas('Awning_Rust', base=(.085, .05, .034), stain=(.05, .032, .022), faded=.03, dirt=.6)
+    P['canvas'] = cm.canvas('Awning', base=(.32, .25, .14), stain=(.11, .07, .034), faded=.04, dirt=.9); P['blue'] = cm.canvas('Awning_Blue', base=(.09, .125, .165), stain=(.05, .055, .055), faded=.2, dirt=.8); P['rust'] = cm.canvas('Awning_Rust', base=(.24, .095, .05), stain=(.09, .045, .025), faded=.2, dirt=.8)
     P['brick'] = [cm.stone(f'Stove_Brick_{i}', light=l, dark=tuple(c * .42 for c in l), ochre=tuple(c * .8 for c in l), moss=.15, crack=.3, lichen=0) for i, l in enumerate(((.36, .17, .1), (.28, .15, .1), (.24, .19, .14)))]
     P['clay'] = cm.stone('Stove_Mud', light=(.2, .15, .1), dark=(.06, .045, .035), ochre=(.14, .1, .06), moss=0, crack=.8, lichen=0); P['iron'] = mm.cast_iron('Pot_Iron'); P['fire'] = tm.emissive('Stove_Fire', (.04, .03, .025), (1., .45, .12), 'Main'); P['soot'] = tm.plain('Soot', (.025, .022, .02), rough=.95, noise=.1)
     P['bowl'] = cm.clay('Coarse_Bowl', body=(.5, .46, .36), glaze=(.36, .32, .24)); P['leaf'] = tm.plain('Bowl_Leaf', (.1, .2, .2), rough=.5, noise=.2); P['noodle'] = tm.plain('Noodles', (.68, .55, .28), rough=.5, noise=.1); P['broth'] = tm.plain('Broth', (.26, .16, .05), rough=.2, noise=.1); P['scallion'] = tm.plain('Scallion', (.14, .3, .06), rough=.6, noise=.2); P['meat'] = tm.plain('Braised_Meat', (.22, .09, .05), rough=.45, noise=.2); P['flour'] = tm.plain('Flour_Dust', (.6, .57, .5), rough=.95, noise=.12)
@@ -493,15 +493,15 @@ def cr11(P):
         between('Brace', (sx * PX, PYF, front - .52), (sx * PX, PYF + .5, front - .03), .06, .06, P['post'], r=.008, amp=.003, seed=sx + 3, div=.12)
         between('Brace', (sx * (PX - .45), PYF, front - .03), (sx * PX, PYF, front - .5), .05, .05, P['post'], r=.006, amp=.003, seed=sx + 5, div=.12)
     # the awning: old cream canvas, blue panels and a rust patch sewn on, torn along the front
-    def tz(x, y): return rz(y) + .17 - .058 * math.sin(abs(x) * math.pi / .99) ** 2 - .012 * math.sin(y * 5.2 + x * 1.3) ** 2 + .009 * noise.noise(Vector((x * 5, y * 2.2, 2.)))
+    def tz(x, y): return rz(y) + .17 - .058 * math.sin(abs(x) * math.pi / .99) ** 2 - .03 * math.sin(y * 4.4 + x * 1.3) ** 2 - .012 * math.sin(y * 11. + x * 3.1 + 2 * noise.noise(Vector((x, y, 1.)))) ** 2 + .018 * noise.noise(Vector((x * 4, y * 2.2, 2.)))
     def awn(u, v):
         x = (u - .5) * (2 * PX - .12); y = PYF - .19 + v * (PYR - PYF + .29)
         return (x, y, min(2.79, tz(x, y) + .006 * math.sin(x * 7 + y * 3)))
-    sheet('Awning', 60, 30, awn, P['canvas'], solid=.005, grain='y')
+    sheet('Awning', 84, 54, awn, P['canvas'], solid=.005, grain='y')
     for j, (x0, y0, w, h, m) in enumerate(((-1.72, -.42, .72, .78, 'blue'), (.62, -1.28, .74, .62, 'blue'), (1.02, .62, .56, .48, 'rust'))):
         def pat(u, v, x0=x0, y0=y0, w=w, h=h):
             # hand-cut cloth: no edge is straight
-            x = x0 + u * w + .035 * math.sin(v * 7 + x0 * 5) * (abs(u - .5) * 2); y = y0 + v * h + .03 * math.sin(u * 8 + y0 * 3) * (abs(v - .5) * 2)
+            x = x0 + u * w + .012 * math.sin(v * 7 + x0 * 5) * (abs(u - .5) * 2); y = y0 + v * h + .012 * math.sin(u * 8 + y0 * 3) * (abs(v - .5) * 2)
             return (x, y, min(2.793, tz(x, y) + .006 * math.sin(x * 7 + y * 3) + .009))
         sheet('Awning_Patch', 14, 14, pat, P[m], solid=.002, grain='y')
         # big uneven stitches round it, in hemp
