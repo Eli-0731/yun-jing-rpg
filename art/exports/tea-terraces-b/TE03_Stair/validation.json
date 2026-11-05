@@ -1,0 +1,209 @@
+{
+  "asset": "TE03_Stair",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.66,
+          -2.446,
+          0.0
+        ],
+        "max": [
+          0.6592,
+          0.1604,
+          1.0074
+        ],
+        "box_m": [
+          [
+            -0.66,
+            -2.47,
+            0.0
+          ],
+          [
+            0.66,
+            0.2,
+            1.05
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "largest_clamp_m": 0.04418
+      }
+    },
+    {
+      "check": "step_tops_at_one_sixth_m_within_2cm",
+      "pass": true,
+      "detail": {
+        "tread_z_min_median_max": [
+          [
+            0.0,
+            0.1621,
+            0.1705
+          ],
+          [
+            0.1754,
+            0.3325,
+            0.3375
+          ],
+          [
+            0.3371,
+            0.5005,
+            0.504
+          ],
+          [
+            0.5924,
+            0.6671,
+            0.6752
+          ],
+          [
+            0.796,
+            0.832,
+            0.8404
+          ],
+          [
+            0.9832,
+            1.0003,
+            1.0037
+          ]
+        ],
+        "design_z": [
+          0.1667,
+          0.3333,
+          0.5,
+          0.6667,
+          0.8333,
+          1.0
+        ],
+        "max_error_of_median_m": 0.0046,
+        "note": "min is a ray into a slab joint or onto a worn edge; the walking check is in Unity"
+      }
+    },
+    {
+      "check": "every_riser_under_0_2m",
+      "pass": true,
+      "detail": {
+        "rises_m": [
+          0.1621,
+          0.1704,
+          0.168,
+          0.1666,
+          0.1649,
+          0.1683
+        ],
+        "unity_step_offset_m": 0.3
+      }
+    },
+    {
+      "check": "top_tread_meets_upper_soil_z1",
+      "pass": true,
+      "detail": {
+        "top_tread_z": 1.0003
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 13286,
+          "LOD1": 6642,
+          "LOD2": 1992
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 9908,
+            "LOD1": 4954,
+            "LOD2": 1486
+          },
+          "Detail_Small": {
+            "LOD0": 3378,
+            "LOD1": 1688,
+            "LOD2": 506
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.3192,
+          2.6064,
+          1.0074
+        ],
+        "blend_dims_m": [
+          1.3192,
+          2.6064,
+          1.0074
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_Bottom.001",
+        "Socket_Top.001",
+        "TE03_Stair.001",
+        "TE03_Stair_Collision.001",
+        "TE03_Stair_Detail_Small_LOD0.001",
+        "TE03_Stair_Detail_Small_LOD1.001",
+        "TE03_Stair_Detail_Small_LOD2.001",
+        "TE03_Stair_LOD0.001",
+        "TE03_Stair_LOD1.001",
+        "TE03_Stair_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Bottom.001": [
+          0.0,
+          -2.4,
+          0.0
+        ],
+        "Socket_Top.001": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 1976860
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 186,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}
