@@ -142,7 +142,8 @@ bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
 bm=bmesh.new();bm.from_mesh(lod0.data);bmesh.ops.triangulate(bm,faces=bm.faces[:]);bm.to_mesh(lod0.data);bm.free()
 for p in lod0.data.polygons:p.select=lod0.data.materials[p.material_index].name not in ('paint_zone_body','paint_zone_rim')
 bpy.ops.object.mode_set(mode='EDIT')
-bpy.ops.uv.smart_project(angle_limit=math.radians(66),island_margin=.009,area_weight=.1,correct_aspect=True,scale_to_bounds=True)
+# island_margin .016: the islands are then squeezed into the upper 37% of the sheet, so this is ~6 px at 1024 (.009 gave 3 px, #64 review: keep texture margins)
+bpy.ops.uv.smart_project(angle_limit=math.radians(66),island_margin=.016,area_weight=.1,correct_aspect=True,scale_to_bounds=True)
 bpy.ops.object.mode_set(mode='OBJECT')
 # Give the vessel a continuous, high-density cylindrical strip in the lower 60%.
 # Remaining individually unwrapped parts share the upper 37%, with padded gutters.

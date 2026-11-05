@@ -116,6 +116,58 @@ def make_sources():
 # ---------------- geometry helpers ----------------
 parts=[]
 def link(o,grp):bpy.context.scene.collection.objects.link(o);o['grp']=grp;parts.append(o);return o
+LOOSE={'UP01':('Debris','Plants'),**{k:('Gravel','Plants') for k in ('UP02_01','UP02_02','UP02_03','UP03')},'UP04':('Gravel','Plants','Charcoal')}
+def settle(pid,link_=.003,touch=.001,embed=.003):
+    """#64 review: loose pieces (debris, weed, tufts, gravel) must rest on something. Pieces of the loose groups that come
+    within link_ of each other form a cluster; a cluster is supported when one of its pieces comes within touch of the
+    ground or of a fixed part (weir, gate, stone). Every unsupported cluster is moved, in rounds of growing reach, onto
+    its nearest support (the ground, a fixed part, or an already supported cluster) and sunk embed into it; onto the
+    ground it only comes down to touch, since sinking it would make it the lowest point and lift the whole prop off its pivot.
+    Same contact rule as tools/art/qa_contact_parts.py. Returns {piece name: move in mm} for the log."""
+    from mathutils.bvhtree import BVHTree
+    loose=LOOSE.get(pid,())
+    L=[o for o in parts if o['grp'] in loose];Fx=[o for o in parts if o['grp'] not in loose and not o.get('nobounds')]
+    if not L:return {}
+    def wv(o):mw=o.matrix_world;return [mw@v.co for v in o.data.vertices]
+    VS=[wv(o) for o in L];ground=min(min(v.z for v in wv(o)) for o in Fx)
+    def bvh(objs):
+        V=[];F=[];own=[]
+        for k,o in enumerate(objs):
+            b=len(V);V+=wv(o)
+            for p in o.data.polygons:F.append([b+i for i in p.vertices]);own.append(k)
+        return BVHTree.FromPolygons(V,F),own
+    allo=L+Fx;tree,own=bvh(allo);n=len(L);par=list(range(n));sup=[False]*n
+    def fd(x):
+        while par[x]!=x:par[x]=par[par[x]];x=par[x]
+        return x
+    for k in range(n):
+        if min(v.z for v in VS[k])-ground<=touch:sup[k]=True
+        for v in VS[k]:
+            for (co,nn,fi,d) in tree.find_nearest_range(v,link_):
+                j=own[fi]
+                if j==k:continue
+                if j>=n:
+                    if d<=touch:sup[k]=True
+                else:par[fd(k)]=fd(j)
+    cl={};[cl.setdefault(fd(k),[]).append(k) for k in range(n)]
+    ok={r for r,ks in cl.items() if any(sup[k] for k in ks)};moves={};reach=.004
+    while len(ok)<len(cl):
+        st,sown=bvh(Fx+[L[k] for r in ok for k in cl[r]])
+        for r,ks in cl.items():
+            if r in ok:continue
+            best=(min(min(v.z for v in VS[k]) for k in ks)-ground,None,None)   # straight down onto the ground
+            for k in ks:
+                for v in VS[k]:
+                    hit=st.find_nearest(v,reach)
+                    if hit[0] is not None and hit[3]<best[0]:best=(hit[3],v,hit[0])
+            if best[0]>reach:continue
+            mv=Vector((0,0,-best[0])) if best[1] is None else (best[2]-best[1])+(best[2]-best[1]).normalized()*embed
+            for k in ks:
+                L[k].data.transform(Matrix.Translation(L[k].matrix_world.inverted().to_3x3()@mv));VS[k]=wv(L[k]);moves[L[k].name]=round(mv.length*1000,1)
+            ok.add(r)
+        reach*=2
+        if reach>4:break
+    return moves
 def separate_coplanar(bm,lift=.001):
     """two separate pieces (weed strands, grass blades, stacked stones) with triangles lying in one plane z-fight:
     lift the smaller piece 1 mm along its own face normal. Same test as tools/art/qa_lod0_basic.py."""
@@ -1059,6 +1111,7 @@ SLOTS={'UP01':'D3_Weir','UP02_01':'D3_WarmStone_01','UP02_02':'D3_WarmStone_02',
        'UP05_CushionNew':'LT_QiLesson','UP05_CushionOld':'LT_QiLesson','UP05_Table':'LT_QiLesson','UP05_Burner':'LT_QiLesson','UP06':'Socket_Hand (Liu Zhiwei)'}
 LIMITS={'UP01':(14,4,3.5),'UP02_01':(.9,.7,.6),'UP02_02':(.9,.7,.6),'UP02_03':(.9,.7,.6),'UP03':(.5,.4,1.4),'UP04':(1.4,1.0,.35),
         'UP05_CushionNew':(.55,.55,.12),'UP05_CushionOld':(.55,.55,.12),'UP05_Table':(.8,.45,.3),'UP05_Burner':(.15,.15,.12),'UP06':(.3,.3,.9)}
+EXACT_MARGIN={('UP04','Charcoal')}   # groups packed with an exact 16 px margin (see the pack step)
 GROUP_RES={'UP01':{'Weir':4096,'Gate':1024,'Debris':2048,'Plants':1024},
            **{k:{'Stone':2048,'Gravel':512,'Plants':512} for k in ('UP02_01','UP02_02','UP02_03')},'UP03':{'Stone':2048,'Gravel':512,'Plants':512},
            'UP04':{'Stone':2048,'Gravel':512,'Drawing':2048,'Charcoal':256,'Plants':512},
@@ -1151,6 +1204,8 @@ def run(pid):
     bpy.ops.wm.read_factory_settings(use_empty=True);parts.clear();GLOW.clear()
     sc=bpy.context.scene;sc.unit_settings.system='METRIC';sc.render.engine='CYCLES';dev=gpu(sc);sc.cycles.samples=16;sc.render.bake.margin=6;sc.render.bake.margin_type='EXTEND'
     M=make_sources();meta=PROPS[pid](M)
+    moved=settle(pid)
+    if moved:print(f'SETTLE {pid}: {len(moved)} loose pieces moved onto their support, largest {max(moved.values())} mm',sorted(moved.items(),key=lambda x:-x[1])[:12]);meta['settled']=moved
     def sel(*obs):
         bpy.ops.object.select_all(action='DESELECT')
         for o in obs:o.select_set(True)
@@ -1193,7 +1248,9 @@ def run(pid):
         if 'Strip' in me.uv_layers:me.uv_layers.remove(me.uv_layers['Strip'])
         if sa:me.attributes.remove(sa)
         me.uv_layers.active=me.uv_layers['Bake'];bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.uv.select_all(action='SELECT')
-        bpy.ops.uv.average_islands_scale();bpy.ops.uv.pack_islands(margin=mg,rotate=True)
+        bpy.ops.uv.average_islands_scale()
+        # 'SCALED' margin shrinks with the island count; a group of only a few islands (the 3-island charcoal stick) came out 2 px apart: pack those at an exact fraction
+        bpy.ops.uv.pack_islands(margin=mg,rotate=True,**({'margin_method':'FRACTION'} if (pid,g) in EXACT_MARGIN else {}))
         bpy.ops.object.mode_set(mode='OBJECT');G[g]=o
     for o in sc.objects:o.hide_render=o not in G.values() or o.name.split('_LOD')[0][len(pid)+1:] in decals
     tex={}

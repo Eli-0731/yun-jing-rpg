@@ -14,7 +14,7 @@
     "kind": "coplanar overlap",
     "object": "UP01_Debris_LOD0",
     "count": 3,
-    "note": "3 triangle pairs {'side two pieces': 3}, e.g. at [[0.316, -0.51, 0.95, 'n+0-1+0'], [0.336, -0.551, 0.848, 'n+0-1+0'], [0.335, -0.562, 0.827, 'n+0-1+0']]"
+    "note": "3 triangle pairs {'side two pieces': 3}, e.g. at [[0.324, -0.509, 0.95, 'n+0-1+0'], [0.344, -0.55, 0.847, 'n+0-1+0'], [0.343, -0.561, 0.827, 'n+0-1+0']]"
    },
    {
     "kind": "coplanar overlap",

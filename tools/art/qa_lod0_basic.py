@@ -6,8 +6,8 @@ triangles (z-fighting), floating/detached islands, unapplied scale. One finding 
 
 Coplanar pairs: two triangles of LOD0 (same object or not) that share no vertex, face the same or the opposite way
 within 1.5 degrees, lie within 0.5 mm of each other's plane and overlap by more than 1 mm inside that plane.
-Floating island: a connected piece whose lowest point is above 2.5 cm and which comes no closer than 2.5 cm
-to any other piece. Alpha-cut cards are checked like any other mesh.
+Floating island: a connected piece that cannot reach the ground (lowest point under 2.5 cm) through a chain of
+pieces each within 2.5 cm of the next. Alpha-cut cards are checked like any other mesh.
 """
 import bpy,bmesh,sys,json,math
 from pathlib import Path
@@ -95,10 +95,23 @@ def check(path):
                 for b in range(m+1-a):
                     q=A+(B-A)*(a/m)+(C-A)*(b/m);kd.insert(q,len(pid));pid.append(fd(t[0]));samp.setdefault(fd(t[0]),[]).append(q)
         kd.balance()
-        for r,ts in isl.items():   # every sample point of the island (not only its vertices), so a long beam on two caps counts as touching
+        # islands that come within TOL of each other form a cluster (every sample point, not only vertices, so a long
+        # beam on two caps counts as touching); a cluster none of whose pieces reaches the ground floats, even when its
+        # pieces touch each other (round three missed two branches with a twig each hanging in the air this way)
+        cp={r:r for r in isl}
+        def cf(x):
+            while cp[x]!=x:cp[x]=cp[cp[x]];x=cp[x]
+            return x
+        for r in isl:
+            for q in samp[r]:
+                for (_,j,_) in kd.find_range(q,TOL):
+                    if pid[j]!=r:cp[cf(pid[j])]=cf(r)
+        low={}
+        for r,ts in isl.items():
+            z=min(allv[k].z for n in ts for k in alltri[n]);c=cf(r);low[c]=min(low.get(c,9e9),z)
+        for r,ts in isl.items():
+            if low[cf(r)]<=TOL:continue
             vs={k for n in ts for k in alltri[n]}
-            if min(allv[k].z for k in vs)<=TOL:continue
-            if any(pid[j]!=r for q in samp[r] for (_,j,_) in kd.find_range(q,TOL)):continue
             ob=owner[ts[0]];c_=sum((allv[k] for k in vs),Vector())/len(vs);findings.append(('floating/detached',ob,1,f'island of {len(ts)} triangles at {[round(x,3) for x in c_]}'))
     merged={}
     for kind,ob,c,note in findings:

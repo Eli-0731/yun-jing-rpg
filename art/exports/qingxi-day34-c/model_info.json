@@ -50,7 +50,7 @@
     "triangles": [
      7321,
      3659,
-     1098
+     1097
     ],
     "maps": [
      "alb",
@@ -76,7 +76,7 @@
   "triangles_total": [
    318061,
    159028,
-   47707
+   47706
   ],
   "source_parts": 5471,
   "reference": "art/references/qingxi-day34-c/UP01/prompt.txt",
@@ -654,8 +654,8 @@
     "texture_px": 2048,
     "triangles": [
      37095,
-     18547,
-     5563
+     18546,
+     5564
     ],
     "maps": [
      "Albedo_Warm",
@@ -699,8 +699,8 @@
   },
   "triangles_total": [
    79075,
-   39536,
-   11858
+   39535,
+   11859
   ],
   "source_parts": 1853,
   "reference": "art/references/qingxi-day34-c/UP02/prompt.txt",
@@ -772,7 +772,7 @@
     "texture_px": 2048,
     "triangles": [
      31383,
-     15690,
+     15691,
      4706
     ],
     "maps": [
@@ -817,7 +817,7 @@
   },
   "triangles_total": [
    72064,
-   36029,
+   36030,
    10807
   ],
   "source_parts": 1844,
@@ -964,7 +964,7 @@
     "texture_px": 2048,
     "triangles": [
      73927,
-     36963,
+     36962,
      11089
     ],
     "maps": [
@@ -1004,7 +1004,7 @@
   },
   "triangles_total": [
    76106,
-   38051,
+   38050,
    11415
   ],
   "source_parts": 83,
