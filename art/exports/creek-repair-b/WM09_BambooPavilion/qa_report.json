@@ -1,21 +1,30 @@
 {
  "WM09_BambooPavilion_Detail_Small_LOD0": {
-  "tris": 159364,
+  "tris": 101068,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 0,
+  "coplanar_same_facing": 1,
   "coplanar_two_sides": 0,
   "closed_pieces": 119,
-  "open_pieces": 0,
+  "open_pieces": 63,
   "inverted_closed": 0,
   "black_faces": 0,
   "black_m2": 0.0,
   "zero_at": [],
-  "same_at": [],
+  "same_at": [
+   [
+    [
+     -0.17,
+     0.76,
+     0.21
+    ],
+    1
+   ]
+  ],
   "inverted_at": []
  },
  "WM09_BambooPavilion_Detail_Small_LOD1": {
-  "tris": 79682,
+  "tris": 50534,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -30,7 +39,7 @@
   "inverted_at": []
  },
  "WM09_BambooPavilion_Detail_Small_LOD2": {
-  "tris": 23904,
+  "tris": 15160,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -135,11 +144,11 @@
   "inverted_at": []
  },
  "WM09_BambooPavilion_LOD0": {
-  "tris": 59564,
+  "tris": 36928,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 1,
-  "coplanar_two_sides": 56,
+  "coplanar_two_sides": 0,
   "closed_pieces": 97,
   "open_pieces": 5,
   "inverted_closed": 0,
@@ -149,9 +158,9 @@
   "same_at": [
    [
     [
-     0.63,
-     0.48,
-     2.94
+     -0.24,
+     0.46,
+     3.24
     ],
     1
    ]
@@ -159,7 +168,7 @@
   "inverted_at": []
  },
  "WM09_BambooPavilion_LOD1": {
-  "tris": 29781,
+  "tris": 18464,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -174,7 +183,7 @@
   "inverted_at": []
  },
  "WM09_BambooPavilion_LOD2": {
-  "tris": 8934,
+  "tris": 5539,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,

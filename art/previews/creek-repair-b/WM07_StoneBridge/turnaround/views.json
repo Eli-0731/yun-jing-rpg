@@ -28,7 +28,7 @@
       ],
       "camera_location": [
         32.7753,
-        0.0,
+        0.0001,
         1.9773
       ],
       "projection": "orthographic",
@@ -43,7 +43,7 @@
       ],
       "camera_location": [
         0.0,
-        32.7753,
+        32.7754,
         1.9773
       ],
       "projection": "orthographic",
@@ -58,7 +58,7 @@
       ],
       "camera_location": [
         -32.7753,
-        0.0,
+        0.0001,
         1.9773
       ],
       "projection": "orthographic",
@@ -73,7 +73,7 @@
       ],
       "camera_location": [
         22.0846,
-        -22.0846,
+        -22.0845,
         11.9153
       ],
       "projection": "orthographic",
@@ -88,7 +88,7 @@
       ],
       "camera_location": [
         22.0846,
-        22.0846,
+        22.0847,
         11.9153
       ],
       "projection": "orthographic",
@@ -103,7 +103,7 @@
       ],
       "camera_location": [
         -22.0846,
-        22.0846,
+        22.0847,
         11.9153
       ],
       "projection": "orthographic",
@@ -118,7 +118,7 @@
       ],
       "camera_location": [
         -22.0846,
-        -22.0846,
+        -22.0845,
         11.9153
       ],
       "projection": "orthographic",
@@ -133,7 +133,7 @@
       ],
       "camera_location": [
         0.0,
-        0.0,
+        0.0001,
         34.7526
       ],
       "projection": "orthographic",
@@ -148,7 +148,7 @@
       ],
       "camera_location": [
         0.0,
-        -23.1757,
+        -23.1756,
         25.1529
       ],
       "projection": "orthographic",

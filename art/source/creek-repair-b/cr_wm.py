@@ -53,8 +53,8 @@ R_TIP, R_RIM, W = 2.3, 2.03, 1.2
 
 
 def wheel_palette():
-    P = {'oak': cm.wood('Wet_Oak', (.05, .032, .018), (.18, .112, .06), ground_h=0, grey=.28), 'paddle': cm.wood('Paddle_Oak', (.058, .037, .021), (.21, .13, .068), ground_h=0, grey=.3)}
-    P['algae'] = cm.wood('Paddle_Algae', (.026, .034, .018), (.085, .105, .05), ground_h=0, grey=.15); P['new'] = cm.wood('Paddle_New', (.12, .075, .036), (.34, .22, .11), ground_h=0, grey=.03)
+    P = {'oak': cm.wood('Wet_Oak', (.045, .03, .018), (.165, .105, .06), ground_h=0, grey=.46, moss=True, moss_amt=.5), 'paddle': cm.wood('Paddle_Oak', (.058, .037, .021), (.21, .13, .068), ground_h=0, grey=.3)}
+    P['algae'] = cm.wood('Paddle_Algae', (.026, .034, .018), (.085, .105, .05), ground_h=0, grey=.15); P['new'] = cm.wood('Paddle_New', (.1, .064, .032), (.29, .19, .098), ground_h=0, grey=.14)
     P['iron'] = mm.cast_iron('Band_Iron'); P['hemp'] = mm.hemp('Hemp_Rope', (.09, .06, .032), twist=40.0); P['axle'] = cm.wood('Axle_Oak', (.05, .03, .016), (.17, .1, .052), ground_h=0, polish=.25, grey=.1)
     return P
 
@@ -82,7 +82,11 @@ def wm02(P):
         for i in range(16):
             a = i / 16 * math.tau
             L = R_RIM - .3; c = .3 + L / 2 - .02
-            rbox('Spoke', (x, -math.sin(a) * c, math.cos(a) * c), (.085, .1, L), P['oak'], r=.01, amp=.002, seed=i * 3, div=.12, rot=(a, 0, 0), grain='z')
+            rbox('Spoke', (x, -math.sin(a) * c, math.cos(a) * c), (.085, .1, L), P['oak'], r=.01, amp=.004, chips=3, seed=i * 3, div=.12, rot=(a, 0, 0), grain='z')
+            # an iron strap and two bolts where the spoke enters the hub
+            for off_ in (.46, .74):
+                rbox('Spoke_Strap', (x, -math.sin(a) * off_, math.cos(a) * off_), (.098, .112, .05), P['iron'], r=.003, div=.1, rot=(a, 0, 0), detail=1)
+                cyl('Spoke_Bolt', (x + sx * .052, -math.sin(a) * off_, math.cos(a) * off_), .012, .014, P['iron'], axis='x', verts=8, bevel=.002, detail=1, grain='x')
             # a rope X where the spoke meets the rim
             q = Vector((x + sx * .062, -math.sin(a) * (R_RIM - .03), math.cos(a) * (R_RIM - .03))); tg = Vector((0, -math.cos(a), -math.sin(a))); rd = Vector((0, -math.sin(a), math.cos(a)))
             for d in (tg + rd, tg - rd):
@@ -112,8 +116,8 @@ def wm02(P):
 # ------------------------------------------------------------------ WM04 millstones and sacks
 def mills_palette():
     P = {'stone': cm.stone('Millstone', light=(.27, .255, .215), dark=(.12, .11, .09), moss=.45, crack=.4, lichen=.25), 'stone2': cm.stone('Millstone_Plain', light=(.25, .235, .195), dark=(.11, .1, .08), moss=.7, crack=.5, lichen=.35), 'old': cm.stone('Base_Stone', light=(.3, .28, .23), dark=(.13, .12, .095), moss=1.0, crack=.7, lichen=.4), 'crack': tm.plain('Stone_Crack', (.02, .018, .016), rough=.9, noise=.1)}
-    P['sack'] = mm.cloth('Hemp_Sack', (.135, .095, .052), dirt=1., weave_=380.0)
-    P['hemp'] = mm.hemp('Sack_Tie', (.2, .125, .055), twist=40.0); P['wood'] = cm.wood('Scoop_Wood', (.09, .055, .028), (.27, .17, .09), ground_h=0, polish=.2, grey=.1); P['flour_dust'] = tm.plain('Flour_Dust', (.4, .37, .3), rough=.95, noise=.3)
+    P['sack'] = mm.cloth('Hemp_Sack', (.15, .105, .056), dirt=1., weave_=210.0, coarse=3.)
+    P['hemp'] = mm.hemp('Sack_Tie', (.2, .125, .055), twist=40.0); P['wood'] = cm.wood('Scoop_Wood', (.09, .055, .028), (.27, .17, .09), ground_h=0, polish=.2, grey=.1); P['flour_dust'] = tm.plain('Flour_Dust', (.29, .265, .21), rough=.95, noise=.3)
     P['moss'] = cm.moss_tuft('Moss_Soft', soft=True)
     return P
 
@@ -147,7 +151,7 @@ def millstone(name, R, thick, mat, seed, grooved=True, **kw):
 def sack(P, name, c, s, seed, mat, yaw=0., **kw):
     """A filled hemp sack: squarish, slumped belly, gathered neck tied with rope, a ragged mouth above the tie."""
     ca, sa = math.cos(yaw), math.sin(yaw)
-    keys = [(0., 0.), (.012, .72), (.05, 1.02), (.26, 1.1), (.56, 1.), (.76, .76), (.87, .4), (.9, .24), (.93, .23), (.96, .3), (1., .33)]
+    keys = [(0., 0.), (.012, .8), (.05, 1.04), (.2, 1.04), (.46, .92), (.68, .68), (.84, .38), (.89, .24), (.92, .22), (.96, .32), (1., .36)]
     def prof(h):
         for (h0, r0), (h1, r1) in zip(keys, keys[1:]):
             if h <= h1:
@@ -160,7 +164,8 @@ def sack(P, name, c, s, seed, mat, yaw=0., **kw):
         fold = max(0., (v - .28) / .56) ** 1.4 * (1 - max(0., (v - .84) / .16) * .5)
         wrinkle = (math.sin(a * 7 + seed + 2.2 * noise.noise(Vector((math.cos(a), math.sin(a), seed)))) * .085 + math.sin(a * 13 + seed * 2) * .04) * fold
         wrinkle += .018 * math.sin(v * 26 + 3 * noise.noise(Vector((math.cos(a) * 1.6, math.sin(a) * 1.6, seed)))) * max(0., 1 - abs(v - .16) / .16) + .02 * noise.noise(Vector((math.cos(a) * 5 + seed, math.sin(a) * 5, v * 9)))
-        lump = noise.noise(Vector((math.cos(a) * 1.4 + seed, math.sin(a) * 1.4, v * 2.4))) * .17 * (1 - fold) + .07 * math.sin(a + seed) * (1 - v)
+        lump = noise.noise(Vector((math.cos(a) * 1.8 + seed, math.sin(a) * 1.8, v * 3.2))) * .1 * (1 - fold) + .045 * math.sin(a + seed) * (1 - v) + .05 * noise.noise(Vector((math.cos(a) * 3.6 + seed, math.sin(a) * 3.6, v * 7.))) * (1 - fold)
+        if v < .5: lump -= .05 * max(0., math.sin(a * 2 + seed)) * math.sin(v * math.tau)
         rag = noise.noise(Vector((math.cos(a) * 2, math.sin(a) * 2, seed))) * .012 * max(0., (v - .9) / .1)
         r = prof(v) * sq * (1 + wrinkle + lump)
         x, y = math.cos(a) * s[0] * r + s[0] * .34 * math.cos(seed) * v * v, math.sin(a) * s[1] * r + s[1] * .34 * math.sin(seed) * v * v
@@ -203,7 +208,7 @@ def wm04(P):
         surface('Scoop_Tray', 18, 12, tray, P['wood'], solid=.012, grain='y')
         rbox('Scoop_Back', (0, .172, .06), (.15, .022, .1), P['wood'], r=.006, seed=2, div=.05, grain='x')
         log('Scoop_Handle', [(0, .18, .08), (0, .29, .09)], .018, P['wood'], seg=9, lump=.02, grain='y')
-        surface('Scoop_Flour', 12, 6, lambda u, v: (math.cos(u * math.tau) * v * .1 * (.8 + .4 * noise.noise(Vector((math.cos(u * math.tau) * 2, math.sin(u * math.tau) * 2, 1.)))), -.03 + math.sin(u * math.tau) * v * .11, .018 + .034 * (1 - v * v) ** 1.5), P['flour_dust'], closed_u=True, grain='z', group='Detail_Flour')
+        surface('Scoop_Flour', 12, 6, lambda u, v: (math.cos(u * math.tau) * v * .1 * (.8 + .4 * noise.noise(Vector((math.cos(u * math.tau) * 2, math.sin(u * math.tau) * 2, 1.)))), -.03 + math.sin(u * math.tau) * v * .11, .016 + .014 * (1 - v * v) + .006 * noise.noise(Vector((math.cos(u * math.tau) * v * 9, math.sin(u * math.tau) * v * 9, 3.)))), P['flour_dust'], closed_u=True, grain='z', group='Detail_Flour')
     Rp = random.Random(4)
     for k in range(8):
         a = Rp.uniform(0, 6.28); r = Rp.uniform(.62, .72)
@@ -232,7 +237,12 @@ def wm05(P):
             if W / 2 - x - w < .35: w = W / 2 - x
             mat = P['low'] if s == 0 else P['stone'][R.randrange(4)]
             dy, dz = R.uniform(-.018, .018), R.uniform(-.014, .004)
-            rbox('Step_Block', (x + w / 2, yf + depth / 2 + dy, (z0 + z1) / 2 + dz / 2), (w - .008, depth, z1 - z0 + dz), mat, r=.045 if s == 0 else .03, amp=.008 if s == 0 else .012, freq=3.5, chips=0 if s == 0 else 1, hew=0, seed=s * 20 + i, div=.12)
+            def tread(q, cx=x + w / 2, cy=yf + depth / 2 + dy, top=(z1 - z0 + dz) / 2, yf=yf, s=s):
+                # treads hollowed where feet and knees come down, the nose rounded off; deepest on the bottom step
+                if q.z > top - .012:
+                    wx, wy = cx + q.x, cy + q.y; run = max(0., 1 - (wy - yf) / .73); path = math.exp(-((wx + .35) / 1.15) ** 2) * .7 + math.exp(-((wx - 1.45) / .55) ** 2) * .5
+                    q.z -= (.024 - s * .005) * path * math.sin(min(1., run * 1.15) * math.pi) ** .7 + (.02 - s * .004) * max(0., 1 - (wy - yf) / .1) ** 2
+            rbox('Step_Block', (x + w / 2, yf + depth / 2 + dy, (z0 + z1) / 2 + dz / 2), (w - .008, depth, z1 - z0 + dz), mat, r=.045 if s == 0 else .03, amp=.008 if s == 0 else .012, freq=3.5, chips=2 if s == 0 else 4, hew=0, seed=s * 20 + i, div=.07, warp=tread)
             x += w; i += 1
     # masonry walls either side, stepping down toward the water
     for sx in (-1, 1):
@@ -287,7 +297,7 @@ def arch_z(y):
 
 
 def bridge_palette():
-    P = {'stones': stone_set('Bridge_Granite', 4, light=(.29, .27, .228), dark=(.13, .118, .098), ochre=GREY_OCHRE, wet_z=.9, moss=.7, lichen=.3, crack=.45), 'deck': worn(cm.stone('Deck_Worn', light=(.3, .28, .24), dark=(.205, .19, .16), ochre=(.27, .25, .21), moss=.08, lichen=.03, crack=.2), .16)}
+    P = {'stones': stone_set('Bridge_Granite', 4, light=(.29, .27, .228), dark=(.13, .118, .098), ochre=GREY_OCHRE, wet_z=.9, moss=.7, lichen=.3, crack=.45), 'deck': worn(cm.stone('Deck_Worn', light=(.29, .27, .232), dark=(.15, .138, .115), ochre=(.26, .235, .185), moss=.3, lichen=.22, crack=.55), .16)}
     P['rail'] = cm.stone('Rail_Granite', light=(.27, .25, .21), dark=(.12, .11, .09), ochre=GREY_OCHRE, moss=.55, lichen=.3, crack=.4); P['stone'] = P['stones'][0]; P['moss'] = cm.moss_tuft('Moss_Soft', soft=True); P['fern'] = cm.fern('Fern_Green')
     return P
 
@@ -358,7 +368,15 @@ def wm07(P):
         def warp(q, c=c):
             wy = c + q.y
             q.z += deck_z(wy) - deck_z(c)
-        rbox('Deck_Slab', (0, c, deck_z(c) - .05), (2 * hw, L - .006, .1), P['deck'], r=.014, amp=.003, freq=4., seed=i, div=.14, warp=warp, grain='x')
+        def warp(q, c=c, base=warp):
+            base(q)
+            if q.z > .03:
+                for rut in (-.42, .42): q.z -= .012 * math.exp(-((q.x - rut) / .16) ** 2)
+                q.z -= .006 * math.exp(-(q.x / .3) ** 2)
+        rbox('Deck_Slab', (0, c, deck_z(c) - .05), (2 * hw, L - .006 - R.uniform(0, .014), .1), P['deck'], r=.018, amp=.006, freq=5., chips=4, seed=i, div=.09, warp=warp, grain='x')
+        for sd in (-1, 1):
+            if R.random() < .75:
+                x_ = sd * R.uniform(.82, 1.14); moss_patch('Moss', (x_, y + L, deck_z(y + L) + .002), (0, 0, 1), R.uniform(.07, .14), P['moss'], seed=i + sd, flat=.45, detail=1)
         y += L; i += 1
     # rails, kept to z <= 3.95: posts, a top rail following the slope, panels with plain cloud relief
     posts = [-5.6 + 1.4 * k for k in range(9)]
@@ -410,8 +428,8 @@ CR_, EAVE_R, PZ = 1.3, 1.56, 2.3
 
 
 def pav_palette():
-    P = {'culm': cm.culm('Sunbleached_Post', green=(.1, .1, .04), straw=(.3, .24, .11), mud_h=.3), 'beam': cm.culm('Bamboo_Beam', green=(.08, .09, .035), straw=(.27, .21, .095), mud_h=0)}
-    P['thatch'] = cm.thatch('Thatch'); P['patch'] = cm.thatch('Thatch_Patch', dark=(.12, .09, .05), light=(.42, .34, .18)); P['roll'] = cm.thatch('Thatch_Roll', dark=(.05, .04, .024), light=(.2, .16, .09))
+    P = {'culm': cm.culm('Sunbleached_Post', green=(.11, .1, .03), straw=(.38, .27, .09), mud_h=.3), 'beam': cm.culm('Bamboo_Beam', green=(.09, .09, .03), straw=(.34, .24, .08), mud_h=0)}
+    P['thatch'] = cm.thatch('Thatch', dark=(.11, .068, .026), light=(.47, .31, .12)); P['patch'] = cm.thatch('Thatch_Patch', dark=(.16, .11, .05), light=(.58, .42, .19)); P['roll'] = cm.thatch('Thatch_Roll', dark=(.05, .04, .024), light=(.2, .16, .09))
     P['stones'] = stone_set('Plinth_Round', 3, light=(.26, .248, .21), dark=(.125, .118, .098), moss=.8, lichen=.4, crack=.4); P['stone'] = P['stones'][0]; P['table'] = worn(cm.stone('Table_Stone', light=(.33, .3, .25), moss=.2, lichen=.15, crack=.25), .12)
     P['hemp'] = mm.hemp('Hemp_Old', (.1, .075, .04), twist=40.0); P['hemp_new'] = mm.hemp('Hemp_New', (.24, .17, .085), twist=40.0); P['moss'] = cm.moss_tuft('Peak_Moss', soft=True); P['leaf'] = cm.wood('Fallen_Leaf', (.12, .09, .03), (.3, .24, .08), ground_h=0, grey=0)
     return P
@@ -431,8 +449,11 @@ def wm09(P):
     Rf = random.Random(55)
     for ring, (r0, r1, n) in enumerate(((.0, .78, 7), (.78, 1.52, 13))):
         for k in range(n):
-            a0, a1 = (k + Rf.uniform(.02, .06)) / n * math.tau, (k + 1 - Rf.uniform(.02, .06)) / n * math.tau; ri0, ri1 = r0 + .012, r1 - .012 + Rf.uniform(-.03, 0); h = Rf.uniform(.004, .012)
+            a0, a1 = (k + Rf.uniform(.02, .06)) / n * math.tau, (k + 1 - Rf.uniform(.02, .06)) / n * math.tau; ri0, ri1 = r0 + .012, r1 - .012 + Rf.uniform(-.03, 0); h = Rf.uniform(.002, .03)
             surface('Flagstone', 5, 3, lambda u, v, a0=a0, a1=a1, ri0=ri0, ri1=ri1, h=h: ((ri0 + (ri1 - ri0) * v) * math.cos(a0 + (a1 - a0) * u), (ri0 + (ri1 - ri0) * v) * math.sin(a0 + (a1 - a0) * u), .19 + h), P['stones'][k % 3], grain='z', solid=.012)
+    for k in range(16):   # moss and dirt in the joints between the flags
+        a = k * 2.399; r_ = .78 if k % 3 == 0 else Rf.uniform(.3, 1.45)
+        moss_patch('Moss', (math.cos(a) * r_, math.sin(a) * r_, .205), (0, 0, 1), Rf.uniform(.05, .11), P['moss'], seed=k + 31, flat=.4)
     for k in range(20):
         a = k / 20 * math.tau + .08
         rbox('Curb', (math.cos(a) * 1.6, math.sin(a) * 1.6, .1), (.24, .5, .2), P['stones'][k % 3], r=.04, amp=.01, freq=4., seed=k, div=.22, rot=(0, 0, a))

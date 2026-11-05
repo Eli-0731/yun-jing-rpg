@@ -195,7 +195,7 @@ def cast_iron(name, slot='Main'):
     return m
 
 
-def cloth(name, base, slot='Main', weave_=700.0, dirt=.3, ground_h=.0, worn=.0):
+def cloth(name, base, slot='Main', weave_=700.0, dirt=.3, ground_h=.0, worn=.0, coarse=1.):
     """Cotton / indigo: fine weave bump, slubs, soft fold shading from AO, faded worn highlights."""
     m, g = tm._new(name, slot)
     P, sep = _zsep(g)
@@ -214,7 +214,7 @@ def cloth(name, base, slot='Main', weave_=700.0, dirt=.3, ground_h=.0, worn=.0):
     e = g.edge(.003)
     col = g.mix(g.math('MULTIPLY', e, .35), col, tuple(min(1, c * 1.7 + .04) for c in base))
     h = g.math('ADD', g.math('MULTIPLY', g.math('ADD', w1, w2), .5), g.math('MULTIPLY', slub, .4))
-    tm._finish(g, col, g.math('ADD', .86, g.math('MULTIPLY', n, .06)), 0.0, g.bump(h, .14, .0006), sheen=.45, spec=.25)
+    tm._finish(g, col, g.math('ADD', .86, g.math('MULTIPLY', n, .06)), 0.0, g.bump(h, min(1., .14 * coarse), .0006 * coarse), sheen=.45, spec=.25)
     return m
 
 

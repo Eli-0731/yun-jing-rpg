@@ -5,7 +5,7 @@
  "unsupported": [
   {
    "object": "WM05_WashSteps_Detail_Small",
-   "verts": 21,
+   "verts": 11,
    "centre": [
     -1.221,
     -1.479,
@@ -18,14 +18,14 @@
    ],
    "gap_mm": 2.2,
    "nearest": "WM05_WashSteps_Detail_Small",
-   "drop_mm": 21.7
+   "drop_mm": 21.9
   },
   {
    "object": "WM05_WashSteps_Detail_Small",
-   "verts": 21,
+   "verts": 13,
    "centre": [
     1.576,
-    -0.741,
+    -0.742,
     0.323
    ],
    "size": [
@@ -33,9 +33,9 @@
     0.006,
     0.041
    ],
-   "gap_mm": 2.1,
+   "gap_mm": 2.0,
    "nearest": "WM05_WashSteps_Detail_Small",
-   "drop_mm": 13.4
+   "drop_mm": 13.2
   }
  ]
 }

@@ -23,7 +23,7 @@ def palette(variant):
     if variant == 'A':
         P['stone'] = cm.stone('Stone_Rough', light=(.27, .255, .22), dark=(.125, .118, .1), wet_z=WET, moss=1.0, lichen=.6)
     else:
-        P['stone'] = cm.stone('Stone_Dressed', light=(.31, .285, .23), dark=(.15, .135, .11), ochre=(.23, .19, .12), wet_z=WET, moss=.82, lichen=.3, crack=.4)
+        P['stone'] = cm.stone('Stone_Dressed', light=(.29, .27, .225), dark=(.13, .12, .1), ochre=(.23, .19, .12), wet_z=WET, moss=.95, lichen=.45, crack=.6)
     P['board'] = cm.wood('Gate_Cedar', (.075, .04, .02), (.25, .14, .068), wet_z=WET, ground_h=0, grey=.18)
     P['board_new'] = cm.wood('Gate_Cedar_New', (.13, .07, .03), (.36, .21, .095), wet_z=WET, ground_h=0, grey=.05)
     P['core'] = cm.wood('Gate_Core', (.02, .012, .008), (.04, .025, .015), ground_h=0, grey=0)
@@ -37,7 +37,7 @@ def palette(variant):
 
 def frame(P, v):
     st = P['stone']; rough = v == 'A'
-    amp, chips, hew, r = (.005, 6, 14, .008) if rough else (.0016, 0, 5, .007)
+    amp, chips, hew, r = (.008, 9, 20, .01) if rough else (.0028, 2, 8, .008)
     seed = 1 if rough else 40
     def S_(name, lo, hi, flat='', **kw):
         c = tuple((a + b) / 2 for a, b in zip(lo, hi)); s = tuple(b - a for a, b in zip(lo, hi))

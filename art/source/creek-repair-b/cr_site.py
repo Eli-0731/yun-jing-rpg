@@ -20,7 +20,7 @@ def collide(*boxes): S['collision'] = list(boxes)
 
 # ------------------------------------------------------------------ CR03 stone
 def stone_palette():
-    P = {'stone': cm.stone('Granite_Block', light=(.245, .232, .2), dark=(.105, .098, .08), ochre=(.21, .175, .11), moss=.55, lichen=.4, crack=.7), 'broken': cm.stone('Granite_Broken', light=(.3, .275, .225), dark=(.14, .128, .103), moss=.1, lichen=.1, crack=.9)}
+    P = {'stone': cm.stone('Granite_Block', light=(.29, .258, .205), dark=(.125, .108, .082), ochre=(.26, .2, .11), moss=.22, lichen=.45, crack=.8), 'broken': cm.stone('Granite_Broken', light=(.3, .275, .225), dark=(.14, .128, .103), moss=.1, lichen=.1, crack=.9)}
     P['chip'] = cm.stone('Granite_Chips', light=(.26, .245, .21), dark=(.12, .112, .095), moss=0, lichen=0, crack=.2); P['moss'] = cm.moss_tuft('Joint_Moss', soft=True)
     return P
 
@@ -37,7 +37,7 @@ def cr03_stone(P):
     counts = {'Stage_Low': 3, 'Stage_Mid': 6, 'Stage_High': 11}
     for st in STAGES:
         for i, (c, sz, yaw, seed) in enumerate(placed[:counts[st]]):
-            rbox('Block', c, sz, P['stone'], r=.022, amp=.028, freq=6., chips=14, hew=20, seed=seed, div=.04, rot=(0, 0, yaw), group=st)
+            rbox('Block', c, sz, P['stone'], r=.03, amp=.042, freq=4.5, chips=24, hew=30, seed=seed, div=.04, rot=(0, 0, yaw), group=st, taper=(1 - seed % 7 * .022, 1 - seed % 5 * .028), skew=((seed % 9 - 4) * .007, (seed % 7 - 3) * .007))
             if i < 6:
                 for k in range(5):
                     a = R.uniform(0, 6.28)
@@ -51,8 +51,8 @@ def cr03_stone(P):
 
 # ------------------------------------------------------------------ CR03 timber
 def timber_palette():
-    P = {'frame': cm.wood('Rack_Cedar', (.06, .034, .018), (.2, .118, .06), ground_h=.15, grey=.3), 'log': cm.wood('Log_Cedar', (.075, .043, .022), (.27, .165, .085), ground_h=0, grey=.15)}
-    P['plank'] = cm.wood('Plank_New', (.15, .09, .045), (.4, .27, .14), ground_h=0, grey=.04); P['hemp'] = mm.hemp('Hemp_Rope', (.2, .125, .055), twist=40.0)
+    P = {'frame': cm.wood('Rack_Cedar', (.06, .034, .018), (.2, .118, .06), ground_h=.15, grey=.3), 'log': cm.wood('Log_Cedar', (.06, .036, .019), (.23, .14, .075), ground_h=0, grey=.3)}
+    P['plank'] = cm.wood('Plank_New', (.115, .07, .036), (.33, .22, .115), ground_h=0, grey=.24); P['hemp'] = mm.hemp('Hemp_Rope', (.2, .125, .055), twist=40.0)
     return P
 
 
@@ -85,7 +85,8 @@ def cr03_timber(P):
             for c, (x0, length) in enumerate(((-.5, .95), (.5, .95))):
                 if L == layers - 1 and c == 1 and layers > 2: length = .72
                 for k, y in enumerate((-.22, 0, .22)):
-                    rbox('Plank', (x0 + (.03 if L % 2 else -.03), y, z), (length, .21, .044), P['plank'], r=.004, amp=.0018, freq=8., seed=seed + L * 9 + c * 3 + k, div=.09, group=st, grain='x')
+                    J = random.Random(seed + L * 9 + c * 3 + k); run = length - J.uniform(0, .09) * (k != 1)
+                    rbox('Plank', (x0 + (.03 if L % 2 else -.03) + J.uniform(-.045, .045), y + J.uniform(-.012, .012), z + J.uniform(-.001, .003)), (run, .205 + J.uniform(-.012, .004), .044), P['plank'], r=.005, amp=.0035, freq=7., chips=2, seed=seed + L * 9 + c * 3 + k, div=.09, group=st, grain='x', rot=(J.uniform(-.008, .008), J.uniform(-.006, .006), J.uniform(-.018, .018)))
     z0 = .662
     row = [(-.2, z0 + .075, .075), (-.02, z0 + .08, .08), (.17, z0 + .072, .072)]
     top = [(-.11, z0 + .21, .07), (.08, z0 + .205, .066)]
@@ -97,7 +98,7 @@ def cr03_timber(P):
 
 # ------------------------------------------------------------------ CR03 mud
 def mud_palette():
-    P = {'mud': cm.mud('Creek_Silt'), 'plank': cm.wood('Walk_Plank', (.055, .036, .02), (.17, .115, .068), ground_h=0, grey=.4, wet_z=None), 'stone': cm.stone('Silt_Stones', light=(.2, .185, .155), dark=(.08, .07, .055), moss=.2, lichen=0, crack=.2)}
+    P = {'mud': cm.mud('Creek_Silt', dark=(.018, .012, .007), light=(.07, .046, .026), crust=(.066, .043, .024)), 'plank': cm.wood('Walk_Plank', (.04, .028, .017), (.125, .088, .054), ground_h=.5, grey=.6, wet_z=None), 'stone': cm.stone('Silt_Stones', light=(.2, .185, .155), dark=(.08, .07, .055), moss=.2, lichen=0, crack=.2)}
     return P
 
 
@@ -109,15 +110,20 @@ def cr03_mud(P):
         def edge(a, seed=seed):
             return min(1., (1 + .1 * math.sin(a * 3 + seed) + .06 * math.sin(a * 5 + seed * 2) + .03 * math.sin(a * 11)) * .9)
         def height(x, y, a, d, rad=rad, h=h, seed=seed, plank=plank):
-            dome = max(0., 1 - d * d) ** .85
+            u_, v_ = x / rad + noise.noise(Vector((x * 2.2, y * 2.2, seed))) * .09, y / rad + noise.noise(Vector((x * 2.2, y * 2.2, seed + 5))) * .09
+            lobes = sum(max(0., hk * (1 - ((u_ - cx) ** 2 + (v_ - cy) ** 2) / rk ** 2)) ** 4 for cx, cy, rk, hk in ((.03, .1, .62, 1.), (-.42, -.28, .46, .58), (.44, -.12, .46, .68), (.12, .52, .4, .5), (-.3, .34, .34, .42))) + (max(0., 1 - d * d) * .34) ** 4
+            dome = min(1., lobes ** .25 * min(1., (1 - min(d, 1.)) * 5) ** .6)
             fall = min(1., dome * 2.5)
-            n = noise.fractal(Vector((x * 2.2 / rad + seed, y * 2.2 / rad, 0)), 1., 2., 4) * .13
+            n = noise.fractal(Vector((x * 2.2 / rad + seed, y * 2.2 / rad, 0)), 1., 2., 4) * .1 - abs(noise.noise(Vector((x * 4.5 + seed, y * 4.5, 2.)))) * .14 * fall
             lumps = (abs(noise.noise(Vector((x * 6.5, y * 6.5, seed)))) * .1 + abs(noise.noise(Vector((x * 15, y * 15, seed + 4)))) * .055 + abs(noise.noise(Vector((x * 34, y * 34, seed + 9)))) * .022) * fall
             z = h * dome * (1 + n) + lumps
             if h > .4:
                 for fx, fy in steps:
                     q = math.hypot((x - fx) / .06, (y - fy) / .12)
                     if q < 1: z -= .035 * (1 - q * q)
+            if h > .4:
+                s_ = (x * .78 - y * .62) / rad - .36
+                if s_ > 0: z = min(z, h * (.72 - 1.9 * s_) + noise.noise(Vector((x * 11, y * 11, seed))) * .018)
             return min(.795, max(0., z))
         def fn_(u, v, rad=rad):
             a = u * math.tau; d = v ** .85; r = d * edge(a) * rad
@@ -128,7 +134,7 @@ def cr03_mud(P):
         for k in range(int(34 * rad)):
             a = R.uniform(0, math.tau); d = R.uniform(.3, 1.) ** .7; r_ = d * edge(a) * rad; x_, y_ = math.cos(a) * r_, math.sin(a) * r_
             s_ = R.uniform(.022, .06) * (.65 + rad * .35)
-            rbox('Clod', (x_, y_, height(x_, y_, a, d) + s_ * .12), (s_ * R.uniform(1., 1.5), s_, s_ * R.uniform(.45, .7)), P['mud'], r=s_ * .22, amp=s_ * .2, freq=1 / s_ * 1.2, seed=k + int(seed) * 7, div=s_ * .45, rot=(0, 0, R.uniform(0, 3.14)), group=st, detail=1)
+            rbox('Clod', (x_, y_, height(x_, y_, a, d) + s_ * .12), (s_ * R.uniform(.95, 1.25), s_, s_ * R.uniform(.7, .9)), P['mud'], r=s_ * .4, amp=s_ * .26, freq=1 / s_ * 1.5, seed=k + int(seed) * 7, div=s_ * .45, rot=(0, 0, R.uniform(0, 3.14)), group=st, detail=1)
         if plank:
             # a board laid up the slope from the ground: raised until nothing of the heap pokes through it
             foot = Vector((rad * .92, -rad * .46, .018)); run = Vector((-rad * 1.3, rad * .24, 0)).normalized(); L = plank[1] * 1.5; slope = 0.
@@ -147,8 +153,8 @@ def cr03_mud(P):
 
 # ------------------------------------------------------------------ CR04 tools
 def tools_palette():
-    P = {'ash': cm.wood('Handle_Ash', (.085, .05, .026), (.25, .16, .085), ground_h=0, polish=.3, grey=.08), 'iron': mm.cast_iron('Dark_Iron'), 'hemp': mm.hemp('Hemp_Mend', (.22, .14, .06), twist=40.0)}
-    P['mud'] = cm.mud('Blade_Mud'); P['strip'] = cm.wood('Bamboo_Strip', (.17, .115, .05), (.36, .26, .12), ground_h=0, grey=.05); P['strip2'] = cm.wood('Bamboo_Strip_Dark', (.11, .07, .03), (.27, .19, .085), ground_h=0, grey=.12)
+    P = {'ash': cm.wood('Handle_Ash', (.06, .036, .02), (.2, .125, .068), ground_h=0, polish=.42, grey=.3), 'iron': mm.cast_iron('Dark_Iron'), 'hemp': mm.hemp('Hemp_Mend', (.22, .14, .06), twist=40.0)}
+    P['mud'] = cm.mud('Blade_Mud'); P['strip'] = cm.wood('Bamboo_Strip', (.12, .082, .04), (.28, .2, .095), ground_h=0, grey=.28); P['strip2'] = cm.wood('Bamboo_Strip_Dark', (.11, .07, .03), (.27, .19, .085), ground_h=0, grey=.12)
     P['split'] = mm.bamboo('Bamboo_Rim'); P['block'] = cm.wood('Tamper_Block', (.05, .03, .016), (.17, .1, .05), ground_h=.1, grey=.3)
     P['stave'] = cm.wood('Bucket_Stave', (.06, .036, .018), (.2, .125, .065), ground_h=.05, grey=.25); P['mortar'] = cm.stone('Lime_Mortar', light=(.46, .44, .39), dark=(.27, .26, .23), ochre=(.4, .38, .33), moss=0, lichen=0, crack=.25)
     return P
@@ -169,7 +175,7 @@ def cr04(P):
     with xf(T(x, 0, .036) @ RZ(.16) @ RX(-math.pi / 2) @ T(-x, 0, -.63)):
         blade('Spade_Blade', (x, 0, .0), .25, .34, P['iron'], g)
         rope('Spade_Spine', [(x, -.002, .1), (x, .004, .22), (x, .008, .35)], .012, P['iron'], ply=1, tw=0., seg=8, amp=0., group=g, grain='z', radius_fn=lambda t: .35 + .65 * t)
-        for k, (dx, dz, r0) in enumerate(((-.05, .05, .03), (.03, .03, .026), (.065, .075, .022), (-.015, .1, .02))):
+        for k, (dx, dz, r0) in enumerate(((-.05, .05, .03), (.03, .03, .026), (.065, .075, .022), (-.015, .1, .02), (.07, .03, .018), (-.08, .09, .016), (.02, .15, .017), (-.04, .19, .012))):
             sphere('Spade_Mud', (x + dx, -.006, dz), r0, P['mud'], scale=(1.25, .22, 1.), seg=10, ring=7, group=g, detail=1)
         lathe('Spade_Socket', [(.024, .33), (.021, .45), (.019, .47)], (x, .012, 0), P['iron'], seg=14, group=g)
         log('Spade_Shaft', [(x, .012, .44), (x, .014, .78), (x, .012, 1.06)], .0185, P['ash'], seg=10, lump=.015, seed=3, group=g, grain='z')
@@ -212,14 +218,20 @@ def cr04(P):
     lash('Basket_Grip', (x, .18, .46), (1, 0, 0), .0125, .1, .0048, P['hemp'], group=g, turns=9, detail=1)
     for sd, q in ((-1, a0), (1, a1)):
         lash('Basket_Tie', q, (.5 * sd, .3, .8), .016, .05, .004, P['hemp'], group=g, turns=4, detail=1)
+    Rb = random.Random(46)
+    for k_ in range(16):
+        u_, v_ = Rb.uniform(.22, .78), Rb.uniform(.5, .9); q_ = bfn(u_, v_); s_ = Rb.uniform(.014, .034)
+        rbox('Basket_Dirt', (q_[0], q_[1], q_[2] + s_ * .5), (s_ * 1.2, s_, s_ * .8), P['mud'], r=s_ * .4, amp=s_ * .24, freq=1 / s_ * 1.5, seed=k_, div=s_ * .5, group=g, detail=1)
     socket('Socket_Hand_Basket', (x, .18, .46))
     # tamper: 1.1 m, a heavy square block on a long handle, its grain split with age; tipped over, block and handle end on the ground
     g = 'Tamper'; x = .15
     with xf(T(x, 0, .116) @ RZ(-.1) @ RX(-math.pi / 2 - .075) @ T(-x, 0, -.55)):
-        rbox('Tamper_Block', (x, 0, .11), (.24, .2, .22), P['block'], r=.012, amp=.004, freq=9., chips=6, hew=8, seed=12, div=.03, grain='z', group=g)
-        for sd in (-.045, .05):
-            rbox('Tamper_Split', (x + sd, -.1, .1), (.004, .006, .17), P['iron'], r=.001, seed=3, div=.04, rot=(0, .03 * sd * 20, 0), grain='z', detail=1, group=g)
-        lathe('Tamper_Collar', [(.036, .215), (.032, .25), (.026, .27)], (x, 0, 0), P['iron'], seg=14, group=g)
+        rbox('Tamper_Block', (x, 0, .112), (.2, .19, .22), P['block'], r=.012, amp=.004, freq=19., chips=3, hew=2, seed=23, div=.02, grain='z', group=g)
+        for sd, a_ in ((-.05, .1), (.052, -.12)):
+            rbox('Tamper_Split', (x + sd, -.095, .11), (.004, .004, .1), P['iron'], r=.001, seed=3, div=.04, rot=(0, a_, 0), grain='z', detail=1, group=g)
+        for k_ in range(5):
+            sphere('Tamper_Mud', (x + math.cos(k_ * 1.9) * .07, math.sin(k_ * 1.9) * .07, .004), .022 + k_ * .004, P['mud'], scale=(1.3, 1.1, .3), seg=8, ring=5, group=g, detail=1)
+        lathe('Tamper_Collar', [(.04, .218), (.034, .25), (.026, .27)], (x, 0, 0), P['iron'], seg=14, group=g)
         log('Tamper_Shaft', [(x, 0, .25), (x, .003, .65), (x, 0, 1.03)], .024, P['ash'], seg=11, lump=.02, seed=8, group=g, grain='z')
         sphere('Tamper_Head', (x, 0, 1.05), .032, P['ash'], scale=(1, 1, 1.5), seg=12, ring=8, group=g)
         lash('Tamper_Lash', (x, .001, .68), (0, 0, 1), .025, .09, .0048, P['hemp'], group=g, turns=7, detail=1)
@@ -276,7 +288,7 @@ EARTH = [(-.44, 0.), (-.44, .2), (-.44, .385), (-.42, .405), (-.36, .415), (-.29
 
 
 def channel_palette():
-    P = {'earth': cm.packed_earth('Packed_Earth'), 'stake': cm.wood('Weathered_Stake', (.09, .055, .028), (.27, .18, .1), ground_h=.1, grey=.35)}
+    P = {'earth': cm.packed_earth('Packed_Earth', dark=(.04, .024, .012), light=(.125, .074, .038), crumb=1., moss=1.), 'stake': cm.wood('Weathered_Stake', (.09, .055, .028), (.27, .18, .1), ground_h=.1, grey=.35), 'cut': cm.wood('Stake_Cut', (.2, .14, .08), (.46, .36, .22), ground_h=0, grey=.1)}
     P['willow'] = cm.wood('Willow_Withy', (.09, .052, .022), (.24, .145, .06), ground_h=0, grey=.1); P['stone'] = cm.stone('Old_Channel_Stone', light=(.2, .19, .155), dark=(.1, .095, .08), ochre=(.17, .15, .1), moss=.75, wet_z=.3); P['hemp'] = mm.hemp('Withy_Tie', (.17, .105, .05), twist=40.0)
     P['grass'] = cm.moss_tuft('Bank_Grass'); P['moss'] = cm.moss_tuft('Bank_Moss', soft=True)
     return P
@@ -327,7 +339,10 @@ def channel(P, path, seed, amount=1.):
         p, n = path(v); x, z = prof(u)
         c = min(1., min(v, 1 - v) * 14)
         top = .25 < abs(x) < .43
-        lump = noise.fractal(Vector((p.x * 5.1, p.y * 5.1, seed + (1 if x > 0 else 0) * 3)), 1., 2., 4) * .034 * c if top else noise.noise(Vector((p.x * 7, p.y * 7, seed))) * .004 * c
+        side = 1 if x > 0 else 0; inner = .17 < abs(x) <= .25
+        lump = noise.fractal(Vector((p.x * 6.3, p.y * 6.3, seed + side * 3)), 1., 2.2, 5) * .04 * c if top else noise.fractal(Vector((p.x * 9, p.y * 9, seed + side)), 1., 2.2, 4) * .022 * c if inner else noise.noise(Vector((p.x * 7, p.y * 7, seed))) * .004 * c
+        # the crest wanders and the inner face has slumped in places: the section only holds at the ports
+        if .17 < abs(x) < .43: x += noise.noise(Vector((p.x * 2.4 + seed, p.y * 2.4, 2. + side))) * .028 * c * min(1., (abs(x) - .17) / .05) * min(1., (.43 - abs(x)) / .03)
         dent = 0.
         q = math.hypot((v - .36) / .05, (x + .36) / .05)
         if q < 1: dent = .018 * (1 - q * q)
@@ -346,6 +361,7 @@ def channel(P, path, seed, amount=1.):
             p, n = path(t); q = p + n * sx * .462
             top = .455 + R.uniform(-.035, .04)
             log('Stake', [(q.x, q.y, 0.), (q.x + R.uniform(-.004, .004), q.y + R.uniform(-.004, .004), .25), (q.x, q.y, top)], .03 + R.uniform(-.002, .004), P['stake'], seg=10, lump=.08, seed=i + sx, grain='z')
+            lathe('Stake_Cut', [(0, .002), (.024, .002), (.027, -.004)], (q.x, q.y, top), P['cut'], seg=10)
             for z in (.13, .34):
                 lash('Stake_Tie', (q.x, q.y, z), (0, 0, 1), .032, .045, .0052, P['hemp'], turns=3, detail=1)
         for row in range(7):
@@ -361,13 +377,23 @@ def channel(P, path, seed, amount=1.):
                 t0, t1 = at[b] + .02, at[b + 1] - .02
                 pa, na = path(t0); pb, nb = path(t1); pm, nm = path((t0 + t1) / 2)
                 rope('Withy', [tuple(pa + na * sx * .452 + Vector((0, 0, z0))), tuple(pm + nm * sx * .478 + Vector((0, 0, (z0 + z1) / 2))), tuple(pb + nb * sx * .452 + Vector((0, 0, z1)))], .0075, P['willow'], ply=1, tw=0, seg=6, amp=0, curve=4, step=.03, detail=1)
+        # stones the digging left in the bank, and old roots washed clear on the inner face
+        for i in range(round(5 * amount)):
+            p, n = path(R.uniform(.08, .92)); d = R.uniform(.2, .24); q = p + n * sx * d
+            rbox('Bank_Stone', (q.x, q.y, .17 + (d - .2) * 2.8), (R.uniform(.06, .12), R.uniform(.05, .09), R.uniform(.05, .08)), P['stone'], r=.012, amp=.009, freq=15., chips=3, hew=3, seed=i * 3 + seed + sx, div=.025, rot=(R.uniform(-.2, .2), R.uniform(-.2, .2), R.uniform(0, 3.)), detail=1)
+        for i in range(round(4 * amount)):
+            t0 = R.uniform(.1, .86); pts = []
+            for j in range(5):
+                k = j / 4; p, n = path(t0 + k * .05); pts.append(tuple(p + n * sx * (.25 - k * .06) + Vector((0, 0, .36 - k * .17 + .006 * math.sin(j * 2 + i)))))
+            log('Bank_Root', pts, .0055 - i * .0005, P['willow'], seg=5, lump=.15, seed=i + sx, detail=1, step=.03)
         # bank top: moss cushions and young grass, it has settled for a season
-        for i in range(round(18 * amount)):
+        for i in range(round(30 * amount)):
             t = R.uniform(.02, .98); p, n = path(t); d = R.uniform(.27, .43)
             q = p + n * sx * d
             tuft('Bank_Moss', (q.x, q.y, .405 if d > .29 else .39), R.uniform(.018, .04), P['moss'], seed=i + seed)
-        for i in range(round(30 * amount)):
-            t = R.uniform(.03, .97); p, n = path(t); d = R.uniform(.29, .42)
+        patches = [R.uniform(.05, .95) for _ in range(max(2, round(5 * amount)))]
+        for i in range(round(52 * amount)):
+            t = min(.97, max(.03, patches[i % len(patches)] + R.gauss(0, .055))); p, n = path(t); d = R.uniform(.29, .42)
             q = p + n * sx * d; z = .405
             for b in range(5):
                 a = R.uniform(0, 6.28); base = q + Vector((math.cos(a) * .03, math.sin(a) * .03, z - .01))
@@ -396,7 +422,9 @@ def cross_height(x, y, seed):
             z = za + (zb - za) * (d - a) / max(b - a, 1e-6)
             break
     edge = min(1., (CROSS - max(abs(x), abs(y))) * 14)
-    return z + (noise.fractal(Vector((x * 5.1, y * 5.1, seed)), 1., 2., 4) * .034 * edge if .25 < d < .43 else noise.noise(Vector((x * 7, y * 7, seed))) * .004 * edge)
+    near = max(abs(x), abs(y)); corner = max(0., 1 - (near - .3) / .28)    # the mound over the inner corner is cut flatter, with a broken shoulder: not a pillow
+    if .25 < d < .43: return z - .03 * corner * edge + (noise.fractal(Vector((x * 6.3, y * 6.3, seed)), 1., 2.2, 5) * .046 + abs(noise.noise(Vector((x * 15, y * 15, seed + 3)))) * .018) * edge
+    return z + (noise.fractal(Vector((x * 9, y * 9, seed)), 1., 2.2, 4) * .02 if .17 < d <= .25 else noise.noise(Vector((x * 7, y * 7, seed))) * .004) * edge
 
 
 def cr15_cross(P):
@@ -420,6 +448,9 @@ def cr15_cross(P):
     for sx in (-1, 1):
         for sy in (-1, 1):
             # guard stones where the water turns and cuts hardest
+            for k_, (ax_, ay_, w_, d_, h_) in enumerate(((.262, .19, .1, .075, .075), (.19, .262, .075, .1, .075), (.33, .197, .085, .07, .065), (.197, .33, .07, .085, .065))):
+                q_x, q_y = sx * ax_, sy * ay_
+                rbox('Facing_Stone', (q_x, q_y, max(.13, cross_height(q_x, q_y, seed)) + h_ * .05), (w_, d_, h_), P['stone'], r=.014, amp=.008, freq=13., chips=3, hew=4, seed=int(sx * 3 + sy + 70 + k_ * 5), div=.025, rot=(R.uniform(-.06, .06), R.uniform(-.06, .06), R.uniform(-.12, .12)))
             rbox('Guard_Stone', (sx * .232, sy * .232, .17), (.15, .13, .15), P['stone'], r=.016, amp=.012, freq=11., chips=4, hew=4, seed=int(sx * 3 + sy + 40), div=.03, rot=(0, 0, math.pi / 4 + sx * sy * .2))
             rbox('Guard_Stone', (sx * .3, sy * .205, .135), (.11, .09, .08), P['stone'], r=.012, amp=.01, freq=13., chips=3, hew=4, seed=int(sx * 5 + sy + 50), div=.03, rot=(0, 0, .3 * sx), detail=1)
             rbox('Guard_Stone', (sx * .205, sy * .3, .13), (.09, .1, .07), P['stone'], r=.012, amp=.01, freq=13., chips=3, hew=4, seed=int(sx * 7 + sy + 60), div=.03, rot=(0, 0, -.25 * sy), detail=1)
@@ -431,16 +462,17 @@ def cr15_cross(P):
             for i, t in enumerate((.04, .5, .96)):
                 q = on(t); top = .455 + R.uniform(-.035, .04)
                 log('Stake', [(q.x, q.y, 0.), (q.x + R.uniform(-.004, .004), q.y + R.uniform(-.004, .004), .25), (q.x, q.y, top)], .03 + R.uniform(-.002, .004), P['stake'], seg=10, lump=.08, seed=i + sx * 3 + sy, grain='z')
+                lathe('Stake_Cut', [(0, .002), (.024, .002), (.027, -.004)], (q.x, q.y, top), P['cut'], seg=10)
                 for z in (.13, .34): lash('Stake_Tie', (q.x, q.y, z), (0, 0, 1), .032, .045, .0052, P['hemp'], turns=3, detail=1)
             for row in range(7):
                 rowz = .05 + row * .05
                 rope('Withy', [tuple(on(i / 40) + Vector((0, 0, rowz + .004 * math.sin(i * .7 + row)))) for i in range(41)], .0085 + .0015 * (row % 2), P['willow'], ply=1, tw=0, seg=4, amp=0, curve=1, step=.07, detail=1, grain='y')
             # the bank top between the two arms
-            for i in range(6):
+            for i in range(11):
                 x, y = sx * R.uniform(.27, .44), sy * R.uniform(.27, .7)
                 if i % 2: x, y = sx * abs(y), sy * abs(x)
                 tuft('Bank_Moss', (x, y, .4), R.uniform(.018, .04), P['moss'], seed=i + seed + sx + sy * 7)
-            for i in range(9):
+            for i in range(16):
                 x, y = sx * R.uniform(.3, .43), sy * R.uniform(.3, .68)
                 if i % 2: x, y = sx * abs(y), sy * abs(x)
                 for b in range(5):
@@ -466,8 +498,8 @@ def cr06_short(P): channel(P, path_short, 63, .25)
 
 # ------------------------------------------------------------------ CR08 flume
 def flume_palette():
-    P = {'plank': cm.wood('Cedar_Trough', (.1, .056, .026), (.32, .19, .09), wet_z=.3, ground_h=0, grey=.12), 'patch': cm.wood('Cedar_Patch', (.14, .085, .042), (.38, .25, .125), wet_z=.3, ground_h=0, grey=.04)}
-    P['bam_cap'] = cm.wood('Split_Bamboo', (.1, .1, .035), (.3, .24, .1), ground_h=0, grey=.05); P['frame'] = cm.wood('Frame_Oak', (.05, .03, .015), (.17, .1, .05), ground_h=0, grey=.3); P['drip'] = tm.plain('Drip_Water', (.1, .24, .22), rough=.08, noise=.02); P['hemp'] = mm.hemp('Hemp_Rope', (.2, .125, .055), twist=40.0)
+    P = {'plank': cm.wood('Cedar_Trough', (.085, .046, .02), (.31, .175, .075), wet_z=.34, ground_h=0, grey=.16, moss=True, moss_amt=.6), 'patch': cm.wood('Cedar_Patch', (.12, .075, .038), (.33, .22, .11), wet_z=.34, ground_h=0, grey=.16)}
+    P['bam_cap'] = cm.wood('Split_Bamboo', (.15, .13, .035), (.42, .32, .1), ground_h=0, grey=.03); P['frame'] = cm.wood('Frame_Oak', (.05, .03, .015), (.17, .1, .05), ground_h=0, grey=.3); P['drip'] = tm.plain('Drip_Water', (.1, .24, .22), rough=.08, noise=.02); P['hemp'] = mm.hemp('Hemp_Rope', (.27, .17, .07), twist=40.0)
     return P
 
 
@@ -485,7 +517,7 @@ def sweep(name, path, x0, x1, z0, z1, mat, t0=0., t1=1., n=24, seed=0, bevel=.00
     verts, faces = [], []
     for i in range(n + 1):
         t = t0 + (t1 - t0) * i / n; p, nn = path(t)
-        wob = noise.noise(Vector((t * 9, seed * 1.7, 0))) * .003
+        wob = noise.noise(Vector((t * 9, seed * 1.7, 0))) * .007 + noise.noise(Vector((t * 34, seed * 2.3, 1))) * .002
         for x, z in ((x0, z0), (x1, z0), (x1, z1), (x0, z1)):
             verts.append(tuple(p + nn * (x + wob) + Vector((0, 0, z + wob * .6))))
     for i in range(n):
@@ -565,8 +597,8 @@ def cr08_bend(P): flume(P, path_bend, 82)
 
 
 def weed_palette():
-    return {'leaf': cm.weed_leaf('Weed_Leaf', (.02, .11, .012), (.07, .24, .012), (.05, .3, .16)), 'light': cm.weed_leaf('Weed_Leaf_Light', (.035, .16, .012), (.13, .34, .014), (.08, .38, .2)), 'shade': cm.weed_leaf('Weed_Leaf_Shade', (.012, .07, .012), (.03, .15, .016), (.03, .2, .11)),
-            'stem': tm.plain('Weed_Stem', (.035, .2, .04), rough=.5, noise=.15), 'mud': tm.plain('Weed_Mud', (.07, .05, .033), rough=.5, noise=.45), 'root': tm.plain('Weed_Root', (.3, .22, .11), rough=.8, noise=.25)}
+    return {'bead': tm.plain('Water_Bead', (.13, .3, .27), rough=.06, noise=0.), 'leaf': cm.weed_leaf('Weed_Leaf', (.04, .17, .018), (.14, .38, .035), (.08, .4, .24)), 'light': cm.weed_leaf('Weed_Leaf_Light', (.07, .24, .018), (.25, .52, .045), (.12, .5, .32)), 'shade': cm.weed_leaf('Weed_Leaf_Shade', (.025, .12, .016), (.07, .26, .026), (.05, .3, .18)),
+            'stem': tm.plain('Weed_Stem', (.04, .24, .04), rough=.5, noise=.15), 'mud': tm.plain('Weed_Mud', (.07, .05, .033), rough=.5, noise=.45), 'root': tm.plain('Weed_Root', (.42, .33, .18), rough=.8, noise=.25)}
 
 
 def cr14_weed(P):
@@ -579,7 +611,7 @@ def cr14_weed(P):
         a = u * math.tau; ca, sa = math.cos(a), math.sin(a); wob = 1 + .14 * noise.noise(Vector((ca * 2.2, sa * 2.2, 3.)))
         x, y = ca * .06 * v * wob, -.005 + sa * .07 * v * wob
         return (x, y, max(0., lump_z(x, y)))
-    surface('Mud_Lump', 16, 5, lump, P['mud'], closed_u=True)
+    surface('Mud_Lump', 30, 8, lump, P['mud'], closed_u=True)
     # fine pale roots spread from the crown over the silt
     for k in range(9):
         a = k / 9 * math.tau + R.uniform(-.25, .25); bend = R.uniform(-.5, .5); reach = R.uniform(.032, .052); pts = []
@@ -592,18 +624,23 @@ def cr14_weed(P):
         side = along.cross(out).normalized()
         def spine(v): return c + out * (L * v) + along * (L * (rise * math.sin(v * math.pi * .75) - droop * v ** 3))
         flat = side.cross((spine(1.) - c).normalized()).normalized(); th = w * .2
-        v1, v2 = .34, .68; a1, a2 = spine(v1), spine(v2); w1, w2 = w, w * .72
-        verts = [c, spine(1.), a1 + side * w1, a1 - side * w1, a2 + side * w2, a2 - side * w2, a1 + flat * th, a1 - flat * th, a2 + flat * th * .7, a2 - flat * th * .7]
-        faces = [(0, 2, 6), (0, 6, 3), (2, 4, 8), (2, 8, 6), (6, 8, 5), (6, 5, 3), (4, 1, 8), (8, 1, 5), (0, 7, 2), (0, 3, 7), (2, 9, 4), (2, 7, 9), (7, 5, 9), (7, 3, 5), (4, 9, 1), (9, 5, 1)]
-        o = mesh('Leaf', [tuple(v) for v in verts], faces, mat, smooth=False, grain='z')
-        set_attr_list(o, 'cuv', [(.5, 0., 0.), (.5, 1., 0.), (0., v1, 0.), (1., v1, 0.), (0., v2, 0.), (1., v2, 0.), (.5, v1, 0.), (.5, v1, 0.), (.5, v2, 0.), (.5, v2, 0.)])
+        stops = ((.2, .8), (.5, 1.), (.8, .55)); verts = [c, spine(1.)]; attr = [(.5, 0., 0.), (.5, 1., 0.)]
+        for v_, k_ in stops:
+            a_ = spine(v_); verts += [a_ + side * w * k_, a_ + flat * th * k_, a_ - side * w * k_, a_ - flat * th * k_]; attr += [(0., v_, 0.), (.5, v_, 0.), (1., v_, 0.), (.5, v_, 0.)]
+        faces = [(0, 2, 3), (0, 3, 4), (0, 4, 5), (0, 5, 2)]
+        for r_ in range(2):
+            a_ = 2 + r_ * 4
+            faces += [(a_ + q_, a_ + 4 + q_, a_ + 4 + (q_ + 1) % 4, a_ + (q_ + 1) % 4) for q_ in range(4)]
+        faces += [(10, 1, 11), (11, 1, 12), (12, 1, 13), (13, 1, 10)]
+        o = mesh('Leaf', [tuple(v) for v in verts], faces, mat, smooth=True, grain='z')
+        set_attr_list(o, 'cuv', attr)
     for s_ in range(9):
         inner = s_ >= 7
         a = (s_ + R.uniform(-.2, .2)) / 7 * math.tau + .3; fan = R.uniform(.012, .025) if inner else R.uniform(.075, .125); h = R.uniform(.1, .13) if inner else .15 + .075 * (s_ * 3 % 7) / 6; lean = R.uniform(.005, .025); sway = R.uniform(0, 6)
         base = Vector((math.cos(a) * .004, -.005 + math.sin(a) * .004, lump_z(0, -.005) - .003))
         def stem(t, base=base, a=a, fan=fan, h=h, lean=lean, sway=sway):
             return base + Vector((math.cos(a) * fan * t ** 1.25 + .004 * math.sin(t * 5 + sway), math.sin(a) * fan * .82 * t ** 1.25 + lean * t ** 1.5, h * t * (1 - .06 * t * t)))
-        log('Stem', [tuple(stem(i / 6)) for i in range(7)], .0012, P['stem'], seg=4, lump=.08, seed=s_, step=.022)
+        log('Stem', [tuple(stem(i / 6)) for i in range(7)], .0017, P['stem'], seg=5, lump=.08, seed=s_, step=.022)
         n = int(12 + h * 32)
         for j in range(n):
             t = .15 + .85 * (1 - (1 - (j + .5) / n) ** 1.3)   # bare just above the crown, crowding together towards the tip
@@ -611,14 +648,16 @@ def cr14_weed(P):
             ref = Vector((0, 0, 1)) if abs(along.z) < .9 else Vector((1, 0, 0)); e1 = along.cross(ref).normalized(); e2 = along.cross(e1)
             for q in range(3):
                 ang = j * math.pi / 3 + q * math.tau / 3 + R.uniform(-.2, .2); out = (e1 * math.cos(ang) + e2 * math.sin(ang)).normalized()
-                L = R.uniform(.031, .039) * (1.05 - .55 * t ** 3); roll = R.random()
+                L = R.uniform(.025, .031) * (1.05 - .55 * t ** 3); roll = R.random()
                 mat = P['shade'] if t < .3 or roll < .14 else P['light'] if t > .72 or roll > .75 else P['leaf']
-                leaf(c, along, out, L, L * .13, .42 + .35 * t, .3, mat)
+                leaf(c, along, out, L, L * .1, .62 + .3 * t, .2, mat)
+                if t > .55 and R.random() < .11:   # a bead of water caught at the tip, as on the reference
+                    sphere('Water_Bead', tuple(c + out * L * .8 + along * L * ((.62 + .3 * t) * math.sin(.6 * math.pi) - .2 * .51) - Vector((0, 0, .0016))), R.uniform(.0012, .0021), P['bead'], seg=8, ring=5, detail=1)
     collide(((-.08, -.08, 0), (.08, .08, .05)))
 
 
 def trestle_palette():
-    return {'frame': cm.wood('Trestle_Cedar', (.06, .035, .018), (.2, .125, .065), ground_h=.35, moss=True, grey=.3), 'hemp': mm.hemp('Hemp_Rope', (.2, .125, .055), twist=40.0), 'moss': cm.moss_tuft('Foot_Moss', soft=True)}
+    return {'frame': cm.wood('Trestle_Cedar', (.075, .04, .018), (.27, .15, .065), ground_h=.35, moss=True, grey=.16), 'hemp': mm.hemp('Hemp_Rope', (.27, .17, .07), twist=40.0), 'moss': cm.moss_tuft('Foot_Moss', soft=True)}
 
 
 def trestle(P, h):

@@ -26,7 +26,7 @@
     "Main": {
       "dims_m": [
         3.8025,
-        12.0,
+        11.8737,
         3.9545
       ],
       "pivot": [
@@ -39,7 +39,7 @@
     "Detail_Small": {
       "dims_m": [
         3.5699,
-        11.555,
+        11.7595,
         3.518
       ],
       "pivot": [
@@ -52,20 +52,20 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 63632,
-      "LOD1": 31816,
-      "LOD2": 9544
+      "LOD0": 55074,
+      "LOD1": 27536,
+      "LOD2": 8260
     },
     "Detail_Small": {
-      "LOD0": 48130,
-      "LOD1": 24064,
-      "LOD2": 7218
+      "LOD0": 41225,
+      "LOD1": 20611,
+      "LOD2": 6182
     }
   },
   "lod_totals": {
-    "LOD0": 111762,
-    "LOD1": 55880,
-    "LOD2": 16762
+    "LOD0": 96299,
+    "LOD1": 48147,
+    "LOD2": 14442
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [
@@ -123,7 +123,7 @@
     ],
     "Socket_RoadEnd_Rear": [
       -0.0014,
-      5.9932,
+      5.867,
       1.9353
     ]
   },
@@ -135,7 +135,7 @@
     ],
     "Socket_RoadEnd_Rear.001": [
       -0.0014,
-      5.9932,
+      5.867,
       1.9353
     ]
   },

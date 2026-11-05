@@ -1,45 +1,11 @@
 {
  "asset": "WM09_BambooPavilion_v001",
- "pieces": 1110,
+ "pieces": 1173,
  "touch_m": 0.002,
  "unsupported": [
   {
    "object": "WM09_BambooPavilion_Detail_Small",
-   "verts": 2115,
-   "centre": [
-    -1.123,
-    -0.644,
-    0.305
-   ],
-   "size": [
-    0.254,
-    0.255,
-    0.098
-   ],
-   "gap_mm": 8.9,
-   "nearest": "WM09_BambooPavilion",
-   "drop_mm": 56.4
-  },
-  {
-   "object": "WM09_BambooPavilion_Detail_Small",
-   "verts": 2115,
-   "centre": [
-    1.125,
-    0.649,
-    0.304
-   ],
-   "size": [
-    0.254,
-    0.255,
-    0.098
-   ],
-   "gap_mm": 8.0,
-   "nearest": "WM09_BambooPavilion",
-   "drop_mm": 57.5
-  },
-  {
-   "object": "WM09_BambooPavilion_Detail_Small",
-   "verts": 2115,
+   "verts": 1383,
    "centre": [
     0.002,
     1.289,
@@ -47,46 +13,46 @@
    ],
    "size": [
     0.254,
-    0.255,
-    0.098
+    0.254,
+    0.097
    ],
-   "gap_mm": 5.8,
+   "gap_mm": 5.6,
    "nearest": "WM09_BambooPavilion",
-   "drop_mm": 57.6
+   "drop_mm": 53.6
   },
   {
    "object": "WM09_BambooPavilion_Detail_Small",
-   "verts": 2115,
+   "verts": 1383,
    "centre": [
-    -1.123,
-    0.645,
+    1.125,
+    0.649,
     0.305
    ],
    "size": [
     0.254,
-    0.255,
-    0.098
+    0.254,
+    0.097
    ],
-   "gap_mm": 5.8,
+   "gap_mm": 5.5,
    "nearest": "WM09_BambooPavilion",
-   "drop_mm": 52.9
+   "drop_mm": 53.3
   },
   {
    "object": "WM09_BambooPavilion_Detail_Small",
-   "verts": 2115,
+   "verts": 1383,
    "centre": [
-    1.128,
+    -1.124,
     -0.644,
     0.305
    ],
    "size": [
     0.254,
-    0.255,
-    0.098
+    0.254,
+    0.097
    ],
-   "gap_mm": 5.8,
+   "gap_mm": 5.4,
    "nearest": "WM09_BambooPavilion",
-   "drop_mm": 57.3
+   "drop_mm": 49.4
   },
   {
    "object": "WM09_BambooPavilion_Detail_Vines",
@@ -104,6 +70,23 @@
    "gap_mm": 5.3,
    "nearest": "WM09_BambooPavilion_Detail_Vines",
    "drop_mm": 11.1
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Small",
+   "verts": 11,
+   "centre": [
+    -0.749,
+    1.016,
+    0.206
+   ],
+   "size": [
+    0.024,
+    0.028,
+    0.001
+   ],
+   "gap_mm": 4.8,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 4.8
   },
   {
    "object": "WM09_BambooPavilion_Detail_Straw",
@@ -135,9 +118,9 @@
     0.033,
     0.139
    ],
-   "gap_mm": 4.2,
+   "gap_mm": 4.1,
    "nearest": "WM09_BambooPavilion",
-   "drop_mm": 4.8
+   "drop_mm": 4.7
   },
   {
    "object": "WM09_BambooPavilion_Detail_Straw",
@@ -152,7 +135,7 @@
     0.12,
     0.225
    ],
-   "gap_mm": 3.7,
+   "gap_mm": 3.8,
    "nearest": "WM09_BambooPavilion",
    "drop_mm": 25.3
   },
@@ -174,6 +157,23 @@
    "drop_mm": 29.5
   },
   {
+   "object": "WM09_BambooPavilion_Detail_Small",
+   "verts": 12,
+   "centre": [
+    -1.34,
+    -0.196,
+    0.213
+   ],
+   "size": [
+    0.022,
+    0.044,
+    0.001
+   ],
+   "gap_mm": 3.1,
+   "nearest": "WM09_BambooPavilion_Detail_Small",
+   "drop_mm": 3.1
+  },
+  {
    "object": "WM09_BambooPavilion_Detail_Straw",
    "verts": 6,
    "centre": [
@@ -188,7 +188,24 @@
    ],
    "gap_mm": 3.0,
    "nearest": "WM09_BambooPavilion",
-   "drop_mm": 22.4
+   "drop_mm": 22.3
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Small",
+   "verts": 11,
+   "centre": [
+    -0.819,
+    0.449,
+    0.228
+   ],
+   "size": [
+    0.041,
+    0.048,
+    0.001
+   ],
+   "gap_mm": 2.7,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 8.5
   },
   {
    "object": "WM09_BambooPavilion_Detail_Straw",
@@ -211,6 +228,23 @@
    "object": "WM09_BambooPavilion_Detail_Straw",
    "verts": 6,
    "centre": [
+    -0.562,
+    -1.309,
+    2.448
+   ],
+   "size": [
+    0.085,
+    0.162,
+    0.235
+   ],
+   "gap_mm": 2.4,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 11.4
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
     1.398,
     -0.421,
     2.358
@@ -228,18 +262,35 @@
    "object": "WM09_BambooPavilion_Detail_Straw",
    "verts": 6,
    "centre": [
-    -0.562,
-    -1.309,
-    2.448
+    -1.413,
+    0.735,
+    2.316
    ],
    "size": [
-    0.085,
-    0.162,
-    0.235
+    0.155,
+    0.091,
+    0.276
    ],
-   "gap_mm": 2.1,
-   "nearest": "WM09_BambooPavilion",
-   "drop_mm": 11.4
+   "gap_mm": 2.2,
+   "nearest": "WM09_BambooPavilion_Detail_Small",
+   "drop_mm": 24.1
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    -0.059,
+    1.57,
+    2.333
+   ],
+   "size": [
+    0.019,
+    0.134,
+    0.233
+   ],
+   "gap_mm": 2.0,
+   "nearest": "WM09_BambooPavilion_Detail_Small",
+   "drop_mm": 5.5
   },
   {
    "object": "WM09_BambooPavilion_Detail_Straw",

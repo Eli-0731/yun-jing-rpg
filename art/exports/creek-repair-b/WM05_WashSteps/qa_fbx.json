@@ -1,6 +1,6 @@
 {
  "asset": "WM05_WashSteps_v001",
- "tris": 38384,
+ "tris": 53778,
  "objects": [
   "WM05_WashSteps_Detail_Small_LOD0",
   "WM05_WashSteps_LOD0"
@@ -8,68 +8,58 @@
  "near_coplanar": {
   "1mm": {
    "state_alternatives": 0,
-   "same_underside_on_ground": 21,
-   "same_between": 96,
+   "same_underside_on_ground": 91,
+   "same_between": 166,
    "same_inside": 0,
-   "same": 96,
-   "two_sides": 165,
+   "same": 166,
+   "two_sides": 161,
    "groups": {
     "Detail_Small|two_sides_inside": {
-     "pairs": 160,
-     "overlap_cm2": 225.1
-    },
-    "Detail_Small|same_between": {
-     "pairs": 67,
-     "overlap_cm2": 54.37
+     "pairs": 156,
+     "overlap_cm2": 195.33
     },
     "WashSteps|same_between": {
-     "pairs": 29,
-     "overlap_cm2": 573.54
+     "pairs": 107,
+     "overlap_cm2": 766.17
+    },
+    "Detail_Small|same_between": {
+     "pairs": 59,
+     "overlap_cm2": 43.42
     },
     "WashSteps|two_sides_between": {
-     "pairs": 4,
-     "overlap_cm2": 29.96
-    },
-    "Detail_Small|two_sides_between": {
-     "pairs": 1,
-     "overlap_cm2": 3.99
+     "pairs": 5,
+     "overlap_cm2": 42.18
     }
    },
    "same_at": [
     [
-     -2.71,
-     -1.17,
-     0.25,
-     9
-    ],
-    [
-     -2.71,
-     -0.06,
-     0.92,
-     6
-    ],
-    [
-     -2.49,
-     -0.56,
-     0.47,
-     5
-    ],
-    [
      2.5,
      0.84,
-     0.91,
-     5
+     0.9,
+     10
     ],
     [
      -2.49,
      0.14,
-     0.92,
+     0.93,
      4
+    ],
+    [
+     -2.71,
+     -1.17,
+     0.25,
+     3
     ],
     [
      -2.72,
      -1.16,
      0.25,
+     3
+    ],
+    [
+     -2.49,
+     -0.56,
+     0.47,
      3
     ],
     [
@@ -81,7 +71,7 @@
     [
      2.51,
      -0.56,
-     0.47,
+     0.48,
      3
     ],
     [
@@ -91,81 +81,81 @@
      3
     ],
     [
-     1.55,
-     1.19,
+     2.52,
+     0.84,
+     0.9,
+     3
+    ],
+    [
+     -0.96,
+     0.97,
      0.01,
      3
     ],
     [
-     -2.71,
-     -1.15,
-     0.27,
-     2
+     -0.51,
+     0.48,
+     0.01,
+     3
     ],
     [
-     -2.71,
-     -1.15,
-     0.25,
+     -2.49,
+     -0.56,
+     0.48,
      2
     ]
    ]
   },
   "0.5mm": {
    "state_alternatives": 0,
-   "same_underside_on_ground": 2,
-   "same_between": 64,
+   "same_underside_on_ground": 13,
+   "same_between": 65,
    "same_inside": 0,
-   "same": 64,
-   "two_sides": 138,
+   "same": 65,
+   "two_sides": 135,
    "groups": {
     "Detail_Small|two_sides_inside": {
-     "pairs": 138,
-     "overlap_cm2": 130.58
+     "pairs": 135,
+     "overlap_cm2": 129.84
     },
     "Detail_Small|same_between": {
-     "pairs": 62,
-     "overlap_cm2": 48.58
+     "pairs": 51,
+     "overlap_cm2": 33.22
     },
     "WashSteps|same_between": {
-     "pairs": 2,
-     "overlap_cm2": 37.35
+     "pairs": 14,
+     "overlap_cm2": 118.76
     }
    },
    "same_at": [
     [
-     -2.71,
-     -1.17,
-     0.25,
-     9
-    ],
-    [
-     -2.71,
-     -0.06,
-     0.92,
-     6
-    ],
-    [
-     -2.49,
-     -0.56,
-     0.47,
-     5
-    ],
-    [
      2.5,
      0.84,
-     0.91,
-     5
+     0.9,
+     10
     ],
     [
      -2.49,
      0.14,
-     0.92,
+     0.93,
      4
+    ],
+    [
+     -2.71,
+     -1.17,
+     0.25,
+     3
     ],
     [
      -2.72,
      -1.16,
      0.25,
+     3
+    ],
+    [
+     -2.49,
+     -0.56,
+     0.47,
      3
     ],
     [
@@ -177,7 +167,7 @@
     [
      2.51,
      -0.56,
-     0.47,
+     0.48,
      3
     ],
     [
@@ -187,21 +177,27 @@
      3
     ],
     [
-     -2.71,
-     -1.15,
-     0.27,
-     2
+     2.52,
+     0.84,
+     0.9,
+     3
     ],
     [
-     -2.71,
-     -1.15,
-     0.25,
+     -0.96,
+     0.97,
+     0.01,
+     3
+    ],
+    [
+     -2.49,
+     -0.56,
+     0.48,
      2
     ],
     [
      -2.5,
      0.14,
-     0.92,
+     0.93,
      2
     ]
    ]
@@ -212,34 +208,34 @@
    "same_between": 24,
    "same_inside": 0,
    "same": 24,
-   "two_sides": 137,
+   "two_sides": 134,
    "groups": {
     "Detail_Small|two_sides_inside": {
-     "pairs": 137,
-     "overlap_cm2": 130.55
+     "pairs": 134,
+     "overlap_cm2": 129.8
     },
     "Detail_Small|same_between": {
      "pairs": 24,
-     "overlap_cm2": 14.21
+     "overlap_cm2": 14.42
     }
    },
    "same_at": [
     [
+     2.5,
+     0.84,
+     0.9,
+     6
+    ],
+    [
      -2.71,
      -1.17,
      0.25,
-     6
+     3
     ],
     [
      -2.72,
      -1.16,
      0.25,
-     3
-    ],
-    [
-     -2.71,
-     -0.06,
-     0.92,
      3
     ],
     [
@@ -249,16 +245,22 @@
      3
     ],
     [
-     -2.71,
-     -1.15,
-     0.25,
+     -2.49,
+     -0.56,
+     0.48,
      2
     ],
     [
-     -2.49,
-     -0.56,
-     0.47,
+     2.52,
+     0.84,
+     0.9,
      2
+    ],
+    [
+     -2.71,
+     -1.16,
+     0.25,
+     1
     ],
     [
      -2.7,
@@ -269,19 +271,13 @@
     [
      -2.5,
      -0.56,
-     0.47,
+     0.48,
      1
     ],
     [
      -2.49,
      -0.57,
      0.48,
-     1
-    ],
-    [
-     -2.71,
-     -0.07,
-     0.93,
      1
     ],
     [

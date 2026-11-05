@@ -15,7 +15,7 @@
   "dimensions_m": [
     1.2,
     4.6022,
-    4.6018
+    4.602
   ],
   "size_limit_m": [
     1.2,
@@ -27,14 +27,14 @@
       "dims_m": [
         1.2,
         4.6022,
-        4.6018
+        4.602
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": -2.3009
+      "min_z_local": -2.301
     },
     "Detail_Small": {
       "dims_m": [
@@ -47,25 +47,25 @@
         0.0,
         0.0
       ],
-      "min_z_local": -2.1648
+      "min_z_local": -2.1647
     }
   },
   "lods": {
     "Main": {
-      "LOD0": 30068,
-      "LOD1": 15034,
-      "LOD2": 4510
+      "LOD0": 24654,
+      "LOD1": 12326,
+      "LOD2": 3698
     },
     "Detail_Small": {
-      "LOD0": 38432,
-      "LOD1": 19216,
-      "LOD2": 5764
+      "LOD0": 45578,
+      "LOD1": 22788,
+      "LOD2": 6836
     }
   },
   "lod_totals": {
-    "LOD0": 68500,
-    "LOD1": 34250,
-    "LOD2": 10274
+    "LOD0": 70232,
+    "LOD1": 35114,
+    "LOD2": 10534
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

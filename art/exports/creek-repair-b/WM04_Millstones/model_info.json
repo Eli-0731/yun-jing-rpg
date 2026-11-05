@@ -14,7 +14,7 @@
   "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
   "origin": "bottom centre",
   "dimensions_m": [
-    1.949,
+    1.9441,
     1.2383,
     0.9247
   ],
@@ -26,8 +26,8 @@
   "pieces": {
     "Main": {
       "dims_m": [
-        1.7391,
-        1.2292,
+        1.7342,
+        1.2243,
         0.9247
       ],
       "pivot": [
@@ -54,21 +54,21 @@
       "dims_m": [
         0.1558,
         0.209,
-        0.034
+        0.0203
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 0.0353
+      "min_z_local": 0.0302
     }
   },
   "lods": {
     "Main": {
       "LOD0": 34112,
       "LOD1": 17056,
-      "LOD2": 5116
+      "LOD2": 5115
     },
     "Detail_Small": {
       "LOD0": 4736,
@@ -84,7 +84,7 @@
   "lod_totals": {
     "LOD0": 38980,
     "LOD1": 19490,
-    "LOD2": 5845
+    "LOD2": 5844
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

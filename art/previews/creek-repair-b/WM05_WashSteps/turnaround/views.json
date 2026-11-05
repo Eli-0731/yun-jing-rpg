@@ -13,8 +13,8 @@
       ],
       "camera_location": [
         0.0,
-        -16.8612,
-        0.5962
+        -16.8631,
+        0.5963
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -27,9 +27,9 @@
         0
       ],
       "camera_location": [
-        16.8612,
-        -0.0,
-        0.5962
+        16.8631,
+        0.0,
+        0.5963
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -43,8 +43,8 @@
       ],
       "camera_location": [
         0.0,
-        16.8612,
-        0.5962
+        16.8631,
+        0.5963
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -57,9 +57,9 @@
         0
       ],
       "camera_location": [
-        -16.8612,
-        -0.0,
-        0.5962
+        -16.8631,
+        0.0,
+        0.5963
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -72,9 +72,9 @@
         0.45
       ],
       "camera_location": [
-        11.3613,
-        -11.3613,
-        5.7088
+        11.3626,
+        -11.3626,
+        5.7095
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -87,9 +87,9 @@
         0.45
       ],
       "camera_location": [
-        11.3613,
-        11.3613,
-        5.7088
+        11.3626,
+        11.3626,
+        5.7095
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -102,9 +102,9 @@
         0.45
       ],
       "camera_location": [
-        -11.3613,
-        11.3613,
-        5.7088
+        -11.3626,
+        11.3626,
+        5.7095
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -117,9 +117,9 @@
         0.45
       ],
       "camera_location": [
-        -11.3613,
-        -11.3613,
-        5.7088
+        -11.3626,
+        -11.3626,
+        5.7095
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -133,8 +133,8 @@
       ],
       "camera_location": [
         0.0,
-        -0.0,
-        17.4574
+        0.0,
+        17.4594
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -148,8 +148,8 @@
       ],
       "camera_location": [
         0.0,
-        -11.9226,
-        12.5189
+        -11.924,
+        12.5203
       ],
       "projection": "orthographic",
       "framing_checked": true

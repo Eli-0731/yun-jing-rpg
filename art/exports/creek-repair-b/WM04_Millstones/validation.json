@@ -15,12 +15,12 @@
       "pass": true,
       "detail": {
         "min": [
-          -0.9745,
+          -0.9721,
           -0.6192,
           0.0
         ],
         "max": [
-          0.9745,
+          0.9721,
           0.6192,
           0.9247
         ]
@@ -31,7 +31,7 @@
       "pass": true,
       "detail": {
         "dims_m": [
-          1.949,
+          1.9441,
           1.2383,
           0.9247
         ],
@@ -49,7 +49,7 @@
         "triangles": {
           "LOD0": 38980,
           "LOD1": 19490,
-          "LOD2": 5845
+          "LOD2": 5844
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
@@ -57,7 +57,7 @@
           "Main": {
             "LOD0": 34112,
             "LOD1": 17056,
-            "LOD2": 5116
+            "LOD2": 5115
           },
           "Detail_Small": {
             "LOD0": 4736,
@@ -77,12 +77,12 @@
       "pass": true,
       "detail": {
         "fbx_lod0_dims_m": [
-          1.949,
+          1.9441,
           1.2383,
           0.9247
         ],
         "blend_dims_m": [
-          1.949,
+          1.9441,
           1.2383,
           0.9247
         ]
@@ -122,7 +122,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 522,
+  "seconds": 316,
   "not_checked": [
     "in-engine lighting (see the Unity report)"
   ]
