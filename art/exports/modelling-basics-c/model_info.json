@@ -424,9 +424,9 @@
     "material": "BM02_01_Detail_Stones",
     "texture_px": 512,
     "triangles": [
-     880,
-     440,
-     132
+     667,
+     333,
+     100
     ],
     "maps": [
      "alb",
@@ -450,9 +450,9 @@
    }
   },
   "triangles_total": [
-   29520,
-   14760,
-   4426
+   29307,
+   14653,
+   4394
   ],
   "triangles_without_detail": [
    27904,
@@ -476,7 +476,7 @@
   "dimensions_xyz_m": [
    0.405,
    0.395,
-   1.119
+   1.117
   ],
   "body_dimensions_xyz_m": [
    0.212,
@@ -517,9 +517,9 @@
     "material": "BM02_02_Detail_Stones",
     "texture_px": 512,
     "triangles": [
-     1040,
-     520,
-     156
+     781,
+     389,
+     117
     ],
     "maps": [
      "alb",
@@ -543,9 +543,9 @@
    }
   },
   "triangles_total": [
-   39360,
-   19680,
-   5903
+   39101,
+   19549,
+   5864
   ],
   "triangles_without_detail": [
    37376,
@@ -606,9 +606,9 @@
     "material": "BM03_01_Detail_Shards",
     "texture_px": 256,
     "triangles": [
-     28,
-     14,
-     4
+     24,
+     12,
+     5
     ],
     "maps": [
      "alb",
@@ -618,9 +618,9 @@
    }
   },
   "triangles_total": [
-   18844,
-   9422,
-   2826
+   18840,
+   9420,
+   2827
   ],
   "triangles_without_detail": [
    18816,
@@ -681,9 +681,9 @@
     "material": "BM03_02_Detail_Shards",
     "texture_px": 256,
     "triangles": [
-     56,
-     28,
-     8
+     46,
+     23,
+     6
     ],
     "maps": [
      "alb",
@@ -693,9 +693,9 @@
    }
   },
   "triangles_total": [
-   27128,
-   13564,
-   4068
+   27118,
+   13559,
+   4066
   ],
   "triangles_without_detail": [
    27072,
@@ -756,9 +756,9 @@
     "material": "BM03_03_Detail_Shards",
     "texture_px": 256,
     "triangles": [
-     84,
-     42,
-     12
+     72,
+     35,
+     9
     ],
     "maps": [
      "alb",
@@ -768,9 +768,9 @@
    }
   },
   "triangles_total": [
-   33684,
-   16842,
-   5052
+   33672,
+   16835,
+   5049
   ],
   "triangles_without_detail": [
    33600,
@@ -1629,7 +1629,7 @@
   "dimensions_xyz_m": [
    1.31,
    0.907,
-   0.905
+   0.867
   ],
   "body_dimensions_xyz_m": [
    1.203,
@@ -1739,9 +1739,9 @@
   "id": "BM06_04",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   1.293,
+   1.294,
    0.89,
-   0.702
+   0.708
   ],
   "body_dimensions_xyz_m": [
    1.204,
@@ -1852,7 +1852,7 @@
   "device": "OPTIX",
   "dimensions_xyz_m": [
    1.111,
-   0.52,
+   0.515,
    2.308
   ],
   "body_dimensions_xyz_m": [
@@ -1944,12 +1944,12 @@
  "BM08_01": {
   "id": "BM08_01",
   "dimensions_xyz_m": [
-   1.498686,
+   1.462427,
    1.294991,
    1.2
   ],
   "body_dimensions_xyz_m": [
-   1.498686,
+   1.462427,
    1.294991,
    1.2
   ],
@@ -1985,7 +1985,7 @@
     "material": "BM08_01_Branches",
     "texture_px": 512,
     "triangles": [
-     7812,
+     7986,
      3804,
      312
     ],
@@ -2015,12 +2015,12 @@
    }
   },
   "triangles_total": [
-   17104,
+   17278,
    8116,
    2592
   ],
   "triangles_without_detail": [
-   17052,
+   17226,
    8088,
    2580
   ],
@@ -2029,6 +2029,50 @@
    357,
    189
   ],
+  "separated_pieces": {
+   "Branches+Berries": [
+    [
+     31,
+     0
+    ],
+    [
+     31,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "Leaves": [
+    [
+     4,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "Detail_Litter": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
   "reference": "art/references/BM08/prompt.txt",
   "origin": "crown centre at the soil line, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": {
@@ -2063,13 +2107,13 @@
  "BM08_02": {
   "id": "BM08_02",
   "dimensions_xyz_m": [
-   1.313963,
-   1.120405,
+   1.31726,
+   1.126336,
    1.0
   ],
   "body_dimensions_xyz_m": [
-   1.313963,
-   1.120405,
+   1.31726,
+   1.126336,
    1.0
   ],
   "target_axis": "z",
@@ -2104,9 +2148,9 @@
     "material": "BM08_02_Branches",
     "texture_px": 512,
     "triangles": [
-     3708,
-     1944,
-     492
+     6216,
+     3168,
+     684
     ],
     "maps": [
      "alb",
@@ -2150,20 +2194,64 @@
    }
   },
   "triangles_total": [
-   14660,
-   7412,
-   2232
+   17168,
+   8636,
+   2424
   ],
   "triangles_without_detail": [
-   14608,
-   7384,
-   2220
+   17116,
+   8608,
+   2412
   ],
   "leaf_cards": [
    385,
    190,
    64
   ],
+  "separated_pieces": {
+   "Branches+Berries": [
+    [
+     34,
+     0
+    ],
+    [
+     25,
+     0
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "Leaves": [
+    [
+     8,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "Detail_Litter": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
   "reference": "art/references/BM08/prompt.txt",
   "origin": "crown centre at the soil line, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": {
@@ -2195,7 +2283,7 @@
   "collision": {},
   "notes": {
    "build": "loose forest-edge shrub: 8 stems with long arching canes, leaves in clumps with gaps so twigs show, red berry clusters as geometry and in the atlas",
-   "lod": "authored: LOD1 keeps half the cards 1.32x larger, LOD2 15% of the outer cards 2.1x larger and only the stems; tube sides 6/4/3",
+   "lod": "authored: LOD1 keeps half the cards 1.32x larger, LOD2 the outer cards (willow 30% at 1.62x, berry 15% at 2.1x) and only the stems; tube sides 6/4/3",
    "collision": "none: a shrub to brush past, nothing to stop on",
    "detail": "Detail_Litter (fallen leaves at the base); the standard tier hides it",
    "material": "Leaves and litter are alpha-cut (cutoff 0.45), double-sided; leaf normals lean on the crown ellipsoid. Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. Drawn procedurally, no photo sources."
@@ -2204,13 +2292,13 @@
  "BM09_01": {
   "id": "BM09_01",
   "dimensions_xyz_m": [
-   1.154744,
-   1.194764,
+   1.153199,
+   1.193166,
    0.8
   ],
   "body_dimensions_xyz_m": [
-   1.154744,
-   1.194764,
+   1.153199,
+   1.193166,
    0.8
   ],
   "target_axis": "z",
@@ -2244,9 +2332,9 @@
     "material": "BM09_01_Rachis",
     "texture_px": 512,
     "triangles": [
-     4016,
-     2048,
-     576
+     3976,
+     2008,
+     542
     ],
     "maps": [
      "alb",
@@ -2261,7 +2349,7 @@
     "triangles": [
      492,
      240,
-     72
+     68
     ],
     "maps": [
      "alb",
@@ -2272,14 +2360,14 @@
    }
   },
   "triangles_total": [
-   14012,
-   7040,
-   2160
+   13972,
+   7000,
+   2122
   ],
   "triangles_without_detail": [
-   13520,
-   6800,
-   2088
+   13480,
+   6760,
+   2054
   ],
   "reference": "art/references/BM09/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
@@ -2309,18 +2397,32 @@
    "detail": "Detail_DryFronds can be hidden; no baked detail shadows on body.",
    "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
    "validation": "Blender export/import only; Unity and mobile performance not tested."
+  },
+  "separated_pieces": {
+   "LOD0": [
+    82,
+    0
+   ],
+   "LOD1": [
+    45,
+    0
+   ],
+   "LOD2": [
+    20,
+    0
+   ]
   }
  },
  "BM09_02": {
   "id": "BM09_02",
   "dimensions_xyz_m": [
-   0.467151,
-   0.439852,
+   0.467299,
+   0.439983,
    0.3
   ],
   "body_dimensions_xyz_m": [
-   0.467151,
-   0.439852,
+   0.467299,
+   0.439983,
    0.3
   ],
   "target_axis": "z",
@@ -2354,9 +2456,9 @@
     "material": "BM09_02_Rachis",
     "texture_px": 512,
     "triangles": [
-     2748,
-     1404,
-     444
+     2718,
+     1374,
+     426
     ],
     "maps": [
      "alb",
@@ -2371,7 +2473,7 @@
     "triangles": [
      492,
      240,
-     72
+     68
     ],
     "maps": [
      "alb",
@@ -2382,14 +2484,14 @@
    }
   },
   "triangles_total": [
-   5736,
-   2892,
-   852
+   5706,
+   2862,
+   830
   ],
   "triangles_without_detail": [
-   5244,
-   2652,
-   780
+   5214,
+   2622,
+   762
   ],
   "reference": "art/references/BM09/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
@@ -2419,6 +2521,20 @@
    "detail": "Detail_DryFronds can be hidden; no baked detail shadows on body.",
    "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
    "validation": "Blender export/import only; Unity and mobile performance not tested."
+  },
+  "separated_pieces": {
+   "LOD0": [
+    21,
+    0
+   ],
+   "LOD1": [
+    1,
+    0
+   ],
+   "LOD2": [
+    5,
+    0
+   ]
   }
  },
  "BM10_01": {
@@ -2477,7 +2593,7 @@
   },
   "collision": {},
   "notes": {
-   "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+   "build": "1 m ground patch, alpha-cut: the cover stops 2-15 cm in from the square edge along an uneven line (moss cushions, whole leaves), colour bled into the transparent margin; 8x8 / 8x4 / 3x3 grids.",
    "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
    "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
    "validation": "Blender export/import only; Unity and mobile performance not tested."
@@ -2539,7 +2655,7 @@
   },
   "collision": {},
   "notes": {
-   "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+   "build": "1 m ground patch, alpha-cut: the cover stops 2-15 cm in from the square edge along an uneven line (moss cushions, whole leaves), colour bled into the transparent margin; 8x8 / 8x4 / 3x3 grids.",
    "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
    "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
    "validation": "Blender export/import only; Unity and mobile performance not tested."
@@ -2601,7 +2717,7 @@
   },
   "collision": {},
   "notes": {
-   "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+   "build": "1 m ground patch, alpha-cut: the cover stops 2-15 cm in from the square edge along an uneven line (moss cushions, whole leaves), colour bled into the transparent margin; 8x8 / 8x4 / 3x3 grids.",
    "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
    "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
    "validation": "Blender export/import only; Unity and mobile performance not tested."

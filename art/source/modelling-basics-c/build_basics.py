@@ -20,6 +20,7 @@ blender -b --factory-startup -P build_basics.py -- BM01_01 [BM01_02 ...]
 """
 import bpy,bmesh,json,math,sys,random
 import mathutils.noise as mnoise
+sys.path.insert(0,str(__import__('pathlib').Path(__file__).resolve().parent));import meshfix   # shared #69 clean-up (meshfix.py)
 from pathlib import Path
 from mathutils import Vector,Matrix
 import numpy as np
@@ -187,8 +188,9 @@ def finish(name,bm,mat,grp,scale=TILE,keep_uv=False):
             p=l.vert.co-Vector(c);u,v={0:(p.dot(S1),p.dot(S2)),1:(p.dot(S2),p.dot(A)),2:(p.dot(S1),p.dot(A))}[k];l[lay].uv=(u/scale+du,v/scale+dv)
     me=bpy.data.meshes.new(name);bm.to_mesh(me);bm.free();o=bpy.data.objects.new(name,me);me.materials.append(mat)
     return link(o,grp)
-def tube(name,pts,r,mat,grp,sides=8,scale=.3,caps=True):
-    pts=[Vector(p) for p in pts];bm=bmesh.new();rings=[];prev=None
+def tube(name,pts,r,mat,grp,sides=8,scale=.3,caps=True,up=None):
+    """up: the first corner of every ring points this way (a 3-sided needle lying down, rolled so no face is flat against the stone)"""
+    pts=[Vector(p) for p in pts];bm=bmesh.new();rings=[];prev=Vector(up) if up is not None else None
     for i,p in enumerate(pts):
         t=(pts[min(i+1,len(pts)-1)]-pts[max(i-1,0)]).normalized()
         u=(prev-t*prev.dot(t)).normalized() if prev is not None else t.orthogonal().normalized();prev=u;v=t.cross(u)
@@ -592,7 +594,10 @@ def jar(pid,M,H,prof,wall,seed,glaze_z,ndrips,chips,shards,NS=96,step=.006):
             gm,bd=glaze_mask(ts,z,G);rr=rr+.0009*gm+.0022*bd
         for ca,cw,cd in chips:   # chipped rim: the lip and both walls cut down, unevenly
             a=np.abs(np.angle(np.exp(1j*(ts-ca))))/cw;depth=cd*np.clip(1-a**1.6,0,1)*(.8+.2*np.sin(ts*53+ca))
-            z=np.where((z>H-depth-.002)&(a<1),np.minimum(z,H-depth),z)
+            # #69 review: clamping z to the cut line flattened several lip rings into one plane (same-facing coplanar faces at the
+            # rim). The band from 2.5 x depth below the top is now pushed down smoothly instead: still lower by depth at the top,
+            # but every ring keeps its order (slope 1/3 at least), so nothing folds or stacks.
+            w=np.clip((z-(H-2.5*depth))/np.maximum(1.5*depth,1e-6),0,1);z=np.where(a<1,z-depth*w,z)
         x=rr*np.cos(ts)+.004*f*f;y=rr*np.sin(ts)
         rings.append([bm.verts.new((x[i],y[i],z[i])) for i in range(NS)])
     def uv(i,k):return (i/NS*nu+.13,seg[k]/TILE)
@@ -891,9 +896,13 @@ def basin(pid,M,seed,clamp=False,chips=((0.,.12,0,.45,.03),)):
     for v in wb.verts:v.co.z=.372
     finish(f'{pid}_Water',wb,M['granite'],'Water')
     if clamp:   # an old repair: two iron staples across a crack below the rim
+        from mathutils.bvhtree import BVHTree
+        sb_=bmesh.new();sb_.from_mesh(o.data);sb_.transform(o.matrix_world);tree=BVHTree.FromBMesh(sb_);sb_.free()
         for dt in (-.06,.06):
             t=math.pi*.15+dt;bb=box_bm((.012,.06,.008));me=bpy.data.meshes.new('st');bb.to_mesh(me);bb.free();ob=bpy.data.objects.new('st',me)
-            ob.matrix_world=Matrix.Translation((.385*math.cos(t),.385*math.sin(t),.39))@Matrix.Rotation(t,4,'Z');bpy.context.scene.collection.objects.link(ob);bpy.context.view_layer.update()
+            u=Vector((math.cos(t),math.sin(t),0));hit=tree.ray_cast(u*.6+Vector((0,0,.39)),-u)[0]   # #69: on the lobe's surface (a fixed .385 m left it 12 mm off)
+            rs=(hit.to_2d().length if hit else .385)+.006-.003   # half the staple's thickness out, 3 mm into the stone
+            ob.matrix_world=Matrix.Translation((rs*math.cos(t),rs*math.sin(t),.39))@Matrix.Rotation(t,4,'Z');bpy.context.scene.collection.objects.link(ob);bpy.context.view_layer.update()
             bb=bmesh.new();bb.from_mesh(me);bb.transform(ob.matrix_world);bpy.data.objects.remove(ob);finish(f'{pid}_Staple{dt:+.2f}',bb,M['iron'],'Detail_Iron',.1)
     meta=garden_piece(pid,M,o,.45,seed,[(math.pi*.75,9,.1),(-math.pi*.2,7,.08)],[(math.pi*.15,.06,.38,.012)] if clamp else [(math.pi*1.2,.05,.3,.012)])
     meta['hires']={'Stone':hi};meta['garden']['waterline']=.37;meta['garden']['panels']=[('lathe',-math.pi/2),('lathe',math.pi/2)]
@@ -905,14 +914,15 @@ def shrub(pid,M,c,H,spread,seed,grp):
     r=random.Random(seed);c=Vector(c);tips=[]
     for k in range(8):
         a=math.tau*k/8+r.uniform(-.3,.3);L=r.uniform(.6,1)*H;lean=r.uniform(.3,.7)
-        pts=[c+Vector((math.cos(a)*lean*spread*(i/5)**1.3*L/H,math.sin(a)*lean*spread*(i/5)**1.3*L/H,L*i/5)) for i in range(6)]
+        c0=c+Vector((math.cos(a),math.sin(a),0))*.028   # #69: the stems rise from a small ring, not one point, so their bottom segments do not share faces
+        pts=[c0+Vector((math.cos(a)*lean*spread*(i/5)**1.3*L/H,math.sin(a)*lean*spread*(i/5)**1.3*L/H,L*i/5)) for i in range(6)]
         tube(f'{pid}_Stem{k}',pts,.009,M['twig'],grp,sides=5,scale=.1);tips+=pts[3:]
         for b_ in range(2):   # side branches
             s0=pts[r.randint(2,3)];bb=a+r.choice((-1,1))*r.uniform(.5,1.1);bl=r.uniform(.12,.22)
             bp=[s0+Vector((math.cos(bb)*bl*i/3,math.sin(bb)*bl*i/3,bl*.6*i/3)) for i in range(4)];tube(f'{pid}_Br{k}_{b_}',bp,.005,M['twig'],grp,sides=4,scale=.1);tips+=bp[1:]
     for k in range(len(tips)):
         for j in range(r.randint(7,11)):   # leaf clusters round every branch end
-            q=tips[k]+Vector((r.uniform(-.08,.08),r.uniform(-.08,.08),r.uniform(-.04,.07)))
+            q=tips[k]+Vector((r.uniform(-.08,.08),r.uniform(-.08,.08),r.uniform(-.04,.07)))*.08   # #69 review: the leaf grows from the branch end (was up to 8 cm away, floating)
             b=r.uniform(0,math.tau);d=(math.cos(b)*.8,math.sin(b)*.8,r.uniform(.1,.6))
             leaf(f'{pid}_Leaf{k}_{j}',q,d,(-math.sin(b),math.cos(b),.3),r.uniform(.04,.065),.026,M['leaf'],grp,curl=.2,seg=2)
 def planter(pid,M,seed,plant):
@@ -943,11 +953,15 @@ def planter(pid,M,seed,plant):
     m=o.modifiers.new('dc','DECIMATE');m.ratio=min(1,14000/(len(o.data.polygons)*2));m.use_collapse_triangulate=True;apply(o,m)
     sb=bmesh.new();bmesh.ops.create_grid(sb,x_segments=24,y_segments=16,size=.5)
     for v in sb.verts:v.co.x*=(W-2*T-.02);v.co.y*=(D-2*T-.02);v.co.z=.37+.012*mnoise.noise(Vector((v.co.x*6,v.co.y*6,seed)))
-    finish(f'{pid}_Soil',sb,M['soil'],'Stone',.5)
-    if plant=='shrub':shrub(pid,M,(-.05,.02,.37),.5,.75,seed,'Detail_Plant')
+    so=finish(f'{pid}_Soil',sb,M['soil'],'Stone',.5)
+    from mathutils.bvhtree import BVHTree
+    sb_=bmesh.new();sb_.from_mesh(so.data);sb_.transform(so.matrix_world);tree=BVHTree.FromBMesh(sb_);sb_.free()
+    def soil(x,y):   # #69: plants stand in the soil surface (a flat .37 left grass up to 7 mm above it), 4 mm deep
+        h=tree.ray_cast(Vector((x,y,.6)),Vector((0,0,-1)))[0];return (h.z if h else .37)-.004
+    if plant=='shrub':shrub(pid,M,(-.05,.02,soil(-.05,.02)),.5,.75,seed,'Detail_Plant')
     else:
         for k in range(26):
-            tuft(f'{pid}_Grass{k}',(r.uniform(-.48,.48),r.uniform(-.26,.26),.37),M,'Detail_Plant',seed+100+k,n=9,h=r.uniform(.16,.32))
+            x_,y_=r.uniform(-.48,.48),r.uniform(-.26,.26);tuft(f'{pid}_Grass{k}',(x_,y_,soil(x_,y_)),M,'Detail_Plant',seed+100+k,n=9,h=r.uniform(.16,.32))
     meta=garden_piece(pid,M,o,H,seed,[(-math.pi*.4,8,.1),(math.pi*.6,7,.09)],[(None,(-.5,-.401,.05),(-.42,-.401,.3),.01)])
     meta['hires']={'Stone':hi};meta['garden']['waterline']=None;meta['collisions']={'Collision':'hull_stone'}
     meta['notes']={'build':f'planter {W} x {D} x {H} m: corner posts, wall slabs lifted off the ground between the corner feet, soil inside, cloud relief panels on both long faces, one corner broken; '+('a small shrub' if plant=='shrub' else 'grass')+' in Detail_Plant',
@@ -989,14 +1003,18 @@ def BM07_01(M):
     hi=o.copy();hi.data=o.data.copy();hi.name=f'{pid}_HiRes';bpy.context.scene.collection.objects.link(hi);hi.hide_render=True
     m=o.modifiers.new('dc','DECIMATE');m.ratio=min(1,12000/(len(o.data.polygons)*2));m.use_collapse_triangulate=True;apply(o,m)
     # litter on the base top: pine needles in drifts against the stele, a few dead leaves
+    from mathutils.bvhtree import BVHTree
+    sb_=bmesh.new();sb_.from_mesh(o.data);sb_.transform(o.matrix_world);tree=BVHTree.FromBMesh(sb_);sb_.free()
+    def on_top(x,y,lift):   # #69: on the stone under it (needles were 2-8 mm up in the air, dead leaves 4 mm)
+        h=tree.ray_cast(Vector((x,y,bh+.3)),Vector((0,0,-1)))[0];return (h.z if h else bh)+lift
     for k in range(260):
         side=r.choice((-1,1));x=r.uniform(-W/2+.05,W/2-.05);y=side*r.uniform(sd/2+.01,D/2-.02)*(1 if r.random()<.8 else r.uniform(.3,1))
         if abs(y)<sd/2 and abs(x)<sw/2:continue
-        a=r.uniform(0,math.tau);L=r.uniform(.03,.055);c=Vector((x,y,bh+.002+r.uniform(0,.006)))
-        tube(f'{pid}_Needle{k}',[c-Vector((math.cos(a),math.sin(a),0))*L/2,c+Vector((math.cos(a),math.sin(a),r.uniform(-.1,.1)))*L/2],.0012,M['needle'],'Detail_Litter',sides=3,scale=.05,caps=False)
+        a=r.uniform(0,math.tau);L=r.uniform(.03,.055);c=Vector((x,y,bh+.002+r.uniform(0,.006)));c.z=on_top(x,y,.001)   # lowest edge on the stone
+        tube(f'{pid}_Needle{k}',[c-Vector((math.cos(a),math.sin(a),0))*L/2,c+Vector((math.cos(a),math.sin(a),r.uniform(-.1,.1)))*L/2],.0012,M['needle'],'Detail_Litter',sides=3,scale=.05,caps=False,up=(-math.sin(a)*.5,math.cos(a)*.5,.866))   # rolled 30 degrees: no face flat on top or underneath
     for k in range(9):
         x=r.uniform(-W/2+.08,W/2-.08);y=r.choice((-1,1))*r.uniform(sd/2+.03,D/2-.04);b_=r.uniform(0,math.tau)
-        leaf(f'{pid}_DeadLeaf{k}',Vector((x,y,bh+.004)),(math.cos(b_),math.sin(b_),.05),(0,0,1),r.uniform(.05,.08),.035,M['needle'],'Detail_Litter',curl=.15,seg=3)
+        leaf(f'{pid}_DeadLeaf{k}',Vector((x,y,on_top(x,y,-.0005))),(math.cos(b_),math.sin(b_),.3),(0,0,1),r.uniform(.05,.08),.035,M['needle'],'Detail_Litter',curl=-.1,seg=3)   # a dry leaf resting on its stalk end, tip curled up (lying flat it shared the stone's plane)
     side=[v.co.copy() for v in o.data.vertices if abs(v.normal.z)<.6]
     lich=[]
     for c in r.sample(side,12):
@@ -1181,7 +1199,10 @@ def run(pid):
         bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.triangulate(bm,faces=bm.faces)
         # #67 QA: sub-millimetre slivers bake to zero-area UV (collapse them); separate pieces with triangles in one plane z-fight (lift the smaller 1 mm)
         bmesh.ops.dissolve_degenerate(bm,dist=.0008,edges=list({e for f in bm.faces if f.calc_area()<4e-7 for e in f.edges}))
-        bmesh.ops.triangulate(bm,faces=bm.faces[:]);separate_coplanar(bm);bm.to_mesh(o.data);bm.free()
+        bmesh.ops.triangulate(bm,faces=bm.faces[:]);separate_coplanar(bm)
+        if g.startswith('Detail_') and not pid.startswith('BM01'):   # #69 review (BM01 stays as merged from #67): hidden ground bottoms
+            meshfix.drop_ground_bottoms(bm);meta.setdefault('separated',{})[g]=list(meshfix.separate_overlaps(bm,mode='tilt',big=14))+list(meshfix.separate_overlaps(bm))   # and same-facing coplanar pieces; only leaves and grass blades turn (a branch turned about its root swung away from its leaf cluster)
+        bm.to_mesh(o.data);bm.free()
         for u in [u for u in o.data.uv_layers if u.name not in ('Tiled','Strip')]:o.data.uv_layers.remove(u)
         bu=o.data.uv_layers.new(name='Bake');o.data.uv_layers.active=bu;sel(o)
         res=GROUP_RES[pid][g];mg=16/res   # island gap 16 px > bake bleed 6 px

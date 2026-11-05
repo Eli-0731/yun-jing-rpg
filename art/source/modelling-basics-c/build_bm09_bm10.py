@@ -13,6 +13,7 @@ import numpy as np
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
 sys.path.insert(0,str(HERE))
 import bm10_textures as tx
+import bmesh, meshfix
 TEX=ROOT/'art/textures/modelling-basics-c';OUT=ROOT/'art/exports/modelling-basics-c'
 IDS=['BM09_01','BM09_02','BM10_01','BM10_02','BM10_03']
 
@@ -50,8 +51,14 @@ def tube(mesh,points,radius,sides=4,uvcell=False):
         for j in range(sides):
             a=base+i*sides+j;b=base+i*sides+(j+1)%sides
             mesh.quad(a,b,b+sides,a+sides)
-    mesh.f.append(tuple(base+j for j in reversed(range(sides))))
-    mesh.f.append(tuple(base+(n-1)*sides+j for j in range(sides)))
+    # end caps get their own corners with a small round UV patch: sharing the ring's corners put every cap on one UV line
+    # (zero-area UV, 80 / 60 faces on the BM09 rachis in the #69 review)
+    for ring,rev in ((0,True),(n-1,False)):
+        cap=[]
+        for j in range(sides):
+            ang=math.tau*j/sides;cu,cv=.5+.04*math.cos(ang),.5+.04*math.sin(ang)
+            cap.append(mesh.vertex(mesh.v[base+ring*sides+j],((.06+.88*cu)/4,(.05+.90*cv)/2) if uvcell else (cu,cv)))
+        mesh.f.append(tuple(reversed(cap)) if rev else tuple(cap))
 
 def material(name,paths,alpha=False):
     m=bpy.data.materials.new(name);m.use_nodes=True;m.use_backface_culling=False
@@ -88,7 +95,8 @@ def frond_specs(small):
 def curve(t,spec,small):
     ang,r,h,tip,ring,k=spec
     # Cubic radial profile: steep petiole, outward arch, drooping distal rachis.
-    p0=np.array([.013,.008]);p1=np.array([r*.08,h*.75]);p2=np.array([r*.62,h*1.18]);p3=np.array([r,tip])
+    # #69 review: every frond left the crown 13 mm out, so neighbouring rachis bases overlapped; each ring now starts further out
+    p0=np.array([(.016 if small else .022)+.005*(2-ring),.002]);p1=np.array([r*.08,h*.75]);p2=np.array([r*.62,h*1.18]);p3=np.array([r,tip])   # #69 review: the stems leave a small ring round the crown (they overlapped at its centre), their bases on the ground (8 mm up they floated)
     p=(1-t)**3*p0+3*(1-t)**2*t*p1+3*(1-t)*t*t*p2+t**3*p3
     if small and t>.80:
         s=.80;anchor=(1-s)**3*p0+3*(1-s)**2*s*p1+3*(1-s)*s*s*p2+s**3*p3
@@ -150,10 +158,11 @@ def fern_meshes(pid,lod):
         count=([24,12,4] if small else [30,15,4])[lod]
         pts=[]
         for t in np.linspace(0,1,count+1):
-            if t<.68:x=.02*t;z=H*t/.68
+            if t<.68:x=.008+.02*t;z=H*t/.68   # #69 review: the croziers all left the crown's centre point and overlapped there; 8 mm out
             else:
-                q=(t-.68)/.32*math.tau*1.18;rad=r*(1-.72*(t-.68)/.32)
-                x=.0136+rad*(1-math.cos(q));z=H+rad*math.sin(q)
+                q=(t-.68)/.32*math.tau*.95;   # #69: 1.18 turns brought the hook back into its own stalk
+                rad=r*(1-.72*(t-.68)/.32)
+                x=.0216+rad*(1-math.cos(q));z=H+rad*math.sin(q)
             pts.append((math.cos(a)*x,math.sin(a)*x,z))
         tube(stem,pts,.0021 if small else .0036,4)
     # Dried, broken fronds at the crown; hiding this group leaves no baked body shadow.
@@ -214,7 +223,7 @@ def run(pid):
             paths=tx.fern_atlas(pid+'_'+g,size,TEX,**kw);textures[g]=paths;res[g]=size;mats[g]=material(pid+'_'+g,paths,g!='Rachis')
     else:
         paths=tx.moss(pid+'_Ground',TEX) if pid=='BM10_01' else tx.leaves(pid+'_Ground',TEX,'maple' if pid=='BM10_02' else 'ginkgo')
-        textures['Ground']=paths;res['Ground']=2048;mats['Ground']=material(pid+'_Ground',paths,pid!='BM10_01')
+        textures['Ground']=paths;res['Ground']=2048;mats['Ground']=material(pid+'_Ground',paths,True)   # moss is alpha-cut too since the #69 review (organic edge)
     groups={};lod0=[]
     for lod in range(3):
         meshes=fern_meshes(pid,lod) if fern else ground(lod)
@@ -228,6 +237,10 @@ def run(pid):
                     normals.append(tuple(Vector((-dx,-dy,1)).normalized()))
                 o.data.normals_split_custom_set_from_vertices(normals)
             if lod==0:lod0.append(o)
+    sep={}
+    if fern:   # #69 review: same-facing coplanar pinnae / rachis pieces turn 12 degrees about their root (before the height is normalised)
+        for lod in range(3):
+            sep[f'LOD{lod}']=list(meshfix.separate_meshes([groups[g][lod].data for g in ('Fronds','Rachis','Detail_DryFronds')],mode='tilt',tilt=15,passes=10,big=50))
     # Normalise by body only, then apply the same transform to every detail and LOD.
     body=[o for o in lod0 if '_Detail_' not in o.name];lo,hi=bounds(body)
     factor=target/(hi[2]-lo[2]) if fern else 1.;offset=np.array([-(hi[0]+lo[0])/2,-(hi[1]+lo[1])/2,-lo[2]])
@@ -236,19 +249,22 @@ def run(pid):
             for v in o.data.vertices:
                 v.co=(Vector(v.co)+Vector(offset))*factor
                 if v.co.z<0:v.co.z=0
+    if fern:   # #69 review: bottoms pressed flat onto the soil by the clamp above are hidden and overlap: drop them
+        for objects in groups.values():
+            for o in objects:bm=bmesh.new();bm.from_mesh(o.data);meshfix.drop_ground_bottoms(bm,keep_verts=True);bm.to_mesh(o.data);bm.free()
     bpy.context.view_layer.update()
     lo,hi=bounds(lod0);blo,bhi=bounds(body)
     tri=lambda o:sum(len(p.vertices)-2 for p in o.data.polygons)
     details=[g for g in groups if g.startswith('Detail_')]
     info={'id':pid,'dimensions_xyz_m':[round(float(v),6) for v in hi-lo],'body_dimensions_xyz_m':[round(float(v),6) for v in bhi-blo],
-          'target_axis':'z' if fern else 'x','target_m':target,'minTier':min_tier,'detailObjects':details,
+          'target_axis':'z' if fern else 'x','target_m':target,'separated_pieces':sep,'minTier':min_tier,'detailObjects':details,
           'detailMeshes':[o.name for g in details for o in groups[g]],
           'groups':{g:{'material':pid+'_'+g,'texture_px':res[g],'triangles':[tri(o) for o in obs],'maps':['alb','nrm','maskurp','orm']} for g,obs in groups.items()},
           'triangles_total':[sum(tri(obs[l]) for obs in groups.values()) for l in range(3)],
           'triangles_without_detail':[sum(tri(obs[l]) for g,obs in groups.items() if not g.startswith('Detail_')) for l in range(3)],
           'reference':str(ref.relative_to(ROOT)).replace('\\','/'),'origin':'footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)',
           'textures':{g:{k:str(Path(v).relative_to(ROOT)).replace('\\','/') for k,v in maps.items()} for g,maps in textures.items()},'collision':{},
-          'notes':{'build':'Curved rachis, paired bent alpha pinnae, older brown outer tips, coiled croziers; atlas groups preserve leaf silhouette at LOD1.' if fern else '1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.',
+          'notes':{'build':'Curved rachis, paired bent alpha pinnae, older brown outer tips, coiled croziers; atlas groups preserve leaf silhouette at LOD1.' if fern else '1 m ground patch, alpha-cut: the cover stops 2-15 cm in from the square edge along an uneven line (moss cushions, whole leaves), colour bled into the transparent margin; 8x8 / 8x4 / 3x3 grids.',
                    'detail':'Detail_DryFronds can be hidden; no baked detail shadows on body.' if fern else 'Whole patch is ultra dressing; no independent detail submeshes are necessary.',
                    'material':'Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.',
                    'validation':'Blender export/import only; Unity and mobile performance not tested.'}}

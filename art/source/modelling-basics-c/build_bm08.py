@@ -17,6 +17,7 @@ HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
 sys.path.insert(0,str(HERE))
 import bm10_textures as tx
 import build_bm09_bm10 as fb
+import meshfix
 TEX=ROOT/'art/textures/modelling-basics-c';OUT=ROOT/'art/exports/modelling-basics-c'
 IDS=['BM08_01','BM08_02']
 SPEC={'BM08_01':dict(kind='willow',H=1.2,R=(.68,.60),tier='standard',seed=801,stems=13,attract=240,inner=50,card=(.30,.36),clumps=0,lod2=(.30,1.62)),
@@ -216,13 +217,16 @@ def card(mesh,base,d,side,L,W,slot,fold,droop,nrm_fn,custom):
         for k in range(2):
             a=first+i*3+k;mesh.quad(a,a+3,a+4,a+1)   # front face = up (outward)
 
+BERRY_D=Vector((.25,.9,.45)).normalized();BERRY_U=BERRY_D.cross(Vector((0,0,1))).normalized();BERRY_V=BERRY_D.cross(BERRY_U).normalized()
 def icosphere(mesh,c,r,custom=None):
     """20-triangle berry"""
     t=(1+5**.5)/2;V=[(-1,t,0),(1,t,0),(-1,-t,0),(1,-t,0),(0,-1,t),(0,1,t),(0,-1,-t),(0,1,-t),(t,0,-1),(t,0,1),(-t,0,-1),(-t,0,1)]
     F=[(0,11,5),(0,5,1),(0,1,7),(0,7,10),(0,10,11),(1,5,9),(5,11,4),(11,10,2),(10,7,6),(7,1,8),(3,9,4),(3,4,2),(3,2,6),(3,6,8),(3,8,9),(4,9,5),(2,4,11),(6,2,10),(8,6,7),(9,8,1)]
     b=len(mesh.v)
     for v in V:
-        n=Vector(v).normalized();mesh.vertex(c+n*r,(.5+.5*n.x,.5+.5*n.z))
+        # UV: the sphere projected along BERRY_D, which no face of the icosahedron is edge-on to (projecting on x-z, as before,
+        # flattened 4 of the 20 faces to zero UV area: 1,256 faces on BM08_02 in the #69 review)
+        n=Vector(v).normalized();mesh.vertex(c+n*r,(.5+.45*n.dot(BERRY_U),.5+.45*n.dot(BERRY_V)))
         if custom is not None:custom.append(tuple(n))
     mesh.f.extend([(b+x,b+y,b+z) for x,y,z in F])
 
@@ -257,18 +261,21 @@ def skeleton(pid):
         v=Vector((r.gauss(0,1),r.gauss(0,1),r.gauss(.3,.7))).normalized();f=r.uniform(.35,.7)
         att.append((Vector((v.x*Rx*f,v.y*Ry*f,max(.18,cz+v.z*Rz*f))),True))
     pts=[(p,si,i) for si,s in enumerate(stems) for i,p in enumerate(s) if i>=3]
-    twigs=[]
+    twigs=[];used={}
     for p,inner in att:
-        q,si,i=min(pts,key=lambda e:(e[0]-p).length+.15*abs(e[0].z-p.z))
+        # #69 review: twigs that left one stem point toward neighbouring attractors ran inside each other for their first
+        # stretch (same-facing coplanar pairs). Each use of a stem point now costs 6 cm, so twigs spread along the stems.
+        q,si,i=min(pts,key=lambda e:(e[0]-p).length+.15*abs(e[0].z-p.z)+.06*used.get((e[1],e[2]),0))
+        used[(si,i)]=used.get((si,i),0)+1
         mid=q.lerp(p,.5)+Vector((0,0,.03+.05*(p-q).length))
-        twigs.append((catmull([q,mid,p],3),inner,(p-q).length,si))
-    berries=[]
+        twigs.append((catmull([q,mid,p],3),inner,(p-q).length,si,i))
+    berries=[];anchors=[]
     if berry:
         outer=[t for t in twigs if not t[1]];r.shuffle(outer)
         for tw in outer[:46]:   # clusters hang just below the twig ends
             c=tw[0][-1]+Vector((r.uniform(-.03,.03),r.uniform(-.03,.03),-r.uniform(.03,.07)))
-            berries.append([c+Vector((r.gauss(0,.014),r.gauss(0,.014),-abs(r.gauss(0,.016)))) for _ in range(r.randint(5,9))])
-    return dict(stems=stems,twigs=twigs,berries=berries,centre=Vector((0,0,cz)),radii=(Rx,Ry,Rz))
+            berries.append([c+Vector((r.gauss(0,.014),r.gauss(0,.014),-abs(r.gauss(0,.016)))) for _ in range(r.randint(5,9))]);anchors.append((tw[0][-1],c))
+    return dict(stems=stems,twigs=twigs,berries=berries,berry_anchors=anchors,centre=Vector((0,0,cz)),radii=(Rx,Ry,Rz))
 
 def shrub_meshes(pid,sk,lod):
     S=SPEC[pid];r=random.Random(S['seed']*10+lod);berry=S['kind']=='berry'
@@ -280,17 +287,19 @@ def shrub_meshes(pid,sk,lod):
         cu=up if up.dot(o)>0 else -up
         return tuple((o*.78+cu*.22).normalized())
     sides=[6,4,3][lod];stem_seg=[1,2,3][lod]
+    stem_r=[(.022 if not berry else .019)*(1-.25*(k%3)/2) for k in range(len(sk['stems']))]
     for k,s in enumerate(sk['stems']):
         pts=s[::stem_seg] if s[-1] in s[::stem_seg] else s[::stem_seg]+[s[-1]]
-        tube(wood,pts,(.022 if not berry else .019)*(1-.25*(k%3)/2),.006,sides)
-    for i,(pts,inner,L,si) in enumerate(sk['twigs']):
+        tube(wood,pts,stem_r[k],.006,sides)
+    for i,(pts,inner,L,si,at) in enumerate(sk['twigs']):
         if lod==1 and inner and i%2:continue
         if lod==2 and (inner or i%5):continue
         tp=pts[::2]+([pts[-1]] if (len(pts)-1)%2 else []) if lod==0 else [pts[0],pts[len(pts)//2],pts[-1]]
-        if lod<2 or berry:tube(wood,tp,.0075 if L>.25 else .0055,.0022,4 if (lod==0 and L>.25 and not inner) else 3)
+        sr=stem_r[si]+(.006-stem_r[si])*at/(len(sk['stems'][si])-1)   # the stem's radius where the twig leaves it
+        if lod<2 or berry:tube(wood,tp,min(.0075 if L>.25 else .0055,.75*sr),.0022,4 if (lod==0 and L>.25 and not inner) else 3)   # never thicker than its stem
     # leaf cards: each outer twig carries sprays at its tip and along it; inner twigs carry shade sprays
     cl0=S['card'];ncard=0
-    for i,(pts,inner,L,si) in enumerate(sk['twigs']):
+    for i,(pts,inner,L,si,at) in enumerate(sk['twigs']):
         per=1 if inner else 3
         for j in range(per):
             rr=random.Random(S['seed']*1000+i*7+j)          # same card choice on every LOD; LODs keep a subset and enlarge it
@@ -324,13 +333,24 @@ def shrub_meshes(pid,sk,lod):
         for ci,cluster in enumerate(sk['berries']):
             if lod==1 and ci%2:continue
             if lod==2 and ci%3:continue
-            for b in (cluster if lod<2 else cluster[:3]):icosphere(ber,b,.0095 if lod<2 else .012,cb)
+            # #69 review: the clusters hung 3-7 cm under the twig ends with nothing holding them (berries up to 22 mm from any
+            # wood). A stalk now runs from the twig end to the cluster, and a short stem from there into every berry.
+            tip,c=sk['berry_anchors'][ci]
+            tube(wood,[tip,tip.lerp(c,.5)+Vector((0,0,.006)),c],.0022,.0014,3)
+            for b in (cluster if lod<2 else cluster[:3]):
+                icosphere(ber,b,.0095 if lod<2 else .012,cb)
+                if lod<2:c1=c+(b-c).normalized()*.0012;tube(wood,[c1,b],.0012,.0009,3)   # starts inside the stalk end, not on its point (one welded piece cannot be separated)
     # fallen leaves at the base (Detail_Litter)
     rr=random.Random(S['seed']+55);n=[26,14,6][lod]
+    placed=[]
     for k in range(n):
-        a=rr.uniform(0,math.tau);d=rr.uniform(.08,max(Rx,Ry)*.95);c=Vector((math.cos(a)*d,math.sin(a)*d,.002+.0006*k))
+        L_=(.10 if not berry else .075)*rr.uniform(.85,1.15)*[1,1.15,1.4][lod]
+        for _ in range(40):   # #69 review: every leaf lies on the ground (was stacked .6 mm per leaf, up to 17 mm up), apart from the others
+            a=rr.uniform(0,math.tau);d=rr.uniform(.08,max(Rx,Ry)*.95);c=Vector((math.cos(a)*d,math.sin(a)*d,.0004))
+            if all((c-q).length>.72*(L_+Lq) for q,Lq in placed):break
+        placed.append((c,L_))
         b_=rr.uniform(0,math.tau);dirv=Vector((math.cos(b_),math.sin(b_),0));side=Vector((-dirv.y,dirv.x,0))
-        L_=(.10 if not berry else .075)*rr.uniform(.85,1.15)*[1,1.15,1.4][lod];slot=k%4;col,row=slot%2,slot//2;first=len(lit.v)
+        slot=k%4;col,row=slot%2,slot//2;first=len(lit.v)
         for i in range(2):
             for s in (-1,1):
                 q=c+dirv*L_*(i-.5)+side*L_*.5*s+Vector((0,0,.004*abs(i-.5)*rr.random()))
@@ -352,7 +372,7 @@ def run(pid):
     res={'Leaves':2048,'Branches':512,'Detail_Litter':512,'Berries':256}
     if kind=='berry':textures['Berries']=berry_tex(pid+'_Berries')
     mats={g:fb.material(pid+'_'+g,p,g in ('Leaves','Detail_Litter')) for g,p in textures.items()}
-    sk=skeleton(pid);groups={};lod0=[];cards=[]
+    sk=skeleton(pid);groups={};lod0=[];cards=[];sep={}
     for lod in range(3):
         meshes,nc=shrub_meshes(pid,sk,lod);cards.append(nc)
         for g,(mesh,custom) in meshes.items():
@@ -369,6 +389,12 @@ def run(pid):
                 v.co=(Vector(v.co)+Vector(offset))*factor
                 if v.co.z<0:v.co.z=0
             if cn:o.data.normals_split_custom_set(cn)
+    for o in groups.get('Detail_Litter',[]):   # #69: the shift above lifts the ground to the sunk stem bases (6.8 mm); lay the litter back on it
+        dz=min(v.co.z for v in o.data.vertices)-.0004
+        for v in o.data.vertices:v.co.z-=dz
+    for gs in (('Branches','Berries'),('Leaves',),('Detail_Litter',)):   # #69 review: same-facing coplanar pieces (twig on twig, card on card, leaf on leaf, berry on its stalk)
+        for i in range(len(groups.get(gs[0],[]))):   # one LOD at a time (BM08_01 has no berries)
+            moved,left=meshfix.separate_meshes([groups[g][i].data for g in gs if g in groups]);sep.setdefault('+'.join(gs),[]).append([moved,left])
     bpy.context.view_layer.update()
     lo,hi=fb.bounds(lod0);blo,bhi=fb.bounds(body)
     tri=lambda o:sum(len(p.vertices)-2 for p in o.data.polygons)
@@ -380,7 +406,7 @@ def run(pid):
                        'alphaCutoff':.45 if g in ('Leaves','Detail_Litter') else 0} for g,obs in groups.items()},
           'triangles_total':[sum(tri(obs[l]) for obs in groups.values()) for l in range(3)],
           'triangles_without_detail':[sum(tri(obs[l]) for g,obs in groups.items() if not g.startswith('Detail_')) for l in range(3)],
-          'leaf_cards':cards,
+          'leaf_cards':cards,'separated_pieces':sep,
           'reference':str(ref.relative_to(ROOT)).replace('\\','/'),'origin':'crown centre at the soil line, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)',
           'textures':{g:{k:str(Path(v).relative_to(ROOT)).replace('\\','/') for k,v in maps.items()} for g,maps in textures.items()},'collision':{},
           'notes':{'build':('round dense creek willow: 13 stems, twigs grown to an ellipsoid crown shell, narrow willow-leaf sprays on bent alpha cards'

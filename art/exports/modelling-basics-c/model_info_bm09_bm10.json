@@ -2,17 +2,31 @@
   "BM09_01": {
     "id": "BM09_01",
     "dimensions_xyz_m": [
-      1.154744,
-      1.194764,
+      1.153199,
+      1.193166,
       0.8
     ],
     "body_dimensions_xyz_m": [
-      1.154744,
-      1.194764,
+      1.153199,
+      1.193166,
       0.8
     ],
     "target_axis": "z",
     "target_m": 0.8,
+    "separated_pieces": {
+      "LOD0": [
+        82,
+        0
+      ],
+      "LOD1": [
+        45,
+        0
+      ],
+      "LOD2": [
+        20,
+        0
+      ]
+    },
     "minTier": "standard",
     "detailObjects": [
       "Detail_DryFronds"
@@ -42,9 +56,9 @@
         "material": "BM09_01_Rachis",
         "texture_px": 512,
         "triangles": [
-          4016,
-          2048,
-          576
+          3976,
+          2008,
+          542
         ],
         "maps": [
           "alb",
@@ -59,7 +73,7 @@
         "triangles": [
           492,
           240,
-          72
+          68
         ],
         "maps": [
           "alb",
@@ -70,14 +84,14 @@
       }
     },
     "triangles_total": [
-      14012,
-      7040,
-      2160
+      13972,
+      7000,
+      2122
     ],
     "triangles_without_detail": [
-      13520,
-      6800,
-      2088
+      13480,
+      6760,
+      2054
     ],
     "reference": "art/references/BM09/prompt.txt",
     "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
@@ -112,17 +126,31 @@
   "BM09_02": {
     "id": "BM09_02",
     "dimensions_xyz_m": [
-      0.467151,
-      0.439852,
+      0.467299,
+      0.439983,
       0.3
     ],
     "body_dimensions_xyz_m": [
-      0.467151,
-      0.439852,
+      0.467299,
+      0.439983,
       0.3
     ],
     "target_axis": "z",
     "target_m": 0.3,
+    "separated_pieces": {
+      "LOD0": [
+        21,
+        0
+      ],
+      "LOD1": [
+        1,
+        0
+      ],
+      "LOD2": [
+        5,
+        0
+      ]
+    },
     "minTier": "high",
     "detailObjects": [
       "Detail_DryFronds"
@@ -152,9 +180,9 @@
         "material": "BM09_02_Rachis",
         "texture_px": 512,
         "triangles": [
-          2748,
-          1404,
-          444
+          2718,
+          1374,
+          426
         ],
         "maps": [
           "alb",
@@ -169,7 +197,7 @@
         "triangles": [
           492,
           240,
-          72
+          68
         ],
         "maps": [
           "alb",
@@ -180,14 +208,14 @@
       }
     },
     "triangles_total": [
-      5736,
-      2892,
-      852
+      5706,
+      2862,
+      830
     ],
     "triangles_without_detail": [
-      5244,
-      2652,
-      780
+      5214,
+      2622,
+      762
     ],
     "reference": "art/references/BM09/prompt.txt",
     "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
@@ -275,7 +303,7 @@
     },
     "collision": {},
     "notes": {
-      "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+      "build": "1 m ground patch, alpha-cut: the cover stops 2-15 cm in from the square edge along an uneven line (moss cushions, whole leaves), colour bled into the transparent margin; 8x8 / 8x4 / 3x3 grids.",
       "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
       "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
       "validation": "Blender export/import only; Unity and mobile performance not tested."
@@ -337,7 +365,7 @@
     },
     "collision": {},
     "notes": {
-      "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+      "build": "1 m ground patch, alpha-cut: the cover stops 2-15 cm in from the square edge along an uneven line (moss cushions, whole leaves), colour bled into the transparent margin; 8x8 / 8x4 / 3x3 grids.",
       "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
       "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
       "validation": "Blender export/import only; Unity and mobile performance not tested."
@@ -399,7 +427,7 @@
     },
     "collision": {},
     "notes": {
-      "build": "1m square periodic ground surface; authored procedural texture, leaf alpha gaps; 8x8 / 8x4 / 3x3 grids.",
+      "build": "1 m ground patch, alpha-cut: the cover stops 2-15 cm in from the square edge along an uneven line (moss cushions, whole leaves), colour bled into the transparent margin; 8x8 / 8x4 / 3x3 grids.",
       "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
       "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
       "validation": "Blender export/import only; Unity and mobile performance not tested."

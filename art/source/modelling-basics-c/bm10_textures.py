@@ -16,6 +16,21 @@ def png(path, a):
 def extend(a):
     return np.concatenate([np.concatenate([a,a[:,:1]],axis=1),np.concatenate([a[:1],a[:1,:1]],axis=1)],axis=0)
 
+def bleed(rgb,alpha,passes=48):
+    """colour margin: transparent pixels take the colour of the nearest opaque ones, so filtered and mipmapped samples at
+    an alpha edge never pick up a foreign colour (#69 review: no square outline near or at 40 m)"""
+    rgb=rgb.copy();f=alpha>.5;rgb[~f]=0
+    for _ in range(passes):
+        acc=np.zeros_like(rgb);cnt=np.zeros(f.shape,np.float32)
+        for dy,dx in ((1,0),(-1,0),(0,1),(0,-1)):acc+=np.roll(np.roll(rgb*f[...,None],dy,0),dx,1);cnt+=np.roll(np.roll(f,dy,0),dx,1)
+        new=(~f)&(cnt>0);rgb[new]=acc[new]/cnt[new][:,None];f=f|new
+        if f.all():break
+    rgb[~f]=rgb[f].mean(0);return rgb
+
+def edge_reach(x,y):
+    """0..1, smooth and not periodic with the square: how far in from the patch edge the cover stops, so the outline wanders"""
+    return .5+.25*np.sin(x*17.3+y*5.1+.4)*np.cos(y*13.7-x*3.3)+.25*np.sin((x+y)*9.1+1.3)
+
 def material_maps(prefix, rgb, height, alpha, rough, ao, texdir, periodic=False, normal_strength=1.):
     n=height.shape[0]
     dx=(np.roll(height,-1,1)-np.roll(height,1,1))*n*.5*normal_strength
@@ -91,8 +106,13 @@ def moss(prefix,texdir):
         rib=np.exp(-(u/(r*.12))**2)*mask
         rgb[idx]=rgb[idx]*(1-mask[...,None]*.88)+(col+rib[...,None]*.028)*mask[...,None]*.88
         h[idx]+=mask*.00035+rib*.00010
-    alpha=np.ones_like(h);rough=.87+.06*(1-t);ao=.80+.20*np.clip(h/.006,0,1)
-    return material_maps(prefix,rgb,h,alpha,rough,ao,texdir,True,normal_strength=1.15)
+    # #69 review: the patch was opaque to its square edge. The cover is now a rounded, lobed mat whose rim runs 0.36-0.49 m
+    # from the centre with the angle and bulges where a cushion sits, so neither near nor at 40 m is there a straight edge.
+    dx_,dy_=xx-.5,yy-.5;rr=np.sqrt(dx_*dx_+dy_*dy_);th=np.arctan2(dy_,dx_)
+    rim=.415+.035*np.sin(3*th+1.1)+.025*np.sin(5*th+2.3)+.015*np.sin(9*th+.4)+.03*(np.clip(h/.012,0,1)-.5)
+    alpha=np.clip((np.minimum(rim,.49)-rr)*30,0,1)
+    rough=.87+.06*(1-t);ao=.80+.20*np.clip(h/.006,0,1)
+    return material_maps(prefix,bleed(rgb,alpha),h,alpha,rough,ao,texdir,True,normal_strength=1.15)
 
 def polygon_mask(x,y,verts):
     inside=np.zeros(x.shape,bool)
@@ -124,6 +144,9 @@ def leaves(prefix,texdir,kind):
         else:cx,cy=rng.random(2)
         r=rng.uniform(.029,.058) if kind=='maple' else rng.uniform(.024,.044)
         idx,x,y=area(n,cx,cy,r*1.7)
+        # #69 review: leaves crossing the patch edge wrapped round and were cut straight along the square. Only leaves
+        # wholly inside are drawn, and the margin wanders 2-9 cm, so the patch edge reads as scattered leaves.
+        inside=min(cx,1-cx,cy,1-cy)>r*1.75+.02+.07*float(edge_reach(cx,cy))
         angle=rng.uniform(0,math.tau);u=(x*np.cos(angle)+y*np.sin(angle))/r;v=(-x*np.sin(angle)+y*np.cos(angle))/r
         if kind=='maple':
             mask=polygon_mask(u,v,verts)
@@ -163,7 +186,7 @@ def leaves(prefix,texdir,kind):
             col=col*(1-blot[...,None])+np.array([.24,.17,.075])*blot[...,None]
         # A few torn spots, not a speckled noise field.
         if k%7==0:mask&=~(((u-.23)**2+(v-.37)**2)<.0018)
-        a=mask.astype(np.float32)
+        a=mask.astype(np.float32)*inside
         rgb[idx]=rgb[idx]*(1-a[...,None])+np.clip(col,0,1)*a[...,None]
         h[idx]=h[idx]*(1-a)+(relief+.0006)*a
         rough[idx]=rough[idx]*(1-a)+(.76+.08*rng.random())*a
@@ -171,4 +194,4 @@ def leaves(prefix,texdir,kind):
     # Subpixel antialias only, preserving the periodic construction.
     alpha=(alpha*4+np.roll(alpha,1,0)+np.roll(alpha,-1,0)+np.roll(alpha,1,1)+np.roll(alpha,-1,1))/8
     h=(h*4+np.roll(h,1,0)+np.roll(h,-1,0)+np.roll(h,1,1)+np.roll(h,-1,1))/8
-    return material_maps(prefix,rgb,h,alpha,rough,ao,texdir,True,normal_strength=.52)
+    return material_maps(prefix,bleed(rgb,alpha),h,alpha,rough,ao,texdir,True,normal_strength=.52)

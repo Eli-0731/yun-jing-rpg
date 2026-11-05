@@ -114,6 +114,43 @@ case " $ITEMS " in *" BM08 "*)
   done; done
   python "$SRC/compose_lod.py" $P/BM08/lod BM08_01 BM08_02
 ;; esac
+case " $ITEMS " in *" BM09 "*)
+  # built by build_bm09_bm10.py; four views + wireframe, LOD0 vs LOD1 without Detail_*, side by side with qingxi-fern-flower-v2
+  for k in BM09_01 BM09_02; do
+    r --glb $E/$k.glb --out $P/BM09 --tag $k-scale --views front,side,back,threequarter --wire
+    for L in 0 1; do r --glb $E/$k.fbx --lod $L --hide Detail_ --out $P/BM09 --tag $k-lod$L-nodetail --views threequarter --no-ruler; done
+    r --glb $E/$k.glb,art/exports/qingxi-detail-props-v2/qingxi-fern-flower-v2.glb --at="-.8,0,0;.7,0,0" --out $P/BM09/compare --tag $k-vs-qingxi --views threequarter --no-ruler
+  done
+;; esac
+case " $ITEMS " in *" BM10 "*)
+  # ground patches: a close look at each, then the #69 edge check -- the three patches on a light and on a dark ground, near
+  # and from 40 m, in EEVEE (Cycles does not mipmap, so it cannot show how the alpha edge reads far away), with a 6x crop
+  for k in BM10_01 BM10_02 BM10_03; do r --glb $E/$k.glb --out $P/BM10 --tag $k-close --views "" --no-ruler --at="0,0,0,0.005" --cam=0,-.35,1.5,0,0,0,55 --light neutral --res 1200x900; done
+  G="$E/BM10_01.glb,$E/BM10_02.glb,$E/BM10_03.glb";EC=$P/BM10/edge-check
+  for gr in "light:.62,.57,.48" "dark:.10,.085,.07"; do n=${gr%%:*};c=${gr#*:}
+    r --glb $G --at="-1.3,0,0;0,0,0;1.3,0,0" --ground $c --light afternoon --no-ruler --views "" --engine eevee --out $EC --tag patches-$n-40m-eevee --cam=0,-34.6,20,0,0,0,50 --res 1920x1080
+    r --glb $G --at="-1.3,0,0;0,0,0;1.3,0,0" --ground $c --light afternoon --no-ruler --views "" --engine eevee --out $EC --tag patches-$n-near-eevee --cam=0,-2.6,1.9,0,0,0,32 --res 1600x900
+  done
+  python -c "
+from PIL import Image
+for n in ('light','dark'):
+    im=Image.open('$EC/patches-'+n+'-40m-eevee-cam.png').convert('RGB');w,h=im.size
+    im.crop((w//2-110,h//2-30,w//2+110,h//2+30)).resize((1320,360),Image.NEAREST).save('$EC/patches-'+n+'-40m-eevee-crop6x.png')"
+;; esac
+case " $ITEMS " in *" CONTACT "*)
+  # #69: how each kind of loose piece rests on its support (art/previews/modelling-basics-c/qa/qa-contact.json, gap along the
+  # best chain of touching pieces down to z=0); red dots at the pieces with the largest gap of that kind
+  K=$P/qa-evidence/contact;c(){ r --glb $E/$1.glb --out $K --tag $2 --views "" --no-ruler --light afternoon --res 1200x900 --cam=$3 ${4:+--mark=$4}; }
+  c BM06_02 BM06_02-staples ".66,.36,.5,.34,.17,.39,50"
+  c BM06_03 BM06_03-shrub-leaves ".6,-.65,.9,.199,-.153,.634,45" ".199,-.153,.634,.004;.032,.284,.689,.004"
+  c BM06_04 BM06_04-grass-in-soil ".45,-.75,.8,0,0,.42,40"
+  c BM07_01 BM07_01-needles-on-base ".55,-.75,.6,.2,-.2,.3,40"
+  c BM08_01 BM08_01-litter ".95,-.95,.5,.3,-.3,0,40"
+  c BM08_02 BM08_02-berry-stalks "-.17,-.62,.5,-.26,-.36,.44,60"
+  c BM08_02 BM08_02-inner-leaf-card ".45,-.75,.8,.004,-.134,.56,50" ".004,-.134,.56,.005"
+  c BM09_02 BM09_02-crozier-centre ".3,-.4,.3,0,0,.08,45"
+  python "$SRC/compose_sheet.py" $P/qa-evidence/contact-sheet.jpg "#69 散件接觸（qa-contact.json）" 4     $K/BM06_02-staples-cam.png="BM06_02 鐵扣：嵌進缸壁 3 mm" $K/BM06_03-shrub-leaves-cam.png="BM06_03 花台灌木葉：最遠 4.9 mm"     $K/BM06_04-grass-in-soil-cam.png="BM06_04 花台草：根部插進土 4 mm" $K/BM07_01-needles-on-base-cam.png="BM07 松針、落葉：躺在座台上，最遠 0.9 mm"     $K/BM08_01-litter-cam.png="BM08_01 落葉：平躺地面，最遠 1.2 mm" $K/BM08_02-berry-stalks-cam.png="BM08_02 紅果：果柄連到枝端，最遠 0.2 mm"     $K/BM08_02-inner-leaf-card-cam.png="BM08_02 唯一 >1 cm 的葉片（12.6 mm，樹冠內）" $K/BM09_02-crozier-centre-cam.png="BM09_02 葉柄基部、捲芽：最遠 1.9 mm"
+;; esac
 case " $ITEMS " in *" CLAY "*)
   # grey model for every exported item (work pack §1.3): one flat grey, no textures, so only the silhouette and the forms are judged
   for f in $E/BM*.glb; do k=$(basename "$f" .glb); r --glb "$f" --clay --light neutral --out $P/${k%_*}/clay --tag $k-clay --views front,side,threequarter --res 960x720; done

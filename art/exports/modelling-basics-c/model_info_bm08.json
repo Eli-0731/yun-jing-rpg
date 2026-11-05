@@ -2,12 +2,12 @@
   "BM08_01": {
     "id": "BM08_01",
     "dimensions_xyz_m": [
-      1.498686,
+      1.462427,
       1.294991,
       1.2
     ],
     "body_dimensions_xyz_m": [
-      1.498686,
+      1.462427,
       1.294991,
       1.2
     ],
@@ -43,7 +43,7 @@
         "material": "BM08_01_Branches",
         "texture_px": 512,
         "triangles": [
-          7812,
+          7986,
           3804,
           312
         ],
@@ -73,12 +73,12 @@
       }
     },
     "triangles_total": [
-      17104,
+      17278,
       8116,
       2592
     ],
     "triangles_without_detail": [
-      17052,
+      17226,
       8088,
       2580
     ],
@@ -87,6 +87,50 @@
       357,
       189
     ],
+    "separated_pieces": {
+      "Branches+Berries": [
+        [
+          31,
+          0
+        ],
+        [
+          31,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "Leaves": [
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "Detail_Litter": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
     "reference": "art/references/BM08/prompt.txt",
     "origin": "crown centre at the soil line, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
     "textures": {
@@ -121,13 +165,13 @@
   "BM08_02": {
     "id": "BM08_02",
     "dimensions_xyz_m": [
-      1.313963,
-      1.120405,
+      1.31726,
+      1.126336,
       1.0
     ],
     "body_dimensions_xyz_m": [
-      1.313963,
-      1.120405,
+      1.31726,
+      1.126336,
       1.0
     ],
     "target_axis": "z",
@@ -162,9 +206,9 @@
         "material": "BM08_02_Branches",
         "texture_px": 512,
         "triangles": [
-          3708,
-          1944,
-          492
+          6216,
+          3168,
+          684
         ],
         "maps": [
           "alb",
@@ -208,20 +252,64 @@
       }
     },
     "triangles_total": [
-      14660,
-      7412,
-      2232
+      17168,
+      8636,
+      2424
     ],
     "triangles_without_detail": [
-      14608,
-      7384,
-      2220
+      17116,
+      8608,
+      2412
     ],
     "leaf_cards": [
       385,
       190,
       64
     ],
+    "separated_pieces": {
+      "Branches+Berries": [
+        [
+          34,
+          0
+        ],
+        [
+          25,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "Leaves": [
+        [
+          8,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "Detail_Litter": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
     "reference": "art/references/BM08/prompt.txt",
     "origin": "crown centre at the soil line, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
     "textures": {
@@ -253,7 +341,7 @@
     "collision": {},
     "notes": {
       "build": "loose forest-edge shrub: 8 stems with long arching canes, leaves in clumps with gaps so twigs show, red berry clusters as geometry and in the atlas",
-      "lod": "authored: LOD1 keeps half the cards 1.32x larger, LOD2 15% of the outer cards 2.1x larger and only the stems; tube sides 6/4/3",
+      "lod": "authored: LOD1 keeps half the cards 1.32x larger, LOD2 the outer cards (willow 30% at 1.62x, berry 15% at 2.1x) and only the stems; tube sides 6/4/3",
       "collision": "none: a shrub to brush past, nothing to stop on",
       "detail": "Detail_Litter (fallen leaves at the base); the standard tier hides it",
       "material": "Leaves and litter are alpha-cut (cutoff 0.45), double-sided; leaf normals lean on the crown ellipsoid. Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. Drawn procedurally, no photo sources."
