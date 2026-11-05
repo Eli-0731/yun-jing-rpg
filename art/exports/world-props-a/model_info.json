@@ -3,9 +3,9 @@
   "id": "RK09",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   1.97,
-   0.743,
-   0.559
+   1.96,
+   0.759,
+   0.569
   ],
   "size_limit_m": [
    2,
@@ -18,9 +18,9 @@
     "material": "RK09_Stone",
     "texture_px": 2048,
     "triangles": [
-     134080,
-     67040,
-     20112
+     133680,
+     66840,
+     20052
     ],
     "emission": false
    },
@@ -28,9 +28,9 @@
     "material": "RK09_Detail_Pebbles",
     "texture_px": 1024,
     "triangles": [
-     1120,
      560,
-     168
+     280,
+     83
     ],
     "emission": false
    },
@@ -46,9 +46,9 @@
    }
   },
   "triangles_total": [
-   135968,
-   67984,
-   20395
+   135008,
+   67504,
+   20250
   ],
   "source_parts": 83,
   "reference": "art/references/RK09/prompt.txt",
@@ -60,14 +60,14 @@
     {
      "type": "box",
      "size": [
-      1.922,
-      0.524,
-      0.573
+      1.98,
+      0.54,
+      0.59
      ],
      "center": [
-      -0.021,
-      0.02,
-      0.307
+      0.012,
+      -0.022,
+      0.295
      ]
     }
    ]
@@ -81,16 +81,15 @@
   "walkable": {
    "seat_height_m": 0.55,
    "note": "sit point on the seat centre"
-  },
-  "fit_scale": 0.9706
+  }
  },
  "RK06": {
   "id": "RK06",
   "device": "OPTIX",
   "dimensions_xyz_m": [
    2.336,
-   1.827,
-   2.609
+   1.826,
+   2.61
   ],
   "size_limit_m": [
    2.4,
@@ -103,9 +102,9 @@
     "material": "RK06_Stone",
     "texture_px": 2048,
     "triangles": [
-     384896,
-     192448,
-     57734
+     366467,
+     183233,
+     54970
     ],
     "emission": false
    },
@@ -113,9 +112,9 @@
     "material": "RK06_Timber",
     "texture_px": 1024,
     "triangles": [
-     134784,
-     67392,
-     20216
+     132070,
+     66034,
+     19810
     ],
     "emission": false
    },
@@ -123,8 +122,8 @@
     "material": "RK06_Roof",
     "texture_px": 1024,
     "triangles": [
-     213296,
-     106648,
+     213294,
+     106646,
      31994
     ],
     "emission": false
@@ -181,11 +180,11 @@
    }
   },
   "triangles_total": [
-   734980,
-   367490,
-   110240
+   713835,
+   356915,
+   107070
   ],
-  "source_parts": 232,
+  "source_parts": 225,
   "reference": "art/references/RK06/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
@@ -200,9 +199,9 @@
       0.46
      ],
      "center": [
-      -0.0,
+      0.0,
       0.21,
-      0.232
+      0.23
      ]
     },
     {
@@ -213,9 +212,9 @@
       0.31
      ],
      "center": [
-      -0.0,
+      0.0,
       -0.66,
-      0.157
+      0.155
      ]
     },
     {
@@ -226,9 +225,9 @@
       1.2
      ],
      "center": [
-      -0.0,
+      0.0,
       0.21,
-      1.102
+      1.1
      ]
     }
    ]
@@ -247,8 +246,8 @@
   "device": "OPTIX",
   "dimensions_xyz_m": [
    1.576,
-   1.333,
-   1.397
+   1.32,
+   1.129
   ],
   "size_limit_m": [
    1.6,
@@ -261,9 +260,9 @@
     "material": "SC01_Stone",
     "texture_px": 2048,
     "triangles": [
-     121624,
-     60812,
-     18242
+     88834,
+     44416,
+     13324
     ],
     "emission": false
    },
@@ -271,9 +270,9 @@
     "material": "SC01_Timber",
     "texture_px": 1024,
     "triangles": [
-     49896,
-     24948,
-     7484
+     48678,
+     24338,
+     7300
     ],
     "emission": false
    },
@@ -281,8 +280,8 @@
     "material": "SC01_Roof",
     "texture_px": 1024,
     "triangles": [
-     53324,
-     26662,
+     53322,
+     26660,
      7998
     ],
     "emission": false
@@ -331,19 +330,19 @@
     "material": "SC01_Detail_Ferns",
     "texture_px": 1024,
     "triangles": [
-     1088,
-     543,
-     163
+     1112,
+     555,
+     166
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   227900,
-   113949,
-   34177
+   193914,
+   96953,
+   29078
   ],
-  "source_parts": 232,
+  "source_parts": 229,
   "reference": "art/references/SC01/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
@@ -353,14 +352,14 @@
     {
      "type": "box",
      "size": [
-      1.217,
-      1.03,
-      0.702
+      1.168,
+      0.988,
+      0.674
      ],
      "center": [
-      0.006,
-      -0.0,
-      0.567
+      0.011,
+      -0.009,
+      0.333
      ]
     }
    ]
@@ -373,14 +372,14 @@
    "Detail_Tiles"
   ],
   "pivots": {},
-  "fit_scale": 0.9364
+  "fit_scale": 0.8981
  },
  "RK01A": {
   "id": "RK01A",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   1.089,
-   0.302,
+   1.118,
+   0.306,
    2.561
   ],
   "size_limit_m": [
@@ -394,9 +393,9 @@
     "material": "RK01A_Wood",
     "texture_px": 1024,
     "triangles": [
-     75080,
-     37540,
-     11262
+     71821,
+     35909,
+     10772
     ],
     "emission": false
    },
@@ -404,9 +403,9 @@
     "material": "RK01A_Stone",
     "texture_px": 1024,
     "triangles": [
-     15360,
-     7680,
-     2304
+     9691,
+     4844,
+     1453
     ],
     "emission": false
    },
@@ -414,9 +413,9 @@
     "material": "RK01A_Detail_Stones",
     "texture_px": 1024,
     "triangles": [
-     400,
      200,
-     60
+     100,
+     30
     ],
     "emission": false
    },
@@ -432,9 +431,9 @@
    }
   },
   "triangles_total": [
-   90948,
-   45474,
-   13642
+   81820,
+   40907,
+   12271
   ],
   "source_parts": 40,
   "reference": "art/references/RK01/prompt.txt",
@@ -445,12 +444,12 @@
    "primitives": [
     {
      "type": "cylinder",
-     "radius": 0.11615489498016046,
-     "height": 2.3714957725116097,
+     "radius": 0.11939478125319172,
+     "height": 2.437643450585998,
      "center": [
       0.002,
-      0.004,
-      1.255
+      0.006,
+      1.219
      ]
     }
    ]
@@ -462,7 +461,7 @@
   ],
   "pivots": {},
   "note": "arrow boards are blank; overlay the place names in game. A2_RoadSign uses A, A3_WestSign uses B",
-  "fit_scale": 0.968
+  "fit_scale": 0.995
  },
  "TY05A": {
   "id": "TY05A",
@@ -605,7 +604,7 @@
   "dimensions_xyz_m": [
    3.546,
    2.931,
-   2.713
+   2.717
   ],
   "size_limit_m": [
    3.6,
@@ -628,9 +627,9 @@
     "material": "SC04_Timber",
     "texture_px": 2048,
     "triangles": [
-     977408,
-     488704,
-     146610
+     949926,
+     474962,
+     142488
     ],
     "emission": false
    },
@@ -638,9 +637,9 @@
     "material": "SC04_Roof",
     "texture_px": 2048,
     "triangles": [
-     40380,
-     20190,
-     6056
+     38616,
+     19308,
+     5792
     ],
     "emission": false
    },
@@ -648,9 +647,9 @@
     "material": "SC04_Shakes",
     "texture_px": 4096,
     "triangles": [
-     1002000,
-     501000,
-     150300
+     957035,
+     478516,
+     143555
     ],
     "emission": false
    },
@@ -696,9 +695,9 @@
    }
   },
   "triangles_total": [
-   2721180,
-   1360590,
-   408176
+   2646969,
+   1323482,
+   397045
   ],
   "source_parts": 486,
   "reference": "art/references/SC04/prompt.txt",
@@ -710,7 +709,7 @@
     {
      "type": "box",
      "size": [
-      2.989,
+      2.99,
       0.241,
       1.948
      ],
@@ -728,8 +727,8 @@
       1.948
      ],
      "center": [
-      -1.351,
-      0.0,
+      -1.352,
+      -0.0,
       0.974
      ]
     },
@@ -742,46 +741,46 @@
      ],
      "center": [
       1.426,
-      0.0,
+      -0.0,
       0.974
      ]
     },
     {
      "type": "cylinder",
-     "radius": 0.09642051907204485,
-     "height": 1.947694485255306,
+     "radius": 0.09644560094994332,
+     "height": 1.9482011391888552,
      "center": [
       0.037,
-      -1.012,
+      -1.013,
       0.974
      ]
     },
     {
      "type": "cylinder",
-     "radius": 0.09642051907204485,
-     "height": 1.947694485255306,
+     "radius": 0.09644560094994332,
+     "height": 1.9482011391888552,
      "center": [
-      -1.313,
-      -1.012,
+      -1.314,
+      -1.013,
       0.974
      ]
     },
     {
      "type": "cylinder",
-     "radius": 0.09642051907204485,
-     "height": 1.947694485255306,
+     "radius": 0.09644560094994332,
+     "height": 1.9482011391888552,
      "center": [
       1.387,
-      -1.012,
+      -1.013,
       0.974
      ]
     },
     {
      "type": "cylinder",
-     "radius": 0.25069334958731665,
-     "height": 0.43389233582420184,
+     "radius": 0.2507585624698526,
+     "height": 0.434005204274745,
      "center": [
-      -0.493,
+      -0.494,
       -0.434,
       0.217
      ]
@@ -790,7 +789,7 @@
      "type": "box",
      "size": [
       0.723,
-      1.639,
+      1.64,
       0.723
      ],
      "center": [
@@ -811,15 +810,15 @@
   "walkable": {
    "note": "open front between the posts (two 1.5 m bays); floor is the ground inside the footing"
   },
-  "fit_scale": 0.9642
+  "fit_scale": 0.9645
  },
  "SC03": {
   "id": "SC03",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   3.597,
-   3.847,
-   3.152
+   3.531,
+   3.83,
+   3.154
   ],
   "size_limit_m": [
    4,
@@ -832,9 +831,9 @@
     "material": "SC03_Stone",
     "texture_px": 2048,
     "triangles": [
-     236352,
-     118176,
-     35452
+     235567,
+     117783,
+     35335
     ],
     "emission": false
    },
@@ -842,9 +841,9 @@
     "material": "SC03_Timber",
     "texture_px": 2048,
     "triangles": [
-     133776,
-     66888,
-     20066
+     256046,
+     128022,
+     38406
     ],
     "emission": false
    },
@@ -852,8 +851,8 @@
     "material": "SC03_Roof",
     "texture_px": 2048,
     "triangles": [
-     174128,
-     87064,
+     174124,
+     87062,
      26118
     ],
     "emission": false
@@ -893,16 +892,16 @@
     "texture_px": 1024,
     "triangles": [
      1224,
-     612,
+     611,
      183
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   553784,
-   276892,
-   83067
+   675265,
+   337630,
+   101290
   ],
   "source_parts": 250,
   "reference": "art/references/SC03/prompt.txt",
@@ -913,45 +912,45 @@
    "primitives": [
     {
      "type": "cylinder",
-     "radius": 0.1269823761073496,
-     "height": 3.1257200272578363,
+     "radius": 0.12706483996731574,
+     "height": 3.1277499068877717,
      "center": [
-      -1.199,
-      1.295,
-      1.565
+      -1.23,
+      1.306,
+      1.564
      ]
     },
     {
      "type": "cylinder",
-     "radius": 0.1269823761073496,
-     "height": 2.539647522146992,
+     "radius": 0.12706483996731574,
+     "height": 2.5412967993463145,
      "center": [
-      -1.092,
-      -1.127,
-      1.272
+      -1.123,
+      -1.118,
+      1.271
      ]
     },
     {
      "type": "cylinder",
-     "radius": 0.1269823761073496,
-     "height": 1.0744662593698813,
+     "radius": 0.12706483996731574,
+     "height": 1.0751640304926715,
      "center": [
-      1.243,
-      1.295,
-      0.54
+      1.213,
+      1.306,
+      0.538
      ]
     },
     {
      "type": "box",
      "size": [
-      1.661,
-      1.319,
-      0.879
+      1.662,
+      1.32,
+      0.88
      ],
      "center": [
-      0.706,
-      -0.414,
-      0.442
+      0.676,
+      -0.404,
+      0.44
      ],
      "yaw": -12
     }
@@ -968,14 +967,14 @@
   "walkable": {
    "note": "plinth top 0.32 m; walk in over the front step; the roof heap and the post block, everything else is open"
   },
-  "fit_scale": 0.9768
+  "fit_scale": 0.9774
  },
  "SC02": {
   "id": "SC02",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   2.332,
-   2.176,
+   2.511,
+   2.286,
    1.182
   ],
   "size_limit_m": [
@@ -989,9 +988,9 @@
     "material": "SC02_Ash",
     "texture_px": 1024,
     "triangles": [
-     1420,
-     710,
-     212
+     783,
+     391,
+     117
     ],
     "emission": false
    },
@@ -999,9 +998,9 @@
     "material": "SC02_Stone",
     "texture_px": 2048,
     "triangles": [
-     14720,
      7360,
-     2208
+     3679,
+     1104
     ],
     "emission": false
    },
@@ -1009,9 +1008,9 @@
     "material": "SC02_Timber",
     "texture_px": 1024,
     "triangles": [
-     56464,
-     28232,
-     8468
+     54725,
+     27361,
+     8208
     ],
     "emission": false
    },
@@ -1039,9 +1038,9 @@
     "material": "SC02_Detail_Snare",
     "texture_px": 1024,
     "triangles": [
-     236,
-     118,
-     34
+     234,
+     117,
+     35
     ],
     "emission": false
    },
@@ -1049,9 +1048,9 @@
     "material": "SC02_Detail_Leaves",
     "texture_px": 1024,
     "triangles": [
-     264,
-     132,
-     39
+     302,
+     151,
+     45
     ],
     "emission": false
    },
@@ -1067,9 +1066,9 @@
    }
   },
   "triangles_total": [
-   80800,
-   40400,
-   12115
+   71100,
+   35547,
+   10663
   ],
   "source_parts": 109,
   "reference": "art/references/SC02/prompt.txt",
@@ -1080,25 +1079,25 @@
    "primitives": [
     {
      "type": "cylinder",
-     "radius": 0.20678518654687503,
-     "height": 0.40417104643252844,
+     "radius": 0.21826792784452786,
+     "height": 0.42661458624157717,
      "center": [
-      0.501,
-      -0.743,
-      0.268
+      0.504,
+      -0.789,
+      0.214
      ]
     },
     {
      "type": "box",
      "size": [
-      1.833,
-      0.188,
-      1.128
+      1.935,
+      0.198,
+      1.191
      ],
      "center": [
-      0.172,
-      0.667,
-      0.63
+      0.156,
+      0.699,
+      0.596
      ]
     }
    ]
@@ -1110,13 +1109,13 @@
    "Detail_Snare"
   ],
   "pivots": {},
-  "fit_scale": 0.9399
+  "fit_scale": 0.9921
  },
  "RK05": {
   "id": "RK05",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   2.481,
+   2.467,
    1.576,
    1.374
   ],
@@ -1131,9 +1130,9 @@
     "material": "RK05_Timber",
     "texture_px": 2048,
     "triangles": [
-     530800,
-     265400,
-     79620
+     498748,
+     249373,
+     74812
     ],
     "emission": false
    },
@@ -1142,7 +1141,7 @@
     "texture_px": 1024,
     "triangles": [
      27840,
-     13919,
+     13920,
      4175
     ],
     "emission": false
@@ -1189,9 +1188,9 @@
    }
   },
   "triangles_total": [
-   617242,
-   308619,
-   92583
+   585190,
+   292593,
+   87775
   ],
   "source_parts": 103,
   "reference": "art/references/RK05/prompt.txt",
@@ -1204,12 +1203,12 @@
      "type": "box",
      "size": [
       1.945,
-      1.498,
+      1.497,
       0.972
      ],
      "center": [
-      -0.271,
-      -0.0,
+      -0.277,
+      0.0,
       0.487
      ]
     },
@@ -1221,9 +1220,9 @@
       0.583
      ],
      "center": [
-      0.702,
-      -0.0,
-      0.293
+      0.695,
+      0.0,
+      0.292
      ]
     }
    ]
@@ -1235,26 +1234,26 @@
   ],
   "pivots": {
    "WheelL": [
-    -0.3,
+    -0.306,
     -0.661,
-    0.546
+    0.545
    ],
    "WheelR": [
-    -0.3,
+    -0.306,
     0.661,
-    0.546
+    0.545
    ]
   },
   "note": "WheelL / WheelR origins are on the axle (y axis); spin them about local Y when the cart moves",
-  "fit_scale": 0.9725
+  "fit_scale": 0.9723
  },
  "RK01B": {
   "id": "RK01B",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.904,
-   0.312,
-   2.446
+   0.903,
+   0.307,
+   2.374
   ],
   "size_limit_m": [
    1.2,
@@ -1267,9 +1266,9 @@
     "material": "RK01B_Wood",
     "texture_px": 1024,
     "triangles": [
-     49664,
-     24832,
-     7448
+     46852,
+     23426,
+     7026
     ],
     "emission": false
    },
@@ -1277,9 +1276,9 @@
     "material": "RK01B_Stone",
     "texture_px": 1024,
     "triangles": [
-     12800,
-     6400,
-     1920
+     8349,
+     4174,
+     1251
     ],
     "emission": false
    },
@@ -1287,9 +1286,9 @@
     "material": "RK01B_Detail_Stones",
     "texture_px": 1024,
     "triangles": [
-     400,
      200,
-     60
+     100,
+     30
     ],
     "emission": false
    },
@@ -1305,9 +1304,9 @@
    }
   },
   "triangles_total": [
-   62972,
-   31486,
-   9444
+   55509,
+   27754,
+   8323
   ],
   "source_parts": 33,
   "reference": "art/references/RK01/prompt.txt",
@@ -1321,9 +1320,9 @@
      "radius": 0.12,
      "height": 2.25,
      "center": [
-      -0.11,
-      0.004,
-      1.199
+      -0.109,
+      0.006,
+      1.125
      ]
     }
    ]
@@ -1341,8 +1340,8 @@
   "device": "OPTIX",
   "dimensions_xyz_m": [
    1.379,
-   0.649,
-   0.389
+   0.643,
+   0.376
   ],
   "size_limit_m": [
    1.4,
@@ -1355,9 +1354,9 @@
     "material": "TY06_Lock",
     "texture_px": 2048,
     "triangles": [
-     5120,
-     2560,
-     768
+     4183,
+     2090,
+     626
     ],
     "emission": false
    },
@@ -1375,9 +1374,9 @@
     "material": "TY06_Barbell",
     "texture_px": 2048,
     "triangles": [
-     10752,
-     5376,
-     1612
+     10655,
+     5326,
+     1598
     ],
     "emission": false
    },
@@ -1393,9 +1392,9 @@
    }
   },
   "triangles_total": [
-   32720,
-   16360,
-   4907
+   31686,
+   15840,
+   4751
   ],
   "source_parts": 53,
   "reference": "art/references/TY06/prompt.txt",
@@ -1407,27 +1406,27 @@
     {
      "type": "box",
      "size": [
-      0.33,
-      0.213,
-      0.32
+      0.325,
+      0.21,
+      0.315
      ],
      "center": [
-      -0.471,
-      0.15,
-      0.168
+      -0.457,
+      0.145,
+      0.158
      ]
     },
     {
      "type": "box",
      "size": [
-      1.144,
-      0.388,
-      0.388
+      1.126,
+      0.382,
+      0.382
      ],
      "center": [
-      0.111,
-      -0.083,
-      0.202
+      0.116,
+      -0.084,
+      0.191
      ]
     }
    ]
@@ -1440,8 +1439,8 @@
   "pieces": {
    "Lock": {
     "centre": [
-     -0.485,
-     0.154
+     -0.478,
+     0.152
     ],
     "collision": {
      "type": "box",
@@ -1454,8 +1453,8 @@
    },
    "Barbell": {
     "centre": [
-     0.115,
-     -0.086
+     0.122,
+     -0.088
     ],
     "collision": {
      "type": "box",
@@ -1467,7 +1466,7 @@
     }
    }
   },
-  "fit_scale": 0.9699
+  "fit_scale": 0.9545
  },
  "TY03A": {
   "id": "TY03A",
@@ -1475,7 +1474,7 @@
   "dimensions_xyz_m": [
    0.471,
    0.546,
-   0.162
+   0.16
   ],
   "size_limit_m": [
    0.8,
@@ -1488,17 +1487,17 @@
     "material": "TY03A_Leaf",
     "texture_px": 1024,
     "triangles": [
-     20960,
-     10480,
-     3144
+     20956,
+     10477,
+     3143
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   20960,
-   10480,
-   3144
+   20956,
+   10477,
+   3143
   ],
   "source_parts": 11,
   "reference": "art/references/TY03/prompt.txt",
@@ -1516,7 +1515,7 @@
   "dimensions_xyz_m": [
    0.474,
    0.299,
-   0.37
+   0.368
   ],
   "size_limit_m": [
    0.8,
@@ -1527,10 +1526,10 @@
   "groups": {
    "Detail_Leaf": {
     "material": "TY03B_Detail_Leaf",
-    "texture_px": 512,
+    "texture_px": 1024,
     "triangles": [
-     6912,
-     3456,
+     6914,
+     3457,
      1036
     ],
     "emission": false
@@ -1539,15 +1538,15 @@
     "material": "TY03B_Leaf",
     "texture_px": 1024,
     "triangles": [
-     6976,
-     3488,
+     6975,
+     3487,
      1046
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   13888,
+   13889,
    6944,
    2082
   ],
@@ -1569,7 +1568,7 @@
   "dimensions_xyz_m": [
    0.615,
    0.503,
-   0.569
+   0.565
   ],
   "size_limit_m": [
    0.8,
@@ -1580,11 +1579,11 @@
   "groups": {
    "Detail_Leaf": {
     "material": "TY03C_Detail_Leaf",
-    "texture_px": 512,
+    "texture_px": 1024,
     "triangles": [
-     6912,
-     3456,
-     1036
+     6916,
+     3458,
+     1037
     ],
     "emission": false
    },
@@ -1592,9 +1591,9 @@
     "material": "TY03C_Leaf",
     "texture_px": 1024,
     "triangles": [
-     10508,
-     5254,
-     1576
+     10505,
+     5251,
+     1574
     ],
     "emission": false
    },
@@ -1610,9 +1609,9 @@
    }
   },
   "triangles_total": [
-   17580,
-   8790,
-   2636
+   17581,
+   8789,
+   2635
   ],
   "source_parts": 10,
   "reference": "art/references/TY03/prompt.txt",
@@ -1632,7 +1631,7 @@
   "dimensions_xyz_m": [
    0.615,
    0.521,
-   0.63
+   0.628
   ],
   "size_limit_m": [
    0.8,
@@ -1643,11 +1642,11 @@
   "groups": {
    "Detail_Leaf": {
     "material": "TY03D_Detail_Leaf",
-    "texture_px": 512,
+    "texture_px": 1024,
     "triangles": [
-     6912,
-     3456,
-     1036
+     6918,
+     3458,
+     1037
     ],
     "emission": false
    },
@@ -1655,9 +1654,9 @@
     "material": "TY03D_Leaf",
     "texture_px": 1024,
     "triangles": [
-     10508,
-     5254,
-     1576
+     10498,
+     5248,
+     1574
     ],
     "emission": false
    },
@@ -1673,7 +1672,7 @@
    },
    "Glow": {
     "material": "TY03D_Glow",
-    "texture_px": 256,
+    "texture_px": 1024,
     "triangles": [
      96,
      48,
@@ -1683,9 +1682,9 @@
    }
   },
   "triangles_total": [
-   18036,
-   9018,
-   2704
+   18032,
+   9014,
+   2703
   ],
   "source_parts": 46,
   "reference": "art/references/TY03/prompt.txt",
@@ -1704,8 +1703,8 @@
   "device": "OPTIX",
   "dimensions_xyz_m": [
    0.985,
-   0.784,
-   0.284
+   0.785,
+   0.268
   ],
   "size_limit_m": [
    1,
@@ -1718,9 +1717,9 @@
     "material": "WM08A_Stone",
     "texture_px": 2048,
     "triangles": [
-     20480,
-     10240,
-     3072
+     19285,
+     9641,
+     2891
     ],
     "emission": false
    },
@@ -1728,17 +1727,17 @@
     "material": "WM08A_Detail_Pebbles",
     "texture_px": 1024,
     "triangles": [
-     560,
-     280,
-     84
+     314,
+     156,
+     47
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   21040,
-   10520,
-   3156
+   19599,
+   9797,
+   2938
   ],
   "source_parts": 8,
   "reference": "art/references/WM08/prompt.txt",
@@ -1749,12 +1748,12 @@
    "primitives": [
     {
      "type": "cylinder",
-     "radius": 0.3532670231451948,
-     "height": 0.24259439684657488,
+     "radius": 0.35559671187061515,
+     "height": 0.2441942332144074,
      "center": [
       -0.026,
-      0.025,
-      0.139
+      0.024,
+      0.122
      ]
     }
    ]
@@ -1768,15 +1767,15 @@
    "top_height_m": 0.274,
    "note": "nearly flat top, sink ~0.12 m into the creek bed when placed"
   },
-  "fit_scale": 0.8854
+  "fit_scale": 0.8912
  },
  "WM08B": {
   "id": "WM08B",
   "device": "OPTIX",
   "dimensions_xyz_m": [
    0.985,
-   0.725,
-   0.264
+   0.726,
+   0.247
   ],
   "size_limit_m": [
    1,
@@ -1789,9 +1788,9 @@
     "material": "WM08B_Stone",
     "texture_px": 2048,
     "triangles": [
-     20480,
-     10240,
-     3072
+     19077,
+     9537,
+     2861
     ],
     "emission": false
    },
@@ -1799,17 +1798,17 @@
     "material": "WM08B_Detail_Pebbles",
     "texture_px": 1024,
     "triangles": [
-     560,
-     280,
-     84
+     291,
+     145,
+     43
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   21040,
-   10520,
-   3156
+   19368,
+   9682,
+   2904
   ],
   "source_parts": 8,
   "reference": "art/references/WM08/prompt.txt",
@@ -1820,12 +1819,12 @@
    "primitives": [
     {
      "type": "cylinder",
-     "radius": 0.31812510382842907,
-     "height": 0.22386581380519086,
+     "radius": 0.3192236436234336,
+     "height": 0.22463886032760144,
      "center": [
-      -0.004,
-      -0.022,
-      0.13
+      -0.003,
+      -0.021,
+      0.112
      ]
     }
    ]
@@ -1839,15 +1838,15 @@
    "top_height_m": 0.247,
    "note": "nearly flat top, sink ~0.12 m into the creek bed when placed"
   },
-  "fit_scale": 0.9063
+  "fit_scale": 0.9095
  },
  "WM08C": {
   "id": "WM08C",
   "device": "OPTIX",
   "dimensions_xyz_m": [
    0.985,
-   0.911,
-   0.285
+   0.908,
+   0.269
   ],
   "size_limit_m": [
    1,
@@ -1860,9 +1859,9 @@
     "material": "WM08C_Stone",
     "texture_px": 2048,
     "triangles": [
-     20480,
-     10240,
-     3072
+     19439,
+     9719,
+     2914
     ],
     "emission": false
    },
@@ -1870,17 +1869,17 @@
     "material": "WM08C_Detail_Pebbles",
     "texture_px": 1024,
     "triangles": [
-     560,
-     280,
-     84
+     335,
+     167,
+     50
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   21040,
-   10520,
-   3156
+   19774,
+   9886,
+   2964
   ],
   "source_parts": 8,
   "reference": "art/references/WM08/prompt.txt",
@@ -1891,12 +1890,12 @@
    "primitives": [
     {
      "type": "cylinder",
-     "radius": 0.4082803609902163,
-     "height": 0.24291280058914472,
+     "radius": 0.4104542841607821,
+     "height": 0.2442062102558429,
      "center": [
-      0.04,
+      0.038,
       0.005,
-      0.14
+      0.122
      ]
     }
    ]
@@ -1910,15 +1909,15 @@
    "top_height_m": 0.26,
    "note": "nearly flat top, sink ~0.12 m into the creek bed when placed"
   },
-  "fit_scale": 0.9343
+  "fit_scale": 0.9393
  },
  "WM10A": {
   "id": "WM10A",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   0.468,
-   0.38,
-   0.286
+   0.469,
+   0.376,
+   0.282
   ],
   "size_limit_m": [
    0.5,
@@ -1931,17 +1930,17 @@
     "material": "WM10A_Stone",
     "texture_px": 1024,
     "triangles": [
-     20480,
-     10240,
-     3072
+     19403,
+     9700,
+     2909
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   20480,
-   10240,
-   3072
+   19403,
+   9700,
+   2909
   ],
   "source_parts": 1,
   "reference": "art/references/WM10/prompt.txt",
@@ -1956,8 +1955,8 @@
      "height": 0.246,
      "center": [
       0.003,
-      -0.004,
-      0.126
+      -0.003,
+      0.123
      ]
     }
    ]
@@ -1973,7 +1972,7 @@
   "dimensions_xyz_m": [
    1.182,
    0.91,
-   0.528
+   0.525
   ],
   "size_limit_m": [
    1.2,
@@ -1986,9 +1985,9 @@
     "material": "WM10B_Stone",
     "texture_px": 2048,
     "triangles": [
-     20480,
-     10240,
-     3072
+     19407,
+     9703,
+     2911
     ],
     "emission": false
    },
@@ -1996,17 +1995,17 @@
     "material": "WM10B_Detail_Gravel",
     "texture_px": 1024,
     "triangles": [
-     1120,
-     560,
-     168
+     1190,
+     595,
+     177
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   21600,
-   10800,
-   3240
+   20597,
+   10298,
+   3088
   ],
   "source_parts": 15,
   "reference": "art/references/WM10/prompt.txt",
@@ -2025,7 +2024,7 @@
      "center": [
       0.012,
       0.008,
-      0.238
+      0.236
      ]
     }
    ]
@@ -2043,8 +2042,8 @@
   "device": "OPTIX",
   "dimensions_xyz_m": [
    2.955,
-   2.19,
-   1.294
+   2.16,
+   1.162
   ],
   "size_limit_m": [
    3,
@@ -2057,9 +2056,9 @@
     "material": "WM10C_Stone",
     "texture_px": 2048,
     "triangles": [
-     122880,
-     61440,
-     18432
+     108885,
+     54442,
+     16332
     ],
     "emission": false
    },
@@ -2067,9 +2066,9 @@
     "material": "WM10C_Detail_Gravel",
     "texture_px": 1024,
     "triangles": [
-     1920,
-     960,
-     288
+     2040,
+     1019,
+     306
     ],
     "emission": false
    },
@@ -2077,19 +2076,19 @@
     "material": "WM10C_Detail_Ferns",
     "texture_px": 1024,
     "triangles": [
-     320,
-     160,
-     48
+     360,
+     180,
+     54
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   125120,
-   62560,
-   18768
+   111285,
+   55641,
+   16692
   ],
-  "source_parts": 41,
+  "source_parts": 43,
   "reference": "art/references/WM10/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
@@ -2099,14 +2098,14 @@
     {
      "type": "box",
      "size": [
-      2.282,
-      1.554,
-      1.057
+      2.231,
+      1.519,
+      1.033
      ],
      "center": [
-      -0.034,
-      -0.011,
-      0.636
+      0.0,
+      -0.02,
+      0.517
      ]
     }
    ]
@@ -2118,15 +2117,15 @@
   ],
   "pivots": {},
   "note": "bed it ~15 % of its height into the gravel when placed",
-  "fit_scale": 0.9478
+  "fit_scale": 0.9265
  },
  "WM10D": {
   "id": "WM10D",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   2.772,
+   2.382,
    1.182,
-   0.416
+   0.355
   ],
   "size_limit_m": [
    3,
@@ -2139,9 +2138,9 @@
     "material": "WM10D_Stone",
     "texture_px": 2048,
     "triangles": [
-     122880,
-     61440,
-     18432
+     115871,
+     57935,
+     17379
     ],
     "emission": false
    },
@@ -2149,9 +2148,9 @@
     "material": "WM10D_Detail_Gravel",
     "texture_px": 1024,
     "triangles": [
-     2000,
-     1000,
-     300
+     2125,
+     1062,
+     318
     ],
     "emission": false
    },
@@ -2159,19 +2158,19 @@
     "material": "WM10D_Detail_Ferns",
     "texture_px": 1024,
     "triangles": [
-     380,
-     190,
-     57
+     360,
+     180,
+     54
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   125260,
-   62630,
-   18789
+   118356,
+   59177,
+   17751
   ],
-  "source_parts": 45,
+  "source_parts": 44,
   "reference": "art/references/WM10/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
   "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
@@ -2181,14 +2180,14 @@
     {
      "type": "box",
      "size": [
-      2.126,
-      0.734,
-      0.433
+      1.826,
+      0.63,
+      0.372
      ],
      "center": [
-      -0.013,
-      -0.04,
-      0.22
+      -0.011,
+      -0.039,
+      0.186
      ]
     }
    ]
@@ -2200,15 +2199,15 @@
   ],
   "pivots": {},
   "note": "bed it ~15 % of its height into the gravel when placed",
-  "fit_scale": 0.8524
+  "fit_scale": 0.7322
  },
  "RK12A": {
   "id": "RK12A",
   "device": "OPTIX",
   "dimensions_xyz_m": [
    1.97,
-   0.422,
-   0.195
+   0.427,
+   0.178
   ],
   "size_limit_m": [
    2,
@@ -2221,15 +2220,15 @@
     "material": "RK12A_Stone",
     "texture_px": 1024,
     "triangles": [
-     33280,
-     16640,
-     4992
+     28709,
+     14353,
+     4306
     ],
     "emission": false
    },
    "Detail_Grass": {
     "material": "RK12A_Detail_Grass",
-    "texture_px": 512,
+    "texture_px": 1024,
     "triangles": [
      540,
      269,
@@ -2239,9 +2238,9 @@
    }
   },
   "triangles_total": [
-   33820,
-   16909,
-   5073
+   29249,
+   14622,
+   4387
   ],
   "source_parts": 55,
   "reference": "art/references/RK12/prompt.txt",
@@ -2254,15 +2253,15 @@
   ],
   "pivots": {},
   "note": "roadside dressing, no collision; set along both edges of the dirt road",
-  "fit_scale": 0.8517
+  "fit_scale": 0.8364
  },
  "RK12B": {
   "id": "RK12B",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   1.636,
-   0.425,
-   0.214
+   1.641,
+   0.444,
+   0.197
   ],
   "size_limit_m": [
    2,
@@ -2275,27 +2274,27 @@
     "material": "RK12B_Stone",
     "texture_px": 1024,
     "triangles": [
-     23680,
-     11840,
-     3552
+     20472,
+     10235,
+     3070
     ],
     "emission": false
    },
    "Detail_Grass": {
     "material": "RK12B_Detail_Grass",
-    "texture_px": 512,
+    "texture_px": 1024,
     "triangles": [
      228,
-     113,
+     114,
      34
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   23908,
-   11953,
-   3586
+   20700,
+   10349,
+   3104
   ],
   "source_parts": 27,
   "reference": "art/references/RK12/prompt.txt",
@@ -2314,8 +2313,8 @@
   "device": "OPTIX",
   "dimensions_xyz_m": [
    1.97,
-   0.435,
-   0.202
+   0.411,
+   0.187
   ],
   "size_limit_m": [
    2,
@@ -2328,15 +2327,15 @@
     "material": "RK12C_Stone",
     "texture_px": 1024,
     "triangles": [
-     20160,
-     10080,
-     3024
+     17682,
+     8841,
+     2652
     ],
     "emission": false
    },
    "Detail_Grass": {
     "material": "RK12C_Detail_Grass",
-    "texture_px": 512,
+    "texture_px": 1024,
     "triangles": [
      288,
      144,
@@ -2346,9 +2345,9 @@
    }
   },
   "triangles_total": [
-   20448,
-   10224,
-   3067
+   17970,
+   8985,
+   2695
   ],
   "source_parts": 34,
   "reference": "art/references/RK12/prompt.txt",
@@ -2361,15 +2360,15 @@
   ],
   "pivots": {},
   "note": "roadside dressing, no collision; set along both edges of the dirt road",
-  "fit_scale": 0.9214
+  "fit_scale": 0.9198
  },
  "RK12D": {
   "id": "RK12D",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   1.268,
-   0.378,
-   0.226
+   1.27,
+   0.355,
+   0.21
   ],
   "size_limit_m": [
    2,
@@ -2382,15 +2381,15 @@
     "material": "RK12D_Stone",
     "texture_px": 1024,
     "triangles": [
-     20160,
-     10080,
-     3024
+     17442,
+     8720,
+     2615
     ],
     "emission": false
    },
    "Detail_Grass": {
     "material": "RK12D_Detail_Grass",
-    "texture_px": 512,
+    "texture_px": 1024,
     "triangles": [
      144,
      72,
@@ -2400,9 +2399,9 @@
    }
   },
   "triangles_total": [
-   20304,
-   10152,
-   3045
+   17586,
+   8792,
+   2636
   ],
   "source_parts": 19,
   "reference": "art/references/RK12/prompt.txt",
@@ -2420,8 +2419,8 @@
   "id": "RK10A",
   "device": "OPTIX",
   "dimensions_xyz_m": [
-   2.252,
-   2.166,
+   2.286,
+   2.199,
    2.167
   ],
   "size_limit_m": [
@@ -2435,9 +2434,9 @@
     "material": "RK10A_Straw",
     "texture_px": 4096,
     "triangles": [
-     685568,
-     342783,
-     102835
+     655435,
+     327717,
+     98314
     ],
     "emission": false
    },
@@ -2445,9 +2444,9 @@
     "material": "RK10A_Cap",
     "texture_px": 2048,
     "triangles": [
-     1300560,
-     650279,
-     195084
+     1297216,
+     648608,
+     194582
     ],
     "emission": false
    },
@@ -2475,17 +2474,17 @@
     "material": "RK10A_Detail_Straw",
     "texture_px": 1024,
     "triangles": [
-     1664,
-     832,
-     249
+     1671,
+     835,
+     250
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   2010336,
-   1005166,
-   301548
+   1976866,
+   988432,
+   296526
   ],
   "source_parts": 217,
   "reference": "art/references/RK10/prompt.txt",
@@ -2496,12 +2495,12 @@
    "primitives": [
     {
      "type": "cylinder",
-     "radius": 0.8551879536121302,
-     "height": 1.702073111558123,
+     "radius": 0.8682507061410787,
+     "height": 1.7280717937759331,
      "center": [
       0.023,
       0.01,
-      0.884
+      0.864
      ]
     }
    ]
@@ -2511,7 +2510,7 @@
    "Detail_Straw"
   ],
   "pivots": {},
-  "fit_scale": 0.8303
+  "fit_scale": 0.843
  },
  "RK10B": {
   "id": "RK10B",
@@ -2519,7 +2518,7 @@
   "dimensions_xyz_m": [
    2.174,
    2.364,
-   1.866
+   1.832
   ],
   "size_limit_m": [
    2.4,
@@ -2532,9 +2531,9 @@
     "material": "RK10B_Straw",
     "texture_px": 4096,
     "triangles": [
-     650272,
-     325135,
-     97539
+     645075,
+     322536,
+     96760
     ],
     "emission": false
    },
@@ -2542,9 +2541,9 @@
     "material": "RK10B_Cap",
     "texture_px": 2048,
     "triangles": [
-     522960,
-     261479,
-     78443
+     522903,
+     261451,
+     78434
     ],
     "emission": false
    },
@@ -2572,17 +2571,17 @@
     "material": "RK10B_Detail_Straw",
     "texture_px": 1024,
     "triangles": [
-     1664,
-     832,
-     249
+     1671,
+     835,
+     250
     ],
     "emission": false
    }
   },
   "triangles_total": [
-   1191040,
-   595518,
-   178651
+   1185793,
+   592894,
+   177864
   ],
   "source_parts": 187,
   "reference": "art/references/RK10/prompt.txt",
@@ -2598,7 +2597,7 @@
      "center": [
       -0.002,
       0.02,
-      0.786
+      0.755
      ]
     }
    ]

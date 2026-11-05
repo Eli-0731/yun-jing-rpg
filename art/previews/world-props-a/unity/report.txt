@@ -8,14 +8,14 @@ PASS SC04/SC04_Shakes: Albedo / MaskURP / Normal textures found
 PASS SC04/SC04_Stone: Albedo / MaskURP / Normal textures found
 PASS SC04/SC04_Timber: Albedo / MaskURP / Normal textures found
 PASS SC04: SC04_GroundOrigin is the model root (Unity names it SC04); all LOD meshes hang under it
-PASS SC04: imported size 3.546 x 2.931 x 2.713 m matches model_info 3.546 x 2.931 x 2.713
+PASS SC04: imported size 3.546 x 2.931 x 2.717 m matches model_info 3.546 x 2.931 x 2.717
 PASS SC04: within the 3.6 x 3 x 2.8 m limit
 PASS SC04: minTier = standard
 PASS SC04: removable Detail_Axe present (LOD0/1/2)
 PASS SC04: removable Detail_Chips present (LOD0/1/2)
 PASS SC04: removable Detail_Hang present (LOD0/1/2)
-PASS SC04: base at y = 0.000 (origin on the ground)
-PASS SC04: triangles LOD0/1/2 = 2721180 / 1360590 / 408176 (50% / 15%), model_info 2721180 / 1360590 / 408176
+PASS SC04: base at y = -0.003 (origin on the ground)
+PASS SC04: triangles LOD0/1/2 = 2646969 / 1323482 / 397045 (50% / 15%), model_info 2646969 / 1323482 / 397045
 PASS SC04: LODGroup with 3 levels x 8 renderers (one per material group)
 PASS SC04: SC04_Collision imported as MeshCollider (224 triangles), render hidden
 PASS SC04: collider 3.02 x 2.28 x 1.95 m stays within the model
@@ -28,7 +28,7 @@ PASS SC01/SC01_Roof: Albedo / MaskURP / Normal textures found
 PASS SC01/SC01_Stone: Albedo / MaskURP / Normal textures found
 PASS SC01/SC01_Timber: Albedo / MaskURP / Normal textures found
 PASS SC01: SC01_GroundOrigin is the model root (Unity names it SC01); all LOD meshes hang under it
-PASS SC01: imported size 1.576 x 1.333 x 1.397 m matches model_info 1.576 x 1.333 x 1.397
+PASS SC01: imported size 1.576 x 1.320 x 1.129 m matches model_info 1.576 x 1.32 x 1.129
 PASS SC01: within the 1.6 x 1.4 x 1.8 m limit
 PASS SC01: minTier = standard
 PASS SC01: removable Detail_Ferns present (LOD0/1/2)
@@ -36,10 +36,10 @@ PASS SC01: removable Detail_Incense present (LOD0/1/2)
 PASS SC01: removable Detail_Offerings present (LOD0/1/2)
 PASS SC01: removable Detail_Tiles present (LOD0/1/2)
 PASS SC01: base at y = 0.000 (origin on the ground)
-PASS SC01: triangles LOD0/1/2 = 227900 / 113949 / 34177 (50% / 15%), model_info 227900 / 113949 / 34177
+PASS SC01: triangles LOD0/1/2 = 193914 / 96953 / 29078 (50% / 15%), model_info 193914 / 96953 / 29078
 PASS SC01: LODGroup with 3 levels x 8 renderers (one per material group)
 PASS SC01: SC01_Collision imported as MeshCollider (12 triangles), render hidden
-PASS SC01: collider 1.22 x 1.03 x 0.70 m stays within the model
+PASS SC01: collider 1.17 x 0.99 x 0.67 m stays within the model
 PASS SC02/Detail_Grass: Albedo / MaskURP / Normal textures found
 PASS SC02/Detail_Leaves: Albedo / MaskURP / Normal textures found
 PASS SC02/Detail_Snare: Albedo / MaskURP / Normal textures found
@@ -49,17 +49,17 @@ PASS SC02/SC02_Iron: Albedo / MaskURP / Normal textures found
 PASS SC02/SC02_Stone: Albedo / MaskURP / Normal textures found
 PASS SC02/SC02_Timber: Albedo / MaskURP / Normal textures found
 PASS SC02: SC02_GroundOrigin is the model root (Unity names it SC02); all LOD meshes hang under it
-PASS SC02: imported size 2.332 x 2.176 x 1.182 m matches model_info 2.332 x 2.176 x 1.182
+PASS SC02: imported size 2.511 x 2.286 x 1.182 m matches model_info 2.511 x 2.286 x 1.182
 PASS SC02: within the 3 x 3 x 1.2 m limit
 PASS SC02: minTier = standard
 PASS SC02: removable Detail_Grass present (LOD0/1/2)
 PASS SC02: removable Detail_Leaves present (LOD0/1/2)
 PASS SC02: removable Detail_Snare present (LOD0/1/2)
 PASS SC02: base at y = 0.000 (origin on the ground)
-PASS SC02: triangles LOD0/1/2 = 80800 / 40400 / 12115 (50% / 15%), model_info 80800 / 40400 / 12115
+PASS SC02: triangles LOD0/1/2 = 71100 / 35547 / 10663 (50% / 15%), model_info 71100 / 35547 / 10663
 PASS SC02: LODGroup with 3 levels x 8 renderers (one per material group)
 PASS SC02: SC02_Collision imported as MeshCollider (56 triangles), render hidden
-PASS SC02: collider 1.83 x 1.71 x 1.13 m stays within the model
+PASS SC02: collider 1.93 x 1.81 x 1.19 m stays within the model
 PASS SC03/Detail_Grass: Albedo / MaskURP / Normal textures found
 PASS SC03/Detail_Nest: Albedo / MaskURP / Normal textures found
 PASS SC03/Detail_Tiles: Albedo / MaskURP / Normal textures found
@@ -68,15 +68,15 @@ PASS SC03/SC03_Roof: Albedo / MaskURP / Normal textures found
 PASS SC03/SC03_Stone: Albedo / MaskURP / Normal textures found
 PASS SC03/SC03_Timber: Albedo / MaskURP / Normal textures found
 PASS SC03: SC03_GroundOrigin is the model root (Unity names it SC03); all LOD meshes hang under it
-PASS SC03: imported size 3.597 x 3.847 x 3.152 m matches model_info 3.597 x 3.847 x 3.152
+PASS SC03: imported size 3.531 x 3.830 x 3.154 m matches model_info 3.531 x 3.83 x 3.154
 PASS SC03: within the 4 x 4 x 3.2 m limit
 PASS SC03: minTier = standard
 PASS SC03: removable Detail_Grass present (LOD0/1/2)
 PASS SC03: removable Detail_Nest present (LOD0/1/2)
 PASS SC03: removable Detail_Tiles present (LOD0/1/2)
 PASS SC03: removable Detail_Vine present (LOD0/1/2)
-PASS SC03: base at y = 0.000 (origin on the ground)
-PASS SC03: triangles LOD0/1/2 = 553784 / 276892 / 83067 (50% / 15%), model_info 553784 / 276892 / 83067
+PASS SC03: base at y = -0.002 (origin on the ground)
+PASS SC03: triangles LOD0/1/2 = 675265 / 337630 / 101290 (50% / 15%), model_info 675265 / 337630 / 101290
 PASS SC03: LODGroup with 3 levels x 7 renderers (one per material group)
 PASS SC03: SC03_Collision imported as MeshCollider (144 triangles), render hidden
 PASS SC03: collider 2.98 x 2.68 x 3.13 m stays within the model
@@ -87,17 +87,17 @@ PASS RK05/RK05_Timber: Albedo / MaskURP / Normal textures found
 PASS RK05/RK05_WheelL: Albedo / MaskURP / Normal textures found
 PASS RK05/RK05_WheelR: Albedo / MaskURP / Normal textures found
 PASS RK05: RK05_GroundOrigin is the model root (Unity names it RK05); all LOD meshes hang under it
-PASS RK05: imported size 2.481 x 1.576 x 1.374 m matches model_info 2.481 x 1.576 x 1.374
+PASS RK05: imported size 2.467 x 1.576 x 1.374 m matches model_info 2.467 x 1.576 x 1.374
 PASS RK05: within the 3.2 x 1.6 x 1.4 m limit
 PASS RK05: minTier = standard
 PASS RK05: removable Detail_Cloth present (LOD0/1/2)
 PASS RK05: removable Detail_Rope present (LOD0/1/2)
-PASS RK05: base at y = 0.000 (origin on the ground)
-PASS RK05: triangles LOD0/1/2 = 617242 / 308619 / 92583 (50% / 15%), model_info 617242 / 308619 / 92583
+PASS RK05: base at y = -0.001 (origin on the ground)
+PASS RK05: triangles LOD0/1/2 = 585190 / 292593 / 87775 (50% / 15%), model_info 585190 / 292593 / 87775
 PASS RK05: LODGroup with 3 levels x 6 renderers (one per material group)
 PASS RK05: RK05_Collision imported as MeshCollider (24 triangles), render hidden
-PASS RK05: RK05_WheelL_LOD0 is its own mesh with its origin on the axle at (-0.30, 0.55, -0.66)
-PASS RK05: RK05_WheelR_LOD0 is its own mesh with its origin on the axle at (-0.30, 0.55, 0.66)
+PASS RK05: RK05_WheelL_LOD0 is its own mesh with its origin on the axle at (-0.31, 0.54, -0.66)
+PASS RK05: RK05_WheelR_LOD0 is its own mesh with its origin on the axle at (-0.31, 0.54, 0.66)
 PASS RK05: collider 2.48 x 1.50 x 0.97 m stays within the model
 PASS RK06/Detail_Grass: Albedo / MaskURP / Normal textures found
 PASS RK06/Detail_Incense: Albedo / MaskURP / Normal textures found
@@ -108,14 +108,14 @@ PASS RK06/RK06_Roof: Albedo / MaskURP / Normal textures found
 PASS RK06/RK06_Stone: Albedo / MaskURP / Normal textures found
 PASS RK06/RK06_Timber: Albedo / MaskURP / Normal textures found
 PASS RK06: RK06_GroundOrigin is the model root (Unity names it RK06); all LOD meshes hang under it
-PASS RK06: imported size 2.336 x 1.827 x 2.610 m matches model_info 2.336 x 1.827 x 2.609
+PASS RK06: imported size 2.336 x 1.827 x 2.610 m matches model_info 2.336 x 1.826 x 2.61
 PASS RK06: within the 2.4 x 2 x 2.8 m limit
 PASS RK06: minTier = standard
 PASS RK06: removable Detail_Grass present (LOD0/1/2)
 PASS RK06: removable Detail_Incense present (LOD0/1/2)
 PASS RK06: removable Detail_Offerings present (LOD0/1/2)
-PASS RK06: base at y = 0.000 (origin on the ground)
-PASS RK06: triangles LOD0/1/2 = 734980 / 367490 / 110240 (50% / 15%), model_info 734980 / 367490 / 110240
+PASS RK06: base at y = -0.002 (origin on the ground)
+PASS RK06: triangles LOD0/1/2 = 713835 / 356915 / 107070 (50% / 15%), model_info 713835 / 356915 / 107070
 PASS RK06: LODGroup with 3 levels x 8 renderers (one per material group)
 PASS RK06: RK06_Collision imported as MeshCollider (36 triangles), render hidden
 PASS RK06: the niche flame is its own emissive Glow material (RK06_Glow)
@@ -125,28 +125,28 @@ PASS RK01A/Detail_Vine: Albedo / MaskURP / Normal textures found
 PASS RK01A/RK01A_Stone: Albedo / MaskURP / Normal textures found
 PASS RK01A/RK01A_Wood: Albedo / MaskURP / Normal textures found
 PASS RK01A: RK01A_GroundOrigin is the model root (Unity names it RK01A); all LOD meshes hang under it
-PASS RK01A: imported size 1.089 x 0.302 x 2.561 m matches model_info 1.089 x 0.302 x 2.561
+PASS RK01A: imported size 1.118 x 0.306 x 2.561 m matches model_info 1.118 x 0.306 x 2.561
 PASS RK01A: within the 1.2 x 0.4 x 2.6 m limit
 PASS RK01A: minTier = standard
 PASS RK01A: removable Detail_Stones present (LOD0/1/2)
 PASS RK01A: removable Detail_Vine present (LOD0/1/2)
 PASS RK01A: base at y = 0.000 (origin on the ground)
-PASS RK01A: triangles LOD0/1/2 = 90948 / 45474 / 13642 (50% / 15%), model_info 90948 / 45474 / 13642
+PASS RK01A: triangles LOD0/1/2 = 81820 / 40907 / 12271 (50% / 15%), model_info 81820 / 40907 / 12271
 PASS RK01A: LODGroup with 3 levels x 4 renderers (one per material group)
 PASS RK01A: RK01A_Collision imported as MeshCollider (44 triangles), render hidden
-PASS RK01A: collider 0.23 x 0.23 x 2.37 m stays within the model
+PASS RK01A: collider 0.24 x 0.24 x 2.44 m stays within the model
 PASS RK01B/Detail_Stones: Albedo / MaskURP / Normal textures found
 PASS RK01B/Detail_Vine: Albedo / MaskURP / Normal textures found
 PASS RK01B/RK01B_Stone: Albedo / MaskURP / Normal textures found
 PASS RK01B/RK01B_Wood: Albedo / MaskURP / Normal textures found
 PASS RK01B: RK01B_GroundOrigin is the model root (Unity names it RK01B); all LOD meshes hang under it
-PASS RK01B: imported size 0.904 x 0.312 x 2.446 m matches model_info 0.904 x 0.312 x 2.446
+PASS RK01B: imported size 0.903 x 0.307 x 2.374 m matches model_info 0.903 x 0.307 x 2.374
 PASS RK01B: within the 1.2 x 0.4 x 2.6 m limit
 PASS RK01B: minTier = standard
 PASS RK01B: removable Detail_Stones present (LOD0/1/2)
 PASS RK01B: removable Detail_Vine present (LOD0/1/2)
 PASS RK01B: base at y = 0.000 (origin on the ground)
-PASS RK01B: triangles LOD0/1/2 = 62972 / 31486 / 9444 (50% / 15%), model_info 62972 / 31486 / 9444
+PASS RK01B: triangles LOD0/1/2 = 55509 / 27754 / 8323 (50% / 15%), model_info 55509 / 27754 / 8323
 PASS RK01B: LODGroup with 3 levels x 4 renderers (one per material group)
 PASS RK01B: RK01B_Collision imported as MeshCollider (44 triangles), render hidden
 PASS RK01B: collider 0.24 x 0.24 x 2.25 m stays within the model
@@ -154,145 +154,145 @@ PASS RK09/Detail_Grass: Albedo / MaskURP / Normal textures found
 PASS RK09/Detail_Pebbles: Albedo / MaskURP / Normal textures found
 PASS RK09/RK09_Stone: Albedo / MaskURP / Normal textures found
 PASS RK09: RK09_GroundOrigin is the model root (Unity names it RK09); all LOD meshes hang under it
-PASS RK09: imported size 1.970 x 0.744 x 0.559 m matches model_info 1.97 x 0.743 x 0.559
+PASS RK09: imported size 1.960 x 0.759 x 0.569 m matches model_info 1.96 x 0.759 x 0.569
 PASS RK09: within the 2 x 0.8 x 0.6 m limit
 PASS RK09: minTier = standard
 PASS RK09: removable Detail_Grass present (LOD0/1/2)
 PASS RK09: removable Detail_Pebbles present (LOD0/1/2)
 PASS RK09: base at y = 0.000 (origin on the ground)
-PASS RK09: triangles LOD0/1/2 = 135968 / 67984 / 20395 (50% / 15%), model_info 135968 / 67984 / 20395
+PASS RK09: triangles LOD0/1/2 = 135008 / 67504 / 20250 (50% / 15%), model_info 135008 / 67504 / 20250
 PASS RK09: LODGroup with 3 levels x 3 renderers (one per material group)
 PASS RK09: RK09_Collision imported as MeshCollider (12 triangles), render hidden
-PASS RK09: collider 1.92 x 0.52 x 0.57 m stays within the model
+PASS RK09: collider 1.98 x 0.54 x 0.59 m stays within the model
 PASS RK10A/Detail_Straw: Albedo / MaskURP / Normal textures found
 PASS RK10A/RK10A_Cap: Albedo / MaskURP / Normal textures found
 PASS RK10A/RK10A_Rope: Albedo / MaskURP / Normal textures found
 PASS RK10A/RK10A_Straw: Albedo / MaskURP / Normal textures found
 PASS RK10A/RK10A_Wood: Albedo / MaskURP / Normal textures found
 PASS RK10A: RK10A_GroundOrigin is the model root (Unity names it RK10A); all LOD meshes hang under it
-PASS RK10A: imported size 2.252 x 2.166 x 2.167 m matches model_info 2.252 x 2.166 x 2.167
+PASS RK10A: imported size 2.287 x 2.199 x 2.167 m matches model_info 2.286 x 2.199 x 2.167
 PASS RK10A: within the 2.4 x 2.4 x 2.2 m limit
 PASS RK10A: minTier = standard
 PASS RK10A: removable Detail_Straw present (LOD0/1/2)
 PASS RK10A: base at y = 0.000 (origin on the ground)
-PASS RK10A: triangles LOD0/1/2 = 2010336 / 1005166 / 301548 (50% / 15%), model_info 2010336 / 1005166 / 301548
+PASS RK10A: triangles LOD0/1/2 = 1976866 / 988432 / 296526 (50% / 15%), model_info 1976866 / 988432 / 296526
 PASS RK10A: LODGroup with 3 levels x 5 renderers (one per material group)
 PASS RK10A: RK10A_Collision imported as MeshCollider (44 triangles), render hidden
-PASS RK10A: collider 1.71 x 1.71 x 1.70 m stays within the model
+PASS RK10A: collider 1.74 x 1.74 x 1.73 m stays within the model
 PASS RK10B/Detail_Straw: Albedo / MaskURP / Normal textures found
 PASS RK10B/RK10B_Cap: Albedo / MaskURP / Normal textures found
 PASS RK10B/RK10B_Rope: Albedo / MaskURP / Normal textures found
 PASS RK10B/RK10B_Straw: Albedo / MaskURP / Normal textures found
 PASS RK10B/RK10B_Wood: Albedo / MaskURP / Normal textures found
 PASS RK10B: RK10B_GroundOrigin is the model root (Unity names it RK10B); all LOD meshes hang under it
-PASS RK10B: imported size 2.174 x 2.364 x 1.866 m matches model_info 2.174 x 2.364 x 1.866
+PASS RK10B: imported size 2.174 x 2.364 x 1.832 m matches model_info 2.174 x 2.364 x 1.832
 PASS RK10B: within the 2.4 x 2.4 x 2.2 m limit
 PASS RK10B: minTier = high
 PASS RK10B: removable Detail_Straw present (LOD0/1/2)
 PASS RK10B: base at y = 0.000 (origin on the ground)
-PASS RK10B: triangles LOD0/1/2 = 1191040 / 595518 / 178651 (50% / 15%), model_info 1191040 / 595518 / 178651
+PASS RK10B: triangles LOD0/1/2 = 1185793 / 592894 / 177864 (50% / 15%), model_info 1185793 / 592894 / 177864
 PASS RK10B: LODGroup with 3 levels x 5 renderers (one per material group)
 PASS RK10B: RK10B_Collision imported as MeshCollider (44 triangles), render hidden
 PASS RK10B: collider 1.72 x 1.72 x 1.51 m stays within the model
 PASS RK12A/Detail_Grass: Albedo / MaskURP / Normal textures found
 PASS RK12A/RK12A_Stone: Albedo / MaskURP / Normal textures found
 PASS RK12A: RK12A_GroundOrigin is the model root (Unity names it RK12A); all LOD meshes hang under it
-PASS RK12A: imported size 1.970 x 0.422 x 0.195 m matches model_info 1.97 x 0.422 x 0.195
+PASS RK12A: imported size 1.970 x 0.427 x 0.178 m matches model_info 1.97 x 0.427 x 0.178
 PASS RK12A: within the 2 x 2 x 0.3 m limit
 PASS RK12A: minTier = high
 PASS RK12A: removable Detail_Grass present (LOD0/1/2)
 PASS RK12A: base at y = 0.000 (origin on the ground)
-PASS RK12A: triangles LOD0/1/2 = 33820 / 16909 / 5073 (50% / 15%), model_info 33820 / 16909 / 5073
+PASS RK12A: triangles LOD0/1/2 = 29249 / 14622 / 4387 (50% / 15%), model_info 29249 / 14622 / 4387
 PASS RK12A: LODGroup with 3 levels x 2 renderers (one per material group)
 INFO RK12A: no collision by design (decor / ground)
 PASS RK12B/Detail_Grass: Albedo / MaskURP / Normal textures found
 PASS RK12B/RK12B_Stone: Albedo / MaskURP / Normal textures found
 PASS RK12B: RK12B_GroundOrigin is the model root (Unity names it RK12B); all LOD meshes hang under it
-PASS RK12B: imported size 1.636 x 0.425 x 0.214 m matches model_info 1.636 x 0.425 x 0.214
+PASS RK12B: imported size 1.641 x 0.444 x 0.197 m matches model_info 1.641 x 0.444 x 0.197
 PASS RK12B: within the 2 x 2 x 0.3 m limit
 PASS RK12B: minTier = high
 PASS RK12B: removable Detail_Grass present (LOD0/1/2)
 PASS RK12B: base at y = 0.000 (origin on the ground)
-PASS RK12B: triangles LOD0/1/2 = 23908 / 11953 / 3586 (50% / 15%), model_info 23908 / 11953 / 3586
+PASS RK12B: triangles LOD0/1/2 = 20700 / 10349 / 3104 (50% / 15%), model_info 20700 / 10349 / 3104
 PASS RK12B: LODGroup with 3 levels x 2 renderers (one per material group)
 INFO RK12B: no collision by design (decor / ground)
 PASS RK12C/Detail_Grass: Albedo / MaskURP / Normal textures found
 PASS RK12C/RK12C_Stone: Albedo / MaskURP / Normal textures found
 PASS RK12C: RK12C_GroundOrigin is the model root (Unity names it RK12C); all LOD meshes hang under it
-PASS RK12C: imported size 1.970 x 0.435 x 0.202 m matches model_info 1.97 x 0.435 x 0.202
+PASS RK12C: imported size 1.970 x 0.411 x 0.187 m matches model_info 1.97 x 0.411 x 0.187
 PASS RK12C: within the 2 x 2 x 0.3 m limit
 PASS RK12C: minTier = high
 PASS RK12C: removable Detail_Grass present (LOD0/1/2)
 PASS RK12C: base at y = 0.000 (origin on the ground)
-PASS RK12C: triangles LOD0/1/2 = 20448 / 10224 / 3067 (50% / 15%), model_info 20448 / 10224 / 3067
+PASS RK12C: triangles LOD0/1/2 = 17970 / 8985 / 2695 (50% / 15%), model_info 17970 / 8985 / 2695
 PASS RK12C: LODGroup with 3 levels x 2 renderers (one per material group)
 INFO RK12C: no collision by design (decor / ground)
 PASS RK12D/Detail_Grass: Albedo / MaskURP / Normal textures found
 PASS RK12D/RK12D_Stone: Albedo / MaskURP / Normal textures found
 PASS RK12D: RK12D_GroundOrigin is the model root (Unity names it RK12D); all LOD meshes hang under it
-PASS RK12D: imported size 1.268 x 0.378 x 0.226 m matches model_info 1.268 x 0.378 x 0.226
+PASS RK12D: imported size 1.270 x 0.355 x 0.210 m matches model_info 1.27 x 0.355 x 0.21
 PASS RK12D: within the 2 x 2 x 0.3 m limit
 PASS RK12D: minTier = high
 PASS RK12D: removable Detail_Grass present (LOD0/1/2)
 PASS RK12D: base at y = 0.000 (origin on the ground)
-PASS RK12D: triangles LOD0/1/2 = 20304 / 10152 / 3045 (50% / 15%), model_info 20304 / 10152 / 3045
+PASS RK12D: triangles LOD0/1/2 = 17586 / 8792 / 2636 (50% / 15%), model_info 17586 / 8792 / 2636
 PASS RK12D: LODGroup with 3 levels x 2 renderers (one per material group)
 INFO RK12D: no collision by design (decor / ground)
 PASS WM08A/Detail_Pebbles: Albedo / MaskURP / Normal textures found
 PASS WM08A/WM08A_Stone: Albedo / MaskURP / Normal textures found
 PASS WM08A: WM08A_GroundOrigin is the model root (Unity names it WM08A); all LOD meshes hang under it
-PASS WM08A: imported size 0.985 x 0.785 x 0.284 m matches model_info 0.985 x 0.784 x 0.284
+PASS WM08A: imported size 0.985 x 0.785 x 0.268 m matches model_info 0.985 x 0.785 x 0.268
 PASS WM08A: within the 1 x 1 x 0.4 m limit
 PASS WM08A: minTier = standard
 PASS WM08A: removable Detail_Pebbles present (LOD0/1/2)
 PASS WM08A: base at y = 0.000 (origin on the ground)
-PASS WM08A: triangles LOD0/1/2 = 21040 / 10520 / 3156 (50% / 15%), model_info 21040 / 10520 / 3156
+PASS WM08A: triangles LOD0/1/2 = 19599 / 9797 / 2938 (50% / 15%), model_info 19599 / 9797 / 2938
 PASS WM08A: LODGroup with 3 levels x 2 renderers (one per material group)
 PASS WM08A: WM08A_Collision imported as MeshCollider (44 triangles), render hidden
 PASS WM08A: collider 0.71 x 0.71 x 0.24 m stays within the model
 PASS WM08B/Detail_Pebbles: Albedo / MaskURP / Normal textures found
 PASS WM08B/WM08B_Stone: Albedo / MaskURP / Normal textures found
 PASS WM08B: WM08B_GroundOrigin is the model root (Unity names it WM08B); all LOD meshes hang under it
-PASS WM08B: imported size 0.985 x 0.725 x 0.264 m matches model_info 0.985 x 0.725 x 0.264
+PASS WM08B: imported size 0.985 x 0.726 x 0.247 m matches model_info 0.985 x 0.726 x 0.247
 PASS WM08B: within the 1 x 1 x 0.4 m limit
 PASS WM08B: minTier = standard
 PASS WM08B: removable Detail_Pebbles present (LOD0/1/2)
 PASS WM08B: base at y = 0.000 (origin on the ground)
-PASS WM08B: triangles LOD0/1/2 = 21040 / 10520 / 3156 (50% / 15%), model_info 21040 / 10520 / 3156
+PASS WM08B: triangles LOD0/1/2 = 19368 / 9682 / 2904 (50% / 15%), model_info 19368 / 9682 / 2904
 PASS WM08B: LODGroup with 3 levels x 2 renderers (one per material group)
 PASS WM08B: WM08B_Collision imported as MeshCollider (44 triangles), render hidden
 PASS WM08B: collider 0.64 x 0.64 x 0.22 m stays within the model
 PASS WM08C/Detail_Pebbles: Albedo / MaskURP / Normal textures found
 PASS WM08C/WM08C_Stone: Albedo / MaskURP / Normal textures found
 PASS WM08C: WM08C_GroundOrigin is the model root (Unity names it WM08C); all LOD meshes hang under it
-PASS WM08C: imported size 0.985 x 0.911 x 0.285 m matches model_info 0.985 x 0.911 x 0.285
+PASS WM08C: imported size 0.985 x 0.908 x 0.269 m matches model_info 0.985 x 0.908 x 0.269
 PASS WM08C: within the 1 x 1 x 0.4 m limit
 PASS WM08C: minTier = standard
 PASS WM08C: removable Detail_Pebbles present (LOD0/1/2)
 PASS WM08C: base at y = 0.000 (origin on the ground)
-PASS WM08C: triangles LOD0/1/2 = 21040 / 10520 / 3156 (50% / 15%), model_info 21040 / 10520 / 3156
+PASS WM08C: triangles LOD0/1/2 = 19774 / 9886 / 2964 (50% / 15%), model_info 19774 / 9886 / 2964
 PASS WM08C: LODGroup with 3 levels x 2 renderers (one per material group)
 PASS WM08C: WM08C_Collision imported as MeshCollider (44 triangles), render hidden
 PASS WM08C: collider 0.82 x 0.82 x 0.24 m stays within the model
 PASS WM10A/WM10A_Stone: Albedo / MaskURP / Normal textures found
 PASS WM10A: WM10A_GroundOrigin is the model root (Unity names it WM10A); all LOD meshes hang under it
-PASS WM10A: imported size 0.468 x 0.380 x 0.286 m matches model_info 0.468 x 0.38 x 0.286
+PASS WM10A: imported size 0.469 x 0.376 x 0.282 m matches model_info 0.469 x 0.376 x 0.282
 PASS WM10A: within the 0.5 x 0.5 x 0.5 m limit
 PASS WM10A: minTier = standard
 PASS WM10A: base at y = 0.000 (origin on the ground)
-PASS WM10A: triangles LOD0/1/2 = 20480 / 10240 / 3072 (50% / 15%), model_info 20480 / 10240 / 3072
+PASS WM10A: triangles LOD0/1/2 = 19403 / 9700 / 2909 (50% / 15%), model_info 19403 / 9700 / 2909
 PASS WM10A: LODGroup with 3 levels x 1 renderers (one per material group)
 PASS WM10A: WM10A_Collision imported as MeshCollider (44 triangles), render hidden
 PASS WM10A: collider 0.38 x 0.38 x 0.25 m stays within the model
 PASS WM10B/Detail_Gravel: Albedo / MaskURP / Normal textures found
 PASS WM10B/WM10B_Stone: Albedo / MaskURP / Normal textures found
 PASS WM10B: WM10B_GroundOrigin is the model root (Unity names it WM10B); all LOD meshes hang under it
-PASS WM10B: imported size 1.182 x 0.910 x 0.528 m matches model_info 1.182 x 0.91 x 0.528
+PASS WM10B: imported size 1.182 x 0.910 x 0.525 m matches model_info 1.182 x 0.91 x 0.525
 PASS WM10B: within the 1.2 x 1.2 x 0.8 m limit
 PASS WM10B: minTier = standard
 PASS WM10B: removable Detail_Gravel present (LOD0/1/2)
 PASS WM10B: base at y = 0.000 (origin on the ground)
-PASS WM10B: triangles LOD0/1/2 = 21600 / 10800 / 3240 (50% / 15%), model_info 21600 / 10800 / 3240
+PASS WM10B: triangles LOD0/1/2 = 20597 / 10298 / 3088 (50% / 15%), model_info 20597 / 10298 / 3088
 PASS WM10B: LODGroup with 3 levels x 2 renderers (one per material group)
 PASS WM10B: WM10B_Collision imported as MeshCollider (12 triangles), render hidden
 PASS WM10B: collider 0.84 x 0.64 x 0.47 m stays within the model
@@ -300,60 +300,60 @@ PASS WM10C/Detail_Ferns: Albedo / MaskURP / Normal textures found
 PASS WM10C/Detail_Gravel: Albedo / MaskURP / Normal textures found
 PASS WM10C/WM10C_Stone: Albedo / MaskURP / Normal textures found
 PASS WM10C: WM10C_GroundOrigin is the model root (Unity names it WM10C); all LOD meshes hang under it
-PASS WM10C: imported size 2.955 x 2.190 x 1.294 m matches model_info 2.955 x 2.19 x 1.294
+PASS WM10C: imported size 2.955 x 2.160 x 1.162 m matches model_info 2.955 x 2.16 x 1.162
 PASS WM10C: within the 3 x 3 x 1.4 m limit
 PASS WM10C: minTier = standard
 PASS WM10C: removable Detail_Ferns present (LOD0/1/2)
 PASS WM10C: removable Detail_Gravel present (LOD0/1/2)
 PASS WM10C: base at y = 0.000 (origin on the ground)
-PASS WM10C: triangles LOD0/1/2 = 125120 / 62560 / 18768 (50% / 15%), model_info 125120 / 62560 / 18768
+PASS WM10C: triangles LOD0/1/2 = 111285 / 55641 / 16692 (50% / 15%), model_info 111285 / 55641 / 16692
 PASS WM10C: LODGroup with 3 levels x 3 renderers (one per material group)
 PASS WM10C: WM10C_Collision imported as MeshCollider (12 triangles), render hidden
-PASS WM10C: collider 2.28 x 1.55 x 1.06 m stays within the model
+PASS WM10C: collider 2.23 x 1.52 x 1.03 m stays within the model
 PASS WM10D/Detail_Ferns: Albedo / MaskURP / Normal textures found
 PASS WM10D/Detail_Gravel: Albedo / MaskURP / Normal textures found
 PASS WM10D/WM10D_Stone: Albedo / MaskURP / Normal textures found
 PASS WM10D: WM10D_GroundOrigin is the model root (Unity names it WM10D); all LOD meshes hang under it
-PASS WM10D: imported size 2.772 x 1.182 x 0.416 m matches model_info 2.772 x 1.182 x 0.416
+PASS WM10D: imported size 2.382 x 1.182 x 0.355 m matches model_info 2.382 x 1.182 x 0.355
 PASS WM10D: within the 3 x 1.2 x 0.8 m limit
 PASS WM10D: minTier = standard
 PASS WM10D: removable Detail_Ferns present (LOD0/1/2)
 PASS WM10D: removable Detail_Gravel present (LOD0/1/2)
 PASS WM10D: base at y = 0.000 (origin on the ground)
-PASS WM10D: triangles LOD0/1/2 = 125260 / 62630 / 18789 (50% / 15%), model_info 125260 / 62630 / 18789
+PASS WM10D: triangles LOD0/1/2 = 118356 / 59177 / 17751 (50% / 15%), model_info 118356 / 59177 / 17751
 PASS WM10D: LODGroup with 3 levels x 3 renderers (one per material group)
 PASS WM10D: WM10D_Collision imported as MeshCollider (12 triangles), render hidden
-PASS WM10D: collider 2.13 x 0.73 x 0.43 m stays within the model
+PASS WM10D: collider 1.83 x 0.63 x 0.37 m stays within the model
 PASS TY03A/TY03A_Leaf: Albedo / MaskURP / Normal textures found
 PASS TY03A: TY03A_GroundOrigin is the model root (Unity names it TY03A); all LOD meshes hang under it
-PASS TY03A: imported size 0.471 x 0.546 x 0.162 m matches model_info 0.471 x 0.546 x 0.162
+PASS TY03A: imported size 0.471 x 0.546 x 0.160 m matches model_info 0.471 x 0.546 x 0.16
 PASS TY03A: within the 0.8 x 0.8 x 0.7 m limit
 PASS TY03A: minTier = standard
 PASS TY03A: base at y = 0.000 (origin on the ground)
-PASS TY03A: triangles LOD0/1/2 = 20960 / 10480 / 3144 (50% / 15%), model_info 20960 / 10480 / 3144
+PASS TY03A: triangles LOD0/1/2 = 20956 / 10477 / 3143 (50% / 15%), model_info 20956 / 10477 / 3143
 PASS TY03A: LODGroup with 3 levels x 1 renderers (one per material group)
 INFO TY03A: no collision by design (decor / ground)
 PASS TY03B/Detail_Leaf: Albedo / MaskURP / Normal textures found
 PASS TY03B/TY03B_Leaf: Albedo / MaskURP / Normal textures found
 PASS TY03B: TY03B_GroundOrigin is the model root (Unity names it TY03B); all LOD meshes hang under it
-PASS TY03B: imported size 0.474 x 0.299 x 0.370 m matches model_info 0.474 x 0.299 x 0.37
+PASS TY03B: imported size 0.474 x 0.299 x 0.368 m matches model_info 0.474 x 0.299 x 0.368
 PASS TY03B: within the 0.8 x 0.8 x 0.7 m limit
 PASS TY03B: minTier = standard
 PASS TY03B: removable Detail_Leaf present (LOD0/1/2)
 PASS TY03B: base at y = 0.000 (origin on the ground)
-PASS TY03B: triangles LOD0/1/2 = 13888 / 6944 / 2082 (50% / 15%), model_info 13888 / 6944 / 2082
+PASS TY03B: triangles LOD0/1/2 = 13889 / 6944 / 2082 (50% / 15%), model_info 13889 / 6944 / 2082
 PASS TY03B: LODGroup with 3 levels x 2 renderers (one per material group)
 INFO TY03B: no collision by design (decor / ground)
 PASS TY03C/Detail_Leaf: Albedo / MaskURP / Normal textures found
 PASS TY03C/TY03C_Flower: Albedo / MaskURP / Normal textures found
 PASS TY03C/TY03C_Leaf: Albedo / MaskURP / Normal textures found
 PASS TY03C: TY03C_GroundOrigin is the model root (Unity names it TY03C); all LOD meshes hang under it
-PASS TY03C: imported size 0.615 x 0.503 x 0.569 m matches model_info 0.615 x 0.503 x 0.569
+PASS TY03C: imported size 0.615 x 0.503 x 0.565 m matches model_info 0.615 x 0.503 x 0.565
 PASS TY03C: within the 0.8 x 0.8 x 0.7 m limit
 PASS TY03C: minTier = standard
 PASS TY03C: removable Detail_Leaf present (LOD0/1/2)
 PASS TY03C: base at y = 0.000 (origin on the ground)
-PASS TY03C: triangles LOD0/1/2 = 17580 / 8790 / 2636 (50% / 15%), model_info 17580 / 8790 / 2636
+PASS TY03C: triangles LOD0/1/2 = 17581 / 8789 / 2635 (50% / 15%), model_info 17581 / 8789 / 2635
 PASS TY03C: LODGroup with 3 levels x 3 renderers (one per material group)
 INFO TY03C: no collision by design (decor / ground)
 PASS TY03D/Detail_Leaf: Albedo / MaskURP / Normal textures found
@@ -361,12 +361,12 @@ PASS TY03D/TY03D_Flower: Albedo / MaskURP / Normal textures found
 PASS TY03D/TY03D_Glow: Albedo / MaskURP / Normal / Emission textures found
 PASS TY03D/TY03D_Leaf: Albedo / MaskURP / Normal textures found
 PASS TY03D: TY03D_GroundOrigin is the model root (Unity names it TY03D); all LOD meshes hang under it
-PASS TY03D: imported size 0.615 x 0.521 x 0.631 m matches model_info 0.615 x 0.521 x 0.63
+PASS TY03D: imported size 0.615 x 0.521 x 0.628 m matches model_info 0.615 x 0.521 x 0.628
 PASS TY03D: within the 0.8 x 0.8 x 0.7 m limit
 PASS TY03D: minTier = standard
 PASS TY03D: removable Detail_Leaf present (LOD0/1/2)
 PASS TY03D: base at y = 0.000 (origin on the ground)
-PASS TY03D: triangles LOD0/1/2 = 18036 / 9018 / 2704 (50% / 15%), model_info 18036 / 9018 / 2704
+PASS TY03D: triangles LOD0/1/2 = 18032 / 9014 / 2703 (50% / 15%), model_info 18032 / 9014 / 2703
 PASS TY03D: LODGroup with 3 levels x 4 renderers (one per material group)
 INFO TY03D: no collision by design (decor / ground)
 PASS TY06/Detail_Grass: Albedo / MaskURP / Normal textures found
@@ -374,15 +374,15 @@ PASS TY06/TY06_Bar: Albedo / MaskURP / Normal textures found
 PASS TY06/TY06_Barbell: Albedo / MaskURP / Normal textures found
 PASS TY06/TY06_Lock: Albedo / MaskURP / Normal textures found
 PASS TY06: TY06_GroundOrigin is the model root (Unity names it TY06); all LOD meshes hang under it
-PASS TY06: imported size 1.379 x 0.649 x 0.389 m matches model_info 1.379 x 0.649 x 0.389
+PASS TY06: imported size 1.379 x 0.643 x 0.376 m matches model_info 1.379 x 0.643 x 0.376
 PASS TY06: within the 1.4 x 0.8 x 0.6 m limit
 PASS TY06: minTier = standard
 PASS TY06: removable Detail_Grass present (LOD0/1/2)
 PASS TY06: base at y = 0.000 (origin on the ground)
-PASS TY06: triangles LOD0/1/2 = 32720 / 16360 / 4907 (50% / 15%), model_info 32720 / 16360 / 4907
+PASS TY06: triangles LOD0/1/2 = 31686 / 15840 / 4751 (50% / 15%), model_info 31686 / 15840 / 4751
 PASS TY06: LODGroup with 3 levels x 4 renderers (one per material group)
 PASS TY06: TY06_Collision imported as MeshCollider (24 triangles), render hidden
-PASS TY06: collider 1.32 x 0.53 x 0.39 m stays within the model
+PASS TY06: collider 1.30 x 0.52 x 0.38 m stays within the model
 PASS TY05A/TY05A: Albedo / MaskURP / Normal textures found
 PASS TY05A: TY05A_GroundOrigin is the model root (Unity names it TY05A); all LOD meshes hang under it
 PASS TY05A: imported size 2.000 x 2.000 x 0.015 m matches model_info 2 x 2 x 0.015

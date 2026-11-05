@@ -1,7 +1,7 @@
 """Fixed review rig for the 11/03 package A world models (Johnnnny0823), adapted from art/source/qingxi-day12-c/render_day12.py.
 Imports the exported GLB (what the engine receives), never the working scene.
 blender -b -P render_day12.py -- --glb <path> --out <dir> --tag <name> [--views front,side,back,threequarter] [--light day|night|neutral]
-      [--glow <emission strength>] [--hide <name substring>] [--no-ruler] [--wire] [--eye <x,y,z,tx,ty,tz>] [--res 1280x960]
+      [--glow <emission strength>] [--hide <name substring>] [--no-ruler] [--wire] [--clay] [--eye <x,y,z,tx,ty,tz>] [--res 1280x960]
 Every view carries a 1.75 m figure (review spec), unless --no-ruler.
 """
 import bpy,math,sys,argparse
@@ -9,7 +9,7 @@ from pathlib import Path
 from mathutils import Vector
 a=argparse.ArgumentParser()
 for k,d in (('--glb',None),('--out',None),('--tag','view'),('--views','front,side,back,threequarter'),('--light','day'),('--hide',''),('--eye',''),('--res','1280x960'),('--ruler-x',''),('--at',''),('--cam','')):a.add_argument(k,default=d)
-a.add_argument('--glow',type=float,default=None);a.add_argument('--lod',type=int,default=0);a.add_argument('--no-detail',action='store_true');a.add_argument('--samples',type=int,default=64);a.add_argument('--no-ruler',action='store_true');a.add_argument('--wire',action='store_true')
+a.add_argument('--glow',type=float,default=None);a.add_argument('--lod',type=int,default=0);a.add_argument('--no-detail',action='store_true');a.add_argument('--samples',type=int,default=64);a.add_argument('--no-ruler',action='store_true');a.add_argument('--wire',action='store_true');a.add_argument('--clay',action='store_true')   # every material replaced by one neutral grey: form without texture
 args=a.parse_args(sys.argv[sys.argv.index('--')+1:]);out=Path(args.out).resolve();out.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc=bpy.context.scene;sc.render.engine='CYCLES';sc.cycles.samples=args.samples;sc.cycles.use_denoising=True
@@ -40,6 +40,10 @@ if args.glow is not None:
     for m in bpy.data.materials:
         bs=m.node_tree.nodes.get('Principled BSDF') if m.use_nodes else None
         if bs and bs.inputs['Emission Color'].is_linked:bs.inputs['Emission Strength'].default_value=args.glow   # only the lamp materials (emission texture)
+if args.clay:
+    cm=bpy.data.materials.new('clay');cm.use_nodes=True;cb=cm.node_tree.nodes['Principled BSDF'];cb.inputs['Base Color'].default_value=(.30,.30,.29,1);cb.inputs['Roughness'].default_value=.75
+    for o in obs:
+        for i in range(len(o.material_slots)):o.material_slots[i].material=cm
 pts=[o.matrix_world@Vector(c) for o in obs for c in o.bound_box]
 lo=Vector([min(p[i] for p in pts) for i in range(3)]);hi=Vector([max(p[i] for p in pts) for i in range(3)])
 if not args.no_ruler:   # 1.75 m figure beside the asset

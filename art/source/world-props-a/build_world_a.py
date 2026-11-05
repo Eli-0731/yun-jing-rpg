@@ -10,7 +10,7 @@ Each item is modelled only after its four AI three-view candidates are saved in 
 Origin: footprint centre, bottom at z = 0, Blender -Y is the front. No ground plate.
 blender -b --factory-startup -P build_world_a.py -- RK09 [WM08 ...]
 """
-import bpy,bmesh,json,math,sys,random
+import bpy,bmesh,json,math,sys,random,os
 from pathlib import Path
 from mathutils import Vector,Matrix
 import numpy as np
@@ -127,9 +127,28 @@ def vfbm3(x,y,z,f,oct=3,seed=0):
     for o in range(oct):t+=a*vnoise3(x,y,z,f*2**o,seed+o);n+=a;a*=.5
     return t/n
 
+def orient_out(bm):
+    """recalc_face_normals can pick the inward side on a closed part whose noise/chip cuts fold it; flip any closed island
+    whose signed volume is negative so every solid faces outward"""
+    bm.verts.ensure_lookup_table();par=list(range(len(bm.verts)))
+    def fd(i):
+        while par[i]!=i:par[i]=par[par[i]];i=par[i]
+        return i
+    for e in bm.edges:
+        a,b=fd(e.verts[0].index),fd(e.verts[1].index)
+        if a!=b:par[a]=b
+    closed={};vol={}
+    for e in bm.edges:
+        g=fd(e.verts[0].index);closed[g]=closed.get(g,True) and len(e.link_faces)==2
+    for f in bm.faces:
+        g=fd(f.verts[0].index);vs=[v.co for v in f.verts]
+        vol[g]=vol.get(g,0)+sum(vs[0].dot(vs[i].cross(vs[i+1])) for i in range(1,len(vs)-1))/6
+    bad=[f for f in bm.faces if closed.get(fd(f.verts[0].index)) and vol[fd(f.verts[0].index)]<-1e-12]
+    if bad:bmesh.ops.reverse_faces(bm,faces=bad)
+
 def finish(name,bm,mat,grp,scale=.4,uv=None):
     """tiled UV: box projection on principal axes, or uv=(u,v) callables of a world point for cylinders"""
-    bmesh.ops.recalc_face_normals(bm,faces=bm.faces);lay=bm.loops.layers.uv.get('Tiled') or bm.loops.layers.uv.new('Tiled')
+    bmesh.ops.recalc_face_normals(bm,faces=bm.faces);orient_out(bm);lay=bm.loops.layers.uv.get('Tiled') or bm.loops.layers.uv.new('Tiled')
     if uv:
         per=getattr(uv[0],'period',None)
         for f in bm.faces:
@@ -203,6 +222,17 @@ def box_bm(size,center=(0,0,0)):
 def bevel(o,w,segs=2,angle=35):
     m=o.modifiers.new('wear','BEVEL');m.width=w;m.segments=segs;m.limit_method='ANGLE';m.angle_limit=math.radians(angle);m.use_clamp_overlap=True
     apply(o,m)
+def solidify_uv(o,th,offset,scale):
+    """solidify a sheet that keeps its continuous tiled UVs: the generated back shell's UVs are shifted by the sheet thickness
+    (in tiled units) so the rim faces get a real strip of texture instead of zero UV area"""
+    vg=o.vertex_groups.new(name='_shell');m=o.modifiers.new('t','SOLIDIFY');m.thickness=th;m.offset=offset;m.shell_vertex_group='_shell';apply(o,m)
+    me=o.data;gi=o.vertex_groups['_shell'].index;sh=np.zeros(len(me.vertices),bool)
+    for v in me.vertices:sh[v.index]=any(g.group==gi and g.weight>.5 for g in v.groups)
+    d=th/scale/math.sqrt(2);lay=me.uv_layers['Tiled']
+    for l in me.loops:
+        if sh[l.vertex_index]:lay.data[l.index].uv+=Vector((d,d))
+    o.vertex_groups.remove(o.vertex_groups['_shell'])
+
 def apply(o,m):
     bpy.context.view_layer.objects.active=o;o.select_set(True);bpy.ops.object.modifier_apply(modifier=m.name);o.select_set(False)
 def subdiv(o,cuts):
@@ -225,7 +255,7 @@ def box(name,size,center,mat,grp,bev=.01,segs=2,scale=.4,cuts=0,jit=0,seed=1,rot
     o.data.transform(Matrix.Translation(center));return o
 def beam(name,a,b,w,h,mat,grp,bev=.008,up=(0,0,1),scale=.5):
     """rectangular member from a to b (w across, h along `up`)"""
-    a,b=Vector(a),Vector(b);t=(b-a);L=t.length;t.normalize();up=Vector(up);s=t.cross(up).normalized();u=s.cross(t)
+    a,b=Vector(a),Vector(b);t=(b-a);L=t.length;t.normalize();up=Vector(up);s=t.cross(up).normalized();u=t.cross(s)   # (t,s,u) right-handed: s.cross(t) mirrored the box inside out
     o=finish(name,box_bm((L,w,h)),mat,grp,scale);bevel(o,bev,2)
     o.data.transform(Matrix(((t.x,s.x,u.x,0),(t.y,s.y,u.y,0),(t.z,s.z,u.z,0),(0,0,0,1))));o.data.transform(Matrix.Translation((a+b)/2));return o
 def solid_prism(bm,pts,vec):
@@ -289,10 +319,24 @@ def hip_surface(name,hw,hd,ze,zr,p,U,mat,grp,step=.03,thick=.06,bump=None,xs=Non
 # ---------------- items ----------------
 
 from mathutils import noise as mnoise
+def unfold(bm,ref,iters=40):
+    """the flat top/bottom squash, chip cuts and crack grooves can turn small facets over (pleats that lie coplanar on the top or
+    bed). Facets whose normal no longer faces their original outward direction get their vertices relaxed until none are left."""
+    for it in range(iters):
+        bad=set()
+        for f,r in zip(bm.faces,ref):
+            f.normal_update()
+            if f.normal.dot(r)<.2 or f.calc_area()<1e-12:bad.update(f.verts)
+        if not bad:return 0
+        bmesh.ops.smooth_vert(bm,verts=list(bad),factor=.5,use_axis_x=True,use_axis_y=True,use_axis_z=True)
+    return len(bad)
+
 def rock(name,dims,center,mat,grp,seed=1,sub=4,rough=.18,flat_top=None,flat_bottom=True,chips=0,split=None,squash=1.0,rot=0,boxy=2.4,cracks=0,fractures=0):
     """water-worn rock: icosphere -> ellipsoid -> layered noise (big lumps, softer facets) -> optional flat walkable top, chipped
     edges (planar cuts) and a split face; bottom flattened so it sits"""
     rng=random.Random(seed);bm=bmesh.new();bmesh.ops.create_icosphere(bm,subdivisions=sub,radius=1)
+    bm.faces.ensure_lookup_table();ref=[f.calc_center_median().normalized() for f in bm.faces]   # outward direction of every facet
+    bm.verts.ensure_lookup_table();dz={v:v.co.z for v in bm.verts}   # sphere direction height: tells top from side
     off=Vector((rng.uniform(-50,50),rng.uniform(-50,50),rng.uniform(-50,50)))
     for v in bm.verts:
         d=v.co.normalized();sq=Vector([math.copysign(abs(c)**(2/boxy),c) for c in d])   # superellipsoid: boxy>2 squares it up
@@ -303,8 +347,9 @@ def rock(name,dims,center,mat,grp,seed=1,sub=4,rough=.18,flat_top=None,flat_bott
         for v in bm.verts:v.co.z=max(v.co.z,-dims[2]/2*.82)
     if flat_top is not None:
         zt=dims[2]/2*flat_top
-        for v in bm.verts:
-            if v.co.z>zt:v.co.z=zt+(v.co.z-zt)*.12
+        for v in bm.verts:   # squash only what faces up: compressing the sides too pleats their rough shoulders into thin stacked layers
+            w=min(1,max(0,(dz[v]-.35)/.3));w=w*w*(3-2*w)
+            if v.co.z>zt:v.co.z-=(v.co.z-zt)*.88*w
     for k in range(chips):
         a=rng.uniform(0,math.tau);el=rng.uniform(.2,.8);nrm=Vector((math.cos(a)*math.cos(el),math.sin(a)*math.cos(el),math.sin(el)))
         lim=max(v.co.dot(nrm) for v in bm.verts)*rng.uniform(.80,.9)
@@ -329,24 +374,27 @@ def rock(name,dims,center,mat,grp,seed=1,sub=4,rough=.18,flat_top=None,flat_bott
         for v in bm.verts:
             dd=v.co.dot(nrm)
             if dd>0:v.co-=nrm*dd*.94-nrm*.012*mnoise.noise(v.co*8)
+    unfold(bm,ref)
     for v in bm.verts:v.co.rotate(Matrix.Rotation(rot,3,'Z'))
-    o=finish(name,bm,mat,grp,.5)
+    o=finish(name,bm,mat,grp,.5);defold(o,6)
     for p_ in o.data.polygons:p_.use_smooth=True
     o.data.transform(Matrix.Translation(center));return o
 
 def ferns(prefix,centres,M,grp,rng,fronds=(5,8),L=(.22,.38)):
     """small ferns: arching fronds"""
     for k,c in enumerate(centres):
-        for f in range(rng.integers(*fronds)):
-            a=rng.uniform(0,math.tau);ln=rng.uniform(*L);d=Vector((math.cos(a)*.75,math.sin(a)*.75,.62)).normalized()
-            leaf(f'{prefix}{k}_{f}',Vector(c),d,Vector((-math.sin(a),math.cos(a),0)),ln,ln*.36,M['herb_green' if f%2 else 'herb_sage'],grp,curl=.55,seg=6)
+        nf=rng.integers(*fronds);a0=rng.uniform(0,math.tau)
+        for f in range(nf):
+            a=a0+f*math.tau/nf+rng.uniform(-.25,.25)*math.tau/nf;ln=rng.uniform(*L);d=Vector((math.cos(a)*.75,math.sin(a)*.75,.62)).normalized()   # fronds fanned evenly: two at nearly the same angle lay on each other
+            base=Vector(c)+Vector((math.cos(a),math.sin(a),0))*.012+Vector((0,0,.004*f))   # fronds start apart: sharing one base point they lay on each other
+            leaf(f'{prefix}{k}_{f}',base,d,Vector((-math.sin(a),math.cos(a),0)),ln,ln*.36,M['herb_green' if f%2 else 'herb_sage'],grp,curl=.55,seg=6)
 
 def tufts(prefix,centres,M,grp,rng,blades=(7,12),h=(.12,.24),spread=.06):
     """grass tufts: a few curved blades fanning out of each centre"""
     for k,c in enumerate(centres):
         n=rng.integers(*blades)
         for b in range(n):
-            a=rng.uniform(0,math.tau);tilt=rng.uniform(.15,.55);L=rng.uniform(*h)
+            a=k*2.4+b*math.tau/n+(rng.uniform(0,math.tau)/math.tau-.5)*.5*math.tau/n;tilt=rng.uniform(.15,.55);L=rng.uniform(*h)   # fanned evenly: blades at nearly one angle lay on each other
             d=Vector((math.cos(a)*tilt,math.sin(a)*tilt,1)).normalized();base=Vector(c)+Vector((math.cos(a),math.sin(a),0))*rng.uniform(0,spread)
             leaf(f'{prefix}{k}_{b}',base,d,Vector((-math.sin(a),math.cos(a),0)),L,rng.uniform(.012,.02),M['herb_green' if b%3 else 'herb_olive'],grp,curl=rng.uniform(.15,.45),seg=4)
 
@@ -360,7 +408,8 @@ def RK09(M):
     rng=np.random.default_rng(909)
     seat=rock('RK09_Seat',(1.95,.52,.19),(0,0,.495),M['granite'],'Stone',seed=91,sub=6,rough=.06,flat_top=.55,chips=4,boxy=9,cracks=4,fractures=3)
     # a seat worn smooth in the middle: up to 1.8 cm dip on the top face
-    sag(seat,lambda c:Vector((0,0,-.035*max(0,1-(c.x/.8)**2)*(1 if c.z>.55 else .2))))
+    sag(seat,lambda c:Vector((0,0,-.035*max(0,1-(c.x/.8)**2)*(.2+.8*min(1,max(0,(c.z-.50)/.05))))))   # weight eases in over the top 5 cm (a step folded the rim)
+    defold(seat,8)
     for sx,yaw,seed in ((-1,.05,92),(1,-.07,93)):
         s_=rock(f'RK09_Support{sx}',(.44,.48,.42),(sx*.64,0,.195),M['granite'],'Stone',seed=seed,sub=5,rough=.10,flat_top=.75,chips=5,rot=yaw,boxy=7,cracks=3,fractures=4)
         sag(s_,lambda c,sx=sx:Vector(((c.x-sx*.64)*-.26*max(0,c.z/.41),c.y*-.24*max(0,c.z/.41),0)))   # clearly wider at the foot
@@ -455,28 +504,34 @@ def shrine(M,P,k=1.0,steps=True,fresh=True,glow=True,base=True):
         z0=PH
     # niche body
     BW,BD,BH=1.30*k,.95*k,1.20*k;yb=.12*k
-    def coursed(name,length,thick,height,origin,along,rows=4):
+    def coursed(name,length,thick,height,origin,along,rows=4,avoid=()):
         # a wall laid in courses of dressed blocks; odd rows start with a short block so the joints are offset
         z=origin[2];h=height/rows
         for r in range(rows):
             x=-length/2;first=True
             while x<length/2-.01:
-                ln=(rnd.uniform(.12,.2) if (r%2 and first) else rnd.uniform(.28,.48))*k;ln=min(ln,length/2-x);c=x+ln/2;first=False
+                ln=(rnd.uniform(.12,.2) if (r%2 and first) else rnd.uniform(.28,.48))*k;ln=min(ln,length/2-x)
+                if any(abs(x+ln-a_)<.008 for a_ in avoid):ln+=.016   # no joint on a pillar face plane
+                ln=min(ln,length/2-x);c=x+ln/2;first=False
                 sz=(ln-.006,thick,h-.006) if along.x else (thick,ln-.006,h-.006)
                 box(f'{name}{r}_{x:.2f}',sz,(origin[0]+along.x*c,origin[1]+along.y*c,z+h/2),M['granite'],S,bev=.014*k,cuts=1,jit=.004*k,seed=rnd.randint(0,9999),scale=.6)
                 x+=ln
             z+=h
-    coursed(f'{P}_Back',BW,.20*k,BH,(0,yb+BD/2-.10*k,z0),Vector((1,0,0)),5)
+    coursed(f'{P}_Back',BW-.444*k,.20*k,BH,(0,yb+BD/2-.10*k,z0),Vector((1,0,0)),5)   # butts between the side walls (running into them overlapped their coplanar courses)
     for sx in (-1,1):
-        coursed(f'{P}_Side{sx}',BD,.22*k,BH,(sx*(BW/2-.11*k),yb,z0),Vector((0,1,0)),5)
-    box(f'{P}_Shelf',(BW-.40*k,BD-.25*k,.10*k),(0,yb+.05*k,z0+.05*k),M['granite'],S,bev=.015*k,cuts=1,seed=64)
-    box(f'{P}_Lintel',(BW+.12*k,.30*k,.22*k),(0,yb-BD/2+.12*k,z0+BH-.11*k),M['granite'],S,bev=.025*k,cuts=3,jit=.006*k,seed=65)
-    box(f'{P}_Sill',(BW+.10*k,.34*k,.08*k),(0,yb-BD/2+.12*k,z0+.04*k),M['granite'],S,bev=.015*k,cuts=2,seed=66)
+        coursed(f'{P}_Side{sx}',BD,.22*k,BH,(sx*(BW/2-.11*k),yb,z0),Vector((0,1,0)),5,avoid=(-BD/2+.16*k+.012,-BD/2+.19*k,-BD/2+.185*k))   # pillar shaft, base and capital back faces
+    # shelf, sill, lintel and pillar bases meet the wall courses on shared planes: their beds/tops are moved 6-12 mm off those planes
+    # (the sill bed sits 8 mm below the pillar-base bed: the two overlap in plan and must not share that plane either)
+    # so the stone detail displacement (about +-4 mm) cannot leave coplanar overlapping faces
+    box(f'{P}_Shelf',(BW-.40*k,BD-.25*k,.10*k),(0,yb+.05*k,z0+.05*k+.012),M['granite'],S,bev=.015*k,cuts=1,seed=64)
+    box(f'{P}_Lintel',(BW+.20*k,.30*k,.22*k+.012),(0,yb-BD/2+.12*k,z0+BH-.11*k+.006),M['granite'],S,bev=.025*k,cuts=3,jit=.006*k,seed=65)
+    box(f'{P}_Sill',(BW+.10*k,.34*k,.08*k+.020),(0,yb-BD/2+.12*k,z0+.04*k-.010),M['granite'],S,bev=.015*k,cuts=2,seed=66)
     zt=z0+BH
-    for sx in (-1,1):   # dressed front pillars standing proud of the side walls, with a base block and a capital
+    for sx in (-1,1):   # dressed front pillars standing proud of the side walls, with a base block and a capital (the shaft is 12 mm
+        # deeper than square so its back face cannot land on a side-wall joint plane)
         px_,py_=sx*(BW/2-.06*k),yb-BD/2+.06*k
-        box(f'{P}_PillarBase{sx}',(.26*k,.26*k,.12*k),(px_,py_,z0+.06*k),M['granite'],S,bev=.02*k,cuts=2,jit=.004*k,seed=81+sx,scale=.6)
-        box(f'{P}_Pillar{sx}',(.20*k,.20*k,BH-.30*k),(px_,py_,z0+.12*k+(BH-.30*k)/2),M['granite'],S,bev=.018*k,cuts=4,jit=.005*k,seed=83+sx,scale=.6)
+        box(f'{P}_PillarBase{sx}',(.26*k,.26*k,.12*k+.012),(px_,py_,z0+.06*k-.006),M['granite'],S,bev=.02*k,cuts=2,jit=.004*k,seed=81+sx,scale=.6)
+        box(f'{P}_Pillar{sx}',(.20*k,.20*k+.012,BH-.30*k),(px_,py_+.006,z0+.12*k+(BH-.30*k)/2),M['granite'],S,bev=.018*k,cuts=4,jit=.005*k,seed=83+sx,scale=.6)
         box(f'{P}_PillarCap{sx}',(.25*k,.25*k,.10*k),(px_,py_,zt-.13*k),M['granite'],S,bev=.02*k,cuts=2,jit=.004*k,seed=85+sx,scale=.6)
     beam(f'{P}_BeamF',(-BW/2-.18*k,yb-BD/2+.05*k,zt+.06*k),(BW/2+.18*k,yb-BD/2+.05*k,zt+.06*k),.12*k,.12*k,M['wood'],T)
     beam(f'{P}_BeamB',(-BW/2-.18*k,yb+BD/2-.05*k,zt+.06*k),(BW/2+.18*k,yb+BD/2-.05*k,zt+.06*k),.12*k,.12*k,M['wood'],T)
@@ -530,7 +585,7 @@ def shrine(M,P,k=1.0,steps=True,fresh=True,glow=True,base=True):
     if glow:   # oil-lamp dish beside the figure; the flame is the separate emissive mesh
         gx,gy,gz=.30*k,yb-.02*k,z0+.10*k
         lathe(f'{P}_LampDish',[(0,0),(.035*k,0),(.05*k,.02*k),(.045*k,.025*k),(0,.012*k)],M['clay'],'Bronze',seg=18,center=(gx,gy,gz))
-        lathe(f'{P}_Flame',[(0,0),(.018*k,.009*k),(.024*k,.038*k),(.014*k,.075*k),(0,.105*k)],M['flame'],'Glow',seg=12,center=(gx,gy,gz+.018*k))
+        lathe(f'{P}_Flame',[(0,0),(.018*k,.009*k),(.024*k,.038*k),(.014*k,.075*k),(0,.105*k)],M['flame'],'Glow',seg=12,center=(gx,gy,gz+.011*k))   # base 1 mm into the oil at the dish centre (z .012): it hovered 6 mm
     return {'z0':z0,'zt':zt,'zr':zr,'yb':yb,'BW':BW,'BD':BD}
 
 def RK06(M):
@@ -626,7 +681,8 @@ def RK01(variant):
             rock(f'RK01{variant}_Pebble{k}',(sz,sz*.8,sz*.5),(math.cos(a)*r,math.sin(a)*r*.35,0),M['granite'],'Detail_Stones',seed=360+k,sub=2,rough=.3)
         for k in range(9):   # small creeper on the shaded (back) side of the post
             z=.15+k*.11;a=math.pi/2+math.sin(k*1.3)*.6
-            leaf(f'RK01{variant}_Vine{k}',(math.cos(a)*.105,math.sin(a)*.105,z),(math.cos(a)*.6,math.sin(a)*.6,.5),(-math.sin(a),math.cos(a),0),.06,.04,M['herb_green'],'Detail_Vine',curl=.3,seg=4)
+            # vine leaf base follows the leaning post and sits just inside its bark
+            leaf(f'RK01{variant}_Vine{k}',(lean*z/H+math.cos(a)*.10,math.sin(a)*.10,z),(math.cos(a)*.6,math.sin(a)*.6,.5),(-math.sin(a),math.cos(a),0),.06,.04,M['herb_green'],'Detail_Vine',curl=.3,seg=4)
         meta['collision']=[{'type':'cylinder','radius':.12,'height':H,'center':[0,0,H/2]}]
         meta['note']='arrow boards are blank; overlay the place names in game. A2_RoadSign uses A, A3_WestSign uses B'
         return meta
@@ -641,7 +697,8 @@ def straw_shell(name,r_top,z_top,r_bot,z_bot,mat,grp,rng,teeth=240,tooth=(.03,.1
     bm=bmesh.new();n=teeth*2;rows=[]
     for j in range(seg_v+1):
         t=j/seg_v;rows.append([bm.verts.new(((r_top+(r_bot-r_top)*t)*math.cos(math.tau*i/n+twist*t),(r_top+(r_bot-r_top)*t)*math.sin(math.tau*i/n+twist*t),
-                                              z_top+(z_bot-z_top)*t+.006*math.sin(i*1.7+j))) for i in range(n)])
+                                              z_top+(z_bot-z_top)*t+.006*math.sin(math.tau*13*i/n+j*1.7))) for i in range(n)])   # smooth waviness: a per-vertex zigzag
+        # 1.7 mm apart at the top ring folded the solidified back shell onto itself
     for j in range(seg_v):
         for i in range(n):k=(i+1)%n;bm.faces.new((rows[j][i],rows[j][k],rows[j+1][k],rows[j+1][i]))
     last=rows[-1]
@@ -650,7 +707,7 @@ def straw_shell(name,r_top,z_top,r_bot,z_bot,mat,grp,rng,teeth=240,tooth=(.03,.1
         rr=r_bot+flare*L/tooth[1]*rng.uniform(.5,1.2);tip=bm.verts.new((rr*math.cos(a+rng.uniform(-.01,.01)),rr*math.sin(a+rng.uniform(-.01,.01)),z_bot-L))
         bm.faces.new((last[i],last[mid],tip));bm.faces.new((last[mid],last[k],tip))
     for f in bm.faces:f.smooth=True
-    o=finish(name,bm,mat,grp,.4,uv=cyl_uv(1));o['uvkeep']=1;m=o.modifiers.new('t','SOLIDIFY');m.thickness=.008;m.offset=-1;apply(o,m);return o
+    o=finish(name,bm,mat,grp,.4,uv=cyl_uv(1));o['uvkeep']=1;solidify_uv(o,.008,-1,.4);return o
 
 def straw_fringe(name,x0,x1,y,z,sy,mat,grp,rng,hang=.08,teeth=180,tooth=(.04,.14),out=.04,droop=-.3):
     """a straight band of straw along x at (y, z) hanging outward (sy = ±1 toward ±y), its lower edge cut into fine comb teeth"""
@@ -662,7 +719,7 @@ def straw_fringe(name,x0,x1,y,z,sy,mat,grp,rng,hang=.08,teeth=180,tooth=(.04,.14
         L=rng.uniform(*tooth);m=bot[i+1].co;tip=bm.verts.new((m.x+rng.uniform(-.006,.006),m.y+sy*L*(1+droop)*.5,m.z-L))
         bm.faces.new((bot[i],bot[i+1],tip));bm.faces.new((bot[i+1],bot[i+2],tip))
     for f in bm.faces:f.smooth=True
-    o=finish(name,bm,mat,grp,.4,uv=(lambda p:p.x,lambda p:p.z));o['uvkeep']=1;m=o.modifiers.new('t','SOLIDIFY');m.thickness=.008;m.offset=0;apply(o,m);return o
+    o=finish(name,bm,mat,grp,.4,uv=(lambda p:p.x,lambda p:p.z));o['uvkeep']=1;solidify_uv(o,.008,0,.4);return o
 
 def straw_rope(name,rr,z,mat,grp,rng,knots=4,wave=.015):
     """two-ply twisted straw rope round the stack, with knots and short hanging tassels"""
@@ -676,7 +733,8 @@ def straw_rope(name,rr,z,mat,grp,rng,knots=4,wave=.015):
         rock(f'{name}Knot{k}',(.05,.045,.045),tuple(c),mat,grp,seed=900+k,sub=2,rough=.15,flat_bottom=False)
         for t in range(6):   # tassel of loose ends hanging from the knot
             d=Vector((math.cos(a)*.15+rng.uniform(-.08,.08),math.sin(a)*.15+rng.uniform(-.08,.08),-1))
-            leaf(f'{name}Tassel{k}{t}',c+Vector((0,0,-.01)),d,(-math.sin(a),math.cos(a),0),rng.uniform(.12,.24),.014,mat,grp,curl=.05,seg=3)
+            b_=a+(t-2.5)*.4   # each end turned on its own: six from one point with one normal lay on each other
+            leaf(f'{name}Tassel{k}{t}',c+Vector((math.cos(t*1.05)*.004,math.sin(t*1.05)*.004,-.01)),d,(-math.sin(b_),math.cos(b_),0),rng.uniform(.12,.24),.014,mat,grp,curl=.05,seg=3)
 
 def RK10(variant):
     def build(M):
@@ -721,12 +779,14 @@ def RK10(variant):
         # scattered straw and two dropped sheaves on the ground (removable)
         for k in range(90):
             a=rng.uniform(0,math.tau);r=rng.uniform(R*.92,R*1.3);d=rng.uniform(0,math.tau)
-            leaf(f'RK10{variant}_Loose{k}',(r*math.cos(a),r*math.sin(a),.006),(math.cos(d),math.sin(d),.03),(0,0,1),rng.uniform(.10,.30),.010,M['straw'],'Detail_Straw',curl=.0,seg=3)
+            leaf(f'RK10{variant}_Loose{k}',(r*math.cos(a),r*math.sin(a),.004+.0015*(k%8)),(math.cos(d),math.sin(d),.03),(0,0,1),rng.uniform(.10,.30),.010,M['straw'],'Detail_Straw',curl=.0,seg=3)
         for k,a in enumerate((2.2,4.1)):
-            c=Vector(((R+.25)*math.cos(a),(R+.25)*math.sin(a),.05))
+            c=Vector(((R+.25)*math.cos(a),(R+.25)*math.sin(a),.048))   # tie (r .046) rests on the ground
             for t in range(10):
                 d=Vector((math.cos(a+1.57),math.sin(a+1.57),0))*(1 if t%2 else -1)+Vector((rng.uniform(-.2,.2),rng.uniform(-.2,.2),.02))
-                leaf(f'RK10{variant}_Sheaf{k}{t}',tuple(c),d,(0,0,1),rng.uniform(.18,.26),.02,M['straw'],'Detail_Straw',curl=.02,seg=3)
+                ph=t*math.tau/10;rad=Vector((math.cos(a),math.sin(a),0))*math.cos(ph)+Vector((0,0,1))*math.sin(ph)   # straws round the inside of the tie,
+                # each facing out (ten flat ones at the centre lay on each other and touched nothing)
+                sh_=leaf(f'RK10{variant}_Sheaf{k}{t}',tuple(c+rad*.043),d,tuple(rad),rng.uniform(.18,.26),.02,M['straw'],'Detail_Straw',curl=.02,seg=3);sh_['nosettle']=1
             lashing(f'RK10{variant}_SheafTie{k}',tuple(c),(math.cos(a+1.57),math.sin(a+1.57),0),.04,2,M['hemp'],'Detail_Straw',cord=.006)
         meta['collision']=[{'type':'cylinder','radius':round(R*1.03,3),'height':round(Hb+.5,3),'center':[0,0,round((Hb+.5)/2,3)]}]
         return meta
@@ -763,7 +823,7 @@ def TY06(M):
         lathe(f'TY06_Collar{sx}',[(0,-.03),(.045,-.03),(.05,0),(.045,.03),(0,.03)],M['oldwood'],'Bar',seg=16)
         parts[-1].data.transform(Matrix.Rotation(math.radians(90),4,'Y'));parts[-1].data.transform(Matrix.Translation((cx-sx*.1,by,rw)))
         lashing(f'TY06_Wrap{sx}',(bx+sx*.18,by,rw),(1,0,0),.032,4,M['hemp'],'Bar',cord=.008)
-    tube('TY06_Bar',[(bx-L/2,by,rw),(bx+L/2,by,rw)],.032,M['wood'],'Bar',16,.3)
+    tube('TY06_Bar',[(bx-L/2+.015,by,rw),(bx+L/2-.015,by,rw)],.032,M['wood'],'Bar',16,.3)   # ends stop inside the wheels (flush caps z-fought the wheel faces)
     meta['pieces']['Barbell']={'centre':[bx,by],'collision':{'type':'box','size':[L,.4,.4]}}
     rng=np.random.default_rng(66)
     tufts('TY06_Tuft',[(lx-.17,ly-.12,0),(lx+.19,ly+.10,0),(bx-.62,by+.17,0),(bx+.55,by-.18,0),(bx+.1,by+.2,0)],M,'Detail_Grass',rng,spread=.03,h=(.08,.16))
@@ -811,7 +871,7 @@ def TY03(stage):
         # floating pads on every stage (they stay as the plant grows)
         for k in range(3 if stage==1 else 2):
             a=k*2.2+.4;r=.10+.06*k
-            lotus_pad(f'TY03{stage}_Float{k}',(math.cos(a)*r*1.2,math.sin(a)*r*1.2),rng.uniform(.06,.10) if stage>1 else rng.uniform(.08,.12),.01,.004,M['herb_green'],'Leaf' if stage==1 else 'Detail_Leaf',seed=k+stage*10,tilt=Matrix.Rotation(a,4,'Z'))
+            lotus_pad(f'TY03{stage}_Float{k}',(math.cos(a)*r*1.2,math.sin(a)*r*1.2),rng.uniform(.06,.10) if stage>1 else rng.uniform(.08,.12),.0045,.004,M['herb_green'],'Leaf' if stage==1 else 'Detail_Leaf',seed=k+stage*10,tilt=Matrix.Rotation(a,4,'Z'))
         global M_;M_=M
         if stage==1:
             for k in range(3):   # first leaves lifting off the water on short stalks
@@ -854,7 +914,7 @@ def hide(name,c,w,h,mat,grp,seed=1,holes=0,sway=.04,face=(0,-1,0)):
         for j in range(nz+1):
             u,v=i/nx,j/nz
             if any(math.hypot(u-a,(v-b)*h/w)<r*(1+.35*math.sin(5*math.atan2(v-b,u-a)+seed)+.2*math.sin(11*math.atan2(v-b,u-a)+a*40)) for a,b,r in hole_c):continue
-            hem=(.08*math.sin(u*17+seed)+.06*math.sin(u*31))*h*(1 if j==0 else 0)
+            hem=(.08*math.sin(u*17+seed)+.06*math.sin(u*31))*h*max(0,1-v/.35)   # ragged hem eased over the lower third: moving only the last row folded it over the rows above
             p=Vector(c)+side*(u-.5)*w+Vector((0,0,-(1-v)*h+hem))+fwd*(sway*math.sin(math.pi*u)*(1-v)+.01*math.sin(u*9+v*7))
             V[i,j]=bm.verts.new(p)
     for i in range(nx):
@@ -959,12 +1019,14 @@ def SC04(M):
         cx,cy=x,D/2-.18
         for a in range(4):
             for b in range(2):
-                p0=(cx-.12+.24*(a%2),cy-.09+.18*(a//2),z-.28);tube(f'SC04_Trap{i}{a}{b}',[p0,(p0[0],p0[1],z)],.008,M['oldwood'],'Detail_Hang',5,.1)
+                p0=(cx-.12+.24*(a%2)+(.017 if a%2==0 else -.017)*b,cy-.09+.18*(a//2),z-.28);tube(   # the two sticks of a corner side by side (they were one on the other)
+                    f'SC04_Trap{i}{a}{b}',[p0,(p0[0],p0[1],z)],.008,M['oldwood'],'Detail_Hang',5,.1)
         for zz in (z-.28,z-.14,z):
             tube(f'SC04_TrapRing{i}{zz:.2f}',[(cx-.12,cy-.09,zz),(cx+.12,cy-.09,zz),(cx+.12,cy+.09,zz),(cx-.12,cy+.09,zz),(cx-.12,cy-.09,zz)],.007,M['oldwood'],'Detail_Hang',5,.1,caps=False)
     for i,(x,y,z,r) in enumerate(((-W/2+.1,-.2,1.5,.16),(-W/2+.1,.35,1.35,.13),(1.25,D/2-.1,1.3,.15))):   # rope coils on pegs
         for t in range(4):
-            pts=[(x+(0 if x<0 else math.cos(a)*r),y+(math.cos(a)*r if x<0 else 0)+(.0),z+math.sin(a)*r-.0+t*.012) for a in np.linspace(0,math.tau,25)]
+            rt=r*(1+.04*t);ox,oy=(t*.021,0) if x<0 else (0,-t*.021)   # turns lie side by side along the peg (they were the same loop lifted 12 mm, in one plane)
+            pts=[(x+ox+(0 if x<0 else math.cos(a)*rt),y+oy+(math.cos(a)*rt if x<0 else 0),z+math.sin(a)*rt+t*.004) for a in np.linspace(0,math.tau,25)]
             tube(f'SC04_Coil{i}{t}',pts,.011,M['hemp'],'Detail_Hang',6,.1,caps=False)
     for k in range(18):
         a=rnd.uniform(0,math.tau);r=rnd.uniform(.3,.6)
@@ -1014,7 +1076,13 @@ def SC03(M):
     start=len(parts)
     o,zf=hip_surface('SC03_Roof',HW,HD,ZE,ZR,1.5,.32,M['tile'],R,step=.03,thick=.09,bump=bump,region=(-HW,HW*.55,-HD,HD*.7))
     box('SC03_RoofRidge',(.3,.16,.16),(0,0,ZR+.06),M['tile'],R,bev=.02,cuts=1)
-    for x in np.linspace(-HW+.2,HW*.5,6):log(f'SC03_Rafter{x:.2f}',(x,-HD+.2,zf(x,-HD+.2,.2)-.08),(x,HD*.6,zf(x,HD*.6,HD*.4)-.08),.035,M['oldwood'],T,8)
+    # rafters follow the underside of the tile slab and sit 6 mm into it (straight ones under the concave roof hung 3-5 cm below)
+    from mathutils.bvhtree import BVHTree
+    rb=BVHTree.FromPolygons([v.co.copy() for v in o.data.vertices],[tuple(p.vertices) for p in o.data.polygons])
+    def under(x,y):
+        h=rb.ray_cast(Vector((x,y,-5.0)),Vector((0,0,1)));return h[0].z if h[0] is not None else zf(x,y,min(HW-abs(x),HD-abs(y)))-.09
+    for x in np.linspace(-HW+.2,HW*.5,6):
+        ys=np.linspace(-HD+.2,HD*.6,7);tube(f'SC03_Rafter{x:.2f}',[(x,y,under(x,y)-.035+.006) for y in ys],.035,M['oldwood'],T,8,.4,radii=[.035]*7)
     tilt=Matrix.Rotation(math.radians(38),4,'Y')@Matrix.Rotation(math.radians(-8),4,'X')
     for o in parts[start:]:o.data.transform(tilt)
     zmin=min(v.co.z for o in parts[start:] for v in o.data.vertices)
@@ -1029,10 +1097,10 @@ def SC03(M):
         if abs(x)>PX+.2 or abs(y)>PX+.4:continue
         box(f'SC03_Tile{k}',(.22,.14,.016),(x,y,(PH if abs(x)<PX and abs(y)<PX else 0)+.012),M['tile'],'Detail_Tiles',bev=.004,cuts=2,rot=Matrix.Rotation(rnd.uniform(0,math.tau),4,'Z')@Matrix.Rotation(rnd.uniform(-.25,.25),4,'X'))
     for k in range(26):
-        z=PH+.15+k*.1;a=k*.9
-        leaf(f'SC03_Vine{k}',(-P0+math.cos(a)*.105,P0+math.sin(a)*.105,z),(math.cos(a)*.7,math.sin(a)*.7,.4),(-math.sin(a),math.cos(a),0),rnd.uniform(.07,.11),.06,M['herb_green'],'Detail_Vine',curl=.35,seg=4)
-    for k in range(16):   # nest of twigs on the post top
-        a=k*math.tau/16;tube(f'SC03_Nest{k}',[(-P0+math.cos(a)*.12,P0+math.sin(a)*.12,3.16),(-P0+math.cos(a+1.2)*.13,P0+math.sin(a+1.2)*.13,3.22)],.006,M['oldwood'],'Detail_Nest',4,.1)
+        z=PH+.15+k*.1;a=k*.9;t=(z-PH-.1)/(3.18-PH-.1);ax=-P0+.02*t;rr=.10*(1-.06*t)-.006   # leaf bases on the tapered, leaning post (they stood 0.5-2.8 cm off it)
+        leaf(f'SC03_Vine{k}',(ax+math.cos(a)*rr,P0+math.sin(a)*rr,z),(math.cos(a)*.7,math.sin(a)*.7,.4),(-math.sin(a),math.cos(a),0),rnd.uniform(.07,.11),.06,M['herb_green'],'Detail_Vine',curl=.35,seg=4)
+    for k in range(16):   # nest of twigs on the post top, each rooted inside the post head (they hovered 1 cm off it)
+        a=k*math.tau/16;tube(f'SC03_Nest{k}',[(-P0+.02+math.cos(a)*.085,P0+math.sin(a)*.085,3.15),(-P0+.02+math.cos(a+1.2)*.13,P0+math.sin(a+1.2)*.13,3.22)],.006,M['oldwood'],'Detail_Nest',4,.1)
     tufts('SC03_Tuft',[(rnd.uniform(-1.3,1.3),rnd.uniform(-1.3,1.3),PH) for _ in range(9)]+[(-1.7,.5,0),(1.7,-.8,0),(.4,1.75,0)],M,'Detail_Grass',rng,spread=.05,h=(.12,.26))
     meta['collision']=[{'type':'cylinder','radius':.13,'height':3.2,'center':[-P0,P0,1.6]},{'type':'cylinder','radius':.13,'height':2.6,'center':[-P0+.11,-P0+.02,1.3]},{'type':'cylinder','radius':.13,'height':1.1,'center':[P0,P0,.55]},
                        {'type':'box','size':[1.7,1.35,.9],'center':[.7,-.5,.45],'yaw':-12}]   # the leaning roof's low end and tile heap
@@ -1050,15 +1118,15 @@ def SC02(M):
     for k in range(11):   # ring of blackened stones
         a=k*math.tau/11;sz=rnd.uniform(.16,.24)
         rock(f'SC02_Ring{k}',(sz,sz*.85,sz*.7),(fx+math.cos(a)*.52,fy+math.sin(a)*.48,.0),M['granite'] if k%3 else M['charcoal'],S,seed=220+k,sub=3,rough=.18,rot=a)
-    for k in range(5):   # charred sticks in the ash
-        a=rnd.uniform(0,math.tau);log(f'SC02_Char{k}',(fx+math.cos(a)*.3,fy+math.sin(a)*.3,.05),(fx-math.cos(a)*.1,fy-math.sin(a)*.1,.08),.025,M['charcoal'],'Ash',8)
+    for k in range(5):   # charred sticks in the ash, fanned and stacked 6 mm apart (two at one angle lay on each other)
+        a=rnd.uniform(0,math.tau)*.2+k*math.tau/5;log(f'SC02_Char{k}',(fx+math.cos(a)*.3,fy+math.sin(a)*.3,.05+.006*k),(fx-math.cos(a)*.1,fy-math.sin(a)*.1,.08+.006*k),.025,M['charcoal'],'Ash',8)
     lathe('SC02_Stool',[(0,0),(.2,0),(.21,.04),(.19,.38),(.18,.42),(0,.43)],M['oldwood'],T,seg=22,center=(.55,-.75,0))
     # drying frame: two forked uprights and a crossbar, torn hide hanging, lashings
     for sx in (-1,1):
-        log(f'SC02_Upright{sx}',(sx*.85+.2,.75,0),(sx*.85+.2+sx*.03,.75,1.15),.04,M['oldwood'],T,10)
+        log(f'SC02_Upright{sx}',(sx*.85+.2,.75,0),(sx*.85+.2+sx*.03,.75,1.19),.04,M['oldwood'],T,10)   # top stands clear of the crossbar (was flush with its top)
         for k in (-1,1):tube(f'SC02_Fork{sx}{k}',[(sx*.85+.2,.75,1.05),(sx*.85+.2+k*.07,.75,1.18)],.018,M['oldwood'],T,6,.1)
     log('SC02_Crossbar',(-.75,.75,1.10),(1.15,.75,1.12),.032,M['oldwood'],T,10)
-    hide('SC02_Hide',(.2,.73,1.08),1.05,.78,M['hide'],'Hide',seed=7,holes=0,sway=.05,face=(0,-1,0))
+    hide('SC02_Hide',(.2,.73,1.10),1.05,.78,M['hide'],'Hide',seed=7,holes=0,sway=.05,face=(0,-1,0))
     for sx in (-1,1):lashing(f'SC02_Lash{sx}',(sx*.85+.2,.75,1.08),(0,0,1),.04,3,M['hemp'],T,cord=.008)
     # tripod with a rusty pot over the cold pit
     for k in range(3):
@@ -1176,6 +1244,71 @@ MOSS={'Stone':.55,'Roof':.45,'Timber':.06,'Wood':.06,'Thatch':.12,'Detail':.1}
 # ---------------- high-detail pass (user, 2026-11-03: "面數可以高很多很多，為了極致的美感") ----------------
 HD={'granite':(.022,.0065,'stone'),'plinth':(.024,.005,'stone'),'bluestone':(.022,.006,'stone'),'soil':(.03,.012,'stone'),
     'oldwood':(.018,.0022,'wood'),'wood':(.02,.0018,'wood'),'planks':(.02,.002,'wood'),'tile':(.02,.0025,'stone'),'straw':(.025,.010,'straw')}
+def fold_safe_displace(me,co0,nr0,disp):
+    """move vertices along their snapshotted normals; where that turns a face over (small bevel faces at sharp corners, crack
+    grooves) the displacement of its vertices is halved, up to four times, then dropped, so the surface never folds onto itself"""
+    nf=len(me.polygons);nl=len(me.loops);ls=np.empty(nf,np.int64);lt=np.empty(nf,np.int64);lv=np.empty(nl,np.int64)
+    me.polygons.foreach_get('loop_start',ls);me.polygons.foreach_get('loop_total',lt);me.loops.foreach_get('vertex_index',lv)
+    face=np.repeat(np.arange(nf),lt);nxt=np.arange(nl)+1;ends=ls+lt-1;nxt[ends]=ls   # Newell normals, vectorised over loops
+    fv=np.split(lv,ls[1:])
+    def fnorm(co):
+        out=np.zeros((nf,3));np.add.at(out,face,np.cross(co[lv],co[lv[nxt]]));return out
+    n0=fnorm(co0);d=disp.copy()
+    for it in range(5):
+        co=co0+nr0*d[:,None];n1=fnorm(co)
+        l0=np.linalg.norm(n0,axis=1)+1e-20;l1=np.linalg.norm(n1,axis=1)+1e-20
+        bad=np.where((n0*n1).sum(1)/(l0*l1)<.25)[0]
+        if not len(bad):break
+        vs=np.unique(np.concatenate([fv[i] for i in bad]));d[vs]*=.5 if it<4 else 0
+    co=co0+nr0*d[:,None];me.vertices.foreach_set('co',co.ravel());me.update()
+    return d
+
+def self_overlaps(bm,eps=.001,isl=None,pairs=False):
+    """same test as the asset QA's z-fighting check, within one part: non-adjacent triangles facing the same way within eps
+    whose areas overlap (a pleat of the surface lying on itself). Returns the BMesh faces involved."""
+    from mathutils.bvhtree import BVHTree
+    tri=bm.calc_loop_triangles();V=[v.co.copy() for v in bm.verts];T=[tuple(l.vert.index for l in t) for t in tri];F=[t[0].face for t in tri]
+    N=[(V[b]-V[a]).cross(V[c]-V[a]) for a,b,c in T];N=[n.normalized() if n.length>1e-15 else n for n in N]
+    bvh=BVHTree.FromPolygons(V,T,epsilon=0.0);hit=set()
+    def inside(p,a,b,c,n):return all((v-u).cross(p-u).dot(n)>=-1e-9 for u,v in ((a,b),(b,c),(c,a)))
+    for i,t in enumerate(T):
+        if N[i].length<.5:continue
+        A,B,C=(V[j] for j in t);c=(A+B+C)/3
+        for p in (c,c.lerp(A,.6),c.lerp(B,.6),c.lerp(C,.6)):
+            for _,_,j,_ in bvh.find_nearest_range(p,eps):
+                if j is None or j==i or set(T[i])&set(T[j]) or N[i].dot(N[j])<.999:continue
+                if isl is not None and isl[T[i][0]]!=isl[T[j][0]]:continue
+                a2,b2,c2=(V[x] for x in T[j]);q=p-N[j]*N[j].dot(p-a2)
+                if inside(q,a2,b2,c2,N[j]):hit.add((F[i],F[j]) if pairs else F[i]);pairs or hit.add(F[j])
+    return hit
+
+def unpleat(me,co0,nr0,disp,iters=6):
+    """pull the detail displacement back where it folds the surface onto itself: vertices of overlapping facets and their
+    neighbours keep half their displacement per round, none after four rounds (the undisplaced subdivided surface is clean)"""
+    d=disp.copy();n0=None
+    for it in range(iters):
+        bm=bmesh.new();bm.from_mesh(me);bmesh.ops.triangulate(bm,faces=bm.faces[:]);bm.verts.ensure_lookup_table()
+        hit=self_overlaps(bm);n=len(hit)
+        if n0 is None:n0=n
+        if not hit:bm.free();break
+        vs={v.index for f in hit for v in f.verts};vs|={w.index for i in list(vs) for e in bm.verts[i].link_edges for w in e.verts};bm.free()
+        vs=np.fromiter(vs,int);d[vs]*=.5 if it<3 else 0
+        co=co0+nr0*d[:,None];me.vertices.foreach_set('co',co.ravel());me.update()
+    return n0,n
+
+def defold(o,iters=8):
+    """relax pleats left by subdivision + displacement until the part has no self-overlapping facets"""
+    # triangulated first, the same way the export does: a quad that is clean as one face can still fold once it is split, and the
+    # check on the quads reported 0 left while the exported triangles kept 27 overlapping pairs (RK09 seat)
+    bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.triangulate(bm,faces=bm.faces[:]);bm.verts.ensure_lookup_table();n0=None
+    for it in range(iters):
+        hit=self_overlaps(bm)
+        if n0 is None:n0=len(hit)
+        if not hit:break
+        vs={v for f in hit for v in f.verts};vs|={w for v in list(vs) for e in v.link_edges for w in e.verts}
+        bmesh.ops.smooth_vert(bm,verts=list(vs),factor=.6,use_axis_x=True,use_axis_y=True,use_axis_z=True)
+    bm.to_mesh(o.data);bm.free();o.data.update();return n0,len(hit)
+
 def hd_pass(objs):
     """subdivide each eligible part to a target edge length, then displace along the normal: ridged noise for stone (cracks and
     facets), long anisotropic grain for timber, combed streaks for straw. Thin parts and Detail_* groups are left alone."""
@@ -1194,6 +1327,9 @@ def hd_pass(objs):
             m=o.modifiers.new('hd','SUBSURF');m.subdivision_type='SIMPLE';m.levels=lv;m.render_levels=lv;apply(o,m)
         me=o.data;me.update()
         seed=Vector((hash(o.name)%97,hash(o.name)%89,hash(o.name)%83))
+        # normals and positions snapshotted first (reading v.normal of a half-moved mesh re-derives it and folds the surface)
+        nv=len(me.vertices);co0=np.empty(nv*3);me.vertices.foreach_get('co',co0);nr0=np.empty(nv*3);me.vertices.foreach_get('normal',nr0)
+        co0=co0.reshape(nv,3);nr0=nr0.reshape(nv,3);disp=np.zeros(nv)
         for v in me.vertices:
             q=v.co*1.0+seed
             if kind=='stone':
@@ -1203,8 +1339,10 @@ def hd_pass(objs):
                 n=mnoise.noise(d)*.7+(1-abs(mnoise.noise(d*3)))**6*-.9
             else:
                 n=mnoise.noise(Vector((q.x*22,q.y*22,q.z*2)))*.8+mnoise.noise(q*40)*.2
-            v.co+=v.normal*amp*n
-        me.update()
+            disp[v.index]=amp*n
+        disp=fold_safe_displace(me,co0,nr0,disp)
+        print('UNPLEAT',o.name,*unpleat(me,co0,nr0,disp))   # every size: the >300k parts were skipped before and kept their pleats
+        print('DEFOLD',o.name,*defold(o,24))
 
 # ---------------- bake / LOD / export ----------------
 def gpu(sc):
@@ -1219,6 +1357,87 @@ def gpu(sc):
                 sc.cycles.device='GPU';return t
     except Exception as e:print('GPU unavailable',e)
     sc.cycles.device='CPU';return 'CPU'
+SETTLE={'Detail_Grass','Detail_Ferns','Detail_Tiles','Detail_Leaves','Detail_Offerings','Detail_Straw'}
+def settle(objs):
+    """loose ground dressing (grass and fern blades, fallen tiles, leaves, fruit) was placed at hand-picked heights; drop every
+    piece whose lowest point hangs in the air onto the surface below it (a stone, the mound, or the ground at z 0), 2 mm in"""
+    from mathutils.bvhtree import BVHTree
+    sol=[o for o in objs if not o.get('grp','').startswith('Detail')];V=[];T=[]
+    for o in sol:
+        b=len(V);V+=[o.matrix_world@v.co for v in o.data.vertices];T+=[[b+i for i in p.vertices] for p in o.data.polygons]
+    bvh=BVHTree.FromPolygons(V,T) if T else None;up=Vector((0,0,1));moved=0
+    for o in objs:
+        if o.get('grp') not in SETTLE or o.get('nosettle'):continue
+        n=len(o.data.vertices);co=np.empty(n*3);o.data.vertices.foreach_get('co',co);co=co.reshape(n,3);p=Vector(co[co[:,2].argmin()])
+        if p.z<=.002:continue
+        if bvh:
+            near=bvh.find_nearest(p)
+            if near[0] is not None and near[3]<.003:continue   # already resting on something
+            hu=bvh.ray_cast(p,up)
+            if hu[0] is not None and hu[1].dot(up)>0 and o.get('grp') in ('Detail_Grass','Detail_Ferns'):continue   # a blade base inside a stone grows out of it (a tile or straw does not)
+            hd=bvh.ray_cast(p,-up);tz=max(0.0,hd[0].z) if hd[0] is not None else 0.0
+        else:tz=0.0
+        co[:,2]-=p.z-tz+(.002 if tz>0 else 0);o.data.vertices.foreach_set('co',co.ravel());o.data.update();moved+=1
+    print('SETTLE moved',moved)
+
+def seat(objs,tol=.002,reach=.06,sink=.001,passes=2):
+    """the detail pass (noise, chips, fold-safe pull-back) eats a few mm off surfaces that pieces rested on: stacked logs, a hub
+    cap on its wheel, a footing stone on the ground, a hide on its peg, a straw pulled out of the stack. Every loose island that
+    touches nothing within 2 mm but has the ground or another part within 6 cm is moved straight at that nearest point until it
+    sinks 1 mm in (onto the ground: to z 0). Glow meshes (lamp flames, the lotus heart) are placed by hand and left alone."""
+    from mathutils.bvhtree import BVHTree
+    def isl(me):
+        n=len(me.vertices);e=np.empty(len(me.edges)*2,int);me.edges.foreach_get('vertices',e);par=list(range(n))
+        def f(i):
+            while par[i]!=i:par[i]=par[par[i]];i=par[i]
+            return i
+        for x,y in e.reshape(-1,2):
+            a,b=f(int(x)),f(int(y))
+            if a!=b:par[a]=b
+        return np.array([f(i) for i in range(n)])
+    total=0
+    for ps in range(passes):
+        D=[]
+        for o in objs:
+            me=o.data;n=len(me.vertices);co=np.empty(n*3);me.vertices.foreach_get('co',co);co=co.reshape(n,3)
+            polys=[list(p.vertices) for p in me.polygons];il=isl(me);fil=np.array([il[p[0]] for p in polys]) if polys else np.zeros(0,int)
+            D.append(dict(o=o,co=co,polys=polys,il=il,fil=fil,bvh=BVHTree.FromPolygons([Vector(c) for c in co],polys) if polys else None,
+                          lo=co.min(0) if n else np.zeros(3),hi=co.max(0) if n else np.zeros(3)))
+        moved=0
+        for d in D:
+            if 'Glow' in d['o'].get('grp','') or d['bvh'] is None:continue
+            roots=np.unique(d['il']);mv={}
+            for r in roots:
+                vi=np.nonzero(d['il']==r)[0];P=d['co'][vi];lo,hi=P.min(0),P.max(0)
+                if lo[2]<=tol:continue
+                near=[e for e in D if e is not d and e['bvh'] is not None and (e['lo']-reach<=hi).all() and (lo<=e['hi']+reach).all()]
+                smp=P[::max(1,len(P)//300)];hit=False
+                for e in near:
+                    if any(e['bvh'].find_nearest(Vector(p),tol)[0] is not None for p in smp):hit=True;break
+                if not hit and len(roots)>1:
+                    hit=any(d['fil'][h[2]]!=r for p in smp for h in d['bvh'].find_nearest_range(Vector(p),tol))
+                if hit:continue
+                best=(lo[2],Vector((0,0,-lo[2])))   # the ground
+                cand=[(e['bvh'],None) for e in near]
+                if len(roots)>1:
+                    rest=[q for q,fr in zip(d['polys'],d['fil']) if fr!=r]
+                    if rest:cand.append((BVHTree.FromPolygons([Vector(c) for c in d['co']],rest),None))
+                for b,_ in cand:
+                    for p in smp:
+                        h=b.find_nearest(Vector(p),min(best[0],reach))
+                        if h[0] is not None and h[3]<best[0]:best=(h[3],(h[0]-Vector(p)))
+                g,v=best
+                if g>=reach or g<=tol:continue
+                if v.length<1e-9:continue
+                mv[r]=v.normalized()*(g+(0 if v.z<0 and abs(v.z+lo[2])<1e-9 else sink))
+            if mv:
+                co=d['co']
+                for r,v in mv.items():co[d['il']==r]+=np.array(v[:])
+                d['o'].data.vertices.foreach_set('co',co.ravel());d['o'].data.update();moved+=len(mv)
+        print('SEAT pass',ps,'moved',moved);total+=moved
+        if not moved:break
+    return total
+
 def run(pid):
     rid=REFID(pid);sel_txt=(REF/rid/'prompt.txt').read_text(encoding='utf-8')
     assert '選用：' in sel_txt and (REF/rid/f'{rid}_option1.png').stat().st_size>10000,f'{pid}: pick a saved AI three-view before modelling'
@@ -1229,6 +1448,18 @@ def run(pid):
         bpy.ops.object.select_all(action='DESELECT')
         for o in obs:o.select_set(True)
         bpy.context.view_layer.objects.active=obs[0]
+    # ground line = source z 0: whatever is buried below it (half-buried stones, a sunk ash pit) is cut away there, so the exported
+    # bottom (z 0) is the ground and grass/leaves/gravel laid at z 0 rest on it instead of hovering by the buried depth. The cut
+    # is left open: those faces would sit under the terrain, and capping them makes neighbouring stones' beds coplanar at z 0.
+    for o in parts:
+        if min(v.co.z for v in o.data.vertices)<-1e-5:
+            bm_=bmesh.new();bm_.from_mesh(o.data)
+            bmesh.ops.bisect_plane(bm_,geom=bm_.verts[:]+bm_.edges[:]+bm_.faces[:],plane_co=(0,0,0),plane_no=(0,0,1),clear_inner=True,dist=.0004)
+            bmesh.ops.dissolve_degenerate(bm_,edges=bm_.edges[:],dist=.0004)   # slivers where the cut grazes a vertex
+            bmesh.ops.delete(bm_,geom=[v for v in bm_.verts if not v.link_faces],context='VERTS')
+            bm_.to_mesh(o.data);bm_.free();o.data.update()
+    parts[:]=[o for o in parts if len(o.data.polygons)]
+    settle(parts);seat(parts)
     pts=np.array([(o.matrix_world@v.co)[:] for o in parts for v in o.data.vertices]);lo,hi=pts.min(0),pts.max(0)
     lim=LIMITS[pid];fit=min(1.0,*[lim[i]/max(1e-6,hi[i]-lo[i])*.985 for i in range(3)])
     if fit<1:   # noise, gravel and tufts pushed it past the size limit: scale the whole item (and its collision / pivots) to fit
@@ -1250,9 +1481,71 @@ def run(pid):
     G={}
     for g,objs in groups.items():
         cp=[]
-        for o in objs:d=o.copy();d.data=o.data.copy();sc.collection.objects.link(d);cp.append(d)
+        for o in objs:
+            d=o.copy();d.data=o.data.copy();sc.collection.objects.link(d);cp.append(d)
+            a_=d.data.attributes.get('uvkeep_f') or d.data.attributes.new('uvkeep_f','INT','FACE')
+            a_.data.foreach_set('value',[1 if o.get('uvkeep') else 0]*len(d.data.polygons))
         sel(*cp);bpy.ops.object.join();o=bpy.context.object;o.name=o.data.name=f'{pid}_{g}_LOD0'
-        bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.triangulate(bm,faces=bm.faces);bm.to_mesh(o.data);bm.free()
+        bm=bmesh.new();bm.from_mesh(o.data)
+        # sub-0.15 mm slivers (shell rims, ground cuts) would get zero-area bake UVs, and where three of them met an edge they left
+        # non-manifold wedges with flipped winding: collapse them before and after triangulating, then drop any face still without area
+        bmesh.ops.dissolve_degenerate(bm,edges=bm.edges[:],dist=1.5e-4)
+        bmesh.ops.triangulate(bm,faces=bm.faces[:]);bmesh.ops.dissolve_degenerate(bm,edges=bm.edges[:],dist=1.5e-4)
+        bmesh.ops.triangulate(bm,faces=[f for f in bm.faces if len(f.verts)>3])
+        z_=[f for f in bm.faces if f.calc_area()<1e-10]
+        if z_:bmesh.ops.delete(bm,geom=z_,context='FACES_ONLY')
+        # a wedge facet under 1 mm2 folded onto a rim (same directed edge used twice) is dropped; the hole it leaves has no visible size
+        from collections import defaultdict as _dd
+        bm.verts.index_update();de=_dd(list)
+        for f in bm.faces:
+            for l in f.loops:de[(l.vert.index,l.link_loop_next.vert.index)].append(f)
+        w_={min(fs,key=lambda f:f.calc_area()) for fs in de.values() if len(fs)>1}
+        w_=[f for f in w_ if f.calc_area()<1e-6]
+        if w_:bmesh.ops.delete(bm,geom=w_,context='FACES_ONLY')
+        if True:   # the sliver collapse and the join can still leave a few pleats: relax them on the exported
+            # triangles, within one connected piece only (flush faces of two separate pieces are a layout matter, not a pleat)
+            bm.verts.index_update();bm.verts.ensure_lookup_table();par=list(range(len(bm.verts)))
+            def fd_(i):
+                while par[i]!=i:par[i]=par[par[i]];i=par[i]
+                return i
+            for e in bm.edges:
+                x_,y_=fd_(e.verts[0].index),fd_(e.verts[1].index)
+                if x_!=y_:par[x_]=y_
+            il=[fd_(i) for i in range(len(bm.verts))];n0_=None
+            for it_ in range(12):
+                hit=self_overlaps(bm,isl=il)
+                if n0_ is None:n0_=len(hit)
+                if not hit:break
+                vs={v for f in hit for v in f.verts};vs|={w for v in list(vs) for e in v.link_edges for w in e.verts}
+                bmesh.ops.smooth_vert(bm,verts=list(vs),factor=.6,use_axis_x=True,use_axis_y=True,use_axis_z=True)
+            print('GROUP_DEFOLD',pid,g,n0_,len(hit))
+            # two separate pieces lying on each other with overlapping coplanar faces (a figure's hand on the mound, a block end on a
+            # pillar face): the smaller piece's faces there are pushed 1.8 mm out along their normal so one surface clearly wins
+            sz_={}
+            for i_ in il:sz_[i_]=sz_.get(i_,0)+1
+            cross=None;pushed=0
+            for rd_ in range(8):   # a push can land a face on a third piece: repeat on what is left
+                pf=set();bm.normal_update()
+                for fa,fb in self_overlaps(bm,pairs=True):
+                    ia,ib=il[fa.verts[0].index],il[fb.verts[0].index]
+                    if ia!=ib:pf.add(fa if (sz_[ia],ia)<=(sz_[ib],ib) else fb)
+                    else:pf.add(fa if fa.calc_area()<=fb.calc_area() else fb)   # a pleat the relax could not undo: lift its smaller face
+                if cross is None:cross=pf
+                if not pf:break
+                mv={v for f in pf for v in f.verts};nr_={v:v.normal.copy() for v in mv}
+                for v in mv:v.co+=nr_[v]*.0018   # past the 1 mm z-fight eps, inside the 2 mm contact tolerance
+                pushed+=len(mv)
+            print('GROUP_PUSH_LEFT',pid,g,len(pf))
+            print('GROUP_PUSH',pid,g,len(cross),pushed)
+        for rw_ in range(3):   # the relax and the push can fold a new sub-5 mm2 wedge onto a rim: drop those again
+            bm.verts.index_update();de=_dd(list)
+            for f in bm.faces:
+                for l in f.loops:de[(l.vert.index,l.link_loop_next.vert.index)].append(f)
+            w_=[f for f in {min(fs,key=lambda f:f.calc_area()) for fs in de.values() if len(fs)>1} if f.calc_area()<5e-6]
+            if not w_:break
+            bmesh.ops.delete(bm,geom=w_,context='FACES_ONLY')
+        print('GROUP_WEDGE_LEFT',pid,g,len(w_))
+        bmesh.ops.delete(bm,geom=[v for v in bm.verts if not v.link_faces],context='VERTS');bm.to_mesh(o.data);bm.free()
         keep=any(x.get('uvkeep') for x in objs)
         for u in [u for u in o.data.uv_layers if u.name!='Tiled']:o.data.uv_layers.remove(u)
         bu=o.data.uv_layers.new(name='Bake');o.data.uv_layers.active=bu;sel(o)
@@ -1261,8 +1554,21 @@ def run(pid):
         res=RESOF(g);mg=6/res
         bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT')
         if not keep:bpy.ops.uv.smart_project(angle_limit=math.radians(55),island_margin=mg,area_weight=0,scale_to_bounds=False)
+        else:
+            bpy.ops.object.mode_set(mode='OBJECT');kv=[0]*len(o.data.polygons);o.data.attributes['uvkeep_f'].data.foreach_get('value',kv)
+            for v_ in o.data.vertices:v_.select=False
+            for e_ in o.data.edges:e_.select=False
+            for p_,k_ in zip(o.data.polygons,kv):
+                p_.select=not k_
+                if not k_:
+                    for vi in p_.vertices:o.data.vertices[vi].select=True
+            bpy.ops.object.mode_set(mode='EDIT')
+            if not all(kv):bpy.ops.uv.smart_project(angle_limit=math.radians(55),island_margin=mg,area_weight=0,scale_to_bounds=False)
+            bpy.ops.mesh.select_all(action='SELECT')
         bpy.ops.uv.pack_islands(margin=mg,rotate=True,shape_method='AABB' if keep else 'CONCAVE')   # comb-edged straw islands: exact shapes take ages
         bpy.ops.object.mode_set(mode='OBJECT');G[g]=o
+    if os.environ.get('WA_GEOM'):   # geometry/UV check only: save the joined LOD0 groups, skip baking and export
+        bpy.ops.wm.save_as_mainfile(filepath=os.path.join(os.environ['WA_GEOM'],f'{pid}_geom.blend'));print('WORLD_A_GEOM',pid);return
     for o in sc.objects:o.hide_render=o not in G.values()
     tex={}
     for g,o in G.items():
