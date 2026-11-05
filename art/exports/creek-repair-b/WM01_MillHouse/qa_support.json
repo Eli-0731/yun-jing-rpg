@@ -1,0 +1,92 @@
+{
+ "asset": "WM01_MillHouse_v001",
+ "pieces": 1626,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "WM01_MillHouse",
+   "verts": 42,
+   "centre": [
+    -2.233,
+    -2.121,
+    2.509
+   ],
+   "size": [
+    0.107,
+    0.417,
+    0.3
+   ],
+   "gap_mm": 12.4,
+   "nearest": "WM01_MillHouse",
+   "drop_mm": 26.0
+  },
+  {
+   "object": "WM01_MillHouse",
+   "verts": 234,
+   "centre": [
+    -0.0,
+    2.709,
+    4.109
+   ],
+   "size": [
+    7.047,
+    0.123,
+    0.134
+   ],
+   "gap_mm": 3.9,
+   "nearest": "WM01_MillHouse",
+   "drop_mm": 4042.6
+  },
+  {
+   "object": "WM01_MillHouse_Detail_Small",
+   "verts": 21,
+   "centre": [
+    2.751,
+    2.215,
+    0.511
+   ],
+   "size": [
+    0.031,
+    0.002,
+    0.022
+   ],
+   "gap_mm": 3.3,
+   "nearest": "WM01_MillHouse_Detail_Small",
+   "drop_mm": 200.1
+  },
+  {
+   "object": "WM01_MillHouse_Detail_Small",
+   "verts": 21,
+   "centre": [
+    2.703,
+    2.204,
+    2.598
+   ],
+   "size": [
+    0.041,
+    0.003,
+    0.032
+   ],
+   "gap_mm": 2.3,
+   "nearest": "WM01_MillHouse_Detail_Small",
+   "drop_mm": 1236.9
+  },
+  {
+   "object": "WM01_MillHouse_Detail_Small",
+   "verts": 21,
+   "centre": [
+    2.786,
+    2.21,
+    2.663
+   ],
+   "size": [
+    0.033,
+    0.002,
+    0.022
+   ],
+   "gap_mm": 2.2,
+   "nearest": "WM01_MillHouse_Detail_Small",
+   "drop_mm": 89.3
+  }
+ ]
+}

@@ -57,15 +57,15 @@
       "LOD2": 9544
     },
     "Detail_Small": {
-      "LOD0": 48800,
-      "LOD1": 24400,
-      "LOD2": 7320
+      "LOD0": 48130,
+      "LOD1": 24064,
+      "LOD2": 7218
     }
   },
   "lod_totals": {
-    "LOD0": 112432,
-    "LOD1": 56216,
-    "LOD2": 16864
+    "LOD0": 111762,
+    "LOD1": 55880,
+    "LOD2": 16762
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
   "materials": [

@@ -1,0 +1,41 @@
+{
+ "asset": "WM05_WashSteps_v001",
+ "pieces": 215,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "WM05_WashSteps_Detail_Small",
+   "verts": 21,
+   "centre": [
+    -1.221,
+    -1.479,
+    0.024
+   ],
+   "size": [
+    0.047,
+    0.005,
+    0.005
+   ],
+   "gap_mm": 2.2,
+   "nearest": "WM05_WashSteps_Detail_Small",
+   "drop_mm": 21.7
+  },
+  {
+   "object": "WM05_WashSteps_Detail_Small",
+   "verts": 21,
+   "centre": [
+    1.576,
+    -0.741,
+    0.323
+   ],
+   "size": [
+    0.063,
+    0.006,
+    0.041
+   ],
+   "gap_mm": 2.1,
+   "nearest": "WM05_WashSteps_Detail_Small",
+   "drop_mm": 13.4
+  }
+ ]
+}

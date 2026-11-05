@@ -1,0 +1,311 @@
+{
+ "asset": "WM05_WashSteps_v001",
+ "tris": 38384,
+ "objects": [
+  "WM05_WashSteps_Detail_Small_LOD0",
+  "WM05_WashSteps_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 21,
+   "same_between": 96,
+   "same_inside": 0,
+   "same": 96,
+   "two_sides": 165,
+   "groups": {
+    "Detail_Small|two_sides_inside": {
+     "pairs": 160,
+     "overlap_cm2": 225.1
+    },
+    "Detail_Small|same_between": {
+     "pairs": 67,
+     "overlap_cm2": 54.37
+    },
+    "WashSteps|same_between": {
+     "pairs": 29,
+     "overlap_cm2": 573.54
+    },
+    "WashSteps|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 29.96
+    },
+    "Detail_Small|two_sides_between": {
+     "pairs": 1,
+     "overlap_cm2": 3.99
+    }
+   },
+   "same_at": [
+    [
+     -2.71,
+     -1.17,
+     0.25,
+     9
+    ],
+    [
+     -2.71,
+     -0.06,
+     0.92,
+     6
+    ],
+    [
+     -2.49,
+     -0.56,
+     0.47,
+     5
+    ],
+    [
+     2.5,
+     0.84,
+     0.91,
+     5
+    ],
+    [
+     -2.49,
+     0.14,
+     0.92,
+     4
+    ],
+    [
+     -2.72,
+     -1.16,
+     0.25,
+     3
+    ],
+    [
+     2.73,
+     -1.16,
+     0.25,
+     3
+    ],
+    [
+     2.51,
+     -0.56,
+     0.47,
+     3
+    ],
+    [
+     2.73,
+     -0.06,
+     0.93,
+     3
+    ],
+    [
+     1.55,
+     1.19,
+     0.01,
+     3
+    ],
+    [
+     -2.71,
+     -1.15,
+     0.27,
+     2
+    ],
+    [
+     -2.71,
+     -1.15,
+     0.25,
+     2
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 2,
+   "same_between": 64,
+   "same_inside": 0,
+   "same": 64,
+   "two_sides": 138,
+   "groups": {
+    "Detail_Small|two_sides_inside": {
+     "pairs": 138,
+     "overlap_cm2": 130.58
+    },
+    "Detail_Small|same_between": {
+     "pairs": 62,
+     "overlap_cm2": 48.58
+    },
+    "WashSteps|same_between": {
+     "pairs": 2,
+     "overlap_cm2": 37.35
+    }
+   },
+   "same_at": [
+    [
+     -2.71,
+     -1.17,
+     0.25,
+     9
+    ],
+    [
+     -2.71,
+     -0.06,
+     0.92,
+     6
+    ],
+    [
+     -2.49,
+     -0.56,
+     0.47,
+     5
+    ],
+    [
+     2.5,
+     0.84,
+     0.91,
+     5
+    ],
+    [
+     -2.49,
+     0.14,
+     0.92,
+     4
+    ],
+    [
+     -2.72,
+     -1.16,
+     0.25,
+     3
+    ],
+    [
+     2.73,
+     -1.16,
+     0.25,
+     3
+    ],
+    [
+     2.51,
+     -0.56,
+     0.47,
+     3
+    ],
+    [
+     2.73,
+     -0.06,
+     0.93,
+     3
+    ],
+    [
+     -2.71,
+     -1.15,
+     0.27,
+     2
+    ],
+    [
+     -2.71,
+     -1.15,
+     0.25,
+     2
+    ],
+    [
+     -2.5,
+     0.14,
+     0.92,
+     2
+    ]
+   ]
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 24,
+   "same_inside": 0,
+   "same": 24,
+   "two_sides": 137,
+   "groups": {
+    "Detail_Small|two_sides_inside": {
+     "pairs": 137,
+     "overlap_cm2": 130.55
+    },
+    "Detail_Small|same_between": {
+     "pairs": 24,
+     "overlap_cm2": 14.21
+    }
+   },
+   "same_at": [
+    [
+     -2.71,
+     -1.17,
+     0.25,
+     6
+    ],
+    [
+     -2.72,
+     -1.16,
+     0.25,
+     3
+    ],
+    [
+     -2.71,
+     -0.06,
+     0.92,
+     3
+    ],
+    [
+     2.73,
+     -0.06,
+     0.93,
+     3
+    ],
+    [
+     -2.71,
+     -1.15,
+     0.25,
+     2
+    ],
+    [
+     -2.49,
+     -0.56,
+     0.47,
+     2
+    ],
+    [
+     -2.7,
+     -1.16,
+     0.25,
+     1
+    ],
+    [
+     -2.5,
+     -0.56,
+     0.47,
+     1
+    ],
+    [
+     -2.49,
+     -0.57,
+     0.48,
+     1
+    ],
+    [
+     -2.71,
+     -0.07,
+     0.93,
+     1
+    ],
+    [
+     2.72,
+     -0.07,
+     0.93,
+     1
+    ]
+   ]
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 215,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

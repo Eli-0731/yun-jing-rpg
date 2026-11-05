@@ -42,47 +42,47 @@
       "dims_m": [
         3.062,
         3.4828,
-        3.6439
+        3.6547
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 0.2048
+      "min_z_local": 0.1941
     },
     "Detail_Straw": {
       "dims_m": [
         3.0375,
         3.3788,
-        1.0818
+        1.1011
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 2.1566
+      "min_z_local": 2.1373
     },
     "Detail_Vines": {
       "dims_m": [
         0.9441,
         0.8873,
-        0.4853
+        0.4943
       ],
       "pivot": [
         0.0,
         0.0,
         0.0
       ],
-      "min_z_local": 3.2637
+      "min_z_local": 3.2548
     }
   },
   "lods": {
     "Main": {
       "LOD0": 59564,
-      "LOD1": 29782,
-      "LOD2": 8933
+      "LOD1": 29781,
+      "LOD2": 8934
     },
     "Detail_Small": {
       "LOD0": 159364,
@@ -90,9 +90,9 @@
       "LOD2": 23904
     },
     "Detail_Straw": {
-      "LOD0": 3280,
-      "LOD1": 1640,
-      "LOD2": 492
+      "LOD0": 3276,
+      "LOD1": 1638,
+      "LOD2": 491
     },
     "Detail_Vines": {
       "LOD0": 3360,
@@ -101,8 +101,8 @@
     }
   },
   "lod_totals": {
-    "LOD0": 225568,
-    "LOD1": 112784,
+    "LOD0": 225564,
+    "LOD1": 112781,
     "LOD2": 33833
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",

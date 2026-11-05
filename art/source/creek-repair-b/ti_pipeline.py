@@ -1,4 +1,5 @@
 """Normalise -> join per group -> UV atlas -> bake -> LOD1/LOD2 -> baked materials -> FBX -> renders."""
+from mathutils.bvhtree import BVHTree
 import bpy, bmesh, math, json, hashlib
 import numpy as np
 from pathlib import Path
@@ -93,8 +94,9 @@ def orient_faces(me, flush=True):
             if _signed_volume(island) < 0: bmesh.ops.reverse_faces(bm, faces=island)
     bm.to_mesh(me); bm.free(); me.update()
     if flush:
+        drop_twins(me); plan = {}
         for _ in range(6):
-            if not separate_flush(me): break
+            if not separate_flush(me, plan=plan): break
 
 
 def _signed_volume(faces):
@@ -108,43 +110,93 @@ def _signed_volume(faces):
     return vol
 
 
-def _flush_pairs(bm, tol=.0005):
-    """Same-facing triangles of two pieces lying in one plane and overlapping: they z-fight. Faces flat on the ground are never seen."""
-    planes = {}
-    for f in bm.faces:
-        if f.calc_area() < 1e-8: continue
-        n = f.normal
-        if n.z < -.9 and f.verts[0].co.z < .002: continue
-        planes.setdefault((round(n.x, 2), round(n.y, 2), round(n.z, 2)), []).append((n.dot(f.verts[0].co), f))
-    pairs = []
-    for key, fs in planes.items():
-        if len(fs) < 2: continue
-        fs.sort(key=lambda q: q[0]); n = Vector(key).normalized(); u = n.orthogonal().normalized(); v = n.cross(u)
-        tris = [[(p.co.dot(u), p.co.dot(v)) for p in q[1].verts] for q in fs]
-        def apart(A, B):
-            for P, Q in ((A, B), (B, A)):
-                for i in range(3):
-                    ex, ey = P[(i + 1) % 3][0] - P[i][0], P[(i + 1) % 3][1] - P[i][1]; L = math.hypot(ex, ey)
-                    if L < 1e-9: return True
-                    a = [(y * ex - x * ey) / L for x, y in P]; b = [(y * ex - x * ey) / L for x, y in Q]
-                    if max(a) <= min(b) + 1e-5 or max(b) <= min(a) + 1e-5: return True
-            return False
-        for i in range(len(fs)):
-            j = i + 1
-            while j < len(fs) and fs[j][0] - fs[i][0] <= tol:
-                if not apart(tris[i], tris[j]): pairs.append((fs[i][1], fs[j][1]))
-                j += 1
-    return pairs
+FLUSH_TOL, FLUSH_PUSH = .0012, .0016   # the gap must clear a 1 mm near-coplanar test
+
+def _clip_area(A, B):
+    """Area where two 2D triangles overlap."""
+    def ccw(t):
+        return t if (t[1][0] - t[0][0]) * (t[2][1] - t[0][1]) - (t[1][1] - t[0][1]) * (t[2][0] - t[0][0]) >= 0 else t[::-1]
+    poly = [tuple(p) for p in ccw(A.tolist())]; B = ccw(B.tolist())
+    for i in range(3):
+        if not poly: return 0.
+        p, q = B[i], B[(i + 1) % 3]; ex, ey = q[0] - p[0], q[1] - p[1]; out = []
+        for j, a in enumerate(poly):
+            b = poly[(j + 1) % len(poly)]
+            sa = ex * (a[1] - p[1]) - ey * (a[0] - p[0]); sb = ex * (b[1] - p[1]) - ey * (b[0] - p[0])
+            if sa >= 0: out.append(a)
+            if sa * sb < 0:
+                t = sa / (sa - sb); out.append((a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t))
+        poly = out
+    if len(poly) < 3: return 0.
+    return abs(sum(poly[i][0] * poly[(i + 1) % len(poly)][1] - poly[(i + 1) % len(poly)][0] * poly[i][1] for i in range(len(poly)))) / 2
 
 
-def separate_flush(me, push=.0009):
-    """Where two pieces share a face plane, swell the smaller piece a hair so it sits proud; never below the ground. Returns how many pairs it found."""
-    bm = bmesh.new(); bm.from_mesh(me); bmesh.ops.triangulate(bm, faces=bm.faces[:]); bm.verts.ensure_lookup_table(); bm.normal_update()
+def near_pairs(P, group, tol=FLUSH_TOL, min_area=1e-6, cell=.1):
+    """Same-facing triangles of two groups (pieces, objects) within tol of one plane and overlapping by more than min_area: they z-fight. P: triangles x 3 x 3, group: one id per triangle."""
+    N = np.cross(P[:, 1] - P[:, 0], P[:, 2] - P[:, 0]); L = np.linalg.norm(N, axis=1); ok = L > 2e-8; N[ok] /= L[ok][:, None]
+    ok &= ~((N[:, 2] < -.9) & (P[:, 0, 2] < .002))    # flat on the ground: never seen
+    cells = {}
+    lo = np.floor(P.min(1) / cell).astype(int); hi = np.floor(P.max(1) / cell).astype(int)
+    for i in np.nonzero(ok)[0].tolist():
+        for x in range(lo[i, 0], hi[i, 0] + 1):
+            for y in range(lo[i, 1], hi[i, 1] + 1):
+                for z in range(lo[i, 2], hi[i, 2] + 1): cells.setdefault((x, y, z), []).append(i)
+    seen = set(); out = []
+    for ids in cells.values():
+        if len(ids) < 2: continue
+        ids = np.array(ids); g = group[ids]
+        ii, jj = np.nonzero(np.triu((N[ids] @ N[ids].T > .9995) & (g[:, None] != g[None, :]), 1))
+        if not len(ii): continue
+        A, B = ids[ii], ids[jj]
+        near = (np.abs(np.einsum('ijk,ik->ij', P[B] - P[A, 0][:, None], N[A])).max(1) <= tol) & (np.abs(np.einsum('ijk,ik->ij', P[A] - P[B, 0][:, None], N[B])).max(1) <= tol)
+        for a, b in zip(A[near].tolist(), B[near].tolist()):
+            key = (a, b) if a < b else (b, a)
+            if key in seen: continue
+            seen.add(key)
+            e = P[a, 1] - P[a, 0]; e = e / np.linalg.norm(e); w = np.cross(N[a], e); qa = P[a] - P[a, 0]; qb = P[b] - P[a, 0]
+            if _clip_area(np.c_[qa @ e, qa @ w], np.c_[qb @ e, qb @ w]) >= min_area: out.append((a, b))
+    return out, N
+
+
+def _tri_arrays(bm):
+    """Triangle corners, and which connected piece each triangle belongs to, of a triangulated bmesh."""
     root = list(range(len(bm.verts)))
     def find(i):
         while root[i] != i: root[i] = root[root[i]]; i = root[i]
         return i
     for e in bm.edges: root[find(e.verts[0].index)] = find(e.verts[1].index)
+    bm.faces.ensure_lookup_table()
+    P = np.array([[tuple(v.co) for v in f.verts] for f in bm.faces], np.float64)
+    return P, np.array([find(f.verts[0].index) for f in bm.faces]), find
+
+
+def drop_twins(me, most_verts=100, near=.02, sized=.012):
+    """A small piece scattered twice on the same spot (a grass blade, a leaf) is a real double: keep one."""
+    bm = bmesh.new(); bm.from_mesh(me); bmesh.ops.triangulate(bm, faces=bm.faces[:]); bm.verts.ensure_lookup_table()
+    P, piece, find = _tri_arrays(bm)
+    if not len(P): bm.free(); return 0
+    verts = {}
+    for v in bm.verts: verts.setdefault(find(v.index), []).append(v.index)
+    co = np.array([tuple(v.co) for v in bm.verts], np.float64); dead = set()
+    pairs, _ = near_pairs(P, piece)
+    for a, b in {tuple(sorted((int(piece[x]), int(piece[y])))) for x, y in pairs}:
+        if a in dead or b in dead or len(verts[a]) != len(verts[b]) or len(verts[a]) > most_verts: continue
+        qa, qb = co[verts[a]], co[verts[b]]
+        if np.abs(qa.mean(0) - qb.mean(0)).max() < near and np.abs((qa.max(0) - qa.min(0)) - (qb.max(0) - qb.min(0))).max() < sized: dead.add(b)
+    bm.free()
+    if dead:
+        bm = bmesh.new(); bm.from_mesh(me); bm.verts.ensure_lookup_table()
+        bmesh.ops.delete(bm, geom=[bm.verts[i] for k in dead for i in verts[k]], context='VERTS')
+        bm.to_mesh(me); bm.free(); me.update()
+    print('FLUSH_TWINS', me.name, len(dead), flush=True)
+    return len(dead)
+
+
+def separate_flush(me, push=FLUSH_PUSH, plan=None):
+    """Where two pieces share a face plane, swell the smaller piece a hair so it sits proud; never below the ground. Returns how many pairs it found."""
+    bm = bmesh.new(); bm.from_mesh(me); bmesh.ops.triangulate(bm, faces=bm.faces[:]); bm.verts.ensure_lookup_table(); bm.normal_update()
+    P, piece, find = _tri_arrays(bm)
+    if not len(P): bm.free(); return 0
     area = {}
     for f in bm.faces:
         k = find(f.verts[0].index); area[k] = area.get(k, 0.) + f.calc_area()
@@ -154,15 +206,21 @@ def separate_flush(me, push=.0009):
         k = find(v.index); s = span.setdefault(k, [list(v.co), list(v.co)])
         for i in range(3): s[0][i] = min(s[0][i], v.co[i]); s[1][i] = max(s[1][i], v.co[i])
     def thin(k): return min(b - a for a, b in zip(*span[k])) < 4 * push    # swelling would turn it inside out
-    pairs = _flush_pairs(bm); grow = set(); shift = {}
-    for f, g in pairs:
-        a, b = find(f.verts[0].index), find(g.verts[0].index)
-        if a == b: continue
-        k, face = (a, f) if area[a] < area[b] else (b, g)
+    pairs, _ = near_pairs(P, piece); grow = set(); shift = {}; active = {}; plan = {} if plan is None else plan
+    for x, y in pairs:
+        a, b = int(piece[x]), int(piece[y])
+        k, face = (a, bm.faces[x]) if area[a] < area[b] else (b, bm.faces[y])
         n = face.normal
-        if any(not lo[i] - 1e-6 <= v.co[i] + n[i] * push <= hi[i] + 1e-6 for v in face.verts for i in range(3)): shift[k] = -n * push * (1 + k % 5)    # on the mesh's outer bound: sink it, sizes and ports stay exact
-        elif thin(k): shift[k] = n * push * (1 + k % 5)    # a row of equal pieces must not move as one; swelling would turn it inside out: slide it clear
-        else: grow.add(k)
+        ways = plan.setdefault(k, [])   # keep going the way it went, per contact: switching back and forth never clears it
+        way = next((w for w in ways if w is not None and abs(w.normalized().dot(n)) > .9), None)
+        if way is None:
+            if any(not lo[i] - 1e-6 <= v.co[i] + n[i] * push <= hi[i] + 1e-6 for v in face.verts for i in range(3)): way = -n * push * (1 + k % 3)    # on the mesh's outer bound: sink it, sizes and ports stay exact
+            elif thin(k): way = n * push * (1 + k % 3)    # a row of equal pieces must not move as one; swelling would turn it inside out: slide it clear
+            else: ways.append(None); grow.add(k); continue
+            ways.append(way)
+        active.setdefault(k, {})[id(way)] = way
+    for k, used in active.items():
+        if k not in grow: shift[k] = sum(used.values(), Vector())
     moved = {}
     if grow or shift:
         for v in bm.verts:
@@ -176,6 +234,115 @@ def separate_flush(me, push=.0009):
     return len(grow) + len(shift)
 
 
+def _alternatives(a, b):
+    """Stage_ groups and a lamp's _Lit twin are shown instead of one another, never together."""
+    return ('Stage_' in a and 'Stage_' in b) or a.replace('_Lit', '') == b.replace('_Lit', '')
+
+
+def settle_loose(touch=.002, rest=FLUSH_PUSH, reach=.065, rounds=5):
+    """A part modelled a few millimetres off what holds it (a bowl above the shelf, a ladle head off its handle, a leaf above the floor) moves until it is held.
+    Parts that touch one another move as one; a group on the ground, the largest group and a moving gate stay where they are."""
+    P = []
+    for gname, o in S['lod0'].items():
+        bm = bmesh.new(); bm.from_mesh(o.data); bm.verts.ensure_lookup_table(); bm.faces.ensure_lookup_table(); seen = set()
+        for v0 in bm.verts:
+            if v0.index in seen: continue
+            comp, todo = [], [v0]; seen.add(v0.index)
+            while todo:
+                v = todo.pop(); comp.append(v.index)
+                for e in v.link_edges:
+                    w = e.other_vert(v)
+                    if w.index not in seen: seen.add(w.index); todo.append(w)
+            at = {i: n for n, i in enumerate(comp)}; faces = {f.index: [at[v.index] for v in f.verts] for i in comp for f in bm.verts[i].link_faces}
+            co = np.array([tuple(bm.verts[i].co) for i in comp], np.float64)
+            if faces: P.append(dict(group=gname, ids=np.array(comp), co=co, faces=list(faces.values()), still='Gate' in gname))
+        bm.free()
+    if len(P) < 2: return 0
+    def tree(p): p['tree'] = BVHTree.FromPolygons([tuple(q) for q in p['co']], p['faces'])
+    for p in P: tree(p)
+    def sample(p, n=200): return [Vector(q) for q in p['co'][::max(1, len(p['co']) // n)]]
+    ground = min(p['co'][:, 2].min() for p in P); moved = 0; big = max(range(len(P)), key=lambda i: len(P[i]['co']))
+    def apart(a, b): return a['group'] != b['group'] and _alternatives(a['group'], b['group'])
+    for _ in range(rounds):
+        lo = np.array([p['co'].min(0) for p in P]); hi = np.array([p['co'].max(0) for p in P]); root = list(range(len(P)))
+        def find(i):
+            while root[i] != i: root[i] = root[root[i]]; i = root[i]
+            return i
+        for i in range(len(P)):
+            for j in np.nonzero(((lo[i] - touch <= hi) & (hi[i] + touch >= lo)).all(1))[0].tolist():
+                if j <= i or find(i) == find(j) or apart(P[i], P[j]): continue
+                if P[i]['tree'].overlap(P[j]['tree']) or any(P[j]['tree'].find_nearest(q, touch)[0] is not None for q in sample(P[i])) or any(P[i]['tree'].find_nearest(q, touch)[0] is not None for q in sample(P[j])): root[find(i)] = find(j)
+        groups = {}
+        for i in range(len(P)): groups.setdefault(find(i), []).append(i)
+        free = [g for g in groups.values() if big not in g and not any(P[i]['still'] or lo[i, 2] - ground <= touch for i in g)]
+        if not free: break
+        for g in sorted(free, key=lambda g: min(P[i]['co'][:, 2].min() for i in g)):
+            inside = set(g); best = min(P[i]['co'][:, 2].min() for i in g) - ground; way = Vector((0, 0, -1)); drop = best
+            box_lo = np.min([P[i]['co'].min(0) for i in g], 0); box_hi = np.max([P[i]['co'].max(0) for i in g], 0)
+            near = [j for j in range(len(P)) if j not in inside and not any(apart(P[i], P[j]) for i in g)]
+            for j in near:
+                a, b = P[j]['co'].min(0), P[j]['co'].max(0)
+                if (box_lo - best > b).any() or (box_hi + best < a).any(): continue
+                for i in g:
+                    for q in sample(P[i]):
+                        c, _n, _f, d = P[j]['tree'].find_nearest(q, best)
+                        if c is not None and d < best: best, way = d, (c - q).normalized()
+            for j in near:
+                if (box_lo[:2] > P[j]['co'].max(0)[:2]).any() or (box_hi[:2] < P[j]['co'].min(0)[:2]).any(): continue
+                for i in g:
+                    for q in sample(P[i], 80):
+                        h = P[j]['tree'].ray_cast(q, Vector((0, 0, -1)), drop)
+                        if h[0] is not None and h[3] < drop: drop = h[3]
+            if drop <= reach and drop <= best * 2 + .005: best, way = drop, Vector((0, 0, -1))
+            if best > reach:
+                print('SETTLE_SKIP', [P[i]['group'] for i in g][:2], round(best, 3), [round(float(x), 3) for x in box_lo], flush=True); continue
+            step = np.array(tuple(way)) * (best - rest)
+            for i in g: P[i]['co'] = P[i]['co'] + step; tree(P[i])
+            moved += len(g)
+    for gname, o in S['lod0'].items():
+        for p in P:
+            if p['group'] != gname: continue
+            for i, q in zip(p['ids'].tolist(), p['co'].tolist()): o.data.vertices[i].co = q
+        o.data.update()
+    print('SETTLE_MOVED', moved, 'of', len(P), flush=True)
+    return moved
+
+
+def separate_objects(push=FLUSH_PUSH, rounds=4):
+    """The same between export groups: a detail object seated flush on the body. The smaller group's piece slides off along its face."""
+    objs = list(S['lod0'].items())
+    for _ in range(rounds):
+        moved = 0
+        for ai, (an, ao) in enumerate(objs):
+            for bn, bo in objs[ai + 1:]:
+                if _alternatives(an, bn): continue
+                big, small = (ao, bo) if len(ao.data.polygons) >= len(bo.data.polygons) else (bo, ao)
+                bma = bmesh.new(); bma.from_mesh(big.data); bmesh.ops.triangulate(bma, faces=bma.faces[:]); bma.faces.ensure_lookup_table()
+                bmb = bmesh.new(); bmb.from_mesh(small.data); bmesh.ops.triangulate(bmb, faces=bmb.faces[:]); bmb.faces.ensure_lookup_table(); bmb.verts.ensure_lookup_table(); bmb.normal_update()
+                Pa = np.array([[tuple(v.co) for v in f.verts] for f in bma.faces], np.float64); Pb, piece, find = _tri_arrays(bmb)
+                bma.free()
+                if not (len(Pa) and len(Pb)) or (Pa.min((0, 1)) - .002 > Pb.max((0, 1))).any() or (Pb.min((0, 1)) - .002 > Pa.max((0, 1))).any(): bmb.free(); continue
+                pairs, N = near_pairs(np.r_[Pa, Pb], np.r_[np.zeros(len(Pa), int), np.ones(len(Pb), int)])
+                shift = {}
+                for x, y in pairs:
+                    t = max(x, y) - len(Pa); k = int(piece[t]); shift[k] = Vector(N[t + len(Pa)]) * push * (1 + k % 3)
+                bmb.free()
+                if not shift: continue
+                moved += len(shift)
+                bmb = bmesh.new(); bmb.from_mesh(small.data); bmb.verts.ensure_lookup_table()
+                root = list(range(len(bmb.verts)))
+                def find2(i):
+                    while root[i] != i: root[i] = root[root[i]]; i = root[i]
+                    return i
+                for e in bmb.edges: root[find2(e.verts[0].index)] = find2(e.verts[1].index)
+                for v in bmb.verts:
+                    k = find2(v.index)
+                    if k in shift: small.data.vertices[v.index].co = v.co + shift[k]
+                bmb.free(); small.data.update()
+        print('FLUSH_OBJECTS', S['asset'], moved, flush=True)
+        if not moved: break
+
+
 def _dedupe_slots(me):
     mats = list(me.materials); uniq = []
     for m in mats:
@@ -187,8 +354,49 @@ def _dedupe_slots(me):
     for m in uniq: me.materials.append(m)
     me.polygons.foreach_set('material_index', idx); me.update()
 
-def uv_atlas(weights=None):
-    """weights: {group: factor} texel-density weight per export group (e.g. a basket's fill shares the atlas with the body)."""
+def _uv_islands(bm, uvl, skip):
+    """Faces joined by edges whose two sides share their UVs; faces in skip stay out."""
+    seen = set(); out = []
+    for f0 in bm.faces:
+        if f0.index in seen or f0.material_index in skip: continue
+        comp, todo = [], [f0]; seen.add(f0.index)
+        while todo:
+            f = todo.pop(); comp.append(f)
+            for l in f.loops:
+                r = l.link_loop_radial_next
+                if r == l or r.face.index in seen or r.face.material_index in skip: continue
+                if (l[uvl].uv - r.link_loop_next[uvl].uv).length < 1e-6 and (l.link_loop_next[uvl].uv - r[uvl].uv).length < 1e-6:
+                    seen.add(r.face.index); todo.append(r.face)
+        out.append(comp)
+    return out
+
+def grow_small_islands(objs, size, own_of, min_px):
+    """A piece narrower than a texel can miss every texel centre and bake to nothing, which reads black: open it to min_px along both of its axes."""
+    grown = 0; tiny = 1e-7
+    for o in objs:
+        bm = bmesh.new(); bm.from_mesh(o.data); uvl = bm.loops.layers.uv.active
+        for comp in _uv_islands(bm, uvl, own_of[o.name]):
+            loops = [l for f in comp for l in f.loops]
+            q = np.array([l[uvl].uv[:] for l in loops], dtype=np.float64)
+            c = (q.min(0) + q.max(0)) / 2; d = q - c
+            _, axes = np.linalg.eigh(d.T @ d)
+            p = d @ axes; span = p.max(0) - p.min(0); want = min_px / size
+            if span.min() >= want: continue
+            grown += 1
+            for k in range(2):
+                if span[k] >= want: continue
+                if span[k] > tiny: p[:, k] *= want / span[k]
+                else:   # collinear in this axis: nothing to scale, so spread by the other axis
+                    other = p[:, 1 - k]; rng = other.max() - other.min()
+                    p[:, k] = (np.sin((other - other.min()) / max(rng, tiny) * math.pi) - .5) * want
+            q = c + p @ axes.T
+            for l, v in zip(loops, q): l[uvl].uv = (float(v[0]), float(v[1]))
+        bm.to_mesh(o.data); bm.free(); o.data.update()
+    return grown
+
+def uv_atlas(weights=None, size=2048, min_px=3., pad_px=2.5):
+    """weights: {group: factor} texel-density weight per export group (e.g. a basket's fill shares the atlas with the body).
+    min_px: narrowest a piece may end up in texels. pad_px: gap between pieces in texels."""
     objs = list(S['lod0'].values())
     bpy.ops.object.select_all(action='DESELECT')
     for o in objs: o.select_set(True)
@@ -213,7 +421,16 @@ def uv_atlas(weights=None):
             uvl = o.data.uv_layers.active; uv = np.zeros(len(uvl.data) * 2, dtype=np.float32)
             uvl.data.foreach_get('uv', uv); uvl.data.foreach_set('uv', uv * math.sqrt(f))   # area scales with f
         bpy.ops.object.mode_set(mode='EDIT')
-    bpy.ops.uv.pack_islands(rotate=True, margin=.0025)
+    pack = lambda: bpy.ops.uv.pack_islands(rotate=True, margin_method='FRACTION', margin=pad_px / size)
+    pack()
+    own_of = {o.name: {i for i, m in enumerate(o.data.materials) if (MAT_INFO.get(m.name) or MAT_INFO.get(m.name.rsplit('.', 1)[0]) or {}).get('own_uv', False)} for o in objs}
+    for _ in range(3):   # growing them changes what the next pack can fit, so measure again
+        bpy.ops.object.mode_set(mode='OBJECT')
+        n = grow_small_islands(objs, size, own_of, min_px)
+        bpy.ops.object.mode_set(mode='EDIT')
+        print('UV_GROW', S['asset'], n, flush=True)
+        if not n: break
+        pack()
     bpy.ops.object.mode_set(mode='OBJECT')
     for o in objs:
         uvl = o.data.uv_layers.active
@@ -224,7 +441,7 @@ def _img(name, size, color=True, alpha=False):
     im.colorspace_settings.name = 'sRGB' if color else 'Non-Color'
     return im
 
-def spread_zero_uv(objs=None, eps=1e-10):
+def spread_zero_uv(objs=None, eps=1e-8):
     """A sliver can pack to no area in the atlas: open it to a patch under one texel of the same spot."""
     n = 0
     for o in (S['lod0'].values() if objs is None else objs):
@@ -239,10 +456,29 @@ def spread_zero_uv(objs=None, eps=1e-10):
     return n
 
 
+def fill_gaps(work, name, size, color, blank, reach=24):
+    """Blender bakes object by object and each object's margin paints over what the others baked, so bake with none (alpha marks written texels) and spread the colours into the gaps afterwards."""
+    px = np.empty(size * size * 4, np.float32); work.pixels.foreach_get(px); px = px.reshape(size, size, 4)
+    have = px[..., 3] > .5; rgb = px[..., :3].copy(); baked = float(have.mean())
+    mean = rgb[have].mean(0) if have.any() else np.array(blank, np.float32)
+    for _ in range(reach):
+        n = have.astype(np.float32); val = rgb * n[..., None]
+        tot = sum(np.roll(val, sh, ax) for sh, ax in ((1, 0), (-1, 0), (1, 1), (-1, 1)))
+        cnt = sum(np.roll(n, sh, ax) for sh, ax in ((1, 0), (-1, 0), (1, 1), (-1, 1)))
+        new = ~have & (cnt > 0)
+        if not new.any(): break
+        rgb[new] = tot[new] / cnt[new][:, None]; have |= new
+    rgb[~have] = mean
+    out = np.ones((size, size, 4), np.float32); out[..., :3] = rgb
+    im = _img(name, size, color); im.pixels.foreach_set(out.ravel())
+    bpy.data.images.remove(work)
+    print('BAKE_COVER', name, round(baked, 3), flush=True)
+    return im
+
 def bake(tex_dir, size):
     """Bake colour/roughness/metal/emission through an Emission shader, then a tangent normal map."""
     scene = bpy.context.scene; scene.render.engine = 'CYCLES'; scene.cycles.device = 'CPU'
-    scene.render.bake.margin = 12; scene.render.bake.use_clear = True
+    scene.render.bake.margin = 0; scene.render.bake.use_clear = False
     objs = list(S['lod0'].values())
     mats = {m for o in objs for m in o.data.materials if not MAT_INFO[m.name]['own_uv']}
     own = {m for o in objs for m in o.data.materials if MAT_INFO[m.name]['own_uv']}
@@ -254,7 +490,7 @@ def bake(tex_dir, size):
     bpy.context.view_layer.objects.active = objs[0]
     dummy = _img('Bake_Dummy', 16)
     for label, node_name, color, samples in passes + [('Normal', None, False, 4)]:
-        img = _img(f'{a}_{label}', size, color); imgs[label] = img
+        img = _img(f'{a}_{label}_work', size, color, True); img.pixels.foreach_set(np.zeros(size * size * 4, np.float32))
         scene.cycles.samples = samples
         for m in mats | own:
             nt = m.node_tree; tn = nt.nodes.new('ShaderNodeTexImage'); tn.name = 'BAKE_TARGET'
@@ -276,6 +512,7 @@ def bake(tex_dir, size):
                 if nm in nt.nodes: nt.nodes.remove(nt.nodes[nm])
             bs = [n for n in nt.nodes if n.type == 'BSDF_PRINCIPLED'][0]
             nt.links.new(bs.outputs[0], nt.nodes['OUTPUT'].inputs['Surface'])
+        imgs[label] = fill_gaps(img, f'{a}_{label}', size, color, (.5, .5, 1.) if label == 'Normal' else (0., 0., 0.))
         print('BAKED', a, label, flush=True)
     tex_dir.mkdir(parents=True, exist_ok=True)
     files = {}

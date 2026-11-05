@@ -1,68 +1,70 @@
 {
  "WM07_StoneBridge_Detail_Small_LOD0": {
-  "tris": 48800,
+  "tris": 48130,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 13,
-  "coplanar_two_sides": 451,
-  "closed_pieces": 440,
-  "open_pieces": 64,
+  "coplanar_same_facing": 52,
+  "coplanar_two_sides": 431,
+  "closed_pieces": 424,
+  "open_pieces": 63,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [
    [
     [
-     1.66,
-     5.54,
-     1.33
+     1.55,
+     1.22,
+     2.74
     ],
-    2
-   ],
-   [
-    [
-     1.6,
-     5.49,
-     1.27
-    ],
-    2
-   ],
-   [
-    [
-     1.58,
-     5.47,
-     1.28
-    ],
-    1
-   ],
-   [
-    [
-     1.61,
-     5.5,
-     1.29
-    ],
-    1
-   ],
-   [
-    [
-     1.62,
-     5.51,
-     1.32
-    ],
-    1
+    20
    ],
    [
     [
      1.54,
-     5.44,
-     1.21
+     1.22,
+     2.74
     ],
-    1
+    18
+   ],
+   [
+    [
+     -1.54,
+     1.95,
+     2.0
+    ],
+    5
+   ],
+   [
+    [
+     -1.55,
+     1.96,
+     2.0
+    ],
+    4
+   ],
+   [
+    [
+     -1.55,
+     1.95,
+     2.0
+    ],
+    3
+   ],
+   [
+    [
+     1.54,
+     1.21,
+     2.74
+    ],
+    2
    ]
   ],
   "inverted_at": []
  },
  "WM07_StoneBridge_Detail_Small_LOD1": {
-  "tris": 24400,
+  "tris": 24064,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -70,12 +72,14 @@
   "closed_pieces": 160,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
  },
  "WM07_StoneBridge_Detail_Small_LOD2": {
-  "tris": 7320,
+  "tris": 7218,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -83,6 +87,8 @@
   "closed_pieces": 160,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -91,58 +97,60 @@
   "tris": 63632,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 9,
-  "coplanar_two_sides": 763,
+  "coplanar_same_facing": 18,
+  "coplanar_two_sides": 435,
   "closed_pieces": 406,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [
    [
     [
-     1.26,
-     1.68,
-     2.02
-    ],
-    2
-   ],
-   [
-    [
-     1.48,
-     -2.01,
-     1.78
+     1.2,
+     -0.43,
+     2.95
     ],
     1
    ],
    [
     [
      -1.32,
-     1.44,
-     2.16
+     -2.07,
+     1.73
+    ],
+    1
+   ],
+   [
+    [
+     -1.26,
+     -2.12,
+     1.68
     ],
     1
    ],
    [
     [
      1.31,
-     3.96,
-     2.42
+     -1.99,
+     1.8
     ],
     1
    ],
    [
     [
-     1.53,
-     -2.11,
-     1.69
+     -1.43,
+     -2.02,
+     1.77
     ],
     1
    ],
    [
     [
-     1.31,
-     -2.19,
-     1.62
+     1.48,
+     -2.01,
+     1.78
     ],
     1
    ]
@@ -158,6 +166,8 @@
   "closed_pieces": 406,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -171,6 +181,8 @@
   "closed_pieces": 406,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []

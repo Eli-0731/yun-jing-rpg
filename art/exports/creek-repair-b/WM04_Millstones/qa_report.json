@@ -8,6 +8,8 @@
   "closed_pieces": 0,
   "open_pieces": 1,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -21,6 +23,8 @@
   "closed_pieces": 0,
   "open_pieces": 1,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -34,6 +38,8 @@
   "closed_pieces": 0,
   "open_pieces": 1,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -42,24 +48,34 @@
   "tris": 4736,
   "degenerate": 0,
   "zero_uv": 0,
-  "coplanar_same_facing": 6,
+  "coplanar_same_facing": 16,
   "coplanar_two_sides": 0,
   "closed_pieces": 15,
   "open_pieces": 24,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [
    [
     [
-     -0.53,
-     -0.03,
-     0.17
+     -0.3,
+     -0.06,
+     0.61
     ],
-    3
+    4
    ],
    [
     [
-     -0.54,
+     -0.31,
+     -0.06,
+     0.61
+    ],
+    2
+   ],
+   [
+    [
+     -0.52,
      -0.03,
      0.17
     ],
@@ -68,8 +84,24 @@
    [
     [
      -0.53,
-     -0.02,
+     -0.03,
      0.17
+    ],
+    2
+   ],
+   [
+    [
+     -0.55,
+     -0.01,
+     0.16
+    ],
+    1
+   ],
+   [
+    [
+     -0.58,
+     0.03,
+     0.2
     ],
     1
    ]
@@ -85,6 +117,8 @@
   "closed_pieces": 15,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -98,6 +132,8 @@
   "closed_pieces": 15,
   "open_pieces": 0,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -111,6 +147,8 @@
   "closed_pieces": 3,
   "open_pieces": 9,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -124,6 +162,8 @@
   "closed_pieces": 3,
   "open_pieces": 9,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []
@@ -137,6 +177,8 @@
   "closed_pieces": 3,
   "open_pieces": 9,
   "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
   "zero_at": [],
   "same_at": [],
   "inverted_at": []

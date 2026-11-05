@@ -1,0 +1,354 @@
+{
+ "asset": "WM02_WaterWheel_v001",
+ "tris": 68500,
+ "objects": [
+  "WM02_WaterWheel_Detail_Small_LOD0",
+  "WM02_WaterWheel_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 4,
+   "groups": {
+    "Detail_Small/WaterWheel|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 1.45
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 1,
+   "groups": {
+    "Detail_Small/WaterWheel|two_sides_between": {
+     "pairs": 1,
+     "overlap_cm2": 0.41
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 0,
+   "groups": {},
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 192
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "WM02_WaterWheel_Detail_Small_LOD0": 192
+  }
+ },
+ "pieces": 319,
+ "loose_over_5mm": 22,
+ "loose_list": [
+  {
+   "verts": 384,
+   "centre": [
+    0.0,
+    -0.001,
+    0.0
+   ],
+   "size": [
+    1.2,
+    0.3,
+    0.3
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    -0.001,
+    1.145
+   ],
+   "size": [
+    0.087,
+    0.102,
+    1.73
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    -0.439,
+    1.058
+   ],
+   "size": [
+    0.088,
+    0.747,
+    1.627
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    -1.146,
+    0.0
+   ],
+   "size": [
+    0.087,
+    1.73,
+    0.102
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    -1.059,
+    -0.438
+   ],
+   "size": [
+    0.087,
+    1.629,
+    0.748
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    -0.81,
+    -0.809
+   ],
+   "size": [
+    0.087,
+    1.286,
+    1.286
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    -0.439,
+    -1.058
+   ],
+   "size": [
+    0.086,
+    0.747,
+    1.629
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    -0.001,
+    -1.145
+   ],
+   "size": [
+    0.087,
+    0.102,
+    1.73
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    1.057,
+    -0.438
+   ],
+   "size": [
+    0.087,
+    1.629,
+    0.746
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    1.144,
+    0.0
+   ],
+   "size": [
+    0.087,
+    1.729,
+    0.102
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    1.057,
+    0.438
+   ],
+   "size": [
+    0.087,
+    1.63,
+    0.747
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    -0.42,
+    0.809,
+    0.81
+   ],
+   "size": [
+    0.087,
+    1.285,
+    1.286
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    0.42,
+    -0.001,
+    1.145
+   ],
+   "size": [
+    0.087,
+    0.102,
+    1.73
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    0.42,
+    -0.439,
+    1.058
+   ],
+   "size": [
+    0.088,
+    0.747,
+    1.627
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    0.42,
+    -0.81,
+    0.81
+   ],
+   "size": [
+    0.087,
+    1.288,
+    1.286
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    0.42,
+    -1.059,
+    0.438
+   ],
+   "size": [
+    0.086,
+    1.63,
+    0.747
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    0.42,
+    -1.146,
+    0.0
+   ],
+   "size": [
+    0.087,
+    1.73,
+    0.102
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    0.42,
+    -1.059,
+    -0.438
+   ],
+   "size": [
+    0.087,
+    1.629,
+    0.748
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    0.42,
+    -0.001,
+    -1.145
+   ],
+   "size": [
+    0.087,
+    0.102,
+    1.73
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    0.42,
+    0.809,
+    -0.81
+   ],
+   "size": [
+    0.087,
+    1.285,
+    1.285
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    0.42,
+    1.057,
+    0.438
+   ],
+   "size": [
+    0.087,
+    1.63,
+    0.747
+   ]
+  },
+  {
+   "verts": 122,
+   "centre": [
+    0.42,
+    0.437,
+    1.058
+   ],
+   "size": [
+    0.088,
+    0.747,
+    1.63
+   ]
+  }
+ ]
+}
