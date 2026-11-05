@@ -73,7 +73,9 @@ namespace YunJing.BasicCombat
             thump = Tone("thump", 90, .09f, .9f); heavyThump = Tone("heavy", 60, .18f, 1f); whoosh = Tone("whoosh", 0, .12f, .35f);
         }
 
-        void OnDestroy() { if (Current == this) Current = null; Time.timeScale = 1; }
+        // Disabling stops this component's coroutines, so the hit-stop timer would never end: both paths run the same cleanup.
+        void OnDisable() => EndHitStop();
+        void OnDestroy() { EndHitStop(); if (Current == this) Current = null; }
 
         // Placeholder sounds (the package asks for placeholders): a low thump for hits, noise for swings.
         static AudioClip Tone(string name, float hz, float seconds, float gain)
@@ -184,20 +186,63 @@ namespace YunJing.BasicCombat
             return landed;
         }
 
-        void HitStop(float seconds)
+        /// <summary>Slows time to <see cref="HitStopScale"/> for <paramref name="seconds"/> of real time. A second call while one is running
+        /// takes over the same restore duty (the value from before the first call), so the older timer cannot end the new stop early.</summary>
+        public void HitStop(float seconds)
         {
-            if (seconds <= 0) return;
-            if (stopRoutine != null) StopCoroutine(stopRoutine);
+            if (seconds <= 0 || !isActiveAndEnabled) return;
+            if (stopRoutine != null) { StopCoroutine(stopRoutine); stopRoutine = null; }
+            if (!stopClock.Begin()) return;   // someone else has time stopped (pause menu at 0): leave it alone
             stopRoutine = StartCoroutine(StopFor(seconds));
         }
 
         IEnumerator StopFor(float seconds)
         {
-            Time.timeScale = .05f;
             float t = 0;
             while (t < seconds) { t += Time.unscaledDeltaTime; yield return null; }
-            Time.timeScale = 1;
             stopRoutine = null;
+            EndHitStop();
+        }
+
+        /// <summary>Ends a running hit-stop. Safe to call any number of times; shared by the timer, OnDisable and OnDestroy.</summary>
+        void EndHitStop()
+        {
+            if (stopRoutine != null) { StopCoroutine(stopRoutine); stopRoutine = null; }
+            stopClock.Release();
+        }
+
+        public const float HitStopScale = .05f;
+        readonly HitStopClock stopClock = new HitStopClock();
+        public bool HitStopActive => stopClock.Owned;
+
+        /// <summary>Who owns Time.timeScale during a hit-stop. Begin remembers the scale from before the first stop; Release puts it back
+        /// only while the current scale is still the one this clock set. If another system changed it meanwhile (a pause menu setting 0,
+        /// a slow-motion effect), that system now owns it and Release only drops the duty.</summary>
+        public sealed class HitStopClock
+        {
+            float restoreTo = 1;
+            public bool Owned { get; private set; }
+
+            /// <returns>false when the clock does not take time over (it is already stopped by someone else).</returns>
+            public bool Begin()
+            {
+                if (Owned && !Mathf.Approximately(Time.timeScale, HitStopScale)) Owned = false;   // taken over meanwhile
+                if (!Owned)
+                {
+                    if (Time.timeScale <= 0) return false;
+                    restoreTo = Time.timeScale;
+                }
+                Owned = true;
+                Time.timeScale = HitStopScale;
+                return true;
+            }
+
+            public void Release()
+            {
+                if (!Owned) return;
+                Owned = false;
+                if (Mathf.Approximately(Time.timeScale, HitStopScale)) Time.timeScale = restoreTo;
+            }
         }
 
         void LateUpdate()

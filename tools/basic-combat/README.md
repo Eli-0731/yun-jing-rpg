@@ -65,6 +65,27 @@ Unity -batchmode -quit -projectPath apps/game -executeMethod YunJing.Editor.Qing
 
 產生和建置要分兩次執行，因為產生時會把專案切到 Input System，同一次建置會遇到 "script class layout is incompatible"。
 
+### 停頓（hit-stop）回歸測試
+
+```sh
+Unity -batchmode -projectPath apps/game -executeMethod YunJing.Editor.QingxiHitStopPlayTest.Run
+```
+
+這個指令不要加 `-quit`：它會進 Play Mode，用空場景裡真的 `QingxiBasicCombat` 元件依實際時間跑 6 個案例，跑完自己退出，結果寫在 `artifacts/basic-combat/hitstop-playmode.txt`。
+
+| 案例 | 檢查什麼 |
+|---|---|
+| 自然結束 | 從 0.5 開始停頓，結束後還原成 0.5 |
+| 連續觸發 | 第一次的計時不會提早結束第二次停頓 |
+| 停用 | 停用物件後立刻還原 |
+| 銷毀 | 銷毀物件後立刻還原 |
+| 外部暫停 | 停頓中被外部設成 0，停頓結束不會蓋掉 |
+| 暫停中命中 | 遊戲已暫停在 0 時命中，不會開始停頓 |
+
+停頓的規則：
+- `Time.timeScale` 的還原責任由 `HitStopClock` 負責，只在目前值仍是它設定的 0.05 時才還原。
+- 計時結束、`OnDisable`、`OnDestroy` 共用同一個清理函式 `EndHitStop`。
+
 場景 `Assets/YunJing/Generated/QingxiBasicCombatTest.unity`：
 - 新手玩家；
 - 我的 A12 藤靶，每 3.2 秒預備 0.55 秒後回掃一次，2.4 m 內被掃到算中；重擊可以打斷它；
