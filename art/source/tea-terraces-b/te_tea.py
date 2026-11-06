@@ -353,17 +353,18 @@ def tea_bush(P, cfg):
         sink = .03 + (scale - 1) * .1   # larger far-LOD cards sit deeper so they keep inside the LOD0 silhouette
         sp = cfg['spacing']; cfg['spacing'] = sp * math.sqrt(1 / count_k)
         # outer shell: sides and shoulders
-        for p, a, z in shell_points(int(cfg['cards'] * count_k), sink, cfg['z_under'] + .11, top_z + cfg['shoulder'] * .7, seed):
+        # v003: down to the skirt edge (was +.11); the larger LOD1/LOD2 cards start higher so their lower edge stays above the ground
+        for p, a, z in shell_points(int(cfg['cards'] * count_k), sink, cfg['z_under'] + .05 + (scale - 1) * .22, top_z + cfg['shoulder'] * .7, seed):
             nrm = C.normal(a, z); up = (z - cfg['z_under']) / (H - cfg['z_under'])
             cell = 2 if up > .45 else 0
             if R.random() < .25: cell = 3
-            card(verts, faces, uvs, cols, nrms, masks, p, (nrm + Vector((0, 0, .35))).normalized(), R.uniform(.19, .25) * scale, cell, R, wind=1., phase=R.random(), H=H, mask=lod_mask)
+            card(verts, faces, uvs, cols, nrms, masks, p, (nrm + Vector((0, 0, .35))).normalized(), R.uniform(.21, .28) * scale, cell, R, wind=1., phase=R.random(), H=H, mask=lod_mask)   # v003: larger, more overlap (was .19-.25)
         # plucking table: cards lying nearly flat on top, shoots up
         for p, a, z in shell_points(int(cfg['top_cards'] * count_k), .02, top_z + cfg['shoulder'] * .55, H - .005, seed + 50):
             card(verts, faces, uvs, cols, nrms, masks, p, (Vector((R.uniform(-.25, .25), R.uniform(-.25, .25), 1))).normalized(), R.uniform(.19, .25) * scale, 1, R, wind=1., phase=R.random(), H=H, mask=lod_mask, bend=.1)
         # inner layer: darker old foliage so the crown never reads hollow
-        for p, a, z in shell_points(int(cfg['cards'] * .6 * count_k), .12, cfg['z_under'] + .08, top_z, seed + 90):   # v002: fuller inner layer (was .35, inset .16)
-            card(verts, faces, uvs, cols, nrms, masks, p, (C.normal(a, z) + Vector((0, 0, .2))).normalized(), R.uniform(.22, .28) * scale, 0, R, wind=.7, phase=R.random(), H=H, mask=lod_mask)
+        for p, a, z in shell_points(int(cfg['cards'] * .6 * count_k), .12, cfg['z_under'] + .08 + (scale - 1) * .22, top_z, seed + 90):   # v002: fuller inner layer (was .35, inset .16)
+            card(verts, faces, uvs, cols, nrms, masks, p, (C.normal(a, z) + Vector((0, 0, .2))).normalized(), R.uniform(.24, .3) * scale, 0, R, wind=.7, phase=R.random(), H=H, mask=lod_mask)
         if lod_mask == 1:
             # young shoots: smaller sprig cards leaning back about 50 deg so the table reads tufted from eye level without a dark upright fringe from behind
             s0 = len(verts)
@@ -444,8 +445,10 @@ def fit(cfg):
 
 
 TE02 = {
-    # v002: cards x1.4 (top x1.3) and spacing x0.85 against v001 (230/90/.072, 220/84/.072, 250/70/.075)
-    'TE02_Round': dict(W=1.2, collide_r=.42, H=.9, rx=.6, ry=.56, z_under=.3, shoulder=.17, skew=(0, 0), stems=8, seed=21, cards=322, top_cards=117, spacing=.061, lobes=.05),
-    'TE02_Wide': dict(W=1.2, collide_r=.42, H=.8, rx=.6, ry=.47, z_under=.25, shoulder=.14, skew=(.06, -.02), stems=8, seed=22, cards=308, top_cards=109, spacing=.061, lobes=.09),
-    'TE02_Tall': dict(W=1.2, collide_r=.42, H=1.1, rx=.56, ry=.53, z_under=.4, shoulder=.22, skew=(-.03, .02), stems=7, seed=23, cards=350, top_cards=91, spacing=.064, lobes=.11),
+    # v003 (lush): skirt lowered (z_under .30/.25/.40 -> .14/.12/.20) so the foliage reaches near the ground and hides most of the stems,
+    # cards x1.35 (top x1.2) and spacing x0.9 against v002 (322/117/.061, 308/109/.061, 350/91/.064), lumpier outline (lobes +.03).
+    # v002 had cards x1.4 / spacing x0.85 against v001 (230/90/.072, 220/84/.072, 250/70/.075).
+    'TE02_Round': dict(W=1.2, collide_r=.42, H=.9, rx=.6, ry=.56, z_under=.14, shoulder=.17, skew=(0, 0), stems=8, seed=21, cards=435, top_cards=140, spacing=.055, lobes=.08),
+    'TE02_Wide': dict(W=1.2, collide_r=.42, H=.8, rx=.6, ry=.47, z_under=.12, shoulder=.14, skew=(.06, -.02), stems=8, seed=22, cards=416, top_cards=131, spacing=.055, lobes=.12),
+    'TE02_Tall': dict(W=1.2, collide_r=.42, H=1.1, rx=.56, ry=.53, z_under=.2, shoulder=.22, skew=(-.03, .02), stems=7, seed=23, cards=472, top_cards=109, spacing=.058, lobes=.13),
 }

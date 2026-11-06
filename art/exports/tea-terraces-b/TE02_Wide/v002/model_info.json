@@ -1,0 +1,179 @@
+{
+  "asset": "TE02_Wide",
+  "version": "v002",
+  "minTier": "standard",
+  "detailObjects": [
+    "TE02_Wide_Detail_Small"
+  ],
+  "name_zh": "茶樹（寬扁）",
+  "slot": "A4_TeaTerraces",
+  "note": "修剪成形的茶樹：頂面是平的採摘面（一芽二葉的嫩梢），肩部圓、下緣收進，露出木質主幹。寬 1.2 m。葉片用透明裁切的葉片卡（TE02_LeafCards，四格共用貼圖），樹幹、根部土堆和小石烘焙到本件圖集。頂點色 Wind：R 風擺權重（根 0 → 外葉 1）、G 每張卡的相位、B 高度 0–1。較矮較扁，偏向一側，放在梯田外緣或坡上。 v002：葉片更密集（每格貼圖的葉子更多更小、幾乎不留空位；樹冠葉片卡多約 40%、間距縮小、內層加厚），尺寸與擺放不變。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "root centre on the ground, z = 0 at the soil",
+  "dimensions_m": [
+    1.2,
+    0.9857,
+    0.8
+  ],
+  "bounds_min_m": [
+    -0.6,
+    -0.4929,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.6,
+    0.4929,
+    0.8
+  ],
+  "size_limit_m": [
+    1.202,
+    1.202,
+    0.802
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.6425,
+        0.5883,
+        0.479
+      ],
+      "min": [
+        -0.3658,
+        -0.314,
+        0.0
+      ],
+      "max": [
+        0.2767,
+        0.2743,
+        0.479
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.6656,
+        0.6706,
+        0.6074
+      ],
+      "min": [
+        -0.3406,
+        -0.339,
+        0.0013
+      ],
+      "max": [
+        0.3251,
+        0.3316,
+        0.6087
+      ]
+    },
+    "Leaves": {
+      "dims_m": [
+        1.2,
+        0.9857,
+        0.6272
+      ],
+      "min": [
+        -0.6,
+        -0.4929,
+        0.1728
+      ],
+      "max": [
+        0.6,
+        0.4929,
+        0.8
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 3856,
+      "LOD1": 1928,
+      "LOD2": 578
+    },
+    "Detail_Small": {
+      "LOD0": 7932,
+      "LOD1": 3966,
+      "LOD2": 1188
+    },
+    "Leaves": {
+      "LOD0": 5008,
+      "LOD1_fit_scale": [
+        0.939,
+        0.895,
+        1.0
+      ],
+      "LOD1": 2616,
+      "LOD2_fit_scale": [
+        0.94,
+        0.856,
+        0.935
+      ],
+      "LOD2": 1016
+    }
+  },
+  "lod_totals": {
+    "LOD0": 16796,
+    "LOD1": 8510,
+    "LOD2": 2782
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_TE02_Wide_LeafCards",
+    "M_TE02_Wide_Main"
+  ],
+  "textures": [
+    "TE02_LeafCards_BaseColor.png",
+    "TE02_LeafCards_Normal.png",
+    "TE02_Wide_BaseColor.png",
+    "TE02_Wide_Metallic.png",
+    "TE02_Wide_MetallicSmoothness.png",
+    "TE02_Wide_Normal.png",
+    "TE02_Wide_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "TE02_Wide_BaseColor.png",
+    "Normal": "TE02_Wide_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "TE02_Wide_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "TE02_Wide_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "fbx_objects": [
+    "TE02_Wide.001",
+    "TE02_Wide_Collision.001",
+    "TE02_Wide_Detail_Small_LOD0.001",
+    "TE02_Wide_Detail_Small_LOD1.001",
+    "TE02_Wide_Detail_Small_LOD2.001",
+    "TE02_Wide_LOD0.001",
+    "TE02_Wide_LOD1.001",
+    "TE02_Wide_LOD2.001",
+    "TE02_Wide_Leaves_LOD0.001",
+    "TE02_Wide_Leaves_LOD1.001",
+    "TE02_Wide_Leaves_LOD2.001"
+  ],
+  "glb": "TE02_Wide_v002.glb",
+  "interface": {
+    "design": {
+      "H": 0.8,
+      "W": 1.2,
+      "z_under": 0.25,
+      "shoulder": 0.14,
+      "stems": 8,
+      "seed": 22
+    },
+    "fit_scale_xy_z": [
+      0.9092,
+      0.8941
+    ],
+    "collision": "octagonal prism r 0.42 m, 0.75 H tall"
+  },
+  "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/TE02/ (AI three-view TE02/WIDE; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/tea-terraces-unity/unity-verify-report.txt"
+}

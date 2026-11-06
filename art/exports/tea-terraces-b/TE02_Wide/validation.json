@@ -7,12 +7,12 @@
       "detail": {
         "min": [
           -0.6,
-          -0.4929,
+          -0.5055,
           0.0
         ],
         "max": [
           0.6,
-          0.4929,
+          0.5055,
           0.8
         ],
         "limit_m": [
@@ -28,7 +28,7 @@
       "pass": true,
       "detail": {
         "min_z": 0.0,
-        "largest_clamp_m": 0.02195
+        "largest_clamp_m": 0.02205
       }
     },
     {
@@ -37,7 +37,7 @@
       "detail": {
         "plan_width_m": 1.2,
         "x_m": 1.2,
-        "y_m": 0.9857
+        "y_m": 1.0109
       }
     },
     {
@@ -55,11 +55,11 @@
         "R_min_max": {
           "TE02_Wide_LOD0": [
             0.0,
-            0.335
+            0.226
           ],
           "TE02_Wide_Detail_Small_LOD0": [
             0.001,
-            0.4
+            0.282
           ],
           "TE02_Wide_Leaves_LOD0": [
             0.35,
@@ -67,11 +67,11 @@
           ],
           "TE02_Wide_LOD1": [
             0.0,
-            0.335
+            0.226
           ],
           "TE02_Wide_Detail_Small_LOD1": [
-            0.244,
-            0.4
+            0.169,
+            0.282
           ],
           "TE02_Wide_Leaves_LOD1": [
             0.35,
@@ -79,11 +79,11 @@
           ],
           "TE02_Wide_LOD2": [
             0.0,
-            0.334
+            0.225
           ],
           "TE02_Wide_Detail_Small_LOD2": [
-            0.244,
-            0.4
+            0.169,
+            0.282
           ],
           "TE02_Wide_Leaves_LOD2": [
             0.35,
@@ -105,14 +105,14 @@
       "check": "plucking_table_shoot_cards_present",
       "pass": true,
       "detail": {
-        "cards_using_shoot_cell_approx": 106
+        "cards_using_shoot_cell_approx": 127
       }
     },
     {
       "check": "woody_stems_present",
       "pass": true,
       "detail": {
-        "main_faces": 2103
+        "main_faces": 1453
       }
     },
     {
@@ -120,37 +120,37 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 16796,
-          "LOD1": 8510,
-          "LOD2": 2782
+          "LOD0": 14332,
+          "LOD1": 7204,
+          "LOD2": 2293
         },
-        "LOD1": 0.507,
-        "LOD2": 0.166,
+        "LOD1": 0.503,
+        "LOD2": 0.16,
         "per_group": {
           "Main": {
-            "LOD0": 3856,
-            "LOD1": 1928,
-            "LOD2": 578
+            "LOD0": 2566,
+            "LOD1": 1282,
+            "LOD2": 383
           },
           "Detail_Small": {
-            "LOD0": 7932,
-            "LOD1": 3966,
-            "LOD2": 1188
+            "LOD0": 4902,
+            "LOD1": 2450,
+            "LOD2": 734
           },
           "Leaves": {
-            "LOD0": 5008,
+            "LOD0": 6864,
             "LOD1_fit_scale": [
-              0.939,
-              0.895,
-              1.0
+              0.983,
+              0.964,
+              0.98
             ],
-            "LOD1": 2616,
+            "LOD1": 3472,
             "LOD2_fit_scale": [
-              0.94,
-              0.856,
-              0.935
+              0.937,
+              0.855,
+              0.893
             ],
-            "LOD2": 1016
+            "LOD2": 1176
           }
         }
       }
@@ -161,16 +161,16 @@
       "detail": {
         "fbx_lod0_dims_m": [
           1.2,
-          0.9857,
+          1.0109,
           0.8
         ],
         "blend_dims_m": [
           1.2,
-          0.9857,
+          1.0109,
           0.8
         ],
         "tolerance_m": 0.02,
-        "max_error_m": 5e-05
+        "max_error_m": 2e-05
       }
     },
     {
@@ -204,7 +204,7 @@
       "check": "glb_written",
       "pass": true,
       "detail": {
-        "bytes": 5425044
+        "bytes": 5273660
       }
     },
     {
@@ -214,7 +214,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 134,
+  "seconds": 156,
   "not_checked": [
     "in-engine lighting and walking (see the Unity report)",
     "mobile frame rate (not measured)"

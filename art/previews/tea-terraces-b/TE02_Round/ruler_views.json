@@ -1,6 +1,6 @@
 {
   "asset": "TE02_Round",
-  "model": "TE02_Round_v002.fbx LOD0",
+  "model": "TE02_Round_v003.fbx LOD0",
   "figure_height_m": 1.75,
   "ruler_ticks_m": 0.25,
   "camera": "orthographic, 8 deg above horizontal",
@@ -14,7 +14,7 @@
   ],
   "model_dimensions_m": [
     1.2,
-    1.169,
+    1.161,
     0.9
   ]
 }

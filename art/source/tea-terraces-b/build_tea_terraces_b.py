@@ -79,8 +79,11 @@ for _aid, _zh, _h, _extra in (('TE02_Round', '茶樹（圓頂）', .9, '圓頂�
 # (new atlas in TE02_Shared/v002/Textures; the v001 atlas in TE02_Shared/Textures is left as it was), and the crown has ~40% more cards
 # set closer together over a fuller inner layer, so the gaps between leaves close up. Size, origin, collision and placement are unchanged.
 TE02_V002_NOTE = ' v002：葉片更密集（每格貼圖的葉子更多更小、幾乎不留空位；樹冠葉片卡多約 40%、間距縮小、內層加厚），尺寸與擺放不變。'
+# TE02 v003 (2026-11-06): lusher. The crown skirt comes down to 12-20 cm above the ground so the foliage hides most of the stems,
+# ~35% more and slightly larger cards set closer, a lumpier outline. Same atlas as v002; size, origin, collision and placement unchanged.
+TE02_V003_NOTE = ' v003：更茂密——樹冠下緣降到離地 12–20 cm，主幹大多被葉子蓋住；葉片卡再多約 35%、稍大、間距更小；輪廓更蓬鬆。尺寸與擺放不變（v002 的「露出主幹」描述已不適用）。'
 for _aid in ('TE02_Round', 'TE02_Wide', 'TE02_Tall'):
-    ASSETS[_aid]['ver'] = 'v002'; ASSETS[_aid]['note'] += TE02_V002_NOTE
+    ASSETS[_aid]['ver'] = 'v003'; ASSETS[_aid]['note'] += TE02_V002_NOTE + TE02_V003_NOTE
 
 TE03_NOTE = '1.2 m 寬，與 TE01 共用石材、土、草和苔的材質。'
 ASSETS['TE03_Stair'] = dict(zh='梯田石階', kind='te03', palette=TP.palette, build=TP.te03_stair, limit=(1.2, 2.6, 1.05), box=((-.66, -2.47, 0.), (.66, .2, 1.05)), ref='TE03/STAIR', tex=2048, clamp_max=.05,
@@ -279,24 +282,26 @@ def preview(aid, out_dir, samples=20):
     bpy.ops.wm.save_as_mainfile(filepath=str(out_dir / f'{aid}_preview.blend'))
 
 
-def archive_v001(aid):
-    """Before a piece's first v002 build, move its v001 exports and previews into <ID>/v001/ so nothing of v001 is overwritten."""
-    import shutil
+def archive_previous(aid, ver):
+    """Before a piece's first build of version ver, move the previous version's exports and previews into <ID>/<prev>/ so nothing is overwritten.
+    Folders of older versions (v001/, v002/ ...) stay where they are."""
+    import shutil, re
+    prev = f'v{int(ver[1:]) - 1:03d}'
     exp = ART / 'exports' / KIT / aid
-    if not (exp / f'{aid}_v001.fbx').exists(): return
+    if not (exp / f'{aid}_{prev}.fbx').exists(): return
     for root in (exp, ART / 'previews' / KIT / aid):
         if not root.exists(): continue
-        items = [q for q in root.iterdir() if q.name != 'v001']
-        (root / 'v001').mkdir(exist_ok=True)
-        for q in items: shutil.move(str(q), str(root / 'v001' / q.name))
-        print('ARCHIVED_V001', root, len(items), flush=True)
+        items = [q for q in root.iterdir() if not re.fullmatch(r'v\d{3}', q.name)]
+        (root / prev).mkdir(exist_ok=True)
+        for q in items: shutil.move(str(q), str(root / prev / q.name))
+        print('ARCHIVED_' + prev.upper(), root, len(items), flush=True)
 
 
 def run(aid, force=False):
     global VER
     cfg = ASSETS[aid]; VER = cfg.get('ver', 'v001')
     exp = ART / 'exports' / KIT / aid; prev = ART / 'previews' / KIT / aid; blend = ART / 'source' / KIT / 'blend'
-    if VER == 'v002': archive_v001(aid)
+    if VER != 'v001': archive_previous(aid, VER)
     if (exp / 'validation.json').exists() and not force:
         print('ALREADY_COMPLETE', aid, flush=True); return
     t0 = time.time()
