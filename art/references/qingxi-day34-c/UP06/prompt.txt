@@ -8,6 +8,10 @@
 建模時的差異：四張圖的提桿都是橫的，但工作包上限是 0.3 × 0.3 × 0.9（含提桿），所以模型把竹桿立起來、桿頭自然彎出一小段，燈籠掛在彎出來的地方；拿在手上時由 Socket_Hand 決定角度。
 沒選的：UP06-cand-1.png, UP06-cand-2.png, UP06-cand-3.png（保留，看得出取捨）
 
+第二輪（2026-11-02，使用者要求打磨細節）：用 Codex CLI 的 GPT-6-Astra（推理 xhigh）以同一段提示詞原文重新獨立生成 4 張，再以選定圖為參考生成轉面圖／細節圖並寫建模清單，全部存在 v2/。Codex 中途用量到上限，UP01、UP04 沒有轉面圖，UP01、UP04、UP05 沒有 details.md，這三件照細節圖自己比對。
+第二輪選用：UP06-v2-cand-4.png（v2 轉面圖、細節圖、details.md）
+第二輪改了什麼：照 details.md 的承重順序：竿頭綁結→雙股短繩→小鐵環→四股吊繩→木領與低拱蓋→六根帶竹節的竹肋（上下各綁）→竹箍→三短腳木座；紙在肋間微鼓、皺紙起伏；補紙改成實體薄片加三根竹釘。竹竿仍直立（尺寸上限 0.3 × 0.3 × 0.9，橫竿放不下），持握角度由 Socket_Hand 決定。
+
 ## 提示詞（原文，一字未改）
 
 Three-view orthographic turnaround sheet of a slender hand-held paper lantern hanging from a bamboo carrying pole, the pole about 0.9 m long, the lantern about 0.3 m tall and 0.15 m wide, with a pale moon-white paper shade on a thin bamboo frame and a small dark wooden base and cap, made of split bamboo, mulberry paper and old wood, showing a small mended tear in the paper, a worn grip on the pole, a faint soot mark at the top of the shade, used by a quiet woman teacher walking alone at night on a mountain path; shown unlit. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
