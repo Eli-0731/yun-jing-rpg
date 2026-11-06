@@ -1,0 +1,186 @@
+{
+ "CR09_B_TenonGate_Detail_Small_LOD0": {
+  "tris": 912,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 6,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_B_TenonGate_Detail_Small_LOD1": {
+  "tris": 456,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 6,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_B_TenonGate_Detail_Small_LOD2": {
+  "tris": 136,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 6,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_B_TenonGate_Gate_LOD0": {
+  "tris": 13872,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 57,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_B_TenonGate_Gate_LOD1": {
+  "tris": 6936,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 57,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_B_TenonGate_Gate_LOD2": {
+  "tris": 2080,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 13,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_B_TenonGate_LOD0": {
+  "tris": 23924,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 13,
+  "coplanar_two_sides": 62,
+  "closed_pieces": 21,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     0.35,
+     0.23,
+     0.37
+    ],
+    3
+   ],
+   [
+    [
+     0.35,
+     0.21,
+     0.38
+    ],
+    3
+   ],
+   [
+    [
+     -0.27,
+     0.09,
+     0.29
+    ],
+    2
+   ],
+   [
+    [
+     -0.29,
+     0.09,
+     0.29
+    ],
+    1
+   ],
+   [
+    [
+     0.35,
+     0.2,
+     0.38
+    ],
+    1
+   ],
+   [
+    [
+     0.34,
+     0.24,
+     0.37
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "CR09_B_TenonGate_LOD1": {
+  "tris": 11962,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 21,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_B_TenonGate_LOD2": {
+  "tris": 3588,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 21,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

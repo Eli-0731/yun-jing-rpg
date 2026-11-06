@@ -1,0 +1,24 @@
+{
+ "asset": "CR06_Straight_v001",
+ "pieces": 704,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "CR06_Straight_Detail_Small",
+   "verts": 9,
+   "centre": [
+    0.424,
+    0.255,
+    0.443
+   ],
+   "size": [
+    0.048,
+    0.012,
+    0.095
+   ],
+   "gap_mm": 2.2,
+   "nearest": "CR06_Straight_Detail_Small",
+   "drop_mm": 4.0
+  }
+ ]
+}

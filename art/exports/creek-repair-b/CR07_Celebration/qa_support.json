@@ -1,0 +1,75 @@
+{
+ "asset": "CR07_Celebration_v001",
+ "pieces": 238,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "CR07_Celebration_Table",
+   "verts": 2241,
+   "centre": [
+    -1.178,
+    0.322,
+    0.562
+   ],
+   "size": [
+    0.164,
+    0.164,
+    0.116
+   ],
+   "gap_mm": 4.7,
+   "nearest": "CR07_Celebration_Table",
+   "drop_mm": 105.4
+  },
+  {
+   "object": "CR07_Celebration_Table",
+   "verts": 2241,
+   "centre": [
+    -1.179,
+    -0.317,
+    0.562
+   ],
+   "size": [
+    0.164,
+    0.164,
+    0.116
+   ],
+   "gap_mm": 4.2,
+   "nearest": "CR07_Celebration_Table",
+   "drop_mm": 109.3
+  },
+  {
+   "object": "CR07_Celebration_Table",
+   "verts": 2241,
+   "centre": [
+    1.263,
+    0.322,
+    0.562
+   ],
+   "size": [
+    0.164,
+    0.164,
+    0.116
+   ],
+   "gap_mm": 4.1,
+   "nearest": "CR07_Celebration_Table",
+   "drop_mm": 146.9
+  },
+  {
+   "object": "CR07_Celebration_Table",
+   "verts": 2241,
+   "centre": [
+    1.263,
+    -0.318,
+    0.562
+   ],
+   "size": [
+    0.164,
+    0.164,
+    0.116
+   ],
+   "gap_mm": 3.9,
+   "nearest": "CR07_Celebration_Table",
+   "drop_mm": 146.9
+  }
+ ]
+}

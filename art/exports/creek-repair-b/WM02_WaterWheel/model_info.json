@@ -1,0 +1,112 @@
+{
+  "asset": "WM02_WaterWheel",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "WM02_WaterWheel_Detail_Small"
+  ],
+  "name_zh": "水車",
+  "slot": "A3_WaterWheel",
+  "note": "輪徑 4.6 m、16 片輪葉（一片新換，下方幾片帶藻）；軸為 64 邊正圓。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "axle centre",
+  "dimensions_m": [
+    1.2,
+    4.6022,
+    4.602
+  ],
+  "size_limit_m": [
+    1.2,
+    5.0,
+    5.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        1.2,
+        4.6022,
+        4.602
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": -2.301
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.979,
+        4.33,
+        4.33
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": -2.1647
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 24654,
+      "LOD1": 12326,
+      "LOD2": 3698
+    },
+    "Detail_Small": {
+      "LOD0": 45578,
+      "LOD1": 22788,
+      "LOD2": 6836
+    }
+  },
+  "lod_totals": {
+    "LOD0": 70232,
+    "LOD1": 35114,
+    "LOD2": 10534
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_WM02_WaterWheel_Main"
+  ],
+  "textures": [
+    "WM02_WaterWheel_BaseColor.png",
+    "WM02_WaterWheel_Metallic.png",
+    "WM02_WaterWheel_MetallicSmoothness.png",
+    "WM02_WaterWheel_Normal.png",
+    "WM02_WaterWheel_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "WM02_WaterWheel_BaseColor.png",
+    "Normal": "WM02_WaterWheel_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "WM02_WaterWheel_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "WM02_WaterWheel_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [],
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "states": [
+    "原點在轉軸中心，繞本地 X 軸（Unity 同為 X）旋轉"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "WM02_WaterWheel.001",
+    "WM02_WaterWheel_Collision.001",
+    "WM02_WaterWheel_Detail_Small_LOD0.001",
+    "WM02_WaterWheel_Detail_Small_LOD1.001",
+    "WM02_WaterWheel_Detail_Small_LOD2.001",
+    "WM02_WaterWheel_LOD0.001",
+    "WM02_WaterWheel_LOD1.001",
+    "WM02_WaterWheel_LOD2.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/WM02/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

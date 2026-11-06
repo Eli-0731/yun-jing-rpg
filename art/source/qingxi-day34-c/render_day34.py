@@ -1,7 +1,7 @@
 """Fixed review rig for the C day 3-4 models. Eli-0731, Blender 4.5.3 LTS.
 Imports the exported GLB or FBX (what the engine receives); a .blend only for the state checks glTF cannot carry (_Warmth).
 blender -b -P render_day34.py -- --glb <path> --out <dir> --tag <name> [--views front,side,back,threequarter] [--light day|night|neutral|afternoon|dusk]
-      [--glow <emission strength>] [--hide <name substring>] [--no-ruler] [--wire] [--eye <x,y,z,tx,ty,tz>] [--res 1280x960] [--state warmth=1] [--move name:dx,dy,dz]
+      [--glow <emission strength>] [--hide <name substring>] [--no-ruler] [--wire] [--eye <x,y,z,tx,ty,tz>] [--res 1280x960] [--state warmth=1] [--move name:dx,dy,dz] [--clay] [--wire-mm 0.6] [--mark x,y,z,radius;...]
 Every view carries a 1.75 m figure (review spec), unless --no-ruler.
 """
 import bpy,math,sys,argparse
@@ -9,7 +9,7 @@ from pathlib import Path
 from mathutils import Vector
 a=argparse.ArgumentParser()
 for k,d in (('--glb',None),('--out',None),('--tag','view'),('--views','front,side,back,threequarter'),('--light','day'),('--hide',''),('--eye',''),('--res','1280x960'),('--ruler-x',''),('--at',''),('--cam',''),('--state',''),('--move','')):a.add_argument(k,default=d)
-a.add_argument('--glow',type=float,default=None);a.add_argument('--samples',type=int,default=64);a.add_argument('--no-ruler',action='store_true');a.add_argument('--wire',action='store_true')
+a.add_argument('--glow',type=float,default=None);a.add_argument('--wire-mm',type=float,default=None);a.add_argument('--mark',default='');a.add_argument('--samples',type=int,default=64);a.add_argument('--no-ruler',action='store_true');a.add_argument('--wire',action='store_true');a.add_argument('--clay',action='store_true')
 args=a.parse_args(sys.argv[sys.argv.index('--')+1:]);out=Path(args.out).resolve();out.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc=bpy.context.scene;sc.render.engine='CYCLES';sc.cycles.samples=args.samples;sc.cycles.use_denoising=True
@@ -44,6 +44,13 @@ bpy.context.view_layer.update()
 for o in list(sc.objects):
     if args.hide and any(s and s in o.name for s in args.hide.split(',')):bpy.data.objects.remove(o)
 obs=[o for o in sc.objects if o.type=='MESH' and not o.hide_render]
+if args.clay:   # grey model: one flat grey, no colour, no normal map; alpha cut-outs (leaf cards, decals) keep their alpha
+    for m in bpy.data.materials:
+        bs=m.node_tree.nodes.get('Principled BSDF') if m.use_nodes else None
+        if not bs:continue
+        for k in ('Base Color','Normal','Roughness','Metallic','Emission Color'):
+            for l in list(bs.inputs[k].links):m.node_tree.links.remove(l)
+        bs.inputs['Base Color'].default_value=(.40,.40,.39,1);bs.inputs['Roughness'].default_value=.75;bs.inputs['Metallic'].default_value=0;bs.inputs['Emission Strength'].default_value=0
 if args.glow is not None:
     for m in bpy.data.materials:
         bs=m.node_tree.nodes.get('Principled BSDF') if m.use_nodes else None
@@ -91,11 +98,16 @@ if args.wire:
     flat=bpy.data.materials.new('flat');flat.use_nodes=True;flat.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.8,.8,.78,1)
     for o in obs:
         d=o.copy();d.data=o.data.copy();sc.collection.objects.link(d);d.data.materials.clear();d.data.materials.append(wm)
-        m=d.modifiers.new('w','WIREFRAME');m.thickness=max(.0004,min(.004,rad*.0008));m.use_replace=True
+        m=d.modifiers.new('w','WIREFRAME');m.thickness=args.wire_mm/1000 if args.wire_mm else max(.0004,min(.004,rad*.0008));m.use_replace=True
         for i in range(len(o.material_slots)):o.material_slots[i].material=flat
     for l in [o for o in sc.objects if o.type=='LIGHT']:bpy.data.objects.remove(l)
     bg.inputs['Color'].default_value=(.62,.62,.62,1);bg.inputs['Strength'].default_value=.9;sun('key',(math.radians(50),0,math.radians(-35)),2.2,(1,1,1),.3)
-    shoot('wire',views['threequarter'])
+    if not args.cam:shoot('wire',views['threequarter'])   # with --cam the wire close-up below replaces the overview
+if args.mark:   # --mark "x,y,z,r;...": small red dots at QA coordinates (qa-lod0.json), hidden where the asset hides them
+    rm=bpy.data.materials.new('mark');rm.use_nodes=True;nn=rm.node_tree.nodes;nn.clear();em=nn.new('ShaderNodeEmission');em.inputs['Color'].default_value=(1,.05,.02,1);em.inputs['Strength'].default_value=4
+    rm.node_tree.links.new(em.outputs[0],nn.new('ShaderNodeOutputMaterial').inputs[0])
+    for mk in args.mark.split(';'):
+        x,y,z,rr=[float(c) for c in mk.split(',')];bpy.ops.mesh.primitive_uv_sphere_add(radius=rr,location=(x,y,z));bpy.context.object.data.materials.append(rm)
 if args.cam:   # explicit camera: x,y,z,tx,ty,tz,lens
     e=[float(x) for x in args.cam.split(',')];cam.location=Vector(e[:3]);aim(cam,Vector(e[3:6]));cam.data.lens=e[6]
     sc.render.filepath=str(out/f'{args.tag}-cam.png');bpy.ops.render.render(write_still=True)

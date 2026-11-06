@@ -1,0 +1,145 @@
+{
+  "asset": "CR03_TimberRack",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        0.999
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.2403,
+          -0.4902,
+          0.0
+        ],
+        "max": [
+          1.2403,
+          0.4902,
+          1.2
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          2.4805,
+          0.9803,
+          1.2
+        ],
+        "limit_m": [
+          2.5,
+          1.0,
+          1.2
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 79196,
+          "LOD1": 39598,
+          "LOD2": 11876
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 8528,
+            "LOD1": 4264,
+            "LOD2": 1278
+          },
+          "Detail_Small": {
+            "LOD0": 54756,
+            "LOD1": 27378,
+            "LOD2": 8212
+          },
+          "Stage_Low": {
+            "LOD0": 2176,
+            "LOD1": 1088,
+            "LOD2": 326
+          },
+          "Stage_Mid": {
+            "LOD0": 5656,
+            "LOD1": 2828,
+            "LOD2": 848
+          },
+          "Stage_High": {
+            "LOD0": 8080,
+            "LOD1": 4040,
+            "LOD2": 1212
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          2.4805,
+          0.9803,
+          1.2
+        ],
+        "blend_dims_m": [
+          2.4805,
+          0.9803,
+          1.2
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR03_TimberRack.001",
+        "CR03_TimberRack_Collision.001",
+        "CR03_TimberRack_Detail_Small_LOD0.001",
+        "CR03_TimberRack_Detail_Small_LOD1.001",
+        "CR03_TimberRack_Detail_Small_LOD2.001",
+        "CR03_TimberRack_LOD0.001",
+        "CR03_TimberRack_LOD1.001",
+        "CR03_TimberRack_LOD2.001",
+        "CR03_TimberRack_Stage_High_LOD0.001",
+        "CR03_TimberRack_Stage_High_LOD1.001",
+        "CR03_TimberRack_Stage_High_LOD2.001",
+        "CR03_TimberRack_Stage_Low_LOD0.001",
+        "CR03_TimberRack_Stage_Low_LOD1.001",
+        "CR03_TimberRack_Stage_Low_LOD2.001",
+        "CR03_TimberRack_Stage_Mid_LOD0.001",
+        "CR03_TimberRack_Stage_Mid_LOD1.001",
+        "CR03_TimberRack_Stage_Mid_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 340,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

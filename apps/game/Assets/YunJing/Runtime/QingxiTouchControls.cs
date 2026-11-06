@@ -16,6 +16,7 @@ namespace YunJing
         public QingxiForestEncounter forest;
         public QingxiTrainingPractice training;
         public QingxiLocalForaging foraging;   // for the label beside the main button
+        public BasicCombat.QingxiBasicCombat basicCombat;   // basic combat test scene: 攻 招 閃 (each at least 88 px on screen)
         public float lookSensitivity = .18f;
 
         const float StickRadius = 74f;
@@ -68,6 +69,8 @@ namespace YunJing
         float GuiH => Screen.height / Scale;
 
         bool InForest => forest != null && forest.PlayerInside && !forest.Climbed;
+        bool InBasicCombat => basicCombat != null && basicCombat.isActiveAndEnabled;
+        float Min88 => 88f / Scale + 2;   // GUI-space size that is still 88 screen pixels on small phones
 
         // Sizes are in the 720-high GUI space: main 104, arc 76, small 56 (the 1080p spec x 2/3).
         Button[] Buttons()
@@ -75,7 +78,13 @@ namespace YunJing
             float w = GuiW, h = GuiH;
             var main = new Vector2(w - 96, h - 96);
             var list = new System.Collections.Generic.List<Button>();
-            if (InForest)
+            if (InBasicCombat)
+            {
+                list.Add(new Button { label = "攻", key = "", centre = main, size = Mathf.Max(112, Min88), main = true, press = () => BasicCombat.QingxiBasicCombat.VirtualAttack = true });
+                list.Add(new Button { label = "閃", key = "", centre = main + new Vector2(-138, 10), size = Mathf.Max(92, Min88), press = () => BasicCombat.QingxiBasicCombat.VirtualDodge = true });
+                list.Add(new Button { label = "招", key = "按住", centre = main + new Vector2(-6, -138), size = Mathf.Max(92, Min88), hold = true });
+            }
+            else if (InForest)
             {
                 list.Add(new Button { label = "攻擊", key = "", centre = main, size = 104, main = true, press = () => QingxiForestEncounter.VirtualAttack = true });
                 list.Add(new Button { label = "閃避", key = "", centre = main + new Vector2(-127, 6), size = 76, press = () => QingxiForestEncounter.VirtualDodge = true });
@@ -101,7 +110,7 @@ namespace YunJing
             if (!Active) { Release(); return; }
 
             var buttons = Buttons();
-            bool run = false, block = false;
+            bool run = false, block = false, heavy = false;
             var pointers = new System.Collections.Generic.List<(int id, Vector2 pos, bool began, bool ended)>();
             if (Touchscreen.current != null)
                 foreach (var t in Touchscreen.current.touches)
@@ -134,7 +143,7 @@ namespace YunJing
                     continue;
                 }
                 foreach (var b in buttons)
-                    if (b.hold && b.Hit(gui) && !ended) { if (b.label == "疾行") run = true; else block = true; held[b.label] = Time.time; }
+                    if (b.hold && b.Hit(gui) && !ended) { if (b.label == "疾行") run = true; else if (b.label == "招") heavy = true; else block = true; held[b.label] = Time.time; }
                 if (id == stickTouch) { stickNow = gui; if (ended) stickTouch = -1; }
                 if (id == lookTouch)
                 {
@@ -150,6 +159,7 @@ namespace YunJing
             QingxiFirstPerson.VirtualMove = new Vector2(offset.x, -offset.y);   // GUI y grows downward
             QingxiFirstPerson.VirtualRun = run || offset.magnitude > .95f;
             QingxiForestEncounter.VirtualBlockHeld = block;
+            BasicCombat.QingxiBasicCombat.VirtualHeavyHeld = heavy;
         }
 
         void Release()
@@ -158,6 +168,7 @@ namespace YunJing
             QingxiFirstPerson.VirtualMove = Vector2.zero;
             QingxiFirstPerson.VirtualRun = false;
             QingxiForestEncounter.VirtualBlockHeld = false;
+            BasicCombat.QingxiBasicCombat.VirtualHeavyHeld = false;
         }
 
         void OnDisable() { Active = false; Release(); }
