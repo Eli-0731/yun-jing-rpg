@@ -8,6 +8,10 @@
 建模時的差異：最低一道刻在離地 0.55 m，比現在的水面高很多；刻痕是模型凹槽，苔長在槽裡。沒有任何字或數字。
 沒選的：UP03-cand-1.png, UP03-cand-2.png, UP03-cand-4.png（保留，看得出取捨）
 
+第二輪（2026-11-02，使用者要求打磨細節）：用 Codex CLI 的 GPT-6-Astra（推理 xhigh）以同一段提示詞原文重新獨立生成 4 張，再以選定圖為參考生成轉面圖／細節圖並寫建模清單，全部存在 v2/。Codex 中途用量到上限，UP01、UP04 沒有轉面圖，UP01、UP04、UP05 沒有 details.md，這三件照細節圖自己比對。
+第二輪選用：UP03-v2-cand-2.png（v2 轉面圖、細節圖、details.md）
+第二輪改了什麼：前左長條崩稜（四組崩片）、頂冠崩口、柱腳崩面；各面裂縫系統；八道刻槽與八個圓點、波浪記號移到最高一道上方；舊水痕改在 0.80–0.96 m 並往下流；柱腳改成有稜角的石塊。尺寸照上限 0.5 × 0.4，柱身 0.34 × 0.29（details.md 寫 0.40 見方會超過深度上限）。
+
 ## 提示詞（原文，一字未改）
 
 Three-view orthographic turnaround sheet of an old square stone post standing on a creek bank, about 0.4 m wide and 1.4 m tall, made of weathered warm-grey granite, with six to eight horizontal carved lines of different depths marking past water levels and small carved dots beside them (no letters, no numbers, no text), a tiny carved wave sign beside the highest line, showing moss growing inside the grooves, a dark old waterline stain far above the ground, lichen spots, a chipped corner, used on the bank of a creek that has nearly stopped flowing in a mountain valley. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
