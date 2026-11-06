@@ -1,0 +1,80 @@
+{
+ "asset": "CR04_Tools_v001",
+ "tris": 40246,
+ "objects": [
+  "CR04_Tools_Basket_LOD0",
+  "CR04_Tools_MortarBucket_LOD0",
+  "CR04_Tools_Spade_LOD0",
+  "CR04_Tools_Tamper_LOD0",
+  "CR04_Tools_Trowel_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 49,
+   "groups": {
+    "Basket|two_sides_between": {
+     "pairs": 39,
+     "overlap_cm2": 46.33
+    },
+    "Trowel|two_sides_between": {
+     "pairs": 8,
+     "overlap_cm2": 0.29
+    },
+    "Spade|two_sides_between": {
+     "pairs": 2,
+     "overlap_cm2": 0.1
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 11,
+   "groups": {
+    "Basket|two_sides_between": {
+     "pairs": 9,
+     "overlap_cm2": 2.07
+    },
+    "Spade|two_sides_between": {
+     "pairs": 2,
+     "overlap_cm2": 0.1
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 0,
+   "groups": {},
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 108,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

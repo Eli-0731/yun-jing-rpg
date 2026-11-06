@@ -1,0 +1,186 @@
+{
+ "CR15_DitchCross_Detail_Small_LOD0": {
+  "tris": 51617,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 126,
+  "open_pieces": 311,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR15_DitchCross_Detail_Small_LOD1": {
+  "tris": 25808,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 60,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR15_DitchCross_Detail_Small_LOD2": {
+  "tris": 7742,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 60,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR15_DitchCross_LOD0": {
+  "tris": 17592,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 10,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 36,
+  "open_pieces": 13,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     0.75,
+     0.15,
+     0.0
+    ],
+    3
+   ],
+   [
+    [
+     0.74,
+     -0.15,
+     0.0
+    ],
+    3
+   ],
+   [
+    [
+     0.17,
+     -0.75,
+     0.14
+    ],
+    1
+   ],
+   [
+    [
+     0.18,
+     -0.74,
+     0.17
+    ],
+    1
+   ],
+   [
+    [
+     -0.18,
+     0.74,
+     0.17
+    ],
+    1
+   ],
+   [
+    [
+     -0.17,
+     0.75,
+     0.14
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "CR15_DitchCross_LOD1": {
+  "tris": 8796,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 36,
+  "open_pieces": 13,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR15_DitchCross_LOD2": {
+  "tris": 2638,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 36,
+  "open_pieces": 13,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR15_DitchCross_water_LOD0": {
+  "tris": 360,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR15_DitchCross_water_LOD1": {
+  "tris": 90,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR15_DitchCross_water_LOD2": {
+  "tris": 10,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

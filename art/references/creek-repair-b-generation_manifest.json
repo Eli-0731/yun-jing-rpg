@@ -1,0 +1,475 @@
+{
+  "tool": "built-in image_gen",
+  "seed": null,
+  "images": [
+    {
+      "id": "WM01",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-375dd542-77ca-4dbc-9a74-9df2f87752a5.png",
+      "hint": "Generated images are saved to C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63 as C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-375dd542-77ca-4dbc-9a74-9df2f87752a5.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "WM01",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-f73c9f24-d622-4afc-a471-57ee5ab72dad.png",
+      "hint": "Generated images are saved to C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63 as C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-f73c9f24-d622-4afc-a471-57ee5ab72dad.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "WM01",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-cb7d92cc-afe8-4216-90ca-a25da2b646a0.png",
+      "hint": "Generated images are saved to C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63 as C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-cb7d92cc-afe8-4216-90ca-a25da2b646a0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "WM01",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-474891c9-efef-4abb-9d36-aac986617bda.png",
+      "hint": "Generated images are saved to C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63 as C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-474891c9-efef-4abb-9d36-aac986617bda.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "WM04",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-0c3d8c76-65ee-4e88-8a5c-a4ba9a86258e.png",
+      "hint": "Generated images are saved to C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63 as C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-0c3d8c76-65ee-4e88-8a5c-a4ba9a86258e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "WM04",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-a319e6ea-9242-4088-8ed4-551800276900.png"
+    },
+    {
+      "id": "WM04",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-6a654e48-78b9-46d5-96d6-0e40d9ae424d.png"
+    },
+    {
+      "id": "WM04",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-2a865919-4f17-4baf-89a9-07406e37a4c8.png"
+    },
+    {
+      "id": "WM02",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-2defb3a5-1487-4c78-b1b8-4498924ecfe8.png"
+    },
+    {
+      "id": "WM02",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-275b18e1-1c01-4a4f-8ef3-c65024b915fd.png"
+    },
+    {
+      "id": "WM02",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-225b2847-b491-4ad3-b15a-b062edb24c60.png"
+    },
+    {
+      "id": "WM02",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-28b6bb14-4786-4b82-897a-a6c9f4a19316.png"
+    },
+    {
+      "id": "WM05",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-60cff82a-51fc-4091-8dff-6935b3cb2737.png"
+    },
+    {
+      "id": "WM05",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-91243f94-692f-4c27-9913-c157291e0280.png"
+    },
+    {
+      "id": "WM05",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-1c566c03-d6be-434a-ae12-ec1e5aa10531.png"
+    },
+    {
+      "id": "WM05",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-60f8be2c-53b1-431b-854d-cb8fcdee1654.png"
+    },
+    {
+      "id": "WM07",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-a4315615-95a2-47ac-b08d-23688ed518ff.png"
+    },
+    {
+      "id": "WM07",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-af097a92-3dba-4f6e-ba98-1437a540a6f6.png"
+    },
+    {
+      "id": "WM07",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-36442860-fe83-434a-8e1b-5ae0966ad909.png"
+    },
+    {
+      "id": "WM07",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-7f474869-328e-4475-8ad8-c733f3c547e6.png"
+    },
+    {
+      "id": "WM09",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-68434495-ebce-40cb-ba87-8f3a34428e10.png"
+    },
+    {
+      "id": "WM09",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-ee611e85-b68f-47e6-80f8-ea35dd5efb47.png"
+    },
+    {
+      "id": "WM09",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-e678dde4-31c6-4d6d-bd66-cdc118990c45.png"
+    },
+    {
+      "id": "WM09",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-cb0a6884-070a-473f-b3ab-0ebca9b16c6e.png"
+    },
+    {
+      "id": "CR03",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-6681a060-d627-4eca-bfce-ef272e30ad17.png"
+    },
+    {
+      "id": "CR03",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-268f5f95-dd4d-4ca6-bd28-b03f77b3b5b1.png"
+    },
+    {
+      "id": "CR03",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-7e25cf0e-2491-4288-b0a6-e410d9e9bd29.png"
+    },
+    {
+      "id": "CR03",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-cb87871d-f4c7-4cbb-8cf0-b33aae1ceb7c.png"
+    },
+    {
+      "id": "CR04",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-40a88a88-1b88-472b-a3f9-2c31f7a8d862.png"
+    },
+    {
+      "id": "CR04",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-7e6d4fe4-51a5-42ae-9ede-58d32c6177a0.png"
+    },
+    {
+      "id": "CR04",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-5d212a73-5756-443e-929f-5d906ca96b00.png"
+    },
+    {
+      "id": "CR04",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-29b85b75-1bfc-44d0-a360-07f1b47a4940.png"
+    },
+    {
+      "id": "CR06",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-5fb48d16-e695-4864-b82e-8468f4bf75f5.png"
+    },
+    {
+      "id": "CR06",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-92b213f7-6a34-441f-a218-80d1e4ef06c5.png"
+    },
+    {
+      "id": "CR06",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-dacfd420-8e70-44de-9647-d03c5199401b.png"
+    },
+    {
+      "id": "CR07",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-00a9c1b9-e90c-440d-8ecf-fbff9a44c25d.png"
+    },
+    {
+      "id": "CR06",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-73239a0e-0ed2-4051-aa3a-d06b76bd35e1.png"
+    },
+    {
+      "id": "CR07",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-9de4ec2b-0a69-4747-9ed3-0eee9004b7ac.png",
+      "prompt_addendum": "\n\nCritical dimensional correction: In the FRONT and BACK views, the bamboo poles are SIX metres apart but the table is only THREE metres long. The table occupies EXACTLY HALF the pole-to-pole horizontal distance. Centre the shorter table under the long string, with a conspicuously large EMPTY gap of 1.5 metres from each table end to its nearest bamboo pole. Do not draw a table extending almost all the way to the poles. Keep eight lanterns distributed over the full six-metre string. Place jars and basket on this shorter table."
+    },
+    {
+      "id": "CR07",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-78721915-9dfb-4b81-871f-b0ac9b1453c8.png",
+      "prompt_addendum": "\n\nCritical dimensional correction: In the FRONT and BACK views, the bamboo poles are SIX metres apart but the table is only THREE metres long. The table occupies EXACTLY HALF the pole-to-pole horizontal distance. Centre the shorter table under the long string, with a conspicuously large EMPTY gap of 1.5 metres from each table end to its nearest bamboo pole. Do not draw a table extending almost all the way to the poles. Keep eight lanterns distributed over the full six-metre string. Place jars and basket on this shorter table."
+    },
+    {
+      "id": "CR07",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-8380f89c-53ce-4fc2-8188-7731ef66d752.png",
+      "prompt_addendum": "\n\nCritical dimensional correction: In the FRONT and BACK views, the bamboo poles are SIX metres apart but the table is only THREE metres long. The table occupies EXACTLY HALF the pole-to-pole horizontal distance. Centre the shorter table under the long string, with a conspicuously large EMPTY gap of 1.5 metres from each table end to its nearest bamboo pole. Do not draw a table extending almost all the way to the poles. Keep eight lanterns distributed over the full six-metre string. Place jars and basket on this shorter table."
+    },
+    {
+      "id": "CR08",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-c87051a4-6d0e-4048-b8d3-e5375a3d13d0.png"
+    },
+    {
+      "id": "CR08",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-2a2a9003-8317-495a-81df-07f836a07ac0.png"
+    },
+    {
+      "id": "CR08",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-b3e53ec2-3447-4b88-8427-acbd395ac2b2.png"
+    },
+    {
+      "id": "CR08",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-1af38e34-0d51-470e-a4ec-8f88d0d7e1ca.png"
+    },
+    {
+      "id": "CR10",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-f25ea0b2-b03e-4458-b8a4-0b384eb741dc.png"
+    },
+    {
+      "id": "CR10",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-abe242f0-a17c-4a03-a17d-59beffb7a476.png"
+    },
+    {
+      "id": "CR10",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-745f4c8a-5ca6-4b62-872e-6538b333076e.png"
+    },
+    {
+      "id": "CR10",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-949514c6-9b3a-4dba-9607-1c55dfd13a73.png"
+    },
+    {
+      "id": "CR11",
+      "candidate": 1,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-c7249f03-edac-4a12-844c-c99031eb2394.png"
+    },
+    {
+      "id": "CR11",
+      "candidate": 2,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-7e3b0b50-82bf-402a-9b42-35564ea2d22b.png"
+    },
+    {
+      "id": "CR11",
+      "candidate": 3,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-7b644feb-a7fa-4b82-b9c0-dcf94b7248d8.png"
+    },
+    {
+      "id": "CR11",
+      "candidate": 4,
+      "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a19d48-50e1-70a1-8662-903c6b39ef63\\exec-53554f3f-b141-453a-bae0-7889191064c1.png"
+    },
+{
+  "id": "CR14",
+  "asset": "CR14_WeedClump",
+  "candidate": 1,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-98e0e6f2-fa5f-42b0-8c5c-d07f6e0f41d5.png",
+  "destination": "art/references/CR14/candidate_01.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/CR14/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": false,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "prompt_sha256": "3a12c4618726c55a63861feb9dcbe3a2c79a6775fa57c30917a0b63336cb9c02"
+},
+{
+  "id": "CR14",
+  "asset": "CR14_WeedClump",
+  "candidate": 2,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-a361b6fb-f201-4194-a9b3-58f81d42d036.png",
+  "destination": "art/references/CR14/candidate_02.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/CR14/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": true,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "prompt_sha256": "3a12c4618726c55a63861feb9dcbe3a2c79a6775fa57c30917a0b63336cb9c02"
+},
+{
+  "id": "CR14",
+  "asset": "CR14_WeedClump",
+  "candidate": 3,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-5da28782-f264-48db-9a59-592538d1a47d.png",
+  "destination": "art/references/CR14/candidate_03.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/CR14/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": false,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "prompt_sha256": "3a12c4618726c55a63861feb9dcbe3a2c79a6775fa57c30917a0b63336cb9c02"
+},
+{
+  "id": "CR14",
+  "asset": "CR14_WeedClump",
+  "candidate": 4,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-0a89a40a-5043-4503-89c0-08d34b231ab1.png",
+  "destination": "art/references/CR14/candidate_04.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/CR14/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": false,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "prompt_sha256": "3a12c4618726c55a63861feb9dcbe3a2c79a6775fa57c30917a0b63336cb9c02"
+},
+{
+  "id": "CR15",
+  "asset": "CR15_DitchCross",
+  "candidate": 1,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-cb274d7f-65a9-4144-b579-23cdf1b9d406.png",
+  "destination": "art/references/CR15/candidate_01.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/CR15/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": false,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "prompt_sha256": "56f964dbd2af181d677377bf0cd8d0ae146598734896af36c026ab578647cba6"
+},
+{
+  "id": "CR15",
+  "asset": "CR15_DitchCross",
+  "candidate": 2,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-f1a1a244-1e93-4285-bf7f-1080f0b48aaf.png",
+  "destination": "art/references/CR15/candidate_02.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/CR15/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": false,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "prompt_sha256": "56f964dbd2af181d677377bf0cd8d0ae146598734896af36c026ab578647cba6"
+},
+{
+  "id": "CR15",
+  "asset": "CR15_DitchCross",
+  "candidate": 3,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-2fe7e8c0-8881-4179-b3dc-1cd2218d7afa.png",
+  "destination": "art/references/CR15/candidate_03.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/CR15/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": false,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "postprocessing": {
+    "tool": "built-in image_gen",
+    "operation": "Remove unintended text and dimension annotations",
+    "source_path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-c7355aa1-71c7-4620-aa38-9b13c0440545.png",
+    "prompt": "Edit this concept sheet only to remove every text character, numeral, unit, measurement label, dimension line, arrow, and tick mark. Fill their locations seamlessly with the existing plain light warm-grey background. Preserve the four asset views, objects, materials, colours, lighting, and layout. Do not add any text, letters, numbers, symbols, watermark, logo, or border. The final image must contain absolutely no text.",
+    "separate_edit_calls": 1
+  },
+  "prompt_sha256": "56f964dbd2af181d677377bf0cd8d0ae146598734896af36c026ab578647cba6"
+},
+{
+  "id": "CR15",
+  "asset": "CR15_DitchCross",
+  "candidate": 4,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-2ad6cb16-0737-4409-8fe7-1e3fa9c1a96a.png",
+  "destination": "art/references/CR15/candidate_04.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/CR15/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": true,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "prompt_sha256": "56f964dbd2af181d677377bf0cd8d0ae146598734896af36c026ab578647cba6"
+},
+{
+  "id": "F01",
+  "asset": "F01_Field",
+  "candidate": 1,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-8a5d909c-a725-4336-be6d-2fc41ba04b99.png",
+  "destination": "art/references/F01/candidate_01.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/F01/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": false,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "postprocessing": {
+    "tool": "built-in image_gen",
+    "operation": "Remove unintended text and dimension annotations",
+    "source_path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-b2173ed8-72bf-48f4-b300-2b7cd7c02890.png",
+    "prompt": "Edit this concept sheet only to remove every text character, numeral, unit, measurement label, dimension line, arrow, and tick mark. Fill their locations seamlessly with the existing plain light warm-grey background. Preserve the four asset views, objects, materials, colours, lighting, and layout. Do not add any text, letters, numbers, symbols, watermark, logo, or border. The final image must contain absolutely no text.",
+    "separate_edit_calls": 1
+  },
+  "prompt_sha256": "81fdb2a707d5d12456941b4315588507f244a84d753c4a48df3ec528cdfec23a"
+},
+{
+  "id": "F01",
+  "asset": "F01_Field",
+  "candidate": 2,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-0323d079-1bd4-4952-a2b2-b37d4b697cb0.png",
+  "destination": "art/references/F01/candidate_02.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/F01/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": true,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "prompt_sha256": "81fdb2a707d5d12456941b4315588507f244a84d753c4a48df3ec528cdfec23a"
+},
+{
+  "id": "F01",
+  "asset": "F01_Field",
+  "candidate": 3,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-217a71ac-0638-4685-a038-05f27cacb7b2.png",
+  "destination": "art/references/F01/candidate_03.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/F01/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": false,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "postprocessing": {
+    "tool": "built-in image_gen",
+    "operation": "Remove unintended text and dimension annotations",
+    "source_path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-c59fd506-883f-4e45-ac87-5dbf37aa0f72.png",
+    "prompt": "Edit this concept sheet only to remove every text character, numeral, unit, measurement label, dimension line, arrow, and tick mark. Fill their locations seamlessly with the existing plain light warm-grey background. Preserve the four asset views, objects, materials, colours, lighting, and layout. Do not add any text, letters, numbers, symbols, watermark, logo, or border. The final image must contain absolutely no text.",
+    "separate_edit_calls": 1
+  },
+  "prompt_sha256": "81fdb2a707d5d12456941b4315588507f244a84d753c4a48df3ec528cdfec23a"
+},
+{
+  "id": "F01",
+  "asset": "F01_Field",
+  "candidate": 4,
+  "path": "C:\\Users\\joshs\\.codex\\generated_images\\01a1a69b-7c6e-7610-af8d-b5b996ebcc68\\exec-3f63f412-94a9-4398-a47b-091c9ea59ccf.png",
+  "destination": "art/references/F01/candidate_04.png",
+  "tool": "built-in image_gen",
+  "seed": null,
+  "generation_date": "2026-11-04",
+  "prompt_file": "art/references/F01/prompt.txt",
+  "generation_note": "Four separate initial calls with identical prompt. Seed unavailable.",
+  "selected": false,
+  "no_text_review": "Final image visually inspected; no visible text.",
+  "prompt_sha256": "81fdb2a707d5d12456941b4315588507f244a84d753c4a48df3ec528cdfec23a"
+}
+  ]
+}
