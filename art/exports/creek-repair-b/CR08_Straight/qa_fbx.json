@@ -1,0 +1,313 @@
+{
+ "asset": "CR08_Straight_v001",
+ "tris": 74420,
+ "objects": [
+  "CR08_Straight_Detail_Small_LOD0",
+  "CR08_Straight_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 15,
+   "same_between": 69,
+   "same_inside": 3240,
+   "same": 3309,
+   "two_sides": 99,
+   "groups": {
+    "Detail_Small|same_inside": {
+     "pairs": 3240,
+     "overlap_cm2": 298.99
+    },
+    "Straight|two_sides_between": {
+     "pairs": 97,
+     "overlap_cm2": 1677.51
+    },
+    "Straight|same_between": {
+     "pairs": 69,
+     "overlap_cm2": 131.53
+    },
+    "Detail_Small/Straight|two_sides_between": {
+     "pairs": 2,
+     "overlap_cm2": 0.36
+    }
+   },
+   "same_at": [
+    [
+     -0.25,
+     -0.8,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     -0.4,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     -0.0,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     0.4,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     0.8,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     -0.8,
+     0.23,
+     9
+    ],
+    [
+     -0.25,
+     -0.4,
+     0.23,
+     9
+    ],
+    [
+     -0.25,
+     -0.0,
+     0.23,
+     9
+    ],
+    [
+     -0.25,
+     0.4,
+     0.23,
+     9
+    ],
+    [
+     -0.25,
+     0.8,
+     0.23,
+     9
+    ],
+    [
+     -0.25,
+     -0.79,
+     0.23,
+     8
+    ],
+    [
+     -0.25,
+     -0.39,
+     0.23,
+     8
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 50,
+   "same_inside": 2490,
+   "same": 2540,
+   "two_sides": 18,
+   "groups": {
+    "Detail_Small|same_inside": {
+     "pairs": 2490,
+     "overlap_cm2": 253.16
+    },
+    "Straight|same_between": {
+     "pairs": 50,
+     "overlap_cm2": 58.71
+    },
+    "Straight|two_sides_between": {
+     "pairs": 18,
+     "overlap_cm2": 318.44
+    }
+   },
+   "same_at": [
+    [
+     -0.25,
+     -0.8,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     -0.4,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     -0.0,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     0.4,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     0.8,
+     0.3,
+     10
+    ],
+    [
+     -0.25,
+     -0.8,
+     0.16,
+     7
+    ],
+    [
+     -0.25,
+     -0.79,
+     0.16,
+     7
+    ],
+    [
+     -0.25,
+     -0.4,
+     0.16,
+     7
+    ],
+    [
+     -0.25,
+     -0.39,
+     0.16,
+     7
+    ],
+    [
+     -0.25,
+     -0.0,
+     0.16,
+     7
+    ],
+    [
+     -0.25,
+     0.01,
+     0.16,
+     7
+    ],
+    [
+     -0.25,
+     0.4,
+     0.16,
+     7
+    ]
+   ]
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 47,
+   "same_inside": 255,
+   "same": 302,
+   "two_sides": 0,
+   "groups": {
+    "Detail_Small|same_inside": {
+     "pairs": 255,
+     "overlap_cm2": 12.95
+    },
+    "Straight|same_between": {
+     "pairs": 47,
+     "overlap_cm2": 58.42
+    }
+   },
+   "same_at": [
+    [
+     -0.2,
+     1.0,
+     0.07,
+     6
+    ],
+    [
+     -0.21,
+     1.0,
+     0.36,
+     5
+    ],
+    [
+     0.22,
+     1.0,
+     0.36,
+     5
+    ],
+    [
+     0.21,
+     -1.0,
+     0.09,
+     4
+    ],
+    [
+     -0.25,
+     -0.81,
+     0.09,
+     3
+    ],
+    [
+     -0.25,
+     -0.8,
+     0.21,
+     3
+    ],
+    [
+     -0.25,
+     -0.79,
+     0.16,
+     3
+    ],
+    [
+     -0.25,
+     -0.41,
+     0.09,
+     3
+    ],
+    [
+     -0.25,
+     -0.4,
+     0.21,
+     3
+    ],
+    [
+     -0.25,
+     -0.39,
+     0.16,
+     3
+    ],
+    [
+     -0.25,
+     -0.01,
+     0.09,
+     3
+    ],
+    [
+     -0.25,
+     -0.0,
+     0.21,
+     3
+    ]
+   ]
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 37,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}
