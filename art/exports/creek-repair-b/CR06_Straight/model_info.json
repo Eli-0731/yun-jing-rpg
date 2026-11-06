@@ -1,0 +1,159 @@
+{
+  "asset": "CR06_Straight",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR06_Straight_Detail_Small"
+  ],
+  "name_zh": "土堤木樁渠（直段）",
+  "slot": "clear_silt",
+  "note": "接口與 B02 相同：淨寬 0.40、槽底 z 0.10；Socket_PortIn / Out 標明兩端。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    1.0,
+    2.0,
+    0.4954
+  ],
+  "size_limit_m": [
+    1.0,
+    2.0,
+    0.5
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.9844,
+        1.9962,
+        0.4954
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        1.0,
+        2.0,
+        0.4529
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0383
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 19668,
+      "LOD1": 9834,
+      "LOD2": 2949
+    },
+    "Detail_Small": {
+      "LOD0": 61407,
+      "LOD1": 30702,
+      "LOD2": 9210
+    }
+  },
+  "lod_totals": {
+    "LOD0": 81075,
+    "LOD1": 40536,
+    "LOD2": 12159
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR06_Straight_Main"
+  ],
+  "textures": [
+    "CR06_Straight_BaseColor.png",
+    "CR06_Straight_Metallic.png",
+    "CR06_Straight_MetallicSmoothness.png",
+    "CR06_Straight_Normal.png",
+    "CR06_Straight_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR06_Straight_BaseColor.png",
+    "Normal": "CR06_Straight_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR06_Straight_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR06_Straight_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [],
+  "sockets_blender_xyz": {
+    "Socket_PortIn": [
+      -0.0001,
+      -0.9983,
+      0.1007
+    ],
+    "Socket_PortOut": [
+      -0.0001,
+      0.9979,
+      0.1007
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_PortIn.001": [
+      -0.0001,
+      -0.9983,
+      0.1007
+    ],
+    "Socket_PortOut.001": [
+      -0.0001,
+      0.9979,
+      0.1007
+    ]
+  },
+  "states": [
+    "水面是獨立模型 <ID>_water_v001.fbx，不在渠身 FBX 裡：原點與渠身相同，放同一位置；UV u 0–1 橫跨、v 沿水流每公尺 +1，材質用流動 shader，沒有烘貼圖"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "CR06_Straight.001",
+    "CR06_Straight_Collision.001",
+    "CR06_Straight_Detail_Small_LOD0.001",
+    "CR06_Straight_Detail_Small_LOD1.001",
+    "CR06_Straight_Detail_Small_LOD2.001",
+    "CR06_Straight_LOD0.001",
+    "CR06_Straight_LOD1.001",
+    "CR06_Straight_LOD2.001",
+    "Socket_PortIn.001",
+    "Socket_PortOut.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR06/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file",
+  "water": {
+    "file": "CR06_Straight_water_v001.fbx",
+    "objects": [
+      "CR06_Straight_water_LOD0",
+      "CR06_Straight_water_LOD1",
+      "CR06_Straight_water_LOD2"
+    ],
+    "triangles": {
+      "LOD0": 384,
+      "LOD1": 192,
+      "LOD2": 56
+    },
+    "origin": "same as the body FBX",
+    "dimensions_m": [
+      0.3968,
+      1.9962,
+      0.0
+    ],
+    "uv": "u 0..1 across the channel, v in metres downstream, whole metres per piece",
+    "path_length_m": 2.0,
+    "textures": "none",
+    "unity_shader": "YunJing/CreekFlowWater (apps/game/Assets/YunJing/Runtime/CreekRepair/CreekFlowWater.shader): moves on _Time, no script needed"
+  }
+}

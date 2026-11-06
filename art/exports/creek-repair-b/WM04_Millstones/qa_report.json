@@ -1,0 +1,186 @@
+{
+ "WM04_Millstones_Detail_Flour_LOD0": {
+  "tris": 132,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 1,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM04_Millstones_Detail_Flour_LOD1": {
+  "tris": 66,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 1,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM04_Millstones_Detail_Flour_LOD2": {
+  "tris": 19,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 1,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM04_Millstones_Detail_Small_LOD0": {
+  "tris": 4736,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 16,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 15,
+  "open_pieces": 24,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -0.31,
+     -0.06,
+     0.61
+    ],
+    4
+   ],
+   [
+    [
+     -0.53,
+     -0.03,
+     0.17
+    ],
+    4
+   ],
+   [
+    [
+     -0.55,
+     -0.01,
+     0.16
+    ],
+    2
+   ],
+   [
+    [
+     -0.3,
+     -0.06,
+     0.61
+    ],
+    2
+   ],
+   [
+    [
+     -0.58,
+     0.03,
+     0.2
+    ],
+    1
+   ],
+   [
+    [
+     -0.54,
+     -0.03,
+     0.17
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "WM04_Millstones_Detail_Small_LOD1": {
+  "tris": 2368,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 15,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM04_Millstones_Detail_Small_LOD2": {
+  "tris": 710,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 15,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM04_Millstones_LOD0": {
+  "tris": 34112,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 3,
+  "open_pieces": 9,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM04_Millstones_LOD1": {
+  "tris": 17056,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 3,
+  "open_pieces": 9,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WM04_Millstones_LOD2": {
+  "tris": 5115,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 3,
+  "open_pieces": 9,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

@@ -1,0 +1,5 @@
+aged_bamboo|aged_bamboo_base.png||0.8000|0.8000|0.8000|0.780
+aged_bronze|||0.3000|0.3000|0.1800|0.780
+old_joinery|old_joinery_base.png||0.8000|0.8000|0.8000|0.780
+opaque_water_sample|||0.1900|0.4800|0.5300|0.250
+warm_weathered_wood|warm_weathered_wood_base.png||0.8000|0.8000|0.8000|0.780

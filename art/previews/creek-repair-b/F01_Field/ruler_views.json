@@ -1,0 +1,18 @@
+{
+  "asset": "F01_Field",
+  "model": "F01_Field_v001.fbx LOD0",
+  "figure_height_m": 1.75,
+  "ruler_ticks_m": 0.25,
+  "camera": "orthographic, 8 deg above horizontal",
+  "views": [
+    "ruler_01_front.png",
+    "ruler_02_side.png",
+    "ruler_03_rear.png",
+    "ruler_04_three_quarter.png"
+  ],
+  "model_dimensions_m": [
+    6.129,
+    4.15,
+    0.8
+  ]
+}
