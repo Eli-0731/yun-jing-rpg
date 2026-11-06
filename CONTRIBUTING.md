@@ -1,6 +1,6 @@
 # 共同開發
 
-儲存庫：<https://github.com/z1nnz/yun-jing-rpg>
+儲存庫：<https://github.com/z1nnz/chengtian>（2026-11-07 由 yun-jing-rpg 改名，舊網址會自動轉址）
 
 ## 規則
 
@@ -15,8 +15,8 @@
 
 ```powershell
 git lfs install
-git clone https://github.com/z1nnz/yun-jing-rpg.git
-cd yun-jing-rpg
+git clone https://github.com/z1nnz/chengtian.git
+cd chengtian
 git config pull.ff only
 git lfs pull
 npm ci
