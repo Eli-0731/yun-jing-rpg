@@ -1,0 +1,222 @@
+{
+  "asset": "TE02_Tall",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.6,
+          -0.5779,
+          0.0
+        ],
+        "max": [
+          0.6,
+          0.5779,
+          1.1
+        ],
+        "limit_m": [
+          1.202,
+          1.202,
+          1.102
+        ],
+        "note": "footprint centred on the origin; height includes grass on the tread"
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "largest_clamp_m": 0.02199
+      }
+    },
+    {
+      "check": "width_1_2m",
+      "pass": true,
+      "detail": {
+        "plan_width_m": 1.2,
+        "x_m": 1.2,
+        "y_m": 1.1557
+      }
+    },
+    {
+      "check": "height_0_8_to_1_1m",
+      "pass": true,
+      "detail": {
+        "top_m": 1.1,
+        "design_m": 1.1
+      }
+    },
+    {
+      "check": "wind_vertex_colour_on_every_mesh",
+      "pass": true,
+      "detail": {
+        "R_min_max": {
+          "TE02_Tall_LOD0": [
+            0.0,
+            0.208
+          ],
+          "TE02_Tall_Detail_Small_LOD0": [
+            0.0,
+            0.263
+          ],
+          "TE02_Tall_Leaves_LOD0": [
+            0.35,
+            1.0
+          ],
+          "TE02_Tall_LOD1": [
+            0.0,
+            0.208
+          ],
+          "TE02_Tall_Detail_Small_LOD1": [
+            0.163,
+            0.263
+          ],
+          "TE02_Tall_Leaves_LOD1": [
+            0.35,
+            1.0
+          ],
+          "TE02_Tall_LOD2": [
+            0.0,
+            0.207
+          ],
+          "TE02_Tall_Detail_Small_LOD2": [
+            0.163,
+            0.262
+          ],
+          "TE02_Tall_Leaves_LOD2": [
+            0.35,
+            1.0
+          ]
+        },
+        "note": "R 0 at the root to 1 on the outer leaves; G phase; B height"
+      }
+    },
+    {
+      "check": "leaf_cards_alpha_clip_two_sided",
+      "pass": true,
+      "detail": {
+        "material": "M_TE02_Tall_LeafCards",
+        "alpha": "BaseColor alpha, clip 0.5"
+      }
+    },
+    {
+      "check": "plucking_table_shoot_cards_present",
+      "pass": true,
+      "detail": {
+        "cards_using_shoot_cell_approx": 109
+      }
+    },
+    {
+      "check": "woody_stems_present",
+      "pass": true,
+      "detail": {
+        "main_faces": 1862
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 17970,
+          "LOD1": 9012,
+          "LOD2": 2964
+        },
+        "LOD1": 0.502,
+        "LOD2": 0.165,
+        "per_group": {
+          "Main": {
+            "LOD0": 3368,
+            "LOD1": 1684,
+            "LOD2": 504
+          },
+          "Detail_Small": {
+            "LOD0": 7234,
+            "LOD1": 3616,
+            "LOD2": 1084
+          },
+          "Leaves": {
+            "LOD0": 7368,
+            "LOD1_fit_scale": [
+              0.94,
+              0.928,
+              1.0
+            ],
+            "LOD1": 3712,
+            "LOD2_fit_scale": [
+              0.934,
+              0.906,
+              0.968
+            ],
+            "LOD2": 1376
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.2,
+          1.1557,
+          1.1
+        ],
+        "blend_dims_m": [
+          1.2,
+          1.1557,
+          1.1
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "TE02_Tall.001",
+        "TE02_Tall_Collision.001",
+        "TE02_Tall_Detail_Small_LOD0.001",
+        "TE02_Tall_Detail_Small_LOD1.001",
+        "TE02_Tall_Detail_Small_LOD2.001",
+        "TE02_Tall_LOD0.001",
+        "TE02_Tall_LOD1.001",
+        "TE02_Tall_LOD2.001",
+        "TE02_Tall_Leaves_LOD0.001",
+        "TE02_Tall_Leaves_LOD1.001",
+        "TE02_Tall_Leaves_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 5336276
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 143,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

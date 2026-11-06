@@ -1,0 +1,250 @@
+{
+  "asset": "TE02_Hedge",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.15,
+          -0.55,
+          0.0
+        ],
+        "max": [
+          1.15,
+          0.55,
+          0.85
+        ],
+        "box_m": [
+          [
+            -1.15,
+            -0.552,
+            0.0
+          ],
+          [
+            1.15,
+            0.552,
+            0.852
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "largest_clamp_m": 0.02537
+      }
+    },
+    {
+      "check": "length_depth_height",
+      "pass": true,
+      "detail": {
+        "joint_pitch_m": 2.0,
+        "soil_and_stems_x_m": [
+          -1.0,
+          1.0
+        ],
+        "overall_x_m": [
+          -1.15,
+          1.15
+        ],
+        "y_m": 1.1,
+        "top_m": 0.85,
+        "note": "open ends: the soil strip and core end on x = +-L/2 (the joint), leaf cards overhang it by up to 0.15 m and interleave with the neighbour"
+      }
+    },
+    {
+      "check": "open_ends_leaves_reach_the_cut",
+      "pass": true,
+      "detail": {
+        "-X": {
+          "leaf_verts_within_6cm": 327,
+          "reach_m": 1.15,
+          "y_span_m": [
+            -0.529,
+            0.454
+          ],
+          "z_span_m": [
+            0.065,
+            0.825
+          ]
+        },
+        "+X": {
+          "leaf_verts_within_6cm": 338,
+          "reach_m": 1.15,
+          "y_span_m": [
+            -0.508,
+            0.466
+          ],
+          "z_span_m": [
+            0.048,
+            0.831
+          ]
+        }
+      }
+    },
+    {
+      "check": "wind_vertex_colour_on_every_mesh",
+      "pass": true,
+      "detail": {
+        "R_min_max": {
+          "TE02_Hedge_LOD0": [
+            0.0,
+            0.307
+          ],
+          "TE02_Hedge_Detail_Small_LOD0": [
+            0.0,
+            0.018
+          ],
+          "TE02_Hedge_Leaves_LOD0": [
+            0.35,
+            1.0
+          ],
+          "TE02_Hedge_LOD1": [
+            0.0,
+            0.307
+          ],
+          "TE02_Hedge_Detail_Small_LOD1": [
+            0.0,
+            0.018
+          ],
+          "TE02_Hedge_Leaves_LOD1": [
+            0.35,
+            1.0
+          ],
+          "TE02_Hedge_LOD2": [
+            0.0,
+            0.306
+          ],
+          "TE02_Hedge_Detail_Small_LOD2": [
+            0.003,
+            0.014
+          ],
+          "TE02_Hedge_Leaves_LOD2": [
+            0.35,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "check": "leaf_cards_alpha_clip_two_sided",
+      "pass": true,
+      "detail": {
+        "material": "M_TE02_Hedge_LeafCards"
+      }
+    },
+    {
+      "check": "plucking_table_shoot_cards_present",
+      "pass": true,
+      "detail": {
+        "cards_using_shoot_cell_approx": 280
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 16528,
+          "LOD1": 8640,
+          "LOD2": 2542
+        },
+        "LOD1": 0.523,
+        "LOD2": 0.154,
+        "per_group": {
+          "Main": {
+            "LOD0": 6016,
+            "LOD1": 3008,
+            "LOD2": 902
+          },
+          "Detail_Small": {
+            "LOD0": 480,
+            "LOD1": 240,
+            "LOD2": 72
+          },
+          "Leaves": {
+            "LOD0": 10032,
+            "LOD1_fit_scale": [
+              0.968,
+              0.944,
+              1.0
+            ],
+            "LOD1": 5392,
+            "LOD2_fit_scale": [
+              0.972,
+              0.914,
+              0.942
+            ],
+            "LOD2": 1568
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          2.3,
+          1.1,
+          0.85
+        ],
+        "blend_dims_m": [
+          2.3,
+          1.1,
+          0.85
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 0.0
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "TE02_Hedge.001",
+        "TE02_Hedge_Collision.001",
+        "TE02_Hedge_Detail_Small_LOD0.001",
+        "TE02_Hedge_Detail_Small_LOD1.001",
+        "TE02_Hedge_Detail_Small_LOD2.001",
+        "TE02_Hedge_LOD0.001",
+        "TE02_Hedge_LOD1.001",
+        "TE02_Hedge_LOD2.001",
+        "TE02_Hedge_Leaves_LOD0.001",
+        "TE02_Hedge_Leaves_LOD1.001",
+        "TE02_Hedge_Leaves_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 5132340
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 134,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

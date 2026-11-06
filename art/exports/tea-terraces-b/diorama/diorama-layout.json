@@ -1,0 +1,241 @@
+{
+ "name": "tea-terraces-b diorama (presentation only)",
+ "units": "meters",
+ "rows": [
+  {
+   "id": "TE01_StraightB_H12",
+   "rise_m": 1.2
+  },
+  {
+   "id": "TE01_StraightA",
+   "rise_m": 1.0
+  },
+  {
+   "id": "TE01_StraightB_H08",
+   "rise_m": 0.8
+  }
+ ],
+ "note": "three wall heights stacked; the plinth and the front strip are presentation only",
+ "pieces": [
+  {
+   "id": "TE01_StraightB_H12",
+   "fbx": "TE01_StraightB_H12/TE01_StraightB_H12_v001.fbx",
+   "position_m": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE03_Path",
+   "fbx": "TE03_Path/TE03_Path_v001.fbx",
+   "position_m": [
+    -2.0,
+    -0.85,
+    1.2
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE03_Path",
+   "fbx": "TE03_Path/TE03_Path_v001.fbx",
+   "position_m": [
+    2.0,
+    -0.85,
+    1.2
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_HedgeEnd",
+   "fbx": "TE02_HedgeEnd/TE02_HedgeEnd_v001.fbx",
+   "position_m": [
+    -3.5,
+    0.95,
+    1.38
+   ],
+   "rotation_z_deg": 180.0
+  },
+  {
+   "id": "TE02_HedgeShort",
+   "fbx": "TE02_HedgeShort/TE02_HedgeShort_v001.fbx",
+   "position_m": [
+    -2.6333,
+    0.95,
+    1.38
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_Hedge",
+   "fbx": "TE02_Hedge/TE02_Hedge_v001.fbx",
+   "position_m": [
+    -1.5333,
+    0.95,
+    1.38
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_HedgeEnd",
+   "fbx": "TE02_HedgeEnd/TE02_HedgeEnd_v001.fbx",
+   "position_m": [
+    -0.3,
+    0.95,
+    1.38
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE01_StraightA",
+   "fbx": "TE01_StraightA/TE01_StraightA_v002.fbx",
+   "position_m": [
+    0.0,
+    4.0,
+    1.2
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE03_Stair",
+   "fbx": "TE03_Stair/TE03_Stair_v001.fbx",
+   "position_m": [
+    1.6,
+    2.0,
+    1.2
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE03_Path",
+   "fbx": "TE03_Path/TE03_Path_v001.fbx",
+   "position_m": [
+    2.0,
+    3.15,
+    2.2
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_HedgeEnd",
+   "fbx": "TE02_HedgeEnd/TE02_HedgeEnd_v001.fbx",
+   "position_m": [
+    -3.5,
+    4.95,
+    2.38
+   ],
+   "rotation_z_deg": 180.0
+  },
+  {
+   "id": "TE02_Hedge",
+   "fbx": "TE02_Hedge/TE02_Hedge_v001.fbx",
+   "position_m": [
+    -2.0,
+    4.95,
+    2.38
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_Hedge",
+   "fbx": "TE02_Hedge/TE02_Hedge_v001.fbx",
+   "position_m": [
+    0.0,
+    4.95,
+    2.38
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_Hedge",
+   "fbx": "TE02_Hedge/TE02_Hedge_v001.fbx",
+   "position_m": [
+    2.0,
+    4.95,
+    2.38
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_HedgeEnd",
+   "fbx": "TE02_HedgeEnd/TE02_HedgeEnd_v001.fbx",
+   "position_m": [
+    3.5,
+    4.95,
+    2.38
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE01_StraightB_H08",
+   "fbx": "TE01_StraightB_H08/TE01_StraightB_H08_v001.fbx",
+   "position_m": [
+    0.0,
+    8.0,
+    2.2
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE03_Stepping",
+   "fbx": "TE03_Stepping/TE03_Stepping_v001.fbx",
+   "position_m": [
+    -0.5,
+    7.15,
+    3.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_HedgeEnd",
+   "fbx": "TE02_HedgeEnd/TE02_HedgeEnd_v001.fbx",
+   "position_m": [
+    -3.5,
+    8.95,
+    3.18
+   ],
+   "rotation_z_deg": 180.0
+  },
+  {
+   "id": "TE02_Hedge",
+   "fbx": "TE02_Hedge/TE02_Hedge_v001.fbx",
+   "position_m": [
+    -2.0,
+    8.95,
+    3.18
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_Hedge",
+   "fbx": "TE02_Hedge/TE02_Hedge_v001.fbx",
+   "position_m": [
+    0.0,
+    8.95,
+    3.18
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_Hedge",
+   "fbx": "TE02_Hedge/TE02_Hedge_v001.fbx",
+   "position_m": [
+    2.0,
+    8.95,
+    3.18
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "id": "TE02_HedgeEnd",
+   "fbx": "TE02_HedgeEnd/TE02_HedgeEnd_v001.fbx",
+   "position_m": [
+    3.5,
+    8.95,
+    3.18
+   ],
+   "rotation_z_deg": 0.0
+  }
+ ]
+}
