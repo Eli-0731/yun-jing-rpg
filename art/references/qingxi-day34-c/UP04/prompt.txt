@@ -8,6 +8,10 @@
 建模時的差異：畫做成獨立的貼花網格 UP04_Drawing（自己的透明貼圖），先交「畫了一半」：主溪畫完、右邊兩條支流只畫到一半。炭棒是獨立物件 UP04_Charcoal。
 沒選的：UP04-cand-1.png, UP04-cand-3.png, UP04-cand-4.png（保留，看得出取捨）
 
+第二輪（2026-11-02，使用者要求打磨細節）：用 Codex CLI 的 GPT-6-Astra（推理 xhigh）以同一段提示詞原文重新獨立生成 4 張，再以選定圖為參考生成轉面圖／細節圖並寫建模清單，全部存在 v2/。Codex 中途用量到上限，UP01、UP04 沒有轉面圖，UP01、UP04、UP05 沒有 details.md，這三件照細節圖自己比對。
+第二輪選用：UP04-v2-cand-4.png（v2 細節圖）
+第二輪改了什麼：側面加層理退階與縱裂、頂面細裂；炭筆畫加樹根狀分叉、流向箭頭、虛線與同心圓；側面地衣放大、苔加多；石腳一圈草與蕨。
+
 ## 提示詞（原文，一字未改）
 
 Three-view turnaround of a single large flat-topped creek stone, about 1.4 m long, 1.0 m wide and 0.35 m tall, form: a low water-worn slab with a smooth nearly flat top surface and rounded edges, surface: warm grey stone with lichen on the sides, the flat top covered with a child's charcoal drawing of a winding creek, branching water channels, small circles and arrows like a little machine diagram (no letters, no numbers, no text), a short stick of burnt charcoal lying on the edge, small grass tufts at the base. Layout: front, side and top views, same scale, plain light warm-grey background, even soft lighting.

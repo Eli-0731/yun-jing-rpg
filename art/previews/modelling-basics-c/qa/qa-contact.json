@@ -1,0 +1,590 @@
+{
+ "BM02_01": {
+  "BM02_01_Detail_Grass_LOD0": {
+   "pieces": 31,
+   "within_1mm": 31,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM02_01_Detail_Stones_LOD0": {
+   "pieces": 11,
+   "within_1mm": 11,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM02_01_Wood_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM02_02": {
+  "BM02_02_Detail_Grass_LOD0": {
+   "pieces": 39,
+   "within_1mm": 39,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM02_02_Detail_Stones_LOD0": {
+   "pieces": 13,
+   "within_1mm": 13,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM02_02_Wood_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM03_01": {
+  "BM03_01_Detail_Shards_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM03_01_Jar_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM03_02": {
+  "BM03_02_Detail_Shards_LOD0": {
+   "pieces": 2,
+   "within_1mm": 2,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM03_02_Jar_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM03_03": {
+  "BM03_03_Detail_Shards_LOD0": {
+   "pieces": 3,
+   "within_1mm": 3,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM03_03_Jar_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM04_01": {
+  "BM04_01_Detail_Grass_LOD0": {
+   "pieces": 33,
+   "within_1mm": 33,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM04_01_Stone_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM04_02": {
+  "BM04_02_Detail_Grass_LOD0": {
+   "pieces": 21,
+   "within_1mm": 21,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM04_02_Stone_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM04_03": {
+  "BM04_03_Detail_Grass_LOD0": {
+   "pieces": 17,
+   "within_1mm": 17,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM04_03_Stone_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM04_04": {
+  "BM04_04_Detail_Grass_LOD0": {
+   "pieces": 7,
+   "within_1mm": 7,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM04_04_Stone_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM05_01": {
+  "BM05_01_Detail_Grass_LOD0": {
+   "pieces": 18,
+   "within_1mm": 9,
+   "gap_1_3mm": 9,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.7,
+   "worst_at": []
+  },
+  "BM05_01_Stone_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM05_02": {
+  "BM05_02_Detail_Grass_LOD0": {
+   "pieces": 7,
+   "within_1mm": 6,
+   "gap_1_3mm": 1,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.1,
+   "worst_at": []
+  },
+  "BM05_02_Stone_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM05_03": {
+  "BM05_03_Detail_Grass_LOD0": {
+   "pieces": 7,
+   "within_1mm": 7,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM05_03_Stone_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM06_01": {
+  "BM06_01_Detail_Grass_LOD0": {
+   "pieces": 16,
+   "within_1mm": 16,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM06_01_Stone_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM06_01_Water_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM06_02": {
+  "BM06_02_Detail_Grass_LOD0": {
+   "pieces": 16,
+   "within_1mm": 16,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM06_02_Detail_Iron_LOD0": {
+   "pieces": 2,
+   "within_1mm": 2,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM06_02_Stone_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM06_02_Water_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM06_03": {
+  "BM06_03_Detail_Grass_LOD0": {
+   "pieces": 15,
+   "within_1mm": 15,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM06_03_Detail_Plant_LOD0": {
+   "pieces": 686,
+   "within_1mm": 645,
+   "gap_1_3mm": 35,
+   "gap_3_10mm": 6,
+   "gap_over_10mm": 0,
+   "largest_mm": 4.9,
+   "worst_at": [
+    [
+     0.032,
+     0.284,
+     0.689
+    ],
+    [
+     0.199,
+     -0.153,
+     0.634
+    ],
+    [
+     0.007,
+     0.278,
+     0.682
+    ],
+    [
+     -0.404,
+     0.073,
+     0.694
+    ]
+   ]
+  },
+  "BM06_03_Stone_LOD0": {
+   "pieces": 2,
+   "within_1mm": 2,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM06_04": {
+  "BM06_04_Detail_Grass_LOD0": {
+   "pieces": 15,
+   "within_1mm": 15,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.1,
+   "worst_at": []
+  },
+  "BM06_04_Detail_Plant_LOD0": {
+   "pieces": 234,
+   "within_1mm": 234,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM06_04_Stone_LOD0": {
+   "pieces": 2,
+   "within_1mm": 2,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM07_01": {
+  "BM07_01_Detail_Litter_LOD0": {
+   "pieces": 239,
+   "within_1mm": 239,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.9,
+   "worst_at": []
+  },
+  "BM07_01_Stone_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM08_01": {
+  "BM08_01_Branches_LOD0": {
+   "pieces": 303,
+   "within_1mm": 303,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM08_01_Detail_Litter_LOD0": {
+   "pieces": 26,
+   "within_1mm": 20,
+   "gap_1_3mm": 6,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.2,
+   "worst_at": []
+  },
+  "BM08_01_Leaves_LOD0": {
+   "pieces": 770,
+   "within_1mm": 770,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM08_02": {
+  "BM08_02_Berries_LOD0": {
+   "pieces": 314,
+   "within_1mm": 314,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.2,
+   "worst_at": []
+  },
+  "BM08_02_Branches_LOD0": {
+   "pieces": 503,
+   "within_1mm": 503,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.2,
+   "worst_at": []
+  },
+  "BM08_02_Detail_Litter_LOD0": {
+   "pieces": 26,
+   "within_1mm": 23,
+   "gap_1_3mm": 3,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.5,
+   "worst_at": []
+  },
+  "BM08_02_Leaves_LOD0": {
+   "pieces": 385,
+   "within_1mm": 384,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 1,
+   "largest_mm": 12.6,
+   "worst_at": [
+    [
+     0.004,
+     -0.134,
+     0.56
+    ]
+   ]
+  }
+ },
+ "BM09_01": {
+  "BM09_01_Detail_DryFronds_LOD0": {
+   "pieces": 36,
+   "within_1mm": 36,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM09_01_Fronds_LOD0": {
+   "pieces": 792,
+   "within_1mm": 780,
+   "gap_1_3mm": 12,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.8,
+   "worst_at": []
+  },
+  "BM09_01_Rachis_LOD0": {
+   "pieces": 20,
+   "within_1mm": 20,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.3,
+   "worst_at": []
+  }
+ },
+ "BM09_02": {
+  "BM09_02_Detail_DryFronds_LOD0": {
+   "pieces": 36,
+   "within_1mm": 36,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "BM09_02_Fronds_LOD0": {
+   "pieces": 312,
+   "within_1mm": 130,
+   "gap_1_3mm": 182,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.9,
+   "worst_at": []
+  },
+  "BM09_02_Rachis_LOD0": {
+   "pieces": 15,
+   "within_1mm": 8,
+   "gap_1_3mm": 7,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.9,
+   "worst_at": []
+  }
+ },
+ "BM10_01": {
+  "BM10_01_Ground_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM10_02": {
+  "BM10_02_Ground_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ },
+ "BM10_03": {
+  "BM10_03_Ground_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}
