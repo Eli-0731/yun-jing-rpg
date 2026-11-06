@@ -1,0 +1,20 @@
+[
+ {
+  "file": "art\\exports\\modelling-basics-c\\BM01_01.glb",
+  "objects": 3,
+  "triangles": 10754,
+  "findings": []
+ },
+ {
+  "file": "art\\exports\\modelling-basics-c\\BM01_02.glb",
+  "objects": 4,
+  "triangles": 30694,
+  "findings": []
+ },
+ {
+  "file": "art\\exports\\modelling-basics-c\\BM01_03.glb",
+  "objects": 3,
+  "triangles": 13656,
+  "findings": []
+ }
+]

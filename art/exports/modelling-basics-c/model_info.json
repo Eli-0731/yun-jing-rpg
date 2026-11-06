@@ -1,0 +1,377 @@
+{
+ "BM01_01": {
+  "id": "BM01_01",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.504,
+   0.363,
+   0.29
+  ],
+  "body_dimensions_xyz_m": [
+   0.503,
+   0.341,
+   0.29
+  ],
+  "target_width_m": 0.5,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Nails",
+   "Detail_Grass"
+  ],
+  "detailMeshes": [
+   "BM01_01_Detail_Nails_LOD0",
+   "BM01_01_Detail_Nails_LOD1",
+   "BM01_01_Detail_Nails_LOD2",
+   "BM01_01_Detail_Grass_LOD0",
+   "BM01_01_Detail_Grass_LOD1",
+   "BM01_01_Detail_Grass_LOD2"
+  ],
+  "groups": {
+   "Wood": {
+    "material": "BM01_01_Wood",
+    "texture_px": 1024,
+    "triangles": [
+     9038,
+     4518,
+     1354
+    ],
+    "maps": [
+     "alb",
+     "nrm",
+     "orm"
+    ]
+   },
+   "Detail_Nails": {
+    "material": "BM01_01_Detail_Nails",
+    "texture_px": 256,
+    "triangles": [
+     1540,
+     770,
+     230
+    ],
+    "maps": [
+     "alb",
+     "nrm",
+     "orm"
+    ]
+   },
+   "Detail_Grass": {
+    "material": "BM01_01_Detail_Grass",
+    "texture_px": 256,
+    "triangles": [
+     176,
+     88,
+     26
+    ],
+    "maps": [
+     "alb",
+     "nrm",
+     "orm"
+    ]
+   }
+  },
+  "triangles_total": [
+   10754,
+   5376,
+   1610
+  ],
+  "triangles_without_detail": [
+   9038,
+   4518,
+   1354
+  ],
+  "source_parts": 72,
+  "reference": "art/references/BM01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+  "collision": {
+   "BM01_01_Collision": {
+    "primitives": [
+     {
+      "type": "box",
+      "size": [
+       0.5,
+       0.34,
+       0.28
+      ],
+      "center": [
+       -0.001,
+       0.0,
+       0.143
+      ]
+     }
+    ],
+    "bounds_min": [
+     -0.251,
+     -0.17,
+     0.003
+    ],
+    "bounds_max": [
+     0.249,
+     0.17,
+     0.283
+    ]
+   }
+  },
+  "notes": {
+   "build": "3 board rows per face, 3 lid boards, battens proud of the boards by 0.016 m and of the lid by 6 mm",
+   "detail": "Detail_Nails (nail heads), Detail_Grass (tufts at the foot) are separate meshes; the standard tier hides them"
+  }
+ },
+ "BM01_02": {
+  "id": "BM01_02",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.837,
+   0.546,
+   0.402
+  ],
+  "body_dimensions_xyz_m": [
+   0.803,
+   0.483,
+   0.391
+  ],
+  "target_width_m": 0.8,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Nails",
+   "Detail_Rope",
+   "Detail_Grass"
+  ],
+  "detailMeshes": [
+   "BM01_02_Detail_Nails_LOD0",
+   "BM01_02_Detail_Nails_LOD1",
+   "BM01_02_Detail_Nails_LOD2",
+   "BM01_02_Detail_Rope_LOD0",
+   "BM01_02_Detail_Rope_LOD1",
+   "BM01_02_Detail_Rope_LOD2",
+   "BM01_02_Detail_Grass_LOD0",
+   "BM01_02_Detail_Grass_LOD1",
+   "BM01_02_Detail_Grass_LOD2"
+  ],
+  "groups": {
+   "Wood": {
+    "material": "BM01_02_Wood",
+    "texture_px": 2048,
+    "triangles": [
+     10104,
+     5052,
+     1514
+    ],
+    "maps": [
+     "alb",
+     "nrm",
+     "orm"
+    ]
+   },
+   "Detail_Nails": {
+    "material": "BM01_02_Detail_Nails",
+    "texture_px": 256,
+    "triangles": [
+     1716,
+     858,
+     256
+    ],
+    "maps": [
+     "alb",
+     "nrm",
+     "orm"
+    ]
+   },
+   "Detail_Rope": {
+    "material": "BM01_02_Detail_Rope",
+    "texture_px": 1024,
+    "triangles": [
+     18570,
+     9284,
+     2784
+    ],
+    "maps": [
+     "alb",
+     "nrm",
+     "orm"
+    ]
+   },
+   "Detail_Grass": {
+    "material": "BM01_02_Detail_Grass",
+    "texture_px": 256,
+    "triangles": [
+     304,
+     152,
+     45
+    ],
+    "maps": [
+     "alb",
+     "nrm",
+     "orm"
+    ]
+   }
+  },
+  "triangles_total": [
+   30694,
+   15346,
+   4599
+  ],
+  "triangles_without_detail": [
+   10104,
+   5052,
+   1514
+  ],
+  "source_parts": 107,
+  "reference": "art/references/BM01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+  "collision": {
+   "BM01_02_Collision": {
+    "primitives": [
+     {
+      "type": "box",
+      "size": [
+       0.8,
+       0.48,
+       0.38
+      ],
+      "center": [
+       0.0,
+       0.001,
+       0.193
+      ]
+     }
+    ],
+    "bounds_min": [
+     -0.4,
+     -0.239,
+     0.003
+    ],
+    "bounds_max": [
+     0.4,
+     0.241,
+     0.383
+    ]
+   }
+  },
+  "notes": {
+   "build": "4 board rows per face, 4 lid boards, battens proud of the boards by 0.018 m and of the lid by 6 mm",
+   "detail": "Detail_Nails (nail heads), Detail_Rope (girth and cross rope, knot, hanging bight), Detail_Grass (tufts at the foot) are separate meshes; the standard tier hides them"
+  }
+ },
+ "BM01_03": {
+  "id": "BM01_03",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.104,
+   0.623,
+   0.531
+  ],
+  "body_dimensions_xyz_m": [
+   1.103,
+   0.584,
+   0.531
+  ],
+  "target_width_m": 1.1,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Nails",
+   "Detail_Grass"
+  ],
+  "detailMeshes": [
+   "BM01_03_Detail_Nails_LOD0",
+   "BM01_03_Detail_Nails_LOD1",
+   "BM01_03_Detail_Nails_LOD2",
+   "BM01_03_Detail_Grass_LOD0",
+   "BM01_03_Detail_Grass_LOD1",
+   "BM01_03_Detail_Grass_LOD2"
+  ],
+  "groups": {
+   "Wood": {
+    "material": "BM01_03_Wood",
+    "texture_px": 2048,
+    "triangles": [
+     11332,
+     5666,
+     1698
+    ],
+    "maps": [
+     "alb",
+     "nrm",
+     "orm"
+    ]
+   },
+   "Detail_Nails": {
+    "material": "BM01_03_Detail_Nails",
+    "texture_px": 512,
+    "triangles": [
+     1892,
+     946,
+     282
+    ],
+    "maps": [
+     "alb",
+     "nrm",
+     "orm"
+    ]
+   },
+   "Detail_Grass": {
+    "material": "BM01_03_Detail_Grass",
+    "texture_px": 256,
+    "triangles": [
+     432,
+     216,
+     64
+    ],
+    "maps": [
+     "alb",
+     "nrm",
+     "orm"
+    ]
+   }
+  },
+  "triangles_total": [
+   13656,
+   6828,
+   2044
+  ],
+  "triangles_without_detail": [
+   11332,
+   5666,
+   1698
+  ],
+  "source_parts": 101,
+  "reference": "art/references/BM01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF)",
+  "collision": {
+   "BM01_03_Collision": {
+    "primitives": [
+     {
+      "type": "box",
+      "size": [
+       1.1,
+       0.58,
+       0.52
+      ],
+      "center": [
+       -0.001,
+       -0.0,
+       0.263
+      ]
+     }
+    ],
+    "bounds_min": [
+     -0.551,
+     -0.29,
+     0.003
+    ],
+    "bounds_max": [
+     0.549,
+     0.29,
+     0.523
+    ]
+   }
+  },
+  "notes": {
+   "build": "4 board rows per face, 4 lid boards, battens proud of the boards by 0.022 m and of the lid by 6 mm",
+   "detail": "Detail_Nails (nail heads), Detail_Grass (tufts at the foot) are separate meshes; the standard tier hides them"
+  }
+ }
+}
