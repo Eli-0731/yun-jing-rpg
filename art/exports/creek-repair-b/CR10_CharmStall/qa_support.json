@@ -1,0 +1,24 @@
+{
+ "asset": "CR10_CharmStall_v001",
+ "pieces": 874,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "CR10_CharmStall_Detail_Small",
+   "verts": 10,
+   "centre": [
+    1.224,
+    -0.077,
+    2.209
+   ],
+   "size": [
+    0.07,
+    0.051,
+    0.001
+   ],
+   "gap_mm": 7.7,
+   "nearest": "CR10_CharmStall_Detail_Small",
+   "drop_mm": 7.9
+  }
+ ]
+}

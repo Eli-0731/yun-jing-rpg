@@ -1,0 +1,329 @@
+{
+ "UP01": {
+  "Debris/Branch": {
+   "pieces": 28,
+   "within_1mm": 14,
+   "gap_1_3mm": 14,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.9,
+   "largest_at": "UP01_Branch7"
+  },
+  "Debris/Log": {
+   "pieces": 5,
+   "within_1mm": 4,
+   "gap_1_3mm": 1,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.3,
+   "largest_at": "UP01_Log1"
+  },
+  "Debris/SiltDownA": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.2,
+   "largest_at": "UP01_SiltDownA"
+  },
+  "Debris/SiltDownB": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.2,
+   "largest_at": "UP01_SiltDownB"
+  },
+  "Debris/SiltUp": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "largest_at": "UP01_SiltUp"
+  },
+  "Debris/Twig": {
+   "pieces": 28,
+   "within_1mm": 5,
+   "gap_1_3mm": 23,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 3.0,
+   "largest_at": "UP01_Twig7"
+  },
+  "Debris/Weed": {
+   "pieces": 40,
+   "within_1mm": 0,
+   "gap_1_3mm": 40,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.8,
+   "largest_at": "UP01_Weed4"
+  },
+  "Plants/CrestTuft": {
+   "pieces": 30,
+   "within_1mm": 9,
+   "gap_1_3mm": 21,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 3.0,
+   "largest_at": "UP01_CrestTuft4_5"
+  },
+  "Plants/Fern": {
+   "pieces": 2300,
+   "within_1mm": 1188,
+   "gap_1_3mm": 1112,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.8,
+   "largest_at": "UP01_Fern9_l4_71"
+  },
+  "Plants/FootFern": {
+   "pieces": 1794,
+   "within_1mm": 1208,
+   "gap_1_3mm": 586,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.8,
+   "largest_at": "UP01_FootFern9_l5_31"
+  },
+  "Plants/FootTuft": {
+   "pieces": 117,
+   "within_1mm": 98,
+   "gap_1_3mm": 19,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.7,
+   "largest_at": "UP01_FootTuft18_5"
+  },
+  "Plants/Ivy": {
+   "pieces": 432,
+   "within_1mm": 352,
+   "gap_1_3mm": 80,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.5,
+   "largest_at": "UP01_Ivy2_1_21"
+  },
+  "Plants/JointTuft": {
+   "pieces": 84,
+   "within_1mm": 36,
+   "gap_1_3mm": 48,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 3.0,
+   "largest_at": "UP01_JointTuft8_4"
+  },
+  "Plants/Tuft": {
+   "pieces": 176,
+   "within_1mm": 155,
+   "gap_1_3mm": 21,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 3.0,
+   "largest_at": "UP01_Tuft5_3"
+  },
+  "Plants/Vine": {
+   "pieces": 27,
+   "within_1mm": 27,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.9,
+   "largest_at": "UP01_Vine1_3"
+  }
+ },
+ "UP02_01": {
+  "Gravel/Gravel": {
+   "pieces": 86,
+   "within_1mm": 86,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP02_01_Gravel107"
+  },
+  "Plants/Fern": {
+   "pieces": 138,
+   "within_1mm": 124,
+   "gap_1_3mm": 14,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.8,
+   "largest_at": "UP02_01_Fern0_l3_31"
+  },
+  "Plants/RingFern": {
+   "pieces": 1518,
+   "within_1mm": 1380,
+   "gap_1_3mm": 138,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.8,
+   "largest_at": "UP02_01_RingFern8_l2_31"
+  },
+  "Plants/RingTuft": {
+   "pieces": 99,
+   "within_1mm": 99,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP02_01_RingTuft9_8"
+  },
+  "Plants/Tuft": {
+   "pieces": 8,
+   "within_1mm": 8,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP02_01_Tuft1_7"
+  }
+ },
+ "UP02_02": {
+  "Gravel/Gravel": {
+   "pieces": 78,
+   "within_1mm": 78,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP02_02_Gravel077"
+  },
+  "Plants/Fern": {
+   "pieces": 138,
+   "within_1mm": 130,
+   "gap_1_3mm": 8,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.8,
+   "largest_at": "UP02_02_Fern0_l3_31"
+  },
+  "Plants/RingFern": {
+   "pieces": 1518,
+   "within_1mm": 1422,
+   "gap_1_3mm": 96,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.8,
+   "largest_at": "UP02_02_RingFern8_l5_51"
+  },
+  "Plants/RingTuft": {
+   "pieces": 99,
+   "within_1mm": 99,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP02_02_RingTuft9_8"
+  },
+  "Plants/Tuft": {
+   "pieces": 8,
+   "within_1mm": 8,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP02_02_Tuft1_7"
+  }
+ },
+ "UP02_03": {
+  "Gravel/Gravel": {
+   "pieces": 65,
+   "within_1mm": 65,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP02_03_Gravel064"
+  },
+  "Plants/RingFern": {
+   "pieces": 1518,
+   "within_1mm": 1432,
+   "gap_1_3mm": 86,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.8,
+   "largest_at": "UP02_03_RingFern8_l2_51"
+  },
+  "Plants/RingTuft": {
+   "pieces": 99,
+   "within_1mm": 99,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP02_03_RingTuft9_8"
+  },
+  "Plants/Tuft": {
+   "pieces": 8,
+   "within_1mm": 8,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP02_03_Tuft0_7"
+  }
+ },
+ "UP03": {
+  "Gravel/Gravel": {
+   "pieces": 19,
+   "within_1mm": 19,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.5,
+   "largest_at": "UP03_Gravel016"
+  },
+  "Plants/Tuft": {
+   "pieces": 56,
+   "within_1mm": 44,
+   "gap_1_3mm": 12,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.6,
+   "largest_at": "UP03_Tuft4_6"
+  }
+ },
+ "UP04": {
+  "Charcoal/Charcoal": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.2,
+   "largest_at": "UP04_Charcoal"
+  },
+  "Gravel/Gravel": {
+   "pieces": 15,
+   "within_1mm": 15,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP04_Gravel039"
+  },
+  "Plants/Fern": {
+   "pieces": 460,
+   "within_1mm": 450,
+   "gap_1_3mm": 10,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.7,
+   "largest_at": "UP04_Fern5_l2_31"
+  },
+  "Plants/Tuft": {
+   "pieces": 165,
+   "within_1mm": 165,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0,
+   "largest_at": "UP04_Tuft9_9"
+  }
+ }
+}

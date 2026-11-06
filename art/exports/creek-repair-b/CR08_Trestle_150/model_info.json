@@ -1,0 +1,138 @@
+{
+  "asset": "CR08_Trestle_150",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR08_Trestle_150_Detail_Small"
+  ],
+  "name_zh": "渡槽支架 1.5 m",
+  "slot": "protect_nursery",
+  "note": "A 字架，頂面高 1.5 m。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    1.3043,
+    0.1585,
+    1.5
+  ],
+  "size_limit_m": [
+    1.6,
+    0.6,
+    1.5
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        1.2884,
+        0.1531,
+        1.5
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        1.3028,
+        0.1585,
+        1.4194
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0263
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 976,
+      "LOD1": 488,
+      "LOD2": 146
+    },
+    "Detail_Small": {
+      "LOD0": 28632,
+      "LOD1": 14316,
+      "LOD2": 4294
+    }
+  },
+  "lod_totals": {
+    "LOD0": 29608,
+    "LOD1": 14804,
+    "LOD2": 4440
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR08_Trestle_150_Main"
+  ],
+  "textures": [
+    "CR08_Trestle_150_BaseColor.png",
+    "CR08_Trestle_150_Metallic.png",
+    "CR08_Trestle_150_MetallicSmoothness.png",
+    "CR08_Trestle_150_Normal.png",
+    "CR08_Trestle_150_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR08_Trestle_150_BaseColor.png",
+    "Normal": "CR08_Trestle_150_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR08_Trestle_150_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR08_Trestle_150_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -0.68,
+        -0.09,
+        0
+      ],
+      [
+        0.68,
+        0.09,
+        1.5
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {
+    "Socket_TroughSeat": [
+      -0.0074,
+      0.0,
+      1.4952
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_TroughSeat.001": [
+      -0.0074,
+      0.0,
+      1.4952
+    ]
+  },
+  "states": [
+    "Socket_TroughSeat 為槽底座面"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "CR08_Trestle_150.001",
+    "CR08_Trestle_150_Collision.001",
+    "CR08_Trestle_150_Detail_Small_LOD0.001",
+    "CR08_Trestle_150_Detail_Small_LOD1.001",
+    "CR08_Trestle_150_Detail_Small_LOD2.001",
+    "CR08_Trestle_150_LOD0.001",
+    "CR08_Trestle_150_LOD1.001",
+    "CR08_Trestle_150_LOD2.001",
+    "Socket_TroughSeat.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR08/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

@@ -1,0 +1,71 @@
+{
+ "source": "art/exports/qingxi-waterworks-b/F01/F01.fbx",
+ "sides": [],
+ "booleans": {
+  "bed_marker_faces_removed": {
+   "F01": 514,
+   "F01_LOD1": 474,
+   "F01_LOD2": 194
+  },
+  "tris_before_grass": {
+   "F01": 11088,
+   "F01_LOD1": 6016,
+   "F01_LOD2": 2160
+  },
+  "bed_clods": {
+   "F01": 340,
+   "F01_LOD1": 180,
+   "F01_LOD2": 70
+  },
+  "bank_gravel": {
+   "F01": 190,
+   "F01_LOD1": 70,
+   "F01_LOD2": 20
+  },
+  "foot_stones": {
+   "F01": 17,
+   "F01_LOD1": 17,
+   "F01_LOD2": 7
+  },
+  "grass_tufts": {
+   "F01": 132,
+   "F01_LOD1": 127,
+   "F01_LOD2": 137
+  },
+  "tris": {
+   "F01": 44354,
+   "F01_LOD1": 19074,
+   "F01_LOD2": 5913
+  },
+  "zero_uv_fixed": {
+   "F01": 10296,
+   "F01_LOD1": 4064,
+   "F01_LOD2": 1370
+  },
+  "collision": {
+   "boxes": 7,
+   "bank_top_m": 0.689,
+   "floor_top_m": 0.353
+  }
+ },
+ "heights_m": {
+  "F01": {
+   "slot_floor_-1": 0.409,
+   "slot_floor_1": 0.402,
+   "bank_beside_-1": 0.404,
+   "bank_beside_1": 0.398
+  },
+  "F01_LOD1": {
+   "slot_floor_-1": 0.409,
+   "slot_floor_1": 0.403,
+   "bank_beside_-1": 0.404,
+   "bank_beside_1": 0.398
+  },
+  "F01_LOD2": {
+   "slot_floor_-1": 0.403,
+   "slot_floor_1": 0.4,
+   "bank_beside_-1": 0.405,
+   "bank_beside_1": 0.4
+  }
+ }
+}

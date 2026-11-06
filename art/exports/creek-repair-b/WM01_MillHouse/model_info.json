@@ -1,0 +1,248 @@
+{
+  "asset": "WM01_MillHouse",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "WM01_MillHouse_Detail_Sacks",
+    "WM01_MillHouse_Detail_Small"
+  ],
+  "name_zh": "水磨坊",
+  "slot": "A3_MillHouse",
+  "note": "石基、木構、青灰瓦；不做室內場景，只有磨盤和暗色內襯。麻袋 Detail_Sacks 可關。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    7.827,
+    5.8844,
+    5.931
+  ],
+  "size_limit_m": [
+    8.0,
+    6.0,
+    6.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        7.827,
+        5.8844,
+        5.931
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        7.4456,
+        5.7603,
+        5.6892
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0019
+    },
+    "Detail_Sacks": {
+      "dims_m": [
+        1.1069,
+        0.6562,
+        0.8661
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.8586
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 73848,
+      "LOD1": 36924,
+      "LOD2": 11076
+    },
+    "Detail_Small": {
+      "LOD0": 34031,
+      "LOD1": 16728,
+      "LOD2": 5104
+    },
+    "Detail_Sacks": {
+      "LOD0": 6776,
+      "LOD1": 3388,
+      "LOD2": 1015
+    }
+  },
+  "twins_parted": {
+    "WM01_MillHouse_LOD2": 6,
+    "WM01_MillHouse_Detail_Small_LOD2": 1
+  },
+  "lod_totals": {
+    "LOD0": 114655,
+    "LOD1": 57040,
+    "LOD2": 17195
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_WM01_MillHouse_Main"
+  ],
+  "textures": [
+    "WM01_MillHouse_BaseColor.png",
+    "WM01_MillHouse_Metallic.png",
+    "WM01_MillHouse_MetallicSmoothness.png",
+    "WM01_MillHouse_Normal.png",
+    "WM01_MillHouse_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "WM01_MillHouse_BaseColor.png",
+    "Normal": "WM01_MillHouse_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "WM01_MillHouse_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "WM01_MillHouse_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -3.4,
+        1.9,
+        0
+      ],
+      [
+        3.4,
+        2.2800000000000002,
+        4.2
+      ]
+    ],
+    [
+      [
+        -3.4,
+        -3.04,
+        0
+      ],
+      [
+        -3.0,
+        2.2800000000000002,
+        4.2
+      ]
+    ],
+    [
+      [
+        3.0,
+        -3.04,
+        0
+      ],
+      [
+        3.4,
+        2.2800000000000002,
+        4.2
+      ]
+    ],
+    [
+      [
+        -3.3200000000000003,
+        -2.22,
+        0
+      ],
+      [
+        -1.0,
+        -1.9,
+        4.2
+      ]
+    ],
+    [
+      [
+        1.0,
+        -2.22,
+        0
+      ],
+      [
+        3.3200000000000003,
+        -1.9,
+        4.2
+      ]
+    ],
+    [
+      [
+        -1.0,
+        -2.22,
+        2.5
+      ],
+      [
+        1.0,
+        -1.9,
+        4.2
+      ]
+    ],
+    [
+      [
+        -3.1,
+        -3.04,
+        0
+      ],
+      [
+        -1.25,
+        -2.0,
+        0.85
+      ]
+    ],
+    [
+      [
+        1.25,
+        -3.04,
+        0
+      ],
+      [
+        3.1,
+        -2.0,
+        0.85
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {
+    "Socket_WheelAxle": [
+      3.18,
+      0.1087,
+      1.7584
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_WheelAxle.001": [
+      3.18,
+      0.1087,
+      1.7584
+    ]
+  },
+  "states": [
+    "門扇開著，從門看得到屋內磨盤；Socket_WheelAxle 是水車軸的入口（東側）"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "Socket_WheelAxle.001",
+    "WM01_MillHouse.001",
+    "WM01_MillHouse_Collision.001",
+    "WM01_MillHouse_Detail_Sacks_LOD0.001",
+    "WM01_MillHouse_Detail_Sacks_LOD1.001",
+    "WM01_MillHouse_Detail_Sacks_LOD2.001",
+    "WM01_MillHouse_Detail_Small_LOD0.001",
+    "WM01_MillHouse_Detail_Small_LOD1.001",
+    "WM01_MillHouse_Detail_Small_LOD2.001",
+    "WM01_MillHouse_LOD0.001",
+    "WM01_MillHouse_LOD1.001",
+    "WM01_MillHouse_LOD2.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/WM01/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

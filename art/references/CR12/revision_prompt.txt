@@ -1,0 +1,3 @@
+Use case: precise-object-edit
+Input image: edit target.
+Change only the notice paper arrangement on the front board. There must be exactly TWELVE blank paper slips total: ONE older horizontal curled slip centered at top, SIX separate vertical slips in the middle row, FIVE separate vertical slips evenly spaced in the bottom row. No other full paper sheets; old tiny torn remnants may remain at edges. Every slip completely blank without writing, numbers, icons or symbols. Preserve the same roof, timber frame, back structure, rail, tea cup, warm painterly materials, front/side/back views, consistent scale and background. Show the changed paper edges consistently in side view.

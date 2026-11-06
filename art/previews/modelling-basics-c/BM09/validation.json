@@ -1,0 +1,285 @@
+{
+  "passed": true,
+  "blender": "4.5.3 LTS",
+  "models": {
+    "BM09_01": {
+      "glb_triangles": 14012,
+      "glb_materials": [
+        {
+          "name": "BM09_01_Detail_DryFronds",
+          "doubleSided": true,
+          "alphaMode": "MASK",
+          "alphaCutoff": 0.45
+        },
+        {
+          "name": "BM09_01_Fronds",
+          "doubleSided": true,
+          "alphaMode": "MASK",
+          "alphaCutoff": 0.45
+        },
+        {
+          "name": "BM09_01_Rachis",
+          "doubleSided": true,
+          "alphaMode": null,
+          "alphaCutoff": null
+        }
+      ],
+      "glb": {
+        "lod_triangles": [
+          14012
+        ],
+        "lod_dimensions_xyz_m": [
+          [
+            1.154744,
+            1.194764,
+            0.8
+          ]
+        ],
+        "no_collision": true,
+        "root": "BM09_01_GroundOrigin"
+      },
+      "fbx": {
+        "lod_triangles": [
+          14012,
+          7040,
+          2160
+        ],
+        "lod_dimensions_xyz_m": [
+          [
+            1.154744,
+            1.194764,
+            0.8
+          ],
+          [
+            1.154677,
+            1.194751,
+            0.8
+          ],
+          [
+            1.155967,
+            1.194633,
+            0.798562
+          ]
+        ],
+        "no_collision": true,
+        "root": "BM09_01_GroundOrigin"
+      }
+    },
+    "BM09_02": {
+      "glb_triangles": 5736,
+      "glb_materials": [
+        {
+          "name": "BM09_02_Detail_DryFronds",
+          "doubleSided": true,
+          "alphaMode": "MASK",
+          "alphaCutoff": 0.45
+        },
+        {
+          "name": "BM09_02_Fronds",
+          "doubleSided": true,
+          "alphaMode": "MASK",
+          "alphaCutoff": 0.45
+        },
+        {
+          "name": "BM09_02_Rachis",
+          "doubleSided": true,
+          "alphaMode": null,
+          "alphaCutoff": null
+        }
+      ],
+      "glb": {
+        "lod_triangles": [
+          5736
+        ],
+        "lod_dimensions_xyz_m": [
+          [
+            0.467151,
+            0.439852,
+            0.3
+          ]
+        ],
+        "no_collision": true,
+        "root": "BM09_02_GroundOrigin"
+      },
+      "fbx": {
+        "lod_triangles": [
+          5736,
+          2892,
+          852
+        ],
+        "lod_dimensions_xyz_m": [
+          [
+            0.467151,
+            0.439852,
+            0.3
+          ],
+          [
+            0.467151,
+            0.439852,
+            0.3
+          ],
+          [
+            0.477386,
+            0.448958,
+            0.288435
+          ]
+        ],
+        "no_collision": true,
+        "root": "BM09_02_GroundOrigin"
+      }
+    },
+    "BM10_01": {
+      "glb_triangles": 128,
+      "glb_materials": [
+        {
+          "name": "BM10_01_Ground",
+          "doubleSided": true,
+          "alphaMode": null,
+          "alphaCutoff": null
+        }
+      ],
+      "glb": {
+        "lod_triangles": [
+          128
+        ],
+        "lod_dimensions_xyz_m": [
+          [
+            1.0,
+            1.0,
+            0.006
+          ]
+        ],
+        "no_collision": true,
+        "root": "BM10_01_GroundOrigin"
+      },
+      "fbx": {
+        "lod_triangles": [
+          128,
+          64,
+          18
+        ],
+        "lod_dimensions_xyz_m": [
+          [
+            1.0,
+            1.0,
+            0.006
+          ],
+          [
+            1.0,
+            1.0,
+            0.006
+          ],
+          [
+            1.0,
+            1.0,
+            0.003375
+          ]
+        ],
+        "no_collision": true,
+        "root": "BM10_01_GroundOrigin"
+      }
+    },
+    "BM10_02": {
+      "glb_triangles": 128,
+      "glb_materials": [
+        {
+          "name": "BM10_02_Ground",
+          "doubleSided": true,
+          "alphaMode": "MASK",
+          "alphaCutoff": 0.45
+        }
+      ],
+      "glb": {
+        "lod_triangles": [
+          128
+        ],
+        "lod_dimensions_xyz_m": [
+          [
+            1.0,
+            1.0,
+            0.006
+          ]
+        ],
+        "no_collision": true,
+        "root": "BM10_02_GroundOrigin"
+      },
+      "fbx": {
+        "lod_triangles": [
+          128,
+          64,
+          18
+        ],
+        "lod_dimensions_xyz_m": [
+          [
+            1.0,
+            1.0,
+            0.006
+          ],
+          [
+            1.0,
+            1.0,
+            0.006
+          ],
+          [
+            1.0,
+            1.0,
+            0.003375
+          ]
+        ],
+        "no_collision": true,
+        "root": "BM10_02_GroundOrigin"
+      }
+    },
+    "BM10_03": {
+      "glb_triangles": 128,
+      "glb_materials": [
+        {
+          "name": "BM10_03_Ground",
+          "doubleSided": true,
+          "alphaMode": "MASK",
+          "alphaCutoff": 0.45
+        }
+      ],
+      "glb": {
+        "lod_triangles": [
+          128
+        ],
+        "lod_dimensions_xyz_m": [
+          [
+            1.0,
+            1.0,
+            0.006
+          ]
+        ],
+        "no_collision": true,
+        "root": "BM10_03_GroundOrigin"
+      },
+      "fbx": {
+        "lod_triangles": [
+          128,
+          64,
+          18
+        ],
+        "lod_dimensions_xyz_m": [
+          [
+            1.0,
+            1.0,
+            0.006
+          ],
+          [
+            1.0,
+            1.0,
+            0.006
+          ],
+          [
+            1.0,
+            1.0,
+            0.003375
+          ]
+        ],
+        "no_collision": true,
+        "root": "BM10_03_GroundOrigin"
+      }
+    }
+  }
+}

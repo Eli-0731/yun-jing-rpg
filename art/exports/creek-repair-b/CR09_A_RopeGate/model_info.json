@@ -1,0 +1,225 @@
+{
+  "asset": "CR09_A_RopeGate",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR09_A_RopeGate_Detail_Small"
+  ],
+  "name_zh": "每戶分水小閘（繩子綁）",
+  "slot": "每戶田口 flowRoute kind=gate",
+  "note": "閘板 _Gate 是獨立物件，沿 Z 往上 0.3 m；關閉時總高 0.6 m，全開時 0.9 m（都在 0.9 m 內），全開時閘板下緣仍有 0.12 m 留在槽內。這戶用繩子綁：粗石、彎樹枝把手、舊繩加新繩、裂板用繩纏補。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    0.8,
+    0.5,
+    0.5977
+  ],
+  "size_limit_m": [
+    0.8,
+    0.5,
+    0.9
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.8,
+        0.5,
+        0.5156
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.7563,
+        0.4877,
+        0.2189
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0884
+    },
+    "Gate": {
+      "dims_m": [
+        0.4455,
+        0.0897,
+        0.4957
+      ],
+      "pivot": [
+        0.0004,
+        0.0002,
+        0.102
+      ],
+      "min_z_local": 0.0
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 23870,
+      "LOD1": 11934,
+      "LOD2": 3580
+    },
+    "Detail_Small": {
+      "LOD0": 1824,
+      "LOD1": 912,
+      "LOD2": 272
+    },
+    "Gate": {
+      "LOD0": 36892,
+      "LOD1": 18446,
+      "LOD2": 5532
+    }
+  },
+  "twins_parted": {},
+  "ngons_split": {
+    "CR09_A_RopeGate_LOD0": 130,
+    "CR09_A_RopeGate_Gate_LOD0": 56
+  },
+  "lod_totals": {
+    "LOD0": 62586,
+    "LOD1": 31292,
+    "LOD2": 9384
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR09_A_RopeGate_Main"
+  ],
+  "textures": [
+    "CR09_A_RopeGate_BaseColor.png",
+    "CR09_A_RopeGate_Metallic.png",
+    "CR09_A_RopeGate_MetallicSmoothness.png",
+    "CR09_A_RopeGate_Normal.png",
+    "CR09_A_RopeGate_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR09_A_RopeGate_BaseColor.png",
+    "Normal": "CR09_A_RopeGate_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR09_A_RopeGate_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR09_A_RopeGate_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        -0.4,
+        -0.25,
+        0
+      ],
+      [
+        -0.2,
+        0.25,
+        0.52
+      ]
+    ],
+    [
+      [
+        0.2,
+        -0.25,
+        0
+      ],
+      [
+        0.4,
+        0.25,
+        0.52
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {
+    "Socket_GateHandle": [
+      0.0,
+      0.0,
+      0.564
+    ],
+    "Socket_GateOpen": [
+      0.0,
+      0.0,
+      0.402
+    ],
+    "Socket_PortFront": [
+      0.0,
+      -0.25,
+      0.1
+    ],
+    "Socket_PortBack": [
+      0.0,
+      0.25,
+      0.1
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_GateHandle.001": [
+      0.0,
+      0.0,
+      0.564
+    ],
+    "Socket_GateOpen.001": [
+      0.0,
+      0.0,
+      0.402
+    ],
+    "Socket_PortBack.001": [
+      0.0,
+      0.25,
+      0.1
+    ],
+    "Socket_PortFront.001": [
+      0.0,
+      -0.25,
+      0.1
+    ]
+  },
+  "states": [
+    "Gate 關：局部 Z +0",
+    "Gate 開：局部 Z +0.3 m（Socket_GateOpen）"
+  ],
+  "state_renders": {
+    "gate_open": "state_gate_open.png"
+  },
+  "fbx_objects": [
+    "CR09_A_RopeGate.001",
+    "CR09_A_RopeGate_Collision.001",
+    "CR09_A_RopeGate_Detail_Small_LOD0.001",
+    "CR09_A_RopeGate_Detail_Small_LOD1.001",
+    "CR09_A_RopeGate_Detail_Small_LOD2.001",
+    "CR09_A_RopeGate_Gate_LOD0.001",
+    "CR09_A_RopeGate_Gate_LOD1.001",
+    "CR09_A_RopeGate_Gate_LOD2.001",
+    "CR09_A_RopeGate_LOD0.001",
+    "CR09_A_RopeGate_LOD1.001",
+    "CR09_A_RopeGate_LOD2.001",
+    "Socket_GateHandle.001",
+    "Socket_GateOpen.001",
+    "Socket_PortBack.001",
+    "Socket_PortFront.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR09/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file",
+  "channel_interface": {
+    "clear_width_m": 0.4,
+    "floor_top_z_m": 0.1,
+    "wall_top_z_m": 0.4,
+    "outer_width_at_port_m": 0.6,
+    "port_y_m": [
+      -0.25,
+      0.25
+    ],
+    "flow_axis": "Y",
+    "water_opening_when_open_m": 0.3,
+    "note": "same numbers as B02/B03; fit against CR06 and CR08 is not tested because they are not built yet"
+  }
+}
