@@ -1,0 +1,155 @@
+{
+  "asset": "TE03_Stepping",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "TE03_Stepping_Detail_Small"
+  ],
+  "name_zh": "梯田踏石",
+  "slot": "A4_TeaTerraces",
+  "note": "1.2 m 寬，與 TE01 共用石材、土、草和苔的材質。 長 2 m，四塊平石半埋在土裡，步距約 0.6 m，石面高出土面 4.5–7 cm；周圍有翻動過的土圈、草和苔。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "run centre, z = 0 at the tread soil",
+  "dimensions_m": [
+    2.0,
+    1.1039,
+    0.1372
+  ],
+  "bounds_min_m": [
+    -1.0,
+    -0.5616,
+    0.0
+  ],
+  "bounds_max_m": [
+    1.0,
+    0.5424,
+    0.1372
+  ],
+  "size_limit_m": [
+    2.0,
+    1.2,
+    0.4
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        2.0,
+        0.7475,
+        0.0756
+      ],
+      "min": [
+        -1.0,
+        -0.3707,
+        0.0
+      ],
+      "max": [
+        1.0,
+        0.3767,
+        0.0756
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        2.0,
+        1.1039,
+        0.1372
+      ],
+      "min": [
+        -1.0,
+        -0.5616,
+        0.0
+      ],
+      "max": [
+        1.0,
+        0.5424,
+        0.1372
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 1160,
+      "LOD1": 580,
+      "LOD2": 174
+    },
+    "Detail_Small": {
+      "LOD0": 1830,
+      "LOD1": 915,
+      "LOD2": 274
+    }
+  },
+  "lod_totals": {
+    "LOD0": 2990,
+    "LOD1": 1495,
+    "LOD2": 448
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_TE03_Stepping_Main"
+  ],
+  "textures": [
+    "TE03_Stepping_BaseColor.png",
+    "TE03_Stepping_Metallic.png",
+    "TE03_Stepping_MetallicSmoothness.png",
+    "TE03_Stepping_Normal.png",
+    "TE03_Stepping_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "TE03_Stepping_BaseColor.png",
+    "Normal": "TE03_Stepping_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "TE03_Stepping_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "TE03_Stepping_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Left": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Right": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Left.001": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Right.001": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Left.001",
+    "Socket_Right.001",
+    "TE03_Stepping.001",
+    "TE03_Stepping_Collision.001",
+    "TE03_Stepping_Detail_Small_LOD0.001",
+    "TE03_Stepping_Detail_Small_LOD1.001",
+    "TE03_Stepping_Detail_Small_LOD2.001",
+    "TE03_Stepping_LOD0.001",
+    "TE03_Stepping_LOD1.001",
+    "TE03_Stepping_LOD2.001"
+  ],
+  "glb": "TE03_Stepping_v001.glb",
+  "interface": {
+    "length_m": 2.0,
+    "width_m": 1.2,
+    "stones": 4
+  },
+  "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/TE03/ (AI three-view TE03/STEPPING; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/tea-terraces-unity/unity-verify-report.txt"
+}

@@ -1,0 +1,179 @@
+{
+  "asset": "TE02_Tall",
+  "version": "v004",
+  "minTier": "standard",
+  "detailObjects": [
+    "TE02_Tall_Detail_Small"
+  ],
+  "name_zh": "茶樹（高瘦）",
+  "slot": "A4_TeaTerraces",
+  "note": "修剪成形的茶樹：頂面是平的採摘面（一芽二葉的嫩梢），肩部圓、下緣收進，露出木質主幹。寬 1.2 m。葉片用透明裁切的葉片卡（TE02_LeafCards，四格共用貼圖），樹幹、根部土堆和小石烘焙到本件圖集。頂點色 Wind：R 風擺權重（根 0 → 外葉 1）、G 每張卡的相位、B 高度 0–1。久未重剪，較高，枝幹較多外露。 v002：葉片更密集（每格貼圖的葉子更多更小、幾乎不留空位；樹冠葉片卡多約 40%、間距縮小、內層加厚），尺寸與擺放不變。 v003：更茂密——樹冠下緣降到離地 12–20 cm，主幹大多被葉子蓋住；葉片卡再多約 35%、稍大、間距更小；輪廓更蓬鬆。尺寸與擺放不變（v002 的「露出主幹」描述已不適用）。 v004：葉片貼圖改用 TE02_Shared/v003，拿掉整片偏黃的老葉（重複數百張卡後在樹冠上變成滿佈的淺黃點）；形狀與 v003 相同。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "root centre on the ground, z = 0 at the soil",
+  "dimensions_m": [
+    1.2,
+    1.1557,
+    1.1
+  ],
+  "bounds_min_m": [
+    -0.6,
+    -0.5779,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.6,
+    0.5779,
+    1.1
+  ],
+  "size_limit_m": [
+    1.202,
+    1.202,
+    1.102
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.6427,
+        0.5605,
+        0.421
+      ],
+      "min": [
+        -0.3218,
+        -0.3068,
+        0.0
+      ],
+      "max": [
+        0.3208,
+        0.2537,
+        0.421
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.5226,
+        0.6159,
+        0.5319
+      ],
+      "min": [
+        -0.2506,
+        -0.3549,
+        0.0
+      ],
+      "max": [
+        0.272,
+        0.261,
+        0.5319
+      ]
+    },
+    "Leaves": {
+      "dims_m": [
+        1.2,
+        1.1557,
+        1.0183
+      ],
+      "min": [
+        -0.6,
+        -0.5779,
+        0.0817
+      ],
+      "max": [
+        0.6,
+        0.5779,
+        1.1
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 3368,
+      "LOD1": 1684,
+      "LOD2": 504
+    },
+    "Detail_Small": {
+      "LOD0": 7234,
+      "LOD1": 3616,
+      "LOD2": 1084
+    },
+    "Leaves": {
+      "LOD0": 7368,
+      "LOD1_fit_scale": [
+        0.94,
+        0.928,
+        1.0
+      ],
+      "LOD1": 3712,
+      "LOD2_fit_scale": [
+        0.934,
+        0.906,
+        0.968
+      ],
+      "LOD2": 1376
+    }
+  },
+  "lod_totals": {
+    "LOD0": 17970,
+    "LOD1": 9012,
+    "LOD2": 2964
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_TE02_Tall_LeafCards",
+    "M_TE02_Tall_Main"
+  ],
+  "textures": [
+    "TE02_LeafCards_BaseColor.png",
+    "TE02_LeafCards_Normal.png",
+    "TE02_Tall_BaseColor.png",
+    "TE02_Tall_Metallic.png",
+    "TE02_Tall_MetallicSmoothness.png",
+    "TE02_Tall_Normal.png",
+    "TE02_Tall_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "TE02_Tall_BaseColor.png",
+    "Normal": "TE02_Tall_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "TE02_Tall_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "TE02_Tall_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "fbx_objects": [
+    "TE02_Tall.001",
+    "TE02_Tall_Collision.001",
+    "TE02_Tall_Detail_Small_LOD0.001",
+    "TE02_Tall_Detail_Small_LOD1.001",
+    "TE02_Tall_Detail_Small_LOD2.001",
+    "TE02_Tall_LOD0.001",
+    "TE02_Tall_LOD1.001",
+    "TE02_Tall_LOD2.001",
+    "TE02_Tall_Leaves_LOD0.001",
+    "TE02_Tall_Leaves_LOD1.001",
+    "TE02_Tall_Leaves_LOD2.001"
+  ],
+  "glb": "TE02_Tall_v004.glb",
+  "interface": {
+    "design": {
+      "H": 1.1,
+      "W": 1.2,
+      "z_under": 0.2,
+      "shoulder": 0.22,
+      "stems": 7,
+      "seed": 23
+    },
+    "fit_scale_xy_z": [
+      0.9314,
+      0.9203
+    ],
+    "collision": "octagonal prism r 0.42 m, 0.75 H tall"
+  },
+  "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/TE02/ (AI three-view TE02/TALL; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/tea-terraces-unity/unity-verify-report.txt"
+}
