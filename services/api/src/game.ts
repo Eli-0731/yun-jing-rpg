@@ -6,7 +6,12 @@ import { buildJournal, chapter } from './journal';
 import estateContent from '../../../packages/content/estate.json';
 import huntingContent from '../../../packages/content/hunting.json';
 import techniqueContent from '../../../packages/content/techniques.json';
-import { HuntDeath, HuntReceipt, HuntReward } from '../../../packages/contracts/types';
+import fortuneContent from '../../../packages/content/fortunes.json';
+import villageContent from '../../../packages/content/village.json';
+import waterlineContent from '../../../packages/content/waterline.json';
+import { AlchemyEvent, alchemyContent, judge, levelOf, modsFor, profileFor, simulate, validateLog, xpGain } from './alchemy';
+import { judge as judgeTea, simulate as simulateTea, TeaEvent, teaById, teaContent, validateLog as validateTeaLog } from './tea';
+import { AlchemyRecord, AlchemyState, AlchemyView, HuntDeath, HuntReceipt, HuntReward, TeaState, TeaView } from '../../../packages/contracts/types';
 
 export { content, estateContent, huntingContent, techniqueContent };
 export const SELECTION_DELAY_MS = 10 * 24 * 60 * 60 * 1000;
@@ -27,6 +32,56 @@ function settleStudy(player: Player, birth: Birth, now: number) {
   if (study.focus) study.since = Math.max(study.since ?? now, now);
   player.study = study;
 }
+export function teaOf(player: Player): TeaState {
+  player.tea ??= { brews: 0, best: {}, session: null, restBonus: null, history: [] };
+  return player.tea;
+}
+export function teaView(player: Player, now: number): TeaView {
+  const t = player.tea ?? { brews: 0, best: {}, session: null, restBonus: null, history: [] };
+  return {
+    taught: player.milestones.includes(teaContent.lessonMilestone), brews: t.brews, session: t.session,
+    restBonus: t.restBonus && t.restBonus.until > now ? t.restBonus : null, last: t.history[0] ?? null,
+    teas: teaContent.teas.map(x => ({ id: x.id, label: x.label, owned: owned(player, x.id), idealScoops: x.idealScoops, hint: x.hint, best: t.best[x.id] ?? null })),
+  };
+}
+export function alchemyOf(player: Player): AlchemyState {
+  player.alchemy ??= { xp: 0, identified: [], recipes: {}, perfect: [], session: null, history: [] };
+  return player.alchemy;
+}
+const owned = (player: Player, item: string) => player.inventory.filter(x => x.item === item).reduce((sum, x) => sum + x.quantity, 0);
+const sectPath = (player: Player) => content.sects.find(x => x.id === player.sect)?.path ?? null;
+const gradeRank = (grade: string) => alchemyContent.grades.findIndex(x => x.id === grade);
+const PREP_LABEL: Record<string, string> = { raw: '生用', ground: '研末', dried: '陰乾', 'ground+dried': '研末又陰乾', scorched: '焦乾' };
+const herbName = (id: string) => alchemyContent.herbs.find(x => x.id === id)?.label ?? (id === 'water' ? '注水' : id);
+// Plain text lines for clients that cannot read keyed records (Unity JsonUtility).
+function recordSummary(rec: AlchemyRecord) {
+  return [
+    '配比　' + Object.entries(rec.ratio).map(([k, v]) => herbName(k) + v).join('：'),
+    '處理　' + Object.entries(rec.prep).map(([k, v]) => herbName(k) + (PREP_LABEL[v] ?? v)).join('、'),
+    '順序　' + rec.order.map(herbName).join(' → '),
+    '注水　' + rec.water + ' 瓢',
+    '火候　' + rec.fire.join('，'),
+    '收丹　丹香起後 ' + rec.condense.join('–') + ' 息',
+    '最佳　' + (alchemyContent.grades.find(g => g.id === rec.bestGrade)?.label ?? rec.bestGrade) + '（' + rec.bestScore + ' 分），共煉 ' + rec.brews + ' 爐',
+  ];
+}
+export function alchemyView(player: Player): AlchemyView {
+  const a = player.alchemy ?? { xp: 0, identified: [], recipes: {}, perfect: [], session: null, history: [] };
+  const lv = levelOf(a.xp);
+  const unlocked = (m: { tier: number; level?: number; technique?: string }) => m.tier === 1 || lv.level >= (m.level ?? Infinity) || (!!m.technique && !!player.study?.mastered.includes(m.technique));
+  const manuals = alchemyContent.manuals.map(m => ({ tier: m.tier, label: m.label, requirement: m.requirement, unlocked: unlocked(m), hints: unlocked(m) ? m.hints : {},
+    lines: unlocked(m) ? alchemyContent.recipes.map(r => ({ recipe: r.id, lines: (m.hints as Record<string, string[]>)[r.id] ?? [] })) : [] }));
+  const profile = a.session ? profileFor(a.session.herbs) : null;
+  return {
+    level: lv.level, xp: a.xp, into: lv.into, need: lv.need, manualTier: Math.max(...manuals.filter(m => m.unlocked).map(m => m.tier)), manuals,
+    herbs: alchemyContent.herbs.map(h => { const known = a.identified.includes(h.id); return { id: h.id, label: h.label, identified: known, owned: owned(player, h.id), nature: known ? h.nature : null, use: known ? h.use : null, identifyHint: h.identifyHint }; }),
+    recipes: alchemyContent.recipes.map(r => { const rec = a.recipes[r.id] ?? null; return { id: r.id, label: rec ? r.label : '？', known: !!rec, effect: rec ? r.effect : null, record: rec, summary: rec ? recordSummary(rec) : [], quick: !!rec && gradeRank(rec.bestGrade) >= gradeRank(alchemyContent.mastery.minGrade) }; }),
+    fire: alchemyContent.fire, drying: { minSeconds: alchemyContent.drying.minSeconds, maxSeconds: alchemyContent.drying.maxSeconds }, grindStrokes: alchemyContent.grindStrokes,
+    maxHerbEach: alchemyContent.maxHerbEach, maxFuel: alchemyContent.maxFuel, fuel: owned(player, alchemyContent.fuelItem),
+    profile: profile && { recipe: profile.recipe, label: profile.label, phases: profile.phases },
+  };
+}
+export const TERRITORY_PLOTS = 2;
 export function estateOf(player: Player) { return player.estate ?? { cistern: false, bound: false, modes: ['rain','rain','rain','rain'] }; }
 export class GameError extends Error {
   constructor(public code: string, message: string, public status = 400) { super(message); }
@@ -82,6 +137,32 @@ function text(value: unknown, max = 100): string {
 const mark = (player: Player, milestone: string) => { if (!player.milestones.includes(milestone)) player.milestones.push(milestone); };
 const fingerprint = (action: Action) => hash(JSON.stringify(Object.fromEntries(Object.entries(action).sort(([a], [b]) => a.localeCompare(b)))));
 const uuid = (value: unknown): value is string => typeof value === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
+// 機緣 (hidden finds): every reward item must exist and ids must be unique.
+function validateFortuneContent() {
+  const ids = new Set<string>();
+  for (const fortune of fortuneContent.fortunes as { id: string; item?: string; quantity?: number }[]) {
+    ensure(!ids.has(fortune.id), 'FORTUNE_CONTENT', '機緣編號重複'); ids.add(fortune.id);
+    if (fortune.item) ensure(content.items.some(x => x.id === fortune.item) && Number.isInteger(fortune.quantity ?? 1) && (fortune.quantity ?? 1) > 0, 'FORTUNE_CONTENT', '機緣獎勵定義無效');
+  }
+}
+validateFortuneContent();
+// Village gathering nodes: every product must exist, ids unique, a positive regrow time.
+function validateVillageContent() {
+  ensure(Number.isInteger(villageContent.regrowSeconds) && villageContent.regrowSeconds > 0, 'VILLAGE_CONTENT', '採集再生時間無效');
+  const ids = new Set<string>();
+  for (const node of villageContent.nodes) {
+    ensure(!ids.has(node.id), 'VILLAGE_CONTENT', '採集點編號重複'); ids.add(node.id);
+    ensure(content.items.some(x => x.id === node.item), 'VILLAGE_CONTENT', '採集產物不存在');
+  }
+}
+validateVillageContent();
+function validateWaterlineContent() {
+  const ids = (list: { id: string }[]) => new Set(list.map(x => x.id)).size === list.length;
+  ensure(ids(waterlineContent.observations) && ids(waterlineContent.choices) && ids(waterlineContent.reports), 'WATERLINE_CONTENT', '斷流內容編號重複');
+  ensure(waterlineContent.minObservations >= 1 && waterlineContent.minObservations <= waterlineContent.observations.length, 'WATERLINE_CONTENT', '線索門檻無效');
+  for (const c of waterlineContent.choices) ensure(c.stone > 0 && c.channel > 0, 'WATERLINE_CONTENT', '導水方向的花費或成效無效');
+}
+validateWaterlineContent();
 function validateHuntingContent() {
   ensure(huntingContent.roomId === 'qingxi' && huntingContent.version.length > 0, 'HUNT_CONTENT', '狩獵內容版本或區域無效');
   ensure(huntingContent.maxParticipants >= 1 && huntingContent.maxParticipants <= 4 && huntingContent.eventMaxAgeSeconds > 0, 'HUNT_CONTENT', '狩獵人數或時間限制無效');
@@ -141,7 +222,7 @@ export class Game {
     if (birth && projected.study) settleStudy(projected, birth, this.now());
     if (hidden && projected.study) projected.study.progressMs = {};
     const publicPlayer={...projected,roots:hidden?null:[...player.roots],apertures:hidden?null:player.apertures};
-    return { player:publicPlayer, world, birth:hidden?null:birth, birthAssigned:!!birth, version, serverTime: this.now(), contentVersion: content.version, speed: this.speed, journal: buildJournal(player, birth) };
+    return { player:publicPlayer, world, birth:hidden?null:birth, birthAssigned:!!birth, version, serverTime: this.now(), contentVersion: content.version, speed: this.speed, journal: buildJournal(player, birth), alchemy: alchemyView(player), tea: teaView(player, this.now()) };
   }
   private async lock(tx: Sql, id: string) {
     // All gameplay mutations use this lock order. One shared prototype world, no client authority.
@@ -199,8 +280,12 @@ export class Game {
       player.cooldowns[key] = now + seconds * 1000;
     };
     const history = (label: string) => { world.history.push({ player: player.name, action: label, at: now }); world.history = world.history.slice(-30); };
-    if(player.journey && ['plant','build-cistern','configure-irrigation'].includes(action.kind))
-      ensure(player.journey.housing==='cave','CAVE_REQUIRED','入宗獲得洞府與靈田後才能使用；目前可採集、修煉或研究配方',409);
+    // Newcomers farm their own territory (the lent old house) from day one, on its two fields.
+    // The cistern, irrigation and the other two fields come with the sect residence.
+    if(player.journey && ['build-cistern','configure-irrigation'].includes(action.kind))
+      ensure(player.journey.housing==='cave','CAVE_REQUIRED','入宗後宗門分派的住處才有蓄水池與水路；新手領地可以先種兩塊田',409);
+    if(player.journey && player.journey.housing==='lodging' && action.kind==='plant')
+      ensure(integer(action.plot,0,3)<TERRITORY_PLOTS,'PLOT_LOCKED','新手領地只有兩塊靈田；入宗後住處有四塊',409);
     switch (action.kind) {
       case 'appraise': {
         ensure(player.journey,'LEGACY_ASSESSED','既有測試角色已沿用原本資質紀錄',409);
@@ -308,6 +393,56 @@ export class Game {
         mark(player, 'sold-hunt');
         break;
       }
+      case 'village-gather': {
+        // One herb per node; the node regrows for this character after regrowSeconds (server clock).
+        const node = villageContent.nodes.find(x => typeof action.node === 'string' && x.id === action.node);
+        ensure(node, 'INVALID_NODE', '未知採集點');
+        cooldown(`village:${node.id}`, villageContent.regrowSeconds);
+        grant(player, node.item, 1);
+        mark(player, 'gathered');
+        break;
+      }
+      case 'discover-fortune': {
+        // Each find is granted once per character; finding it again is harmless (no second reward).
+        const fortune = (fortuneContent.fortunes as { id: string; item?: string; quantity?: number }[]).find(x => typeof action.fortune === 'string' && x.id === action.fortune);
+        ensure(fortune, 'INVALID_FORTUNE', '未知的機緣');
+        player.fortunes ??= [];
+        if (!player.fortunes.includes(fortune.id)) {
+          player.fortunes.push(fortune.id);
+          if (fortune.item) grant(player, fortune.item, fortune.quantity ?? 1);
+          mark(player, 'fortune');
+        }
+        break;
+      }
+      // 斷流第一章: A's upstream clues, B's water routing, C's report to the village.
+      case 'observe-upstream': {
+        const id = text(action.observation);
+        ensure(waterlineContent.observations.some(x => x.id === id), 'INVALID_OBSERVATION', '未知的上游線索');
+        // Kept apart from the chapter clues: the old 'resolve' route counts those.
+        player.upstream ??= [];
+        if (!player.upstream.includes(id)) { player.upstream.push(id); mark(player, 'upstream-observed'); }
+        break;
+      }
+      case 'waterworks-commit': {
+        const choice = waterlineContent.choices.find(x => x.id === action.choice);
+        ensure(choice, 'INVALID_CHOICE', '未知的導水方向');
+        const seen = (player.upstream ?? []).length;
+        ensure(seen >= waterlineContent.minObservations, 'CLUE_REQUIRED', `先到上游找到至少 ${waterlineContent.minObservations} 處跡象`, 409);
+        ensure(!player.milestones.includes(`waterworks:${choice.id}`), 'ALREADY_BUILT', '這個方向你已經完成了', 409);
+        spend(player, 'stone', choice.stone);
+        world.channel = Math.min(world.required, world.channel + choice.channel);
+        if ('sanctuary' in choice && choice.sanctuary) world.sanctuary = true;
+        player.contribution++;
+        mark(player, `waterworks:${choice.id}`); mark(player, `outcome:${choice.outcome}`);
+        history(`導水：${choice.label}`); break;
+      }
+      case 'village-report': {
+        const report = waterlineContent.reports.find(x => x.id === action.report);
+        ensure(report, 'INVALID_REPORT', '未知的回報');
+        // Changing your mind is allowed; a report never grants anything.
+        if (player.waterReport !== report.id) { player.waterReport = report.id; mark(player, 'village-reported'); }
+        break;
+      }
       case 'investigate': {
         const clue = text(action.clue);
         ensure(chapter.clues.some(x => x.id === clue), 'INVALID_CLUE', '未知線索');
@@ -336,6 +471,7 @@ export class Game {
         ensure(plot, 'EMPTY_PLOT', '這塊田沒有作物', 409); ensure(plot.readyAt <= now, 'NOT_READY', '作物尚未成熟', 409);
         const crop = content.crops.find(x => x.id === plot.crop)!;
         grant(player, crop.item, plot.harvestYield ?? crop.yield, plot.bound); player.plots = player.plots.filter(x => x.index !== index);
+        player.vein = (player.vein ?? 0) + 1; // 脈息: hidden, revealed by the story later (docs/story/world-lore-v1.md §七)
         mark(player, 'harvested'); break;
       }
       case 'craft': {
@@ -413,6 +549,146 @@ export class Game {
         ensure(player.sect && (player.path === 'body' ? player.body : player.qi) >= 100, 'CULTIVATION_REQUIRED', '主修進度需達 100');
         ensure(player.clues.length === 3 && player.milestones.includes('project-reward') && player.milestones.some(x => x.startsWith('crafted:')), 'TRIAL_REQUIRED', '完成調查、煉製與共同工程成果後再來試煉');
         player.realm = 1; mark(player, 'first-breakthrough'); break;
+      }
+      case 'tea-lesson': {
+        ensure(!player.milestones.includes(teaContent.lessonMilestone), 'ALREADY_TAUGHT', '茶亭老人已經教過你泡茶了', 409);
+        for (const g of teaContent.lesson.grant) grant(player, g.item, g.quantity, true);
+        mark(player, teaContent.lessonMilestone); break;
+      }
+      case 'tea-begin': {
+        ensure(player.milestones.includes(teaContent.lessonMilestone), 'TEA_NOT_TAUGHT', '先到茶亭向老人學泡茶', 409);
+        const t = teaOf(player); ensure(!t.session, 'TEA_BUSY', '茶爐上已經有一壺水了', 409);
+        const tea = teaById(action.tea); ensure(tea, 'INVALID_TEA', '請選擇青溪野茶或梅花茶');
+        const scoops = integer(action.scoops, teaContent.minScoops, teaContent.maxScoops);
+        t.session = { tea: tea.id, scoops, bound: spend(player, tea.id, scoops).bound, startedAt: now }; break;
+      }
+      case 'tea-abandon': {
+        const t = teaOf(player); const s = t.session; ensure(s, 'NO_TEA', '茶爐上沒有在燒的水', 409);
+        grant(player, s.tea, s.scoops, s.bound); t.session = null; break;   // leaves never go to waste
+      }
+      case 'tea-finish': {
+        const t = teaOf(player); const s = t.session; ensure(s, 'NO_TEA', '茶爐上沒有在燒的水', 409);
+        const invalid = validateTeaLog(action.log); ensure(!invalid, 'INVALID_LOG', `泡茶紀錄不合法（${invalid}）`);
+        const log = action.log as TeaEvent[];
+        ensure(now - s.startedAt + 1500 >= log[log.length - 1].t * 100 / this.speed, 'LOG_TOO_FAST', '泡茶紀錄比實際經過時間更長', 409);
+        const tea = teaById(s.tea)!;
+        const out = judgeTea(simulateTea(log, tea, s.scoops), tea, s.scoops);
+        const brew = { at: now, tea: tea.id, scoops: s.scoops, result: out.result, label: out.label, score: out.score, brewTemp: out.brewTemp, steepSeconds: out.steepSeconds, describe: out.describe, reasons: out.reasons };
+        // Every cup is drunk: the rest bonus is a parameter for bed rest healing (not wired to healing yet).
+        t.restBonus = { multiplier: out.restMultiplier, until: now + teaContent.restBonusMinutes * 60_000 / this.speed };
+        t.brews++; if (out.result === 'good') t.best[tea.id] = Math.max(t.best[tea.id] ?? 0, out.score);
+        t.history.unshift(brew); t.history = t.history.slice(0, 10);
+        t.session = null; mark(player, 'tea:brewed'); if (out.result === 'good') mark(player, `tea:good:${tea.id}`); break;
+      }
+      case 'alchemy-identify': {
+        const a = alchemyOf(player); const herb = alchemyContent.herbs.find(x => x.id === action.item);
+        ensure(herb, 'INVALID_HERB', '這不是可辨識的藥材');
+        ensure(owned(player, herb.id) > 0, 'HERB_MISSING', `身上沒有${herb.label}，無從辨識`, 409);
+        ensure(!a.identified.includes(herb.id), 'ALREADY_IDENTIFIED', `${herb.label}已辨識`, 409);
+        a.identified.push(herb.id); mark(player, `identified:${herb.id}`); break;
+      }
+      case 'alchemy-begin': {
+        const a = alchemyOf(player);
+        ensure(!a.session, 'ALCHEMY_BUSY', a.session?.result ? '上一爐丹藥尚未裝瓶領取' : '丹爐中已有一爐進行中', 409);
+        ensure(Array.isArray(action.herbs) && action.herbs.length === alchemyContent.herbs.length, 'INVALID_HERBS', '請選擇青靈草與淨水蓮兩味藥材');
+        const rows = action.herbs as { item?: unknown; quantity?: unknown }[];
+        const herbs = alchemyContent.herbs.map(h => {
+          const row = rows.find(x => x && x.item === h.id); ensure(row, 'INVALID_HERBS', `缺少${h.label}`);
+          ensure(a.identified.includes(h.id), 'HERB_UNIDENTIFIED', `請先在藥櫃辨識${h.label}`, 409);
+          return { item: h.id, quantity: integer(row.quantity, 1, alchemyContent.maxHerbEach) };
+        });
+        const fuel = integer(action.fuel, 1, alchemyContent.maxFuel);
+        // Spend throws before any partial write survives: the whole transaction rolls back.
+        const locks = herbs.map(h => ({ ...h, bound: spend(player, h.item, h.quantity).bound }));
+        const fuelBound = spend(player, alchemyContent.fuelItem, fuel).bound;
+        a.session = { id: randomUUID(), recipe: profileFor(herbs).recipe, herbs: locks, fuel, fuelBound, startedAt: now, charged: false, result: null };
+        mark(player, 'alchemy:begun'); break;
+      }
+      case 'alchemy-charge': {
+        const s = alchemyOf(player).session;
+        ensure(s && !s.result, 'NO_BREW', '目前沒有進行中的一爐', 409);
+        s.charged = true; break;
+      }
+      case 'alchemy-abandon': {
+        const a = alchemyOf(player); const s = a.session;
+        ensure(s && !s.result, 'NO_BREW', '目前沒有進行中的一爐', 409);
+        if (!s.charged) { for (const h of s.herbs) grant(player, h.item, h.quantity, h.bound); grant(player, alchemyContent.fuelItem, s.fuel, s.fuelBound); }
+        else grant(player, alchemyContent.residueItem, 1, s.herbs.some(h => h.bound));
+        a.history.unshift({ at: now, recipe: s.recipe, label: s.charged ? '棄爐（材料已入爐）' : '取消（材料退回）', score: 0, quick: false, reasons: [] });
+        a.history = a.history.slice(0, 20); a.session = null; break;
+      }
+      case 'alchemy-finish': {
+        const a = alchemyOf(player); const s = a.session;
+        ensure(s && !s.result, 'NO_BREW', '目前沒有進行中的一爐', 409);
+        ensure(s.charged, 'NOT_CHARGED', '尚未投料入爐', 409);
+        const herbIds = s.herbs.map(h => h.item);
+        const invalid = validateLog(action.log, herbIds, s.fuel);
+        ensure(!invalid, 'INVALID_LOG', `煉丹紀錄不合法（${invalid}）`);
+        const log = action.log as AlchemyEvent[];
+        ensure(now - s.startedAt + 1500 >= log[log.length - 1].t * 100 / this.speed, 'LOG_TOO_FAST', '煉丹紀錄比實際經過時間更長', 409);
+        const profile = profileFor(s.herbs); const mods = modsFor(birth.tier, birth.roots, sectPath(player));
+        const sim = simulate(log, herbIds, profile, mods); const out = judge(sim, s.herbs, profile, mods);
+        const P = alchemyContent.proficiency; const talentXp = (alchemyContent.talents as Record<string, { xp: number }>)[birth.tier]?.xp ?? 1;
+        const recipe = alchemyContent.recipes.find(x => x.id === profile.recipe);
+        let gain = xpGain(out.success ? P.success : P.fail, a.xp, talentXp), first = false;
+        if (out.success && recipe) {
+          const rec = a.recipes[recipe.id]; first = !rec;
+          if (first) { gain += xpGain(P.firstUnlock, a.xp, talentXp); mark(player, `alchemy-recipe:${recipe.id}`); }
+          if (out.grade === 'ji' && !a.perfect.includes(recipe.id)) { a.perfect.push(recipe.id); gain += xpGain(P.firstPerfect, a.xp, talentXp); }
+          const better = !rec || out.score > rec.bestScore;
+          a.recipes[recipe.id] = better ? {
+            ratio: Object.fromEntries(s.herbs.map(h => [h.item, h.quantity])), prep: sim.prep, order: sim.order, water: sim.water,
+            fire: profile.phases.map(p => `${p.label} ${p.low}–${p.high}`), condense: recipe.condense.best,
+            bestGrade: out.grade!, bestScore: out.score, firstAt: rec?.firstAt ?? now, brews: (rec?.brews ?? 0) + 1,
+          } : { ...rec, brews: rec.brews + 1 };
+        }
+        a.xp += gain;
+        const fuelReturned = s.fuel - sim.fuelUsed;
+        if (fuelReturned > 0) grant(player, alchemyContent.fuelItem, fuelReturned, s.fuelBound);
+        const bound = s.herbs.some(h => h.bound) || s.fuelBound;
+        const total = s.herbs.reduce((sum, h) => sum + h.quantity, 0);
+        if (!out.success) grant(player, alchemyContent.residueItem, 1, bound);
+        s.result = {
+          ...out, output: out.success && recipe ? recipe.output : null, quantity: out.success ? Math.max(1, Math.floor(total / 3)) : 0, bound,
+          residue: out.success ? 0 : 1, firstUnlock: first, xpGain: gain, level: levelOf(a.xp).level, fuelUsed: sim.fuelUsed, fuelReturned,
+        };
+        a.history.unshift({ at: now, recipe: profile.recipe, label: `${profile.label}・${out.label}`, score: out.score, quick: false, reasons: out.reasons.slice(0, 4) });
+        a.history = a.history.slice(0, 20); mark(player, 'alchemy:finished'); break;
+      }
+      case 'alchemy-claim': {
+        const a = alchemyOf(player); const s = a.session;
+        ensure(s && s.result, 'NOTHING_TO_CLAIM', '沒有待裝瓶的丹藥', 409);
+        if (s.result.success && s.result.output) { grant(player, s.result.output, s.result.quantity, s.result.bound, s.result.potency); mark(player, `alchemy-crafted:${s.recipe}`); }
+        a.session = null; break;
+      }
+      case 'alchemy-quick': {
+        const a = alchemyOf(player);
+        ensure(!a.session, 'ALCHEMY_BUSY', '丹爐正在使用中', 409);
+        const recipe = alchemyContent.recipes.find(x => x.id === action.recipe); ensure(recipe, 'INVALID_RECIPE', '未知丹方');
+        const rec = a.recipes[recipe.id];
+        ensure(rec && gradeRank(rec.bestGrade) >= gradeRank(alchemyContent.mastery.minGrade), 'NOT_MASTERED', '需曾親手煉出良品以上才能快速煉製', 409);
+        let bound = false;
+        for (const [item, quantity] of Object.entries(recipe.ratio)) bound = spend(player, item, quantity).bound || bound;
+        bound = spend(player, alchemyContent.fuelItem, recipe.quick.fuel).bound || bound;
+        const P = alchemyContent.proficiency; const talentXp = (alchemyContent.talents as Record<string, { xp: number }>)[birth.tier]?.xp ?? 1;
+        const good = levelOf(a.xp).level >= alchemyContent.mastery.quickGoodLevel;
+        const grade = alchemyContent.grades.find(g => g.id === (good ? 'liang' : 'fan'))!;
+        grant(player, recipe.output, 1, bound, grade.potency);
+        a.xp += xpGain(P.quick, a.xp, talentXp); rec.brews++;
+        a.history.unshift({ at: now, recipe: recipe.id, label: `${recipe.label}・快速煉製・${grade.label}`, score: 0, quick: true, reasons: [] });
+        a.history = a.history.slice(0, 20); mark(player, `alchemy-crafted:${recipe.id}`); break;
+      }
+      case 'alchemy-use': {
+        ensure(action.item === 'huichun-pill' || action.item === 'juqi-pill', 'INVALID_PILL', '這不是可服用的丹藥');
+        // spend() reports the highest potency, so pick one stack of the requested grade explicitly.
+        const potency = action.potency === undefined || action.potency === 0 ? undefined : integer(action.potency, 1, 1000);
+        const stack = player.inventory.filter(x => x.item === action.item && x.quantity > 0 && (potency === undefined || x.potency === potency))
+          .sort((a, b) => b.potency - a.potency)[0];
+        ensure(stack, 'MATERIALS', '沒有這種丹藥');
+        stack.quantity--; player.inventory = player.inventory.filter(x => x.quantity > 0);
+        if (action.item === 'huichun-pill') player.body += Math.round(8 * stack.potency / 100);
+        else player.qi += Math.round(15 * stack.potency / 100);
+        mark(player, `took:${action.item}`); break;
       }
       default: throw new GameError('UNKNOWN_ACTION', '未知操作');
     }

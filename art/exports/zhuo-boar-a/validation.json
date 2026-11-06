@@ -1,0 +1,185 @@
+{
+ "failures": [],
+ "assets": {
+  "BR01_ZhuoBoar": {
+   "glb": {
+    "tris": {
+     "LOD0": 80092,
+     "LOD1": 39326,
+     "LOD2": 9816
+    },
+    "collision": true,
+    "bytes": 20107728,
+    "sizeXYZ": [
+     0.589,
+     1.596,
+     0.973
+    ],
+    "lowest": -0.0,
+    "bones": 25,
+    "actions": [
+     "Charge",
+     "Cleanse",
+     "Daze",
+     "Flee",
+     "Idle",
+     "Paw"
+    ]
+   },
+   "fbx": {
+    "tris": {
+     "LOD0": 80092,
+     "LOD1": 39326,
+     "LOD2": 9816
+    },
+    "collision": true,
+    "bytes": 19737068,
+    "sizeXYZ": [
+     0.589,
+     1.596,
+     0.973
+    ],
+    "lowest": -0.0,
+    "bones": 25,
+    "actions": [
+     "Charge",
+     "Cleanse",
+     "Daze",
+     "Flee",
+     "Idle",
+     "Paw"
+    ]
+   },
+   "health": {
+    "BR01_ZhuoBoar": {
+     "nonManifoldEdges": 48420,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    },
+    "BR01_ZhuoBoar_Collision": {
+     "nonManifoldEdges": 0,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    },
+    "BR01_ZhuoBoar_LOD1": {
+     "nonManifoldEdges": 22770,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    },
+    "BR01_ZhuoBoar_LOD2": {
+     "nonManifoldEdges": 4564,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    }
+   }
+  },
+  "BR02_YoungPine_A": {
+   "glb": {
+    "tris": {
+     "LOD0": 82158,
+     "LOD1": 41442,
+     "LOD2": 11346
+    },
+    "collision": true,
+    "bytes": 15987808,
+    "sizeXYZ": [
+     2.5,
+     2.399,
+     5.0
+    ],
+    "lowest": 0.0
+   },
+   "fbx": {
+    "tris": {
+     "LOD0": 82158,
+     "LOD1": 41442,
+     "LOD2": 11346
+    },
+    "collision": true,
+    "bytes": 12566700,
+    "sizeXYZ": [
+     2.5,
+     2.399,
+     5.0
+    ],
+    "lowest": -0.0
+   },
+   "health": {
+    "BR02_YoungPine_A": {
+     "nonManifoldEdges": 28314,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    },
+    "BR02_YoungPine_A_Collision": {
+     "nonManifoldEdges": 0,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    },
+    "BR02_YoungPine_A_LOD1": {
+     "nonManifoldEdges": 14520,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    },
+    "BR02_YoungPine_A_LOD2": {
+     "nonManifoldEdges": 3270,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    }
+   }
+  },
+  "BR02_YoungPine_B": {
+   "glb": {
+    "tris": {
+     "LOD0": 86747,
+     "LOD1": 43798,
+     "LOD2": 11992
+    },
+    "collision": true,
+    "bytes": 16629056,
+    "sizeXYZ": [
+     2.433,
+     2.493,
+     4.946
+    ],
+    "lowest": 0.0
+   },
+   "fbx": {
+    "tris": {
+     "LOD0": 86747,
+     "LOD1": 43798,
+     "LOD2": 11992
+    },
+    "collision": true,
+    "bytes": 13313180,
+    "sizeXYZ": [
+     2.433,
+     2.493,
+     4.946
+    ],
+    "lowest": -0.0
+   },
+   "health": {
+    "BR02_YoungPine_B": {
+     "nonManifoldEdges": 29991,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    },
+    "BR02_YoungPine_B_Collision": {
+     "nonManifoldEdges": 0,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    },
+    "BR02_YoungPine_B_LOD1": {
+     "nonManifoldEdges": 15420,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    },
+    "BR02_YoungPine_B_LOD2": {
+     "nonManifoldEdges": 3480,
+     "looseVerts": 0,
+     "zeroAreaFaces": 0
+    }
+   }
+  }
+ }
+}

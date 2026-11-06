@@ -1,0 +1,122 @@
+Unity 6000.0.82f1, pipeline URP
+PASS UP01_Debris: Albedo / MaskURP / Normal textures found
+PASS UP01_Gate: Albedo / MaskURP / Normal textures found
+PASS UP01_Plants: Albedo / MaskURP / Normal textures found
+PASS UP01_Weir: Albedo / MaskURP / Normal textures found
+PASS UP01: UP01_GroundOrigin is the model root (Unity names it UP01); all LOD meshes hang under it
+PASS UP01: imported size 13.733 x 3.881 x 3.477 m matches model_info 13.733 x 3.88 x 3.476
+PASS UP01: within the 14 x 4 x 3.5 m limit
+PASS UP01: base at y = 0.002 (origin on the ground)
+PASS UP01: triangles LOD0/1/2 = 317890 / 158943 / 47680 (50% / 15%), model_info 317890 / 158943 / 47680
+PASS UP01: 1 LODGroup(s) with 3 levels covering all 4 LOD0 renderers
+PASS UP01: UP01_Collision imported as MeshCollider (10772 triangles), render hidden
+PASS UP01: UP01_Collision 13.73 x 3.87 x 3.47 m stays within the model
+PASS UP01: UP01_Collision_Debris imported as MeshCollider (2168 triangles), render hidden
+PASS UP01: UP01_Collision_Debris 1.69 x 3.38 x 2.09 m stays within the model
+PASS UP01: UP01_Collision_Gate imported as MeshCollider (232 triangles), render hidden
+PASS UP01: UP01_Collision_Gate 1.47 x 0.11 x 1.59 m stays within the model
+INFO Blender front (-Y, downstream face) imports as Unity -Z
+PASS UP01 crest: a 1.75 m player (r 0.3) stands on the downstream walk at 21/21 points from x -5 to 5 m (the bank rocks close the ends), over the outlet bridge too
+PASS UP01 sluice: blocked by UP01_Collision_Debris; with Debris off the outlet runs to the gate
+PASS UP01: gate LOD0/1/2 and UP01_Collision_Gate share one origin at the frame top (3.11 m)
+PASS UP01: gate raised 1.2 m spans 1.46-3.05 m, under the frame top 3.11 m; the outlet is open at 0.6 m
+PASS UP02_01_Gravel: Albedo / MaskURP / Normal textures found
+PASS UP02_01_Plants: Albedo / MaskURP / Normal textures found
+PASS UP02_01_Stone: Albedo / MaskURP / Normal / Emission textures found
+PASS UP02_01: UP02_01_GroundOrigin is the model root (Unity names it UP02_01); all LOD meshes hang under it
+PASS UP02_01: imported size 0.892 x 0.668 x 0.569 m matches model_info 0.892 x 0.668 x 0.569
+PASS UP02_01: within the 0.9 x 0.7 x 0.6 m limit
+PASS UP02_01: base at y = 0.000 (origin on the ground)
+PASS UP02_01: triangles LOD0/1/2 = 79054 / 39526 / 11856 (50% / 15%), model_info 79054 / 39526 / 11856
+PASS UP02_01: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS UP02_01: UP02_01_Collision imported as MeshCollider (1028 triangles), render hidden
+PASS UP02_01: UP02_01_Collision 0.68 x 0.51 x 0.56 m stays within the model
+PASS UP02_01: crack glow is an emissive material (UP02_01_Stone)
+PASS UP02_01: _Warmth maps Albedo_Warm and WarmthMask imported
+PASS UP02_02_Gravel: Albedo / MaskURP / Normal textures found
+PASS UP02_02_Plants: Albedo / MaskURP / Normal textures found
+PASS UP02_02_Stone: Albedo / MaskURP / Normal / Emission textures found
+PASS UP02_02: UP02_02_GroundOrigin is the model root (Unity names it UP02_02); all LOD meshes hang under it
+PASS UP02_02: imported size 0.699 x 0.628 x 0.504 m matches model_info 0.699 x 0.628 x 0.504
+PASS UP02_02: within the 0.9 x 0.7 x 0.6 m limit
+PASS UP02_02: base at y = 0.000 (origin on the ground)
+PASS UP02_02: triangles LOD0/1/2 = 72045 / 36021 / 10803 (50% / 15%), model_info 72045 / 36021 / 10803
+PASS UP02_02: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS UP02_02: crack glow is an emissive material (UP02_02_Stone)
+PASS UP02_02: _Warmth maps Albedo_Warm and WarmthMask imported
+PASS UP02_03_Gravel: Albedo / MaskURP / Normal textures found
+PASS UP02_03_Plants: Albedo / MaskURP / Normal textures found
+PASS UP02_03_Stone: Albedo / MaskURP / Normal / Emission textures found
+PASS UP02_03: UP02_03_GroundOrigin is the model root (Unity names it UP02_03); all LOD meshes hang under it
+PASS UP02_03: imported size 0.613 x 0.567 x 0.167 m matches model_info 0.613 x 0.567 x 0.167
+PASS UP02_03: within the 0.9 x 0.7 x 0.6 m limit
+PASS UP02_03: base at y = 0.000 (origin on the ground)
+PASS UP02_03: triangles LOD0/1/2 = 71456 / 35725 / 10716 (50% / 15%), model_info 71456 / 35725 / 10716
+PASS UP02_03: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS UP02_03: crack glow is an emissive material (UP02_03_Stone)
+PASS UP02_03: _Warmth maps Albedo_Warm and WarmthMask imported
+PASS UP03_Gravel: Albedo / MaskURP / Normal textures found
+PASS UP03_Plants: Albedo / MaskURP / Normal textures found
+PASS UP03_Stone: Albedo / MaskURP / Normal textures found
+PASS UP03: UP03_GroundOrigin is the model root (Unity names it UP03); all LOD meshes hang under it
+PASS UP03: imported size 0.480 x 0.392 x 1.338 m matches model_info 0.48 x 0.392 x 1.338
+PASS UP03: within the 0.5 x 0.4 x 1.4 m limit
+PASS UP03: base at y = 0.000 (origin on the ground)
+PASS UP03: triangles LOD0/1/2 = 76092 / 38044 / 11411 (50% / 15%), model_info 76092 / 38044 / 11411
+PASS UP03: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS UP03: UP03_Collision imported as MeshCollider (12 triangles), render hidden
+PASS UP03: UP03_Collision 0.34 x 0.29 x 1.33 m stays within the model
+PASS UP04_Charcoal: Albedo / MaskURP / Normal textures found
+PASS UP04_Drawing: Albedo / MaskURP / Normal textures found
+PASS UP04_Gravel: Albedo / MaskURP / Normal textures found
+PASS UP04_Plants: Albedo / MaskURP / Normal textures found
+PASS UP04_Stone: Albedo / MaskURP / Normal textures found
+PASS UP04: UP04_GroundOrigin is the model root (Unity names it UP04); all LOD meshes hang under it
+PASS UP04: imported size 1.398 x 0.996 x 0.314 m matches model_info 1.398 x 0.996 x 0.314
+PASS UP04: within the 1.4 x 1 x 0.35 m limit
+PASS UP04: base at y = 0.000 (origin on the ground)
+PASS UP04: triangles LOD0/1/2 = 27885 / 13940 / 4181 (50% / 15%), model_info 27885 / 13940 / 4181
+PASS UP04: 1 LODGroup(s) with 3 levels covering all 5 LOD0 renderers
+PASS UP04: UP04_Collision imported as MeshCollider (642 triangles), render hidden
+PASS UP04: UP04_Collision 1.27 x 0.91 x 0.29 m stays within the model
+PASS UP04: the top can be stood on (collider top 0.29 m)
+PASS UP05_CushionNew_Cushion: Albedo / MaskURP / Normal textures found
+PASS UP05_CushionNew: UP05_CushionNew_GroundOrigin is the model root (Unity names it UP05_CushionNew); all LOD meshes hang under it
+PASS UP05_CushionNew: imported size 0.525 x 0.525 x 0.116 m matches model_info 0.525 x 0.525 x 0.116
+PASS UP05_CushionNew: within the 0.55 x 0.55 x 0.12 m limit
+PASS UP05_CushionNew: base at y = 0.000 (origin on the ground)
+PASS UP05_CushionNew: triangles LOD0/1/2 = 57119 / 28558 / 8566 (50% / 15%), model_info 57119 / 28558 / 8566
+PASS UP05_CushionNew: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS UP05_CushionOld_Cushion: Albedo / MaskURP / Normal textures found
+PASS UP05_CushionOld: UP05_CushionOld_GroundOrigin is the model root (Unity names it UP05_CushionOld); all LOD meshes hang under it
+PASS UP05_CushionOld: imported size 0.495 x 0.495 x 0.086 m matches model_info 0.495 x 0.495 x 0.086
+PASS UP05_CushionOld: within the 0.55 x 0.55 x 0.12 m limit
+PASS UP05_CushionOld: base at y = 0.000 (origin on the ground)
+PASS UP05_CushionOld: triangles LOD0/1/2 = 47370 / 23684 / 7104 (50% / 15%), model_info 47370 / 23684 / 7104
+PASS UP05_CushionOld: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS UP05_Table_Table: Albedo / MaskURP / Normal textures found
+PASS UP05_Table: UP05_Table_GroundOrigin is the model root (Unity names it UP05_Table); all LOD meshes hang under it
+PASS UP05_Table: imported size 0.800 x 0.450 x 0.300 m matches model_info 0.8 x 0.45 x 0.3
+PASS UP05_Table: within the 0.8 x 0.45 x 0.3 m limit
+PASS UP05_Table: base at y = 0.000 (origin on the ground)
+PASS UP05_Table: triangles LOD0/1/2 = 2748 / 1374 / 412 (50% / 15%), model_info 2748 / 1374 / 412
+PASS UP05_Table: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS UP05_Table: UP05_Table_Collision imported as MeshCollider (12 triangles), render hidden
+PASS UP05_Table: UP05_Table_Collision 0.80 x 0.45 x 0.30 m stays within the model
+PASS UP05_Burner_Burner: Albedo / MaskURP / Normal textures found
+PASS UP05_Burner: UP05_Burner_GroundOrigin is the model root (Unity names it UP05_Burner); all LOD meshes hang under it
+PASS UP05_Burner: imported size 0.150 x 0.135 x 0.120 m matches model_info 0.149584 x 0.134958 x 0.12
+PASS UP05_Burner: within the 0.15 x 0.15 x 0.12 m limit
+PASS UP05_Burner: base at y = 0.000 (origin on the ground)
+PASS UP05_Burner: triangles LOD0/1/2 = 11268 / 5634 / 1696 (50% / 15%), model_info 11268 / 5634 / 1696
+PASS UP05_Burner: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS UP06_Frame: Albedo / MaskURP / Normal textures found
+PASS UP06_Lamp: Albedo / MaskURP / Normal / Emission textures found
+PASS UP06: UP06_GroundOrigin is the model root (Unity names it UP06); all LOD meshes hang under it
+PASS UP06: imported size 0.211 x 0.152 x 0.884 m matches model_info 0.211 x 0.152 x 0.883
+PASS UP06: within the 0.3 x 0.3 x 0.9 m limit
+PASS UP06: base at y = 0.000 (origin on the ground)
+PASS UP06: triangles LOD0/1/2 = 30450 / 15224 / 4567 (50% / 15%), model_info 30450 / 15224 / 4567
+PASS UP06: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS UP06: paper shade is an emissive material (UP06_Lamp)
+INFO renders written to art/previews/qingxi-day34-c/unity

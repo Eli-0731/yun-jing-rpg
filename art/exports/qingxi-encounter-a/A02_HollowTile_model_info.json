@@ -1,0 +1,90 @@
+{
+ "id": "A02",
+ "name": "HollowTile",
+ "key": "A02_HollowTile",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.6,
+ "dimensions_m": [
+  6.3926,
+  6.4342,
+  1.0616
+ ],
+ "triangles": 19996,
+ "lod_triangles": [
+  19996,
+  11480,
+  5967
+ ],
+ "collision": {
+  "type": "mesh",
+  "note": "walkable bowl; burrow mouth is a non-walkable trigger (rabbit spawn) at local (0, 1.75); exit ramp on -Y"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A02",
+  "key": "A02_HollowTile",
+  "dimensions_m": [
+   6.3926,
+   6.4342,
+   1.0616
+  ],
+  "bbox_min": [
+   -3.1798,
+   -3.1973,
+   0.0
+  ],
+  "bbox_max": [
+   3.2128,
+   3.2369,
+   1.0616
+  ],
+  "trianglesLOD": [
+   19996,
+   11480,
+   5967
+  ],
+  "budgetLOD0": 21000,
+  "withinBudget": true,
+  "materials": [
+   "M_A02_HollowTile"
+  ],
+  "textureResolution": 2048,
+  "doubleSided": true,
+  "nodes": [
+   "A02_HollowTile_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 9240,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 19996,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A02_HollowTile.001"
+   ]
+  },
+  "files": {
+   "A02_HollowTile.glb": {
+    "bytes": 2445460,
+    "sha256": "d235e529bec71cbe1ef73ff5e28de6f8eb99ec6ec06afe9b2afc22e5e479eb02"
+   },
+   "A02_HollowTile.fbx": {
+    "bytes": 2381436,
+    "sha256": "32ff1c5e49f52318d5231caca655f54b27af172592ad7c277d52eb5be58e62e0"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A02_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

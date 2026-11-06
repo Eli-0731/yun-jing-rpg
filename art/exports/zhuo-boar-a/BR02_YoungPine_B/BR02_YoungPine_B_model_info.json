@@ -1,0 +1,55 @@
+{
+ "id": "BR02",
+ "name": "BR02_YoungPine_B",
+ "version": "v001",
+ "unit": "metre, 1 unit = 1 m",
+ "origin": "at the root, lowest vertex at z = 0, no ground plate; the pivot is what the game rotates",
+ "sizeM": {
+  "width": 2.433,
+  "depth": 2.493,
+  "height": 4.946,
+  "trunkDiameterAtGround": 0.3,
+  "trunkDiameter": 0.25
+ },
+ "limitM": {
+  "width": 2.5,
+  "depth": 2.5,
+  "height": 5.0,
+  "trunkDiameter": 0.25
+ },
+ "tris": {
+  "LOD0": 86747,
+  "LOD1": 43798,
+  "LOD2": 11992
+ },
+ "collision": {
+  "name": "BR02_YoungPine_B_Collision",
+  "kind": "convex cylinder",
+  "diameterM": 0.35,
+  "heightM": 2.0,
+  "tris": 52
+ },
+ "material": {
+  "name": "M_BR02_YoungPine_B",
+  "textures": [
+   "textures/T_BR02_YoungPine_B_BaseColor.png",
+   "textures/T_BR02_YoungPine_B_ORM.png",
+   "textures/T_BR02_YoungPine_B_Normal.png",
+   "textures/T_BR02_YoungPine_B_Mask.png"
+  ],
+  "atlas": 1536,
+  "unityShader": "YunJing/QingxiZhuoBoar",
+  "vertexColour": "needle colour, multiplied onto a neutral swatch"
+ },
+ "state": {
+  "_Scar": {
+   "range": [
+    0,
+    1
+   ],
+   "meaning": "0 = whole bark, 1 = pale scraped patch near the base",
+   "mask": "Mask B"
+  },
+  "lean": "rotate the object about its origin; the game leans it 8 degrees"
+ }
+}

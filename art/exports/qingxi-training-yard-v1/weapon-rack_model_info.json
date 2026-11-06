@@ -1,0 +1,95 @@
+{
+ "id": "weapon-rack",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  1.9,
+  0.65,
+  1.65
+ ],
+ "triangles": 2688,
+ "lod_triangles": [
+  2688,
+  1344,
+  591
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   1.8,
+   0.4,
+   1.65
+  ],
+  "center": [
+   0,
+   0,
+   0.825
+  ]
+ },
+ "pivots": {},
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "weapon-rack",
+  "dimensions_m": [
+   1.9,
+   0.65,
+   1.65
+  ],
+  "bbox_min": [
+   -0.95,
+   -0.325,
+   0.0
+  ],
+  "bbox_max": [
+   0.95,
+   0.325,
+   1.65
+  ],
+  "trianglesLOD": [
+   2688,
+   1344,
+   591
+  ],
+  "budgetLOD0": 5000,
+  "withinBudget": true,
+  "materials": [
+   "M_weapon-rack"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "weapon-rack_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 608,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 2688,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_weapon-rack.001"
+   ]
+  },
+  "files": {
+   "weapon-rack.glb": {
+    "bytes": 348100,
+    "sha256": "7c7b340ab85e8a546c036412e1a932c2795912851030fdac7f5c542d5bb2da69"
+   },
+   "weapon-rack.fbx": {
+    "bytes": 268892,
+    "sha256": "1e90bb3001dec2f7f0a2abc7ac63488723deee1126c04f12c0328fd6a16c28af"
+   }
+  },
+  "reference": "art/references/qingxi-training-yard-v1/weapon-rack-three-view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

@@ -1,0 +1,176 @@
+{
+  "asset": "TE03_Path",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -2.0,
+          -0.583,
+          0.0
+        ],
+        "max": [
+          2.0,
+          0.5834,
+          0.1749
+        ],
+        "limit_m": [
+          4.0,
+          1.2,
+          0.4
+        ],
+        "note": "footprint centred on the origin; height includes grass on the tread"
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "largest_clamp_m": 0.09099
+      }
+    },
+    {
+      "check": "path_ends_share_one_cross_section_2mm",
+      "pass": true,
+      "detail": {
+        "left_z": [
+          0.0079,
+          0.0112,
+          0.0088,
+          0.0064,
+          0.0053,
+          0.0053,
+          0.0064,
+          0.0088,
+          0.0112,
+          0.0079
+        ],
+        "right_z": [
+          0.0079,
+          0.0112,
+          0.0088,
+          0.0064,
+          0.0053,
+          0.0052,
+          0.0064,
+          0.0088,
+          0.0112,
+          0.0079
+        ],
+        "max_diff_m": 0.0001
+      }
+    },
+    {
+      "check": "path_surface_1_to_3cm_above_soil",
+      "pass": true,
+      "detail": {
+        "centre_line_z": [
+          0.0042,
+          0.0036,
+          0.006,
+          0.0057
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 8348,
+          "LOD1": 4174,
+          "LOD2": 1250
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 2284,
+            "LOD1": 1142,
+            "LOD2": 341
+          },
+          "Detail_Small": {
+            "LOD0": 6064,
+            "LOD1": 3032,
+            "LOD2": 909
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          4.0,
+          1.1664,
+          0.1749
+        ],
+        "blend_dims_m": [
+          4.0,
+          1.1664,
+          0.1749
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_Left.001",
+        "Socket_Right.001",
+        "TE03_Path.001",
+        "TE03_Path_Collision.001",
+        "TE03_Path_Detail_Small_LOD0.001",
+        "TE03_Path_Detail_Small_LOD1.001",
+        "TE03_Path_Detail_Small_LOD2.001",
+        "TE03_Path_LOD0.001",
+        "TE03_Path_LOD1.001",
+        "TE03_Path_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Left.001": [
+          -2.0,
+          0.0,
+          0.0
+        ],
+        "Socket_Right.001": [
+          2.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 1508828
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 110,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

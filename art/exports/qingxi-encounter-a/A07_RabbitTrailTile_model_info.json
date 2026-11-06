@@ -1,0 +1,90 @@
+{
+ "id": "A07",
+ "name": "RabbitTrailTile",
+ "key": "A07_RabbitTrailTile",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.0,
+ "dimensions_m": [
+  2.0833,
+  4.0849,
+  0.451
+ ],
+ "triangles": 9100,
+ "lod_triangles": [
+  9100,
+  4964,
+  2184
+ ],
+ "collision": {
+  "type": "heightfield",
+  "note": "flat walkable tile, top 0.15 m (place origin at -0.15); the paw-print run is the A07 tell"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A07",
+  "key": "A07_RabbitTrailTile",
+  "dimensions_m": [
+   2.0833,
+   4.0849,
+   0.451
+  ],
+  "bbox_min": [
+   -1.0418,
+   -2.0436,
+   0.0
+  ],
+  "bbox_max": [
+   1.0415,
+   2.0413,
+   0.451
+  ],
+  "trianglesLOD": [
+   9100,
+   4964,
+   2184
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": false,
+  "materials": [
+   "M_A07_RabbitTrailTile"
+  ],
+  "textureResolution": 1024,
+  "doubleSided": true,
+  "nodes": [
+   "A07_RabbitTrailTile_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 2490,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 9100,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A07_RabbitTrailTile.001"
+   ]
+  },
+  "files": {
+   "A07_RabbitTrailTile.glb": {
+    "bytes": 854868,
+    "sha256": "1c39cc9971b4f214e3eb37ff2120d67402086ca5f3e0f8e9e08ce83269a07afb"
+   },
+   "A07_RabbitTrailTile.fbx": {
+    "bytes": 1017772,
+    "sha256": "b75464eef19f05990e1ec3ddf49baede011917415a61516c6723a2342a3cb964"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A07_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

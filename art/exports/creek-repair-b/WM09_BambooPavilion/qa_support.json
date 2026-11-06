@@ -1,0 +1,330 @@
+{
+ "asset": "WM09_BambooPavilion_v001",
+ "pieces": 1173,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "WM09_BambooPavilion_Detail_Small",
+   "verts": 1383,
+   "centre": [
+    0.002,
+    1.289,
+    0.305
+   ],
+   "size": [
+    0.254,
+    0.254,
+    0.097
+   ],
+   "gap_mm": 5.6,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 53.6
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Small",
+   "verts": 1383,
+   "centre": [
+    1.125,
+    0.649,
+    0.305
+   ],
+   "size": [
+    0.254,
+    0.254,
+    0.097
+   ],
+   "gap_mm": 5.5,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 53.3
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Small",
+   "verts": 1383,
+   "centre": [
+    -1.124,
+    -0.644,
+    0.305
+   ],
+   "size": [
+    0.254,
+    0.254,
+    0.097
+   ],
+   "gap_mm": 5.4,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 49.4
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Vines",
+   "verts": 26,
+   "centre": [
+    0.112,
+    0.039,
+    3.703
+   ],
+   "size": [
+    0.055,
+    0.091,
+    0.016
+   ],
+   "gap_mm": 5.3,
+   "nearest": "WM09_BambooPavilion_Detail_Vines",
+   "drop_mm": 11.1
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Small",
+   "verts": 11,
+   "centre": [
+    -0.749,
+    1.016,
+    0.206
+   ],
+   "size": [
+    0.024,
+    0.028,
+    0.001
+   ],
+   "gap_mm": 4.8,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 4.8
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    -1.404,
+    -0.378,
+    2.377
+   ],
+   "size": [
+    0.127,
+    0.05,
+    0.189
+   ],
+   "gap_mm": 4.6,
+   "nearest": "WM09_BambooPavilion_Detail_Straw",
+   "drop_mm": 6.0
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    -1.391,
+    -0.081,
+    2.52
+   ],
+   "size": [
+    0.096,
+    0.033,
+    0.139
+   ],
+   "gap_mm": 4.1,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 4.7
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    -1.107,
+    0.997,
+    2.369
+   ],
+   "size": [
+    0.131,
+    0.12,
+    0.225
+   ],
+   "gap_mm": 3.8,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 25.3
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    1.429,
+    0.356,
+    2.389
+   ],
+   "size": [
+    0.167,
+    0.056,
+    0.252
+   ],
+   "gap_mm": 3.4,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 29.5
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Small",
+   "verts": 12,
+   "centre": [
+    -1.34,
+    -0.196,
+    0.213
+   ],
+   "size": [
+    0.022,
+    0.044,
+    0.001
+   ],
+   "gap_mm": 3.1,
+   "nearest": "WM09_BambooPavilion_Detail_Small",
+   "drop_mm": 3.1
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    -1.416,
+    0.262,
+    2.429
+   ],
+   "size": [
+    0.148,
+    0.041,
+    0.203
+   ],
+   "gap_mm": 3.0,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 22.3
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Small",
+   "verts": 11,
+   "centre": [
+    -0.819,
+    0.449,
+    0.228
+   ],
+   "size": [
+    0.041,
+    0.048,
+    0.001
+   ],
+   "gap_mm": 2.7,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 8.5
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    -0.634,
+    -1.245,
+    2.489
+   ],
+   "size": [
+    0.077,
+    0.123,
+    0.234
+   ],
+   "gap_mm": 2.4,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 12.6
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    -0.562,
+    -1.309,
+    2.448
+   ],
+   "size": [
+    0.085,
+    0.162,
+    0.235
+   ],
+   "gap_mm": 2.4,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 11.4
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    1.398,
+    -0.421,
+    2.358
+   ],
+   "size": [
+    0.107,
+    0.047,
+    0.192
+   ],
+   "gap_mm": 2.4,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 2.8
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    -1.413,
+    0.735,
+    2.316
+   ],
+   "size": [
+    0.155,
+    0.091,
+    0.276
+   ],
+   "gap_mm": 2.2,
+   "nearest": "WM09_BambooPavilion_Detail_Small",
+   "drop_mm": 24.1
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    -0.059,
+    1.57,
+    2.333
+   ],
+   "size": [
+    0.019,
+    0.134,
+    0.233
+   ],
+   "gap_mm": 2.0,
+   "nearest": "WM09_BambooPavilion_Detail_Small",
+   "drop_mm": 5.5
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    -1.399,
+    0.681,
+    2.351
+   ],
+   "size": [
+    0.124,
+    0.073,
+    0.194
+   ],
+   "gap_mm": 2.0,
+   "nearest": "WM09_BambooPavilion_Detail_Straw",
+   "drop_mm": 2.5
+  },
+  {
+   "object": "WM09_BambooPavilion_Detail_Straw",
+   "verts": 6,
+   "centre": [
+    0.381,
+    -1.384,
+    2.418
+   ],
+   "size": [
+    0.05,
+    0.117,
+    0.173
+   ],
+   "gap_mm": 2.0,
+   "nearest": "WM09_BambooPavilion",
+   "drop_mm": 19.4
+  }
+ ]
+}

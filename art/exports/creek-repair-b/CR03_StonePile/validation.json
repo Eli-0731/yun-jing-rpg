@@ -1,0 +1,129 @@
+{
+  "asset": "CR03_StonePile",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        0.9725,
+        0.989,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.0,
+          -0.75,
+          -0.0
+        ],
+        "max": [
+          1.0,
+          0.75,
+          0.9706
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          2.0,
+          1.5,
+          0.9706
+        ],
+        "limit_m": [
+          2.0,
+          1.5,
+          1.0
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 56124,
+          "LOD1": 28062,
+          "LOD2": 8416
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Stage_Low": {
+            "LOD0": 9828,
+            "LOD1": 4914,
+            "LOD2": 1474
+          },
+          "Stage_Mid": {
+            "LOD0": 18916,
+            "LOD1": 9458,
+            "LOD2": 2836
+          },
+          "Stage_High": {
+            "LOD0": 27380,
+            "LOD1": 13690,
+            "LOD2": 4106
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          2.0,
+          1.5,
+          0.9706
+        ],
+        "blend_dims_m": [
+          2.0,
+          1.5,
+          0.9706
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR03_StonePile.001",
+        "CR03_StonePile_Collision.001",
+        "CR03_StonePile_Stage_High_LOD0.001",
+        "CR03_StonePile_Stage_High_LOD1.001",
+        "CR03_StonePile_Stage_High_LOD2.001",
+        "CR03_StonePile_Stage_Low_LOD0.001",
+        "CR03_StonePile_Stage_Low_LOD1.001",
+        "CR03_StonePile_Stage_Low_LOD2.001",
+        "CR03_StonePile_Stage_Mid_LOD0.001",
+        "CR03_StonePile_Stage_Mid_LOD1.001",
+        "CR03_StonePile_Stage_Mid_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 204,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

@@ -1,0 +1,19 @@
+# UP03 三視圖提示詞與取捨
+
+工具：Codex CLI 內建圖像生成（OpenAI），2026-11-01。seed：工具沒有回報。
+用法：工作包提示詞原文＋風格指南 5.2 固定風格段＋5.3 固定負面提示（此工具沒有負面欄，照 5.3 接在最後並加 "Avoid:"）。同一段提示詞獨立生成 4 張。
+
+選用：UP03-cand-3.png
+理由：刻痕長短、深淺、間距不一，每道旁一個小圓點，最上面一道旁有小波浪記號；石樁頂角缺一塊、地衣斑點、遠高於地面的一圈深色舊水漬都對。1 號底部外擴像樹根；2、4 號刻痕太整齊像尺。
+建模時的差異：最低一道刻在離地 0.55 m，比現在的水面高很多；刻痕是模型凹槽，苔長在槽裡。沒有任何字或數字。
+沒選的：UP03-cand-1.png, UP03-cand-2.png, UP03-cand-4.png（保留，看得出取捨）
+
+第二輪（2026-11-02，使用者要求打磨細節）：用 Codex CLI 的 GPT-6-Astra（推理 xhigh）以同一段提示詞原文重新獨立生成 4 張，再以選定圖為參考生成轉面圖／細節圖並寫建模清單，全部存在 v2/。Codex 中途用量到上限，UP01、UP04 沒有轉面圖，UP01、UP04、UP05 沒有 details.md，這三件照細節圖自己比對。
+第二輪選用：UP03-v2-cand-2.png（v2 轉面圖、細節圖、details.md）
+第二輪改了什麼：前左長條崩稜（四組崩片）、頂冠崩口、柱腳崩面；各面裂縫系統；八道刻槽與八個圓點、波浪記號移到最高一道上方；舊水痕改在 0.80–0.96 m 並往下流；柱腳改成有稜角的石塊。尺寸照上限 0.5 × 0.4，柱身 0.34 × 0.29（details.md 寫 0.40 見方會超過深度上限）。
+
+## 提示詞（原文，一字未改）
+
+Three-view orthographic turnaround sheet of an old square stone post standing on a creek bank, about 0.4 m wide and 1.4 m tall, made of weathered warm-grey granite, with six to eight horizontal carved lines of different depths marking past water levels and small carved dots beside them (no letters, no numbers, no text), a tiny carved wave sign beside the highest line, showing moss growing inside the grooves, a dark old waterline stain far above the ground, lichen spots, a chipped corner, used on the bank of a creek that has nearly stopped flowing in a mountain valley. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

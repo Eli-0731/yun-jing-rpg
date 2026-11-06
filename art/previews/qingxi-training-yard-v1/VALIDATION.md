@@ -1,31 +1,42 @@
-# 2026-10-27 演武區交付驗證
+# 2026-10-28 演武區重做：驗證紀錄
 
-驗證基準：`feature/qingxi-training-yard-v1` 最初建於 main `b2a57673751057ff6c31538d72a73898c350e7d6`，提交前已同步至 main `8a78796954e99eb7c3116e219fc2cd40bf634413`。作者／Git 提交身分為 Johnnnny0823 `<johnsnow94823@gmail.com>`；Codex 執行建模、網頁展示與檢查。六件 AI 三視圖保存於 `art/references/qingxi-training-yard-v1/`，使用者授權先建模，但手機端仍待目視審閱。這是自製資產候選版，不宣稱已達《鳴潮》正式美術審核品質。
+分支 `feature/qingxi-training-yard-v2`，從 main `ebe57d4` 建立。PR #32（Codex 版）已合併但被使用者退回，本次在同一組目錄重做。作者：Johnnnny0823（委託、方向）；Claude Code（Claude Opus 5.5）建模、烘焙、展示、驗證。
 
-## Blender 與匯出
+## 模型（Blender 5.2.2 實跑）
 
-- 使用 Blender 5.2.2，`build_yard.py` 在獨立背景程序建立六 Collection、可編輯母檔和 Base Color／Roughness／Normal 圖。
-- `review_yard.py` 對六 Collection 跑 `blender-asset-qa` 的 game profile：六件 `pass=true`，沒有錯誤。詳細輸出見 `qa-report.json`。共享平鋪 UV 和圓柱端蓋 n-gon 有警告，未做逐件光照烘焙。
-- `export_yard.py` 套用修改器，逐件匯出一個 GLB，再清空場景逐件匯回；六件均有網格、UV、材質、尺寸與匯出三角面數一致。詳細資料見 `../../exports/qingxi-training-yard-v1/asset-manifest.json`。
-- 匯出三角面數：演武棚 39,236；氣勁木樁 14,156；身法木樁 6,492；兵器架 4,032；刻紋練功石 3,532；練功旗 9,012。合計 76,460。遊戲版每件一個合併網格；母檔保留可編輯分件。
-- 演武棚入口坡道寬 3.40 m、台基高 0.12 m；無中央柱。碰撞建議在 `../../exports/qingxi-training-yard-v1/collision-proxies.json`，主遊戲 PWA 的正式碰撞尚未接入。
+| 物件 | 外形 寬×深×高 m | LOD0 / LOD1 / LOD2 三角面 | 上限 | 圖集 | GLB（WebP） | 回匯 | 可動節點 |
+|---|---|---|---|---|---|---|---|
+| 演武棚 `training-shelter` | 7.12 × 6.04 × 4.33 | 61,278 / 30,638 / 13,481 | 65,000 | 2048 | 3.43 MB | ✓ | — |
+| 氣勁木樁 `qi-striking-post` | 0.78 × 0.79 × 1.65 | 9,744 / 4,872 / 2,143 | 10,500 | 1024 | 0.76 MB | ✓ | rope_band_1, rope_band_2, rope_band_3, jade_disc |
+| 身法木樁 `agility-post` | 1.21 × 1.10 × 1.67 | 3,676 / 1,837 / 808 | 6,000 | 1024 | 0.42 MB | ✓ | arm_left, arm_right, arm_low |
+| 兵器架 `weapon-rack` | 1.90 × 0.65 × 1.65 | 2,688 / 1,344 / 591 | 5,000 | 1024 | 0.35 MB | ✓ | — |
+| 刻紋練功石 `engraved-training-stone` | 2.08 × 1.67 × 0.28 | 3,072 / 1,536 / 674 | 4,000 | 1024 | 0.23 MB | ✓ | — |
+| 練功旗 `training-banner` | 0.84 × 0.55 × 2.66 | 5,996 / 2,997 / 1,319 | 8,000 | 1024 | 0.64 MB | ✓ | banner_cloth |
 
-## 獨立 PWA 本機展示
+LOD0 合計 86,454 三角面。演武棚超出原估 60k，是因為兩坡共 56 列筒瓦、瓦當、斗拱與四組雀替都是輪廓件；它是村口遠看得到的地標，LOD1 約 30k。上限改為 65k。
 
-- `npm test --prefix tools/training-yard-demo`：7/7 通過。
-- 真實 Chromium：1280×720 和 844×390 視窗中六 GLB 皆載入；1.7 m 眼高由村口走進石坡，靠近木樁出現互動。
-- 實際瀏覽器完成凡骨武技六次格擋，顯示 `節奏 6/6 · 成功 6 次`；凡骨引氣按鈕禁用。切換有靈根後完成三輪吸／吐，顯示 `節奏 6/6 · 成功 6 次`；兩種結束狀態均可重試。
-- 本機展示不發 API 請求、不存持久狀態、不製造修為。刷新後重新開始。這些是桌面瀏覽器模擬的橫向視窗和指標操作，不是實體手機觸控或 FPS 驗證。
-- PWA manifest 含橫向、獨立視窗與 192／512 px 圖示；service worker 快取頁面、Three.js 模組及六個 GLB。在 Chromium 完成快取後切斷網路，重新載入仍有六件模型；離線步行靠近氣勁木樁可開啟練習，凡骨的引氣按鈕停用而武技可用。此為瀏覽器離線測試，尚未在實體手機安裝。
+- 每件單一烘焙材質（BaseColor、ORM、Normal），陰影縫、邊緣磨損、苔痕、瓦縫與刻紋都跟著真實幾何烘焙。
+- GLB 回匯：三角面數與包圍盒在全新場景重新匯入後一致（上表「回匯」欄）。零面積面 0、游離頂點 0。
+- `nonManifoldEdges` 不為 0：來自封口與側面分開的頂點（保留硬邊），以及屋瓦、旗面等單面薄片。這些物件不做 3D 列印也不做布林，遊戲使用沒有影響。
+- 圖集內 UV 由 Smart UV 自動打包；不適合拿來再烘光照貼圖（需要時另開 UV2）。
+- 先前用同一批模型跑過 `blender-asset-qa` game profile（重做中期的分件版本），修正了封口 UV、極點零長邊、未套用縮放、重疊面與懸浮件後六件 0 錯誤；最終版改用烘焙管線內建的回匯與網格健康檢查。
 
 ## 預覽
 
-- `eye-height-1.7m.png`、`yard-overview.png`：Blender 實際模型渲染。
-- `gameplay-desktop-1280x720.png`、`gameplay-landscape-844x390.png`：實際瀏覽器遊戲視窗。
-- `gameplay-qi-breathing.png`、`gameplay-qi-complete.png`、`gameplay-martial-landscape.png`：實際操作 UI。另有六件近景 `*-detail.png`。
+- 眼高 1.7 m（Cycles）：`eye-height-village-approach.png`、`eye-height-steps.png`、`eye-height-under-shelter.png`、`eye-height-stone-and-banner.png`；整區 `yard-overview.png`。
+- 每件 `<asset>/`：中性光五方位、兩張特寫、線框、風格光、正交三視與 `ref-vs-model.png`（AI 三視圖 vs 模型）。
+- 操作畫面：`demo/` 14 張，由 `tools/training-yard-demo/capture.mjs` 在真 Chromium 以真按鍵／觸控操作截出（1280×720 與 844×390 觸控模式）。
 
-## 尚未接入或驗證
+## 展示頁
 
-- 主遊戲 PWA 的正式入口、村口路線與碰撞設定；手機可存取的 HTTPS 部署及安裝。
-- 服務端 `POST /actions` 的 `practice-basic` 認證、requestId、冷卻、獎勵帳本；此 demo 節奏結果不得直接兌換修為。
-- 實機觸控、手機 GPU／FPS／記憶體；正式美術主管針對《鳴潮》品質的逐件審核、材質風格及優化。專案既有文件另有 Unity 規劃，本輪以使用者指定的 PWA 驗證為準。
+- `npm test`：11/11 通過。
+- 真 Chromium 實跑：有靈根三息全「圓融」→「三息調和」；凡骨的引氣被鎖、顯示伺服器 `NO_ROOT` 原文、武技可練；格擋 12 擊中故意漏 1 擊，結果 11/12；console 與 page error 為 0。
+- 手機橫向是瀏覽器觸控模擬，不是實機。
+
+## 尚未接入／未驗證
+
+- 主遊戲 PWA `tools/qingxi-trial/` 與 v14 入口組裝（核心組負責擺入）；本頁只唯讀載入 v13 牌樓作背景。
+- 伺服器 `practice-basic`（qi／body）沒有接；節奏成績不換算修為。
+- Unity 匯入、LOD 切換距離、碰撞（各件 `model_info.json` 只有建議）。
+- 實體手機的 FPS、記憶體、觸控手感、安裝；HTTPS 部署。
+- 正式美術審核（以《鳴潮》品質為目標，但未經美術主管逐件驗收）。

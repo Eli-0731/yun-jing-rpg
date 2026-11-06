@@ -31,12 +31,24 @@
     { "id": "lotus-seed", "label": "淨水蓮種" },
     { "id": "qingling-herb", "label": "青靈草" },
     { "id": "water-lotus", "label": "淨水蓮" },
+    { "id": "pine-firewood", "label": "松柴" },
+    { "id": "huichun-pill", "label": "回春丹" },
+    { "id": "juqi-pill", "label": "聚氣丹" },
+    { "id": "pill-residue", "label": "丹渣" },
+    { "id": "qingxi-wild-tea", "label": "青溪野茶" },
+    { "id": "plum-blossom-tea", "label": "梅花茶" },
     { "id": "stone", "label": "陣基石" },
     { "id": "spirit-stone", "label": "靈石" },
     { "id": "body-bath", "label": "淬體藥浴" },
     { "id": "water-purifier", "label": "淨水藥劑" },
     { "id": "companion-herb", "label": "樹伴靈草" },
     { "id": "rabbit-meat", "label": "山兔肉" },
-    { "id": "rabbit-hide", "label": "山兔皮" }
+    { "id": "rabbit-hide", "label": "山兔皮" },
+    { "id": "old-copper-coin", "label": "舊銅錢" },
+    { "id": "qing-mushroom", "label": "青蕈" },
+    { "id": "straw-charm", "label": "草結護符" },
+    { "id": "patterned-iron", "label": "奇紋鐵片" },
+    { "id": "chilu-ginseng", "label": "赤露參" },
+    { "id": "qingxi-orchid", "label": "青溪蘭" }
   ]
 }

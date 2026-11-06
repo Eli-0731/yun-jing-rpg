@@ -1,0 +1,16 @@
+{
+  "pass": true,
+  "desktop": "1280x720",
+  "touch": "844x390 emulated Chrome, not physical phone",
+  "checks": [
+    "three events in arbitrary order",
+    "revisit updates without duplicates",
+    "reload restores",
+    "board summary",
+    "keyboard movement",
+    "touch choice",
+    "no horizontal overflow",
+    "offline reload and interaction"
+  ],
+  "errors": []
+}

@@ -1,0 +1,96 @@
+{
+ "id": "A04",
+ "variant": "cleared state",
+ "key": "A04_SiltBar_cleared",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  2.7996,
+  2.0863,
+  0.1316
+ ],
+ "triangles": 1320,
+ "lod_triangles": [
+  1320,
+  660,
+  195
+ ],
+ "collision": {
+  "type": "none",
+  "note": "walkable remnant; swap in when the silt is cleared"
+ },
+ "nodes": {
+  "land": [
+   "A04_SiltBar_cleared_LOD0"
+  ],
+  "water": [],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A04_SiltBar_cleared",
+  "dimensions_m": [
+   2.7996,
+   2.0863,
+   0.1316
+  ],
+  "bbox_min": [
+   -1.3991,
+   -1.0733,
+   0.0
+  ],
+  "bbox_max": [
+   1.4005,
+   1.013,
+   0.1316
+  ],
+  "trianglesLOD": [
+   1320,
+   660,
+   195
+  ],
+  "budgetLOD0": 4000,
+  "withinBudget": true,
+  "materials": [
+   "M_A04_SiltBar_cleared"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A04_SiltBar_cleared_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 240,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 1320,
+   "trianglesMatch": true,
+   "bboxMatch": false,
+   "materials": [
+    "M_A04_SiltBar_cleared.001"
+   ]
+  },
+  "files": {
+   "A04_SiltBar_cleared.glb": {
+    "bytes": 316340,
+    "sha256": "5539bfaaa71288814e16dfb0b822eb5da06beaa45567b5446c3a66d98dfe1b8c"
+   },
+   "A04_SiltBar_cleared.fbx": {
+    "bytes": 184460,
+    "sha256": "98787cfdc392a13db771a22c773f2bfd36fb8cab081d3f136d6ed0b747a306ff"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A04_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

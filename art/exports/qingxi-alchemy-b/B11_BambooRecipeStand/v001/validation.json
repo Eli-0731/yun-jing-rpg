@@ -1,0 +1,84 @@
+{
+ "B11_BambooRecipeStand": {
+  "asset": "B11",
+  "key": "B11_BambooRecipeStand",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.572,
+   0.36,
+   0.4547
+  ],
+  "bbox_min": [
+   -0.286,
+   -0.18,
+   0.0
+  ],
+  "bbox_max": [
+   0.286,
+   0.18,
+   0.4547
+  ],
+  "target_size_m": [
+   0.58,
+   0.36,
+   0.47
+  ],
+  "trianglesLOD": [
+   4064,
+   2032,
+   894
+  ],
+  "budgetLOD0": 4200,
+  "withinBudget": true,
+  "vertices": 2110,
+  "materials": [
+   "M_B11_BambooRecipeStand"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B11_BambooRecipeStand_LOD0"
+  ],
+  "textures": [
+   "T_B11_BambooRecipeStand_BaseColor.png",
+   "T_B11_BambooRecipeStand_Normal.png",
+   "T_B11_BambooRecipeStand_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 4064,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B11_BambooRecipeStand.001"
+   ]
+  },
+  "files": {
+   "B11_BambooRecipeStand.glb": {
+    "bytes": 3752392,
+    "sha256": "91fa99d27fe1740f389519d24fcba0208b44f0d87b68e101686e56466c945749"
+   },
+   "B11_BambooRecipeStand.fbx": {
+    "bytes": 464844,
+    "sha256": "94439818482e0e742dc06df596fc847a74970d06f8c2af7ea3a87af356c80c07"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B11_BambooRecipeStand": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 4.0,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

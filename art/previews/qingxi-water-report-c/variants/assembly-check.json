@@ -1,0 +1,16 @@
+{
+  "pass": true,
+  "layouts": [
+    "a",
+    "b"
+  ],
+  "overlappingInstanceAABBs": [],
+  "allowedOverlap": "C07 rests on C01",
+  "stateGLBsChecked": [
+    "C06_fork_01",
+    "C06_fork_01-complete",
+    "C06_slant_02",
+    "C06_slant_02-complete"
+  ],
+  "note": "Conservative instance bounds; not exact mesh collision, Unity or physical-device acceptance."
+}

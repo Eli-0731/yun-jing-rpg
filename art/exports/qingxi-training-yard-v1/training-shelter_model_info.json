@@ -1,0 +1,86 @@
+{
+ "id": "training-shelter",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  7.123,
+  6.0356,
+  4.3256
+ ],
+ "triangles": 61278,
+ "lod_triangles": [
+  61278,
+  30638,
+  13481
+ ],
+ "collision": {
+  "type": "compound",
+  "note": "plinth box 6.4x4.8x0.30 + front steps; four column capsules r0.2 at (+-2.55, +-1.75); roof not walkable"
+ },
+ "pivots": {},
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "training-shelter",
+  "dimensions_m": [
+   7.123,
+   6.0356,
+   4.3256
+  ],
+  "bbox_min": [
+   -3.5615,
+   -3.06,
+   0.0
+  ],
+  "bbox_max": [
+   3.5615,
+   2.9756,
+   4.3256
+  ],
+  "trianglesLOD": [
+   61278,
+   30638,
+   13481
+  ],
+  "budgetLOD0": 65000,
+  "withinBudget": true,
+  "materials": [
+   "M_training-shelter"
+  ],
+  "textureResolution": 2048,
+  "nodes": [
+   "training-shelter_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 7688,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 61278,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_training-shelter.001"
+   ]
+  },
+  "files": {
+   "training-shelter.glb": {
+    "bytes": 3430504,
+    "sha256": "44bc22b32e9bd6f2e866e98fcfe7d1346c85a44d2eb7e2f188e6996505ec8c31"
+   },
+   "training-shelter.fbx": {
+    "bytes": 5600028,
+    "sha256": "6bae19c4cc54877ca15cfc0d2a1c679d5fc5f10f223b7fa0dc74248554254ca2"
+   }
+  },
+  "reference": "art/references/qingxi-training-yard-v1/training-shelter-three-view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

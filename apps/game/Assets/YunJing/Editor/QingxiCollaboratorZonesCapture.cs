@@ -1,0 +1,69 @@
+using System.IO;
+using System.Linq;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.Rendering;
+
+namespace YunJing.Editor
+{
+    // Review renders of the generated novice village. Needs a graphics device (run Unity in
+    // -batchmode without -nographics). Output: artifacts/qingxi-novice-village/*.png
+    public static class QingxiCollaboratorZonesCapture
+    {
+        // Novice village review: an overview, the player's view from the gate and each zone.
+        public static void CaptureVillage()
+        {
+            EditorSceneManager.OpenScene(QingxiNoviceVillageBuilder.ScenePath);
+            var dir = Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", "..", "artifacts", "qingxi-novice-village"));
+            Directory.CreateDirectory(dir);
+            var camera = new GameObject("Review Camera").AddComponent<Camera>();
+            camera.fieldOfView = 50; camera.nearClipPlane = .05f; camera.farClipPlane = 400;
+            UnityEngine.Rendering.Universal.CameraExtensions.GetUniversalAdditionalCameraData(camera).renderPostProcessing = true;
+            var target = new RenderTexture(1600, 900, 24) { antiAliasing = 4 };
+            camera.targetTexture = target;
+            // Heights below are above the local ground, so the shots follow the terrain relief.
+            var terrain = Terrain.activeTerrain;
+            System.Func<Vector3, Vector3> Lift = p => terrain ? p + Vector3.up * QingxiVillageTerrain.Ground(terrain, p.x, p.z) : p;
+            void Shot(string file, Vector3 from, Vector3 at)
+            {
+                camera.transform.position = Lift(from); camera.transform.LookAt(Lift(at)); camera.Render();
+                RenderTexture.active = target;
+                var image = new Texture2D(target.width, target.height, TextureFormat.RGB24, false);
+                image.ReadPixels(new Rect(0, 0, target.width, target.height), 0, 0); image.Apply();
+                File.WriteAllBytes(Path.Combine(dir, file + ".png"), image.EncodeToPNG());
+                RenderTexture.active = null; Object.DestroyImmediate(image);
+            }
+            Shot("00-overview", new Vector3(0, 46, -46), new Vector3(0, 0, 2));
+            Shot("01-gate-view", new Vector3(0, 1.7f, -25), new Vector3(0, 1.2f, 0));
+            Shot("02-plaza-return-C", new Vector3(1f, 3.2f, -5), new Vector3(5.5f, .5f, 2.2f));
+            Shot("03-alchemy-B", new Vector3(-8, 4.5f, -6), new Vector3(-15, .6f, -2));
+            Shot("04-training-yard", new Vector3(8, 5, -8), new Vector3(15, 1, -1));
+            Shot("05-forest-A", new Vector3(0, 9, 4), new Vector3(0, 0, 20));
+            Shot("06-forest-A-close", new Vector3(-4, 2.2f, 13), new Vector3(1, .6f, 22));
+            Shot("07-plaza-to-forest-eye", new Vector3(0, 1.7f, 3), new Vector3(0, 1.2f, 16));
+            Shot("08-plaza-to-alchemy-eye", new Vector3(-3, 1.7f, -2), new Vector3(-14, 1.2f, -2));
+            Shot("09-plaza-to-yard-eye", new Vector3(3, 1.7f, -2), new Vector3(14, 1.2f, -2));
+            Shot("10-lodging", new Vector3(4, 4.5f, -26), new Vector3(17, 1.5f, -19));
+            Shot("11-market", new Vector3(-2, 3.5f, -20), new Vector3(-11, 1, -14));
+            Shot("12-fields", new Vector3(-14, 6, -14), new Vector3(-25, 0, -24));
+            Shot("13-herb-close", new Vector3(-18f, 1.4f, 7.5f), new Vector3(-19.5f, .2f, 9));
+            Shot("14-creek-crossing-eye", new Vector3(-19.5f, 1.7f, 2.5f), new Vector3(-27f, .3f, 4.5f));
+            Shot("15-creek-above", new Vector3(-12f, 14f, -16f), new Vector3(-30f, 0f, 2f));
+            Shot("16-plan-overview", new Vector3(0, 78, -62), new Vector3(0, 0, -2));
+            Shot("17-gate-square", new Vector3(6, 5, -40), new Vector3(0, 1, -28));
+            Shot("18-homes-ne", new Vector3(14, 9, -2), new Vector3(27, 1, 18));
+            Shot("19-smithy-shops", new Vector3(18, 9, -14), new Vector3(33, 1, -15));
+            // K5: the neighbouring blocks open next to the village, to check the seams and the far side.
+            foreach (var (id, _) in QingxiBlockBuilder.Blocks)
+                if (File.Exists(QingxiBlockBuilder.ScenePath(id))) EditorSceneManager.OpenScene(QingxiBlockBuilder.ScenePath(id), OpenSceneMode.Additive);
+            Physics.SyncTransforms();
+            Lift = p => { var hits = Physics.RaycastAll(new Vector3(p.x, 200, p.z), Vector3.down, 400).Where(h => h.collider is TerrainCollider).ToArray(); float g = hits.Length > 0 ? hits.Max(h => h.point.y) : 0; return p + Vector3.up * g; };
+            Shot("20-a1-to-a2-seam", new Vector3(14, 12, -36), new Vector3(0, 0, -62));
+            Shot("21-a2-road-eye", new Vector3(1, 1.7f, -120), new Vector3(-6, 1.5f, -100));
+            Shot("22-a2-view-to-village", new Vector3(-6, 1.7f, -66), new Vector3(0, 2, -28));
+            Shot("23-a3-bridge-mill", new Vector3(-108, 8, -6), new Vector3(-88, 1, 14));
+            Shot("24-a1-to-a3-seam", new Vector3(-36, 12, 22), new Vector3(-62, 0, 6));
+            Debug.Log($"QINGXI_VILLAGE_CAPTURED to {dir} (pipeline: {(GraphicsSettings.currentRenderPipeline != null ? GraphicsSettings.currentRenderPipeline.name : "built-in")})");
+        }
+    }
+}

@@ -1,0 +1,101 @@
+{
+ "id": "A07",
+ "variant": "single",
+ "key": "A07_NurseryTracks",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  3.0893,
+  2.5442,
+  0.1975
+ ],
+ "triangles": 5070,
+ "lod_triangles": [
+  5070,
+  2535,
+  759
+ ],
+ "collision": {
+  "type": "heightfield",
+  "note": "flat mud, walkable; clue nursery_tracks; the nursery side is a warning zone, never damage"
+ },
+ "nodes": {
+  "land": [
+   "A07_NurseryTracks_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A07_NurseryTracks_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A07_NurseryTracks",
+  "dimensions_m": [
+   3.0893,
+   2.5442,
+   0.1975
+  ],
+  "bbox_min": [
+   -1.5888,
+   -1.25,
+   0.0
+  ],
+  "bbox_max": [
+   1.5005,
+   1.2942,
+   0.1975
+  ],
+  "trianglesLOD": [
+   5070,
+   2535,
+   759
+  ],
+  "budgetLOD0": 7000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A07_NurseryTracks"
+  ],
+  "textureResolution": 2048,
+  "nodes": [
+   "A07_NurseryTracks_LOD0",
+   "A07_NurseryTracks_Foliage"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 446,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 5070,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "M_A07_NurseryTracks.001"
+   ]
+  },
+  "files": {
+   "A07_NurseryTracks.glb": {
+    "bytes": 1175660,
+    "sha256": "3928c99fb392ccd67e4b50020b49de1c96d4556ea9a560c8a0402f49406d116c"
+   },
+   "A07_NurseryTracks.fbx": {
+    "bytes": 584908,
+    "sha256": "234808b1fc96893d215399c2686d2e4a1eaf8a406db19fdd4a72a9be65800462"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A07_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

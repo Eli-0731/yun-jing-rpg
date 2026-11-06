@@ -1,0 +1,36 @@
+[
+ {
+  "state": "cold",
+  "lid": "B02_FurnaceLid",
+  "seat": [
+   0.0,
+   0.0,
+   0.7459999918937683
+  ],
+  "triangleOverlaps": 0,
+  "skirtRadius": 0.202,
+  "rimInnerRadius": 0.21,
+  "radialClearance": 0.008,
+  "flangeUndersideZ": 0.786,
+  "rimTopZ": 0.785,
+  "verticalClearance": 0.001,
+  "pass": true
+ },
+ {
+  "state": "heating",
+  "lid": "B02_FurnaceLid_heating",
+  "seat": [
+   0.0,
+   0.0,
+   0.7459999918937683
+  ],
+  "triangleOverlaps": 0,
+  "skirtRadius": 0.202,
+  "rimInnerRadius": 0.21,
+  "radialClearance": 0.008,
+  "flangeUndersideZ": 0.786,
+  "rimTopZ": 0.785,
+  "verticalClearance": 0.001,
+  "pass": true
+ }
+]

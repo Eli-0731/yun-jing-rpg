@@ -1,0 +1,19 @@
+# UP04 三視圖提示詞與取捨
+
+工具：Codex CLI 內建圖像生成（OpenAI），2026-11-01。seed：工具沒有回報。
+用法：工作包提示詞原文＋風格指南 5.2 固定風格段＋5.3 固定負面提示（此工具沒有負面欄，照 5.3 接在最後並加 "Avoid:"）。同一段提示詞獨立生成 4 張。
+
+選用：UP04-cand-2.png
+理由：彎曲的溪用雙線畫、分出幾條水路、圓圈和箭頭，像孩子畫的機關圖，沒有字；石頭頂面平、邊緣圓、側面有地衣；炭棒放在邊上。1 號畫了山和輪子太講究；3 號漩渦太大；4 號石頭太高。
+建模時的差異：畫做成獨立的貼花網格 UP04_Drawing（自己的透明貼圖），先交「畫了一半」：主溪畫完、右邊兩條支流只畫到一半。炭棒是獨立物件 UP04_Charcoal。
+沒選的：UP04-cand-1.png, UP04-cand-3.png, UP04-cand-4.png（保留，看得出取捨）
+
+第二輪（2026-11-02，使用者要求打磨細節）：用 Codex CLI 的 GPT-6-Astra（推理 xhigh）以同一段提示詞原文重新獨立生成 4 張，再以選定圖為參考生成轉面圖／細節圖並寫建模清單，全部存在 v2/。Codex 中途用量到上限，UP01、UP04 沒有轉面圖，UP01、UP04、UP05 沒有 details.md，這三件照細節圖自己比對。
+第二輪選用：UP04-v2-cand-4.png（v2 細節圖）
+第二輪改了什麼：側面加層理退階與縱裂、頂面細裂；炭筆畫加樹根狀分叉、流向箭頭、虛線與同心圓；側面地衣放大、苔加多；石腳一圈草與蕨。
+
+## 提示詞（原文，一字未改）
+
+Three-view turnaround of a single large flat-topped creek stone, about 1.4 m long, 1.0 m wide and 0.35 m tall, form: a low water-worn slab with a smooth nearly flat top surface and rounded edges, surface: warm grey stone with lichen on the sides, the flat top covered with a child's charcoal drawing of a winding creek, branching water channels, small circles and arrows like a little machine diagram (no letters, no numbers, no text), a short stick of burnt charcoal lying on the edge, small grass tufts at the base. Layout: front, side and top views, same scale, plain light warm-grey background, even soft lighting.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

@@ -1,0 +1,42 @@
+{
+  "task": "B alchemy workshop (2026-10-29 work pack, docs/execution/2026-10-29/02-B-alchemy-workshop.md)",
+  "direction": "Semi-realistic xianxia workshop props: warm grey stone, aged walnut, bamboo, patinated bronze, celadon accents",
+  "provenance": {
+    "imageAuthor": "AI image generation, run by joshsu54 outside this repository (generator and prompt text were not supplied with the images)",
+    "suppliedBy": "joshsu54, pasted into the Claude Code session on 2026-10-28",
+    "reviewer": "Claude Opus 5.5 (Claude Code), reviewed before any modelling",
+    "thirdPartyDownloadedAssetsUsed": false,
+    "note": "Concept views are not CAD drawings. The numbers in art/source/qingxi-alchemy-b/ART_DIRECTION.md are authoritative for size; the images set silhouette, construction and material zoning."
+  },
+  "assets": [
+    {"id": "B01", "image": "B01_bronze_alchemy_furnace.png", "views": ["front", "right", "back", "cold", "heating"], "reviewed": true,
+     "known": "Round bronze belly, thick stepped rim, front arched fire mouth with vented side plates and grate, ring handles on both sides, relief scroll band, short flue pipe at the back, cast legs on stone pads.",
+     "inferred": "Right view puts the flue at back-right but the back view centres it: modelled centred at the back. Leg count is ambiguous: four legs at the diagonals. Interior below the rim is a sooty crucible."},
+    {"id": "B02", "image": "B02_removable_furnace_lid.png", "views": ["front", "right", "back", "closed", "open"], "reviewed": true,
+     "known": "Stepped domed bronze lid, bail handle with dark grip, perforated vent spout on the back, notched lower skirt.",
+     "inferred": "The inset furnace has a small slotted door that conflicts with B01's arched mouth; B01 is authoritative. Skirt sized to drop inside the B01 rim so the flange rests on it without intersecting. The sheet shows no heated look: the heating state (oxidised crown, temper ring, sooty vent, embers in an opened vent throat) is designed here, not taken from the reference."},
+    {"id": "B03", "image": "B03_stone_mortar_and_pestle.png", "views": ["front", "right", "back"], "reviewed": true,
+     "known": "Grey granite bowl on a foot ring, rolled lip with a front pour notch, bulb-ended pestle with a collar.", "inferred": "Pestle shown lying flat; modelled resting inside the bowl for the placed prop and separately as its own node."},
+    {"id": "B04", "image": "B04_two_tier_bamboo_sorting_trays.png", "views": ["front", "right", "back"], "reviewed": true,
+     "known": "Four bamboo posts with bronze caps and feet, two woven trays tilted toward the front, jade and amber label plates.",
+     "inferred": "Right view shows the upper tray cantilevered forward; kept inside the post line, tilted 9 degrees."},
+    {"id": "B05", "image": "B05_three_tier_herb_drawer_cabinet.png", "views": ["front", "right", "back"], "reviewed": true,
+     "known": "Walnut frame cabinet, three drawers with bronze-cornered frames, bail pulls, porcelain label plates, back gallery rail, framed back with two rails.", "inferred": "Drawers are separate nodes so the core team can open them."},
+    {"id": "B06", "image": "B06_ceramic_water_jar.png", "views": ["front", "right", "back"], "reviewed": true,
+     "known": "Celadon glaze over the upper two thirds dripping onto bare clay, incised wave band, pinched spout, two lug handles, separate plank lid.",
+     "inferred": "Right view places one handle near the front; front and back views agree on side handles at +/-X, which is used."},
+    {"id": "B07", "image": "B07_wooden_fuel_box.png", "views": ["front", "right", "back"], "reviewed": true,
+     "known": "Plank box with low front, tall back, sloped sides, corner posts, iron corner plates, oval hand holes, split logs.", "inferred": "Post slots in the front view are dropped; the oval side holes are the hand grips."},
+    {"id": "B08", "image": "B08_ventilated_drying_basket.png", "views": ["front", "right", "back"], "reviewed": true,
+     "known": "Round shallow open-weave basket, doubled rim hoop, vertical ribs bound with sage cord, two loop handles, four short feet.", "inferred": "Weave openings are an alpha-clip texture on thin shells; ribs, rim, handles and feet are geometry."},
+    {"id": "B09", "image": "B09_cloth_filtration_frame.png", "views": ["front", "right", "back"], "reviewed": true,
+     "known": "Timber frame with top rod, square cloth ring, linen cone tied at four corners and at the tip, celadon bowl on the base board, diagonal braces.", "inferred": "Cone stain darkens toward the tip; drip is not modelled."},
+    {"id": "B10", "image": "B10_wax_sealed_medicine_bottle.png", "views": ["front", "right", "back", "empty", "filled"], "reviewed": true,
+     "known": "Rounded square glass bottle, cork, dripping red wax, twine knot, blank paper label, amber liquid.", "inferred": "Label stays blank (no copied text). Empty state = open bottle with the cork beside it."},
+    {"id": "B11", "image": "B11_bamboo_recipe_stand.png", "views": ["front", "right", "back"], "reviewed": true,
+     "known": "A-frame walnut stand, lashed bamboo slip board, bronze end knobs, front ledge with a small celadon ink pot, back legs with cross rail.",
+     "inferred": "Brush marks are botanical sprigs, not readable text. Sized as a tabletop stand that sits on the B05 cabinet."},
+    {"id": "B12", "image": "B12_short_workshop_chimney.png", "views": ["front", "right", "back"], "reviewed": true,
+     "known": "Square limestone block stack on a wider plinth, iron band, bronze cleanout door on the front, flue inlet collar on the right side, four-post verdigris pyramid cap.", "inferred": "Inlet height matches the B01 flue via a layout-only elbow pipe."}
+  ]
+}

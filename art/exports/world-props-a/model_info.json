@@ -1,0 +1,2642 @@
+{
+ "RK09": {
+  "id": "RK09",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.96,
+   0.759,
+   0.569
+  ],
+  "size_limit_m": [
+   2,
+   0.8,
+   0.6
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "RK09_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     133680,
+     66840,
+     20052
+    ],
+    "emission": false
+   },
+   "Detail_Pebbles": {
+    "material": "RK09_Detail_Pebbles",
+    "texture_px": 1024,
+    "triangles": [
+     560,
+     280,
+     83
+    ],
+    "emission": false
+   },
+   "Detail_Grass": {
+    "material": "RK09_Detail_Grass",
+    "texture_px": 1024,
+    "triangles": [
+     768,
+     384,
+     115
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   135008,
+   67504,
+   20250
+  ],
+  "source_parts": 83,
+  "reference": "art/references/RK09/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "RK09_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size": [
+      1.98,
+      0.54,
+      0.59
+     ],
+     "center": [
+      0.012,
+      -0.022,
+      0.295
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Grass",
+   "Detail_Pebbles"
+  ],
+  "pivots": {},
+  "walkable": {
+   "seat_height_m": 0.55,
+   "note": "sit point on the seat centre"
+  }
+ },
+ "RK06": {
+  "id": "RK06",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.336,
+   1.826,
+   2.61
+  ],
+  "size_limit_m": [
+   2.4,
+   2,
+   2.8
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "RK06_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     366467,
+     41890,
+     10451
+    ],
+    "emission": false
+   },
+   "Timber": {
+    "material": "RK06_Timber",
+    "texture_px": 1024,
+    "triangles": [
+     132070,
+     25148,
+     6274
+    ],
+    "emission": false
+   },
+   "Roof": {
+    "material": "RK06_Roof",
+    "texture_px": 1024,
+    "triangles": [
+     213294,
+     31958,
+     7972
+    ],
+    "emission": false
+   },
+   "Bronze": {
+    "material": "RK06_Bronze",
+    "texture_px": 1024,
+    "triangles": [
+     624,
+     312,
+     92
+    ],
+    "emission": false
+   },
+   "Detail_Offerings": {
+    "material": "RK06_Detail_Offerings",
+    "texture_px": 1024,
+    "triangles": [
+     664,
+     332,
+     98
+    ],
+    "emission": false
+   },
+   "Detail_Incense": {
+    "material": "RK06_Detail_Incense",
+    "texture_px": 1024,
+    "triangles": [
+     80,
+     40,
+     12
+    ],
+    "emission": false
+   },
+   "Glow": {
+    "material": "RK06_Glow",
+    "texture_px": 1024,
+    "triangles": [
+     72,
+     36,
+     10
+    ],
+    "emission": true
+   },
+   "Detail_Grass": {
+    "material": "RK06_Detail_Grass",
+    "texture_px": 1024,
+    "triangles": [
+     564,
+     282,
+     84
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   713835,
+   99998,
+   24993
+  ],
+  "source_parts": 225,
+  "reference": "art/references/RK06/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "RK06_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size": [
+      1.84,
+      1.24,
+      0.46
+     ],
+     "center": [
+      0.0,
+      0.21,
+      0.23
+     ]
+    },
+    {
+     "type": "box",
+     "size": [
+      0.95,
+      0.5,
+      0.31
+     ],
+     "center": [
+      0.0,
+      -0.66,
+      0.155
+     ]
+    },
+    {
+     "type": "box",
+     "size": [
+      1.3,
+      0.95,
+      1.2
+     ],
+     "center": [
+      0.0,
+      0.21,
+      1.1
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Grass",
+   "Detail_Incense",
+   "Detail_Offerings"
+  ],
+  "pivots": {},
+  "note": "Glow group = the oil-lamp flame in the niche; drive its emission strength 0..1 (0 = unlit, paper-yellow)",
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
+ },
+ "SC01": {
+  "id": "SC01",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.576,
+   1.32,
+   1.129
+  ],
+  "size_limit_m": [
+   1.6,
+   1.4,
+   1.8
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "SC01_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     88834,
+     44416,
+     13324
+    ],
+    "emission": false
+   },
+   "Timber": {
+    "material": "SC01_Timber",
+    "texture_px": 1024,
+    "triangles": [
+     48678,
+     24338,
+     7300
+    ],
+    "emission": false
+   },
+   "Roof": {
+    "material": "SC01_Roof",
+    "texture_px": 1024,
+    "triangles": [
+     53322,
+     26660,
+     7998
+    ],
+    "emission": false
+   },
+   "Bronze": {
+    "material": "SC01_Bronze",
+    "texture_px": 1024,
+    "triangles": [
+     516,
+     258,
+     76
+    ],
+    "emission": false
+   },
+   "Detail_Incense": {
+    "material": "SC01_Detail_Incense",
+    "texture_px": 1024,
+    "triangles": [
+     48,
+     24,
+     6
+    ],
+    "emission": false
+   },
+   "Detail_Tiles": {
+    "material": "SC01_Detail_Tiles",
+    "texture_px": 1024,
+    "triangles": [
+     1152,
+     576,
+     172
+    ],
+    "emission": false
+   },
+   "Detail_Offerings": {
+    "material": "SC01_Detail_Offerings",
+    "texture_px": 1024,
+    "triangles": [
+     252,
+     126,
+     36
+    ],
+    "emission": false
+   },
+   "Detail_Ferns": {
+    "material": "SC01_Detail_Ferns",
+    "texture_px": 1024,
+    "triangles": [
+     1112,
+     555,
+     166
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   193914,
+   96953,
+   29078
+  ],
+  "source_parts": 229,
+  "reference": "art/references/SC01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "SC01_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size": [
+      1.168,
+      0.988,
+      0.674
+     ],
+     "center": [
+      0.011,
+      -0.009,
+      0.333
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Ferns",
+   "Detail_Incense",
+   "Detail_Offerings",
+   "Detail_Tiles"
+  ],
+  "pivots": {},
+  "fit_scale": 0.8981
+ },
+ "RK01A": {
+  "id": "RK01A",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.118,
+   0.306,
+   2.561
+  ],
+  "size_limit_m": [
+   1.2,
+   0.4,
+   2.6
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Wood": {
+    "material": "RK01A_Wood",
+    "texture_px": 1024,
+    "triangles": [
+     71821,
+     35909,
+     10772
+    ],
+    "emission": false
+   },
+   "Stone": {
+    "material": "RK01A_Stone",
+    "texture_px": 1024,
+    "triangles": [
+     9691,
+     4844,
+     1453
+    ],
+    "emission": false
+   },
+   "Detail_Stones": {
+    "material": "RK01A_Detail_Stones",
+    "texture_px": 1024,
+    "triangles": [
+     200,
+     100,
+     30
+    ],
+    "emission": false
+   },
+   "Detail_Vine": {
+    "material": "RK01A_Detail_Vine",
+    "texture_px": 1024,
+    "triangles": [
+     108,
+     54,
+     16
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   81820,
+   40907,
+   12271
+  ],
+  "source_parts": 40,
+  "reference": "art/references/RK01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "RK01A_Collision",
+   "primitives": [
+    {
+     "type": "cylinder",
+     "radius": 0.11939478125319172,
+     "height": 2.437643450585998,
+     "center": [
+      0.002,
+      0.006,
+      1.219
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Stones",
+   "Detail_Vine"
+  ],
+  "pivots": {},
+  "note": "arrow boards are blank; overlay the place names in game. A2_RoadSign uses A, A3_WestSign uses B",
+  "fit_scale": 0.995
+ },
+ "TY05A": {
+  "id": "TY05A",
+  "kind": "ground (embedded mesh + tiling texture)",
+  "dimensions_xyz_m": [
+   2.0,
+   2.0,
+   0.015
+  ],
+  "max_height_above_ground_m": 0.015,
+  "triangles_total": [
+   32768,
+   8192,
+   800
+  ],
+  "texture_px": 2048,
+  "texture_tile_m": [
+   2.0,
+   2.0
+  ],
+  "textures": "T_TY05A_Albedo / Normal / ORM / MaskURP (art/textures/world-props-a)",
+  "reference": "art/references/TY05/prompt.txt",
+  "origin": "centre, ground plane z = 0",
+  "collision": null,
+  "minTier": "standard",
+  "detailObjects": [],
+  "note": "slab layout A"
+ },
+ "TY05B": {
+  "id": "TY05B",
+  "kind": "ground (embedded mesh + tiling texture)",
+  "dimensions_xyz_m": [
+   2.0,
+   2.0,
+   0.015
+  ],
+  "max_height_above_ground_m": 0.015,
+  "triangles_total": [
+   32768,
+   8192,
+   800
+  ],
+  "texture_px": 2048,
+  "texture_tile_m": [
+   2.0,
+   2.0
+  ],
+  "textures": "T_TY05B_Albedo / Normal / ORM / MaskURP (art/textures/world-props-a)",
+  "reference": "art/references/TY05/prompt.txt",
+  "origin": "centre, ground plane z = 0",
+  "collision": null,
+  "minTier": "standard",
+  "detailObjects": [],
+  "note": "slab layout B (same set, rotated and offset)"
+ },
+ "TY10A": {
+  "id": "TY10A",
+  "kind": "ground (embedded mesh + tiling texture)",
+  "dimensions_xyz_m": [
+   1.0,
+   2.0,
+   0.015
+  ],
+  "max_height_above_ground_m": 0.015,
+  "triangles_total": [
+   16384,
+   4096,
+   400
+  ],
+  "texture_px": 2048,
+  "texture_tile_m": [
+   1.0,
+   1.0
+  ],
+  "textures": "T_TY10A_Albedo / Normal / ORM / MaskURP (art/textures/world-props-a)",
+  "reference": "art/references/TY10/prompt.txt",
+  "origin": "centre, ground plane z = 0",
+  "collision": null,
+  "minTier": "standard",
+  "detailObjects": [],
+  "note": "straight 2 m"
+ },
+ "TY10B": {
+  "id": "TY10B",
+  "kind": "ground (embedded mesh + tiling texture)",
+  "dimensions_xyz_m": [
+   1.0,
+   2.0,
+   0.015
+  ],
+  "max_height_above_ground_m": 0.015,
+  "triangles_total": [
+   16384,
+   4096,
+   400
+  ],
+  "texture_px": 2048,
+  "texture_tile_m": [
+   1.0,
+   1.0
+  ],
+  "textures": "T_TY10B_Albedo / Normal / ORM / MaskURP (art/textures/world-props-a)",
+  "reference": "art/references/TY10/prompt.txt",
+  "origin": "centre, ground plane z = 0",
+  "collision": null,
+  "minTier": "standard",
+  "detailObjects": [],
+  "note": "straight 2 m, mirrored layout"
+ },
+ "TY10C": {
+  "id": "TY10C",
+  "kind": "ground (embedded mesh + tiling texture)",
+  "dimensions_xyz_m": [
+   1.0,
+   1.0,
+   0.015
+  ],
+  "max_height_above_ground_m": 0.015,
+  "triangles_total": [
+   8192,
+   2048,
+   200
+  ],
+  "texture_px": 2048,
+  "texture_tile_m": [
+   1.0,
+   1.0
+  ],
+  "textures": "T_TY10C_Albedo / Normal / ORM / MaskURP (art/textures/world-props-a)",
+  "reference": "art/references/TY10/prompt.txt",
+  "origin": "centre, ground plane z = 0",
+  "collision": null,
+  "minTier": "standard",
+  "detailObjects": [],
+  "note": "end piece: path rounds off into the grass at +Y"
+ },
+ "SC04": {
+  "id": "SC04",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   3.546,
+   2.931,
+   2.717
+  ],
+  "size_limit_m": [
+   3.6,
+   3,
+   2.8
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "SC04_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     426240,
+     18774,
+     4690
+    ],
+    "emission": false
+   },
+   "Timber": {
+    "material": "SC04_Timber",
+    "texture_px": 2048,
+    "triangles": [
+     949926,
+     28026,
+     7004
+    ],
+    "emission": false
+   },
+   "Roof": {
+    "material": "SC04_Roof",
+    "texture_px": 2048,
+    "triangles": [
+     38616,
+     5650,
+     1412
+    ],
+    "emission": false
+   },
+   "Shakes": {
+    "material": "SC04_Shakes",
+    "texture_px": 4096,
+    "triangles": [
+     957035,
+     28130,
+     7030
+    ],
+    "emission": false
+   },
+   "Firewood": {
+    "material": "SC04_Firewood",
+    "texture_px": 1024,
+    "triangles": [
+     244224,
+     14210,
+     3550
+    ],
+    "emission": false
+   },
+   "Detail_Axe": {
+    "material": "SC04_Detail_Axe",
+    "texture_px": 1024,
+    "triangles": [
+     136,
+     68,
+     20
+    ],
+    "emission": false
+   },
+   "Detail_Hang": {
+    "material": "SC04_Detail_Hang",
+    "texture_px": 1024,
+    "triangles": [
+     30576,
+     5028,
+     1256
+    ],
+    "emission": false
+   },
+   "Detail_Chips": {
+    "material": "SC04_Detail_Chips",
+    "texture_px": 1024,
+    "triangles": [
+     216,
+     108,
+     36
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   2646969,
+   99994,
+   24998
+  ],
+  "source_parts": 486,
+  "reference": "art/references/SC04/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "SC04_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size": [
+      2.99,
+      0.241,
+      1.948
+     ],
+     "center": [
+      0.037,
+      1.051,
+      0.974
+     ]
+    },
+    {
+     "type": "box",
+     "size": [
+      0.241,
+      2.025,
+      1.948
+     ],
+     "center": [
+      -1.352,
+      -0.0,
+      0.974
+     ]
+    },
+    {
+     "type": "box",
+     "size": [
+      0.241,
+      2.025,
+      1.948
+     ],
+     "center": [
+      1.426,
+      -0.0,
+      0.974
+     ]
+    },
+    {
+     "type": "cylinder",
+     "radius": 0.09644560094994332,
+     "height": 1.9482011391888552,
+     "center": [
+      0.037,
+      -1.013,
+      0.974
+     ]
+    },
+    {
+     "type": "cylinder",
+     "radius": 0.09644560094994332,
+     "height": 1.9482011391888552,
+     "center": [
+      -1.314,
+      -1.013,
+      0.974
+     ]
+    },
+    {
+     "type": "cylinder",
+     "radius": 0.09644560094994332,
+     "height": 1.9482011391888552,
+     "center": [
+      1.387,
+      -1.013,
+      0.974
+     ]
+    },
+    {
+     "type": "cylinder",
+     "radius": 0.2507585624698526,
+     "height": 0.434005204274745,
+     "center": [
+      -0.494,
+      -0.434,
+      0.217
+     ]
+    },
+    {
+     "type": "box",
+     "size": [
+      0.723,
+      1.64,
+      0.723
+     ],
+     "center": [
+      0.924,
+      0.241,
+      0.362
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Axe",
+   "Detail_Chips",
+   "Detail_Hang"
+  ],
+  "pivots": {},
+  "walkable": {
+   "note": "open front between the posts (two 1.5 m bays); floor is the ground inside the footing"
+  },
+  "fit_scale": 0.9645,
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
+ },
+ "SC03": {
+  "id": "SC03",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   3.531,
+   3.83,
+   3.154
+  ],
+  "size_limit_m": [
+   4,
+   4,
+   3.2
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "SC03_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     235567,
+     32812,
+     8120
+    ],
+    "emission": false
+   },
+   "Timber": {
+    "material": "SC03_Timber",
+    "texture_px": 2048,
+    "triangles": [
+     256046,
+     34210,
+     8466
+    ],
+    "emission": false
+   },
+   "Roof": {
+    "material": "SC03_Roof",
+    "texture_px": 2048,
+    "triangles": [
+     174124,
+     28210,
+     6982
+    ],
+    "emission": false
+   },
+   "Detail_Tiles": {
+    "material": "SC03_Detail_Tiles",
+    "texture_px": 1024,
+    "triangles": [
+     7800,
+     3900,
+     1170
+    ],
+    "emission": false
+   },
+   "Detail_Vine": {
+    "material": "SC03_Detail_Vine",
+    "texture_px": 1024,
+    "triangles": [
+     312,
+     156,
+     46
+    ],
+    "emission": false
+   },
+   "Detail_Nest": {
+    "material": "SC03_Detail_Nest",
+    "texture_px": 1024,
+    "triangles": [
+     192,
+     96,
+     32
+    ],
+    "emission": false
+   },
+   "Detail_Grass": {
+    "material": "SC03_Detail_Grass",
+    "texture_px": 1024,
+    "triangles": [
+     1224,
+     611,
+     183
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   675265,
+   99995,
+   24999
+  ],
+  "source_parts": 250,
+  "reference": "art/references/SC03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "SC03_Collision",
+   "primitives": [
+    {
+     "type": "cylinder",
+     "radius": 0.12706483996731574,
+     "height": 3.1277499068877717,
+     "center": [
+      -1.23,
+      1.306,
+      1.564
+     ]
+    },
+    {
+     "type": "cylinder",
+     "radius": 0.12706483996731574,
+     "height": 2.5412967993463145,
+     "center": [
+      -1.123,
+      -1.118,
+      1.271
+     ]
+    },
+    {
+     "type": "cylinder",
+     "radius": 0.12706483996731574,
+     "height": 1.0751640304926715,
+     "center": [
+      1.213,
+      1.306,
+      0.538
+     ]
+    },
+    {
+     "type": "box",
+     "size": [
+      1.662,
+      1.32,
+      0.88
+     ],
+     "center": [
+      0.676,
+      -0.404,
+      0.44
+     ],
+     "yaw": -12
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Grass",
+   "Detail_Nest",
+   "Detail_Tiles",
+   "Detail_Vine"
+  ],
+  "pivots": {},
+  "walkable": {
+   "note": "plinth top 0.32 m; walk in over the front step; the roof heap and the post block, everything else is open"
+  },
+  "fit_scale": 0.9774,
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
+ },
+ "SC02": {
+  "id": "SC02",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.511,
+   2.286,
+   1.182
+  ],
+  "size_limit_m": [
+   3,
+   3,
+   1.2
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Ash": {
+    "material": "SC02_Ash",
+    "texture_px": 1024,
+    "triangles": [
+     783,
+     391,
+     117
+    ],
+    "emission": false
+   },
+   "Stone": {
+    "material": "SC02_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     7360,
+     3679,
+     1104
+    ],
+    "emission": false
+   },
+   "Timber": {
+    "material": "SC02_Timber",
+    "texture_px": 1024,
+    "triangles": [
+     54725,
+     27361,
+     8208
+    ],
+    "emission": false
+   },
+   "Hide": {
+    "material": "SC02_Hide",
+    "texture_px": 1024,
+    "triangles": [
+     6656,
+     3328,
+     998
+    ],
+    "emission": false
+   },
+   "Iron": {
+    "material": "SC02_Iron",
+    "texture_px": 1024,
+    "triangles": [
+     440,
+     220,
+     66
+    ],
+    "emission": false
+   },
+   "Detail_Snare": {
+    "material": "SC02_Detail_Snare",
+    "texture_px": 1024,
+    "triangles": [
+     234,
+     117,
+     35
+    ],
+    "emission": false
+   },
+   "Detail_Leaves": {
+    "material": "SC02_Detail_Leaves",
+    "texture_px": 1024,
+    "triangles": [
+     302,
+     151,
+     45
+    ],
+    "emission": false
+   },
+   "Detail_Grass": {
+    "material": "SC02_Detail_Grass",
+    "texture_px": 1024,
+    "triangles": [
+     600,
+     300,
+     90
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   71100,
+   35547,
+   10663
+  ],
+  "source_parts": 109,
+  "reference": "art/references/SC02/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "SC02_Collision",
+   "primitives": [
+    {
+     "type": "cylinder",
+     "radius": 0.21826792784452786,
+     "height": 0.42661458624157717,
+     "center": [
+      0.504,
+      -0.789,
+      0.214
+     ]
+    },
+    {
+     "type": "box",
+     "size": [
+      1.935,
+      0.198,
+      1.191
+     ],
+     "center": [
+      0.156,
+      0.699,
+      0.596
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Grass",
+   "Detail_Leaves",
+   "Detail_Snare"
+  ],
+  "pivots": {},
+  "fit_scale": 0.9921
+ },
+ "RK05": {
+  "id": "RK05",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.467,
+   1.576,
+   1.374
+  ],
+  "size_limit_m": [
+   3.2,
+   1.6,
+   1.4
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Timber": {
+    "material": "RK05_Timber",
+    "texture_px": 2048,
+    "triangles": [
+     498748,
+     57465,
+     13843
+    ],
+    "emission": false
+   },
+   "WheelL": {
+    "material": "RK05_WheelL",
+    "texture_px": 1024,
+    "triangles": [
+     27840,
+     13576,
+     3270
+    ],
+    "emission": false
+   },
+   "WheelR": {
+    "material": "RK05_WheelR",
+    "texture_px": 1024,
+    "triangles": [
+     27840,
+     13576,
+     3269
+    ],
+    "emission": false
+   },
+   "Load": {
+    "material": "RK05_Load",
+    "texture_px": 2048,
+    "triangles": [
+     12352,
+     6176,
+     1852
+    ],
+    "emission": false
+   },
+   "Detail_Rope": {
+    "material": "RK05_Detail_Rope",
+    "texture_px": 1024,
+    "triangles": [
+     11754,
+     5876,
+     1762
+    ],
+    "emission": false
+   },
+   "Detail_Cloth": {
+    "material": "RK05_Detail_Cloth",
+    "texture_px": 1024,
+    "triangles": [
+     6656,
+     3328,
+     998
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   585190,
+   99997,
+   24994
+  ],
+  "source_parts": 103,
+  "reference": "art/references/RK05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "RK05_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size": [
+      1.945,
+      1.497,
+      0.972
+     ],
+     "center": [
+      -0.277,
+      0.0,
+      0.487
+     ]
+    },
+    {
+     "type": "box",
+     "size": [
+      1.07,
+      0.778,
+      0.583
+     ],
+     "center": [
+      0.695,
+      0.0,
+      0.292
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Cloth",
+   "Detail_Rope"
+  ],
+  "pivots": {
+   "WheelL": [
+    -0.306,
+    -0.661,
+    0.545
+   ],
+   "WheelR": [
+    -0.306,
+    0.661,
+    0.545
+   ]
+  },
+  "note": "WheelL / WheelR origins are on the axle (y axis); spin them about local Y when the cart moves",
+  "fit_scale": 0.9723,
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
+ },
+ "RK01B": {
+  "id": "RK01B",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.903,
+   0.307,
+   2.374
+  ],
+  "size_limit_m": [
+   1.2,
+   0.4,
+   2.6
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Wood": {
+    "material": "RK01B_Wood",
+    "texture_px": 1024,
+    "triangles": [
+     46852,
+     23426,
+     7026
+    ],
+    "emission": false
+   },
+   "Stone": {
+    "material": "RK01B_Stone",
+    "texture_px": 1024,
+    "triangles": [
+     8349,
+     4174,
+     1251
+    ],
+    "emission": false
+   },
+   "Detail_Stones": {
+    "material": "RK01B_Detail_Stones",
+    "texture_px": 1024,
+    "triangles": [
+     200,
+     100,
+     30
+    ],
+    "emission": false
+   },
+   "Detail_Vine": {
+    "material": "RK01B_Detail_Vine",
+    "texture_px": 1024,
+    "triangles": [
+     108,
+     54,
+     16
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   55509,
+   27754,
+   8323
+  ],
+  "source_parts": 33,
+  "reference": "art/references/RK01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "RK01B_Collision",
+   "primitives": [
+    {
+     "type": "cylinder",
+     "radius": 0.12,
+     "height": 2.25,
+     "center": [
+      -0.109,
+      0.006,
+      1.125
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Stones",
+   "Detail_Vine"
+  ],
+  "pivots": {},
+  "note": "arrow boards are blank; overlay the place names in game. A2_RoadSign uses A, A3_WestSign uses B"
+ },
+ "TY06": {
+  "id": "TY06",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.379,
+   0.643,
+   0.376
+  ],
+  "size_limit_m": [
+   1.4,
+   0.8,
+   0.6
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Lock": {
+    "material": "TY06_Lock",
+    "texture_px": 2048,
+    "triangles": [
+     4183,
+     2090,
+     626
+    ],
+    "emission": false
+   },
+   "Bar": {
+    "material": "TY06_Bar",
+    "texture_px": 1024,
+    "triangles": [
+     16320,
+     8160,
+     2448
+    ],
+    "emission": false
+   },
+   "Barbell": {
+    "material": "TY06_Barbell",
+    "texture_px": 2048,
+    "triangles": [
+     10655,
+     5326,
+     1598
+    ],
+    "emission": false
+   },
+   "Detail_Grass": {
+    "material": "TY06_Detail_Grass",
+    "texture_px": 1024,
+    "triangles": [
+     528,
+     264,
+     79
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   31686,
+   15840,
+   4751
+  ],
+  "source_parts": 53,
+  "reference": "art/references/TY06/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "TY06_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size": [
+      0.325,
+      0.21,
+      0.315
+     ],
+     "center": [
+      -0.457,
+      0.145,
+      0.158
+     ]
+    },
+    {
+     "type": "box",
+     "size": [
+      1.126,
+      0.382,
+      0.382
+     ],
+     "center": [
+      0.116,
+      -0.084,
+      0.191
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Grass"
+  ],
+  "pivots": {},
+  "pieces": {
+   "Lock": {
+    "centre": [
+     -0.478,
+     0.152
+    ],
+    "collision": {
+     "type": "box",
+     "size": [
+      0.34,
+      0.22,
+      0.33
+     ]
+    }
+   },
+   "Barbell": {
+    "centre": [
+     0.122,
+     -0.088
+    ],
+    "collision": {
+     "type": "box",
+     "size": [
+      1.18,
+      0.4,
+      0.4
+     ]
+    }
+   }
+  },
+  "fit_scale": 0.9545
+ },
+ "TY03A": {
+  "id": "TY03A",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.471,
+   0.546,
+   0.16
+  ],
+  "size_limit_m": [
+   0.8,
+   0.8,
+   0.7
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Leaf": {
+    "material": "TY03A_Leaf",
+    "texture_px": 1024,
+    "triangles": [
+     20956,
+     10477,
+     3143
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   20956,
+   10477,
+   3143
+  ],
+  "source_parts": 11,
+  "reference": "art/references/TY03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": null,
+  "minTier": "standard",
+  "detailObjects": [],
+  "pivots": {},
+  "note": " · stage 1 of 4, plant at water level z = 0 (TY01 flooded state)"
+ },
+ "TY03B": {
+  "id": "TY03B",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.474,
+   0.299,
+   0.368
+  ],
+  "size_limit_m": [
+   0.8,
+   0.8,
+   0.7
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Detail_Leaf": {
+    "material": "TY03B_Detail_Leaf",
+    "texture_px": 1024,
+    "triangles": [
+     6914,
+     3457,
+     1036
+    ],
+    "emission": false
+   },
+   "Leaf": {
+    "material": "TY03B_Leaf",
+    "texture_px": 1024,
+    "triangles": [
+     6975,
+     3487,
+     1046
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   13889,
+   6944,
+   2082
+  ],
+  "source_parts": 6,
+  "reference": "art/references/TY03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": null,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Leaf"
+  ],
+  "pivots": {},
+  "note": " · stage 2 of 4, plant at water level z = 0 (TY01 flooded state)"
+ },
+ "TY03C": {
+  "id": "TY03C",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.615,
+   0.503,
+   0.565
+  ],
+  "size_limit_m": [
+   0.8,
+   0.8,
+   0.7
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Detail_Leaf": {
+    "material": "TY03C_Detail_Leaf",
+    "texture_px": 1024,
+    "triangles": [
+     6916,
+     3458,
+     1037
+    ],
+    "emission": false
+   },
+   "Leaf": {
+    "material": "TY03C_Leaf",
+    "texture_px": 1024,
+    "triangles": [
+     10505,
+     5251,
+     1574
+    ],
+    "emission": false
+   },
+   "Flower": {
+    "material": "TY03C_Flower",
+    "texture_px": 1024,
+    "triangles": [
+     160,
+     80,
+     24
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   17581,
+   8789,
+   2635
+  ],
+  "source_parts": 10,
+  "reference": "art/references/TY03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": null,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Leaf"
+  ],
+  "pivots": {},
+  "note": " · stage 3 of 4, plant at water level z = 0 (TY01 flooded state)"
+ },
+ "TY03D": {
+  "id": "TY03D",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.615,
+   0.521,
+   0.628
+  ],
+  "size_limit_m": [
+   0.8,
+   0.8,
+   0.7
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Detail_Leaf": {
+    "material": "TY03D_Detail_Leaf",
+    "texture_px": 1024,
+    "triangles": [
+     6918,
+     3458,
+     1037
+    ],
+    "emission": false
+   },
+   "Leaf": {
+    "material": "TY03D_Leaf",
+    "texture_px": 1024,
+    "triangles": [
+     10498,
+     5248,
+     1574
+    ],
+    "emission": false
+   },
+   "Flower": {
+    "material": "TY03D_Flower",
+    "texture_px": 1024,
+    "triangles": [
+     520,
+     260,
+     78
+    ],
+    "emission": false
+   },
+   "Glow": {
+    "material": "TY03D_Glow",
+    "texture_px": 1024,
+    "triangles": [
+     96,
+     48,
+     14
+    ],
+    "emission": true
+   }
+  },
+  "triangles_total": [
+   18032,
+   9014,
+   2703
+  ],
+  "source_parts": 46,
+  "reference": "art/references/TY03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": null,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Leaf"
+  ],
+  "pivots": {},
+  "note": "Glow = the seed-pod heart; emission 0..1 for the faint inner light · stage 4 of 4, plant at water level z = 0 (TY01 flooded state)"
+ },
+ "WM08A": {
+  "id": "WM08A",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.985,
+   0.785,
+   0.268
+  ],
+  "size_limit_m": [
+   1,
+   1,
+   0.4
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "WM08A_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     19285,
+     9641,
+     2891
+    ],
+    "emission": false
+   },
+   "Detail_Pebbles": {
+    "material": "WM08A_Detail_Pebbles",
+    "texture_px": 1024,
+    "triangles": [
+     314,
+     156,
+     47
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   19599,
+   9797,
+   2938
+  ],
+  "source_parts": 8,
+  "reference": "art/references/WM08/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "WM08A_Collision",
+   "primitives": [
+    {
+     "type": "cylinder",
+     "radius": 0.35559671187061515,
+     "height": 0.2441942332144074,
+     "center": [
+      -0.026,
+      0.024,
+      0.122
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Pebbles"
+  ],
+  "pivots": {},
+  "walkable": {
+   "top_height_m": 0.274,
+   "note": "nearly flat top, sink ~0.12 m into the creek bed when placed"
+  },
+  "fit_scale": 0.8912
+ },
+ "WM08B": {
+  "id": "WM08B",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.985,
+   0.726,
+   0.247
+  ],
+  "size_limit_m": [
+   1,
+   1,
+   0.4
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "WM08B_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     19077,
+     9537,
+     2861
+    ],
+    "emission": false
+   },
+   "Detail_Pebbles": {
+    "material": "WM08B_Detail_Pebbles",
+    "texture_px": 1024,
+    "triangles": [
+     291,
+     145,
+     43
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   19368,
+   9682,
+   2904
+  ],
+  "source_parts": 8,
+  "reference": "art/references/WM08/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "WM08B_Collision",
+   "primitives": [
+    {
+     "type": "cylinder",
+     "radius": 0.3192236436234336,
+     "height": 0.22463886032760144,
+     "center": [
+      -0.003,
+      -0.021,
+      0.112
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Pebbles"
+  ],
+  "pivots": {},
+  "walkable": {
+   "top_height_m": 0.247,
+   "note": "nearly flat top, sink ~0.12 m into the creek bed when placed"
+  },
+  "fit_scale": 0.9095
+ },
+ "WM08C": {
+  "id": "WM08C",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.985,
+   0.908,
+   0.269
+  ],
+  "size_limit_m": [
+   1,
+   1,
+   0.4
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "WM08C_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     19439,
+     9719,
+     2914
+    ],
+    "emission": false
+   },
+   "Detail_Pebbles": {
+    "material": "WM08C_Detail_Pebbles",
+    "texture_px": 1024,
+    "triangles": [
+     335,
+     167,
+     50
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   19774,
+   9886,
+   2964
+  ],
+  "source_parts": 8,
+  "reference": "art/references/WM08/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "WM08C_Collision",
+   "primitives": [
+    {
+     "type": "cylinder",
+     "radius": 0.4104542841607821,
+     "height": 0.2442062102558429,
+     "center": [
+      0.038,
+      0.005,
+      0.122
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Pebbles"
+  ],
+  "pivots": {},
+  "walkable": {
+   "top_height_m": 0.26,
+   "note": "nearly flat top, sink ~0.12 m into the creek bed when placed"
+  },
+  "fit_scale": 0.9393
+ },
+ "WM10A": {
+  "id": "WM10A",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.469,
+   0.376,
+   0.282
+  ],
+  "size_limit_m": [
+   0.5,
+   0.5,
+   0.5
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "WM10A_Stone",
+    "texture_px": 1024,
+    "triangles": [
+     19403,
+     9700,
+     2909
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   19403,
+   9700,
+   2909
+  ],
+  "source_parts": 1,
+  "reference": "art/references/WM10/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "WM10A_Collision",
+   "primitives": [
+    {
+     "type": "cylinder",
+     "radius": 0.19,
+     "height": 0.246,
+     "center": [
+      0.003,
+      -0.003,
+      0.123
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [],
+  "pivots": {},
+  "note": "bed it ~15 % of its height into the gravel when placed"
+ },
+ "WM10B": {
+  "id": "WM10B",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.182,
+   0.91,
+   0.525
+  ],
+  "size_limit_m": [
+   1.2,
+   1.2,
+   0.8
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "WM10B_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     19407,
+     9703,
+     2911
+    ],
+    "emission": false
+   },
+   "Detail_Gravel": {
+    "material": "WM10B_Detail_Gravel",
+    "texture_px": 1024,
+    "triangles": [
+     1190,
+     595,
+     177
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   20597,
+   10298,
+   3088
+  ],
+  "source_parts": 15,
+  "reference": "art/references/WM10/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "WM10B_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size": [
+      0.836,
+      0.641,
+      0.47
+     ],
+     "center": [
+      0.012,
+      0.008,
+      0.236
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Gravel"
+  ],
+  "pivots": {},
+  "note": "bed it ~15 % of its height into the gravel when placed",
+  "fit_scale": 0.8684
+ },
+ "WM10C": {
+  "id": "WM10C",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.955,
+   2.16,
+   1.162
+  ],
+  "size_limit_m": [
+   3,
+   3,
+   1.4
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "WM10C_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     108885,
+     54442,
+     16332
+    ],
+    "emission": false
+   },
+   "Detail_Gravel": {
+    "material": "WM10C_Detail_Gravel",
+    "texture_px": 1024,
+    "triangles": [
+     2040,
+     1019,
+     306
+    ],
+    "emission": false
+   },
+   "Detail_Ferns": {
+    "material": "WM10C_Detail_Ferns",
+    "texture_px": 1024,
+    "triangles": [
+     360,
+     180,
+     54
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   111285,
+   55641,
+   16692
+  ],
+  "source_parts": 43,
+  "reference": "art/references/WM10/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "WM10C_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size": [
+      2.231,
+      1.519,
+      1.033
+     ],
+     "center": [
+      0.0,
+      -0.02,
+      0.517
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Ferns",
+   "Detail_Gravel"
+  ],
+  "pivots": {},
+  "note": "bed it ~15 % of its height into the gravel when placed",
+  "fit_scale": 0.9265
+ },
+ "WM10D": {
+  "id": "WM10D",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.382,
+   1.182,
+   0.355
+  ],
+  "size_limit_m": [
+   3,
+   1.2,
+   0.8
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "WM10D_Stone",
+    "texture_px": 2048,
+    "triangles": [
+     115871,
+     57935,
+     17379
+    ],
+    "emission": false
+   },
+   "Detail_Gravel": {
+    "material": "WM10D_Detail_Gravel",
+    "texture_px": 1024,
+    "triangles": [
+     2125,
+     1062,
+     318
+    ],
+    "emission": false
+   },
+   "Detail_Ferns": {
+    "material": "WM10D_Detail_Ferns",
+    "texture_px": 1024,
+    "triangles": [
+     360,
+     180,
+     54
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   118356,
+   59177,
+   17751
+  ],
+  "source_parts": 44,
+  "reference": "art/references/WM10/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "WM10D_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size": [
+      1.826,
+      0.63,
+      0.372
+     ],
+     "center": [
+      -0.011,
+      -0.039,
+      0.186
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Ferns",
+   "Detail_Gravel"
+  ],
+  "pivots": {},
+  "note": "bed it ~15 % of its height into the gravel when placed",
+  "fit_scale": 0.7322
+ },
+ "RK12A": {
+  "id": "RK12A",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.97,
+   0.427,
+   0.178
+  ],
+  "size_limit_m": [
+   2,
+   2,
+   0.3
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "RK12A_Stone",
+    "texture_px": 1024,
+    "triangles": [
+     28709,
+     14353,
+     4306
+    ],
+    "emission": false
+   },
+   "Detail_Grass": {
+    "material": "RK12A_Detail_Grass",
+    "texture_px": 1024,
+    "triangles": [
+     540,
+     269,
+     81
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   29249,
+   14622,
+   4387
+  ],
+  "source_parts": 55,
+  "reference": "art/references/RK12/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": null,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Grass"
+  ],
+  "pivots": {},
+  "note": "roadside dressing, no collision; set along both edges of the dirt road",
+  "fit_scale": 0.8364
+ },
+ "RK12B": {
+  "id": "RK12B",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.641,
+   0.444,
+   0.197
+  ],
+  "size_limit_m": [
+   2,
+   2,
+   0.3
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "RK12B_Stone",
+    "texture_px": 1024,
+    "triangles": [
+     20472,
+     10235,
+     3070
+    ],
+    "emission": false
+   },
+   "Detail_Grass": {
+    "material": "RK12B_Detail_Grass",
+    "texture_px": 1024,
+    "triangles": [
+     228,
+     114,
+     34
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   20700,
+   10349,
+   3104
+  ],
+  "source_parts": 27,
+  "reference": "art/references/RK12/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": null,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Grass"
+  ],
+  "pivots": {},
+  "note": "roadside dressing, no collision; set along both edges of the dirt road"
+ },
+ "RK12C": {
+  "id": "RK12C",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.97,
+   0.411,
+   0.187
+  ],
+  "size_limit_m": [
+   2,
+   2,
+   0.3
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "RK12C_Stone",
+    "texture_px": 1024,
+    "triangles": [
+     17682,
+     8841,
+     2652
+    ],
+    "emission": false
+   },
+   "Detail_Grass": {
+    "material": "RK12C_Detail_Grass",
+    "texture_px": 1024,
+    "triangles": [
+     288,
+     144,
+     43
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   17970,
+   8985,
+   2695
+  ],
+  "source_parts": 34,
+  "reference": "art/references/RK12/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": null,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Grass"
+  ],
+  "pivots": {},
+  "note": "roadside dressing, no collision; set along both edges of the dirt road",
+  "fit_scale": 0.9198
+ },
+ "RK12D": {
+  "id": "RK12D",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.27,
+   0.355,
+   0.21
+  ],
+  "size_limit_m": [
+   2,
+   2,
+   0.3
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Stone": {
+    "material": "RK12D_Stone",
+    "texture_px": 1024,
+    "triangles": [
+     17442,
+     8720,
+     2615
+    ],
+    "emission": false
+   },
+   "Detail_Grass": {
+    "material": "RK12D_Detail_Grass",
+    "texture_px": 1024,
+    "triangles": [
+     144,
+     72,
+     21
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   17586,
+   8792,
+   2636
+  ],
+  "source_parts": 19,
+  "reference": "art/references/RK12/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": null,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Grass"
+  ],
+  "pivots": {},
+  "note": "roadside dressing, no collision; set along both edges of the dirt road"
+ },
+ "RK10A": {
+  "id": "RK10A",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.286,
+   2.199,
+   2.167
+  ],
+  "size_limit_m": [
+   2.4,
+   2.4,
+   2.2
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Straw": {
+    "material": "RK10A_Straw",
+    "texture_px": 4096,
+    "triangles": [
+     655435,
+     37168,
+     9276
+    ],
+    "emission": false
+   },
+   "Cap": {
+    "material": "RK10A_Cap",
+    "texture_px": 2048,
+    "triangles": [
+     1297216,
+     52289,
+     13050
+    ],
+    "emission": false
+   },
+   "Rope": {
+    "material": "RK10A_Rope",
+    "texture_px": 1024,
+    "triangles": [
+     13328,
+     5300,
+     1322
+    ],
+    "emission": false
+   },
+   "Wood": {
+    "material": "RK10A_Wood",
+    "texture_px": 1024,
+    "triangles": [
+     9216,
+     4406,
+     1098
+    ],
+    "emission": false
+   },
+   "Detail_Straw": {
+    "material": "RK10A_Detail_Straw",
+    "texture_px": 1024,
+    "triangles": [
+     1671,
+     835,
+     250
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   1976866,
+   99998,
+   24996
+  ],
+  "source_parts": 217,
+  "reference": "art/references/RK10/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "RK10A_Collision",
+   "primitives": [
+    {
+     "type": "cylinder",
+     "radius": 0.8682507061410787,
+     "height": 1.7280717937759331,
+     "center": [
+      0.023,
+      0.01,
+      0.864
+     ]
+    }
+   ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Straw"
+  ],
+  "pivots": {},
+  "fit_scale": 0.843,
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
+ },
+ "RK10B": {
+  "id": "RK10B",
+  "device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.174,
+   2.364,
+   1.832
+  ],
+  "size_limit_m": [
+   2.4,
+   2.4,
+   2.2
+  ],
+  "fits_limit": true,
+  "groups": {
+   "Straw": {
+    "material": "RK10B_Straw",
+    "texture_px": 4096,
+    "triangles": [
+     645075,
+     47934,
+     11748
+    ],
+    "emission": false
+   },
+   "Cap": {
+    "material": "RK10B_Cap",
+    "texture_px": 2048,
+    "triangles": [
+     522903,
+     43156,
+     10577
+    ],
+    "emission": false
+   },
+   "Rope": {
+    "material": "RK10B_Rope",
+    "texture_px": 1024,
+    "triangles": [
+     6928,
+     3464,
+     1038
+    ],
+    "emission": false
+   },
+   "Wood": {
+    "material": "RK10B_Wood",
+    "texture_px": 1024,
+    "triangles": [
+     9216,
+     4608,
+     1382
+    ],
+    "emission": false
+   },
+   "Detail_Straw": {
+    "material": "RK10B_Detail_Straw",
+    "texture_px": 1024,
+    "triangles": [
+     1671,
+     835,
+     250
+    ],
+    "emission": false
+   }
+  },
+  "triangles_total": [
+   1185793,
+   99997,
+   24995
+  ],
+  "source_parts": 187,
+  "reference": "art/references/RK10/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / +Z glTF",
+  "textures": "per group: Albedo / Normal / MaskURP (R metal, G AO, A smoothness) / ORM (glTF) [+ Emission]",
+  "collision": {
+   "mesh": "RK10B_Collision",
+   "primitives": [
+    {
+     "type": "cylinder",
+     "radius": 0.8603760264680373,
+     "height": 1.5087529241121156,
+     "center": [
+      -0.002,
+      0.02,
+      0.755
+     ]
+    }
+   ]
+  },
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Straw"
+  ],
+  "pivots": {},
+  "fit_scale": 0.7737,
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
+ }
+}

@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "note": "雲境新手大世界的區塊總表。每塊 100 × 100 m，cell = [東西格, 南北格]，A1（青溪村核心）是 [0,0]，中心在世界座標 (0,0)，範圍 -50..50。+Z 為北。walkable=false 的格只做遠景。詳見 docs/execution/novice-world-block-plan.md。",
+  "blockSize": 100,
+  "regions": [
+    { "id": "A", "name": "青溪河谷", "colour": "#C9D6A3" },
+    { "id": "D", "name": "古林", "colour": "#8FAE7E" },
+    { "id": "B", "name": "垂直山城", "colour": "#C9C6BD" },
+    { "id": "C", "name": "裂靈湖", "colour": "#9FB8C8" }
+  ],
+  "blocks": [
+    { "id": "A1", "region": "A", "name": "青溪村核心", "cell": [0, 0], "walkable": true, "phase": "P0–P1", "elevation": "0–1.5 m", "landmark": "村中古樹、廣場", "purpose": "借住處、坊市、煉丹、演武、民居、鐵匠、材料鋪、西溪踏步", "exits": ["A2", "A3", "A4", "D1"], "status": "可玩，持續補件" },
+    { "id": "A2", "region": "A", "name": "村外官道與茶亭", "cell": [0, -1], "walkable": true, "phase": "P2", "elevation": "0–3 m", "landmark": "路邊茶亭、里程石", "purpose": "從外界走進青溪的第一段路：看見村門、遠山與溪流", "exits": ["A1", "A5", "A6"], "status": "待做" },
+    { "id": "A3", "region": "A", "name": "西溪與水磨坊", "cell": [-1, 0], "walkable": true, "phase": "P2", "elevation": "-1–2 m", "landmark": "石拱橋、水車磨坊", "purpose": "溪流主段、水路修繕（斷流事件 B）、釣魚點", "exits": ["A1", "A5", "C1", "D3"], "status": "待做" },
+    { "id": "A4", "region": "A", "name": "東坡茶田", "cell": [1, 0], "walkable": true, "phase": "P2", "elevation": "2–12 m", "landmark": "觀景亭（看山城）", "purpose": "梯田、採茶、往山城的山徑起點", "exits": ["A1", "A6", "D5"], "status": "待做" },
+    { "id": "A5", "region": "A", "name": "河灣蘆葦渡口", "cell": [-1, -1], "walkable": true, "phase": "P3", "elevation": "-2–1 m", "landmark": "渡口與擺渡船", "purpose": "蘆葦叢採集、往裂靈湖的水路", "exits": ["A2", "A3", "C5"], "status": "待做" },
+    { "id": "A6", "region": "A", "name": "稻田與水車", "cell": [1, -1], "walkable": true, "phase": "P3", "elevation": "0–4 m", "landmark": "大水車", "purpose": "種植玩法、田間小事件", "exits": ["A2", "A4"], "status": "待做" },
+
+    { "id": "D1", "region": "D", "name": "林緣獵場", "cell": [0, 1], "walkable": true, "phase": "P1–P2", "elevation": "1–8 m", "landmark": "瞭望台 A10", "purpose": "山兔遭遇（A 組）延伸、進階採集", "exits": ["A1", "D2", "D3", "D5"], "status": "部分在 A1 北側" },
+    { "id": "D2", "region": "D", "name": "古樹神木", "cell": [0, 2], "walkable": true, "phase": "P3", "elevation": "8–20 m", "landmark": "世界古樹（giant-tree-v1，90 m 寬、62 m 高）", "purpose": "古樹事件、機緣、世界觀揭示", "exits": ["D1", "D4", "D6"], "status": "模型已有" },
+    { "id": "D3", "region": "D", "name": "上游溪谷", "cell": [-1, 1], "walkable": true, "phase": "P2", "elevation": "3–15 m", "landmark": "斷流石壩", "purpose": "斷流上游調查（水線 A）", "exits": ["A3", "D1", "D4"], "status": "待做" },
+    { "id": "D4", "region": "D", "name": "苔石古祠", "cell": [-1, 2], "walkable": true, "phase": "P3", "elevation": "10–22 m", "landmark": "半埋的石祠", "purpose": "機緣、線索、隱藏洞府", "exits": ["D2", "D3", "C2"], "status": "待做" },
+    { "id": "D5", "region": "D", "name": "蕈谷", "cell": [1, 1], "walkable": true, "phase": "P3", "elevation": "6–14 m", "landmark": "發光蕈群", "purpose": "夜間採集、靈氣光點", "exits": ["A4", "D1", "D6"], "status": "待做" },
+    { "id": "D6", "region": "D", "name": "古林深處・山腳", "cell": [1, 2], "walkable": true, "phase": "P4", "elevation": "15–40 m", "landmark": "第一段石階", "purpose": "古林往山城的過渡帶（30–60 m 混合）", "exits": ["D2", "D5", "B1"], "status": "待做" },
+
+    { "id": "B1", "region": "B", "name": "山門石階", "cell": [2, 2], "walkable": true, "phase": "P4", "elevation": "40–80 m", "landmark": "宗門山門（SectGate）", "purpose": "爬山、索橋、看雲海", "exits": ["D6", "B2", "B4"], "status": "部分模型已有" },
+    { "id": "B2", "region": "B", "name": "測資廣場", "cell": [2, 3], "walkable": true, "phase": "P4", "elevation": "80–90 m", "landmark": "測資廣場（aptitude-plaza-v1）", "purpose": "第十日測資質、選宗門", "exits": ["B1", "B3"], "status": "模型已有" },
+    { "id": "B3", "region": "B", "name": "宗門群", "cell": [3, 3], "walkable": true, "phase": "P5", "elevation": "90–120 m", "landmark": "宗門大殿、藏經閣", "purpose": "選宗門後的入口（SectGrandHall、ScriptureLibrary、SectStorehouse、AlchemyHall）", "exits": ["B2"], "status": "部分模型已有" },
+    { "id": "B4", "region": "B", "name": "雲瀑", "cell": [3, 2], "walkable": true, "phase": "P5", "elevation": "60–100 m", "landmark": "雲中瀑布", "purpose": "景觀、輕功練習", "exits": ["B1"], "status": "待做" },
+    { "id": "BX1", "region": "B", "name": "遠景石峰群", "cell": [2, 4], "walkable": false, "phase": "P1", "elevation": "100–250 m", "landmark": "Codex C4 遠景套件", "purpose": "從青溪往北看的天際線", "exits": [], "status": "Codex 製作中" },
+    { "id": "BX2", "region": "B", "name": "遠景石峰群", "cell": [3, 4], "walkable": false, "phase": "P1", "elevation": "100–250 m", "landmark": "Codex C4 遠景套件", "purpose": "天際線", "exits": [], "status": "Codex 製作中" },
+    { "id": "BX3", "region": "B", "name": "遠景石峰群", "cell": [4, 3], "walkable": false, "phase": "P1", "elevation": "100–250 m", "landmark": "Codex C4 遠景套件", "purpose": "天際線", "exits": [], "status": "Codex 製作中" },
+
+    { "id": "C1", "region": "C", "name": "湖岸濕地", "cell": [-2, 0], "walkable": true, "phase": "P5", "elevation": "-3–0 m", "landmark": "濕地藥田", "purpose": "湖岸採集、遠眺浮島", "exits": ["A3", "C2", "C3", "C5"], "status": "待做" },
+    { "id": "C2", "region": "C", "name": "斷橋", "cell": [-2, 1], "walkable": true, "phase": "P5", "elevation": "-3–5 m", "landmark": "斷成兩截的古石橋", "purpose": "主線事件、修橋", "exits": ["C1", "C4", "D4"], "status": "待做" },
+    { "id": "C3", "region": "C", "name": "浮島群", "cell": [-3, 0], "walkable": true, "phase": "P5", "elevation": "-5–30 m", "landmark": "懸根浮島", "purpose": "跳躍探索、廢墟", "exits": ["C1", "C4"], "status": "待做" },
+    { "id": "C4", "region": "C", "name": "靈脈裂隙", "cell": [-3, 1], "walkable": true, "phase": "P5", "elevation": "-10–10 m", "landmark": "紫色裂隙（秘境入口）", "purpose": "每週秘境入口", "exits": ["C2", "C3"], "status": "待做" },
+    { "id": "C5", "region": "C", "name": "湖畔漁村", "cell": [-2, -1], "walkable": true, "phase": "P5", "elevation": "-2–2 m", "landmark": "高腳漁屋", "purpose": "湖區補給點", "exits": ["A5", "C1"], "status": "待做" }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "A08",
+ "name": "BrokenBambooFence",
+ "key": "A08_BrokenBambooFence",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.0,
+ "dimensions_m": [
+  3.0775,
+  1.0263,
+  1.335
+ ],
+ "triangles": 9984,
+ "lod_triangles": [
+  9984,
+  5070,
+  2229
+ ],
+ "collision": {
+  "type": "boxes",
+  "items": [
+   [
+    -1.45,
+    0,
+    0.66,
+    0.16,
+    0.16,
+    1.32
+   ],
+   [
+    0,
+    0,
+    0.66,
+    0.16,
+    0.16,
+    1.32
+   ],
+   [
+    1.45,
+    0,
+    0.66,
+    0.16,
+    0.16,
+    1.32
+   ],
+   [
+    0,
+    -0.1,
+    0.6,
+    2.9,
+    0.08,
+    1.2
+   ]
+  ],
+  "note": "the broken gap (x -0.95..-0.55) is low enough to see through, not to walk through"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A08",
+  "key": "A08_BrokenBambooFence",
+  "dimensions_m": [
+   3.0775,
+   1.0263,
+   1.335
+  ],
+  "bbox_min": [
+   -1.5389,
+   -0.6665,
+   0.0
+  ],
+  "bbox_max": [
+   1.5386,
+   0.3598,
+   1.335
+  ],
+  "trianglesLOD": [
+   9984,
+   5070,
+   2229
+  ],
+  "budgetLOD0": 10000,
+  "withinBudget": true,
+  "materials": [
+   "M_A08_BrokenBambooFence"
+  ],
+  "textureResolution": 1024,
+  "doubleSided": true,
+  "nodes": [
+   "A08_BrokenBambooFence_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 3074,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 9984,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A08_BrokenBambooFence.001"
+   ]
+  },
+  "files": {
+   "A08_BrokenBambooFence.glb": {
+    "bytes": 998892,
+    "sha256": "a4c785fad7dbbe4aaae40a5bade8e2b668f795deda467c436afb82176e31a030"
+   },
+   "A08_BrokenBambooFence.fbx": {
+    "bytes": 1423068,
+    "sha256": "1cedaa91cfefd91b98a24d940fe3035bab001f0ed51f9a235844483dbe4d82ba"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A08_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

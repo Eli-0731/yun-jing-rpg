@@ -1,0 +1,241 @@
+{
+  "asset": "WM09_BambooPavilion",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "WM09_BambooPavilion_Detail_Small",
+    "WM09_BambooPavilion_Detail_Straw",
+    "WM09_BambooPavilion_Detail_Vines"
+  ],
+  "name_zh": "六角竹亭",
+  "slot": "A3_BambooPavilion",
+  "note": "六角、竹柱、茅草頂、中間石桌四石凳；一面開口。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    3.4489,
+    3.5,
+    3.9758
+  ],
+  "size_limit_m": [
+    3.5,
+    3.5,
+    4.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        3.4489,
+        3.5,
+        3.9758
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        3.062,
+        3.4828,
+        3.6547
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.1941
+    },
+    "Detail_Straw": {
+      "dims_m": [
+        3.0375,
+        3.3788,
+        1.1011
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 2.1373
+    },
+    "Detail_Vines": {
+      "dims_m": [
+        0.9441,
+        0.8873,
+        0.4943
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 3.2548
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 36928,
+      "LOD1": 18464,
+      "LOD2": 5539
+    },
+    "Detail_Small": {
+      "LOD0": 101068,
+      "LOD1": 50534,
+      "LOD2": 15160
+    },
+    "Detail_Straw": {
+      "LOD0": 3276,
+      "LOD1": 1638,
+      "LOD2": 491
+    },
+    "Detail_Vines": {
+      "LOD0": 3360,
+      "LOD1": 1680,
+      "LOD2": 504
+    }
+  },
+  "lod_totals": {
+    "LOD0": 144632,
+    "LOD1": 72316,
+    "LOD2": 21694
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_WM09_BambooPavilion_Main"
+  ],
+  "textures": [
+    "WM09_BambooPavilion_BaseColor.png",
+    "WM09_BambooPavilion_Metallic.png",
+    "WM09_BambooPavilion_MetallicSmoothness.png",
+    "WM09_BambooPavilion_Normal.png",
+    "WM09_BambooPavilion_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "WM09_BambooPavilion_BaseColor.png",
+    "Normal": "WM09_BambooPavilion_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "WM09_BambooPavilion_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "WM09_BambooPavilion_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [
+    [
+      [
+        1.0558330249197703,
+        0.5799999999999998,
+        0
+      ],
+      [
+        1.1958330249197704,
+        0.72,
+        2.3
+      ]
+    ],
+    [
+      [
+        -0.06999999999999992,
+        1.23,
+        0
+      ],
+      [
+        0.07000000000000009,
+        1.37,
+        2.3
+      ]
+    ],
+    [
+      [
+        -1.1958330249197704,
+        0.5799999999999998,
+        0
+      ],
+      [
+        -1.0558330249197703,
+        0.72,
+        2.3
+      ]
+    ],
+    [
+      [
+        -1.1958330249197702,
+        -0.7200000000000002,
+        0
+      ],
+      [
+        -1.05583302491977,
+        -0.5800000000000001,
+        2.3
+      ]
+    ],
+    [
+      [
+        -0.07000000000000024,
+        -1.37,
+        0
+      ],
+      [
+        0.06999999999999977,
+        -1.23,
+        2.3
+      ]
+    ],
+    [
+      [
+        1.0558330249197698,
+        -0.7200000000000006,
+        0
+      ],
+      [
+        1.19583302491977,
+        -0.5800000000000005,
+        2.3
+      ]
+    ],
+    [
+      [
+        -0.5,
+        -0.5,
+        0
+      ],
+      [
+        0.5,
+        0.5,
+        0.78
+      ]
+    ]
+  ],
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "states": [
+    "靜物"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "WM09_BambooPavilion.001",
+    "WM09_BambooPavilion_Collision.001",
+    "WM09_BambooPavilion_Detail_Small_LOD0.001",
+    "WM09_BambooPavilion_Detail_Small_LOD1.001",
+    "WM09_BambooPavilion_Detail_Small_LOD2.001",
+    "WM09_BambooPavilion_Detail_Straw_LOD0.001",
+    "WM09_BambooPavilion_Detail_Straw_LOD1.001",
+    "WM09_BambooPavilion_Detail_Straw_LOD2.001",
+    "WM09_BambooPavilion_Detail_Vines_LOD0.001",
+    "WM09_BambooPavilion_Detail_Vines_LOD1.001",
+    "WM09_BambooPavilion_Detail_Vines_LOD2.001",
+    "WM09_BambooPavilion_LOD0.001",
+    "WM09_BambooPavilion_LOD1.001",
+    "WM09_BambooPavilion_LOD2.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/WM09/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file"
+}

@@ -1,0 +1,90 @@
+{
+ "id": "A09",
+ "name": "StoneShelter",
+ "key": "A09_StoneShelter",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.0,
+ "dimensions_m": [
+  2.88,
+  2.2871,
+  2.5482
+ ],
+ "triangles": 18056,
+ "lod_triangles": [
+  18056,
+  9094,
+  4000
+ ],
+ "collision": {
+  "type": "boxes",
+  "note": "three walls 0.34 m thick, open front (-Y); inside floor walkable; the safe point is the floor centre"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A09",
+  "key": "A09_StoneShelter",
+  "dimensions_m": [
+   2.88,
+   2.2871,
+   2.5482
+  ],
+  "bbox_min": [
+   -1.44,
+   -1.2124,
+   0.0
+  ],
+  "bbox_max": [
+   1.44,
+   1.0747,
+   2.5482
+  ],
+  "trianglesLOD": [
+   18056,
+   9094,
+   4000
+  ],
+  "budgetLOD0": 24000,
+  "withinBudget": true,
+  "materials": [
+   "M_A09_StoneShelter"
+  ],
+  "textureResolution": 2048,
+  "doubleSided": true,
+  "nodes": [
+   "A09_StoneShelter_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 2066,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 18056,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A09_StoneShelter.001"
+   ]
+  },
+  "files": {
+   "A09_StoneShelter.glb": {
+    "bytes": 1781224,
+    "sha256": "fb95c349cf83cc147cd8662a2e56d094e553c5f419fac9b1a293c69d2ad4a298"
+   },
+   "A09_StoneShelter.fbx": {
+    "bytes": 2283548,
+    "sha256": "2a0ff8aca43c62fdfde00c6b4dcba0d3a7fa9d9798a0832b7904228e69b13c4e"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A09_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

@@ -1,0 +1,21 @@
+name: World layout
+on: [push, pull_request]
+permissions:
+  contents: read
+concurrency:
+  group: yunjing-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  layout:
+    name: Novice world blocks and slots
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # Pads, roads, creek, slot footprints and block borders for A1, A2 and A3 (no install needed).
+      - run: node --test tools/qingxi-terrain/novice-village.test.mjs
+      # The plan maps must still render from the data.
+      - run: node tools/qingxi-terrain/render-plan.mjs

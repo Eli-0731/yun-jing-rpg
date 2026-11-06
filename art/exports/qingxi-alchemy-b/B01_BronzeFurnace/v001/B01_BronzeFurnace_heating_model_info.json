@@ -1,0 +1,139 @@
+{
+ "id": "B01",
+ "name": "BronzeFurnace",
+ "key": "B01_BronzeFurnace_heating",
+ "state": "heating",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.736,
+  0.765,
+  0.892
+ ],
+ "triangles": 14912,
+ "lod_triangles": [
+  14912,
+  7456,
+  3280
+ ],
+ "collision": {
+  "type": "capsule",
+  "radius": 0.38,
+  "height": 0.8,
+  "center": [
+   0,
+   0,
+   0.42
+  ],
+  "note": "player blocker; interaction trigger 1.1 m in front of the mouth"
+ },
+ "states": {
+  "cold": "firebox dark, coal grey",
+  "heating": "coal and lining glow (emissive map)"
+ },
+ "sockets": {
+  "lid_seat": [
+   0,
+   0,
+   0.746
+  ],
+  "flue_outlet": [
+   0,
+   0.335,
+   0.892
+  ],
+  "mouth_center": [
+   0,
+   -0.31,
+   0.3
+  ]
+ },
+ "rim": {
+  "top_z": 0.785,
+  "inner_r": 0.21
+ },
+ "validation": {
+  "asset": "B01",
+  "key": "B01_BronzeFurnace_heating",
+  "state": "heating",
+  "version": "v001",
+  "dimensions_m": [
+   0.736,
+   0.765,
+   0.892
+  ],
+  "bbox_min": [
+   -0.368,
+   -0.362,
+   0.0
+  ],
+  "bbox_max": [
+   0.368,
+   0.403,
+   0.892
+  ],
+  "target_size_m": [
+   0.86,
+   0.8,
+   0.92
+  ],
+  "trianglesLOD": [
+   14912,
+   7456,
+   3280
+  ],
+  "budgetLOD0": 15000,
+  "withinBudget": true,
+  "vertices": 7522,
+  "materials": [
+   "M_B01_BronzeFurnace_heating"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B01_BronzeFurnace_heating_LOD0"
+  ],
+  "textures": [
+   "T_B01_BronzeFurnace_heating_BaseColor.png",
+   "T_B01_BronzeFurnace_heating_Emissive.png",
+   "T_B01_BronzeFurnace_heating_Normal.png",
+   "T_B01_BronzeFurnace_heating_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 14912,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B01_BronzeFurnace_heating.001"
+   ]
+  },
+  "files": {
+   "B01_BronzeFurnace_heating.glb": {
+    "bytes": 4353828,
+    "sha256": "323fc4d6a3662a01059a9ec85162d723bb75ddabcbce5bf40a7c5b0450fc28b1"
+   },
+   "B01_BronzeFurnace_heating.fbx": {
+    "bytes": 1385708,
+    "sha256": "8484326057b09fb735fc0180c578160342f4858ce1c9af2335e61d0715df7b43"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B01_BronzeFurnace_heating": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 6.8,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

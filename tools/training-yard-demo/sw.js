@@ -1,32 +1,23 @@
-const VERSION='qingxi-training-yard-v3';
-const SHELL=[
-  './','./index.html','./style.css','./app.mjs','./rhythm.mjs','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png',
-  './vendor/build/three.module.js',
-  './vendor/examples/jsm/loaders/GLTFLoader.js',
-  './vendor/examples/jsm/utils/BufferGeometryUtils.js',
-  ...['training-shelter','qi-striking-post','agility-post','weapon-rack','engraved-training-stone','training-banner'].map(name=>`./assets/${name}.glb`)
+// Offline cache for the local showcase. Bump VERSION whenever a model or page file changes.
+const VERSION = 'qingxi-training-yard-v4';
+const SHELL = [
+  './', './index.html', './style.css', './app.mjs', './practice.mjs', './audio.mjs', './manifest.webmanifest',
+  './icon.svg', './icon-192.png', './icon-512.png',
+  './vendor/build/three.module.js', './vendor/examples/jsm/loaders/GLTFLoader.js', './vendor/examples/jsm/utils/BufferGeometryUtils.js',
+  ...['training-shelter', 'qi-striking-post', 'agility-post', 'weapon-rack', 'engraved-training-stone', 'training-banner'].map(n => `./assets/${n}.glb`),
+  './world/village-gate-v13.glb',
 ];
-
-self.addEventListener('install',event=>{
-  event.waitUntil(caches.open(VERSION).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting()));
-});
-
-self.addEventListener('activate',event=>{
-  event.waitUntil(Promise.all([
-    caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('qingxi-training-yard-')&&key!==VERSION).map(key=>caches.delete(key)))),
-    self.clients.claim()
-  ]));
-});
-
-self.addEventListener('fetch',event=>{
-  const request=event.request;
-  const url=new URL(request.url);
-  if(request.method!=='GET'||url.origin!==self.location.origin||url.pathname.startsWith('/v1/'))return;
-  event.respondWith(caches.match(request).then(cached=>cached||fetch(request).then(response=>{
-    if(response.ok&&response.type==='basic'){
-      const copy=response.clone();
-      event.waitUntil(caches.open(VERSION).then(cache=>cache.put(request,copy)));
-    }
-    return response;
-  })));
+self.addEventListener('install', e => e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())));
+self.addEventListener('activate', e => e.waitUntil(Promise.all([
+  caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('qingxi-training-yard-') && k !== VERSION).map(k => caches.delete(k)))),
+  self.clients.claim(),
+])));
+self.addEventListener('fetch', e => {
+  const req = e.request, url = new URL(req.url);
+  if (req.method !== 'GET' || url.origin !== self.location.origin) return;
+  // Network first so an updated page is never shadowed by the cache; the cache answers when offline.
+  e.respondWith(fetch(req).then(res => {
+    if (res.ok && res.type === 'basic') { const copy = res.clone(); e.waitUntil(caches.open(VERSION).then(c => c.put(req, copy))); }
+    return res;
+  }).catch(() => caches.match(req).then(hit => hit || Response.error())));
 });

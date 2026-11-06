@@ -1,0 +1,186 @@
+{
+ "CR06_Short_Detail_Small_LOD0": {
+  "tris": 18660,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 2,
+  "closed_pieces": 52,
+  "open_pieces": 128,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR06_Short_Detail_Small_LOD1": {
+  "tris": 9330,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 30,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR06_Short_Detail_Small_LOD2": {
+  "tris": 2798,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 30,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR06_Short_LOD0": {
+  "tris": 16280,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 8,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 10,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -0.25,
+     -0.25,
+     0.0
+    ],
+    2
+   ],
+   [
+    [
+     0.25,
+     0.23,
+     0.0
+    ],
+    2
+   ],
+   [
+    [
+     -0.25,
+     0.24,
+     0.0
+    ],
+    1
+   ],
+   [
+    [
+     -0.34,
+     -0.25,
+     0.0
+    ],
+    1
+   ],
+   [
+    [
+     0.25,
+     -0.25,
+     0.0
+    ],
+    1
+   ],
+   [
+    [
+     -0.34,
+     0.23,
+     0.0
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "CR06_Short_LOD1": {
+  "tris": 8140,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 10,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR06_Short_LOD2": {
+  "tris": 2442,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 10,
+  "open_pieces": 5,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR06_Short_water_LOD0": {
+  "tris": 384,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 1,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR06_Short_water_LOD1": {
+  "tris": 192,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 1,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR06_Short_water_LOD2": {
+  "tris": 56,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 1,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

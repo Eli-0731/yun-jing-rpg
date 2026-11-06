@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 namespace QingxiWorld
 {
@@ -18,8 +20,11 @@ namespace QingxiWorld
         public string[] spotNames; public Vector3[] spotPositions; public float[] spotYaws;
         public Transform huntRoot; public string[] zoneLabels; public Vector4[] zoneRects;   // hunt-local centre x, z, width, depth
         public Transform[] pointsOfInterest;
+        public bool useDesignedHud;
+        public YunJing.QingxiLocalForaging localForaging;
+        public event Action<string> LocationChanged;
 
-        CharacterController cc; float yaw, pitch, vy, stopwatch; bool third = true, help = true; NavMeshDataInstance nav;
+        CharacterController cc; float yaw, pitch, vy, stopwatch; bool third = true, help = true, menuOpen; NavMeshDataInstance nav;
         readonly List<string> log = new List<string>(); readonly HashSet<string> reached = new HashSet<string>();
         GUIStyle box, small; GameObject[] overlays = new GameObject[0]; bool showOverlays;
 
@@ -35,40 +40,75 @@ namespace QingxiWorld
         }
         void SetOverlays(bool on) { showOverlays = on; foreach (var g in overlays) g.SetActive(on); }
         void Lock(bool on) { Cursor.lockState = on ? CursorLockMode.Locked : CursorLockMode.None; Cursor.visible = !on; }
+        public void SetMenuOpen(bool value) { menuOpen = value; Lock(!value); }
         void ApplyView() { if (body != null) foreach (var r in body.GetComponentsInChildren<Renderer>()) r.enabled = third; }
+
+        // On-screen controls (YunJing.QingxiTouchControls) write these each frame; they work with or without
+        // a keyboard and mouse, so a phone browser with only a touchscreen can still walk, look and interact.
+        public static Vector2 VirtualMove, VirtualLook;
+        Vector3 lastGrounded;
+        public static bool VirtualRun, VirtualJump, VirtualInteract, VirtualSecondary;
 
         void Update()
         {
-            var kb = Keyboard.current; var mouse = Mouse.current; if (kb == null || mouse == null) return;
-            if (kb.escapeKey.wasPressedThisFrame) Lock(false);
-            if (mouse.leftButton.wasPressedThisFrame && Cursor.lockState != CursorLockMode.Locked) Lock(true);
-            if (kb.vKey.wasPressedThisFrame) { third = !third; ApplyView(); }
-            if (kb.hKey.wasPressedThisFrame) help = !help;
-            if (kb.lKey.wasPressedThisFrame) { SetOverlays(!showOverlays); Log(showOverlays ? "顯示測試路線與導航網格" : "隱藏測試路線與導航網格"); }
-            for (int i = 0; i < spotPositions.Length && i < 9; i++)
-                if (kb[(Key)((int)Key.Digit1 + i)].wasPressedThisFrame) Teleport(i);
-            if (kb.fKey.wasPressedThisFrame)
+            var kb = Keyboard.current; var mouse = Mouse.current;
+            bool jump = VirtualJump, interact = VirtualInteract, secondary = VirtualSecondary;
+            VirtualJump = VirtualInteract = VirtualSecondary = false;
+            if (menuOpen) return;
+            if (kb != null && kb.escapeKey.wasPressedThisFrame) Lock(false);
+            // Let the Qingxi journal consume its own click while the cursor is free.
+            if (mouse != null && mouse.leftButton.wasPressedThisFrame && Cursor.lockState != CursorLockMode.Locked
+                && !(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+                && !YunJing.QingxiTouchControls.Active) Lock(true);
+            if (kb != null)
             {
-                var r = FindObjectsByType<QingxiRabbit>(FindObjectsSortMode.None).FirstOrDefault(x => x.TryCatch(transform.position, 2.2f));
-                Log(r != null ? "抓到 " + r.spawnName + "（示意）。90 秒後在原出生點重生" : "附近 2.2 m 內沒有兔子");
+                if (kb.vKey.wasPressedThisFrame) { third = !third; ApplyView(); }
+                if (kb.hKey.wasPressedThisFrame) help = !help;
+                if (kb.lKey.wasPressedThisFrame) { SetOverlays(!showOverlays); Log(showOverlays ? "顯示測試路線與導航網格" : "隱藏測試路線與導航網格"); }
+                for (int i = 0; i < spotPositions.Length && i < 9; i++)
+                    if (kb[(Key)((int)Key.Digit1 + i)].wasPressedThisFrame) Teleport(i);
+                interact |= kb.fKey.wasPressedThisFrame;
+                secondary |= kb.eKey.wasPressedThisFrame;
+                jump |= kb.spaceKey.wasPressedThisFrame;
             }
-            if (Cursor.lockState == CursorLockMode.Locked)
+            if (interact)
+            {
+                if (localForaging != null)
+                {
+                    localForaging.TryInteract(transform.position, out var message);
+                    Log(message);
+                }
+                else
+                {
+                    var r = FindObjectsByType<QingxiRabbit>(FindObjectsSortMode.None).FirstOrDefault(x => x.TryCatch(transform.position, 2.2f));
+                    Log(r != null ? "抓到 " + r.spawnName + "（示意）。90 秒後在原出生點重生" : "附近 2.2 m 內沒有兔子");
+                }
+            }
+            if (secondary && localForaging != null)
+            {
+                localForaging.TrySecondary(transform.position, out var message);
+                Log(message);
+            }
+            if (mouse != null && Cursor.lockState == CursorLockMode.Locked)
             {
                 var d = mouse.delta.ReadValue(); yaw += d.x * lookSensitivity; pitch = Mathf.Clamp(pitch - d.y * lookSensitivity, -80, 80);
             }
+            yaw += VirtualLook.x; pitch = Mathf.Clamp(pitch - VirtualLook.y, -80, 80); VirtualLook = Vector2.zero;
             transform.rotation = Quaternion.Euler(0, yaw, 0);
-            var input = new Vector2((kb.dKey.isPressed ? 1 : 0) - (kb.aKey.isPressed ? 1 : 0), (kb.wKey.isPressed ? 1 : 0) - (kb.sKey.isPressed ? 1 : 0));
-            input = Vector2.ClampMagnitude(input, 1);
-            float speed = kb.leftShiftKey.isPressed ? runSpeed : walkSpeed;
-            if (cc.isGrounded) { vy = -2; if (kb.spaceKey.wasPressedThisFrame) vy = jumpSpeed; } else vy = Mathf.Max(-30, vy + gravity * Time.deltaTime);
+            var input = kb == null ? Vector2.zero
+                : new Vector2((kb.dKey.isPressed ? 1 : 0) - (kb.aKey.isPressed ? 1 : 0), (kb.wKey.isPressed ? 1 : 0) - (kb.sKey.isPressed ? 1 : 0));
+            input = Vector2.ClampMagnitude(input + VirtualMove, 1);
+            float speed = (kb != null && kb.leftShiftKey.isPressed) || VirtualRun ? runSpeed : walkSpeed;
+            if (cc.isGrounded) { vy = -2; if (jump) vy = jumpSpeed; } else vy = Mathf.Max(-30, vy + gravity * Time.deltaTime);
             var move = transform.TransformDirection(new Vector3(input.x, 0, input.y)) * speed;
             cc.Move((move + Vector3.up * vy) * Time.deltaTime);
             if (input.sqrMagnitude > 0) stopwatch += Time.deltaTime;
-            if (transform.position.y < -40) Teleport(0);
+            if (transform.position.y < -40) { Debug.LogWarning($"[QingxiFirstPerson] fell out of the world near {lastGrounded}; back to {spotNames[0]}"); Teleport(0); }
+            if (cc.isGrounded) lastGrounded = transform.position;
             UpdateCamera();
             foreach (var p in pointsOfInterest ?? new Transform[0])
-                if (p != null && !reached.Contains(p.name) && (p.name.StartsWith("TrailClue") || p.name.StartsWith("HerbNode") || p.name.StartsWith("Merchant") || p.name.StartsWith("SafeReturn"))
-                    && Vector3.Distance(Flat(p.position), Flat(transform.position)) < 3) { reached.Add(p.name); Log("到達 " + p.name + "：走了 " + stopwatch.ToString("0.0") + " 秒"); }
+                if (p != null && !reached.Contains(p.name) && (p.name.StartsWith("TrailClue") || p.name.StartsWith("HerbNode") || p.name.StartsWith("Merchant") || p.name.StartsWith("SafeReturn") || p.name.StartsWith("Entrance_"))
+                    && Vector3.Distance(Flat(p.position), Flat(transform.position)) < 3) { reached.Add(p.name); Log("到達 " + p.name + "：走了 " + stopwatch.ToString("0.0") + " 秒"); LocationChanged?.Invoke(p.name); }
         }
         void UpdateCamera()
         {
@@ -82,8 +122,10 @@ namespace QingxiWorld
         {
             cc.enabled = false; transform.position = spotPositions[i] + Vector3.up * .05f; cc.enabled = true;
             yaw = spotYaws[i]; pitch = 0; vy = 0; stopwatch = 0; reached.Clear(); Log("傳送到 " + spotNames[i] + "，計時歸零");
+            LocationChanged?.Invoke(spotNames[i]);
         }
         void Log(string s) { log.Add(s); if (log.Count > 5) log.RemoveAt(0); }
+        public string LastLog => log.Count > 0 ? log[log.Count - 1] : null;
         string Zone()
         {
             if (huntRoot == null) return "青溪小鎮";
@@ -97,6 +139,8 @@ namespace QingxiWorld
 
         void OnGUI()
         {
+            YunJing.QingxiFonts.ApplyImgui();
+            if (useDesignedHud) return;
             if (box == null) { box = new GUIStyle(GUI.skin.box) { fontSize = 18, alignment = TextAnchor.UpperLeft, wordWrap = true }; small = new GUIStyle(box) { fontSize = 15 }; }
             var near = (pointsOfInterest ?? new Transform[0]).Where(p => p != null).Select(p => (p.name, d: Vector3.Distance(p.position, transform.position))).OrderBy(x => x.d).FirstOrDefault();
             var rabbits = FindObjectsByType<QingxiRabbit>(FindObjectsSortMode.None);

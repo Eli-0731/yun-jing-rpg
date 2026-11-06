@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "check": "fbx_socket_roundtrip",
+      "pass": true,
+      "detail": [
+        0.45,
+        -0.649,
+        2.005
+      ]
+    },
+    {
+      "check": "v001_untouched",
+      "pass": true,
+      "detail": "opened read-only, saved with save_as copy=True to v002"
+    }
+  ],
+  "files": {
+    "HerbalStall_v002.blend": "b32d42f915b46ae4a622367f1a91546cd1fceaee4efca48edd31a4df6a17c74d",
+    "HerbalStall_v002.fbx": "5e652f9412235710e15890bd4cde407dfc2c413d3c0dfb9555e8ffb67bff84b6"
+  }
+}

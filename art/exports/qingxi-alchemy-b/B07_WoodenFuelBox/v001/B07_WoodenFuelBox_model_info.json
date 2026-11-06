@@ -1,0 +1,126 @@
+{
+ "id": "B07",
+ "name": "WoodenFuelBox",
+ "key": "B07_WoodenFuelBox",
+ "state": "default",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.695,
+  0.432,
+  0.46
+ ],
+ "triangles": 5068,
+ "lod_triangles": [
+  5068,
+  2534,
+  1114
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   0.68,
+   0.42,
+   0.46
+  ],
+  "center": [
+   0,
+   0,
+   0.23
+  ],
+  "note": "fuel refill point; no paid speed-up"
+ },
+ "states": {
+  "default": "full of split firewood"
+ },
+ "sockets": {
+  "take_point": [
+   0,
+   -0.25,
+   0.3
+  ]
+ },
+ "validation": {
+  "asset": "B07",
+  "key": "B07_WoodenFuelBox",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.695,
+   0.432,
+   0.46
+  ],
+  "bbox_min": [
+   -0.3475,
+   -0.216,
+   0.0
+  ],
+  "bbox_max": [
+   0.3475,
+   0.216,
+   0.46
+  ],
+  "target_size_m": [
+   0.68,
+   0.42,
+   0.46
+  ],
+  "trianglesLOD": [
+   5068,
+   2534,
+   1114
+  ],
+  "budgetLOD0": 5200,
+  "withinBudget": true,
+  "vertices": 2688,
+  "materials": [
+   "M_B07_WoodenFuelBox"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B07_WoodenFuelBox_LOD0"
+  ],
+  "textures": [
+   "T_B07_WoodenFuelBox_BaseColor.png",
+   "T_B07_WoodenFuelBox_Normal.png",
+   "T_B07_WoodenFuelBox_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 5068,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B07_WoodenFuelBox.001"
+   ]
+  },
+  "files": {
+   "B07_WoodenFuelBox.glb": {
+    "bytes": 4594384,
+    "sha256": "9caac7cab362bc7d68bd2103bc9cc42fde4064bae664dd08d92d03e16b16ea86"
+   },
+   "B07_WoodenFuelBox.fbx": {
+    "bytes": 569212,
+    "sha256": "951e4e3dab41eda11db7434b1ebea358da7ffee7d2dd89537bb034c8161548da"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B07_WoodenFuelBox": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 4.2,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

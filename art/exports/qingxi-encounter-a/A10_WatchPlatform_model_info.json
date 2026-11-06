@@ -1,0 +1,90 @@
+{
+ "id": "A10",
+ "name": "WatchPlatform",
+ "key": "A10_WatchPlatform",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.0,
+ "dimensions_m": [
+  2.178,
+  2.7972,
+  2.75
+ ],
+ "triangles": 6488,
+ "lod_triangles": [
+  6488,
+  3303,
+  1453
+ ],
+ "collision": {
+  "type": "mesh",
+  "note": "deck walkable at 1.8 m, ladder on -Y; legs as 4 capsules r 0.09"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A10",
+  "key": "A10_WatchPlatform",
+  "dimensions_m": [
+   2.178,
+   2.7972,
+   2.75
+  ],
+  "bbox_min": [
+   -1.0884,
+   -1.7873,
+   0.0
+  ],
+  "bbox_max": [
+   1.0895,
+   1.01,
+   2.75
+  ],
+  "trianglesLOD": [
+   6488,
+   3303,
+   1453
+  ],
+  "budgetLOD0": 10000,
+  "withinBudget": true,
+  "materials": [
+   "M_A10_WatchPlatform"
+  ],
+  "textureResolution": 1024,
+  "doubleSided": true,
+  "nodes": [
+   "A10_WatchPlatform_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 2216,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 6488,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A10_WatchPlatform.001"
+   ]
+  },
+  "files": {
+   "A10_WatchPlatform.glb": {
+    "bytes": 634304,
+    "sha256": "3453f3686008650e1528e94e86ecee41f1c5c6c2cbf5942f972f9f78327cfc63"
+   },
+   "A10_WatchPlatform.fbx": {
+    "bytes": 905948,
+    "sha256": "a1e8bfd80403209bdea32fcb998e793651caf5ba0e30b13003066da83353b282"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A10_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

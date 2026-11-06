@@ -1,0 +1,129 @@
+{
+ "id": "B02",
+ "name": "FurnaceLid",
+ "key": "B02_FurnaceLid",
+ "state": "default",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.544,
+  0.544,
+  0.278
+ ],
+ "triangles": 6216,
+ "lod_triangles": [
+  6216,
+  3108,
+  1366
+ ],
+ "collision": {
+  "type": "cylinder",
+  "radius": 0.27,
+  "height": 0.16,
+  "center": [
+   0,
+   0,
+   0.08
+  ],
+  "note": "pick-up / place target; seat on B01 socket lid_seat"
+ },
+ "states": {
+  "default": "cold lid; closed = seated on B01 lid_seat, open = set beside the furnace",
+  "heating": "same mesh: heat-oxidised crown with temper ring, sooty vent, embers glowing in the vent (emissive map)"
+ },
+ "placement": {
+  "closed": "seated on B01 at z=0.746",
+  "open": "lifted / set beside the furnace"
+ },
+ "sockets": {
+  "grip": [
+   0,
+   0,
+   0.255
+  ],
+  "seat_underside_z": 0.04
+ },
+ "validation": {
+  "asset": "B02",
+  "key": "B02_FurnaceLid",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.544,
+   0.544,
+   0.278
+  ],
+  "bbox_min": [
+   -0.272,
+   -0.272,
+   0.0
+  ],
+  "bbox_max": [
+   0.272,
+   0.272,
+   0.278
+  ],
+  "target_size_m": [
+   0.54,
+   0.54,
+   0.27
+  ],
+  "trianglesLOD": [
+   6216,
+   3108,
+   1366
+  ],
+  "budgetLOD0": 6500,
+  "withinBudget": true,
+  "vertices": 3146,
+  "materials": [
+   "M_B02_FurnaceLid"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B02_FurnaceLid_LOD0"
+  ],
+  "textures": [
+   "T_B02_FurnaceLid_BaseColor.png",
+   "T_B02_FurnaceLid_Normal.png",
+   "T_B02_FurnaceLid_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 32,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 6216,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B02_FurnaceLid.001"
+   ]
+  },
+  "files": {
+   "B02_FurnaceLid.glb": {
+    "bytes": 3062104,
+    "sha256": "b16f4dc3724cdd7a41d6f6d133d5c07805e4b3e66614d35699d70f9f72f50a9b"
+   },
+   "B02_FurnaceLid.fbx": {
+    "bytes": 609900,
+    "sha256": "e3dfd18a2ebb1b8a0bea4a6b51be7c677cbc05a83fe2b47555def327afdcecd0"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B02_FurnaceLid": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 4.7,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

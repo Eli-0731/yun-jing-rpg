@@ -1,0 +1,105 @@
+{
+ "id": "qi-striking-post",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.78,
+  0.791,
+  1.645
+ ],
+ "triangles": 9744,
+ "lod_triangles": [
+  9744,
+  4872,
+  2143
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   0.62,
+   0.62,
+   1.65
+  ],
+  "center": [
+   0,
+   0,
+   0.825
+  ]
+ },
+ "pivots": {
+  "jade_disc": [
+   0,
+   -0.172,
+   1.44
+  ]
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "qi-striking-post",
+  "dimensions_m": [
+   0.78,
+   0.791,
+   1.645
+  ],
+  "bbox_min": [
+   -0.39,
+   -0.401,
+   0.0
+  ],
+  "bbox_max": [
+   0.39,
+   0.39,
+   1.645
+  ],
+  "trianglesLOD": [
+   9744,
+   4872,
+   2143
+  ],
+  "budgetLOD0": 10500,
+  "withinBudget": true,
+  "materials": [
+   "M_qi-striking-post"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "qi-striking-post_LOD0",
+   "qi-striking-post_rope_band_1_LOD0",
+   "qi-striking-post_rope_band_2_LOD0",
+   "qi-striking-post_rope_band_3_LOD0",
+   "qi-striking-post_jade_disc_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 1470,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 9744,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_qi-striking-post.001"
+   ]
+  },
+  "files": {
+   "qi-striking-post.glb": {
+    "bytes": 759668,
+    "sha256": "9c598e7c955a9d45e32f847785d6e7994e675c634812744802dea1bd2724b6af"
+   },
+   "qi-striking-post.fbx": {
+    "bytes": 1375980,
+    "sha256": "73122ad882f72e0e7138b5eb9937e098bd494ed07d7cbf0b7b94fd48df3e21a6"
+   }
+  },
+  "reference": "art/references/qingxi-training-yard-v1/qi-striking-post-three-view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

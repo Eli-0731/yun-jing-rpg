@@ -1,0 +1,42 @@
+[
+  {
+    "name": "village-board",
+    "originalAuthor": "Eli-0731",
+    "source": "art/exports/qingxi-village-signs-v1/Q01.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/CollaboratorNoviceV1/village-board.fbx",
+    "meshes": 40,
+    "polygons": 4248,
+    "bytes": 293980,
+    "roundtrip": true
+  },
+  {
+    "name": "training-shelter",
+    "originalAuthor": "Johnnnny0823",
+    "source": "art/exports/qingxi-training-yard-v1/training-shelter.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/CollaboratorNoviceV1/training-shelter.fbx",
+    "meshes": 1,
+    "polygons": 39236,
+    "bytes": 3963548,
+    "roundtrip": true
+  },
+  {
+    "name": "return-table",
+    "originalAuthor": "Eli-0731",
+    "source": "art/exports/qingxi-return-c/C02.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/CollaboratorNoviceV1/return-table.fbx",
+    "meshes": 14,
+    "polygons": 1512,
+    "bytes": 121116,
+    "roundtrip": true
+  },
+  {
+    "name": "alchemy-furnace",
+    "originalAuthor": "joshsu54",
+    "source": "art/exports/qingxi-alchemy-b/B01_BronzeFurnace/v001/B01_BronzeFurnace_cold.glb",
+    "fbx": "apps/game/Assets/YunJing/Models/CollaboratorNoviceV1/alchemy-furnace.fbx",
+    "meshes": 1,
+    "polygons": 14912,
+    "bytes": 2787804,
+    "roundtrip": true
+  }
+]

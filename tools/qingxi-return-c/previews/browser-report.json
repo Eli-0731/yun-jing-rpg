@@ -1,0 +1,23 @@
+{
+  "pass": true,
+  "desktop": "1280x720",
+  "touch": "844x390 Chrome emulation; not physical phone",
+  "checks": [
+    "empty selection error",
+    "keyboard select and assign",
+    "repeat click conservation",
+    "world object feedback",
+    "undo once",
+    "reload",
+    "commission local preview",
+    "journal open-close",
+    "asset preview",
+    "intent export has no quantities",
+    "day-dusk toggle",
+    "offline interaction",
+    "touch choice and undo",
+    "no horizontal overflow",
+    "blocked localStorage fallback"
+  ],
+  "errors": []
+}

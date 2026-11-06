@@ -1,0 +1,117 @@
+{
+ "id": "BR01",
+ "name": "BR01_ZhuoBoar",
+ "version": "v001",
+ "unit": "metre, 1 unit = 1 m",
+ "front": "-Y (Blender); see Unity note in README",
+ "origin": "footprint centre, lowest vertex at z = 0, no ground plate",
+ "sizeM": {
+  "length": 1.596,
+  "width": 0.589,
+  "height": 0.973
+ },
+ "limitM": {
+  "length": 1.6,
+  "width": 0.6,
+  "height": 1.0
+ },
+ "tris": {
+  "LOD0": 80092,
+  "LOD1": 39326,
+  "LOD2": 9816
+ },
+ "collision": {
+  "name": "BR01_ZhuoBoar_Collision",
+  "kind": "convex hull of the torso, above z = 0.3",
+  "tris": 962
+ },
+ "material": {
+  "name": "M_BR01_ZhuoBoar",
+  "textures": [
+   "textures/T_BR01_ZhuoBoar_BaseColor.png",
+   "textures/T_BR01_ZhuoBoar_ORM.png",
+   "textures/T_BR01_ZhuoBoar_Normal.png",
+   "textures/T_BR01_ZhuoBoar_Mask.png",
+   "textures/T_BR01_ZhuoBoar_Fur.png"
+  ],
+  "atlas": 2048,
+  "uv2": "fur tufts: A of T_Fur cuts them out; needs alpha clip, as the Unity shader does",
+  "unityShader": "YunJing/QingxiZhuoBoar",
+  "vertexColour": "fur root-to-tip shade, multiplied onto the base colour"
+ },
+ "state": {
+  "_Zhuo": {
+   "range": [
+    0,
+    1
+   ],
+   "meaning": "1 = dark qi veins and dull red eyes, 0 = healthy warm brown",
+   "mask": "Mask R (veins), G (eyes)"
+  }
+ },
+ "skeleton": {
+  "bones": [
+   "Root",
+   "Pelvis",
+   "Spine",
+   "Spine2",
+   "Chest",
+   "Neck",
+   "Neck2",
+   "Head",
+   "Jaw",
+   "Ear_L",
+   "Ear_R",
+   "Tail",
+   "Tail2",
+   "FrontUpper_L",
+   "FrontLower_L",
+   "FrontPaw_L",
+   "HindUpper_L",
+   "HindLower_L",
+   "HindPaw_L",
+   "FrontUpper_R",
+   "FrontLower_R",
+   "FrontPaw_R",
+   "HindUpper_R",
+   "HindLower_R",
+   "HindPaw_R"
+  ],
+  "count": 25,
+  "deformExceptRoot": 24
+ },
+ "animations": {
+  "Idle": {
+   "frames": 60,
+   "seconds": 1.967,
+   "loop": true
+  },
+  "Paw": {
+   "frames": 36,
+   "seconds": 1.167,
+   "loop": false
+  },
+  "Charge": {
+   "frames": 17,
+   "seconds": 0.533,
+   "loop": true
+  },
+  "Daze": {
+   "frames": 75,
+   "seconds": 2.467,
+   "loop": true
+  },
+  "Cleanse": {
+   "frames": 60,
+   "seconds": 1.967,
+   "loop": false
+  },
+  "Flee": {
+   "frames": 21,
+   "seconds": 0.667,
+   "loop": true
+  }
+ },
+ "fps": 30,
+ "lodNote": "LOD2 keeps the tusks, the ears and a coarse bristle ridge in its silhouette."
+}

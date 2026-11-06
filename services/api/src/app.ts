@@ -99,6 +99,10 @@ export async function createApp(config: Configuration, database?: Database) {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, { logger: ['error', 'warn'] });
   const runtime = app.get(Runtime); runtime.config = config; runtime.game = game; runtime.auth = new Auth(game, config.mode);
   app.useGlobalFilters(new ErrorFilter());
+  // Local development only: the browser build is served from its own loopback port (tools/qingxi-webgl/serve.mjs,
+  // 4190), so it needs CORS to reach this API. Production serves the game and the API from one origin.
+  if (config.mode === 'local')
+    app.enableCors({ origin: [/^http:\/\/(127\.0\.0\.1|localhost):\d+$/], allowedHeaders: ['Content-Type', 'Authorization'], methods: ['GET', 'POST'] });
   app.use((request: any, response: any, next: () => void) => {
     response.setHeader('X-Content-Type-Options', 'nosniff');
     response.setHeader('Referrer-Policy', 'no-referrer');

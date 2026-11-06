@@ -1,0 +1,167 @@
+{
+  "route": "R1（route_a_direct：修回舊渠、直送村田）",
+  "village_source": "novice-village.json（feature/qingxi-main-scene-abc-v1，tools/qingxi-terrain/）",
+  "units": "m，Unity 座標（x 東、z 北、y 上）；yaw 為 Unity 繞 Y（度）；x／z 是各件原點（入口接口），base_y 為件底高度",
+  "intake": {
+    "creek_segment": "溪流折線 (−27, −8)→(−31, −10) 的南岸，溪彎轉向西南之前",
+    "creek_south_edge_z": -11.986,
+    "intake_port": [
+      -30.5,
+      -12.086
+    ],
+    "note": "B01 取水口伸進溪水 0.10 m；件底 = 溪水面 0.6 − 0.28 = 0.32 m，基座水面與溪面同高"
+  },
+  "discharge": {
+    "port": [
+      -30.5,
+      -18.686
+    ],
+    "target": "Fields_Cistern（−30.5, −19.5）北緣",
+    "distance_to_cistern_centre_m": 0.814
+  },
+  "total_channel_length_m": 6.6,
+  "straight_line_creek_edge_to_cistern_centre_m": 7.514,
+  "water_drop_creek_to_fields_pad_m": 0.5,
+  "pieces": [
+    {
+      "id": "B01",
+      "label": "B01",
+      "name": "舊水路方形基座",
+      "x": -30.5,
+      "z": -13.886,
+      "yaw": 180.0,
+      "base_y": 0.32,
+      "channel_length_m": 1.8,
+      "tris": {
+        "LOD0": 8904,
+        "LOD1": 4452,
+        "LOD2": 1334
+      }
+    },
+    {
+      "id": "B02",
+      "label": "B02",
+      "name": "完整短直槽",
+      "x": -30.5,
+      "z": -13.886,
+      "yaw": 180.0,
+      "base_y": 0.32,
+      "channel_length_m": 1.0,
+      "tris": {
+        "LOD0": 3996,
+        "LOD1": 1998,
+        "LOD2": 598
+      }
+    },
+    {
+      "id": "B05",
+      "label": "B05",
+      "name": "木製手動閘板",
+      "x": -30.5,
+      "z": -14.886,
+      "yaw": 180.0,
+      "base_y": 0.32,
+      "channel_length_m": 1.0,
+      "tris": {
+        "LOD0": 5832,
+        "LOD1": 2916,
+        "LOD2": 872
+      }
+    },
+    {
+      "id": "B06",
+      "label": "B06",
+      "name": "青銅水位閘輪",
+      "x": -30.892,
+      "z": -15.386,
+      "yaw": 180.0,
+      "base_y": 1.22,
+      "channel_length_m": 0.0,
+      "tris": {
+        "LOD0": 1072,
+        "LOD1": 536,
+        "LOD2": 158
+      }
+    },
+    {
+      "id": "B02-V02",
+      "label": "B02-V02＋B07",
+      "name": "磨損階梯牆直槽",
+      "x": -30.5,
+      "z": -15.886,
+      "yaw": 180.0,
+      "base_y": 0.32,
+      "channel_length_m": 1.0,
+      "tris": {
+        "LOD0": 3768,
+        "LOD1": 1884,
+        "LOD2": 564
+      }
+    },
+    {
+      "id": "B07",
+      "label": "B07",
+      "name": "修補石鞍",
+      "x": -30.169,
+      "z": -16.506,
+      "yaw": 270.0,
+      "base_y": 0.38,
+      "channel_length_m": 0.0,
+      "tris": {
+        "LOD0": 1364,
+        "LOD1": 682,
+        "LOD2": 204
+      }
+    },
+    {
+      "id": "B02",
+      "label": "B02",
+      "name": "完整短直槽",
+      "x": -30.5,
+      "z": -16.886,
+      "yaw": 180.0,
+      "base_y": 0.32,
+      "channel_length_m": 1.0,
+      "tris": {
+        "LOD0": 3996,
+        "LOD1": 1998,
+        "LOD2": 598
+      }
+    },
+    {
+      "id": "B02-V05",
+      "label": "B02-V05",
+      "name": "終止放流坡",
+      "x": -30.5,
+      "z": -17.886,
+      "yaw": 180.0,
+      "base_y": 0.32,
+      "channel_length_m": 0.8,
+      "tris": {
+        "LOD0": 5304,
+        "LOD1": 2652,
+        "LOD2": 794
+      }
+    },
+    {
+      "id": "B12",
+      "label": "B12",
+      "name": "完工紀錄碑座",
+      "x": -31.8,
+      "z": -18.086,
+      "yaw": 90.0,
+      "base_y": 0.32,
+      "channel_length_m": 0.0,
+      "tris": {
+        "LOD0": 2612,
+        "LOD1": 1306,
+        "LOD2": 388
+      }
+    }
+  ],
+  "open_questions": [
+    "蓄水池 cistern.fbx 的實際尺寸未知；放流坡 B02-V05 出口在池中心北方約 0.8 m；池的南北半長若小於 0.8 m，要往南補一段 B02-V04（0.5 m）。",
+    "溪岸 bank 3 m 為斜坡；B01 與第一段 B02 落在岸坡上，渠道下方地形需整平到 base_y。",
+    "B 組工作點 waterline-B 標在 (−31, −6)，在溪北岸；R1 從南岸取水，建議把互動點移到 B05 閘門旁（約 −30.9, −15.4）。"
+  ]
+}

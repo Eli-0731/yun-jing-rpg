@@ -1,0 +1,84 @@
+{
+ "B09_ClothFilterFrame": {
+  "asset": "B09",
+  "key": "B09_ClothFilterFrame",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.624,
+   0.42,
+   0.934
+  ],
+  "bbox_min": [
+   -0.312,
+   -0.21,
+   0.0
+  ],
+  "bbox_max": [
+   0.312,
+   0.21,
+   0.934
+  ],
+  "target_size_m": [
+   0.6,
+   0.42,
+   0.92
+  ],
+  "trianglesLOD": [
+   6996,
+   3498,
+   1538
+  ],
+  "budgetLOD0": 7000,
+  "withinBudget": true,
+  "vertices": 3626,
+  "materials": [
+   "M_B09_ClothFilterFrame"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B09_ClothFilterFrame_LOD0"
+  ],
+  "textures": [
+   "T_B09_ClothFilterFrame_BaseColor.png",
+   "T_B09_ClothFilterFrame_Normal.png",
+   "T_B09_ClothFilterFrame_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 96,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 6996,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B09_ClothFilterFrame.001"
+   ]
+  },
+  "files": {
+   "B09_ClothFilterFrame.glb": {
+    "bytes": 4012832,
+    "sha256": "a0abbda7928c13c63e5cf6bde2830eef21ddd1253fdbed8b7b640cc264b5a59e"
+   },
+   "B09_ClothFilterFrame.fbx": {
+    "bytes": 705468,
+    "sha256": "1207d0f170c3943b94bf1602f885d37adb07e97a35184fe761c0e0f1a239917d"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B09_ClothFilterFrame": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 4.7,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+{
+  "_note": "Local fixture for parts B (tools/qingxi-waterworks-b) and C (tools/qingxi-water-report-c). Produced by Investigation.toJSON(); grants nothing.",
+  "examples": [
+    {
+      "schema": "qingxi-waterhead-a/observations@1",
+      "observationIds": ["cracked_sluice", "silt_buildup"],
+      "order": ["cracked_sluice", "silt_buildup"],
+      "verdict": "discuss"
+    },
+    {
+      "schema": "qingxi-waterhead-a/observations@1",
+      "observationIds": ["silt_buildup", "nursery_tracks"],
+      "order": ["nursery_tracks", "silt_buildup"],
+      "verdict": "discuss"
+    },
+    {
+      "schema": "qingxi-waterhead-a/observations@1",
+      "observationIds": ["cracked_sluice", "silt_buildup", "nursery_tracks"],
+      "order": ["silt_buildup", "nursery_tracks", "cracked_sluice"],
+      "verdict": "full"
+    },
+    {
+      "schema": "qingxi-waterhead-a/observations@1",
+      "observationIds": ["cracked_sluice"],
+      "order": ["cracked_sluice"],
+      "verdict": null
+    }
+  ]
+}

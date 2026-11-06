@@ -1,0 +1,2276 @@
+{
+ "note": "JS 規則核心的參考結果；Unity C# 版逐案比對。由 scripts/export-scenarios.mjs 產生。",
+ "scenarios": [
+  {
+   "name": "direct_restore",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02"
+    },
+    {
+     "type": "patch",
+     "slot": "P4",
+     "piece": "B07"
+    },
+    {
+     "type": "place",
+     "slot": "P5",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P6",
+     "piece": "B02"
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": true
+    },
+    {
+     "type": "choose",
+     "choice": "restore_channel"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P3": "B02",
+     "P5": "B02",
+     "P6": "B02"
+    },
+    "patches": {
+     "P4": "B07"
+    },
+    "gates": {
+     "P2": true
+    },
+    "choice": "restore_channel"
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "P3": "flow",
+    "P4": "flow",
+    "P5": "flow",
+    "P6": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6,
+    "P3": 0.594,
+    "P4": 0.594,
+    "P5": 0.5643,
+    "P6": 0.5643
+   },
+   "metrics": {
+    "villageSupply": 56,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "risk",
+     "gap": 0.5
+    },
+    "silt": "slowing",
+    "crack": "patched",
+    "pieces": 4,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": true
+     }
+    ]
+   },
+   "issues": [],
+   "unknowns": [],
+   "problems": [],
+   "cost": {
+    "timber": 2,
+    "bronze": 1,
+    "stone": 6,
+    "mortar": 1
+   },
+   "ready": true,
+   "requestId": "wwb-local-1-280e6904",
+   "completes": [
+    {
+     "ok": true,
+     "code": null,
+     "replayed": false,
+     "outcome": {
+      "outcomeId": "wwb.restore_channel.direct",
+      "choice": "restore_channel",
+      "villageSupply": 56,
+      "villageText": "村田進水 56%",
+      "nursery": "risk",
+      "nurseryText": "流水離育幼區只有 50 cm，孩子常走的渠邊要加圍欄、派人看守",
+      "silt": "slowing",
+      "crack": "patched",
+      "discovered": []
+     },
+     "consumed": {
+      "timber": 2,
+      "bronze": 1,
+      "stone": 6,
+      "mortar": 1
+     },
+     "stock": {
+      "stone": 42,
+      "timber": 10,
+      "bronze": 5,
+      "mortar": 2
+     },
+     "completed": 1
+    },
+    {
+     "ok": true,
+     "code": null,
+     "replayed": true,
+     "outcome": {
+      "outcomeId": "wwb.restore_channel.direct",
+      "choice": "restore_channel",
+      "villageSupply": 56,
+      "villageText": "村田進水 56%",
+      "nursery": "risk",
+      "nurseryText": "流水離育幼區只有 50 cm，孩子常走的渠邊要加圍欄、派人看守",
+      "silt": "slowing",
+      "crack": "patched",
+      "discovered": []
+     },
+     "consumed": {
+      "timber": 2,
+      "bronze": 1,
+      "stone": 6,
+      "mortar": 1
+     },
+     "stock": {
+      "stone": 42,
+      "timber": 10,
+      "bronze": 5,
+      "mortar": 2
+     },
+     "completed": 1
+    }
+   ]
+  },
+  {
+   "name": "direct_protect_refused",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02"
+    },
+    {
+     "type": "patch",
+     "slot": "P4",
+     "piece": "B07"
+    },
+    {
+     "type": "place",
+     "slot": "P5",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P6",
+     "piece": "B02"
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": true
+    },
+    {
+     "type": "choose",
+     "choice": "protect_nursery"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P3": "B02",
+     "P5": "B02",
+     "P6": "B02"
+    },
+    "patches": {
+     "P4": "B07"
+    },
+    "gates": {
+     "P2": true
+    },
+    "choice": "protect_nursery"
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "P3": "flow",
+    "P4": "flow",
+    "P5": "flow",
+    "P6": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6,
+    "P3": 0.594,
+    "P4": 0.594,
+    "P5": 0.5643,
+    "P6": 0.5643
+   },
+   "metrics": {
+    "villageSupply": 56,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "risk",
+     "gap": 0.5
+    },
+    "silt": "slowing",
+    "crack": "patched",
+    "pieces": 4,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": true
+     }
+    ]
+   },
+   "issues": [],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "TOO_CLOSE",
+     "message": "流水離育幼區只有 50 cm（至少要 80 cm）；改走西側 L 槽位繞過去"
+    }
+   ],
+   "cost": {
+    "timber": 2,
+    "bronze": 1,
+    "stone": 6,
+    "mortar": 1
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-7ec9c966",
+   "completes": [
+    {
+     "ok": false,
+     "code": "NOT_READY",
+     "replayed": null,
+     "outcome": null,
+     "consumed": null,
+     "stock": {
+      "stone": 48,
+      "timber": 12,
+      "bronze": 6,
+      "mortar": 3
+     },
+     "completed": 0
+    }
+   ]
+  },
+  {
+   "name": "bypass_protect",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B03-V04"
+    },
+    {
+     "type": "place",
+     "slot": "L1",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "L2",
+     "piece": "B03"
+    },
+    {
+     "type": "place",
+     "slot": "L3",
+     "piece": "B02-V03"
+    },
+    {
+     "type": "place",
+     "slot": "L4",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "L5",
+     "piece": "B03-V02"
+    },
+    {
+     "type": "place",
+     "slot": "L6",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "L7",
+     "piece": "B03-V03"
+    },
+    {
+     "type": "gate",
+     "slot": "L4",
+     "open": true
+    },
+    {
+     "type": "choose",
+     "choice": "protect_nursery"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B03-V04",
+     "L1": "B02",
+     "L2": "B03",
+     "L3": "B02-V03",
+     "L4": "B05",
+     "L5": "B03-V02",
+     "L6": "B02",
+     "L7": "B03-V03"
+    },
+    "patches": {},
+    "gates": {
+     "L4": true
+    },
+    "choice": "protect_nursery"
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "L1": "flow",
+    "L2": "flow",
+    "L3": "flow",
+    "L4": "flow",
+    "L5": "flow",
+    "L6": "flow",
+    "L7": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6,
+    "L1": 0.582,
+    "L2": 0.582,
+    "L3": 0.5645,
+    "L4": 0.5645,
+    "L5": 0.5589,
+    "L6": 0.5505,
+    "L7": 0.5505
+   },
+   "metrics": {
+    "villageSupply": 54,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "safe",
+     "gap": 0.9
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 8,
+    "bends": 4,
+    "gatesOnPath": [
+     {
+      "slot": "L4",
+      "open": true
+     }
+    ]
+   },
+   "issues": [],
+   "unknowns": [],
+   "problems": [],
+   "cost": {
+    "stone": 20,
+    "timber": 4,
+    "bronze": 1
+   },
+   "ready": true,
+   "requestId": "wwb-local-1-bd1f0d9e",
+   "completes": [
+    {
+     "ok": true,
+     "code": null,
+     "replayed": false,
+     "outcome": {
+      "outcomeId": "wwb.protect_nursery.bypass",
+      "choice": "protect_nursery",
+      "villageSupply": 54,
+      "villageText": "村田進水 54%",
+      "nursery": "safe",
+      "nurseryText": "流水離育幼區 90 cm 以上，孩子的路不受影響",
+      "silt": "slowing",
+      "crack": "bypassed",
+      "discovered": []
+     },
+     "consumed": {
+      "stone": 20,
+      "timber": 4,
+      "bronze": 1
+     },
+     "stock": {
+      "stone": 28,
+      "timber": 8,
+      "bronze": 5,
+      "mortar": 3
+     },
+     "completed": 1
+    }
+   ]
+  },
+  {
+   "name": "bypass_restore_refused",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B03-V04"
+    },
+    {
+     "type": "place",
+     "slot": "L1",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "L2",
+     "piece": "B03"
+    },
+    {
+     "type": "place",
+     "slot": "L3",
+     "piece": "B02-V03"
+    },
+    {
+     "type": "place",
+     "slot": "L4",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "L5",
+     "piece": "B03-V02"
+    },
+    {
+     "type": "place",
+     "slot": "L6",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "L7",
+     "piece": "B03-V03"
+    },
+    {
+     "type": "gate",
+     "slot": "L4",
+     "open": true
+    },
+    {
+     "type": "choose",
+     "choice": "restore_channel"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B03-V04",
+     "L1": "B02",
+     "L2": "B03",
+     "L3": "B02-V03",
+     "L4": "B05",
+     "L5": "B03-V02",
+     "L6": "B02",
+     "L7": "B03-V03"
+    },
+    "patches": {},
+    "gates": {
+     "L4": true
+    },
+    "choice": "restore_channel"
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "L1": "flow",
+    "L2": "flow",
+    "L3": "flow",
+    "L4": "flow",
+    "L5": "flow",
+    "L6": "flow",
+    "L7": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6,
+    "L1": 0.582,
+    "L2": 0.582,
+    "L3": 0.5645,
+    "L4": 0.5645,
+    "L5": 0.5589,
+    "L6": 0.5505,
+    "L7": 0.5505
+   },
+   "metrics": {
+    "villageSupply": 54,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "safe",
+     "gap": 0.9
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 8,
+    "bends": 4,
+    "gatesOnPath": [
+     {
+      "slot": "L4",
+      "open": true
+     }
+    ]
+   },
+   "issues": [],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "NOT_OLD_LINE",
+     "message": "「修回舊渠」要讓水走原本的舊渠（經過舊槽 P4）；現在的路線繞開了它"
+    }
+   ],
+   "cost": {
+    "stone": 20,
+    "timber": 4,
+    "bronze": 1
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-151d2a9c",
+   "completes": [
+    {
+     "ok": false,
+     "code": "NOT_READY",
+     "replayed": null,
+     "outcome": null,
+     "consumed": null,
+     "stock": {
+      "stone": 48,
+      "timber": 12,
+      "bronze": 6,
+      "mortar": 3
+     },
+     "completed": 0
+    }
+   ]
+  },
+  {
+   "name": "desilt_then_direct",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B04-V02"
+    },
+    {
+     "type": "place",
+     "slot": "L1",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "L2",
+     "piece": "B02-V05"
+    },
+    {
+     "type": "place",
+     "slot": "R1",
+     "piece": "B05"
+    },
+    {
+     "type": "choose",
+     "choice": "clear_silt"
+    },
+    {
+     "type": "complete"
+    },
+    {
+     "type": "clear"
+    },
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02"
+    },
+    {
+     "type": "patch",
+     "slot": "P4",
+     "piece": "B07"
+    },
+    {
+     "type": "place",
+     "slot": "P5",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P6",
+     "piece": "B02"
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": true
+    },
+    {
+     "type": "choose",
+     "choice": "restore_channel"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P3": "B02",
+     "P5": "B02",
+     "P6": "B02"
+    },
+    "patches": {
+     "P4": "B07"
+    },
+    "gates": {
+     "P2": true
+    },
+    "choice": "restore_channel"
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "P3": "flow",
+    "P4": "flow",
+    "P5": "flow",
+    "P6": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 1,
+    "P3": 0.99,
+    "P4": 0.99,
+    "P5": 0.9405,
+    "P6": 0.9405
+   },
+   "metrics": {
+    "villageSupply": 94,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "risk",
+     "gap": 0.5
+    },
+    "silt": "cleared",
+    "crack": "patched",
+    "pieces": 4,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": true
+     }
+    ]
+   },
+   "issues": [],
+   "unknowns": [],
+   "problems": [],
+   "cost": {
+    "timber": 2,
+    "bronze": 1,
+    "stone": 6,
+    "mortar": 1
+   },
+   "ready": true,
+   "requestId": "wwb-local-2-280e6904",
+   "completes": [
+    {
+     "ok": true,
+     "code": null,
+     "replayed": false,
+     "outcome": {
+      "outcomeId": "wwb.restore_channel.direct",
+      "choice": "restore_channel",
+      "villageSupply": 94,
+      "villageText": "村田進水 94%",
+      "nursery": "risk",
+      "nurseryText": "流水離育幼區只有 50 cm，孩子常走的渠邊要加圍欄、派人看守",
+      "silt": "cleared",
+      "crack": "patched",
+      "discovered": []
+     },
+     "consumed": {
+      "timber": 2,
+      "bronze": 1,
+      "stone": 6,
+      "mortar": 1
+     },
+     "stock": {
+      "stone": 34,
+      "timber": 8,
+      "bronze": 4,
+      "mortar": 2
+     },
+     "completed": 2
+    }
+   ]
+  },
+  {
+   "name": "direct_gate_closed",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02"
+    },
+    {
+     "type": "patch",
+     "slot": "P4",
+     "piece": "B07"
+    },
+    {
+     "type": "place",
+     "slot": "P5",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P6",
+     "piece": "B02"
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": true
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": false
+    },
+    {
+     "type": "choose",
+     "choice": "restore_channel"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P3": "B02",
+     "P5": "B02",
+     "P6": "B02"
+    },
+    "patches": {
+     "P4": "B07"
+    },
+    "gates": {
+     "P2": false
+    },
+    "choice": "restore_channel"
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "still"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0
+   },
+   "metrics": {
+    "villageSupply": 0,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "safe",
+     "gap": 2.26
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 4,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": false
+     }
+    ]
+   },
+   "issues": [],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "NO_FIELD_WATER",
+     "message": "水還沒流到村田進水口：路上的閘板關著，按「開閘」"
+    },
+    {
+     "code": "NOT_OLD_LINE",
+     "message": "「修回舊渠」要讓水走原本的舊渠（經過舊槽 P4）；現在的路線繞開了它"
+    }
+   ],
+   "cost": {
+    "timber": 2,
+    "bronze": 1,
+    "stone": 6,
+    "mortar": 1
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-2e106c2d",
+   "completes": [
+    {
+     "ok": false,
+     "code": "NOT_READY",
+     "replayed": null,
+     "outcome": null,
+     "consumed": null,
+     "stock": {
+      "stone": 48,
+      "timber": 12,
+      "bronze": 6,
+      "mortar": 3
+     },
+     "completed": 0
+    }
+   ]
+  },
+  {
+   "name": "direct_mud_refused",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02"
+    },
+    {
+     "type": "patch",
+     "slot": "P4",
+     "piece": "B07"
+    },
+    {
+     "type": "place",
+     "slot": "P5",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P6",
+     "piece": "B02"
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": true
+    },
+    {
+     "type": "choose",
+     "choice": "clear_silt"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P3": "B02",
+     "P5": "B02",
+     "P6": "B02"
+    },
+    "patches": {
+     "P4": "B07"
+    },
+    "gates": {
+     "P2": true
+    },
+    "choice": "clear_silt"
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "P3": "flow",
+    "P4": "flow",
+    "P5": "flow",
+    "P6": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6,
+    "P3": 0.594,
+    "P4": 0.594,
+    "P5": 0.5643,
+    "P6": 0.5643
+   },
+   "metrics": {
+    "villageSupply": 56,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "risk",
+     "gap": 0.5
+    },
+    "silt": "slowing",
+    "crack": "patched",
+    "pieces": 4,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": true
+     }
+    ]
+   },
+   "issues": [],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "NO_TEE",
+     "message": "清淤時要先把泥水導開：在 P2 放三通，一邊接去回流溝"
+    },
+    {
+     "code": "NO_DRAIN",
+     "message": "泥水沒有導進回流溝：三通西側接 L1 直槽、L2 放流坡 B02-V05"
+    },
+    {
+     "code": "MUD_TO_FIELD",
+     "message": "清淤時泥水會沖進村田：把往村田那一側的閘板關上"
+    }
+   ],
+   "cost": {
+    "timber": 2,
+    "bronze": 1,
+    "stone": 6,
+    "mortar": 1
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-b090de24",
+   "completes": [
+    {
+     "ok": false,
+     "code": "NOT_READY",
+     "replayed": null,
+     "outcome": null,
+     "consumed": null,
+     "stock": {
+      "stone": 48,
+      "timber": 12,
+      "bronze": 6,
+      "mortar": 3
+     },
+     "completed": 0
+    }
+   ]
+  },
+  {
+   "name": "wrong_tee",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B04"
+    },
+    {
+     "type": "place",
+     "slot": "L1",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "L2",
+     "piece": "B02-V05"
+    },
+    {
+     "type": "place",
+     "slot": "R1",
+     "piece": "B05"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B04",
+     "L1": "B02",
+     "L2": "B02-V05",
+     "R1": "B05"
+    },
+    "patches": {},
+    "gates": {
+     "R1": false
+    },
+    "choice": null
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6
+   },
+   "metrics": {
+    "villageSupply": 0,
+    "drainFlow": 0,
+    "spill": 58,
+    "nursery": {
+     "level": "safe",
+     "gap": 1.27
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 4,
+    "bends": 0,
+    "gatesOnPath": []
+   },
+   "issues": [
+    {
+     "code": "OPEN_PORT",
+     "slot": "P2",
+     "port": "out_left",
+     "blocking": true,
+     "message": "P2 的 B04 分流三通「out_left」接口落在 (-0.5, 1.75) 朝西，沒有接上任何槽位（最近的槽位 L1 入口在 (-0.75, 1.75) 朝西，差 25 cm），水會從這裡漫出",
+     "fix": "把 P2 換成 B04-V02，接口才會對上"
+    },
+    {
+     "code": "OPEN_PORT",
+     "slot": "P2",
+     "port": "out_right",
+     "blocking": true,
+     "message": "P2 的 B04 分流三通「out_right」接口落在 (0.5, 1.75) 朝東，沒有接上任何槽位（最近的槽位 R1 入口在 (0.75, 1.75) 朝東，差 25 cm），水會從這裡漫出",
+     "fix": "把 P2 換成 B04-V02，接口才會對上"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "slot": "L1",
+     "port": null,
+     "blocking": true,
+     "message": "L1 的 B02 完整短直槽沒接上水路：上游沒有段件的出水口通到這裡",
+     "fix": "拆掉 L1，或在上游放能通到 L1 入口 (-0.75, 1.75) 的段件"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "slot": "L2",
+     "port": null,
+     "blocking": true,
+     "message": "L2 的 B02-V05 終止放流坡沒接上水路：上游 L1 也還沒接上水路",
+     "fix": "拆掉 L2，或在上游放能通到 L2 入口 (-1.75, 1.75) 的段件"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "slot": "R1",
+     "port": null,
+     "blocking": true,
+     "message": "R1 的 B05 木製手動閘板沒接上水路：上游沒有段件的出水口通到這裡",
+     "fix": "拆掉 R1，或在上游放能通到 R1 入口 (0.75, 1.75) 的段件"
+    }
+   ],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "OPEN_PORT",
+     "message": "P2 的 B04 分流三通「out_left」接口落在 (-0.5, 1.75) 朝西，沒有接上任何槽位（最近的槽位 L1 入口在 (-0.75, 1.75) 朝西，差 25 cm），水會從這裡漫出"
+    },
+    {
+     "code": "OPEN_PORT",
+     "message": "P2 的 B04 分流三通「out_right」接口落在 (0.5, 1.75) 朝東，沒有接上任何槽位（最近的槽位 R1 入口在 (0.75, 1.75) 朝東，差 25 cm），水會從這裡漫出"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "message": "L1 的 B02 完整短直槽沒接上水路：上游沒有段件的出水口通到這裡"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "message": "L2 的 B02-V05 終止放流坡沒接上水路：上游 L1 也還沒接上水路"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "message": "R1 的 B05 木製手動閘板沒接上水路：上游沒有段件的出水口通到這裡"
+    },
+    {
+     "code": "NO_CHOICE",
+     "message": "還沒選處理方向（清淤／修回舊渠／保護育幼區）"
+    }
+   ],
+   "cost": {
+    "stone": 3,
+    "timber": 1
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-e07cecbf",
+   "completes": [
+    {
+     "ok": false,
+     "code": "NOT_READY",
+     "replayed": null,
+     "outcome": null,
+     "consumed": null,
+     "stock": {
+      "stone": 48,
+      "timber": 12,
+      "bronze": 6,
+      "mortar": 3
+     },
+     "completed": 0
+    }
+   ]
+  },
+  {
+   "name": "wrong_bend",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": true
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B03"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P3": "B03"
+    },
+    "patches": {},
+    "gates": {
+     "P2": true
+    },
+    "choice": null
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "P3": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6,
+    "P3": 0.594
+   },
+   "metrics": {
+    "villageSupply": 0,
+    "drainFlow": 0,
+    "spill": 58,
+    "nursery": {
+     "level": "risk",
+     "gap": 0.25
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 2,
+    "bends": 1,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": true
+     }
+    ]
+   },
+   "issues": [
+    {
+     "code": "OPEN_PORT",
+     "slot": "P3",
+     "port": "out",
+     "blocking": true,
+     "message": "P3 的 B03 直角彎槽（右）「out」接口落在 (0.75, 2.75) 朝東，沒有接上任何槽位（這個方向沒有槽位），水會從這裡漫出",
+     "fix": "把 P3 換成 B02、B02-V03、B05，接口才會對上"
+    }
+   ],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "OPEN_PORT",
+     "message": "P3 的 B03 直角彎槽（右）「out」接口落在 (0.75, 2.75) 朝東，沒有接上任何槽位（這個方向沒有槽位），水會從這裡漫出"
+    },
+    {
+     "code": "NO_CHOICE",
+     "message": "還沒選處理方向（清淤／修回舊渠／保護育幼區）"
+    }
+   ],
+   "cost": {
+    "timber": 2,
+    "bronze": 1,
+    "stone": 3
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-2a0fdbcd",
+   "completes": []
+  },
+  {
+   "name": "dead_end",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B03"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B03"
+    },
+    "patches": {},
+    "gates": {},
+    "choice": null
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6
+   },
+   "metrics": {
+    "villageSupply": 0,
+    "drainFlow": 0,
+    "spill": 58,
+    "nursery": {
+     "level": "safe",
+     "gap": 1.25
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 1,
+    "bends": 1,
+    "gatesOnPath": []
+   },
+   "issues": [
+    {
+     "code": "EMPTY_NEXT",
+     "slot": "P2",
+     "port": "out",
+     "blocking": true,
+     "message": "P2 的 B03 直角彎槽（右）「out」接口朝東接到 R1，但 R1 還空著；R1 再往前沒有槽位，只能放關著的閘板擋水，水會從這裡漫出",
+     "fix": "把 P2 換成不往 R1 出水的段件（例如 B02、B02-V03、B03-V04、B04-V02）"
+    }
+   ],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "EMPTY_NEXT",
+     "message": "P2 的 B03 直角彎槽（右）「out」接口朝東接到 R1，但 R1 還空著；R1 再往前沒有槽位，只能放關著的閘板擋水，水會從這裡漫出"
+    },
+    {
+     "code": "NO_CHOICE",
+     "message": "還沒選處理方向（清淤／修回舊渠／保護育幼區）"
+    }
+   ],
+   "cost": {
+    "stone": 3
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-868cf3c1",
+   "completes": []
+  },
+  {
+   "name": "overlap",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B04-V02"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B04-V02",
+     "P3": "B02"
+    },
+    "patches": {},
+    "gates": {},
+    "choice": null
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6
+   },
+   "metrics": {
+    "villageSupply": 0,
+    "drainFlow": 0,
+    "spill": 59,
+    "nursery": {
+     "level": "safe",
+     "gap": 1.12
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 2,
+    "bends": 0,
+    "gatesOnPath": []
+   },
+   "issues": [
+    {
+     "code": "OVERLAP",
+     "slot": "P3",
+     "port": null,
+     "blocking": true,
+     "message": "P2 的 B04-V02 圓缽分流三通和 P3 的 B02 完整短直槽疊在一起",
+     "fix": "拆掉 P3；P2 和 P3 不能同時放（三通的分流缽會佔到下一格）"
+    },
+    {
+     "code": "EMPTY_NEXT",
+     "slot": "P2",
+     "port": "out_left",
+     "blocking": true,
+     "message": "P2 的 B04-V02 圓缽分流三通「out_left」接口朝西接到 L1，但 L1 還空著，水會從這裡漫出",
+     "fix": "在 L1 放一段能接下去的段件（例如 B02、B02-V03、B05）"
+    },
+    {
+     "code": "EMPTY_NEXT",
+     "slot": "P2",
+     "port": "out_right",
+     "blocking": true,
+     "message": "P2 的 B04-V02 圓缽分流三通「out_right」接口朝東接到 R1，但 R1 還空著；R1 再往前沒有槽位，只能放關著的閘板擋水，水會從這裡漫出",
+     "fix": "在 R1 放一座 B05 閘板並保持關閉，把這一側的水擋住"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "slot": "P3",
+     "port": null,
+     "blocking": true,
+     "message": "P3 的 B02 完整短直槽沒接上水路：上游沒有段件的出水口通到這裡",
+     "fix": "拆掉 P3，或在上游放能通到 P3 入口 (0, 2) 的段件"
+    }
+   ],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "OVERLAP",
+     "message": "P2 的 B04-V02 圓缽分流三通和 P3 的 B02 完整短直槽疊在一起"
+    },
+    {
+     "code": "EMPTY_NEXT",
+     "message": "P2 的 B04-V02 圓缽分流三通「out_left」接口朝西接到 L1，但 L1 還空著，水會從這裡漫出"
+    },
+    {
+     "code": "EMPTY_NEXT",
+     "message": "P2 的 B04-V02 圓缽分流三通「out_right」接口朝東接到 R1，但 R1 還空著；R1 再往前沒有槽位，只能放關著的閘板擋水，水會從這裡漫出"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "message": "P3 的 B02 完整短直槽沒接上水路：上游沒有段件的出水口通到這裡"
+    },
+    {
+     "code": "NO_CHOICE",
+     "message": "還沒選處理方向（清淤／修回舊渠／保護育幼區）"
+    }
+   ],
+   "cost": {
+    "stone": 4
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-840c91a3",
+   "completes": []
+  },
+  {
+   "name": "gap",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "P5",
+     "piece": "B02"
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": true
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P5": "B02"
+    },
+    "patches": {},
+    "gates": {
+     "P2": true
+    },
+    "choice": null
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6
+   },
+   "metrics": {
+    "villageSupply": 0,
+    "drainFlow": 0,
+    "spill": 59,
+    "nursery": {
+     "level": "safe",
+     "gap": 1.35
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 2,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": true
+     }
+    ]
+   },
+   "issues": [
+    {
+     "code": "EMPTY_NEXT",
+     "slot": "P2",
+     "port": "out",
+     "blocking": true,
+     "message": "P2 的 B05 木製手動閘板「out」接口朝北接到 P3，但 P3 還空著，水會從這裡漫出",
+     "fix": "在 P3 放一段能接下去的段件（例如 B02、B02-V03、B05）"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "slot": "P5",
+     "port": null,
+     "blocking": true,
+     "message": "P5 的 B02 完整短直槽沒接上水路：上游 P4 也還沒接上水路",
+     "fix": "拆掉 P5，或在上游放能通到 P5 入口 (0, 4) 的段件"
+    }
+   ],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "EMPTY_NEXT",
+     "message": "P2 的 B05 木製手動閘板「out」接口朝北接到 P3，但 P3 還空著，水會從這裡漫出"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "message": "P5 的 B02 完整短直槽沒接上水路：上游 P4 也還沒接上水路"
+    },
+    {
+     "code": "NO_CHOICE",
+     "message": "還沒選處理方向（清淤／修回舊渠／保護育幼區）"
+    }
+   ],
+   "cost": {
+    "timber": 2,
+    "bronze": 1
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-8175b342",
+   "completes": []
+  },
+  {
+   "name": "gate_spill",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B04-V02"
+    },
+    {
+     "type": "place",
+     "slot": "L1",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "L2",
+     "piece": "B02-V05"
+    },
+    {
+     "type": "place",
+     "slot": "R1",
+     "piece": "B05"
+    },
+    {
+     "type": "gate",
+     "slot": "R1",
+     "open": true
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B04-V02",
+     "L1": "B02",
+     "L2": "B02-V05",
+     "R1": "B05"
+    },
+    "patches": {},
+    "gates": {
+     "R1": true
+    },
+    "choice": null
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "L1": "flow",
+    "L2": "flow",
+    "R1": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6,
+    "L1": 0.294,
+    "L2": 0.294,
+    "R1": 0.294
+   },
+   "metrics": {
+    "villageSupply": 0,
+    "drainFlow": 29,
+    "spill": 29,
+    "nursery": {
+     "level": "safe",
+     "gap": 1
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 4,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "R1",
+      "open": true
+     }
+    ]
+   },
+   "issues": [
+    {
+     "code": "OPEN_PORT",
+     "slot": "R1",
+     "port": "out",
+     "blocking": true,
+     "message": "R1 的 B05 木製手動閘板「out」接口落在 (1.75, 1.75) 朝東，沒有接上任何槽位（這個方向沒有槽位），水會從這裡漫出",
+     "fix": "拆掉 R1，換一款出水口對得上的段件"
+    }
+   ],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "OPEN_PORT",
+     "message": "R1 的 B05 木製手動閘板「out」接口落在 (1.75, 1.75) 朝東，沒有接上任何槽位（這個方向沒有槽位），水會從這裡漫出"
+    },
+    {
+     "code": "NO_CHOICE",
+     "message": "還沒選處理方向（清淤／修回舊渠／保護育幼區）"
+    }
+   ],
+   "cost": {
+    "stone": 8,
+    "timber": 2,
+    "bronze": 1
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-d885aa77",
+   "completes": []
+  },
+  {
+   "name": "wrong_patch",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P5",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P6",
+     "piece": "B02"
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": true
+    },
+    {
+     "type": "patch",
+     "slot": "P4",
+     "piece": "B07-V03"
+    },
+    {
+     "type": "choose",
+     "choice": "restore_channel"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P3": "B02",
+     "P5": "B02",
+     "P6": "B02"
+    },
+    "patches": {
+     "P4": "B07-V03"
+    },
+    "gates": {
+     "P2": true
+    },
+    "choice": "restore_channel"
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "P3": "flow",
+    "P4": "flow",
+    "P5": "flow",
+    "P6": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0.6,
+    "P3": 0.594,
+    "P4": 0.594,
+    "P5": 0.3668,
+    "P6": 0.3668
+   },
+   "metrics": {
+    "villageSupply": 37,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "risk",
+     "gap": 0.5
+    },
+    "silt": "slowing",
+    "crack": "leaking",
+    "pieces": 4,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": true
+     }
+    ]
+   },
+   "issues": [
+    {
+     "code": "PATCH_WRONG",
+     "slot": "P4",
+     "port": null,
+     "blocking": false,
+     "message": "B07-V03 階梯底板修補塞貼不上 P4 的裂口：這道是槽壁外側的直裂縫",
+     "fix": "改用 B07 修補石鞍（鞍形貼牆頂）"
+    }
+   ],
+   "unknowns": [],
+   "problems": [],
+   "cost": {
+    "timber": 2,
+    "bronze": 1,
+    "stone": 6,
+    "mortar": 1
+   },
+   "ready": true,
+   "requestId": "wwb-local-1-565a466a",
+   "completes": [
+    {
+     "ok": true,
+     "code": null,
+     "replayed": false,
+     "outcome": {
+      "outcomeId": "wwb.restore_channel.direct",
+      "choice": "restore_channel",
+      "villageSupply": 37,
+      "villageText": "村田進水 37%",
+      "nursery": "risk",
+      "nurseryText": "流水離育幼區只有 50 cm，孩子常走的渠邊要加圍欄、派人看守",
+      "silt": "slowing",
+      "crack": "leaking",
+      "discovered": []
+     },
+     "consumed": {
+      "timber": 2,
+      "bronze": 1,
+      "stone": 6,
+      "mortar": 1
+     },
+     "stock": {
+      "stone": 42,
+      "timber": 10,
+      "bronze": 5,
+      "mortar": 2
+     },
+     "completed": 1
+    }
+   ]
+  },
+  {
+   "name": "no_clues_direct",
+   "obs": "none",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02"
+    },
+    {
+     "type": "patch",
+     "slot": "P4",
+     "piece": "B07"
+    },
+    {
+     "type": "place",
+     "slot": "P5",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P6",
+     "piece": "B02"
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": true
+    },
+    {
+     "type": "choose",
+     "choice": "restore_channel"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P3": "B02",
+     "P5": "B02",
+     "P6": "B02"
+    },
+    "patches": {
+     "P4": "B07"
+    },
+    "gates": {
+     "P2": true
+    },
+    "choice": "restore_channel"
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "P3": "flow",
+    "P4": "flow",
+    "P5": "flow",
+    "P6": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 1,
+    "P3": 0.99,
+    "P4": 0.99,
+    "P5": 0.9405,
+    "P6": 0.9405
+   },
+   "metrics": {
+    "villageSupply": 94,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "unknown",
+     "gap": 0.5
+    },
+    "silt": "unknown",
+    "crack": "unknown",
+    "pieces": 4,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": true
+     }
+    ]
+   },
+   "issues": [],
+   "unknowns": [
+    "silt",
+    "crack",
+    "nursery"
+   ],
+   "problems": [],
+   "cost": {
+    "timber": 2,
+    "bronze": 1,
+    "stone": 6,
+    "mortar": 1
+   },
+   "ready": true,
+   "requestId": "wwb-local-1-68217080",
+   "completes": [
+    {
+     "ok": true,
+     "code": null,
+     "replayed": false,
+     "outcome": {
+      "outcomeId": "wwb.restore_channel.direct",
+      "choice": "restore_channel",
+      "villageSupply": 56,
+      "villageText": "村田進水 56%",
+      "nursery": "risk",
+      "nurseryText": "流水離育幼區只有 50 cm，孩子常走的渠邊要加圍欄、派人看守",
+      "silt": "slowing",
+      "crack": "patched",
+      "discovered": [
+       "完工放水才發現 P1 淤了一半，水量少了四成",
+       "放水後才看到育幼區孩子的腳印橫過渠道"
+      ]
+     },
+     "consumed": {
+      "timber": 2,
+      "bronze": 1,
+      "stone": 6,
+      "mortar": 1
+     },
+     "stock": {
+      "stone": 42,
+      "timber": 10,
+      "bronze": 5,
+      "mortar": 2
+     },
+     "completed": 1
+    }
+   ]
+  },
+  {
+   "name": "partial_direct_unpatched",
+   "obs": "partial",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P5",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P6",
+     "piece": "B02"
+    },
+    {
+     "type": "gate",
+     "slot": "P2",
+     "open": true
+    },
+    {
+     "type": "choose",
+     "choice": "restore_channel"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P3": "B02",
+     "P5": "B02",
+     "P6": "B02"
+    },
+    "patches": {},
+    "gates": {
+     "P2": true
+    },
+    "choice": "restore_channel"
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "flow",
+    "P3": "flow",
+    "P4": "flow",
+    "P5": "flow",
+    "P6": "flow"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 1,
+    "P3": 0.99,
+    "P4": 0.99,
+    "P5": 0.6113,
+    "P6": 0.6113
+   },
+   "metrics": {
+    "villageSupply": 61,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "unknown",
+     "gap": 0.5
+    },
+    "silt": "unknown",
+    "crack": "leaking",
+    "pieces": 4,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": true
+     }
+    ]
+   },
+   "issues": [],
+   "unknowns": [
+    "silt",
+    "nursery"
+   ],
+   "problems": [],
+   "cost": {
+    "timber": 2,
+    "bronze": 1,
+    "stone": 6
+   },
+   "ready": true,
+   "requestId": "wwb-local-1-efbc09eb",
+   "completes": [
+    {
+     "ok": true,
+     "code": null,
+     "replayed": false,
+     "outcome": {
+      "outcomeId": "wwb.restore_channel.direct",
+      "choice": "restore_channel",
+      "villageSupply": 37,
+      "villageText": "村田進水 37%",
+      "nursery": "risk",
+      "nurseryText": "流水離育幼區只有 50 cm，孩子常走的渠邊要加圍欄、派人看守",
+      "silt": "slowing",
+      "crack": "leaking",
+      "discovered": [
+       "完工放水才發現 P1 淤了一半，水量少了四成",
+       "放水後才看到育幼區孩子的腳印橫過渠道"
+      ]
+     },
+     "consumed": {
+      "timber": 2,
+      "bronze": 1,
+      "stone": 6
+     },
+     "stock": {
+      "stone": 42,
+      "timber": 10,
+      "bronze": 5,
+      "mortar": 3
+     },
+     "completed": 1
+    }
+   ]
+  },
+  {
+   "name": "undo_redo",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02"
+    },
+    {
+     "type": "undo"
+    },
+    {
+     "type": "undo"
+    },
+    {
+     "type": "redo"
+    },
+    {
+     "type": "place",
+     "slot": "P3",
+     "piece": "B02-V04"
+    }
+   ],
+   "refusals": [],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "P3": "B02-V04"
+    },
+    "patches": {},
+    "gates": {
+     "P2": false
+    },
+    "choice": null
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "still"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0
+   },
+   "metrics": {
+    "villageSupply": 0,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "safe",
+     "gap": 2.26
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 2,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": false
+     }
+    ]
+   },
+   "issues": [
+    {
+     "code": "OPEN_PORT",
+     "slot": "P3",
+     "port": "out",
+     "blocking": true,
+     "message": "P3 的 B02-V04 鍵槽短接頭「out」接口落在 (0, 2.5) 朝北，沒有接上任何槽位（最近的槽位 P4 入口在 (0, 3) 朝北，差 50 cm）",
+     "fix": "把 P3 換成 B02、B02-V03，接口才會對上"
+    }
+   ],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "OPEN_PORT",
+     "message": "P3 的 B02-V04 鍵槽短接頭「out」接口落在 (0, 2.5) 朝北，沒有接上任何槽位（最近的槽位 P4 入口在 (0, 3) 朝北，差 50 cm）"
+    },
+    {
+     "code": "NO_CHOICE",
+     "message": "還沒選處理方向（清淤／修回舊渠／保護育幼區）"
+    }
+   ],
+   "cost": {
+    "timber": 2,
+    "bronze": 1,
+    "stone": 1
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-280cc736",
+   "completes": []
+  },
+  {
+   "name": "refusals",
+   "obs": "full",
+   "steps": [
+    {
+     "type": "remove",
+     "slot": "P1"
+    },
+    {
+     "type": "place",
+     "slot": "P4",
+     "piece": "B02"
+    },
+    {
+     "type": "place",
+     "slot": "P2",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "L4",
+     "piece": "B05"
+    },
+    {
+     "type": "place",
+     "slot": "R1",
+     "piece": "B05"
+    },
+    {
+     "type": "patch",
+     "slot": "P2",
+     "piece": "B07"
+    }
+   ],
+   "refusals": [
+    {
+     "code": "FIXED_SLOT",
+     "message": "P1 是舊渠原有的石槽，不能拆"
+    },
+    {
+     "code": "FIXED_SLOT",
+     "message": "P4 是舊渠原有的石槽，不能拆換；可以用補石修"
+    },
+    {
+     "code": "NO_PIECE",
+     "message": "B05 木製手動閘板已經用完（材料車上共 2 件）；先拆下別處的同款或換一款"
+    },
+    {
+     "code": "NOT_OLD",
+     "message": "P2 是新放的段件，不需要補石；補石用在舊槽（P1、P4）"
+    }
+   ],
+   "design": {
+    "placed": {
+     "P2": "B05",
+     "L4": "B05"
+    },
+    "patches": {},
+    "gates": {
+     "P2": false,
+     "L4": false
+    },
+    "choice": null
+   },
+   "wet": {
+    "P1": "flow",
+    "P2": "still"
+   },
+   "flow": {
+    "P1": 1,
+    "P2": 0
+   },
+   "metrics": {
+    "villageSupply": 0,
+    "drainFlow": 0,
+    "spill": 0,
+    "nursery": {
+     "level": "safe",
+     "gap": 2.26
+    },
+    "silt": "slowing",
+    "crack": "bypassed",
+    "pieces": 2,
+    "bends": 0,
+    "gatesOnPath": [
+     {
+      "slot": "P2",
+      "open": false
+     }
+    ]
+   },
+   "issues": [
+    {
+     "code": "EMPTY_NEXT",
+     "slot": "P2",
+     "port": "out",
+     "blocking": false,
+     "message": "P2 的 B05 木製手動閘板「out」接口朝北接到 P3，但 P3 還空著",
+     "fix": "在 P3 放一段能接下去的段件（例如 B02、B02-V03、B05）"
+    },
+    {
+     "code": "NOT_CONNECTED",
+     "slot": "L4",
+     "port": null,
+     "blocking": true,
+     "message": "L4 的 B05 木製手動閘板沒接上水路：上游沒有段件的出水口通到這裡",
+     "fix": "拆掉 L4，或在上游放能通到 L4 入口 (-2.5, 3.5) 的段件"
+    }
+   ],
+   "unknowns": [],
+   "problems": [
+    {
+     "code": "NOT_CONNECTED",
+     "message": "L4 的 B05 木製手動閘板沒接上水路：上游沒有段件的出水口通到這裡"
+    },
+    {
+     "code": "NO_CHOICE",
+     "message": "還沒選處理方向（清淤／修回舊渠／保護育幼區）"
+    }
+   ],
+   "cost": {
+    "timber": 2,
+    "bronze": 1
+   },
+   "ready": false,
+   "requestId": "wwb-local-1-5e4e4ae7",
+   "completes": []
+  }
+ ]
+}

@@ -1,0 +1,378 @@
+{
+ "note": "Layout reference for the Batch-2 demo; positions in metres, Blender axes (x right, y into the workshop, z up). Unity axis mapping depends on the FBX import settings (exported with forward -Z, up Y): verify on import. Placeholders (shed, bench, flue elbow, figure) are not deliverables.",
+ "topOrtho": {
+  "center": [
+   0.3,
+   0.2
+  ],
+  "scale": 5.4,
+  "px": 1600
+ },
+ "entrance": [
+  -0.2,
+  -1.6,
+  0.0
+ ],
+ "figureHeight": 1.7,
+ "flueElbow": {
+  "start": [
+   0.0,
+   0.935,
+   0.892
+  ],
+  "end": [
+   -0.76,
+   0.935,
+   0.98
+  ]
+ },
+ "stations": [
+  {
+   "id": "B01",
+   "role": "refine",
+   "label": "煉製",
+   "position": [
+    0.0,
+    0.6,
+    0.0
+   ],
+   "yawDeg": 0,
+   "approach": [
+    0.0,
+    -0.15,
+    0.0
+   ],
+   "interactRadius": 0.9
+  },
+  {
+   "id": "B12",
+   "role": "exhaust",
+   "label": "排煙",
+   "position": [
+    -1.15,
+    0.935,
+    0.0
+   ],
+   "yawDeg": 0,
+   "approach": [
+    -1.33,
+    0.185,
+    0.0
+   ],
+   "interactRadius": 0.9
+  },
+  {
+   "id": "B07",
+   "role": "fuel",
+   "label": "添柴",
+   "position": [
+    -0.78,
+    -0.05,
+    0.0
+   ],
+   "yawDeg": 0,
+   "approach": [
+    -0.78,
+    -0.8,
+    0.0
+   ],
+   "interactRadius": 0.9
+  },
+  {
+   "id": "B06",
+   "role": "water",
+   "label": "取水",
+   "position": [
+    -1.55,
+    -0.55,
+    0.0
+   ],
+   "yawDeg": 20,
+   "approach": [
+    -1.293,
+    -1.255,
+    0.0
+   ],
+   "interactRadius": 0.9
+  },
+  {
+   "id": "B09",
+   "role": "filter",
+   "label": "濾渣",
+   "position": [
+    0.66,
+    1.22,
+    0.0
+   ],
+   "yawDeg": 0,
+   "approach": [
+    0.66,
+    0.47,
+    0.0
+   ],
+   "interactRadius": 0.9
+  },
+  {
+   "id": "B05",
+   "role": "identify",
+   "label": "辨材",
+   "position": [
+    1.5,
+    1.24,
+    0.0
+   ],
+   "yawDeg": 0,
+   "approach": [
+    1.8,
+    0.49,
+    0.0
+   ],
+   "interactRadius": 0.9
+  },
+  {
+   "id": "B11",
+   "role": "recipe",
+   "label": "配方",
+   "position": [
+    1.5,
+    1.22,
+    0.88
+   ],
+   "yawDeg": 0,
+   "approach": [
+    1.15,
+    0.47,
+    0.0
+   ],
+   "interactRadius": 0.9
+  },
+  {
+   "id": "B04",
+   "role": "sort",
+   "label": "分料",
+   "position": [
+    2.1,
+    -0.35,
+    0.0
+   ],
+   "yawDeg": 0,
+   "approach": [
+    2.1,
+    -1.1,
+    0.0
+   ],
+   "interactRadius": 0.9
+  },
+  {
+   "id": "B03",
+   "role": "process",
+   "label": "研磨",
+   "position": [
+    0.62,
+    -0.46,
+    0.42
+   ],
+   "yawDeg": 0,
+   "approach": [
+    0.62,
+    -1.21,
+    0.0
+   ],
+   "interactRadius": 0.9
+  },
+  {
+   "id": "B10",
+   "role": "collect",
+   "label": "領取成品",
+   "position": [
+    1.02,
+    -0.42,
+    0.42
+   ],
+   "yawDeg": 0,
+   "approach": [
+    1.02,
+    -1.17,
+    0.0
+   ],
+   "interactRadius": 0.9
+  },
+  {
+   "id": "B08",
+   "role": "dry",
+   "label": "晾藥",
+   "position": [
+    1.45,
+    -0.46,
+    0.42
+   ],
+   "yawDeg": 0,
+   "approach": [
+    1.45,
+    -1.21,
+    0.0
+   ],
+   "interactRadius": 0.9
+  }
+ ],
+ "instances": [
+  {
+   "id": "B01",
+   "glb": "B01_BronzeFurnace/v001/B01_BronzeFurnace_heating.glb",
+   "role": "refine",
+   "position": [
+    0.0,
+    0.6,
+    0.0
+   ],
+   "yawDeg": 0
+  },
+  {
+   "id": "B02",
+   "glb": "B02_FurnaceLid/v001/B02_FurnaceLid_heating.glb",
+   "role": "refine",
+   "position": [
+    0.0,
+    0.6,
+    0.746
+   ],
+   "yawDeg": 0
+  },
+  {
+   "id": "B12",
+   "glb": "B12_WorkshopChimney/v001/B12_WorkshopChimney.glb",
+   "role": "exhaust",
+   "position": [
+    -1.15,
+    0.935,
+    0.0
+   ],
+   "yawDeg": 0
+  },
+  {
+   "id": "B07",
+   "glb": "B07_WoodenFuelBox/v001/B07_WoodenFuelBox.glb",
+   "role": "fuel",
+   "position": [
+    -0.78,
+    -0.05,
+    0.0
+   ],
+   "yawDeg": 0
+  },
+  {
+   "id": "B06",
+   "glb": "B06_CeramicWaterJar/v001/B06_CeramicWaterJar.glb",
+   "role": "water",
+   "position": [
+    -1.55,
+    -0.55,
+    0.0
+   ],
+   "yawDeg": 20
+  },
+  {
+   "id": "B09",
+   "glb": "B09_ClothFilterFrame/v001/B09_ClothFilterFrame.glb",
+   "role": "filter",
+   "position": [
+    0.66,
+    1.22,
+    0.0
+   ],
+   "yawDeg": 0
+  },
+  {
+   "id": "B05",
+   "glb": "B05_HerbDrawerCabinet/v001/B05_HerbDrawerCabinet.glb",
+   "role": "identify",
+   "position": [
+    1.5,
+    1.24,
+    0.0
+   ],
+   "yawDeg": 0
+  },
+  {
+   "id": "B11",
+   "glb": "B11_BambooRecipeStand/v001/B11_BambooRecipeStand.glb",
+   "role": "recipe",
+   "position": [
+    1.5,
+    1.22,
+    0.88
+   ],
+   "yawDeg": 0
+  },
+  {
+   "id": "B04",
+   "glb": "B04_BambooSortingTrays/v001/B04_BambooSortingTrays.glb",
+   "role": "sort",
+   "position": [
+    2.1,
+    -0.35,
+    0.0
+   ],
+   "yawDeg": 0
+  },
+  {
+   "id": "B03",
+   "glb": "B03_StoneMortar/v001/B03_StoneMortar.glb",
+   "role": "process",
+   "position": [
+    0.62,
+    -0.46,
+    0.42
+   ],
+   "yawDeg": 0
+  },
+  {
+   "id": "B10",
+   "glb": "B10_WaxSealedBottle/v001/B10_WaxSealedBottle_filled.glb",
+   "role": "collect",
+   "position": [
+    1.02,
+    -0.42,
+    0.42
+   ],
+   "yawDeg": 0
+  },
+  {
+   "id": "B10",
+   "glb": "B10_WaxSealedBottle/v001/B10_WaxSealedBottle_filled.glb",
+   "role": "collect",
+   "position": [
+    1.1,
+    -0.5,
+    0.42
+   ],
+   "yawDeg": 20
+  },
+  {
+   "id": "B10",
+   "glb": "B10_WaxSealedBottle/v001/B10_WaxSealedBottle_empty.glb",
+   "role": "collect",
+   "position": [
+    0.93,
+    -0.53,
+    0.42
+   ],
+   "yawDeg": -15
+  },
+  {
+   "id": "B08",
+   "glb": "B08_VentilatedDryingBasket/v001/B08_VentilatedDryingBasket.glb",
+   "role": "dry",
+   "position": [
+    1.45,
+    -0.46,
+    0.42
+   ],
+   "yawDeg": 0
+  }
+ ],
+ "reachCheck": {
+  "blocked": [],
+  "pass_": true
+ }
+}

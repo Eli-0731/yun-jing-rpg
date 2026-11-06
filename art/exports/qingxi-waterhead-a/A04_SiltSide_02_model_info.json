@@ -1,0 +1,96 @@
+{
+ "id": "A04",
+ "variant": "mound 02: side bar",
+ "key": "A04_SiltSide_02",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  1.2582,
+  3.4776,
+  0.4166
+ ],
+ "triangles": 3160,
+ "lod_triangles": [
+  3160,
+  1580,
+  454
+ ],
+ "collision": {
+  "type": "mesh",
+  "note": "origin on the channel bed; lies along the left side, flow pushed right"
+ },
+ "nodes": {
+  "land": [
+   "A04_SiltSide_02_LOD0"
+  ],
+  "water": [],
+  "foliage": []
+ },
+ "collision_hull": null,
+ "sockets": [],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A04_SiltSide_02",
+  "dimensions_m": [
+   1.2582,
+   3.4776,
+   0.4166
+  ],
+  "bbox_min": [
+   -1.1346,
+   -1.7539,
+   0.0
+  ],
+  "bbox_max": [
+   0.1236,
+   1.7237,
+   0.4166
+  ],
+  "trianglesLOD": [
+   3160,
+   1580,
+   454
+  ],
+  "budgetLOD0": 5000,
+  "withinBudget": true,
+  "materials": [
+   "M_A04_SiltSide_02"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A04_SiltSide_02_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 204,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 3160,
+   "trianglesMatch": true,
+   "bboxMatch": false,
+   "materials": [
+    "M_A04_SiltSide_02.001"
+   ]
+  },
+  "files": {
+   "A04_SiltSide_02.glb": {
+    "bytes": 476580,
+    "sha256": "4565335a196ae9671cfab101f37400ec76580f8f68e54c0dda1f2457a75028d7"
+   },
+   "A04_SiltSide_02.fbx": {
+    "bytes": 417436,
+    "sha256": "37b156799141664c7809c6064c3798cc304adc3622e784740fa458a84fa42be2"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A04_silt_side_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

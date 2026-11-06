@@ -9,6 +9,8 @@ __pycache__/
 .env.*
 !.env.example
 artifacts/
+# Local third-party model studies and generated scratch files.
+output/
 **/Library/
 **/Temp/
 **/Obj/
@@ -28,3 +30,25 @@ apps/game/Assets/YunJing/Generated/
 apps/game/Assets/YunJing/Generated.meta
 apps/game/Assets/QingxiWorld/Generated/
 apps/game/Assets/QingxiWorld/Generated.meta
+
+# Alchemy room: copies of art/exports/qingxi-alchemy-b made by AlchemyRoomBuilder.CopyExports
+apps/game/Assets/YunJing/Models/AlchemyB/
+apps/game/Assets/YunJing/Models/AlchemyB.meta
+# Unified world: copies of art/exports/qingxi-encounter-a and the rabbit v003 made by QingxiCollaboratorZonesBuilder
+apps/game/Assets/YunJing/Models/ForestEncounterA/
+apps/game/Assets/YunJing/Models/ForestEncounterA.meta
+apps/game/Assets/YunJing/Models/TrainingYardA/
+apps/game/Assets/YunJing/Models/TrainingYardA.meta
+apps/game/Assets/YunJing/Models/GatheringB/
+apps/game/Assets/YunJing/Models/GatheringB.meta
+apps/game/Assets/YunJing/Models/LodgingInterior/
+apps/game/Assets/YunJing/Models/LodgingInterior.meta
+apps/game/Assets/YunJing/Models/Day12C/
+apps/game/Assets/YunJing/Models/Day12C.meta
+apps/game/Assets/YunJing/Models/WorldPropsA/
+apps/game/Assets/YunJing/Models/WorldPropsA.meta
+# Harvest market 02-B: copies of art/exports/harvest-market-b + HerbalStall v002 made by HarvestMarketSceneBuilder.CopyExports
+apps/game/Assets/YunJing/Models/HarvestMarketB/
+apps/game/Assets/YunJing/Models/HarvestMarketB.meta
+apps/game/Assets/YunJing/Models/TeaBrewingB/
+apps/game/Assets/YunJing/Models/TeaBrewingB.meta

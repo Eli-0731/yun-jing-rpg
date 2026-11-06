@@ -1,0 +1,112 @@
+{
+ "id": "A03",
+ "variant": "single",
+ "key": "A03_FormationBase",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  2.3591,
+  2.5059,
+  0.4608
+ ],
+ "triangles": 7168,
+ "lod_triangles": [
+  7168,
+  3562,
+  1063
+ ],
+ "collision": {
+  "type": "cylinder",
+  "radius": 0.9,
+  "height": 0.45,
+  "center": [
+   0,
+   0,
+   0.22
+  ],
+  "note": "tilted 9 deg, sunk 0.1 m on the gap side; step-on not intended"
+ },
+ "nodes": {
+  "land": [
+   "A03_FormationBase_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A03_FormationBase_Foliage"
+  ]
+ },
+ "collision_hull": {
+  "node": "A03_FormationBase_Collision",
+  "triangles": 600,
+  "note": "convex hull of the solid parts; use as a convex MeshCollider, never render"
+ },
+ "sockets": [],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A03_FormationBase",
+  "dimensions_m": [
+   2.3591,
+   2.5059,
+   0.4608
+  ],
+  "bbox_min": [
+   -1.0951,
+   -1.0474,
+   0.0
+  ],
+  "bbox_max": [
+   1.264,
+   1.4585,
+   0.4608
+  ],
+  "trianglesLOD": [
+   7168,
+   3562,
+   1063
+  ],
+  "budgetLOD0": 9000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A03_FormationBase"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A03_FormationBase_LOD0",
+   "A03_FormationBase_Foliage"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 194,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 7168,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "M_A03_FormationBase.001"
+   ]
+  },
+  "files": {
+   "A03_FormationBase.glb": {
+    "bytes": 945192,
+    "sha256": "f0e7c1dd8c6f89eef1d616c66ce43ca5807b4d44507acb0588af6b79d260bf5a"
+   },
+   "A03_FormationBase.fbx": {
+    "bytes": 778892,
+    "sha256": "131d020d42b76a6cc6542f7a39123494eb4eed1d18b909ba1d4e69110fd3a75a"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A03_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

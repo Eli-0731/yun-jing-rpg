@@ -1,0 +1,104 @@
+{
+ "id": "A04",
+ "name": "MossBoulderCover",
+ "key": "A04_MossBoulderCover",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.0,
+ "dimensions_m": [
+  2.5172,
+  1.8564,
+  1.3962
+ ],
+ "triangles": 4900,
+ "lod_triangles": [
+  4900,
+  2780,
+  1336
+ ],
+ "collision": {
+  "type": "spheres",
+  "items": [
+   [
+    -0.22,
+    0.08,
+    0.66,
+    0.62
+   ],
+   [
+    0.52,
+    -0.12,
+    0.38,
+    0.42
+   ]
+  ],
+  "note": "blocks rabbit sight line; crouch cover 1.4 m"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A04",
+  "key": "A04_MossBoulderCover",
+  "dimensions_m": [
+   2.5172,
+   1.8564,
+   1.3962
+  ],
+  "bbox_min": [
+   -1.2369,
+   -0.8569,
+   0.0
+  ],
+  "bbox_max": [
+   1.2803,
+   0.9994,
+   1.3962
+  ],
+  "trianglesLOD": [
+   4900,
+   2780,
+   1336
+  ],
+  "budgetLOD0": 8000,
+  "withinBudget": true,
+  "materials": [
+   "M_A04_MossBoulderCover"
+  ],
+  "textureResolution": 1024,
+  "doubleSided": true,
+  "nodes": [
+   "A04_MossBoulderCover_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 1980,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 4900,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A04_MossBoulderCover.001"
+   ]
+  },
+  "files": {
+   "A04_MossBoulderCover.glb": {
+    "bytes": 783280,
+    "sha256": "6d7f1fb6eb00759dbe3ffcbc43f82774805ca6f62a03535cacf15623b15ea1e0"
+   },
+   "A04_MossBoulderCover.fbx": {
+    "bytes": 795244,
+    "sha256": "01b1a1b517d117a9fcbd7e6c1aee1d04688f2ef3bab754b006e3243fcf9c9c79"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A04_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

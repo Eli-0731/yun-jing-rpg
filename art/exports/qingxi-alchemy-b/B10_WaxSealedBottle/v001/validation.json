@@ -1,0 +1,176 @@
+{
+ "B10_WaxSealedBottle_filled": {
+  "asset": "B10",
+  "key": "B10_WaxSealedBottle_filled",
+  "state": "filled",
+  "version": "v001",
+  "dimensions_m": [
+   0.075,
+   0.0757,
+   0.1195
+  ],
+  "bbox_min": [
+   -0.0375,
+   -0.0382,
+   0.0
+  ],
+  "bbox_max": [
+   0.0375,
+   0.0375,
+   0.1195
+  ],
+  "target_size_m": [
+   0.075,
+   0.075,
+   0.12
+  ],
+  "trianglesLOD": [
+   2612,
+   1305,
+   574
+  ],
+  "budgetLOD0": 3200,
+  "withinBudget": true,
+  "vertices": 1403,
+  "materials": [
+   "M_B10_WaxSealedBottle_filled",
+   "B10_Glass",
+   "B10_Tonic"
+  ],
+  "textureResolution": 512,
+  "nodes": [
+   "B10_WaxSealedBottle_filled_LOD0"
+  ],
+  "textures": [
+   "T_B10_WaxSealedBottle_filled_BaseColor.png",
+   "T_B10_WaxSealedBottle_filled_Normal.png",
+   "T_B10_WaxSealedBottle_filled_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 152,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 2612,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "B10_Glass.001",
+    "B10_Tonic.001",
+    "M_B10_WaxSealedBottle_filled.001"
+   ]
+  },
+  "files": {
+   "B10_WaxSealedBottle_filled.glb": {
+    "bytes": 601640,
+    "sha256": "2f5544b7b40338a28ed2a73da571433513eacd3591037046bcea8d7ad99783dc"
+   },
+   "B10_WaxSealedBottle_filled.fbx": {
+    "bytes": 350156,
+    "sha256": "32f33dec5ad5daaaa1067818e18ace12b58013900085b624817ac1e1b54e3706"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B10_WaxSealedBottle_filled": "OPAQUE",
+   "B10_Glass": "BLEND",
+   "B10_Tonic": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 2.9,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ },
+ "B10_WaxSealedBottle_empty": {
+  "asset": "B10",
+  "key": "B10_WaxSealedBottle_empty",
+  "state": "empty",
+  "version": "v001",
+  "dimensions_m": [
+   0.1124,
+   0.0757,
+   0.109
+  ],
+  "bbox_min": [
+   -0.0375,
+   -0.0382,
+   0.0
+  ],
+  "bbox_max": [
+   0.0749,
+   0.0375,
+   0.109
+  ],
+  "target_size_m": [
+   0.075,
+   0.075,
+   0.12
+  ],
+  "trianglesLOD": [
+   1036,
+   518,
+   226
+  ],
+  "budgetLOD0": 3200,
+  "withinBudget": true,
+  "vertices": 539,
+  "materials": [
+   "M_B10_WaxSealedBottle_empty",
+   "B10_Glass"
+  ],
+  "textureResolution": 512,
+  "nodes": [
+   "B10_WaxSealedBottle_empty_LOD0",
+   "B10_WaxSealedBottle_empty_Cork_LOD0"
+  ],
+  "textures": [
+   "T_B10_WaxSealedBottle_empty_BaseColor.png",
+   "T_B10_WaxSealedBottle_empty_Normal.png",
+   "T_B10_WaxSealedBottle_empty_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 32,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 1036,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "B10_Glass.001",
+    "M_B10_WaxSealedBottle_empty.001"
+   ]
+  },
+  "files": {
+   "B10_WaxSealedBottle_empty.glb": {
+    "bytes": 369096,
+    "sha256": "1100b0cf8818d4f4bdcec5f98751f15fb54c0d15829078a3b9f14e7f1acf2a3e"
+   },
+   "B10_WaxSealedBottle_empty.fbx": {
+    "bytes": 148892,
+    "sha256": "697f6e36b778321f3bb926a5783fe3432bf0811fa3008b25690740a7d891a5d6"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B10_WaxSealedBottle_empty": "OPAQUE",
+   "B10_Glass": "BLEND"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 5.1,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

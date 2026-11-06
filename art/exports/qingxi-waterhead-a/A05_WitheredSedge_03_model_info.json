@@ -1,0 +1,101 @@
+{
+ "id": "A05",
+ "variant": "clump 03: low combed mat",
+ "key": "A05_WitheredSedge_03",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  1.4855,
+  0.7319,
+  0.2176
+ ],
+ "triangles": 2800,
+ "lod_triangles": [
+  2800,
+  1400,
+  420
+ ],
+ "collision": {
+  "type": "none",
+  "note": "stones under the mat are step-over"
+ },
+ "nodes": {
+  "land": [
+   "A05_WitheredSedge_03_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A05_WitheredSedge_03_Foliage"
+  ]
+ },
+ "collision_hull": null,
+ "sockets": [],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A05_WitheredSedge_03",
+  "dimensions_m": [
+   1.4855,
+   0.7319,
+   0.2176
+  ],
+  "bbox_min": [
+   -0.6472,
+   -0.3892,
+   0.0
+  ],
+  "bbox_max": [
+   0.8383,
+   0.3427,
+   0.2176
+  ],
+  "trianglesLOD": [
+   2800,
+   1400,
+   420
+  ],
+  "budgetLOD0": 4000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A05_WitheredSedge_03"
+  ],
+  "textureResolution": 512,
+  "nodes": [
+   "A05_WitheredSedge_03_LOD0",
+   "A05_WitheredSedge_03_Foliage"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 2800,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "GrassClump.001",
+    "M_A05_WitheredSedge_03.001"
+   ]
+  },
+  "files": {
+   "A05_WitheredSedge_03.glb": {
+    "bytes": 314604,
+    "sha256": "7698a0cf697740cfcd5aac9b8c988ecaf2f83bb2d43666e06bfcba353dd45045"
+   },
+   "A05_WitheredSedge_03.fbx": {
+    "bytes": 366732,
+    "sha256": "994f89bb428b618090e87b335fed6a1cf5a8d9f4eab43f833be757dfbaeee340"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A05_low_mat_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

@@ -1,49 +1,104 @@
-import bpy,sys,json,os,math
+"""Assembled-yard renders from the master file (run after build_yard.py and build_yard.py -- --master):
+
+  blender -b art/source/qingxi-training-yard-v1/Qingxi_Training_Yard_v1.blend --python-exit-code 1 \
+          --python art/source/qingxi-training-yard-v1/review_yard.py
+
+Renders the YardPreview scene (baked game meshes at the demo layout) under a physical sky, including
+1.7 m eye-height views from the village approach, the steps and under the roof.
+"""
+import math
 from pathlib import Path
+
+import bpy
 from mathutils import Vector
-ROOT=Path(__file__).resolve().parent;PROJECT=ROOT.parents[2];OUT=PROJECT/'art/previews/qingxi-training-yard-v1'
-bpy.ops.wm.open_mainfile(filepath=str(ROOT/'Qingxi_Training_Yard_v1.blend'))
-sys.path.insert(0,str(Path(os.environ.get('BLENDER_ASSET_QA_SCRIPTS',str(Path.home()/'.codex/skills/blender-asset-qa/scripts')))))
-import qa_check
-names=['training-shelter','qi-striking-post','agility-post','weapon-rack','engraved-training-stone','training-banner']
-results={}
-if os.environ.get('YARD_QA','1')=='1':
-    for name in names:
-        full=qa_check.run(objects=[o.name for o in bpy.data.collections[name].objects],profile='game',eps=.00015,tol=.003,uv=True)
-        parts=full['objects'].values()
-        results[name]={'pass':full['pass'],'errors':full['errors'],
-                       'warnings_count':len(full['warnings']),
-                       'warnings_by_type':{
-                           'stacked_uv':sum('UV overlap' in w for w in full['warnings']),
-                           'flat_cap_ngons':sum('n-gons' in w for w in full['warnings']),
-                           'hidden_contact_faces':sum('back-to-back' in w for w in full['warnings'])},
-                       'mesh_parts':len(full['objects']),
-                       'triangles':sum(o['tris'] for o in parts),
-                       'boundary_edges':sum(o['boundary_edges'] for o in full['objects'].values()),
-                       'nonmanifold_edges':sum(o['nonmanifold_edges'] for o in full['objects'].values()),
-                       'degenerate_faces':sum(o['degenerate_faces'] for o in full['objects'].values()),
-                       'floating_islands':len(full['floating'])}
-        print('QA',name,json.dumps(results[name]),flush=True)
-    (OUT/'qa-report.json').write_text(json.dumps(results,indent=2),encoding='utf8')
-if os.environ.get('YARD_RENDER','1')=='1':
-    scene=bpy.context.scene
-    for name,loc,power,size in [('Key',(-4,-5,7),1700,5),('Fill',(4,-1,5),1100,4),('Rim',(0,5,6),2000,4)]:
-        light=bpy.data.lights.new(name,'AREA');ob=bpy.data.objects.new(name,light);scene.collection.objects.link(ob);ob.location=loc;light.energy=power;light.shape='DISK';light.size=size;ob.rotation_euler=(Vector((0,0,1))-ob.location).to_track_quat('-Z','Y').to_euler()
-    cd=bpy.data.cameras.new('ReviewCamera');cam=bpy.data.objects.new('ReviewCamera',cd);scene.collection.objects.link(cam);scene.camera=cam
-    for name in names:
-        for n in names:
-            for ob in bpy.data.collections[n].objects:ob.hide_render=n!=name
-        cd.type='ORTHO';cd.ortho_scale=8.7 if name=='training-shelter' else 3.1
-        center=Vector((0,0,1.7 if name=='training-shelter' else (1.3 if name=='training-banner' else .8)))
-        cam.location=center+Vector((4,-6,3));cam.rotation_euler=(center-cam.location).to_track_quat('-Z','Y').to_euler()
-        scene.render.filepath=str(OUT/(name+'-detail.png'));bpy.ops.render.render(write_still=True)
-    # Independent assembly for integration evidence; not the core entry scene.
-    placement={'training-shelter':(0,0,0),'qi-striking-post':(-1.55,.35,.12),'agility-post':(1.55,.35,.12),'weapon-rack':(2.0,1.55,.12),'engraved-training-stone':(-1.45,1.45,.12),'training-banner':(-3,-2.1,0)}
-    for name in names:
-        for ob in bpy.data.collections[name].objects:ob.hide_render=False;ob.location=placement[name]
-    cd.type='PERSP';cd.lens=28;cam.location=(0,-8.5,1.70);cam.rotation_euler=(Vector((0,0,1.65))-cam.location).to_track_quat('-Z','Y').to_euler()
-    scene.render.filepath=str(OUT/'eye-height-1.7m.png');bpy.ops.render.render(write_still=True)
-    cd.lens=40;cam.location=(9,-12,8);cam.rotation_euler=(Vector((0,0,1.3))-cam.location).to_track_quat('-Z','Y').to_euler()
-    scene.render.filepath=str(OUT/'yard-overview.png');bpy.ops.render.render(write_still=True)
-    (OUT/'assembly-placement.json').write_text(json.dumps(placement,indent=2),encoding='utf8')
-print('REVIEW_DONE',flush=True)
+
+ROOT = Path(__file__).resolve().parent
+OUT = ROOT.parents[2] / 'art/previews/qingxi-training-yard-v1'
+scene = bpy.data.scenes['YardPreview']
+bpy.context.window_manager.windows[0].scene = scene if bpy.context.window_manager.windows else None
+
+
+def gpu(sc, samples):
+    sc.render.engine = 'CYCLES'
+    prefs = bpy.context.preferences.addons['cycles'].preferences
+    for kind in ('OPTIX', 'CUDA'):
+        try:
+            prefs.compute_device_type = kind
+            prefs.get_devices()
+            if any(d.type == kind for d in prefs.devices):
+                break
+        except TypeError:
+            continue
+    for d in prefs.devices:
+        d.use = d.type != 'CPU'
+    sc.cycles.device = 'GPU'
+    sc.cycles.samples = samples
+    sc.cycles.use_denoising = True
+
+
+gpu(scene, 128)
+scene.render.resolution_x, scene.render.resolution_y = 1600, 900
+scene.view_settings.view_transform = 'AgX'
+scene.view_settings.look = 'AgX - Base Contrast'
+world = bpy.data.worlds.new('YardSky')
+scene.world = world
+nt = world.node_tree
+sky = nt.nodes.new('ShaderNodeTexSky')
+for attr, val in (('sun_elevation', math.radians(28)), ('sun_rotation', math.radians(-38)), ('altitude', 300.0)):
+    if hasattr(sky, attr):
+        setattr(sky, attr, val)
+nt.links.new(sky.outputs['Color'], nt.nodes['Background'].inputs['Color'])
+nt.nodes['Background'].inputs['Strength'].default_value = 0.35
+sun = bpy.data.objects.new('Sun', bpy.data.lights.new('Sun', 'SUN'))
+sun.data.energy = 3.2
+sun.data.angle = math.radians(1.5)
+sun.data.color = (1.0, 0.92, 0.80)
+sun.rotation_euler = (math.radians(62), 0, math.radians(142))
+scene.collection.objects.link(sun)
+
+gm = bpy.data.materials.new('PreviewMeadow')
+b = gm.node_tree.nodes['Principled BSDF']
+noise = gm.node_tree.nodes.new('ShaderNodeTexNoise')
+noise.inputs['Scale'].default_value = 0.35
+ramp = gm.node_tree.nodes.new('ShaderNodeValToRGB')
+ramp.color_ramp.elements[0].color = (0.035, 0.05, 0.018, 1)
+ramp.color_ramp.elements[1].color = (0.10, 0.12, 0.04, 1)
+gm.node_tree.links.new(noise.outputs['Fac'], ramp.inputs['Fac'])
+gm.node_tree.links.new(ramp.outputs['Color'], b.inputs['Base Color'])
+b.inputs['Roughness'].default_value = 1.0
+pm = bpy.data.materials.new('PreviewPath')
+pb = pm.node_tree.nodes['Principled BSDF']
+pb.inputs['Base Color'].default_value = (0.16, 0.115, 0.07, 1)
+pb.inputs['Roughness'].default_value = 1.0
+
+
+def plane(name, verts, mat):
+    me = bpy.data.meshes.new(name)
+    me.from_pydata(verts, [], [tuple(range(len(verts)))])
+    me.materials.append(mat)
+    ob = bpy.data.objects.new(name, me)
+    scene.collection.objects.link(ob)
+    return ob
+
+
+plane('meadow', [(-150, -150, -0.002), (150, -150, -0.002), (150, 150, -0.002), (-150, 150, -0.002)], gm)
+plane('path', [(-1.6, -3.0, 0.002), (1.6, -3.0, 0.002), (2.0, -22, 0.002), (-1.2, -22, 0.002)], pm)
+
+SHOTS = {
+    'eye-height-village-approach': ((0.6, -14.5, 1.70), (0.0, 0.0, 1.9), 24),
+    'eye-height-steps': ((0.2, -5.4, 1.70), (0.0, 1.0, 1.75), 22),
+    'eye-height-under-shelter': ((0.3, -1.3, 0.30 + 1.70), (-1.9, 1.0, 1.1), 22),
+    'eye-height-stone-and-banner': ((-1.9, -6.6, 1.70), (-3.8, -0.4, 0.8), 26),
+    'yard-overview': ((-11.0, -14.0, 7.0), (0.0, -0.4, 1.4), 30),
+}
+for name, (loc, target, lens) in SHOTS.items():
+    cam = bpy.data.objects.new(f'cam_{name}', bpy.data.cameras.new(name))
+    cam.location = loc
+    cam.rotation_euler = (Vector(target) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler()
+    cam.data.lens = lens
+    cam.data.sensor_width = 36
+    scene.collection.objects.link(cam)
+    scene.camera = cam
+    scene.render.filepath = str(OUT / f'{name}.png')
+    bpy.ops.render.render(write_still=True, scene=scene.name)
+    print('RENDER', name, flush=True)

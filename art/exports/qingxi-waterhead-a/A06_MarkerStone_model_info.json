@@ -1,0 +1,112 @@
+{
+ "id": "A06",
+ "variant": "single",
+ "key": "A06_MarkerStone",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  1.6276,
+  1.5871,
+  1.1725
+ ],
+ "triangles": 6080,
+ "lod_triangles": [
+  6080,
+  3040,
+  910
+ ],
+ "collision": {
+  "type": "capsule",
+  "radius": 0.45,
+  "height": 1.2,
+  "center": [
+   0,
+   0,
+   0.6
+  ],
+  "note": "water lines at 0.35 m (today) and 0.86 m (old)"
+ },
+ "nodes": {
+  "land": [
+   "A06_MarkerStone_LOD0"
+  ],
+  "water": [],
+  "foliage": [
+   "A06_MarkerStone_Foliage"
+  ]
+ },
+ "collision_hull": {
+  "node": "A06_MarkerStone_Collision",
+  "triangles": 386,
+  "note": "convex hull of the solid parts; use as a convex MeshCollider, never render"
+ },
+ "sockets": [],
+ "author": "Johnnnny0823",
+ "validation": {
+  "asset": "A06_MarkerStone",
+  "dimensions_m": [
+   1.6276,
+   1.5871,
+   1.1725
+  ],
+  "bbox_min": [
+   -0.8427,
+   -0.8423,
+   0.0
+  ],
+  "bbox_max": [
+   0.7849,
+   0.7448,
+   1.1725
+  ],
+  "trianglesLOD": [
+   6080,
+   3040,
+   910
+  ],
+  "budgetLOD0": 7000,
+  "withinBudget": true,
+  "materials": [
+   "GrassClump",
+   "M_A06_MarkerStone"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "A06_MarkerStone_LOD0",
+   "A06_MarkerStone_Foliage"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 0,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 6080,
+   "trianglesMatch": true,
+   "bboxMatch": false,
+   "materials": [
+    "GrassClump.001",
+    "M_A06_MarkerStone.001"
+   ]
+  },
+  "files": {
+   "A06_MarkerStone.glb": {
+    "bytes": 814776,
+    "sha256": "75445e1cb66c9cbf4fc3c0816a0494b7bfb683cb63362460d1adbc0c4785ff78"
+   },
+   "A06_MarkerStone.fbx": {
+    "bytes": 822828,
+    "sha256": "beeb82e1b7d285acbef273ddace1d8ab7b2add72be361d44bda777fd851e56ff"
+   }
+  },
+  "reference": "art/references/qingxi-waterhead-a/A06_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

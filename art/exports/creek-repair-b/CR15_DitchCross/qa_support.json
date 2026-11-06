@@ -1,0 +1,24 @@
+{
+ "asset": "CR15_DitchCross_v001",
+ "pieces": 486,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "CR15_DitchCross_Detail_Small",
+   "verts": 78,
+   "centre": [
+    0.559,
+    0.405,
+    0.401
+   ],
+   "size": [
+    0.056,
+    0.041,
+    0.023
+   ],
+   "gap_mm": 3.1,
+   "nearest": "CR15_DitchCross",
+   "drop_mm": 389.3
+  }
+ ]
+}

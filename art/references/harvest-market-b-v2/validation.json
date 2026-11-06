@@ -1,0 +1,34 @@
+[
+  {
+    "asset": "MK01",
+    "score": 96,
+    "width": 1536,
+    "height": 1024,
+    "revisions": 3,
+    "hash": "4CD09EDD6F8AD8659C9AB1A1215D8C1698AB5DF3505B446FD6A7B202DCDF3F0E"
+  },
+  {
+    "asset": "MK02",
+    "score": 95,
+    "width": 1536,
+    "height": 1024,
+    "revisions": 2,
+    "hash": "C5986FE6C39551F1307378C9F4DF88804C77686FD1EC2A84039D4AE69964F4A7"
+  },
+  {
+    "asset": "MK03",
+    "score": 95,
+    "width": 1536,
+    "height": 1024,
+    "revisions": 10,
+    "hash": "6EDEAA7CB19C7454A1B26D3834C7C6C02859AC204FAE715A33CD6C85A31ABE8D"
+  },
+  {
+    "asset": "MK04",
+    "score": 96,
+    "width": 1536,
+    "height": 1024,
+    "revisions": 2,
+    "hash": "C92901EE6FC4A4DE144B3A64C4088D23E8A98FEDD45FB93AB0601C46AB03FEA0"
+  }
+]

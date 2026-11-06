@@ -1,0 +1,100 @@
+{
+ "id": "A05",
+ "name": "LayeredRockCover",
+ "key": "A05_LayeredRockCover",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "datum_m": 0.0,
+ "dimensions_m": [
+  2.9159,
+  1.7528,
+  2.1
+ ],
+ "triangles": 4742,
+ "lod_triangles": [
+  4742,
+  2686,
+  1276
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   2.3,
+   0.85,
+   2.1
+  ],
+  "center": [
+   0,
+   0,
+   1.05
+  ],
+  "note": "tall side cover; ledge at 0.8 m is decorative"
+ },
+ "author": "Johnnnny0823 (commission, direction) / Claude Code (procedural modelling, bake, validation)",
+ "validation": {
+  "asset": "A05",
+  "key": "A05_LayeredRockCover",
+  "dimensions_m": [
+   2.9159,
+   1.7528,
+   2.1
+  ],
+  "bbox_min": [
+   -1.4284,
+   -1.0197,
+   0.0
+  ],
+  "bbox_max": [
+   1.4875,
+   0.7331,
+   2.1
+  ],
+  "trianglesLOD": [
+   4742,
+   2686,
+   1276
+  ],
+  "budgetLOD0": 8000,
+  "withinBudget": true,
+  "materials": [
+   "M_A05_LayeredRockCover"
+  ],
+  "textureResolution": 1024,
+  "doubleSided": true,
+  "nodes": [
+   "A05_LayeredRockCover_LOD0"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 1890,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 4742,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_A05_LayeredRockCover.001"
+   ]
+  },
+  "files": {
+   "A05_LayeredRockCover.glb": {
+    "bytes": 715520,
+    "sha256": "77fa1bb99b7ed6a72a4a19bd4c8cdae5b5c77649faeb653d04078a4d65904408"
+   },
+   "A05_LayeredRockCover.fbx": {
+    "bytes": 747900,
+    "sha256": "2dc7a489a4ba9b3e5bb0da38aed4cf18097bac3768700c2ac2288de09ad123a9"
+   }
+  },
+  "reference": "art/references/qingxi-encounter-a/A05_three_view.png",
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

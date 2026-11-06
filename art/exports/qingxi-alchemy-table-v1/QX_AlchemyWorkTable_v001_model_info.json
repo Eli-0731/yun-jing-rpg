@@ -1,0 +1,52 @@
+{
+  "id": "QX_AlchemyWorkTable",
+  "version": "v001",
+  "author": "z1nnz (core group, built by Claude Code)",
+  "reference": "art/references/qingxi-alchemy-table-v1/",
+  "units": "metre",
+  "origin": "base centre",
+  "forward": "-Y (Blender) / +Z (glTF)",
+  "dimensions_m": [
+    2.01,
+    0.73,
+    0.785
+  ],
+  "ground_z": 0.0,
+  "tabletop_height_m": 0.78,
+  "triangles": 1320,
+  "lod_triangles": [
+    1320,
+    660
+  ],
+  "materials": [
+    "M_QX_AgedElm",
+    "M_QX_OxidisedBronze",
+    "M_QX_Bamboo"
+  ],
+  "collision": {
+    "type": "box",
+    "size": [
+      2.0,
+      0.72,
+      0.78
+    ],
+    "center": [
+      0,
+      0,
+      0.39
+    ],
+    "note": "one box is enough; the lower shelf is not walkable"
+  },
+  "sockets": {
+    "tabletop": [
+      0,
+      0,
+      0.78
+    ]
+  },
+  "qa": {
+    "pass": true,
+    "errors": 0,
+    "warnings": 1
+  }
+}

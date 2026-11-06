@@ -1,0 +1,9 @@
+[
+  {"id": "training-shelter", "x": 0.0, "y": 0.0, "z": 0.0},
+  {"id": "qi-striking-post", "x": -2.0, "y": 0.9, "z": 0.30},
+  {"id": "agility-post", "x": 2.0, "y": 0.9, "z": 0.30},
+  {"id": "weapon-rack", "x": 0.0, "y": 1.5, "z": 0.30},
+  {"id": "engraved-training-stone", "x": -4.6, "y": 0.2, "z": 0.0, "yaw": 8},
+  {"id": "training-banner", "x": 2.15, "y": -3.45, "z": 0.0},
+  {"id": "training-banner", "x": -2.15, "y": -3.45, "z": 0.0}
+]

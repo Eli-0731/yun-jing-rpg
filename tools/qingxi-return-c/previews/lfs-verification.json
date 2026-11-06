@@ -1,0 +1,205 @@
+{
+  "scope": "C return package only; baseline LFS not downloaded",
+  "count": 33,
+  "pass": true,
+  "files": [
+    {
+      "path": "art/exports/qingxi-return-c/C01.glb",
+      "sha256": "bb71cb6968c904f7670241639bb71011fc5bfccf1a6f3c2671eec2943b50f71e",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/exports/qingxi-return-c/C02.glb",
+      "sha256": "f3c934b4d3250dd27792e452f4428c2ab3690f57aa76ee0a32449bd74604b489",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/exports/qingxi-return-c/C03.glb",
+      "sha256": "6eb927d7aafa9754050387d6f8a4eecc1e142f0ef81b27e9cc854f3cde15f02c",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/exports/qingxi-return-c/C04.glb",
+      "sha256": "e45f7bb9a7e48f53af52477b29d103956037db6c4275946ffbd1512f1d68250e",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/exports/qingxi-return-c/C05.glb",
+      "sha256": "ad0c8905944621df14bfd64210c1ad2ca78fe8461a802fc851c25bc110b3af16",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/exports/qingxi-return-c/C06.glb",
+      "sha256": "e98e500bfdbdfa2b6b809c37caf4208a69983da306d4692ed3aaabf4d83fbe62",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/exports/qingxi-return-c/C07.glb",
+      "sha256": "2707a69c2aae19f7cd58eae2586ac1cef655a86463b9a1f8717f14372050f8e4",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/exports/qingxi-return-c/C08.glb",
+      "sha256": "224d6dc7be966f431240f6bec4378ab148585ffd76e0be14a58f0b3407b745f9",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/references/qingxi-return-c/C01-three-view.png",
+      "sha256": "4f8ef16b762ec45969858101bb6e0e3baf984d49c221bb88fe2126b6a24f2e5a",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/references/qingxi-return-c/C02-three-view.png",
+      "sha256": "8924753a2fc7bdd67e3302e9d9cf1312ff0f52d24b7bc681cb549581aae9185a",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/references/qingxi-return-c/C03-three-view.png",
+      "sha256": "94151fe9b559af73d47df086bd82623eb8156670641463e003d8dd9a2117bf0f",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/references/qingxi-return-c/C04-three-view.png",
+      "sha256": "0a168f353854104cff4dcc4a67b841938c8c192e0a245f9b34c4ba3d0455a40d",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/references/qingxi-return-c/C05-three-view.png",
+      "sha256": "752aae2bda162574c4d3014a8b76761026e7d18db2c4fc5443b0005bbd0d0d01",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/references/qingxi-return-c/C06-three-view.png",
+      "sha256": "d47a4a49f72c0f8b22202cdb9f64deec0d98aa161e4b75ea9a92a729de6be6d0",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/references/qingxi-return-c/C07-three-view.png",
+      "sha256": "edde6c664e05d896c8236ad2887b1c4c48bfc71311870f31adfb9e745cb1399d",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/references/qingxi-return-c/C08-three-view.png",
+      "sha256": "05b122bb909099f0a3697bf74e2f1797e450c354003742ae942db82a69e80ea9",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/source/qingxi-return-c/Qingxi_Return_C_batch1.blend",
+      "sha256": "fbb74bec66dc24a6cd420690e84cbbfe2430a266b7d61a8399773ed1672d4b74",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "art/source/qingxi-return-c/Qingxi_Return_C_batch2.blend",
+      "sha256": "333c51c1fe684c9c76c6e2e459359f0bee395cab8e0c20c47b498ecf605b8349",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/C01-close.png",
+      "sha256": "3b92c1f274c9855bafe3855cf67776e47bcd1d1519dc9bb05baf25bfefb3d000",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/C02-close.png",
+      "sha256": "57a8bebc28bc77dac8a9864cbfdc4879d0080076a446d3389323036f057a873b",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/C03-close.png",
+      "sha256": "04512a3eef348498c0e08acf6ea0c0dca7b438fb116038351aa01e0df45c7bd5",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/C04-close.png",
+      "sha256": "062ec67d061827cfeb789d3b4c8dba0df2561886de2e360ef0001c3902ce9e7b",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/C05-close.png",
+      "sha256": "f16ff017f124ac0141d329341d37544bf88da14e92fa9956840e9152e69fbbe3",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/C06-close.png",
+      "sha256": "639070fdb9ebf4910a31ff012751ad5a7c910b24bdd4cf4da557d966c84cbf75",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/C07-close.png",
+      "sha256": "ccbb4e724ecac8cacfbb33af8ca4991484b4eec0bfb836c9e11c5f6c8e5b7829",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/C08-close.png",
+      "sha256": "0955a4c973184e518d36941586c2b2da8d258b7fc358cf87c39284dc4ec21cd7",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/desktop-1280x720.png",
+      "sha256": "65691c3c69eb720e1b9f4df2c76ad222355081a365051a4868ebbf4b61c726db",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/desktop-dusk.png",
+      "sha256": "d45734436ca9bde7d78b048cfe55e01ec6a34b5fad041771b1dda02cf5594dd6",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/mobile-844x390.png",
+      "sha256": "fe09ef5fee5bf266dd8e37096760e315a64ac57f62c5f992b8b99768905990b8",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/return-corner-dusk.png",
+      "sha256": "fde240e2d10016444f0183d3c42410a83f18fa98228e68e428ecd89b4940d46c",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/return-corner.png",
+      "sha256": "46ed8efdbebacaf92c76d267b3db2c3873c986194e59e655b2a8a77212bfa3a8",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/scale-3x4m.png",
+      "sha256": "8737f090785b3599a64f5586d8acfca4bc2c0f3738df48bedb7d8b253432032a",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    },
+    {
+      "path": "tools/qingxi-return-c/previews/walkthrough.webm",
+      "sha256": "233e0287ffc55835ea1524b333cd8935ba32dbd1ed5bd3158d694e5a25773061",
+      "workingFileMatches": true,
+      "lfsObjectMatches": true
+    }
+  ]
+}

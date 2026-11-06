@@ -1,0 +1,135 @@
+{
+ "id": "B05",
+ "name": "HerbDrawerCabinet",
+ "key": "B05_HerbDrawerCabinet",
+ "state": "default",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.76,
+  0.48,
+  0.943
+ ],
+ "triangles": 7000,
+ "lod_triangles": [
+  7000,
+  3500,
+  1540
+ ],
+ "collision": {
+  "type": "box",
+  "size": [
+   0.76,
+   0.48,
+   0.92
+  ],
+  "center": [
+   0,
+   0,
+   0.46
+  ],
+  "note": "drawers are separate nodes Drawer1-3 that slide along -Y by up to 0.28 m"
+ },
+ "states": {
+  "default": "all drawers closed; label colour/ink for identified vs unidentified is set by the game"
+ },
+ "sockets": {
+  "top_surface": [
+   0,
+   0,
+   0.874
+  ],
+  "drawer_slide_axis": [
+   0,
+   -1,
+   0
+  ],
+  "drawer_slide_max": 0.28
+ },
+ "validation": {
+  "asset": "B05",
+  "key": "B05_HerbDrawerCabinet",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.76,
+   0.48,
+   0.943
+  ],
+  "bbox_min": [
+   -0.38,
+   -0.24,
+   0.0
+  ],
+  "bbox_max": [
+   0.38,
+   0.24,
+   0.943
+  ],
+  "target_size_m": [
+   0.76,
+   0.48,
+   0.92
+  ],
+  "trianglesLOD": [
+   7000,
+   3500,
+   1540
+  ],
+  "budgetLOD0": 7000,
+  "withinBudget": true,
+  "vertices": 3686,
+  "materials": [
+   "M_B05_HerbDrawerCabinet"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B05_HerbDrawerCabinet_LOD0",
+   "B05_HerbDrawerCabinet_Drawer1_LOD0",
+   "B05_HerbDrawerCabinet_Drawer2_LOD0",
+   "B05_HerbDrawerCabinet_Drawer3_LOD0"
+  ],
+  "textures": [
+   "T_B05_HerbDrawerCabinet_BaseColor.png",
+   "T_B05_HerbDrawerCabinet_Normal.png",
+   "T_B05_HerbDrawerCabinet_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 72,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 7000,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B05_HerbDrawerCabinet.001"
+   ]
+  },
+  "files": {
+   "B05_HerbDrawerCabinet.glb": {
+    "bytes": 4111004,
+    "sha256": "802ebd5bea10070a8c575043e1f7912cc411666d2af06c4f37c1cc45189b31bf"
+   },
+   "B05_HerbDrawerCabinet.fbx": {
+    "bytes": 821212,
+    "sha256": "c1cf71dfcb6e637ea8bc222986c75681f53c4a62f718dfed860e0b36ee28ed5d"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B05_HerbDrawerCabinet": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 4.6,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

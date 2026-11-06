@@ -1,0 +1,214 @@
+{
+  "asset": "TE01_StraightA",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -4.0,
+          -2.0,
+          0.0
+        ],
+        "max": [
+          4.0,
+          2.0,
+          1.2786
+        ],
+        "limit_m": [
+          8.0,
+          4.0,
+          1.6
+        ],
+        "note": "footprint centred on the origin; height includes grass on the tread"
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "largest_clamp_m": 0.00691
+      }
+    },
+    {
+      "check": "connector_soil_at_rise_within_2mm",
+      "pass": true,
+      "detail": {
+        "max_error_m": 0.00164,
+        "samples_z": {
+          "s=0.0": [
+            1.0,
+            1.0001,
+            1.0001,
+            1.0,
+            1.0,
+            0.9999,
+            1.1531,
+            1.1798,
+            1.1798,
+            1.0125,
+            0.9048
+          ],
+          "s=8.0": [
+            1.0,
+            0.9998,
+            0.9998,
+            0.9999,
+            1.0,
+            0.9999,
+            1.1531,
+            1.1799,
+            1.18,
+            1.0128,
+            0.9049
+          ]
+        },
+        "note": "any two pieces meet on the same heights, so a joint opens no step over 2 mm"
+      }
+    },
+    {
+      "check": "connectors_on_1m_grid",
+      "pass": true,
+      "detail": {
+        "s=0.0": [
+          [
+            -4.0,
+            -2.0
+          ],
+          [
+            -4.0,
+            2.0
+          ]
+        ],
+        "s=8.0": [
+          [
+            4.0,
+            -2.0
+          ],
+          [
+            4.0,
+            2.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "nothing_past_connector_planes",
+      "pass": true,
+      "detail": {
+        "min_x": -4.0,
+        "max_x": 4.0
+      }
+    },
+    {
+      "check": "front_lip_meets_lower_tread_at_z0",
+      "pass": true,
+      "detail": "the toe lip starts on the footprint front edge at z = 0"
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 37080,
+          "LOD1": 18539,
+          "LOD2": 5560
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 27722,
+            "LOD1": 13860,
+            "LOD2": 4158
+          },
+          "Detail_Small": {
+            "LOD0": 9358,
+            "LOD1": 4679,
+            "LOD2": 1402
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          8.0,
+          4.0,
+          1.2786
+        ],
+        "blend_dims_m": [
+          8.0,
+          4.0,
+          1.2786
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 2e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_Left.001",
+        "Socket_NextRowFront.001",
+        "Socket_Right.001",
+        "TE01_StraightA.001",
+        "TE01_StraightA_Collision.001",
+        "TE01_StraightA_Detail_Small_LOD0.001",
+        "TE01_StraightA_Detail_Small_LOD1.001",
+        "TE01_StraightA_Detail_Small_LOD2.001",
+        "TE01_StraightA_LOD0.001",
+        "TE01_StraightA_LOD1.001",
+        "TE01_StraightA_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Left.001": [
+          -4.0,
+          -2.0,
+          1.0
+        ],
+        "Socket_NextRowFront.001": [
+          0.0,
+          2.0,
+          1.0
+        ],
+        "Socket_Right.001": [
+          4.0,
+          -2.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 3241068
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 144,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

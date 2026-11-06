@@ -12,8 +12,8 @@ namespace YunJing.Editor
     {
         const string Root = "Assets/YunJing/Generated";
         const string ScenePath = Root + "/QingxiWorldPreview.unity";
-        const string Models = "Assets/YunJing/Models/QingxiWorldV1/";
         const string CollaboratorModels = "Assets/YunJing/Models/CollaboratorWorldV1/";
+        const string ListeningTerraceModel = "Assets/YunJing/Models/QingxiListeningTerraceV1/qingxi-listening-terrace-v1.fbx";
 
         static Material Surface(string name, Color color)
         {
@@ -42,18 +42,6 @@ namespace YunJing.Editor
             return item;
         }
 
-        static GameObject Model(string file, string name, Vector3 position, Func<string, Material> material)
-        {
-            var source = AssetDatabase.LoadAssetAtPath<GameObject>(Models + file);
-            if (source == null) throw new FileNotFoundException("Qingxi model missing", Models + file);
-            var instance = (GameObject)PrefabUtility.InstantiatePrefab(source);
-            instance.name = name;
-            instance.transform.position = position;
-            foreach (var part in instance.GetComponentsInChildren<Renderer>())
-                part.sharedMaterial = material(part.gameObject.name);
-            return instance;
-        }
-
         static void Remove(string name)
         {
             var obj = GameObject.Find(name);
@@ -67,8 +55,10 @@ namespace YunJing.Editor
             var instance = (GameObject)PrefabUtility.InstantiatePrefab(source);
             instance.name = name;
             instance.transform.position = position;
-            instance.transform.localScale = Vector3.one * scale;
-            instance.transform.rotation = Quaternion.Euler(0, yaw, 0);
+            // Keep the FBX root's import transform: Blender exports carry a root rotation (Z-up) and a ×100 root
+            // scale (centimetre units). Overwriting them laid the models down and shrank them to 1/100 (2026-10-29).
+            instance.transform.localScale = source.transform.localScale * scale;
+            instance.transform.rotation = Quaternion.Euler(0, yaw, 0) * source.transform.rotation;
             // FBX source colors are converted to URP materials for this editor preview.
             // Detailed texture, LOD and collider authoring still need an import pass.
             var converted = new Dictionary<Material, Material>();
@@ -105,6 +95,36 @@ namespace YunJing.Editor
             return instance;
         }
 
+        static void ListeningTerrace(Vector3 position)
+        {
+            var source = AssetDatabase.LoadAssetAtPath<GameObject>(ListeningTerraceModel);
+            if (source == null) throw new FileNotFoundException("Listening terrace model missing", ListeningTerraceModel);
+            var instance = (GameObject)PrefabUtility.InstantiatePrefab(source);
+            instance.name = "Qingxi listening terrace";
+            instance.transform.position = position;
+            var stone = Surface("TerracePaleStone", new Color(.68f, .67f, .58f));
+            var darkStone = Surface("TerraceDarkStone", new Color(.42f, .46f, .43f));
+            var timber = Surface("TerraceTimber", new Color(.36f, .27f, .18f));
+            var bronze = Surface("TerraceBronze", new Color(.59f, .48f, .29f));
+            var plant = Surface("TerracePlant", new Color(.34f, .46f, .26f));
+            foreach (var part in instance.GetComponentsInChildren<Renderer>())
+            {
+                string n = part.gameObject.name;
+                part.sharedMaterial = n.Contains("Bamboo") || n.Contains("Flower") || n.Contains("Grass") ? plant :
+                    n.Contains("Bronze") || n.Contains("Bell") ? bronze :
+                    n.Contains("Timber") || n.Contains("Seat") || n.Contains("Rope") ? timber :
+                    n.Contains("Foundation") ? darkStone : stone;
+            }
+            // Only the principal stone structure receives collision. Thin ornament meshes stay decorative.
+            foreach (var filter in instance.GetComponentsInChildren<MeshFilter>())
+            {
+                string n = filter.gameObject.name;
+                if (!n.Contains("Foundation") && !n.Contains("Paving") && !n.Contains("EntryStep")) continue;
+                var collision = filter.gameObject.AddComponent<MeshCollider>();
+                collision.sharedMesh = filter.sharedMesh;
+            }
+        }
+
         [MenuItem("Yun Jing/Generate Qingxi world preview")]
         public static void Generate()
         {
@@ -118,14 +138,15 @@ namespace YunJing.Editor
             var water = Surface("QingxiWater", new Color(.22f,.54f,.59f));
             var path = Surface("StonePath", new Color(.63f,.59f,.46f));
             var rock = Surface("Rock", new Color(.44f,.47f,.43f));
-            var bark = Surface("AncientBark", new Color(.29f,.25f,.18f));
-            var leaf = Surface("AncientLeaf", new Color(.35f,.48f,.27f));
             var timber = Surface("BridgeTimber", new Color(.24f,.27f,.22f));
             var roof = Surface("HouseRoof", new Color(.16f,.27f,.29f));
             var field = Surface("Field", new Color(.39f,.31f,.20f));
 
             Block("Walkable valley foundation", new Vector3(0,-.35f,0), new Vector3(180,.7f,140), grass);
-            Block("Village to aptitude plaza path", new Vector3(0,.02f,14), new Vector3(3.2f,.04f,48), path,false);
+            Block("Village to aptitude plaza path", new Vector3(0,.02f,9), new Vector3(3.2f,.04f,58), path,false);
+            ListeningTerrace(new Vector3(-8, 0, -15));
+            Block("Listening terrace approach", new Vector3(-4, .025f, -19), new Vector3(8, .05f, 2.7f), path, false);
+            Block("Listening terrace stair approach", new Vector3(-8, .025f, -18), new Vector3(2.7f, .05f, 2), path, false);
             Block("Village to bridge path", new Vector3(15,.02f,5), new Vector3(31,.04f,2.6f),path,false);
             Block("Eastern forest road", new Vector3(50,.02f,5), new Vector3(42,.04f,2.6f),path,false);
             Block("Cave trail", new Vector3(70,.025f,27), new Vector3(2.5f,.05f,48),path,false);
@@ -136,9 +157,9 @@ namespace YunJing.Editor
             south.GetComponent<Renderer>().enabled=false;
             north.GetComponent<Renderer>().enabled=false;
 
-            var bridge = Model("qingxi-timber-bridge-v1.fbx","Qingxi timber bridge",new Vector3(25,0,5),
-                n => n.Contains("PaleBridgeStone") ? rock : timber);
-            // Visual planks have deliberate gaps. A separate collision deck keeps movement predictable.
+            // The main crossing uses joshsu54's stone arch bridge (the 10/26 timber bridge v1 and sacred tree v1
+            // were removed on 2026-10-29). Walking stays on a simple invisible deck and two invisible ramps.
+            CollaboratorModel("StoneArchBridge_v001.fbx", "Qingxi stone bridge", new Vector3(25,.03f,5), 1f, 90f);
             var deck = Block("Bridge walk collision",new Vector3(25,1.45f,5),new Vector3(10.8f,.28f,3.2f),path);
             deck.GetComponent<Renderer>().enabled = false;
             foreach (int side in new[] {-1,1})
@@ -146,12 +167,8 @@ namespace YunJing.Editor
                 var ramp=Block("Bridge approach " + side,new Vector3(25+side*6.6f,.65f,5),
                     new Vector3(2.6f,.25f,3.2f),path);
                 ramp.transform.rotation = Quaternion.Euler(0,0,-side*25);
+                ramp.GetComponent<Renderer>().enabled = false;
             }
-
-            Model("qingxi-sacred-tree-v1.fbx","Village sacred tree",new Vector3(-13,0,27),
-                n => n.Contains("Canopy") ? leaf : n.Contains("Ribbon") ? roof : bark);
-            var trunk=Block("Sacred tree collision",new Vector3(-13,2.2f,27),new Vector3(1.8f,4.4f,1.8f),bark);
-            trunk.GetComponent<Renderer>().enabled=false;
 
             // Original plaza already has its own AI three-view and Blender source.
             var plazaSource=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/YunJing/Models/AptitudePlazaV1/aptitude-plaza-v1.fbx");

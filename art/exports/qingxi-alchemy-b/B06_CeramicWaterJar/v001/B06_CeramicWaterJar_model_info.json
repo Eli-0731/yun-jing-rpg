@@ -1,0 +1,125 @@
+{
+ "id": "B06",
+ "name": "CeramicWaterJar",
+ "key": "B06_CeramicWaterJar",
+ "state": "default",
+ "units": "metre",
+ "forward": "-Y (Blender) / +Z (glTF)",
+ "origin": "base centre",
+ "dimensions_m": [
+  0.5491,
+  0.468,
+  0.553
+ ],
+ "triangles": 4544,
+ "lod_triangles": [
+  4544,
+  2272,
+  998
+ ],
+ "collision": {
+  "type": "cylinder",
+  "radius": 0.24,
+  "height": 0.52,
+  "center": [
+   0,
+   0,
+   0.26
+  ],
+  "note": "lid is node Lid; water level socket for the water resource"
+ },
+ "states": {
+  "default": "lid on; water surface at z 0.432"
+ },
+ "sockets": {
+  "water_surface": [
+   0,
+   0,
+   0.432
+  ],
+  "lid_rest_z": 0.503
+ },
+ "validation": {
+  "asset": "B06",
+  "key": "B06_CeramicWaterJar",
+  "state": "default",
+  "version": "v001",
+  "dimensions_m": [
+   0.5491,
+   0.468,
+   0.553
+  ],
+  "bbox_min": [
+   -0.2745,
+   -0.234,
+   0.0
+  ],
+  "bbox_max": [
+   0.2745,
+   0.234,
+   0.553
+  ],
+  "target_size_m": [
+   0.56,
+   0.52,
+   0.55
+  ],
+  "trianglesLOD": [
+   4544,
+   2272,
+   998
+  ],
+  "budgetLOD0": 5000,
+  "withinBudget": true,
+  "vertices": 2312,
+  "materials": [
+   "M_B06_CeramicWaterJar"
+  ],
+  "textureResolution": 1024,
+  "nodes": [
+   "B06_CeramicWaterJar_LOD0",
+   "B06_CeramicWaterJar_Lid_LOD0"
+  ],
+  "textures": [
+   "T_B06_CeramicWaterJar_BaseColor.png",
+   "T_B06_CeramicWaterJar_Normal.png",
+   "T_B06_CeramicWaterJar_ORM.png"
+  ],
+  "originAtBase": true,
+  "meshHealth": {
+   "nonManifoldEdges": 48,
+   "looseVerts": 0,
+   "zeroAreaFaces": 0
+  },
+  "glbRoundTrip": {
+   "triangles": 4544,
+   "trianglesMatch": true,
+   "bboxMatch": true,
+   "materials": [
+    "M_B06_CeramicWaterJar.001"
+   ]
+  },
+  "files": {
+   "B06_CeramicWaterJar.glb": {
+    "bytes": 2418612,
+    "sha256": "c2a61be86a4dc54bf53241337058a028ee728dd8f2c6ece107a40bca1e3d3aed"
+   },
+   "B06_CeramicWaterJar.fbx": {
+    "bytes": 534364,
+    "sha256": "b57079a11b54c875a505bcf9fb41b659aa5ae1af7a1a7e1e8883f7c2f8d51fc2"
+   }
+  },
+  "alphaClip": false,
+  "glbAlphaModes": {
+   "M_B06_CeramicWaterJar": "OPAQUE"
+  },
+  "alphaModeOk": true,
+  "buildSeconds": 4.7,
+  "notChecked": [
+   "Unity import",
+   "in-game lighting",
+   "mobile performance",
+   "LOD screen-size thresholds"
+  ]
+ }
+}

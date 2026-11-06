@@ -1,0 +1,270 @@
+{
+  "id": "B03-V03",
+  "name": "斜角扶壁彎槽（左）",
+  "family": "B03",
+  "variant": "B03-V03",
+  "author": "蘇奕安 Josh（joshsu54@gmail.com），Claude Code 協作建模",
+  "status": "建模完成（程序化母稿），待人工精修審核",
+  "reference": "art/references/qingxi-waterworks-b/B03_V03_three_view_dry_v002.png",
+  "units": "m",
+  "up": "Blender +Z / glTF +Y",
+  "flow_axis": "入口在原點，水流朝 +Y",
+  "standard": {
+    "outer_w": 0.6,
+    "clear_w": 0.4,
+    "total_h": 0.4,
+    "floor_t": 0.1,
+    "water_z": 0.28,
+    "grid": 0.25
+  },
+  "ports": [
+    {
+      "name": "in",
+      "pos": [
+        0,
+        0,
+        0.0
+      ],
+      "dir": [
+        0,
+        -1
+      ],
+      "kind": "in"
+    },
+    {
+      "name": "out",
+      "pos": [
+        -0.5,
+        0.5,
+        0.0
+      ],
+      "dir": [
+        -1,
+        0
+      ],
+      "kind": "out"
+    }
+  ],
+  "flows": [
+    {
+      "name": "main",
+      "path": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -0.0015,
+          0.0392
+        ],
+        [
+          -0.0062,
+          0.0782
+        ],
+        [
+          -0.0138,
+          0.1167
+        ],
+        [
+          -0.0245,
+          0.1545
+        ],
+        [
+          -0.0381,
+          0.1913
+        ],
+        [
+          -0.0545,
+          0.227
+        ],
+        [
+          -0.0737,
+          0.2612
+        ],
+        [
+          -0.0955,
+          0.2939
+        ],
+        [
+          -0.1198,
+          0.3247
+        ],
+        [
+          -0.1464,
+          0.3536
+        ],
+        [
+          -0.1753,
+          0.3802
+        ],
+        [
+          -0.2061,
+          0.4045
+        ],
+        [
+          -0.2388,
+          0.4263
+        ],
+        [
+          -0.273,
+          0.4455
+        ],
+        [
+          -0.3087,
+          0.4619
+        ],
+        [
+          -0.3455,
+          0.4755
+        ],
+        [
+          -0.3833,
+          0.4862
+        ],
+        [
+          -0.4218,
+          0.4938
+        ],
+        [
+          -0.4608,
+          0.4985
+        ],
+        [
+          -0.5,
+          0.5
+        ]
+      ],
+      "z0": 0.28,
+      "z1": 0.28,
+      "width": 0.39,
+      "frm": "in",
+      "to": "out"
+    }
+  ],
+  "water_polys": [],
+  "sockets": [],
+  "parts": [
+    "body"
+  ],
+  "footprint_cells": [
+    [
+      -2,
+      1
+    ],
+    [
+      -2,
+      2
+    ],
+    [
+      -1,
+      0
+    ],
+    [
+      -1,
+      1
+    ],
+    [
+      -1,
+      2
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "stats": {
+    "tris": 4276,
+    "verts": 2242,
+    "materials": [
+      "ww_bronze",
+      "ww_stone",
+      "ww_stone_moss",
+      "ww_wood"
+    ],
+    "bbox_min": [
+      -0.5,
+      0.0,
+      -0.0024
+    ],
+    "bbox_max": [
+      0.5234,
+      0.9098,
+      0.412
+    ],
+    "size": [
+      1.0234,
+      0.9098,
+      0.4144
+    ]
+  },
+  "qa": {
+    "body": {
+      "islands": 52,
+      "nonmanifold_edges": 0,
+      "degenerate_faces": 0,
+      "inward_islands": 0,
+      "floating_islands": 0,
+      "port_overreach_mm": 0.0
+    }
+  },
+  "notes": [
+    "中心半徑 0.5 m；外角改斜牆並加扶壁，與 B03 方角外緣不同。"
+  ],
+  "states": {},
+  "collision": "以 footprint 盒＋各牆盒組成；水面不碰撞",
+  "lod": {
+    "LOD0": 4276,
+    "LOD1": 2138,
+    "LOD2": 640,
+    "ratio": {
+      "LOD1": 0.5,
+      "LOD2": 0.15
+    },
+    "layout": "同一檔案：LOD0 為原名物件，_LOD1／_LOD2 掛在對應部件底下（Unity 由 WaterworksModelPostprocessor 建 LODGroup）"
+  },
+  "extra": {},
+  "exports": {
+    "glb": "B03-V03.glb",
+    "water_glb": "B03-V03_water.glb",
+    "water_fbx": "B03-V03_water.fbx",
+    "fbx": "B03-V03.fbx"
+  },
+  "reimport": {
+    "file": "art/exports/qingxi-waterworks-b/B03-V03/B03-V03.glb",
+    "tris": 4276,
+    "size": [
+      1.0234,
+      0.9098,
+      0.4144
+    ],
+    "materials": [
+      "ww_bronze.001",
+      "ww_stone.001",
+      "ww_stone_moss.001",
+      "ww_wood.001"
+    ],
+    "empties": [
+      "SOCKET_in.008",
+      "SOCKET_out.008"
+    ],
+    "size_error_m": 0.0,
+    "tris_match": true,
+    "lod_tris": {
+      "LOD1": 2138,
+      "LOD2": 640
+    },
+    "textures_embedded": 5
+  }
+}

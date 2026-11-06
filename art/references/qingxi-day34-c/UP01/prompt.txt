@@ -1,0 +1,19 @@
+# UP01 三視圖提示詞與取捨
+
+工具：Codex CLI 內建圖像生成（OpenAI），2026-11-01。seed：工具沒有回報。
+用法：工作包提示詞原文＋風格指南 5.2 固定風格段＋5.3 固定負面提示（此工具沒有負面欄，照 5.3 接在最後並加 "Avoid:"）。同一段提示詞獨立生成 4 張。
+
+選用：UP01-cand-4.png
+理由：弧形壩身（向上游拱）、閘框兩根石柱加頂上的絞盤橫梁、閘口被斷木與水草塞住、一塊淺色補石都清楚；側視圖看得出下游面陡、上游面斜。1 號閘框太細像木架；2 號壩身是直線、閘口雜物太少；3 號閘板上方空著，看不出塞住。
+建模時的差異：壩頂可走寬 0.9 m 照工作包；石柱只佔壩頂上游一側，人從石柱前面走過去，頭頂沒有橫梁。壩頂高 2.2 m、閘框頂 3.1 m、絞盤最高約 3.45 m；閘板 0.25–1.85 m，上游靜水面訂在 1.8 m（閘板頂之下），上游面一路做到 z = 0（水線以下 1.8 m）。閘板往上拉 1.2 m 後頂在 3.05 m，仍在閘框頂之下。
+沒選的：UP01-cand-1.png, UP01-cand-2.png, UP01-cand-3.png（保留，看得出取捨）
+
+第二輪（2026-11-02，使用者要求打磨細節）：用 Codex CLI 的 GPT-6-Astra（推理 xhigh）以同一段提示詞原文重新獨立生成 4 張，再以選定圖為參考生成轉面圖／細節圖並寫建模清單，全部存在 v2/。Codex 中途用量到上限，UP01、UP04 沒有轉面圖，UP01、UP04、UP05 沒有 details.md，這三件照細節圖自己比對。
+第二輪選用：UP01-v2-cand-2.png（v2 細節圖（絞盤木架與鐵件、閘板鉚釘鐵條、壓頂石、石縫蕨、斷木水草、腳邊落石））
+第二輪改了什麼：壩面石塊做得更鼓、接縫更深；兩岸改成斷裂面花崗岩、腳下補一圈碎石與十二塊落石；絞盤加粗、加木架、鐵箍與螺栓板；閘板鐵條加方頭鉚釘；石縫加蕨與草。
+
+## 提示詞（原文，一字未改）
+
+Three-view and three-quarter concept of an old low stone weir across a mountain creek about 10 m wide, span about 14 m, 3.5 m high at the centre, with a walkable top about 0.9 m wide, made of fitted warm-grey granite blocks with a central stone sluice frame holding a heavy wooden sluice gate, with details: the sluice mouth choked with silt, broken logs, dead branches and a clump of water weed so that the creek below has stopped and only wet stones remain, rope-worn grooves on the sluice frame, one newer paler replacement block, moss and ferns in the joints, a few stones fallen at the foot, water: a still turquoise pool behind the weir and a nearly dry rocky creek bed below it with small puddles. Layout: one three-quarter view with the water, plus front, side and top orthographic views of the structure alone on a plain light warm-grey background, same scale.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
