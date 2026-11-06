@@ -1,0 +1,182 @@
+{
+  "BM10-ginkgo-cand-1.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 195,
+    "top_bottom_max": 116,
+    "left_right_mean_rgb": 14.512,
+    "top_bottom_mean_rgb": 15.38
+  },
+  "BM10-ginkgo-cand-2.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 127,
+    "top_bottom_max": 127,
+    "left_right_mean_rgb": 13.336,
+    "top_bottom_mean_rgb": 14.999
+  },
+  "BM10-ginkgo-cand-3.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 155,
+    "top_bottom_max": 137,
+    "left_right_mean_rgb": 12.249,
+    "top_bottom_mean_rgb": 12.865
+  },
+  "BM10-ginkgo-cand-4.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 115,
+    "top_bottom_max": 99,
+    "left_right_mean_rgb": 11.972,
+    "top_bottom_mean_rgb": 12.382
+  },
+  "BM10-ginkgo-cand-5.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 144,
+    "top_bottom_max": 122,
+    "left_right_mean_rgb": 17.05,
+    "top_bottom_mean_rgb": 12.471
+  },
+  "BM10-ginkgo-cand-6.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 107,
+    "top_bottom_max": 105,
+    "left_right_mean_rgb": 7.99,
+    "top_bottom_mean_rgb": 7.199
+  },
+  "BM10-maple-cand-1.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 131,
+    "top_bottom_max": 103,
+    "left_right_mean_rgb": 17.153,
+    "top_bottom_mean_rgb": 15.31
+  },
+  "BM10-maple-cand-2.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 91,
+    "top_bottom_max": 135,
+    "left_right_mean_rgb": 13.27,
+    "top_bottom_mean_rgb": 13.831
+  },
+  "BM10-maple-cand-3.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 105,
+    "top_bottom_max": 105,
+    "left_right_mean_rgb": 12.293,
+    "top_bottom_mean_rgb": 13.404
+  },
+  "BM10-maple-cand-4.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 94,
+    "top_bottom_max": 118,
+    "left_right_mean_rgb": 14.013,
+    "top_bottom_mean_rgb": 15.591
+  },
+  "BM10-maple-cand-5.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 116,
+    "top_bottom_max": 84,
+    "left_right_mean_rgb": 12.105,
+    "top_bottom_mean_rgb": 10.666
+  },
+  "BM10-maple-cand-6.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 68,
+    "top_bottom_max": 62,
+    "left_right_mean_rgb": 7.312,
+    "top_bottom_mean_rgb": 7.959
+  },
+  "BM10-moss-cand-1.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 111,
+    "top_bottom_max": 89,
+    "left_right_mean_rgb": 12.265,
+    "top_bottom_mean_rgb": 11.809
+  },
+  "BM10-moss-cand-2.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 132,
+    "top_bottom_max": 78,
+    "left_right_mean_rgb": 11.782,
+    "top_bottom_mean_rgb": 12.231
+  },
+  "BM10-moss-cand-3.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 86,
+    "top_bottom_max": 77,
+    "left_right_mean_rgb": 11.883,
+    "top_bottom_mean_rgb": 12.673
+  },
+  "BM10-moss-cand-4.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 107,
+    "top_bottom_max": 79,
+    "left_right_mean_rgb": 12.889,
+    "top_bottom_mean_rgb": 12.467
+  },
+  "BM10-moss-cand-5.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 65,
+    "top_bottom_max": 83,
+    "left_right_mean_rgb": 11.667,
+    "top_bottom_mean_rgb": 12.084
+  },
+  "BM10-moss-cand-6.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "left_right_max": 56,
+    "top_bottom_max": 53,
+    "left_right_mean_rgb": 9.15,
+    "top_bottom_mean_rgb": 8.796
+  }
+}

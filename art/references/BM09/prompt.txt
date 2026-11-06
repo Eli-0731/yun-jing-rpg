@@ -1,0 +1,29 @@
+BM09 參考圖與自評（2026-11-03）
+工作包：使用者指定 c28h/C-28h-modelling-basics.md 第1、2、3節。
+選用：BM09-large-cand-4.png（92分）；BM09-curly-cand-3.png（93分）。
+
+評分順序：比例和尺寸30／三面一致或真正四邊無縫25／工作包細節30／乾淨無字15。分項是藝術自評，圖片無實際公尺標尺。
+- BM09-large-cand-1.png：91（28+20+28+15）。單冠與老葉褐尖齊全，頂視略斜，側面葉量較少。
+- BM09-large-cand-2.png：87（27+19+26+15）。側視株形傾斜過多，前三面葉序對應較弱。
+- BM09-large-cand-3.png：89（28+19+27+15）。比例合理，但下方視角偏高角度透視，老葉較多。
+- BM09-large-cand-4.png：92（29+20+28+15）。選用；長羽葉方向與拱垂最清楚，三面冠形可對應；頂視仍稍斜、投影偏重。
+- BM09-curly-cand-1.png：87（27+19+26+15）。正側株高不一致，捲尖有但枝葉偏稀。
+- BM09-curly-cand-2.png：91（28+20+28+15）。短葉與捲尖清楚，頂視較斜；輪廓略規整。
+- BM09-curly-cand-3.png：93（29+21+28+15）。選用；單冠、短羽葉與新葉捲曲清楚，老葉褐尖分布自然；頂視略斜。
+- BM09-curly-cand-4.png：89（28+20+26+15）。三面排列清楚，但株形偏直立而窄，低矮感較弱。
+
+建模差異：精確製成0.8m與0.3m高，單一冠部；不做AI圖的苔土底座、石塊與雜草。短葉蕨降低直立比例，加強低矮外展和捲曲。以雙面薄片羽葉和彎曲葉軸實現輪廓，細鋸齒用透明遮罩。枯斷葉獨立Detail_DryFronds；不附碰撞。大型standard，小型high。
+
+工具：內建 image_gen。無seed或品質設定參數；提示要求最高品質。實際BM09為1536×1024，BM10為1254×1254（工具未遵守提示要求2048；成品另製2048）。工作包除填括號外原文保留，完整附上指定style-semireal.txt與negative-semireal.txt；補圖額外用途限制照錄如下。
+
+== large cand-1至cand-4 實際完整提示詞（四次相同） ==
+Three-view turnaround of a large wild fern with long arching feathery fronds about 0.8 m tall, form: fronds rising from one crown at the soil line, surface: fresh green fronds with brown dried tips on the oldest ones. Layout: front, side and top views, same scale, plain light warm-grey background, even soft lighting.
+Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality.
+Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye
+Output: landscape 1536 x 1024, highest available quality.
+
+== curly cand-1至cand-4 實際完整提示詞（四次相同） ==
+Three-view turnaround of a low curly woodland fern about 0.3 m tall, form: fronds rising from one crown at the soil line, surface: fresh green fronds with brown dried tips on the oldest ones. Layout: front, side and top views, same scale, plain light warm-grey background, even soft lighting.
+Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality.
+Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye
+Output: landscape 1536 x 1024, highest available quality.

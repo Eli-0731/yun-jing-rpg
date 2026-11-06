@@ -1,0 +1,350 @@
+{
+  "BM08_01": {
+    "id": "BM08_01",
+    "dimensions_xyz_m": [
+      1.462427,
+      1.294991,
+      1.2
+    ],
+    "body_dimensions_xyz_m": [
+      1.462427,
+      1.294991,
+      1.2
+    ],
+    "target_axis": "z",
+    "target_m": 1.2,
+    "minTier": "standard",
+    "detailObjects": [
+      "Detail_Litter"
+    ],
+    "detailMeshes": [
+      "BM08_01_Detail_Litter_LOD0",
+      "BM08_01_Detail_Litter_LOD1",
+      "BM08_01_Detail_Litter_LOD2"
+    ],
+    "groups": {
+      "Leaves": {
+        "material": "BM08_01_Leaves",
+        "texture_px": 2048,
+        "triangles": [
+          9240,
+          4284,
+          2268
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0.45
+      },
+      "Branches": {
+        "material": "BM08_01_Branches",
+        "texture_px": 512,
+        "triangles": [
+          7986,
+          3804,
+          312
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0
+      },
+      "Detail_Litter": {
+        "material": "BM08_01_Detail_Litter",
+        "texture_px": 512,
+        "triangles": [
+          52,
+          28,
+          12
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0.45
+      }
+    },
+    "triangles_total": [
+      17278,
+      8116,
+      2592
+    ],
+    "triangles_without_detail": [
+      17226,
+      8088,
+      2580
+    ],
+    "leaf_cards": [
+      770,
+      357,
+      189
+    ],
+    "separated_pieces": {
+      "Branches+Berries": [
+        [
+          31,
+          0
+        ],
+        [
+          31,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "Leaves": [
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "Detail_Litter": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "reference": "art/references/BM08/prompt.txt",
+    "origin": "crown centre at the soil line, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Leaves": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_01_Leaves_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_01_Leaves_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_01_Leaves_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_01_Leaves_ORM.png"
+      },
+      "Branches": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_01_Branches_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_01_Branches_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_01_Branches_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_01_Branches_ORM.png"
+      },
+      "Detail_Litter": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_01_Detail_Litter_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_01_Detail_Litter_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_01_Detail_Litter_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_01_Detail_Litter_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "round dense creek willow: 13 stems, twigs grown to an ellipsoid crown shell, narrow willow-leaf sprays on bent alpha cards",
+      "lod": "authored: LOD1 keeps half the cards 1.32x larger, LOD2 the outer cards (willow 30% at 1.62x, berry 15% at 2.1x) and only the stems; tube sides 6/4/3",
+      "collision": "none: a shrub to brush past, nothing to stop on",
+      "detail": "Detail_Litter (fallen leaves at the base); the standard tier hides it",
+      "material": "Leaves and litter are alpha-cut (cutoff 0.45), double-sided; leaf normals lean on the crown ellipsoid. Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. Drawn procedurally, no photo sources."
+    }
+  },
+  "BM08_02": {
+    "id": "BM08_02",
+    "dimensions_xyz_m": [
+      1.31726,
+      1.126336,
+      1.0
+    ],
+    "body_dimensions_xyz_m": [
+      1.31726,
+      1.126336,
+      1.0
+    ],
+    "target_axis": "z",
+    "target_m": 1.0,
+    "minTier": "high",
+    "detailObjects": [
+      "Detail_Litter"
+    ],
+    "detailMeshes": [
+      "BM08_02_Detail_Litter_LOD0",
+      "BM08_02_Detail_Litter_LOD1",
+      "BM08_02_Detail_Litter_LOD2"
+    ],
+    "groups": {
+      "Leaves": {
+        "material": "BM08_02_Leaves",
+        "texture_px": 2048,
+        "triangles": [
+          4620,
+          2280,
+          768
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0.45
+      },
+      "Branches": {
+        "material": "BM08_02_Branches",
+        "texture_px": 512,
+        "triangles": [
+          6216,
+          3168,
+          684
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0
+      },
+      "Berries": {
+        "material": "BM08_02_Berries",
+        "texture_px": 256,
+        "triangles": [
+          6280,
+          3160,
+          960
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0
+      },
+      "Detail_Litter": {
+        "material": "BM08_02_Detail_Litter",
+        "texture_px": 512,
+        "triangles": [
+          52,
+          28,
+          12
+        ],
+        "maps": [
+          "alb",
+          "nrm",
+          "maskurp",
+          "orm"
+        ],
+        "alphaCutoff": 0.45
+      }
+    },
+    "triangles_total": [
+      17168,
+      8636,
+      2424
+    ],
+    "triangles_without_detail": [
+      17116,
+      8608,
+      2412
+    ],
+    "leaf_cards": [
+      385,
+      190,
+      64
+    ],
+    "separated_pieces": {
+      "Branches+Berries": [
+        [
+          34,
+          0
+        ],
+        [
+          25,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "Leaves": [
+        [
+          8,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "Detail_Litter": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "reference": "art/references/BM08/prompt.txt",
+    "origin": "crown centre at the soil line, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+    "textures": {
+      "Leaves": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_02_Leaves_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_02_Leaves_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_02_Leaves_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_02_Leaves_ORM.png"
+      },
+      "Branches": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_02_Branches_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_02_Branches_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_02_Branches_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_02_Branches_ORM.png"
+      },
+      "Detail_Litter": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_02_Detail_Litter_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_02_Detail_Litter_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_02_Detail_Litter_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_02_Detail_Litter_ORM.png"
+      },
+      "Berries": {
+        "Albedo": "art/textures/modelling-basics-c/BM08_02_Berries_Albedo.png",
+        "Normal": "art/textures/modelling-basics-c/BM08_02_Berries_Normal.png",
+        "MaskURP": "art/textures/modelling-basics-c/BM08_02_Berries_MaskURP.png",
+        "ORM": "art/textures/modelling-basics-c/BM08_02_Berries_ORM.png"
+      }
+    },
+    "collision": {},
+    "notes": {
+      "build": "loose forest-edge shrub: 8 stems with long arching canes, leaves in clumps with gaps so twigs show, red berry clusters as geometry and in the atlas",
+      "lod": "authored: LOD1 keeps half the cards 1.32x larger, LOD2 the outer cards (willow 30% at 1.62x, berry 15% at 2.1x) and only the stems; tube sides 6/4/3",
+      "collision": "none: a shrub to brush past, nothing to stop on",
+      "detail": "Detail_Litter (fallen leaves at the base); the standard tier hides it",
+      "material": "Leaves and litter are alpha-cut (cutoff 0.45), double-sided; leaf normals lean on the crown ellipsoid. Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. Drawn procedurally, no photo sources."
+    }
+  }
+}
