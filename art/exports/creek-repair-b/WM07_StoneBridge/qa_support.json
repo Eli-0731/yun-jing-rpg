@@ -1,0 +1,75 @@
+{
+ "asset": "WM07_StoneBridge_v001",
+ "pieces": 1011,
+ "touch_m": 0.002,
+ "unsupported": [
+  {
+   "object": "WM07_StoneBridge_Detail_Small",
+   "verts": 13,
+   "centre": [
+    0.984,
+    -5.369,
+    2.114
+   ],
+   "size": [
+    0.052,
+    0.071,
+    0.001
+   ],
+   "gap_mm": 8.3,
+   "nearest": "WM07_StoneBridge_Detail_Small",
+   "drop_mm": 18.1
+  },
+  {
+   "object": "WM07_StoneBridge_Detail_Small",
+   "verts": 11,
+   "centre": [
+    -1.097,
+    -4.269,
+    2.382
+   ],
+   "size": [
+    0.038,
+    0.052,
+    0.001
+   ],
+   "gap_mm": 6.1,
+   "nearest": "WM07_StoneBridge_Detail_Small",
+   "drop_mm": 16.0
+  },
+  {
+   "object": "WM07_StoneBridge",
+   "verts": 46,
+   "centre": [
+    -1.371,
+    3.326,
+    1.881
+   ],
+   "size": [
+    0.344,
+    0.78,
+    0.339
+   ],
+   "gap_mm": 2.3,
+   "nearest": "WM07_StoneBridge",
+   "drop_mm": 5.2
+  },
+  {
+   "object": "WM07_StoneBridge",
+   "verts": 59,
+   "centre": [
+    1.039,
+    5.788,
+    1.686
+   ],
+   "size": [
+    0.316,
+    0.158,
+    0.298
+   ],
+   "gap_mm": 2.1,
+   "nearest": "WM07_StoneBridge",
+   "drop_mm": 4.7
+  }
+ ]
+}

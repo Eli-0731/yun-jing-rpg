@@ -8,6 +8,10 @@
 建模時的差異：每一種做成一個主石加一到兩顆小卵石和碎石，三種分開交（UP02_01..03）。溫度不靠貼圖寫死：_Warmth 0–1 在冷、溫兩張底色之間插值，並控制裂紋的淡琥珀自發光。
 沒選的：UP02-cand-1.png, UP02-cand-2.png, UP02-cand-4.png（保留，看得出取捨）
 
+第二輪（2026-11-02，使用者要求打磨細節）：用 Codex CLI 的 GPT-6-Astra（推理 xhigh）以同一段提示詞原文重新獨立生成 4 張，再以選定圖為參考生成轉面圖／細節圖並寫建模清單，全部存在 v2/。Codex 中途用量到上限，UP01、UP04 沒有轉面圖，UP01、UP04、UP05 沒有 details.md，這三件照細節圖自己比對。
+第二輪選用：UP02-v2-cand-1.png（v2 轉面圖、細節圖、details.md）
+第二輪改了什麼：主石改回磨圓溪石（少數柔和大面），頂上加真的苔蘚墊、石色分塊斑駁、地衣斑；腳邊一圈蕨與草。三種仍各自分開交（UP02_01..03），不做成三石一組。
+
 ## 提示詞（原文，一字未改）
 
 Three-view turnaround of a group of three rounded creek-side stones, about the largest 0.9 m long and 0.6 m tall, form: smooth water-worn shapes with one or two fine hairline cracks each, half sunk into damp gravel, surface: warm grey stone with darker wet patches, the hairline cracks holding a barely visible faint amber warmth, the moss on and around the stones slightly dried and yellowed in a small ring as if warmed from inside, small ferns and grass tufts at the base. Layout: front, side and top views, same scale, plain light warm-grey background, even soft lighting.

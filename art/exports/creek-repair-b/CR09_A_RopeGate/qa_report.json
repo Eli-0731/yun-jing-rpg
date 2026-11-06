@@ -1,0 +1,235 @@
+{
+ "CR09_A_RopeGate_Detail_Small_LOD0": {
+  "tris": 1824,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 12,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_A_RopeGate_Detail_Small_LOD1": {
+  "tris": 912,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 12,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_A_RopeGate_Detail_Small_LOD2": {
+  "tris": 272,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 12,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_A_RopeGate_Gate_LOD0": {
+  "tris": 36892,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 400,
+  "coplanar_two_sides": 22,
+  "closed_pieces": 37,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     0.19,
+     0.04,
+     0.31
+    ],
+    103
+   ],
+   [
+    [
+     0.18,
+     0.04,
+     0.31
+    ],
+    67
+   ],
+   [
+    [
+     0.19,
+     0.04,
+     0.32
+    ],
+    37
+   ],
+   [
+    [
+     0.19,
+     0.04,
+     0.3
+    ],
+    37
+   ],
+   [
+    [
+     0.18,
+     0.04,
+     0.3
+    ],
+    32
+   ],
+   [
+    [
+     0.18,
+     0.04,
+     0.32
+    ],
+    30
+   ]
+  ],
+  "inverted_at": []
+ },
+ "CR09_A_RopeGate_Gate_LOD1": {
+  "tris": 18446,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 32,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_A_RopeGate_Gate_LOD2": {
+  "tris": 5532,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 12,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_A_RopeGate_LOD0": {
+  "tris": 23870,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 15,
+  "coplanar_two_sides": 102,
+  "closed_pieces": 15,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -0.18,
+     -0.24,
+     0.04
+    ],
+    3
+   ],
+   [
+    [
+     0.19,
+     -0.06,
+     0.09
+    ],
+    3
+   ],
+   [
+    [
+     0.33,
+     -0.06,
+     0.17
+    ],
+    2
+   ],
+   [
+    [
+     -0.19,
+     -0.1,
+     0.03
+    ],
+    1
+   ],
+   [
+    [
+     -0.19,
+     -0.11,
+     0.02
+    ],
+    1
+   ],
+   [
+    [
+     -0.19,
+     -0.1,
+     0.01
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "CR09_A_RopeGate_LOD1": {
+  "tris": 11934,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 15,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CR09_A_RopeGate_LOD2": {
+  "tris": 3580,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 15,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

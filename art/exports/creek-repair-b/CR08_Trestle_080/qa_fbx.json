@@ -1,0 +1,97 @@
+{
+ "asset": "CR08_Trestle_080_v001",
+ "tris": 29288,
+ "objects": [
+  "CR08_Trestle_080_Detail_Small_LOD0",
+  "CR08_Trestle_080_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 1,
+   "same_inside": 1,
+   "same": 2,
+   "two_sides": 19,
+   "groups": {
+    "080_Detail_Small|two_sides_inside": {
+     "pairs": 19,
+     "overlap_cm2": 2.82
+    },
+    "080/080_Detail_Small|same_between": {
+     "pairs": 1,
+     "overlap_cm2": 0.05
+    },
+    "080_Detail_Small|same_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.2
+    }
+   },
+   "same_at": [
+    [
+     -0.44,
+     0.04,
+     0.34,
+     1
+    ],
+    [
+     -0.27,
+     0.0,
+     0.36,
+     1
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 1,
+   "same_inside": 0,
+   "same": 1,
+   "two_sides": 9,
+   "groups": {
+    "080_Detail_Small|two_sides_inside": {
+     "pairs": 9,
+     "overlap_cm2": 1.49
+    },
+    "080/080_Detail_Small|same_between": {
+     "pairs": 1,
+     "overlap_cm2": 0.05
+    }
+   },
+   "same_at": [
+    [
+     -0.44,
+     0.04,
+     0.34,
+     1
+    ]
+   ]
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 0,
+   "groups": {},
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 46,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

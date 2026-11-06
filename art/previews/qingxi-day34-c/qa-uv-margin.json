@@ -1,0 +1,408 @@
+[
+ {
+  "file": "art/exports/qingxi-day34-c/UP01.glb",
+  "objects": [
+   {
+    "object": "UP01_Debris_LOD0",
+    "res": "2048x2048",
+    "faces": 7319,
+    "islands": 328,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP01_Gate_LOD0",
+    "res": "1024x1024",
+    "faces": 4868,
+    "islands": 195,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP01_Plants_LOD0",
+    "res": "1024x1024",
+    "faces": 70266,
+    "islands": 10075,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": 6.0,
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 4140
+   },
+   {
+    "object": "UP01_Weir_LOD0",
+    "res": "4096x4096",
+    "faces": 235437,
+    "islands": 7629,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   }
+  ]
+ },
+ {
+  "file": "art/exports/qingxi-day34-c/UP02_01.glb",
+  "objects": [
+   {
+    "object": "UP02_01_Gravel_LOD0",
+    "res": "512x512",
+    "faces": 17516,
+    "islands": 1217,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP02_01_Plants_LOD0",
+    "res": "512x512",
+    "faces": 24464,
+    "islands": 2473,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": 6.0,
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 1378
+   },
+   {
+    "object": "UP02_01_Stone_LOD0",
+    "res": "2048x2048",
+    "faces": 37074,
+    "islands": 1580,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   }
+  ]
+ },
+ {
+  "file": "art/exports/qingxi-day34-c/UP02_02.glb",
+  "objects": [
+   {
+    "object": "UP02_02_Gravel_LOD0",
+    "res": "512x512",
+    "faces": 16217,
+    "islands": 1121,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP02_02_Plants_LOD0",
+    "res": "512x512",
+    "faces": 24464,
+    "islands": 3527,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": 5.0,
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 6580
+   },
+   {
+    "object": "UP02_02_Stone_LOD0",
+    "res": "2048x2048",
+    "faces": 31364,
+    "islands": 1009,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   }
+  ]
+ },
+ {
+  "file": "art/exports/qingxi-day34-c/UP02_03.glb",
+  "objects": [
+   {
+    "object": "UP02_03_Gravel_LOD0",
+    "res": "512x512",
+    "faces": 13609,
+    "islands": 848,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP02_03_Plants_LOD0",
+    "res": "512x512",
+    "faces": 22568,
+    "islands": 3508,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": 5.0,
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 6663
+   },
+   {
+    "object": "UP02_03_Stone_LOD0",
+    "res": "2048x2048",
+    "faces": 35279,
+    "islands": 962,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   }
+  ]
+ },
+ {
+  "file": "art/exports/qingxi-day34-c/UP03.glb",
+  "objects": [
+   {
+    "object": "UP03_Gravel_LOD0",
+    "res": "512x512",
+    "faces": 1283,
+    "islands": 167,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP03_Plants_LOD0",
+    "res": "512x512",
+    "faces": 896,
+    "islands": 115,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP03_Stone_LOD0",
+    "res": "2048x2048",
+    "faces": 73913,
+    "islands": 919,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   }
+  ]
+ },
+ {
+  "file": "art/exports/qingxi-day34-c/UP04.glb",
+  "objects": [
+   {
+    "object": "UP04_Charcoal_LOD0",
+    "res": "256x256",
+    "faces": 44,
+    "islands": 3,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP04_Drawing_LOD0",
+    "res": "2048x2048",
+    "faces": 3744,
+    "islands": 1,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP04_Gravel_LOD0",
+    "res": "512x512",
+    "faces": 1635,
+    "islands": 193,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP04_Plants_LOD0",
+    "res": "512x512",
+    "faces": 8848,
+    "islands": 1470,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP04_Stone_LOD0",
+    "res": "2048x2048",
+    "faces": 13614,
+    "islands": 142,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   }
+  ]
+ },
+ {
+  "file": "art/exports/qingxi-day34-c/UP05_Burner.glb",
+  "objects": [
+   {
+    "object": "UP05_Burner_Burner_LOD0",
+    "res": "1024x1024",
+    "faces": 11268,
+    "islands": 396,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": 5.0,
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 232
+   }
+  ]
+ },
+ {
+  "file": "art/exports/qingxi-day34-c/UP05_CushionNew.glb",
+  "objects": [
+   {
+    "object": "UP05_CushionNew_Cushion_LOD0",
+    "res": "1024x1024",
+    "faces": 57119,
+    "islands": 349,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   }
+  ]
+ },
+ {
+  "file": "art/exports/qingxi-day34-c/UP05_CushionOld.glb",
+  "objects": [
+   {
+    "object": "UP05_CushionOld_Cushion_LOD0",
+    "res": "1024x1024",
+    "faces": 47370,
+    "islands": 304,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   }
+  ]
+ },
+ {
+  "file": "art/exports/qingxi-day34-c/UP05_Table.glb",
+  "objects": [
+   {
+    "object": "UP05_Table_Table_LOD0",
+    "res": "2048x2048",
+    "faces": 2748,
+    "islands": 210,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   }
+  ]
+ },
+ {
+  "file": "art/exports/qingxi-day34-c/UP06.glb",
+  "objects": [
+   {
+    "object": "UP06_Frame_LOD0",
+    "res": "1024x1024",
+    "faces": 24768,
+    "islands": 368,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   },
+   {
+    "object": "UP06_Lamp_LOD0",
+    "res": "1024x1024",
+    "faces": 5682,
+    "islands": 59,
+    "uv_outside": 0,
+    "overlap_px": 0,
+    "overlap_pairs": 0,
+    "min_gap_px": ">8",
+    "pairs_under_2px": 0,
+    "pairs_under_4px": 0,
+    "pairs_under_8px": 0
+   }
+  ]
+ }
+]

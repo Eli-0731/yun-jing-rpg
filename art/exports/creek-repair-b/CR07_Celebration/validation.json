@@ -1,0 +1,312 @@
+{
+  "asset": "CR07_Celebration",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -3.2527,
+          -0.4475,
+          0.0
+        ],
+        "max": [
+          3.2527,
+          0.4475,
+          2.7656
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          6.5055,
+          0.8951,
+          2.7656
+        ],
+        "limit_m": [
+          6.6,
+          2.2,
+          2.8
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 95800,
+          "LOD1": 47900,
+          "LOD2": 14360
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Table": {
+            "LOD0": 22304,
+            "LOD1": 11152,
+            "LOD2": 3344
+          },
+          "Detail_Rings": {
+            "LOD0": 672,
+            "LOD1": 336,
+            "LOD2": 100
+          },
+          "FruitBasket": {
+            "LOD0": 13044,
+            "LOD1": 6522,
+            "LOD2": 1956
+          },
+          "Jar_1": {
+            "LOD0": 1656,
+            "LOD1": 828,
+            "LOD2": 247
+          },
+          "Jar_2": {
+            "LOD0": 1536,
+            "LOD1": 768,
+            "LOD2": 229
+          },
+          "Main": {
+            "LOD0": 17148,
+            "LOD1": 8574,
+            "LOD2": 2572
+          },
+          "Detail_Small": {
+            "LOD0": 19724,
+            "LOD1": 9862,
+            "LOD2": 2958
+          },
+          "Lantern_01": {
+            "LOD0": 1628,
+            "LOD1": 814,
+            "LOD2": 244
+          },
+          "Lantern_01_Lit": {
+            "LOD0": 520,
+            "LOD1": 260,
+            "LOD2": 78
+          },
+          "Lantern_02": {
+            "LOD0": 1628,
+            "LOD1": 814,
+            "LOD2": 244
+          },
+          "Lantern_02_Lit": {
+            "LOD0": 520,
+            "LOD1": 260,
+            "LOD2": 78
+          },
+          "Lantern_03": {
+            "LOD0": 2012,
+            "LOD1": 1006,
+            "LOD2": 300
+          },
+          "Lantern_03_Lit": {
+            "LOD0": 520,
+            "LOD1": 260,
+            "LOD2": 78
+          },
+          "Lantern_04": {
+            "LOD0": 1628,
+            "LOD1": 814,
+            "LOD2": 244
+          },
+          "Lantern_04_Lit": {
+            "LOD0": 520,
+            "LOD1": 260,
+            "LOD2": 78
+          },
+          "Lantern_05": {
+            "LOD0": 1628,
+            "LOD1": 814,
+            "LOD2": 244
+          },
+          "Lantern_05_Lit": {
+            "LOD0": 520,
+            "LOD1": 260,
+            "LOD2": 78
+          },
+          "Lantern_06": {
+            "LOD0": 1628,
+            "LOD1": 814,
+            "LOD2": 244
+          },
+          "Lantern_06_Lit": {
+            "LOD0": 520,
+            "LOD1": 260,
+            "LOD2": 78
+          },
+          "Lantern_07": {
+            "LOD0": 1628,
+            "LOD1": 814,
+            "LOD2": 244
+          },
+          "Lantern_07_Lit": {
+            "LOD0": 520,
+            "LOD1": 260,
+            "LOD2": 78
+          },
+          "Lantern_08": {
+            "LOD0": 1628,
+            "LOD1": 814,
+            "LOD2": 244
+          },
+          "Lantern_08_Lit": {
+            "LOD0": 520,
+            "LOD1": 260,
+            "LOD2": 78
+          },
+          "Lantern_09": {
+            "LOD0": 1628,
+            "LOD1": 814,
+            "LOD2": 244
+          },
+          "Lantern_09_Lit": {
+            "LOD0": 520,
+            "LOD1": 260,
+            "LOD2": 78
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          6.5055,
+          0.8951,
+          2.7656
+        ],
+        "blend_dims_m": [
+          6.5055,
+          0.8951,
+          2.7656
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CR07_Celebration.001",
+        "CR07_Celebration_Collision.001",
+        "CR07_Celebration_Detail_Rings_LOD0.001",
+        "CR07_Celebration_Detail_Rings_LOD1.001",
+        "CR07_Celebration_Detail_Rings_LOD2.001",
+        "CR07_Celebration_Detail_Small_LOD0.001",
+        "CR07_Celebration_Detail_Small_LOD1.001",
+        "CR07_Celebration_Detail_Small_LOD2.001",
+        "CR07_Celebration_FruitBasket_LOD0.001",
+        "CR07_Celebration_FruitBasket_LOD1.001",
+        "CR07_Celebration_FruitBasket_LOD2.001",
+        "CR07_Celebration_Jar_1_LOD0.001",
+        "CR07_Celebration_Jar_1_LOD1.001",
+        "CR07_Celebration_Jar_1_LOD2.001",
+        "CR07_Celebration_Jar_2_LOD0.001",
+        "CR07_Celebration_Jar_2_LOD1.001",
+        "CR07_Celebration_Jar_2_LOD2.001",
+        "CR07_Celebration_LOD0.001",
+        "CR07_Celebration_LOD1.001",
+        "CR07_Celebration_LOD2.001",
+        "CR07_Celebration_Lantern_01_LOD0.001",
+        "CR07_Celebration_Lantern_01_LOD1.001",
+        "CR07_Celebration_Lantern_01_LOD2.001",
+        "CR07_Celebration_Lantern_01_Lit_LOD0.001",
+        "CR07_Celebration_Lantern_01_Lit_LOD1.001",
+        "CR07_Celebration_Lantern_01_Lit_LOD2.001",
+        "CR07_Celebration_Lantern_02_LOD0.001",
+        "CR07_Celebration_Lantern_02_LOD1.001",
+        "CR07_Celebration_Lantern_02_LOD2.001",
+        "CR07_Celebration_Lantern_02_Lit_LOD0.001",
+        "CR07_Celebration_Lantern_02_Lit_LOD1.001",
+        "CR07_Celebration_Lantern_02_Lit_LOD2.001",
+        "CR07_Celebration_Lantern_03_LOD0.001",
+        "CR07_Celebration_Lantern_03_LOD1.001",
+        "CR07_Celebration_Lantern_03_LOD2.001",
+        "CR07_Celebration_Lantern_03_Lit_LOD0.001",
+        "CR07_Celebration_Lantern_03_Lit_LOD1.001",
+        "CR07_Celebration_Lantern_03_Lit_LOD2.001",
+        "CR07_Celebration_Lantern_04_LOD0.001",
+        "CR07_Celebration_Lantern_04_LOD1.001",
+        "CR07_Celebration_Lantern_04_LOD2.001",
+        "CR07_Celebration_Lantern_04_Lit_LOD0.001",
+        "CR07_Celebration_Lantern_04_Lit_LOD1.001",
+        "CR07_Celebration_Lantern_04_Lit_LOD2.001",
+        "CR07_Celebration_Lantern_05_LOD0.001",
+        "CR07_Celebration_Lantern_05_LOD1.001",
+        "CR07_Celebration_Lantern_05_LOD2.001",
+        "CR07_Celebration_Lantern_05_Lit_LOD0.001",
+        "CR07_Celebration_Lantern_05_Lit_LOD1.001",
+        "CR07_Celebration_Lantern_05_Lit_LOD2.001",
+        "CR07_Celebration_Lantern_06_LOD0.001",
+        "CR07_Celebration_Lantern_06_LOD1.001",
+        "CR07_Celebration_Lantern_06_LOD2.001",
+        "CR07_Celebration_Lantern_06_Lit_LOD0.001",
+        "CR07_Celebration_Lantern_06_Lit_LOD1.001",
+        "CR07_Celebration_Lantern_06_Lit_LOD2.001",
+        "CR07_Celebration_Lantern_07_LOD0.001",
+        "CR07_Celebration_Lantern_07_LOD1.001",
+        "CR07_Celebration_Lantern_07_LOD2.001",
+        "CR07_Celebration_Lantern_07_Lit_LOD0.001",
+        "CR07_Celebration_Lantern_07_Lit_LOD1.001",
+        "CR07_Celebration_Lantern_07_Lit_LOD2.001",
+        "CR07_Celebration_Lantern_08_LOD0.001",
+        "CR07_Celebration_Lantern_08_LOD1.001",
+        "CR07_Celebration_Lantern_08_LOD2.001",
+        "CR07_Celebration_Lantern_08_Lit_LOD0.001",
+        "CR07_Celebration_Lantern_08_Lit_LOD1.001",
+        "CR07_Celebration_Lantern_08_Lit_LOD2.001",
+        "CR07_Celebration_Lantern_09_LOD0.001",
+        "CR07_Celebration_Lantern_09_LOD1.001",
+        "CR07_Celebration_Lantern_09_LOD2.001",
+        "CR07_Celebration_Lantern_09_Lit_LOD0.001",
+        "CR07_Celebration_Lantern_09_Lit_LOD1.001",
+        "CR07_Celebration_Lantern_09_Lit_LOD2.001",
+        "CR07_Celebration_Table_LOD0.001",
+        "CR07_Celebration_Table_LOD1.001",
+        "CR07_Celebration_Table_LOD2.001",
+        "Socket_TableCentre.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_TableCentre.001": [
+          0.0391,
+          0.0005,
+          0.8356
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 259,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

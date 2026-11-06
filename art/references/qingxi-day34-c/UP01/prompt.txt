@@ -8,6 +8,10 @@
 建模時的差異：壩頂可走寬 0.9 m 照工作包；石柱只佔壩頂上游一側，人從石柱前面走過去，頭頂沒有橫梁。壩頂高 2.2 m、閘框頂 3.1 m、絞盤最高約 3.45 m；閘板 0.25–1.85 m，上游靜水面訂在 1.8 m（閘板頂之下），上游面一路做到 z = 0（水線以下 1.8 m）。閘板往上拉 1.2 m 後頂在 3.05 m，仍在閘框頂之下。
 沒選的：UP01-cand-1.png, UP01-cand-2.png, UP01-cand-3.png（保留，看得出取捨）
 
+第二輪（2026-11-02，使用者要求打磨細節）：用 Codex CLI 的 GPT-6-Astra（推理 xhigh）以同一段提示詞原文重新獨立生成 4 張，再以選定圖為參考生成轉面圖／細節圖並寫建模清單，全部存在 v2/。Codex 中途用量到上限，UP01、UP04 沒有轉面圖，UP01、UP04、UP05 沒有 details.md，這三件照細節圖自己比對。
+第二輪選用：UP01-v2-cand-2.png（v2 細節圖（絞盤木架與鐵件、閘板鉚釘鐵條、壓頂石、石縫蕨、斷木水草、腳邊落石））
+第二輪改了什麼：壩面石塊做得更鼓、接縫更深；兩岸改成斷裂面花崗岩、腳下補一圈碎石與十二塊落石；絞盤加粗、加木架、鐵箍與螺栓板；閘板鐵條加方頭鉚釘；石縫加蕨與草。
+
 ## 提示詞（原文，一字未改）
 
 Three-view and three-quarter concept of an old low stone weir across a mountain creek about 10 m wide, span about 14 m, 3.5 m high at the centre, with a walkable top about 0.9 m wide, made of fitted warm-grey granite blocks with a central stone sluice frame holding a heavy wooden sluice gate, with details: the sluice mouth choked with silt, broken logs, dead branches and a clump of water weed so that the creek below has stopped and only wet stones remain, rope-worn grooves on the sluice frame, one newer paler replacement block, moss and ferns in the joints, a few stones fallen at the foot, water: a still turquoise pool behind the weir and a nearly dry rocky creek bed below it with small puddles. Layout: one three-quarter view with the water, plus front, side and top orthographic views of the structure alone on a plain light warm-grey background, same scale.
