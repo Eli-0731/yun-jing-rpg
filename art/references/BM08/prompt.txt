@@ -1,0 +1,38 @@
+BM08 灌木 2 種（高 1.2 / 1.0 m；圓叢和帶紅果的散枝；面片做葉，不帶底座；一種 standard、一種 high）— 三視圖提示詞與選圖
+工作包：docs/execution/2026-11-03/C-28h-modelling-basics.md（feature/qingxi-creek-chapter 2f8a150）第 3 節 BM08。
+
+選用：BM08-willow-cand-2.png（溪邊圓叢柳葉灌木，BM08_01）和 BM08-berry-cand-1.png（林緣紅果散枝灌木，BM08_02）（Codex GPT-6-Astra，半寫實提示詞）。自評 93 和 91 分，依使用者 2026-11-03 的指示（自評 90 分以上直接建模）。
+評分（滿分 100；比例和尺寸 30、三面一致 25、工作包細節 30、乾淨無字 15）：
+- BM08-willow-cand-1：91。圓叢、基部多根枝幹散開；扣分：腳邊多了幾顆石頭（不在工作包），正側面樹冠輪廓差得稍多。
+- BM08-willow-cand-2：93。最圓最密，正面、側面、俯視三面對得起來；量圖寬高比約 1.23、側面深度約寬的 0.87，1.2 m 高約 1.48 × 1.29 m；細長柳葉往外斜伸再下垂，葉面暖黃綠、陰面青綠；枝幹從一點扇形散開；腳下少量落葉；沒有字。扣分：根部有一點小草。
+- BM08-willow-cand-3：88。背景上有投影（提示詞要均勻打光），葉叢比較疏，不夠「dense」。
+- BM08-willow-cand-4：92。圓密、三面一致；顏色略灰，正面樹冠右側有一塊凹。
+- BM08-berry-cand-1：91。散枝，看得到 4–5 根主幹和枝條，葉叢一團一團中間有空隙；紅果成串掛在枝端；三面一致；量圖寬高比約 1.27、深度約寬的 0.75，1.0 m 高約 1.27 × 0.96 m；葉為帶尖的卵形、邊緣細鋸齒。扣分：小土堆上有草。
+- BM08-berry-cand-2：87。太密，不夠「loose」；根部有長苔的大石頭（不在工作包）。
+- BM08-berry-cand-3：90。散枝、多主幹清楚；背景上有一點投影，果串較少。
+- BM08-berry-cand-4：90。散枝、果多；背景投影明顯，俯視圖轉了角度、和正面對不太起來。
+
+建模時和圖不同的地方：
+- 尺寸照工作包高度：柳葉 1.2 m、紅果 1.0 m；寬和深照選用圖量的比例。
+- 不帶底座：圖裡的土堆、草和石頭不做；腳下落葉做成 Detail_Litter 平面葉片。
+- 葉子是貼透明葉簇圖的彎折面片（4 × 2 圖集：向陽、陰面、老葉、外圍疏枝），枝條是管狀網格；紅果做成小球（也畫在圖集上）。
+
+風格：沿用 BM01 的半寫實段（使用者 2026-11-02 指定，取代風格指南 5.2／5.3），工作包 BM08 那一段一字未改，只照工作包把兩種灌木依序填入括號。
+工具：Codex CLI，模型 gpt-6-astra，推理 xhigh，內建 image_gen，每種 4 張，約 2172×724（berry-cand-2、3 為 1920×819、1983×793），沒有 seed。
+
+== 工作包原文（BM08）==
+Three-view turnaround of 【shrub，依序填：a round dense creek-side willow-leaf shrub about 1.2 m tall / a loose forest-edge shrub about 1.0 m tall with small red berries】, form: natural irregular branching with visible twigs and clumps of leaves, surface: leaves warm sunlit yellow-green on top and cool teal-green underneath, a few fallen leaves at the base. Layout: front, side and top views, same scale, plain light warm-grey background, even soft lighting.
+
+== 半寫實風格段（取代 5.2，同 BM01）==
+Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality.
+
+
+== 負面提示（取代 5.3，同 BM01）==
+Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye
+
+
+== 實際送出的完整提示詞（willow）==
+Three-view turnaround of a round dense creek-side willow-leaf shrub about 1.2 m tall, form: natural irregular branching with visible twigs and clumps of leaves, surface: leaves warm sunlit yellow-green on top and cool teal-green underneath, a few fallen leaves at the base. Layout: front, side and top views, same scale, plain light warm-grey background, even soft lighting. Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality. Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye
+
+== 實際送出的完整提示詞（berry）==
+Three-view turnaround of a loose forest-edge shrub about 1.0 m tall with small red berries, form: natural irregular branching with visible twigs and clumps of leaves, surface: leaves warm sunlit yellow-green on top and cool teal-green underneath, a few fallen leaves at the base. Layout: front, side and top views, same scale, plain light warm-grey background, even soft lighting. Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality. Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye

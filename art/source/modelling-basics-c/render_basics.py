@@ -9,11 +9,12 @@ import bpy,math,sys,argparse
 from pathlib import Path
 from mathutils import Vector
 a=argparse.ArgumentParser()
-for k,d in (('--glb',None),('--out',None),('--tag','view'),('--views','front,side,back,threequarter'),('--light','day'),('--hide',''),('--eye',''),('--res','1280x960'),('--ruler-x',''),('--at',''),('--cam',''),('--state',''),('--move','')):a.add_argument(k,default=d)
+for k,d in (('--glb',None),('--out',None),('--tag','view'),('--views','front,side,back,threequarter'),('--light','day'),('--hide',''),('--eye',''),('--res','1280x960'),('--ruler-x',''),('--at',''),('--cam',''),('--state',''),('--move',''),('--ground',''),('--engine','cycles'),('--mark','')):a.add_argument(k,default=d)
 a.add_argument('--glow',type=float,default=None);a.add_argument('--lod',type=int,default=0);a.add_argument('--samples',type=int,default=64);a.add_argument('--no-ruler',action='store_true');a.add_argument('--wire',action='store_true');a.add_argument('--clay',action='store_true')
 args=a.parse_args(sys.argv[sys.argv.index('--')+1:]);out=Path(args.out).resolve();out.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc=bpy.context.scene;sc.render.engine='CYCLES';sc.cycles.samples=args.samples;sc.cycles.use_denoising=True
+if args.engine=='eevee':sc.render.engine='BLENDER_EEVEE_NEXT';sc.eevee.taa_render_samples=16   # --engine eevee: GPU texture filtering with mipmaps, as in the game (BM10 distance check)
 try:
     pr=bpy.context.preferences.addons['cycles'].preferences;pr.compute_device_type='OPTIX';pr.get_devices()
     for d in pr.devices:d.use=d.type=='OPTIX'
@@ -69,8 +70,8 @@ if not args.no_ruler:   # 1.75 m figure beside the asset
     lo.x=min(lo.x,x0-.2);hi.x=max(hi.x,x0+.3);hi.z=max(hi.z,1.75)
 rul=[o for o in sc.objects if o.type=='MESH' and o.active_material and o.active_material.name.startswith('ruler')]
 ctr=(lo+hi)/2;rad=(hi-lo).length/2
-bpy.ops.mesh.primitive_plane_add(size=60,location=(0,0,0));g=bpy.context.object
-gm=bpy.data.materials.new('ground');gm.use_nodes=True;gb=gm.node_tree.nodes['Principled BSDF'];gb.inputs['Base Color'].default_value=(.40,.38,.33,1);gb.inputs['Roughness'].default_value=.95;g.data.materials.append(gm)
+bpy.ops.mesh.primitive_plane_add(size=300,location=(0,0,0));g=bpy.context.object   # 300 m: the 40 m views must not see its edge
+gm=bpy.data.materials.new('ground');gm.use_nodes=True;gb=gm.node_tree.nodes['Principled BSDF'];gb.inputs['Base Color'].default_value=(*[float(c) for c in args.ground.split(',')],1) if args.ground else (.40,.38,.33,1);gb.inputs['Roughness'].default_value=.95;g.data.materials.append(gm)   # --ground r,g,b: light / dark soil (BM10 edge checks)
 world=bpy.data.worlds.new('w');sc.world=world;world.use_nodes=True;bg=world.node_tree.nodes['Background']
 cam=bpy.data.objects.new('cam',bpy.data.cameras.new('cam'));sc.collection.objects.link(cam);sc.camera=cam;cam.data.lens=70;cam.data.clip_end=500
 def aim(o,t):o.rotation_euler=(Vector(t)-o.location).to_track_quat('-Z','Y').to_euler()
@@ -111,6 +112,11 @@ if args.wire:
     for l in [o for o in sc.objects if o.type=='LIGHT']:bpy.data.objects.remove(l)
     bg.inputs['Color'].default_value=(.62,.62,.62,1);bg.inputs['Strength'].default_value=.9;sun('key',(math.radians(50),0,math.radians(-35)),2.2,(1,1,1),.3)
     shoot('wire',views['threequarter'])
+if args.mark:   # --mark "x,y,z,r;...": small red dots at contact/QA coordinates (#69 close-ups), hidden where the asset hides them
+    rm=bpy.data.materials.new('mark');rm.use_nodes=True;nn=rm.node_tree.nodes;nn.clear();em=nn.new('ShaderNodeEmission');em.inputs['Color'].default_value=(1,.05,.02,1);em.inputs['Strength'].default_value=4
+    rm.node_tree.links.new(em.outputs[0],nn.new('ShaderNodeOutputMaterial').inputs[0])
+    for mk in args.mark.split(';'):
+        x,y,z,rr=[float(c) for c in mk.split(',')];bpy.ops.mesh.primitive_uv_sphere_add(radius=rr,location=(x,y,z));bpy.context.object.data.materials.append(rm)
 if args.cam:   # explicit camera: x,y,z,tx,ty,tz,lens
     e=[float(x) for x in args.cam.split(',')];cam.location=Vector(e[:3]);aim(cam,Vector(e[3:6]));cam.data.lens=e[6]
     sc.render.filepath=str(out/f'{args.tag}-cam.png');bpy.ops.render.render(write_still=True)

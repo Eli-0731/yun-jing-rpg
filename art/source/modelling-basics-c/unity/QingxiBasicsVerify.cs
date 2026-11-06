@@ -21,7 +21,17 @@ namespace YunJing.Editor
     public static class QingxiBasicsVerify
     {
         const string Models = "Assets/YunJing/Models/BasicsC";   // temporary copy of art/exports, removed by the run script
-        static readonly string[] Ids = { "BM01_01", "BM01_02", "BM01_03" };
+        static readonly string[] Ids = { "BM01_01", "BM01_02", "BM01_03", "BM02_01", "BM02_02", "BM03_01", "BM03_02", "BM03_03", "BM04_01", "BM04_02", "BM04_03", "BM04_04", "BM05_01", "BM05_02", "BM05_03", "BM06_01", "BM06_02", "BM06_03", "BM06_04", "BM07_01",
+                                                    "BM08_01", "BM08_02", "BM09_01", "BM09_02", "BM10_01", "BM10_02", "BM10_03" };
+        // work pack §2: crates block the way (standard); the hitching posts are dressing (high), so they carry no collision
+        static readonly Dictionary<string, string> Tier = new Dictionary<string, string> { { "BM01", "standard" }, { "BM02", "high" }, { "BM03", "high" }, { "BM04", "standard" }, { "BM05", "standard" }, { "BM06", "standard" }, { "BM07", "standard" },
+            { "BM08_01", "standard" }, { "BM08_02", "high" }, { "BM09_01", "standard" }, { "BM09_02", "high" }, { "BM10", "ultra" } };   // an id overrides its item (BM08, BM09: one standard, one high)
+        // ground decals: a flat patch has nothing to take away on a lower tier
+        static readonly HashSet<string> NoDetail = new HashSet<string> { "BM10_01", "BM10_02", "BM10_03" };
+        // standard-tier items the work pack gives no _Collision (BM04: only the largest stone has one)
+        static readonly HashSet<string> NoCollision = new HashSet<string> { "BM04_02", "BM04_03", "BM04_04", "BM08_01", "BM09_01" };   // BM08_01 a shrub to brush past, BM09_01 a fern: nothing to stop on
+        // foliage drawn on alpha-cut cards (leaves, fronds, fallen leaves, the leaf-litter ground patches): alpha clip and both faces
+        static bool Cutout(string group) => Regex.IsMatch(group, @"^BM08_0\d_(Leaves|Detail_Litter)$|^BM09_0\d_(Fronds|Detail_DryFronds)$|^BM10_0[23]_Ground$");
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
         static string Out => Path.Combine(Repo, "art/previews/modelling-basics-c/unity");
         static readonly List<string> Report = new List<string>();
@@ -29,7 +39,7 @@ namespace YunJing.Editor
         static readonly HashSet<string> Checked = new HashSet<string>();
         static string json;
 
-        [Serializable] class Info { public float[] dimensions_xyz_m, body_dimensions_xyz_m; public float target_width_m; public int[] triangles_total; public string minTier; public string[] detailObjects, detailMeshes; }
+        [Serializable] class Info { public float[] dimensions_xyz_m, body_dimensions_xyz_m; public string target_axis; public float target_m; public int[] triangles_total; public string minTier; public string[] detailObjects, detailMeshes; }
 
         public static void Run()
         {
@@ -87,8 +97,11 @@ namespace YunJing.Editor
                 var ti = (TextureImporter)AssetImporter.GetAtPath(path);
                 bool normal = path.EndsWith("_Normal.png"), linear = normal || path.EndsWith("_MaskURP.png") || path.EndsWith("_ORM.png");
                 var type = normal ? TextureImporterType.NormalMap : TextureImporterType.Default;
-                if (ti.textureType == type && ti.sRGBTexture == !linear) continue;
-                ti.textureType = type; ti.sRGBTexture = !linear; ti.mipmapEnabled = true; ti.SaveAndReimport();
+                bool cut = path.EndsWith("_Albedo.png") && Cutout(Path.GetFileNameWithoutExtension(path).Replace("_Albedo", ""));
+                if (ti.textureType == type && ti.sRGBTexture == !linear && ti.alphaIsTransparency == cut) continue;
+                ti.textureType = type; ti.sRGBTexture = !linear; ti.mipmapEnabled = true;
+                ti.alphaIsTransparency = cut; ti.mipMapsPreserveCoverage = cut; ti.alphaTestReferenceValue = .45f;   // keeps the leaves from thinning out in the far mips
+                ti.SaveAndReimport();
             }
         }
 
@@ -119,6 +132,12 @@ namespace YunJing.Editor
             mat.SetTexture("_BumpMap", normal); mat.EnableKeyword("_NORMALMAP");
             mat.SetTexture("_MetallicGlossMap", mask); mat.EnableKeyword("_METALLICSPECGLOSSMAP"); mat.SetFloat("_Smoothness", 1);
             mat.SetTexture("_OcclusionMap", mask); mat.EnableKeyword("_OCCLUSIONMAP");
+            if (Cutout(name))
+            {
+                mat.SetFloat("_AlphaClip", 1); mat.SetFloat("_Cutoff", .45f); mat.EnableKeyword("_ALPHATEST_ON");
+                mat.SetFloat("_Cull", (float)UnityEngine.Rendering.CullMode.Off); mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.AlphaTest;
+                if (Checked.Add(name + "#cutout")) Check(albedo != null && albedo.alphaIsTransparency, $"{name}: alpha-cut foliage material (cutoff 0.45, both faces)");
+            }
             EditorUtility.SetDirty(mat);
             return mat;
         }
@@ -167,8 +186,9 @@ namespace YunJing.Editor
             float[] d = info.dimensions_xyz_m, bd = info.body_dimensions_xyz_m;
             Check(Mathf.Abs(b.size.x - d[0]) < .02f && Mathf.Abs(b.size.z - d[1]) < .02f && Mathf.Abs(b.size.y - d[2]) < .02f,
                 $"{id}: imported size {b.size.x:0.000} x {b.size.z:0.000} x {b.size.y:0.000} m matches model_info {d[0]} x {d[1]} x {d[2]}");
-            Check(Mathf.Abs(body.size.x - info.target_width_m) < .015f && Mathf.Abs(body.size.x - bd[0]) < .01f,
-                $"{id}: crate body {body.size.x:0.000} x {body.size.z:0.000} x {body.size.y:0.000} m, width within 1.5 cm of the work pack's {info.target_width_m} m");
+            float measured = info.target_axis == "z" ? body.size.y : body.size.x, listed = info.target_axis == "z" ? bd[2] : bd[0];
+            Check(Mathf.Abs(measured - info.target_m) < .015f && Mathf.Abs(measured - listed) < .01f,
+                $"{id}: body {body.size.x:0.000} x {body.size.z:0.000} x {body.size.y:0.000} m, {(info.target_axis == "z" ? "height" : "width")} within 1.5 cm of the work pack's {info.target_m} m");
             Check(Mathf.Abs(body.min.y) < .005f, $"{id}: base at y = {body.min.y:0.000} (origin on the ground)");
             var tris = Enumerable.Range(0, 3).Select(i => Tris(Level(go, i))).ToArray();
             Check(Enumerable.Range(0, 3).All(i => Mathf.Abs(tris[i] - info.triangles_total[i]) <= info.triangles_total[i] * .01f),
@@ -178,25 +198,31 @@ namespace YunJing.Editor
             Check(groups.Length > 0 && groups.All(g => g.GetLODs().Length == 3) && inGroups == lod0.Length,
                 $"{id}: {groups.Length} LODGroup(s) with 3 levels covering all {lod0.Length} LOD0 renderers");
             // quality tiers §4: minTier + detailObjects in model_info, and the named Detail_* meshes exist for every LOD
-            Check(info.minTier == "standard", $"{id}: minTier = {info.minTier} (a crate can block the way: standard, seen by every player)");
+            var tier = Tier.ContainsKey(id) ? Tier[id] : Tier[id.Substring(0, 4)];
+            Check(info.minTier == tier, $"{id}: minTier = {info.minTier} (work pack: {tier})");
             var missing = info.detailMeshes.Where(n => Node(go, n) == null).ToArray();
-            Check(info.detailObjects.Length > 0 && missing.Length == 0 && info.detailObjects.All(g => g.StartsWith("Detail_")),
+            Check((info.detailObjects.Length > 0 || NoDetail.Contains(id)) && missing.Length == 0 && info.detailObjects.All(g => g.StartsWith("Detail_")),
                 $"{id}: detailObjects {string.Join(", ", info.detailObjects)} → {info.detailMeshes.Length} meshes present{(missing.Length > 0 ? ", missing " + string.Join(", ", missing) : "")}");
             Detail(go, false);
             int shown = Level(go, 0).Count(r => r.enabled);
             Check(shown >= 1 && Level(go, 0).Where(r => r.enabled).All(r => !r.name.Contains("_Detail_")), $"{id}: standard tier (Detail_* off) still shows {shown} body mesh(es) per LOD");
             Detail(go, true);
             var col = Node(go, id + "_Collision")?.GetComponent<MeshCollider>();
+            if (tier != "standard" || NoCollision.Contains(id))
+            {
+                Check(col == null && go.GetComponentsInChildren<Collider>(true).Length == 0, tier != "standard" ? $"{id}: no collider (minTier {tier}: hidden on the standard tier, so it must not block the way there)" : $"{id}: no collider (the work pack gives this one no _Collision)");
+                UnityEngine.Object.DestroyImmediate(go); return;
+            }
             Check(col != null && col.sharedMesh.triangles.Length > 0, $"{id}: {id}_Collision imported as MeshCollider ({(col ? col.sharedMesh.triangles.Length / 3 : 0)} triangles), render hidden");
             if (col != null)
             {
                 var cb = col.bounds;
                 Check(Mathf.Abs(cb.size.x - body.size.x) < .03f && Mathf.Abs(cb.size.z - body.size.z) < .03f && Mathf.Abs(cb.size.y - body.size.y) < .03f,
-                    $"{id}: collision box {cb.size.x:0.00} x {cb.size.z:0.00} x {cb.size.y:0.00} m fits the crate body");
+                    $"{id}: collision box {cb.size.x:0.00} x {cb.size.z:0.00} x {cb.size.y:0.00} m fits the body");
                 // a 1.75 m player (r 0.3) walking at the crate from the front stops on it
                 var from = new Vector3(0, .9f, -2f);
                 bool blocked = Physics.CapsuleCast(from + Vector3.down * .6f, from + Vector3.up * .55f, .3f, Vector3.forward, out var h, 4f) && h.collider == col;
-                Check(blocked, $"{id}: a player capsule walking in from the front is stopped by the crate ({(blocked ? $"at {h.distance:0.00} m" : "not blocked")})");
+                Check(blocked, $"{id}: a player capsule walking in from the front is stopped by it ({(blocked ? $"at {h.distance:0.00} m" : "not blocked")})");
             }
             UnityEngine.Object.DestroyImmediate(go);
         }
@@ -230,6 +256,37 @@ namespace YunJing.Editor
                 Detail(go, false); Frame($"{id}/{id}-standard-tier-lod1-nodetail", b, tq); Detail(go, true);
                 foreach (var g in go.GetComponentsInChildren<LODGroup>()) g.ForceLOD(-1);
                 UnityEngine.Object.DestroyImmediate(go);
+            }
+            // the two posts together
+            var posts = new[] { Place("BM02_01", new Vector3(-.3f, 0, 0), 0), Place("BM02_02", new Vector3(.3f, 0, 0), 0) };
+            var pb = Box(posts.SelectMany(g => Level(g, 0)));
+            Frame("BM02-set-front", pb, front, 1.1f); Frame("BM02-set-threequarter", pb, tq, 1.1f);
+            foreach (var g in posts) UnityEngine.Object.DestroyImmediate(g);
+            // the three jars together
+            var jars = new[] { Place("BM03_01", new Vector3(-.75f, 0, 0), 0), Place("BM03_02", new Vector3(-.2f, 0, 0), 0), Place("BM03_03", new Vector3(.45f, 0, 0), 0) };
+            var jb = Box(jars.SelectMany(g => Level(g, 0)));
+            Frame("BM03-set-front", jb, front, 1.1f); Frame("BM03-set-threequarter", jb, tq, 1.1f);
+            foreach (var g in jars) UnityEngine.Object.DestroyImmediate(g);
+            // the four stones together
+            var stones = new[] { Place("BM04_01", new Vector3(-.9f, 0, 0), 0), Place("BM04_02", new Vector3(.55f, 0, -.1f), 0), Place("BM04_03", new Vector3(1.55f, 0, .05f), 0), Place("BM04_04", new Vector3(2.25f, 0, -.1f), 0) };
+            var rb = Box(stones.SelectMany(g => Level(g, 0)));
+            Frame("BM04-set-front", rb, front, 1.1f); Frame("BM04-set-threequarter", rb, tq, 1.1f);
+            foreach (var g in stones) UnityEngine.Object.DestroyImmediate(g);
+            // the table with its two stools, as in the reference sheet
+            var rest = new[] { Place("BM05_02", new Vector3(-.8f, 0, 0), 0), Place("BM05_01", Vector3.zero, 0), Place("BM05_03", new Vector3(.8f, 0, 0), 0) };
+            var tb = Box(rest.SelectMany(g => Level(g, 0)));
+            Frame("BM05-set-front", tb, front, 1.1f); Frame("BM05-set-threequarter", tb, tq, 1.1f);
+            foreach (var g in rest) UnityEngine.Object.DestroyImmediate(g);
+            foreach (var (tag, ids, xs, pad) in new[] {
+                ("BM06-set", new[] { "BM06_01", "BM06_02", "BM06_03", "BM06_04" }, new[] { -1.9f, -.95f, .25f, 1.6f }, 1.1f),
+                ("BM07-set", new[] { "BM07_01", "BM04_03" }, new[] { 0f, 1.2f }, 1.15f),
+                ("BM08-set", new[] { "BM08_01", "BM08_02" }, new[] { -.85f, .75f }, 1.15f),
+                ("BM09-set", new[] { "BM09_01", "BM09_02" }, new[] { -.4f, .55f }, 1.15f) })
+            {
+                var gs = ids.Select((k, i) => Place(k, new Vector3(xs[i], 0, 0), 0)).ToArray();
+                var bb = Box(gs.SelectMany(g => Level(g, 0)));
+                Frame(tag + "-front", bb, front, pad); Frame(tag + "-threequarter", bb, tq, pad);
+                foreach (var g in gs) UnityEngine.Object.DestroyImmediate(g);
             }
             // the three crates together, as in the reference sheet
             var set = new[] { Place("BM01_01", new Vector3(-1.35f, 0, 0), 0), Place("BM01_02", new Vector3(-.55f, 0, 0), 0), Place("BM01_03", new Vector3(.55f, 0, 0), 0) };

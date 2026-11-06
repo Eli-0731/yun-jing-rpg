@@ -1,0 +1,30 @@
+BM07 舊石碑（1.1 × 0.5 × 2.3 m；表面磨到看不清，中間一長條被鑿掉；附 _Collision）— 三視圖提示詞與選圖
+工作包：docs/execution/2026-11-03/C-28h-modelling-basics.md（feature/qingxi-creek-chapter 2f8a150）第 3 節 BM07。
+
+選用：BM07-cand-1.png（Codex GPT-6-Astra，半寫實提示詞）。自評 92 分，依使用者 2026-11-03 的指示（自評 90 分以上直接建模）。
+評分（滿分 100；比例和尺寸 30、三面一致 25、工作包細節 30、乾淨無字 15）：
+- BM07-cand-1：92。正面／側面／背面清楚；量圖碑身寬高比約 0.43、底座寬約 1.2 倍碑身、側面深度約碑寬的 0.3，接近 1.1 × 0.5 × 2.3 m；正面磨平看不出字，右半一長條鑿過、顏色較淡、邊緣粗糙；碑頂和底座有苔、零星地衣、底座上有松針和落葉；沒有字。扣分：底座有一條大裂縫，背面地衣花形略重複。
+- BM07-cand-2：91。和 C1 很像，地衣花形更明顯、更像貼紙；鑿痕條比較窄。
+- BM07-cand-3：90。側面碑身有剝落和傾斜，比較有個性；但背面拱頂不對稱，三面對不太起來。
+- BM07-cand-4：89。碑頂做成有肩的拱形，跟另外三面的感覺不同；鑿痕條邊緣太乾淨。
+
+建模時和圖不同的地方：
+- 尺寸照工作包：整體 1.1 × 0.5 × 2.3 m（底座 1.1 × 0.5 × 0.3 m，碑身約 0.88 × 0.3 × 2.0 m）。
+- 鑿痕條在網格上凹下去，粗糙的鑿痕用高面數版本烘成法線貼圖。
+- 底座上的松針和落葉是 Detail_Litter 子物件；碰撞是只包石頭的簡化凸包。
+
+風格：沿用 BM01 的半寫實段（使用者 2026-11-02 指定，取代風格指南 5.2／5.3），工作包 BM07 那一段一字未改。
+工具：Codex CLI，模型 gpt-6-astra，推理 xhigh，內建 image_gen，4 張，1536×1024，沒有 seed。
+
+== 工作包原文（BM07）==
+Three-view orthographic turnaround sheet of an ancient standing stone stele in a forest, about 1.1 m wide, 0.5 m deep and 2.3 m tall, made of dark weathered granite on a low square base, its face worn smooth beyond reading with no letters and no text, one long vertical strip roughly chiselled away and paler than the rest, showing moss on the top and base, lichen, fallen needles on the base. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+
+== 半寫實風格段（取代 5.2，同 BM01）==
+Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality.
+
+== 負面提示（取代 5.3，同 BM01）==
+Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye
+
+
+== 實際送出的完整提示詞 ==
+Three-view orthographic turnaround sheet of an ancient standing stone stele in a forest, about 1.1 m wide, 0.5 m deep and 2.3 m tall, made of dark weathered granite on a low square base, its face worn smooth beyond reading with no letters and no text, one long vertical strip roughly chiselled away and paler than the rest, showing moss on the top and base, lichen, fallen needles on the base. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only. Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality. Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye
