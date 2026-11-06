@@ -2292,13 +2292,13 @@
  "BM09_01": {
   "id": "BM09_01",
   "dimensions_xyz_m": [
-   1.153199,
-   1.193166,
+   1.698589,
+   1.630656,
    0.8
   ],
   "body_dimensions_xyz_m": [
-   1.153199,
-   1.193166,
+   1.698589,
+   1.630656,
    0.8
   ],
   "target_axis": "z",
@@ -2317,9 +2317,9 @@
     "material": "BM09_01_Fronds",
     "texture_px": 2048,
     "triangles": [
-     9504,
-     4752,
-     1512
+     5076,
+     1728,
+     360
     ],
     "maps": [
      "alb",
@@ -2332,9 +2332,9 @@
     "material": "BM09_01_Rachis",
     "texture_px": 512,
     "triangles": [
-     3976,
-     2008,
-     542
+     4536,
+     1584,
+     540
     ],
     "maps": [
      "alb",
@@ -2345,11 +2345,11 @@
    },
    "Detail_DryFronds": {
     "material": "BM09_01_Detail_DryFronds",
-    "texture_px": 512,
+    "texture_px": 1024,
     "triangles": [
-     492,
-     240,
-     68
+     478,
+     236,
+     108
     ],
     "maps": [
      "alb",
@@ -2360,69 +2360,69 @@
    }
   },
   "triangles_total": [
-   13972,
-   7000,
-   2122
+   10090,
+   3548,
+   1008
   ],
   "triangles_without_detail": [
-   13480,
-   6760,
-   2054
+   9612,
+   3312,
+   900
   ],
-  "reference": "art/references/BM09/prompt.txt",
-  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "separated_pieces": [
+   [
+    6,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    0
+   ]
+  ],
+  "reference": "art/references/BM09/v2/prompt.txt",
+  "version": 2,
+  "origin": "crown centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": {
    "Fronds": {
     "Albedo": "art/textures/modelling-basics-c/BM09_01_Fronds_Albedo.png",
     "Normal": "art/textures/modelling-basics-c/BM09_01_Fronds_Normal.png",
-    "MaskURP": "art/textures/modelling-basics-c/BM09_01_Fronds_MaskURP.png",
-    "ORM": "art/textures/modelling-basics-c/BM09_01_Fronds_ORM.png"
+    "ORM": "art/textures/modelling-basics-c/BM09_01_Fronds_ORM.png",
+    "MaskURP": "art/textures/modelling-basics-c/BM09_01_Fronds_MaskURP.png"
    },
    "Rachis": {
     "Albedo": "art/textures/modelling-basics-c/BM09_01_Rachis_Albedo.png",
     "Normal": "art/textures/modelling-basics-c/BM09_01_Rachis_Normal.png",
-    "MaskURP": "art/textures/modelling-basics-c/BM09_01_Rachis_MaskURP.png",
-    "ORM": "art/textures/modelling-basics-c/BM09_01_Rachis_ORM.png"
+    "ORM": "art/textures/modelling-basics-c/BM09_01_Rachis_ORM.png",
+    "MaskURP": "art/textures/modelling-basics-c/BM09_01_Rachis_MaskURP.png"
    },
    "Detail_DryFronds": {
     "Albedo": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_Albedo.png",
     "Normal": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_Normal.png",
-    "MaskURP": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_MaskURP.png",
-    "ORM": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_ORM.png"
+    "ORM": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_ORM.png",
+    "MaskURP": "art/textures/modelling-basics-c/BM09_01_Detail_DryFronds_MaskURP.png"
    }
   },
   "collision": {},
   "notes": {
-   "build": "Curved rachis, paired bent alpha pinnae, older brown outer tips, coiled croziers; atlas groups preserve leaf silhouette at LOD1.",
-   "detail": "Detail_DryFronds can be hidden; no baked detail shadows on body.",
-   "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
-   "validation": "Blender export/import only; Unity and mobile performance not tested."
-  },
-  "separated_pieces": {
-   "LOD0": [
-    82,
-    0
-   ],
-   "LOD1": [
-    45,
-    0
-   ],
-   "LOD2": [
-    20,
-    0
-   ]
+   "build": "second version (#69 follow-up), build_bm09.py: rachis curves bending over with age; LOD0 pinna cards set 30 deg forward, drooping and arched, twist alternating +-11 deg; LOD1 half the pinnae; LOD2 drooping ribbons with a painted row of pinnae",
+   "detail": "Detail_DryFronds: three broken brown fronds lying from the crown onto the ground; hide on the standard tier",
+   "material": "alpha-cut, both faces (Fronds, Detail_DryFronds); Albedo sRGB, Normal tangent +Y, ORM = AO / roughness / metal, MaskURP = metal / AO / 0 / smoothness"
   }
  },
  "BM09_02": {
   "id": "BM09_02",
   "dimensions_xyz_m": [
-   0.467299,
-   0.439983,
+   0.600973,
+   0.68958,
    0.3
   ],
   "body_dimensions_xyz_m": [
-   0.467299,
-   0.439983,
+   0.600973,
+   0.68958,
    0.3
   ],
   "target_axis": "z",
@@ -2441,9 +2441,9 @@
     "material": "BM09_02_Fronds",
     "texture_px": 2048,
     "triangles": [
-     2496,
-     1248,
-     336
+     2232,
+     768,
+     240
     ],
     "maps": [
      "alb",
@@ -2456,9 +2456,9 @@
     "material": "BM09_02_Rachis",
     "texture_px": 512,
     "triangles": [
-     2718,
-     1374,
-     426
+     3888,
+     1440,
+     432
     ],
     "maps": [
      "alb",
@@ -2469,11 +2469,11 @@
    },
    "Detail_DryFronds": {
     "material": "BM09_02_Detail_DryFronds",
-    "texture_px": 512,
+    "texture_px": 1024,
     "triangles": [
-     492,
-     240,
-     68
+     486,
+     248,
+     108
     ],
     "maps": [
      "alb",
@@ -2484,57 +2484,57 @@
    }
   },
   "triangles_total": [
-   5706,
-   2862,
-   830
+   6606,
+   2456,
+   780
   ],
   "triangles_without_detail": [
-   5214,
-   2622,
-   762
+   6120,
+   2208,
+   672
   ],
-  "reference": "art/references/BM09/prompt.txt",
-  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "separated_pieces": [
+   [
+    12,
+    0
+   ],
+   [
+    10,
+    0
+   ],
+   [
+    4,
+    0
+   ]
+  ],
+  "reference": "art/references/BM09/v2/prompt.txt",
+  "version": 2,
+  "origin": "crown centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "textures": {
    "Fronds": {
     "Albedo": "art/textures/modelling-basics-c/BM09_02_Fronds_Albedo.png",
     "Normal": "art/textures/modelling-basics-c/BM09_02_Fronds_Normal.png",
-    "MaskURP": "art/textures/modelling-basics-c/BM09_02_Fronds_MaskURP.png",
-    "ORM": "art/textures/modelling-basics-c/BM09_02_Fronds_ORM.png"
+    "ORM": "art/textures/modelling-basics-c/BM09_02_Fronds_ORM.png",
+    "MaskURP": "art/textures/modelling-basics-c/BM09_02_Fronds_MaskURP.png"
    },
    "Rachis": {
     "Albedo": "art/textures/modelling-basics-c/BM09_02_Rachis_Albedo.png",
     "Normal": "art/textures/modelling-basics-c/BM09_02_Rachis_Normal.png",
-    "MaskURP": "art/textures/modelling-basics-c/BM09_02_Rachis_MaskURP.png",
-    "ORM": "art/textures/modelling-basics-c/BM09_02_Rachis_ORM.png"
+    "ORM": "art/textures/modelling-basics-c/BM09_02_Rachis_ORM.png",
+    "MaskURP": "art/textures/modelling-basics-c/BM09_02_Rachis_MaskURP.png"
    },
    "Detail_DryFronds": {
     "Albedo": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_Albedo.png",
     "Normal": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_Normal.png",
-    "MaskURP": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_MaskURP.png",
-    "ORM": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_ORM.png"
+    "ORM": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_ORM.png",
+    "MaskURP": "art/textures/modelling-basics-c/BM09_02_Detail_DryFronds_MaskURP.png"
    }
   },
   "collision": {},
   "notes": {
-   "build": "Curved rachis, paired bent alpha pinnae, older brown outer tips, coiled croziers; atlas groups preserve leaf silhouette at LOD1.",
-   "detail": "Detail_DryFronds can be hidden; no baked detail shadows on body.",
-   "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
-   "validation": "Blender export/import only; Unity and mobile performance not tested."
-  },
-  "separated_pieces": {
-   "LOD0": [
-    21,
-    0
-   ],
-   "LOD1": [
-    1,
-    0
-   ],
-   "LOD2": [
-    5,
-    0
-   ]
+   "build": "second version (#69 follow-up), build_bm09.py: rachis curves bending over with age; LOD0 pinna cards set 30 deg forward, drooping and arched, twist alternating +-11 deg; LOD1 half the pinnae; LOD2 drooping ribbons with a painted row of pinnae; hooked frond tips and three fiddleheads",
+   "detail": "Detail_DryFronds: three broken brown fronds lying from the crown onto the ground; hide on the standard tier",
+   "material": "alpha-cut, both faces (Fronds, Detail_DryFronds); Albedo sRGB, Normal tangent +Y, ORM = AO / roughness / metal, MaskURP = metal / AO / 0 / smoothness"
   }
  },
  "BM10_01": {
@@ -2542,12 +2542,12 @@
   "dimensions_xyz_m": [
    1.0,
    1.0,
-   0.006
+   0.020933
   ],
   "body_dimensions_xyz_m": [
    1.0,
    1.0,
-   0.006
+   0.020933
   ],
   "target_axis": "x",
   "target_m": 1.0,
@@ -2559,9 +2559,9 @@
     "material": "BM10_01_Ground",
     "texture_px": 2048,
     "triangles": [
-     128,
-     64,
-     18
+     4608,
+     1152,
+     200
     ],
     "maps": [
      "alb",
@@ -2572,31 +2572,33 @@
    }
   },
   "triangles_total": [
-   128,
-   64,
-   18
+   4608,
+   1152,
+   200
   ],
   "triangles_without_detail": [
-   128,
-   64,
-   18
+   4608,
+   1152,
+   200
   ],
-  "reference": "art/references/BM10/prompt.txt",
-  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "reference": "art/references/BM10/v2/prompt.txt",
+  "version": 2,
+  "tile_seam_ratio": 0.182,
+  "tile_proof": "art/previews/modelling-basics-c/BM10/tiling/BM10_01-colour-3x3.png",
+  "origin": "patch centre, bottom z = 0",
   "textures": {
    "Ground": {
     "Albedo": "art/textures/modelling-basics-c/BM10_01_Ground_Albedo.png",
     "Normal": "art/textures/modelling-basics-c/BM10_01_Ground_Normal.png",
-    "MaskURP": "art/textures/modelling-basics-c/BM10_01_Ground_MaskURP.png",
-    "ORM": "art/textures/modelling-basics-c/BM10_01_Ground_ORM.png"
+    "ORM": "art/textures/modelling-basics-c/BM10_01_Ground_ORM.png",
+    "MaskURP": "art/textures/modelling-basics-c/BM10_01_Ground_MaskURP.png"
    }
   },
   "collision": {},
   "notes": {
-   "build": "1 m ground patch, alpha-cut: the cover stops 2-15 cm in from the square edge along an uneven line (moss cushions, whole leaves), colour bled into the transparent margin; 8x8 / 8x4 / 3x3 grids.",
-   "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
-   "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
-   "validation": "Blender export/import only; Unity and mobile performance not tested."
+   "build": "second version (#69 follow-up), build_bm10.py: colour painted on a torus (repeats on all four sides); alpha gives a rounded, lobed outline, moss cushions lifted into the mesh up to 2.2 cm",
+   "detail": "the whole patch is ultra-tier dressing; no Detail_ parts",
+   "material": "alpha-cut (0.45), both faces; Albedo sRGB, Normal tangent +Y, ORM = AO / roughness / metal, MaskURP = metal / AO / 0 / smoothness"
   }
  },
  "BM10_02": {
@@ -2604,12 +2606,12 @@
   "dimensions_xyz_m": [
    1.0,
    1.0,
-   0.006
+   0.003668
   ],
   "body_dimensions_xyz_m": [
    1.0,
    1.0,
-   0.006
+   0.003668
   ],
   "target_axis": "x",
   "target_m": 1.0,
@@ -2621,9 +2623,9 @@
     "material": "BM10_02_Ground",
     "texture_px": 2048,
     "triangles": [
+     512,
      128,
-     64,
-     18
+     32
     ],
     "maps": [
      "alb",
@@ -2634,31 +2636,33 @@
    }
   },
   "triangles_total": [
+   512,
    128,
-   64,
-   18
+   32
   ],
   "triangles_without_detail": [
+   512,
    128,
-   64,
-   18
+   32
   ],
-  "reference": "art/references/BM10/prompt.txt",
-  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "reference": "art/references/BM10/v2/prompt.txt",
+  "version": 2,
+  "tile_seam_ratio": 0.437,
+  "tile_proof": "art/previews/modelling-basics-c/BM10/tiling/BM10_02-colour-3x3.png",
+  "origin": "patch centre, bottom z = 0",
   "textures": {
    "Ground": {
     "Albedo": "art/textures/modelling-basics-c/BM10_02_Ground_Albedo.png",
     "Normal": "art/textures/modelling-basics-c/BM10_02_Ground_Normal.png",
-    "MaskURP": "art/textures/modelling-basics-c/BM10_02_Ground_MaskURP.png",
-    "ORM": "art/textures/modelling-basics-c/BM10_02_Ground_ORM.png"
+    "ORM": "art/textures/modelling-basics-c/BM10_02_Ground_ORM.png",
+    "MaskURP": "art/textures/modelling-basics-c/BM10_02_Ground_MaskURP.png"
    }
   },
   "collision": {},
   "notes": {
-   "build": "1 m ground patch, alpha-cut: the cover stops 2-15 cm in from the square edge along an uneven line (moss cushions, whole leaves), colour bled into the transparent margin; 8x8 / 8x4 / 3x3 grids.",
-   "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
-   "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
-   "validation": "Blender export/import only; Unity and mobile performance not tested."
+   "build": "second version (#69 follow-up), build_bm10.py: colour painted on a torus (repeats on all four sides); alpha gives a rounded, lobed outline, whole leaves only, soil transparent",
+   "detail": "the whole patch is ultra-tier dressing; no Detail_ parts",
+   "material": "alpha-cut (0.45), both faces; Albedo sRGB, Normal tangent +Y, ORM = AO / roughness / metal, MaskURP = metal / AO / 0 / smoothness"
   }
  },
  "BM10_03": {
@@ -2666,12 +2670,12 @@
   "dimensions_xyz_m": [
    1.0,
    1.0,
-   0.006
+   0.003674
   ],
   "body_dimensions_xyz_m": [
    1.0,
    1.0,
-   0.006
+   0.003674
   ],
   "target_axis": "x",
   "target_m": 1.0,
@@ -2683,9 +2687,9 @@
     "material": "BM10_03_Ground",
     "texture_px": 2048,
     "triangles": [
+     512,
      128,
-     64,
-     18
+     32
     ],
     "maps": [
      "alb",
@@ -2696,31 +2700,33 @@
    }
   },
   "triangles_total": [
+   512,
    128,
-   64,
-   18
+   32
   ],
   "triangles_without_detail": [
+   512,
    128,
-   64,
-   18
+   32
   ],
-  "reference": "art/references/BM10/prompt.txt",
-  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "reference": "art/references/BM10/v2/prompt.txt",
+  "version": 2,
+  "tile_seam_ratio": 0.928,
+  "tile_proof": "art/previews/modelling-basics-c/BM10/tiling/BM10_03-colour-3x3.png",
+  "origin": "patch centre, bottom z = 0",
   "textures": {
    "Ground": {
     "Albedo": "art/textures/modelling-basics-c/BM10_03_Ground_Albedo.png",
     "Normal": "art/textures/modelling-basics-c/BM10_03_Ground_Normal.png",
-    "MaskURP": "art/textures/modelling-basics-c/BM10_03_Ground_MaskURP.png",
-    "ORM": "art/textures/modelling-basics-c/BM10_03_Ground_ORM.png"
+    "ORM": "art/textures/modelling-basics-c/BM10_03_Ground_ORM.png",
+    "MaskURP": "art/textures/modelling-basics-c/BM10_03_Ground_MaskURP.png"
    }
   },
   "collision": {},
   "notes": {
-   "build": "1 m ground patch, alpha-cut: the cover stops 2-15 cm in from the square edge along an uneven line (moss cushions, whole leaves), colour bled into the transparent margin; 8x8 / 8x4 / 3x3 grids.",
-   "detail": "Whole patch is ultra dressing; no independent detail submeshes are necessary.",
-   "material": "Double-sided foliage; Albedo sRGB, Normal tangent +Y, ORM=AO/roughness/metal, MaskURP=metal/AO/0/smoothness. No photo sources.",
-   "validation": "Blender export/import only; Unity and mobile performance not tested."
+   "build": "second version (#69 follow-up), build_bm10.py: colour painted on a torus (repeats on all four sides); alpha gives a rounded, lobed outline, whole leaves only, soil transparent",
+   "detail": "the whole patch is ultra-tier dressing; no Detail_ parts",
+   "material": "alpha-cut (0.45), both faces; Albedo sRGB, Normal tangent +Y, ORM = AO / roughness / metal, MaskURP = metal / AO / 0 / smoothness"
   }
  }
 }

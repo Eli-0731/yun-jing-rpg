@@ -31,7 +31,7 @@ namespace YunJing.Editor
         // standard-tier items the work pack gives no _Collision (BM04: only the largest stone has one)
         static readonly HashSet<string> NoCollision = new HashSet<string> { "BM04_02", "BM04_03", "BM04_04", "BM08_01", "BM09_01" };   // BM08_01 a shrub to brush past, BM09_01 a fern: nothing to stop on
         // foliage drawn on alpha-cut cards (leaves, fronds, fallen leaves, the leaf-litter ground patches): alpha clip and both faces
-        static bool Cutout(string group) => Regex.IsMatch(group, @"^BM08_0\d_(Leaves|Detail_Litter)$|^BM09_0\d_(Fronds|Detail_DryFronds)$|^BM10_0[23]_Ground$");
+        static bool Cutout(string group) => Regex.IsMatch(group, @"^BM08_0\d_(Leaves|Detail_Litter)$|^BM09_0\d_(Fronds|Detail_DryFronds)$|^BM10_0[123]_Ground$");
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
         static string Out => Path.Combine(Repo, "art/previews/modelling-basics-c/unity");
         static readonly List<string> Report = new List<string>();

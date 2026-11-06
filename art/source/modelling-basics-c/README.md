@@ -26,11 +26,11 @@
 | BM07_01 | 舊石碑（附碰撞） | 1.1 × 0.5 × 2.3 m | 1.11 × 0.52 × 2.31 | 13,452 / 6,726 / 2,016 | 12,000 / 6,000 / 1,800 | `standard` |
 | BM08_01 | 溪邊柳葉圓叢灌木 | 高 1.2 m | 1.50 × 1.29 × 1.20 | 17,278 / 8,116 / 2,592 | 17,226 / 8,088 / 2,580 | `standard` |
 | BM08_02 | 林緣紅果散枝灌木 | 高 1.0 m | 1.31 × 1.12 × 1.00 | 17,168 / 8,636 / 2,424 | 17,116 / 8,608 / 2,412 | `high` |
-| BM09_01 | 大型野蕨（Codex 製作） | 高 0.8 m | 1.15 × 1.19 × 0.80 | 13,972 / 7,000 / 2,122 | 13,480 / 6,760 / 2,054 | `standard` |
-| BM09_02 | 矮捲蕨（Codex 製作） | 高 0.3 m | 0.47 × 0.44 × 0.30 | 5,706 / 2,862 / 830 | 5,214 / 2,622 / 762 | `high` |
-| BM10_01 | 苔蘚貼片（Codex 製作） | 1 m 見方 | 1.00 × 1.00 × 0.01 | 128 / 64 / 18 | 同左 | `ultra` |
-| BM10_02 | 紅楓落葉貼片（Codex 製作） | 1 m 見方 | 1.00 × 1.00 × 0.01 | 128 / 64 / 18 | 同左 | `ultra` |
-| BM10_03 | 銀杏黃葉貼片（Codex 製作） | 1 m 見方 | 1.00 × 1.00 × 0.01 | 128 / 64 / 18 | 同左 | `ultra` |
+| BM09_01 | 大型野蕨（第二版） | 高 0.8 m | 1.70 × 1.63 × 0.80 | 10,090 / 3,548 / 1,008 | 9,612 / 3,312 / 900 | `standard` |
+| BM09_02 | 矮捲蕨（第二版） | 高 0.3 m | 0.60 × 0.69 × 0.30 | 6,606 / 2,456 / 780 | 6,120 / 2,208 / 672 | `high` |
+| BM10_01 | 苔蘚貼片（第二版） | 1 m 見方 | 1.00 × 1.00 × 0.02 | 4,608 / 1,152 / 200 | 同左 | `ultra` |
+| BM10_02 | 紅楓落葉貼片（第二版） | 1 m 見方 | 1.00 × 1.00 × 0.004 | 512 / 128 / 32 | 同左 | `ultra` |
+| BM10_03 | 銀杏黃葉貼片（第二版） | 1 m 見方 | 1.00 × 1.00 × 0.004 | 512 / 128 / 32 | 同左 | `ultra` |
 
 完整數字（每組材質的貼圖尺寸、三角面、碰撞、`detailObjects`）在 [`art/exports/modelling-basics-c/model_info.json`](../../exports/modelling-basics-c/model_info.json)。含腳邊小草和麻繩的外框會比箱體大一點（例如 BM01_02 是 0.84 × 0.55 × 0.40），碰撞只包箱體。
 
@@ -289,13 +289,25 @@ QA 結果：`art/previews/modelling-basics-c/qa/`，修正前是 a7e1e99c 的 GL
 - **和 WildShrub 並排**：`art/previews/modelling-basics-c/BM08/compare/`。WildShrub 是一團圓的實心綠塊加粉紅小點，這兩株是看得到枝和葉形的灌木，看得出不同。
 - **還不夠好的地方**：葉簇在圖集裡是同一種排法，近看看得出面片重複；柳葉樹冠中段還是比參考圖密、看不太到裡面的枝；紅果的果子用了 6,280 個三角面，比葉子還多。
 
-## BM09、BM10（交給 Codex 做，使用者 2026-11-03 指定）
+## BM09、BM10（第二版，2026-11-07 照 #69 審查重做）
 
-使用者要求「順序 9、10 兩樣東西給 Codex 生圖和建模」。Codex（GPT-6-Astra，推理 xhigh）照同一份工作包、同一段半寫實提示詞，自己生成三視圖、自評打分、建模、渲染；只准寫 BM09／BM10 自己的檔案（`build_bm09_bm10.py`、`bm09_*.py`、`bm10_*.py`），共用的建模腳本、README、Unity 驗證由我改。Codex 跑到最後用量到上限，沒寫完報告和部分審圖；`BM09_02` 四視圖、兩種蕨和 `qingxi-fern-flower-v2` 的並排由我用同一支 `render_basics.py` 補上，再把它的 `model_info_bm09_bm10.json` 併進 `model_info.json`、加進 Unity 驗證。
+#69 審查要 BM09 蕨、BM10 地面貼片從三視圖開始自己重做一次，並和第一版並排。第二版是新寫的 `build_bm09.py`、`build_bm10.py`，加上兩支共用的 `foliage_kit.py`（網格、雜訊、貼圖輸出、匯出）；形狀和貼圖都從頭寫，不沿用第一版的程式。第一版的 `build_bm09_bm10.py` 留著，因為 `build_bm08.py` 還用它的網格和材質函式。
 
-- **BM09 蕨**：選 `BM09-large-cand-4.png`（92 分）、`BM09-curly-cand-3.png`（93 分），分數和理由在 `art/references/BM09/prompt.txt`。葉軸是彎曲的細管、羽片是雙面的透明貼圖面片，老葉尖端轉褐；枯斷的葉在 `Detail_DryFronds`。大的 0.8 m 設 `standard`、小的 0.3 m 設 `high`（工作包只說一種 standard 一種 high，這是我定的），都沒有碰撞。和 `qingxi-fern-flower-v2` 並排看得出不同。
-- **BM10 貼片**：苔蘚、紅楓落葉、銀杏黃葉三片，每片 1 m 見方，貼圖 2048，`ultra`，沒有碰撞，也沒有可拿掉的 `Detail_`（Unity 驗證對這三件放寬這一項）。**AI 參考圖只到 85–86 分**：重生兩輪後，四邊還是接不起來，Codex 照實記錄在 `prompt.txt`。成品貼圖是程式生成的。第一輪做成可以平鋪的方塊，#69 審查指出單片放在地上看得到方形外框，第三輪改成邊緣透明的不規則貼花，不再平鋪（見「第三輪」第 3 節）。
-- **還不夠好的地方**：苔蘚質感偏平；矮捲蕨看起來不夠矮。
+- **三視圖**：`art/references/BM09/v2/`、`art/references/BM10/v2/`，每種 4 張候選，紅楓和銀杏多 4 張（前 4 張把地面畫成石板和木條，加一行用途限制重生），分數和取捨在各自的 `prompt.txt`。選用 `BM09-large-v2-cand-3`（92）、`BM09-curly-v2-cand-4`（92）、`BM10-moss-v2-cand-3`（91）、`BM10-maple-v2-cand-7`（91）、`BM10-ginkgo-v2-cand-6`（91）。
+- **BM09 蕨**（工作包的練習重點：葉片的方向和彎曲）：
+  - 每片葉是一條在自己的鉛直面裡的葉軸曲線：從冠部陡陡地出來，沿長度往外彎。中心的新葉幾乎直立，外圈的老葉拱出去垂下；矮捲蕨的葉尖往內勾，冠部有三支捲芽。
+  - LOD0 每片羽片是獨立的面片：沿葉軸往葉尖斜 30°、往下垂 15–35°、順著長度往下拱。同一側相鄰的羽片交替扭轉 ±11°，不會兩片落在同一平面。LOD1 留一半羽片、加寬；LOD2 是葉軸兩側往下垂的帶狀面片，貼圖上畫一整排羽片。
+  - 貼圖都在 `build_bm09.py` 裡畫：羽片圖集有新葉、嫩綠、成熟、老葉（只有老葉前端的羽片轉褐）四種，兩種整排羽片，葉柄（基部褐色帶鱗片、往上轉綠），枯葉另一張。
+  - `Detail_DryFronds`：三片斷掉的枯葉，從冠部旁邊倒在地上。
+  - 0.8 m 的 `standard`、0.3 m 的 `high`，都沒有碰撞。三角面 10,090／6,606（第一版 13,972／5,706）。
+- **BM10 貼片**（工作包的練習重點：可無縫重複的貼圖）：
+  - 顏色畫在環面上，四邊都能接：3 × 3 重複圖在 `art/previews/modelling-basics-c/BM10/tiling/`，`model_info` 的 `tile_seam_ratio` 是跨過接縫的色差除以一般相鄰像素的色差（約 1 以下就是看不出接縫）。
+  - 外形用透明通道做成圓滑帶瓣的一塊，單片放在地上沒有方框；落葉是整片保留或整片拿掉，不會在邊上切半片。
+  - 苔蘚的網格照畫好的苔墊高度抬起，最高 2.2 cm，到邊緣變薄；紅楓是七裂的掌狀葉、銀杏是扇形葉，一片片疊成小堆，土的部分透明，可以鋪在任何地面上。
+  - 1 m 見方、`ultra`、沒有碰撞、沒有 `Detail_`。淺色和深色地面、近距離和 40 m 的外框檢查在 `BM10/edge-check/`。
+- **和第一版並排**：`art/previews/modelling-basics-c/compare-v1/BM09-BM10-v1-vs-v2.jpg`（同燈同角度，蕨有材質和灰模）。
+- **檢查**：嚴格和寬鬆 QA 五件都是 0 項；蕨的每片羽片、枯葉都接在葉軸或地面上（最遠 0.6 mm，`qa/qa-contact.json`，`qa/` 的三個 JSON 已是第二版的結果）；Unity 6000.0.82f1 檢查 372 項全過（苔蘚貼片現在也用透明裁切）。
+- **還不夠好的地方**：羽片面片近看還是看得出每片一樣的排法；苔蘚的細部比參考圖少；紅楓的掌狀葉形是程式畫的，比參考圖規整。
 
 ### 對照風格指南（[art-style-guide-v1](../../../docs/execution/art-style-guide-v1.md)）
 
@@ -321,7 +333,7 @@ QA 結果：`art/previews/modelling-basics-c/qa/`，修正前是 a7e1e99c 的 GL
 
 ## 實際花的時間
 
-工作包寫「約 28 小時」，是給人做的估計。這一包是 Claude（BM01–BM08）和 Codex（BM09、BM10）做的，下面是從三視圖第一張圖到最後一張審圖的檔案時間算的**經過時間**，含等待渲染、等使用者回覆、Codex 用量用完等著恢復，不是人工時數，只能拿來比哪一項比較費工。
+工作包寫「約 28 小時」，是給人做的估計。下面是從三視圖第一張圖到最後一張審圖的檔案時間算的**經過時間**，含等待生成和渲染、等使用者回覆，不是人工時數，只能拿來比哪一項比較費工。
 
 | 項 | 工作包預估 | 經過時間 | 說明 |
 |---|---|---|---|
@@ -333,8 +345,8 @@ QA 結果：`art/previews/modelling-basics-c/qa/`，修正前是 a7e1e99c 的 GL
 | BM06 石缸花台 | 3 h | 約 0.8 h | 和 BM07 有一段同時進行 |
 | BM07 石碑 | 3 h | 約 0.5 h | |
 | BM08 灌木 | 3 h | 約 3.5 h | 透明面片的寫法從頭摸，最費工 |
-| BM09 蕨（Codex） | 2 h | 約 1.1 h | 和 BM10 同時跑 |
-| BM10 貼片（Codex） | 2 h | 約 0.8 h | |
+| BM09 蕨（第二版） | 2 h | 約 0.9 h | 第一版約 1.1 h |
+| BM10 貼片（第二版） | 2 h | 約 0.8 h | 第一版約 0.8 h；紅楓和銀杏的三視圖重生一次 |
 
 ## 做得不順、想多練的地方
 
@@ -342,7 +354,7 @@ QA 結果：`art/previews/modelling-basics-c/qa/`，修正前是 a7e1e99c 的 GL
 - **透明面片（BM08、BM09）**：面片的朝向、正反面和法線都試錯很多次：面片側著看像蕨、正反面反了整叢變黑、葉子畫出圖集格子外。葉簇排法太規律、近看重複，想多練怎麼讓面片排得自然。
 - **LOD 比例**：柳葉的 LOD2 一開始只有 9%，因為細枝在 LOD2 全拿掉，面數一下掉太多。以後做完每一級要先算比例再往下做。
 - **面數分配**：紅果的果子比葉子還多面，小東西的面數要先想好預算。
-- **可無縫貼圖（BM10）**：AI 參考圖四邊接不起來，最後是程式生成；苔蘚平鋪後看得出重複，想多練怎麼打散重複感。
+- **可無縫貼圖（BM10）**：參考圖四邊接不起來，貼圖是程式在環面上畫的；落葉的葉形用公式畫，第一次像海星、第二次像五角星，改成七片披針形裂片才像槭葉，想多練葉形的觀察。
 - **Unity 透明材質**：驗證腳本原本把葉子當不透明，到 BM09 才發現，應該第一件植物就先在 Unity 裡看。
 
 ## 交件內容
@@ -362,8 +374,9 @@ QA 結果：`art/previews/modelling-basics-c/qa/`，修正前是 a7e1e99c 的 GL
 | `art/previews/modelling-basics-c/BM06/` | 四視圖加人形尺、線框、四件一組、石缸雲紋近拍、花台浮雕近拍、和 BM05 並排、LOD0／LOD1 並排 |
 | `art/previews/modelling-basics-c/BM07/` | 四視圖加人形尺、線框、鑿痕條近拍、底座落葉近拍、和 BM04 並排、LOD0／LOD1 並排 |
 | `art/previews/modelling-basics-c/BM08/` | 兩株灌木的四視圖加人形尺、線框、兩株一組、柳葉和紅果近拍、和 WildShrub 並排、LOD0／LOD1 並排 |
-| `art/previews/modelling-basics-c/BM09/` | 兩種蕨的四視圖加人形尺、線框、和 qingxi-fern-flower-v2 並排、LOD0／LOD1 並排 |
-| `art/previews/modelling-basics-c/BM10/` | 三片貼片各一張近拍；`edge-check/` 淺色、深色地面上近距離和 40 m 的外框檢查（EEVEE，含 6 倍裁切） |
+| `art/previews/modelling-basics-c/BM09/` | 兩種蕨（第二版）的四視圖加人形尺、線框、和 qingxi-fern-flower-v2 並排、LOD0／LOD1 並排 |
+| `art/previews/modelling-basics-c/compare-v1/` | BM09、BM10 第一版和第二版同燈同角度並排（蕨另有灰模），總表 `BM09-BM10-v1-vs-v2.jpg` |
+| `art/previews/modelling-basics-c/BM10/` | 三片貼片各一張近拍；`tiling/` 顏色 3 × 3 重複圖；`edge-check/` 淺色、深色地面上近距離和 40 m 的外框檢查（EEVEE，含 6 倍裁切） |
 | `art/previews/modelling-basics-c/qa/` | #69 回匯 QA：`qa-lod0.json`（嚴格）、`qa-lod0-loose.json`（審查容差）、`qa-contact.json`（散件接地），和 a7e1e99c 用同一支工具重跑的 `before-a7e1e99c-*.json` |
 | `art/previews/modelling-basics-c/qa-evidence/` | 各類散件接地近拍 `contact/` 和總表 `contact-sheet.jpg` |
 | `art/previews/modelling-basics-c/<項>/clay/` | 每一件的灰模正、側、斜三面和一張總表（BM01–BM10 都有） |
@@ -376,8 +389,10 @@ QA 結果：`art/previews/modelling-basics-c/qa/`，修正前是 a7e1e99c 的 GL
 ```bash
 B=<blender 4.5.3>; MSYS_NO_PATHCONV=1 "$B" -b --factory-startup -P art/source/modelling-basics-c/build_basics.py -- BM01_01 BM01_02 BM01_03 BM02_01 BM02_02 BM03_01 BM03_02 BM03_03 BM04_01 BM04_02 BM04_03 BM04_04 BM05_01 BM05_02 BM05_03 BM06_01 BM06_02 BM06_03 BM06_04 BM07_01
 MSYS_NO_PATHCONV=1 "$B" -b --factory-startup -P art/source/modelling-basics-c/build_bm08.py         # BM08，寫 model_info_bm08.json 和 model_info.json
-MSYS_NO_PATHCONV=1 "$B" -b --factory-startup -P art/source/modelling-basics-c/build_bm09_bm10.py   # BM09／BM10，寫 model_info_bm09_bm10.json，再併進 model_info.json
+MSYS_NO_PATHCONV=1 "$B" -b --factory-startup -P art/source/modelling-basics-c/build_bm09.py   # BM09 第二版，直接寫進 model_info.json
+MSYS_NO_PATHCONV=1 "$B" -b --factory-startup -P art/source/modelling-basics-c/build_bm10.py   # BM10 第二版，同上
 BLENDER="$B" MSYS_NO_PATHCONV=1 sh art/source/modelling-basics-c/render_reviews.sh BM01 BM02 BM03 BM04 BM05 BM06 BM07 BM08 BM09 BM10 CONTACT CLAY
+BLENDER="$B" V1=<第一版 GLB 資料夾> MSYS_NO_PATHCONV=1 sh art/source/modelling-basics-c/render_reviews.sh V1   # 第一版和第二版並排，取檔方法寫在腳本 V1 段
 UNITY=<Unity 6000.0.82f1> sh art/source/modelling-basics-c/unity/run_unity_check.sh
 MSYS_NO_PATHCONV=1 "$B" -b --factory-startup -P tools/art/qa_lod0_basic.py -- art/previews/modelling-basics-c/BM01/qa-lod0.json art/exports/modelling-basics-c/BM01_0{1,2,3}.glb
 Q=art/previews/modelling-basics-c/qa; L=$(ls art/exports/modelling-basics-c/BM*.glb | grep -v BM01)   # #69: BM02–BM10

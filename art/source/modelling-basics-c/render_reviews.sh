@@ -149,7 +149,24 @@ case " $ITEMS " in *" CONTACT "*)
   c BM08_02 BM08_02-berry-stalks "-.17,-.62,.5,-.26,-.36,.44,60"
   c BM08_02 BM08_02-inner-leaf-card ".45,-.75,.8,.004,-.134,.56,50" ".004,-.134,.56,.005"
   c BM09_02 BM09_02-crozier-centre ".3,-.4,.3,0,0,.08,45"
-  python "$SRC/compose_sheet.py" $P/qa-evidence/contact-sheet.jpg "#69 散件接觸（qa-contact.json）" 4     $K/BM06_02-staples-cam.png="BM06_02 鐵扣：嵌進缸壁 3 mm" $K/BM06_03-shrub-leaves-cam.png="BM06_03 花台灌木葉：最遠 4.9 mm"     $K/BM06_04-grass-in-soil-cam.png="BM06_04 花台草：根部插進土 4 mm" $K/BM07_01-needles-on-base-cam.png="BM07 松針、落葉：躺在座台上，最遠 0.9 mm"     $K/BM08_01-litter-cam.png="BM08_01 落葉：平躺地面，最遠 1.2 mm" $K/BM08_02-berry-stalks-cam.png="BM08_02 紅果：果柄連到枝端，最遠 0.2 mm"     $K/BM08_02-inner-leaf-card-cam.png="BM08_02 唯一 >1 cm 的葉片（12.6 mm，樹冠內）" $K/BM09_02-crozier-centre-cam.png="BM09_02 葉柄基部、捲芽：最遠 1.9 mm"
+  python "$SRC/compose_sheet.py" $P/qa-evidence/contact-sheet.jpg "#69 散件接觸（qa-contact.json）" 4     $K/BM06_02-staples-cam.png="BM06_02 鐵扣：嵌進缸壁 3 mm" $K/BM06_03-shrub-leaves-cam.png="BM06_03 花台灌木葉：最遠 4.9 mm"     $K/BM06_04-grass-in-soil-cam.png="BM06_04 花台草：根部插進土 4 mm" $K/BM07_01-needles-on-base-cam.png="BM07 松針、落葉：躺在座台上，最遠 0.9 mm"     $K/BM08_01-litter-cam.png="BM08_01 落葉：平躺地面，最遠 1.2 mm" $K/BM08_02-berry-stalks-cam.png="BM08_02 紅果：果柄連到枝端，最遠 0.2 mm"     $K/BM08_02-inner-leaf-card-cam.png="BM08_02 唯一 >1 cm 的葉片（12.6 mm，樹冠內）" $K/BM09_02-crozier-centre-cam.png="BM09_02 羽片接在葉軸上：最遠 0.6 mm"
+;; esac
+case " $ITEMS " in *" V1 "*)
+  # #69 follow-up: the second BM09 / BM10 (build_bm09.py, build_bm10.py) next to the first one, same light and camera, textured
+  # and grey. V1 points at the first version's GLBs, e.g.
+  #   for k in BM09_01 BM09_02 BM10_01 BM10_02 BM10_03; do git show 4684a3fd:art/exports/modelling-basics-c/$k.glb | git lfs smudge > $V1/$k.glb; done
+  if [ -n "$V1" ] && [ -f "$V1/BM09_01.glb" ]; then
+    C=$P/compare-v1
+    for k in BM09_01 BM09_02; do
+      if [ $k = BM09_01 ]; then g="-1.0,0,0;1.0,0,0";cam="0,-4.4,1.5,0,0,.38,40"; else g="-.42,0,0;.42,0,0";cam="0,-1.75,.6,0,0,.14,40"; fi
+      r --glb $V1/$k.glb,$E/$k.glb --at="$g" --out $C --tag $k-v1-vs-v2 --views "" --no-ruler --light afternoon --cam=$cam --res 1600x900
+      r --glb $V1/$k.glb,$E/$k.glb --at="$g" --out $C --tag $k-v1-vs-v2-clay --views "" --no-ruler --clay --light neutral --cam=$cam --res 1600x900
+    done
+    for k in BM10_01 BM10_02 BM10_03; do
+      r --glb $V1/$k.glb,$E/$k.glb --at="-.6,0,0,0.005;.6,0,0,0.005" --out $C --tag $k-v1-vs-v2 --views "" --no-ruler --light neutral --cam=0,-1.2,2.2,0,0,0,40 --res 1600x900
+    done
+    python "$SRC/compose_sheet.py" $C/BM09-BM10-v1-vs-v2.jpg "BM09／BM10 第一版（左）和第二版（右），同燈同角度" 2       $C/BM09_01-v1-vs-v2-cam.png="BM09_01 大型野蕨 材質" $C/BM09_01-v1-vs-v2-clay-cam.png="BM09_01 灰模"       $C/BM09_02-v1-vs-v2-cam.png="BM09_02 矮捲蕨 材質" $C/BM09_02-v1-vs-v2-clay-cam.png="BM09_02 灰模"       $C/BM10_01-v1-vs-v2-cam.png="BM10_01 苔蘚" $C/BM10_02-v1-vs-v2-cam.png="BM10_02 紅楓落葉" $C/BM10_03-v1-vs-v2-cam.png="BM10_03 銀杏黃葉"
+  else echo "V1: set V1 to a folder with the first version's GLBs"; fi
 ;; esac
 case " $ITEMS " in *" CLAY "*)
   # grey model for every exported item (work pack §1.3): one flat grey, no textures, so only the silhouette and the forms are judged
