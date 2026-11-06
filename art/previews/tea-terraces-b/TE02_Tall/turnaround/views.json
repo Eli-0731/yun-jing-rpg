@@ -1,6 +1,6 @@
 {
   "asset": "TE02_Tall",
-  "source": "art/source/tea-terraces-b/blend/TE02_Tall_v003.blend",
+  "source": "art/source/tea-terraces-b/blend/TE02_Tall_v004.blend",
   "same_geometry": true,
   "render_of": "exported LOD0 with baked textures",
   "views": [

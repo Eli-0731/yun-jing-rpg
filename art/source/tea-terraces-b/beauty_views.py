@@ -5,7 +5,7 @@
 
 --assets writes art/previews/tea-terraces-b/<ID>/<ID>_golden.png (all assets when no ID is given).
 --diorama stacks three rows of different wall height on a plinth: TE01_StraightB_H12 (rise 1.2), TE01_StraightA (rise 1.0, with a TE03_Stair up into it)
-and TE01_StraightB_H08 (rise 0.8), each row 4 m deeper; TE02 bushes on every ridge, TE03_Path on the lower two rows, TE03_Stepping on the top row.
+and TE01_StraightB_H08 (rise 0.8), each row 4 m deeper; TE02 hedge (Hedge / HedgeShort / HedgeEnd) on every ridge, TE03_Path on the lower two rows, TE03_Stepping on the top row.
 Writes art/previews/tea-terraces-b/diorama/*.png and blend/diorama_v001.blend. The plinth is presentation only.
 """
 import bpy, sys, json, math, random
@@ -15,12 +15,14 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import golden
 from te_terrace import field_profile
+from te_hedge_layout import runs as hedge_runs, hedge_run
 from showcase_tea_terraces_b import import_lod0, version
 ART = HERE.parents[1]
 KIT = 'tea-terraces-b'
 PREV = ART / 'previews' / KIT
 ALL = ['TE01_StraightA', 'TE01_StraightB', 'TE01_InnerBend', 'TE01_OuterBend', 'TE01_End', 'TE01_Broken', 'TE01_GentleOuter', 'TE01_GentleInner',
-       'TE01_StraightB_H08', 'TE01_StraightB_H12', 'TE01_End_H08', 'TE01_End_H12', 'TE02_Round', 'TE02_Wide', 'TE02_Tall', 'TE03_Stair', 'TE03_Path', 'TE03_Stepping']
+       'TE01_StraightB_H08', 'TE01_StraightB_H12', 'TE01_End_H08', 'TE01_End_H12', 'TE02_Round', 'TE02_Wide', 'TE02_Tall', 'TE03_Stair', 'TE03_Path', 'TE03_Stepping',
+       'TE02_Hedge', 'TE02_HedgeShort', 'TE02_HedgeEnd']
 
 
 def info(aid):
@@ -53,7 +55,7 @@ def hero(aid):
 
 def diorama():
     scene = fresh()
-    ids = {'TE01_StraightB_H12', 'TE01_StraightA', 'TE01_StraightB_H08', 'TE02_Round', 'TE02_Wide', 'TE02_Tall', 'TE03_Stair', 'TE03_Path', 'TE03_Stepping'}
+    ids = {'TE01_StraightB_H12', 'TE01_StraightA', 'TE01_StraightB_H08', 'TE02_Hedge', 'TE02_HedgeShort', 'TE02_HedgeEnd', 'TE03_Stair', 'TE03_Path', 'TE03_Stepping'}
     src = import_lod0(ids)
     coll = bpy.data.collections.new('Diorama'); scene.collection.children.link(coll)
     rows = [('TE01_StraightB_H12', 1.2), ('TE01_StraightA', 1.0), ('TE01_StraightB_H08', .8)]
@@ -70,12 +72,10 @@ def diorama():
                 add('TE03_Path', (lx, front + 1.15, soil))
         else:
             add('TE03_Stepping', (-.5, front + 1.15, soil))
-        s = .55 + R.uniform(0, .2)
-        while s < 7.6:
-            if not (k == 0 and abs(s - 4 - stair_x) < 1.3):
-                d = 2.95 + R.uniform(-.04, .04)
-                add(R.choice(('TE02_Round', 'TE02_Round', 'TE02_Wide', 'TE02_Tall')), (s - 4., front + d, soil + field_profile(d)), R.uniform(0, 360))
-            s += R.uniform(.98, 1.08)
+        # TE02 hedge along the ridge (the row 1 stair lands on row 0, so row 0's hedge breaks around it); the cut-away ends get a HedgeEnd
+        samples = [(t * .1 - 4., front + 2.95, not (k == 0 and abs(t * .1 - 4 - stair_x) < 1.4)) for t in range(81)]
+        for run in hedge_runs(samples):
+            for hid, hx, hy, hyaw in hedge_run(run)[0]: add(hid, (hx, hy, soil + field_profile(2.95)), hyaw)
         z = soil
     # earth fill under the upper rows (on a hillside the slope is there; in a cut-away it has to be added): x -4..4, from the plinth up to the row's base
     me_ = bpy.data.materials.new('Diorama_Earth'); me_.use_nodes = True; be = me_.node_tree.nodes['Principled BSDF']

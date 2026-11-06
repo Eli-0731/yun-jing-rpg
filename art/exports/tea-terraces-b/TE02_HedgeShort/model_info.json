@@ -1,0 +1,185 @@
+{
+  "asset": "TE02_HedgeShort",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "TE02_HedgeShort_Detail_Small"
+  ],
+  "name_zh": "茶籬（1 m 段）",
+  "slot": "A4_TeaTerraces",
+  "note": "連續修剪的茶籬（追加件，待負責人確認）：同一批茶樹密植後剪成一整條，截面與單株茶樹相同（平的採摘面、圓肩、下緣離地約 12 cm）。深 1.1 m、高 0.85 m；葉片卡與單株共用 TE02_LeafCards 貼圖。開口端是平切面，最後 0.35 m 內輪廓起伏淡出成標準截面，任兩個開口端接在一起不會有落差；沿 X 軸串接，放在梯田茶壟（d = 2.95 m）上。頂點色 Wind 同單株茶樹。長 1 m，兩端開口，補長度與 90° 轉角用。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "row centre line on the ground, z = 0 at the soil; open ends at x = +-L/2",
+  "dimensions_m": [
+    1.3,
+    1.1,
+    0.85
+  ],
+  "bounds_min_m": [
+    -0.65,
+    -0.55,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.65,
+    0.55,
+    0.85
+  ],
+  "size_limit_m": [
+    1.002,
+    1.102,
+    0.852
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        1.0,
+        0.6142,
+        0.4754
+      ],
+      "min": [
+        -0.5,
+        -0.3165,
+        0.0
+      ],
+      "max": [
+        0.5,
+        0.2977,
+        0.4754
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.4317,
+        0.4891,
+        0.0254
+      ],
+      "min": [
+        -0.4015,
+        -0.2667,
+        0.0007
+      ],
+      "max": [
+        0.0303,
+        0.2224,
+        0.0261
+      ]
+    },
+    "Leaves": {
+      "dims_m": [
+        1.3,
+        1.1,
+        0.8319
+      ],
+      "min": [
+        -0.65,
+        -0.55,
+        0.0181
+      ],
+      "max": [
+        0.65,
+        0.55,
+        0.85
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 2968,
+      "LOD1": 1484,
+      "LOD2": 444
+    },
+    "Detail_Small": {
+      "LOD0": 240,
+      "LOD1": 120,
+      "LOD2": 36
+    },
+    "Leaves": {
+      "LOD0": 5040,
+      "LOD1_fit_scale": [
+        1.0,
+        0.971,
+        1.0
+      ],
+      "LOD1": 2712,
+      "LOD2_fit_scale": [
+        0.938,
+        0.916,
+        0.929
+      ],
+      "LOD2": 776
+    }
+  },
+  "lod_totals": {
+    "LOD0": 8248,
+    "LOD1": 4316,
+    "LOD2": 1256
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_TE02_HedgeShort_LeafCards",
+    "M_TE02_HedgeShort_Main"
+  ],
+  "textures": [
+    "TE02_HedgeShort_BaseColor.png",
+    "TE02_HedgeShort_Metallic.png",
+    "TE02_HedgeShort_MetallicSmoothness.png",
+    "TE02_HedgeShort_Normal.png",
+    "TE02_HedgeShort_Roughness.png",
+    "TE02_LeafCards_BaseColor.png",
+    "TE02_LeafCards_Normal.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "TE02_HedgeShort_BaseColor.png",
+    "Normal": "TE02_HedgeShort_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "TE02_HedgeShort_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "TE02_HedgeShort_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "fbx_objects": [
+    "TE02_HedgeShort.001",
+    "TE02_HedgeShort_Collision.001",
+    "TE02_HedgeShort_Detail_Small_LOD0.001",
+    "TE02_HedgeShort_Detail_Small_LOD1.001",
+    "TE02_HedgeShort_Detail_Small_LOD2.001",
+    "TE02_HedgeShort_LOD0.001",
+    "TE02_HedgeShort_LOD1.001",
+    "TE02_HedgeShort_LOD2.001",
+    "TE02_HedgeShort_Leaves_LOD0.001",
+    "TE02_HedgeShort_Leaves_LOD1.001",
+    "TE02_HedgeShort_Leaves_LOD2.001"
+  ],
+  "glb": "TE02_HedgeShort_v001.glb",
+  "interface": {
+    "design": {
+      "L": 1.0,
+      "D": 1.1,
+      "H": 0.85,
+      "z_under": 0.12,
+      "shoulder": 0.15,
+      "seed": 32,
+      "ends": [
+        true,
+        true
+      ],
+      "plants": 2
+    },
+    "fit_scale_xyz": [
+      1.0,
+      0.8082,
+      0.9011
+    ],
+    "collision": "prism 0.76 m deep, 0.75 H tall; full length at an open end, rounded at a closed end"
+  },
+  "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/TE02/ (AI three-view TE02/HEDGE (addition); proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/tea-terraces-unity/unity-verify-report.txt"
+}

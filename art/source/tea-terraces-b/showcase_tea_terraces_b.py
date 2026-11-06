@@ -4,7 +4,8 @@ This is a presentation layout, not an official placement and not the verificatio
 Every row is the same chain, so the rows stack by a plain translation of (0, +4, +1) and never open a gap:
   [mirrored End] [straights...] [GentleOuter +30 deg] [StraightB on the 30 deg run] [GentleInner -30 deg] [straights...] [End]
 The left and right ends are staggered row by row; two rows carry a breach; one stair per row on a 0 deg straight;
-TE03 paths on the straights (d = 1.15 m); TE02 bushes on the planting ridge (d = 2.95 m) of every piece, bends included.
+TE03 paths on the straights (d = 1.15 m); TE02 hedge (TE02_Hedge / HedgeShort / HedgeEnd, an addition pending owner confirmation) along the planting ridge (d = 2.95 m), bends included,
+broken off at each stair, breach and End slope.
 
   blender --background --factory-startup --python art/source/tea-terraces-b/showcase_tea_terraces_b.py              json only
   blender --background --factory-startup --python art/source/tea-terraces-b/showcase_tea_terraces_b.py -- --render  json + golden-light renders
@@ -32,6 +33,7 @@ STAIR = {1: ('left', 0, 1.5), 2: ('right', 0, -1.5), 3: ('left', 0, -2.5), 4: ('
 
 
 sys.path.insert(0, str(HERE))
+from te_hedge_layout import runs as hedge_runs, hedge_run
 from te_terrace import field_profile, RIDGE_D, RIDGE_HALF, RIDGE_H, DITCH_D, DITCH_HALF, DITCH_H   # one profile for every script
 
 
@@ -89,8 +91,11 @@ def row_chain(k):
     return out
 
 
+HEDGE_JOINTS = []   # joints between two open hedge ends: x, y, z (ridge top), yaw, row
+
+
 def layout():
-    P = []; Rb = random.Random(4242)
+    P = []; Rb = random.Random(4242); HEDGE_JOINTS.clear()
     def add(aid, x, y, z, yaw_deg=0., mirror=False, row=None, note=None):
         e = {'id': aid, 'fbx': f'{aid}/{aid}_{version(aid)}.fbx', 'position_m': [round(x, 4), round(y, 4), round(z, 4)], 'rotation_z_deg': round(yaw_deg, 3), 'mirror_x': mirror}
         if row is not None: e['row'] = row
@@ -104,6 +109,7 @@ def layout():
             side, i, xs = STAIR[k + 1]
             pc = [c for c in chains[k + 1] if c['run'] == side and c['idx'] == i][0]
             stair_xy.append(rot((xs, 0.), pc['yaw'])[0] + pc['origin'][0])
+        ridge = {}
         for c in chains[k]:
             aid, (ox, oy), yaw = c['id'], c['origin'], c['yaw']
             if c['run'] == 'left_end':
@@ -118,20 +124,29 @@ def layout():
                     if aid == 'TE01_StraightA' and lx < 0: continue
                     if aid == 'TE01_Broken' and lx > 0: continue
                     add('TE03_Path', ox + lx, oy + dy - 2. + PATH_D, z + 1., 0., False, k)
-            # bushes on the ridge
-            s = .7 + Rb.uniform(0, .3); L = 8.
-            while s < L - .6:
+            # ridge samples for the hedge (laid per row below, once the whole chain is known)
+            for s in [t * .1 for t in range(81)]:
                 ok = True
                 if aid == 'TE01_Broken' and 4.3 < s < 7.5: ok = False
                 if aid == 'TE01_End' and s > 5.4: ok = False
-                d = BUSH_D + Rb.uniform(-.05, .05)
-                lx, ly = local(kind, s, d)
+                lx, ly = local(kind, s, BUSH_D)
                 if mirror: lx = -lx
                 wx, wy = rot((lx, ly), yaw); x, y = ox + wx, oy + wy
                 if any(abs(x - sx) < 1.4 for sx in stair_xy) and abs(yaw) < 1e-6: ok = False
-                if ok:
-                    add(Rb.choice(('TE02_Round', 'TE02_Round', 'TE02_Wide', 'TE02_Tall')), x, y + dy, z + 1. + field_profile(d), Rb.uniform(0, 360), False, k)
-                s += Rb.uniform(1.0, 1.1)
+                ridge.setdefault(id(c), []).append((x, y + dy, ok))
+        # TE02 hedge along the planting ridge, left to right: [left End] [left straights, right to left] [bend group, right run, right End]
+        ch = chains[k]
+        order = [c for c in ch if c['run'] == 'left_end'] + [c for c in ch if c['run'] == 'left'][::-1] + [c for c in ch if c['run'] not in ('left', 'left_end')]
+        samples = []
+        for c in order:
+            pts = ridge[id(c)]
+            if c['run'] == 'left_end': pts = pts[::-1]
+            samples += pts if not samples else pts[1:]
+        zr = z + 1. + field_profile(BUSH_D)
+        for run in hedge_runs(samples):
+            pl_, jt = hedge_run(run)
+            for hid, hx, hy, hyaw in pl_: add(hid, hx, hy, zr, hyaw, False, k)
+            HEDGE_JOINTS.extend([round(jx, 4), round(jy, 4), round(zr, 4), round(jyaw, 3), k] for jx, jy, jyaw in jt)
         if k in STAIR:
             side, i, xs = STAIR[k]
             pc = [c for c in chains[k] if c['run'] == side and c['idx'] == i][0]
@@ -193,7 +208,7 @@ def write():
            'row_rule': 'every row is the same chain translated by (0, 4k, k); where a row turns 30 degrees the upper wall foot overlaps the lower tread by up to 0.54 m (no gap)',
            'hill_note': 'placeholder hillside, not part of the kit: z = (y - y_front(x) - 2) / 4 - 0.3, with y_front(x) interpolated along hill_front_line_flat_xy (row 0 front edge)',
            'hill_front_line_flat_xy': [v for q in front_line() for v in q],
-           'counts': counts, 'walkthrough_route_flat_m': [v for p in walkthrough_route() for v in p], 'walkthrough_note': 'x, y, soil z triples (Blender metres) for the Unity first-person walkthrough', 'pieces': P}
+           'counts': counts, 'walkthrough_route_flat_m': [v for p in walkthrough_route() for v in p], 'walkthrough_note': 'x, y, soil z triples (Blender metres) for the Unity first-person walkthrough', 'hedge_joints_flat': [v for j in HEDGE_JOINTS for v in j], 'hedge_joints_note': 'x, y, ridge-top z, yaw (deg, hedge +X), row for every joint between two open hedge ends', 'pieces': P}
     path = OUT / 'showcase-layout.json'; path.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding='utf-8')
     print('SHOWCASE_JSON', path, len(P), counts, flush=True)
     return doc

@@ -17,7 +17,7 @@ import ti_mats as tm
 import cr_mats as cm
 from cr_parts import rope, log, rbox
 
-LEAF_DIR = Path(__file__).resolve().parents[2] / 'exports' / 'tea-terraces-b' / 'TE02_Shared' / 'v002' / 'Textures'   # v001 atlas stays in TE02_Shared/Textures
+LEAF_DIR = Path(__file__).resolve().parents[2] / 'exports' / 'tea-terraces-b' / 'TE02_Shared' / 'v003' / 'Textures'   # v001 atlas stays in TE02_Shared/Textures, v002 in TE02_Shared/v002/Textures
 BOUND = .146   # half the 0.3 m cell, less a margin
 CELLS = {0: (0., .5, .5, 1.), 1: (.5, .5, 1., 1.), 2: (0., 0., .5, .5), 3: (.5, 0., .75, .5), 4: (.775, .025, .975, .475)}   # u0, v0, u1, v1; 4 = opaque core mass
 
@@ -100,7 +100,7 @@ def _sprig_mesh(name, kind, R):
                 if R.random() < .03: continue   # v002: almost every node carries its pair of leaves (was 12% skipped)
                 a = math.atan2(d.y, d.x) + sgn * R.uniform(.55, 1.05)
                 L = L0 * R.uniform(.8, 1.15) * (1 - .25 * t); tone = R.uniform(tone_lo, tone_hi) + .2 * t * (tone_hi - tone_lo)
-                _leaf(verts, faces, attrs, p, (math.cos(a), math.sin(a), R.uniform(.05, .35)), L, L * .36, min(1., tone), 1. if R.random() < .015 else 0., R=R)   # v002: fewer yellowed leaves (was 4%), the denser cells showed them as noise
+                _leaf(verts, faces, attrs, p, (math.cos(a), math.sin(a), R.uniform(.05, .35)), L, L * .36, min(1., tone), 0., R=R)   # v003 atlas: no yellowed leaves (v001 4%, v002 1.5%); repeated over hundreds of cards they read as pale spots all over the crown
         if len(pts) > 1: stems.append(pts)
         if young_tip:
             # the shoot: a furled bud and two pale leaves standing up
@@ -452,3 +452,211 @@ TE02 = {
     'TE02_Wide': dict(W=1.2, collide_r=.42, H=.8, rx=.6, ry=.47, z_under=.12, shoulder=.14, skew=(.06, -.02), stems=8, seed=22, cards=416, top_cards=131, spacing=.055, lobes=.12),
     'TE02_Tall': dict(W=1.2, collide_r=.42, H=1.1, rx=.56, ry=.53, z_under=.2, shoulder=.22, skew=(-.03, .02), stems=7, seed=23, cards=472, top_cards=109, spacing=.058, lobes=.13),
 }
+
+
+# ------------------------------------------------------------------ TE02_Hedge: continuous clipped hedge (addition, pending owner confirmation)
+# A row of tea bushes planted close and clipped as one: the same leaf atlas, card sizes, plucking table and shoots as the single bushes,
+# on a long crown whose cross-section is the bush profile. Open ends are flat cuts at x = +-L/2 where the next segment carries on; the
+# crown is exactly the base profile there (the lumpy outline fades out over the last 0.35 m), so any two open ends meet without a step.
+# HedgeEnd rounds its +X end like half a bush and leaves -X open.
+HEDGE = {
+    'TE02_Hedge': dict(L=2.0, D=1.1, H=.85, z_under=.12, shoulder=.15, seed=31, cards=520, top_cards=280, spacing=.055, lobes=.1, ends=(True, True), plants=4),
+    'TE02_HedgeShort': dict(L=1.0, D=1.1, H=.85, z_under=.12, shoulder=.15, seed=32, cards=260, top_cards=140, spacing=.055, lobes=.1, ends=(True, True), plants=2),
+    'TE02_HedgeEnd': dict(L=1.0, D=1.1, H=.85, z_under=.12, shoulder=.15, seed=33, cards=330, top_cards=130, spacing=.055, lobes=.1, ends=(True, False), plants=2),
+}
+
+
+def _smooth(t):
+    t = max(0., min(1., t)); return t * t * (3 - 2 * t)
+
+
+class HedgeCrown:
+    """Plan: x in [-L/2, L/2], half-depth D/2; ends[0] / ends[1] say whether -X / +X is an open cut (True) or rounded (False)."""
+    def __init__(self, cfg):
+        self.L, self.D, self.H, self.zu, self.sh, self.lobes = cfg['L'], cfg['D'], cfg['H'], cfg['z_under'], cfg['shoulder'], cfg['lobes']
+        self.ends = cfg['ends']; self.seed = cfg['seed'] * .37; self.r0 = self.D / 2
+        # rounded end: a half disc of radius D/2 centred at xc
+        self.xc = self.L / 2 - self.r0 if not self.ends[1] else self.L / 2
+
+    def prof(self, z):
+        t = (z - self.zu) / max(self.H - self.zu, .01)
+        if t < 0: return 0.
+        p = (.62 + .38 * math.sin(min(1., t / .55) * math.pi / 2)) if t < .55 else 1.
+        top = self.H - self.sh
+        if z > top:
+            k = (z - top) / self.sh; p *= math.sqrt(max(0., 1 - k * k)) * .45 + .55 * (1 - k ** 3)
+        return p
+
+    def lump(self, x, a, z):
+        """1 + lobes * noise, faded to exactly 1 within 0.35 m of an open end."""
+        d = min([x + self.L / 2] * self.ends[0] + [self.L / 2 - x] * self.ends[1] + [9.])
+        e = _smooth(d / .35)
+        n = noise.noise(Vector((x * 1.7 + self.seed, a * 1.3, z * 2))) + .4 * math.sin(x * 4.1 + a * 2 + self.seed)
+        return 1 + self.lobes * e * n
+
+    def point(self, s, side, z, inset=0.):
+        """s in [0, 1) along one side (the straight part, then a quarter of the cap if any); side +1 / -1.
+        Returns the point (pulled in by inset), the outward horizontal direction and the plan radius."""
+        x0 = -self.L / 2; straight = self.xc - x0
+        cap = 0. if self.ends[1] else math.pi * self.r0 / 2
+        u = s * (straight + cap)
+        pr = self.prof(z)
+        if u <= straight:
+            x = x0 + u; h = Vector((0, side, 0)); r = self.r0 * pr * self.lump(x, side, z)
+            return Vector((x, side * max(r - inset, .02), z)), h, r
+        phi = (u - straight) / self.r0
+        h = Vector((math.sin(phi), side * math.cos(phi), 0))
+        r = self.r0 * pr * self.lump(self.xc, side * (1 + phi), z)
+        return Vector((self.xc, 0, z)) + h * max(r - inset, .02), h, r
+
+    def normal(self, s, side, z):
+        if z > self.H - .02: return Vector((0, 0, 1))
+        e = .02; _, h, r0 = self.point(s, side, z); _, _, r1 = self.point(s, side, min(z + e, self.H))
+        return (h - Vector((0, 0, (r1 - r0) / e))).normalized()
+
+
+def tea_hedge(P, cfg):
+    cfg['leaf_mat'] = P['leaves']
+    R = random.Random(cfg['seed']); H = cfg['H']; L = cfg['L']; C = HedgeCrown(cfg)
+    x_lo, x_hi = -L / 2, (L / 2 if cfg['ends'][1] else C.xc + C.r0 * .55)
+    # soil strip along the row; it keeps full height to an open end so two segments meet without a dip
+    def strip(u, v):
+        x = x_lo + (x_hi - x_lo) * u; y = (v - .5) * .76
+        k = 1. if cfg['ends'][1] else _smooth((x_hi - x) / .3)
+        return (x, y * (.4 + .6 * k), .06 * k * (1 - (2 * v - 1) ** 2) ** 1.4 + .002)
+    surface('Root_Strip', max(6, int(L * 10)), 6, strip, P['soil'], grain='z')
+    for k in range(int(5 * L)):
+        x = R.uniform(x_lo + .1, x_hi - .1); y = R.choice((-1, 1)) * R.uniform(.22, .36); sz = R.uniform(.03, .06)
+        rbox('Root_Pebble', (x, y, .01 + sz * .1), (sz, sz * .8, sz * .5), P['stone'], r=sz * .3, amp=sz * .1, seed=k, div=sz * .45, rot=(0, 0, R.uniform(0, 6.3)), detail=2)
+    # woody frame: a stump and short stems per plant, mostly hidden under the skirt
+    n_pl = cfg['plants']
+    for i in range(n_pl):
+        px = x_lo + (x_hi - x_lo) * (i + .5) / n_pl + R.uniform(-.06, .06); py = R.uniform(-.05, .05)
+        for k in range(3):
+            a = k / 3 * math.tau + R.uniform(-.4, .4)
+            rope('Stump', [(px + math.cos(a) * .05, py + math.sin(a) * .05, -.01), (px + math.cos(a) * .03, py + math.sin(a) * .03, .06), (px + math.cos(a) * .045, py + math.sin(a) * .045, .12)],
+                 R.uniform(.04, .05), P['bark'], ply=2, tw=40., seg=10, amp=.14, grain='z', detail=0)
+        for k in range(6):
+            a = k / 6 * math.tau + R.uniform(-.3, .3); pts = [Vector((px + math.cos(a) * .05, py + math.sin(a) * .05, .09))]
+            d = Vector((math.cos(a) * .9, math.sin(a) * .9, 1)).normalized()
+            for j in range(4):
+                d = (d + Vector((R.uniform(-.15, .15), R.uniform(-.15, .15), .1))).normalized(); q = pts[-1] + d * .12
+                q.y = max(-C.r0 * .55, min(C.r0 * .55, q.y)); q.x = max(x_lo + .05, min(x_hi - .05, q.x)); pts.append(q)
+            rope('Stem', [tuple(p) for p in pts], R.uniform(.022, .03), P['bark'], ply=1, tw=0., seg=8, amp=.08, radius_fn=lambda t: 1 - .4 * t, grain='z', detail=0)
+    # leaf cards
+    verts, faces, uvs, cols, nrms, masks = [], [], [], [], [], []
+    margin = .02     # card centres stop just inside an open end, so the cards overhang the cut by ~0.1 m and interleave with the neighbour's
+    def shell(count, inset, zlo, zhi, seed, margin=margin):
+        Rs = random.Random(seed); out = []
+        for _ in range(count * 30):
+            if len(out) >= count: break
+            s = Rs.random(); side = Rs.choice((-1, 1)); z = Rs.uniform(zlo, zhi)
+            p, h, r = C.point(s, side, z, inset)
+            if r < .05: continue
+            if cfg['ends'][0] and p.x < -L / 2 + margin: continue
+            if cfg['ends'][1] and p.x > L / 2 - margin: continue
+            if all((p - q[0]).length > cfg['spacing'] * (1 - inset * .6) for q in out): out.append((p, s, side, z))
+        return out
+    top_z = H - cfg['shoulder']
+    shoot_ranges = []
+    for lod_mask, scale, count_k, seed in ((1, 1., 1., 11), (2, 1.4, .48, 12), (4, 1.9, .15, 13)):
+        sink = .03 + (scale - 1) * .1
+        mg = margin + (scale - 1) * .14   # larger far-LOD cards start further in, so every LOD reaches about as far past the cut
+        sp = cfg['spacing']; cfg['spacing'] = sp * math.sqrt(1 / count_k)
+        for p, s, side, z in shell(int(cfg['cards'] * count_k), sink, cfg['z_under'] + .05 + (scale - 1) * .22, top_z + cfg['shoulder'] * .7, seed, mg):
+            nrm = C.normal(s, side, z); up = (z - cfg['z_under']) / (H - cfg['z_under'])
+            cell = 2 if up > .45 else 0
+            if R.random() < .25: cell = 3
+            card(verts, faces, uvs, cols, nrms, masks, p, (nrm + Vector((0, 0, .35))).normalized(), R.uniform(.21, .28) * scale, cell, R, wind=1., phase=R.random(), H=H, mask=lod_mask)
+        for p, s, side, z in shell(int(cfg['top_cards'] * count_k), .02, top_z + cfg['shoulder'] * .55, H - .005, seed + 50, mg):
+            card(verts, faces, uvs, cols, nrms, masks, p, (Vector((R.uniform(-.25, .25), R.uniform(-.25, .25), 1))).normalized(), R.uniform(.19, .25) * scale, 1, R, wind=1., phase=R.random(), H=H, mask=lod_mask, bend=.1)
+        for p, s, side, z in shell(int(cfg['cards'] * .6 * count_k), .12, cfg['z_under'] + .08 + (scale - 1) * .22, top_z, seed + 90, mg):
+            card(verts, faces, uvs, cols, nrms, masks, p, (C.normal(s, side, z) + Vector((0, 0, .2))).normalized(), R.uniform(.24, .3) * scale, 0, R, wind=.7, phase=R.random(), H=H, mask=lod_mask)
+        if lod_mask == 1:
+            s0 = len(verts)
+            for p, s, side, z in shell(int(cfg['top_cards'] * .4), .0, H - .05, H - .005, seed + 70):
+                b = R.uniform(0, math.tau)
+                card(verts, faces, uvs, cols, nrms, masks, p + Vector((0, 0, .03)), (math.cos(b) * .75, math.sin(b) * .75, R.uniform(.55, .8)), R.uniform(.14, .18), 3, R,
+                     roll=R.uniform(-.25, .25), wind=1., phase=R.random(), H=H, mask=3, bend=.05)
+            shoot_ranges.append((s0, len(verts)))
+        cfg['spacing'] = sp
+    # outward normals from the crown axis (a line along X; the cap centre on the rounded end): no X component on the straight part,
+    # so the shading carries straight across a joint between two segments
+    cz = cfg['z_under'] + (H - cfg['z_under']) * .3
+    def axis_n(p):
+        ax = p[0] if cfg['ends'][1] else min(p[0], C.xc)
+        q = Vector((p[0] - ax, p[1], p[2] - cz)); q.x /= C.r0; q.y /= C.r0; q.z /= (H - cz) * .8
+        return q.normalized()
+    in_shoot = set(i for a0, a1 in shoot_ranges for i in range(a0, a1))
+    leaf_n = []
+    for i, p in enumerate(verts):
+        q = axis_n(p)
+        if i in in_shoot: q = (q * .35 + Vector((0, 0, 1))).normalized()
+        leaf_n.append(tuple(q))
+    o = mesh('Leaf_Cards', verts, faces, cfg['leaf_mat'], grain='z', detail=0, group='Leaves')
+    me = o.data; uv = me.uv_layers[0]
+    for poly in me.polygons:
+        for li in poly.loop_indices: uv.data[li].uv = uvs[me.loops[li].vertex_index]
+    ca = me.color_attributes.new('Wind', 'FLOAT_COLOR', 'POINT'); ca.data.foreach_set('color', [c for v in cols for c in v])
+    at = me.attributes.new('leaf_n', 'FLOAT_VECTOR', 'POINT'); at.data.foreach_set('vector', [c for v in leaf_n for c in v])
+    lm = me.attributes.new('lod_mask', 'INT', 'FACE'); lm.data.foreach_set('value', masks)
+    # core: an arched tube along the row inside the inner layer (open at a cut end, closing over the rounded end)
+    u0, v0, u1, v1 = CELLS[4]
+    zlo, ztop = cfg['z_under'] + .1, H - .08   # up under the table, so a gap at the shoulder shows dark foliage, not the hollow inside
+    rc = C.r0 * .62 * C.prof(.5 * (zlo + ztop))
+    def core(u, v):
+        x = x_lo + (x_hi - x_lo) * v; th = math.pi * u
+        k = 1. if cfg['ends'][1] else math.sqrt(max(0., 1 - (max(0., x - C.xc) / (x_hi - C.xc)) ** 2))
+        return (x, math.cos(th) * rc * max(k, .05), zlo + (ztop - zlo) * math.sin(th) * (.4 + .6 * k))
+    nv = max(4, int(L * 6))
+    co = surface('Crown_Core', 8, nv, core, cfg['leaf_mat'], uvfn=lambda u, v: (u0 + (u1 - u0) * u, v0 + (v1 - v0) * v), closed_u=False, grain='z', group='Leaves')
+    # open ends: a dark foliage disc fills the arch just inside the cut, so a lone segment reads as a cut hedge and two joined
+    # segments cannot be looked through along the row
+    caps = []
+    for sgn, is_open in ((-1, cfg['ends'][0]), (1, cfg['ends'][1])):
+        if not is_open: continue
+        xcap = sgn * (L / 2 - .03)
+        caps.append(surface('Core_Cap', 8, 2, lambda u, v, xcap=xcap: (xcap, math.cos(math.pi * u) * rc * v, zlo + (ztop - zlo) * math.sin(math.pi * u) * v),
+                            cfg['leaf_mat'], uvfn=lambda u, v: (u0 + (u1 - u0) * u, v0 + (v1 - v0) * v), closed_u=False, grain='z', group='Leaves'))
+    for cme in [co.data] + [c_.data for c_ in caps]:
+        ca = cme.color_attributes.new('Wind', 'FLOAT_COLOR', 'POINT'); ca.data.foreach_set('color', [c for vv in cme.vertices for c in (.35, .5, vv.co.z / H, 1.)])
+        at = cme.attributes.new('leaf_n', 'FLOAT_VECTOR', 'POINT'); at.data.foreach_set('vector', [c for vv in cme.vertices for c in axis_n(vv.co)])
+        lm = cme.attributes.new('lod_mask', 'INT', 'FACE'); lm.data.foreach_set('value', [7] * len(cme.polygons))
+    for o2 in S['parts']:
+        if o2.type == 'MESH' and o2.get('group', 'Main') == 'Main' and not o2.data.color_attributes:
+            me2 = o2.data; mw = o2.matrix_world
+            ca = me2.color_attributes.new('Wind', 'FLOAT_COLOR', 'POINT')
+            ca.data.foreach_set('color', [c for vv in me2.vertices for c in (min(.4, max(0., (mw @ vv.co).z / H * .5)), 0., (mw @ vv.co).z / H, 1.)])
+    fit_hedge(cfg)
+    # collision: a prism under the shoulder; full length on an open segment (neighbours' prisms touch), rounded off at a closed end
+    hd = .38; hc = H * .75
+    if cfg['ends'][1]: plan = [(-L / 2, -hd), (L / 2, -hd), (L / 2, hd), (-L / 2, hd)]
+    else:
+        xc = C.xc
+        plan = [(-L / 2, -hd), (xc, -hd)] + [(xc + hd * math.sin(a), -hd * math.cos(a)) for a in (.6, 1.2)] + [(xc + hd, 0.)] + \
+               [(xc + hd * math.sin(a), hd * math.cos(a)) for a in (1.2, .6)] + [(xc, hd), (-L / 2, hd)]
+    n = len(plan); vs = [(x, y, z) for z in (0., hc) for x, y in plan]
+    fs = [tuple(range(n - 1, -1, -1)), tuple(range(n, 2 * n))] + [(k, (k + 1) % n, n + (k + 1) % n, n + k) for k in range(n)]
+    S['collision_mesh'] = (vs, fs)
+    S['hedge'] = cfg
+
+
+def fit_hedge(cfg):
+    """Scale y and z about the row line so the LOD0 content is exactly D deep and H tall; x stays as built."""
+    bpy.context.view_layer.update()
+    pts = []
+    for o in S['parts']:
+        if o.type != 'MESH': continue
+        me = o.data; mw = o.matrix_world
+        if o.name.startswith('Leaf_Cards'):
+            m = me.attributes['lod_mask'].data
+            ids = {v for f in me.polygons if m[f.index].value & 1 for v in f.vertices}
+        else: ids = range(len(me.vertices))
+        pts += [mw @ me.vertices[i].co for i in ids]
+    # X is built in metres and left alone: the open ends (core, soil strip) sit exactly on x = +-L/2 and the leaf cards overhang them
+    lo_y = min(p.y for p in pts); hi_y = max(p.y for p in pts); hi_z = max(p.z for p in pts)
+    sx = 1.; sy = cfg['D'] / (hi_y - lo_y); sz = cfg['H'] / hi_z
+    M = Matrix.Diagonal((sx, sy, sz, 1.)) @ Matrix.Translation((0, -(hi_y + lo_y) / 2, 0))
+    for o in S['parts']: o.matrix_world = M @ o.matrix_world
+    bpy.context.view_layer.update()
+    S['fit_scale'] = (round(sx, 4), round(sy, 4), round(sz, 4))

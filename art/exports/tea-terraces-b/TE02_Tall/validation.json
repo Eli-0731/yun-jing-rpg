@@ -204,7 +204,7 @@
       "check": "glb_written",
       "pass": true,
       "detail": {
-        "bytes": 5582500
+        "bytes": 5336276
       }
     },
     {
@@ -214,7 +214,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 141,
+  "seconds": 143,
   "not_checked": [
     "in-engine lighting and walking (see the Unity report)",
     "mobile frame rate (not measured)"

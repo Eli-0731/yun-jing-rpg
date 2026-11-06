@@ -25,7 +25,8 @@ namespace YunJing.Editor
         static string Out => Path.Combine(Repo, "artifacts", "tea-terraces-unity");
         static readonly string[] Ids = { "TE01_StraightA", "TE01_StraightB", "TE01_InnerBend", "TE01_OuterBend", "TE01_End", "TE01_Broken",
             "TE02_Round", "TE02_Wide", "TE02_Tall", "TE03_Stair", "TE03_Path", "TE03_Stepping",
-            "TE01_GentleOuter", "TE01_GentleInner", "TE01_StraightB_H08", "TE01_StraightB_H12", "TE01_End_H08", "TE01_End_H12" };
+            "TE01_GentleOuter", "TE01_GentleInner", "TE01_StraightB_H08", "TE01_StraightB_H12", "TE01_End_H08", "TE01_End_H12",
+            "TE02_Hedge", "TE02_HedgeShort", "TE02_HedgeEnd" };
         static readonly List<string> Report = new List<string>();
         static int failed;
         static CharacterController cc;
@@ -273,7 +274,7 @@ namespace YunJing.Editor
 
         // The contour showcase from showcase-layout.json at Blender (0, -300, 0), in the morning light: golden sun, blue-violet shadows, fog;
         // captures and a first-person walkthrough with a CharacterController along walkthrough_route_m (frames for an mp4).
-        [Serializable] class Showcase_ { public Placement[] pieces; public int rows; public float[] walkthrough_route_flat_m, hill_front_line_flat_xy; }
+        [Serializable] class Showcase_ { public Placement[] pieces; public int rows; public float[] walkthrough_route_flat_m, hill_front_line_flat_xy, hedge_joints_flat; }
         static void Showcase()
         {
             var path = Path.Combine(Exports, "showcase", "showcase-layout.json");
@@ -353,6 +354,24 @@ namespace YunJing.Editor
             var end = cc.transform.position; float wantEnd = 4 + 0;
             Check(reached && leg >= route.Count && Mathf.Abs(end.y - (wantEnd)) < .15f,
                 $"showcase walkthrough: a 1.75 m CharacterController walks row 2, climbs the stair, follows row 3 through both 30 degree bends to the right end: {(reached && leg >= route.Count ? "reached" : $"STUCK at leg {leg} of {route.Count}")} ({end.x:F2}, {end.y:F2}, {end.z:F2}), {frame} frames");
+            // hedge joints: walking from the path side straight at the joint between two hedge segments, the walker is stopped by the
+            // segments' colliders (0.38 m half depth + 0.30 m capsule) and cannot slip through where the two pieces meet
+            var hj = doc.hedge_joints_flat;
+            if (hj == null || hj.Length < 5) Check(false, "showcase-layout.json has hedge_joints_flat");
+            else
+            {
+                int n = hj.Length / 5, tested = 0, stopped = 0; float gmin = 9, gmax = 0;
+                for (int i = 0; i < n; i += Mathf.Max(1, n / 12))
+                {
+                    float jx = hj[5 * i], jy = hj[5 * i + 1], jz = hj[5 * i + 2], yaw = hj[5 * i + 3] * Mathf.Deg2Rad;
+                    float soil = jz - .18f; var perp = new Vector2(-Mathf.Sin(yaw), Mathf.Cos(yaw));
+                    var a = S(jx - perp.x * 1.5f, jy - perp.y * 1.5f, soil); var b = S(jx + perp.x * 1.2f, jy + perp.y * 1.2f, soil);
+                    var w = Walk($"into hedge joint {i}", soil - .05f, soil + .25f, false, a, b);
+                    var j = S(jx, jy, soil); float g = Vector2.Distance(new Vector2(w.end.x, w.end.z), new Vector2(j.x, j.z));
+                    tested++; if (!w.reached && g > .6f && g < .8f) stopped++; gmin = Mathf.Min(gmin, g); gmax = Mathf.Max(gmax, g);
+                }
+                Check(tested >= 10 && stopped == tested, $"hedge joints: {stopped} of {tested} sampled joints (of {n}) stop the walker {gmin:F2}..{gmax:F2} m from the joint line (collider half depth 0.38 + capsule 0.30)");
+            }
             File.WriteAllText(Path.Combine(Out, "walkthrough.json"), $"{{\"frames\":{frame},\"fps\":30,\"size\":[{W},{H}],\"reached\":{(reached && leg >= route.Count ? "true" : "false")},\"waypoints\":{route.Count},\"end\":[{end.x:F3},{end.y:F3},{end.z:F3}]}}");
             UnityEngine.Object.DestroyImmediate(cc.gameObject);
         }

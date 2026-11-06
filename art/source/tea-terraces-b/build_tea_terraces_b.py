@@ -84,6 +84,20 @@ TE02_V002_NOTE = ' v002：葉片更密集（每格貼圖的葉子更多更小、
 TE02_V003_NOTE = ' v003：更茂密——樹冠下緣降到離地 12–20 cm，主幹大多被葉子蓋住；葉片卡再多約 35%、稍大、間距更小；輪廓更蓬鬆。尺寸與擺放不變（v002 的「露出主幹」描述已不適用）。'
 for _aid in ('TE02_Round', 'TE02_Wide', 'TE02_Tall'):
     ASSETS[_aid]['ver'] = 'v003'; ASSETS[_aid]['note'] += TE02_V002_NOTE + TE02_V003_NOTE
+# TE02 v004 (2026-11-06): leaf atlas v003 (TE02_Shared/v003/Textures) without the yellowed leaves; the crowns are rebuilt unchanged.
+TE02_V004_NOTE = ' v004：葉片貼圖改用 TE02_Shared/v003，拿掉整片偏黃的老葉（重複數百張卡後在樹冠上變成滿佈的淺黃點）；形狀與 v003 相同。'
+for _aid in ('TE02_Round', 'TE02_Wide', 'TE02_Tall'):
+    ASSETS[_aid]['ver'] = 'v004'; ASSETS[_aid]['note'] += TE02_V004_NOTE
+# TE02_Hedge family (2026-11-06, addition outside the work pack, pending owner confirmation): a continuous clipped hedge along the planting ridge.
+HEDGE_NOTE = ('連續修剪的茶籬（追加件，待負責人確認）：同一批茶樹密植後剪成一整條，截面與單株茶樹相同（平的採摘面、圓肩、下緣離地約 12 cm）。'
+              '深 1.1 m、高 0.85 m；葉片卡與單株共用 TE02_LeafCards 貼圖。開口端是平切面，最後 0.35 m 內輪廓起伏淡出成標準截面，'
+              '任兩個開口端接在一起不會有落差；沿 X 軸串接，放在梯田茶壟（d = 2.95 m）上。頂點色 Wind 同單株茶樹。')
+for _aid, _zh, _lim, _extra in (('TE02_Hedge', '茶籬（2 m 段）', (2.0, 1.1, .85), '長 2 m，兩端開口，直段與緩彎用。'),
+                                ('TE02_HedgeShort', '茶籬（1 m 段）', (1.0, 1.1, .85), '長 1 m，兩端開口，補長度與 90° 轉角用。'),
+                                ('TE02_HedgeEnd', '茶籬（收頭）', (1.0, 1.1, .85), '長 1 m，-X 端開口接茶籬，+X 端收成半個圓頂；左側收頭旋轉 180° 使用。')):
+    ASSETS[_aid] = dict(zh=_zh, kind='hedge', palette=TB.palette, build=(lambda P, a=_aid: TB.tea_hedge(P, dict(TB.HEDGE[a]))), limit=_lim, ref='TE02/HEDGE (addition)', tex=1024,
+                        note=HEDGE_NOTE + _extra, origin='row centre line on the ground, z = 0 at the soil; open ends at x = +-L/2', minTier='standard', clamp_max=.04, ver='v001',
+                        box=((-_lim[0] / 2 - .15, -_lim[1] / 2 - .002, 0.), (_lim[0] / 2 + .15, _lim[1] / 2 + .002, _lim[2] + .002)))   # leaf cards overhang an open end by up to 0.15 m
 
 TE03_NOTE = '1.2 m 寬，與 TE01 共用石材、土、草和苔的材質。'
 ASSETS['TE03_Stair'] = dict(zh='梯田石階', kind='te03', palette=TP.palette, build=TP.te03_stair, limit=(1.2, 2.6, 1.05), box=((-.66, -2.47, 0.), (.66, .2, 1.05)), ref='TE03/STAIR', tex=2048, clamp_max=.05,
@@ -321,7 +335,7 @@ def run(aid, force=False):
     lo, hi = pl.eval_bounds(lod0); dims = hi - lo
     checks = []
     def check(name, ok, detail): checks.append({'check': name, 'pass': bool(ok), 'detail': detail})
-    if cfg['kind'] == 'bush': lim = cfg['limit']; cfg = dict(cfg, limit=(lim[0] + .002, lim[1] + .002, lim[2] + .002))
+    if cfg['kind'] in ('bush', 'hedge'): lim = cfg['limit']; cfg = dict(cfg, limit=(lim[0] + .002, lim[1] + .002, lim[2] + .002))
     pieces = {}
     for gname, o in S['lods'][0].items():
         a, b = pl.eval_bounds([o]); pieces[gname] = {'dims_m': [round(v, 4) for v in b - a], 'min': [round(v, 4) for v in a], 'max': [round(v, 4) for v in b]}
@@ -394,6 +408,7 @@ def run(aid, force=False):
 def spec_checks(aid, check):
     out = {}
     if ASSETS[aid]['kind'] == 'bush': return bush_checks(aid, check)
+    if ASSETS[aid]['kind'] == 'hedge': return hedge_checks(aid, check)
     if ASSETS[aid]['kind'] == 'te03': return te03_checks(aid, check)
     if ASSETS[aid]['kind'] != 'terrace': return out
     T = S['terrace']; M = S['map']; L = T.L
@@ -507,6 +522,44 @@ def bush_checks(aid, check):
     check('woody_stems_present', st is not None and len(st.data.polygons) > 500, {'main_faces': len(st.data.polygons) if st else 0})
     return {'design': {k: cfg[k] for k in ('H', 'W', 'z_under', 'shoulder', 'stems', 'seed')}, 'fit_scale_xy_z': S.get('fit_scale'), 'collision': 'octagonal prism r 0.42 m, 0.75 H tall'}
 
+
+
+def hedge_checks(aid, check):
+    cfg = S['hedge']; lods = S['lods']
+    lo, hi = pl.eval_bounds(list(lods[0].values()))
+    mm = lods[0]['Main'].data; cm_ = np.zeros(len(mm.vertices) * 3, np.float32); mm.vertices.foreach_get('co', cm_); cm_ = cm_.reshape(-1, 3)
+    soil_x = [round(float(cm_[:, 0].min()), 4), round(float(cm_[:, 0].max()), 4)]
+    ok_x = abs(soil_x[0] + cfg['L'] / 2) <= .002 and (abs(soil_x[1] - cfg['L'] / 2) <= .002 if cfg['ends'][1] else soil_x[1] < cfg['L'] / 2)
+    check('length_depth_height', ok_x and abs(hi.y - lo.y - cfg['D']) <= .01 and abs(hi.z - cfg['H']) <= .01 and lo.x >= -cfg['L'] / 2 - .15 and hi.x <= cfg['L'] / 2 + .15,
+          {'joint_pitch_m': cfg['L'], 'soil_and_stems_x_m': soil_x, 'overall_x_m': [round(lo.x, 4), round(hi.x, 4)], 'y_m': round(hi.y - lo.y, 4), 'top_m': round(hi.z, 4),
+           'note': 'open ends: the soil strip and core end on x = +-L/2 (the joint), leaf cards overhang it by up to 0.15 m and interleave with the neighbour'})
+    # open ends: leaves must reach the cut on both faces and the core tube must end on the cut, so a neighbour carries straight on
+    me = lods[0]['Leaves'].data; co = np.zeros(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
+    ends = {}
+    for sgn, is_open in ((-1, cfg['ends'][0]), (1, cfg['ends'][1])):
+        if not is_open: continue
+        cut = sgn * cfg['L'] / 2; near = co[np.abs(co[:, 0] - cut) < .06]   # leaf cards crossing the joint plane
+        ends['+X' if sgn > 0 else '-X'] = {'leaf_verts_within_6cm': int(len(near)), 'reach_m': round(float(np.abs(co[:, 0]).max()), 4),
+                                         'y_span_m': [round(float(near[:, 1].min()), 3), round(float(near[:, 1].max()), 3)] if len(near) else None,
+                                         'z_span_m': [round(float(near[:, 2].min()), 3), round(float(near[:, 2].max()), 3)] if len(near) else None}
+    ok = all(e['leaf_verts_within_6cm'] >= 150 and e['y_span_m'] and e['y_span_m'][0] < -.4 and e['y_span_m'][1] > .4 and e['z_span_m'][0] < .25 and e['z_span_m'][1] > cfg['H'] - .1 for e in ends.values())
+    check('open_ends_leaves_reach_the_cut', ok, ends)
+    wind = {}
+    for lv, g in lods.items():
+        for gname, o in g.items():
+            ca = o.data.color_attributes.get('Wind')
+            if ca is None: wind[o.name] = None; continue
+            c = np.zeros(len(ca.data) * 4, np.float32); ca.data.foreach_get('color', c); c = c.reshape(-1, 4)
+            wind[o.name] = [round(float(c[:, 0].min()), 3), round(float(c[:, 0].max()), 3)]
+    lw = wind.get(f'{aid}_LOD0'); leaf = wind.get(f'{aid}_Leaves_LOD0')
+    check('wind_vertex_colour_on_every_mesh', all(v is not None for v in wind.values()) and lw[0] <= .02 and leaf[1] >= .95, {'R_min_max': wind})
+    lm = lods[0]['Leaves'].data.materials[0]
+    check('leaf_cards_alpha_clip_two_sided', not lm.use_backface_culling, {'material': lm.name})
+    uv = np.zeros(len(me.loops) * 2, np.float32); me.uv_layers[0].data.foreach_get('uv', uv); uv = uv.reshape(-1, 2)
+    shoots = int(((uv[:, 0] > .5) & (uv[:, 1] > .5)).sum() // 9)
+    check('plucking_table_shoot_cards_present', shoots >= 20 * cfg['L'], {'cards_using_shoot_cell_approx': shoots})
+    return {'design': {k: cfg[k] for k in ('L', 'D', 'H', 'z_under', 'shoulder', 'seed', 'ends', 'plants')}, 'fit_scale_xyz': S.get('fit_scale'),
+            'collision': 'prism 0.76 m deep, 0.75 H tall; full length at an open end, rounded at a closed end'}
 
 def close_shot(objs, path, samples=32, target=None, eye=None, lens=40):
     """A person's-eye close-up of the wall: 1.6 m eye height, 2.4 m in front of it."""
