@@ -1,0 +1,5 @@
+aged_bamboo|aged_bamboo_base.png||0.8000|0.8000|0.8000|0.780
+dry_ochre|||0.6100|0.3700|0.1300|0.780
+natural_hemp|natural_hemp_base.png||0.8000|0.8000|0.8000|0.780
+warm_gray_stone|warm_gray_stone_base.png||0.8000|0.8000|0.8000|0.780
+work_in_progress_hemp|work_in_progress_hemp_base.png||0.8000|0.8000|0.8000|0.780
