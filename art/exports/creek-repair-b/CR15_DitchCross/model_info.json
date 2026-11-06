@@ -1,0 +1,181 @@
+{
+  "asset": "CR15_DitchCross",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CR15_DitchCross_Detail_Small"
+  ],
+  "name_zh": "土渠十字口",
+  "slot": "配水渠",
+  "note": "工作單外加的：主水路從南進，分西、東、北三路到各田閘門。四個接口都與 CR06 相同。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre",
+  "dimensions_m": [
+    1.5379,
+    1.5378,
+    0.4924
+  ],
+  "size_limit_m": [
+    1.6,
+    1.6,
+    0.5
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        1.5176,
+        1.5278,
+        0.4911
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0
+    },
+    "Detail_Small": {
+      "dims_m": [
+        1.5379,
+        1.5378,
+        0.4542
+      ],
+      "pivot": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min_z_local": 0.0382
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 17592,
+      "LOD1": 8796,
+      "LOD2": 2638
+    },
+    "Detail_Small": {
+      "LOD0": 51617,
+      "LOD1": 25808,
+      "LOD2": 7742
+    }
+  },
+  "lod_totals": {
+    "LOD0": 69209,
+    "LOD1": 34604,
+    "LOD2": 10380
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (small parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CR15_DitchCross_Main"
+  ],
+  "textures": [
+    "CR15_DitchCross_BaseColor.png",
+    "CR15_DitchCross_Metallic.png",
+    "CR15_DitchCross_MetallicSmoothness.png",
+    "CR15_DitchCross_Normal.png",
+    "CR15_DitchCross_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z (seen in the captures)",
+    "BaseColor": "CR15_DitchCross_BaseColor.png",
+    "Normal": "CR15_DitchCross_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "CR15_DitchCross_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root, so Unity builds a LODGroup on import",
+    "collision": "CR15_DitchCross_Collision: add a MeshCollider (convex off); hide its renderer"
+  },
+  "collision": true,
+  "collision_shapes": [],
+  "sockets_blender_xyz": {
+    "Socket_PortIn": [
+      -0.0001,
+      -0.7502,
+      0.1005
+    ],
+    "Socket_PortWest": [
+      -0.7501,
+      -0.0002,
+      0.1005
+    ],
+    "Socket_PortEast": [
+      0.7499,
+      -0.0002,
+      0.1005
+    ],
+    "Socket_PortNorth": [
+      -0.0001,
+      0.7498,
+      0.1005
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_PortEast.001": [
+      0.7499,
+      -0.0002,
+      0.1005
+    ],
+    "Socket_PortIn.001": [
+      -0.0001,
+      -0.7502,
+      0.1005
+    ],
+    "Socket_PortNorth.001": [
+      -0.0001,
+      0.7498,
+      0.1005
+    ],
+    "Socket_PortWest.001": [
+      -0.7501,
+      -0.0002,
+      0.1005
+    ]
+  },
+  "states": [
+    "水面是獨立模型 <ID>_water_v001.fbx，不在渠身 FBX 裡：原點與渠身相同，放同一位置；UV u 0–1 橫跨、v 沿水流每公尺 +1，材質用流動 shader，沒有烘貼圖"
+  ],
+  "state_renders": {},
+  "fbx_objects": [
+    "CR15_DitchCross.001",
+    "CR15_DitchCross_Collision.001",
+    "CR15_DitchCross_Detail_Small_LOD0.001",
+    "CR15_DitchCross_Detail_Small_LOD1.001",
+    "CR15_DitchCross_Detail_Small_LOD2.001",
+    "CR15_DitchCross_LOD0.001",
+    "CR15_DitchCross_LOD1.001",
+    "CR15_DitchCross_LOD2.001",
+    "Socket_PortEast.001",
+    "Socket_PortIn.001",
+    "Socket_PortNorth.001",
+    "Socket_PortWest.001"
+  ],
+  "modeling_method": "procedural mesh construction (art/source/creek-repair-b/); procedural shaders (cr_mats.py) baked to a UV atlas",
+  "reference": "art/references/CR15/selected.png (AI three-view; proportions taken from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "imported by Editor/CreekRepairModelCheck under Unity 6000.0.85f1 (the project pins 82f1); results in artifacts/creek-repair-unity/unity-verify-report.txt, not in this file",
+  "water": {
+    "file": "CR15_DitchCross_water_v001.fbx",
+    "objects": [
+      "CR15_DitchCross_water_LOD0",
+      "CR15_DitchCross_water_LOD1",
+      "CR15_DitchCross_water_LOD2"
+    ],
+    "triangles": {
+      "LOD0": 360,
+      "LOD1": 90,
+      "LOD2": 10
+    },
+    "origin": "same as the body FBX",
+    "dimensions_m": [
+      1.5,
+      1.5,
+      0.0
+    ],
+    "uv": "u 0..1 across the channel, v in metres downstream, whole metres per piece",
+    "path_length_m": 1.0,
+    "textures": "none",
+    "unity_shader": "YunJing/CreekFlowWater (apps/game/Assets/YunJing/Runtime/CreekRepair/CreekFlowWater.shader): moves on _Time, no script needed"
+  }
+}

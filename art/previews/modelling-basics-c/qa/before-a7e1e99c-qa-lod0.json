@@ -1,0 +1,250 @@
+[
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM02_01.glb",
+  "objects": 3,
+  "triangles": 29520,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM02_02.glb",
+  "objects": 3,
+  "triangles": 39360,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM03_01.glb",
+  "objects": 2,
+  "triangles": 18844,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "BM03_01_Jar_LOD0",
+    "count": 11,
+    "note": "11 triangle pairs {'side one piece': 6, 'up one piece': 4, 'down one piece': 1}, e.g. at [[-0.021, 0.087, 0.29, 'n-1-0+0'], [-0.022, 0.085, 0.286, 'n-1-0+0'], [-0.032, 0.083, 0.286, 'n+0+0+1'], [-0.032, 0.083, 0.286, 'n+0+0+1'], [-0.031, 0.081, 0.286, 'n-0-0-1'], [-0.033, 0.081, 0.287, 'n+0+0+1']]"
+   }
+  ]
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM03_02.glb",
+  "objects": 2,
+  "triangles": 27128,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "BM03_02_Jar_LOD0",
+    "count": 2,
+    "note": "2 triangle pairs {'up one piece': 1, 'down one piece': 1}, e.g. at [[0.035, 0.062, 0.487, 'n-0+0+1'], [0.034, 0.061, 0.487, 'n+0-0-1']]"
+   }
+  ]
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM03_03.glb",
+  "objects": 2,
+  "triangles": 33684,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "BM03_03_Jar_LOD0",
+    "count": 101,
+    "note": "101 triangle pairs {'side one piece': 29, 'up one piece': 29, 'down one piece': 43}, e.g. at [[0.01, 0.239, 0.795, 'n-1+0+1'], [0.01, 0.239, 0.795, 'n-1+0+1'], [0.01, 0.229, 0.795, 'n-1+0+1'], [-0.021, 0.237, 0.775, 'n+0+0-1'], [-0.003, 0.239, 0.786, 'n-1-0+1'], [-0.003, 0.239, 0.786, 'n-1-0+1']]"
+   }
+  ]
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM04_01.glb",
+  "objects": 2,
+  "triangles": 10528,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM04_02.glb",
+  "objects": 2,
+  "triangles": 7336,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM04_03.glb",
+  "objects": 2,
+  "triangles": 5272,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM04_04.glb",
+  "objects": 2,
+  "triangles": 2912,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM05_01.glb",
+  "objects": 2,
+  "triangles": 12288,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM05_02.glb",
+  "objects": 2,
+  "triangles": 6110,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM05_03.glb",
+  "objects": 2,
+  "triangles": 4612,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM06_01.glb",
+  "objects": 3,
+  "triangles": 16272,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM06_02.glb",
+  "objects": 4,
+  "triangles": 16296,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM06_03.glb",
+  "objects": 3,
+  "triangles": 18552,
+  "findings": [
+   {
+    "kind": "zero-area UV",
+    "object": "BM06_03_Detail_Plant_LOD0",
+    "count": 112,
+    "note": "112 of 3544 faces"
+   },
+   {
+    "kind": "coplanar overlap",
+    "object": "BM06_03_Detail_Plant_LOD0",
+    "count": 1,
+    "note": "1 triangle pairs {'side two pieces': 1}, e.g. at [[-0.065, 0.021, 0.39, 'n-1-1-0']]"
+   },
+   {
+    "kind": "floating/detached",
+    "object": "BM06_03_Detail_Plant_LOD0",
+    "count": 48,
+    "note": "48 islands, 192 triangles, at [0.148, -0.058, 0.827]; [0.313, 0.022, 0.77]; [0.28, -0.092, 0.819]; [0.222, -0.077, 0.799]; [0.038, -0.25, 0.652]; [0.14, 0.055, 0.721]"
+   }
+  ]
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM06_04.glb",
+  "objects": 3,
+  "triangles": 18752,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM07_01.glb",
+  "objects": 2,
+  "triangles": 13452,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM08_01.glb",
+  "objects": 3,
+  "triangles": 17104,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "BM08_01_Branches_LOD0",
+    "count": 8,
+    "note": "8 triangle pairs {'side two pieces': 8}, e.g. at [[-0.349, 0.016, 0.754, 'n-1+0+0'], [-0.367, -0.01, 0.755, 'n+1-1+0'], [-0.357, 0.022, 0.746, 'n-1-0+0'], [-0.09, 0.247, 0.68, 'n+0+0-1'], [-0.16, -0.194, 0.896, 'n-1+0+0'], [-0.036, -0.229, 0.743, 'n+1+0+0']]"
+   }
+  ]
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM08_02.glb",
+  "objects": 4,
+  "triangles": 14660,
+  "findings": [
+   {
+    "kind": "zero-area UV",
+    "object": "BM08_02_Berries_LOD0",
+    "count": 1256,
+    "note": "1256 of 6280 faces"
+   },
+   {
+    "kind": "coplanar overlap",
+    "object": "BM08_02_Branches_LOD0",
+    "count": 3,
+    "note": "3 triangle pairs {'side two pieces': 3}, e.g. at [[-0.199, -0.102, 0.385, 'n+0-1+0'], [-0.21, -0.107, 0.387, 'n+0-1+0'], [0.5, -0.001, 0.546, 'n+1-0+0']]"
+   }
+  ]
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM09_01.glb",
+  "objects": 3,
+  "triangles": 14012,
+  "findings": [
+   {
+    "kind": "zero-area UV",
+    "object": "BM09_01_Detail_DryFronds_LOD0",
+    "count": 6,
+    "note": "6 of 492 faces"
+   },
+   {
+    "kind": "zero-area UV",
+    "object": "BM09_01_Rachis_LOD0",
+    "count": 80,
+    "note": "80 of 4016 faces"
+   },
+   {
+    "kind": "coplanar overlap",
+    "object": "BM09_01_Fronds_LOD0",
+    "count": 4,
+    "note": "4 triangle pairs {'side two pieces': 3, 'up two pieces': 1}, e.g. at [[-0.031, -0.143, 0.728, 'n+0+1+1'], [-0.031, -0.143, 0.728, 'n+0+1+1'], [-0.204, 0.013, 0.631, 'n+1-0+1'], [0.11, 0.223, 0.422, 'n-0-0+1']]"
+   },
+   {
+    "kind": "coplanar overlap",
+    "object": "BM09_01_Rachis_LOD0",
+    "count": 1,
+    "note": "1 triangle pairs {'side two pieces': 1}, e.g. at [[-0.009, -0.015, 0.023, 'n-1-1-0']]"
+   }
+  ]
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM09_02.glb",
+  "objects": 3,
+  "triangles": 5736,
+  "findings": [
+   {
+    "kind": "zero-area UV",
+    "object": "BM09_02_Detail_DryFronds_LOD0",
+    "count": 6,
+    "note": "6 of 492 faces"
+   },
+   {
+    "kind": "zero-area UV",
+    "object": "BM09_02_Rachis_LOD0",
+    "count": 60,
+    "note": "60 of 2748 faces"
+   },
+   {
+    "kind": "coplanar overlap",
+    "object": "BM09_02_Rachis_LOD0",
+    "count": 6,
+    "note": "6 triangle pairs {'side z<0.02 two pieces': 3, 'side two pieces': 3}, e.g. at [[-0.005, -0.014, 0.005, 'n-1-1-0'], [-0.013, -0.023, 0.022, 'n-1+1+0'], [-0.013, -0.023, 0.022, 'n-1+1+0'], [-0.013, -0.023, 0.014, 'n-1+1+0'], [-0.003, -0.012, 0.009, 'n+1+1+0'], [-0.004, -0.012, 0.005, 'n+1+1+0']]"
+   }
+  ]
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM10_01.glb",
+  "objects": 1,
+  "triangles": 128,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM10_02.glb",
+  "objects": 1,
+  "triangles": 128,
+  "findings": []
+ },
+ {
+  "file": "a7e1e99c:art/exports/modelling-basics-c/BM10_03.glb",
+  "objects": 1,
+  "triangles": 128,
+  "findings": []
+ }
+]

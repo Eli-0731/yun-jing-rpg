@@ -1,0 +1,31 @@
+BM06 舊石缸和花台（石缸 Ø0.8 m 2 種、花台 1.2 m 寬 2 種；浮雕只要簡單的雲紋）— 三視圖提示詞與選圖
+工作包：docs/execution/2026-11-03/C-28h-modelling-basics.md（feature/qingxi-creek-chapter 2f8a150）第 3 節 BM06。
+
+選用：BM06-cand-1.png（Codex GPT-6-Astra，半寫實提示詞）。自評 90 分，依使用者 2026-11-03 的指示（自評 90 分以上直接建模）。
+評分（滿分 100；比例和尺寸 30、三面一致 25、工作包細節 30、乾淨無字 15）：
+- BM06-cand-1：90。四欄各一件、三列依序正面／側面／背面；石缸寬約 280 px、花台約 425 px，比例 0.66，正好是 0.8 : 1.2；石缸是瓜稜形、正面一塊簡單的雲紋浮雕，花台四角有柱、腳下留空、長面一塊雲紋；苔、水痕、缺角、一盆小灌木一盆草都有，沒有字。扣分：第二個石缸多了鐵扣補釘（工作包沒有，會照做成修補過的樣子），花台側面看比較深。
+- BM06-cand-2：88。排法同 C1；石缸的花瓣口沿很好看，但雲紋只是小小一朵，花台沒有雲紋帶，還有鐵片。
+- BM06-cand-3：82。花台是正方形，但只比石缸大一點，和 1.2 m 對不上；石缸偏高。
+- BM06-cand-4：89。石缸一圈雲紋帶最接近「一條簡單的雲紋帶」，但花台沒有浮雕，還有鐵扣和補塊；石缸底下有三隻腳，比較複雜。
+
+建模時和圖不同的地方：
+- 尺寸照工作包：石缸寬 0.8 m（高約 0.45 m），花台寬 1.2 m（深約 0.8 m、高約 0.42 m）。
+- 雲紋浮雕簡化成三團捲雲加兩條雲尾，前後各一塊；不刻字。
+- 四件都會擋人，各附 _Collision（只包石頭）；腳邊小草是 Detail_Grass。花台裡的灌木和草放在 Detail_Plant：標準檔關掉後還是一個裝了土的花台，看得懂，手機也省下最多面數的部分。
+- 第二個石缸的鐵扣補釘照圖做，放在 Detail_Iron。
+
+風格：沿用 BM01 的半寫實段（使用者 2026-11-02 指定，取代風格指南 5.2／5.3），工作包 BM06 那一段一字未改。
+工具：Codex CLI，模型 gpt-6-astra，推理 xhigh，內建 image_gen，4 張，2172×724，沒有 seed。
+
+== 工作包原文（BM06）==
+Three-view orthographic turnaround sheet of a set of old stone garden pieces laid out together: two carved stone water basins about 0.8 m wide, and two low square stone planters about 1.2 m wide (one with a small shrub, one with grass), made of weathered warm-grey granite, showing moss, water lines, chipped corners, one simple cloud relief band with no letters and no text, used at the landings of old stone stairs. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background.
+
+== 半寫實風格段（取代 5.2，同 BM01）==
+Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality.
+
+== 負面提示（取代 5.3，同 BM01）==
+Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye
+
+
+== 實際送出的完整提示詞 ==
+Three-view orthographic turnaround sheet of a set of old stone garden pieces laid out together: two carved stone water basins about 0.8 m wide, and two low square stone planters about 1.2 m wide (one with a small shrub, one with grass), made of weathered warm-grey granite, showing moss, water lines, chipped corners, one simple cloud relief band with no letters and no text, used at the landings of old stone stairs. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background. Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality. Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye
