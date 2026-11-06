@@ -1,17 +1,18 @@
 # 分支總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-06 22:58 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-06 22:59 UTC。
 > 「main 沒有的檔案」= 這條分支改過、而現在內容和 main 不一樣的檔案數（用內容比，不是比提交編號）。0 代表分支裡的東西都已在 main，刪掉也不會遺失，但先保留不刪。
 
 - 主線：1 條
+- 舊版或試驗，保留參考：13 條
 - 內容都在 main，可封存：43 條
 - 核心組進行中：1 條
 - 內容都在 main（只差幾個小檔）：6 條
-- 舊版或試驗，保留參考：12 條
 
 | 分支 | 分類 | 最後更新 | 最後提交者 | main 沒有的檔案 | PR | 做了什麼 | 備註 |
 |---|---|---|---|---:|---|---|---|
 | `main` | 主線 | 2026-11-07 | z1nnz | 0 | 沒有 PR | Merge pull request #76 from z1nnz/feature/qingxi-gathering-kit-v002 |  |
+| `docs/core-1107-labeling-rules` | 舊版或試驗，保留參考 | 2026-11-07 | z1nnz | 10 | 沒有 PR | docs: 標註規則 v1、分支／PR／資料夾總帳與產生器、PR 範本加「這張 PR 是什麼」 | 核心組 11/07 標註規則、總帳工具、PR 範本更新。 |
 | `feature/basic-combat-a` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#66](https://github.com/z1nnz/chengtian/pull/66) 已合併 | A：基礎戰鬥手感（空手三段、蓄力重擊、閃避） |  |
 | `feature/creek-repair-b-a3` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#72](https://github.com/z1nnz/chengtian/pull/72) 已合併 | B：A3 西溪六件模型 WM01、02、04、05、07、09 |  |
 | `feature/creek-repair-b-gameplay` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#71](https://github.com/z1nnz/chengtian/pull/71) 已合併 | B：修水路玩法（清淤、接渠、通水）與測試場景 |  |
