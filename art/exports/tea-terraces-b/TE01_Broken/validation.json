@@ -28,27 +28,27 @@
       "pass": true,
       "detail": {
         "min_z": 0.0,
-        "largest_clamp_m": 0.00652
+        "largest_clamp_m": 0.00655
       }
     },
     {
       "check": "connector_soil_at_rise_within_2mm",
       "pass": true,
       "detail": {
-        "max_error_m": 0.00015,
+        "max_error_m": 0.00165,
         "samples_z": {
           "s=0.0": [
-            0.9999,
+            1.0,
             0.9999,
             1.0,
             1.0,
             1.0,
             1.0,
-            1.0,
-            0.9999,
-            0.9999,
-            0.9999,
-            1.0
+            1.1532,
+            1.1799,
+            1.1799,
+            1.0125,
+            0.9048
           ],
           "s=8.0": [
             1.0,
@@ -57,11 +57,11 @@
             1.0,
             1.0,
             0.9999,
-            0.9999,
-            1.0,
-            1.0001,
-            1.0001,
-            1.0002
+            1.1531,
+            1.1801,
+            1.1801,
+            1.0128,
+            0.9049
           ]
         },
         "note": "any two pieces meet on the same heights, so a joint opens no step over 2 mm"
@@ -111,17 +111,17 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 37484,
-          "LOD1": 18740,
-          "LOD2": 5620
+          "LOD0": 40104,
+          "LOD1": 20050,
+          "LOD2": 6012
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
         "per_group": {
           "Main": {
-            "LOD0": 21418,
-            "LOD1": 10708,
-            "LOD2": 3212
+            "LOD0": 24038,
+            "LOD1": 12018,
+            "LOD2": 3604
           },
           "Detail_Small": {
             "LOD0": 16066,
@@ -196,7 +196,7 @@
       "check": "glb_written",
       "pass": true,
       "detail": {
-        "bytes": 3231696
+        "bytes": 3377028
       }
     },
     {
@@ -206,7 +206,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 170,
+  "seconds": 241,
   "not_checked": [
     "in-engine lighting and walking (see the Unity report)",
     "mobile frame rate (not measured)"

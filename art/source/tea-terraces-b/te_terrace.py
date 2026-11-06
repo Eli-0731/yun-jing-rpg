@@ -25,6 +25,33 @@ COP_T = .17          # coping slab thickness; slab top sits 1-3 cm above the soi
 GAP = .009           # dry joint between stones
 
 R_OUT, R_IN = 8.0, 4.0   # bend radii of the wall face: outer bend (spur) 8 m, inner bend (cove) 4 m
+R_GENTLE = 8.0 / (math.pi / 6)   # gentle bends: 8 m of wall turning 30 degrees (wall-face radius 15.28 m)
+
+# v002 tread profile, the same at every s so all pieces still meet on one cross-section:
+# a planting ridge (cha long) under the bush line and a shallow runoff ditch at the foot of the next wall up
+RIDGE_D, RIDGE_HALF, RIDGE_H = 2.95, .60, .18      # flat-topped ridge: crown 0.6 m wide, sides about 35 degrees
+RIDGE_TOP = .45                                     # fraction of the half width that is flat crown
+DITCH_D, DITCH_HALF, DITCH_H = 3.74, .20, .12
+
+
+def _sm(t):
+    t = max(0., min(1., t)); return t * t * (3 - 2 * t)
+
+
+def ridge_w(d):
+    """0..1: how much of the ridge is under depth d (1 on the flat crown)."""
+    t = abs(d - RIDGE_D) / RIDGE_HALF
+    return _sm((1 - t) / (1 - RIDGE_TOP))
+
+
+def ditch_w(d):
+    t = abs(d - DITCH_D) / DITCH_HALF
+    return math.cos(min(t, 1.) * math.pi / 2) ** 2 if t < 1 else 0.
+
+
+def field_profile(d):
+    """Height added to the tread at depth d: + ridge, - ditch (metres)."""
+    return RIDGE_H * ridge_w(d) - DITCH_H * ditch_w(d)
 
 GREY_OCHRE = (.25, .225, .175)
 
@@ -42,6 +69,17 @@ def map_inner(s, d):
     """Concave bend round a cove: wall on radius 4 facing the centre, tread outward to radius 8. Enters heading +X (front -Y), leaves heading -Y (front -X)."""
     a = math.pi / 2 - s / R_IN; r = R_IN + d
     return (r * math.cos(a) - 4., r * math.sin(a) - 4.)
+
+
+def map_gentle_outer(s, d):
+    """30 degree convex bend: enters exactly like a straight's left end (x = -4, front y = -2, heading +X) and turns left (uphill) round a centre behind the tread."""
+    a = -math.pi / 2 + s / R_GENTLE; r = R_GENTLE - d
+    return (-4. + r * math.cos(a), -2. + R_GENTLE + r * math.sin(a))
+
+def map_gentle_inner(s, d):
+    """30 degree concave bend: enters like a straight's left end and turns right (downhill) round a centre in front of the wall."""
+    a = math.pi / 2 - s / R_GENTLE; r = R_GENTLE + d
+    return (-4. + r * math.cos(a), -2. - R_GENTLE + r * math.sin(a))
 
 
 def smooth(t):
@@ -65,6 +103,8 @@ def joint_fade(o, L):
     for v in me.vertices:
         e = min(v.co.x, L - v.co.x); t = max(0., min(1., 1 - e / JOINT_FADE)); vals.append(t * t * (3 - 2 * t))
     at = me.attributes.new('joint_fade', 'FLOAT', 'POINT'); at.data.foreach_set('value', vals)
+    for name, fn in (('ridge_mask', ridge_w), ('ditch_mask', ditch_w)):
+        a2 = me.attributes.new(name, 'FLOAT', 'POINT'); a2.data.foreach_set('value', [fn(v.co.y) for v in me.vertices])
     return o
 
 
@@ -95,6 +135,12 @@ def tread_soil(name, dark=(.04, .026, .015), light=(.112, .072, .04), slot='Main
     # so two neighbouring pieces meet with the same soil colour whatever their own noise does there
     jf = g.node('ShaderNodeAttribute'); jf.attribute_name = 'joint_fade'; jfac = jf.outputs['Fac']
     col = g.mix(jfac, col, JOINT_SOIL)
+    # ridge and ditch depend on d only, so this tint is continuous across every joint
+    rm = g.node('ShaderNodeAttribute'); rm.attribute_name = 'ridge_mask'; rfac = rm.outputs['Fac']
+    dm = g.node('ShaderNodeAttribute'); dm.attribute_name = 'ditch_mask'; dfac = dm.outputs['Fac']
+    col = g.mix(g.math('MULTIPLY', rfac, .45), col, (.15, .105, .062))                                    # loose, dry, paler crown
+    col = g.mix(g.math('MULTIPLY', g.math('MULTIPLY', g.math('MULTIPLY', rfac, g.maprange(g.noise(P, 30.0, 2, .5), .55, .63)), g.math('SUBTRACT', 1., jfac)), .7), col, (.075, .068, .03))   # prunings and old leaves on the ridge
+    col = g.mix(g.math('MULTIPLY', dfac, .7), col, (.028, .02, .012))                                     # damp ditch bottom
     ao = g.ao(.05)
     col = g.mul(1.0, col, g.ramp(ao, [(0, (.5, .46, .42)), (1, (1, 1, 1))]))
     h = g.math('ADD', g.math('MULTIPLY', clod, 1.6), g.math('ADD', g.math('MULTIPLY', fine, .6), g.math('MULTIPLY', grit, .3)))
@@ -137,7 +183,7 @@ class Terrace:
         fade = smooth(min(s, self.L - s) / .45) * smooth((DEPTH - d) / .45) * smooth((d - .55) / .4)
         v = Vector((s * .8 + self.seed, d * .8, self.seed))
         bump = .013 * noise.noise(v) + .006 * noise.noise(v * 2.7)
-        z = h + bump * fade * min(1., h / RISE)
+        z = h + (bump * fade + field_profile(d)) * min(1., h / RISE)
         if self.slump:
             k = self.slump(s)
             if k > 0: z -= k * (1 - smooth((d - .25) / 1.45))
@@ -154,6 +200,9 @@ def soil_body(T, P, ds=.2, dd=.2, nf=7):
     """Closed soil mass: battered front face behind the stones (joint earth), the tread (soil), the cut ends and back."""
     L = T.L; ns = max(4, int(round(L / ds))); dmin = T.face_d(0) + .15
     d_top = [dmin + (DEPTH - dmin) * k / max(1, int(round((DEPTH - dmin) / dd))) for k in range(int(round((DEPTH - dmin) / dd)) + 1)]
+    # vertices on the ridge and ditch control points, so the shared profile is met exactly at every connector
+    knots = [RIDGE_D + RIDGE_HALF * (k / 10 - 1) for k in range(21)] + [DITCH_D + DITCH_HALF * (k / 5 - 1) for k in range(11)]
+    d_top = [d_top[0]] + sorted({round(v, 4) for v in d_top[1:] + knots if dmin + .15 < v < DEPTH - .02} | {DEPTH})
     rings, mats = [], []
     for i in range(ns + 1):
         s = L * i / ns; top_front = T.top(s, dmin + .25)
@@ -164,7 +213,7 @@ def soil_body(T, P, ds=.2, dd=.2, nf=7):
         zb = max(0., T.cop_bot(s) - .02)
         dfront = dmin + BATTER * min(top_front, zb)
         for k, d in enumerate(d_top):
-            dd_ = dfront + (DEPTH - dfront) * k / (len(d_top) - 1)
+            dd_ = dfront if k == 0 else d
             prof.append((dd_, T.top(s, dd_)))
         prof.append((DEPTH, 0.)); prof.append((dmin + (DEPTH - dmin) * .5, 0.))
         rings.append([(s, d, z) for d, z in prof])
@@ -174,16 +223,16 @@ def soil_body(T, P, ds=.2, dd=.2, nf=7):
             a = i * n + k; b = i * n + (k + 1) % n
             faces.append((a, b, b + n, a + n))
             fmat.append(0 if k < nf else 1 if k < nf + len(d_top) - 1 else 2)
+    # cut ends: one n-gon each, triangulated by Blender (ear clipping). A fan from the centroid flips over once the
+    # cross-section is concave (ridge + ditch, v002) and leaves a dark wedge on an exposed end.
     for i in (0, ns):
-        c = len(verts); r = rings[i]
-        verts.append((r[0][0], sum(p[1] for p in r) / n, sum(p[2] for p in r) / n))
-        for k in range(n):
-            f = (c, i * n + k, i * n + (k + 1) % n)
-            faces.append(f if i == ns else f[::-1]); fmat.append(2)
+        f = tuple(i * n + k for k in range(n))
+        faces.append(f if i == ns else f[::-1]); fmat.append(2)
     o = mesh('Soil_Body', verts, faces, P['joint'], grain='y', detail=0)
     o.data.materials.append(P['soil'])
     for p, m in zip(o.data.polygons, fmat): p.material_index = 1 if m == 1 else 0
     for p in o.data.polygons: p.use_smooth = True
+    for p in list(o.data.polygons)[-2:]: p.use_smooth = False   # the flat cut ends shade flat, not bent by the tread normals
     return joint_fade(o, L)
 
 
@@ -457,7 +506,7 @@ def face_dressing(T, P, R, n_moss=None, n_fern=2, ferns_at=None):
 def collision_mesh(T, Mfn, ds=.25):
     """Prism under the walkable top: front at the wall face, top sampled from the soil (the coping is within 3 cm of it)."""
     L = T.L; ns = max(4, int(round(L / ds))); dfs = FACE0 + .04
-    ds_ = [dfs, .5, .9, 1.3, 1.7, 2.4, 3.2, DEPTH]
+    ds_ = [dfs, .5, .9, 1.3, 1.7, 2.2, 2.35, 2.45, 2.55, 2.68, 2.95, 3.22, 3.35, 3.45, 3.55, 3.62, 3.68, 3.74, 3.8, 3.86, 3.94, DEPTH]
     rings = []
     for i in range(ns + 1):
         s = L * i / ns
@@ -655,3 +704,30 @@ def te01_broken(P):
     tread_dressing(T, P, R, avoid=[(b0, b1)]); face_dressing(T, P, R, ferns_at=[1.9])
     S['collision'] = []
     finish_piece(T, map_straight(L), 'Broken')
+
+
+
+def te01_gentle_outer(P):
+    """30 degree spur bend: 8 m of wall bowing round a gentle nose of the slope, so rows can follow the contour."""
+    R = random.Random(707); L = 8.0
+    T = Terrace(L, 'gentle_outer', R)
+    soil_body(T, P, ds=.2); toe(T, P)
+    foot_course(T, P, R)
+    irregular_wall(T, P, R, n_boulders=3)
+    coping(T, P, R)
+    tread_dressing(T, P, R); face_dressing(T, P, R, ferns_at=[2.4, 6.1])
+    S['collision'] = []
+    finish_piece(T, map_gentle_outer, 'GentleOuter')
+
+
+def te01_gentle_inner(P):
+    """30 degree cove bend: 8 m of wall curving into a shallow hollow; smaller stones and more moss where it stays damp."""
+    R = random.Random(808); L = 8.0
+    T = Terrace(L, 'gentle_inner', R)
+    soil_body(T, P, ds=.2); toe(T, P)
+    foot_course(T, P, R)
+    irregular_wall(T, P, R, small_zone=(L / 2 - .9, L / 2 + .9), n_boulders=2)
+    coping(T, P, R)
+    tread_dressing(T, P, R); face_dressing(T, P, R, n_moss=int(L * 1.6), ferns_at=[3.5, 4.6])
+    S['collision'] = []
+    finish_piece(T, map_gentle_inner, 'GentleInner')

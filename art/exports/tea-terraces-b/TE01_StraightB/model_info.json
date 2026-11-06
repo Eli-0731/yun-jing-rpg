@@ -1,13 +1,13 @@
 {
   "asset": "TE01_StraightB",
-  "version": "v001",
+  "version": "v002",
   "minTier": "standard",
   "detailObjects": [
     "TE01_StraightB_Detail_Small"
   ],
   "name_zh": "梯田直段 B（錯縫長石、修補角）",
   "slot": "A4_TeaTerraces",
-  "note": "接口：兩端剖面相同（前緣 y 為足跡前緣、土面 z = 1.0、深 4 m），落在 1 m 格線；上一排放在 +4 m（直段為 +Y）、+1.0 m 高。牆面在足跡前緣後 7 cm，向後傾 12 cm／m；前緣土唇在 z = 0 接下一排的土面。 右端 1.75 m 是後來重砌的：較小、較新、還沒長苔的石頭，接縫呈階梯。",
+  "note": "接口：兩端剖面相同（前緣 y 為足跡前緣、土面 z = 1.0、深 4 m），落在 1 m 格線；上一排放在 +4 m（直段為 +Y）、+1.0 m 高。牆面在足跡前緣後 7 cm，向後傾 12 cm／m；前緣土唇在 z = 0 接下一排的土面。 右端 1.75 m 是後來重砌的：較小、較新、還沒長苔的石頭，接縫呈階梯。 v002：踏面加茶壟（d = 2.95 m 中心、底寬 1.2 m、平頂寬約 0.54 m、高 0.18 m，壟頂土色偏乾淺並有落葉，茶樹種在壟上）和牆根排水溝（d = 3.74 m、寬 0.4 m、深 0.12 m，溝底土色偏濕深），剖面只隨深度 d 變化，所有件的接口仍是同一個剖面。",
   "units": "meters",
   "front": "-Y (Blender)",
   "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
@@ -37,7 +37,7 @@
       "dims_m": [
         8.0,
         4.0,
-        1.0333
+        1.1888
       ],
       "min": [
         -4.0,
@@ -47,7 +47,7 @@
       "max": [
         4.0,
         2.0,
-        1.0333
+        1.1888
       ]
     },
     "Detail_Small": {
@@ -70,9 +70,9 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 26282,
-      "LOD1": 13140,
-      "LOD2": 3942
+      "LOD0": 28902,
+      "LOD1": 14450,
+      "LOD2": 4334
     },
     "Detail_Small": {
       "LOD0": 5968,
@@ -81,9 +81,9 @@
     }
   },
   "lod_totals": {
-    "LOD0": 32250,
-    "LOD1": 16124,
-    "LOD2": 4837
+    "LOD0": 34870,
+    "LOD1": 17434,
+    "LOD2": 5229
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
   "materials": [
@@ -154,7 +154,7 @@
     "TE01_StraightB_LOD1.001",
     "TE01_StraightB_LOD2.001"
   ],
-  "glb": "TE01_StraightB_v001.glb",
+  "glb": "TE01_StraightB_v002.glb",
   "interface": {
     "rise_m": 1.0,
     "depth_m": 4.0,
@@ -182,7 +182,15 @@
         ]
       ]
     },
-    "stack_next_row": "(0, +4, +1)"
+    "field_profile": {
+      "ridge_centre_d": 2.95,
+      "ridge_half_width": 0.6,
+      "ridge_height": 0.18,
+      "ditch_centre_d": 3.74,
+      "ditch_half_width": 0.2,
+      "ditch_depth": 0.12
+    },
+    "stack_next_row": "(0, +4, +1.0)"
   },
   "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
   "reference": "art/references/TE01/ (AI three-view TE01/STRAIGHT-B; proportions from the work pack's written sizes, not measured from the image)",

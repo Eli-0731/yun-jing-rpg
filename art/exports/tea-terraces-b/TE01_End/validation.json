@@ -13,7 +13,7 @@
         "max": [
           4.0,
           2.0,
-          1.2532
+          1.2539
         ],
         "limit_m": [
           8.0,
@@ -28,27 +28,27 @@
       "pass": true,
       "detail": {
         "min_z": 0.0,
-        "largest_clamp_m": 0.00753
+        "largest_clamp_m": 0.00751
       }
     },
     {
       "check": "connector_soil_at_rise_within_2mm",
       "pass": true,
       "detail": {
-        "max_error_m": 0.0001,
+        "max_error_m": 0.00155,
         "samples_z": {
           "s=0.0": [
-            0.9999,
-            0.9999,
-            0.9999,
-            0.9999,
-            0.9999,
             1.0,
-            1.0,
-            1.0,
-            1.0001,
-            1.0,
-            1.0
+            0.9999,
+            0.9999,
+            0.9999,
+            0.9999,
+            0.9999,
+            1.1532,
+            1.18,
+            1.1801,
+            1.0127,
+            0.9048
           ]
         },
         "note": "any two pieces meet on the same heights, so a joint opens no step over 2 mm"
@@ -88,17 +88,17 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 24518,
-          "LOD1": 12258,
-          "LOD2": 3676
+          "LOD0": 27138,
+          "LOD1": 13568,
+          "LOD2": 4068
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
         "per_group": {
           "Main": {
-            "LOD0": 16926,
-            "LOD1": 8462,
-            "LOD2": 2538
+            "LOD0": 19546,
+            "LOD1": 9772,
+            "LOD2": 2930
           },
           "Detail_Small": {
             "LOD0": 7592,
@@ -115,12 +115,12 @@
         "fbx_lod0_dims_m": [
           8.0,
           4.0,
-          1.2532
+          1.2539
         ],
         "blend_dims_m": [
           8.0,
           4.0,
-          1.2532
+          1.2539
         ],
         "tolerance_m": 0.02,
         "max_error_m": 3e-05
@@ -173,7 +173,7 @@
       "check": "glb_written",
       "pass": true,
       "detail": {
-        "bytes": 2554752
+        "bytes": 2703048
       }
     },
     {
@@ -183,7 +183,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 155,
+  "seconds": 250,
   "not_checked": [
     "in-engine lighting and walking (see the Unity report)",
     "mobile frame rate (not measured)"

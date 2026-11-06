@@ -1,0 +1,190 @@
+{
+  "asset": "TE01_OuterBend",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "TE01_OuterBend_Detail_Small"
+  ],
+  "name_zh": "梯田外彎（山嘴）",
+  "slot": "A4_TeaTerraces",
+  "note": "接口：兩端剖面相同（前緣 y 為足跡前緣、土面 z = 1.0、深 4 m），落在 1 m 格線；上一排放在 +4 m（直段為 +Y）、+1.0 m 高。牆面在足跡前緣後 7 cm，向後傾 12 cm／m；前緣土唇在 z = 0 接下一排的土面。 90° 外彎：牆面半徑 8 m、土面內緣半徑 4 m。左端與直段相同（朝 -Y），右端轉為朝 +X。足跡 8 × 8 m。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre on the 1 m grid, z = 0 at the lower terrace soil",
+  "dimensions_m": [
+    8.0,
+    8.0,
+    1.2701
+  ],
+  "bounds_min_m": [
+    -4.0,
+    -4.0,
+    0.0
+  ],
+  "bounds_max_m": [
+    4.0,
+    4.0,
+    1.2701
+  ],
+  "size_limit_m": [
+    8.0,
+    8.0,
+    1.6
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        8.0,
+        8.0,
+        1.0396
+      ],
+      "min": [
+        -4.0,
+        -4.0,
+        0.0
+      ],
+      "max": [
+        4.0,
+        4.0,
+        1.0396
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        7.8254,
+        7.7029,
+        1.2646
+      ],
+      "min": [
+        -3.8861,
+        -3.8666,
+        0.0055
+      ],
+      "max": [
+        3.9393,
+        3.8363,
+        1.2701
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 34762,
+      "LOD1": 17380,
+      "LOD2": 5214
+    },
+    "Detail_Small": {
+      "LOD0": 13152,
+      "LOD1": 6576,
+      "LOD2": 1972
+    }
+  },
+  "lod_totals": {
+    "LOD0": 47914,
+    "LOD1": 23956,
+    "LOD2": 7186
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_TE01_OuterBend_Main"
+  ],
+  "textures": [
+    "TE01_OuterBend_BaseColor.png",
+    "TE01_OuterBend_Metallic.png",
+    "TE01_OuterBend_MetallicSmoothness.png",
+    "TE01_OuterBend_Normal.png",
+    "TE01_OuterBend_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "TE01_OuterBend_BaseColor.png",
+    "Normal": "TE01_OuterBend_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "TE01_OuterBend_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "TE01_OuterBend_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Left": [
+      -4.0,
+      -4.0,
+      1.0
+    ],
+    "Socket_Right": [
+      4.0,
+      4.0,
+      1.0
+    ],
+    "Socket_NextRowFront": [
+      -1.1716,
+      1.1716,
+      1.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Left.001": [
+      -4.0,
+      -4.0,
+      1.0
+    ],
+    "Socket_NextRowFront.001": [
+      -1.1716,
+      1.1716,
+      1.0
+    ],
+    "Socket_Right.001": [
+      4.0,
+      4.0,
+      1.0
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Left.001",
+    "Socket_NextRowFront.001",
+    "Socket_Right.001",
+    "TE01_OuterBend.001",
+    "TE01_OuterBend_Collision.001",
+    "TE01_OuterBend_Detail_Small_LOD0.001",
+    "TE01_OuterBend_Detail_Small_LOD1.001",
+    "TE01_OuterBend_Detail_Small_LOD2.001",
+    "TE01_OuterBend_LOD0.001",
+    "TE01_OuterBend_LOD1.001",
+    "TE01_OuterBend_LOD2.001"
+  ],
+  "glb": "TE01_OuterBend_v001.glb",
+  "interface": {
+    "rise_m": 1.0,
+    "depth_m": 4.0,
+    "wall_face_inset_m": 0.07,
+    "batter_per_m": 0.12,
+    "connector_corners_xy": {
+      "s=0.0": [
+        [
+          -4.0,
+          -4.0
+        ],
+        [
+          -4.0,
+          0.0
+        ]
+      ],
+      "s=12.566": [
+        [
+          4.0,
+          4.0
+        ],
+        [
+          0.0,
+          4.0
+        ]
+      ]
+    },
+    "stack_next_row": "row above sits on the inner radius 4"
+  },
+  "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/TE01/ (AI three-view TE01/OUTER-BEND; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/tea-terraces-unity/unity-verify-report.txt"
+}

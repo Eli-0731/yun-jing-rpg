@@ -49,6 +49,25 @@ ASSETS = {
         note=TE01_NOTE + ' s = 4.7–7.1 m 牆頂塌落最多 0.5 m，土岸下陷後用木樁和編條擋住，掉下的石頭堆在土面上等著砌回；整段土面仍可走。'),
 }
 
+# v002 (2026-11-06): every TE01 tread gets the planting ridge under the bush line and the runoff ditch at the back (te_terrace.field_profile).
+# The v001 exports and previews of the six original pieces are moved into <ID>/v001/; their .blend stays as <ID>_v001.blend.
+V002_NOTE = (' v002：踏面加茶壟（d = 2.95 m 中心、底寬 1.2 m、平頂寬約 0.54 m、高 0.18 m，壟頂土色偏乾淺並有落葉，茶樹種在壟上）和牆根排水溝（d = 3.74 m、寬 0.4 m、深 0.12 m，溝底土色偏濕深），'
+             '剖面只隨深度 d 變化，所有件的接口仍是同一個剖面。')
+for _aid in ('TE01_StraightA', 'TE01_StraightB', 'TE01_InnerBend', 'TE01_OuterBend', 'TE01_End', 'TE01_Broken'):
+    ASSETS[_aid]['ver'] = 'v002'; ASSETS[_aid]['note'] += V002_NOTE
+GENTLE_NOTE = ('30° 緩彎（不在原工作包規格內，為了讓梯田能沿等高線彎曲而追加，待負責人確認）：沿牆 8 m、牆面半徑 15.28 m。'
+               '左端接口與直段左端完全相同（x = -4、前緣 y = -2）；右端接口轉了 30°，不在 1 m 格線上，下一件依 Socket_Right 的位置與朝向擺放。')
+ASSETS['TE01_GentleOuter'] = dict(zh='梯田緩外彎 30°（山嘴）', kind='terrace', build=TT.te01_gentle_outer, limit=(8., 8., 1.6), box=((-4.0, -2.0, 0.), (3.7, 3.6, 1.6)), ref='TE01/OUTER-BEND', tex=2048, ver='v001',
+    note=TE01_NOTE + V002_NOTE + ' ' + GENTLE_NOTE + ' 向左（上坡側）轉。')
+ASSETS['TE01_GentleInner'] = dict(zh='梯田緩內彎 30°（山凹）', kind='terrace', build=TT.te01_gentle_inner, limit=(8., 8., 1.6), box=((-4.0, -4.1, 0.), (5.7, 2.05, 1.6)), ref='TE01/INNER-BEND', tex=2048, ver='v001',
+    note=TE01_NOTE + V002_NOTE + ' ' + GENTLE_NOTE + ' 向右（下坡側）轉。')
+HEIGHT_NOTE = '牆高變化版（不在原工作包規格內，為了配合不均勻的坡度而追加，待負責人確認）：牆高 {h} m，上一排放在 +{h} m 高；同一排須全部使用同高度的件，本版只有直段 B 與收尾。'
+for _base in ('TE01_StraightB', 'TE01_End'):
+    for _h, _tag in ((.8, 'H08'), (1.2, 'H12')):
+        _c = dict(ASSETS[_base]); _c.update(zh=_c['zh'] + f'（牆高 {_h} m）', rise=_h, ver='v001', limit=(8., 4., _h + .6),
+                  note=_c['note'].replace('土面 z = 1.0', f'土面 z = {_h}').replace('+1.0 m 高', f'+{_h} m 高') + ' ' + HEIGHT_NOTE.format(h=_h))
+        ASSETS[f'{_base}_{_tag}'] = _c
+
 TE02_NOTE = ('修剪成形的茶樹：頂面是平的採摘面（一芽二葉的嫩梢），肩部圓、下緣收進，露出木質主幹。寬 1.2 m。'
              '葉片用透明裁切的葉片卡（TE02_LeafCards，四格共用貼圖），樹幹、根部土堆和小石烘焙到本件圖集。'
              '頂點色 Wind：R 風擺權重（根 0 → 外葉 1）、G 每張卡的相位、B 高度 0–1。')
@@ -56,6 +75,12 @@ for _aid, _zh, _h, _extra in (('TE02_Round', '茶樹（圓頂）', .9, '圓頂�
                               ('TE02_Tall', '茶樹（高瘦）', 1.1, '久未重剪，較高，枝幹較多外露。')):
     ASSETS[_aid] = dict(zh=_zh, kind='bush', palette=TB.palette, build=(lambda P, a=_aid: TB.tea_bush(P, dict(TB.TE02[a]))), limit=(1.2, 1.2, _h), ref='TE02/' + _aid.split('_')[1].upper(), tex=1024,
                         note=TE02_NOTE + _extra, origin='root centre on the ground, z = 0 at the soil', minTier='standard', clamp_max=.04)
+# TE02 v002 (2026-11-06): denser foliage. The leaf atlas cells carry more, smaller leaves with almost no skipped ones
+# (new atlas in TE02_Shared/v002/Textures; the v001 atlas in TE02_Shared/Textures is left as it was), and the crown has ~40% more cards
+# set closer together over a fuller inner layer, so the gaps between leaves close up. Size, origin, collision and placement are unchanged.
+TE02_V002_NOTE = ' v002：葉片更密集（每格貼圖的葉子更多更小、幾乎不留空位；樹冠葉片卡多約 40%、間距縮小、內層加厚），尺寸與擺放不變。'
+for _aid in ('TE02_Round', 'TE02_Wide', 'TE02_Tall'):
+    ASSETS[_aid]['ver'] = 'v002'; ASSETS[_aid]['note'] += TE02_V002_NOTE
 
 TE03_NOTE = '1.2 m 寬，與 TE01 共用石材、土、草和苔的材質。'
 ASSETS['TE03_Stair'] = dict(zh='梯田石階', kind='te03', palette=TP.palette, build=TP.te03_stair, limit=(1.2, 2.6, 1.05), box=((-.66, -2.47, 0.), (.66, .2, 1.05)), ref='TE03/STAIR', tex=2048, clamp_max=.05,
@@ -229,7 +254,8 @@ def build(aid):
     scene = bpy.context.scene; scene.unit_settings.system = 'METRIC'; scene.unit_settings.scale_length = 1
     bpy.context.preferences.filepaths.save_version = 0
     ti_mats.MAT_INFO.clear(); ti_core.reset_state(aid)
-    cfg = ASSETS[aid]; P = TT.palette() if cfg['kind'] == 'terrace' else cfg['palette'](); cfg['build'](P)
+    cfg = ASSETS[aid]; TT.RISE = cfg.get('rise', 1.0)
+    P = TT.palette() if cfg['kind'] == 'terrace' else cfg['palette'](); cfg['build'](P)
     bpy.context.view_layer.update()
     return cfg
 
@@ -253,9 +279,24 @@ def preview(aid, out_dir, samples=20):
     bpy.ops.wm.save_as_mainfile(filepath=str(out_dir / f'{aid}_preview.blend'))
 
 
+def archive_v001(aid):
+    """Before a piece's first v002 build, move its v001 exports and previews into <ID>/v001/ so nothing of v001 is overwritten."""
+    import shutil
+    exp = ART / 'exports' / KIT / aid
+    if not (exp / f'{aid}_v001.fbx').exists(): return
+    for root in (exp, ART / 'previews' / KIT / aid):
+        if not root.exists(): continue
+        items = [q for q in root.iterdir() if q.name != 'v001']
+        (root / 'v001').mkdir(exist_ok=True)
+        for q in items: shutil.move(str(q), str(root / 'v001' / q.name))
+        print('ARCHIVED_V001', root, len(items), flush=True)
+
+
 def run(aid, force=False):
-    cfg = ASSETS[aid]
+    global VER
+    cfg = ASSETS[aid]; VER = cfg.get('ver', 'v001')
     exp = ART / 'exports' / KIT / aid; prev = ART / 'previews' / KIT / aid; blend = ART / 'source' / KIT / 'blend'
+    if VER == 'v002': archive_v001(aid)
     if (exp / 'validation.json').exists() and not force:
         print('ALREADY_COMPLETE', aid, flush=True); return
     t0 = time.time()
@@ -365,22 +406,37 @@ def spec_checks(aid, check):
         row = []
         for d in [.8 + k * .3 for k in range(11)]:
             x, y = M(s + inset, d); z = ray_z(x, y)
-            err = abs((z if z is not None else -9) - TT.RISE); worst = max(worst, err); row.append(round(z if z is not None else -9, 4))
+            err = abs((z if z is not None else -9) - (TT.RISE + TT.field_profile(d))); worst = max(worst, err); row.append(round(z if z is not None else -9, 4))
         samples[f's={round(s, 3)}'] = row
     check('connector_soil_at_rise_within_2mm', worst <= .002, {'max_error_m': round(worst, 5), 'samples_z': samples, 'note': 'any two pieces meet on the same heights, so a joint opens no step over 2 mm'})
     # connector planes on the 1 m grid
     corners = {f's={round(s, 3)}': [[round(v, 4) for v in M(s, d)] for d in (0., TT.DEPTH)] for s in ends}
-    on_grid = all(abs(v - round(v)) < 1e-6 for pts in corners.values() for p in pts for v in p)
-    check('connectors_on_1m_grid', on_grid, corners)
-    # nothing crosses a connector plane
+    gentle = T.kind.startswith('gentle')
+    grid_pts = [corners['s=0.0']] if gentle else list(corners.values())
+    on_grid = all(abs(v - round(v)) < 1e-6 for pts in grid_pts for p in pts for v in p)
+    check('connectors_on_1m_grid', on_grid, dict(corners, note='gentle bends: only the entry connector is on the grid; the exit is turned by 30 degrees') if gentle else corners)
     lo, hi = pl.eval_bounds(list(S['lods'][0].values()))
-    check('nothing_past_connector_planes', lo.x >= -4 - 1e-3 and (hi.x <= 4 + 1e-3), {'min_x': round(lo.x, 4), 'max_x': round(hi.x, 4)})
+    if gentle:
+        (x0, y0), (x1, y1) = M(L, 0.), M(L, TT.DEPTH)
+        turn = math.degrees(math.atan2(y1 - y0, x1 - x0)) - 90
+        check('exit_connector_turned_30deg', abs(abs(turn) - 30) < .01 and abs(math.hypot(x1 - x0, y1 - y0) - TT.DEPTH) < 1e-4,
+              {'exit_front_xy': [round(x0, 4), round(y0, 4)], 'exit_back_xy': [round(x1, 4), round(y1, 4)], 'turn_deg': round(turn, 3)})
+        check('nothing_past_connector_planes', lo.x >= -4 - 1e-3, {'min_x': round(lo.x, 4), 'note': 'entry plane x = -4; the exit side is checked by the footprint box'})
+    else:
+        check('nothing_past_connector_planes', lo.x >= -4 - 1e-3 and (hi.x <= 4 + 1e-3), {'min_x': round(lo.x, 4), 'max_x': round(hi.x, 4)})
     front_ok = True
     if T.kind in ('straight', 'end', 'broken'):
         front_ok = lo.y >= -2 - 1e-3
     check('front_lip_meets_lower_tread_at_z0', front_ok, 'the toe lip starts on the footprint front edge at z = 0')
     out = {'rise_m': TT.RISE, 'depth_m': TT.DEPTH, 'wall_face_inset_m': TT.FACE0, 'batter_per_m': TT.BATTER, 'connector_corners_xy': corners,
-           'stack_next_row': {'straight': '(0, +4, +1)', 'inner': 'row above follows the outer radius 8: use straight pieces and another bend', 'outer': 'row above sits on the inner radius 4'}[T.kind if T.kind in ('inner', 'outer') else 'straight']}
+           'field_profile': {'ridge_centre_d': TT.RIDGE_D, 'ridge_half_width': TT.RIDGE_HALF, 'ridge_height': TT.RIDGE_H, 'ditch_centre_d': TT.DITCH_D, 'ditch_half_width': TT.DITCH_HALF, 'ditch_depth': TT.DITCH_H},
+           'stack_next_row': {'straight': f'(0, +4, +{TT.RISE})', 'inner': 'row above follows the outer radius 8: use straight pieces and another bend', 'outer': 'row above sits on the inner radius 4',
+                              'gentle': 'translate the whole row by (0, +4, +rise): in the turned part the upper wall foot overlaps the lower tread by up to 0.54 m, never a gap'}[
+                              T.kind if T.kind in ('inner', 'outer') else 'gentle' if T.kind.startswith('gentle') else 'straight']}
+    if gentle:
+        (x0, y0), (x1, y1) = M(L, 0.), M(L, TT.DEPTH); ang = math.atan2(y1 - y0, x1 - x0) - math.pi / 2
+        out['exit_connector'] = {'front_corner_xy': [round(x0, 4), round(y0, 4)], 'heading_deg': round(math.degrees(ang), 3),
+                                 'next_straight_origin_xy': [round(x0 + 4 * math.cos(ang) + 2 * math.cos(ang + math.pi / 2), 4), round(y0 + 4 * math.sin(ang) + 2 * math.sin(ang + math.pi / 2), 4)]}
     return out
 
 

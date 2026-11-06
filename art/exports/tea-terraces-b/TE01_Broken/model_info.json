@@ -1,13 +1,13 @@
 {
   "asset": "TE01_Broken",
-  "version": "v001",
+  "version": "v002",
   "minTier": "standard",
   "detailObjects": [
     "TE01_Broken_Detail_Small"
   ],
   "name_zh": "梯田斷口",
   "slot": "A4_TeaTerraces",
-  "note": "接口：兩端剖面相同（前緣 y 為足跡前緣、土面 z = 1.0、深 4 m），落在 1 m 格線；上一排放在 +4 m（直段為 +Y）、+1.0 m 高。牆面在足跡前緣後 7 cm，向後傾 12 cm／m；前緣土唇在 z = 0 接下一排的土面。 s = 4.7–7.1 m 牆頂塌落最多 0.5 m，土岸下陷後用木樁和編條擋住，掉下的石頭堆在土面上等著砌回；整段土面仍可走。",
+  "note": "接口：兩端剖面相同（前緣 y 為足跡前緣、土面 z = 1.0、深 4 m），落在 1 m 格線；上一排放在 +4 m（直段為 +Y）、+1.0 m 高。牆面在足跡前緣後 7 cm，向後傾 12 cm／m；前緣土唇在 z = 0 接下一排的土面。 s = 4.7–7.1 m 牆頂塌落最多 0.5 m，土岸下陷後用木樁和編條擋住，掉下的石頭堆在土面上等著砌回；整段土面仍可走。 v002：踏面加茶壟（d = 2.95 m 中心、底寬 1.2 m、平頂寬約 0.54 m、高 0.18 m，壟頂土色偏乾淺並有落葉，茶樹種在壟上）和牆根排水溝（d = 3.74 m、寬 0.4 m、深 0.12 m，溝底土色偏濕深），剖面只隨深度 d 變化，所有件的接口仍是同一個剖面。",
   "units": "meters",
   "front": "-Y (Blender)",
   "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
@@ -37,7 +37,7 @@
       "dims_m": [
         8.0,
         4.0,
-        1.1158
+        1.189
       ],
       "min": [
         -4.0,
@@ -47,7 +47,7 @@
       "max": [
         4.0,
         2.0,
-        1.1158
+        1.189
       ]
     },
     "Detail_Small": {
@@ -70,9 +70,9 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 21418,
-      "LOD1": 10708,
-      "LOD2": 3212
+      "LOD0": 24038,
+      "LOD1": 12018,
+      "LOD2": 3604
     },
     "Detail_Small": {
       "LOD0": 16066,
@@ -81,9 +81,9 @@
     }
   },
   "lod_totals": {
-    "LOD0": 37484,
-    "LOD1": 18740,
-    "LOD2": 5620
+    "LOD0": 40104,
+    "LOD1": 20050,
+    "LOD2": 6012
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
   "materials": [
@@ -154,7 +154,7 @@
     "TE01_Broken_LOD1.001",
     "TE01_Broken_LOD2.001"
   ],
-  "glb": "TE01_Broken_v001.glb",
+  "glb": "TE01_Broken_v002.glb",
   "interface": {
     "rise_m": 1.0,
     "depth_m": 4.0,
@@ -182,7 +182,15 @@
         ]
       ]
     },
-    "stack_next_row": "(0, +4, +1)"
+    "field_profile": {
+      "ridge_centre_d": 2.95,
+      "ridge_half_width": 0.6,
+      "ridge_height": 0.18,
+      "ditch_centre_d": 3.74,
+      "ditch_half_width": 0.2,
+      "ditch_depth": 0.12
+    },
+    "stack_next_row": "(0, +4, +1.0)"
   },
   "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
   "reference": "art/references/TE01/ (AI three-view TE01/BROKEN; proportions from the work pack's written sizes, not measured from the image)",

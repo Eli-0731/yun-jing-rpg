@@ -1,30 +1,30 @@
 {
   "asset": "TE02_Round",
-  "version": "v001",
+  "version": "v002",
   "minTier": "standard",
   "detailObjects": [
     "TE02_Round_Detail_Small"
   ],
   "name_zh": "茶樹（圓頂）",
   "slot": "A4_TeaTerraces",
-  "note": "修剪成形的茶樹：頂面是平的採摘面（一芽二葉的嫩梢），肩部圓、下緣收進，露出木質主幹。寬 1.2 m。葉片用透明裁切的葉片卡（TE02_LeafCards，四格共用貼圖），樹幹、根部土堆和小石烘焙到本件圖集。頂點色 Wind：R 風擺權重（根 0 → 外葉 1）、G 每張卡的相位、B 高度 0–1。圓頂，最常用。",
+  "note": "修剪成形的茶樹：頂面是平的採摘面（一芽二葉的嫩梢），肩部圓、下緣收進，露出木質主幹。寬 1.2 m。葉片用透明裁切的葉片卡（TE02_LeafCards，四格共用貼圖），樹幹、根部土堆和小石烘焙到本件圖集。頂點色 Wind：R 風擺權重（根 0 → 外葉 1）、G 每張卡的相位、B 高度 0–1。圓頂，最常用。 v002：葉片更密集（每格貼圖的葉子更多更小、幾乎不留空位；樹冠葉片卡多約 40%、間距縮小、內層加厚），尺寸與擺放不變。",
   "units": "meters",
   "front": "-Y (Blender)",
   "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
   "origin": "root centre on the ground, z = 0 at the soil",
   "dimensions_m": [
     1.2,
-    1.157,
+    1.1689,
     0.9
   ],
   "bounds_min_m": [
     -0.6,
-    -0.5785,
+    -0.5844,
     0.0
   ],
   "bounds_max_m": [
     0.6,
-    0.5785,
+    0.5844,
     0.9
   ],
   "size_limit_m": [
@@ -35,52 +35,52 @@
   "pieces": {
     "Main": {
       "dims_m": [
-        0.7431,
-        0.7526,
-        0.5385
+        0.7332,
+        0.7426,
+        0.5406
       ],
       "min": [
-        -0.4243,
-        -0.3925,
+        -0.4227,
+        -0.3921,
         0.0
       ],
       "max": [
-        0.3188,
-        0.3601,
-        0.5385
+        0.3105,
+        0.3505,
+        0.5406
       ]
     },
     "Detail_Small": {
       "dims_m": [
-        0.7726,
-        0.8275,
-        0.7016
+        0.7623,
+        0.8165,
+        0.7044
       ],
       "min": [
-        -0.4533,
-        -0.4193,
+        -0.4514,
+        -0.4185,
         0.0
       ],
       "max": [
-        0.3193,
-        0.4082,
-        0.7016
+        0.311,
+        0.398,
+        0.7044
       ]
     },
     "Leaves": {
       "dims_m": [
         1.2,
-        1.157,
-        0.6689
+        1.1689,
+        0.6726
       ],
       "min": [
         -0.6,
-        -0.5785,
-        0.2311
+        -0.5844,
+        0.2274
       ],
       "max": [
         0.6,
-        0.5785,
+        0.5844,
         0.9
       ]
     }
@@ -97,25 +97,25 @@
       "LOD2": 1432
     },
     "Leaves": {
-      "LOD0": 3600,
+      "LOD0": 5536,
       "LOD1_fit_scale": [
-        0.962,
-        0.961,
+        0.926,
+        0.94,
         1.0
       ],
-      "LOD1": 1928,
+      "LOD1": 2896,
       "LOD2_fit_scale": [
-        0.868,
-        0.946,
-        0.993
+        0.891,
+        0.906,
+        0.98
       ],
-      "LOD2": 752
+      "LOD2": 1112
     }
   },
   "lod_totals": {
-    "LOD0": 17688,
-    "LOD1": 8972,
-    "LOD2": 2864
+    "LOD0": 19624,
+    "LOD1": 9940,
+    "LOD2": 3224
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
   "materials": [
@@ -157,7 +157,7 @@
     "TE02_Round_Leaves_LOD1.001",
     "TE02_Round_Leaves_LOD2.001"
   ],
-  "glb": "TE02_Round_v001.glb",
+  "glb": "TE02_Round_v002.glb",
   "interface": {
     "design": {
       "H": 0.9,
@@ -168,8 +168,8 @@
       "seed": 21
     },
     "fit_scale_xy_z": [
-      0.9437,
-      0.9041
+      0.9311,
+      0.9077
     ],
     "collision": "octagonal prism r 0.42 m, 0.75 H tall"
   },

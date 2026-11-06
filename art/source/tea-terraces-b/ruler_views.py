@@ -1,11 +1,11 @@
 """tea-terraces-b review sheets (work pack B-48h): grey model and material under the same light, each with a 1.75 m figure and ruler.
 
-Renders the v001 LOD0 beside a plain 1.75 m stand-in figure and a ruler marked every 0.25 m, from the front and 3/4.
+Renders the current version's LOD0 beside a plain 1.75 m stand-in figure and a ruler marked every 0.25 m, from the front and 3/4.
 Each view is rendered twice with identical camera and lights: first with the baked materials, then grey
 (Base Color unlinked and set to 0.5 grey; leaf alpha stays linked so cards keep their cut-out).
 Writes art/previews/tea-terraces-b/<ID>/ruler_<view>_material.png and ruler_<view>_grey.png; the model files are not touched.
 
-blender --background --factory-startup art/source/tea-terraces-b/blend/<ID>_v001.blend --python ruler_views.py -- <ID> <repo>/art
+blender --background --factory-startup art/source/tea-terraces-b/blend/<ID>_<version>.blend --python ruler_views.py -- <ID> <repo>/art
 """
 import bpy, bmesh, json, math, sys
 from pathlib import Path
@@ -164,7 +164,7 @@ for key, zh, d in VIEWS:
         set_grey(False)
 
 (OUT / 'ruler_views.json').write_text(json.dumps({
-    'asset': AID, 'model': f"{AID}_v001.fbx LOD0", 'figure_height_m': HUMAN,
+    'asset': AID, 'model': f"{AID}_{info.get('version', 'v001')}.fbx LOD0", 'figure_height_m': HUMAN,
     'ruler_ticks_m': .25, 'camera': 'orthographic, 8 deg above horizontal', 'lighting': 'same sun + fill for the material and grey pass of each view',
     'grey_pass': 'Base Color unlinked to 0.5 grey; alpha, normal and roughness kept', 'views': written,
     'model_dimensions_m': [round(v, 3) for v in size]}, ensure_ascii=False, indent=2), encoding='utf-8')

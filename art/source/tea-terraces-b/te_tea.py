@@ -17,7 +17,7 @@ import ti_mats as tm
 import cr_mats as cm
 from cr_parts import rope, log, rbox
 
-LEAF_DIR = Path(__file__).resolve().parents[2] / 'exports' / 'tea-terraces-b' / 'TE02_Shared' / 'Textures'
+LEAF_DIR = Path(__file__).resolve().parents[2] / 'exports' / 'tea-terraces-b' / 'TE02_Shared' / 'v002' / 'Textures'   # v001 atlas stays in TE02_Shared/Textures
 BOUND = .146   # half the 0.3 m cell, less a margin
 CELLS = {0: (0., .5, .5, 1.), 1: (.5, .5, 1., 1.), 2: (0., 0., .5, .5), 3: (.5, 0., .75, .5), 4: (.775, .025, .975, .475)}   # u0, v0, u1, v1; 4 = opaque core mass
 
@@ -97,25 +97,28 @@ def _sprig_mesh(name, kind, R):
             if max(abs(q.x), abs(q.y)) > BOUND - .01: break
             p = q; pts.append(p.copy())
             for sgn in (-1, 1):
-                if R.random() < .12: continue
+                if R.random() < .03: continue   # v002: almost every node carries its pair of leaves (was 12% skipped)
                 a = math.atan2(d.y, d.x) + sgn * R.uniform(.55, 1.05)
                 L = L0 * R.uniform(.8, 1.15) * (1 - .25 * t); tone = R.uniform(tone_lo, tone_hi) + .2 * t * (tone_hi - tone_lo)
-                _leaf(verts, faces, attrs, p, (math.cos(a), math.sin(a), R.uniform(.05, .35)), L, L * .36, min(1., tone), 1. if R.random() < .04 else 0., R=R)
+                _leaf(verts, faces, attrs, p, (math.cos(a), math.sin(a), R.uniform(.05, .35)), L, L * .36, min(1., tone), 1. if R.random() < .015 else 0., R=R)   # v002: fewer yellowed leaves (was 4%), the denser cells showed them as noise
         if len(pts) > 1: stems.append(pts)
         if young_tip:
             # the shoot: a furled bud and two pale leaves standing up
             for k, (a, s) in enumerate(((0, .5), (1.2, .9), (-1.1, .8))):
                 ang2 = math.atan2(d.y, d.x) + a
                 L = .035 * s + .015; _leaf(verts, faces, attrs, p + d * .005, (math.cos(ang2) * .6, math.sin(ang2) * .6, .8 if k == 0 else .35), L, L * (.22 if k == 0 else .33), 1., 0., cup=.4)
+    # v002: more and smaller leaves per cell, spread to the cell corners, so a card reads as a closed clump of foliage
     if kind == 0:      # old dense
-        for k in range(13): twig((R.uniform(-.11, .11), R.uniform(-.11, .11), R.uniform(0, .03)), R.uniform(0, 6.3), 5, .0, .35, .075, False, .2)
+        for k in range(22): twig((R.uniform(-.125, .125), R.uniform(-.125, .125), R.uniform(0, .03)), R.uniform(0, 6.3), 5, .0, .35, .06, False, .19)
     elif kind == 1:    # plucking table with shoots
-        for k in range(11): twig((R.uniform(-.1, .1), R.uniform(-.1, .1), 0), R.uniform(0, 6.3), 4, .12, .5, .07, False, .16)
-        for k in range(6): twig((R.uniform(-.09, .09), R.uniform(-.09, .09), .04), R.uniform(0, 6.3), 2, .6, .9, .05, True, .06)
+        for k in range(18): twig((R.uniform(-.12, .12), R.uniform(-.12, .12), 0), R.uniform(0, 6.3), 4, .12, .5, .058, False, .15)
+        for k in range(8): twig((R.uniform(-.1, .1), R.uniform(-.1, .1), .04), R.uniform(0, 6.3), 2, .6, .9, .05, True, .06)
     elif kind == 2:    # mixed side
-        for k in range(12): twig((R.uniform(-.11, .11), R.uniform(-.11, .11), R.uniform(0, .03)), R.uniform(0, 6.3), 5, .05, .5, .072, R.random() < .25, .2)
-    else:              # side sprig: one branch with leaves, fanning up the cell
-        twig((0, -.13, 0), math.pi / 2, 7, .15, .6, .066, True, .25)
+        for k in range(20): twig((R.uniform(-.125, .125), R.uniform(-.125, .125), R.uniform(0, .03)), R.uniform(0, 6.3), 5, .05, .5, .058, R.random() < .2, .19)
+    else:              # side sprig: a main branch and two side branches, fanning up the cell
+        twig((0, -.13, 0), math.pi / 2, 8, .15, .6, .056, True, .25)
+        twig((-.05, -.11, 0), math.pi / 2 + .45, 6, .15, .55, .052, False, .2)
+        twig((.05, -.11, 0), math.pi / 2 - .45, 6, .15, .55, .052, False, .2)
     me = bpy.data.meshes.new(name); me.from_pydata(verts, [], faces); me.update()
     for nm, vals in attrs.items():
         if nm == 'cuv':
@@ -359,7 +362,7 @@ def tea_bush(P, cfg):
         for p, a, z in shell_points(int(cfg['top_cards'] * count_k), .02, top_z + cfg['shoulder'] * .55, H - .005, seed + 50):
             card(verts, faces, uvs, cols, nrms, masks, p, (Vector((R.uniform(-.25, .25), R.uniform(-.25, .25), 1))).normalized(), R.uniform(.19, .25) * scale, 1, R, wind=1., phase=R.random(), H=H, mask=lod_mask, bend=.1)
         # inner layer: darker old foliage so the crown never reads hollow
-        for p, a, z in shell_points(int(cfg['cards'] * .35 * count_k), .16, cfg['z_under'] + .08, top_z, seed + 90):
+        for p, a, z in shell_points(int(cfg['cards'] * .6 * count_k), .12, cfg['z_under'] + .08, top_z, seed + 90):   # v002: fuller inner layer (was .35, inset .16)
             card(verts, faces, uvs, cols, nrms, masks, p, (C.normal(a, z) + Vector((0, 0, .2))).normalized(), R.uniform(.22, .28) * scale, 0, R, wind=.7, phase=R.random(), H=H, mask=lod_mask)
         if lod_mask == 1:
             # young shoots: smaller sprig cards leaning back about 50 deg so the table reads tufted from eye level without a dark upright fringe from behind
@@ -441,7 +444,8 @@ def fit(cfg):
 
 
 TE02 = {
-    'TE02_Round': dict(W=1.2, collide_r=.42, H=.9, rx=.6, ry=.56, z_under=.3, shoulder=.17, skew=(0, 0), stems=8, seed=21, cards=230, top_cards=90, spacing=.072, lobes=.05),
-    'TE02_Wide': dict(W=1.2, collide_r=.42, H=.8, rx=.6, ry=.47, z_under=.25, shoulder=.14, skew=(.06, -.02), stems=8, seed=22, cards=220, top_cards=84, spacing=.072, lobes=.09),
-    'TE02_Tall': dict(W=1.2, collide_r=.42, H=1.1, rx=.56, ry=.53, z_under=.4, shoulder=.22, skew=(-.03, .02), stems=7, seed=23, cards=250, top_cards=70, spacing=.075, lobes=.11),
+    # v002: cards x1.4 (top x1.3) and spacing x0.85 against v001 (230/90/.072, 220/84/.072, 250/70/.075)
+    'TE02_Round': dict(W=1.2, collide_r=.42, H=.9, rx=.6, ry=.56, z_under=.3, shoulder=.17, skew=(0, 0), stems=8, seed=21, cards=322, top_cards=117, spacing=.061, lobes=.05),
+    'TE02_Wide': dict(W=1.2, collide_r=.42, H=.8, rx=.6, ry=.47, z_under=.25, shoulder=.14, skew=(.06, -.02), stems=8, seed=22, cards=308, top_cards=109, spacing=.061, lobes=.09),
+    'TE02_Tall': dict(W=1.2, collide_r=.42, H=1.1, rx=.56, ry=.53, z_under=.4, shoulder=.22, skew=(-.03, .02), stems=7, seed=23, cards=350, top_cards=91, spacing=.064, lobes=.11),
 }

@@ -1,0 +1,236 @@
+{
+  "asset": "TE01_GentleOuter",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -4.0,
+          -2.0,
+          0.0
+        ],
+        "max": [
+          3.641,
+          3.5111,
+          1.2735
+        ],
+        "box_m": [
+          [
+            -4.0,
+            -2.0,
+            0.0
+          ],
+          [
+            3.7,
+            3.6,
+            1.6
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "largest_clamp_m": 0.00649
+      }
+    },
+    {
+      "check": "connector_soil_at_rise_within_2mm",
+      "pass": true,
+      "detail": {
+        "max_error_m": 0.00157,
+        "samples_z": {
+          "s=0.0": [
+            1.0,
+            0.9999,
+            0.9999,
+            0.9999,
+            0.9999,
+            0.9999,
+            1.1531,
+            1.1798,
+            1.1798,
+            1.0125,
+            0.9048
+          ],
+          "s=8.0": [
+            1.0,
+            1.0,
+            1.0,
+            1.0001,
+            1.0001,
+            1.0001,
+            1.1532,
+            1.18,
+            1.18,
+            1.0127,
+            0.9048
+          ]
+        },
+        "note": "any two pieces meet on the same heights, so a joint opens no step over 2 mm"
+      }
+    },
+    {
+      "check": "connectors_on_1m_grid",
+      "pass": true,
+      "detail": {
+        "s=0.0": [
+          [
+            -4.0,
+            -2.0
+          ],
+          [
+            -4.0,
+            2.0
+          ]
+        ],
+        "s=8.0": [
+          [
+            3.6394,
+            0.047
+          ],
+          [
+            1.6394,
+            3.5111
+          ]
+        ],
+        "note": "gentle bends: only the entry connector is on the grid; the exit is turned by 30 degrees"
+      }
+    },
+    {
+      "check": "exit_connector_turned_30deg",
+      "pass": true,
+      "detail": {
+        "exit_front_xy": [
+          3.6394,
+          0.047
+        ],
+        "exit_back_xy": [
+          1.6394,
+          3.5111
+        ],
+        "turn_deg": 30.0
+      }
+    },
+    {
+      "check": "nothing_past_connector_planes",
+      "pass": true,
+      "detail": {
+        "min_x": -4.0,
+        "note": "entry plane x = -4; the exit side is checked by the footprint box"
+      }
+    },
+    {
+      "check": "front_lip_meets_lower_tread_at_z0",
+      "pass": true,
+      "detail": "the toe lip starts on the footprint front edge at z = 0"
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 34816,
+          "LOD1": 17407,
+          "LOD2": 5220
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 25786,
+            "LOD1": 12892,
+            "LOD2": 3866
+          },
+          "Detail_Small": {
+            "LOD0": 9030,
+            "LOD1": 4515,
+            "LOD2": 1354
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          7.641,
+          5.5111,
+          1.2735
+        ],
+        "blend_dims_m": [
+          7.641,
+          5.5111,
+          1.2735
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_Left.001",
+        "Socket_NextRowFront.001",
+        "Socket_Right.001",
+        "TE01_GentleOuter.001",
+        "TE01_GentleOuter_Collision.001",
+        "TE01_GentleOuter_Detail_Small_LOD0.001",
+        "TE01_GentleOuter_Detail_Small_LOD1.001",
+        "TE01_GentleOuter_Detail_Small_LOD2.001",
+        "TE01_GentleOuter_LOD0.001",
+        "TE01_GentleOuter_LOD1.001",
+        "TE01_GentleOuter_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Left.001": [
+          -4.0,
+          -2.0,
+          1.0
+        ],
+        "Socket_NextRowFront.001": [
+          -1.0808,
+          2.3843,
+          1.0
+        ],
+        "Socket_Right.001": [
+          3.6394,
+          0.047,
+          1.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 3134044
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 251,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

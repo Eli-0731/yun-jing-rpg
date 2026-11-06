@@ -1,6 +1,6 @@
 {
   "asset": "TE01_End",
-  "source": "art/source/tea-terraces-b/blend/TE01_End_v001.blend",
+  "source": "art/source/tea-terraces-b/blend/TE01_End_v002.blend",
   "same_geometry": true,
   "render_of": "exported LOD0 with baked textures",
   "views": [
@@ -13,8 +13,8 @@
       ],
       "camera_location": [
         0.0,
-        -22.4346,
-        0.6266
+        -22.4348,
+        0.627
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -27,9 +27,9 @@
         0
       ],
       "camera_location": [
-        22.4346,
+        22.4348,
         0.0,
-        0.6266
+        0.627
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -43,8 +43,8 @@
       ],
       "camera_location": [
         0.0,
-        22.4346,
-        0.6266
+        22.4348,
+        0.627
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -57,9 +57,9 @@
         0
       ],
       "camera_location": [
-        -22.4346,
+        -22.4348,
         0.0,
-        0.6266
+        0.627
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -72,9 +72,9 @@
         0.45
       ],
       "camera_location": [
-        15.1168,
-        -15.1168,
-        7.4292
+        15.117,
+        -15.117,
+        7.4296
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -87,9 +87,9 @@
         0.45
       ],
       "camera_location": [
-        15.1168,
-        15.1168,
-        7.4292
+        15.117,
+        15.117,
+        7.4296
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -102,9 +102,9 @@
         0.45
       ],
       "camera_location": [
-        -15.1168,
-        15.1168,
-        7.4292
+        -15.117,
+        15.117,
+        7.4296
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -117,9 +117,9 @@
         0.45
       ],
       "camera_location": [
-        -15.1168,
-        -15.1168,
-        7.4292
+        -15.117,
+        -15.117,
+        7.4296
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -134,7 +134,7 @@
       "camera_location": [
         0.0,
         0.0,
-        23.0612
+        23.0618
       ],
       "projection": "orthographic",
       "framing_checked": true
@@ -148,8 +148,8 @@
       ],
       "camera_location": [
         0.0,
-        -15.8637,
-        16.4903
+        -15.8638,
+        16.4908
       ],
       "projection": "orthographic",
       "framing_checked": true

@@ -1,0 +1,209 @@
+{
+  "asset": "TE01_GentleInner",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "TE01_GentleInner_Detail_Small"
+  ],
+  "name_zh": "梯田緩內彎 30°（山凹）",
+  "slot": "A4_TeaTerraces",
+  "note": "接口：兩端剖面相同（前緣 y 為足跡前緣、土面 z = 1.0、深 4 m），落在 1 m 格線；上一排放在 +4 m（直段為 +Y）、+1.0 m 高。牆面在足跡前緣後 7 cm，向後傾 12 cm／m；前緣土唇在 z = 0 接下一排的土面。 v002：踏面加茶壟（d = 2.95 m 中心、底寬 1.2 m、平頂寬約 0.54 m、高 0.18 m，壟頂土色偏乾淺並有落葉，茶樹種在壟上）和牆根排水溝（d = 3.74 m、寬 0.4 m、深 0.12 m，溝底土色偏濕深），剖面只隨深度 d 變化，所有件的接口仍是同一個剖面。 30° 緩彎（不在原工作包規格內，為了讓梯田能沿等高線彎曲而追加，待負責人確認）：沿牆 8 m、牆面半徑 15.28 m。左端接口與直段左端完全相同（x = -4、前緣 y = -2）；右端接口轉了 30°，不在 1 m 格線上，下一件依 Socket_Right 的位置與朝向擺放。 向右（下坡側）轉。",
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre on the 1 m grid, z = 0 at the lower terrace soil",
+  "dimensions_m": [
+    9.6394,
+    6.0497,
+    1.2753
+  ],
+  "bounds_min_m": [
+    -4.0,
+    -4.0497,
+    0.0
+  ],
+  "bounds_max_m": [
+    5.6394,
+    2.0,
+    1.2753
+  ],
+  "size_limit_m": [
+    8.0,
+    8.0,
+    1.6
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        9.6394,
+        6.0497,
+        1.1932
+      ],
+      "min": [
+        -4.0,
+        -4.0497,
+        0.0
+      ],
+      "max": [
+        5.6394,
+        2.0,
+        1.1932
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        8.7379,
+        5.4278,
+        1.2723
+      ],
+      "min": [
+        -3.7706,
+        -3.6749,
+        0.003
+      ],
+      "max": [
+        4.9673,
+        1.7529,
+        1.2753
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 27714,
+      "LOD1": 13856,
+      "LOD2": 4156
+    },
+    "Detail_Small": {
+      "LOD0": 8730,
+      "LOD1": 4364,
+      "LOD2": 1308
+    }
+  },
+  "lod_totals": {
+    "LOD0": 36444,
+    "LOD1": 18220,
+    "LOD2": 5464
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_TE01_GentleInner_Main"
+  ],
+  "textures": [
+    "TE01_GentleInner_BaseColor.png",
+    "TE01_GentleInner_Metallic.png",
+    "TE01_GentleInner_MetallicSmoothness.png",
+    "TE01_GentleInner_Normal.png",
+    "TE01_GentleInner_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "TE01_GentleInner_BaseColor.png",
+    "Normal": "TE01_GentleInner_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "TE01_GentleInner_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "TE01_GentleInner_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Left": [
+      -4.0,
+      -2.0,
+      1.0
+    ],
+    "Socket_Right": [
+      3.6394,
+      -4.047,
+      1.0
+    ],
+    "Socket_NextRowFront": [
+      0.9897,
+      1.3431,
+      1.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Left.001": [
+      -4.0,
+      -2.0,
+      1.0
+    ],
+    "Socket_NextRowFront.001": [
+      0.9897,
+      1.3431,
+      1.0
+    ],
+    "Socket_Right.001": [
+      3.6394,
+      -4.047,
+      1.0
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Left.001",
+    "Socket_NextRowFront.001",
+    "Socket_Right.001",
+    "TE01_GentleInner.001",
+    "TE01_GentleInner_Collision.001",
+    "TE01_GentleInner_Detail_Small_LOD0.001",
+    "TE01_GentleInner_Detail_Small_LOD1.001",
+    "TE01_GentleInner_Detail_Small_LOD2.001",
+    "TE01_GentleInner_LOD0.001",
+    "TE01_GentleInner_LOD1.001",
+    "TE01_GentleInner_LOD2.001"
+  ],
+  "glb": "TE01_GentleInner_v001.glb",
+  "interface": {
+    "rise_m": 1.0,
+    "depth_m": 4.0,
+    "wall_face_inset_m": 0.07,
+    "batter_per_m": 0.12,
+    "connector_corners_xy": {
+      "s=0.0": [
+        [
+          -4.0,
+          -2.0
+        ],
+        [
+          -4.0,
+          2.0
+        ]
+      ],
+      "s=8.0": [
+        [
+          3.6394,
+          -4.047
+        ],
+        [
+          5.6394,
+          -0.5829
+        ]
+      ]
+    },
+    "field_profile": {
+      "ridge_centre_d": 2.95,
+      "ridge_half_width": 0.6,
+      "ridge_height": 0.18,
+      "ditch_centre_d": 3.74,
+      "ditch_half_width": 0.2,
+      "ditch_depth": 0.12
+    },
+    "stack_next_row": "translate the whole row by (0, +4, +rise): in the turned part the upper wall foot overlaps the lower tread by up to 0.54 m, never a gap",
+    "exit_connector": {
+      "front_corner_xy": [
+        3.6394,
+        -4.047
+      ],
+      "heading_deg": -30.0,
+      "next_straight_origin_xy": [
+        8.1035,
+        -4.3149
+      ]
+    }
+  },
+  "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/TE01/ (AI three-view TE01/INNER-BEND; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/tea-terraces-unity/unity-verify-report.txt"
+}

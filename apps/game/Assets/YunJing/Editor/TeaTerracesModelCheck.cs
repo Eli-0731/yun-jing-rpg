@@ -24,7 +24,8 @@ namespace YunJing.Editor
         static string Exports => Path.Combine(Repo, "art", "exports", "tea-terraces-b");
         static string Out => Path.Combine(Repo, "artifacts", "tea-terraces-unity");
         static readonly string[] Ids = { "TE01_StraightA", "TE01_StraightB", "TE01_InnerBend", "TE01_OuterBend", "TE01_End", "TE01_Broken",
-            "TE02_Round", "TE02_Wide", "TE02_Tall", "TE03_Stair", "TE03_Path", "TE03_Stepping" };
+            "TE02_Round", "TE02_Wide", "TE02_Tall", "TE03_Stair", "TE03_Path", "TE03_Stepping",
+            "TE01_GentleOuter", "TE01_GentleInner", "TE01_StraightB_H08", "TE01_StraightB_H12", "TE01_End_H08", "TE01_End_H12" };
         static readonly List<string> Report = new List<string>();
         static int failed;
         static CharacterController cc;
@@ -33,6 +34,41 @@ namespace YunJing.Editor
         [Serializable] class LodTotals { public int LOD0, LOD1, LOD2; }
         [Serializable] class Placement { public string id; public float[] position_m; public float rotation_z_deg; public bool mirror_x; public int row; }
         [Serializable] class Assembly { public Placement[] pieces; public int rows; }
+
+        // the exported version of each model (v002 for the TE01 pieces with the ridge and ditch), from its model_info.json
+        static readonly Dictionary<string, string> ver = new Dictionary<string, string>();
+        static string Ver(string id)
+        {
+            if (!ver.TryGetValue(id, out var v))
+            {
+                var txt = File.ReadAllText(Path.Combine(Exports, id, "model_info.json")); int at = txt.IndexOf("\"version\""); v = "v001";
+                if (at >= 0) { int q1 = txt.IndexOf('"', txt.IndexOf(':', at) + 1), q2 = txt.IndexOf('"', q1 + 1); v = txt.Substring(q1 + 1, q2 - q1 - 1); }
+                ver[id] = v;
+            }
+            return v;
+        }
+        static string Fbx(string id) => $"{Root}/{id}/{id}_{Ver(id)}.fbx";
+
+        // TE01 v002 tread profile (te_terrace.field_profile): a flat-topped planting ridge under the bush line, a runoff ditch at the back
+        const float RidgeD = 2.95f, RidgeHalf = .60f, RidgeH = .18f, RidgeTop = .45f, DitchD = 3.74f, DitchHalf = .20f, DitchH = .12f;
+        static float Profile(float d)
+        {
+            float t = Mathf.Abs(d - RidgeD) / RidgeHalf, u = Mathf.Clamp01((1 - t) / (1 - RidgeTop)), z = RidgeH * u * u * (3 - 2 * u);
+            t = Mathf.Abs(d - DitchD) / DitchHalf; if (t < 1) z -= DitchH * Mathf.Pow(Mathf.Cos(t * Mathf.PI / 2), 2);
+            return z;
+        }
+        static readonly float RG = 8f / (Mathf.PI / 6);   // gentle bend wall radius
+        static Vector2 Rot(Vector2 v, float deg) { float a = deg * Mathf.Deg2Rad, c = Mathf.Cos(a), s = Mathf.Sin(a); return new Vector2(c * v.x - s * v.y, s * v.x + c * v.y); }
+        // tread point (s along the wall, d behind the front edge) of a TE01 piece in its own axes; bends enter like a straight's left end
+        static Vector2 Local(string kind, float s, float d)
+        {
+            if (kind == "outer") { float a = -Mathf.PI / 2 + s / RG, r = RG - d; return new Vector2(-4 + r * Mathf.Cos(a), -2 + RG + r * Mathf.Sin(a)); }
+            if (kind == "inner") { float a = Mathf.PI / 2 - s / RG, r = RG + d; return new Vector2(-4 + r * Mathf.Cos(a), -2 - RG + r * Mathf.Sin(a)); }
+            return new Vector2(s - 4, -2 + d);
+        }
+        struct Link { public string id, kind; public Vector2 origin; public float yaw; }
+        static readonly List<Link> chain = new List<Link>();
+        static readonly List<(Link l, int row, float z, float rise)> heights = new List<(Link, int, float, float)>();
 
         static void Check(bool ok, string what) { Report.Add((ok ? "PASS " : "FAIL ") + what); if (!ok) failed++; }
         // Blender (x, y, z) -> Unity (x, z, y)
@@ -61,6 +97,7 @@ namespace YunJing.Editor
             Lighting();
             // each model on its own, far from the assembly
             var single = new Dictionary<string, GameObject>();
+            Report.Add("INFO versions: " + string.Join(", ", Ids.Select(i => $"{i} {Ver(i)}")));
             for (int i = 0; i < Ids.Length; i++) { single[Ids[i]] = Place(Ids[i], new Vector3(200 + i % 4 * 16, 0, 200 + i / 4 * 16), 0, false); Verify(Ids[i], single[Ids[i]]); }
             foreach (var id in Ids.Where(i => i.StartsWith("TE02"))) Wind(id, single[id]);
             foreach (var id in Ids) Sockets(id, single[id]);
@@ -75,10 +112,12 @@ namespace YunJing.Editor
             var bend = new List<GameObject> {
                 Place("TE01_StraightA", U(100, 0, 0), 0, false), Place("TE01_OuterBend", U(108, 2, 0), 0, false),
                 Place("TE01_StraightB", U(100, -30, 0), 0, false), Place("TE01_InnerBend", U(108, -32, 0), 0, false) };
+            GentleChain(); HeightRows();
             Physics.SyncTransforms();
             Seams(placed, asm.rows);
             Walks(asm, placed);
             Capture(placed, single, bend);
+            Showcase();
             File.WriteAllText(Path.Combine(Out, "unity-verify-report.txt"), string.Join("\n", Report) + $"\n\nUnity {Application.unityVersion}; failed checks: {failed}; walking is a scripted CharacterController, not a person\n");
             Debug.Log("TEA_TERRACES_" + (failed == 0 ? "PASS" : "FAIL") + "\n" + string.Join("\n", Report));
             if (failed > 0 && Application.isBatchMode) EditorApplication.Exit(1);
@@ -89,13 +128,14 @@ namespace YunJing.Editor
             var src = Path.Combine(Exports, id); var dst = Path.Combine(Repo, "apps", "game", Root, id);
             if (!Directory.Exists(src)) throw new DirectoryNotFoundException(src);
             Directory.CreateDirectory(Path.Combine(dst, "Textures"));
-            foreach (var file in Directory.GetFiles(src, "*.fbx").Concat(Directory.GetFiles(Path.Combine(src, "Textures"), "*.png")))
+            foreach (var old in Directory.GetFiles(dst, "*.fbx").Where(f => !f.EndsWith($"_{Ver(id)}.fbx"))) { File.Delete(old); if (File.Exists(old + ".meta")) File.Delete(old + ".meta"); }
+            foreach (var file in Directory.GetFiles(src, $"{id}_{Ver(id)}.fbx").Concat(Directory.GetFiles(Path.Combine(src, "Textures"), "*.png")))
                 File.Copy(file, Path.Combine(dst, file.Substring(src.Length + 1)), true);
         }
 
         static void Configure(string id)
         {
-            var importer = AssetImporter.GetAtPath($"{Root}/{id}/{id}_v001.fbx") as ModelImporter;
+            var importer = AssetImporter.GetAtPath(Fbx(id)) as ModelImporter;
             if (importer == null) throw new FileNotFoundException("FBX not imported", id);
             importer.bakeAxisConversion = true; importer.materialImportMode = ModelImporterMaterialImportMode.None; importer.isReadable = true;
             importer.importAnimation = false; importer.importCameras = false; importer.importLights = false; importer.addCollider = false;
@@ -151,7 +191,7 @@ namespace YunJing.Editor
 
         static GameObject Place(string id, Vector3 position, float rotZ, bool mirror)
         {
-            var go = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>($"{Root}/{id}/{id}_v001.fbx"));
+            var go = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(Fbx(id)));
             PrefabUtility.UnpackPrefabInstance(go, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
             go.transform.position = position; go.transform.rotation = Quaternion.Euler(0, -rotZ, 0);
             if (mirror) go.transform.localScale = new Vector3(-1, 1, 1);
@@ -170,6 +210,151 @@ namespace YunJing.Editor
             var col = go.GetComponentsInChildren<MeshFilter>(true).FirstOrDefault(m => m.name == id + "_Collision");
             if (col != null) col.gameObject.AddComponent<MeshCollider>().sharedMesh = col.sharedMesh;
             return go;
+        }
+
+        // Two rows of the 30 degree contour chain at x 146..: StraightA | GentleOuter | StraightB (turned 30) | GentleInner | StraightA.
+        // The next piece's origin = exit front corner + rot(heading) (4, 2); row 1 is the same chain at (0, +4, +1).
+        static void GentleChain()
+        {
+            chain.Clear();
+            var o = new Vector2(150, 0); float yaw = 0;
+            foreach (var (id, kind) in new[] { ("TE01_StraightA", "straight"), ("TE01_GentleOuter", "outer"), ("TE01_StraightB", "straight"), ("TE01_GentleInner", "inner"), ("TE01_StraightA", "straight") })
+            {
+                chain.Add(new Link { id = id, kind = kind, origin = o, yaw = yaw });
+                var corner = o + Rot(Local(kind, 8, 0), yaw); yaw += kind == "outer" ? 30 : kind == "inner" ? -30 : 0; o = corner + Rot(new Vector2(4, 2), yaw);
+            }
+            for (int r = 0; r < 2; r++) foreach (var l in chain) Place(l.id, U(l.origin.x, l.origin.y + 4 * r, r), l.yaw, false);
+            var info = File.ReadAllText(Path.Combine(Exports, "TE01_GentleOuter", "model_info.json"));
+            var ex = chain[0].origin + Rot(Local("straight", 8, 0), 0); var g1 = chain[1].origin + Rot(Local("outer", 0, 0), 0);
+            Check((ex - g1).magnitude < 1e-4f, $"gentle chain: GentleOuter's entry corner meets the straight's right corner ({g1.x:F4}, {g1.y:F4})");
+            Report.Add($"INFO gentle chain origins: {string.Join(" | ", chain.Select(l => $"{l.id} ({l.origin.x:F3}, {l.origin.y:F3}) yaw {l.yaw:F0}"))}");
+        }
+
+        // Three stacked rows of different wall height: rise 0.8 (H08), 1.0, 1.2 (H12); each row StraightB, StraightB, End; row origin z = soil of the row below.
+        static void HeightRows()
+        {
+            heights.Clear(); float z = 0;
+            var rows = new[] { ("_H08", .8f), ("", 1f), ("_H12", 1.2f) };
+            for (int r = 0; r < rows.Length; r++)
+            {
+                var (tag, rise) = rows[r];
+                for (int i = 0; i < 3; i++)
+                {
+                    var id = (i < 2 ? "TE01_StraightB" : "TE01_End") + tag; var o = new Vector2(150 + 8 * i, 60 + 4 * r);
+                    heights.Add((new Link { id = id, kind = "straight", origin = o, yaw = 0 }, r, z, rise));
+                    Place(id, U(o.x, o.y, z), 0, false);
+                }
+                z += rise;
+            }
+        }
+
+        static void GentleAndHeightWalks()
+        {
+            // along the path line (d 1.15) of both gentle rows: straight, round the outer bend, along the 30 degree run, round the inner bend, straight
+            for (int r = 0; r < 2; r++)
+            {
+                var pts = new List<Vector3>();
+                for (int ci = 0; ci < chain.Count; ci++)
+                    for (float s = ci == 0 ? 1 : 0; s <= (ci == chain.Count - 1 ? 7.01f : 8.01f); s += .5f)
+                    { var l = chain[ci]; var q = l.origin + Rot(Local(l.kind, s, 1.15f), l.yaw); pts.Add(U(q.x, q.y + 4 * r, r + 1)); }
+                Walk($"gentle row {r} along the path line through both 30 degree bends", r + .97f, r + 1.12f, pts.ToArray());
+            }
+            // across the tread of the last straight: from the path up over the ridge crown and down into the ditch
+            var last = chain[chain.Count - 1]; Vector3 T(float d) { var q = last.origin + Rot(Local("straight", 4, d), 0); return U(q.x, q.y, 1); }
+            var over = Walk("gentle row 0 from the path over the ridge crown and down its back", .85f, 1.25f, T(1.15f), T(2.95f), T(3.45f));
+            Check(over.high > 1.15f, $"the walker climbs the ridge crown (feet up to {over.high:F3} m, crown 1.18) without stepping over the stepOffset");
+            // each height row end to end, across both joints and onto the End
+            foreach (var g in heights.GroupBy(h => h.row))
+            {
+                var h0 = g.First(); float soil = h0.z + h0.rise; Vector3 A(float x) => U(x, h0.l.origin.y - 2 + 1.15f, soil);
+                Walk($"height row {g.Key} (rise {h0.rise} m) along the path line, across both joints onto the End", soil - .03f, soil + .12f, A(147), A(163));   // End level part: s < 1.4
+            }
+        }
+
+        // The contour showcase from showcase-layout.json at Blender (0, -300, 0), in the morning light: golden sun, blue-violet shadows, fog;
+        // captures and a first-person walkthrough with a CharacterController along walkthrough_route_m (frames for an mp4).
+        [Serializable] class Showcase_ { public Placement[] pieces; public int rows; public float[] walkthrough_route_flat_m, hill_front_line_flat_xy; }
+        static void Showcase()
+        {
+            var path = Path.Combine(Exports, "showcase", "showcase-layout.json");
+            if (!File.Exists(path)) { Check(false, "showcase-layout.json exists"); return; }
+            var text = File.ReadAllText(path); var doc = JsonUtility.FromJson<Showcase_>(text);
+            const float OY = -300;
+            foreach (var p in doc.pieces) Place(p.id, U(p.position_m[0], p.position_m[1] + OY, p.position_m[2]), p.rotation_z_deg, p.mirror_x);
+            Report.Add($"INFO showcase: {doc.pieces.Length} pieces from showcase-layout.json at Blender y {OY}");
+            float x0 = doc.pieces.Min(p => p.position_m[0]) - 160, x1 = doc.pieces.Max(p => p.position_m[0]) + 160, y1 = doc.pieces.Max(p => p.position_m[1]) + 260;
+            // placeholder hillside (not part of the kit): 1 m up per 4 m back from row 0's front line, levelling off at 12 m
+            var fl = doc.hill_front_line_flat_xy;
+            float HillZ(float x, float y)
+            {
+                float yf = fl[1];
+                if (x >= fl[fl.Length - 2]) yf = fl[fl.Length - 1];
+                else for (int k = 2; k < fl.Length; k += 2) if (fl[k] >= x) { yf = x <= fl[0] ? fl[1] : Mathf.Lerp(fl[k - 1], fl[k + 1], (x - fl[k - 2]) / (fl[k] - fl[k - 2])); break; }
+                return Mathf.Min((y - yf - 2) / 4 - .3f, 12);
+            }
+            var hill = new GameObject("Placeholder_Hill", typeof(MeshFilter), typeof(MeshRenderer)); var mesh = new Mesh();
+            var v = new List<Vector3>(); var tri = new List<int>(); const int NX = 200, NY = 120; float yy0 = -120;
+            for (int j = 0; j <= NY; j++) for (int i = 0; i <= NX; i++) { float x = Mathf.Lerp(x0, x1, i / (float)NX), y = Mathf.Lerp(yy0, y1, j / (float)NY); v.Add(U(x, y + OY, HillZ(x, y))); }
+            for (int j = 0; j < NY; j++) for (int i = 0; i < NX; i++) { int a = j * (NX + 1) + i; tri.AddRange(new[] { a, a + NX + 1, a + 1, a + 1, a + NX + 1, a + NX + 2 }); }
+            mesh.indexFormat = IndexFormat.UInt32; mesh.SetVertices(v); mesh.SetTriangles(tri, 0); mesh.RecalculateNormals(); hill.GetComponent<MeshFilter>().sharedMesh = mesh;
+            var hm = new Material(Shader.Find("Universal Render Pipeline/Lit")); hm.SetColor("_BaseColor", new Color(.16f, .17f, .08f)); hm.SetFloat("_Smoothness", .05f);
+            hill.GetComponent<MeshRenderer>().sharedMaterial = hm; hill.AddComponent<MeshCollider>().sharedMesh = mesh;
+            // far ridgelines, seen only through the fog
+            var far = new Material(Shader.Find("Universal Render Pipeline/Lit")); far.SetColor("_BaseColor", new Color(.30f, .36f, .42f)); far.SetFloat("_Smoothness", 0);
+            var R = new System.Random(3);
+            for (int k = 0; k < 8; k++)
+            {
+                var s = GameObject.CreatePrimitive(PrimitiveType.Sphere); UnityEngine.Object.DestroyImmediate(s.GetComponent<Collider>());
+                float a = Mathf.Deg2Rad * (35 + 110 * (float)R.NextDouble()), rr = 180 * (.85f + .4f * (float)R.NextDouble()), h = 30 + 40 * (float)R.NextDouble();
+                s.transform.position = U(20 + rr * Mathf.Cos(a), y1 - 60 + OY + rr * Mathf.Sin(a), -4); s.transform.localScale = new Vector3(h * 4.4f, h * 2, h * 3.2f);
+                s.GetComponent<Renderer>().sharedMaterial = far;
+            }
+            // morning light (art direction: low warm sun, warm rim, blue-violet shadows, pale sky, thin mist)
+            var sun = UnityEngine.Object.FindObjectsByType<Light>(FindObjectsSortMode.None).First(l => l.type == LightType.Directional);
+            sun.color = new Color(1f, .8f, .58f); sun.intensity = 1.9f; sun.transform.rotation = Quaternion.Euler(16, 50, 0); sun.shadows = LightShadows.Soft; sun.shadowStrength = .85f;
+            var rim = new GameObject("Rim_Fill").AddComponent<Light>(); rim.type = LightType.Directional; rim.color = new Color(.72f, .74f, 1f); rim.intensity = .35f; rim.shadows = LightShadows.None; rim.transform.rotation = Quaternion.Euler(30, 230, 0);
+            RenderSettings.ambientMode = AmbientMode.Trilight;
+            RenderSettings.ambientSkyColor = new Color(.47f, .55f, .74f); RenderSettings.ambientEquatorColor = new Color(.62f, .55f, .48f); RenderSettings.ambientGroundColor = new Color(.18f, .16f, .2f);
+            RenderSettings.fog = true; RenderSettings.fogMode = FogMode.Exponential; RenderSettings.fogDensity = .006f; RenderSettings.fogColor = new Color(.84f, .84f, .86f);
+            var cam = Camera.main; cam.backgroundColor = new Color(.86f, .8f, .72f); cam.farClipPlane = 600;
+            Physics.SyncTransforms();
+            Vector3 S(float x, float y, float z) => U(x, y + OY, z);
+            float cx = (doc.pieces.Min(p => p.position_m[0]) + doc.pieces.Max(p => p.position_m[0])) / 2;
+            Shot("showcase_aerial", S(cx + 4, 12, 4), S(cx - 30, -48, 34), 42);
+            Shot("showcase_from_below", S(cx - 2, 14, 6), S(cx + 18, -24, 2.2f), 55);
+            Shot("showcase_walk_row2", S(6, 10.6f, 3.2f), S(-14, 7.15f, 4.6f), 65);
+            Shot("showcase_bend_close", S(4, 14.5f, 4), S(6, 6, 4.6f), 55);
+            // first-person walkthrough: a 1.75 m CharacterController along the route, the camera at eye height 1.6 m looking 3 m ahead
+            var flat = doc.walkthrough_route_flat_m;
+            if (flat == null || flat.Length < 6) { Check(false, "showcase-layout.json has walkthrough_route_flat_m"); return; }
+            var route = Enumerable.Range(0, flat.Length / 3).Select(i => S(flat[3 * i], flat[3 * i + 1], flat[3 * i + 2])).ToList();
+            var frames = Path.Combine(Out, "walkthrough_frames"); Directory.CreateDirectory(frames); Directory.CreateDirectory(Path.Combine(Out, "walks"));
+            cc = new GameObject("WalkProbe", typeof(CharacterController)).GetComponent<CharacterController>();
+            cc.height = 1.75f; cc.radius = .3f; cc.center = Vector3.up * .875f; cc.stepOffset = .3f; cc.slopeLimit = 45; cc.skinWidth = .02f;
+            cc.enabled = false; cc.transform.position = route[0] + Vector3.up * 4; cc.enabled = true; Physics.SyncTransforms();
+            for (int i = 0; i < 200; i++) cc.Move(Vector3.down * .05f);
+            const int W = 1280, H = 720; var rt = new RenderTexture(W, H, 24, RenderTextureFormat.ARGB32) { antiAliasing = 4 }; var tex = new Texture2D(W, H, TextureFormat.RGB24, false);
+            cam.fieldOfView = 62; int frame = 0, leg = 1, stuck = 0; Vector3 look = route[1] - route[0]; look.y = 0; look.Normalize(); float lowest = 99, highest = -99; bool reached = true;
+            while (leg < route.Count && frame < 2400)
+            {
+                var goal = route[leg]; var d = goal - cc.transform.position; d.y = 0;
+                if (d.magnitude < .2f) { leg++; continue; }
+                var before = cc.transform.position;
+                for (int k = 0; k < 2; k++) cc.Move(d.normalized * .03f + Vector3.down * .06f);
+                if ((cc.transform.position - before).magnitude < .005f) { if (++stuck > 60) { reached = false; break; } } else stuck = 0;
+                var p = cc.transform.position; lowest = Mathf.Min(lowest, p.y - (route[Mathf.Min(leg, route.Count - 1)].y)); highest = Mathf.Max(highest, p.y);
+                // look ahead along the route, eased so the head turns smoothly through the bends
+                var ahead = route[Mathf.Min(leg + 4, route.Count - 1)] - p; ahead.y = 0; if (ahead.sqrMagnitude > .01f) look = Vector3.Slerp(look, ahead.normalized, .06f);
+                cam.transform.position = p + Vector3.up * 1.6f; cam.transform.rotation = Quaternion.LookRotation(look + Vector3.down * .12f);
+                cam.targetTexture = rt; cam.Render(); RenderTexture.active = rt; tex.ReadPixels(new Rect(0, 0, W, H), 0, 0); tex.Apply();
+                File.WriteAllBytes(Path.Combine(frames, $"frame_{frame:D5}.jpg"), tex.EncodeToJPG(92)); frame++;
+            }
+            RenderTexture.active = null; cam.targetTexture = null; rt.Release(); UnityEngine.Object.DestroyImmediate(tex);
+            var end = cc.transform.position; float wantEnd = 4 + 0;
+            Check(reached && leg >= route.Count && Mathf.Abs(end.y - (wantEnd)) < .15f,
+                $"showcase walkthrough: a 1.75 m CharacterController walks row 2, climbs the stair, follows row 3 through both 30 degree bends to the right end: {(reached && leg >= route.Count ? "reached" : $"STUCK at leg {leg} of {route.Count}")} ({end.x:F2}, {end.y:F2}, {end.z:F2}), {frame} frames");
+            File.WriteAllText(Path.Combine(Out, "walkthrough.json"), $"{{\"frames\":{frame},\"fps\":30,\"size\":[{W},{H}],\"reached\":{(reached && leg >= route.Count ? "true" : "false")},\"waypoints\":{route.Count},\"end\":[{end.x:F3},{end.y:F3},{end.z:F3}]}}");
+            UnityEngine.Object.DestroyImmediate(cc.gameObject);
         }
 
         static Bounds LodBounds(GameObject go, string suffix = "_LOD0")
@@ -241,31 +426,47 @@ namespace YunJing.Editor
         static void Seams(List<(Placement p, GameObject go)> placed, int rows)
         {
             var added = new List<MeshCollider>();
-            foreach (var (p, go) in placed.Where(x => x.p.id.StartsWith("TE01")))
-                foreach (var mf in go.GetComponentsInChildren<MeshFilter>(true).Where(m => m.name == p.id + "_LOD0"))
-                {
-                    var c = mf.gameObject.AddComponent<MeshCollider>(); c.sharedMesh = mf.sharedMesh; mf.gameObject.layer = SeamLayer; added.Add(c);
-                }
-            // the bend clusters too
-            foreach (var go in UnityEngine.Object.FindObjectsByType<MeshFilter>(FindObjectsSortMode.None).Where(m => (m.name == "TE01_OuterBend_LOD0" || m.name == "TE01_InnerBend_LOD0" || ((m.name == "TE01_StraightA_LOD0" || m.name == "TE01_StraightB_LOD0") && m.transform.position.x > 50)) && m.GetComponent<MeshCollider>() == null))
-            { var c = go.gameObject.AddComponent<MeshCollider>(); c.sharedMesh = go.sharedMesh; go.gameObject.layer = SeamLayer; added.Add(c); }
+            // every TE01 LOD0 render mesh except the single models at x >= 190: the sample, the 90 degree bends, the gentle chain, the height rows
+            foreach (var mf in UnityEngine.Object.FindObjectsByType<MeshFilter>(FindObjectsSortMode.None).Where(m => m.name.StartsWith("TE01") && m.name.EndsWith("_LOD0") && m.transform.position.x < 190 && m.GetComponent<MeshCollider>() == null))
+            { var c = mf.gameObject.AddComponent<MeshCollider>(); c.sharedMesh = mf.sharedMesh; mf.gameObject.layer = SeamLayer; added.Add(c); }
             Physics.SyncTransforms();
             int mask = 1 << SeamLayer;
             float? Z(float x, float y) => Physics.Raycast(new Vector3(x, 30, y), Vector3.down, out var h, 60, mask) ? h.point.y : (float?)null;
             float worst = 0; int holes = 0, n = 0; var lines = new List<string>();
-            void Joint(string what, float x, float y0, float soil)
+            int off = 0;
+            // a connector line: front corner (Blender x, y) and wall heading in degrees; samples across the path, up the ridge and into the ditch
+            void JointAt(string what, Vector2 corner, float heading, float soil, float maxD = 4)
             {
-                for (float d = .8f; d <= 3.81f; d += .5f)
+                var t = Rot(Vector2.right, heading); var nrm = new Vector2(-t.y, t.x);
+                foreach (var d in new[] { .8f, 1.3f, 1.8f, 2.3f, 2.6f, 2.95f, 3.3f, 3.6f, 3.74f, 3.85f })
                 {
-                    float y = y0 + d; var a = Z(x - .003f, y); var b = Z(x + .003f, y); var m = Z(x, y); n++;
-                    if (a == null || b == null || m == null) { holes++; lines.Add($"{what} d {d:F1}: hole"); continue; }
+                    if (d > maxD) continue;
+                    var q = corner + nrm * d; var pa = q - t * .003f; var pb = q + t * .003f;
+                    var a = Z(pa.x, pa.y); var b = Z(pb.x, pb.y); var m = Z(q.x, q.y); n++;
+                    if (a == null || b == null || m == null) { holes++; lines.Add($"{what} d {d:F2}: hole"); continue; }
                     float diff = Mathf.Abs(a.Value - b.Value); worst = Mathf.Max(worst, diff);
-                    if (diff > .002f || Mathf.Abs(m.Value - soil) > .03f) lines.Add($"{what} d {d:F1}: {a:F4} | {b:F4} (centre {m:F4})");
+                    float want = soil + Profile(d);
+                    if (Mathf.Abs(m.Value - want) > .03f) off++;
+                    if (diff > .002f || Mathf.Abs(m.Value - want) > .03f) lines.Add($"{what} d {d:F2}: {a:F4} | {b:F4} (centre {m:F4}, profile {want:F4})");
                 }
             }
+            void Joint(string what, float x, float y0, float soil) => JointAt(what, new Vector2(x, y0), 0, soil);
             for (int k = 0; k < rows; k++) foreach (var x in new[] { -12f, -4f, 4f, 12f }) Joint($"row {k} x {x}", x, Front(k), k + 1);
             Joint("straight to outer bend", 104, -2, 1); Joint("straight to inner bend", 104, -32, 1);
-            Check(holes == 0 && worst <= .002f, $"joints: {n} ray pairs across {rows * 4 + 2} connector lines, largest step {worst * 1000:F2} mm (limit 2), {holes} holes");
+            int nLines = rows * 4 + 2;
+            // the gentle chain, both rows: every joint, the turned ones across the 30 degree connector
+            for (int r = 0; r < 2; r++)
+                for (int i = 1; i < chain.Count; i++)
+                {
+                    var prev = chain[i - 1]; var corner = prev.origin + Rot(Local(prev.kind, 8, 0), prev.yaw) + new Vector2(0, 4 * r);
+                    float heading = prev.yaw + (prev.kind == "outer" ? 30 : prev.kind == "inner" ? -30 : 0);
+                    JointAt($"gentle row {r}: {prev.id} | {chain[i].id}", corner, heading, r + 1, r == 0 && Mathf.Abs(heading) > 1 ? 3.35f : 4); nLines++;
+                }
+            // the height rows (rise 0.8, 1.0, 1.2): the joints inside each row
+            for (int i = 1; i < heights.Count; i++)
+                if (heights[i].row == heights[i - 1].row) { var h = heights[i - 1]; JointAt($"height row {h.row} (rise {h.rise}): {h.l.id} | {heights[i].l.id}", h.l.origin + new Vector2(4, -2), 0, h.z + h.rise); nLines++; }
+            Check(holes == 0 && worst <= .002f, $"joints: {n} ray pairs across {nLines} connector lines, largest step {worst * 1000:F2} mm (limit 2), {holes} holes");
+            Check(off == 0, $"joints: the soil at every sample follows the v002 profile (path, ridge +0.18 m, ditch -0.12 m) within 3 cm ({off} off)");
             foreach (var l in lines.Take(30)) Report.Add("  " + l);
             foreach (var c in added) UnityEngine.Object.DestroyImmediate(c);
             foreach (var go in UnityEngine.Object.FindObjectsByType<MeshFilter>(FindObjectsSortMode.None).Where(m => m.gameObject.layer == SeamLayer)) go.gameObject.layer = 0;
@@ -356,6 +557,7 @@ namespace YunJing.Editor
             }
             Walk("straight into the outer bend and round it", .97f, 1.12f, outer.ToArray());
             Walk("straight into the inner bend and round it", .97f, 1.12f, inner.ToArray());
+            GentleAndHeightWalks();
             UnityEngine.Object.DestroyImmediate(cc.gameObject);
         }
 

@@ -1,6 +1,6 @@
 {
   "asset": "TE01_InnerBend",
-  "source": "art/source/tea-terraces-b/blend/TE01_InnerBend_v001.blend",
+  "source": "art/source/tea-terraces-b/blend/TE01_InnerBend_v002.blend",
   "same_geometry": true,
   "render_of": "exported LOD0 with baked textures",
   "views": [

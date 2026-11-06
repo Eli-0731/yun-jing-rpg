@@ -26,13 +26,23 @@ STEP_X = (-10., -2.)
 PATH_D, BUSH_D = 1.15, 2.95
 
 
+
+sys.path.insert(0, str(HERE))
+from te_terrace import field_profile, RIDGE_D, RIDGE_HALF, RIDGE_H, DITCH_D, DITCH_HALF, DITCH_H   # one profile for every script
+
+
+def version(aid):
+    f = ART / 'exports' / KIT / aid / 'model_info.json'
+    return json.loads(f.read_text(encoding='utf-8')).get('version', VER) if f.exists() else VER
+
+
 def front(k): return -18. + 4 * k
 
 
 def layout():
     R = random.Random(5050); P = []
     def add(aid, x, y, z, rot=0., mirror=False, row=None, note=None):
-        e = {'id': aid, 'fbx': f'{aid}/{aid}_{VER}.fbx', 'position_m': [round(x, 4), round(y, 4), round(z, 4)], 'rotation_z_deg': round(rot, 2), 'mirror_x': mirror}
+        e = {'id': aid, 'fbx': f'{aid}/{aid}_{version(aid)}.fbx', 'position_m': [round(x, 4), round(y, 4), round(z, 4)], 'rotation_z_deg': round(rot, 2), 'mirror_x': mirror}
         if row is not None: e['row'] = row
         if note: e['note'] = note
         P.append(e)
@@ -62,7 +72,8 @@ def layout():
             up = stairs.get(k + 1)
             ok = (up is None or abs(x - up) > 1.3) and not any(a - .3 < x < b + .3 for a, b in bad.get(k, []) if b - a > 1.)
             if ok:
-                add(R.choice(('TE02_Round', 'TE02_Round', 'TE02_Wide', 'TE02_Tall')), x, front(k) + BUSH_D + R.uniform(-.06, .06), z, rot=R.uniform(0, 360), row=k)
+                d = BUSH_D + R.uniform(-.06, .06)
+                add(R.choice(('TE02_Round', 'TE02_Round', 'TE02_Wide', 'TE02_Tall')), x, front(k) + d, z + field_profile(d), rot=R.uniform(0, 360), row=k)
             x += R.uniform(1.0, 1.1)     # crowns overlap a little: the row reads as one clipped hedge
     # row 0: two runs of stepping stones take the place of two path lengths
     for xc in STEP_X:
@@ -93,7 +104,7 @@ def render(doc):
     src = {}
     for aid in sorted({e['id'] for e in doc['pieces']}):
         before = set(bpy.data.objects)
-        bpy.ops.import_scene.fbx(filepath=str(ART / 'exports' / KIT / aid / f'{aid}_{VER}.fbx'))
+        bpy.ops.import_scene.fbx(filepath=str(ART / 'exports' / KIT / aid / f'{aid}_{version(aid)}.fbx'))
         new = [o for o in bpy.data.objects if o not in before]
         keep = [o for o in new if o.type == 'MESH' and o.name.split('.')[0].endswith('_LOD0')]
         for o in new:

@@ -1,13 +1,13 @@
 {
   "asset": "TE01_InnerBend",
-  "version": "v001",
+  "version": "v002",
   "minTier": "standard",
   "detailObjects": [
     "TE01_InnerBend_Detail_Small"
   ],
   "name_zh": "梯田內彎（山凹）",
   "slot": "A4_TeaTerraces",
-  "note": "接口：兩端剖面相同（前緣 y 為足跡前緣、土面 z = 1.0、深 4 m），落在 1 m 格線；上一排放在 +4 m（直段為 +Y）、+1.0 m 高。牆面在足跡前緣後 7 cm，向後傾 12 cm／m；前緣土唇在 z = 0 接下一排的土面。 90° 內彎：牆面半徑 4 m、土面外緣半徑 8 m。左端與直段相同（朝 -Y），右端轉為朝 -X。足跡 8 × 8 m。",
+  "note": "接口：兩端剖面相同（前緣 y 為足跡前緣、土面 z = 1.0、深 4 m），落在 1 m 格線；上一排放在 +4 m（直段為 +Y）、+1.0 m 高。牆面在足跡前緣後 7 cm，向後傾 12 cm／m；前緣土唇在 z = 0 接下一排的土面。 90° 內彎：牆面半徑 4 m、土面外緣半徑 8 m。左端與直段相同（朝 -Y），右端轉為朝 -X。足跡 8 × 8 m。 v002：踏面加茶壟（d = 2.95 m 中心、底寬 1.2 m、平頂寬約 0.54 m、高 0.18 m，壟頂土色偏乾淺並有落葉，茶樹種在壟上）和牆根排水溝（d = 3.74 m、寬 0.4 m、深 0.12 m，溝底土色偏濕深），剖面只隨深度 d 變化，所有件的接口仍是同一個剖面。",
   "units": "meters",
   "front": "-Y (Blender)",
   "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
@@ -37,7 +37,7 @@
       "dims_m": [
         8.0,
         8.0,
-        1.0381
+        1.1872
       ],
       "min": [
         -4.0,
@@ -47,7 +47,7 @@
       "max": [
         4.0,
         4.0,
-        1.0381
+        1.1872
       ]
     },
     "Detail_Small": {
@@ -70,9 +70,9 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 20604,
-      "LOD1": 10302,
-      "LOD2": 3090
+      "LOD0": 23032,
+      "LOD1": 11516,
+      "LOD2": 3454
     },
     "Detail_Small": {
       "LOD0": 5990,
@@ -81,9 +81,9 @@
     }
   },
   "lod_totals": {
-    "LOD0": 26594,
-    "LOD1": 13297,
-    "LOD2": 3988
+    "LOD0": 29022,
+    "LOD1": 14511,
+    "LOD2": 4352
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
   "materials": [
@@ -154,7 +154,7 @@
     "TE01_InnerBend_LOD1.001",
     "TE01_InnerBend_LOD2.001"
   ],
-  "glb": "TE01_InnerBend_v001.glb",
+  "glb": "TE01_InnerBend_v002.glb",
   "interface": {
     "rise_m": 1.0,
     "depth_m": 4.0,
@@ -181,6 +181,14 @@
           -4.0
         ]
       ]
+    },
+    "field_profile": {
+      "ridge_centre_d": 2.95,
+      "ridge_half_width": 0.6,
+      "ridge_height": 0.18,
+      "ditch_centre_d": 3.74,
+      "ditch_half_width": 0.2,
+      "ditch_depth": 0.12
     },
     "stack_next_row": "row above follows the outer radius 8: use straight pieces and another bend"
   },

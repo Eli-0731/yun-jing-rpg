@@ -1,6 +1,6 @@
 {
   "asset": "TE01_Broken",
-  "model": "TE01_Broken_v001.fbx LOD0",
+  "model": "TE01_Broken_v002.fbx LOD0",
   "figure_height_m": 1.75,
   "ruler_ticks_m": 0.25,
   "camera": "orthographic, 8 deg above horizontal",
