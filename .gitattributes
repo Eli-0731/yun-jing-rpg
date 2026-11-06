@@ -11,3 +11,6 @@
 *.otf filter=lfs diff=lfs merge=lfs -text
 
 *.mp4 filter=lfs diff=lfs merge=lfs -text
+
+# Everyone appends Unity copy folders to .gitignore; keep both sides instead of a merge conflict.
+.gitignore merge=union
