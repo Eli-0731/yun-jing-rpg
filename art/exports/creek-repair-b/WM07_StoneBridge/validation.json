@@ -1,0 +1,141 @@
+{
+  "asset": "WM07_StoneBridge",
+  "checks": [
+    {
+      "check": "axis_fit_scale",
+      "pass": true,
+      "detail": [
+        1.0,
+        0.988,
+        1.0
+      ]
+    },
+    {
+      "check": "origin_bottom_centre",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.9012,
+          -5.9999,
+          0.0
+        ],
+        "max": [
+          1.9012,
+          6.0001,
+          3.9545
+        ]
+      }
+    },
+    {
+      "check": "within_size_limit",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          3.8025,
+          12.0,
+          3.9545
+        ],
+        "limit_m": [
+          4.0,
+          12.0,
+          4.0
+        ]
+      }
+    },
+    {
+      "check": "deck_slope_within_15_deg",
+      "pass": true,
+      "detail": {
+        "max_degrees": 13.77
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 96299,
+          "LOD1": 48147,
+          "LOD2": 14442
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 55074,
+            "LOD1": 27536,
+            "LOD2": 8260
+          },
+          "Detail_Small": {
+            "LOD0": 41225,
+            "LOD1": 20611,
+            "LOD2": 6182
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          3.8025,
+          12.0,
+          3.9545
+        ],
+        "blend_dims_m": [
+          3.8025,
+          12.0,
+          3.9545
+        ]
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_RoadEnd_Front.001",
+        "Socket_RoadEnd_Rear.001",
+        "WM07_StoneBridge.001",
+        "WM07_StoneBridge_Collision.001",
+        "WM07_StoneBridge_Detail_Small_LOD0.001",
+        "WM07_StoneBridge_Detail_Small_LOD1.001",
+        "WM07_StoneBridge_Detail_Small_LOD2.001",
+        "WM07_StoneBridge_LOD0.001",
+        "WM07_StoneBridge_LOD1.001",
+        "WM07_StoneBridge_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_RoadEnd_Front.001": [
+          -0.0014,
+          -5.9895,
+          1.9353
+        ],
+        "Socket_RoadEnd_Rear.001": [
+          -0.0014,
+          5.867,
+          1.9353
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 308,
+  "not_checked": [
+    "in-engine lighting (see the Unity report)"
+  ]
+}

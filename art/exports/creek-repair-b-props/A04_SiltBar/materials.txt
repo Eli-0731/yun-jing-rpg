@@ -1,0 +1,2 @@
+LowWater||LowWater_normal.png|0.0220|0.0450|0.0340|0.035
+M_A04_SiltBar|M_A04_SiltBar_base.png|M_A04_SiltBar_normal.png|0.8000|0.8000|0.8000|0.500

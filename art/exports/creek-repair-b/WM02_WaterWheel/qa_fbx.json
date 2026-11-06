@@ -1,0 +1,92 @@
+{
+ "asset": "WM02_WaterWheel_v001",
+ "tris": 70232,
+ "objects": [
+  "WM02_WaterWheel_Detail_Small_LOD0",
+  "WM02_WaterWheel_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 4,
+   "groups": {
+    "Detail_Small/WaterWheel|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 1.45
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 1,
+   "groups": {
+    "Detail_Small/WaterWheel|two_sides_between": {
+     "pairs": 1,
+     "overlap_cm2": 0.41
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 0,
+   "groups": {},
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 447,
+ "loose_over_5mm": 2,
+ "loose_list": [
+  {
+   "verts": 255,
+   "centre": [
+    -0.007,
+    -0.0,
+    0.0
+   ],
+   "size": [
+    1.2,
+    0.3,
+    0.3
+   ]
+  },
+  {
+   "verts": 107,
+   "centre": [
+    -0.42,
+    -0.432,
+    -1.04
+   ],
+   "size": [
+    0.088,
+    0.746,
+    1.63
+   ]
+  }
+ ]
+}

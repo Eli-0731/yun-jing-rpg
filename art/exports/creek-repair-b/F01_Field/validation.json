@@ -1,0 +1,91 @@
+{
+ "asset": "F01_Field",
+ "note": "數字由 FBX 新鮮回匯量得。原點已改到底部中心；F01_water 不動，放置時加 water_offset_m 就和原本完全對齊。",
+ "water_offset_m": [
+  -0.001,
+  -2.007,
+  0.194
+ ],
+ "checks": [
+  {
+   "check": "axis_fit_scale",
+   "pass": true,
+   "detail": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "check": "origin_bottom_centre",
+   "pass": true,
+   "detail": {
+    "min": [
+     -3.064,
+     -2.075,
+     -0.0
+    ],
+    "max": [
+     3.064,
+     2.075,
+     0.8
+    ]
+   }
+  },
+  {
+   "check": "fbx_has_lod0_1_2",
+   "pass": true,
+   "detail": {
+    "LOD0": 44354,
+    "LOD1": 19074,
+    "LOD2": 5913
+   }
+  },
+  {
+   "check": "lod_ratios_50_15",
+   "pass": true,
+   "detail": {
+    "LOD1": 0.43,
+    "LOD2": 0.133
+   }
+  },
+  {
+   "check": "fbx_collision",
+   "pass": true,
+   "detail": {
+    "faces": 84,
+    "lo": [
+     -3.003,
+     -2.0,
+     -0.0
+    ],
+    "hi": [
+     3.003,
+     2.0,
+     0.689
+    ]
+   }
+  },
+  {
+   "check": "f01_water_inside_field_at_offset",
+   "pass": true,
+   "detail": {
+    "offset_m": [
+     -0.001,
+     -2.007,
+     0.194
+    ],
+    "water_min": [
+     -2.411,
+     -2.007,
+     0.319
+    ],
+    "water_max": [
+     2.409,
+     1.993,
+     0.476
+    ]
+   }
+  }
+ ]
+}

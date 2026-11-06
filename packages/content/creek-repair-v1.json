@@ -1,0 +1,1129 @@
+{
+ "version": "2026-11-04.1",
+ "note": "B-56h 第一段：修水路玩法。修法選擇沿用現有對話，這裡只管工作量。不會失敗；修法只影響外觀和水面寬度。接口差距由 waterworks-core 算出，測試會重算。",
+ "waterSource": "packages/content/waterline.json（修法 id、接渠段數、石料數）",
+ "party": {
+  "note": "總覽第六節：狀態記在每個人身上；工作量依人數調整（一人搬 10 塊、三人共搬 30 塊），每人花的時間差不多。泥的總量 = mass × partySize；接渠段數是同一條水路，不隨人數變。",
+  "minSize": 1,
+  "maxSize": 4
+ },
+ "spade": {
+  "minDragM": 0.35,
+  "fullDragM": 0.9,
+  "scoopMass": 1,
+  "hurriedSeconds": 0.3,
+  "hurriedKeep": 0.5,
+  "slumpRadiusM": 0.24,
+  "beatKeep": 1.25
+ },
+ "flow": {
+  "wheelDegrees": 720,
+  "speedMps": 0.14
+ },
+ "pacing": {
+  "chooseAndWalkSeconds": 45,
+  "scoopSeconds": 3.5,
+  "pieceSeconds": 18,
+  "patchSeconds": 15,
+  "aqueductSeconds": 60,
+  "wheelSeconds": 12,
+  "celebrateSeconds": 15,
+  "gateSeconds": 15
+ },
+ "methods": {
+  "clear_silt": {
+   "label": "先清淤",
+   "waterWidthM": 0.24,
+   "stone": 4,
+   "channel": 2,
+   "given": [
+    {
+     "slot": "P2",
+     "piece": "B04-V02"
+    },
+    {
+     "slot": "R1",
+     "piece": "B05"
+    }
+   ],
+   "closedGates": [
+    "R1"
+   ],
+   "openGates": [],
+   "piles": [
+    {
+     "id": "silt_1",
+     "pos": [
+      0,
+      1.175
+     ],
+     "kind": "soft",
+     "mass": 5,
+     "stones": 3,
+     "scale": 0.72,
+     "pull": [
+      0,
+      0
+     ],
+     "spots": [],
+     "stand": [
+      0,
+      1
+     ],
+     "channelWidth": 0.46,
+     "plugLength": 0.45
+    },
+    {
+     "id": "silt_2",
+     "pos": [
+      0,
+      1.4
+     ],
+     "kind": "hard",
+     "mass": 6,
+     "stones": 3,
+     "scale": 0.72,
+     "pull": [
+      0,
+      0
+     ],
+     "spots": [],
+     "stand": [
+      0,
+      -1
+     ],
+     "channelWidth": 0.46,
+     "plugLength": 0.475
+    },
+    {
+     "id": "silt_3",
+     "pos": [
+      -0.6,
+      3.0
+     ],
+     "kind": "soft",
+     "mass": 7,
+     "stones": 4,
+     "scale": 1,
+     "pull": [
+      0,
+      0
+     ],
+     "spots": [
+      {
+       "id": "a",
+       "pos": [
+        0.26,
+        -0.12
+       ],
+       "slump": 3,
+       "reveal": ""
+      }
+     ],
+     "stand": [
+      1,
+      0
+     ]
+    },
+    {
+     "id": "silt_4",
+     "pos": [
+      -2.0,
+      3.1
+     ],
+     "kind": "weed",
+     "mass": 7,
+     "stones": 4,
+     "scale": 1,
+     "pull": [
+      -1,
+      0
+     ],
+     "spots": [
+      {
+       "id": "a",
+       "pos": [
+        -0.14,
+        -0.34
+       ],
+       "slump": 2,
+       "reveal": "stone"
+      }
+     ],
+     "stand": [
+      -1,
+      0
+     ]
+    },
+    {
+     "id": "silt_5",
+     "pos": [
+      -1.3,
+      4.5
+     ],
+     "kind": "soft",
+     "mass": 9,
+     "stones": 5,
+     "scale": 1.3,
+     "pull": [
+      0,
+      0
+     ],
+     "spots": [
+      {
+       "id": "a",
+       "pos": [
+        -0.2,
+        0.3
+       ],
+       "slump": 2,
+       "reveal": ""
+      },
+      {
+       "id": "b",
+       "pos": [
+        0.14,
+        0.34
+       ],
+       "slump": 4,
+       "reveal": ""
+      }
+     ],
+     "stand": [
+      0,
+      1
+     ]
+    }
+   ],
+   "work": [
+    {
+     "slot": "L1",
+     "piece": "B02",
+     "name": "完整短直槽",
+     "options": [
+      {
+       "piece": "B02",
+       "gapCm": 0,
+       "from": [
+        -1.75,
+        1.75
+       ],
+       "to": [
+        -1.75,
+        1.75
+       ],
+       "message": ""
+      },
+      {
+       "piece": "B02-V04",
+       "gapCm": 50,
+       "from": [
+        -1.25,
+        1.75
+       ],
+       "to": [
+        -1.75,
+        1.75
+       ],
+       "message": "鍵槽短接頭的出水口落在 (-1.25, 1.75)，下一段入口在 (-1.75, 1.75)，差 50 cm"
+      },
+      {
+       "piece": "B03",
+       "gapCm": 79,
+       "from": [
+        -1.5,
+        2.5
+       ],
+       "to": [
+        -1.75,
+        1.75
+       ],
+       "message": "直角彎槽（右）的出水口落在 (-1.5, 2.5)，下一段入口在 (-1.75, 1.75)，差 79 cm"
+      }
+     ]
+    },
+    {
+     "slot": "L2",
+     "piece": "B02-V05",
+     "name": "終止放流坡",
+     "options": [
+      {
+       "piece": "B02-V05",
+       "gapCm": 0,
+       "from": [
+        -2.55,
+        1.75
+       ],
+       "to": [
+        -2.55,
+        1.75
+       ],
+       "message": ""
+      },
+      {
+       "piece": "B02",
+       "gapCm": 20,
+       "from": [
+        -2.75,
+        1.75
+       ],
+       "to": [
+        -2.55,
+        1.75
+       ],
+       "message": "完整短直槽的出水口落在 (-2.75, 1.75)，下一段入口在 (-2.55, 1.75)，差 20 cm"
+      },
+      {
+       "piece": "B03-V04",
+       "gapCm": 75,
+       "from": [
+        -2.5,
+        1
+       ],
+       "to": [
+        -2.55,
+        1.75
+       ],
+       "message": "掃弧階台彎槽（左）的出水口落在 (-2.5, 1)，下一段入口在 (-2.55, 1.75)，差 75 cm"
+      }
+     ]
+    }
+   ],
+   "patches": [],
+   "aqueduct": null,
+   "route": [
+    {
+     "id": "P1",
+     "kind": "channel",
+     "pos": [
+      0,
+      0.5
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "P2",
+     "kind": "channel",
+     "pos": [
+      0,
+      1.4
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "L1",
+     "kind": "channel",
+     "pos": [
+      -1.25,
+      1.75
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "L2",
+     "kind": "channel",
+     "pos": [
+      -2.1,
+      1.75
+     ],
+     "lengthM": 0.8
+    },
+    {
+     "id": "drain",
+     "kind": "drain",
+     "pos": [
+      -2.65,
+      1.75
+     ],
+     "lengthM": 0.6
+    },
+    {
+     "id": "R1",
+     "kind": "channel",
+     "pos": [
+      1.25,
+      1.75
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "ditch",
+     "kind": "ditch",
+     "pos": [
+      3,
+      3.5
+     ],
+     "lengthM": 7
+    },
+    {
+     "id": "canal",
+     "kind": "canal",
+     "pos": [
+      0,
+      6
+     ],
+     "lengthM": 5
+    }
+   ],
+   "routeNote": "先把泥水從回流溝排掉，再開 R1 把水送進田。工作包要每個修法都流進田；waterworks-core 的「今天村田 0%」是另一條結果線，這裡不重判。"
+  },
+  "restore_channel": {
+   "label": "修回舊渠",
+   "waterWidthM": 0.34,
+   "stone": 6,
+   "channel": 4,
+   "given": [],
+   "closedGates": [],
+   "openGates": [
+    "P2"
+   ],
+   "piles": [
+    {
+     "id": "silt_1",
+     "pos": [
+      0,
+      1.175
+     ],
+     "kind": "soft",
+     "mass": 11,
+     "stones": 4,
+     "scale": 0.72,
+     "pull": [
+      0,
+      0
+     ],
+     "spots": [
+      {
+       "id": "a",
+       "pos": [
+        0.04,
+        -0.1
+       ],
+       "slump": 3,
+       "reveal": ""
+      }
+     ],
+     "stand": [
+      0,
+      1
+     ],
+     "channelWidth": 0.46,
+     "plugLength": 0.95
+    },
+    {
+     "id": "silt_2",
+     "pos": [
+      0,
+      3
+     ],
+     "kind": "hard",
+     "mass": 11,
+     "stones": 5,
+     "scale": 0.72,
+     "pull": [
+      0,
+      0
+     ],
+     "spots": [
+      {
+       "id": "a",
+       "pos": [
+        0.04,
+        -0.3
+       ],
+       "slump": 3,
+       "reveal": "stone"
+      }
+     ],
+     "stand": [
+      0,
+      -1
+     ],
+     "channelWidth": 0.46
+    }
+   ],
+   "work": [
+    {
+     "slot": "P2",
+     "piece": "B05",
+     "name": "木製手動閘板",
+     "options": [
+      {
+       "piece": "B05",
+       "gapCm": 0,
+       "from": [
+        0,
+        2
+       ],
+       "to": [
+        0,
+        2
+       ],
+       "message": ""
+      },
+      {
+       "piece": "B03",
+       "gapCm": 79,
+       "from": [
+        0.75,
+        1.75
+       ],
+       "to": [
+        0,
+        2
+       ],
+       "message": "直角彎槽（右）的出水口落在 (0.75, 1.75)，下一段入口在 (0, 2)，差 79 cm"
+      },
+      {
+       "piece": "B02-V04",
+       "gapCm": 50,
+       "from": [
+        0,
+        1.5
+       ],
+       "to": [
+        0,
+        2
+       ],
+       "message": "鍵槽短接頭的出水口落在 (0, 1.5)，下一段入口在 (0, 2)，差 50 cm"
+      }
+     ]
+    },
+    {
+     "slot": "P3",
+     "piece": "B02",
+     "name": "完整短直槽",
+     "options": [
+      {
+       "piece": "B02",
+       "gapCm": 0,
+       "from": [
+        0,
+        3
+       ],
+       "to": [
+        0,
+        3
+       ],
+       "message": ""
+      },
+      {
+       "piece": "B02-V04",
+       "gapCm": 50,
+       "from": [
+        0,
+        2.5
+       ],
+       "to": [
+        0,
+        3
+       ],
+       "message": "鍵槽短接頭的出水口落在 (0, 2.5)，下一段入口在 (0, 3)，差 50 cm"
+      },
+      {
+       "piece": "B03",
+       "gapCm": 79,
+       "from": [
+        0.75,
+        2.75
+       ],
+       "to": [
+        0,
+        3
+       ],
+       "message": "直角彎槽（右）的出水口落在 (0.75, 2.75)，下一段入口在 (0, 3)，差 79 cm"
+      }
+     ]
+    },
+    {
+     "slot": "P5",
+     "piece": "B02",
+     "name": "完整短直槽",
+     "options": [
+      {
+       "piece": "B02",
+       "gapCm": 0,
+       "from": [
+        0,
+        5
+       ],
+       "to": [
+        0,
+        5
+       ],
+       "message": ""
+      },
+      {
+       "piece": "B03-V03",
+       "gapCm": 71,
+       "from": [
+        -0.5,
+        4.5
+       ],
+       "to": [
+        0,
+        5
+       ],
+       "message": "斜角扶壁彎槽（左）的出水口落在 (-0.5, 4.5)，下一段入口在 (0, 5)，差 71 cm"
+      },
+      {
+       "piece": "B02-V04",
+       "gapCm": 50,
+       "from": [
+        0,
+        4.5
+       ],
+       "to": [
+        0,
+        5
+       ],
+       "message": "鍵槽短接頭的出水口落在 (0, 4.5)，下一段入口在 (0, 5)，差 50 cm"
+      }
+     ]
+    },
+    {
+     "slot": "P6",
+     "piece": "B02",
+     "name": "完整短直槽",
+     "options": [
+      {
+       "piece": "B02",
+       "gapCm": 0,
+       "from": [
+        0,
+        6
+       ],
+       "to": [
+        0,
+        6
+       ],
+       "message": ""
+      },
+      {
+       "piece": "B03-V02",
+       "gapCm": 100,
+       "from": [
+        1,
+        6
+       ],
+       "to": [
+        0,
+        6
+       ],
+       "message": "寬弧彎槽（右）的出水口落在 (1, 6)，下一段入口在 (0, 6)，差 100 cm"
+      },
+      {
+       "piece": "B02-V04",
+       "gapCm": 50,
+       "from": [
+        0,
+        5.5
+       ],
+       "to": [
+        0,
+        6
+       ],
+       "message": "鍵槽短接頭的出水口落在 (0, 5.5)，下一段入口在 (0, 6)，差 50 cm"
+      }
+     ]
+    }
+   ],
+   "patches": [
+    {
+     "slot": "P4",
+     "piece": "B07",
+     "name": "修補石鞍",
+     "wrong": "B07-V02",
+     "wrongMessage": "這塊貼不上：P4 的裂口是槽壁外側的直裂縫，要用鞍形的修補石鞍"
+    }
+   ],
+   "aqueduct": null,
+   "route": [
+    {
+     "id": "P1",
+     "kind": "channel",
+     "pos": [
+      0,
+      0.5
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "P2",
+     "kind": "channel",
+     "pos": [
+      0,
+      1.5
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "P3",
+     "kind": "channel",
+     "pos": [
+      0,
+      2.5
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "P4",
+     "kind": "channel",
+     "pos": [
+      0,
+      3.5
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "P5",
+     "kind": "channel",
+     "pos": [
+      0,
+      4.5
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "P6",
+     "kind": "channel",
+     "pos": [
+      0,
+      5.5
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "canal",
+     "kind": "canal",
+     "pos": [
+      0,
+      6
+     ],
+     "lengthM": 5
+    }
+   ]
+  },
+  "protect_nursery": {
+   "label": "保護育幼區",
+   "waterWidthM": 0.3,
+   "stone": 12,
+   "channel": 3,
+   "given": [
+    {
+     "slot": "P2",
+     "piece": "B03-V04"
+    },
+    {
+     "slot": "L7",
+     "piece": "B03-V03"
+    }
+   ],
+   "closedGates": [],
+   "openGates": [
+    "L4"
+   ],
+   "piles": [
+    {
+     "id": "silt_1",
+     "pos": [
+      0,
+      1.175
+     ],
+     "kind": "soft",
+     "mass": 10,
+     "stones": 4,
+     "scale": 0.72,
+     "pull": [
+      0,
+      0
+     ],
+     "spots": [
+      {
+       "id": "a",
+       "pos": [
+        0.04,
+        0.3
+       ],
+       "slump": 3,
+       "reveal": ""
+      }
+     ],
+     "stand": [
+      0,
+      1
+     ],
+     "channelWidth": 0.46,
+     "plugLength": 0.45
+    },
+    {
+     "id": "silt_2",
+     "pos": [
+      -1.75,
+      1.75
+     ],
+     "kind": "weed",
+     "mass": 10,
+     "stones": 4,
+     "scale": 0.72,
+     "pull": [
+      -1,
+      0
+     ],
+     "spots": [
+      {
+       "id": "a",
+       "pos": [
+        -0.3,
+        -0.14
+       ],
+       "slump": 3,
+       "reveal": "stone"
+      }
+     ],
+     "stand": [
+      -1,
+      0
+     ],
+     "channelWidth": 0.46
+    }
+   ],
+   "work": [
+    {
+     "slot": "L1",
+     "piece": "B02",
+     "name": "完整短直槽",
+     "options": [
+      {
+       "piece": "B02",
+       "gapCm": 0,
+       "from": [
+        -1.75,
+        1.75
+       ],
+       "to": [
+        -1.75,
+        1.75
+       ],
+       "message": ""
+      },
+      {
+       "piece": "B02-V04",
+       "gapCm": 50,
+       "from": [
+        -1.25,
+        1.75
+       ],
+       "to": [
+        -1.75,
+        1.75
+       ],
+       "message": "鍵槽短接頭的出水口落在 (-1.25, 1.75)，下一段入口在 (-1.75, 1.75)，差 50 cm"
+      },
+      {
+       "piece": "B03",
+       "gapCm": 79,
+       "from": [
+        -1.5,
+        2.5
+       ],
+       "to": [
+        -1.75,
+        1.75
+       ],
+       "message": "直角彎槽（右）的出水口落在 (-1.5, 2.5)，下一段入口在 (-1.75, 1.75)，差 79 cm"
+      }
+     ]
+    },
+    {
+     "slot": "L2",
+     "piece": "B03",
+     "name": "直角彎槽（右）",
+     "options": [
+      {
+       "piece": "B03",
+       "gapCm": 0,
+       "from": [
+        -2.5,
+        2.5
+       ],
+       "to": [
+        -2.5,
+        2.5
+       ],
+       "message": ""
+      },
+      {
+       "piece": "B02",
+       "gapCm": 79,
+       "from": [
+        -2.75,
+        1.75
+       ],
+       "to": [
+        -2.5,
+        2.5
+       ],
+       "message": "完整短直槽的出水口落在 (-2.75, 1.75)，下一段入口在 (-2.5, 2.5)，差 79 cm"
+      },
+      {
+       "piece": "B03-V04",
+       "gapCm": 150,
+       "from": [
+        -2.5,
+        1
+       ],
+       "to": [
+        -2.5,
+        2.5
+       ],
+       "message": "掃弧階台彎槽（左）的出水口落在 (-2.5, 1)，下一段入口在 (-2.5, 2.5)，差 150 cm"
+      }
+     ]
+    },
+    {
+     "slot": "L6",
+     "piece": "B02",
+     "name": "完整短直槽",
+     "options": [
+      {
+       "piece": "B02",
+       "gapCm": 0,
+       "from": [
+        -0.5,
+        5.5
+       ],
+       "to": [
+        -0.5,
+        5.5
+       ],
+       "message": ""
+      },
+      {
+       "piece": "B03-V02",
+       "gapCm": 100,
+       "from": [
+        -0.5,
+        4.5
+       ],
+       "to": [
+        -0.5,
+        5.5
+       ],
+       "message": "寬弧彎槽（右）的出水口落在 (-0.5, 4.5)，下一段入口在 (-0.5, 5.5)，差 100 cm"
+      },
+      {
+       "piece": "B02-V04",
+       "gapCm": 50,
+       "from": [
+        -1,
+        5.5
+       ],
+       "to": [
+        -0.5,
+        5.5
+       ],
+       "message": "鍵槽短接頭的出水口落在 (-1, 5.5)，下一段入口在 (-0.5, 5.5)，差 50 cm"
+      }
+     ]
+    }
+   ],
+   "patches": [],
+   "aqueduct": {
+    "name": "竹木渡槽",
+    "slots": [
+     {
+      "slot": "L3",
+      "piece": "B02-V03"
+     },
+     {
+      "slot": "L4",
+      "piece": "B05"
+     },
+     {
+      "slot": "L5",
+      "piece": "B03-V02"
+     }
+    ],
+    "piece": "CR08"
+   },
+   "route": [
+    {
+     "id": "P1",
+     "kind": "channel",
+     "pos": [
+      0,
+      0.5
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "P2",
+     "kind": "channel",
+     "pos": [
+      -0.2,
+      1.4
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "L1",
+     "kind": "channel",
+     "pos": [
+      -1.25,
+      1.75
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "L2",
+     "kind": "channel",
+     "pos": [
+      -2.1,
+      2
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "L3",
+     "kind": "channel",
+     "pos": [
+      -2.5,
+      3
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "L4",
+     "kind": "channel",
+     "pos": [
+      -2.5,
+      4
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "L5",
+     "kind": "channel",
+     "pos": [
+      -2.3,
+      5
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "L6",
+     "kind": "channel",
+     "pos": [
+      -1,
+      5.5
+     ],
+     "lengthM": 1
+    },
+    {
+     "id": "L7",
+     "kind": "channel",
+     "pos": [
+      -0.25,
+      5.75
+     ],
+     "lengthM": 0.75
+    },
+    {
+     "id": "canal",
+     "kind": "canal",
+     "pos": [
+      0,
+      6
+     ],
+     "lengthM": 5
+    }
+   ]
+  }
+ },
+ "mud": {
+  "note": "軟泥、硬泥：拖曳鏟面把泥推成一堆，放手甩走。bladeSpeedMps 是空鏟跟手的速度；biteM 是一趟切多深，硬泥切得淺；loadDrag 是鏟前泥越多越慢的程度。水草：拖曳拉出（minDragM、fullDragM、hurriedSeconds、followRate、wrongWayKeep）。",
+  "soft": {
+   "minDragM": 0.35,
+   "fullDragM": 0.9,
+   "hurriedSeconds": 0.3,
+   "followRate": 7,
+   "wrongWayKeep": 1,
+   "bladeSpeedMps": 0.95,
+   "biteM": 0.14,
+   "loadDrag": 8
+  },
+  "hard": {
+   "minDragM": 0.6,
+   "fullDragM": 1.2,
+   "hurriedSeconds": 0.7,
+   "followRate": 3.5,
+   "wrongWayKeep": 1,
+   "bladeSpeedMps": 0.55,
+   "biteM": 0.07,
+   "loadDrag": 12
+  },
+  "weed": {
+   "minDragM": 0.35,
+   "fullDragM": 0.9,
+   "hurriedSeconds": 0.3,
+   "followRate": 5,
+   "wrongWayKeep": 0.4,
+   "bladeSpeedMps": 0,
+   "biteM": 0,
+   "loadDrag": 0
+  }
+ },
+ "chant": {
+  "note": "勞動號子：嘿在週期開頭，喲在 yoAtSeconds。放開鏟子落在喲前後 windowSeconds 內就算合拍，只有加成，沒有懲罰。",
+  "cycleSeconds": 2,
+  "yoAtSeconds": 1,
+  "windowSeconds": 0.3
+ },
+ "pacingNote": "estimateSeconds 算的是沒碰到塌方點、也沒合拍的新手；會看泥堆的人會更快。",
+ "distribution": {
+  "note": "配水渠：主水路到十字口後分成三條，每塊田一個閘門（關／半開／全開）。總水量固定，依開度分給還沒滿的田，所以怎麼開都不會更快或更慢、也不會失敗。放水前就能先設好。照分水牌的開度，三塊田會差不多同時灌滿；不照著開也一樣都會灌滿。沒有水可以去時，其他閘門會自己提起來。",
+  "villagerDelaySeconds": 6,
+  "togetherWithin": 0.05,
+  "levels": [
+   0,
+   0.5,
+   1
+  ],
+  "gates": [
+   {
+    "id": "gate_a",
+    "field": "field_a",
+    "label": "中田",
+    "pos": [
+     0,
+     8.25
+    ],
+    "fieldM": 5,
+    "planLevel": 1
+   },
+   {
+    "id": "gate_b",
+    "field": "field_b",
+    "label": "西田",
+    "pos": [
+     -6,
+     8.25
+    ],
+    "fieldM": 2.5,
+    "planLevel": 0.5
+   },
+   {
+    "id": "gate_c",
+    "field": "field_c",
+    "label": "東田",
+    "pos": [
+     6,
+     8.25
+    ],
+    "fieldM": 2.5,
+    "planLevel": 0.5
+   }
+  ]
+ }
+}

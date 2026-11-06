@@ -1,0 +1,370 @@
+{
+ "tool": "Blender FBX import, loop triangles",
+ "mismatches": 0,
+ "assets": {
+  "CR03_MudHeap": {
+   "fbx_reimport": {
+    "LOD0": 50184,
+    "LOD1": 25090,
+    "LOD2": 7524
+   },
+   "model_info": {
+    "LOD0": 50184,
+    "LOD1": 25090,
+    "LOD2": 7524
+   },
+   "match": true
+  },
+  "CR03_StonePile": {
+   "fbx_reimport": {
+    "LOD0": 56124,
+    "LOD1": 28062,
+    "LOD2": 8416
+   },
+   "model_info": {
+    "LOD0": 56124,
+    "LOD1": 28062,
+    "LOD2": 8416
+   },
+   "match": true
+  },
+  "CR03_TimberRack": {
+   "fbx_reimport": {
+    "LOD0": 79196,
+    "LOD1": 39598,
+    "LOD2": 11876
+   },
+   "model_info": {
+    "LOD0": 79196,
+    "LOD1": 39598,
+    "LOD2": 11876
+   },
+   "match": true
+  },
+  "CR04_Tools": {
+   "fbx_reimport": {
+    "LOD0": 40246,
+    "LOD1": 20122,
+    "LOD2": 6030
+   },
+   "model_info": {
+    "LOD0": 40246,
+    "LOD1": 20122,
+    "LOD2": 6030
+   },
+   "match": true
+  },
+  "CR05_WorkShelter": {
+   "fbx_reimport": {
+    "LOD0": 120656,
+    "LOD1": 60324,
+    "LOD2": 18088
+   },
+   "model_info": {
+    "LOD0": 120656,
+    "LOD1": 60324,
+    "LOD2": 18088
+   },
+   "match": true
+  },
+  "CR06_Bend": {
+   "fbx_reimport": {
+    "LOD0": 81024,
+    "LOD1": 40511,
+    "LOD2": 12153
+   },
+   "model_info": {
+    "LOD0": 81024,
+    "LOD1": 40511,
+    "LOD2": 12153
+   },
+   "match": true
+  },
+  "CR06_Short": {
+   "fbx_reimport": {
+    "LOD0": 34940,
+    "LOD1": 17470,
+    "LOD2": 5240
+   },
+   "model_info": {
+    "LOD0": 34940,
+    "LOD1": 17470,
+    "LOD2": 5240
+   },
+   "match": true
+  },
+  "CR06_Straight": {
+   "fbx_reimport": {
+    "LOD0": 81075,
+    "LOD1": 40536,
+    "LOD2": 12159
+   },
+   "model_info": {
+    "LOD0": 81075,
+    "LOD1": 40536,
+    "LOD2": 12159
+   },
+   "match": true
+  },
+  "CR07_Celebration": {
+   "fbx_reimport": {
+    "LOD0": 95800,
+    "LOD1": 47900,
+    "LOD2": 14360
+   },
+   "model_info": {
+    "LOD0": 95800,
+    "LOD1": 47900,
+    "LOD2": 14360
+   },
+   "match": true
+  },
+  "CR08_Bend": {
+   "fbx_reimport": {
+    "LOD0": 78736,
+    "LOD1": 39366,
+    "LOD2": 11808
+   },
+   "model_info": {
+    "LOD0": 78736,
+    "LOD1": 39366,
+    "LOD2": 11808
+   },
+   "match": true
+  },
+  "CR08_Straight": {
+   "fbx_reimport": {
+    "LOD0": 74420,
+    "LOD1": 37208,
+    "LOD2": 11162
+   },
+   "model_info": {
+    "LOD0": 74420,
+    "LOD1": 37208,
+    "LOD2": 11162
+   },
+   "match": true
+  },
+  "CR08_Trestle_080": {
+   "fbx_reimport": {
+    "LOD0": 29288,
+    "LOD1": 14644,
+    "LOD2": 4392
+   },
+   "model_info": {
+    "LOD0": 29288,
+    "LOD1": 14644,
+    "LOD2": 4392
+   },
+   "match": true
+  },
+  "CR08_Trestle_150": {
+   "fbx_reimport": {
+    "LOD0": 29608,
+    "LOD1": 14804,
+    "LOD2": 4440
+   },
+   "model_info": {
+    "LOD0": 29608,
+    "LOD1": 14804,
+    "LOD2": 4440
+   },
+   "match": true
+  },
+  "CR08_Trestle_250": {
+   "fbx_reimport": {
+    "LOD0": 30072,
+    "LOD1": 15036,
+    "LOD2": 4510
+   },
+   "model_info": {
+    "LOD0": 30072,
+    "LOD1": 15036,
+    "LOD2": 4510
+   },
+   "match": true
+  },
+  "CR09_A_RopeGate": {
+   "fbx_reimport": {
+    "LOD0": 62586,
+    "LOD1": 31292,
+    "LOD2": 9384
+   },
+   "model_info": {
+    "LOD0": 62586,
+    "LOD1": 31292,
+    "LOD2": 9384
+   },
+   "match": true
+  },
+  "CR09_B_TenonGate": {
+   "fbx_reimport": {
+    "LOD0": 38708,
+    "LOD1": 19354,
+    "LOD2": 5804
+   },
+   "model_info": {
+    "LOD0": 38708,
+    "LOD1": 19354,
+    "LOD2": 5804
+   },
+   "match": true
+  },
+  "CR10_CharmStall": {
+   "fbx_reimport": {
+    "LOD0": 102200,
+    "LOD1": 51098,
+    "LOD2": 15301
+   },
+   "model_info": {
+    "LOD0": 102200,
+    "LOD1": 51098,
+    "LOD2": 15301
+   },
+   "match": true
+  },
+  "CR11_NoodleStall": {
+   "fbx_reimport": {
+    "LOD0": 123936,
+    "LOD1": 61966,
+    "LOD2": 18579
+   },
+   "model_info": {
+    "LOD0": 123936,
+    "LOD1": 61966,
+    "LOD2": 18579
+   },
+   "match": true
+  },
+  "CR12_RankingBoard": {
+   "fbx_reimport": {
+    "LOD0": 80622,
+    "LOD1": 40310,
+    "LOD2": 12082
+   },
+   "model_info": {
+    "LOD0": 80622,
+    "LOD1": 40310,
+    "LOD2": 12082
+   },
+   "match": true
+  },
+  "CR14_WeedClump": {
+   "fbx_reimport": {
+    "LOD0": 14006,
+    "LOD1": 7002,
+    "LOD2": 2099
+   },
+   "model_info": {
+    "LOD0": 14006,
+    "LOD1": 7002,
+    "LOD2": 2099
+   },
+   "match": true
+  },
+  "CR15_DitchCross": {
+   "fbx_reimport": {
+    "LOD0": 69209,
+    "LOD1": 34604,
+    "LOD2": 10380
+   },
+   "model_info": {
+    "LOD0": 69209,
+    "LOD1": 34604,
+    "LOD2": 10380
+   },
+   "match": true
+  },
+  "F01_Field": {
+   "fbx_reimport": {
+    "LOD0": 45486,
+    "LOD1": 19640,
+    "LOD2": 6071
+   },
+   "model_info": {
+    "LOD0": 45486,
+    "LOD1": 19640,
+    "LOD2": 6071
+   },
+   "match": true
+  },
+  "WM01_MillHouse": {
+   "fbx_reimport": {
+    "LOD0": 114655,
+    "LOD1": 57040,
+    "LOD2": 17195
+   },
+   "model_info": {
+    "LOD0": 114655,
+    "LOD1": 57040,
+    "LOD2": 17195
+   },
+   "match": true
+  },
+  "WM02_WaterWheel": {
+   "fbx_reimport": {
+    "LOD0": 70232,
+    "LOD1": 35114,
+    "LOD2": 10534
+   },
+   "model_info": {
+    "LOD0": 70232,
+    "LOD1": 35114,
+    "LOD2": 10534
+   },
+   "match": true
+  },
+  "WM04_Millstones": {
+   "fbx_reimport": {
+    "LOD0": 38980,
+    "LOD1": 19490,
+    "LOD2": 5844
+   },
+   "model_info": {
+    "LOD0": 38980,
+    "LOD1": 19490,
+    "LOD2": 5844
+   },
+   "match": true
+  },
+  "WM05_WashSteps": {
+   "fbx_reimport": {
+    "LOD0": 53778,
+    "LOD1": 26887,
+    "LOD2": 8066
+   },
+   "model_info": {
+    "LOD0": 53778,
+    "LOD1": 26887,
+    "LOD2": 8066
+   },
+   "match": true
+  },
+  "WM07_StoneBridge": {
+   "fbx_reimport": {
+    "LOD0": 96299,
+    "LOD1": 48147,
+    "LOD2": 14442
+   },
+   "model_info": {
+    "LOD0": 96299,
+    "LOD1": 48147,
+    "LOD2": 14442
+   },
+   "match": true
+  },
+  "WM09_BambooPavilion": {
+   "fbx_reimport": {
+    "LOD0": 144632,
+    "LOD1": 72316,
+    "LOD2": 21694
+   },
+   "model_info": {
+    "LOD0": 144632,
+    "LOD1": 72316,
+    "LOD2": 21694
+   },
+   "match": true
+  }
+ }
+}

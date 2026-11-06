@@ -1,0 +1,360 @@
+{
+ "content": "basic-combat-v1",
+ "runs": [
+  {
+   "name": "chain-three",
+   "step": 0.016666666666666666,
+   "seconds": 2.2,
+   "targets": [
+    {
+     "id": "A12_VineDummy",
+     "x": 0.3,
+     "z": 1.4,
+     "radius": 0.35
+    }
+   ],
+   "frames": [
+    {
+     "frame": 6,
+     "attack": true,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 9,
+     "attack": true,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 29,
+     "attack": true,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 56,
+     "attack": true,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 90,
+     "attack": true,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    }
+   ],
+   "log": [
+    "0.075:attack.start:palm1",
+    "0.125:input.ignored",
+    "0.2:combat.hit:palm1:A12_VineDummy:8",
+    "0.4583:attack.start:palm2",
+    "0.5667:combat.hit:palm2:A12_VineDummy:9",
+    "0.9083:attack.start:palm3",
+    "1.0917:combat.hit:palm3:A12_VineDummy:14",
+    "1.475:input.ignored",
+    "1.6417:attack.end:palm3"
+   ],
+   "state": "idle",
+   "x": 0.211816,
+   "z": 0.988473,
+   "yaw": 0.211093,
+   "heavyCooldown": 0
+  },
+  {
+   "name": "heavy-and-cooldown",
+   "step": 0.02,
+   "seconds": 6.5,
+   "targets": [
+    {
+     "id": "A12_VineDummy",
+     "x": 0.3,
+     "z": 1.4,
+     "radius": 0.35
+    }
+   ],
+   "frames": [
+    {
+     "frame": 5,
+     "attack": false,
+     "dodge": false,
+     "held": true,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 15,
+     "attack": false,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 25,
+     "attack": false,
+     "dodge": false,
+     "held": true,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 65,
+     "attack": false,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 120,
+     "attack": false,
+     "dodge": false,
+     "held": true,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 130,
+     "attack": false,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 250,
+     "attack": false,
+     "dodge": false,
+     "held": true,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 320,
+     "attack": false,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    }
+   ],
+   "log": [
+    "0.075:heavy.charge",
+    "0.275:heavy.cancelled",
+    "0.475:heavy.charge",
+    "1.275:attack.start:heavy",
+    "1.4167:combat.hit:heavy:A12_VineDummy:32",
+    "2.0417:attack.end:heavy",
+    "2.375:heavy.cooldown",
+    "2.4:heavy.cooldown",
+    "2.4167:heavy.cooldown",
+    "2.4333:heavy.cooldown",
+    "2.4583:heavy.cooldown",
+    "2.475:heavy.cooldown",
+    "2.5:heavy.cooldown",
+    "2.5167:heavy.cooldown",
+    "2.5333:heavy.cooldown",
+    "2.5583:heavy.cooldown",
+    "4.975:heavy.cooldown",
+    "5:heavy.cooldown",
+    "5.0167:heavy.cooldown",
+    "5.0333:heavy.cooldown",
+    "5.0583:heavy.cooldown",
+    "5.075:heavy.cooldown",
+    "5.1:heavy.cooldown",
+    "5.1167:heavy.cooldown",
+    "5.1333:heavy.cooldown",
+    "5.1583:heavy.cooldown",
+    "5.175:heavy.cooldown",
+    "5.2:heavy.cooldown",
+    "5.2167:heavy.cooldown",
+    "5.2333:heavy.cooldown",
+    "5.2583:heavy.cooldown",
+    "5.275:heavy.charge",
+    "6.375:attack.start:heavy"
+   ],
+   "state": "heavy",
+   "x": 0.177294,
+   "z": 0.827371,
+   "yaw": 0.211093,
+   "heavyCooldown": 3.9
+  },
+  {
+   "name": "dodge-cancel",
+   "step": 0.016666666666666666,
+   "seconds": 2.4,
+   "targets": [
+    {
+     "id": "rabbit",
+     "x": -1.2,
+     "z": 1,
+     "radius": 0.25
+    },
+    {
+     "id": "boar",
+     "x": 2.6,
+     "z": 1.8,
+     "radius": 0.6
+    },
+    {
+     "id": "far",
+     "x": 6,
+     "z": 0,
+     "radius": 0.3
+    }
+   ],
+   "frames": [
+    {
+     "frame": 6,
+     "attack": true,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 11,
+     "attack": false,
+     "dodge": true,
+     "held": false,
+     "mx": 1,
+     "mz": 0
+    },
+    {
+     "frame": 30,
+     "attack": false,
+     "dodge": true,
+     "held": false,
+     "mx": 1,
+     "mz": 0
+    },
+    {
+     "frame": 33,
+     "attack": false,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 54,
+     "attack": false,
+     "dodge": false,
+     "held": true,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 60,
+     "attack": false,
+     "dodge": true,
+     "held": true,
+     "mx": -1,
+     "mz": 0.3
+    },
+    {
+     "frame": 63,
+     "attack": false,
+     "dodge": false,
+     "held": false,
+     "mx": -1,
+     "mz": 0.3
+    },
+    {
+     "frame": 96,
+     "attack": true,
+     "dodge": false,
+     "held": false,
+     "mx": -1,
+     "mz": 0.3
+    }
+   ],
+   "log": [
+    "0.075:attack.start:palm1",
+    "0.1583:input.ignored",
+    "0.2:combat.hit:palm1:rabbit:8",
+    "0.475:dodge.start",
+    "0.7833:dodge.end",
+    "0.875:heavy.charge",
+    "0.975:input.ignored",
+    "1.025:heavy.cancelled",
+    "1.575:attack.start:palm1",
+    "1.7:combat.hit:palm1:boar:8",
+    "2.0833:attack.end:palm1"
+   ],
+   "state": "idle",
+   "x": 2.412417,
+   "z": 0.418096,
+   "yaw": 0.134918,
+   "heavyCooldown": 0
+  },
+  {
+   "name": "turn-to-nearest",
+   "step": 0.03333333333333333,
+   "seconds": 1.5,
+   "targets": [
+    {
+     "id": "rabbit",
+     "x": -1.2,
+     "z": 1,
+     "radius": 0.25
+    },
+    {
+     "id": "boar",
+     "x": 2.6,
+     "z": 1.8,
+     "radius": 0.6
+    },
+    {
+     "id": "far",
+     "x": 6,
+     "z": 0,
+     "radius": 0.3
+    }
+   ],
+   "frames": [
+    {
+     "frame": 6,
+     "attack": true,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    },
+    {
+     "frame": 23,
+     "attack": true,
+     "dodge": false,
+     "held": false,
+     "mx": 0,
+     "mz": 0
+    }
+   ],
+   "log": [
+    "0.1667:attack.start:palm1",
+    "0.2917:combat.hit:palm1:rabbit:8",
+    "0.6667:attack.end:palm1",
+    "0.7333:attack.start:palm1",
+    "0.8583:combat.hit:palm1:rabbit:8",
+    "1.2417:attack.end:palm1"
+   ],
+   "state": "idle",
+   "x": -0.392113,
+   "z": 0.326761,
+   "yaw": -0.876058,
+   "heavyCooldown": 0
+  }
+ ]
+}

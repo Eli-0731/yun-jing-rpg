@@ -1,0 +1,966 @@
+{
+ "CR03_MudHeap": {
+  "fbx": "CR03_MudHeap_v001.fbx",
+  "lod_tris": {
+   "LOD0": 50184,
+   "LOD1": 25090,
+   "LOD2": 7524
+  },
+  "reimport_size_m": [
+   1.8984,
+   1.8969,
+   0.8
+  ],
+  "model_info_size_m": [
+   1.8984,
+   1.8969,
+   0.8
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": 0.0,
+  "collision_tris": 12,
+  "minTier": "standard",
+  "detail_in_fbx": [],
+  "detailObjects": [],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR03_StonePile": {
+  "fbx": "CR03_StonePile_v001.fbx",
+  "lod_tris": {
+   "LOD0": 56124,
+   "LOD1": 28062,
+   "LOD2": 8416
+  },
+  "reimport_size_m": [
+   2.0,
+   1.5,
+   0.9706
+  ],
+  "model_info_size_m": [
+   2.0,
+   1.5,
+   0.9706
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 12,
+  "minTier": "standard",
+  "detail_in_fbx": [],
+  "detailObjects": [],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR03_TimberRack": {
+  "fbx": "CR03_TimberRack_v001.fbx",
+  "lod_tris": {
+   "LOD0": 79196,
+   "LOD1": 39598,
+   "LOD2": 11876
+  },
+  "reimport_size_m": [
+   2.4805,
+   0.9803,
+   1.2
+  ],
+  "model_info_size_m": [
+   2.4805,
+   0.9803,
+   1.2
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": 0.0,
+  "collision_tris": 12,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR03_TimberRack_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR04_Tools": {
+  "fbx": "CR04_Tools_v001.fbx",
+  "lod_tris": {
+   "LOD0": 40246,
+   "LOD1": 20122,
+   "LOD2": 6030
+  },
+  "reimport_size_m": [
+   2.511,
+   1.2708,
+   0.4821
+  ],
+  "model_info_size_m": [
+   2.511,
+   1.2708,
+   0.4821
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 0,
+  "minTier": "standard",
+  "detail_in_fbx": [],
+  "detailObjects": [],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR05_WorkShelter": {
+  "fbx": "CR05_WorkShelter_v001.fbx",
+  "lod_tris": {
+   "LOD0": 120656,
+   "LOD1": 60324,
+   "LOD2": 18088
+  },
+  "reimport_size_m": [
+   3.9553,
+   2.8111,
+   2.7801
+  ],
+  "model_info_size_m": [
+   3.9553,
+   2.8111,
+   2.7801
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 48,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR05_WorkShelter_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR06_Bend": {
+  "fbx": "CR06_Bend_v001.fbx",
+  "lod_tris": {
+   "LOD0": 81024,
+   "LOD1": 40511,
+   "LOD2": 12153
+  },
+  "reimport_size_m": [
+   1.7704,
+   1.7703,
+   0.4924
+  ],
+  "model_info_size_m": [
+   1.7704,
+   1.7703,
+   0.4924
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 172,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR06_Bend_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR06_Short": {
+  "fbx": "CR06_Short_v001.fbx",
+  "lod_tris": {
+   "LOD0": 34940,
+   "LOD1": 17470,
+   "LOD2": 5240
+  },
+  "reimport_size_m": [
+   1.008,
+   0.5768,
+   0.4905
+  ],
+  "model_info_size_m": [
+   1.008,
+   0.5768,
+   0.4905
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 64,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR06_Short_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR06_Straight": {
+  "fbx": "CR06_Straight_v001.fbx",
+  "lod_tris": {
+   "LOD0": 81075,
+   "LOD1": 40536,
+   "LOD2": 12159
+  },
+  "reimport_size_m": [
+   1.0,
+   2.0,
+   0.4954
+  ],
+  "model_info_size_m": [
+   1.0,
+   2.0,
+   0.4954
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 64,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR06_Straight_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR07_Celebration": {
+  "fbx": "CR07_Celebration_v001.fbx",
+  "lod_tris": {
+   "LOD0": 95800,
+   "LOD1": 47900,
+   "LOD2": 14360
+  },
+  "reimport_size_m": [
+   6.5055,
+   0.8951,
+   2.7656
+  ],
+  "model_info_size_m": [
+   6.5055,
+   0.8951,
+   2.7656
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 36,
+  "minTier": "high",
+  "detail_in_fbx": [
+   "Detail_Rings",
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR07_Celebration_Detail_Rings",
+   "CR07_Celebration_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR08_Bend": {
+  "fbx": "CR08_Bend_v001.fbx",
+  "lod_tris": {
+   "LOD0": 78736,
+   "LOD1": 39366,
+   "LOD2": 11808
+  },
+  "reimport_size_m": [
+   1.5605,
+   1.5607,
+   0.4514
+  ],
+  "model_info_size_m": [
+   1.5605,
+   1.5607,
+   0.4514
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0002
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 68,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR08_Bend_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR08_Straight": {
+  "fbx": "CR08_Straight_v001.fbx",
+  "lod_tris": {
+   "LOD0": 74420,
+   "LOD1": 37208,
+   "LOD2": 11162
+  },
+  "reimport_size_m": [
+   0.6808,
+   2.0,
+   0.4513
+  ],
+  "model_info_size_m": [
+   0.6808,
+   2.0,
+   0.4513
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 12,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR08_Straight_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR08_Trestle_080": {
+  "fbx": "CR08_Trestle_080_v001.fbx",
+  "lod_tris": {
+   "LOD0": 29288,
+   "LOD1": 14644,
+   "LOD2": 4392
+  },
+  "reimport_size_m": [
+   1.0199,
+   0.1584,
+   0.8
+  ],
+  "model_info_size_m": [
+   1.0199,
+   0.1584,
+   0.8
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 12,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR08_Trestle_080_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR08_Trestle_150": {
+  "fbx": "CR08_Trestle_150_v001.fbx",
+  "lod_tris": {
+   "LOD0": 29608,
+   "LOD1": 14804,
+   "LOD2": 4440
+  },
+  "reimport_size_m": [
+   1.3043,
+   0.1585,
+   1.5
+  ],
+  "model_info_size_m": [
+   1.3043,
+   0.1585,
+   1.5
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": 0.0,
+  "collision_tris": 12,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR08_Trestle_150_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR08_Trestle_250": {
+  "fbx": "CR08_Trestle_250_v001.fbx",
+  "lod_tris": {
+   "LOD0": 30072,
+   "LOD1": 15036,
+   "LOD2": 4510
+  },
+  "reimport_size_m": [
+   1.7058,
+   0.1586,
+   2.5
+  ],
+  "model_info_size_m": [
+   1.7058,
+   0.1586,
+   2.5
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 12,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR08_Trestle_250_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR09_A_RopeGate": {
+  "fbx": "CR09_A_RopeGate_v001.fbx",
+  "lod_tris": {
+   "LOD0": 62586,
+   "LOD1": 31292,
+   "LOD2": 9384
+  },
+  "reimport_size_m": [
+   0.8,
+   0.5,
+   0.5977
+  ],
+  "model_info_size_m": [
+   0.8,
+   0.5,
+   0.5977
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 24,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR09_A_RopeGate_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR09_B_TenonGate": {
+  "fbx": "CR09_B_TenonGate_v001.fbx",
+  "lod_tris": {
+   "LOD0": 38708,
+   "LOD1": 19354,
+   "LOD2": 5804
+  },
+  "reimport_size_m": [
+   0.8,
+   0.5,
+   0.5999
+  ],
+  "model_info_size_m": [
+   0.8,
+   0.5,
+   0.5999
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 24,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR09_B_TenonGate_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR10_CharmStall": {
+  "fbx": "CR10_CharmStall_v001.fbx",
+  "lod_tris": {
+   "LOD0": 102200,
+   "LOD1": 51098,
+   "LOD2": 15301
+  },
+  "reimport_size_m": [
+   3.2075,
+   1.8208,
+   2.7899
+  ],
+  "model_info_size_m": [
+   3.2075,
+   1.8208,
+   2.7899
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 48,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Bells",
+   "Detail_Goods",
+   "Detail_Gourds",
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR10_CharmStall_Detail_Bells",
+   "CR10_CharmStall_Detail_Goods",
+   "CR10_CharmStall_Detail_Gourds",
+   "CR10_CharmStall_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR11_NoodleStall": {
+  "fbx": "CR11_NoodleStall_v001.fbx",
+  "lod_tris": {
+   "LOD0": 123936,
+   "LOD1": 61966,
+   "LOD2": 18579
+  },
+  "reimport_size_m": [
+   4.3972,
+   3.3802,
+   2.7895
+  ],
+  "model_info_size_m": [
+   4.3972,
+   3.3802,
+   2.7895
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   -0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 144,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Bowls",
+   "Detail_Chopsticks",
+   "Detail_Flour",
+   "Detail_Ladles",
+   "Detail_Noodles",
+   "Detail_Small",
+   "Detail_Stitches"
+  ],
+  "detailObjects": [
+   "CR11_NoodleStall_Detail_Bowls",
+   "CR11_NoodleStall_Detail_Chopsticks",
+   "CR11_NoodleStall_Detail_Flour",
+   "CR11_NoodleStall_Detail_Ladles",
+   "CR11_NoodleStall_Detail_Noodles",
+   "CR11_NoodleStall_Detail_Small",
+   "CR11_NoodleStall_Detail_Stitches"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR12_RankingBoard": {
+  "fbx": "CR12_RankingBoard_v001.fbx",
+  "lod_tris": {
+   "LOD0": 80622,
+   "LOD1": 40310,
+   "LOD2": 12082
+  },
+  "reimport_size_m": [
+   2.99,
+   0.596,
+   2.7861
+  ],
+  "model_info_size_m": [
+   2.99,
+   0.596,
+   2.7861
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": 0.0,
+  "collision_tris": 72,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR12_RankingBoard_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR14_WeedClump": {
+  "fbx": "CR14_WeedClump_v001.fbx",
+  "lod_tris": {
+   "LOD0": 14006,
+   "LOD1": 7002,
+   "LOD2": 2099
+  },
+  "reimport_size_m": [
+   0.2289,
+   0.2085,
+   0.2479
+  ],
+  "model_info_size_m": [
+   0.2289,
+   0.2085,
+   0.2479
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 12,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR14_WeedClump_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "CR15_DitchCross": {
+  "fbx": "CR15_DitchCross_v001.fbx",
+  "lod_tris": {
+   "LOD0": 69209,
+   "LOD1": 34604,
+   "LOD2": 10380
+  },
+  "reimport_size_m": [
+   1.5379,
+   1.5378,
+   0.4924
+  ],
+  "model_info_size_m": [
+   1.5379,
+   1.5378,
+   0.4924
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   -0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 234,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "CR15_DitchCross_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "F01_Field": {
+  "fbx": "F01_Field.fbx",
+  "lod_tris": {
+   "LOD0": 45486,
+   "LOD1": 19640,
+   "LOD2": 6071
+  },
+  "reimport_size_m": [
+   6.129,
+   4.1503,
+   0.838
+  ],
+  "model_info_size_m": [
+   6.129,
+   4.1503,
+   0.838
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 84,
+  "minTier": "standard",
+  "detail_in_fbx": [],
+  "detailObjects": [],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "WM01_MillHouse": {
+  "fbx": "WM01_MillHouse_v001.fbx",
+  "lod_tris": {
+   "LOD0": 114655,
+   "LOD1": 57040,
+   "LOD2": 17195
+  },
+  "reimport_size_m": [
+   7.827,
+   5.8844,
+   5.931
+  ],
+  "model_info_size_m": [
+   7.827,
+   5.8844,
+   5.931
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": 0.0,
+  "collision_tris": 96,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Sacks",
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "WM01_MillHouse_Detail_Sacks",
+   "WM01_MillHouse_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "WM02_WaterWheel": {
+  "fbx": "WM02_WaterWheel_v001.fbx",
+  "lod_tris": {
+   "LOD0": 70232,
+   "LOD1": 35114,
+   "LOD2": 10534
+  },
+  "reimport_size_m": [
+   1.2,
+   4.6022,
+   4.602
+  ],
+  "model_info_size_m": [
+   1.2,
+   4.6022,
+   4.602
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -2.301,
+  "collision_tris": 92,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "WM02_WaterWheel_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "WM04_Millstones": {
+  "fbx": "WM04_Millstones_v001.fbx",
+  "lod_tris": {
+   "LOD0": 38980,
+   "LOD1": 19490,
+   "LOD2": 5844
+  },
+  "reimport_size_m": [
+   1.9441,
+   1.2383,
+   0.9247
+  ],
+  "model_info_size_m": [
+   1.9441,
+   1.2383,
+   0.9247
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   -0.0,
+   0.0
+  ],
+  "bottom_z_m": 0.0,
+  "collision_tris": 24,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Flour",
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "WM04_Millstones_Detail_Flour",
+   "WM04_Millstones_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "WM05_WashSteps": {
+  "fbx": "WM05_WashSteps_v001.fbx",
+  "lod_tris": {
+   "LOD0": 53778,
+   "LOD1": 26887,
+   "LOD2": 8066
+  },
+  "reimport_size_m": [
+   5.9883,
+   2.9671,
+   1.1926
+  ],
+  "model_info_size_m": [
+   5.9883,
+   2.9671,
+   1.1926
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 96,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "WM05_WashSteps_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "WM07_StoneBridge": {
+  "fbx": "WM07_StoneBridge_v001.fbx",
+  "lod_tris": {
+   "LOD0": 96299,
+   "LOD1": 48147,
+   "LOD2": 14442
+  },
+  "reimport_size_m": [
+   3.8025,
+   12.0,
+   3.9545
+  ],
+  "model_info_size_m": [
+   3.8025,
+   12.0,
+   3.9545
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0001
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 312,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small"
+  ],
+  "detailObjects": [
+   "WM07_StoneBridge_Detail_Small"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ },
+ "WM09_BambooPavilion": {
+  "fbx": "WM09_BambooPavilion_v001.fbx",
+  "lod_tris": {
+   "LOD0": 144632,
+   "LOD1": 72316,
+   "LOD2": 21694
+  },
+  "reimport_size_m": [
+   3.4489,
+   3.5,
+   3.9758
+  ],
+  "model_info_size_m": [
+   3.4489,
+   3.5,
+   3.9758
+  ],
+  "size_error_m": 0.0,
+  "origin_offset_m": [
+   0.0,
+   0.0
+  ],
+  "bottom_z_m": -0.0,
+  "collision_tris": 84,
+  "minTier": "standard",
+  "detail_in_fbx": [
+   "Detail_Small",
+   "Detail_Straw",
+   "Detail_Vines"
+  ],
+  "detailObjects": [
+   "WM09_BambooPavilion_Detail_Small",
+   "WM09_BambooPavilion_Detail_Straw",
+   "WM09_BambooPavilion_Detail_Vines"
+  ],
+  "detail_match": true,
+  "qa_errors": 0
+ }
+}
