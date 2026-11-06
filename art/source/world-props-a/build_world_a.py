@@ -1,7 +1,7 @@
 """承天 · 11/03 A 包的世界模型（Johnnnny0823）：獵人工具棚、倒下的土地公小廟、熄掉的獵人營地、倒塌的歇腳亭、載貨板車、土地祠、
 路牌、觀景石凳、草垛、路緣碎石、踏石、溪石、淨水蓮生長階段、練功器材（練功地面、碎石小徑是貼圖件，見 build_ground_a.py）。
 Pipeline adapted from art/source/qingxi-day12-c/build_day12.py (painterly tiled sources -> grouped Cycles bake -> numpy finish ->
-Albedo / Normal / MaskURP / ORM per group -> LOD1 ~50 %, LOD2 ~15 % -> _Collision -> .blend, FBX (all LODs + collision), GLB (LOD0)).
+Albedo / Normal / MaskURP / ORM per group -> LOD1 <= 50 % and <= 100k tris, LOD2 <= 15 % and <= 25k (budget shared on sqrt of group size) -> _Collision -> .blend, FBX (all LODs + collision), no GLB since the 11/07 review: one format per item; FBX without tangents, Unity computes MikkTSpace on import).
 Added for quality-tiers-v1 §4: groups named Detail_<Name> export as removable sub-objects Detail_<Name>_LOD0/1/2 and are listed in
 model_info.json detailObjects; every item carries minTier; pivots (cart wheels) keep their origin on the axle; a Glow group is the
 shrine's separate emissive mesh.
@@ -1668,6 +1668,18 @@ def run(pid):
     root=bpy.data.objects.new(f'{pid}_GroundOrigin',None);sc.collection.objects.link(root)
     if meta.get('lamp'):root['glow_level']=0 if pid=='TY04' else 1
     lods=[]
+    # LOD1 is the phone close-up (quality-tiers-v1 4.1): at most 100k tris per item, LOD2 25k, never above 50 % / 15 %; shared by
+    # water-filling on sqrt(group tris) so ropes and small parts are not crushed into spikes (same rule as relod_world_a.py)
+    n0={g:sum(len(p.vertices)-2 for p in o.data.polygons) for g,o in G.items()}
+    def share(budget,cap):
+        if sum(cap*v for v in n0.values())<=budget:return {k:cap*v for k,v in n0.items()}
+        lo_,hi_=0.0,max(math.sqrt(v)*cap for v in n0.values())+1
+        for _ in range(60):
+            lam=(lo_+hi_)/2
+            if sum(min(cap*v,lam*math.sqrt(v)) for v in n0.values())>budget:hi_=lam
+            else:lo_=lam
+        return {k:min(cap*v,lo_*math.sqrt(v)) for k,v in n0.items()}
+    alloc={1:share(100_000,.5),2:share(25_000,.15)}
     for g,o in G.items():
         T=tex[g];fm=bpy.data.materials.new(f'{pid}_{g}');fm.use_nodes=True;nt=fm.node_tree;bs=nt.nodes['Principled BSDF']
         def tn(im):t=nt.nodes.new('ShaderNodeTexImage');t.image=im;return t
@@ -1682,7 +1694,8 @@ def run(pid):
                 dr.expression='1.2*lv' if pid=='G01' else '0.2333*lv+0.1167*lv*lv'
             else:bs.inputs['Emission Strength'].default_value=1.0
         group=[o]
-        for L,ratio in ((1,.5),(2,.15)):
+        for L in (1,2):
+            ratio=min(1.0,alloc[L][g]/max(1,n0[g]))
             d=o.copy();d.data=o.data.copy();sc.collection.objects.link(d);d.name=d.data.name=f'{pid}_{g}_LOD{L}'
             m=d.modifiers.new('d','DECIMATE');m.ratio=ratio;m.use_collapse_triangulate=True;sel(d);bpy.ops.object.modifier_apply(modifier='d');group.append(d)
         for d in group:
@@ -1707,10 +1720,9 @@ def run(pid):
     bpy.ops.wm.save_as_mainfile(filepath=str(HERE/f'{pid}.blend'),compress=True)
     if 'glow_level' in root:root['glow_level']=4 if pid=='TY04' else 1;bpy.context.view_layer.update()   # export carries the emissive texture at full strength
     extra=[o for o in sc.objects if o.name.endswith('LightSocket')]
-    sel(root,*[gr[0] for gr in lods],*extra);bpy.ops.export_scene.gltf(filepath=str(OUT/f'{pid}.glb'),use_selection=True,export_format='GLB',export_apply=True)
     sel(root,*[d for gr in lods for d in gr],*([col] if col else []),*extra);bpy.ops.export_scene.fbx(filepath=str(OUT/f'{pid}.fbx'),use_selection=True,object_types={'MESH','EMPTY'},global_scale=1.0,apply_unit_scale=True,
         apply_scale_options='FBX_SCALE_ALL',bake_space_transform=True,axis_forward='-Z',axis_up='Y',use_mesh_modifiers=True,mesh_smooth_type='FACE',
-        use_tspace=True,add_leaf_bones=False,bake_anim=False,path_mode='RELATIVE',embed_textures=False)
+        use_tspace=False,add_leaf_bones=False,bake_anim=False,path_mode='RELATIVE',embed_textures=False)
     tri=lambda o:sum(len(p.vertices)-2 for p in o.data.polygons)
     info={'id':pid,'device':dev,'dimensions_xyz_m':[round(float(x),3) for x in dims],'size_limit_m':lim,'fits_limit':fits,
           'groups':{g:{'material':f'{pid}_{g}','texture_px':RESOF(g),'triangles':[tri(d) for d in gr],'emission':'emi' in tex[g]} for g,gr in zip(G,lods)},

@@ -103,8 +103,8 @@
     "texture_px": 2048,
     "triangles": [
      366467,
-     183233,
-     54970
+     41890,
+     10451
     ],
     "emission": false
    },
@@ -113,8 +113,8 @@
     "texture_px": 1024,
     "triangles": [
      132070,
-     66034,
-     19810
+     25148,
+     6274
     ],
     "emission": false
    },
@@ -123,8 +123,8 @@
     "texture_px": 1024,
     "triangles": [
      213294,
-     106646,
-     31994
+     31958,
+     7972
     ],
     "emission": false
    },
@@ -181,8 +181,8 @@
   },
   "triangles_total": [
    713835,
-   356915,
-   107070
+   99998,
+   24993
   ],
   "source_parts": 225,
   "reference": "art/references/RK06/prompt.txt",
@@ -239,7 +239,12 @@
    "Detail_Offerings"
   ],
   "pivots": {},
-  "note": "Glow group = the oil-lamp flame in the niche; drive its emission strength 0..1 (0 = unlit, paper-yellow)"
+  "note": "Glow group = the oil-lamp flame in the niche; drive its emission strength 0..1 (0 = unlit, paper-yellow)",
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
  },
  "SC01": {
   "id": "SC01",
@@ -618,8 +623,8 @@
     "texture_px": 2048,
     "triangles": [
      426240,
-     213120,
-     63936
+     18774,
+     4690
     ],
     "emission": false
    },
@@ -628,8 +633,8 @@
     "texture_px": 2048,
     "triangles": [
      949926,
-     474962,
-     142488
+     28026,
+     7004
     ],
     "emission": false
    },
@@ -638,8 +643,8 @@
     "texture_px": 2048,
     "triangles": [
      38616,
-     19308,
-     5792
+     5650,
+     1412
     ],
     "emission": false
    },
@@ -648,8 +653,8 @@
     "texture_px": 4096,
     "triangles": [
      957035,
-     478516,
-     143555
+     28130,
+     7030
     ],
     "emission": false
    },
@@ -658,8 +663,8 @@
     "texture_px": 1024,
     "triangles": [
      244224,
-     122112,
-     36632
+     14210,
+     3550
     ],
     "emission": false
    },
@@ -678,8 +683,8 @@
     "texture_px": 1024,
     "triangles": [
      30576,
-     15288,
-     4586
+     5028,
+     1256
     ],
     "emission": false
    },
@@ -696,8 +701,8 @@
   },
   "triangles_total": [
    2646969,
-   1323482,
-   397045
+   99994,
+   24998
   ],
   "source_parts": 486,
   "reference": "art/references/SC04/prompt.txt",
@@ -810,7 +815,12 @@
   "walkable": {
    "note": "open front between the posts (two 1.5 m bays); floor is the ground inside the footing"
   },
-  "fit_scale": 0.9645
+  "fit_scale": 0.9645,
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
  },
  "SC03": {
   "id": "SC03",
@@ -832,8 +842,8 @@
     "texture_px": 2048,
     "triangles": [
      235567,
-     117783,
-     35335
+     32812,
+     8120
     ],
     "emission": false
    },
@@ -842,8 +852,8 @@
     "texture_px": 2048,
     "triangles": [
      256046,
-     128022,
-     38406
+     34210,
+     8466
     ],
     "emission": false
    },
@@ -852,8 +862,8 @@
     "texture_px": 2048,
     "triangles": [
      174124,
-     87062,
-     26118
+     28210,
+     6982
     ],
     "emission": false
    },
@@ -900,8 +910,8 @@
   },
   "triangles_total": [
    675265,
-   337630,
-   101290
+   99995,
+   24999
   ],
   "source_parts": 250,
   "reference": "art/references/SC03/prompt.txt",
@@ -967,7 +977,12 @@
   "walkable": {
    "note": "plinth top 0.32 m; walk in over the front step; the roof heap and the post block, everything else is open"
   },
-  "fit_scale": 0.9774
+  "fit_scale": 0.9774,
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
  },
  "SC02": {
   "id": "SC02",
@@ -1131,8 +1146,8 @@
     "texture_px": 2048,
     "triangles": [
      498748,
-     249373,
-     74812
+     57465,
+     13843
     ],
     "emission": false
    },
@@ -1141,8 +1156,8 @@
     "texture_px": 1024,
     "triangles": [
      27840,
-     13920,
-     4175
+     13576,
+     3270
     ],
     "emission": false
    },
@@ -1151,8 +1166,8 @@
     "texture_px": 1024,
     "triangles": [
      27840,
-     13920,
-     4176
+     13576,
+     3269
     ],
     "emission": false
    },
@@ -1189,8 +1204,8 @@
   },
   "triangles_total": [
    585190,
-   292593,
-   87775
+   99997,
+   24994
   ],
   "source_parts": 103,
   "reference": "art/references/RK05/prompt.txt",
@@ -1245,7 +1260,12 @@
    ]
   },
   "note": "WheelL / WheelR origins are on the axle (y axis); spin them about local Y when the cart moves",
-  "fit_scale": 0.9723
+  "fit_scale": 0.9723,
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
  },
  "RK01B": {
   "id": "RK01B",
@@ -2435,8 +2455,8 @@
     "texture_px": 4096,
     "triangles": [
      655435,
-     327717,
-     98314
+     37168,
+     9276
     ],
     "emission": false
    },
@@ -2445,8 +2465,8 @@
     "texture_px": 2048,
     "triangles": [
      1297216,
-     648608,
-     194582
+     52289,
+     13050
     ],
     "emission": false
    },
@@ -2455,8 +2475,8 @@
     "texture_px": 1024,
     "triangles": [
      13328,
-     6664,
-     1998
+     5300,
+     1322
     ],
     "emission": false
    },
@@ -2465,8 +2485,8 @@
     "texture_px": 1024,
     "triangles": [
      9216,
-     4608,
-     1382
+     4406,
+     1098
     ],
     "emission": false
    },
@@ -2483,8 +2503,8 @@
   },
   "triangles_total": [
    1976866,
-   988432,
-   296526
+   99998,
+   24996
   ],
   "source_parts": 217,
   "reference": "art/references/RK10/prompt.txt",
@@ -2510,7 +2530,12 @@
    "Detail_Straw"
   ],
   "pivots": {},
-  "fit_scale": 0.843
+  "fit_scale": 0.843,
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
  },
  "RK10B": {
   "id": "RK10B",
@@ -2532,8 +2557,8 @@
     "texture_px": 4096,
     "triangles": [
      645075,
-     322536,
-     96760
+     47934,
+     11748
     ],
     "emission": false
    },
@@ -2542,8 +2567,8 @@
     "texture_px": 2048,
     "triangles": [
      522903,
-     261451,
-     78434
+     43156,
+     10577
     ],
     "emission": false
    },
@@ -2580,8 +2605,8 @@
   },
   "triangles_total": [
    1185793,
-   592894,
-   177864
+   99997,
+   24995
   ],
   "source_parts": 187,
   "reference": "art/references/RK10/prompt.txt",
@@ -2607,6 +2632,11 @@
    "Detail_Straw"
   ],
   "pivots": {},
-  "fit_scale": 0.7737
+  "fit_scale": 0.7737,
+  "lod_budget": {
+   "LOD1_max": 100000,
+   "LOD2_max": 25000,
+   "note": "quality-tiers-v1 4.1: LOD1 is the phone close-up; LOD0 untouched"
+  }
  }
 }

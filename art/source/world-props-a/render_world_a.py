@@ -44,7 +44,8 @@ if args.clay:
     cm=bpy.data.materials.new('clay');cm.use_nodes=True;cb=cm.node_tree.nodes['Principled BSDF'];cb.inputs['Base Color'].default_value=(.30,.30,.29,1);cb.inputs['Roughness'].default_value=.75
     for o in obs:
         for i in range(len(o.material_slots)):o.material_slots[i].material=cm
-pts=[o.matrix_world@Vector(c) for o in obs for c in o.bound_box]
+fr=[o for o in sc.objects if o.type=='MESH' and '_LOD0' in o.name and not (args.no_detail and o.name.startswith('Detail_'))] or obs   # frame on LOD0 so LOD0 | LOD1 shots share one camera
+pts=[o.matrix_world@Vector(c) for o in fr for c in o.bound_box]
 lo=Vector([min(p[i] for p in pts) for i in range(3)]);hi=Vector([max(p[i] for p in pts) for i in range(3)])
 if not args.no_ruler:   # 1.75 m figure beside the asset
     fm=bpy.data.materials.new('ruler');fm.use_nodes=True;fm.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.30,.42,.55,1)
