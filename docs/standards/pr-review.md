@@ -31,7 +31,7 @@ git show FETCH_HEAD:<檔案路徑>
 ```
 
 - 讀數字（面數、尺寸、貼圖大小）時，讀交件附的 `*_model_info.json`，不要只看 PR 說明。
-- 要實際看模型或跑玩法時，另開工作樹：`git worktree add D:\yun-jing-rpg-workspace\yun-jing-rpg-review-<PR號> FETCH_HEAD`，看完再刪掉。不要在主場景工作樹切分支。
+- 要實際看模型或跑玩法時，另開工作樹：`git worktree add D:\chengtian\3-PR審查用\review-pr<PR號> FETCH_HEAD`，看完再刪掉。不要在主場景工作樹切分支。
 
 ## 3. 審查清單（照順序）
 
