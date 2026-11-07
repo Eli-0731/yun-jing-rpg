@@ -3,7 +3,7 @@
 | 項目 | 內容 |
 |---|---|
 | 誰做的 | B（joshsu54） |
-| 工作包 | docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md（第一部分） |
+| 工作包 | docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md（第一部分；檔案在 `feature/qingxi-creek-chapter` 分支）；規格照 docs/execution/2026-11-05/B-48h-tea-and-irrigation.md 第 5、11 節 |
 | ID | TE04（採茶竹簍、晾茶竹匾）、TE05（東坡觀景亭）、RI03（稻田灌溉大水車） |
 | 分支／PR | art/b-1107-te04-te05-ri03-tea-wheel ／ #79 |
 | 版本 | v001（首次交付，沒有舊版） |

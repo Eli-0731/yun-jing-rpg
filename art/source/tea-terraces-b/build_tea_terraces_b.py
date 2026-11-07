@@ -137,7 +137,7 @@ ASSETS['RI03_GreatWheel'] = dict(zh='稻田灌溉大水車', kind='wheel', palet
     minTier='low', clamp_max=.03, origin='axle centre (the wheel pivot); the banks / footings are at z = -4.0, the wheel dips 0.5 m below them into its channel',
     note='稻田灌溉大水車（三視圖 RI03/GREAT-WHEEL candidate-04）：直徑 9.0 m、總寬 2.1 m（含軸頭與石座）。分三件：Wheel（軸、輪轂、兩側各 16 輻、雙層外輪框、中圈、'
          '32 片槳板、32 支竹筒，繞軸轉，樞軸在原點）、Seat（兩座收分亂石墩加木軸承座與基石）、Trough（輪側高處木槽、集水頭、四柱框架）；'
-         '轉動用的繩綁另成 Detail_Wheel，靜態的繩綁、青苔、槽中水成 Detail_Small。竹筒綁在 -X 側輪框外、向外傾 15°、筒口朝前，過頂後把水倒進輪側的集水頭；'
+         '轉動用的繩綁另成 Detail_Wheel，靜態的繩綁、青苔、槽中水成 Detail_Small。竹筒綁在 -X 側輪框外、向外傾 9.5°–12°（每根略不同）、筒口朝前，過頂後把水倒進輪側的集水頭；'
          '三視圖把木槽畫在輪子正上方，那個位置會被竹筒打到，所以改在輪側。和 creek-repair-b WM02（4.6 m 磨坊下擊輪、鐵件）不同：兩倍大、無鐵件、用竹筒提水。')
 
 
