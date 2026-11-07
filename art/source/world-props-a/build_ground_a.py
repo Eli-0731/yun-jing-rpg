@@ -114,7 +114,7 @@ def run(pid):
         bpy.ops.object.select_all(action='DESELECT')
         for o in objs: o.select_set(True)
         bpy.context.view_layer.objects.active = objs[0]
-    sel([root, lods[0]]); bpy.ops.export_scene.gltf(filepath=str(OUT / f'{pid}.glb'), use_selection=True, export_format='GLB', export_apply=True)
+    # FBX only (PR #68 review 11/07: one export format per item; Unity computes MikkTSpace tangents on import)
     sel([root] + lods); bpy.ops.export_scene.fbx(filepath=str(OUT / f'{pid}.fbx'), use_selection=True, object_types={'MESH', 'EMPTY'}, apply_scale_options='FBX_SCALE_ALL',
         bake_space_transform=True, axis_forward='-Z', axis_up='Y', mesh_smooth_type='FACE', use_tspace=True, add_leaf_bones=False, bake_anim=False, path_mode='RELATIVE')
     zmax = max(v.co.z for v in lods[0].data.vertices)

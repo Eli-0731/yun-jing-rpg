@@ -137,7 +137,8 @@
 | 格位 id | `區塊-類別序號` | `A1-B03` |
 | 見聞 id | `區塊-F序號` | `A1-F02` |
 | 內容 id | 小寫英文，連字號 | `qingxi-orchid` |
-| 工作樹 | `D:\yun-jing-rpg-workspace\yun-jing-rpg-<工作>-v<N>`，並在該資料夾的 README 加一行 | `yun-jing-rpg-web-shell-v1` |
+| 工作樹（核心組電腦） | `D:\chengtian\<分類>\<主題>`，分類是 `1-進行中`、`2-舊工作保留`、`3-PR審查用`、`4-素材與快取`，並在 `D:\chengtian\README.md` 加一行 | `D:\chengtian\1-進行中\labeling-rules` |
+| 分支、PR、提交、素材資料夾 README | 見 [標註規則 v1](labeling-v1.md) | `art/b-1107-sg-mountain-stairs`、【B】11/07 SG01–SG04：山城大石階 |
 | 截圖 | `docs/execution/<日期或工作>/NN-說明.png` | `16-block-seam-a1-a2.png` |
 
 ## 5. 程式規範（新增，給寫程式的協作者）
