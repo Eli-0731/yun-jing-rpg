@@ -1,5 +1,15 @@
 # 承天｜2026-11-07 工作包第一部分：TE04 採茶竹簍／晾茶竹匾、TE05 東坡觀景亭、RI03 稻田灌溉大水車
 
+| 項目 | 內容 |
+|---|---|
+| 誰做的 | B（joshsu54） |
+| 工作包 | docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md（第一部分） |
+| ID | TE04（採茶竹簍、晾茶竹匾）、TE05（東坡觀景亭）、RI03（稻田灌溉大水車） |
+| 分支／PR | art/b-1107-te04-te05-ri03-tea-wheel ／ #79 |
+| 版本 | v001（首次交付，沒有舊版） |
+| 狀態 | Exported ／ Imported（Unity 編輯器批次檢查）／ Visually Verified；In-game Verified：未驗 |
+| 素材來源 | 原創（Blender 程序化建模）；三視圖參考由 Codex image_gen 生成，只當比例參考；同場比較用的 WM02 來自 creek-repair-b，沒有修改 |
+
 放在 `tea-terraces-b` 同一套流程裡（同一支建模腳本、同一套材質與檢查），TE04／TE05 的槽位沿用 `A4_TeaTerraces`，RI03 用 `A6_GreatWheel`。
 **沒有改主場景、沒有改區塊 JSON、沒有宣稱已正式落位。** 新東西只做在 Unity 用的模型裡，沒有新增網頁版（PWA）頁面。
 
