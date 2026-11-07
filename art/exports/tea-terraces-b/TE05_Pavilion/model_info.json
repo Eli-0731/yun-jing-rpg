@@ -1,0 +1,219 @@
+{
+  "asset": "TE05_Pavilion",
+  "version": "v001",
+  "minTier": "low",
+  "detailObjects": [
+    "TE05_Pavilion_Detail_Small"
+  ],
+  "name_zh": "東坡觀景亭",
+  "slot": "A4_TeaTerraces",
+  "note": "方形四柱觀景亭（三視圖 TE05/PAVILION candidate-04）：5 × 5 × 5 m。暖灰石台基高 0.5 m（亂石兩層＋鋪石），正面三級石階（每級 0.125 m）；四根圓柱立在石鼓柱礎上，四面各一道大額枋、一道小額枋、三支短柱與兩支雀替；平板枋、斗、圓檐檩承托屋頂，四根角梁在戧脊下。攢尖青灰瓦頂，筒瓦十層，四角起翹、戧脊尾端上捲，戧脊有青苔；右前角一片較新的補瓦。後方與右側 L 形長凳加欄杆，左側後半是一塊空白木板，前半是矮欄杆；左前柱旁一口加蓋陶水缸和竹舀。中央可走，柱間淨寬約 2.5 m、小額枋下淨高約 2.1 m。和 creek-repair-b WM09（圓形竹亭、茅草頂、圓石台）不同。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 73112,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 36556,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 10964,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "TE05_Pavilion_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "TE05_Pavilion_Metallic.png": [
+      2048,
+      2048
+    ],
+    "TE05_Pavilion_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "TE05_Pavilion_Normal.png": [
+      2048,
+      2048
+    ],
+    "TE05_Pavilion_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre, z = 0 under the stone plinth; steps on the front (-Y)",
+  "dimensions_m": [
+    4.8954,
+    4.9477,
+    4.983
+  ],
+  "bounds_min_m": [
+    -2.4477,
+    -2.5,
+    0.0
+  ],
+  "bounds_max_m": [
+    2.4477,
+    2.4477,
+    4.983
+  ],
+  "size_limit_m": [
+    5.0,
+    5.0,
+    5.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        4.8485,
+        4.9242,
+        4.983
+      ],
+      "min": [
+        -2.4242,
+        -2.5,
+        0.0
+      ],
+      "max": [
+        2.4242,
+        2.4242,
+        4.983
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        4.8954,
+        4.8954,
+        4.4517
+      ],
+      "min": [
+        -2.4477,
+        -2.4477,
+        0.0
+      ],
+      "max": [
+        2.4477,
+        2.4477,
+        4.4517
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 57892,
+      "LOD1": 28946,
+      "LOD2": 8682
+    },
+    "Detail_Small": {
+      "LOD0": 15220,
+      "LOD1": 7610,
+      "LOD2": 2282
+    }
+  },
+  "lod_totals": {
+    "LOD0": 73112,
+    "LOD1": 36556,
+    "LOD2": 10964
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_TE05_Pavilion_Main"
+  ],
+  "textures": [
+    "TE05_Pavilion_BaseColor.png",
+    "TE05_Pavilion_Metallic.png",
+    "TE05_Pavilion_MetallicSmoothness.png",
+    "TE05_Pavilion_Normal.png",
+    "TE05_Pavilion_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "TE05_Pavilion_BaseColor.png",
+    "Normal": "TE05_Pavilion_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "TE05_Pavilion_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "TE05_Pavilion_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Seat_Back": [
+      0.0,
+      1.12,
+      0.975
+    ],
+    "Socket_Seat_Right": [
+      1.12,
+      -0.2,
+      0.975
+    ],
+    "Socket_Jar": [
+      -1.02,
+      -1.42,
+      1.1
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Jar.001": [
+      -1.02,
+      -1.42,
+      1.1
+    ],
+    "Socket_Seat_Back.001": [
+      0.0,
+      1.12,
+      0.975
+    ],
+    "Socket_Seat_Right.001": [
+      1.12,
+      -0.2,
+      0.975
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Jar.001",
+    "Socket_Seat_Back.001",
+    "Socket_Seat_Right.001",
+    "TE05_Pavilion.001",
+    "TE05_Pavilion_Collision.001",
+    "TE05_Pavilion_Detail_Small_LOD0.001",
+    "TE05_Pavilion_Detail_Small_LOD1.001",
+    "TE05_Pavilion_Detail_Small_LOD2.001",
+    "TE05_Pavilion_LOD0.001",
+    "TE05_Pavilion_LOD1.001",
+    "TE05_Pavilion_LOD2.001"
+  ],
+  "glb": "TE05_Pavilion_v001.glb",
+  "interface": {
+    "plinth_top_z_m": 0.5,
+    "step_rise_m": 0.125,
+    "step_tread_m": 0.25,
+    "post_centres_m": [
+      1.4,
+      1.4
+    ],
+    "finial_top_z_m": 4.983,
+    "clear_under_low_beam_z_m": 2.62,
+    "sockets": [
+      "Socket_Jar",
+      "Socket_Seat_Back",
+      "Socket_Seat_Right"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/TE05/ (AI three-view TE05/PAVILION; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/tea-terraces-unity/unity-verify-report.txt"
+}

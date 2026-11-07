@@ -23,6 +23,10 @@ import ti_core, ti_mats, ti_pipeline as pl
 import te_terrace as TT
 import te_tea as TB
 import te_paths as TP
+import te_props as TPR
+import te_tray as TTR
+import te_pavilion as TPV
+import te_wheel as TWH
 from ti_core import S
 
 KIT = 'tea-terraces-b'
@@ -107,6 +111,34 @@ ASSETS['TE03_Path'] = dict(zh='梯田土路', kind='te03', palette=TP.palette, b
     origin='path centre, z = 0 at the tread soil', note=TE03_NOTE + ' 長 4 m（兩段接滿一個 8 m 直段），踩實的土路中間微凹，兩側半埋的邊石與草；兩端截面相同，可沿 1 m 格線串接。放在 TE01 踏面上，路面高出土面 1–3 cm。')
 ASSETS['TE03_Stepping'] = dict(zh='梯田踏石', kind='te03', palette=TP.palette, build=TP.te03_stepping, limit=(2., 1.2, .4), ref='TE03/STEPPING', tex=2048, clamp_max=.09,
     origin='run centre, z = 0 at the tread soil', note=TE03_NOTE + ' 長 2 m，四塊平石半埋在土裡，步距約 0.6 m，石面高出土面 4.5–7 cm；周圍有翻動過的土圈、草和苔。')
+
+# 2026-11-07 work pack part 1 (TE04, TE05, RI03): new pieces start at v001.
+ASSETS['TE04_Basket'] = dict(zh='採茶竹簍', kind='prop', palette=TPR.palette, build=TPR.te04_basket, limit=(.52, .52, .42), ref='TE04/BASKET', tex=1024, ver='v001',
+    minTier='standard', clamp_max=.02, origin='bottom centre, z = 0 under the foot hoop',
+    note='低矮寬口的採茶簍（三視圖 TE04/BASKET candidate-01）：口徑約 0.5 m、高約 0.4 m，人字紋剖竹編、口緣內外兩道竹圈用麻繩穿壁綁 12 處、底圈綁 9 處；'
+         '正面左側一塊較新較灰的補片，四角與四邊十字縫；簍內與口緣有幾片剛採的茶葉。和 harvest-market-b MK04 背簍不同：圓、矮、開口大、沒有立樁、木底架和背帶。'
+         '綁繩、縫線、茶葉匯出為 Detail_Small，關掉不影響外形。')
+
+ASSETS['TE04_Tray'] = dict(zh='晾茶竹匾', kind='prop', palette=TTR.palette, build=TTR.te04_tray, limit=(1.23, .77, .13), ref='TE04/TRAY', tex=1024, ver='v001',
+    minTier='standard', clamp_max=.02, origin='bottom centre, z = 0 under the woven floor',
+    note='淺長圓角竹匾（三視圖 TE04/TRAY candidate-04 外形、04-r1 立面）：1.2 × 0.75 × 0.12 m，一張平編剖竹席把邊緣彎起成矮牆，口緣內外兩條舊杉木條夾住，'
+         '深色藤條綁 12 處（長邊各 3、短邊各 1、四角各 1），杉木條在每處綁點對接。地板靠右後角、正面左側牆各一塊較新較灰的補片，十字縫。'
+         '左側約三分之二鋪一層正在萎凋的茶葉。和圓竹篩（harvest-market-b MK02）不同：長圓角、扁、木口緣。綁繩、縫線、茶葉匯出為 Detail_Small。')
+
+ASSETS['TE05_Pavilion'] = dict(zh='東坡觀景亭', kind='pavilion', palette=TPV.palette, build=TPV.te05_pavilion, limit=(5., 5., 5.), ref='TE05/PAVILION', tex=2048, ver='v001',
+    minTier='low', clamp_max=.03, origin='bottom centre, z = 0 under the stone plinth; steps on the front (-Y)',
+    note='方形四柱觀景亭（三視圖 TE05/PAVILION candidate-04）：5 × 5 × 5 m。暖灰石台基高 0.5 m（亂石兩層＋鋪石），正面三級石階（每級 0.125 m）；'
+         '四根圓柱立在石鼓柱礎上，四面各一道大額枋、一道小額枋、三支短柱與兩支雀替；平板枋、斗、圓檐檩承托屋頂，四根角梁在戧脊下。'
+         '攢尖青灰瓦頂，筒瓦十層，四角起翹、戧脊尾端上捲，戧脊有青苔；右前角一片較新的補瓦。後方與右側 L 形長凳加欄杆，左側後半是一塊空白木板，前半是矮欄杆；'
+         '左前柱旁一口加蓋陶水缸和竹舀。中央可走，柱間淨寬約 2.5 m、小額枋下淨高約 2.1 m。和 creek-repair-b WM09（圓形竹亭、茅草頂、圓石台）不同。')
+
+ASSETS['RI03_GreatWheel'] = dict(zh='稻田灌溉大水車', kind='wheel', palette=TWH.palette, build=TWH.ri03_great_wheel, limit=(2.2, 10.6, 9.1), tex=2048, ver='v001',
+    box=((-1.07, -5.12, -4.52), (1.07, 5.42, 4.52)), base_z=-4.5, ground_z=-4.0, ref='RI03/GREAT-WHEEL', slot='A6_GreatWheel',
+    minTier='low', clamp_max=.03, origin='axle centre (the wheel pivot); the banks / footings are at z = -4.0, the wheel dips 0.5 m below them into its channel',
+    note='稻田灌溉大水車（三視圖 RI03/GREAT-WHEEL candidate-04）：直徑 9.0 m、總寬 2.1 m（含軸頭與石座）。分三件：Wheel（軸、輪轂、兩側各 16 輻、雙層外輪框、中圈、'
+         '32 片槳板、32 支竹筒，繞軸轉，樞軸在原點）、Seat（兩座收分亂石墩加木軸承座與基石）、Trough（輪側高處木槽、集水頭、四柱框架）；'
+         '轉動用的繩綁另成 Detail_Wheel，靜態的繩綁、青苔、槽中水成 Detail_Small。竹筒綁在 -X 側輪框外、向外傾 15°、筒口朝前，過頂後把水倒進輪側的集水頭；'
+         '三視圖把木槽畫在輪子正上方，那個位置會被竹筒打到，所以改在輪側。和 creek-repair-b WM02（4.6 m 磨坊下擊輪、鐵件）不同：兩倍大、無鐵件、用竹筒提水。')
 
 
 def route_details():
@@ -216,7 +248,7 @@ def clamp_to_limit(cfg):
     for o in objs:
         me = o.data; co = np.zeros(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
         w = co + np.array(o.location, np.float32)
-        c = w.copy(); c[:, 0] = np.clip(c[:, 0], lo_b[0], hi_b[0]); c[:, 1] = np.clip(c[:, 1], lo_b[1], hi_b[1]); c[:, 2] = np.maximum(c[:, 2], 0.)
+        c = w.copy(); c[:, 0] = np.clip(c[:, 0], lo_b[0], hi_b[0]); c[:, 1] = np.clip(c[:, 1], lo_b[1], hi_b[1]); c[:, 2] = np.maximum(c[:, 2], lo_b[2])
         moved = max(moved, float(np.abs(c - w).max()))
         me.vertices.foreach_set('co', (c - np.array(o.location, np.float32)).ravel()); me.update()
     S['clamped_m'] = round(moved, 5)
@@ -346,7 +378,8 @@ def run(aid, force=False):
               {'min': [round(v, 4) for v in lo], 'max': [round(v, 4) for v in hi], 'box_m': cfg['box']})
     else: check('footprint_within_limit', lo.x >= -lim[0] / 2 - 1e-3 and hi.x <= lim[0] / 2 + 1e-3 and lo.y >= -lim[1] / 2 - 1e-3 and hi.y <= lim[1] / 2 + 1e-3 and dims.z <= lim[2] + 1e-3,
           {'min': [round(v, 4) for v in lo], 'max': [round(v, 4) for v in hi], 'limit_m': lim, 'note': 'footprint centred on the origin; height includes grass on the tread'})
-    check('base_at_z0', abs(lo.z) < 1e-3, {'min_z': round(lo.z, 5), 'largest_clamp_m': S.get('clamped_m')})
+    bz = cfg.get('base_z', 0.)   # RI03: origin at the axle, the lowest point is the bottom of the wheel
+    check('base_at_z0' if not bz else 'lowest_point_at_design_z', abs(lo.z - bz) < (1e-3 if not bz else .01), {'min_z': round(lo.z, 5), 'design_min_z': bz, 'largest_clamp_m': S.get('clamped_m')})
     spec = spec_checks(aid, check)
     tot = {k: sum(g[k] for g in lod_report.values()) for k in ('LOD0', 'LOD1', 'LOD2')}  # (fit-scale keys are ignored)
     r1, r2 = tot['LOD1'] / tot['LOD0'], tot['LOD2'] / tot['LOD0']
@@ -379,9 +412,16 @@ def run(aid, force=False):
     blend.mkdir(parents=True, exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(blend / f'{aid}_{VER}.blend'))
     mats = sorted({m.name for g in S['lods'].values() for o in g.values() for m in o.data.materials})
+    def png_px(p):   # width x height from the PNG header (IHDR)
+        b = p.read_bytes()[16:24]; return [int.from_bytes(b[:4], 'big'), int.from_bytes(b[4:], 'big')]
+    budget = {f'LOD{lv}': {'triangles': tot[f'LOD{lv}'], 'objects': len(S['lods'][lv]),
+                           'objects_without_detail': len([g for g in S['lods'][lv] if not g.startswith('Detail_')]),
+                           'materials': len({m.name for o in S['lods'][lv].values() for m in o.data.materials})} for lv in (0, 1, 2)}
+    tex_px = {p.name: png_px(p) for p in sorted((exp / 'Textures').glob('*.png'))}
     info = {
         'asset': aid, 'version': VER, 'minTier': cfg.get('minTier', 'standard'), 'detailObjects': sorted(f'{aid}_{g}' for g in S['lods'][0] if g.startswith('Detail_')),
-        'name_zh': cfg['zh'], 'slot': 'A4_TeaTerraces', 'note': cfg['note'],
+        'name_zh': cfg['zh'], 'slot': cfg.get('slot', 'A4_TeaTerraces'), 'note': cfg['note'],
+        'budget_per_lod': budget, 'texture_resolution_px': tex_px,
         'units': 'meters', 'front': '-Y (Blender)', 'up': '+Z (Blender); FBX exported Y-up, -Z forward, transforms baked',
         'origin': cfg.get('origin', 'footprint centre on the 1 m grid, z = 0 at the lower terrace soil'), 'dimensions_m': [round(v, 4) for v in dims], 'bounds_min_m': [round(v, 4) for v in lo], 'bounds_max_m': [round(v, 4) for v in hi],
         'size_limit_m': cfg['limit'], 'pieces': pieces,
@@ -391,10 +431,12 @@ def run(aid, force=False):
                   'MetallicSmoothness': f'{aid}_MetallicSmoothness.png (R metallic, A smoothness)', 'lod_group': 'objects end in _LOD0/_LOD1/_LOD2 under one root',
                   'collision': f'{aid}_Collision: MeshCollider (convex off), renderer hidden'},
         'collision': bool(S.get('collision_obj')),
+        **({'ground_z_m': cfg['ground_z']} if 'ground_z' in cfg else {}),
+        **({'parts': S['part_notes']} if S.get('part_notes') else {}),
         'sockets_blender_xyz': {k: [round(v, 4) for v in e.matrix_world.translation] for k, e in S['sockets'].items()},
         'sockets_fbx_reimport_xyz': rt['sockets'], 'fbx_objects': rt['objects'], 'glb': glb.name,
         'interface': spec,
-        'modeling_method': f'procedural mesh construction (art/source/{KIT}/); procedural shaders (cr_mats.py) baked to one 2048 atlas',
+        'modeling_method': f'procedural mesh construction (art/source/{KIT}/); procedural shaders (cr_mats.py) baked to one {cfg["tex"]} atlas',
         'reference': f"art/references/{cfg['ref'].split('/')[0]}/ (AI three-view {cfg['ref']}; proportions from the work pack's written sizes, not measured from the image)",
         'unity_import_verified': 'see artifacts/tea-terraces-unity/unity-verify-report.txt',
     }
@@ -410,6 +452,9 @@ def spec_checks(aid, check):
     if ASSETS[aid]['kind'] == 'bush': return bush_checks(aid, check)
     if ASSETS[aid]['kind'] == 'hedge': return hedge_checks(aid, check)
     if ASSETS[aid]['kind'] == 'te03': return te03_checks(aid, check)
+    if ASSETS[aid]['kind'] == 'prop': return prop_checks(aid, check)
+    if ASSETS[aid]['kind'] == 'pavilion': return pavilion_checks(aid, check)
+    if ASSETS[aid]['kind'] == 'wheel': return wheel_checks(aid, check)
     if ASSETS[aid]['kind'] != 'terrace': return out
     T = S['terrace']; M = S['map']; L = T.L
     lod0 = S['lods'][0]['Main']
@@ -495,6 +540,111 @@ def te03_checks(aid, check):
     xs = [s_[0] for s_ in TP.STONES]; stride = [round(b - a, 3) for a, b in zip(xs, xs[1:])]
     check('stride_0_4_to_0_7m', all(.4 <= d <= .7 for d in stride), {'stride_m': stride})
     return {'length_m': L, 'width_m': TP.W, 'stones': len(TP.STONES)}
+
+
+def prop_checks(aid, check):
+    """TE04: overall size against the work pack, the shape that tells it from neighbouring kits, and the detail object really optional."""
+    p = S['prop']; lods = S['lods']
+    lo, hi = pl.eval_bounds([lods[0]['Main']])
+    w, d, h = hi.x - lo.x, hi.y - lo.y, hi.z - lo.z
+    det = lods[0].get('Detail_Small')
+    if p['kind'] == 'tray':
+        check('tray_1_2m_long_0_12m_tall', 1.17 <= w <= 1.22 and .68 <= d <= .76 and .105 <= h <= .13, {'main_dims_m': [round(w, 4), round(d, 4), round(h, 4)], 'design': '1.2 x 0.74 x 0.12 m'})
+        check('rounded_rectangle_not_round', w / d > 1.45, {'length_to_depth': round(w / d, 3), 'note': 'a round sieve would be 1.0'})
+        dlo, dhi = pl.eval_bounds([det]) if det else (lo, hi)
+        check('detail_small_is_separate', det is not None and dhi.z <= hi.z + .012, {'detail_object': det.name if det else None, 'detail_top_z_m': round(dhi.z, 4),
+              'note': 'bindings, stitches and leaves; turning it off leaves the woven mat and both cedar strips'})
+        return {'rim_top_z_m': round(p['rim_top'], 4), 'floor_top_z_m': round(p['floor_z'], 4), 'half_length_m': round(p['half_len'], 4), 'half_depth_m': round(p['half_depth'], 4)}
+    check('basket_0_5m_wide_0_4m_tall', .47 <= w <= .52 and .44 <= d <= .52 and .38 <= h <= .42, {'main_dims_m': [round(w, 4), round(d, 4), round(h, 4)], 'design': '0.5 x 0.5 x 0.4 m'})
+    check('wide_mouth_tapered', p['rim_outer_r'] > p['foot_r'] * 1.15, {'rim_outer_r': round(p['rim_outer_r'], 4), 'foot_r': round(p['foot_r'], 4)})
+    check('detail_small_is_separate', det is not None and lo.z <= 1e-3, {'detail_object': det.name if det else None, 'note': 'lashings, stitches and leaves; turning it off leaves the woven body, rim and foot hoops'})
+    return {'rim_top_z_m': round(p['rim_top'], 4), 'rim_outer_radius_m': round(p['rim_outer_r'], 4), 'foot_radius_m': round(p['foot_r'], 4)}
+
+
+def pavilion_checks(aid, check):
+    """TE05: the 5 m cube, a walkable plinth and steps, head room between the posts, the roof clear of the bench."""
+    p = S['prop']; lod0 = list(S['lods'][0].values())
+    lo, hi = pl.eval_bounds(lod0)
+    check('within_5x5x5', hi.x - lo.x <= 5.001 and hi.y - lo.y <= 5.001 and hi.z <= 5.001, {'dims_m': [round(v, 4) for v in hi - lo], 'top_z_m': round(hi.z, 4)})
+    dg = bpy.context.evaluated_depsgraph_get()
+    def ray_z(x, y, z0=10.):
+        best = None
+        for o in lod0:
+            e = o.evaluated_get(dg); mi = o.matrix_world.inverted()
+            ok, loc, *_ = e.ray_cast(mi @ Vector((x, y, z0)), mi.to_3x3() @ Vector((0, 0, -1)))
+            if ok:
+                z = (o.matrix_world @ loc).z
+                best = z if best is None else max(best, z)
+        return best
+    def ray_up(x, y, z0):
+        best = None
+        for o in lod0:
+            e = o.evaluated_get(dg); mi = o.matrix_world.inverted()
+            ok, loc, *_ = e.ray_cast(mi @ Vector((x, y, z0)), mi.to_3x3() @ Vector((0, 0, 1)))
+            if ok:
+                z = (o.matrix_world @ loc).z
+                best = z if best is None else min(best, z)
+        return best
+    floor = [ray_z(x, y, Z) for x, y, Z in ((0, 0, 1.5), (.5, -.6, 1.5), (-.6, .3, 1.5), (0, -1.2, 1.5))]
+    check('floor_at_plinth_top', all(f is not None and abs(f - p['plinth_top']) < .03 for f in floor), {'floor_hits_z_m': [round(f, 4) if f is not None else None for f in floor], 'plinth_top_m': p['plinth_top']})
+    steps = [ray_z(0., y, 1.) for y in (-2.38, -2.12, -1.88, -1.6)]
+    rises = [round(b - a, 4) for a, b in zip([0.] + steps[:-1], steps)] if all(s is not None for s in steps) else None
+    check('steps_rise_under_0_2m', rises is not None and max(rises) <= .2, {'tread_z_m': [round(s, 4) if s is not None else None for s in steps], 'rises_m': rises})
+    heads = [ray_up(x, y, p['plinth_top'] + .05) for x, y in ((0, -.6), (0, -1.4), (.6, .5), (-.7, -.5), (-.6, .7))]
+    head = [round(h - p['plinth_top'], 3) if h is not None else None for h in heads]
+    check('head_room_2_1m', all(h is not None and h >= 2.1 for h in head), {'clear_above_floor_m': head, 'note': 'front of centre, the front opening between the posts, and three points of the walkable floor (the apex post hangs over the very centre)'})
+    check('front_opening_2_4m', p['opening'] >= 2.4, {'opening_m': round(p['opening'], 3)})
+    return {'plinth_top_z_m': p['plinth_top'], 'step_rise_m': p['step_rise'], 'step_tread_m': p['step_tread'], 'post_centres_m': [p['post_half'], p['post_half']],
+            'finial_top_z_m': round(p['finial_top'], 4), 'clear_under_low_beam_z_m': round(p['clear_z'], 4), 'sockets': sorted(S['sockets'])}
+
+
+def surface_points(objs, step=.02):
+    """Points spread over the triangles of objs (world space), about one per step x step; numpy N x 3."""
+    out = []
+    for o in objs:
+        me = o.data; me.calc_loop_triangles(); n = len(me.loop_triangles)
+        if not n: continue
+        co = np.zeros(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
+        tri = np.zeros(n * 3, np.int32); me.loop_triangles.foreach_get('vertices', tri); tri = tri.reshape(-1, 3)
+        M = np.array(o.matrix_world, np.float32); co = co @ M[:3, :3].T + M[:3, 3]
+        A, B, C = co[tri[:, 0]], co[tri[:, 1]], co[tri[:, 2]]
+        area = np.linalg.norm(np.cross(B - A, C - A), axis=1) / 2
+        k = np.clip((area / (step * step)).astype(int) + 1, 1, 400)
+        idx = np.repeat(np.arange(n), k); r1 = np.sqrt(np.random.default_rng(1).random(len(idx))); r2 = np.random.default_rng(2).random(len(idx))
+        out.append(A[idx] * (1 - r1)[:, None] + B[idx] * (r1 * (1 - r2))[:, None] + C[idx] * (r1 * r2)[:, None])
+        out.append(co)
+    return np.concatenate(out) if out else np.zeros((0, 3))
+
+
+def wheel_checks(aid, check):
+    """RI03: 9 m across, about 2 m wide, the turning part pivots on the origin, and as it turns it never meets the seats or the trough."""
+    lods = S['lods']; g = lods[0]
+    lo, hi = pl.eval_bounds([g['Wheel']])
+    dia = max(hi.y - lo.y, hi.z - lo.z)
+    check('wheel_9m_diameter', 8.9 <= dia <= 9.05, {'wheel_dims_m': [round(v, 4) for v in hi - lo], 'design_m': 9.0})
+    alo, ahi = pl.eval_bounds(list(g.values()))
+    check('assembly_about_2m_wide', 1.9 <= ahi.x - alo.x <= 2.2, {'width_x_m': round(ahi.x - alo.x, 4), 'note': 'axle ends and stone seats; the trough frame stands on the -X side within the same width'})
+    c = (lo + hi) / 2
+    check('wheel_pivot_at_origin', abs(c.y) < .03 and abs(c.z) < .03, {'wheel_bbox_centre_m': [round(v, 4) for v in c]})
+    parts = sorted(g)
+    check('separate_parts', all(k in g for k in ('Wheel', 'Seat', 'Trough', 'Detail_Wheel')) and all(k in lods[lv] for lv in (1, 2) for k in ('Wheel', 'Seat', 'Trough')),
+          {'groups_LOD0': parts, 'note': 'Wheel and Detail_Wheel turn; Seat, Trough and Detail_Small stand'})
+    # swept clearance: the wheel turned through a full revolution occupies, at each x, a set of radii; nothing static may sit there
+    W = surface_points([g['Wheel'], g['Detail_Wheel']]); Sx = surface_points([g[k] for k in g if k in ('Seat', 'Trough', 'Detail_Small')])
+    cell = .02; occ = set()
+    for x, r in zip(np.floor(W[:, 0] / cell).astype(int), np.floor(np.hypot(W[:, 1], W[:, 2]) / cell).astype(int)):
+        occ.add((x, r))
+    hits = []
+    for p_, x, r in zip(Sx, np.floor(Sx[:, 0] / cell).astype(int), np.floor(np.hypot(Sx[:, 1], Sx[:, 2]) / cell).astype(int)):
+        if (x, r) in occ:
+            hits.append([round(float(v), 3) for v in p_])
+    # the axle turns inside its bearing caps, which is meant to touch: ignore static points within 0.25 m of the axle line at the pillars
+    hits = [h for h in hits if not (abs(h[0]) > .55 and math.hypot(h[1], h[2]) < .25)]
+    check('wheel_turns_clear_of_static_parts', not hits, {'static_points_inside_swept_wheel': len(hits), 'first': hits[:6], 'cell_m': cell,
+          'note': 'surface samples of the turning wheel binned by (x, radius about the axle); the axle in its bearings is excluded'})
+    p = S['sockets'].get('Socket_Trough_Out')
+    return {'diameter_m': round(dia, 4), 'ground_z_m': S['prop']['ground'], 'axle': 'Blender X through the origin', 'trough_outlet_xyz_m': [round(v, 3) for v in p.matrix_world.translation] if p else None,
+            'sockets': sorted(S['sockets'])}
 
 
 def bush_checks(aid, check):

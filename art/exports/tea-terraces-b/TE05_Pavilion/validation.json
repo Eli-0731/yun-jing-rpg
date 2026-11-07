@@ -1,0 +1,204 @@
+{
+  "asset": "TE05_Pavilion",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -2.4477,
+          -2.5,
+          0.0
+        ],
+        "max": [
+          2.4477,
+          2.4477,
+          4.983
+        ],
+        "limit_m": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "note": "footprint centred on the origin; height includes grass on the tread"
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.0144
+      }
+    },
+    {
+      "check": "within_5x5x5",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          4.8954,
+          4.9477,
+          4.983
+        ],
+        "top_z_m": 4.983
+      }
+    },
+    {
+      "check": "floor_at_plinth_top",
+      "pass": true,
+      "detail": {
+        "floor_hits_z_m": [
+          0.5036,
+          0.4843,
+          0.495,
+          0.5031
+        ],
+        "plinth_top_m": 0.5
+      }
+    },
+    {
+      "check": "steps_rise_under_0_2m",
+      "pass": true,
+      "detail": {
+        "tread_z_m": [
+          0.1209,
+          0.2487,
+          0.3753,
+          0.5043
+        ],
+        "rises_m": [
+          0.1209,
+          0.1278,
+          0.1266,
+          0.129
+        ]
+      }
+    },
+    {
+      "check": "head_room_2_1m",
+      "pass": true,
+      "detail": {
+        "clear_above_floor_m": [
+          3.519,
+          2.12,
+          3.638,
+          3.567,
+          3.577
+        ],
+        "note": "front of centre, the front opening between the posts, and three points of the walkable floor (the apex post hangs over the very centre)"
+      }
+    },
+    {
+      "check": "front_opening_2_4m",
+      "pass": true,
+      "detail": {
+        "opening_m": 2.53
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 73112,
+          "LOD1": 36556,
+          "LOD2": 10964
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 57892,
+            "LOD1": 28946,
+            "LOD2": 8682
+          },
+          "Detail_Small": {
+            "LOD0": 15220,
+            "LOD1": 7610,
+            "LOD2": 2282
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          4.8954,
+          4.9477,
+          4.983
+        ],
+        "blend_dims_m": [
+          4.8954,
+          4.9477,
+          4.983
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_Jar.001",
+        "Socket_Seat_Back.001",
+        "Socket_Seat_Right.001",
+        "TE05_Pavilion.001",
+        "TE05_Pavilion_Collision.001",
+        "TE05_Pavilion_Detail_Small_LOD0.001",
+        "TE05_Pavilion_Detail_Small_LOD1.001",
+        "TE05_Pavilion_Detail_Small_LOD2.001",
+        "TE05_Pavilion_LOD0.001",
+        "TE05_Pavilion_LOD1.001",
+        "TE05_Pavilion_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Jar.001": [
+          -1.02,
+          -1.42,
+          1.1
+        ],
+        "Socket_Seat_Back.001": [
+          0.0,
+          1.12,
+          0.975
+        ],
+        "Socket_Seat_Right.001": [
+          1.12,
+          -0.2,
+          0.975
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 6220488
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 163,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

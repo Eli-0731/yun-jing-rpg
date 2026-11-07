@@ -1,0 +1,173 @@
+{
+  "asset": "TE04_Basket",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "TE04_Basket_Detail_Small"
+  ],
+  "name_zh": "採茶竹簍",
+  "slot": "A4_TeaTerraces",
+  "note": "低矮寬口的採茶簍（三視圖 TE04/BASKET candidate-01）：口徑約 0.5 m、高約 0.4 m，人字紋剖竹編、口緣內外兩道竹圈用麻繩穿壁綁 12 處、底圈綁 9 處；正面左側一塊較新較灰的補片，四角與四邊十字縫；簍內與口緣有幾片剛採的茶葉。和 harvest-market-b MK04 背簍不同：圓、矮、開口大、沒有立樁、木底架和背帶。綁繩、縫線、茶葉匯出為 Detail_Small，關掉不影響外形。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 14680,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 7340,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 2201,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "TE04_Basket_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "TE04_Basket_Metallic.png": [
+      1024,
+      1024
+    ],
+    "TE04_Basket_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "TE04_Basket_Normal.png": [
+      1024,
+      1024
+    ],
+    "TE04_Basket_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "bottom centre, z = 0 under the foot hoop",
+  "dimensions_m": [
+    0.4963,
+    0.4832,
+    0.3944
+  ],
+  "bounds_min_m": [
+    -0.2481,
+    -0.2433,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.2482,
+    0.2399,
+    0.3944
+  ],
+  "size_limit_m": [
+    0.52,
+    0.52,
+    0.42
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.4963,
+        0.4796,
+        0.3899
+      ],
+      "min": [
+        -0.2481,
+        -0.2398,
+        0.0
+      ],
+      "max": [
+        0.2482,
+        0.2399,
+        0.3899
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.4921,
+        0.4825,
+        0.3942
+      ],
+      "min": [
+        -0.2444,
+        -0.2433,
+        0.0002
+      ],
+      "max": [
+        0.2477,
+        0.2392,
+        0.3944
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 7436,
+      "LOD1": 3718,
+      "LOD2": 1115
+    },
+    "Detail_Small": {
+      "LOD0": 7244,
+      "LOD1": 3622,
+      "LOD2": 1086
+    }
+  },
+  "lod_totals": {
+    "LOD0": 14680,
+    "LOD1": 7340,
+    "LOD2": 2201
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_TE04_Basket_Main"
+  ],
+  "textures": [
+    "TE04_Basket_BaseColor.png",
+    "TE04_Basket_Metallic.png",
+    "TE04_Basket_MetallicSmoothness.png",
+    "TE04_Basket_Normal.png",
+    "TE04_Basket_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "TE04_Basket_BaseColor.png",
+    "Normal": "TE04_Basket_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "TE04_Basket_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "TE04_Basket_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "fbx_objects": [
+    "TE04_Basket.001",
+    "TE04_Basket_Collision.001",
+    "TE04_Basket_Detail_Small_LOD0.001",
+    "TE04_Basket_Detail_Small_LOD1.001",
+    "TE04_Basket_Detail_Small_LOD2.001",
+    "TE04_Basket_LOD0.001",
+    "TE04_Basket_LOD1.001",
+    "TE04_Basket_LOD2.001"
+  ],
+  "glb": "TE04_Basket_v001.glb",
+  "interface": {
+    "rim_top_z_m": 0.3905,
+    "rim_outer_radius_m": 0.2483,
+    "foot_radius_m": 0.1883
+  },
+  "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 1024 atlas",
+  "reference": "art/references/TE04/ (AI three-view TE04/BASKET; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/tea-terraces-unity/unity-verify-report.txt"
+}

@@ -1,0 +1,302 @@
+{
+  "asset": "RI03_GreatWheel",
+  "version": "v001",
+  "minTier": "low",
+  "detailObjects": [
+    "RI03_GreatWheel_Detail_Small",
+    "RI03_GreatWheel_Detail_Wheel"
+  ],
+  "name_zh": "稻田灌溉大水車",
+  "slot": "A6_GreatWheel",
+  "note": "稻田灌溉大水車（三視圖 RI03/GREAT-WHEEL candidate-04）：直徑 9.0 m、總寬 2.1 m（含軸頭與石座）。分三件：Wheel（軸、輪轂、兩側各 16 輻、雙層外輪框、中圈、32 片槳板、32 支竹筒，繞軸轉，樞軸在原點）、Seat（兩座收分亂石墩加木軸承座與基石）、Trough（輪側高處木槽、集水頭、四柱框架）；轉動用的繩綁另成 Detail_Wheel，靜態的繩綁、青苔、槽中水成 Detail_Small。竹筒綁在 -X 側輪框外、向外傾 15°、筒口朝前，過頂後把水倒進輪側的集水頭；三視圖把木槽畫在輪子正上方，那個位置會被竹筒打到，所以改在輪側。和 creek-repair-b WM02（4.6 m 磨坊下擊輪、鐵件）不同：兩倍大、無鐵件、用竹筒提水。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 77788,
+      "objects": 5,
+      "objects_without_detail": 3,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 38894,
+      "objects": 5,
+      "objects_without_detail": 3,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 13628,
+      "objects": 5,
+      "objects_without_detail": 3,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "RI03_GreatWheel_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RI03_GreatWheel_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RI03_GreatWheel_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RI03_GreatWheel_Normal.png": [
+      2048,
+      2048
+    ],
+    "RI03_GreatWheel_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "axle centre (the wheel pivot); the banks / footings are at z = -4.0, the wheel dips 0.5 m below them into its channel",
+  "dimensions_m": [
+    2.1328,
+    10.4284,
+    8.9982
+  ],
+  "bounds_min_m": [
+    -1.0678,
+    -5.0284,
+    -4.4992
+  ],
+  "bounds_max_m": [
+    1.065,
+    5.4,
+    4.499
+  ],
+  "size_limit_m": [
+    2.2,
+    10.6,
+    9.1
+  ],
+  "pieces": {
+    "Wheel": {
+      "dims_m": [
+        2.13,
+        9.0036,
+        8.9982
+      ],
+      "min": [
+        -1.065,
+        -4.5025,
+        -4.4992
+      ],
+      "max": [
+        1.065,
+        4.5011,
+        4.499
+      ]
+    },
+    "Detail_Wheel": {
+      "dims_m": [
+        1.1877,
+        8.8497,
+        8.8487
+      ],
+      "min": [
+        -0.6817,
+        -4.4249,
+        -4.4243
+      ],
+      "max": [
+        0.506,
+        4.4249,
+        4.4243
+      ]
+    },
+    "Seat": {
+      "dims_m": [
+        2.1313,
+        10.0614,
+        3.8758
+      ],
+      "min": [
+        -1.0678,
+        -5.0284,
+        -4.0058
+      ],
+      "max": [
+        1.0634,
+        5.033,
+        -0.13
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        2.0789,
+        10.3595,
+        7.8233
+      ],
+      "min": [
+        -1.0657,
+        -4.9595,
+        -3.815
+      ],
+      "max": [
+        1.0132,
+        5.4,
+        4.0083
+      ]
+    },
+    "Trough": {
+      "dims_m": [
+        0.4,
+        10.3993,
+        7.8014
+      ],
+      "min": [
+        -1.06,
+        -4.9993,
+        -3.8214
+      ],
+      "max": [
+        -0.66,
+        5.4,
+        3.98
+      ]
+    }
+  },
+  "lods": {
+    "Wheel": {
+      "LOD0": 40360,
+      "LOD1": 20180,
+      "LOD2": 6054
+    },
+    "Detail_Wheel": {
+      "LOD0": 26112,
+      "LOD1": 13056,
+      "LOD2": 5880
+    },
+    "Seat": {
+      "LOD0": 4012,
+      "LOD1": 2006,
+      "LOD2": 600
+    },
+    "Detail_Small": {
+      "LOD0": 3848,
+      "LOD1": 1924,
+      "LOD2": 576
+    },
+    "Trough": {
+      "LOD0": 3456,
+      "LOD1": 1728,
+      "LOD2": 518
+    }
+  },
+  "lod_totals": {
+    "LOD0": 77788,
+    "LOD1": 38894,
+    "LOD2": 13628
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_RI03_GreatWheel_Main"
+  ],
+  "textures": [
+    "RI03_GreatWheel_BaseColor.png",
+    "RI03_GreatWheel_Metallic.png",
+    "RI03_GreatWheel_MetallicSmoothness.png",
+    "RI03_GreatWheel_Normal.png",
+    "RI03_GreatWheel_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "RI03_GreatWheel_BaseColor.png",
+    "Normal": "RI03_GreatWheel_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "RI03_GreatWheel_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "RI03_GreatWheel_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "ground_z_m": -4.0,
+  "parts": {
+    "Wheel": "turns about the axle (Blender X, Unity X); pivot at the origin; about 1 turn per 40-60 s for a slow current (not verified in game)",
+    "Detail_Wheel": "rope lashings on the wheel: parent to / turn with Wheel",
+    "Seat": "static: two stone pillars and bearing blocks",
+    "Trough": "static: trough, catch head and its frame",
+    "Detail_Small": "static lashings, moss and the water in the trough"
+  },
+  "sockets_blender_xyz": {
+    "Socket_Axle": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Ground": [
+      0.0,
+      0.0,
+      -4.0
+    ],
+    "Socket_Trough_Out": [
+      -0.955,
+      5.4,
+      3.7822
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Axle.001": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Ground.001": [
+      0.0,
+      -0.0,
+      -4.0
+    ],
+    "Socket_Trough_Out.001": [
+      -0.955,
+      5.4,
+      3.7822
+    ]
+  },
+  "fbx_objects": [
+    "RI03_GreatWheel.001",
+    "RI03_GreatWheel_Collision.001",
+    "RI03_GreatWheel_Detail_Small_LOD0.001",
+    "RI03_GreatWheel_Detail_Small_LOD1.001",
+    "RI03_GreatWheel_Detail_Small_LOD2.001",
+    "RI03_GreatWheel_Detail_Wheel_LOD0.001",
+    "RI03_GreatWheel_Detail_Wheel_LOD1.001",
+    "RI03_GreatWheel_Detail_Wheel_LOD2.001",
+    "RI03_GreatWheel_Seat_LOD0.001",
+    "RI03_GreatWheel_Seat_LOD1.001",
+    "RI03_GreatWheel_Seat_LOD2.001",
+    "RI03_GreatWheel_Trough_LOD0.001",
+    "RI03_GreatWheel_Trough_LOD1.001",
+    "RI03_GreatWheel_Trough_LOD2.001",
+    "RI03_GreatWheel_Wheel_LOD0.001",
+    "RI03_GreatWheel_Wheel_LOD1.001",
+    "RI03_GreatWheel_Wheel_LOD2.001",
+    "Socket_Axle.001",
+    "Socket_Ground.001",
+    "Socket_Trough_Out.001"
+  ],
+  "glb": "RI03_GreatWheel_v001.glb",
+  "interface": {
+    "diameter_m": 9.0036,
+    "ground_z_m": -4.0,
+    "axle": "Blender X through the origin",
+    "trough_outlet_xyz_m": [
+      -0.955,
+      5.4,
+      3.782
+    ],
+    "sockets": [
+      "Socket_Axle",
+      "Socket_Ground",
+      "Socket_Trough_Out"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/tea-terraces-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/RI03/ (AI three-view RI03/GREAT-WHEEL; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/tea-terraces-unity/unity-verify-report.txt"
+}
