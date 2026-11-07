@@ -1,6 +1,6 @@
 {
  "asset": "TE05_Pavilion_v001",
- "tris": 73112,
+ "tris": 75544,
  "objects": [
   "TE05_Pavilion_Detail_Small_LOD0",
   "TE05_Pavilion_LOD0"
@@ -56,17 +56,17 @@
   "1e-12": 0,
   "1e-10": 0,
   "1e-09": 0,
-  "1e-08": 12
+  "1e-08": 9
  },
  "zero_uv_by_object": {
   "1e-12": {},
   "1e-10": {},
   "1e-09": {},
   "1e-08": {
-   "TE05_Pavilion_Detail_Small_LOD0": 12
+   "TE05_Pavilion_Detail_Small_LOD0": 9
   }
  },
- "pieces": 451,
+ "pieces": 491,
  "loose_over_5mm": 0,
  "loose_list": []
 }

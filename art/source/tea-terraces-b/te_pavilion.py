@@ -17,7 +17,7 @@ from mathutils import Vector, Matrix, noise
 from ti_core import S, cyl, lathe, mesh, surface, tube, socket
 import mk_mats as mm
 import cr_mats as cm
-from cr_parts import rbox, between as _between, set_float, tuft, sheet, pole
+from cr_parts import rbox, between as _between, set_float, tuft, sheet, pole, set_attr_list
 
 
 def between(name, a, b, *args, **kw):
@@ -50,14 +50,14 @@ def palette():
     P['stone'] = cm.stone('Plinth_Stone', light=(.4, .375, .32), dark=(.19, .175, .15), moss=.9, crack=.6, lichen=.5)
     P['pave'] = cm.stone('Paving_Stone', light=(.42, .4, .35), dark=(.2, .19, .165), moss=.5, crack=.4, lichen=.25)
     P['core'] = cm.stone('Plinth_Core', light=(.2, .19, .16), dark=(.1, .095, .08), moss=0., crack=0., lichen=0.)
-    P['post'] = cm.wood('Post_Timber', (.11, .06, .032), (.36, .22, .12), ground_h=0., grey=.32)       # sun-faded
-    P['beam'] = cm.wood('Beam_Timber', (.1, .055, .03), (.33, .2, .11), ground_h=0., grey=.25)
-    P['board'] = cm.wood('Panel_Board', (.12, .072, .04), (.38, .25, .14), ground_h=0., grey=.38)
+    P['post'] = cm.wood('Post_Timber', (.07, .038, .02), (.34, .2, .1), ground_h=.95, grey=.2)       # sun-faded, darker and damp at the foot
+    P['beam'] = cm.wood('Beam_Timber', (.065, .036, .02), (.3, .18, .095), ground_h=0., grey=.18)
+    P['board'] = cm.wood('Panel_Board', (.08, .048, .027), (.34, .22, .12), ground_h=.75, grey=.3)
     P['bench'] = cm.wood('Bench_Timber', (.1, .058, .03), (.34, .21, .11), ground_h=0., polish=.12, grey=.2)
     P['rafter'] = cm.wood('Rafter_Timber', (.08, .046, .026), (.26, .16, .09), ground_h=0., grey=.2)
-    P['tile'] = cm.tile('Roof_Tile', base=(.042, .052, .062), light=(.1, .115, .13), moss=1.0)
+    P['tile'] = cm.tile('Roof_Tile', base=(.028, .04, .04), light=(.062, .08, .076), moss=1.0, edge_amt=.22, tone='tone')
     P['tile_new'] = cm.tile('Roof_Tile_New', base=(.1, .1, .1), light=(.19, .19, .18), moss=.0)
-    P['ridge'] = cm.tile('Ridge_Tile', base=(.04, .048, .055), light=(.095, .108, .118), moss=1.3)
+    P['ridge'] = cm.tile('Ridge_Tile', base=(.025, .035, .036), light=(.058, .072, .07), moss=1.3, edge_amt=.25)
     P['finial'] = cm.clay('Finial_Clay', body=(.13, .12, .11), glaze=(.07, .08, .085))
     P['jar'] = cm.clay('Water_Jar', body=(.2, .105, .05), glaze=(.075, .042, .022))
     P['lid'] = cm.wood('Jar_Lid', (.1, .06, .032), (.3, .19, .1), ground_h=0., grey=.3)
@@ -124,6 +124,8 @@ def roof(P, R):
         W = NQ + 1
         faces = [(i * W + j, i * W + j + 1, (i + 1) * W + j + 1, (i + 1) * W + j) for i in range(len(rows) - 1) for j in range(NQ)]
         d = mesh('Roof_Deck', verts, faces, P['tile'], smooth=True, grain=tuple(rot(k) @ Vector((0, 1, 0))))
+        set_attr_list(d, 'tone', [(tone_of(k, round((q_x - .5 * PITCH) / PITCH), i // 3), 0., 0.) for i, t in enumerate(rows) for q_x in
+                                  [(-1 + 2 * j / NQ) * roof_r(-1 + 2 * j / NQ, t) for j in range(NQ + 1)]])
         # soffit: the boarded underside, smooth, SOFFIT below the deck; faces down
         sv = [tuple(rot(k) @ Vector((q * roof_r(q, t), -roof_r(q, t), 0.)) + Vector((0, 0, smooth_z(q, t) - SOFFIT)))
               for t in [i / 12 for i in range(13)] for q in [-1 + 2 * j / 24 for j in range(25)]]
@@ -153,6 +155,12 @@ def roof(P, R):
     return zA + .355
 
 
+def tone_of(k, col, course):
+    """A repeatable 0..1 firing shade for one tile (side k, column, course): neighbouring tiles differ, the same tile always matches."""
+    h = (k * 73856093) ^ ((col + 97) * 19349663) ^ ((course + 13) * 83492791)
+    return ((h * 2654435761) % 1000) / 999.
+
+
 def roll(P, R, k, c, rows):
     """One run of cover tiles at x = c from the eave up to the hip, a half round sitting in the course steps."""
     pts = []
@@ -176,7 +184,9 @@ def roll(P, R, k, c, rows):
         for t, q in gp: verts += ring(t, q)
         faces = [(i * n + a, i * n + a + 1, (i + 1) * n + a + 1, (i + 1) * n + a) for i in range(len(gp) - 1) for a in range(seg)]
         # close the lower end with a round eave tile face at the eave, an open end elsewhere hidden by the next course
-        mesh('Cover_Roll' if mat is P['tile'] else 'Cover_Roll_New', verts, faces, mat, smooth=True, grain=tuple(rot(k) @ Vector((0, 1, 0))))
+        o = mesh('Cover_Roll' if mat is P['tile'] else 'Cover_Roll_New', verts, faces, mat, smooth=True, grain=tuple(rot(k) @ Vector((0, 1, 0))))
+        base_i = 0 if gp is pts else (cut * 3 if mat is P['tile'] else 0)
+        set_attr_list(o, 'tone', [(tone_of(k, round(c / PITCH) + 50, (base_i + i) // 3), 0., 0.) for i in range(len(gp)) for _ in range(n)])
     # round tile end at the eave
     t0, q0 = pts[0]; r0 = roof_r(q0, t0)
     p0 = rot(k) @ Vector((c, -r0 - .012, 0.)) + Vector((0, 0, deck_z(q0, t0) - .004))
@@ -274,6 +284,18 @@ def frame(P, R):
     for sx in (-1, 1):
         for sy in (-1, 1):
             rbox('Bracket_Block', (sx * PX, sy * PX, Z_TOP + .14), (.24, .24, .12), P['beam'], r=.012, div=.2, grain='z', seed=int(sx + 2 * sy + 5))
+    # bracket arms (gong): a crossed pair through each corner block and one along the face through each middle block, with a small cap
+    # block on each arm end carrying the purlin: a simple one-tier bracket set instead of a bare block
+    for k in range(4):
+        M = rot(k)
+        for x in (-PX, -.7, .7):
+            za = Z_TOP + .135 + (.012 if k % 2 else 0.)      # crossed corner arms sit 12 mm apart so their faces never share a plane
+            c = M @ Vector((x, -PX, 0)) + Vector((0, 0, za))
+            L = .56 if x != -PX else .64
+            rbox('Bracket_Arm', tuple(c), (L, .09, .1), P['beam'], r=.014, div=.15, rot=(0, 0, k * math.pi / 2), grain='x', seed=k * 11 + int(x * 10))
+            for s in (-1, 1):
+                e = M @ Vector((x + s * (L / 2 - .06), -PX, 0)) + Vector((0, 0, za + .05 - .005 + .035))
+                rbox('Bracket_Cap', tuple(e), (.11, .12, .07), P['beam'], r=.01, div=.15, rot=(0, 0, k * math.pi / 2), grain='z', seed=k * 13 + s)
     # eave purlin: round timber over the bracket blocks on each side, running out to the corner beams
     zpu = Z_TOP + .2 + .09
     for k in range(4):
@@ -397,6 +419,11 @@ def bench_rail(P, R):
         x = xm + .07 + w * (i + .5)
         p = M @ Vector((x, -PX, 0)) + Vector((0, 0, (Z_P + .08 + Z_LOW - H_LOW / 2) / 2))
         rbox('Panel_Board', tuple(p), (w - .006, .04, Z_LOW - H_LOW / 2 - Z_P - .08), P['board'], r=.006, amp=.002, div=.25, rot=(0, 0, 3 * math.pi / 2), grain='z', seed=60 + i)
+    # a waist rail and a foot batten across the boards, inside and out, bedded 3 mm into the board faces
+    for off in (-1, 1):
+        for zr, hr in ((Z_P + .62, .07), (Z_P + .16, .05)):
+            a, b = M @ Vector((xm + .04, -PX + off * (.02 + .015 - .003), 0)), M @ Vector((PX - .16, -PX + off * (.02 + .015 - .003), 0))
+            between('Panel_Rail', tuple(a + Vector((0, 0, zr))), tuple(b + Vector((0, 0, zr))), .03, hr, P['beam'], r=.006, div=.3, seed=80 + int(zr * 10) + off)
     a, b = M @ Vector((xm, -PX, 0)), M @ Vector((PX - .12, -PX, 0))
     between('Panel_Sill', tuple(a + Vector((0, 0, Z_P + .05))), tuple(b + Vector((0, 0, Z_P + .05))), .08, .1, P['beam'], r=.008, div=.3, seed=70)
     jar(P, R)

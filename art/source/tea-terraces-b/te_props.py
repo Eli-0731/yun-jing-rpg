@@ -19,14 +19,14 @@ from cr_parts import set_attr_list, helix, sheet
 def palette():
     P = {}
     # herringbone split bamboo: wide strips, a little green left in some, darker where hands hold the rim, grime at the foot
-    P['weave'] = mm.weave('Picking_Weave', (.5, .28, .07), (.11, .058, .016), reed=WEAVE_REED, block=WEAVE_BLOCK, green_cast=.25, sweat=.35, ground_h=.085,
-                           wobble=.007, strip_var=.46)
-    P['weave_patch'] = mm.weave('Repair_Weave', (.34, .25, .12), (.12, .085, .042), reed=.009, block=.034, green_cast=.08)
-    P['hoop'] = mm.bamboo('Rim_Bamboo', green=(.12, .1, .03), straw=(.42, .24, .07))
+    P['weave'] = mm.weave('Picking_Weave', (.4, .29, .14), (.105, .07, .035), reed=WEAVE_REED, block=WEAVE_BLOCK, green_cast=.25, sweat=.35, ground_h=.085,
+                           wobble=.005, strip_var=.5)    # less saturated than v1: URP without post showed it orange-yellow
+    P['weave_patch'] = mm.weave('Repair_Weave', (.34, .26, .13), (.12, .085, .045), reed=.0065, block=.026, green_cast=.08)
+    P['hoop'] = mm.bamboo('Rim_Bamboo', green=(.11, .1, .04), straw=(.35, .26, .13))
     P['hoop_old'] = mm.bamboo('Foot_Bamboo', green=(.09, .08, .035), straw=(.3, .19, .08), ground_h=.035)
     P['hemp'] = mm.hemp('Lashing_Hemp', (.19, .125, .055), twist=200.0)
     P['twine'] = mm.hemp('Patch_Twine', (.13, .085, .04), twist=260.0)
-    P['leaf'] = cm.weed_leaf('Fresh_Tea_Leaf', (.018, .04, .01), (.055, .1, .022), (.12, .17, .04))   # deep glossy tea green, lighter young tip
+    P['leaf'] = cm.weed_leaf('Fresh_Tea_Leaf', (.016, .032, .01), (.045, .072, .022), (.085, .115, .035))   # deep tea green, a duller young tip (v1 read as bright paper)
     return P
 
 
@@ -37,9 +37,9 @@ R_BOT, R_TOP = .182, .228  # wall radius at floor and rim
 OVAL = .965                # a hand-made basket is never quite round: slightly narrower front to back
 RIM_Z = .379               # centre line of the two rim hoops
 N_LASH_RIM, N_LASH_FOOT = 12, 9
-WEAVE_REED, WEAVE_BLOCK = .0125, .05   # strip width and block length (4 strips per block)
+WEAVE_REED, WEAVE_BLOCK = .0085, .034  # strip width and block length (4 strips per block); 8.5 mm split bamboo
 DENT_A, DENT_D = .45, .011             # hip dent: angle (rad, 0 = +X) and depth (m)
-N_BLOCKS = 18                          # weave blocks per turn round the wall along each diagonal (wall reads at about 0.2 m radius)
+N_BLOCKS = 27                          # weave blocks per turn round the wall along each diagonal (wall reads at about 0.2 m radius)
 
 
 def wall_r(t, a=0.):
@@ -64,10 +64,16 @@ def wuv(o, fn):
 def te04_basket(P):
     R = random.Random(401)
     # woven wall, solidified inward-and-outward so the rim shows a real edge
+    kb = N_BLOCKS * WEAVE_BLOCK * math.sqrt(2) / math.tau
     def body(u, v):
         a = u * math.tau; z = Z_BOT + v * (Z_TOP - Z_BOT)
-        return ring(a, wall_r(v, a), z)
-    w = surface('Basket_Wall', 64, 10, body, P['weave'], closed_u=True, solid=.006, grain='z')
+        # low relief: each weave block bulges ~1 mm and the block edges sink, on the same 45-degree grid as the shader, so the
+        # silhouette is not a smooth cone. A whole number of blocks per turn: the relief closes on itself with no seam.
+        p_, q_ = (a * kb + z) * .7071 / WEAVE_BLOCK, (a * kb - z) * .7071 / WEAVE_BLOCK
+        relief = .0012 * abs(math.sin(math.pi * p_) * math.sin(math.pi * q_)) - .0004
+        fade = min(1., v / .06, (1 - v) / .06)        # flat where the floor and the rim hoops meet the wall
+        return ring(a, wall_r(v, a) + relief * fade, z)
+    w = surface('Basket_Wall', 108, 16, body, P['weave'], closed_u=True, solid=.006, grain='z')
     # the weave coordinates are turned 45 degrees, so the strips run on the diagonal and the blocks alternate into a herringbone, as in the reference.
     # They are stored per face corner and unwrapped round each face's centre angle, and the scale makes one turn round the basket an exact whole
     # number of weave blocks along both diagonals, so the pattern closes on itself with no seam where the angle wraps from +pi to -pi.
@@ -177,7 +183,7 @@ def leaf(name, base, direction, L, W, curl, mat, roll=0.):
         # small teeth along the edge; never quite zero wide at the stalk and tip, so no row of the grid collapses onto one point
         w = W * (math.sin(math.pi * min(1., v * 1.04)) ** .75 + .035) * (1 + .06 * math.sin(v * 40))
         x = (u - .5) * 2
-        lift = curl * (v * v) * L + .12 * W * x * x                                             # tip curls up, the blade cups
+        lift = curl * (v * v) * L + .12 * W * x * x + .2 * W * abs(x) * math.sin(math.pi * min(1., v))   # tip curls up, the blade cups and folds along the midrib
         return tuple(b + d * (L * v) + side * (x * w) + nrm * lift)
     return sheet(name, 3, 6, fn, mat, solid=.0008, detail=2, grain=tuple(d), group='Main')
 

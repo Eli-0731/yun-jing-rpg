@@ -10,19 +10,19 @@
   "note": "方形四柱觀景亭（三視圖 TE05/PAVILION candidate-04）：5 × 5 × 5 m。暖灰石台基高 0.5 m（亂石兩層＋鋪石），正面三級石階（每級 0.125 m）；四根圓柱立在石鼓柱礎上，四面各一道大額枋、一道小額枋、三支短柱與兩支雀替；平板枋、斗、圓檐檩承托屋頂，四根角梁在戧脊下。攢尖青灰瓦頂，筒瓦十層，四角起翹、戧脊尾端上捲，戧脊有青苔；右前角一片較新的補瓦。後方與右側 L 形長凳加欄杆，左側後半是一塊空白木板，前半是矮欄杆；左前柱旁一口加蓋陶水缸和竹舀。中央可走，柱間淨寬約 2.5 m、小額枋下淨高約 2.1 m。和 creek-repair-b WM09（圓形竹亭、茅草頂、圓石台）不同。",
   "budget_per_lod": {
     "LOD0": {
-      "triangles": 73112,
+      "triangles": 75544,
       "objects": 2,
       "objects_without_detail": 1,
       "materials": 1
     },
     "LOD1": {
-      "triangles": 36556,
+      "triangles": 37771,
       "objects": 2,
       "objects_without_detail": 1,
       "materials": 1
     },
     "LOD2": {
-      "triangles": 10964,
+      "triangles": 11330,
       "objects": 2,
       "objects_without_detail": 1,
       "materials": 1
@@ -112,9 +112,9 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 57892,
-      "LOD1": 28946,
-      "LOD2": 8682
+      "LOD0": 60324,
+      "LOD1": 30161,
+      "LOD2": 9048
     },
     "Detail_Small": {
       "LOD0": 15220,
@@ -123,9 +123,9 @@
     }
   },
   "lod_totals": {
-    "LOD0": 73112,
-    "LOD1": 36556,
-    "LOD2": 10964
+    "LOD0": 75544,
+    "LOD1": 37771,
+    "LOD2": 11330
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
   "materials": [

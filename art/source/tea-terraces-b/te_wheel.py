@@ -40,15 +40,15 @@ X_PADDLE = (-.62, .45)      # paddles run out past the -X rim to carry the tubes
 
 def palette():
     P = {}
-    P['oak'] = cm.wood('Wheel_Oak', (.05, .033, .02), (.19, .12, .068), ground_h=0, grey=.42, moss=True, moss_amt=.35)
-    P['spoke'] = cm.wood('Spoke_Oak', (.058, .038, .022), (.22, .14, .078), ground_h=0, grey=.36)
-    P['paddle'] = cm.wood('Paddle_Wet', (.03, .034, .02), (.11, .11, .058), ground_h=0, grey=.15, moss=True, moss_amt=.6)   # wet every turn: dark, a green film
+    P['oak'] = cm.wood('Wheel_Oak', (.042, .028, .017), (.21, .135, .075), ground_h=0, grey=.3, moss=True, moss_amt=.35)
+    P['spoke'] = cm.wood('Spoke_Oak', (.05, .032, .019), (.24, .155, .085), ground_h=0, grey=.26)
+    P['paddle'] = cm.wood('Paddle_Wet', (.032, .026, .017), (.13, .1, .06), ground_h=0, grey=.12, moss=True, moss_amt=.3)   # wet every turn: dark brown, a little green film (v1 read all green)
     P['axle'] = cm.wood('Axle_Oak', (.05, .03, .016), (.17, .1, .052), ground_h=0, polish=.25, grey=.1)
-    P['tube'] = cm.culm('Lift_Tube', green=(.09, .1, .03), straw=(.3, .22, .08), mud_h=0.)
+    P['tube'] = cm.culm('Lift_Tube', green=(.06, .066, .03), straw=(.2, .165, .085), mud_h=0.)   # old wet bamboo, grey-brown (v1 read bright yellow in URP)
     P['hemp'] = mm.hemp('Wheel_Rope', (.13, .09, .048), twist=40.0)
     P['stone'] = cm.stone('Seat_Stone', light=(.38, .36, .31), dark=(.18, .17, .145), moss=1.0, crack=.6, lichen=.5, wet_z=-3.4)
     P['footing'] = cm.stone('Footing_Stone', light=(.34, .32, .28), dark=(.16, .15, .13), moss=1.1, crack=.5, lichen=.4, wet_z=-3.6)
-    P['frame'] = cm.wood('Frame_Timber', (.07, .045, .026), (.25, .16, .088), ground_h=0, grey=.4)
+    P['frame'] = cm.wood('Frame_Timber', (.055, .035, .02), (.25, .16, .088), ground_h=.6, grey=.3)
     P['trough'] = cm.wood('Trough_Board', (.05, .036, .022), (.2, .13, .072), wet_z=3.92, ground_h=0, grey=.3, moss=True, moss_amt=.5)
     P['water'] = tm.plain('Trough_Water', (.025, .05, .052), rough=.08, noise=.15, scale=6.0)   # shallow water over dark wet wood, not pool blue
     P['moss'] = cm.moss_tuft('Seat_Moss', soft=True)
@@ -104,11 +104,11 @@ def wheel(P, R):
 
 
 def wrap_x(P, c, a, span, rx, rz, **kw):
-    """A rope binding round a rim member at c (tangent along the rim), 4 turns."""
+    """A rope binding round a rim member at c (tangent along the rim), 3 turns."""
     t = Vector((0, -math.cos(a), -math.sin(a))); n = Vector((0, -math.sin(a), math.cos(a))); X = Vector((1, 0, 0))
     m = 24; pts = []
     for i in range(m + 1):
-        s = i / m; ang = s * 4 * math.tau
+        s = i / m; ang = s * 3 * math.tau
         pts.append(tuple(c + t * (span * (s - .5)) + X * (rx * math.cos(ang)) + n * (rz * math.sin(ang))))
     tube('Rim_Lash', pts, .011, P['hemp'], res=2, grain=tuple(t), **kw)
 
@@ -116,10 +116,11 @@ def wrap_x(P, c, a, span, rx, rz, **kw):
 def tube_at(P, R, a, i):
     """One bamboo lifting tube: closed node end tied to the paddle end, open mouth leading and leaning out to -X."""
     t = Vector((0, -math.cos(a), -math.sin(a)))       # direction of travel at the top of a turn (mouth leads)
-    d = (t * math.cos(TUBE_TILT) - Vector((1, 0, 0)) * math.sin(TUBE_TILT)).normalized()
-    L = .8           # 32 tubes on a 4.42 m radius are 0.87 m apart along the rim: 0.8 m tubes leave a hand's gap
+    tilt = TUBE_TILT - math.radians(R.uniform(0., 2.5))   # hand-tied: no two lean quite the same; never more than 12 deg, or the tube mouth sweeps into the side trough
+    d = (t * math.cos(tilt) - Vector((1, 0, 0)) * math.sin(tilt)).normalized()
+    L = .8 - R.uniform(0, .05)   # 32 tubes on a 4.42 m radius are 0.87 m apart along the rim: 0.8 m tubes leave a hand's gap
     # centred on its paddle end, lying on the paddle's outer edge: the closed end at x = X_TUBE, the mouth leaning out to -X over the catch head
-    mid = polar(X_TUBE - L * .5 * math.sin(TUBE_TILT), a, R_TUBE_C)
+    mid = polar(X_TUBE - L * .5 * math.sin(tilt), a, R_TUBE_C)
     a_end, b_end = mid - d * (L * .5), mid + d * (L * .5)
     pole('Lift_Tube', tuple(a_end), tuple(b_end), R_TUBE, R_TUBE * .96, P['tube'], node_gap=.42, seed=i, seg=10, group='Wheel')
     # tie: rope round the tube and the paddle end
@@ -191,12 +192,15 @@ def trough(P, R):
     zc = zb(5.4) - .04 - .09    # crossbeam centre: its top touches the trough floor at the outlet end
     for y in (-4.85, -2.7, 2.7, 4.85):     # the inner posts stand at 2.7 m: nearer the axle the tubes sweep past their footings
         rbox('Post_Footing', (xb, y, GROUND + .09), (.22, .36, .18), P['footing'], r=.03, amp=.008, chips=2, seed=int(y * 10), div=.15, grain='x', group='Seat')
-        between('Frame_Post', (xb, y, GROUND + .18), (xb, y, zc - .09), .16, .16, P['frame'], r=.014, amp=.003, chips=2, seed=int(y * 7), div=.4, **G)
-    between('Crossbeam', (xb, -5.0, zc), (xb, 5.0, zc), .16, .18, P['frame'], r=.014, amp=.003, chips=2, seed=11, div=.4, **G)
+        between('Frame_Post', (xb, y, GROUND + .18), (xb, y, zc - .09), .18, .18, P['frame'], r=.014, amp=.003, chips=2, seed=int(y * 7), div=.4, **G)
+    between('Crossbeam', (xb, -5.0, zc), (xb, 5.0, zc), .18, .18, P['frame'], r=.014, amp=.003, chips=2, seed=11, div=.4, **G)
     for y0, s in ((-4.85, 1), (4.85, -1), (-2.7, 1), (2.7, -1)):
-        between('Brace', (xb, y0, zc - 1.0), (xb, y0 + s * .9, zc - .09), .12, .12, P['frame'], r=.012, div=.3, seed=int(y0 * 5), **G)
+        between('Brace', (xb, y0, zc - 1.0), (xb, y0 + s * .9, zc - .09), .13, .13, P['frame'], r=.012, div=.3, seed=int(y0 * 5), **G)
+    for y in (-4.85, -2.7):   # through-tenons on the two posts with no trough above them: the post end shows on top of the crossbeam, split by a wedge
+        rbox('Post_Tenon', (xb, y, zc + .09 + .025 - .004), (.1, .12, .05), P['frame'], r=.008, div=.1, seed=int(y * 3) + 40, grain='z', **G)
+        rbox('Tenon_Wedge', (xb, y, zc + .09 + .05 - .004 + .007 - .003), (.022, .1, .014), P['axle'], r=.003, div=.1, seed=int(y * 3) + 41, grain='y', **G)
     # a low tie beam between the posts near the ground
-    between('Ground_Tie', (xb, -4.85, GROUND + .7), (xb, 4.85, GROUND + .7), .14, .14, P['frame'], r=.012, amp=.003, div=.4, seed=21, **G)
+    between('Ground_Tie', (xb, -4.85, GROUND + .7), (xb, 4.85, GROUND + .7), .15, .15, P['frame'], r=.012, amp=.003, div=.4, seed=21, **G)
     for y in (-4.85, -2.7, 2.7, 4.85):
         for z in (zc, GROUND + .7):
             c = Vector((xb, y, z)); pts = []

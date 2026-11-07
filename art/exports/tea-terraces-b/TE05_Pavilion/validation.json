@@ -101,17 +101,17 @@
       "pass": true,
       "detail": {
         "triangles": {
-          "LOD0": 73112,
-          "LOD1": 36556,
-          "LOD2": 10964
+          "LOD0": 75544,
+          "LOD1": 37771,
+          "LOD2": 11330
         },
         "LOD1": 0.5,
         "LOD2": 0.15,
         "per_group": {
           "Main": {
-            "LOD0": 57892,
-            "LOD1": 28946,
-            "LOD2": 8682
+            "LOD0": 60324,
+            "LOD1": 30161,
+            "LOD2": 9048
           },
           "Detail_Small": {
             "LOD0": 15220,
@@ -186,7 +186,7 @@
       "check": "glb_written",
       "pass": true,
       "detail": {
-        "bytes": 6220488
+        "bytes": 6452628
       }
     },
     {
@@ -196,7 +196,7 @@
     }
   ],
   "all_pass": true,
-  "seconds": 163,
+  "seconds": 159,
   "not_checked": [
     "in-engine lighting and walking (see the Unity report)",
     "mobile frame rate (not measured)"

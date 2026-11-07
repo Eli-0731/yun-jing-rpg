@@ -85,6 +85,8 @@ namespace YunJing.Editor
                 // the same view with the Detail_* objects switched off (what a low tier sees)
                 foreach (var r in go.GetComponentsInChildren<Renderer>(true).Where(r => r.name.Contains("_Detail_"))) r.enabled = false;
                 Shot(id + "_close_no_detail", dc, dc + new Vector3(.6f, .55f, -.85f).normalized * dd, 35);
+                foreach (var r in go.GetComponentsInChildren<Renderer>(true).Where(r => r.name.Contains("_Detail_"))) r.enabled = true;
+                if (id == "RI03_GreatWheel") WheelTurn(id, go);
             }
             File.WriteAllText(Path.Combine(Out, "unity-verify-report.txt"), string.Join("\n", Report) + $"\n\nUnity {Application.unityVersion}; failed checks: {failed}; editor batch check only, not placed in the main scene, not played\n");
             Debug.Log("TEA_IRRIGATION_" + (failed == 0 ? "PASS" : "FAIL") + "\n" + string.Join("\n", Report));
@@ -210,6 +212,31 @@ namespace YunJing.Editor
             {
                 var tex = Tex(id, Path.GetFileName(t)); if (tex != null) Report.Add($"INFO {id}: texture {tex.name} {tex.width}x{tex.height}");
             }
+        }
+
+        // RI03: the Wheel and Detail_Wheel objects must turn about the axle on their own (the frame, trough and seat stay put).
+        // Rotate them in steps about the world X axis through the origin and check the pivot and the bounds centre stay on the axle.
+        static void WheelTurn(string id, GameObject go)
+        {
+            var o = go.transform.position;
+            var parts = go.GetComponentsInChildren<MeshFilter>(true).Where(m => m.name.Contains("_Wheel_LOD")).Select(m => m.transform).ToArray();
+            Check(parts.Length == 6, $"{id}: Wheel and Detail_Wheel found at LOD0/1/2 ({parts.Length} objects)");
+            float piv = parts.Max(t => Vector3.Distance(t.position, o));
+            Check(piv < .002f, $"{id}: wheel object pivots sit on the axle (max offset {piv * 1000:F1} mm), so a plain rotation turns the wheel");
+            Bounds Wb() { var rs = parts.Select(t => t.GetComponent<Renderer>()).Where(r => r.name.EndsWith("_LOD0")).ToArray(); var bb = rs[0].bounds; foreach (var r in rs) bb.Encapsulate(r.bounds); return bb; }
+            var start = parts.Select(t => t.rotation).ToArray();
+            float worst = 0; var c0 = Wb().center;
+            var b0 = LodBounds(go); var eye = o + new Vector3(-1, .05f, 0).normalized * b0.size.magnitude * 1.25f;
+            for (int k = 0; k <= 6; k++)
+            {
+                float ang = k * 15f;
+                for (int i = 0; i < parts.Length; i++) { parts[i].rotation = start[i]; parts[i].RotateAround(o, Vector3.right, ang); }
+                var c = Wb().center; worst = Mathf.Max(worst, new Vector2(c.y - o.y, c.z - o.z).magnitude);
+                if (k <= 2) Shot($"{id}_turn_{ang:000}", b0.center, eye, 35);   // 0/15/30: 45 and 90 are whole spoke steps (22.5) and would look unturned
+            }
+            for (int i = 0; i < parts.Length; i++) parts[i].rotation = start[i];
+            Check(worst < .05f, $"{id}: turning the wheel 0..90 degrees keeps its bounds centre on the axle (max drift {worst * 1000:F0} mm in Y/Z; start {(c0 - o).y * 1000:F0}/{(c0 - o).z * 1000:F0} mm)");
+            Report.Add($"INFO {id}: turn frames at 0/15/30 degrees seen from the side; rotation is an editor check only, no spin script in the asset");
         }
 
         static void Lighting()

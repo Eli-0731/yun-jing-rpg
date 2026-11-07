@@ -11,19 +11,19 @@
   "note": "稻田灌溉大水車（三視圖 RI03/GREAT-WHEEL candidate-04）：直徑 9.0 m、總寬 2.1 m（含軸頭與石座）。分三件：Wheel（軸、輪轂、兩側各 16 輻、雙層外輪框、中圈、32 片槳板、32 支竹筒，繞軸轉，樞軸在原點）、Seat（兩座收分亂石墩加木軸承座與基石）、Trough（輪側高處木槽、集水頭、四柱框架）；轉動用的繩綁另成 Detail_Wheel，靜態的繩綁、青苔、槽中水成 Detail_Small。竹筒綁在 -X 側輪框外、向外傾 15°、筒口朝前，過頂後把水倒進輪側的集水頭；三視圖把木槽畫在輪子正上方，那個位置會被竹筒打到，所以改在輪側。和 creek-repair-b WM02（4.6 m 磨坊下擊輪、鐵件）不同：兩倍大、無鐵件、用竹筒提水。",
   "budget_per_lod": {
     "LOD0": {
-      "triangles": 77788,
+      "triangles": 77820,
       "objects": 5,
       "objects_without_detail": 3,
       "materials": 1
     },
     "LOD1": {
-      "triangles": 38894,
+      "triangles": 38910,
       "objects": 5,
       "objects_without_detail": 3,
       "materials": 1
     },
     "LOD2": {
-      "triangles": 13628,
+      "triangles": 13498,
       "objects": 5,
       "objects_without_detail": 3,
       "materials": 1
@@ -58,17 +58,17 @@
   "dimensions_m": [
     2.1328,
     10.4284,
-    8.9982
+    8.997
   ],
   "bounds_min_m": [
     -1.0678,
     -5.0284,
-    -4.4992
+    -4.4985
   ],
   "bounds_max_m": [
     1.065,
     5.4,
-    4.499
+    4.4985
   ],
   "size_limit_m": [
     2.2,
@@ -79,34 +79,34 @@
     "Wheel": {
       "dims_m": [
         2.13,
-        9.0036,
-        8.9982
+        9.001,
+        8.997
       ],
       "min": [
         -1.065,
-        -4.5025,
-        -4.4992
+        -4.5009,
+        -4.4985
       ],
       "max": [
         1.065,
-        4.5011,
-        4.499
+        4.5001,
+        4.4985
       ]
     },
     "Detail_Wheel": {
       "dims_m": [
-        1.1877,
-        8.8497,
-        8.8487
+        1.1876,
+        8.8496,
+        8.8486
       ],
       "min": [
-        -0.6817,
-        -4.4249,
+        -0.6816,
+        -4.4248,
         -4.4243
       ],
       "max": [
         0.506,
-        4.4249,
+        4.4248,
         4.4243
       ]
     },
@@ -129,19 +129,19 @@
     },
     "Detail_Small": {
       "dims_m": [
-        2.0789,
+        2.0779,
         10.3595,
-        7.8233
+        7.8206
       ],
       "min": [
         -1.0657,
         -4.9595,
-        -3.815
+        -3.8123
       ],
       "max": [
-        1.0132,
+        1.0122,
         5.4,
-        4.0083
+        4.0082
       ]
     },
     "Trough": {
@@ -171,12 +171,12 @@
     "Detail_Wheel": {
       "LOD0": 26112,
       "LOD1": 13056,
-      "LOD2": 5880
+      "LOD2": 5746
     },
     "Seat": {
-      "LOD0": 4012,
-      "LOD1": 2006,
-      "LOD2": 600
+      "LOD0": 3852,
+      "LOD1": 1926,
+      "LOD2": 576
     },
     "Detail_Small": {
       "LOD0": 3848,
@@ -184,15 +184,15 @@
       "LOD2": 576
     },
     "Trough": {
-      "LOD0": 3456,
-      "LOD1": 1728,
-      "LOD2": 518
+      "LOD0": 3648,
+      "LOD1": 1824,
+      "LOD2": 546
     }
   },
   "lod_totals": {
-    "LOD0": 77788,
-    "LOD1": 38894,
-    "LOD2": 13628
+    "LOD0": 77820,
+    "LOD1": 38910,
+    "LOD2": 13498
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
   "materials": [
@@ -282,7 +282,7 @@
   ],
   "glb": "RI03_GreatWheel_v001.glb",
   "interface": {
-    "diameter_m": 9.0036,
+    "diameter_m": 9.001,
     "ground_z_m": -4.0,
     "axle": "Blender X through the origin",
     "trough_outlet_xyz_m": [

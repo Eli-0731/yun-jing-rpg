@@ -49,7 +49,7 @@
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 16,
+  "coplanar_two_sides": 47,
   "closed_pieces": 0,
   "open_pieces": 288,
   "inverted_closed": 0,
@@ -75,7 +75,7 @@
   "inverted_at": []
  },
  "RI03_GreatWheel_Detail_Wheel_LOD2": {
-  "tris": 5880,
+  "tris": 5746,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -90,7 +90,7 @@
   "inverted_at": []
  },
  "RI03_GreatWheel_Seat_LOD0": {
-  "tris": 4012,
+  "tris": 3852,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -105,7 +105,7 @@
   "inverted_at": []
  },
  "RI03_GreatWheel_Seat_LOD1": {
-  "tris": 2006,
+  "tris": 1926,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -120,7 +120,7 @@
   "inverted_at": []
  },
  "RI03_GreatWheel_Seat_LOD2": {
-  "tris": 600,
+  "tris": 576,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -135,12 +135,12 @@
   "inverted_at": []
  },
  "RI03_GreatWheel_Trough_LOD0": {
-  "tris": 3456,
+  "tris": 3648,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 18,
+  "closed_pieces": 22,
   "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -150,12 +150,12 @@
   "inverted_at": []
  },
  "RI03_GreatWheel_Trough_LOD1": {
-  "tris": 1728,
+  "tris": 1824,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 18,
+  "closed_pieces": 22,
   "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,
@@ -165,12 +165,12 @@
   "inverted_at": []
  },
  "RI03_GreatWheel_Trough_LOD2": {
-  "tris": 518,
+  "tris": 546,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
   "coplanar_two_sides": 0,
-  "closed_pieces": 18,
+  "closed_pieces": 22,
   "open_pieces": 0,
   "inverted_closed": 0,
   "black_faces": 0,

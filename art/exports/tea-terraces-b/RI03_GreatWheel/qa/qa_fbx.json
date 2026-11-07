@@ -1,6 +1,6 @@
 {
  "asset": "RI03_GreatWheel_v001",
- "tris": 77788,
+ "tris": 77820,
  "objects": [
   "RI03_GreatWheel_Detail_Small_LOD0",
   "RI03_GreatWheel_Detail_Wheel_LOD0",
@@ -52,7 +52,7 @@
   "1e-09": {},
   "1e-08": {}
  },
- "pieces": 628,
+ "pieces": 632,
  "loose_over_5mm": 0,
  "loose_list": []
 }

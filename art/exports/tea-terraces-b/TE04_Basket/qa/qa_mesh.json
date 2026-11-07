@@ -4,7 +4,7 @@
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 17,
+  "coplanar_two_sides": 41,
   "closed_pieces": 17,
   "open_pieces": 111,
   "inverted_closed": 0,
@@ -45,11 +45,11 @@
   "inverted_at": []
  },
  "TE04_Basket_LOD0": {
-  "tris": 7436,
+  "tris": 11964,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
-  "coplanar_two_sides": 1,
+  "coplanar_two_sides": 0,
   "closed_pieces": 3,
   "open_pieces": 45,
   "inverted_closed": 0,
@@ -60,7 +60,7 @@
   "inverted_at": []
  },
  "TE04_Basket_LOD1": {
-  "tris": 3718,
+  "tris": 5982,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,
@@ -75,7 +75,7 @@
   "inverted_at": []
  },
  "TE04_Basket_LOD2": {
-  "tris": 1115,
+  "tris": 1793,
   "degenerate": 0,
   "zero_uv": 0,
   "coplanar_same_facing": 0,

@@ -19,15 +19,15 @@ from cr_parts import sheet
 
 def palette():
     P = {}
-    P['weave'] = mm.weave('Tray_Weave', (.5, .28, .07), (.11, .058, .016), reed=.0105, block=.042, green_cast=.18, wobble=.006, strip_var=.42)
-    P['strip'] = mm.bamboo('Darn_Bamboo', green=(.12, .12, .045), straw=(.38, .26, .085))   # newer strips, a little greener than the old mat
-    P['cedar'] = cm.wood('Rim_Cedar', (.1, .042, .018), (.32, .15, .062), ground_h=0., grey=.14)
+    P['weave'] = mm.weave('Tray_Weave', (.41, .3, .145), (.105, .072, .036), reed=.0092, block=.036, green_cast=.18, wobble=.006, strip_var=.42)
+    P['strip'] = mm.bamboo('Darn_Bamboo', green=(.1, .095, .045), straw=(.33, .245, .11))   # newer strips, a little greener than the old mat
+    P['cedar'] = cm.wood('Rim_Cedar', (.085, .05, .026), (.28, .17, .088), ground_h=0., grey=.2)   # weathered cedar; v1 read pink in Unity
     P['rattan'] = mm.bamboo('Rim_Rattan', green=(.035, .024, .014), straw=(.11, .066, .03))   # split rattan cane, dark and a little glossy
     P['twine'] = mm.hemp('Tray_Patch_Twine', (.13, .085, .04), twist=260.0)
     # half-withered leaves: darker olive than the fresh leaves in the basket, a few still bright
-    P['leaf'] = [cm.weed_leaf('Withering_Leaf_A', (.026, .038, .011), (.068, .085, .024), (.11, .105, .034)),    # soft olive
-                 cm.weed_leaf('Withering_Leaf_B', (.035, .04, .013), (.09, .09, .03), (.14, .11, .04)),        # yellowing
-                 cm.weed_leaf('Withering_Leaf_C', (.02, .034, .012), (.05, .072, .024), (.08, .09, .03))]      # still dark green
+    P['leaf'] = [cm.weed_leaf('Withering_Leaf_A', (.024, .03, .011), (.052, .056, .022), (.08, .072, .03)),     # olive going brown
+                 cm.weed_leaf('Withering_Leaf_B', (.034, .03, .013), (.075, .062, .026), (.1, .078, .034)),    # yellow-brown
+                 cm.weed_leaf('Withering_Leaf_C', (.02, .027, .011), (.04, .048, .019), (.064, .064, .027))]   # still dark green (v1 read as bright confetti in URP)
     return P
 
 
@@ -134,7 +134,7 @@ def te04_tray(P):
             strip(name, u0 + .001, u1 - .001, d, z, w, h, P['cedar'], R)
     for u in lash_u:
         p, n, t = frame(u, 0.)
-        bind(p + n * .0025 + Vector((0, 0, RIM_Z)), n, t, .0185, .0185, .034, .0032, P['rattan'], turns=4)   # bedded 1.5 mm into the strips
+        bind(p + n * .0025 + Vector((0, 0, RIM_Z)), n, t, .0185, .0185, .03, .003, P['rattan'], turns=5, per_turn=14)   # bedded 1.5 mm into the strips
     repairs(P, R)
     spread_leaves(P, R)
     # collision: a 24-sided slab round the outer rim, floor to rim top
@@ -197,16 +197,20 @@ def repairs(P, R):
     u0, du, ph0, ph1 = PERIM - .26, .07, .3, 1.5   # the wall is only ~0.1 m tall: use most of it so the strips do not crowd
     def wall_at(u, v, off):
         return wall(u0 + (u - .5) * 2 * du, ph0 + v * (ph1 - ph0), off)
-    darn(P, R, 'Wall_Darn', wall_at, 2 * du, profile_len(ph1) - profile_len(ph0), Vector((1, 0, 0)))
+    darn(P, R, 'Wall_Darn', wall_at, 2 * du, profile_len(ph1) - profile_len(ph0), Vector((1, 0, 0)), n=4)   # the wall patch is ~0.1 m tall: 4 x 4
 
 
-def darn(P, R, name, at, Lu, Lv, side):
-    """Four strips along u under four strips along v; the upper ones arch over the lower and bend down to the mat at their ends."""
+def darn(P, R, name, at, Lu, Lv, side, n=6):
+    """n strips along u under n strips along v; the upper ones arch over the lower and bend down to the mat at their ends."""
     w = .0145; lo, hi, ends = .0042, .0059, .0040     # strip centre heights over the mat's mid-surface (mat top face at +3 mm, strips 1.6 mm thick)
-    for k, c in enumerate((.13, .38, .62, .87)):
+    sp = .92 / n
+    for k in range(n):
+        c = .04 + sp * (k + .5)
         for along in ('u', 'v'):
-            L = Lu if along == 'u' else Lv; Wf = w / (Lv if along == 'u' else Lu)
-            jit = R.uniform(-.02, .02); t0, t1 = -.08 + R.uniform(-.03, .03), 1.08 + R.uniform(-.03, .03)   # ragged ends: no two end caps share a plane
+            L = Lu if along == 'u' else Lv; acr_len = Lv if along == 'u' else Lu
+            # strips sit .16 of the patch apart: on a short side (the ~0.1 m wall patch) narrow them so neighbours keep a >= 2 mm gap
+            wk = min(w, .62 * sp * acr_len); Wf = wk / acr_len
+            jit = R.uniform(-.1, .1) * sp; t0, t1 = -.04 + R.uniform(-.015, .015), 1.04 + R.uniform(-.015, .015)   # ragged ends: no two end caps share a plane
             def fn(i, j, along=along, c=c + jit, Wf=Wf, t0=t0, t1=t1):
                 t = t0 + (t1 - t0) * j; acr = c + (i - .5) * Wf
                 if along == 'u':
@@ -227,7 +231,8 @@ def darn(P, R, name, at, Lu, Lv, side):
 
 
 def withered_leaf(name, base, d, L, W, curl, twist, mat):
-    """One withering leaf, single-sided (it lies on the mat and is only ever seen from above): narrow, edges rolling in, twisted along its length."""
+    """One withering leaf, 0.5 mm thick: narrow, edges rolling in, tip lifting, twisted along its length. v1 was single-sided and the
+    lifted tips showed their culled undersides as black wedges from the far side, so every leaf is now a closed thin shell."""
     d = Vector(d).normalized(); up = Vector((0, 0, 1))
     side = d.cross(up).normalized(); nrm = side.cross(d).normalized()
     if nrm.z < 0: side, nrm = -side, -nrm
@@ -236,13 +241,8 @@ def withered_leaf(name, base, d, L, W, curl, twist, mat):
         w = W * (math.sin(math.pi * min(1., v * 1.04)) ** .8 + .04)
         x = (u - .5) * 2; tw = twist * v
         sd = side * math.cos(tw) + nrm * math.sin(tw); nn = nrm * math.cos(tw) - side * math.sin(tw)
-        return tuple(b + d * (L * v) + sd * (x * w) + nn * (curl * v * v * L + .35 * W * x * x))
-    o = sheet(name, 2, 5, fn, mat, solid=None, detail=2, grain=tuple(d), group='Main')
-    me = o.data; me.update()
-    if sum(p.normal.z for p in me.polygons) < 0:
-        for p in me.polygons: p.flip()
-        me.update()
-    return o
+        return tuple(b + d * (L * v) + sd * (x * w) + nn * (curl * v * v * L + .6 * W * x * x))
+    return sheet(name, 2, 5, fn, mat, solid=.0005, detail=2, grain=tuple(d), group='Main')
 
 
 def spread_leaves(P, R):
@@ -250,15 +250,15 @@ def spread_leaves(P, R):
     Each leaf rests on the mat with its tip a few millimetres up and its own pitch and twist, so overlapping leaves cross instead of sharing a plane."""
     mids = []
     for _ in range(20000):
-        if len(mids) == 230: break
+        if len(mids) == 240: break
         x = R.uniform(-.48, .3); y = R.uniform(-.26, .26)
         if x > .1 and R.random() < (x - .1) / .2: continue          # thinning out towards the edge of the spread
         if not inside(x, y, D_F + .03): continue
-        if any((Vector((x, y)) - m).length < .021 for m in mids): continue
+        if any((Vector((x, y)) - m).length < .02 for m in mids): continue
         mids.append(Vector((x, y)))
         ang = R.uniform(0, math.tau); L = R.uniform(.038, .058)
         pitch = R.uniform(.02, .1)
         d = (math.cos(ang) * math.cos(pitch), math.sin(ang) * math.cos(pitch), math.sin(pitch))
         base = Vector((x, y, 0.)) - Vector((d[0], d[1], 0.)) * (L / 2)
         base.z = Z_F + .003 + lift(base.x, base.y) + .0003
-        withered_leaf('Drying_Leaf', base, d, L, R.uniform(.008, .013), R.uniform(.04, .3), R.uniform(-.9, .9), R.choice(P['leaf']))
+        withered_leaf('Drying_Leaf', base, d, L, R.uniform(.007, .011), R.uniform(.08, .3), R.uniform(-.5, .5), R.choice(P['leaf']))

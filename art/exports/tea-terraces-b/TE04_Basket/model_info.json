@@ -10,19 +10,19 @@
   "note": "低矮寬口的採茶簍（三視圖 TE04/BASKET candidate-01）：口徑約 0.5 m、高約 0.4 m，人字紋剖竹編、口緣內外兩道竹圈用麻繩穿壁綁 12 處、底圈綁 9 處；正面左側一塊較新較灰的補片，四角與四邊十字縫；簍內與口緣有幾片剛採的茶葉。和 harvest-market-b MK04 背簍不同：圓、矮、開口大、沒有立樁、木底架和背帶。綁繩、縫線、茶葉匯出為 Detail_Small，關掉不影響外形。",
   "budget_per_lod": {
     "LOD0": {
-      "triangles": 14680,
+      "triangles": 19208,
       "objects": 2,
       "objects_without_detail": 1,
       "materials": 1
     },
     "LOD1": {
-      "triangles": 7340,
+      "triangles": 9604,
       "objects": 2,
       "objects_without_detail": 1,
       "materials": 1
     },
     "LOD2": {
-      "triangles": 2201,
+      "triangles": 2879,
       "objects": 2,
       "objects_without_detail": 1,
       "materials": 1
@@ -112,9 +112,9 @@
   },
   "lods": {
     "Main": {
-      "LOD0": 7436,
-      "LOD1": 3718,
-      "LOD2": 1115
+      "LOD0": 11964,
+      "LOD1": 5982,
+      "LOD2": 1793
     },
     "Detail_Small": {
       "LOD0": 7244,
@@ -123,9 +123,9 @@
     }
   },
   "lod_totals": {
-    "LOD0": 14680,
-    "LOD1": 7340,
-    "LOD2": 2201
+    "LOD0": 19208,
+    "LOD1": 9604,
+    "LOD2": 2879
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
   "materials": [

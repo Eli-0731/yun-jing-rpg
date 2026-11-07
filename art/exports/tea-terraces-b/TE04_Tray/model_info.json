@@ -10,19 +10,19 @@
   "note": "淺長圓角竹匾（三視圖 TE04/TRAY candidate-04 外形、04-r1 立面）：1.2 × 0.75 × 0.12 m，一張平編剖竹席把邊緣彎起成矮牆，口緣內外兩條舊杉木條夾住，深色藤條綁 12 處（長邊各 3、短邊各 1、四角各 1），杉木條在每處綁點對接。地板靠右後角、正面左側牆各一塊較新較灰的補片，十字縫。左側約三分之二鋪一層正在萎凋的茶葉。和圓竹篩（harvest-market-b MK02）不同：長圓角、扁、木口緣。綁繩、縫線、茶葉匯出為 Detail_Small。",
   "budget_per_lod": {
     "LOD0": {
-      "triangles": 21096,
+      "triangles": 39776,
       "objects": 2,
       "objects_without_detail": 1,
       "materials": 1
     },
     "LOD1": {
-      "triangles": 10547,
+      "triangles": 19888,
       "objects": 2,
       "objects_without_detail": 1,
       "materials": 1
     },
     "LOD2": {
-      "triangles": 3164,
+      "triangles": 5966,
       "objects": 2,
       "objects_without_detail": 1,
       "materials": 1
@@ -55,19 +55,19 @@
   "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
   "origin": "bottom centre, z = 0 under the woven floor",
   "dimensions_m": [
-    1.2147,
-    0.7547,
-    0.1196
+    1.2139,
+    0.7539,
+    0.1219
   ],
   "bounds_min_m": [
-    -0.6074,
-    -0.3774,
+    -0.607,
+    -0.377,
     0.0
   ],
   "bounds_max_m": [
-    0.6074,
-    0.3774,
-    0.1196
+    0.607,
+    0.377,
+    0.1219
   ],
   "size_limit_m": [
     1.23,
@@ -79,12 +79,12 @@
       "dims_m": [
         1.205,
         0.745,
-        0.1187
+        0.1184
       ],
       "min": [
         -0.6025,
         -0.3725,
-        0.0003
+        0.0006
       ],
       "max": [
         0.6025,
@@ -94,38 +94,38 @@
     },
     "Detail_Small": {
       "dims_m": [
-        1.2147,
-        0.7547,
-        0.1196
+        1.2139,
+        0.7539,
+        0.1219
       ],
       "min": [
-        -0.6074,
-        -0.3774,
+        -0.607,
+        -0.377,
         0.0
       ],
       "max": [
-        0.6074,
-        0.3774,
-        0.1196
+        0.607,
+        0.377,
+        0.1219
       ]
     }
   },
   "lods": {
     "Main": {
-      "LOD0": 12240,
-      "LOD1": 6120,
-      "LOD2": 1836
+      "LOD0": 12576,
+      "LOD1": 6288,
+      "LOD2": 1886
     },
     "Detail_Small": {
-      "LOD0": 8856,
-      "LOD1": 4427,
-      "LOD2": 1328
+      "LOD0": 27200,
+      "LOD1": 13600,
+      "LOD2": 4080
     }
   },
   "lod_totals": {
-    "LOD0": 21096,
-    "LOD1": 10547,
-    "LOD2": 3164
+    "LOD0": 39776,
+    "LOD1": 19888,
+    "LOD2": 5966
   },
   "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
   "materials": [

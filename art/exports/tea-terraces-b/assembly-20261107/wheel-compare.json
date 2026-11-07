@@ -22,14 +22,14 @@
    "dimensions_m": [
     2.1328,
     10.4284,
-    8.9982
+    8.997
    ],
-   "lowest_point_z_m": -0.499,
-   "dips_below_bank_m": 0.499,
+   "lowest_point_z_m": -0.498,
+   "dips_below_bank_m": 0.498,
    "lod_totals": {
-    "LOD0": 77788,
-    "LOD1": 38894,
-    "LOD2": 13628
+    "LOD0": 77820,
+    "LOD1": 38910,
+    "LOD2": 13498
    },
    "slot": "A6_GreatWheel",
    "scene_offset_m": [
