@@ -204,6 +204,7 @@ blender -b --factory-startup -P art/source/mountain-street-houses-a/build_mc01.p
 blender -b --factory-startup -P art/source/mountain-street-houses-a/qa_mc01.py -- <out.json> SB01 ... DT06
 blender -b --factory-startup -P art/source/mountain-street-houses-a/render_mc01.py -- --out art/previews/mountain-street-houses-a [--clay|--wire|--nodetail|--lod 1|--mirror] SB01 ...
 blender -b --factory-startup -P art/source/mountain-street-houses-a/assemble_mc01.py -- [--clay]
+blender -b --factory-startup -P art/source/mountain-street-houses-a/turntable_mc01.py -- A-shophouse   # 也可 B-corner、C-terrace-row
 python art/source/mountain-street-houses-a/sheets_mc01.py SB01 ... DT06
 Unity -batchmode -quit -projectPath apps/game -executeMethod YunJing.Editor.MountainStreetHousesVerify.Run -logFile <log>
 ```
@@ -221,6 +222,7 @@ Unity -batchmode -quit -projectPath apps/game -executeMethod YunJing.Editor.Moun
 - 每件一張 `*_ref_vs_model.jpg`，把選用的參考圖、材質、灰模、線框並排。
 - `assembly/`：三棟組裝的材質與灰模（同角度）、正面、街景鳥瞰和 1.7 m 人眼街景。
 - `unity/`：Unity 截圖與 `report.txt`。
+- `turntable/`：三棟組裝的轉台影片，每支 6 秒繞一圈（EEVEE 1280×720、24 fps、H.264），附 1.75 m 人形尺。鏡頭架法參考 kevinbadi/blender-skills 的 turntable，用命令列 Blender 渲染，不需要 Blender MCP 外掛。燈光是快速版，和 Cycles 預覽不完全一樣。
 
 ## 工時
 
