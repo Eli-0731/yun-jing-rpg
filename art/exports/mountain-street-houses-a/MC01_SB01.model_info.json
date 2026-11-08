@@ -5,9 +5,9 @@
  "version": "v001",
  "status": "Exported; Imported/Visually Verified/In-game Verified: 未驗",
  "dimensions_m": [
-  3.998,
   3.999,
-  2.0
+  3.998,
+  1.998
  ],
  "limit_m": [
   4,
@@ -20,27 +20,30 @@
  "lods": [
   {
    "lod": 0,
-   "triangles": 47772,
-   "objects": 1,
+   "triangles": 21708,
+   "objects": 2,
    "materials": 1
   },
   {
    "lod": 1,
-   "triangles": 23886,
-   "objects": 1,
+   "triangles": 9338,
+   "objects": 2,
    "materials": 1
   },
   {
    "lod": 2,
-   "triangles": 7164,
-   "objects": 1,
+   "triangles": 2800,
+   "objects": 2,
    "materials": 1
   }
  ],
  "objectsLOD0": [
-  "MC01_SB01_LOD0"
+  "MC01_SB01_LOD0",
+  "Detail_Moss_LOD0"
  ],
- "detailObjects": [],
+ "detailObjects": [
+  "Detail_Moss"
+ ],
  "glowObjects": [],
  "materials": [
   "M_MountainStreet_Trim"
@@ -54,7 +57,14 @@
  "textureNote": "one trim sheet shared by every MC01 module (D3 §4); 256 px/m",
  "collision": "MC01_SB01_Collision (1 boxes)",
  "extra": {
-  "walkTop": 2.0
+  "walkTop": 2.0,
+  "courses_m": [
+   0.52,
+   0.336,
+   0.441,
+   0.296,
+   0.247
+  ]
  },
  "fbx": "art/exports/mountain-street-houses-a/MC01_SB01.fbx",
  "fps": "不寫（手機未實測）"

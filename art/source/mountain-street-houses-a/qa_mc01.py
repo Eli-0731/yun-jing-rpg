@@ -25,6 +25,19 @@ for k in ids:
         r = qa_check.run(objects=[ob.name], profile='game', max_tris=max(300000, n + 1))
         rows[ob.name] = {'tris': n, 'errors': r['errors'], 'warnings': r['warnings'], 'sec': round(time.time() - t0, 1)}
         print('QA', k, ob.name, n, 'errors', len(r['errors']), 'warnings', len(r['warnings']), flush=True)
+    # detail meshes that only make sense attached to another group: QA them joined (Glow paper on its caps, moss on the stone)
+    glow_host = 'Detail_Lanterns_LOD0' if 'Detail_Lanterns_LOD0' in bpy.data.objects else f'MC01_{k}_LOD0'
+    for a_, b_ in (('Glow_LOD0', glow_host), ('Detail_Moss_LOD0', f'MC01_{k}_LOD0')):
+        if a_ in bpy.data.objects and b_ in bpy.data.objects:
+            ca = bpy.data.objects[a_].copy(); ca.data = ca.data.copy(); cb = bpy.data.objects[b_].copy(); cb.data = cb.data.copy()
+            for c in (ca, cb): bpy.context.scene.collection.objects.link(c)
+            bpy.ops.object.select_all(action='DESELECT'); ca.select_set(True); cb.select_set(True); bpy.context.view_layer.objects.active = cb
+            bpy.ops.object.join(); cb.name = f'JOINED_{a_}+{b_}'; n = sum(len(p.vertices) - 2 for p in cb.data.polygons)
+            r = qa_check.run(objects=[cb.name], profile='game', max_tris=max(300000, n + 1))
+            fl = [e for e in r['errors'] if 'floating' in e]
+            rows[cb.name] = {'tris': n, 'floating_errors': fl, 'note': 'joined check: floating only'}
+            print('QA', k, cb.name, 'floating', len(fl), flush=True)
+            bpy.data.objects.remove(cb)
     dims = [round(d, 3) for d in (mx - mn)]
     err = [max(abs(d - e) for d, e in zip(dims, info['dimensions_m']))]
     res[k] = {'objects': rows, 'reimport_dims': dims, 'built_dims': info['dimensions_m'], 'reimport_error_m': round(err[0], 4)}

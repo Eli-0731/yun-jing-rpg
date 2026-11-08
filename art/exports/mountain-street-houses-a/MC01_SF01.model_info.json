@@ -20,19 +20,19 @@
  "lods": [
   {
    "lod": 0,
-   "triangles": 23740,
+   "triangles": 31832,
    "objects": 4,
    "materials": 2
   },
   {
    "lod": 1,
-   "triangles": 8698,
+   "triangles": 11632,
    "objects": 4,
    "materials": 2
   },
   {
    "lod": 2,
-   "triangles": 2654,
+   "triangles": 3518,
    "objects": 4,
    "materials": 2
   }
@@ -61,11 +61,20 @@
   "T_MountainStreet_Emission": "2048x2048"
  },
  "textureNote": "one trim sheet shared by every MC01 module (D3 §4); 256 px/m",
- "collision": "MC01_SF01_Collision (12 boxes)",
+ "collision": "MC01_SF01_Collision (14 boxes)",
  "extra": {
   "veranda": [
    -2.0,
    1.0
+  ],
+  "openFaces": [
+   "-Y"
+  ],
+  "counterEdge_m": [
+   -1.58,
+   -0.55,
+   -1.67,
+   0.885
   ]
  },
  "fbx": "art/exports/mountain-street-houses-a/MC01_SF01.fbx",

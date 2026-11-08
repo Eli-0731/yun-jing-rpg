@@ -16,8 +16,8 @@ def opt(k, d=None):
 def flag(k):
     if k in args: args.remove(k); return True
     return False
-OUT = Path(opt('--out')); LOD = int(opt('--lod', '0')); SAMPLES = int(opt('--samples', '48')); STACK = opt('--stack'); NAME = opt('--name', 'stack')
-CLAY = flag('--clay'); WIRE = flag('--wire'); NODETAIL = flag('--nodetail'); HEIGHTS = {'SB': 2.0, 'SF': 3.0, 'HM': 3.0}
+OUT = Path(opt('--out')); OUT = OUT if OUT.is_absolute() else (HERE / OUT).resolve(); LOD = int(opt('--lod', '0')); SAMPLES = int(opt('--samples', '48')); STACK = opt('--stack'); NAME = opt('--name', 'stack')
+MIRROR = flag('--mirror'); CLAY = flag('--clay'); WIRE = flag('--wire'); NODETAIL = flag('--nodetail'); HEIGHTS = {'SB': 2.0, 'SF': 3.0, 'HM': 3.0}
 OUT.mkdir(parents=True, exist_ok=True)
 
 def reset():
@@ -77,7 +77,7 @@ def shoot(objs, name, views):
     for v in views:
         if v == 'three_quarter':
             cam.data.type = 'PERSP'; cam.data.lens = 40; d = size * 2.1
-            cam.location = ctr + Vector((-.62, -.78, .42)).normalized() * d
+            cam.location = ctr + Vector((.62 if MIRROR else -.62, -.78, .42)).normalized() * d   # --mirror: front-right (corner modules)
         else:
             cam.data.type = 'ORTHO'; cam.data.ortho_scale = size * 1.25
             dirv = {'front': Vector((0, -1, .0)), 'side': Vector((1, 0, 0)), 'back': Vector((0, 1, 0)), 'top': Vector((0, -.001, 1))}[v]
@@ -92,6 +92,6 @@ if STACK:
     figure(1.3, -3.2); shoot(objs, NAME, ['three_quarter', 'front', 'side'])
 else:
     for mid in args:
-        reset(); objs = append(mid); figure(mid and (bounds(objs)[1].x + .5), -1.0)
+        reset(); objs = append(mid); figure(bounds(objs)[0].x - .5 if MIRROR else bounds(objs)[1].x + .5, -1.0)
         tag = f'MC01_{mid}' + ('_clay' if CLAY else '') + ('_wire' if WIRE else '') + ('_nodetail' if NODETAIL else '') + (f'_LOD{LOD}' if LOD else '')
         shoot(objs, tag, ['three_quarter', 'front', 'side', 'back'] if not (CLAY or WIRE or NODETAIL or LOD) else ['three_quarter'])

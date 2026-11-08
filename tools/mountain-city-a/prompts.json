@@ -20,6 +20,10 @@
    "object": "Three-view orthographic turnaround sheet of a foundation stair bay with safe walkable stone treads, about 4 m wide, 4 m deep and 2 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
    "layout": "building"
   },
+  "MC01-SB05": {
+   "object": "Three-view orthographic turnaround sheet of a low straight modular cut-stone foundation bay (a half-height variant for street level changes) with one broad wall face of two or three stone courses and a coping-stone top edge, about 4 m wide, 4 m deep and 1 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
   "MC01-SF01": {
    "object": "Three-view orthographic turnaround sheet of an open timber shopfront bay with three-metre projecting front veranda and wide entrance, about 4 m wide, 4 m deep and 3 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
    "layout": "building"
@@ -132,27 +136,27 @@
    "object": "Three-view and three-quarter concept of a walkable suspension bridge connecting two cliff boardwalk landings in a mountain city, span 12 m, deck 1.6 m wide and sag 1.5 m, made of fitted warm-grey stone bridgeheads, dark iron chains, weathered cedar planks and hemp lashings, with missing decorative planks outside the continuous safe walking surface, rain wear on the deck and moss in the stone seams; water: none.",
    "layout": "building"
   },
-  "SF01": {
+  "ST01": {
    "object": "Three-view orthographic turnaround sheet of a square carved stone lantern post for a vertical mountain city street, with a small stone pavilion-shaped lamp housing on top and cloud-scroll carving on the shaft, about 0.6 m wide and 2.4 m tall, made of dressed blue-grey granite with a warm glowing lamp inside, showing worn edges, soot above the lamp opening, lichen near the base and a chipped corner, more refined and regular than a village roadside lamp.",
    "layout": "single"
   },
-  "SF02": {
+  "ST02": {
    "object": "Three-view orthographic turnaround sheet of a string of five round paper lanterns hanging from a hemp rope stretched across a narrow street, with iron hooks at both ends, about 8 m long and 1.2 m tall, made of warm-red and cream oiled paper over bamboo frames, hemp rope and dark iron, showing slightly sagging rope, faded paper on two lanterns and soot at the lantern tops.",
    "layout": "single"
   },
-  "SF03": {
+  "ST03": {
    "object": "Three-view orthographic turnaround sheet of a modular carved stone drainage channel set for a mountain city street: one straight 4 m section, one corner and one stepped cascade section that drops beside stairs, about 0.5 m wide and 0.3 m deep, made of blue-grey granite with a darker wet bottom, showing algae in the wet channel, worn rims and small weeds in the joints.",
    "layout": "single"
   },
-  "SF04": {
+  "ST04": {
    "object": "Three-view orthographic turnaround sheet of a long stone street bench made of one thick polished stone slab resting on two carved stone blocks, about 1.8 m long, 0.5 m deep and 0.5 m tall, made of warm-grey granite, showing a seat surface polished by years of sitting, chipped front edge and moss at the feet, more formal than a rustic roadside bench.",
    "layout": "single"
   },
-  "SF05": {
+  "ST05": {
    "object": "Three-view orthographic turnaround sheet of three long blank cloth shop banners hanging from short wooden poles, one indigo blue, one ochre red and one stone grey, each about 0.6 m wide and 1.8 m long, made of coarse dyed cotton with tasselled lower edges and a wooden rod at the top, showing faded sun-bleached upper parts, frayed tassels and gentle folds, no writing or symbols on the cloth.",
    "layout": "single"
   },
-  "SF06": {
+  "ST06": {
    "object": "Three-view orthographic turnaround sheet of a modular cliff-edge railing set for overhanging platforms in a vertical mountain city: one straight 2 m section with timber rails between square stone posts, one corner post and one end post, about 2 m long and 1.1 m high, made of dark old cedar and blue-grey granite, showing hand-polished top rails, weathered wood, iron brackets and lichen on the stone posts.",
    "layout": "single"
   }
