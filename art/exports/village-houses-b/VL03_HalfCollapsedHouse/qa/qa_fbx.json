@@ -1,0 +1,483 @@
+{
+ "asset": "VL03_HalfCollapsedHouse_v001",
+ "tris": 72884,
+ "objects": [
+  "VL03_HalfCollapsedHouse_Detail_Small_LOD0",
+  "VL03_HalfCollapsedHouse_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 358,
+   "groups": {
+    "HalfCollapsedHouse|two_sides_between": {
+     "pairs": 346,
+     "overlap_cm2": 47098.68
+    },
+    "HalfCollapsedHouse|two_sides_inside": {
+     "pairs": 10,
+     "overlap_cm2": 303.73
+    },
+    "Detail_Small|two_sides_inside": {
+     "pairs": 2,
+     "overlap_cm2": 0.82
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 348,
+   "groups": {
+    "HalfCollapsedHouse|two_sides_between": {
+     "pairs": 336,
+     "overlap_cm2": 46688.71
+    },
+    "HalfCollapsedHouse|two_sides_inside": {
+     "pairs": 10,
+     "overlap_cm2": 303.73
+    },
+    "Detail_Small|two_sides_inside": {
+     "pairs": 2,
+     "overlap_cm2": 0.82
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 204,
+   "groups": {
+    "HalfCollapsedHouse|two_sides_between": {
+     "pairs": 194,
+     "overlap_cm2": 35348.21
+    },
+    "HalfCollapsedHouse|two_sides_inside": {
+     "pairs": 10,
+     "overlap_cm2": 303.73
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 5
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "VL03_HalfCollapsedHouse_Detail_Small_LOD0": 5
+  }
+ },
+ "pieces": 1271,
+ "loose_over_5mm": 54,
+ "loose_list": [
+  {
+   "verts": 49,
+   "centre": [
+    1.795,
+    2.227,
+    3.774
+   ],
+   "size": [
+    0.069,
+    0.109,
+    0.045
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    4.565,
+    -0.838,
+    0.109
+   ],
+   "size": [
+    0.027,
+    0.022,
+    0.106
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    4.308,
+    -0.185,
+    0.33
+   ],
+   "size": [
+    0.036,
+    0.031,
+    0.117
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    4.326,
+    -0.222,
+    0.359
+   ],
+   "size": [
+    0.069,
+    0.026,
+    0.173
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.555,
+    -0.156,
+    1.034
+   ],
+   "size": [
+    0.033,
+    0.052,
+    0.129
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.529,
+    -0.211,
+    1.05
+   ],
+   "size": [
+    0.046,
+    0.038,
+    0.17
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    2.994,
+    1.986,
+    2.912
+   ],
+   "size": [
+    0.06,
+    0.148,
+    0.018
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    2.908,
+    2.001,
+    3.011
+   ],
+   "size": [
+    0.056,
+    0.058,
+    0.135
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.002,
+    2.023,
+    2.946
+   ],
+   "size": [
+    0.147,
+    0.06,
+    0.02
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.812,
+    1.24,
+    3.283
+   ],
+   "size": [
+    0.049,
+    0.124,
+    0.033
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.866,
+    1.244,
+    3.391
+   ],
+   "size": [
+    0.045,
+    0.053,
+    0.117
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.809,
+    1.214,
+    3.379
+   ],
+   "size": [
+    0.11,
+    0.06,
+    0.066
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.959,
+    1.099,
+    3.387
+   ],
+   "size": [
+    0.096,
+    0.109,
+    0.021
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.817,
+    2.032,
+    3.783
+   ],
+   "size": [
+    0.123,
+    0.049,
+    0.034
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.781,
+    2.082,
+    3.903
+   ],
+   "size": [
+    0.052,
+    0.036,
+    0.141
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.769,
+    2.227,
+    3.842
+   ],
+   "size": [
+    0.07,
+    0.115,
+    0.035
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.841,
+    2.028,
+    3.834
+   ],
+   "size": [
+    0.107,
+    0.07,
+    0.014
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.886,
+    2.145,
+    3.922
+   ],
+   "size": [
+    0.062,
+    0.099,
+    0.053
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.296,
+    1.361,
+    4.166
+   ],
+   "size": [
+    0.058,
+    0.144,
+    0.028
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.219,
+    1.239,
+    4.231
+   ],
+   "size": [
+    0.053,
+    0.131,
+    0.032
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    4.14,
+    1.705,
+    4.393
+   ],
+   "size": [
+    0.067,
+    0.111,
+    0.012
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    4.411,
+    1.863,
+    4.459
+   ],
+   "size": [
+    0.121,
+    0.074,
+    0.082
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.502,
+    1.869,
+    4.655
+   ],
+   "size": [
+    0.059,
+    0.147,
+    0.024
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.882,
+    1.412,
+    4.886
+   ],
+   "size": [
+    0.118,
+    0.108,
+    0.029
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.871,
+    1.41,
+    4.907
+   ],
+   "size": [
+    0.132,
+    0.051,
+    0.014
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    4.133,
+    1.896,
+    5.071
+   ],
+   "size": [
+    0.142,
+    0.056,
+    0.013
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.949,
+    1.67,
+    4.826
+   ],
+   "size": [
+    0.058,
+    0.121,
+    0.05
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    3.948,
+    1.819,
+    4.989
+   ],
+   "size": [
+    0.064,
+    0.146,
+    0.064
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    4.03,
+    1.783,
+    5.05
+   ],
+   "size": [
+    0.109,
+    0.064,
+    0.023
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    4.032,
+    1.682,
+    5.123
+   ],
+   "size": [
+    0.087,
+    0.131,
+    0.026
+   ]
+  }
+ ]
+}
