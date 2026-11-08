@@ -1,5 +1,7 @@
 WL04 折好的濕布兩疊（工作包 §5：0.6 × 0.5 × 0.25 m，練大塊布色與濕邊）三視圖與自評（2026-11-09）
-尚未選定：八張都只畫了「一疊」，和工作包「兩疊（two separate folded stacks）」不符；提示詞照規定不改，已用同一段提示詞重生一次（cand-5–8），結果相同。等決定後補「選用」行。
+選用：WL04-cand-12.png（92分）
+
+第一、二輪（cand-1–8）用工作包原文，八張都只畫了「一疊」，和工作包「兩疊（two separate folded stacks）」不符，最高 88 分；照「不到 90 分重新生成」做第三輪（cand-9–12）。
 
 提示詞照工作包第 11 節原文（正面、負面一字不改，含固定段 5.2、5.3），八張相同。評分：形體與尺寸比例 30（兩疊）／練習重點（大塊布色、濕邊）30／提示詞細節（褪色麻布、一塊暗藍布、濕暗的邊、手折不齊、一角補丁）25／乾淨無字、三面同一地線同比例 15。
 - cand-1：86（20+28+25+13）。一疊；藍布、濕邊、補丁都有。
@@ -11,11 +13,21 @@ WL04 折好的濕布兩疊（工作包 §5：0.6 × 0.5 × 0.25 m，練大塊布
 - cand-7：88（20+29+26+13）。一疊；濕邊最自然（下層一圈暗）、補丁和手折不齊都清楚，最適合當「每一疊」的參考。
 - cand-8：87（20+29+25+13）。一疊；折層厚度最好。
 
-建議做法（待確認）：以 cand-7 作為每一疊的折法、布色和濕邊參考，照工作包做成兩疊分開的布（一疊含暗藍布、一疊全是本色麻布），合計不超過 0.6 × 0.5 × 0.25 m。
+第三輪：工作包只鎖固定段 5.2（Art direction）和 5.3（負面提示詞），這兩段一字不改；只改物件描述那一段，寫明「並排、中間約 5 cm 空隙的兩疊（two piles, not one pile）」、每疊寬約 0.27 m、左疊含暗藍布、右疊全本色且略矮，並把版面句的「one object only」改成「one set of two piles only」（原句會讓圖只畫一件）。第三輪的正面提示詞全文在本檔最後。
+- cand-9：87（28+28+23+8）。兩疊、比例對；但圖上印了「Front View／Side View／Back View」字樣（負面提示詞要求不要字）。
+- cand-10：84（28+28+23+5）。兩疊；圖上有尺寸線和數字。
+- cand-11：91（28+28+23+12）。兩疊，左疊藍布、右疊補丁；右疊稍高，和描述相反。
+- cand-12：92（29+29+23+11）。選用。兩疊分開、左高右矮，折口一層層的布厚清楚，下層一圈濕暗帶一點苔，左疊夾一條暗藍布、右疊頂上一塊補丁，三面一致。
 
-== 正面提示詞 ==
+建模取捨：照 cand-12。每疊由 5–6 層有厚度的折布疊成（每層四邊圓折口、角落不齊），左疊高約 0.24 m、含一層暗藍布，右疊約 0.19 m、頂上一塊補丁；兩疊間空約 5 cm，合計不超過 0.6 × 0.5 × 0.25 m。濕邊（下層一圈暗）畫在貼圖；補丁和垂出的布角放 Detail_。
+
+== 正面提示詞（第一、二輪，工作包原文）==
 Three-view orthographic turnaround sheet of two separate folded stacks of washed linen with uneven corners, about 0.6 m wide, 0.5 m deep and 0.25 m tall, made of faded natural linen with one muted blue cloth, showing damp darkened edges, hand-folded uneven layers and one patched corner, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
 Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
 
 == 負面提示詞 ==
 photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
+
+== 第三輪正面提示詞（只改物件描述與版面句末，固定段 5.2 不變）==
+Three-view orthographic turnaround sheet of two separate folded stacks of washed linen with uneven corners, standing side by side on the ground with a clear gap of about 5 cm between them (two piles, not one pile), each pile about 0.27 m wide, the pair together about 0.6 m wide, 0.5 m deep and 0.25 m tall, made of faded natural linen; the left pile includes one muted blue cloth, the right pile is all natural linen and a little lower, showing damp darkened edges, hand-folded uneven layers and one patched corner, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one set of two piles only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
