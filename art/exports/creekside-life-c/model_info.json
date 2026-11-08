@@ -1,0 +1,148 @@
+{
+ "WL01": {
+  "id": "WL01",
+  "name": "WashBoard",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/WL01_v001.fbx",
+   "glb": "art/exports/creekside-life-c/WL01_v001.glb",
+   "blend": "art/source/creekside-life-c/WL01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.697,
+   0.4,
+   0.078
+  ],
+  "body_dimensions_xyz_m": [
+   0.697,
+   0.4,
+   0.078
+  ],
+  "size_limit_xyz_m": [
+   0.7,
+   0.4,
+   0.12
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Lashing",
+   "Detail_Pegs"
+  ],
+  "detailMeshes": [
+   "WL01_Detail_Lashing_LOD0",
+   "WL01_Detail_Lashing_LOD1",
+   "WL01_Detail_Lashing_LOD2",
+   "WL01_Detail_Pegs_LOD0",
+   "WL01_Detail_Pegs_LOD1",
+   "WL01_Detail_Pegs_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 7816,
+    "triangles_without_detail": 6000,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL01_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL01_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3908,
+    "triangles_without_detail": 3000,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL01_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL01_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1172,
+    "triangles_without_detail": 900,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL01_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL01_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "WL01_Body_LOD0",
+    "WL01_Body_LOD1",
+    "WL01_Body_LOD2"
+   ],
+   "Detail_Lashing": [
+    "WL01_Detail_Lashing_LOD0",
+    "WL01_Detail_Lashing_LOD1",
+    "WL01_Detail_Lashing_LOD2"
+   ],
+   "Detail_Pegs": [
+    "WL01_Detail_Pegs_LOD0",
+    "WL01_Detail_Pegs_LOD1",
+    "WL01_Detail_Pegs_LOD2"
+   ]
+  },
+  "material": "M_WL01_WashBoard",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 43,
+  "coplanar_lifted": 0,
+  "reference": "art/references/WL01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "lies flat with the ribs up; the reference stands it upright",
+   "reference cand-4 is about 2.1 : 1 long; built to the work pack 0.70 × 0.40 m",
+   "Detail_Lashing: cord on the repaired slat; Detail_Pegs: peg heads on the rails"
+  ]
+ }
+}
