@@ -5,7 +5,7 @@
 | 誰做的 | B（joshsu54） |
 | 工作包 | docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md（第二部分 FR01–04；檔案在 `feature/qingxi-creek-chapter` 分支） |
 | ID | FR01 巨根矮牆段（疊根／絞根／波浪根三種）、FR02 根拱門、FR03 垂藤幕（密／疏兩種）、FR04 獨木橋 |
-| 分支／PR | art/b-1107-fr-forest-roots ／ 未開（排在 SG 那張之後；同時只開一張待審 PR） |
+| 分支／PR | art/b-1107-fr-forest-roots ／ 本分支的 PR（#83 山城石階還在待合併時開出，使用者決定先開） |
 | 版本 | 全部 v001（首次交付，沒有舊版） |
 | 狀態 | Exported ／ Imported（Unity 編輯器批次檢查）／ Visually Verified；In-game Verified：未驗 |
 | 預定位置 | D1 森林邊緣 → D2 老樹（`D1_ForestEdge_to_D2_ElderTree`），由核心組落位 |
