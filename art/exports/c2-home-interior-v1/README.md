@@ -1,0 +1,17 @@
+| ID | 名稱 | 狀態 | 負責人 | 版本 | 主要輸出 |
+|---|---|---|---|---|---|
+| C2 | 借住處後門與室內對位 | 交付候選，待 Unity 場景驗收 | z1nnz + Codex | 外屋 v005、室內 v030 | `StarterHouse_reardoor_v005.fbx`、`lodging-room-reardoor-v030.fbx` |
+
+## 變動
+
+- 在 Dondon 的 `StarterHouse v004` **副本**上把後牆正中窗改成 1.2 × 2.2 m 後門，保留外屋其餘結構。後門葉沿用該屋前門的格窗、木板和門環造型，縮放至後門尺寸。原檔沒有被覆寫。
+- 以本組舊版室內模組 v029 為基礎，將北牆中央兩塊實心牆換為 3 m 門牆：中間 1.2 m 開口、兩側留牆體；門葉沿用同套前門。室內地板標高是相對 0 m，外屋地板標高為世界 0.54 m，場景整合時需以這個位移對齊。
+- 將協作者 B 的 TI01–TI08d 共 11 件既有室內資產放入房間作首輪配置。擺放座標在 `tools/art/build_c2_interior_reardoor_v030.py`，家具原始模型仍由原分支提供，沒有改造或覆蓋。
+
+## 可檢視成果與限制
+
+可編輯母檔與既有室內 v028 基底副本在 `art/source/c2-home-interior-v1/`；外屋 GLB 與兩件 FBX 在本資料夾；AI 室內三視圖在 `art/references/lodging-interior-kit-v1/`。預覽：`art/previews/c2-home-interior-v1/rear-door-v005.png`、`interior-reardoor-v030.png`、`interior-furniture-top-v030.png`。三張均已實際檢視，後門與室內門洞可見；室內家具配置是第一輪，部分物件仍需依實際玩法與走道再調整。
+
+`verify_c2_reardoor.py`：兩件母檔結構通過；兩個 FBX 回匯通過（外屋 506 meshes／108616 三角面；室內含家具 349 meshes／247978 三角面）。室內整包 GLB 生成後達 325 MB，未作最終交付；Unity 應用 FBX 與個別資產，不應用整包房間作手機端最終網格。Unity 編譯、碰撞、開門、睡眠與手機效能尚未驗證。後門外的台基及地面落差須在 Unity 場景補可走階或坡道。
+
+來源歸屬：StarterHouse v004 由 Dondon 製作；TI01–TI08d 由協作者 B 製作。此交付是 z1nnz 與 Codex 的外屋後門改版、室內門洞與配置工作；原作者歸屬保留。
