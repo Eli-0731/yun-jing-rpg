@@ -1,0 +1,72 @@
+{
+ "id": "MC01-SB03",
+ "package": "docs/execution/2026-11-05/A-48h-mountain-city-architecture.md",
+ "author": "A (Johnnnny0823)",
+ "version": "v001",
+ "status": "Exported; Imported/Visually Verified/In-game Verified: 未驗",
+ "dimensions_m": [
+  3.999,
+  3.999,
+  1.998
+ ],
+ "limit_m": [
+  4,
+  4,
+  2
+ ],
+ "grid_m": 4.0,
+ "origin": "footprint centre, bottom z = 0, -Y = street front",
+ "minTier": "low",
+ "lods": [
+  {
+   "lod": 0,
+   "triangles": 21476,
+   "objects": 2,
+   "materials": 1
+  },
+  {
+   "lod": 1,
+   "triangles": 9280,
+   "objects": 2,
+   "materials": 1
+  },
+  {
+   "lod": 2,
+   "triangles": 2784,
+   "objects": 2,
+   "materials": 1
+  }
+ ],
+ "objectsLOD0": [
+  "MC01_SB03_LOD0",
+  "Detail_Moss_LOD0"
+ ],
+ "detailObjects": [
+  "Detail_Moss"
+ ],
+ "glowObjects": [],
+ "materials": [
+  "M_MountainStreet_Trim"
+ ],
+ "textures": {
+  "T_MountainStreet_Albedo": "2048x2048",
+  "T_MountainStreet_Normal": "2048x2048",
+  "T_MountainStreet_MetallicSmoothness": "2048x2048",
+  "T_MountainStreet_Emission": "2048x2048"
+ },
+ "textureNote": "one trim sheet shared by every MC01 module (D3 §4); 256 px/m",
+ "collision": "MC01_SB03_Collision (2 boxes)",
+ "extra": {
+  "walkTop": 2.0,
+  "courses_m": [
+   0.52,
+   0.303,
+   0.293,
+   0.373,
+   0.351
+  ],
+  "chamfer_m": 0.8
+ },
+ "fbx": "art/exports/mountain-street-houses-a/MC01_SB03.fbx",
+ "fps": "不寫（手機未實測）"
+}
