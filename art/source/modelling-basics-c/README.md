@@ -28,7 +28,7 @@
 | BM08_02 | 林緣紅果散枝灌木 | 高 1.0 m | 1.31 × 1.12 × 1.00 | 17,168 / 8,636 / 2,424 | 17,116 / 8,608 / 2,412 | `high` |
 | BM09_01 | 大型野蕨（第二版） | 高 0.8 m | 1.70 × 1.63 × 0.80 | 10,090 / 3,548 / 1,008 | 9,612 / 3,312 / 900 | `standard` |
 | BM09_02 | 矮捲蕨（第二版） | 高 0.3 m | 0.60 × 0.69 × 0.30 | 6,606 / 2,456 / 780 | 6,120 / 2,208 / 672 | `high` |
-| BM10_01 | 苔蘚貼片（第二版） | 1 m 見方 | 1.00 × 1.00 × 0.02 | 4,608 / 1,152 / 200 | 同左 | `ultra` |
+| BM10_01 | 苔蘚貼片（第三版） | 1 m 見方 | 1.00 × 1.00 × 0.02 | 4,608 / 1,152 / 200 | 同左 | `ultra` |
 | BM10_02 | 紅楓落葉貼片（第二版） | 1 m 見方 | 1.00 × 1.00 × 0.004 | 512 / 128 / 32 | 同左 | `ultra` |
 | BM10_03 | 銀杏黃葉貼片（第二版） | 1 m 見方 | 1.00 × 1.00 × 0.004 | 512 / 128 / 32 | 同左 | `ultra` |
 
@@ -305,6 +305,13 @@ QA 結果：`art/previews/modelling-basics-c/qa/`，修正前是 a7e1e99c 的 GL
   - 外形用透明通道做成圓滑帶瓣的一塊，單片放在地上沒有方框；落葉是整片保留或整片拿掉，不會在邊上切半片。
   - 苔蘚的網格照畫好的苔墊高度抬起，最高 2.2 cm，到邊緣變薄；紅楓是七裂的掌狀葉、銀杏是扇形葉，一片片疊成小堆，土的部分透明，可以鋪在任何地面上。
   - 1 m 見方、`ultra`、沒有碰撞、沒有 `Detail_`。淺色和深色地面、近距離和 40 m 的外框檢查在 `BM10/edge-check/`。
+- **BM10_01 苔蘚第三版（#81 審查）**：審查指出第二版的苔墊全是圓形、3 × 3 重複一眼看得出來（像迷彩）、上層太亮太黃。三視圖照審查給的提示詞重出 4 張，選 `art/references/BM10/v3/BM10-moss-v3-cand-2.png`（92）。改法分步，每一步的 3 × 3 圖在 `art/previews/modelling-basics-c/BM10/tiling/moss-steps/`（step0 是第二版原樣）：
+  1. **扭曲座標**：算苔墊距離之前，先用四邊可接的低頻噪聲推動座標。第一次用每格 3 個起伏，只把整顆苔墊推走、形狀還是圓；改成每格約 9 個起伏（和苔墊同一個尺度），每顆才各自扭成不規則的團。
+  2. **平滑融合、拉開大小**：`np.maximum` 疊圓帽換成平滑的聯集（1 − 每顆的 (1 − 高度) 相乘），邊緣用 smoothstep 收；苔墊分三級，6 個大團（半徑 0.15–0.24）、24 個中團、160 個小團（0.025–0.06），再疊一層多頻噪聲當底。
+  3. **收窄顏色**：深、中、亮三色都在 #3F5A2E 附近（約 ±16%）；顏色只跟著「局部起伏」走：高度圖用 FFT 高斯模糊（週期性，四邊仍然能接）分出大尺度的部分，它只影響顏色幾個百分點，一格重複一次的大形狀因此看不出來；暖色孢子點從 420 個減到 40 個；細絨多疊一層更細的噪聲，讓它像參考圖的軟絨，不像毛氈。
+  4. 透明外形、網格抬起的做法和第二版一樣；顏色四邊仍然無縫。
+  - 第二版和第三版並排（顏色 3 × 3、淺色和深色地面）：`compare-v1/BM10_01-v2-vs-v3.jpg`。
+  - **沒做到、沒驗證的**：細絨是噪聲，不是一根根畫出來的，近看比參考圖平；苔墊的立體起伏仍然是網格抬高，沒有另外做毛邊；這版只用 3 × 3 圖和渲染判斷，沒有放進正式場景，也沒有在手機上看。
 - **和第一版並排**：`art/previews/modelling-basics-c/compare-v1/BM09-BM10-v1-vs-v2.jpg`（同燈同角度，蕨有材質和灰模）。
 - **檢查**：嚴格和寬鬆 QA 五件都是 0 項；蕨的每片羽片、枯葉都接在葉軸或地面上（最遠 0.6 mm，`qa/qa-contact.json`，`qa/` 的三個 JSON 已是第二版的結果）；Unity 6000.0.82f1 檢查 372 項全過（苔蘚貼片現在也用透明裁切）。
 - **還不夠好的地方**：羽片面片近看還是看得出每片一樣的排法；苔蘚的細部比參考圖少；紅楓的掌狀葉形是程式畫的，比參考圖規整。
@@ -375,8 +382,8 @@ QA 結果：`art/previews/modelling-basics-c/qa/`，修正前是 a7e1e99c 的 GL
 | `art/previews/modelling-basics-c/BM07/` | 四視圖加人形尺、線框、鑿痕條近拍、底座落葉近拍、和 BM04 並排、LOD0／LOD1 並排 |
 | `art/previews/modelling-basics-c/BM08/` | 兩株灌木的四視圖加人形尺、線框、兩株一組、柳葉和紅果近拍、和 WildShrub 並排、LOD0／LOD1 並排 |
 | `art/previews/modelling-basics-c/BM09/` | 兩種蕨（第二版）的四視圖加人形尺、線框、和 qingxi-fern-flower-v2 並排、LOD0／LOD1 並排 |
-| `art/previews/modelling-basics-c/compare-v1/` | BM09、BM10 第一版和第二版同燈同角度並排（蕨另有灰模），總表 `BM09-BM10-v1-vs-v2.jpg` |
-| `art/previews/modelling-basics-c/BM10/` | 三片貼片各一張近拍；`tiling/` 顏色 3 × 3 重複圖；`edge-check/` 淺色、深色地面上近距離和 40 m 的外框檢查（EEVEE，含 6 倍裁切） |
+| `art/previews/modelling-basics-c/compare-v1/` | BM09、BM10 第一版和第二版同燈同角度並排（蕨另有灰模），總表 `BM09-BM10-v1-vs-v2.jpg`；苔蘚第二版和第三版 `BM10_01-v2-vs-v3.jpg` |
+| `art/previews/modelling-basics-c/BM10/` | 三片貼片各一張近拍；`tiling/` 顏色 3 × 3 重複圖（`moss-steps/` 是苔蘚第三版每一步的 3 × 3）；`edge-check/` 淺色、深色地面上近距離和 40 m 的外框檢查（EEVEE，含 6 倍裁切） |
 | `art/previews/modelling-basics-c/qa/` | #69 回匯 QA：`qa-lod0.json`（嚴格）、`qa-lod0-loose.json`（審查容差）、`qa-contact.json`（散件接地），和 a7e1e99c 用同一支工具重跑的 `before-a7e1e99c-*.json` |
 | `art/previews/modelling-basics-c/qa-evidence/` | 各類散件接地近拍 `contact/` 和總表 `contact-sheet.jpg` |
 | `art/previews/modelling-basics-c/<項>/clay/` | 每一件的灰模正、側、斜三面和一張總表（BM01–BM10 都有） |
@@ -393,6 +400,8 @@ MSYS_NO_PATHCONV=1 "$B" -b --factory-startup -P art/source/modelling-basics-c/bu
 MSYS_NO_PATHCONV=1 "$B" -b --factory-startup -P art/source/modelling-basics-c/build_bm10.py   # BM10 第二版，同上
 BLENDER="$B" MSYS_NO_PATHCONV=1 sh art/source/modelling-basics-c/render_reviews.sh BM01 BM02 BM03 BM04 BM05 BM06 BM07 BM08 BM09 BM10 CONTACT CLAY
 BLENDER="$B" V1=<第一版 GLB 資料夾> MSYS_NO_PATHCONV=1 sh art/source/modelling-basics-c/render_reviews.sh V1   # 第一版和第二版並排，取檔方法寫在腳本 V1 段
+BLENDER="$B" V2MOSS=<苔蘚第二版資料夾> MSYS_NO_PATHCONV=1 sh art/source/modelling-basics-c/render_reviews.sh MOSS3   # 苔蘚第二版和第三版並排
+MSYS_NO_PATHCONV=1 "$B" -b --factory-startup -P art/source/modelling-basics-c/build_bm10.py -- --moss-steps   # 苔蘚第三版每一步的 3 × 3 圖
 UNITY=<Unity 6000.0.82f1> sh art/source/modelling-basics-c/unity/run_unity_check.sh
 MSYS_NO_PATHCONV=1 "$B" -b --factory-startup -P tools/art/qa_lod0_basic.py -- art/previews/modelling-basics-c/BM01/qa-lod0.json art/exports/modelling-basics-c/BM01_0{1,2,3}.glb
 Q=art/previews/modelling-basics-c/qa; L=$(ls art/exports/modelling-basics-c/BM*.glb | grep -v BM01)   # #69: BM02–BM10

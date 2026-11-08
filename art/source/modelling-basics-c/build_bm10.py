@@ -29,33 +29,77 @@ def outline(seed,lobes_h=None):
     def rim(th):return .41+.035*np.sin(3*th+ph[0])+.025*np.sin(5*th+ph[1])+.015*np.sin(8*th+ph[2])+.01*np.sin(13*th+ph[3])
     return rim
 
-def blobs(n,count,rmin,rmax,seed):
-    """toroidal field of soft round cushions (0..1)"""
-    rng=np.random.default_rng(seed);x,y=grid_xy(n);f=np.zeros((n,n),np.float32)
-    for _ in range(count):
-        cx,cy=rng.random(2);r=rng.uniform(rmin,rmax);dx=(x-cx+.5)%1-.5;dy=(y-cy+.5)%1-.5
-        f=np.maximum(f,np.clip(1-(dx*dx+dy*dy)/(r*r),0,1)**.7*rng.uniform(.6,1))
-    return f
+def blobs(n,sizes,seed,warp=0.,soft=False):
+    """toroidal field of cushions (0..1). sizes: [(count, rmin, rmax), ...].
+    warp > 0 (third version, step 1): the coordinates are pushed by low-frequency noise that repeats on all four sides
+    before the distance is taken, so a cushion comes out as an irregular clump, not a disc.
+    soft (step 2): cushions merge with a smooth union, 1 - prod(1 - f), and fall off with a smoothstep, instead of the
+    hard np.maximum of round caps the second version used."""
+    rng=np.random.default_rng(seed);x,y=grid_xy(n)
+    if warp:
+        # about nine bumps per tile: the same scale as a cushion, so each one is bent out of round (three bumps per tile
+        # only slid whole cushions sideways and they stayed discs)
+        x=x+(fk.noise(n,n,9,seed+101,2,wrap=True)-.5)*2*warp;y=y+(fk.noise(n,n,9,seed+102,2,wrap=True)-.5)*2*warp
+    f=np.zeros((n,n),np.float32);keep=np.ones((n,n),np.float32)
+    for count,rmin,rmax in sizes:
+        for _ in range(count):
+            cx,cy=rng.random(2);r=rng.uniform(rmin,rmax);dx=(x-cx+.5)%1-.5;dy=(y-cy+.5)%1-.5;w=rng.uniform(.6,1)
+            if soft:
+                t=np.clip(1-np.sqrt(dx*dx+dy*dy)/r,0,1);keep*=1-w*t*t*(3-2*t)
+            else:
+                f=np.maximum(f,np.clip(1-(dx*dx+dy*dy)/(r*r),0,1)**.7*w)
+    return 1-keep if soft else f
 
-def paint_moss(seed):
-    x,y=grid_xy();cush=blobs(R,70,.05,.13,seed)
+MOSS_MID=np.array([63,90,46])/255.   # the style spec's moss green #3F5A2E (third version centres the palette on it)
+
+def paint_moss(seed,step=3):
+    """step 0: the second version; 1: + warped coordinates; 2: + smooth union, far wider size spread, a multi-frequency
+    noise base; 3: + palette pulled in around #3F5A2E, few warm spore tips (the third version that ships)"""
+    x,y=grid_xy()
     fine=fk.noise(R,R,40,seed+1,3,wrap=True);mid=fk.noise(R,R,8,seed+2,3,wrap=True);big=fk.noise(R,R,3,seed+3,2,wrap=True)
     strand=fk.noise(R,R,160,seed+4,2,wrap=True)
-    h=np.clip(cush*.8+.25*mid-.1,0,1)*(.85+.15*fine)
-    top=np.array([.60,.66,.22]);side=np.array([.34,.47,.16]);deep=np.array([.15,.27,.18]);teal=np.array([.24,.40,.30])
-    col=deep+(side-deep)*fk.smooth(.05,.35,h)[...,None];col=col+(top-col)*fk.smooth(.45,.9,h)[...,None]
-    col=col*(1-.35*fk.smooth(.55,.85,big)[...,None])+teal*.35*fk.smooth(.55,.85,big)[...,None]   # cool patches in shade
-    col*=(.86+.24*strand)[...,None]*(.94+.12*fine)[...,None]
+    if step<2:
+        cush=blobs(R,[(70,.05,.13)],seed,warp=.04 if step>=1 else 0.)
+        h=np.clip(cush*.8+.25*mid-.1,0,1)*(.85+.15*fine)
+    else:   # a few big clumps, a middle size, very many small ones; the noise base carries part of the height
+        cush=blobs(R,[(6,.15,.24),(24,.07,.11),(160,.025,.06)],seed,warp=.04,soft=True)
+        base=fk.noise(R,R,7,seed+6,4,wrap=True)
+        h=np.clip(.62*cush+.38*base,0,1)*(.88+.12*fine)
+    if step<3:
+        top=np.array([.60,.66,.22]);side=np.array([.34,.47,.16]);deep=np.array([.15,.27,.18]);teal=np.array([.24,.40,.30])
+        col=deep+(side-deep)*fk.smooth(.05,.35,h)[...,None];col=col+(top-col)*fk.smooth(.45,.9,h)[...,None]
+        col=col*(1-.35*fk.smooth(.55,.85,big)[...,None])+teal*.35*fk.smooth(.55,.85,big)[...,None]
+        col*=(.86+.24*strand)[...,None]*(.94+.12*fine)[...,None];spores=420;spc=np.array([.62,.36,.16])
+    else:   # deep, side and top close together around #3F5A2E: the eye finds no bright motif to latch onto
+        # the colour follows the local relief only: the large-scale part of the height (a periodic Gaussian blur, so the
+        # tile still repeats seamlessly) moves the colour by a few percent at most, the shapes a tile repeats are lost
+        low=wrap_blur(h,48);detail=np.clip(.5+1.6*(h-low),0,1);c=np.clip(.82*detail+.18*low,0,1)
+        deep=MOSS_MID*np.array([.82,.85,.95]);top=MOSS_MID*np.array([1.18,1.15,1.04]);teal=MOSS_MID*np.array([.9,.96,1.1])
+        col=deep+(top-deep)*fk.smooth(.1,.9,c)[...,None]
+        col=col*(1-.12*fk.smooth(.5,.85,big)[...,None])+teal*.12*fk.smooth(.5,.85,big)[...,None]
+        hair=fk.noise(R,R,320,seed+7,2,wrap=True)   # a finer layer: the soft strands the references show, not felt
+        col*=(.84+.24*strand)[...,None]*(.90+.16*hair)[...,None]*(.96+.08*fine)[...,None];spores=40;spc=np.array([.46,.33,.17])
     rng=np.random.default_rng(seed+5)
-    for _ in range(420):   # sporophyte tips: tiny warm dots on the cushion tops
+    for _ in range(spores):   # sporophyte tips: tiny warm dots on the cushion tops
         cx,cy=rng.integers(R,size=2)
         if h[cy,cx]<.5:continue
         yy,xx=np.ogrid[-3:4,-3:4];m=(xx*xx+yy*yy)<=rng.integers(3,9)
-        col[(cy+yy)%R,(cx+xx)%R]=np.where(m[...,None],np.array([.62,.36,.16])*rng.uniform(.8,1.1),col[(cy+yy)%R,(cx+xx)%R])
+        col[(cy+yy)%R,(cx+xx)%R]=np.where(m[...,None],spc*rng.uniform(.8,1.1),col[(cy+yy)%R,(cx+xx)%R])
     rim=outline(seed+9);th=np.arctan2(y-.5,x-.5);rr=np.hypot(x-.5,y-.5)
     edge=rim(th)+.035*(h-.5)                            # a cushion near the rim pushes it out a little
     alpha=np.clip((np.minimum(edge,.49)-rr)*80,0,1)
     return col,alpha,h,np.clip(.55+.45*h,0,1),np.clip(.88-.1*h,0,1)
+
+def wrap_blur(a,sigma):
+    """Gaussian blur through the FFT: periodic, so a tileable map stays tileable"""
+    n=a.shape[0];f=np.fft.fftfreq(n);g=np.exp(-2*(math.pi*sigma)**2*(f[:,None]**2+f[None,:]**2))
+    return np.real(np.fft.ifft2(np.fft.fft2(a)*g)).astype(np.float32)
+
+def tile3(col,path):
+    """the colour repeated 3 x 3 (each tile at a quarter resolution): the seamless-repeat check"""
+    small=col[::4,::4];tile=np.tile(small,(3,3,1));im=bpy.data.images.new(Path(path).stem,tile.shape[1],tile.shape[0])
+    im.pixels.foreach_set(np.ascontiguousarray(np.dstack([tile,np.ones(tile.shape[:2])])[::-1],dtype=np.float32).ravel())
+    Path(path).parent.mkdir(parents=True,exist_ok=True);im.filepath_raw=str(path);im.file_format='PNG';im.save();bpy.data.images.remove(im)
 
 def leaf_mask(lx,ly,kind,size,rng):
     """one leaf in its own frame (petiole towards -y): returns coverage and vein mask"""
@@ -118,10 +162,7 @@ def paint_leaves(kind,seed):
 
 def textures(pid,kind,seed):
     col,alpha,h,ao,rough=paint_moss(seed) if kind=='moss' else paint_leaves(kind,seed)
-    PRE.mkdir(parents=True,exist_ok=True)
-    im=bpy.data.images.new(pid+'_tile',3*512,3*512);small=col[::4,::4]   # the colour repeated 3 x 3: the tile proof
-    tile=np.tile(small,(3,3,1));im.pixels.foreach_set(np.ascontiguousarray(np.dstack([tile,np.ones(tile.shape[:2])])[::-1],dtype=np.float32).ravel())
-    im.filepath_raw=str(PRE/f'{pid}-colour-3x3.png');im.file_format='PNG';im.save();bpy.data.images.remove(im)
+    tile3(col,PRE/f'{pid}-colour-3x3.png')   # the tile proof
     inner=float(np.mean(np.abs(col[1:]-col[:-1]))+np.mean(np.abs(col[:,1:]-col[:,:-1])))/2   # how much neighbouring pixels differ anyway
     across=float(np.mean(np.abs(col[0]-col[-1]))+np.mean(np.abs(col[:,0]-col[:,-1])))/2     # the same across the wrap-around edges
     seam=across/max(inner,1e-6)   # about 1: the edges join like any two neighbouring pixels
@@ -141,8 +182,8 @@ def patch(n,h,alpha,lift,base):
     return m
 
 def run(pid):
-    S=SPEC[pid];ref=fk.ROOT/'art/references/BM10/v2/prompt.txt'
-    assert '選用：' in ref.read_text(encoding='utf-8') and len(list(ref.parent.glob('*-cand-*.png')))>=12,'three-views first'
+    S=SPEC[pid];ref=fk.ROOT/('art/references/BM10/v3/prompt.txt' if pid=='BM10_01' else 'art/references/BM10/v2/prompt.txt')   # moss: third version (#81 review)
+    assert '選用：' in ref.read_text(encoding='utf-8') and len(list(ref.parent.glob('*-cand-*.png')))>=4,'three-views first'
     bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
     sc=bpy.context.scene;root=bpy.data.objects.new(pid+'_GroundOrigin',None);sc.collection.objects.link(root);root['minTier']='ultra'
     maps,h,alpha,seam=textures(pid,S['kind'],S['seed']);mat=fk.material(pid+'_Ground',maps,True)
@@ -155,13 +196,16 @@ def run(pid):
           'target_axis':'x','target_m':1.0,'minTier':'ultra','detailObjects':[],'detailMeshes':[],
           'groups':{'Ground':{'material':pid+'_Ground','texture_px':R,'triangles':[fk.tri_count(o) for o in obs],'maps':['alb','nrm','maskurp','orm']}},
           'triangles_total':[fk.tri_count(o) for o in obs],'triangles_without_detail':[fk.tri_count(o) for o in obs],
-          'reference':fk.rel(ref),'version':2,'tile_seam_ratio':round(seam,3),'tile_proof':fk.rel(PRE/f'{pid}-colour-3x3.png'),
+          'reference':fk.rel(ref),'version':3 if pid=='BM10_01' else 2,'tile_seam_ratio':round(seam,3),'tile_proof':fk.rel(PRE/f'{pid}-colour-3x3.png'),
           'origin':'patch centre, bottom z = 0','textures':{'Ground':{k:fk.rel(v) for k,v in maps.items()}},'collision':{},
-          'notes':{'build':'second version (#69 follow-up), build_bm10.py: colour painted on a torus (repeats on all four sides); alpha gives a rounded, lobed outline'+(', moss cushions lifted into the mesh up to 2.2 cm' if S['kind']=='moss' else ', whole leaves only, soil transparent'),
+          'notes':{'build':('third version (#81 review)' if S['kind']=='moss' else 'second version (#69 follow-up)')+', build_bm10.py: colour painted on a torus (repeats on all four sides); alpha gives a rounded, lobed outline'+(', moss: coordinates warped before the distance, cushions merged with a smooth union in three size classes, colour centred on #3F5A2E with the large-scale relief moving it by a few percent, cushions lifted into the mesh' if S['kind']=='moss' else ', whole leaves only, soil transparent'),
                    'detail':'the whole patch is ultra-tier dressing; no Detail_ parts','material':'alpha-cut (0.45), both faces; Albedo sRGB, Normal tangent +Y, ORM = AO / roughness / metal, MaskURP = metal / AO / 0 / smoothness'}}
     fk.export(pid,root,[obs[0]],obs);fk.merge_model_info(info);print('BM10_DONE',json.dumps({k:info[k] for k in ('id','dimensions_xyz_m','triangles_total','tile_seam_ratio')}));return info
 
 if __name__=='__main__':
     assert bpy.app.version[:3]==(4,5,3),'Blender 4.5.3'
     ids=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else list(SPEC)
-    for pid in ids:run(pid)
+    if '--moss-steps' in ids:   # third-version moss: the 3 x 3 repeat after every step, nothing else built
+        for st in range(4):tile3(paint_moss(SPEC['BM10_01']['seed'],st)[0],PRE/'moss-steps'/f'BM10_01-step{st}-3x3.png');print('MOSS_STEP',st)
+    else:
+        for pid in ids:run(pid)

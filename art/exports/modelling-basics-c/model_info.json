@@ -2542,12 +2542,12 @@
   "dimensions_xyz_m": [
    1.0,
    1.0,
-   0.020933
+   0.023065
   ],
   "body_dimensions_xyz_m": [
    1.0,
    1.0,
-   0.020933
+   0.023065
   ],
   "target_axis": "x",
   "target_m": 1.0,
@@ -2581,9 +2581,9 @@
    1152,
    200
   ],
-  "reference": "art/references/BM10/v2/prompt.txt",
-  "version": 2,
-  "tile_seam_ratio": 0.182,
+  "reference": "art/references/BM10/v3/prompt.txt",
+  "version": 3,
+  "tile_seam_ratio": 0.149,
   "tile_proof": "art/previews/modelling-basics-c/BM10/tiling/BM10_01-colour-3x3.png",
   "origin": "patch centre, bottom z = 0",
   "textures": {
@@ -2596,7 +2596,7 @@
   },
   "collision": {},
   "notes": {
-   "build": "second version (#69 follow-up), build_bm10.py: colour painted on a torus (repeats on all four sides); alpha gives a rounded, lobed outline, moss cushions lifted into the mesh up to 2.2 cm",
+   "build": "third version (#81 review), build_bm10.py: colour painted on a torus (repeats on all four sides); alpha gives a rounded, lobed outline, moss: coordinates warped before the distance, cushions merged with a smooth union in three size classes, colour centred on #3F5A2E with the large-scale relief moving it by a few percent, cushions lifted into the mesh",
    "detail": "the whole patch is ultra-tier dressing; no Detail_ parts",
    "material": "alpha-cut (0.45), both faces; Albedo sRGB, Normal tangent +Y, ORM = AO / roughness / metal, MaskURP = metal / AO / 0 / smoothness"
   }
