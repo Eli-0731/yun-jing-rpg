@@ -1,0 +1,160 @@
+{
+ "style52": "Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.",
+ "negative53": "photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye",
+ "layout_single": "Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.",
+ "layout_building": "Layout: one three-quarter view from slightly above at eye height of a person, plus front, side and back orthographic views on the same sheet at the same scale, plain light warm-grey background, even soft lighting, building only (no landscape around it except a small ground patch).",
+ "items": {
+  "MC01-SB01": {
+   "object": "Three-view orthographic turnaround sheet of a straight modular cut-stone foundation bay with one broad flat wall face, about 4 m wide, 4 m deep and 2 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-SB02": {
+   "object": "Three-view orthographic turnaround sheet of a straight modular cut-stone foundation bay with staggered block joints and a shallow drainage notch, about 4 m wide, 4 m deep and 2 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-SB03": {
+   "object": "Three-view orthographic turnaround sheet of a ninety-degree corner foundation bay that turns a cliff-hugging street, about 4 m wide, 4 m deep and 2 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-SB04": {
+   "object": "Three-view orthographic turnaround sheet of a foundation stair bay with safe walkable stone treads, about 4 m wide, 4 m deep and 2 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-SF01": {
+   "object": "Three-view orthographic turnaround sheet of an open timber shopfront bay with three-metre projecting front veranda and wide entrance, about 4 m wide, 4 m deep and 3 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-SF02": {
+   "object": "Three-view orthographic turnaround sheet of an open timber shopfront bay with side lattice and a three-metre projecting front veranda, about 4 m wide, 4 m deep and 3 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-SF03": {
+   "object": "Three-view orthographic turnaround sheet of a corner shopfront bay with two open faces and a three-metre projecting front veranda, about 4 m wide, 4 m deep and 3 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-HM01": {
+   "object": "Three-view orthographic turnaround sheet of a plaster-walled upper home bay with two narrow paper-lattice windows, about 4 m wide, 4 m deep and 3 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-HM02": {
+   "object": "Three-view orthographic turnaround sheet of a plaster-walled upper home bay with one narrow recessed window and exposed timber braces, about 4 m wide, 4 m deep and 3 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-HM03": {
+   "object": "Three-view orthographic turnaround sheet of a corner upper home bay with one small window on each visible side, about 4 m wide, 4 m deep and 3 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-RF01": {
+   "object": "Three-view orthographic turnaround sheet of a modular blue-grey tiled hip-and-gable roof bay, about 4 m wide and 4 m deep, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-RF02": {
+   "object": "Three-view orthographic turnaround sheet of a modular blue-grey tiled flush-gable roof bay, about 4 m wide and 4 m deep, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-RF03": {
+   "object": "Three-view orthographic turnaround sheet of a modular blue-grey tiled roof-corner end with gently lifted eave, about 4 m wide and 4 m deep, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-RF04": {
+   "object": "Three-view orthographic turnaround sheet of a modular roof junction bay for a tiered cliff street with visibly fitted ridge tiles, about 4 m wide and 4 m deep, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-CP01": {
+   "object": "Three-view orthographic turnaround sheet of a timber cantilever platform with exposed diagonal braces, stone anchors and a safe railing, about 4 m wide and 3 m deep, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-CP02": {
+   "object": "Three-view orthographic turnaround sheet of a corner timber cantilever platform with asymmetrical diagonal braces and a safe railing, about 4 m wide and 3 m deep, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "building"
+  },
+  "MC01-DT01": {
+   "object": "Three-view orthographic turnaround sheet of a stone-base bronze-frame street lantern with a blank paper panel, about 0.6 m wide and 2.5 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "single"
+  },
+  "MC01-DT02": {
+   "object": "Three-view orthographic turnaround sheet of a blank cloth shop pennant on a timber arm, about 1.0 m wide and 1.8 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "single"
+  },
+  "MC01-DT03": {
+   "object": "Three-view orthographic turnaround sheet of a small bronze-frame hanging lantern without writing, about 0.4 m wide and 0.7 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "single"
+  },
+  "MC01-DT04": {
+   "object": "Three-view orthographic turnaround sheet of a worn bamboo drying pole on two timber brackets, about 2.5 m wide and 1.3 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "single"
+  },
+  "MC01-DT05": {
+   "object": "Three-view orthographic turnaround sheet of a narrow stone step-edge cap with rounded walking wear, about 4 m wide and 0.2 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "single"
+  },
+  "MC01-DT06": {
+   "object": "Three-view orthographic turnaround sheet of a timber and bronze veranda corner brace with visible joinery, about 0.7 m wide and 0.9 m tall, made of warm-grey granite, aged dark-brown cedar, blue-grey clay tiles where present, dark bronze joints, showing hand-worn walking edges, rain streaks, repaired timber joints, moss only in shaded stone seams, used in a steep mountain city street in an Eastern xianxia valley.",
+   "layout": "single"
+  },
+  "TX04-GATE": {
+   "object": "Three-view orthographic turnaround sheet of a six-metre academy gatehouse with an empty plaque socket and red-lacquer doors, about 6 m wide, 3 m deep and 6 m tall, made of pale warm-grey stone, aged dark cedar, blue-grey clay tiles and restrained dark red lacquer, showing rain streaks, hand-worn steps, repaired eave tiles and a little moss on the north side, used in the exterior of a solemn academy courtyard in a mountain city.",
+   "layout": "building"
+  },
+  "TX04-WALL-ST": {
+   "object": "Three-view orthographic turnaround sheet of a straight academy courtyard wall segment with pale plaster above cut-stone footing and tiled coping, about 4 m long and 2.5 m tall, made of pale warm-grey stone, aged dark cedar, blue-grey clay tiles and restrained dark red lacquer, showing rain streaks, hand-worn steps, repaired eave tiles and a little moss on the north side, used in the exterior of a solemn academy courtyard in a mountain city.",
+   "layout": "building"
+  },
+  "TX04-WALL-CO": {
+   "object": "Three-view orthographic turnaround sheet of a ninety-degree corner academy wall segment with continuous tiled coping, about 4 m by 4 m and 2.5 m tall, made of pale warm-grey stone, aged dark cedar, blue-grey clay tiles and restrained dark red lacquer, showing rain streaks, hand-worn steps, repaired eave tiles and a little moss on the north side, used in the exterior of a solemn academy courtyard in a mountain city.",
+   "layout": "building"
+  },
+  "TX04-WALL-DO": {
+   "object": "Three-view orthographic turnaround sheet of a doorway-edge academy wall segment with fitted timber jamb, about 4 m long and 2.5 m tall, made of pale warm-grey stone, aged dark cedar, blue-grey clay tiles and restrained dark red lacquer, showing rain streaks, hand-worn steps, repaired eave tiles and a little moss on the north side, used in the exterior of a solemn academy courtyard in a mountain city.",
+   "layout": "building"
+  },
+  "TX04-HALL": {
+   "object": "Three-view orthographic turnaround sheet of a solemn academy main hall exterior with deep roof eaves and blank entrance panel, about 14 m wide, 10 m deep and 8 m tall, made of pale warm-grey stone, aged dark cedar, blue-grey clay tiles and restrained dark red lacquer, showing rain streaks, hand-worn steps, repaired eave tiles and a little moss on the north side, used in the exterior of a solemn academy courtyard in a mountain city.",
+   "layout": "building"
+  },
+  "TX04-SIDE": {
+   "object": "Three-view orthographic turnaround sheet of a modest academy side wing exterior with narrow paper windows, about 8 m wide, 5 m deep and 5 m tall, made of pale warm-grey stone, aged dark cedar, blue-grey clay tiles and restrained dark red lacquer, showing rain streaks, hand-worn steps, repaired eave tiles and a little moss on the north side, used in the exterior of a solemn academy courtyard in a mountain city.",
+   "layout": "building"
+  },
+  "TX04-PAVE": {
+   "object": "Three-view orthographic turnaround sheet of a modular four-metre academy courtyard paving bay of fitted warm-grey slabs, about 4 m by 4 m, made of pale warm-grey stone, aged dark cedar, blue-grey clay tiles and restrained dark red lacquer, showing rain streaks, hand-worn steps, repaired eave tiles and a little moss on the north side, used in the exterior of a solemn academy courtyard in a mountain city.",
+   "layout": "building"
+  },
+  "TX04-STEPS": {
+   "object": "Three-view orthographic turnaround sheet of a modular academy stone stair with worn shallow treads, about 4 m wide and 2 m deep, made of pale warm-grey stone, aged dark cedar, blue-grey clay tiles and restrained dark red lacquer, showing rain streaks, hand-worn steps, repaired eave tiles and a little moss on the north side, used in the exterior of a solemn academy courtyard in a mountain city.",
+   "layout": "building"
+  },
+  "MC02-24M": {
+   "object": "Three-view and three-quarter concept of a walkable suspension bridge connecting two cliff boardwalk landings in a mountain city, span 24 m, deck 1.6 m wide and sag 1.5 m, made of fitted warm-grey stone bridgeheads, dark iron chains, weathered cedar planks and hemp lashings, with missing decorative planks outside the continuous safe walking surface, rain wear on the deck and moss in the stone seams; water: none.",
+   "layout": "building"
+  },
+  "MC02-12M": {
+   "object": "Three-view and three-quarter concept of a walkable suspension bridge connecting two cliff boardwalk landings in a mountain city, span 12 m, deck 1.6 m wide and sag 1.5 m, made of fitted warm-grey stone bridgeheads, dark iron chains, weathered cedar planks and hemp lashings, with missing decorative planks outside the continuous safe walking surface, rain wear on the deck and moss in the stone seams; water: none.",
+   "layout": "building"
+  },
+  "SF01": {
+   "object": "Three-view orthographic turnaround sheet of a square carved stone lantern post for a vertical mountain city street, with a small stone pavilion-shaped lamp housing on top and cloud-scroll carving on the shaft, about 0.6 m wide and 2.4 m tall, made of dressed blue-grey granite with a warm glowing lamp inside, showing worn edges, soot above the lamp opening, lichen near the base and a chipped corner, more refined and regular than a village roadside lamp.",
+   "layout": "single"
+  },
+  "SF02": {
+   "object": "Three-view orthographic turnaround sheet of a string of five round paper lanterns hanging from a hemp rope stretched across a narrow street, with iron hooks at both ends, about 8 m long and 1.2 m tall, made of warm-red and cream oiled paper over bamboo frames, hemp rope and dark iron, showing slightly sagging rope, faded paper on two lanterns and soot at the lantern tops.",
+   "layout": "single"
+  },
+  "SF03": {
+   "object": "Three-view orthographic turnaround sheet of a modular carved stone drainage channel set for a mountain city street: one straight 4 m section, one corner and one stepped cascade section that drops beside stairs, about 0.5 m wide and 0.3 m deep, made of blue-grey granite with a darker wet bottom, showing algae in the wet channel, worn rims and small weeds in the joints.",
+   "layout": "single"
+  },
+  "SF04": {
+   "object": "Three-view orthographic turnaround sheet of a long stone street bench made of one thick polished stone slab resting on two carved stone blocks, about 1.8 m long, 0.5 m deep and 0.5 m tall, made of warm-grey granite, showing a seat surface polished by years of sitting, chipped front edge and moss at the feet, more formal than a rustic roadside bench.",
+   "layout": "single"
+  },
+  "SF05": {
+   "object": "Three-view orthographic turnaround sheet of three long blank cloth shop banners hanging from short wooden poles, one indigo blue, one ochre red and one stone grey, each about 0.6 m wide and 1.8 m long, made of coarse dyed cotton with tasselled lower edges and a wooden rod at the top, showing faded sun-bleached upper parts, frayed tassels and gentle folds, no writing or symbols on the cloth.",
+   "layout": "single"
+  },
+  "SF06": {
+   "object": "Three-view orthographic turnaround sheet of a modular cliff-edge railing set for overhanging platforms in a vertical mountain city: one straight 2 m section with timber rails between square stone posts, one corner post and one end post, about 2 m long and 1.1 m high, made of dark old cedar and blue-grey granite, showing hand-polished top rails, weathered wood, iron brackets and lichen on the stone posts.",
+   "layout": "single"
+  }
+ }
+}
