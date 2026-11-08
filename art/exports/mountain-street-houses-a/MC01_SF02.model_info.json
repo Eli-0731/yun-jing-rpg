@@ -20,19 +20,19 @@
  "lods": [
   {
    "lod": 0,
-   "triangles": 44116,
+   "triangles": 43634,
    "objects": 4,
    "materials": 2
   },
   {
    "lod": 1,
-   "triangles": 16278,
+   "triangles": 16680,
    "objects": 4,
    "materials": 2
   },
   {
    "lod": 2,
-   "triangles": 4912,
+   "triangles": 4998,
    "objects": 4,
    "materials": 2
   }

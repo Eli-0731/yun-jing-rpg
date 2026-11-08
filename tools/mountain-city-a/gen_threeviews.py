@@ -5,6 +5,8 @@ because the tool has no negative field. Four images per item; all are kept in ar
 Adapted from tools/world-props-a/gen_threeviews.py (11/03 package A).
 
     python tools/mountain-city-a/gen_threeviews.py MC01-SB01 MC01-SF01 ...
+    python tools/mountain-city-a/gen_threeviews.py --prompts prompts_v2.json --sub v2 MC01-SF01 ...   (a new round in <ID>/v2/,
+        older candidates and picks stay untouched; per-item 'negative_extra' is appended after 5.3)
 """
 import json, shutil, subprocess, sys, time
 from pathlib import Path
@@ -12,19 +14,25 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 GEN = Path.home() / '.codex' / 'generated_images'
-data = json.loads((HERE / 'prompts.json').read_text(encoding='utf-8'))
-only = sys.argv[1:]
+args = sys.argv[1:]
+def opt(k, d=None):
+    if k in args: i = args.index(k); v = args[i + 1]; del args[i:i + 2]; return v
+    return d
+PROMPTS = opt('--prompts', 'prompts.json'); SUB = opt('--sub', '')
+data = json.loads((HERE / PROMPTS).read_text(encoding='utf-8'))
+only = args
 
 for item, body in data['items'].items():
     if only and item not in only:
         continue
-    out = REPO / 'art' / 'references' / item
+    out = REPO / 'art' / 'references' / item / SUB if SUB else REPO / 'art' / 'references' / item
     if out.exists() and len(list(out.glob('*_option*.png'))) >= 4:
         print(item, 'already has images, skipped', flush=True)
         continue
     out.mkdir(parents=True, exist_ok=True)
     layout = data['layout_' + body['layout']]
-    prompt = f"{body['object']} {layout} {data['style52']} Avoid: {data['negative53']}"
+    neg = data['negative53'] + (', ' + body['negative_extra'] if body.get('negative_extra') else '')
+    prompt = f"{body['object']} {layout} {data['style52']} Avoid: {neg}"
     aspect = 'landscape 3:2 (at least 1536 px wide)'
     (out / 'prompt.txt').write_text(
         f"Tool: Codex CLI image generation (no negative-prompt field, so 5.3 is appended after 'Avoid:').\n"

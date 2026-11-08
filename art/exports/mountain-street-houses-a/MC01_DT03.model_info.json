@@ -5,9 +5,9 @@
  "version": "v001",
  "status": "Exported; Imported/Visually Verified/In-game Verified: 未驗",
  "dimensions_m": [
-  0.404,
-  0.403,
-  0.697
+  0.284,
+  0.246,
+  0.681
  ],
  "limit_m": [
   0.4,
@@ -20,19 +20,19 @@
  "lods": [
   {
    "lod": 0,
-   "triangles": 2808,
+   "triangles": 1192,
    "objects": 2,
    "materials": 2
   },
   {
    "lod": 1,
-   "triangles": 1264,
+   "triangles": 520,
    "objects": 2,
    "materials": 2
   },
   {
    "lod": 2,
-   "triangles": 384,
+   "triangles": 160,
    "objects": 2,
    "materials": 2
   }

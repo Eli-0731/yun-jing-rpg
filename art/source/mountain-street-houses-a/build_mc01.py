@@ -89,6 +89,18 @@ def sources():
     a, h, s_, r_, m_, g_ = S['plaster']
     S['plaster'] = (a * (.86 + .1 * tone[..., None]) * (1 - .26 * pr_[..., None]) * (1 - .3 * pd_[..., None]) + pd_[..., None] * np.array([.02, .02, .0]),
                     h + .3 * pr_ + .2 * pd_, s_, r_, m_, g_)
+    # v003 (third review on PR #80): darker, less saturated cedar inside #3B2C22-#5A4636 so B district reads apart from the warm
+    # Qingxi wood; grain from long colour streaks and a few deep cracks instead of fine speckle; normals halved, plaster normal 0.5
+    streak = fbm(3, 3, aniso=1 / 10); deep = np.clip((fbm(10, 2, aniso=1 / 16) - .80) * 8, 0, 1)
+    tw = np.clip(.5 + .6 * (streak - .5) * 2 + .1 * (soft - .5), 0, 1); seam = ((Y * 4) % 1 < .03).astype(float)
+    S['plank'] = (lerp((.215, .160, .125), (.355, .275, .210), tw) * (1 - .45 * seam)[..., None] * (1 - .45 * deep[..., None]),
+                  .5 * streak + 1.0 * seam + .6 * deep, 1.3, .82, 0, 0)
+    S['beam'] = (lerp((.185, .140, .110), (.320, .250, .190), tw) * (1 - .45 * deep[..., None]), .5 * streak + .6 * deep, 1.2, .78, 0, 0)
+    S['oldwood'] = (lerp((.250, .220, .190), (.420, .380, .330), tw) * (1 - .4 * deep[..., None]), .6 * streak + .7 * deep, 1.4, .86, 0, 0)
+    a, h, s_, r_, m_, g_ = S['plaster']; S['plaster'] = (a * .65 + a.mean((0, 1)) * .35, h * .6, .5, r_, m_, g_)   # calmer wall: a third less colour noise
+    a, h, s_, r_, m_, g_ = S['bronze']
+    vg = np.clip((fbm(9, 3) - .55) * 3, 0, 1)
+    S['bronze'] = (a * .74 * (1 - .4 * vg[..., None]) + vg[..., None] * np.array([.05, .12, .10]), h, s_, r_, m_, g_)
     mc = np.clip(fbm(9, 3) * 1.2 - .1, 0, 1)
     S['moss'] = (lerp((.07, .11, .03), (.22, .30, .09), mc), fbm(30, 2) + .5 * mc, 2.4, .95, 0, 0)
     return S
@@ -468,6 +480,40 @@ def moss_tuft(name, rg):
         v = [bm.verts.new(b - s), bm.verts.new(b + s), bm.verts.new(b + d * L)]; bm.faces.new(v)
     return finish(name, bm, 'granite_moss', 'Detail_Moss')
 
+def hex_lantern(name, x, y, ztop, R, H, grp, glow_grp, drop=.12, ring=False, cord=True, tassel=True):
+    """small hexagonal dark-bronze lantern (DT03 design, also used under the SF lintels): cord or ring, a six-sided bronze cap with
+    upturned corners, bronze top and bottom plates, six corner bars and six thin mid bars around blank paper (Glow), a bronze
+    drop and a short dark cord tassel. Returns the z of the tassel tip."""
+    z1 = ztop - drop; zc0 = z1 - .05 * R / .085; zt = zc0 - .006; zb = zt - H
+    if ring:
+        pts = [(x + math.cos(a) * R * .38, y, ztop - R * .3 + math.sin(a) * R * .28) for a in np.linspace(-math.pi / 2, 3 * math.pi / 2, 17)]
+        tube(f'{name}_ring', pts, .006, 'bronze', grp, sides=6, caps=False)
+        lathe(f'{name}_stem', [(.004, z1 - .002), (.016, z1), (.012, ztop - R * .58), (.004, ztop - R * .56)], 'bronze', grp, seg=8, center=(x, y, 0))
+    elif cord:
+        tube(f'{name}_cord', [(x, y, ztop + .005), (x, y, z1 - .01)], .005, 'bronze', grp, sides=5)
+    bm = bmesh.new(); apex = bm.verts.new((x, y, z1 + .004)); bot = bm.verts.new((x, y, zc0 - .004)); ring_ = []
+    for k in range(12):
+        a = math.tau * k / 12; corner = k % 2 == 0; r = R * (1.42 if corner else 1.2); zz = zc0 + (.022 if corner else 0) * R / .085
+        ring_.append(bm.verts.new((x + r * math.cos(a), y + r * math.sin(a), zz)))
+    for k in range(12):
+        bm.faces.new((apex, ring_[k], ring_[(k + 1) % 12])); bm.faces.new((bot, ring_[(k + 1) % 12], ring_[k]))
+    finish(f'{name}_cap', bm, 'bronze', grp)
+    for nm_, z_ in (('top', zt), ('bot', zb - .012)):
+        lathe(f'{name}_{nm_}', [(.004, z_), (R * 1.1, z_), (R * 1.1, z_ + .014), (.004, z_ + .014)], 'bronze', grp, seg=6, center=(x, y, 0))
+    lathe(f'Glow_{name[len("Detail_"):] if name.startswith("Detail_") else name}_paper', [(.004, zb + .001), (R * .97, zb + .001), (R * .97, zt + .001), (.004, zt + .001)],
+          'paper', glow_grp, seg=6, center=(x, y, 0), glow=True)
+    for k in range(6):
+        a = math.tau * k / 6
+        o = box(f'{name}_bar{k}', (.014, .014, H + .008), (R * 1.02, 0, (zb + zt) / 2), 'bronze', grp, bev=.002, axis=(0, 0, 1))
+        rotz(o, a); o.data.transform(Matrix.Translation((x, y, 0)))
+        o = box(f'{name}_mid{k}', (.006, .007, H - .004), (R * .97 * math.cos(math.pi / 6) + .0045, 0, (zb + zt) / 2), 'bronze', grp, bev=0, axis=(0, 0, 1))
+        rotz(o, a + math.pi / 6); o.data.transform(Matrix.Translation((x, y, 0)))
+    lathe(f'{name}_drop', [(.004, zb - .012), (R * .5, zb - .013), (R * .2, zb - .045 * R / .085), (.004, zb - .05 * R / .085)], 'bronze', grp, seg=6, center=(x, y, 0))
+    zd = zb - .05 * R / .085; zt_ = zd - .13 * R / .085
+    if not tassel: return zd
+    tube(f'{name}_tassel', [(x, y, zd + .004), (x, y, zt_)], .01, 'dark', grp, sides=6, radii=[.004, .011 * R / .085])
+    return zt_
+
 # ------------------------------------------------------------------ SF01 open shopfront bay
 def SF(mid, seed, lattice=False, corner=False, counter=-1, mid_sets=True):
     """v002 (review on PR #80) 4 x 4 x 3 m: front 3 m open veranda (stall space), rear 1 m closed plank room with a dark doorway.
@@ -662,51 +708,53 @@ def SF(mid, seed, lattice=False, corner=False, counter=-1, mid_sets=True):
     for e, xe in (('a', cx0 - .0125 + .002), ('b', cx1 + .0125 - .002)):   # end panels: the dark core never shows
         box(f'{mid}_counter_end{e}', (.025, cd - .06 + .02, ch - .05), (xe, cy - .01, .045 + (ch - .05) / 2), 'plank', 'Main', bev=.004, axis=(0, 0, 1))
     box(f'{mid}_counter_kick', (cx1 - cx0, .05, .07), ((cx0 + cx1) / 2, cy - (cd - .06) / 2 - .03, .08), 'beam', 'Main', bev=.006, axis=(1, 0, 0))
-    # blank indigo noren on a rod between the front posts (Detail_Cloth); three panels, gentle wave, no writing
-    rod_z = zl0 - .05
-    tube('Detail_Cloth_rod', [(-1.25, front_y - .02, rod_z), (1.25, front_y - .02, rod_z)], .018, 'beam', 'Detail_Cloth', sides=8)
-    for k, x0 in enumerate((-1.2, -.38, .44)):
-        bm = bmesh.new(); W, Hc, nx, nz = .76, .62, 10, 8; vs = []
-        for j in range(nz + 1):
+    # v003 (third review): Chinese mountain-town dressing instead of a split noren and round paper lanterns: one unbroken short
+    # indigo valance under the front lintel, a tall swallow-tailed banner on a timber arm inside the front-left post, and small
+    # hexagonal dark-bronze lanterns (the DT03 design) hanging inside the posts. Cloth and lanterns stay in Detail_* / Glow.
+    rod_z = zl0 - .04
+    def valance(tag, xa, xb):
+        tube(f'Detail_Cloth_rod{tag}', [(xa - .04, front_y - .02, rod_z), (xb + .04, front_y - .02, rod_z)], .016, 'beam', 'Detail_Cloth', sides=8)
+        for xx in (xa - .02, xb + .02):
+            tube(f'Detail_Cloth_hook{tag}{xx:+.2f}', [(xx, front_y - .02, rod_z), (xx, front_y - .02, zl0 + .01)], .006, 'bronze', 'Detail_Cloth', sides=5)
+        bm = bmesh.new(); Hc, nx, nz = .34, 24, 5; vs = []
+        for jj in range(nz + 1):
             row = []
-            for i in range(nx + 1):
-                u = i / nx; v = j / nz; yy = front_y - .03 + .025 * math.sin(u * math.pi * 3 + k) * v
-                row.append(bm.verts.new((x0 + u * W, yy, rod_z - v * Hc)))
+            for ii in range(nx + 1):
+                u = ii / nx; v = jj / nz; yy = front_y - .035 + .012 * math.sin(u * math.pi * 7) * v
+                row.append(bm.verts.new((xa + u * (xb - xa), yy, rod_z - v * Hc + .015 * math.sin(u * math.pi) * v)))
             vs.append(row)
-        for j in range(nz):
-            for i in range(nx): bm.faces.new((vs[j][i], vs[j][i + 1], vs[j + 1][i + 1], vs[j + 1][i]))
-        o = finish(f'Detail_Cloth_{k}', bm, 'cloth', 'Detail_Cloth', axis=(1, 0, 0))
-        m = o.modifiers.new('t', 'SOLIDIFY'); m.thickness = .006; apply(o, m); reuv(o, 'cloth', (1, 0, 0))
-    def noren(xs0, tag, rod=(-1.25, 1.25)):
-        tube(f'Detail_Cloth_rod{tag}', [(rod[0], front_y - .02, rod_z), (rod[1], front_y - .02, rod_z)], .018, 'beam', 'Detail_Cloth', sides=8)
-        for k, x0 in enumerate(xs0):
-            bm = bmesh.new(); W, Hc, nx, nz = .76, .62, 10, 8; vs = []
-            for j in range(nz + 1):
-                row = []
-                for i in range(nx + 1):
-                    u = i / nx; v = j / nz; yy = front_y - .03 + .025 * math.sin(u * math.pi * 3 + k) * v
-                    row.append(bm.verts.new((x0 + u * W, yy, rod_z - v * Hc)))
-                vs.append(row)
-            for j in range(nz):
-                for i in range(nx): bm.faces.new((vs[j][i], vs[j][i + 1], vs[j + 1][i + 1], vs[j + 1][i]))
-            o = finish(f'Detail_Cloth{tag}_{k}', bm, 'cloth', 'Detail_Cloth', axis=(1, 0, 0))
-            m = o.modifiers.new('t', 'SOLIDIFY'); m.thickness = .006; apply(o, m); reuv(o, 'cloth', (1, 0, 0))
-    if corner: turned(lambda: noren((-1.45, -.66), 'R', rod=(-1.5, .14)))
-    lantern_x = [-px + .38, px - .38]
-    def lantern(x):
-        y = front_y + .02; ztop = zl0 - .05
-        tube(f'Detail_Lanterns_cord{x:+.1f}', [(x, y, zl0), (x, y, ztop - .02)], .006, 'bronze', 'Detail_Lanterns', sides=5)
-        lathe(f'Detail_Lanterns_capT{x:+.1f}', [(.05, ztop - .02), (.075, ztop - .05), (.075, ztop - .07), (.05, ztop - .075)], 'bronze', 'Detail_Lanterns', seg=16, center=(x, y, 0))
-        prof = [(.06 + .12 * math.sin(math.pi * t) ** .8, ztop - .07 - .38 * t) for t in np.linspace(0, 1, 11)]
-        lathe(f'Glow_lantern{x:+.1f}', prof, 'paper', 'Glow', seg=24, center=(x, y, 0), glow=True)
-        for r in range(8):
-            a = math.tau * r / 8; pts = [(x + (p[0] + .004) * math.cos(a), y + (p[0] + .004) * math.sin(a), p[1]) for p in prof]
-            tube(f'Detail_Lanterns_rib{x:+.1f}_{r}', pts, .004, 'beam', 'Detail_Lanterns', sides=4, caps=False)
-        zb_ = ztop - .45
-        lathe(f'Detail_Lanterns_capB{x:+.1f}', [(.05, zb_ + .005), (.07, zb_), (.07, zb_ - .02), (.04, zb_ - .03)], 'bronze', 'Detail_Lanterns', seg=16, center=(x, y, 0))
-        tube(f'Detail_Lanterns_tassel{x:+.1f}', [(x, y, zb_ - .03), (x, y, zb_ - .22)], .012, 'cloth', 'Detail_Lanterns', sides=6, radii=[.008, .014])
-    for x in lantern_x: lantern(x)
-    if corner: turned(lambda: lantern(.55))
+        for jj in range(nz):
+            for ii in range(nx): bm.faces.new((vs[jj][ii], vs[jj][ii + 1], vs[jj + 1][ii + 1], vs[jj + 1][ii]))
+        o = finish(f'Detail_Cloth_valance{tag}', bm, 'cloth', 'Detail_Cloth', axis=(1, 0, 0))
+        m = o.modifiers.new('t', 'SOLIDIFY'); m.thickness = .008; apply(o, m); reuv(o, 'cloth', (1, 0, 0))
+        hem = tube(f'Detail_Cloth_hem{tag}', [(xa + u_ * (xb - xa), front_y - .035, rod_z - Hc + .015 * math.sin(u_ * math.pi)) for u_ in np.linspace(0, 1, 13)], .007, 'cloth', 'Detail_Cloth', sides=5)
+    def banner(tag, xpost):
+        za = zl0 - .02; x0 = xpost + .13; W = .40
+        beam(f'Detail_Cloth_arm{tag}', (xpost + .08, front_y, za), (x0 + W + .06, front_y, za), .06, .08, 'beam', 'Detail_Cloth', bev=.008)
+        beam(f'Detail_Cloth_knee{tag}', (xpost + .1, front_y, za - .32), (xpost + .34, front_y, za - .03), .045, .045, 'beam', 'Detail_Cloth', bev=.006)
+        tube(f'Detail_Cloth_brod{tag}', [(x0 - .03, front_y, za - .1), (x0 + W + .03, front_y, za - .1)], .011, 'beam', 'Detail_Cloth', sides=8)
+        for xx in (x0, x0 + W):
+            tube(f'Detail_Cloth_bcord{tag}{xx:+.2f}', [(xx, front_y, za - .1), (xx, front_y, za - .035)], .005, 'cloth', 'Detail_Cloth', sides=5)
+        bm = bmesh.new(); nx, nz = 8, 16; ztop = za - .112; zbot = .95; vs = []
+        for jj in range(nz + 1):
+            row = []
+            for ii in range(nx + 1):
+                u = ii / nx; v = jj / nz; tail = .18 * (1 - abs(u - .5) * 2)
+                z = ztop - v * (ztop - zbot - tail * v ** 3); yy = front_y + .015 * math.sin(u * math.pi * 2 + v * 2) * v
+                row.append(bm.verts.new((x0 + u * W, yy, z)))
+            vs.append(row)
+        for jj in range(nz):
+            for ii in range(nx): bm.faces.new((vs[jj][ii], vs[jj][ii + 1], vs[jj + 1][ii + 1], vs[jj + 1][ii]))
+        o = finish(f'Detail_Cloth_banner{tag}', bm, 'cloth', 'Detail_Cloth', axis=(0, 0, 1))
+        m = o.modifiers.new('t', 'SOLIDIFY'); m.thickness = .006; apply(o, m); reuv(o, 'cloth', (0, 0, 1))
+        for uu in (.03, .97):
+            xx = x0 + uu * W; yy = front_y + .015 * math.sin(uu * math.pi * 2 + 2)
+            tube(f'Detail_Cloth_btassel{tag}{uu}', [(xx, yy, zbot + .012), (xx, yy, zbot - .16)], .01, 'cloth', 'Detail_Cloth', sides=6, radii=[.005, .013])
+    def lanterns(tag, xs):
+        for x in xs:
+            hex_lantern(f'Detail_Lanterns{tag}{x:+.1f}', x, front_y + .02, zl0, .085, .24, 'Detail_Lanterns', 'Glow', drop=.16)
+    valance('', -.82, 1.22); banner('', -px); lanterns('', (-1.02, px - .36))
+    if corner: turned(lambda: (valance('R', -1.0, .62), lanterns('R', (.82,))))
     cols = [('box', (x, y, 1.5), (.3, .3, 3)) for x, y in posts]
     cols += [('box', (0, back_y + .07, 1.4), (2 * px, .12, 2.8)), ('box', (-px, (enc_y + back_y) / 2, 1.4), (.12, back_y - enc_y, 2.8)),
              ('box', (px, (enc_y + back_y) / 2, 1.4), (.12, back_y - enc_y, 2.8)), ('box', (-1.3, enc_y + .07, 1.4), (1.0, .12, 2.8)),
@@ -770,27 +818,31 @@ def HM(mid, seed, windows, braces=False, right_windows=()):
             for sx in (-1, 1): beam(f'{mid}_wstud{side}{k}{sx}', (c + sx * (w / 2 + .03), -px, lo), (c + sx * (w / 2 + .03), -px, zl0), .12, .06, 'beam', 'Main', bev=.006)
             beam(f'{mid}_whead{side}{k}', (c - w / 2 - .06, -px, wz1 + .03), (c + w / 2 + .06, -px, wz1 + .03), .11, .06, 'beam', 'Main', bev=.006)
             beam(f'{mid}_wsill{side}{k}', (c - w / 2 - .1, -px - .03, wz0 - .035), (c + w / 2 + .1, -px - .03, wz0 - .035), .16, .05, 'beam', 'Main', bev=.008)
-            for j, xx in enumerate(np.linspace(c - w / 2, c + w / 2, 4)[1:-1]):
-                box(f'{mid}_wbarv{side}{k}{j}', (.018, .02, wz1 - wz0 + .02), (xx, -px - .03, (wz0 + wz1) / 2), 'beam', 'Main', bev=.003, axis=(0, 0, 1))
-            for j, zz in enumerate(np.linspace(wz0, wz1, 7)[1:-1]):
-                box(f'{mid}_wbarh{side}{k}{j}', (w + .02, .018, .018), (c, -px - .026, zz), 'beam', 'Main', bev=.003, axis=(1, 0, 0))
+            nb = max(5, round(w / .055))   # v003: 直櫺窗, a row of straight vertical bars over the paper (no square grid)
+            for j, xx in enumerate(np.linspace(c - w / 2, c + w / 2, nb + 2)[1:-1]):
+                box(f'{mid}_wbarv{side}{k}{j}', (.024, .026, wz1 - wz0 + .02), (xx, -px - .03, (wz0 + wz1) / 2), 'beam', 'Main', bev=.004, axis=(0, 0, 1))
             for nm, a_, b_ in (('l', (c - w / 2 - .11, wz0 - .07), (c - w / 2 - .11, wz1 + .1)), ('r', (c + w / 2 + .11, wz0 - .07), (c + w / 2 + .11, wz1 + .1)),
                                ('t', (c - w / 2 - .14, wz1 + .1), (c + w / 2 + .14, wz1 + .1))):
                 beam(f'{mid}_warch{side}{k}{nm}', (a_[0], -px - .045, a_[1]), (b_[0], -px - .045, b_[1]), .04, .06, 'beam', 'Main', bev=.006)
             box(f'Glow_window{side}{k}', (w + .02, .006, wz1 - wz0 + .02), (c, -px - .012, (wz0 + wz1) / 2), 'paper', 'Glow', bev=0)
             parts[-1].data.materials.clear(); parts[-1].data.materials.append(MAT[1])
-        if brace:   # diagonal braces in the panels beside the window
+        if brace:   # v003: 穿斗 frame instead of diagonal braces: extra straight posts and a high tie beam split the wall into calm panels
             for sx in (-1, 1):
-                inner = min((abs(c) - w / 2 - .12 for c, w in wins if c * sx >= 0), default=.4)
-                xa_, xb_ = sx * (px - .14), sx * max(.3, inner)
-                beam(f'{mid}_brace{side}{sx}', (xa_, -px - .035, lo + .04), (xb_, -px - .035, zl0 - .04), .05, .11, 'beam', 'Main', bev=.008)
-        # repair patches on the plaster (slightly proud, a different tone from the trim strip)
-        for k in range(rg.randint(2, 4)):
-            a, b, z0, z1 = rg.choice([r for r in rects if r[1] - r[0] > .35 and r[3] - r[2] > .35])
-            w_, h_ = rg.uniform(.16, min(.45, b - a - .08)), rg.uniform(.12, min(.35, z1 - z0 - .08))
-            cx_, cz_ = rg.uniform(a + w_ / 2 + .04, b - w_ / 2 - .04), rg.uniform(z0 + h_ / 2 + .04, z1 - h_ / 2 - .04)
-            poly = [(cx_ + w_ / 2 * (.75 + .25 * rg.random()) * math.cos(a_), cz_ + h_ / 2 * (.75 + .25 * rg.random()) * math.sin(a_)) for a_ in np.linspace(0, math.tau, 10, endpoint=False)]
-            prism_xz(f'{mid}_patch{side}{k}', poly, .012, -px - .049 + .0015 * k, 'granite_moss' if k % 2 == 0 else 'plaster', 'Main', bev=.003)
+                xs_ = sx * .68
+                if not any(abs(xs_ - c) < w / 2 + .14 for c, w in wins):
+                    beam(f'{mid}_cdpost{side}{sx}', (xs_, -px, zs1), (xs_, -px, zl0), .125, .11, 'beam', 'Main', bev=.01)
+            beam(f'{mid}_cdtie{side}', (x0, -px, 2.36), (x1, -px, 2.36), .115, .1, 'beam', 'Main', bev=.01)
+        # v003: at most one lime repair per face, hugging a corner post or the wall foot, only a shade off the wall colour
+        cand = [r for r in rects if r[1] - r[0] > .35 and r[3] - r[2] > .5]
+        if cand and rg.random() < .75:
+            a, b, z0, z1 = rg.choice(cand); left = rg.random() < .5
+            w_, h_ = rg.uniform(.14, .26), rg.uniform(.35, min(.75, z1 - z0 - .06))
+            xe = a + .002 if left else b - .002; sgn = 1 if left else -1
+            pts = [(xe, z0 + .03), (xe, z0 + .03 + h_)]
+            for t in np.linspace(1, 0, 7):   # ragged free edge away from the post
+                pts.append((xe + sgn * w_ * (.55 + .45 * rg.random()) * math.sin(math.pi * (.15 + .7 * t)), z0 + .03 + h_ * t))
+            if not left: pts = pts[::-1]
+            prism_xz(f'{mid}_patch{side}', pts, .01, -px - .046, 'plaster', 'Main', bev=.002)
         for o in parts[n0:]: rotz(o, side * math.pi / 2)
     for i, (sx, sy) in enumerate(((-1, -1), (1, -1), (1, 1), (-1, 1))):   # bronze corner straps where the posts meet sill and lintel
         for zz in (.09, zl0 + .13):
@@ -1153,8 +1205,8 @@ def tile_cap(name, half_w, z0, z1, eave_lift=.05, at=(0, 0)):
     return o
 
 def DT01():
-    """street lantern 0.6 x 0.6 x 2.5 m: stepped granite base with a cloud relief, cedar post with bronze bands and small
-    knee braces, a lantern box of four blank paper panels (Glow) behind lattice, a small hipped tile cap and a bronze finial."""
+    """street lantern 0.6 x 0.6 x 2.5 m: stepped granite base with a cloud relief, a slim dark bronze post with bands, a hexagonal
+    dark-bronze lantern with thin bars around blank paper (Glow) under a six-sided bronze cap with upturned corners, a finial."""
     rg = random.Random(5601)
     o = box('DT01_plinth', (.6, .6, .12), (0, 0, .06), 'granite_top', 'Main', bev=0, cuts=1); chisel(o, .006, 4, 8001); bevel(o, .02, 2, 30)
     o = box('DT01_pedestal', (.46, .46, .56), (0, 0, .12 + .28 - .002), 'granite', 'Main', bev=0, cuts=1); chisel(o, .008, 3, 8002); bevel(o, .022, 2, 30)
@@ -1162,26 +1214,12 @@ def DT01():
     for k in range(4):   # cloud relief on each face of the pedestal
         pts = [(.13 * math.cos(a) * (1 + .25 * math.cos(3 * a)), .40 + .09 * math.sin(a) * (1 + .3 * math.sin(2 * a))) for a in np.linspace(0, math.tau, 18, endpoint=False)]
         r = prism_xz(f'DT01_cloud{k}', pts, .014, -.23 - .01, 'granite_moss', 'Main', bev=.004); rotz(r, k * math.pi / 2)
-    box('DT01_post', (.13, .13, 1.58 - .70), (0, 0, (.70 + 1.58) / 2), 'beam', 'Main', bev=.012, axis=(0, 0, 1))
-    for zz in (.80, 1.42): box(f'DT01_band{zz}', (.145, .145, .04), (0, 0, zz), 'bronze', 'Main', bev=.004)
-    for k in range(4):
-        b = beam(f'DT01_knee{k}', (.06, 0, 1.36), (.2, 0, 1.56), .05, .05, 'beam', 'Main', bev=.006); rotz(b, k * math.pi / 2)
-    zb, zt = 1.58, 2.12; h = .23
-    box('DT01_floor', (2 * h + .04, 2 * h + .04, .05), (0, 0, zb + .025), 'beam', 'Main', bev=.008)
-    box('DT01_top', (2 * h + .04, 2 * h + .04, .05), (0, 0, zt - .025), 'beam', 'Main', bev=.008)
-    for i, (x, y) in enumerate(((-h, -h), (h, -h), (h, h), (-h, h))):
-        box(f'DT01_col{i}', (.045, .045, zt - zb - .1), (x, y, (zb + zt) / 2), 'beam', 'Main', bev=.006, axis=(0, 0, 1))
-    for k in range(4):
-        n0 = len(parts)
-        box(f'Glow_panel{k}', (2 * h - .03, .008, zt - zb - .12), (0, -h + .012, (zb + zt) / 2), 'paper', 'Glow', bev=0)
-        parts[-1].data.materials.clear(); parts[-1].data.materials.append(MAT[1])
-        for j, xx in enumerate(np.linspace(-h + .03, h - .03, 5)[1:-1]):
-            box(f'DT01_lv{k}{j}', (.014, .016, zt - zb - .11), (xx, -h - .002, (zb + zt) / 2), 'beam', 'Main', bev=.002, axis=(0, 0, 1))
-        for j, zz in enumerate(np.linspace(zb + .06, zt - .06, 5)[1:-1]):
-            box(f'DT01_lh{k}{j}', (2 * h - .05, .014, .014), (0, -h - .004, zz), 'beam', 'Main', bev=.002, axis=(1, 0, 0))
-        for o in parts[n0:]: rotz(o, k * math.pi / 2)
-    tile_cap('DT01_roof', .29, zt - .005, 2.40)
-    lathe('DT01_finial', [(.004, 2.5), (.03, 2.47), (.035, 2.44), (.02, 2.42), (.045, 2.395), (.004, 2.37)][::-1], 'bronze', 'Main', seg=12)
+    # v003 (third review): dark bronze post and a hexagonal dark-bronze lantern (spec §11: bronze frame on a stone base), no timber
+    lathe('DT01_post', [(.004, .70), (.07, .70), (.07, .74), (.045, .77), (.04, 1.0), (.036, 1.6), (.05, 1.66), (.06, 1.79), (.004, 1.79)], 'bronze', 'Main', seg=12)
+    for zz in (.90, 1.30):
+        lathe(f'DT01_band{zz}', [(.035, zz - .02), (.047, zz - .015), (.047, zz + .015), (.035, zz + .02)], 'bronze', 'Main', seg=12)
+    hex_lantern('DT01_lamp', 0, 0, 2.42, .17, .44, 'Main', 'Glow', drop=0, cord=False, tassel=False)
+    lathe('DT01_finial', [(.004, 2.405), (.03, 2.42), (.022, 2.45), (.03, 2.47), (.004, 2.5)], 'bronze', 'Main', seg=12)
     return {'collision': [('box', (0, 0, .35), (.6, .6, .7)), ('box', (0, 0, 1.6), (.16, .16, 1.8))], 'glow': 'four paper panels'}
 
 def DT02():
@@ -1213,27 +1251,11 @@ def DT02():
     return {'collision': [], 'mount': 'back plate on a post or wall at -X, arm along +X', 'noWriting': True}
 
 def DT03():
-    """small hanging lantern 0.4 x 0.4 x 0.7 m (origin under the tassel; hang it by the ring): bronze ring and stem, a small
-    hipped tile cap, a timber frame with lattice and blank lit paper (Glow, no writing), a carved base, a jade bead and a tassel."""
-    zt0, zt1 = .28, .52; h = .12
-    tube('DT03_tassel', [(0, 0, .0), (0, 0, .13)], .02, 'cloth', 'Main', sides=8, radii=[.024, .006])
-    lathe('DT03_bead', [(.004, .125), (.018, .13), (.024, .145), (.018, .16), (.004, .165)], 'bronze', 'Main', seg=12)
-    tube('DT03_cord', [(0, 0, .16), (0, 0, .225)], .005, 'cloth', 'Main', sides=5)
-    lathe('DT03_base', [(.004, .22), (.07, .225), (.12, .245), (.15, .27), (.15, .285), (.004, .285)], 'beam', 'Main', seg=4); rotz(parts[-1], math.pi / 4)
-    for i, (x, y) in enumerate(((-h, -h), (h, -h), (h, h), (-h, h))):
-        box(f'DT03_col{i}', (.026, .026, zt1 - zt0 + .02), (x, y, (zt0 + zt1) / 2), 'beam', 'Main', bev=.004, axis=(0, 0, 1))
-    box('DT03_rimT', (2 * h + .03, 2 * h + .03, .025), (0, 0, zt1 + .005), 'beam', 'Main', bev=.004)
-    for k in range(4):
-        n0 = len(parts)
-        box(f'Glow_lpanel{k}', (2 * h - .02, .006, zt1 - zt0 - .01), (0, -h + .006, (zt0 + zt1) / 2), 'paper', 'Glow', bev=0)
-        parts[-1].data.materials.clear(); parts[-1].data.materials.append(MAT[1])
-        box(f'DT03_lv{k}', (.012, .012, zt1 - zt0 - .01), (0, -h - .002, (zt0 + zt1) / 2), 'beam', 'Main', bev=.002, axis=(0, 0, 1))
-        for j, zz in enumerate((zt0 + .07, zt1 - .07)): box(f'DT03_lh{k}{j}', (2 * h - .02, .012, .012), (0, -h - .0045, zz), 'beam', 'Main', bev=.002, axis=(1, 0, 0))
-        for o in parts[n0:]: rotz(o, k * math.pi / 2)
-    tile_cap('DT03_roof', .195, zt1 + .012, .62, eave_lift=.03)
-    lathe('DT03_stem', [(.004, .61), (.02, .615), (.016, .64), (.004, .645)], 'bronze', 'Main', seg=10)
-    rg_ = [(math.cos(a) * .035, 0, .666 + math.sin(a) * .025) for a in np.linspace(-math.pi / 2, 3 * math.pi / 2, 17)]
-    tube('DT03_ring', rg_, .006, 'bronze', 'Main', sides=6, caps=False)
+    """small hanging lantern 0.4 x 0.4 x 0.7 m (origin under the tassel; hang it by the ring). v003: the hexagonal dark-bronze
+    lantern shared with the SF bays: ring and stem, six-sided bronze cap with upturned corners, thin bars around blank paper
+    (Glow, no writing), a bronze drop and a short dark cord tassel."""
+    tip = hex_lantern('DT03', 0, 0, .70, .10, .30, 'Main', 'Glow', drop=.1, ring=True)
+    for o in parts: o.data.transform(Matrix.Translation((0, 0, -tip)))   # tassel tip on z = 0
     return {'collision': [], 'hang': 'ring at the top, origin at the bottom of the tassel', 'noWriting': True}
 
 def DT04():

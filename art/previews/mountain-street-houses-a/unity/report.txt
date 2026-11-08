@@ -19,9 +19,9 @@ PASS CP02: 1 LOD0 objects (model_info 1)
 PASS CP02: 1 shared material(s) on LOD0 (model_info 1)
 PASS CP02: LODGroup 3 levels x 1 renderers
 PASS CP02: collision imported as MeshCollider (36 tris), render hidden
-PASS DT01: imported size 0.600 x 0.600 x 2.500 m matches model_info 0.6 x 0.6 x 2.5
+PASS DT01: imported size 0.599 x 0.599 x 2.500 m matches model_info 0.598 x 0.598 x 2.5
 PASS DT01: base at y = 0.000
-PASS DT01: triangles LOD0/1/2 = 5784 / 2672 / 806, model_info 5784 / 2672 / 806
+PASS DT01: triangles LOD0/1/2 = 2580 / 1160 / 352, model_info 2580 / 1160 / 352
 PASS DT01: 2 LOD0 objects (model_info 2)
 PASS DT01: 2 shared material(s) on LOD0 (model_info 2)
 PASS DT01: LODGroup 3 levels x 2 renderers
@@ -33,9 +33,9 @@ PASS DT02: 1 LOD0 objects (model_info 1)
 PASS DT02: 1 shared material(s) on LOD0 (model_info 1)
 PASS DT02: LODGroup 3 levels x 1 renderers
 INFO DT02: no collision by design (hanging / wall-mounted decor)
-PASS DT03: imported size 0.404 x 0.403 x 0.697 m matches model_info 0.404 x 0.403 x 0.697
+PASS DT03: imported size 0.284 x 0.246 x 0.681 m matches model_info 0.284 x 0.246 x 0.681
 PASS DT03: base at y = 0.000
-PASS DT03: triangles LOD0/1/2 = 2808 / 1264 / 384, model_info 2808 / 1264 / 384
+PASS DT03: triangles LOD0/1/2 = 1192 / 520 / 160, model_info 1192 / 520 / 160
 PASS DT03: 2 LOD0 objects (model_info 2)
 PASS DT03: 2 shared material(s) on LOD0 (model_info 2)
 PASS DT03: LODGroup 3 levels x 2 renderers
@@ -63,21 +63,21 @@ PASS DT06: LODGroup 3 levels x 1 renderers
 INFO DT06: no collision by design (hanging / wall-mounted decor)
 PASS HM01: imported size 3.880 x 3.880 x 3.000 m matches model_info 3.88 x 3.88 x 3
 PASS HM01: base at y = 0.000
-PASS HM01: triangles LOD0/1/2 = 10388 / 4966 / 1498, model_info 10388 / 4966 / 1498
+PASS HM01: triangles LOD0/1/2 = 9824 / 4692 / 1416, model_info 9824 / 4692 / 1416
 PASS HM01: 2 LOD0 objects (model_info 2)
 PASS HM01: 2 shared material(s) on LOD0 (model_info 2)
 PASS HM01: LODGroup 3 levels x 2 renderers
 PASS HM01: collision imported as MeshCollider (12 tris), render hidden
 PASS HM02: imported size 3.880 x 3.880 x 3.000 m matches model_info 3.88 x 3.88 x 3
 PASS HM02: base at y = 0.000
-PASS HM02: triangles LOD0/1/2 = 9628 / 4660 / 1406, model_info 9628 / 4660 / 1406
+PASS HM02: triangles LOD0/1/2 = 9352 / 4526 / 1366, model_info 9352 / 4526 / 1366
 PASS HM02: 2 LOD0 objects (model_info 2)
 PASS HM02: 2 shared material(s) on LOD0 (model_info 2)
 PASS HM02: LODGroup 3 levels x 2 renderers
 PASS HM02: collision imported as MeshCollider (12 tris), render hidden
 PASS HM03: imported size 3.880 x 3.880 x 3.000 m matches model_info 3.88 x 3.88 x 3
 PASS HM03: base at y = 0.000
-PASS HM03: triangles LOD0/1/2 = 10300 / 4924 / 1484, model_info 10300 / 4924 / 1484
+PASS HM03: triangles LOD0/1/2 = 9488 / 4528 / 1366, model_info 9488 / 4528 / 1366
 PASS HM03: 2 LOD0 objects (model_info 2)
 PASS HM03: 2 shared material(s) on LOD0 (model_info 2)
 PASS HM03: LODGroup 3 levels x 2 renderers
@@ -151,7 +151,7 @@ PASS SB05: LODGroup 3 levels x 2 renderers
 PASS SB05: collision imported as MeshCollider (12 tris), render hidden
 PASS SF01: imported size 3.999 x 3.998 x 3.000 m matches model_info 3.998 x 3.998 x 3
 PASS SF01: base at y = 0.000
-PASS SF01: triangles LOD0/1/2 = 31832 / 11632 / 3518, model_info 31832 / 11632 / 3518
+PASS SF01: triangles LOD0/1/2 = 31350 / 11850 / 3550, model_info 31350 / 11850 / 3550
 PASS SF01: 4 LOD0 objects (model_info 4)
 PASS SF01: 2 shared material(s) on LOD0 (model_info 2)
 PASS SF01: removable Detail_Cloth present on LOD0/1/2
@@ -160,7 +160,7 @@ PASS SF01: LODGroup 3 levels x 4 renderers
 PASS SF01: collision imported as MeshCollider (168 tris), render hidden
 PASS SF02: imported size 3.999 x 3.998 x 3.000 m matches model_info 3.998 x 3.998 x 3
 PASS SF02: base at y = 0.000
-PASS SF02: triangles LOD0/1/2 = 44116 / 16278 / 4912, model_info 44116 / 16278 / 4912
+PASS SF02: triangles LOD0/1/2 = 43634 / 16680 / 4998, model_info 43634 / 16680 / 4998
 PASS SF02: 4 LOD0 objects (model_info 4)
 PASS SF02: 2 shared material(s) on LOD0 (model_info 2)
 PASS SF02: removable Detail_Cloth present on LOD0/1/2
@@ -169,7 +169,7 @@ PASS SF02: LODGroup 3 levels x 4 renderers
 PASS SF02: collision imported as MeshCollider (192 tris), render hidden
 PASS SF03: imported size 3.999 x 3.998 x 3.000 m matches model_info 3.998 x 3.998 x 3
 PASS SF03: base at y = 0.000
-PASS SF03: triangles LOD0/1/2 = 36048 / 13214 / 3994, model_info 36048 / 13214 / 3994
+PASS SF03: triangles LOD0/1/2 = 35044 / 13234 / 3966, model_info 35044 / 13234 / 3966
 PASS SF03: 4 LOD0 objects (model_info 4)
 PASS SF03: 2 shared material(s) on LOD0 (model_info 2)
 PASS SF03: removable Detail_Cloth present on LOD0/1/2
