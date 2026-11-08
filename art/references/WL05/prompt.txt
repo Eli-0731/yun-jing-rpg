@@ -1,0 +1,17 @@
+WL05 石製皂灰小盤與灰餅（工作包 §5：0.38 × 0.28 × 0.12 m，練淺凹槽與磨損）三視圖與自評（2026-11-09）
+選用：WL05-cand-4.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-05/C-48h-a3-creekside-life.md 第 11 節原文（正面、負面一字不改，含固定段 5.2、5.3），四張相同。評分：形體與尺寸比例 30／練習重點（淺凹槽、磨損的邊）30／提示詞細節（磨低的盤緣、濕痕一圈、凹槽裡的灰屑）25／乾淨無字、三面同一地線同比例 15。
+- cand-1：88（26+26+23+13）。盤身像幾塊石板拼起來，還有縫線般的接縫，不像一整塊鑿出的石盤。
+- cand-2：90（27+27+23+13）。盤緣不規則、有濕痕；側面看盤身偏高，凹槽不夠淺。
+- cand-3：91（27+28+24+12）。灰屑最清楚、盤緣有一個磨出的缺口；但筆觸偏卡通、苔太多。
+- cand-4：92（28+28+24+12）。選用。一整塊田石鑿出的橢圓淺盤，盤緣厚薄不一、上緣被磨圓，凹槽裡一圈濕痕和灰水，灰餅有幾道乾裂；側面一條舊裂縫用兩根鐵扣補住。
+
+建模取捨：照 cand-4。盤是一塊橢圓田石，外側斜收、底面平穩貼地，內部挖一個淺凹（約 4 cm 深），盤緣高低不一、一邊磨低；灰餅是壓實的扁圓餅，表面有乾裂。濕痕一圈、灰屑痕跡畫在貼圖；側面兩個鐵扣和凹槽裡的幾粒灰屑放 Detail_。石材顏色對齊 BM05／BM06（同一套暖灰田石）。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a shallow stone dish holding a plain grey laundry-ash cake, about 0.38 m long, 0.28 m wide and 0.12 m tall, made of warm-grey carved fieldstone and matte grey ash, showing worn shallow rim, wet ring and traces of ash in the recess, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
