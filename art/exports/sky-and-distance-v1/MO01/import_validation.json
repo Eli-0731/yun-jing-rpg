@@ -1,0 +1,22 @@
+{
+  "fbx": {
+    "meshes": 1,
+    "tris": 2,
+    "dimensions_m": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "bottom_z_m": 0.0
+  },
+  "glb": {
+    "meshes": 1,
+    "tris": 2,
+    "dimensions_m": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "bottom_z_m": 0.0
+  }
+}
