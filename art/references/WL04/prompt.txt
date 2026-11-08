@@ -1,0 +1,21 @@
+WL04 折好的濕布兩疊（工作包 §5：0.6 × 0.5 × 0.25 m，練大塊布色與濕邊）三視圖與自評（2026-11-09）
+尚未選定：八張都只畫了「一疊」，和工作包「兩疊（two separate folded stacks）」不符；提示詞照規定不改，已用同一段提示詞重生一次（cand-5–8），結果相同。等決定後補「選用」行。
+
+提示詞照工作包第 11 節原文（正面、負面一字不改，含固定段 5.2、5.3），八張相同。評分：形體與尺寸比例 30（兩疊）／練習重點（大塊布色、濕邊）30／提示詞細節（褪色麻布、一塊暗藍布、濕暗的邊、手折不齊、一角補丁）25／乾淨無字、三面同一地線同比例 15。
+- cand-1：86（20+28+25+13）。一疊；藍布、濕邊、補丁都有。
+- cand-2：86（20+28+25+13）。一疊；毛邊多，濕邊明顯。
+- cand-3：87（20+29+25+13）。一疊；層次分明，藍布偏紫（第三面）。
+- cand-4：86（20+28+25+13）。一疊；折口最乾淨。
+- cand-5：86（20+28+25+13）。一疊；下層有苔，偏髒。
+- cand-6：87（20+29+25+13）。一疊；藍布清楚、補丁在藍色上。
+- cand-7：88（20+29+26+13）。一疊；濕邊最自然（下層一圈暗）、補丁和手折不齊都清楚，最適合當「每一疊」的參考。
+- cand-8：87（20+29+25+13）。一疊；折層厚度最好。
+
+建議做法（待確認）：以 cand-7 作為每一疊的折法、布色和濕邊參考，照工作包做成兩疊分開的布（一疊含暗藍布、一疊全是本色麻布），合計不超過 0.6 × 0.5 × 0.25 m。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of two separate folded stacks of washed linen with uneven corners, about 0.6 m wide, 0.5 m deep and 0.25 m tall, made of faded natural linen with one muted blue cloth, showing damp darkened edges, hand-folded uneven layers and one patched corner, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
