@@ -200,7 +200,8 @@ def canvas(name, base=(.4, .3, .165), stain=(.17, .1, .04), slot='Main', seams=(
     return m
 
 
-def tile(name, base=(.03, .042, .055), light=(.078, .096, .11), moss=.8, slot='Main'):
+def tile(name, base=(.03, .042, .055), light=(.078, .096, .11), moss=.8, slot='Main', edge_amt=.5, tone=None):
+    """Fired roof tile. tone: a per-vertex attribute (x in 0..1) giving each tile course its own firing shade; edge_amt: worn-edge highlight."""
     m, g = tm._new(name, slot)
     co, r = tm._grain_coords(g, (1, 1, 1))
     P, Z, up = _p(g)
@@ -212,7 +213,11 @@ def tile(name, base=(.03, .042, .055), light=(.078, .096, .11), moss=.8, slot='M
     ao = g.ao(.06)
     col = g.mul(1.0, col, g.ramp(ao, [(0, (.2, .2, .26)), (1, (1, 1, 1))]))
     e = g.edge(.004)
-    col = g.mix(g.math('MULTIPLY', e, .5), col, tuple(min(1, c * 1.5 + .02) for c in light))
+    col = g.mix(g.math('MULTIPLY', e, edge_amt), col, tuple(min(1, c * 1.5 + .02) for c in light))
+    if tone:
+        ts = g.node('ShaderNodeSeparateXYZ'); g.link(g.attr(tone), ts.inputs[0]); tv = ts.outputs['X']
+        col = g.mix(g.math('MULTIPLY', g.maprange(tv, .5, .0), .75), col, tuple(c * .55 for c in base))     # darker-fired courses
+        col = g.mix(g.math('MULTIPLY', g.maprange(tv, .6, 1.), .6), col, tuple(c * 1.15 for c in light))  # paler, weathered courses
     if moss:
         col, _, _ = _moss(g, col, P, ao, up, g.val(9.0), moss)
     tm._finish(g, col, g.math('ADD', .6, g.math('MULTIPLY', n, .15)), 0.0, g.bump(g.math('ADD', d, g.math('MULTIPLY', n, .6)), .3, .002), spec=.3)

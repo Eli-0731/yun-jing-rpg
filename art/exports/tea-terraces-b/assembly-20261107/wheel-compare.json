@@ -1,0 +1,71 @@
+{
+ "name": "RI03 beside WM02, same scene",
+ "units": "meters",
+ "bank_z_m": 0.0,
+ "water_z_m": -0.15,
+ "channel_x_m": [
+  -0.86,
+  0.57
+ ],
+ "figure_height_m": 1.75,
+ "diameter_ratio": 1.955,
+ "pieces": [
+  {
+   "id": "RI03_GreatWheel",
+   "kit": "tea-terraces-b",
+   "fbx": "RI03_GreatWheel/RI03_GreatWheel_v001.fbx",
+   "axle_position_m": [
+    0.0,
+    0.0,
+    4.0
+   ],
+   "dimensions_m": [
+    2.1328,
+    10.4284,
+    8.997
+   ],
+   "lowest_point_z_m": -0.498,
+   "dips_below_bank_m": 0.498,
+   "lod_totals": {
+    "LOD0": 77820,
+    "LOD1": 38910,
+    "LOD2": 13498
+   },
+   "slot": "A6_GreatWheel",
+   "scene_offset_m": [
+    70.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "id": "WM02_WaterWheel",
+   "kit": "creek-repair-b",
+   "fbx": "WM02_WaterWheel/WM02_WaterWheel_v001.fbx",
+   "axle_position_m": [
+    -0.1,
+    -9.0,
+    2.0
+   ],
+   "dimensions_m": [
+    1.2,
+    4.6022,
+    4.602
+   ],
+   "lowest_point_z_m": -0.301,
+   "dips_below_bank_m": 0.301,
+   "lod_totals": {
+    "LOD0": 70232,
+    "LOD1": 35114,
+    "LOD2": 10534
+   },
+   "slot": "A3_WaterWheel",
+   "scene_offset_m": [
+    70.0,
+    0.0,
+    0.0
+   ]
+  }
+ ],
+ "note": "one channel along Y; both wheels turn about Blender X. Placement for comparison only, not a game-scene placement."
+}
