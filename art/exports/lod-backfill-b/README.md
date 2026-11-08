@@ -5,7 +5,7 @@
 | 誰做的 | B（joshsu54） |
 | 工作包 | docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md（LOD 補齊；檔案在 `feature/qingxi-creek-chapter` 分支）；規則照 docs/standards/quality-tiers-v1.md 第 4 節 |
 | ID | qingxi-alchemy-b B01–B12（15 件，含加熱／空瓶等狀態）、creek-repair-b-props A04／C03／C04／C06／C07、Dondon StarterHouse、Blacksmith、TownLayout 的客棧（TownInn），共 23 件 |
-| 分支／PR | art/b-1107-vl-houses-lod ／ 未開（排在 FR 那張之後；同時只開一張待審 PR）；和 VL01–03（`art/exports/village-houses-b/`）同一張 PR |
+| 分支／PR | art/b-1107-vl-houses-lod ／ 本分支的 PR（#83 山城石階、FR 古林巨根還在待審時開出，使用者決定先開）；和 VL01–03（`art/exports/village-houses-b/`）同一張 PR |
 | 版本 | 全部 v001（新資料夾 `lod-backfill-b/`；來源檔一個都沒改，原本的 LOD 也還在原處） |
 | 狀態 | Exported ／ Imported（Unity 編輯器批次檢查）／ Visually Verified；In-game Verified：未驗 |
 | 素材來源 | 改自既有素材，只加 LOD：qingxi-alchemy-b v001（B）、creek-repair-b-props（B）、Dondon StarterHouse v004／Blacksmith v001／TownLayout v004（Dondon）。LOD0 就是原本的幾何，沒有重做 |

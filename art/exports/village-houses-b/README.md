@@ -5,7 +5,7 @@
 | 誰做的 | B（joshsu54） |
 | 工作包 | docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md（第二部分 VL01–03；檔案在 `feature/qingxi-creek-chapter` 分支） |
 | ID | VL01 久無人住的空屋、VL02 剛有人住的空屋、VL03 半塌的空屋 |
-| 分支／PR | art/b-1107-vl-houses-lod ／ 未開（排在 FR 那張之後；同時只開一張待審 PR）；和 LOD 補件（`art/exports/lod-backfill-b/`）同一張 PR |
+| 分支／PR | art/b-1107-vl-houses-lod ／ 本分支的 PR（#83 山城石階、FR 古林巨根還在待審時開出，使用者決定先開）；和 LOD 補件（`art/exports/lod-backfill-b/`）同一張 PR |
 | 版本 | 全部 v001（首次交付，沒有舊版） |
 | 狀態 | Exported ／ Imported（Unity 編輯器批次檢查）／ Visually Verified；In-game Verified：未驗 |
 | 預定位置 | 青溪村空屋（`A1_QingxiVillage_EmptyHouse`），由核心組落位 |
