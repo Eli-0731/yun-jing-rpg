@@ -36,7 +36,7 @@
 | `art/exports/qingxi-winding-road-v1` | 核心組 | [#17](https://github.com/z1nnz/chengtian/pull/17) 整合青溪世界分支並還原樹伴原樹葉冠 | — |
 | `art/exports/qingxi-world-ruins-b` | B | [#57](https://github.com/z1nnz/chengtian/pull/57) Add qingxi-world-ruins-b kit: boundary p | — |
 | `art/exports/tea-brewing-b` | B | [#58](https://github.com/z1nnz/chengtian/pull/58) feat: 第 1 天・在家泡茶（工作包 B）＋ TI09／RK04／TI10  | — |
-| `art/exports/tea-terraces-b` | 核心組 | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | — |
+| `art/exports/tea-terraces-b` | 核心組、B | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | #79 |
 | `art/exports/territory-backyard-a` | A | [#56](https://github.com/z1nnz/chengtian/pull/56) 新手領地後院 A 第一批：靈田、青靈草四階段與 TY01–TY04 參考圖 | #59 |
 | `art/exports/territory-interior-b` | B | [#54](https://github.com/z1nnz/chengtian/pull/54) 新手領地屋內 TI01–TI08 家具與 Unity 展示（第一批） | — |
 | `art/exports/world-props-a` | A、核心組 | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | #75 |
@@ -140,6 +140,7 @@
 | `art/references/MK02` | B | [#63](https://github.com/z1nnz/chengtian/pull/63) 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） | — |
 | `art/references/MK03` | B | [#63](https://github.com/z1nnz/chengtian/pull/63) 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） | — |
 | `art/references/MK04` | B | [#63](https://github.com/z1nnz/chengtian/pull/63) 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） | — |
+| `art/references/RI03` | B | [#79](https://github.com/z1nnz/chengtian/pull/79) 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、 | — |
 | `art/references/RK01` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
 | `art/references/RK05` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
 | `art/references/RK06` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
@@ -153,6 +154,8 @@
 | `art/references/TE01` | 核心組 | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | — |
 | `art/references/TE02` | 核心組 | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | — |
 | `art/references/TE03` | 核心組 | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | — |
+| `art/references/TE04` | B | [#79](https://github.com/z1nnz/chengtian/pull/79) 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、 | — |
+| `art/references/TE05` | B | [#79](https://github.com/z1nnz/chengtian/pull/79) 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、 | — |
 | `art/references/TY03` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
 | `art/references/TY05` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
 | `art/references/TY06` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
@@ -195,6 +198,7 @@
 | `art/references/qingxi-waymarker-v1` | 核心組 | [#20](https://github.com/z1nnz/chengtian/pull/20) 青溪道路近景與三件可擺放小物件 | — |
 | `art/references/qingxi-winding-road-v1` | 核心組 | [#17](https://github.com/z1nnz/chengtian/pull/17) 整合青溪世界分支並還原樹伴原樹葉冠 | — |
 | `art/references/qingxi-world-ruins-b` | B | [#57](https://github.com/z1nnz/chengtian/pull/57) Add qingxi-world-ruins-b kit: boundary p | — |
+| `art/references/tea-irrigation-20261107-v001` | B | [#79](https://github.com/z1nnz/chengtian/pull/79) 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、 | — |
 | `art/references/territory-backyard-a` | A | [#56](https://github.com/z1nnz/chengtian/pull/56) 新手領地後院 A 第一批：靈田、青靈草四階段與 TY01–TY04 參考圖 | #59 |
 | `art/references/territory-interior-b` | B | [#54](https://github.com/z1nnz/chengtian/pull/54) 新手領地屋內 TI01–TI08 家具與 Unity 展示（第一批） | — |
 | `art/references/world-directions-v1` | 核心組 | [#5](https://github.com/z1nnz/chengtian/pull/5) art: add world direction and aptitude pl | — |
@@ -217,7 +221,7 @@
 | `art/source/qingxi-waterhead-a` | A | [#45](https://github.com/z1nnz/chengtian/pull/45) 青溪上游調查（工作包 A）：河床重做、水材質與 B 組對齊、水土分離與碰撞 | — |
 | `art/source/qingxi-waterworks-b` | B | [#52](https://github.com/z1nnz/chengtian/pull/52) Add Qingxi waterworks B: old-channel rep | — |
 | `art/source/qingxi-world-ruins-b` | B | [#57](https://github.com/z1nnz/chengtian/pull/57) Add qingxi-world-ruins-b kit: boundary p | — |
-| `art/source/tea-terraces-b` | 核心組 | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | — |
+| `art/source/tea-terraces-b` | 核心組、B | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | #79 |
 | `art/source/territory-backyard-a` | A | [#56](https://github.com/z1nnz/chengtian/pull/56) 新手領地後院 A 第一批：靈田、青靈草四階段與 TY01–TY04 參考圖 | #59 |
 | `art/source/territory-interior-b` | B | [#54](https://github.com/z1nnz/chengtian/pull/54) 新手領地屋內 TI01–TI08 家具與 Unity 展示（第一批） | — |
 | `art/source/world-props-a` | A、核心組 | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | #75 |
@@ -241,6 +245,7 @@
 | `tools/qingxi-waterhead-a` | — | 早於 PR 流程（直接提交） | — |
 | `tools/qingxi-waterworks-b` | — | 早於 PR 流程（直接提交） | — |
 | `tools/qingxi-webgl` | — | 早於 PR 流程（直接提交） | — |
+| `tools/registry` | — | 早於 PR 流程（直接提交） | — |
 | `tools/territory-interior-b` | — | 早於 PR 流程（直接提交） | — |
 | `tools/training-yard-demo` | — | 早於 PR 流程（直接提交） | — |
 | `tools/world-preview` | — | 早於 PR 流程（直接提交） | — |
