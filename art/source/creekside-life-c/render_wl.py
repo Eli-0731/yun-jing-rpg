@@ -94,7 +94,8 @@ def shoot(v,d):
     if v=='side' and rul:   # the figure stands on +X, right in front of the side camera: move it beside the asset (+Y, the right of the frame)
         mv=Vector(((olo.x+ohi.x)/2-x0,ohi.y+.45,0));t.x=(olo.x+ohi.x)/2;t.y=(olo.y+ohi.y+.65)/2
         for o in rul:o.location+=mv
-    dist=max(rad*3.9,(hi.z-lo.z)*3.0,(hi.x-lo.x)*2.4);cam.location=t+Vector(d).normalized()*dist;aim(cam,t)
+    if v=='threequarter' and rul:t.z=lo.z+(hi.z-lo.z)*.32   # small props beside a 1.75 m figure: aim low so the props are not cut at the bottom
+    dist=max(rad*3.9,(hi.z-lo.z)*3.0,(hi.x-lo.x)*2.4)*(1.12 if v=='threequarter' and rul else 1);cam.location=t+Vector(d).normalized()*dist;aim(cam,t)
     sc.render.filepath=str(out/f'{args.tag}-{v}.png');bpy.ops.render.render(write_still=True)
     for o in rul:o.location-=mv
 if args.eye:

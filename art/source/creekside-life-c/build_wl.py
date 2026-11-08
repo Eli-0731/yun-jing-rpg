@@ -25,7 +25,7 @@ X=np.arange(K.R)[None,:]/K.R;Y=np.arange(K.R)[:,None]/K.R
 RES=1024;VERSION='v001'
 
 # ---------------- tiled source textures ----------------
-def linen(base,dark,seed,slub=.5,warp_pitch=180):
+def linen(base,dark,seed,slub=.5,warp_pitch=90):   # 90 thread pairs per 0.5 m tile: finer aliased into moiré in the 1024 bake
     """coarse plain-weave linen: a faint over-under weave in the normal map, slubs (thicker threads) as soft streaks,
     large soft colour patches; colour kept calm, the weave lives mostly in the height"""
     K.rng=np.random.default_rng(seed)
@@ -35,7 +35,7 @@ def linen(base,dark,seed,slub=.5,warp_pitch=180):
     sl=np.clip((fbm(40,2,aniso=20)-.62)*4,0,1)*slub;sl2=np.clip((fbm(40,2,aniso=20).T-.66)*4,0,1)*slub*.6   # warp slubs along V, weft slubs along U
     broad=fbm(3,3)
     t=np.clip(.5+.9*(broad-.5),0,1)
-    col=lerp(dark,base,t)*(1-.06*weave[...,None])*(1+.08*sl[...,None])
+    col=lerp(dark,base,t)*(1-.025*weave[...,None])*(1+.08*sl[...,None])
     return col,.6*weave+.5*sl+.3*sl2+.2*broad
 def make_sources():
     S={}
@@ -46,17 +46,18 @@ def make_sources():
     S['cedar_new']=(*board((.43,.30,.18),(.60,.45,.29),(.55,.50,.43),.15,.3,.6),1.4,.75,0,0)   # the repaired slat: a little fresher and paler, not new-white
     S['cedar_rib']=(*board((.38,.25,.15),(.56,.39,.25),(.50,.45,.38),.20,.15,.3),1.2,.72,0,0)   # rib stock: softer grain, few checks (narrow ribs turned stripy with the board stock)
     S['endgrain']=(*endgrain(),1.8,.85,0,0)
-    S['linen']=(*linen((.78,.72,.60),(.62,.56,.45),3102),1.2,.92,0,0)          # undyed natural linen
-    S['linen_b']=(*linen((.74,.70,.62),(.58,.55,.48),3103),1.2,.92,0,0)        # faded, greyer
-    S['linen_blue']=(*linen((.42,.50,.58),(.30,.37,.45),3104),1.2,.92,0,0)     # muted indigo, washed out
+    S['linen']=(*linen((.78,.72,.60),(.62,.56,.45),3102),.55,.92,0,0)          # undyed natural linen (weave kept faint in the normal: at 1.2 it read as sacking)
+    S['linen_b']=(*linen((.74,.70,.62),(.58,.55,.48),3103),.55,.92,0,0)        # faded, greyer
+    S['linen_blue']=(*linen((.42,.50,.58),(.30,.37,.45),3104),.55,.92,0,0)     # muted indigo, washed out
+    S['iron']=(lerp((.16,.13,.11),(.36,.22,.13),np.clip((fbm(6,4)-.35)*1.8,0,1)),fbm(18,3),2.0,.8,0,0)   # old rusty iron staples
     K.rng=np.random.default_rng(3105)
     tw=.5+.5*np.sin(math.tau*((X+Y)*16));fib=fbm(30,2,aniso=6)
     S['hemp']=(lerp((.36,.29,.19),(.62,.51,.34),np.clip(tw*.55+.3*fbm(4,3)+.15*fib,0,1)),tw+.4*fib,1.4,.92,0,0)
     gk=np.clip((fbm(220,1)-.58)*5,0,1);gp=np.clip((fbm(190,1)-.64)*6,0,1);wz=np.clip((fbm(3,4)-.45)*2.2,0,1)
-    S['stone']=(lerp((.40,.37,.32),(.64,.60,.53),np.clip(.5+.9*(fbm(4,4)-.5)+.25*(fbm(30,2)-.5),0,1))*(1-.14*gk[...,None])+gp[...,None]*np.array([.04,.035,.03])
-                +wz[...,None]*np.array([.04,.02,0]),.4*fbm(120,2)+.3*fbm(24,3)+.3*gk-.2*gp,1.8,.84,0,0)   # warm-grey fieldstone, as BM05/BM06
+    S['stone']=(lerp((.39,.38,.35),(.62,.60,.55),np.clip(.5+.9*(fbm(4,4)-.5)+.25*(fbm(30,2)-.5),0,1))*(1-.06*gk[...,None])+gp[...,None]*np.array([.02,.018,.015])   # warm grey (#8a8478 → #b8b0a0 guide rock), grains kept faint: stronger read as spots on a small dish
+                +wz[...,None]*np.array([.04,.02,0]),.4*fbm(120,2)+.3*fbm(24,3)+.3*gk-.2*gp,.9,.84,0,0)   # warm-grey fieldstone, as BM05/BM06
     pores=np.clip((fbm(160,1)-.6)*5,0,1)
-    S['ash']=(lerp((.47,.46,.44),(.66,.65,.62),np.clip(.5+.8*(fbm(5,3)-.5),0,1))*(1-.12*pores[...,None]),.5*fbm(60,2)-.3*pores,1.4,.95,0,0)   # pressed lye-ash cake, matte grey
+    S['ash']=(lerp((.47,.46,.44),(.66,.65,.62),np.clip(.5+.8*(fbm(5,3)-.5),0,1))*(1-.12*pores[...,None]),.5*fbm(60,2)-.3*pores,.8,.95,0,0)   # pressed lye-ash cake, matte grey
     out={}
     for k,(alb,h,s,r,m,glow) in S.items():
         mat=bpy.data.materials.new('src_'+k);mat.use_nodes=True;nt=mat.node_tree;bs=nt.nodes['Principled BSDF']
@@ -77,8 +78,8 @@ def endgrain():
     for ang,w,L in ((.6,.010,.32),(2.3,.008,.26),(4.1,.012,.38),(5.3,.006,.2)):
         d=np.abs(((a-ang+math.pi)%math.tau)-math.pi)*r;checks=np.maximum(checks,np.clip(1-d/w,0,1)*np.clip(1-r/L,0,1)*np.clip(r/.03,0,1))
     t=np.clip(.55+.5*(fbm(3,3)-.5)-.2*np.clip(r*1.6,0,1),0,1)
-    col=lerp((.36,.24,.14),(.62,.46,.30),t)*(1-.30*late[...,None])*(1-.75*checks[...,None])
-    return col,.5*late-1.2*checks+.2*fbm(60,2)
+    col=lerp((.40,.27,.16),(.66,.50,.33),t)*(1-.22*late[...,None])*(1-.75*checks[...,None])
+    return col,.18*late-1.2*checks+.2*fbm(60,2)   # rings mostly in colour, the checks cut in
 
 # ---------------- items (filled per item after its three-view is picked) ----------------
 PROPS={}
@@ -100,7 +101,8 @@ def run(pid):
     sc=bpy.context.scene;sc.unit_settings.system='METRIC';sc.render.engine='CYCLES';dev=K.gpu(sc);sc.cycles.samples=16;sc.render.bake.margin=8;sc.render.bake.margin_type='EXTEND'
     M=make_sources();meta=PROPS[pid](M)
     pts=np.array([(o.matrix_world@v.co)[:] for o in parts if not o['grp'].startswith('Detail_') for v in o.data.vertices]);lo,hi=pts.min(0),pts.max(0)
-    ax,tm=TARGET[pid];k='xyz'.index(ax);f=min([tm/(hi[k]-lo[k])]+[LIMIT[pid][i]/(hi[i]-lo[i]) for i in range(3)])   # edge jitter and bevels move the size by a few mm: scale to the work pack's length, never past its limit
+    allp=np.array([(o.matrix_world@v.co)[:] for o in parts for v in o.data.vertices]);alo,ahi=allp.min(0),allp.max(0)   # the limit holds for everything, Detail_ included
+    ax,tm=TARGET[pid];k='xyz'.index(ax);f=min([tm/(hi[k]-lo[k])]+[LIMIT[pid][i]/(ahi[i]-alo[i]) for i in range(3)])   # edge jitter and bevels move the size by a few mm: scale to the work pack's length, never past its limit
     for o in parts:o.data.transform(o.matrix_world);o.matrix_world=Matrix.Identity(4);o.data.transform(Matrix.Scale(f,4))
     pts=np.array([v.co[:] for o in parts if not o['grp'].startswith('Detail_') for v in o.data.vertices]);lo,hi=pts.min(0),pts.max(0);meta['scale_to_target']=round(float(f),4)
     off=Vector((-(lo[0]+hi[0])/2,-(lo[1]+hi[1])/2,-lo[2]))
@@ -175,7 +177,8 @@ def run(pid):
     s=emit(lambda nt,m,em:em.inputs['Color'].__setattr__('default_value',(*([float(m.get('mid',0))]*3),1)));mid=bake('mid','EMIT',True)[...,0];restore(s)
     filled=np.abs(pos).sum(2)>1e-7;padmask[0]=filled;px,py,pz=pos[...,0],pos[...,1],pos[...,2];H=max(meta['height'],.05)
     # finish: cool shade in occlusion, grime in the crevices, a little warmth on top, local pale wear on edges
-    cool=np.array([.30,.32,.42]);col=alb[...,:3]*(.50+.50*ao[...,None])+(1-ao[...,None])*cool*.07
+    k_=meta.get('ao_k',.5)   # how much AO goes into the colour (the engine applies the AO map as well); WL04 lower: the 5 cm gap between its piles went near black
+    cool=np.array([.30,.32,.42]);col=alb[...,:3]*(1-k_+k_*ao[...,None])+(1-ao[...,None])*cool*.07
     col=col*(1-.4*cav[...,None]*meta.get('grime',1))+cav[...,None]*np.array([.08,.07,.05])*.4*meta.get('grime',1)
     col=col*(1+.05*np.clip(pz/H,0,1)[...,None]*np.array([1.0,.9,.75]))
     n1=np.sin(px*23.3+np.sin(py*17.1+pz*13.3)*1.7)*np.sin(py*21.7+np.sin(pz*16.3+px*12.1)*1.9);n2=np.sin(px*71.1+np.sin(py*57.7)*1.3)*np.sin(pz*69.3+py*47.9)
