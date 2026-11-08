@@ -1,0 +1,73 @@
+{
+ "asset": "TE04_Basket_v001",
+ "tris": 19208,
+ "objects": [
+  "TE04_Basket_Detail_Small_LOD0",
+  "TE04_Basket_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 592,
+   "groups": {
+    "Detail_Small|two_sides_inside": {
+     "pairs": 569,
+     "overlap_cm2": 236.48
+    },
+    "Basket|two_sides_between": {
+     "pairs": 22,
+     "overlap_cm2": 5.6
+    },
+    "Basket/Detail_Small|two_sides_between": {
+     "pairs": 1,
+     "overlap_cm2": 0.03
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 3,
+   "groups": {
+    "Basket|two_sides_between": {
+     "pairs": 3,
+     "overlap_cm2": 0.42
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 0,
+   "groups": {},
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 176,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}
