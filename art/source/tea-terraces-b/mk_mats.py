@@ -96,7 +96,8 @@ def bamboo(name, green=(.07, .08, .022), straw=(.22, .14, .045), slot='Main', gr
     return m
 
 
-def weave(name, light, dark, slot='Main', reed=.011, block=.033, ground_h=.0, sweat=None, patch=None, xscale=1.0, green_cast=.35, plain=False):
+def weave(name, light, dark, slot='Main', reed=.011, block=.033, ground_h=.0, sweat=None, patch=None, xscale=1.0, green_cast=.35, plain=False,
+          wobble=0.0, strip_var=.3):
     """Split-bamboo basket weave on the part's own 'wuv' coordinates: blocks of flat strips alternating
     direction, dark gaps, per-strip tone, strips dipping at block edges. sweat = dark band centre z."""
     m, g = tm._new(name, slot)
@@ -104,6 +105,9 @@ def weave(name, light, dark, slot='Main', reed=.011, block=.033, ground_h=.0, sw
     X, Y = sw.outputs['X'], sw.outputs['Y']
     if xscale != 1.0: X = g.math('MULTIPLY', X, xscale)   # < 1: wider cells along X (plain weave, flat wefts)
     P, sep = _zsep(g)
+    if wobble:   # hand-woven: the block grid wanders a few mm instead of running dead straight
+        X = g.math('ADD', X, g.math('MULTIPLY', g.math('SUBTRACT', g.noise(W, 9.0, 2, .5), .5), wobble))
+        Y = g.math('ADD', Y, g.math('MULTIPLY', g.math('SUBTRACT', g.noise(g.vmath('ADD', W, (3.1, 7.7, 1.3)), 9.0, 2, .5), .5), wobble))
     if plain:
         # plain weave: flat wefts (rows reed tall) pass over and under narrower warps (cells block wide)
         i = g.math('FLOOR', g.math('DIVIDE', X, block)); j = g.math('FLOOR', g.math('DIVIDE', Y, reed))
@@ -130,7 +134,7 @@ def weave(name, light, dark, slot='Main', reed=.011, block=.033, ground_h=.0, sw
         dip = g.maprange(g.math('MINIMUM', fa, g.math('SUBTRACT', 1.0, fa)), 0.0, .18)
         h = g.math('MULTIPLY', prof, g.math('ADD', .4, g.math('MULTIPLY', dip, .6)))
     n = g.noise(P, 4.0, 4, .55); fine = g.noise(W, 220.0, 3, .6)
-    t = g.math('ADD', g.math('ADD', g.math('MULTIPLY', h, .5), g.math('MULTIPLY', rv, .3)), g.math('MULTIPLY', n, .2))
+    t = g.math('ADD', g.math('ADD', g.math('MULTIPLY', h, .5), g.math('MULTIPLY', rv, strip_var)), g.math('MULTIPLY', n, .2))
     col = g.ramp(t, [(.12, tuple(c * .45 for c in dark)), (.42, dark), (.8, light)])
     col = g.mix(g.math('MULTIPLY', fine, .15), col, tuple(c * .8 for c in dark))
     green = g.maprange(g.noise(P, 2.5, 3, .5), .5, .68)                      # some strips keep a green cast

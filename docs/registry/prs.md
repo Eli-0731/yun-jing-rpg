@@ -1,6 +1,6 @@
 # PR 總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；要更新就重跑。產生時間：2026-11-06 22:59 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；要更新就重跑。產生時間：2026-11-08 09:46 UTC。
 > 人：A = Johnnnny0823（John）、B = joshsu54（Josh）、C = Eli-0731（Eli）、核心組 = z1nnz（含 Claude Code、Codex 代提交）。
 
 | PR | 誰 | 狀態 | 日期 | 分支 | 做了什麼（標題） | 動到的主要資料夾（檔案數） |
@@ -78,3 +78,6 @@
 | [#75](https://github.com/z1nnz/chengtian/pull/75) | 核心組 | 已合併 | 2026-11-06 | `feature/world-props-a` | 【A】11/03 世界模型修正：LOD1 每件上限 10 萬面、只交 FBX | `art/previews/world-props-a`(41)、`art/exports/world-props-a`(39)、`art/source/world-props-a`(11) |
 | [#76](https://github.com/z1nnz/chengtian/pull/76) | 核心組 | 已合併 | 2026-11-06 | `feature/qingxi-gathering-kit-v002` | 【B】10/27 溪畔採集套件 v002：依審過的三視圖重做 | `art/references/qingxi-gathering-visual-kit-v1`(190)、`art/exports/qingxi-gathering-visual-kit-v1`(85)、`art/source/qingxi-gathering-visual-kit-v1`(17)、`art/previews/qingxi-gathering-visual-kit-v1`(1) |
 | [#77](https://github.com/z1nnz/chengtian/pull/77) | 核心組 | 關閉未合併 | 2026-11-06 | `feature/territory-backyard-a` | 【A】10/31 領地後院完整版（已被後續版本取代，不合併） | `art/previews/territory-backyard-a`(74)、`art/exports/territory-backyard-a`(66)、`art/references/territory-backyard-a`(16)、`art/source/territory-backyard-a`(14)、`tools/territory-backyard-a/README.md`(1) 等 16 處 |
+| [#78](https://github.com/z1nnz/chengtian/pull/78) | 核心組 | 已合併 | 2026-11-07 | `docs/core-1107-labeling-rules` | 【核心組】11/07 標註規則 v1 與分支／PR／資料夾總帳 | `.github/pull_request_template.md`(1)、`CONTRIBUTING.md`(1)、`docs/registry/branches.md`(1)、`docs/registry/folders.md`(1)、`docs/registry/prs.md`(1) 等 10 處 |
+| [#79](https://github.com/z1nnz/chengtian/pull/79) | B | 已合併 | 2026-11-08 | `art/b-1107-te04-te05-ri03-tea-wheel` | 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、稻田灌溉大水車 | `art/previews/tea-terraces-b`(119)、`art/exports/tea-terraces-b`(47)、`art/source/tea-terraces-b`(16)、`art/references/TE04`(12)、`art/references/RI03`(6) 等 8 處 |
+| [#80](https://github.com/z1nnz/chengtian/pull/80) | A | 開啟中 | 2026-11-08 | `art/a-1105-mc01-street-houses` | 【A】11/05 MC01：山城街屋模組（樣品：SB01 石基、SF01 店面、RF01 歇山屋頂） | `art/previews/mountain-street-houses-a`(37)、`art/source/mountain-street-houses-a`(8)、`art/exports/mountain-street-houses-a`(7)、`art/references/MC01-RF01`(5)、`art/references/MC01-SB01`(5) 等 11 處 |

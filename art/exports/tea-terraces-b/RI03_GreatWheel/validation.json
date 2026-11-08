@@ -1,0 +1,225 @@
+{
+  "asset": "RI03_GreatWheel",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.0678,
+          -5.0284,
+          -4.4985
+        ],
+        "max": [
+          1.065,
+          5.4,
+          4.4985
+        ],
+        "box_m": [
+          [
+            -1.07,
+            -5.12,
+            -4.52
+          ],
+          [
+            1.07,
+            5.42,
+            4.52
+          ]
+        ]
+      }
+    },
+    {
+      "check": "lowest_point_at_design_z",
+      "pass": true,
+      "detail": {
+        "min_z": -4.49851,
+        "design_min_z": -4.5,
+        "largest_clamp_m": 0
+      }
+    },
+    {
+      "check": "wheel_9m_diameter",
+      "pass": true,
+      "detail": {
+        "wheel_dims_m": [
+          2.13,
+          9.001,
+          8.997
+        ],
+        "design_m": 9.0
+      }
+    },
+    {
+      "check": "assembly_about_2m_wide",
+      "pass": true,
+      "detail": {
+        "width_x_m": 2.1328,
+        "note": "axle ends and stone seats; the trough frame stands on the -X side within the same width"
+      }
+    },
+    {
+      "check": "wheel_pivot_at_origin",
+      "pass": true,
+      "detail": {
+        "wheel_bbox_centre_m": [
+          0.0,
+          -0.0004,
+          -0.0
+        ]
+      }
+    },
+    {
+      "check": "separate_parts",
+      "pass": true,
+      "detail": {
+        "groups_LOD0": [
+          "Detail_Small",
+          "Detail_Wheel",
+          "Seat",
+          "Trough",
+          "Wheel"
+        ],
+        "note": "Wheel and Detail_Wheel turn; Seat, Trough and Detail_Small stand"
+      }
+    },
+    {
+      "check": "wheel_turns_clear_of_static_parts",
+      "pass": true,
+      "detail": {
+        "static_points_inside_swept_wheel": 0,
+        "first": [],
+        "cell_m": 0.02,
+        "note": "surface samples of the turning wheel binned by (x, radius about the axle); the axle in its bearings is excluded"
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 77820,
+          "LOD1": 38910,
+          "LOD2": 13498
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.173,
+        "per_group": {
+          "Wheel": {
+            "LOD0": 40360,
+            "LOD1": 20180,
+            "LOD2": 6054
+          },
+          "Detail_Wheel": {
+            "LOD0": 26112,
+            "LOD1": 13056,
+            "LOD2": 5746
+          },
+          "Seat": {
+            "LOD0": 3852,
+            "LOD1": 1926,
+            "LOD2": 576
+          },
+          "Detail_Small": {
+            "LOD0": 3848,
+            "LOD1": 1924,
+            "LOD2": 576
+          },
+          "Trough": {
+            "LOD0": 3648,
+            "LOD1": 1824,
+            "LOD2": 546
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          2.1328,
+          10.4284,
+          8.997
+        ],
+        "blend_dims_m": [
+          2.1328,
+          10.4284,
+          8.997
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "RI03_GreatWheel.001",
+        "RI03_GreatWheel_Collision.001",
+        "RI03_GreatWheel_Detail_Small_LOD0.001",
+        "RI03_GreatWheel_Detail_Small_LOD1.001",
+        "RI03_GreatWheel_Detail_Small_LOD2.001",
+        "RI03_GreatWheel_Detail_Wheel_LOD0.001",
+        "RI03_GreatWheel_Detail_Wheel_LOD1.001",
+        "RI03_GreatWheel_Detail_Wheel_LOD2.001",
+        "RI03_GreatWheel_Seat_LOD0.001",
+        "RI03_GreatWheel_Seat_LOD1.001",
+        "RI03_GreatWheel_Seat_LOD2.001",
+        "RI03_GreatWheel_Trough_LOD0.001",
+        "RI03_GreatWheel_Trough_LOD1.001",
+        "RI03_GreatWheel_Trough_LOD2.001",
+        "RI03_GreatWheel_Wheel_LOD0.001",
+        "RI03_GreatWheel_Wheel_LOD1.001",
+        "RI03_GreatWheel_Wheel_LOD2.001",
+        "Socket_Axle.001",
+        "Socket_Ground.001",
+        "Socket_Trough_Out.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Axle.001": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Socket_Ground.001": [
+          0.0,
+          -0.0,
+          -4.0
+        ],
+        "Socket_Trough_Out.001": [
+          -0.955,
+          5.4,
+          3.7822
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 7254264
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 147,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

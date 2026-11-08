@@ -1,0 +1,72 @@
+{
+ "asset": "TE05_Pavilion_v001",
+ "tris": 75544,
+ "objects": [
+  "TE05_Pavilion_Detail_Small_LOD0",
+  "TE05_Pavilion_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 496,
+   "groups": {
+    "Pavilion|two_sides_between": {
+     "pairs": 496,
+     "overlap_cm2": 2531.0
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 496,
+   "groups": {
+    "Pavilion|two_sides_between": {
+     "pairs": 496,
+     "overlap_cm2": 2531.0
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 496,
+   "groups": {
+    "Pavilion|two_sides_between": {
+     "pairs": 496,
+     "overlap_cm2": 2531.0
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 9
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "TE05_Pavilion_Detail_Small_LOD0": 9
+  }
+ },
+ "pieces": 491,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

@@ -1,26 +1,36 @@
 # 分支總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-06 22:59 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-08 09:46 UTC。
 > 「main 沒有的檔案」= 這條分支改過、而現在內容和 main 不一樣的檔案數（用內容比，不是比提交編號）。0 代表分支裡的東西都已在 main，刪掉也不會遺失，但先保留不刪。
 
 - 主線：1 條
-- 舊版或試驗，保留參考：13 條
-- 內容都在 main，可封存：43 條
+- 待審：1 條
+- 內容都在 main，可封存：45 條
+- 舊版或試驗，保留參考：18 條
 - 核心組進行中：1 條
 - 內容都在 main（只差幾個小檔）：6 條
 
 | 分支 | 分類 | 最後更新 | 最後提交者 | main 沒有的檔案 | PR | 做了什麼 | 備註 |
 |---|---|---|---|---:|---|---|---|
-| `main` | 主線 | 2026-11-07 | z1nnz | 0 | 沒有 PR | Merge pull request #76 from z1nnz/feature/qingxi-gathering-kit-v002 |  |
-| `docs/core-1107-labeling-rules` | 舊版或試驗，保留參考 | 2026-11-07 | z1nnz | 10 | 沒有 PR | docs: 標註規則 v1、分支／PR／資料夾總帳與產生器、PR 範本加「這張 PR 是什麼」 | 核心組 11/07 標註規則、總帳工具、PR 範本更新。 |
+| `main` | 主線 | 2026-11-08 | z1nnz | 0 | 沒有 PR | Merge pull request #79 from z1nnz/art/b-1107-te04-te05-ri03-tea-wheel |  |
+| `art/a-1105-mc01-street-houses` | 待審 | 2026-11-08 | z1nnz | 75 | [#80](https://github.com/z1nnz/chengtian/pull/80) 開啟中 | 【A】11/05 MC01：山城街屋模組（樣品：SB01 石基、SF01 店面、RF01 歇山屋頂） |  |
+| `art/b-1107-te04-te05-ri03-tea-wheel` | 內容都在 main，可封存 | 2026-11-08 | z1nnz | 0 | [#79](https://github.com/z1nnz/chengtian/pull/79) 已合併 | 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、稻田灌溉大水車 |  |
+| `art/codex-1108-c2-home-interior` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 33 | 沒有 PR | C2: 借住處後門與室內配置對位 |  |
+| `art/codex-1108-keyart` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 20 | 沒有 PR | KA01-KA10: 十區主視覺與氛圍卡 |  |
+| `art/codex-1108-moon-and-skyline-arc` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 31 | 沒有 PR | MO01: 交付細彎缺月與天際線弧面骨架 |  |
+| `art/codex-1108-rice-and-ferry` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 238 | 沒有 PR | RI01: 修水田三狀態 LOD0 疊面並通過 QA |  |
+| `art/codex-1108-tx01-ascension-board` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 25 | 沒有 PR | TX01: 交付飛升榜 LOD 與匯出包 |  |
+| `feature/qingxi-creek-chapter` | 核心組進行中 | 2026-11-08 | z1nnz | 435 | 沒有 PR | docs: 山城街道小件改編號 ST01–ST06，避免和 MC01-SF 撞名 | 核心組進行中：故事定稿、工作包、區塊資料、11/07 文件。尚未合回 main（待整併）。 |
+| `game/core-1108-world-east-valley` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 437 | 沒有 PR | docs: Codex v5 場景畫面清單（KA00–KA11：站位、時間、構圖、驗收） |  |
+| `docs/core-1107-labeling-rules` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#78](https://github.com/z1nnz/chengtian/pull/78) 已合併 | 【核心組】11/07 標註規則 v1 與分支／PR／資料夾總帳 | 核心組 11/07 標註規則、總帳工具、PR 範本更新。 |
 | `feature/basic-combat-a` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#66](https://github.com/z1nnz/chengtian/pull/66) 已合併 | A：基礎戰鬥手感（空手三段、蓄力重擊、閃避） |  |
 | `feature/creek-repair-b-a3` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#72](https://github.com/z1nnz/chengtian/pull/72) 已合併 | B：A3 西溪六件模型 WM01、02、04、05、07、09 |  |
 | `feature/creek-repair-b-gameplay` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#71](https://github.com/z1nnz/chengtian/pull/71) 已合併 | B：修水路玩法（清淤、接渠、通水）與測試場景 |  |
 | `feature/creek-repair-b-site` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#70](https://github.com/z1nnz/chengtian/pull/70) 已合併 | B：工地和三種修法模型 CR03–CR09（外加 CR14、CR15、F01_Field） |  |
 | `feature/creek-repair-b-stalls` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#73](https://github.com/z1nnz/chengtian/pull/73) 已合併 | B：山城三個攤位 CR10、CR11、CR12 |  |
-| `feature/qingxi-creek-chapter` | 核心組進行中 | 2026-11-07 | z1nnz | 430 | 沒有 PR | 補上 11/05 B、C 工作包原文（11/07 新包引用） | 核心組進行中：故事定稿、工作包、區塊資料、11/07 文件。尚未合回 main（待整併）。 |
-| `feature/world-props-a` | 內容都在 main，可封存 | 2026-11-07 | Johnnnny0823 | 0 | [#68](https://github.com/z1nnz/chengtian/pull/68) 已合併、[#75](https://github.com/z1nnz/chengtian/pull/75) 已合併 | 【A】11/03 世界模型修正：LOD1 每件上限 10 萬面、只交 FBX | #68 合併後 A 在 11/07 推的修正（LOD1 上限 10 萬面、只交 FBX），由核心組代開 PR #75 審查並合併。 |
-| `feature/tea-terraces-b` | 內容都在 main，可封存 | 2026-11-06 | z1nnz | 0 | [#74](https://github.com/z1nnz/chengtian/pull/74) 已合併 | B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | B 東坡茶田第一批 TE01–TE03 與 9 件追加件；PR #74 於 2026-11-07 合併。 |
+| `feature/qingxi-gathering-kit-v002` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#76](https://github.com/z1nnz/chengtian/pull/76) 已合併 | 【B】10/27 溪畔採集套件 v002：依審過的三視圖重做 | B 的溪畔採集套件 v002（依審過的三視圖重做，v001 未覆寫）；由核心組代開 PR #76 審查並合併。 |
+| `feature/tea-terraces-b` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#74](https://github.com/z1nnz/chengtian/pull/74) 已合併 | B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | B 東坡茶田第一批 TE01–TE03 與 9 件追加件；PR #74 於 2026-11-07 合併。 |
+| `feature/world-props-a` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#68](https://github.com/z1nnz/chengtian/pull/68) 已合併、[#75](https://github.com/z1nnz/chengtian/pull/75) 已合併 | 【A】11/03 世界模型修正：LOD1 每件上限 10 萬面、只交 FBX | #68 合併後 A 在 11/07 推的修正（LOD1 上限 10 萬面、只交 FBX），由核心組代開 PR #75 審查並合併。 |
 | `feature/body-training-lesson-a` | 內容都在 main，可封存 | 2026-11-02 | z1nnz | 0 | [#59](https://github.com/z1nnz/chengtian/pull/59) 已合併 | 第 2 天：沈岳的第一堂練體課與院子模型（TY01、TY02、TY07） |  |
 | `feature/harvest-market-b` | 內容都在 main（只差幾個小檔） | 2026-11-02 | z1nnz | 1 | [#63](https://github.com/z1nnz/chengtian/pull/63) 已合併 | 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） |  |
 | `feature/tea-brewing-b-gameplay` | 內容都在 main（只差幾個小檔） | 2026-11-02 | z1nnz | 1 | [#58](https://github.com/z1nnz/chengtian/pull/58) 已合併 | feat: 第 1 天・在家泡茶（工作包 B）＋ TI09／RK04／TI10 模型 |  |
@@ -45,7 +55,6 @@
 | `feature/alchemy-gameplay-v2` | 內容都在 main，可封存 | 2026-10-28 | z1nnz | 0 | [#40](https://github.com/z1nnz/chengtian/pull/40) 已合併 | 煉丹玩法 V2：伺服器權威煉丹、Unity 丹房、多鏡頭與手機版介面 |  |
 | `feature/qingxi-alchemy-workshop-v1` | 內容都在 main，可封存 | 2026-10-28 | joshsu54 | 0 | [#36](https://github.com/z1nnz/chengtian/pull/36) 已合併 | Joshsu54 溪畔採集後的煉製小工坊 |  |
 | `feature/qingxi-forest-encounter-v1` | 內容都在 main，可封存 | 2026-10-28 | z1nnz | 0 | [#39](https://github.com/z1nnz/chengtian/pull/39) 已合併 | 青溪林地山兔遭遇與試招（A01–A12＋遭遇循環＋操作錄影）— 10/29 工作包 A |  |
-| `feature/qingxi-gathering-kit-v002` | 內容都在 main，可封存 | 2026-10-28 | joshsu54 | 0 | [#76](https://github.com/z1nnz/chengtian/pull/76) 已合併 | 【B】10/27 溪畔採集套件 v002：依審過的三視圖重做 | B 的溪畔採集套件 v002（依審過的三視圖重做，v001 未覆寫）；由核心組代開 PR #76 審查並合併。 |
 | `feature/qingxi-gathering-visual-kit-v1` | 內容都在 main，可封存 | 2026-10-28 | z1nnz | 0 | [#31](https://github.com/z1nnz/chengtian/pull/31) 已合併 | art: Qingxi creek gathering kit v001 (assets only, provisional) |  |
 | `feature/qingxi-listening-terrace-v1` | 內容都在 main，可封存 | 2026-10-28 | z1nnz | 0 | [#27](https://github.com/z1nnz/chengtian/pull/27) 已合併 | 青溪入口與統一世界本機試玩 |  |
 | `feature/qingxi-training-yard-v1` | 內容都在 main，可封存 | 2026-10-28 | z1nnz | 0 | [#32](https://github.com/z1nnz/chengtian/pull/32) 已合併 | 青溪初入世：公共演武區六件模型與 PWA 練功展示 |  |
@@ -73,5 +82,5 @@
 | `feature/qingxi-world-foundation-v1` | 舊版或試驗，保留參考 | 2026-10-25 | z1nnz | 24 | 沒有 PR | Add browser route walkthrough for Qingxi blockout | 核心組 10/25 青溪世界雛形與瀏覽器走線；已被後續版本取代。保留參考。 |
 | `very-strong` | 舊版或試驗，保留參考 | 2026-10-25 | joshsu54 | 66 | 沒有 PR | feat: playable first-person Qingxi world (town + hunt area) in apps/game | B 10/25 第一人稱青溪世界（城鎮＋狩獵區）原型；後來改走 #27、#49 的整合。保留參考，不再合。 |
 | `assets/dondon-import` | 內容都在 main，可封存 | 2026-10-24 | z1nnz | 0 | [#2](https://github.com/z1nnz/chengtian/pull/2) 關閉未合併 | dondon2.0 素材交接：第一批與第二批（art/incoming/dondon） | #2 關閉；Dondon 交接改由 #3 合併，內容都在 main。 |
-| `chore/collaboration-workflow` | 內容都在 main（只差幾個小檔） | 2026-10-24 | z1nnz | 2 | [#1](https://github.com/z1nnz/chengtian/pull/1) 已合併 | 建立協作者自行合併流程與素材檢查 |  |
+| `chore/collaboration-workflow` | 內容都在 main（只差幾個小檔） | 2026-10-24 | z1nnz | 3 | [#1](https://github.com/z1nnz/chengtian/pull/1) 已合併 | 建立協作者自行合併流程與素材檢查 |  |
 | `very-string-donon` | 內容都在 main（只差幾個小檔） | 2026-10-24 | joshsu54 | 1 | [#3](https://github.com/z1nnz/chengtian/pull/3) 已合併 | assets: dondon2.0 素材交接第一批與第二批（art/incoming/dondon） |  |
