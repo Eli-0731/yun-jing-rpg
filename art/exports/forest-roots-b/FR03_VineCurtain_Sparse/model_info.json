@@ -1,0 +1,191 @@
+{
+  "asset": "FR03_VineCurtain_Sparse",
+  "version": "v001",
+  "minTier": "high",
+  "detailObjects": [],
+  "name_zh": "垂藤幕・疏",
+  "slot": "D1_ForestEdge_to_D2_ElderTree",
+  "note": "垂藤幕・疏（三視圖 FR03 candidate-02）：寬 2 m、厚 0.2 m、垂長最多 2.95 m。同樣三藤絞成的掛線，11 條單股藤蔓、間隔大，看得到後面；葉片稀，約每 11 cm 一片。minTier high：低畫質整件不載入。沒有碰撞，關掉不影響行走。頂點色 Wind：R 從掛線 0 到藤尖 1，G 每條藤的相位，B 高度。LOD1 每兩條取一條、加寬 1.25 倍；LOD2 每三條取一條、加寬 1.5 倍、分段減半。接口：Socket_Hang（掛線中點）。審圖畫面把掛線放在離地 3 m（ground_z −3 m）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 4064,
+      "objects": 2,
+      "objects_without_detail": 2,
+      "materials": 2
+    },
+    "LOD1": {
+      "triangles": 2032,
+      "objects": 2,
+      "objects_without_detail": 2,
+      "materials": 2
+    },
+    "LOD2": {
+      "triangles": 634,
+      "objects": 2,
+      "objects_without_detail": 2,
+      "materials": 2
+    }
+  },
+  "texture_resolution_px": {
+    "FR03_VineCards_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "FR03_VineCards_Normal.png": [
+      2048,
+      2048
+    ],
+    "FR03_VineCurtain_Sparse_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "FR03_VineCurtain_Sparse_Metallic.png": [
+      1024,
+      1024
+    ],
+    "FR03_VineCurtain_Sparse_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "FR03_VineCurtain_Sparse_Normal.png": [
+      1024,
+      1024
+    ],
+    "FR03_VineCurtain_Sparse_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the hang line (top); everything hangs below z = 0",
+  "dimensions_m": [
+    1.946,
+    0.0963,
+    2.939
+  ],
+  "bounds_min_m": [
+    -0.973,
+    -0.0526,
+    -2.945
+  ],
+  "bounds_max_m": [
+    0.973,
+    0.0436,
+    -0.006
+  ],
+  "size_limit_m": [
+    2.0,
+    0.2,
+    3.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        1.946,
+        0.0705,
+        0.0665
+      ],
+      "min": [
+        -0.973,
+        -0.036,
+        -0.0725
+      ],
+      "max": [
+        0.973,
+        0.0345,
+        -0.006
+      ]
+    },
+    "Leaves": {
+      "dims_m": [
+        1.7976,
+        0.0963,
+        2.91
+      ],
+      "min": [
+        -0.945,
+        -0.0526,
+        -2.945
+      ],
+      "max": [
+        0.8526,
+        0.0436,
+        -0.035
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 3168,
+      "LOD1": 1584,
+      "LOD2": 474
+    },
+    "Leaves": {
+      "LOD0": 896,
+      "LOD1": 448,
+      "LOD2": 160
+    }
+  },
+  "lod_totals": {
+    "LOD0": 4064,
+    "LOD1": 2032,
+    "LOD2": 634
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FR03_VineCurtain_Sparse_Main",
+    "M_FR03_VineCurtain_Sparse_VineCards"
+  ],
+  "textures": [
+    "FR03_VineCards_BaseColor.png",
+    "FR03_VineCards_Normal.png",
+    "FR03_VineCurtain_Sparse_BaseColor.png",
+    "FR03_VineCurtain_Sparse_Metallic.png",
+    "FR03_VineCurtain_Sparse_MetallicSmoothness.png",
+    "FR03_VineCurtain_Sparse_Normal.png",
+    "FR03_VineCurtain_Sparse_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "FR03_VineCurtain_Sparse_BaseColor.png",
+    "Normal": "FR03_VineCurtain_Sparse_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "FR03_VineCurtain_Sparse_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FR03_VineCurtain_Sparse_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": false,
+  "ground_z_m": -3.0,
+  "sockets_blender_xyz": {
+    "Socket_Hang": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Hang.001": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "FR03_VineCurtain_Sparse.001",
+    "FR03_VineCurtain_Sparse_LOD0.001",
+    "FR03_VineCurtain_Sparse_LOD1.001",
+    "FR03_VineCurtain_Sparse_LOD2.001",
+    "FR03_VineCurtain_Sparse_Leaves_LOD0.001",
+    "FR03_VineCurtain_Sparse_Leaves_LOD1.001",
+    "FR03_VineCurtain_Sparse_Leaves_LOD2.001",
+    "Socket_Hang.001"
+  ],
+  "glb": "FR03_VineCurtain_Sparse_v001.glb",
+  "interface": {},
+  "modeling_method": "procedural mesh construction (art/source/forest-roots-b/); procedural shaders (cr_mats.py) baked to one 1024 atlas",
+  "reference": "art/references/FR03/ (AI three-view FR03/candidate-02; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/forest-roots-unity/ (local Unity batch check, not committed)"
+}
