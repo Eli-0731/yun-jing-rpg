@@ -1,0 +1,108 @@
+{
+  "ok": true,
+  "pass": true,
+  "errors": [],
+  "warnings": [
+    "SM_FE02_FerryHull_LOD1: ~97.69% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_FE02_FerryHull_LOD1: duplicate verts=928 loose verts=0",
+    "SM_FE02_Canopy_LOD1: ~98.55% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_FE02_Canopy_LOD1: duplicate verts=2120 loose verts=0",
+    "SM_FE02_PushPole_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_FE02_PushPole_LOD0: duplicate verts=78 loose verts=0",
+    "hidden back-to-back faces: SM_FE02_FerryHull_LOD1 (120 pairs) - delete to save tris",
+    "asset lowest point z=-0.26 (not resting on ground plane z=0)"
+  ],
+  "ground_z": -0.26,
+  "zfighting": [],
+  "floating": [],
+  "back_to_back": [
+    {
+      "where": "SM_FE02_FerryHull_LOD1",
+      "tri_pairs": 120
+    }
+  ],
+  "enclosed": [],
+  "objects": {
+    "SM_FE02_FerryHull_LOD1": {
+      "verts": 1856,
+      "faces": 992,
+      "tris": 992,
+      "ngons": 0,
+      "boundary_edges": 1856,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 928,
+      "islands": 432,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 4,
+      "uv_maps": 1,
+      "uv_oob_pct": 88.88,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 97.69,
+      "uv_coverage_pct": 85.0
+    },
+    "SM_FE02_Canopy_LOD1": {
+      "verts": 4240,
+      "faces": 2294,
+      "tris": 2294,
+      "ngons": 0,
+      "boundary_edges": 4240,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 2120,
+      "islands": 973,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 3,
+      "uv_maps": 1,
+      "uv_oob_pct": 62.47,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 98.55,
+      "uv_coverage_pct": 67.3
+    },
+    "SM_FE02_PushPole_LOD0": {
+      "verts": 156,
+      "faces": 92,
+      "tris": 92,
+      "ngons": 0,
+      "boundary_edges": 156,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 78,
+      "islands": 32,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 2,
+      "uv_maps": 1,
+      "uv_oob_pct": 65.22,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 7.2
+    }
+  }
+}
