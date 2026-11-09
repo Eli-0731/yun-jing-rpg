@@ -1,0 +1,14 @@
+BM10_01 苔蘚第三版參考圖與自評（2026-11-09，#81 審查：苔墊全是圓形、重複明顯、太亮太綠）
+選用：BM10-moss-v3-cand-2.png（92分）。
+
+提示詞照 #81 審查給的原文（正面和負面都一字不改）。評分：不規則、大小差 30／低對比、看不出重複 25／#3F5A2E 附近的苔綠 30／乾淨無字 15。
+- moss-v3-cand-1：91（27+23+27+14）。苔團自然，但整體稍亮，大團塊少。
+- moss-v3-cand-2：92（28+23+27+14）。選用。大苔團和很多小苔團融在一起、大小差最明顯，沒有方向性，細絨清楚。
+- moss-v3-cand-3：90（26+23+27+14）。太均勻，大小差小。
+- moss-v3-cand-4：89（26+21+28+14）。有一點斜向紋路，重複時會看出方向。
+
+建模取捨：顏色四邊無縫、透明外形和網格做法和第二版一樣，只改苔墊的形狀與顏色：座標先扭曲、苔墊平滑融合且大小差拉大、顏色以 #3F5A2E 為中心收窄，大尺度的深淺只影響顏色幾個百分點。
+
+== 提示詞（四張相同） ==
+Top-down orthographic seamless tileable texture reference of natural forest cushion moss on damp ground, about 1 m square, irregular organic clumps of very different sizes merging softly into each other, no round discs, no polka dots, muted deep moss green around #3F5A2E with gentle low-contrast variation, only slightly lighter tips and slightly darker hollows, fine soft strand texture, even overcast light with no cast shadows, hand-painted game art style, no stones, no flowers, no ferns, no text, no watermark.
+Negative: camouflage pattern, circles, spots, bright lime green, neon, high contrast, repeating motif, directional stripes, grass blades, photo, frame, border.

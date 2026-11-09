@@ -1,0 +1,141 @@
+{
+ "FR01_RootWall_Wave_Detail_Small_LOD0": {
+  "tris": 13878,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 18,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 112,
+  "open_pieces": 89,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -1.67,
+     0.59,
+     0.77
+    ],
+    8
+   ],
+   [
+    [
+     -1.66,
+     0.62,
+     0.77
+    ],
+    2
+   ],
+   [
+    [
+     -1.65,
+     0.6,
+     0.76
+    ],
+    2
+   ],
+   [
+    [
+     -1.65,
+     0.59,
+     0.76
+    ],
+    2
+   ],
+   [
+    [
+     -1.65,
+     0.59,
+     0.77
+    ],
+    2
+   ],
+   [
+    [
+     -1.65,
+     0.6,
+     0.77
+    ],
+    2
+   ]
+  ],
+  "inverted_at": []
+ },
+ "FR01_RootWall_Wave_Detail_Small_LOD1": {
+  "tris": 6938,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 38,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "FR01_RootWall_Wave_Detail_Small_LOD2": {
+  "tris": 2080,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 38,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "FR01_RootWall_Wave_LOD0": {
+  "tris": 35094,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 12,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "FR01_RootWall_Wave_LOD1": {
+  "tris": 17546,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 12,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "FR01_RootWall_Wave_LOD2": {
+  "tris": 5264,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 12,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}
