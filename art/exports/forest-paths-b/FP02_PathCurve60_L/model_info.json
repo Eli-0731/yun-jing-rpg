@@ -1,0 +1,244 @@
+{
+  "asset": "FP02_PathCurve60_L",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "FP02_PathCurve60_L_Detail_Small"
+  ],
+  "name_zh": "林間土路彎段 60° 左彎",
+  "slot": "D1_ForestEdge_to_D2_ElderTree",
+  "note": "林間土路彎段 60° 左彎（三視圖 FP02 candidate-01）：中線長 5.5 m、半徑 5.25 m，寬 2.0 m（同 FP01 加寬）、高 0.3 m 以內，放得進 6×6 m。截面、土色、落葉、蕨、石頭和 FP01 同一套；彎道內側的土埂被抄近路的腳踩低 3.5 cm、中間的淺溝往內側偏 10 cm，兩者在彎道中間最明顯、兩端歸零。兩端截面就是套件共用截面，可接 FP01 或任一段。碰撞：共用截面的簡化土板（每 0.5 m 一段弦）；接口 Socket_Path_W（入口）／Socket_Path_E（出口）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 30016,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 15048,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 4097,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "FP02_PathCurve60_L_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "FP02_PathCurve60_L_Metallic.png": [
+      2048,
+      2048
+    ],
+    "FP02_PathCurve60_L_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "FP02_PathCurve60_L_Normal.png": [
+      2048,
+      2048
+    ],
+    "FP02_PathCurve60_L_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the strip outline at ground level; enters along +X at Socket_Path_W",
+  "dimensions_m": [
+    5.4145,
+    4.1261,
+    0.2148
+  ],
+  "bounds_min_m": [
+    -2.7072,
+    -2.063,
+    0.0
+  ],
+  "bounds_max_m": [
+    2.7072,
+    2.063,
+    0.2148
+  ],
+  "size_limit_m": [
+    6.0,
+    6.0,
+    0.3
+  ],
+  "pieces": {
+    "Ground": {
+      "dims_m": [
+        5.4145,
+        4.1261,
+        0.129
+      ],
+      "min": [
+        -2.7072,
+        -2.063,
+        0.0
+      ],
+      "max": [
+        2.7072,
+        2.063,
+        0.129
+      ]
+    },
+    "Main": {
+      "dims_m": [
+        3.7501,
+        3.2476,
+        0.2108
+      ],
+      "min": [
+        -2.2746,
+        -1.5013,
+        0.004
+      ],
+      "max": [
+        1.4754,
+        1.7463,
+        0.2148
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        4.9707,
+        3.8007,
+        0.2025
+      ],
+      "min": [
+        -2.6124,
+        -1.9771,
+        0.0087
+      ],
+      "max": [
+        2.3583,
+        1.8236,
+        0.2112
+      ]
+    }
+  },
+  "lods": {
+    "Ground": {
+      "LOD0": 9542,
+      "LOD1": 4812,
+      "LOD2": 1028
+    },
+    "Main": {
+      "LOD0": 2958,
+      "LOD1": 1478,
+      "LOD2": 442
+    },
+    "Detail_Small": {
+      "LOD0": 17516,
+      "LOD1": 8758,
+      "LOD2": 2627
+    }
+  },
+  "lod_totals": {
+    "LOD0": 30016,
+    "LOD1": 15048,
+    "LOD2": 4097
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FP02_PathCurve60_L_Main"
+  ],
+  "textures": [
+    "FP02_PathCurve60_L_BaseColor.png",
+    "FP02_PathCurve60_L_Metallic.png",
+    "FP02_PathCurve60_L_MetallicSmoothness.png",
+    "FP02_PathCurve60_L_Normal.png",
+    "FP02_PathCurve60_L_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "FP02_PathCurve60_L_BaseColor.png",
+    "Normal": "FP02_PathCurve60_L_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "FP02_PathCurve60_L_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FP02_PathCurve60_L_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Path_W": [
+      -2.7072,
+      -1.063,
+      0.0
+    ],
+    "Socket_Path_E": [
+      1.8412,
+      1.563,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Path_E.001": [
+      1.8412,
+      1.563,
+      -0.0
+    ],
+    "Socket_Path_W.001": [
+      -2.7072,
+      -1.063,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "FP02_PathCurve60_L.001",
+    "FP02_PathCurve60_L_Collision.001",
+    "FP02_PathCurve60_L_Detail_Small_LOD0.001",
+    "FP02_PathCurve60_L_Detail_Small_LOD1.001",
+    "FP02_PathCurve60_L_Detail_Small_LOD2.001",
+    "FP02_PathCurve60_L_Ground_LOD0.001",
+    "FP02_PathCurve60_L_Ground_LOD1.001",
+    "FP02_PathCurve60_L_Ground_LOD2.001",
+    "FP02_PathCurve60_L_LOD0.001",
+    "FP02_PathCurve60_L_LOD1.001",
+    "FP02_PathCurve60_L_LOD2.001",
+    "Socket_Path_E.001",
+    "Socket_Path_W.001"
+  ],
+  "glb": "FP02_PathCurve60_L_v001.glb",
+  "interface": {
+    "length_m": 5.5,
+    "width_m": 2.0,
+    "section": "fp_parts.section: tread 1.16 m wide at 0.055-0.06 m, bank crests 0.12 m at 0.82 m out, edge 0.012 m at 1.0 m",
+    "joint": "next piece: its Socket_Path_W on this Socket_Path_E, rotated 180 deg about Z",
+    "end_section_vertices": 41,
+    "walk": "from Socket_Path_W (s = 0) to Socket_Path_E (s = L)",
+    "socket_heights_m": [
+      0.0,
+      0.0
+    ],
+    "sockets": [
+      "Socket_Path_E",
+      "Socket_Path_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/forest-paths-b/); procedural shaders (fp_mats.py, cr_mats.py, fr_mats.py) baked to one 2048 atlas; walking surface LODs by dropping grid rows (end rows kept)",
+  "ground_rows_per_lod": {
+    "LOD0": 111,
+    "LOD1": 56,
+    "LOD2": 12
+  },
+  "seam_normals_set": {
+    "FP02_PathCurve60_L_Ground_LOD0": 160,
+    "FP02_PathCurve60_L_Ground_LOD1": 160,
+    "FP02_PathCurve60_L_Ground_LOD2": 160
+  },
+  "leaves_laid": 192,
+  "reference": "art/references/FP02/ (AI three-view FP02/candidate-01; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "not yet: Unity check not run (project editor 6000.0.82f1 is not installed here)"
+}

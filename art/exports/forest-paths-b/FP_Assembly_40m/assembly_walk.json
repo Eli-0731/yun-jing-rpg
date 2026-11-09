@@ -1,0 +1,298 @@
+{
+  "sequence": [
+    "FP01_PathStraight",
+    "FP02_PathCurve30_L",
+    "FP04_PathRootCrossing",
+    "FP02_PathCurve60_R",
+    "FP01_PathStraight",
+    "FP02_PathCurve30_R",
+    "FP03_PathSlope",
+    "FP05_PathLogSteps"
+  ],
+  "lines": {
+    "-0.24": {
+      "length_m": 43.12,
+      "samples": 1244,
+      "rays_missing_collision": 0,
+      "rise_m": 2.7,
+      "largest_step_m": 0.25,
+      "steps": [
+        [
+          0.12,
+          "FP04_PathRootCrossing"
+        ],
+        [
+          0.123,
+          "FP04_PathRootCrossing"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ]
+      ],
+      "slope_max_deg": 16.66,
+      "visible_minus_collision_m": [
+        -0.032,
+        0.218
+      ],
+      "samples_visible_over_6cm": 12,
+      "visible_over_6cm_by_piece": {
+        "FP05_PathLogSteps": 12
+      },
+      "lowest_visible_minus_collision_by_piece": {
+        "FP01_PathStraight": -0.003,
+        "FP02_PathCurve30_L": -0.002,
+        "FP04_PathRootCrossing": -0.032,
+        "FP02_PathCurve60_R": -0.005,
+        "FP02_PathCurve30_R": -0.009,
+        "FP03_PathSlope": -0.009,
+        "FP05_PathLogSteps": -0.025
+      },
+      "rays_missing_at": []
+    },
+    "0.0": {
+      "length_m": 43.5,
+      "samples": 1259,
+      "rays_missing_collision": 0,
+      "rise_m": 2.7,
+      "largest_step_m": 0.25,
+      "steps": [
+        [
+          0.114,
+          "FP04_PathRootCrossing"
+        ],
+        [
+          0.114,
+          "FP04_PathRootCrossing"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ]
+      ],
+      "slope_max_deg": 16.66,
+      "visible_minus_collision_m": [
+        -0.023,
+        0.212
+      ],
+      "samples_visible_over_6cm": 9,
+      "visible_over_6cm_by_piece": {
+        "FP05_PathLogSteps": 9
+      },
+      "lowest_visible_minus_collision_by_piece": {
+        "FP01_PathStraight": -0.009,
+        "FP02_PathCurve30_L": -0.009,
+        "FP04_PathRootCrossing": -0.018,
+        "FP02_PathCurve60_R": -0.005,
+        "FP02_PathCurve30_R": -0.004,
+        "FP03_PathSlope": -0.008,
+        "FP05_PathLogSteps": -0.023
+      },
+      "rays_missing_at": []
+    },
+    "0.24": {
+      "length_m": 43.88,
+      "samples": 1344,
+      "rays_missing_collision": 0,
+      "rise_m": 2.7,
+      "largest_step_m": 0.25,
+      "steps": [
+        [
+          0.12,
+          "FP04_PathRootCrossing"
+        ],
+        [
+          0.118,
+          "FP04_PathRootCrossing"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ],
+        [
+          0.25,
+          "FP05_PathLogSteps"
+        ]
+      ],
+      "slope_max_deg": 16.66,
+      "visible_minus_collision_m": [
+        -0.06,
+        0.22
+      ],
+      "samples_visible_over_6cm": 9,
+      "visible_over_6cm_by_piece": {
+        "FP05_PathLogSteps": 9
+      },
+      "lowest_visible_minus_collision_by_piece": {
+        "FP01_PathStraight": -0.01,
+        "FP02_PathCurve30_L": -0.006,
+        "FP04_PathRootCrossing": -0.06,
+        "FP02_PathCurve60_R": -0.003,
+        "FP02_PathCurve30_R": -0.007,
+        "FP03_PathSlope": -0.014,
+        "FP05_PathLogSteps": -0.026
+      },
+      "rays_missing_at": []
+    }
+  },
+  "joints": [
+    {
+      "between": [
+        "FP01_PathStraight",
+        "FP02_PathCurve30_L"
+      ],
+      "socket_gap_mm": 0.0,
+      "collision_step_mm": 0.02
+    },
+    {
+      "between": [
+        "FP02_PathCurve30_L",
+        "FP04_PathRootCrossing"
+      ],
+      "socket_gap_mm": 0.0,
+      "collision_step_mm": 0.02
+    },
+    {
+      "between": [
+        "FP04_PathRootCrossing",
+        "FP02_PathCurve60_R"
+      ],
+      "socket_gap_mm": 0.001,
+      "collision_step_mm": 0.03
+    },
+    {
+      "between": [
+        "FP02_PathCurve60_R",
+        "FP01_PathStraight"
+      ],
+      "socket_gap_mm": 0.0,
+      "collision_step_mm": 0.03
+    },
+    {
+      "between": [
+        "FP01_PathStraight",
+        "FP02_PathCurve30_R"
+      ],
+      "socket_gap_mm": 0.0,
+      "collision_step_mm": 0.02
+    },
+    {
+      "between": [
+        "FP02_PathCurve30_R",
+        "FP03_PathSlope"
+      ],
+      "socket_gap_mm": 0.0,
+      "collision_step_mm": 0.47
+    },
+    {
+      "between": [
+        "FP03_PathSlope",
+        "FP05_PathLogSteps"
+      ],
+      "socket_gap_mm": 0.0,
+      "collision_step_mm": 0.5
+    }
+  ],
+  "collision_triangles": {
+    "FP01_PathStraight": 880,
+    "FP02_PathCurve30_L": 812,
+    "FP04_PathRootCrossing": 3328,
+    "FP02_PathCurve60_R": 812,
+    "FP02_PathCurve30_R": 812,
+    "FP03_PathSlope": 1696,
+    "FP05_PathLogSteps": 2920
+  },
+  "figures": [
+    [
+      "FP01_PathStraight",
+      0.5,
+      0.4
+    ],
+    [
+      "FP04_PathRootCrossing",
+      0.78,
+      -0.4
+    ],
+    [
+      "FP02_PathCurve60_R",
+      0.55,
+      0.4
+    ],
+    [
+      "FP03_PathSlope",
+      0.6,
+      -0.4
+    ],
+    [
+      "FP05_PathLogSteps",
+      0.55,
+      0.4
+    ]
+  ],
+  "terrain_standin": "a plain grey block under every piece that starts above z = 0 (after FP03): stands in for the terrain in the renders only",
+  "rays_hit_after_0_3mm_shift": [
+    [
+      27.424,
+      -2.621
+    ]
+  ],
+  "length_m": 43.5,
+  "rise_m": 2.7,
+  "note": "walk lines at across -0.24 / 0 / 0.24 m, every 2.5 cm, rays down onto the chained collision meshes (LOD0 visible surface without Detail_Small for the visible check); a run of rises steeper than 40 deg is one step; slope over 0.2 m windows without a step"
+}

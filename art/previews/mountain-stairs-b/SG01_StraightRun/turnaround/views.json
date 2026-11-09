@@ -1,0 +1,158 @@
+{
+  "asset": "SG01_StraightRun",
+  "source": "art/source/mountain-stairs-b/blend/SG01_StraightRun_v001.blend",
+  "same_geometry": true,
+  "render_of": "exported LOD0 with baked textures",
+  "views": [
+    {
+      "file": "01_front.png",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "camera_location": [
+        0.0,
+        -12.0707,
+        1.03
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "02_right.png",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "camera_location": [
+        12.0637,
+        -0.007,
+        1.03
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "03_rear.png",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "camera_location": [
+        0.0,
+        12.0567,
+        1.03
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "04_left.png",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "camera_location": [
+        -12.0637,
+        -0.007,
+        1.03
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "05_front_right.png",
+      "direction": [
+        1,
+        -1,
+        0.45
+      ],
+      "camera_location": [
+        8.1287,
+        -8.1357,
+        4.6879
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "06_rear_right.png",
+      "direction": [
+        1,
+        1,
+        0.45
+      ],
+      "camera_location": [
+        8.1287,
+        8.1217,
+        4.6879
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "07_rear_left.png",
+      "direction": [
+        -1,
+        1,
+        0.45
+      ],
+      "camera_location": [
+        -8.1287,
+        8.1217,
+        4.6879
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "08_front_left.png",
+      "direction": [
+        -1,
+        -1,
+        0.45
+      ],
+      "camera_location": [
+        -8.1287,
+        -8.1357,
+        4.6879
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "09_top.png",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "camera_location": [
+        0.0,
+        -0.007,
+        13.0937
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "10_high_front.png",
+      "direction": [
+        0,
+        -1,
+        1
+      ],
+      "camera_location": [
+        0.0,
+        -8.5373,
+        9.5603
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    }
+  ]
+}

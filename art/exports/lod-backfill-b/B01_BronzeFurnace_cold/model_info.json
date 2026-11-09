@@ -1,0 +1,76 @@
+{
+ "asset": "B01_BronzeFurnace_cold",
+ "version": "v001",
+ "source": "art/exports/qingxi-alchemy-b/B01_BronzeFurnace/v001/B01_BronzeFurnace_cold.fbx",
+ "source_root": null,
+ "source_unchanged": true,
+ "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small",
+ "lod0_rule": "LOD0 = source geometry unchanged (modifiers applied, world transforms baked, recentred only)",
+ "recentre_offset_m": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "dimensions_m": [
+  0.736,
+  0.765,
+  0.892
+ ],
+ "source_triangles": 14912,
+ "lod0_zero_area_triangles": 0,
+ "budget_per_lod": {
+  "LOD0": {
+   "triangles": 14912,
+   "triangles_without_detail": 14000,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1
+  },
+  "LOD1": {
+   "triangles": 7454,
+   "triangles_without_detail": 6998,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1
+  },
+  "LOD2": {
+   "triangles": 2236,
+   "triangles_without_detail": 2100,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1
+  }
+ },
+ "detail_parts": 12,
+ "body_parts": 34,
+ "detail_rule": "part bounding box under min(0.05 m, 0.12 x asset size) (plus listed names / collections)",
+ "minTier": "standard",
+ "detailObjects": [
+  "B01_BronzeFurnace_cold_Detail_Small"
+ ],
+ "materials": [
+  "M_B01_BronzeFurnace_cold"
+ ],
+ "texture_resolution_px": {
+  "T_B01_BronzeFurnace_cold_BaseColor": [
+   1024,
+   1024
+  ],
+  "T_B01_BronzeFurnace_cold_Normal": [
+   1024,
+   1024
+  ],
+  "T_B01_BronzeFurnace_cold_BaseColor.001": [
+   1024,
+   1024
+  ]
+ },
+ "lod_rule": "LOD1 about 50 %, LOD2 about 15 % of LOD0: limited dissolve of flat faces (material/UV/sharp kept), then collapse",
+ "lod_method": {
+  "split_loose": true,
+  "only_lod0": true
+ },
+ "fbx": "B01_BronzeFurnace_cold_LOD_v001.fbx",
+ "units": "meters",
+ "front": "-Y (Blender)"
+}

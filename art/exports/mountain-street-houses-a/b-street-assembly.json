@@ -1,0 +1,53 @@
+{
+ "note": "MC01 three demo buildings for B (承天 mountain city). Units: metres, Blender axes (+Z up, -Y = street front). Every part is MC01_<id>.fbx placed with its origin (footprint centre, bottom) at pos and turned rotZ degrees about +Z (counter-clockwise seen from above). All positions sit on the 4 m grid; stacked heights: SB 2.0 (SB05 1.0), SF 3.0, HM 3.0, roof on top. Unity: x_unity = x * sx, y_unity = z, z_unity = y, yaw_unity = -sx * rotZ, where sx is measured by MountainStreetHousesVerify on RF03 (see its report).",
+ "grid_m": 4.0,
+ "buildings": [
+  {
+   "name": "A-shophouse",
+   "note": "two-storey shop house on a 2 m granite base, reached from the lower street by the SB04 stair; hip-and-gable roof; a cantilever platform behind on the cliff side; pennant on the shop post, two eave lanterns, a street lantern below",
+   "parts": [
+    {"id": "SB01", "pos": [-8, 0, 0], "rotZ": 0},
+    {"id": "SF01", "pos": [-8, 0, 2], "rotZ": 0},
+    {"id": "HM01", "pos": [-8, 0, 5], "rotZ": 0},
+    {"id": "RF01", "pos": [-8, 0, 8], "rotZ": 0},
+    {"id": "SB04", "pos": [-8, -4, 0], "rotZ": 0},
+    {"id": "CP01", "pos": [-8, 3.5, 0.2], "rotZ": 180},
+    {"id": "DT02", "pos": [-9.8, -2.4, 2.75], "rotZ": -90},
+    {"id": "DT03", "pos": [-10.2, -2.45, 7.55], "rotZ": 0},
+    {"id": "DT03", "pos": [-5.8, -2.45, 7.55], "rotZ": 0},
+    {"id": "DT01", "pos": [-10.5, -6.6, 0], "rotZ": 0}
+   ]
+  },
+  {
+   "name": "B-corner",
+   "note": "corner building where the street turns: chamfered granite corner base, shop open on the front and the +X side, corner home bay, roof ending in a lifted hip at the corner; a balcony platform on the home level at the back",
+   "parts": [
+    {"id": "SB03", "pos": [0, 0, 0], "rotZ": 0},
+    {"id": "SF03", "pos": [0, 0, 2], "rotZ": 0},
+    {"id": "HM03", "pos": [0, 0, 5], "rotZ": 0},
+    {"id": "RF03", "pos": [0, 0, 8], "rotZ": 0},
+    {"id": "CP01", "pos": [0, 3.5, 3.2], "rotZ": 180},
+    {"id": "DT03", "pos": [-1.8, -2.45, 7.55], "rotZ": 0},
+    {"id": "DT01", "pos": [2.7, -3.0, 0], "rotZ": 0}
+   ]
+  },
+  {
+   "name": "C-terrace-row",
+   "note": "two bays side by side on the 1 m low base (SB05): a taller lattice shop with a braced home bay under a flush-gable roof, and a lower shop whose lean-to roof tucks against the taller bay with fitted ridge tiles; a step-edge cap, a drying pole and a lantern on the street",
+   "parts": [
+    {"id": "SB05", "pos": [8, 0, 0], "rotZ": 0},
+    {"id": "SF02", "pos": [8, 0, 1], "rotZ": 0},
+    {"id": "HM02", "pos": [8, 0, 4], "rotZ": 0},
+    {"id": "RF02", "pos": [8, 0, 7], "rotZ": 0},
+    {"id": "SB05", "pos": [12, 0, 0], "rotZ": 0},
+    {"id": "SF01", "pos": [12, 0, 1], "rotZ": 0},
+    {"id": "RF04", "pos": [12, 0, 4], "rotZ": 90},
+    {"id": "DT05", "pos": [8, -2.18, 0], "rotZ": 0},
+    {"id": "DT04", "pos": [12, -5.0, 0], "rotZ": 0},
+    {"id": "DT03", "pos": [9.8, -2.45, 6.55], "rotZ": 0},
+    {"id": "DT01", "pos": [6.2, -3.4, 0], "rotZ": 0}
+   ]
+  }
+ ],
+ "notUsedHere": {"SB02": "same as SB01 with a drain outlet; swap in where a street drains", "CP02": "needs an inside corner of two walls", "DT06": "SF bays already carry carved brackets; for verandas built from other kits"}
+}

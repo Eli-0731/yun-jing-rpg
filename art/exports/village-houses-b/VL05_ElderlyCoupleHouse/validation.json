@@ -1,0 +1,745 @@
+{
+  "asset": "VL05_ElderlyCoupleHouse",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -4.4913,
+          -4.7212,
+          0.0
+        ],
+        "max": [
+          4.4915,
+          3.4676,
+          5.5518
+        ],
+        "box_m": [
+          [
+            -4.53,
+            -4.73,
+            0.0
+          ],
+          [
+            4.53,
+            3.47,
+            5.62
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01007
+      }
+    },
+    {
+      "check": "wall_outline_as_starterhouse",
+      "pass": true,
+      "detail": {
+        "measured_outer_faces_m": {
+          "front": -2.61,
+          "rear": 2.61,
+          "left": -3.6124,
+          "right": 3.6124
+        },
+        "starterhouse_m": {
+          "front": -2.61,
+          "rear": 2.61,
+          "left": -3.61,
+          "right": 3.61
+        },
+        "walls_m": [
+          7.005,
+          5.0
+        ]
+      }
+    },
+    {
+      "check": "porch_and_steps_as_starterhouse",
+      "pass": true,
+      "detail": {
+        "step_tops_m": [
+          0.18,
+          0.359,
+          0.539
+        ],
+        "porch_floor_m": 0.54,
+        "starterhouse_m": {
+          "steps": [
+            0.18,
+            0.36,
+            0.54
+          ],
+          "porch": 0.54
+        },
+        "rise_m": 0.18
+      }
+    },
+    {
+      "check": "eave_underside_at_least_2_6m",
+      "pass": true,
+      "detail": {
+        "front_eave_underside_m": 3.345,
+        "above_porch_m": 2.805,
+        "world_constant_m": 2.6
+      }
+    },
+    {
+      "check": "outline_size_as_starterhouse",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          8.983,
+          8.189,
+          5.552
+        ],
+        "starterhouse_dims_m": [
+          9.0478,
+          8.1891,
+          5.6129
+        ],
+        "ridge_top_m": 5.271,
+        "tolerance_m": 0.35,
+        "note": "same walls, plinth, porch and roof curve; the tile courses and ridge are rebuilt, so the overall box differs by a few centimetres"
+      }
+    },
+    {
+      "check": "collision_closed_all_round",
+      "pass": true,
+      "detail": {
+        "collision_wall_faces_m": {
+          "front": -2.61,
+          "rear": 2.61,
+          "left": -3.61,
+          "right": 3.61
+        },
+        "porch_floor_m": 0.54
+      }
+    },
+    {
+      "check": "lived_in_things_rest_on_surfaces",
+      "pass": true,
+      "detail": [
+        {
+          "what": "chair_leg",
+          "xy": [
+            1.1138,
+            -3.1911
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "chair_leg",
+          "xy": [
+            1.2304,
+            -2.8717
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "chair_leg",
+          "xy": [
+            1.4896,
+            -3.3283
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "chair_leg",
+          "xy": [
+            1.6062,
+            -3.0089
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "bonsai_pot_foot",
+          "xy": [
+            -1.2454,
+            -2.9141
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "bonsai_pot_foot",
+          "xy": [
+            -1.4746,
+            -2.9141
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "bonsai_pot_foot",
+          "xy": [
+            -1.4746,
+            -3.0859
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "bonsai_pot_foot",
+          "xy": [
+            -1.2454,
+            -3.0859
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        }
+      ]
+    },
+    {
+      "check": "paper_patches_clear_of_paper_and_lattice",
+      "pass": true,
+      "detail": {
+        "patches": 28,
+        "rows": [
+          {
+            "at": [
+              -2.878,
+              -2.634,
+              1.752
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -2.005,
+              -2.634,
+              1.695
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -1.784,
+              -2.634,
+              2.502
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -2.574,
+              -2.634,
+              2.265
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": 9.75
+          },
+          {
+            "at": [
+              -2.465,
+              -2.634,
+              1.491
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              2.472,
+              -2.634,
+              2.231
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              1.905,
+              -2.634,
+              1.975
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": 9.75
+          },
+          {
+            "at": [
+              1.813,
+              -2.634,
+              2.534
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              2.455,
+              -2.634,
+              1.748
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              2.893,
+              -2.634,
+              2.01
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              2.882,
+              -2.634,
+              1.489
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -0.357,
+              2.635,
+              1.772
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              0.217,
+              2.634,
+              1.984
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              0.358,
+              2.634,
+              2.528
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -0.112,
+              2.635,
+              2.519
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              3.634,
+              -0.571,
+              2.516
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              3.635,
+              0.053,
+              2.504
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              3.634,
+              -0.11,
+              1.967
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              3.635,
+              0.472,
+              1.498
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": 9.75
+          },
+          {
+            "at": [
+              -3.634,
+              0.575,
+              2.279
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -3.635,
+              -0.564,
+              1.756
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -3.634,
+              0.213,
+              1.509
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -3.635,
+              -0.588,
+              2.497
+            ],
+            "gap_to_paper_mm": 2.25,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -0.631,
+              -2.724,
+              1.957
+            ],
+            "gap_to_paper_mm": 0.7,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -0.22,
+              -2.724,
+              1.998
+            ],
+            "gap_to_paper_mm": 0.7,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              -0.217,
+              -2.724,
+              2.468
+            ],
+            "gap_to_paper_mm": 0.7,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              0.488,
+              -2.724,
+              1.952
+            ],
+            "gap_to_paper_mm": 0.7,
+            "gap_outwards_mm": null
+          },
+          {
+            "at": [
+              0.492,
+              -2.724,
+              2.647
+            ],
+            "gap_to_paper_mm": 0.7,
+            "gap_outwards_mm": null
+          }
+        ]
+      }
+    },
+    {
+      "check": "corn_hangs_from_the_header_above_head_height",
+      "pass": true,
+      "detail": {
+        "lowest_cob_z_m": 2.681,
+        "porch_floor_m": 0.54,
+        "head_on_porch_m": 2.29,
+        "cord_top_to_header_mm_from_2cm_below": [
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "check": "detail_props_have_collision",
+      "pass": true,
+      "detail": {
+        "boxes": [
+          {
+            "prop": "bamboo_chair",
+            "yaw": -0.35,
+            "corners_xy": [
+              [
+                1.0725,
+                -3.2154
+              ],
+              [
+                1.5056,
+                -3.3735
+              ],
+              [
+                1.661,
+                -2.9476
+              ],
+              [
+                1.2279,
+                -2.7895
+              ]
+            ],
+            "z": [
+              0.54,
+              1.405
+            ],
+            "centre_xy": [
+              1.3667,
+              -3.0815
+            ],
+            "half_m": [
+              0.2305,
+              0.2267
+            ],
+            "prop_top_m": 1.395,
+            "vertices": 2498
+          },
+          {
+            "prop": "bonsai",
+            "yaw": 0.0,
+            "corners_xy": [
+              [
+                -1.7041,
+                -3.2098
+              ],
+              [
+                -0.9091,
+                -3.2098
+              ],
+              [
+                -0.9091,
+                -2.7952
+              ],
+              [
+                -1.7041,
+                -2.7952
+              ]
+            ],
+            "z": [
+              0.54,
+              1.368
+            ],
+            "centre_xy": [
+              -1.3066,
+              -3.0025
+            ],
+            "half_m": [
+              0.3975,
+              0.2073
+            ],
+            "prop_top_m": 1.358,
+            "vertices": 2729
+          }
+        ],
+        "rays": [
+          {
+            "prop": "bamboo_chair",
+            "z_m": 0.84,
+            "hit_after_m": 0.9999,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "bamboo_chair",
+            "z_m": 0.84,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "bamboo_chair",
+            "z_m": 0.84,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "bamboo_chair",
+            "z_m": 0.84,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "bonsai",
+            "z_m": 0.84,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "bonsai",
+            "z_m": 0.84,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "bonsai",
+            "z_m": 0.84,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "bonsai",
+            "z_m": 0.84,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 88882,
+          "LOD1": 44439,
+          "LOD2": 12624
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.142,
+        "per_group": {
+          "Main": {
+            "LOD0": 4040,
+            "LOD1": 2020,
+            "LOD2": 606
+          },
+          "Stone": {
+            "LOD0": 13744,
+            "LOD1": 6872,
+            "LOD2": 2060
+          },
+          "Wood": {
+            "LOD0": 14476,
+            "LOD1": 7238,
+            "LOD2": 2170
+          },
+          "Detail_Small": {
+            "LOD0": 27822,
+            "LOD1": 13909,
+            "LOD2": 4172
+          },
+          "Roof": {
+            "LOD0": 28800,
+            "LOD1": 14400,
+            "LOD2": 3616
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          8.9828,
+          8.1888,
+          5.5518
+        ],
+        "blend_dims_m": [
+          8.9828,
+          8.1888,
+          5.5518
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_Door.001",
+        "Socket_Path.001",
+        "Socket_Porch.001",
+        "VL05_ElderlyCoupleHouse.001",
+        "VL05_ElderlyCoupleHouse_Collision.001",
+        "VL05_ElderlyCoupleHouse_Detail_Collision.001",
+        "VL05_ElderlyCoupleHouse_Detail_Small_LOD0.001",
+        "VL05_ElderlyCoupleHouse_Detail_Small_LOD1.001",
+        "VL05_ElderlyCoupleHouse_Detail_Small_LOD2.001",
+        "VL05_ElderlyCoupleHouse_LOD0.001",
+        "VL05_ElderlyCoupleHouse_LOD1.001",
+        "VL05_ElderlyCoupleHouse_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Door.001": [
+          0.0,
+          -2.72,
+          0.54
+        ],
+        "Socket_Path.001": [
+          0.0,
+          -4.72,
+          0.0
+        ],
+        "Socket_Porch.001": [
+          0.0,
+          -3.12,
+          0.54
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "fbx_detail_collision",
+      "pass": true,
+      "detail": "prop collision mesh present, apart from the house collision"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 9164316
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 349,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

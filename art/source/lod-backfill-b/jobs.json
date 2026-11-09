@@ -1,0 +1,286 @@
+{
+ "StarterHouse": {
+  "src": "art/incoming/dondon/StarterHouse/v004/StarterHouse_v004.blend",
+  "root": null,
+  "detail_max_m": 0.35,
+  "min_tier": "standard",
+  "keep": [
+   "Door",
+   "Window",
+   "Wall",
+   "Roof",
+   "Ridge",
+   "Eave",
+   "Post",
+   "Beam",
+   "Step",
+   "Plinth",
+   "Floor"
+  ],
+  "detail_collections": [
+   "07_Porch_Props"
+  ],
+  "recentre": false,
+  "note": "Dondon StarterHouse v004 原檔不動；只加 LOD1／LOD2 與 Detail_Small"
+ },
+ "Blacksmith": {
+  "src": "art/incoming/dondon/Blacksmith/v001/Blacksmith_v001.blend",
+  "root": null,
+  "detail_max_m": 0.35,
+  "min_tier": "standard",
+  "keep": [
+   "Door",
+   "Window",
+   "Wall",
+   "Roof",
+   "Ridge",
+   "Eave",
+   "Post",
+   "Beam",
+   "Step",
+   "Plinth",
+   "Floor"
+  ],
+  "recentre": false,
+  "note": "Dondon Blacksmith v001 原檔不動；只加 LOD1／LOD2 與 Detail_Small"
+ },
+ "TownInn": {
+  "src": "art/incoming/dondon/TownLayout/v004/TownLayout_v004.blend",
+  "root": "TownInn_01_ROOT",
+  "detail_max_m": 0.35,
+  "min_tier": "standard",
+  "keep": [
+   "Door",
+   "Window",
+   "Wall",
+   "Roof",
+   "Ridge",
+   "Eave",
+   "Post",
+   "Beam",
+   "Step",
+   "Plinth",
+   "Floor"
+  ],
+  "recentre": true,
+  "note": "從 TownLayout v004 取出客棧（TownInn_01_ROOT），原檔不動；原點改到腳印中心、底部 0，位移寫在 recentre_offset_m",
+  "lod_per_island": true,
+  "protect_borders": false
+ },
+ "B01_BronzeFurnace_cold": {
+  "src": "art/exports/qingxi-alchemy-b/B01_BronzeFurnace/v001/B01_BronzeFurnace_cold.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.05,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small"
+ },
+ "B01_BronzeFurnace_heating": {
+  "src": "art/exports/qingxi-alchemy-b/B01_BronzeFurnace/v001/B01_BronzeFurnace_heating.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.05,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small"
+ },
+ "B02_FurnaceLid": {
+  "src": "art/exports/qingxi-alchemy-b/B02_FurnaceLid/v001/B02_FurnaceLid.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.04,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small"
+ },
+ "B02_FurnaceLid_heating": {
+  "src": "art/exports/qingxi-alchemy-b/B02_FurnaceLid/v001/B02_FurnaceLid_heating.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.04,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small"
+ },
+ "B03_StoneMortar": {
+  "src": "art/exports/qingxi-alchemy-b/B03_StoneMortar/v001/B03_StoneMortar.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.04,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small"
+ },
+ "B04_BambooSortingTrays": {
+  "src": "art/exports/qingxi-alchemy-b/B04_BambooSortingTrays/v001/B04_BambooSortingTrays.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.04,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small"
+ },
+ "B05_HerbDrawerCabinet": {
+  "src": "art/exports/qingxi-alchemy-b/B05_HerbDrawerCabinet/v001/B05_HerbDrawerCabinet.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.04,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small"
+ },
+ "B06_CeramicWaterJar": {
+  "src": "art/exports/qingxi-alchemy-b/B06_CeramicWaterJar/v001/B06_CeramicWaterJar.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.04,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small",
+  "lod_per_island": true,
+  "protect_borders": true,
+  "island_min_ratio": 0.3
+ },
+ "B07_WoodenFuelBox": {
+  "src": "art/exports/qingxi-alchemy-b/B07_WoodenFuelBox/v001/B07_WoodenFuelBox.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.04,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small",
+  "lod_per_island": true,
+  "protect_borders": true
+ },
+ "B08_VentilatedDryingBasket": {
+  "src": "art/exports/qingxi-alchemy-b/B08_VentilatedDryingBasket/v001/B08_VentilatedDryingBasket.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.04,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small",
+  "lod_per_island": true,
+  "protect_borders": true,
+  "island_min_ratio": 0.3
+ },
+ "B09_ClothFilterFrame": {
+  "src": "art/exports/qingxi-alchemy-b/B09_ClothFilterFrame/v001/B09_ClothFilterFrame.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.04,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small"
+ },
+ "B10_WaxSealedBottle_empty": {
+  "src": "art/exports/qingxi-alchemy-b/B10_WaxSealedBottle/v001/B10_WaxSealedBottle_empty.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.015,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small",
+  "lod_per_island": true,
+  "protect_borders": true,
+  "island_min_ratio": 0.5
+ },
+ "B10_WaxSealedBottle_filled": {
+  "src": "art/exports/qingxi-alchemy-b/B10_WaxSealedBottle/v001/B10_WaxSealedBottle_filled.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.015,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small",
+  "lod_per_island": true,
+  "protect_borders": true,
+  "island_min_ratio": 0.5
+ },
+ "B11_BambooRecipeStand": {
+  "src": "art/exports/qingxi-alchemy-b/B11_BambooRecipeStand/v001/B11_BambooRecipeStand.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.04,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small"
+ },
+ "B12_WorkshopChimney": {
+  "src": "art/exports/qingxi-alchemy-b/B12_WorkshopChimney/v001/B12_WorkshopChimney.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.05,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small",
+  "lod_per_island": true,
+  "protect_borders": true,
+  "recompute_normals": true
+ },
+ "C03": {
+  "src": "art/exports/creek-repair-b-props/C03/C03.fbx",
+  "root": null,
+  "detail_max_m": 0.08,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "creek-repair-b-props 原檔不動；原本沒有 LOD，零件合併為本體＋Detail_Small 並補 LOD1／LOD2",
+  "lod_per_island": true,
+  "protect_borders": true,
+  "island_min_ratio": 0.3
+ },
+ "C04": {
+  "src": "art/exports/creek-repair-b-props/C04/C04.fbx",
+  "root": null,
+  "detail_max_m": 0.08,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "creek-repair-b-props 原檔不動；原本沒有 LOD，零件合併為本體＋Detail_Small 並補 LOD1／LOD2"
+ },
+ "C06": {
+  "src": "art/exports/creek-repair-b-props/C06/C06.fbx",
+  "root": null,
+  "detail_max_m": 0.08,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "creek-repair-b-props 原檔不動；原本沒有 LOD，零件合併為本體＋Detail_Small 並補 LOD1／LOD2"
+ },
+ "C07": {
+  "src": "art/exports/creek-repair-b-props/C07/C07.fbx",
+  "root": null,
+  "detail_max_m": 0.08,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "creek-repair-b-props 原檔不動；原本沒有 LOD，零件合併為本體＋Detail_Small 並補 LOD1／LOD2"
+ },
+ "A04_SiltBar": {
+  "src": "art/exports/creek-repair-b-props/A04_SiltBar/A04_SiltBar.fbx",
+  "root": null,
+  "only_lod0": true,
+  "split_loose": true,
+  "detail_max_m": 0.15,
+  "min_tier": "standard",
+  "recentre": false,
+  "note": "原檔已有 LOD0/1/2；LOD0 不動，重做 LOD1／LOD2 並拆出 Detail_Small；A04_SiltBar_Water 一併留在本體",
+  "lod_per_island": true,
+  "protect_borders": false,
+  "detail_closed_only": true,
+  "island_floor": 4
+ }
+}

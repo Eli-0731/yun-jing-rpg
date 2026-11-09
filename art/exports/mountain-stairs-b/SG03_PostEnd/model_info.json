@@ -1,0 +1,240 @@
+{
+  "asset": "SG03_PostEnd",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "SG03_PostEnd_Detail_Small"
+  ],
+  "name_zh": "石欄杆端柱（雲頭）",
+  "slot": "B1_SectGateStairs",
+  "note": "石欄杆端柱：柱身同轉角柱，柱帽是三瓣雲頭（借三視圖 SG03 candidate-04），兩面每瓣各刻一圈圓渦；柱頂 1.27 m。柱下方榫同轉角柱。放在一段欄杆的盡頭。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 3200,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 1600,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 478,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "SG03_PostEnd_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "SG03_PostEnd_Metallic.png": [
+      1024,
+      1024
+    ],
+    "SG03_PostEnd_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "SG03_PostEnd_Normal.png": [
+      1024,
+      1024
+    ],
+    "SG03_PostEnd_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "post centre on the surface it stands on (the plinth bottom); the tenon reaches 0.095 m below",
+  "dimensions_m": [
+    0.2609,
+    0.2597,
+    1.363
+  ],
+  "bounds_min_m": [
+    -0.13,
+    -0.13,
+    -0.095
+  ],
+  "bounds_max_m": [
+    0.1309,
+    0.1297,
+    1.268
+  ],
+  "size_limit_m": [
+    0.3,
+    0.3,
+    1.4
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.2608,
+        0.2597,
+        1.363
+      ],
+      "min": [
+        -0.13,
+        -0.13,
+        -0.095
+      ],
+      "max": [
+        0.1307,
+        0.1297,
+        1.268
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.0353,
+        0.1109,
+        0.4934
+      ],
+      "min": [
+        0.0955,
+        -0.0576,
+        0.0493
+      ],
+      "max": [
+        0.1309,
+        0.0533,
+        0.5427
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 2944,
+      "LOD1": 1472,
+      "LOD2": 440
+    },
+    "Detail_Small": {
+      "LOD0": 256,
+      "LOD1": 128,
+      "LOD2": 38
+    }
+  },
+  "lod_totals": {
+    "LOD0": 3200,
+    "LOD1": 1600,
+    "LOD2": 478
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_SG03_PostEnd_Main"
+  ],
+  "textures": [
+    "SG03_PostEnd_BaseColor.png",
+    "SG03_PostEnd_Metallic.png",
+    "SG03_PostEnd_MetallicSmoothness.png",
+    "SG03_PostEnd_Normal.png",
+    "SG03_PostEnd_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "SG03_PostEnd_BaseColor.png",
+    "Normal": "SG03_PostEnd_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "SG03_PostEnd_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "SG03_PostEnd_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Base": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Rail_N": [
+      0.0,
+      0.1,
+      0.0
+    ],
+    "Socket_Rail_S": [
+      0.0,
+      -0.1,
+      0.0
+    ],
+    "Socket_Rail_E": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "Socket_Rail_W": [
+      -0.1,
+      0.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Base.001": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Rail_E.001": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "Socket_Rail_N.001": [
+      0.0,
+      0.1,
+      -0.0
+    ],
+    "Socket_Rail_S.001": [
+      0.0,
+      -0.1,
+      0.0
+    ],
+    "Socket_Rail_W.001": [
+      -0.1,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "SG03_PostEnd.001",
+    "SG03_PostEnd_Collision.001",
+    "SG03_PostEnd_Detail_Small_LOD0.001",
+    "SG03_PostEnd_Detail_Small_LOD1.001",
+    "SG03_PostEnd_Detail_Small_LOD2.001",
+    "SG03_PostEnd_LOD0.001",
+    "SG03_PostEnd_LOD1.001",
+    "SG03_PostEnd_LOD2.001",
+    "Socket_Base.001",
+    "Socket_Rail_E.001",
+    "Socket_Rail_N.001",
+    "Socket_Rail_S.001",
+    "Socket_Rail_W.001"
+  ],
+  "glb": "SG03_PostEnd_v001.glb",
+  "interface": {
+    "post_m": 0.2,
+    "top_z_m": 1.268,
+    "tenon_m": [
+      0.14,
+      0.095
+    ],
+    "sockets": [
+      "Socket_Base",
+      "Socket_Rail_E",
+      "Socket_Rail_N",
+      "Socket_Rail_S",
+      "Socket_Rail_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/mountain-stairs-b/); procedural shaders (cr_mats.py) baked to one 1024 atlas",
+  "reference": "art/references/SG03/ (AI three-view SG03/BALUSTRADE; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/mountain-stairs-unity/ (local Unity batch check, not committed)"
+}
