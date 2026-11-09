@@ -1,0 +1,244 @@
+{
+  "asset": "FP04_PathRootCrossing",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "FP04_PathRootCrossing_Detail_Small"
+  ],
+  "name_zh": "巨根橫過路面",
+  "slot": "D1_ForestEdge_to_D2_ElderTree",
+  "note": "巨根橫過路面（三視圖 FP04 candidate-01，樹皮與苔照 FR01）：長 6 m、寬 2.4 m（工作包原寫 2 m；路面隨 FP01 加寬到 2.0 m，兩側土丘再各外推 0.2 m）、高 0.8 m 以內。一條粗根（直徑約 0.5 m）在踏面上斜約 5°、在土埂上斜約 7° 橫過路面，到兩側土埂各拱起一個根膝（根背約 0.52 m），再順著土埂彎成 S 形鑽進一堆橢圓的腐植土丘（高約 0.2 m）；路面正上方被踩出一道平的凹口（離地 0.32 m、寬約 0.3 m，仍是樹皮材質，被腳磨亮的暖淺色），兩個根膝各分出一條小根鑽進土裡。根兩面的土被踩成斜坡堆到 0.13 m，所以從土坡跨上凹口約 0.19 m。兩端截面就是套件共用截面。碰撞：土板加上根的形狀（凹口平台與兩側斜坡，根附近每 4 cm 一段）；接口同 FP01。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 34514,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 17297,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 4730,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "FP04_PathRootCrossing_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "FP04_PathRootCrossing_Metallic.png": [
+      2048,
+      2048
+    ],
+    "FP04_PathRootCrossing_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "FP04_PathRootCrossing_Normal.png": [
+      2048,
+      2048
+    ],
+    "FP04_PathRootCrossing_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint at ground level; walk along X, west end at -X",
+  "dimensions_m": [
+    6.0,
+    2.39,
+    0.5201
+  ],
+  "bounds_min_m": [
+    -3.0,
+    -1.195,
+    0.0
+  ],
+  "bounds_max_m": [
+    3.0,
+    1.195,
+    0.5201
+  ],
+  "size_limit_m": [
+    6.0,
+    2.4,
+    0.8
+  ],
+  "pieces": {
+    "Ground": {
+      "dims_m": [
+        6.0,
+        2.0,
+        0.2488
+      ],
+      "min": [
+        -3.0,
+        -1.0,
+        0.0
+      ],
+      "max": [
+        3.0,
+        1.0,
+        0.2488
+      ]
+    },
+    "Main": {
+      "dims_m": [
+        2.9575,
+        2.39,
+        0.5133
+      ],
+      "min": [
+        -1.8575,
+        -1.195,
+        0.0
+      ],
+      "max": [
+        1.1,
+        1.195,
+        0.5133
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        5.7726,
+        1.9979,
+        0.5193
+      ],
+      "min": [
+        -2.8577,
+        -0.9883,
+        0.0008
+      ],
+      "max": [
+        2.9149,
+        1.0097,
+        0.5201
+      ]
+    }
+  },
+  "lods": {
+    "Ground": {
+      "LOD0": 10402,
+      "LOD1": 5242,
+      "LOD2": 1114
+    },
+    "Main": {
+      "LOD0": 9738,
+      "LOD1": 4868,
+      "LOD2": 1460
+    },
+    "Detail_Small": {
+      "LOD0": 14374,
+      "LOD1": 7187,
+      "LOD2": 2156
+    }
+  },
+  "lod_totals": {
+    "LOD0": 34514,
+    "LOD1": 17297,
+    "LOD2": 4730
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FP04_PathRootCrossing_Main"
+  ],
+  "textures": [
+    "FP04_PathRootCrossing_BaseColor.png",
+    "FP04_PathRootCrossing_Metallic.png",
+    "FP04_PathRootCrossing_MetallicSmoothness.png",
+    "FP04_PathRootCrossing_Normal.png",
+    "FP04_PathRootCrossing_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "FP04_PathRootCrossing_BaseColor.png",
+    "Normal": "FP04_PathRootCrossing_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "FP04_PathRootCrossing_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FP04_PathRootCrossing_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Path_W": [
+      -3.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Path_E": [
+      3.0,
+      0.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Path_E.001": [
+      3.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Path_W.001": [
+      -3.0,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "FP04_PathRootCrossing.001",
+    "FP04_PathRootCrossing_Collision.001",
+    "FP04_PathRootCrossing_Detail_Small_LOD0.001",
+    "FP04_PathRootCrossing_Detail_Small_LOD1.001",
+    "FP04_PathRootCrossing_Detail_Small_LOD2.001",
+    "FP04_PathRootCrossing_Ground_LOD0.001",
+    "FP04_PathRootCrossing_Ground_LOD1.001",
+    "FP04_PathRootCrossing_Ground_LOD2.001",
+    "FP04_PathRootCrossing_LOD0.001",
+    "FP04_PathRootCrossing_LOD1.001",
+    "FP04_PathRootCrossing_LOD2.001",
+    "Socket_Path_E.001",
+    "Socket_Path_W.001"
+  ],
+  "glb": "FP04_PathRootCrossing_v001.glb",
+  "interface": {
+    "length_m": 6.0,
+    "width_m": 2.0,
+    "section": "fp_parts.section: tread 1.16 m wide at 0.055-0.06 m, bank crests 0.12 m at 0.82 m out, edge 0.012 m at 1.0 m",
+    "joint": "next piece: its Socket_Path_W on this Socket_Path_E, rotated 180 deg about Z",
+    "end_section_vertices": 41,
+    "walk": "from Socket_Path_W (s = 0) to Socket_Path_E (s = L)",
+    "socket_heights_m": [
+      0.0,
+      0.0
+    ],
+    "sockets": [
+      "Socket_Path_E",
+      "Socket_Path_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/forest-paths-b/); procedural shaders (fp_mats.py, cr_mats.py, fr_mats.py) baked to one 2048 atlas; walking surface LODs by dropping grid rows (end rows kept)",
+  "ground_rows_per_lod": {
+    "LOD0": 121,
+    "LOD1": 61,
+    "LOD2": 13
+  },
+  "seam_normals_set": {
+    "FP04_PathRootCrossing_Ground_LOD0": 160,
+    "FP04_PathRootCrossing_Ground_LOD1": 160,
+    "FP04_PathRootCrossing_Ground_LOD2": 160
+  },
+  "leaves_laid": 210,
+  "reference": "art/references/FP04/ (AI three-view FP04/candidate-01; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "not yet: Unity check not run (project editor 6000.0.82f1 is not installed here)"
+}

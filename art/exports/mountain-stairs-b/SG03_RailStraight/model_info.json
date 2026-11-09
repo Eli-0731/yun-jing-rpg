@@ -1,0 +1,201 @@
+{
+  "asset": "SG03_RailStraight",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "SG03_RailStraight_Detail_Small"
+  ],
+  "name_zh": "石欄杆直段",
+  "slot": "B1_SectGateStairs",
+  "note": "石欄杆直段（三視圖 SG03 candidate-01）：一段柱中心距 1.8 m、連兩端柱寬是 2.0 m；不含柱子，兩端各伸進柱子 5 mm，接縫是閉合的。由下到上：地栿（0.2 × 0.12 m）、華板（0.12 m 厚，兩面各一個 8 mm 深的凹框、四角內收 4 cm）、兩個托墩、圓扶手（0.14 m）；扶手頂離走面 0.9 m（世界常數 0.9–1.05）。模型沿 X 擺，原點在走面中線；Socket_Post_A／B 是兩端柱心。陰面地栿腳有土與小草。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 3182,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 1591,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 475,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "SG03_RailStraight_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "SG03_RailStraight_Metallic.png": [
+      1024,
+      1024
+    ],
+    "SG03_RailStraight_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "SG03_RailStraight_Normal.png": [
+      1024,
+      1024
+    ],
+    "SG03_RailStraight_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the bay on the walking surface; the bay runs along X, its posts (not included) at x = +-0.9",
+  "dimensions_m": [
+    1.6098,
+    0.2479,
+    0.9009
+  ],
+  "bounds_min_m": [
+    -0.8048,
+    -0.1472,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.805,
+    0.1007,
+    0.9009
+  ],
+  "size_limit_m": [
+    2.0,
+    0.3,
+    1.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        1.6098,
+        0.1997,
+        0.9009
+      ],
+      "min": [
+        -0.8048,
+        -0.099,
+        0.0
+      ],
+      "max": [
+        0.805,
+        0.1007,
+        0.9009
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.2701,
+        0.0591,
+        0.0743
+      ],
+      "min": [
+        -0.1925,
+        -0.1472,
+        0.0
+      ],
+      "max": [
+        0.0776,
+        -0.088,
+        0.0743
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 3116,
+      "LOD1": 1558,
+      "LOD2": 466
+    },
+    "Detail_Small": {
+      "LOD0": 66,
+      "LOD1": 33,
+      "LOD2": 9
+    }
+  },
+  "lod_totals": {
+    "LOD0": 3182,
+    "LOD1": 1591,
+    "LOD2": 475
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_SG03_RailStraight_Main"
+  ],
+  "textures": [
+    "SG03_RailStraight_BaseColor.png",
+    "SG03_RailStraight_Metallic.png",
+    "SG03_RailStraight_MetallicSmoothness.png",
+    "SG03_RailStraight_Normal.png",
+    "SG03_RailStraight_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "SG03_RailStraight_BaseColor.png",
+    "Normal": "SG03_RailStraight_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "SG03_RailStraight_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "SG03_RailStraight_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Post_A": [
+      -0.9,
+      0.0,
+      0.0
+    ],
+    "Socket_Post_B": [
+      0.9,
+      0.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Post_A.001": [
+      -0.9,
+      0.0,
+      0.0
+    ],
+    "Socket_Post_B.001": [
+      0.9,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "SG03_RailStraight.001",
+    "SG03_RailStraight_Collision.001",
+    "SG03_RailStraight_Detail_Small_LOD0.001",
+    "SG03_RailStraight_Detail_Small_LOD1.001",
+    "SG03_RailStraight_Detail_Small_LOD2.001",
+    "SG03_RailStraight_LOD0.001",
+    "SG03_RailStraight_LOD1.001",
+    "SG03_RailStraight_LOD2.001",
+    "Socket_Post_A.001",
+    "Socket_Post_B.001"
+  ],
+  "glb": "SG03_RailStraight_v001.glb",
+  "interface": {
+    "bay_post_centres_m": 1.8,
+    "over_post_faces_m": 2.0,
+    "rail_top_m": 0.9,
+    "sockets": [
+      "Socket_Post_A",
+      "Socket_Post_B"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/mountain-stairs-b/); procedural shaders (cr_mats.py) baked to one 1024 atlas",
+  "reference": "art/references/SG03/ (AI three-view SG03/BALUSTRADE; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/mountain-stairs-unity/ (local Unity batch check, not committed)"
+}

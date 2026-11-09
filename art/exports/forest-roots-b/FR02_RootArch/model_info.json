@@ -1,0 +1,206 @@
+{
+  "asset": "FR02_RootArch",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "FR02_RootArch_Detail_Small"
+  ],
+  "name_zh": "根拱門",
+  "slot": "D1_ForestEdge_to_D2_ElderTree",
+  "note": "根拱門（三視圖 FR02 candidate-02）：5 × 3 m、高 3.5 m。兩條巨根交叉成拱：A 根從左前拱起、越過頭頂落到右後，B 根從左後到右前，在路的正上方交錯、互相擦過，另有四條細根沿著兩條主根纏繞。根腳直徑約 1 m，各自散出板根、夾著大石頭，坐在一圈低土丘上，長蕨和草。中間一條踩實的土路（寬 1.3 m，沿 Y 從前到後）嵌幾塊扁石。拱頂長苔和小蕨；細根從拱頂垂下，路正上方的垂根末端都在 2.35 m 以上，往兩側較長。拱下淨高與寬度在 validation.json 量測（從路面往上打射線）。碰撞：兩條主根各一條簡化管（8 邊），土路與小石不擋。接口：Socket_Path_S（路的前端，朝外）、Socket_Path_N（後端）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 76470,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 38233,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 11468,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "FR02_RootArch_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "FR02_RootArch_Metallic.png": [
+      2048,
+      2048
+    ],
+    "FR02_RootArch_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "FR02_RootArch_Normal.png": [
+      2048,
+      2048
+    ],
+    "FR02_RootArch_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint at ground level; the path runs through along Y, front at -Y",
+  "dimensions_m": [
+    4.9182,
+    2.96,
+    3.494
+  ],
+  "bounds_min_m": [
+    -2.4584,
+    -1.48,
+    0.0
+  ],
+  "bounds_max_m": [
+    2.4598,
+    1.48,
+    3.494
+  ],
+  "size_limit_m": [
+    5.0,
+    3.0,
+    3.5
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        4.9182,
+        2.96,
+        3.494
+      ],
+      "min": [
+        -2.4584,
+        -1.48,
+        0.0
+      ],
+      "max": [
+        2.4598,
+        1.48,
+        3.494
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        4.8636,
+        2.807,
+        3.2783
+      ],
+      "min": [
+        -2.4043,
+        -1.4172,
+        0.0012
+      ],
+      "max": [
+        2.4593,
+        1.3898,
+        3.2795
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 71126,
+      "LOD1": 35562,
+      "LOD2": 10668
+    },
+    "Detail_Small": {
+      "LOD0": 5344,
+      "LOD1": 2671,
+      "LOD2": 800
+    }
+  },
+  "lod_totals": {
+    "LOD0": 76470,
+    "LOD1": 38233,
+    "LOD2": 11468
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FR02_RootArch_Main"
+  ],
+  "textures": [
+    "FR02_RootArch_BaseColor.png",
+    "FR02_RootArch_Metallic.png",
+    "FR02_RootArch_MetallicSmoothness.png",
+    "FR02_RootArch_Normal.png",
+    "FR02_RootArch_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "FR02_RootArch_BaseColor.png",
+    "Normal": "FR02_RootArch_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "FR02_RootArch_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FR02_RootArch_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Path_S": [
+      0.0,
+      -1.5,
+      0.0
+    ],
+    "Socket_Path_N": [
+      0.0,
+      1.5,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Path_N.001": [
+      0.0,
+      1.5,
+      -0.0
+    ],
+    "Socket_Path_S.001": [
+      0.0,
+      -1.5,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "FR02_RootArch.001",
+    "FR02_RootArch_Collision.001",
+    "FR02_RootArch_Detail_Small_LOD0.001",
+    "FR02_RootArch_Detail_Small_LOD1.001",
+    "FR02_RootArch_Detail_Small_LOD2.001",
+    "FR02_RootArch_LOD0.001",
+    "FR02_RootArch_LOD1.001",
+    "FR02_RootArch_LOD2.001",
+    "Socket_Path_N.001",
+    "Socket_Path_S.001"
+  ],
+  "glb": "FR02_RootArch_v001.glb",
+  "interface": {
+    "clear_height_m": 2.386,
+    "clear_width_m": {
+      "0.3": 2.68,
+      "1.0": 2.456,
+      "1.75": 2.236
+    },
+    "path_width_m": 1.3,
+    "walk": "along Y from Socket_Path_S to Socket_Path_N",
+    "sockets": [
+      "Socket_Path_N",
+      "Socket_Path_S"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/forest-roots-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/FR02/ (AI three-view FR02/candidate-02; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/forest-roots-unity/ (local Unity batch check, not committed)"
+}
