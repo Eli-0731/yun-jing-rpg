@@ -5,12 +5,12 @@
 | 誰做的 | B（joshsu54） |
 | 工作包 | 2026-11-08 B 工作包：FP01–FP05 古林步道套件 |
 | ID | FP01 林間土路直段；FP02 彎段 30°／60° 左右四件；FP03 坡段；FP04 巨根橫路；FP05 原木階梯；40 m 組裝樣張 |
-| 分支／PR | art/b-1108-fp-forest-paths ／ PR 還沒開 |
+| 分支／PR | art/b-1108-fp-forest-paths ／ #87 |
 | 版本 | 全部 v001（首次交付，沒有舊版）。FP01 樣品核准後，整套在 2026-11-09 依指示加寬到 2.0 m 重建，舊的 1.6 m 版本沒有留下交付檔 |
-| 狀態 | Exported ／ Visually Verified（Blender 渲染）；Imported（Unity）：未驗；In-game Verified：未驗 |
+| 狀態 | Exported ／ Imported（Unity 編輯器批次檢查，含 40 m 串接行走）／ Visually Verified；In-game Verified：未驗 |
 | 預定位置 | D1 森林邊緣 → D2 老樹（`D1_ForestEdge_to_D2_ElderTree`），由核心組落位 |
 | 素材來源 | 原創（Blender 5.2 程序化建模與程序化材質，每件烘焙成一張 2048 圖集）；三視圖參考由 Codex image_gen 生成，放在 `art/references/FP01/`–`FP05/`，只當外形參考，尺寸照工作包寫的數字 |
-| 實際工時 | 2026-11-09 00:30 起到 04:50（台灣時間），約 4 小時 20 分；這段時間中間也處理了 #84、#85 開 PR，沒有分開計時 |
+| 實際工時 | 2026-11-09 00:30 起到 04:50（台灣時間），約 4 小時 20 分；這段時間中間也處理了 #84、#85 開 PR，沒有分開計時。Unity 檢查另在 16:43–17:05 補做（和 VL04–05 加碰撞同時進行），約 20 分鐘 |
 
 **沒有改主場景、沒有改區塊 JSON、沒有宣稱已正式落位。** 這一輪只做模型，沒有玩法、人物、文字；沒有新增網頁版（PWA）頁面。
 
@@ -24,23 +24,22 @@
 
 | ID | 名稱 | Exported | Imported（Unity 編輯器） | Visually Verified | In-game Verified |
 |---|---|---|---|---|---|
-| FP01_PathStraight | 林間土路直段 | 是 | 否 | 是（Blender） | 否 |
-| FP02_PathCurve30_L | 彎段 30° 左 | 是 | 否 | 是（Blender） | 否 |
-| FP02_PathCurve30_R | 彎段 30° 右 | 是 | 否 | 是（Blender） | 否 |
-| FP02_PathCurve60_L | 彎段 60° 左 | 是 | 否 | 是（Blender） | 否 |
-| FP02_PathCurve60_R | 彎段 60° 右 | 是 | 否 | 是（Blender） | 否 |
-| FP03_PathSlope | 坡段（升 1.2 m） | 是 | 否 | 是（Blender） | 否 |
-| FP04_PathRootCrossing | 巨根橫路 | 是 | 否 | 是（Blender） | 否 |
-| FP05_PathLogSteps | 原木階梯（升 1.5 m） | 是 | 否 | 是（Blender） | 否 |
-| FP_Assembly_40m | 40 m 組裝樣張 | 只有走線報告與渲染，沒有匯出模型 | 否 | 是（Blender） | 否 |
+| FP01_PathStraight | 林間土路直段 | 是 | 是 | 是（Blender、Unity） | 否 |
+| FP02_PathCurve30_L | 彎段 30° 左 | 是 | 是 | 是（Blender、Unity） | 否 |
+| FP02_PathCurve30_R | 彎段 30° 右 | 是 | 是 | 是（Blender、Unity） | 否 |
+| FP02_PathCurve60_L | 彎段 60° 左 | 是 | 是 | 是（Blender、Unity） | 否 |
+| FP02_PathCurve60_R | 彎段 60° 右 | 是 | 是 | 是（Blender、Unity） | 否 |
+| FP03_PathSlope | 坡段（升 1.2 m） | 是 | 是 | 是（Blender、Unity） | 否 |
+| FP04_PathRootCrossing | 巨根橫路 | 是 | 是 | 是（Blender、Unity） | 否 |
+| FP05_PathLogSteps | 原木階梯（升 1.5 m） | 是 | 是 | 是（Blender、Unity） | 否 |
+| FP_Assembly_40m | 40 m 組裝樣張 | 只有走線報告與渲染，沒有匯出模型 | 在 Unity 用八件串起來走過 | 是（Blender、Unity） | 否 |
 
 **未驗**：
-- Unity 匯入與行走：還沒跑。專案指定 6000.0.82f1，這台電腦沒有安裝。
+- Unity 版本：檢查用的是本機裝的 6000.0.85f1，不是專案 ProjectVersion 寫的 6000.0.82f1（本機沒有裝 82f1）。
 - 手機效能：沒有量測，不寫 FPS。
 - 真人用鍵鼠走：未驗。
 - 放在正式地形上的落位、和 FR 巨根套件與老樹的銜接：未驗。組裝圖裡 FP05 下面的灰塊只是代替地形，不是交付物。
 - `minTier` 只寫在 model_info 裡，遊戲的畫質分級沒有實測。
-- 串接只在 Blender 量測與渲染，Unity 裡沒有拼起來走。
 
 ## 數量（物件、材質、貼圖）
 
@@ -119,13 +118,28 @@
 - 碰撞是共用截面的簡化封閉土板，不含起伏、小樹根、石頭、植物。FP03 沿坡形每 0.25 m 一段；FP04 加上根的形狀（凹口平台與兩側斜坡，根附近每 4 cm 一段）；FP05 每階一個垂直台階。
 - FP04 根兩側的碰撞是斜坡，比看得到的根背平緩。在根背下坡那一面，可見面最多比碰撞面低 0.06 m（40 m 組裝走線上只有一兩個取樣點），角色走過去腳會稍微浮在根背上。這是刻意讓角色順順地跨過去，沒有改。
 
+## Unity 實測（編輯器批次檢查，失敗 0 項，68 項通過）
+
+`apps/game/Assets/YunJing/Editor/ForestPathsModelCheck.cs`，Unity 6000.0.85f1，2026-11-09 16:57 跑完；報告、走線軌跡和 URP 截圖在 `artifacts/forest-paths-unity/`（本機，不提交）。只是編輯器批次檢查，沒有放進主場景，也沒有進遊戲。
+
+- 八件各自匯入：尺寸和 model_info 一致（誤差 0.0 mm），LOD 三級三角面數相同，LODGroup 三級都有東西，Detail_Small 每級都是獨立物件，`_Collision` 匯成 MeshCollider（不顯示）。
+- 每件沿中線每 25 cm、橫向 ±0.6 m 往下打射線，全部打到自己的碰撞（FP01 120/120 … FP05 60/60）。
+- 照 `assembly_walk.json` 的順序在 Unity 裡串起來（每件的 Socket_Path_W 接上一件的 Socket_Path_E、轉向朝回）：中線 43.50 m、升高 2.700 m，和 Blender 組裝一樣。
+- 七個接縫，接縫前後 2 cm 的碰撞高度差 0.1–0.5 mm。
+- 用和遊戲玩家一樣設定的 CharacterController（ProjectBuilder：高 2 m、半徑 0.35 m，台階 0.3 m、坡度 45° 用 Unity 預設），在中線和左右各 0.24 m 三條線上，從 FP01 起點一路走到 FP05 頂：
+  - 三條都走到終點（離最後一個接口 0.05–0.07 m），約 31 秒，腳升高 2.700 m，和腳下碰撞的升高一樣。
+  - 沒有被卡住（幾乎不動的時間 0.00 秒），離走線最遠 0.05 m（在 60° 彎）。
+  - 腳沒有陷進碰撞（最低 −1 mm）；離腳下碰撞最高 0.250 m，就是在原木階梯一階的高度上，沒有超過 0.3 m 的台階上限；全程都在地上（不著地 0.00 秒）。
+  - Unity 的 CharacterController 預設會離地 0.08 m（skinWidth），量腳高時已扣掉。
+- 第一次跑有兩項沒過，是檢查算錯：沒有扣掉 0.08 m 的 skinWidth，所以終點看起來高 8 cm、台階看起來高 0.33 m。改成扣掉後通過，碰撞本身沒有改。
+
 ## 40 m 組裝樣張
 
 順序：FP01 → FP02 30° 左 → FP04 → FP02 60° 右 → FP01 → FP02 30° 右 → FP03 → FP05，全部用接口串起來，總長 43.5 m、升高 2.7 m。報告在 `art/exports/forest-paths-b/FP_Assembly_40m/assembly_walk.json`。
 
 - 接口間距：7 個接縫都是 0～0.001 mm（要求 ≤ 2 mm）。
 - 接縫兩邊碰撞高度差：0.02～0.03 mm；FP03 兩端 0.47 mm、0.50 mm（坡段碰撞每 0.25 m 一段弦）。
-- 三條走線（中線與左右各 0.37 m）每 2.5 cm 往下打碰撞，每條 1,244–1,344 點全部打到。其中 1 點剛好落在三角形邊上，往旁邊移 0.3 mm 再打就打到，報告有記錄位置。
+- 三條走線（中線與左右各 0.24 m）每 2.5 cm 往下打碰撞，每條 1,244–1,344 點全部打到。其中 1 點剛好落在三角形邊上，往旁邊移 0.3 mm 再打就打到，報告有記錄位置。
 - 台階：FP04 根 0.114–0.123 m，FP05 原木每階 0.25 m（設計值）；沒有其他台階。
 - 縱坡最大 16.66°（FP03 中段）。
 - 可見面高於碰撞面超過 6 cm 的點只在 FP05 的原木正面（腳不會踩那裡）。可見面低於碰撞面最多 0.06 m，在 FP04 根背，見上。
