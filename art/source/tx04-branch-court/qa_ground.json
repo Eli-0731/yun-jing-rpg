@@ -1,0 +1,49 @@
+{
+ "PAVE": {
+  "objects": {
+   "TX04_PAVE_LOD0": {
+    "tris": 4056,
+    "errors": [],
+    "warnings": [
+     "TX04_PAVE_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "asset lowest point z=0.0027 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.5
+   }
+  },
+  "reimport_dims": [
+   3.99,
+   3.99,
+   0.129
+  ],
+  "built_dims": [
+   3.99,
+   3.99,
+   0.129
+  ],
+  "reimport_error_m": 0.0
+ },
+ "STEPS": {
+  "objects": {
+   "TX04_STEPS_LOD0": {
+    "tris": 1392,
+    "errors": [],
+    "warnings": [
+     "TX04_STEPS_LOD0: ~76.71% UV overlap (ok only if mirrored/stacked on purpose; bakes break)"
+    ],
+    "sec": 0.2
+   }
+  },
+  "reimport_dims": [
+   4.0,
+   2.0,
+   0.794
+  ],
+  "built_dims": [
+   4.0,
+   2.0,
+   0.794
+  ],
+  "reimport_error_m": 0.0
+ }
+}

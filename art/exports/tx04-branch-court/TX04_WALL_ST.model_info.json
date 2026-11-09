@@ -6,8 +6,8 @@
  "status": "Exported; Imported/Visually Verified/In-game Verified: 未驗",
  "dimensions_m": [
   4.0,
-  0.68,
-  2.477
+  0.694,
+  2.478
  ],
  "limit_m": [
   4.0,
@@ -20,21 +20,21 @@
  "lods": [
   {
    "lod": 0,
-   "triangles": 15216,
+   "triangles": 15244,
    "objects": 1,
-   "materials": 2
+   "materials": 3
   },
   {
    "lod": 1,
-   "triangles": 7608,
+   "triangles": 7622,
    "objects": 1,
-   "materials": 2
+   "materials": 3
   },
   {
    "lod": 2,
-   "triangles": 2282,
+   "triangles": 2286,
    "objects": 1,
-   "materials": 2
+   "materials": 3
   }
  ],
  "objectsLOD0": [
@@ -44,6 +44,7 @@
  "glowObjects": [],
  "materials": [
   "M_MountainStreet_Trim",
+  "M_TX04_Roof",
   "M_TX04_Wall"
  ],
  "textures": {
@@ -53,6 +54,11 @@
   "T_MountainStreet_Emission": "2048x2048",
   "T_TX04_Wall_Albedo": "1024x1024",
   "T_TX04_Wall_Normal": "1024x1024"
+ },
+ "materialNotes": {
+  "M_TX04_Roof": "same textures as M_MountainStreet_Trim, normal map strength 0.5 (Unity: _BumpScale 0.5)",
+  "M_TX04_Wall": "T_TX04_Wall_Albedo / _Normal, normal strength 0.6, smoothness 0.08",
+  "M_TX04_Accent": "trim Albedo x AccentColor (Unity: _BaseColor), trim Normal, smoothness 0.45"
  },
  "textureNote": "shared MC01 trim sheet (art/textures/mountain-street-houses-a); the accent material reuses Albedo/Normal; M_TX04_Wall uses the TX04 plaster tile (art/textures/tx04-branch-court, 4 x 4 m per tile, tiles along U)",
  "accent": {

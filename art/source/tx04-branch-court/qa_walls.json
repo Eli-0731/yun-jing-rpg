@@ -1,0 +1,79 @@
+{
+ "WALL_ST": {
+  "objects": {
+   "TX04_WALL_ST_LOD0": {
+    "tris": 15244,
+    "errors": [],
+    "warnings": [
+     "TX04_WALL_ST_LOD0: ~99.94% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_WALL_ST_LOD0: 178 n-gons",
+     "hidden back-to-back faces: TX04_WALL_ST_LOD0 (4 pairs) - delete to save tris"
+    ],
+    "sec": 1.2
+   }
+  },
+  "reimport_dims": [
+   4.0,
+   0.694,
+   2.478
+  ],
+  "built_dims": [
+   4.0,
+   0.694,
+   2.478
+  ],
+  "reimport_error_m": 0.0
+ },
+ "WALL_CO": {
+  "objects": {
+   "TX04_WALL_CO_LOD0": {
+    "tris": 15684,
+    "errors": [],
+    "warnings": [
+     "TX04_WALL_CO_LOD0: ~89.62% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_WALL_CO_LOD0: duplicate verts=22 loose verts=0",
+     "TX04_WALL_CO_LOD0: 178 n-gons",
+     "hidden back-to-back faces: TX04_WALL_CO_LOD0 (16 pairs) - delete to save tris"
+    ],
+    "sec": 1.4
+   }
+  },
+  "reimport_dims": [
+   2.368,
+   2.367,
+   2.477
+  ],
+  "built_dims": [
+   2.368,
+   2.367,
+   2.477
+  ],
+  "reimport_error_m": 0.0
+ },
+ "WALL_DO": {
+  "objects": {
+   "TX04_WALL_DO_LOD0": {
+    "tris": 15328,
+    "errors": [],
+    "warnings": [
+     "TX04_WALL_DO_LOD0: ~97.42% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_WALL_DO_LOD0: duplicate verts=2 loose verts=0",
+     "TX04_WALL_DO_LOD0: 172 n-gons",
+     "hidden back-to-back faces: TX04_WALL_DO_LOD0 (8 pairs) - delete to save tris"
+    ],
+    "sec": 1.1
+   }
+  },
+  "reimport_dims": [
+   4.0,
+   0.694,
+   2.498
+  ],
+  "built_dims": [
+   4.0,
+   0.694,
+   2.498
+  ],
+  "reimport_error_m": 0.0
+ }
+}

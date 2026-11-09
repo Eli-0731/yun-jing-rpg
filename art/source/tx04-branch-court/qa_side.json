@@ -1,0 +1,27 @@
+{
+ "SIDE": {
+  "objects": {
+   "TX04_SIDE_LOD0": {
+    "tris": 82744,
+    "errors": [],
+    "warnings": [
+     "TX04_SIDE_LOD0: ~95.63% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_SIDE_LOD0: 558 n-gons",
+     "hidden back-to-back faces: TX04_SIDE_LOD0 (231 pairs) - delete to save tris"
+    ],
+    "sec": 7.6
+   }
+  },
+  "reimport_dims": [
+   7.936,
+   4.968,
+   4.938
+  ],
+  "built_dims": [
+   7.936,
+   4.968,
+   4.938
+  ],
+  "reimport_error_m": 0.0
+ }
+}

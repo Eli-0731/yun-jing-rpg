@@ -1,0 +1,80 @@
+{
+ "id": "TX04-STEPS",
+ "package": "docs/execution/2026-11-05/A-48h-mountain-city-architecture.md",
+ "author": "A (Johnnnny0823)",
+ "version": "v002",
+ "status": "Exported; Imported/Visually Verified/In-game Verified: 未驗",
+ "dimensions_m": [
+  4.0,
+  2.0,
+  0.794
+ ],
+ "limit_m": [
+  4.0,
+  2.0,
+  0.8
+ ],
+ "grid_m": 4.0,
+ "origin": "footprint centre, bottom z = 0, -Y = front",
+ "minTier": "low",
+ "lods": [
+  {
+   "lod": 0,
+   "triangles": 1392,
+   "objects": 1,
+   "materials": 1
+  },
+  {
+   "lod": 1,
+   "triangles": 696,
+   "objects": 1,
+   "materials": 1
+  },
+  {
+   "lod": 2,
+   "triangles": 208,
+   "objects": 1,
+   "materials": 1
+  }
+ ],
+ "objectsLOD0": [
+  "TX04_STEPS_LOD0"
+ ],
+ "detailObjects": [],
+ "glowObjects": [],
+ "materials": [
+  "M_MountainStreet_Trim"
+ ],
+ "textures": {
+  "T_MountainStreet_Albedo": "2048x2048",
+  "T_MountainStreet_Normal": "2048x2048",
+  "T_MountainStreet_MetallicSmoothness": "2048x2048",
+  "T_MountainStreet_Emission": "2048x2048",
+  "T_TX04_Wall_Albedo": "1024x1024",
+  "T_TX04_Wall_Normal": "1024x1024"
+ },
+ "materialNotes": {
+  "M_TX04_Roof": "same textures as M_MountainStreet_Trim, normal map strength 0.5 (Unity: _BumpScale 0.5)",
+  "M_TX04_Wall": "T_TX04_Wall_Albedo / _Normal, normal strength 0.6, smoothness 0.08",
+  "M_TX04_Accent": "trim Albedo x AccentColor (Unity: _BaseColor), trim Normal, smoothness 0.45"
+ },
+ "textureNote": "shared MC01 trim sheet (art/textures/mountain-street-houses-a); the accent material reuses Albedo/Normal; M_TX04_Wall uses the TX04 plaster tile (art/textures/tx04-branch-court, 4 x 4 m per tile, tiles along U)",
+ "accent": {
+  "material": "M_TX04_Accent",
+  "object": null,
+  "defaultColor": "#8E2F25",
+  "surfaceShare": 0.0,
+  "limit": 0.1,
+  "howToRecolor": "set the base colour (Unity: _BaseColor) of M_TX04_Accent"
+ },
+ "sockets": [],
+ "collision": "TX04_STEPS_Collision (5 boxes)",
+ "extra": {
+  "walkTop": 0.75,
+  "rise_m": 0.75,
+  "steps": 5,
+  "top": "+Y edge at 0.75 m (hall platform height)"
+ },
+ "fbx": "art/exports/tx04-branch-court/TX04_STEPS.fbx",
+ "fps": "不寫（手機未實測）"
+}
