@@ -1,0 +1,268 @@
+{
+  "asset": "VL03_HalfCollapsedHouse",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -4.4913,
+          -4.7212,
+          0.0
+        ],
+        "max": [
+          4.786,
+          3.47,
+          5.5518
+        ],
+        "box_m": [
+          [
+            -4.53,
+            -4.73,
+            0.0
+          ],
+          [
+            4.84,
+            3.47,
+            5.62
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01319
+      }
+    },
+    {
+      "check": "wall_outline_as_starterhouse",
+      "pass": true,
+      "detail": {
+        "measured_outer_faces_m": {
+          "front": -2.61,
+          "rear": 2.61,
+          "left": -3.6124,
+          "right": 3.6132
+        },
+        "starterhouse_m": {
+          "front": -2.61,
+          "rear": 2.61,
+          "left": -3.61,
+          "right": 3.61
+        },
+        "walls_m": [
+          7.006,
+          5.0
+        ]
+      }
+    },
+    {
+      "check": "porch_and_steps_as_starterhouse",
+      "pass": true,
+      "detail": {
+        "step_tops_m": [
+          0.18,
+          0.359,
+          0.539
+        ],
+        "porch_floor_m": 0.54,
+        "starterhouse_m": {
+          "steps": [
+            0.18,
+            0.36,
+            0.54
+          ],
+          "porch": 0.54
+        },
+        "rise_m": 0.18
+      }
+    },
+    {
+      "check": "eave_underside_at_least_2_6m",
+      "pass": true,
+      "detail": {
+        "front_eave_underside_m": 3.345,
+        "above_porch_m": 2.805,
+        "world_constant_m": 2.6
+      }
+    },
+    {
+      "check": "outline_size_as_starterhouse",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          9.277,
+          8.191,
+          5.552
+        ],
+        "starterhouse_dims_m": [
+          9.0478,
+          8.1891,
+          5.6129
+        ],
+        "ridge_top_m": 5.271,
+        "tolerance_m": 0.35,
+        "note": "same walls, plinth, porch and roof curve; the tile courses and ridge are rebuilt, so the overall box differs by a few centimetres"
+      }
+    },
+    {
+      "check": "collision_closed_all_round",
+      "pass": true,
+      "detail": {
+        "collision_wall_faces_m": {
+          "front": -2.61,
+          "rear": 2.61,
+          "left": -3.61,
+          "right": 3.61
+        },
+        "porch_floor_m": 0.54
+      }
+    },
+    {
+      "check": "room_open_where_the_wall_fell",
+      "pass": true,
+      "detail": {
+        "ray_from_+x_at_y0.3_z1.6_first_hit_x": -3.628
+      }
+    },
+    {
+      "check": "collision_closes_the_gap",
+      "pass": true,
+      "detail": {
+        "collision_hit_x": 3.61,
+        "wall_line_x": 3.61
+      }
+    },
+    {
+      "check": "roof_open_over_the_collapse",
+      "pass": true,
+      "detail": {
+        "first_hit_down_at_x2.5_y2.2": 0.54,
+        "roof_there_was_m": 3.815
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 72884,
+          "LOD1": 36437,
+          "LOD2": 10303
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.141,
+        "per_group": {
+          "Main": {
+            "LOD0": 12422,
+            "LOD1": 6206,
+            "LOD2": 1860
+          },
+          "Stone": {
+            "LOD0": 13272,
+            "LOD1": 6636,
+            "LOD2": 1990
+          },
+          "Wood": {
+            "LOD0": 12492,
+            "LOD1": 6246,
+            "LOD2": 1872
+          },
+          "Detail_Small": {
+            "LOD0": 11450,
+            "LOD1": 5725,
+            "LOD2": 1717
+          },
+          "Roof": {
+            "LOD0": 23248,
+            "LOD1": 11624,
+            "LOD2": 2864
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          9.2773,
+          8.1912,
+          5.5518
+        ],
+        "blend_dims_m": [
+          9.2773,
+          8.1912,
+          5.5518
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_Door.001",
+        "Socket_Path.001",
+        "Socket_Porch.001",
+        "VL03_HalfCollapsedHouse.001",
+        "VL03_HalfCollapsedHouse_Collision.001",
+        "VL03_HalfCollapsedHouse_Detail_Small_LOD0.001",
+        "VL03_HalfCollapsedHouse_Detail_Small_LOD1.001",
+        "VL03_HalfCollapsedHouse_Detail_Small_LOD2.001",
+        "VL03_HalfCollapsedHouse_LOD0.001",
+        "VL03_HalfCollapsedHouse_LOD1.001",
+        "VL03_HalfCollapsedHouse_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Door.001": [
+          0.0,
+          -2.72,
+          0.54
+        ],
+        "Socket_Path.001": [
+          0.0,
+          -4.72,
+          0.0
+        ],
+        "Socket_Porch.001": [
+          0.0,
+          -3.12,
+          0.54
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 8325968
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 591,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

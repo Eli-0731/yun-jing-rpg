@@ -1,0 +1,722 @@
+{
+ "WL01": {
+  "id": "WL01",
+  "name": "WashBoard",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/WL01_v001.fbx",
+   "glb": "art/exports/creekside-life-c/WL01_v001.glb",
+   "blend": "art/source/creekside-life-c/WL01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.697,
+   0.4,
+   0.078
+  ],
+  "body_dimensions_xyz_m": [
+   0.697,
+   0.4,
+   0.078
+  ],
+  "size_limit_xyz_m": [
+   0.7,
+   0.4,
+   0.12
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Lashing",
+   "Detail_Pegs"
+  ],
+  "detailMeshes": [
+   "WL01_Detail_Lashing_LOD0",
+   "WL01_Detail_Lashing_LOD1",
+   "WL01_Detail_Lashing_LOD2",
+   "WL01_Detail_Pegs_LOD0",
+   "WL01_Detail_Pegs_LOD1",
+   "WL01_Detail_Pegs_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 7816,
+    "triangles_without_detail": 6000,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL01_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL01_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3908,
+    "triangles_without_detail": 3000,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL01_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL01_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1172,
+    "triangles_without_detail": 900,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL01_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL01_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "WL01_Body_LOD0",
+    "WL01_Body_LOD1",
+    "WL01_Body_LOD2"
+   ],
+   "Detail_Lashing": [
+    "WL01_Detail_Lashing_LOD0",
+    "WL01_Detail_Lashing_LOD1",
+    "WL01_Detail_Lashing_LOD2"
+   ],
+   "Detail_Pegs": [
+    "WL01_Detail_Pegs_LOD0",
+    "WL01_Detail_Pegs_LOD1",
+    "WL01_Detail_Pegs_LOD2"
+   ]
+  },
+  "material": "M_WL01_WashBoard",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 43,
+  "coplanar_lifted": 0,
+  "reference": "art/references/WL01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "lies flat with the ribs up; the reference stands it upright",
+   "reference cand-4 is about 2.1 : 1 long; built to the work pack 0.70 × 0.40 m",
+   "Detail_Lashing: cord on the repaired slat; Detail_Pegs: peg heads on the rails"
+  ]
+ },
+ "WL02": {
+  "id": "WL02",
+  "name": "BeatingPaddle",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/WL02_v001.fbx",
+   "glb": "art/exports/creekside-life-c/WL02_v001.glb",
+   "blend": "art/source/creekside-life-c/WL02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.45,
+   0.14,
+   0.068
+  ],
+  "body_dimensions_xyz_m": [
+   0.45,
+   0.14,
+   0.061
+  ],
+  "size_limit_xyz_m": [
+   0.45,
+   0.15,
+   0.12
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Cord"
+  ],
+  "detailMeshes": [
+   "WL02_Detail_Cord_LOD0",
+   "WL02_Detail_Cord_LOD1",
+   "WL02_Detail_Cord_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 4102,
+    "triangles_without_detail": 3710,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL02_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL02_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 2050,
+    "triangles_without_detail": 1854,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL02_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL02_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 614,
+    "triangles_without_detail": 556,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL02_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL02_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "WL02_Body_LOD0",
+    "WL02_Body_LOD1",
+    "WL02_Body_LOD2"
+   ],
+   "Detail_Cord": [
+    "WL02_Detail_Cord_LOD0",
+    "WL02_Detail_Cord_LOD1",
+    "WL02_Detail_Cord_LOD2"
+   ]
+  },
+  "material": "M_WL02_BeatingPaddle",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 10,
+  "coplanar_lifted": 0,
+  "reference": "art/references/WL02/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "lies flat on its broad face, tilted 1.8 degrees so the striking end and the knob both touch the ground",
+   "end grain on the flat striking end uses its own source texture (rings round an off-centre pith, radial checks)",
+   "Detail_Cord: the hanging cord loop, knot and tail; the neck binding is part of the body"
+  ]
+ },
+ "WL03": {
+  "id": "WL03",
+  "name": "RolledLinen",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/WL03_v001.fbx",
+   "glb": "art/exports/creekside-life-c/WL03_v001.glb",
+   "blend": "art/source/creekside-life-c/WL03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.568,
+   0.3,
+   0.196
+  ],
+  "body_dimensions_xyz_m": [
+   0.568,
+   0.287,
+   0.196
+  ],
+  "size_limit_xyz_m": [
+   0.65,
+   0.3,
+   0.25
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_CordEnds",
+   "Detail_Fray"
+  ],
+  "detailMeshes": [
+   "WL03_Detail_CordEnds_LOD0",
+   "WL03_Detail_CordEnds_LOD1",
+   "WL03_Detail_CordEnds_LOD2",
+   "WL03_Detail_Fray_LOD0",
+   "WL03_Detail_Fray_LOD1",
+   "WL03_Detail_Fray_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 7544,
+    "triangles_without_detail": 7240,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL03_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL03_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3772,
+    "triangles_without_detail": 3620,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL03_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL03_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1164,
+    "triangles_without_detail": 1086,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL03_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL03_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "WL03_Body_LOD0",
+    "WL03_Body_LOD1",
+    "WL03_Body_LOD2"
+   ],
+   "Detail_CordEnds": [
+    "WL03_Detail_CordEnds_LOD0",
+    "WL03_Detail_CordEnds_LOD1",
+    "WL03_Detail_CordEnds_LOD2"
+   ],
+   "Detail_Fray": [
+    "WL03_Detail_Fray_LOD0",
+    "WL03_Detail_Fray_LOD1",
+    "WL03_Detail_Fray_LOD2"
+   ]
+  },
+  "material": "M_WL03_RolledLinen",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 14,
+  "coplanar_lifted": 0,
+  "reference": "art/references/WL03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a folded sheet rolled four turns; the end faces show the layers",
+   "Detail_CordEnds: the two hanging cord ends; Detail_Fray: loose threads on the outer edge; the cord loop and knot are part of the body"
+  ]
+ },
+ "WL04": {
+  "id": "WL04",
+  "name": "FoldedLinen",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/WL04_v001.fbx",
+   "glb": "art/exports/creekside-life-c/WL04_v001.glb",
+   "blend": "art/source/creekside-life-c/WL04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.6,
+   0.454,
+   0.162
+  ],
+  "body_dimensions_xyz_m": [
+   0.6,
+   0.453,
+   0.162
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.5,
+   0.25
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Flap",
+   "Detail_Patch"
+  ],
+  "detailMeshes": [
+   "WL04_Detail_Flap_LOD0",
+   "WL04_Detail_Flap_LOD1",
+   "WL04_Detail_Flap_LOD2",
+   "WL04_Detail_Patch_LOD0",
+   "WL04_Detail_Patch_LOD1",
+   "WL04_Detail_Patch_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 8356,
+    "triangles_without_detail": 8208,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL04_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL04_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 4178,
+    "triangles_without_detail": 4104,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL04_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL04_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1252,
+    "triangles_without_detail": 1230,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL04_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL04_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "WL04_Body_LOD0",
+    "WL04_Body_LOD1",
+    "WL04_Body_LOD2"
+   ],
+   "Detail_Flap": [
+    "WL04_Detail_Flap_LOD0",
+    "WL04_Detail_Flap_LOD1",
+    "WL04_Detail_Flap_LOD2"
+   ],
+   "Detail_Patch": [
+    "WL04_Detail_Patch_LOD0",
+    "WL04_Detail_Patch_LOD1",
+    "WL04_Detail_Patch_LOD2"
+   ]
+  },
+  "material": "M_WL04_FoldedLinen",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 20,
+  "coplanar_lifted": 0,
+  "reference": "art/references/WL04/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "v001 round 2 (#88 review): 10 + 8 thin sheets, 1.3–1.8 cm of each showing, round fold at the front, ragged loose edges at the back, shifted 0.5–2 cm",
+   "wet colour #B8AE9A (top) → #8E8676 (bottom), roughness 0.78 → 0.66; one blue sheet only",
+   "each sheet is 1.9–2.4 cm and sinks 6 mm into the one below (1.3–1.8 cm shows), so no two faces lie flat on each other",
+   "Detail_Flap: the corner folded back over the front; Detail_Patch: the patch on the right pile"
+  ]
+ },
+ "WL05": {
+  "id": "WL05",
+  "name": "AshDish",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/WL05_v001.fbx",
+   "glb": "art/exports/creekside-life-c/WL05_v001.glb",
+   "blend": "art/source/creekside-life-c/WL05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.38,
+   0.268,
+   0.105
+  ],
+  "body_dimensions_xyz_m": [
+   0.38,
+   0.264,
+   0.105
+  ],
+  "size_limit_xyz_m": [
+   0.38,
+   0.28,
+   0.12
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Crumbs",
+   "Detail_Staples"
+  ],
+  "detailMeshes": [
+   "WL05_Detail_Crumbs_LOD0",
+   "WL05_Detail_Crumbs_LOD1",
+   "WL05_Detail_Crumbs_LOD2",
+   "WL05_Detail_Staples_LOD0",
+   "WL05_Detail_Staples_LOD1",
+   "WL05_Detail_Staples_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 2460,
+    "triangles_without_detail": 2272,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL05_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL05_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1230,
+    "triangles_without_detail": 1136,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL05_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL05_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 366,
+    "triangles_without_detail": 340,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "WL05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "WL05_Normal.png": [
+      1024,
+      1024
+     ],
+     "WL05_ORM.png": [
+      1024,
+      1024
+     ],
+     "WL05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "WL05_Body_LOD0",
+    "WL05_Body_LOD1",
+    "WL05_Body_LOD2"
+   ],
+   "Detail_Crumbs": [
+    "WL05_Detail_Crumbs_LOD0",
+    "WL05_Detail_Crumbs_LOD1",
+    "WL05_Detail_Crumbs_LOD2"
+   ],
+   "Detail_Staples": [
+    "WL05_Detail_Staples_LOD0",
+    "WL05_Detail_Staples_LOD1",
+    "WL05_Detail_Staples_LOD2"
+   ]
+  },
+  "material": "M_WL05_AshDish",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 9,
+  "coplanar_lifted": 0,
+  "reference": "art/references/WL05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "carved from one fieldstone, the same warm-grey stone as BM05/BM06",
+   "the wet ring, the ash traces, the cake cracks and the wall crack are painted; the staples and crumbs are Detail_ meshes"
+  ]
+ }
+}

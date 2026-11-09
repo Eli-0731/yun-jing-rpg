@@ -1,0 +1,17 @@
+WL03 捲起的粗布（工作包 §5：0.65 × 0.3 × 0.25 m，練布的厚度和不規則摺）三視圖與自評（2026-11-09）
+選用：WL03-cand-3.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-05/C-48h-a3-creekside-life.md 第 11 節原文（正面、負面一字不改，含固定段 5.2、5.3），四張相同。評分：形體與尺寸比例 30／練習重點（布的厚度、不規則摺）30／提示詞細節（麻繩鬆綁、濕暗的一角、毛邊）25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（27+28+23+13）。端面捲紋清楚，有毛邊；但濕角畫成苔，綁繩打成蝴蝶結偏整齊。
+- cand-2：90（27+27+23+13）。兩道繩、端面捲紋很好；整捲太圓太規則，沒有被重量壓扁的感覺。
+- cand-3：92（29+28+23+12）。選用。整捲放在地上被自身重量壓成略扁的橢圓（高 < 寬），外層布邊翻出一片、末端毛邊明顯，左端濕暗，只綁一道鬆繩；端面捲層厚度不一。
+- cand-4：90（27+27+23+13）。和 cand-1 相近，補丁太多。
+
+建模取捨：照 cand-3。捲布用一條有厚度（約 6 mm）的布帶沿螺線捲 3½ 圈，斷面壓成扁橢圓，外層加不規則的摺和一片翻出的布邊；一道麻繩鬆鬆繞一圈打結。濕暗的一端和毛邊畫在貼圖；繩尾和毛邊鬚放 Detail_。參考圖上的補丁只留一塊（畫在貼圖，不建幾何）。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a rolled piece of coarse undyed linen tied loosely with hemp cord, about 0.65 m long, 0.3 m wide and 0.25 m tall, made of coarse natural linen and hemp cord, showing irregular thick folds, darker damp corner and slightly frayed edge, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

@@ -1,0 +1,31 @@
+{
+ "WL04_v001": {
+  "WL04_Body_LOD0": {
+   "pieces": 18,
+   "within_1mm": 8,
+   "gap_1_3mm": 10,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.5,
+   "worst_at": []
+  },
+  "WL04_Detail_Flap_LOD0": {
+   "pieces": 1,
+   "within_1mm": 0,
+   "gap_1_3mm": 1,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.5,
+   "worst_at": []
+  },
+  "WL04_Detail_Patch_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}

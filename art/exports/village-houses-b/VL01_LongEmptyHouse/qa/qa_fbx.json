@@ -1,0 +1,209 @@
+{
+ "asset": "VL01_LongEmptyHouse_v001",
+ "tris": 76060,
+ "objects": [
+  "VL01_LongEmptyHouse_Detail_Small_LOD0",
+  "VL01_LongEmptyHouse_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 460,
+   "groups": {
+    "LongEmptyHouse|two_sides_between": {
+     "pairs": 404,
+     "overlap_cm2": 51184.03
+    },
+    "Detail_Small|two_sides_between": {
+     "pairs": 41,
+     "overlap_cm2": 68.0
+    },
+    "Detail_Small/LongEmptyHouse|two_sides_between": {
+     "pairs": 13,
+     "overlap_cm2": 52.26
+    },
+    "Detail_Small|two_sides_inside": {
+     "pairs": 2,
+     "overlap_cm2": 8.62
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 424,
+   "groups": {
+    "LongEmptyHouse|two_sides_between": {
+     "pairs": 382,
+     "overlap_cm2": 50031.73
+    },
+    "Detail_Small|two_sides_between": {
+     "pairs": 28,
+     "overlap_cm2": 42.46
+    },
+    "Detail_Small/LongEmptyHouse|two_sides_between": {
+     "pairs": 13,
+     "overlap_cm2": 52.26
+    },
+    "Detail_Small|two_sides_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.04
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 268,
+   "groups": {
+    "LongEmptyHouse|two_sides_between": {
+     "pairs": 240,
+     "overlap_cm2": 38691.23
+    },
+    "Detail_Small|two_sides_between": {
+     "pairs": 27,
+     "overlap_cm2": 42.0
+    },
+    "Detail_Small|two_sides_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.04
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 13
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "VL01_LongEmptyHouse_Detail_Small_LOD0": 13
+  }
+ },
+ "pieces": 1464,
+ "loose_over_5mm": 8,
+ "loose_list": [
+  {
+   "verts": 24,
+   "centre": [
+    -2.35,
+    -2.817,
+    2.023
+   ],
+   "size": [
+    1.715,
+    0.028,
+    0.246
+   ]
+  },
+  {
+   "verts": 24,
+   "centre": [
+    2.35,
+    -2.817,
+    1.861
+   ],
+   "size": [
+    1.715,
+    0.028,
+    0.241
+   ]
+  },
+  {
+   "verts": 24,
+   "centre": [
+    0.0,
+    2.817,
+    1.949
+   ],
+   "size": [
+    1.761,
+    0.028,
+    0.172
+   ]
+  },
+  {
+   "verts": 24,
+   "centre": [
+    3.817,
+    0.0,
+    2.092
+   ],
+   "size": [
+    0.028,
+    1.764,
+    0.224
+   ]
+  },
+  {
+   "verts": 24,
+   "centre": [
+    -3.817,
+    0.0,
+    1.941
+   ],
+   "size": [
+    0.028,
+    1.763,
+    0.197
+   ]
+  },
+  {
+   "verts": 24,
+   "centre": [
+    0.0,
+    -2.887,
+    1.842
+   ],
+   "size": [
+    2.065,
+    0.028,
+    0.254
+   ]
+  },
+  {
+   "verts": 17,
+   "centre": [
+    1.905,
+    -2.168,
+    0.547
+   ],
+   "size": [
+    0.028,
+    0.035,
+    0.004
+   ]
+  },
+  {
+   "verts": 8,
+   "centre": [
+    0.833,
+    -3.435,
+    3.597
+   ],
+   "size": [
+    0.03,
+    0.023,
+    0.073
+   ]
+  }
+ ]
+}

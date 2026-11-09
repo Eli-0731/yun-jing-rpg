@@ -1,0 +1,217 @@
+{
+  "asset": "SG03_RailSloped",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "SG03_RailSloped_Detail_Small"
+  ],
+  "name_zh": "石欄杆斜段（配 SG01）",
+  "slot": "B1_SectGateStairs",
+  "note": "石欄杆斜段（配 SG01）：一側整套——三根柱插進 SG01 的三個柱孔、兩段順坡欄板。座標跟 SG01 一樣（往 +Y 爬），x = 0 在側欄中線；放在 SG01 原點、x 偏 ±1.34 m，兩側用同一個模型。扶手頂在踏步前緣線上方 1.02 m（世界常數 0.9–1.05）；欄板底沿斜壓頂、埋入 2 cm。兩端柱站在端柱座平頂上；中柱在斜壓頂上，柱腳順坡鋸斜、比端柱長 0.14 m。柱下 0.14 m 方榫長 0.095 m，SG01 柱孔 0.15 m、深 0.1 m，四面各留 5 mm。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 7230,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 3613,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 1083,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "SG03_RailSloped_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "SG03_RailSloped_Metallic.png": [
+      2048,
+      2048
+    ],
+    "SG03_RailSloped_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "SG03_RailSloped_Normal.png": [
+      2048,
+      2048
+    ],
+    "SG03_RailSloped_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "SG01's origin moved onto the kerb centre line (x = +-1.34 in SG01); climbs towards +Y",
+  "dimensions_m": [
+    0.2616,
+    3.0603,
+    2.3328
+  ],
+  "bounds_min_m": [
+    -0.1307,
+    -1.5302,
+    0.5543
+  ],
+  "bounds_max_m": [
+    0.1309,
+    1.5302,
+    2.887
+  ],
+  "size_limit_m": [
+    0.3,
+    3.2,
+    3.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.2616,
+        3.0603,
+        2.3328
+      ],
+      "min": [
+        -0.1307,
+        -1.5302,
+        0.5543
+      ],
+      "max": [
+        0.1309,
+        1.5302,
+        2.887
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.0354,
+        2.9085,
+        1.6781
+      ],
+      "min": [
+        0.0955,
+        -1.4426,
+        0.7162
+      ],
+      "max": [
+        0.1309,
+        1.4659,
+        2.3944
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 6462,
+      "LOD1": 3230,
+      "LOD2": 968
+    },
+    "Detail_Small": {
+      "LOD0": 768,
+      "LOD1": 383,
+      "LOD2": 115
+    }
+  },
+  "lod_totals": {
+    "LOD0": 7230,
+    "LOD1": 3613,
+    "LOD2": 1083
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_SG03_RailSloped_Main"
+  ],
+  "textures": [
+    "SG03_RailSloped_BaseColor.png",
+    "SG03_RailSloped_Metallic.png",
+    "SG03_RailSloped_MetallicSmoothness.png",
+    "SG03_RailSloped_Normal.png",
+    "SG03_RailSloped_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "SG03_RailSloped_BaseColor.png",
+    "Normal": "SG03_RailSloped_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "SG03_RailSloped_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "SG03_RailSloped_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Post_0": [
+      0.0,
+      -1.4,
+      0.66
+    ],
+    "Socket_Post_1": [
+      0.0,
+      0.0,
+      1.22
+    ],
+    "Socket_Post_2": [
+      0.0,
+      1.4,
+      2.06
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Post_0.001": [
+      0.0,
+      -1.4,
+      0.66
+    ],
+    "Socket_Post_1.001": [
+      0.0,
+      0.0,
+      1.22
+    ],
+    "Socket_Post_2.001": [
+      0.0,
+      1.4,
+      2.06
+    ]
+  },
+  "fbx_objects": [
+    "SG03_RailSloped.001",
+    "SG03_RailSloped_Collision.001",
+    "SG03_RailSloped_Detail_Small_LOD0.001",
+    "SG03_RailSloped_Detail_Small_LOD1.001",
+    "SG03_RailSloped_Detail_Small_LOD2.001",
+    "SG03_RailSloped_LOD0.001",
+    "SG03_RailSloped_LOD1.001",
+    "SG03_RailSloped_LOD2.001",
+    "Socket_Post_0.001",
+    "Socket_Post_1.001",
+    "Socket_Post_2.001"
+  ],
+  "glb": "SG03_RailSloped_v001.glb",
+  "interface": {
+    "posts_y_m": [
+      -1.4000000000000001,
+      0.0,
+      1.4000000000000001
+    ],
+    "rail_above_nosing_m": 1.02,
+    "place": "SG01 origin + (+-1.34, 0, 0)",
+    "sockets": [
+      "Socket_Post_0",
+      "Socket_Post_1",
+      "Socket_Post_2"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/mountain-stairs-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/SG03/ (AI three-view SG03/BALUSTRADE; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/mountain-stairs-unity/ (local Unity batch check, not committed)"
+}
