@@ -1,0 +1,240 @@
+{
+  "asset": "SG03_PostCorner",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "SG03_PostCorner_Detail_Small"
+  ],
+  "name_zh": "石欄杆轉角柱",
+  "slot": "B1_SectGateStairs",
+  "note": "石欄杆轉角柱（也當中間柱用）：0.2 m 方柱、0.26 m 柱座、0.24 m 方柱帽，柱頂 1.11 m；柱下 0.14 m 方榫長 0.095 m，可插 SG01 柱孔，放在平台上則榫埋在石裡。四面中心各有 Socket_Rail_N/S/E/W 給欄板對位（欄板伸進柱面 5 mm）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 1012,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 505,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 150,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "SG03_PostCorner_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "SG03_PostCorner_Metallic.png": [
+      1024,
+      1024
+    ],
+    "SG03_PostCorner_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "SG03_PostCorner_Normal.png": [
+      1024,
+      1024
+    ],
+    "SG03_PostCorner_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "post centre on the surface it stands on (the plinth bottom); the tenon reaches 0.095 m below",
+  "dimensions_m": [
+    0.2545,
+    0.2568,
+    1.2022
+  ],
+  "bounds_min_m": [
+    -0.1236,
+    -0.1266,
+    -0.095
+  ],
+  "bounds_max_m": [
+    0.1309,
+    0.1303,
+    1.1072
+  ],
+  "size_limit_m": [
+    0.3,
+    0.3,
+    1.25
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.254,
+        0.2568,
+        1.2022
+      ],
+      "min": [
+        -0.1236,
+        -0.1266,
+        -0.095
+      ],
+      "max": [
+        0.1303,
+        0.1303,
+        1.1072
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.0353,
+        0.0931,
+        0.2581
+      ],
+      "min": [
+        0.0956,
+        -0.0291,
+        0.0478
+      ],
+      "max": [
+        0.1309,
+        0.0641,
+        0.3059
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 756,
+      "LOD1": 378,
+      "LOD2": 112
+    },
+    "Detail_Small": {
+      "LOD0": 256,
+      "LOD1": 127,
+      "LOD2": 38
+    }
+  },
+  "lod_totals": {
+    "LOD0": 1012,
+    "LOD1": 505,
+    "LOD2": 150
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_SG03_PostCorner_Main"
+  ],
+  "textures": [
+    "SG03_PostCorner_BaseColor.png",
+    "SG03_PostCorner_Metallic.png",
+    "SG03_PostCorner_MetallicSmoothness.png",
+    "SG03_PostCorner_Normal.png",
+    "SG03_PostCorner_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "SG03_PostCorner_BaseColor.png",
+    "Normal": "SG03_PostCorner_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "SG03_PostCorner_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "SG03_PostCorner_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Base": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Rail_N": [
+      0.0,
+      0.1,
+      0.0
+    ],
+    "Socket_Rail_S": [
+      0.0,
+      -0.1,
+      0.0
+    ],
+    "Socket_Rail_E": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "Socket_Rail_W": [
+      -0.1,
+      0.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Base.001": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Rail_E.001": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "Socket_Rail_N.001": [
+      0.0,
+      0.1,
+      -0.0
+    ],
+    "Socket_Rail_S.001": [
+      0.0,
+      -0.1,
+      0.0
+    ],
+    "Socket_Rail_W.001": [
+      -0.1,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "SG03_PostCorner.001",
+    "SG03_PostCorner_Collision.001",
+    "SG03_PostCorner_Detail_Small_LOD0.001",
+    "SG03_PostCorner_Detail_Small_LOD1.001",
+    "SG03_PostCorner_Detail_Small_LOD2.001",
+    "SG03_PostCorner_LOD0.001",
+    "SG03_PostCorner_LOD1.001",
+    "SG03_PostCorner_LOD2.001",
+    "Socket_Base.001",
+    "Socket_Rail_E.001",
+    "Socket_Rail_N.001",
+    "Socket_Rail_S.001",
+    "Socket_Rail_W.001"
+  ],
+  "glb": "SG03_PostCorner_v001.glb",
+  "interface": {
+    "post_m": 0.2,
+    "top_z_m": 1.1071,
+    "tenon_m": [
+      0.14,
+      0.095
+    ],
+    "sockets": [
+      "Socket_Base",
+      "Socket_Rail_E",
+      "Socket_Rail_N",
+      "Socket_Rail_S",
+      "Socket_Rail_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/mountain-stairs-b/); procedural shaders (cr_mats.py) baked to one 1024 atlas",
+  "reference": "art/references/SG03/ (AI three-view SG03/BALUSTRADE; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/mountain-stairs-unity/ (local Unity batch check, not committed)"
+}

@@ -1,0 +1,24 @@
+{
+  "asset": "SG03_PostCorner",
+  "model": "SG03_PostCorner_v001.fbx LOD0",
+  "figure_height_m": 1.75,
+  "ruler_ticks_m": 0.25,
+  "camera": "orthographic, 8 deg above horizontal",
+  "lighting": "same sun + fill for the material and grey pass of each view",
+  "grey_pass": "Base Color unlinked to 0.5 grey; alpha, normal and roughness kept",
+  "views": [
+    "ruler_01_front_material.png",
+    "ruler_01_front_grey.png",
+    "ruler_02_side_material.png",
+    "ruler_02_side_grey.png",
+    "ruler_03_back_material.png",
+    "ruler_03_back_grey.png",
+    "ruler_04_three_quarter_material.png",
+    "ruler_04_three_quarter_grey.png"
+  ],
+  "model_dimensions_m": [
+    0.255,
+    0.257,
+    1.202
+  ]
+}

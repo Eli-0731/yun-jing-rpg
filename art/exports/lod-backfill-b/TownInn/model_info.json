@@ -1,0 +1,77 @@
+{
+ "asset": "TownInn",
+ "version": "v001",
+ "source": "art/incoming/dondon/TownLayout/v004/TownLayout_v004.blend",
+ "source_root": "TownInn_01_ROOT",
+ "source_unchanged": true,
+ "note": "從 TownLayout v004 取出客棧（TownInn_01_ROOT），原檔不動；原點改到腳印中心、底部 0，位移寫在 recentre_offset_m",
+ "lod0_rule": "LOD0 = source geometry unchanged (modifiers applied, world transforms baked, recentred only)",
+ "recentre_offset_m": [
+  -16.2,
+  22.2,
+  1.12
+ ],
+ "dimensions_m": [
+  14.38,
+  14.7891,
+  10.4074
+ ],
+ "source_triangles": 51152,
+ "lod0_zero_area_triangles": 64,
+ "budget_per_lod": {
+  "LOD0": {
+   "triangles": 51152,
+   "triangles_without_detail": 48400,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 15
+  },
+  "LOD1": {
+   "triangles": 25258,
+   "triangles_without_detail": 23890,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 15
+  },
+  "LOD2": {
+   "triangles": 11038,
+   "triangles_without_detail": 10634,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 15
+  }
+ },
+ "detail_parts": 10,
+ "body_parts": 376,
+ "detail_rule": "part bounding box under min(0.35 m, 0.12 x asset size) (plus listed names / collections)",
+ "minTier": "standard",
+ "detailObjects": [
+  "TownInn_Detail_Small"
+ ],
+ "materials": [
+  "TL09_Board",
+  "TL09_Brass",
+  "TL09_Clay",
+  "TL09_Cloth",
+  "TL09_Glaze",
+  "TL09_Iron",
+  "TL09_Lacquer",
+  "TL09_Lantern",
+  "TL09_Pale",
+  "TL09_Paper",
+  "TL09_Plaster",
+  "TL09_Rope",
+  "TL09_Stone",
+  "TL09_Tile",
+  "TL09_Timber"
+ ],
+ "texture_resolution_px": {},
+ "lod_rule": "LOD1 about 50 %, LOD2 about 15 % of LOD0: limited dissolve of flat faces (material/UV/sharp kept), then collapse",
+ "lod_method": {
+  "lod_per_island": true,
+  "protect_borders": false
+ },
+ "fbx": "TownInn_LOD_v001.fbx",
+ "units": "meters",
+ "front": "-Y (Blender)"
+}

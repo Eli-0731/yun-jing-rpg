@@ -1,0 +1,56 @@
+{
+ "style52": "Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.",
+ "layout_single": "Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.",
+ "layout_building": "Layout: one three-quarter view from slightly above at eye height of a person, plus front, side and back orthographic views on the same sheet at the same scale, plain light warm-grey background, even soft lighting, building only (no landscape around it except a small ground patch).",
+ "negative53": "photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye",
+ "items": {
+  "MC01-SF01": {
+   "object": "Three-view orthographic turnaround sheet of an open timber shopfront bay in a Chinese Song-dynasty style mountain town, about 4 m wide, 4 m deep and 3 m tall, with a three-metre open front veranda, one single unbroken short blank dark indigo cloth valance under the front beam, one tall blank swallow-tailed cloth shop banner hanging from a timber arm beside the post, small hexagonal dark bronze-frame lanterns with blank paper panels hanging from the beam ends, made of aged dark-brown cedar, warm-grey granite and dark bronze joints, showing hand-worn edges, rain streaks and repaired timber joints, no writing. The open veranda stays inside the 4 m footprint and the rear 1 m is a dark closed room with a doorway. Show this one ground-floor module only, ending at its top beam frame: no roof, no upper storey, no stone foundation block, no shelves or merchandise.",
+   "layout": "building",
+   "family": "SF",
+   "negative_extra": "Japanese architecture, machiya, noren, shoji, chochin round paper lantern, toro stone lantern, torii, Tudor half-timbering, European timber framing, diagonal X bracing, roof, roof tiles, upper storey, foundation block, furnished interior, merchandise, shelving, round white paper lanterns, split curtain panels"
+  },
+  "MC01-SF02": {
+   "object": "Three-view orthographic turnaround sheet of an open timber shopfront bay in a Chinese Song-dynasty style mountain town, about 4 m wide, 4 m deep and 3 m tall, with a three-metre open front veranda, one single unbroken short blank dark indigo cloth valance under the front beam, one tall blank swallow-tailed cloth shop banner hanging from a timber arm beside the post, small hexagonal dark bronze-frame lanterns with blank paper panels hanging from the beam ends, made of aged dark-brown cedar, warm-grey granite and dark bronze joints, showing hand-worn edges, rain streaks and repaired timber joints, no writing. Both sides of the veranda have timber lattice screens above solid lower panels; the front stays open. The open veranda stays inside the 4 m footprint and the rear 1 m is a dark closed room with a doorway. Show this one ground-floor module only, ending at its top beam frame: no roof, no upper storey, no stone foundation block, no shelves or merchandise.",
+   "layout": "building",
+   "family": "SF",
+   "negative_extra": "Japanese architecture, machiya, noren, shoji, chochin round paper lantern, toro stone lantern, torii, Tudor half-timbering, European timber framing, diagonal X bracing, roof, roof tiles, upper storey, foundation block, furnished interior, merchandise, shelving, round white paper lanterns, split curtain panels"
+  },
+  "MC01-SF03": {
+   "object": "Three-view orthographic turnaround sheet of an open timber shopfront bay in a Chinese Song-dynasty style mountain town, about 4 m wide, 4 m deep and 3 m tall, with a three-metre open front veranda, one single unbroken short blank dark indigo cloth valance under the front beam, one tall blank swallow-tailed cloth shop banner hanging from a timber arm beside the post, small hexagonal dark bronze-frame lanterns with blank paper panels hanging from the beam ends, made of aged dark-brown cedar, warm-grey granite and dark bronze joints, showing hand-worn edges, rain streaks and repaired timber joints, no writing. It is a corner bay: the front and the right side are both open shopfront faces meeting at one shared corner post. The open veranda stays inside the 4 m footprint and the rear 1 m is a dark closed room with a doorway. Show this one ground-floor module only, ending at its top beam frame: no roof, no upper storey, no stone foundation block, no shelves or merchandise.",
+   "layout": "building",
+   "family": "SF",
+   "negative_extra": "Japanese architecture, machiya, noren, shoji, chochin round paper lantern, toro stone lantern, torii, Tudor half-timbering, European timber framing, diagonal X bracing, roof, roof tiles, upper storey, foundation block, furnished interior, merchandise, shelving, round white paper lanterns, split curtain panels"
+  },
+  "MC01-HM01": {
+   "object": "Three-view orthographic turnaround sheet of a plaster-walled upper home bay in a Chinese Song-dynasty style mountain town, about 4 m wide, 4 m deep and 3 m tall, with an exposed chuandou timber frame of straight vertical posts and horizontal tie beams dividing the lime plaster into calm rectangular panels, no diagonal members, narrow recessed windows with straight vertical wooden bars backed by blank paper, made of aged dark-brown cedar, lime plaster and dark bronze joints, showing soft rain streaks and a few subtle plaster repairs along the posts, no writing. Two narrow windows on the front face. Show this one upper storey only, with level bottom and top beam frames: no roof, no eaves, no lower storey, no projecting brackets or balcony.",
+   "layout": "building",
+   "family": "HM",
+   "negative_extra": "Japanese architecture, machiya, noren, shoji, chochin round paper lantern, toro stone lantern, torii, Tudor half-timbering, European timber framing, diagonal X bracing, roof, roof tiles, eaves, lower storey, foundation block, balcony, projecting brackets, square grid windows"
+  },
+  "MC01-HM02": {
+   "object": "Three-view orthographic turnaround sheet of a plaster-walled upper home bay in a Chinese Song-dynasty style mountain town, about 4 m wide, 4 m deep and 3 m tall, with an exposed chuandou timber frame of straight vertical posts and horizontal tie beams dividing the lime plaster into calm rectangular panels, no diagonal members, narrow recessed windows with straight vertical wooden bars backed by blank paper, made of aged dark-brown cedar, lime plaster and dark bronze joints, showing soft rain streaks and a few subtle plaster repairs along the posts, no writing. One narrow recessed window on the front face. Show this one upper storey only, with level bottom and top beam frames: no roof, no eaves, no lower storey, no projecting brackets or balcony.",
+   "layout": "building",
+   "family": "HM",
+   "negative_extra": "Japanese architecture, machiya, noren, shoji, chochin round paper lantern, toro stone lantern, torii, Tudor half-timbering, European timber framing, diagonal X bracing, roof, roof tiles, eaves, lower storey, foundation block, balcony, projecting brackets, square grid windows"
+  },
+  "MC01-HM03": {
+   "object": "Three-view orthographic turnaround sheet of a plaster-walled upper home bay in a Chinese Song-dynasty style mountain town, about 4 m wide, 4 m deep and 3 m tall, with an exposed chuandou timber frame of straight vertical posts and horizontal tie beams dividing the lime plaster into calm rectangular panels, no diagonal members, narrow recessed windows with straight vertical wooden bars backed by blank paper, made of aged dark-brown cedar, lime plaster and dark bronze joints, showing soft rain streaks and a few subtle plaster repairs along the posts, no writing. It is a corner bay with one narrow window on the front face and one on the right face. Show this one upper storey only, with level bottom and top beam frames: no roof, no eaves, no lower storey, no projecting brackets or balcony.",
+   "layout": "building",
+   "family": "HM",
+   "negative_extra": "Japanese architecture, machiya, noren, shoji, chochin round paper lantern, toro stone lantern, torii, Tudor half-timbering, European timber framing, diagonal X bracing, roof, roof tiles, eaves, lower storey, foundation block, balcony, projecting brackets, square grid windows"
+  },
+  "MC01-DT01": {
+   "object": "Three-view orthographic turnaround sheet of a Chinese mountain town street lantern, about 0.6 m wide and 2.5 m tall, with a stepped warm-grey granite pedestal, a slim dark bronze post, a hexagonal dark bronze frame with thin vertical bars around blank warm paper panels, and a small bronze cap with gently upturned corners, verdigris in the joints, hand-worn edges, no writing, no wooden lattice.",
+   "layout": "single",
+   "family": "DT",
+   "negative_extra": "Japanese architecture, machiya, noren, shoji, chochin round paper lantern, toro stone lantern, torii, Tudor half-timbering, European timber framing, diagonal X bracing, wooden lantern frame, wooden lattice, stone toro lantern"
+  },
+  "MC01-DT03": {
+   "object": "Three-view orthographic turnaround sheet of a small Chinese hanging lantern, about 0.4 m wide and 0.7 m tall, with a hexagonal dark bronze frame, thin vertical bars around blank warm paper panels, a small bronze cap with gently upturned corners, a hanging ring and a short dark cord tassel, verdigris in the joints, no writing, no wooden lattice.",
+   "layout": "single",
+   "family": "DT",
+   "negative_extra": "Japanese architecture, machiya, noren, shoji, chochin round paper lantern, toro stone lantern, torii, Tudor half-timbering, European timber framing, diagonal X bracing, wooden lantern frame, wooden lattice, stone toro lantern"
+  }
+ }
+}
