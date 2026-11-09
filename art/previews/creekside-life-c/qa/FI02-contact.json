@@ -1,17 +1,17 @@
 {
  "FI02_v001": {
   "FI02_Body_LOD0": {
-   "pieces": 11,
-   "within_1mm": 11,
+   "pieces": 15,
+   "within_1mm": 15,
    "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
-   "largest_mm": 0.0,
+   "largest_mm": 0.7,
    "worst_at": []
   },
   "FI02_Detail_LooseEnd_LOD0": {
-   "pieces": 1,
-   "within_1mm": 1,
+   "pieces": 2,
+   "within_1mm": 2,
    "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,

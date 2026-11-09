@@ -8,6 +8,7 @@ FI02 木線輪與麻線（工作包 §5：Ø0.28 × 0.12 m，練圓形中心和�
 - cand-4：90（27+27+23+13）。和 cand-1 相近，指凹在上橫木，換栓不明顯。
 
 建模取捨：照 cand-1。兩片立柱（外側指凹）、上下兩根橫木、中間一根圓軸穿過立柱，軸上繞麻線成圓筒（線圈用幾圈較粗的螺旋加不規則交叉的線表現）；一端軸頭較新。工作包尺寸 Ø0.28 × 0.12：整件側躺在地上，0.28 × 0.28 × 0.12 m 以內。
+第二版建模取捨（2026-11-09，#93 審查）：第一版為了配工作包 Ø0.28 × 0.12 把整件側躺，兩根立柱又是方木，看起來像木箱。改成照 cand-1 直立（0.28 寬 × 0.12 深 × 0.28 高）；立柱改用 5.6 cm 薄板切出 cand-1 正面的外形（弧形外緣、兩個指凹、外撇的腳），底橫木下緣挖拱，線軸前後露出；麻線再亂一點，一圈鬆開垂在前面，線頭打結後垂兩條線尾。三視圖沿用 cand-1，沒有重新生成。
 
 == 正面提示詞 ==
 Three-view orthographic turnaround sheet of a small wooden line spool with neatly wound hemp fishing line, about 0.28 m wide and 0.12 m deep, made of aged cedar and hemp line, showing worn finger notches, uneven line coils and a replaced wooden peg, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
