@@ -1,27 +1,35 @@
 # 分支總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-08 09:46 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-09 10:53 UTC。
 > 「main 沒有的檔案」= 這條分支改過、而現在內容和 main 不一樣的檔案數（用內容比，不是比提交編號）。0 代表分支裡的東西都已在 main，刪掉也不會遺失，但先保留不刪。
 
 - 主線：1 條
-- 待審：1 條
-- 內容都在 main，可封存：45 條
-- 舊版或試驗，保留參考：18 條
+- 內容都在 main，可封存：52 條
+- 待審：2 條
 - 核心組進行中：1 條
+- 舊版或試驗，保留參考：18 條
 - 內容都在 main（只差幾個小檔）：6 條
 
 | 分支 | 分類 | 最後更新 | 最後提交者 | main 沒有的檔案 | PR | 做了什麼 | 備註 |
 |---|---|---|---|---:|---|---|---|
-| `main` | 主線 | 2026-11-08 | z1nnz | 0 | 沒有 PR | Merge pull request #79 from z1nnz/art/b-1107-te04-te05-ri03-tea-wheel |  |
-| `art/a-1105-mc01-street-houses` | 待審 | 2026-11-08 | z1nnz | 75 | [#80](https://github.com/z1nnz/chengtian/pull/80) 開啟中 | 【A】11/05 MC01：山城街屋模組（樣品：SB01 石基、SF01 店面、RF01 歇山屋頂） |  |
+| `main` | 主線 | 2026-11-09 | z1nnz | 0 | 沒有 PR | Merge pull request #89 from z1nnz/art/b-1108-vl-lived-homes |  |
+| `art/a-1105-mc01-street-houses` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#80](https://github.com/z1nnz/chengtian/pull/80) 已合併 | 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05、SF01–03、HM01–03、RF01–04、CP01–02、DT01–06） |  |
+| `art/a-1105-tx04-branch-court` | 待審 | 2026-11-09 | Johnnnny0823 | 55 | [#90](https://github.com/z1nnz/chengtian/pull/90) 開啟中 | 【A】11/05 TX04：太玄分院模組（樣品：院門、直牆） |  |
+| `art/b-1107-fr-forest-roots` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#84](https://github.com/z1nnz/chengtian/pull/84) 已合併 | 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種、獨木橋） |  |
+| `art/b-1107-sg-mountain-stairs` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#83](https://github.com/z1nnz/chengtian/pull/83) 已合併 | 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 |  |
+| `art/b-1107-vl-houses-lod` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#85](https://github.com/z1nnz/chengtian/pull/85) 已合併 | 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23 件 |  |
+| `art/b-1108-fp-forest-paths` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#87](https://github.com/z1nnz/chengtian/pull/87) 已合併 | 【B】11/08 FP01–FP05：古林步道套件 |  |
+| `art/b-1108-vl-lived-homes` | 內容都在 main，可封存 | 2026-11-09 | joshsu54 | 0 | [#89](https://github.com/z1nnz/chengtian/pull/89) 已合併 | 【B】11/08 VL04–VL05：有人住的民居變體 |  |
+| `docs/core-1109-registry-after-83` | 待審 | 2026-11-09 | z1nnz | 3 | [#86](https://github.com/z1nnz/chengtian/pull/86) 開啟中 | docs: 重新產生帳本（#80、#81、#83 合併後） |  |
+| `feature/qingxi-creek-chapter` | 核心組進行中 | 2026-11-09 | z1nnz | 436 | 沒有 PR | docs: B 112 小時包修正 VH03 時數 | 核心組進行中：故事定稿、工作包、區塊資料、11/07 文件。尚未合回 main（待整併）。 |
 | `art/b-1107-te04-te05-ri03-tea-wheel` | 內容都在 main，可封存 | 2026-11-08 | z1nnz | 0 | [#79](https://github.com/z1nnz/chengtian/pull/79) 已合併 | 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、稻田灌溉大水車 |  |
 | `art/codex-1108-c2-home-interior` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 33 | 沒有 PR | C2: 借住處後門與室內配置對位 |  |
 | `art/codex-1108-keyart` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 20 | 沒有 PR | KA01-KA10: 十區主視覺與氛圍卡 |  |
 | `art/codex-1108-moon-and-skyline-arc` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 31 | 沒有 PR | MO01: 交付細彎缺月與天際線弧面骨架 |  |
 | `art/codex-1108-rice-and-ferry` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 238 | 沒有 PR | RI01: 修水田三狀態 LOD0 疊面並通過 QA |  |
 | `art/codex-1108-tx01-ascension-board` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 25 | 沒有 PR | TX01: 交付飛升榜 LOD 與匯出包 |  |
-| `feature/qingxi-creek-chapter` | 核心組進行中 | 2026-11-08 | z1nnz | 435 | 沒有 PR | docs: 山城街道小件改編號 ST01–ST06，避免和 MC01-SF 撞名 | 核心組進行中：故事定稿、工作包、區塊資料、11/07 文件。尚未合回 main（待整併）。 |
-| `game/core-1108-world-east-valley` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 437 | 沒有 PR | docs: Codex v5 場景畫面清單（KA00–KA11：站位、時間、構圖、驗收） |  |
+| `docs/core-1108-registry-after-79` | 內容都在 main，可封存 | 2026-11-08 | z1nnz | 0 | [#82](https://github.com/z1nnz/chengtian/pull/82) 已合併 | docs: 重新產生帳本（#79 合併後） |  |
+| `game/core-1108-world-east-valley` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 801 | 沒有 PR | docs: 第 2 階段同鏡位比對圖，接續指示標明還沒解決的畫面問題 |  |
 | `docs/core-1107-labeling-rules` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#78](https://github.com/z1nnz/chengtian/pull/78) 已合併 | 【核心組】11/07 標註規則 v1 與分支／PR／資料夾總帳 | 核心組 11/07 標註規則、總帳工具、PR 範本更新。 |
 | `feature/basic-combat-a` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#66](https://github.com/z1nnz/chengtian/pull/66) 已合併 | A：基礎戰鬥手感（空手三段、蓄力重擊、閃避） |  |
 | `feature/creek-repair-b-a3` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#72](https://github.com/z1nnz/chengtian/pull/72) 已合併 | B：A3 西溪六件模型 WM01、02、04、05、07、09 |  |
