@@ -45,6 +45,7 @@
 | `art/exports/tea-terraces-b` | 核心組、B | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | #79 |
 | `art/exports/territory-backyard-a` | A | [#56](https://github.com/z1nnz/chengtian/pull/56) 新手領地後院 A 第一批：靈田、青靈草四階段與 TY01–TY04 參考圖 | #59 |
 | `art/exports/territory-interior-b` | B | [#54](https://github.com/z1nnz/chengtian/pull/54) 新手領地屋內 TI01–TI08 家具與 Unity 展示（第一批） | — |
+| `art/exports/tx04-branch-court` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
 | `art/exports/village-houses-b` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | #89 |
 | `art/exports/world-props-a` | A、核心組 | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | #75 |
 | `art/exports/zhuo-boar-a` | A | [#61](https://github.com/z1nnz/chengtian/pull/61) 第 3 天・濁化山豬：遭遇玩法、山豬與小松模型 | — |
@@ -199,6 +200,14 @@
 | `art/references/TE03` | 核心組 | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | — |
 | `art/references/TE04` | B | [#79](https://github.com/z1nnz/chengtian/pull/79) 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、 | — |
 | `art/references/TE05` | B | [#79](https://github.com/z1nnz/chengtian/pull/79) 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、 | — |
+| `art/references/TX04-GATE` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
+| `art/references/TX04-HALL` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
+| `art/references/TX04-PAVE` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
+| `art/references/TX04-SIDE` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
+| `art/references/TX04-STEPS` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
+| `art/references/TX04-WALL-CO` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
+| `art/references/TX04-WALL-DO` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
+| `art/references/TX04-WALL-ST` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
 | `art/references/TY03` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
 | `art/references/TY05` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
 | `art/references/TY06` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
@@ -286,6 +295,7 @@
 | `art/source/tea-terraces-b` | 核心組、B | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | #79 |
 | `art/source/territory-backyard-a` | A | [#56](https://github.com/z1nnz/chengtian/pull/56) 新手領地後院 A 第一批：靈田、青靈草四階段與 TY01–TY04 參考圖 | #59 |
 | `art/source/territory-interior-b` | B | [#54](https://github.com/z1nnz/chengtian/pull/54) 新手領地屋內 TI01–TI08 家具與 Unity 展示（第一批） | — |
+| `art/source/tx04-branch-court` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
 | `art/source/village-houses-b` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | #89 |
 | `art/source/world-props-a` | A、核心組 | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | #75 |
 | `art/source/zhuo-boar-a` | A | [#61](https://github.com/z1nnz/chengtian/pull/61) 第 3 天・濁化山豬：遭遇玩法、山豬與小松模型 | — |
