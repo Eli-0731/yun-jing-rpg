@@ -1,0 +1,31 @@
+{
+ "WL01_v001": {
+  "WL01_Body_LOD0": {
+   "pieces": 21,
+   "within_1mm": 21,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "WL01_Detail_Lashing_LOD0": {
+   "pieces": 12,
+   "within_1mm": 12,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "WL01_Detail_Pegs_LOD0": {
+   "pieces": 10,
+   "within_1mm": 10,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}
