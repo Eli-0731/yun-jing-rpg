@@ -1,0 +1,245 @@
+{
+  "asset": "FR04_LogBridge",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "FR04_LogBridge_Detail_Small"
+  ],
+  "name_zh": "獨木橋",
+  "slot": "D1_ForestEdge_to_D2_ElderTree",
+  "note": "獨木橋（三視圖 FR04 candidate-04，墊石取 candidate-02）：7 × 1 m、高 1.2 m。一根老木沿 X 架在兩組扁石上，頂面削平成走道（長 4.3 m、高 0.85 m、寬約 0.55–0.64 m，中間有踩出的淺凹），兩端各四根直立的鋸切木墩當踏階（直徑 0.44 m、前後相疊，外露踏面深 0.26 m；頂高 0.17／0.34／0.51／0.68 m，每階 0.17 m）。西端是根部：圓鈍的樹頭、板根往下抓地，踏階旁兩條斷根；東端是平整鋸口，看得到年輪。側面有斷枝殘樁，削平邊緣以下的側面長苔。和 A03 倒木不同：A03 是圓木躺在地上；這根架高、頂面削平、兩端有踏階。碰撞：原木一條平頂簡化管（橋面即頂面）、八根木墩各一個八角柱；斷枝、斷根、苔、蕨、草不擋。接口：Socket_Path_W／Socket_Path_E（兩端地面，朝外）、Socket_Deck（橋面中點）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 21886,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 10942,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 3281,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "FR04_LogBridge_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "FR04_LogBridge_Metallic.png": [
+      2048,
+      2048
+    ],
+    "FR04_LogBridge_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "FR04_LogBridge_Normal.png": [
+      2048,
+      2048
+    ],
+    "FR04_LogBridge_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint at ground level; walk along X, west (root) end at -X",
+  "dimensions_m": [
+    6.9599,
+    0.9379,
+    1.0632
+  ],
+  "bounds_min_m": [
+    -3.4944,
+    -0.4706,
+    0.0
+  ],
+  "bounds_max_m": [
+    3.4656,
+    0.4673,
+    1.0632
+  ],
+  "size_limit_m": [
+    7.0,
+    1.0,
+    1.2
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        6.9599,
+        0.9379,
+        1.0632
+      ],
+      "min": [
+        -3.4944,
+        -0.4706,
+        0.0
+      ],
+      "max": [
+        3.4656,
+        0.4673,
+        1.0632
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        6.4325,
+        0.8421,
+        0.7463
+      ],
+      "min": [
+        -3.1646,
+        -0.4132,
+        0.0033
+      ],
+      "max": [
+        3.2679,
+        0.4289,
+        0.7496
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 18782,
+      "LOD1": 9390,
+      "LOD2": 2816
+    },
+    "Detail_Small": {
+      "LOD0": 3104,
+      "LOD1": 1552,
+      "LOD2": 465
+    }
+  },
+  "lod_totals": {
+    "LOD0": 21886,
+    "LOD1": 10942,
+    "LOD2": 3281
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FR04_LogBridge_Main"
+  ],
+  "textures": [
+    "FR04_LogBridge_BaseColor.png",
+    "FR04_LogBridge_Metallic.png",
+    "FR04_LogBridge_MetallicSmoothness.png",
+    "FR04_LogBridge_Normal.png",
+    "FR04_LogBridge_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "FR04_LogBridge_BaseColor.png",
+    "Normal": "FR04_LogBridge_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "FR04_LogBridge_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FR04_LogBridge_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Path_W": [
+      -3.5,
+      0.0,
+      0.0
+    ],
+    "Socket_Path_E": [
+      3.5,
+      0.0,
+      0.0
+    ],
+    "Socket_Deck": [
+      0.0,
+      0.0,
+      0.85
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Deck.001": [
+      0.0,
+      0.0,
+      0.85
+    ],
+    "Socket_Path_E.001": [
+      3.5,
+      0.0,
+      0.0
+    ],
+    "Socket_Path_W.001": [
+      -3.5,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "FR04_LogBridge.001",
+    "FR04_LogBridge_Collision.001",
+    "FR04_LogBridge_Detail_Small_LOD0.001",
+    "FR04_LogBridge_Detail_Small_LOD1.001",
+    "FR04_LogBridge_Detail_Small_LOD2.001",
+    "FR04_LogBridge_LOD0.001",
+    "FR04_LogBridge_LOD1.001",
+    "FR04_LogBridge_LOD2.001",
+    "Socket_Deck.001",
+    "Socket_Path_E.001",
+    "Socket_Path_W.001"
+  ],
+  "glb": "FR04_LogBridge_v001.glb",
+  "interface": {
+    "deck_z_m": 0.85,
+    "deck_flat_width_min_m": 0.51,
+    "steps": {
+      "W": {
+        "tops_m": [
+          0.17,
+          0.34,
+          0.51,
+          0.68
+        ],
+        "rises_m": [
+          0.17,
+          0.17,
+          0.17,
+          0.17,
+          0.17
+        ]
+      },
+      "E": {
+        "tops_m": [
+          0.17,
+          0.34,
+          0.51,
+          0.68
+        ],
+        "rises_m": [
+          0.17,
+          0.17,
+          0.17,
+          0.17,
+          0.17
+        ]
+      }
+    },
+    "walk": "along X: Socket_Path_W -> steps -> deck -> steps -> Socket_Path_E",
+    "sockets": [
+      "Socket_Deck",
+      "Socket_Path_E",
+      "Socket_Path_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/forest-roots-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/FR04/ (AI three-view FR04/candidate-04; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/forest-roots-unity/ (local Unity batch check, not committed)"
+}
