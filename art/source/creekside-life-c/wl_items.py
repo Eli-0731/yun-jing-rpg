@@ -257,47 +257,95 @@ def _sheet(name,pts_u,pts_v,M,mat,grp,t=.004):
     bmesh.ops.recalc_face_normals(bm,faces=bm.faces)
     for f in bm.faces:f.smooth=True
     return finish(name,bm,mat,grp,.5)
+def _thin_layer(name,w,d,h,c,mat,grp,seed,rot=0.,droop=.006,pile_ph=(0.,0.)):
+    """one folded sheet of wet linen, 1–2 cm thick (#88 review: the v1 slabs read as cushions or books).
+    Cross-section (Y–Z): the front (-Y) is the fold, a half-round of radius h/2; the back (+Y) is where the plies end,
+    thinner (the loose edges, not a fold) and ragged along the length; the four corners hang a little.
+    Built as rings along X, the two side ends closed with a fan."""
+    r=random.Random(seed);ph=[r.uniform(0,6) for _ in range(8)];ph[3],ph[4]=pile_ph;nx=12;nt=7;nf=7   # ripples share the pile's phase: the sheets lie on each other, they do not cross
+    bm=bmesh.new();rings=[]
+    for i,u in enumerate(np.linspace(-1,1,nx)):
+        x=u*w/2
+        rag=.007*math.sin(5.3*u+ph[0])+.005*math.sin(11.7*u+ph[1])+.003*math.sin(23*u+ph[2])   # the loose back edge comes and goes, ±1.5 cm
+        yb=d/2+rag;yf=-d/2+h/2
+        top=[];bot=[]
+        for k in range(nt):   # top surface from the back edge to the start of the fold
+            t=k/(nt-1);y=yb+(yf-yb)*t;thin=.65+.35*min(1,t/.18)   # the last 3 cm at the back: only the top comes down (the loose edges), the underside stays flat
+            top.append((y,h*.05+(h*.95)*thin));bot.append((y,h*.05))
+        fold=[(yf-h/2*math.sin(a),h/2+h/2*math.cos(a)) for a in np.linspace(0,math.pi,nf)[1:-1]]
+        prof=top+fold+bot[::-1]
+        ring=[]
+        for (y,z) in prof:
+            v_=y/(d/2)
+            dz=-droop*max(0,abs(u)-.72)/.28-droop*.6*max(0,abs(v_)-.75)/.25*(abs(u)>.55)        # ends and corners hang
+            dz+=-.0025*max(0,1-u*u)*max(0,1-v_*v_)+.0012*math.sin(3.1*u+2.3*v_+ph[3])+.0008*math.sin(7*u-4*v_+ph[4])   # soft sag and ripples
+            ring.append(bm.verts.new((x,y,z+dz)))
+        rings.append(ring)
+    n=len(rings[0])
+    for a,b in zip(rings,rings[1:]):
+        for k in range(n):bm.faces.new((a[k],a[(k+1)%n],b[(k+1)%n],b[k]))
+    for ring,rev in ((rings[0],True),(rings[-1],False)):
+        cx=sum((v.co for v in ring),Vector())/n;cv=bm.verts.new(cx)
+        for k in range(n):bm.faces.new((cv,ring[(k+1)%n],ring[k]) if rev else (cv,ring[k],ring[(k+1)%n]))
+    bmesh.ops.recalc_face_normals(bm,faces=bm.faces)
+    for f in bm.faces:f.smooth=True
+    o=finish(name,bm,mat,grp);o.data.transform(Matrix.Rotation(rot,4,'Z'));o.data.transform(Matrix.Translation(c));return o
 def WL04(M):
-    """two piles side by side, 5 cm apart: the left one taller with one muted blue cloth in it, the right one lower and all
-    natural linen with a patch on top; every layer is a folded slab with rounded fold edges; the lower layers damp"""
-    piles=[(-.16,[('linen_b',.046,.46),('linen',.042,.45),('linen_blue',.040,.44),('linen',.040,.45),('linen_b',.038,.44),('linen',.036,.43)],1),
-           (.16,[('linen',.046,.43),('linen_b',.042,.42),('linen',.040,.42),('linen_b',.036,.41),('linen',.034,.40)],2)]
+    """two piles side by side, 5 cm apart (cand-12): thin wet linen folded and stacked, 10 sheets on the left (one muted blue),
+    8 on the right with a patch on top. #88 review round 2: thinner and more layers (1–2 cm each), a round fold on the front,
+    ragged loose edges at the back, layers shifted 0.5–2 cm, corners hanging, darker and smoother when wet, darker lower down."""
+    M['linen_blue']['mid']=1.0   # marks the blue sheet for the paint step (kept blue, only darkened)
+    piles=[(-.155,10,4,1),(.155,8,None,2)]   # x, sheets, index of the blue one, pile id
     tops={}
-    for px,layers,pi in piles:
-        z=0;r=random.Random(40+pi)
-        for li,(mat,h,d) in enumerate(layers):
-            w=.27-.006*li+r.uniform(-.01,.01);c=(px+r.uniform(-.012,.012),r.uniform(-.007,.007),z+h/2)
-            _layer(f'WL04_P{pi}L{li}',w,d-.006*li+r.uniform(-.008,.004),h,c,M,M[mat],'Body',seed=100*pi+li,rot=math.radians(r.uniform(-4,4)),sag=.003+.002*li/len(layers))
-            z+=h-.004                                      # each layer sinks 4 mm into the one below (flat on flat would be coplanar)
+    for px,nl,blue,pi in piles:
+        z=0;r=random.Random(70+pi);pph=(r.uniform(0,6),r.uniform(0,6))
+        for li in range(nl):
+            h=r.uniform(.019,.024);w=.262-.003*li+r.uniform(-.006,.006);d=.43-.002*li+r.uniform(-.008,.008)
+            off=lambda:r.choice((-1,1))*r.uniform(.005,.02)   # each sheet shifted 0.5–2 cm
+            for _ in range(40):   # no two neighbouring sheets end at the same x (or back y) within 5 mm: their end faces would lie in one plane
+                c=(px+off(),off()*.6,z)
+                ends=(c[0]-w/2,c[0]+w/2,c[1]+d/2,c[1]-d/2)
+                if li==0 or all(abs(a_-b_)>.005 for a_,b_ in zip(ends,prev)):break
+            prev=ends
+            _thin_layer(f'WL04_P{pi}L{li:02d}',w,d,h,c,M['linen_blue' if li==blue else 'linen'],'Body',seed=1000*pi+li,rot=math.radians(r.uniform(-3,3)),pile_ph=pph)
+            z+=h-.006                                       # each sheet sinks 6 mm into the one below: 1.3–1.8 cm of each shows, and no two faces meet flat
         tops[pi]=(px,z,parts[-1])
-    # a corner of the left pile's top cloth folded back and hanging over the front edge
-    def surf(o,x,y,r=.03):   # the real height of a top layer near (x, y): it sags and its edges hang
-        near=sorted(o.data.vertices,key=lambda v:(v.co.x-x)**2+(v.co.y-y)**2)[:8]   # the 8 nearest vertices (the grid is a few cm apart)
-        return max(v.co.z for v in near)
-    px,zt,top=tops[1];zt=surf(top,px-.07,-.16)-.006;rows=[]   # the folded corner starts 9 mm inside the top cloth, 3 cm in from its front edge
-    for i,s in enumerate(np.linspace(0,1,7)):
+    def surf(o,x,y):   # the real height of a top sheet near (x, y): it sags and its corners hang
+        near=sorted(o.data.vertices,key=lambda v:(v.co.x-x)**2+(v.co.y-y)**2)[:8];return max(v.co.z for v in near)
+    # a corner of the left pile's top sheet folded back and hanging over the front fold (thin: 4 mm)
+    px,zt,top=tops[1];zt=surf(top,px-.07,-.15)-.005;rows=[]
+    for i,s_ in enumerate(np.linspace(0,1,7)):
         row=[]
         for j,tt in enumerate(np.linspace(0,1,5)):
-            x=px-.125+.11*tt*(1-.45*s);a=s*math.pi*.55   # a triangle-ish corner, narrowing as it falls
-            y=-.17-.05*math.sin(a);zz=zt-.003+.05*(math.cos(a)-1)
-            row.append((x+.004*math.sin(j*2+s*4),y-.012*s+.003*math.sin(i*1.7),zz+.002*math.sin(j*3.1)))
+            x=px-.12+.10*tt*(1-.45*s_);a=s_*math.pi*.6
+            y=-.16-.06*math.sin(a);zz=zt-.002+.045*(math.cos(a)-1)
+            row.append((x+.004*math.sin(j*2+s_*4),y-.01*s_+.003*math.sin(i*1.7),zz+.002*math.sin(j*3.1)))
         rows.append(row)
     _sheet('WL04_Flap',rows,None,M,M['linen'],'Detail_Flap')
-    # the patched corner on the right pile's top
-    px,zt,top=tops[2];zt=surf(top,px+.07,-.12,.045);bm=box_bm((.07,.06,.006),(px+.07,-.12,zt))   # 3 mm proud of the highest point under it
+    # the patch on the right pile's top sheet
+    px,zt,top=tops[2];zt=surf(top,px+.07,-.10)+.0005;bm=box_bm((.07,.06,.005),(px+.07,-.10,zt))
     o=finish('WL04_Patch',bm,M['linen_b'],'Detail_Patch',.3)
-    o.data.transform(Matrix.Translation((-(px+.07),.12,0))@Matrix.Identity(4));o.data.transform(Matrix.Rotation(math.radians(12),4,'Z'));o.data.transform(Matrix.Translation((px+.07,-.12,0)))
+    o.data.transform(Matrix.Translation((-(px+.07),.10,0)));o.data.transform(Matrix.Rotation(math.radians(12),4,'Z'));o.data.transform(Matrix.Translation((px+.07,-.10,0)))
+    TOP=np.array([.72,.68,.60]);BOT=np.array([.557,.525,.463])   # #B8AE9A at the top of a pile → #8E8676 at the bottom (sRGB, as the albedo is stored)
     def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
-        px,py,pz=pos[...,0],pos[...,1],pos[...,2]
-        # damp lower layers: a darker, cooler band up from the ground with an uneven tide line, a little green-brown at the very bottom
-        dm=np.clip(((.075+.03*(noise-.5)+.012*np.sin(px*40+py*23))-pz)/.03,0,1)*filled
-        col=col*(1-.28*dm[...,None])*(1-.05*dm[...,None]*np.array([1,.3,-.5]));rough=np.clip(rough-.08*dm,0,1)
-        bot=np.clip((.018-pz)/.018,0,1)*np.clip((noise-.4)*3,0,1)*filled;col=col*(1-.35*bot[...,None])+bot[...,None]*np.array([.25,.27,.15])*.35
-        # damp darker edges where the cloth folds over (cavities between layers)
-        col=col*(1-.18*cav[...,None]);return col,rough
-    return {'paint':paint,'wear':.3,'grime':.9,'uv_angle':40,'ao_k':.3,'notes':['two separate piles 5 cm apart (left 6 layers with the blue cloth, right 5 layers)',
-            'each layer sinks 4 mm into the one below so no two faces lie flat on each other',
-            'Detail_Flap: the corner folded back over the front edge; Detail_Patch: the patch on the right pile']}
+        px,py,pz=pos[...,0],pos[...,1],pos[...,2];H=meta['height']
+        t=np.clip((pz-meta['offset'][2])/H,0,1)   # 0 at the ground, 1 at the top of the taller pile
+        blue=(mid>.5)&filled;lin=filled&~blue
+        # wet linen tone: keep the weave's light and dark, set the mean to the review's colours, darker the lower the sheet
+        lum=col.mean(2);m=lum[lin].mean() if lin.any() else 1.
+        tgt=BOT[None,None,:]*(1-t[...,None])+TOP[None,None,:]*t[...,None]
+        col=np.where(lin[...,None],tgt*(1+.55*(lum/m-1))[...,None],col)   # weave light and dark kept, but narrower: highlights must not go past the top colour
+        col=np.where(blue[...,None],col*(.78+.17*t)[...,None],col)            # the one blue sheet: same wetness, still blue
+        rough=np.where(filled,.66+.12*t,rough)                                  # wet cloth is smoother than dry (.92); wetter lower down
+        # water marks: soft wetter blotches and a few faint tide lines, not even all over
+        wb=np.clip((noise-.58)*4,0,1)*filled;tl=np.exp(-((noise-.47)/.012)**2)*filled
+        col=col*(1-.08*wb[...,None])*(1-.06*tl[...,None]);rough=np.clip(rough-.05*wb,0,1)
+        col=col*(1-.16*cav[...,None])                                           # the gaps between sheets
+        return col,rough
+    return {'paint':paint,'wear':.15,'grime':.6,'uv_angle':40,'ao_k':.3,'notes':['v001 round 2 (#88 review): 10 + 8 thin sheets, 1.3–1.8 cm of each showing, round fold at the front, ragged loose edges at the back, shifted 0.5–2 cm',
+            'wet colour #B8AE9A (top) → #8E8676 (bottom), roughness 0.78 → 0.66; one blue sheet only',
+            'each sheet is 1.9–2.4 cm and sinks 6 mm into the one below (1.3–1.8 cm shows), so no two faces lie flat on each other',
+            'Detail_Flap: the corner folded back over the front; Detail_Patch: the patch on the right pile']}
 PROPS['WL04']=WL04
 
 # ---------------- WL05 stone dish with a laundry-ash cake (cand-4) ----------------

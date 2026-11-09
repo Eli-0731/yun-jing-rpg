@@ -439,13 +439,13 @@
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
    0.6,
-   0.45,
-   0.217
+   0.454,
+   0.162
   ],
   "body_dimensions_xyz_m": [
    0.6,
-   0.45,
-   0.217
+   0.453,
+   0.162
   ],
   "size_limit_xyz_m": [
    0.6,
@@ -468,8 +468,8 @@
   ],
   "lods": {
    "LOD0": {
-    "triangles": 4724,
-    "triangles_without_detail": 4576,
+    "triangles": 8356,
+    "triangles_without_detail": 8208,
     "objects": 3,
     "objects_without_detail": 1,
     "materials": 1,
@@ -493,8 +493,8 @@
     }
    },
    "LOD1": {
-    "triangles": 2362,
-    "triangles_without_detail": 2288,
+    "triangles": 4178,
+    "triangles_without_detail": 4104,
     "objects": 3,
     "objects_without_detail": 1,
     "materials": 1,
@@ -518,8 +518,8 @@
     }
    },
    "LOD2": {
-    "triangles": 708,
-    "triangles_without_detail": 686,
+    "triangles": 1252,
+    "triangles_without_detail": 1230,
     "objects": 3,
     "objects_without_detail": 1,
     "materials": 1,
@@ -562,15 +562,16 @@
   },
   "material": "M_WL04_FoldedLinen",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 13,
+  "source_parts": 20,
   "coplanar_lifted": 0,
   "reference": "art/references/WL04/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
   "notes": [
-   "two separate piles 5 cm apart (left 6 layers with the blue cloth, right 5 layers)",
-   "each layer sinks 4 mm into the one below so no two faces lie flat on each other",
-   "Detail_Flap: the corner folded back over the front edge; Detail_Patch: the patch on the right pile"
+   "v001 round 2 (#88 review): 10 + 8 thin sheets, 1.3–1.8 cm of each showing, round fold at the front, ragged loose edges at the back, shifted 0.5–2 cm",
+   "wet colour #B8AE9A (top) → #8E8676 (bottom), roughness 0.78 → 0.66; one blue sheet only",
+   "each sheet is 1.9–2.4 cm and sinks 6 mm into the one below (1.3–1.8 cm shows), so no two faces lie flat on each other",
+   "Detail_Flap: the corner folded back over the front; Detail_Patch: the patch on the right pile"
   ]
  },
  "WL05": {
