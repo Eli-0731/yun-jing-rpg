@@ -1,6 +1,6 @@
 # PR 總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；要更新就重跑。產生時間：2026-11-09 10:53 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；要更新就重跑。產生時間：2026-11-09 11:18 UTC。
 > 人：A = Johnnnny0823（John）、B = joshsu54（Josh）、C = Eli-0731（Eli）、核心組 = z1nnz（含 Claude Code、Codex 代提交）。
 
 | PR | 誰 | 狀態 | 日期 | 分支 | 做了什麼（標題） | 動到的主要資料夾（檔案數） |
@@ -86,8 +86,8 @@
 | [#83](https://github.com/z1nnz/chengtian/pull/83) | B | 已合併 | 2026-11-08 | `art/b-1107-sg-mountain-stairs` | 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 | `art/previews/mountain-stairs-b`(202)、`art/exports/mountain-stairs-b`(80)、`art/source/mountain-stairs-b`(26)、`art/references/SG01`(5)、`art/references/SG02`(5) 等 10 處 |
 | [#84](https://github.com/z1nnz/chengtian/pull/84) | B | 已合併 | 2026-11-09 | `art/b-1107-fr-forest-roots` | 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種、獨木橋） | `art/previews/forest-roots-b`(201)、`art/exports/forest-roots-b`(84)、`art/source/forest-roots-b`(27)、`art/references/FR01`(5)、`art/references/FR02`(5) 等 8 處 |
 | [#85](https://github.com/z1nnz/chengtian/pull/85) | B | 已合併 | 2026-11-09 | `art/b-1107-vl-houses-lod` | 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23 件 | `art/previews/lod-backfill-b`(138)、`art/exports/lod-backfill-b`(118)、`art/previews/village-houses-b`(85)、`art/exports/village-houses-b`(80)、`art/source/village-houses-b`(24) 等 10 處 |
-| [#86](https://github.com/z1nnz/chengtian/pull/86) | 核心組 | 開啟中 | 2026-11-08 | `docs/core-1109-registry-after-83` | docs: 重新產生帳本（#80、#81、#83 合併後） | `docs/registry/branches.md`(1)、`docs/registry/folders.md`(1)、`docs/registry/prs.md`(1) |
+| [#86](https://github.com/z1nnz/chengtian/pull/86) | 核心組 | 已合併 | 2026-11-09 | `docs/core-1109-registry-after-83` | docs: 重新產生帳本（#80–#89 合併後），規範更正提交名字 | `docs/registry/branches.md`(1)、`docs/registry/folders.md`(1)、`docs/registry/prs.md`(1)、`docs/standards/README.md`(1) |
 | [#87](https://github.com/z1nnz/chengtian/pull/87) | B | 已合併 | 2026-11-09 | `art/b-1108-fp-forest-paths` | 【B】11/08 FP01–FP05：古林步道套件 | `art/previews/forest-paths-b`(269)、`art/exports/forest-paths-b`(74)、`art/source/forest-paths-b`(29)、`art/references/FP01`(5)、`art/references/FP02`(5) 等 10 處 |
-| [#88](https://github.com/z1nnz/chengtian/pull/88) | C | 開啟中 | 2026-11-09 | `Eli-0731:art/c-1107-wl-washing-props` | 【C】11/07 WL01–WL05：西溪洗衣小物五件 | `art/previews/creekside-life-c`(164)、`art/textures/creekside-life-c`(20)、`art/source/creekside-life-c`(15)、`art/references/WL04`(13)、`art/exports/creekside-life-c`(12) 等 9 處 |
+| [#88](https://github.com/z1nnz/chengtian/pull/88) | C | 已合併 | 2026-11-09 | `Eli-0731:art/c-1107-wl-washing-props` | 【C】11/07 WL01–WL05：西溪洗衣小物五件 | `art/previews/creekside-life-c`(164)、`art/textures/creekside-life-c`(20)、`art/source/creekside-life-c`(15)、`art/references/WL04`(13)、`art/exports/creekside-life-c`(12) 等 9 處 |
 | [#89](https://github.com/z1nnz/chengtian/pull/89) | B | 已合併 | 2026-11-09 | `art/b-1108-vl-lived-homes` | 【B】11/08 VL04–VL05：有人住的民居變體 | `art/previews/village-houses-b`(57)、`art/exports/village-houses-b`(51)、`art/source/village-houses-b`(9)、`art/references/VL04`(5)、`art/references/VL05`(5) 等 6 處 |
 | [#90](https://github.com/z1nnz/chengtian/pull/90) | A | 開啟中 | 2026-11-09 | `art/a-1105-tx04-branch-court` | 【A】11/05 TX04：太玄分院模組（樣品：院門、直牆） | `art/previews/tx04-branch-court`(27)、`art/source/tx04-branch-court`(9)、`art/exports/tx04-branch-court`(5)、`art/references/TX04-GATE`(5)、`art/references/TX04-WALL-ST`(5) 等 8 處 |

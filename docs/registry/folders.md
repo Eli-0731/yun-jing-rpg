@@ -7,6 +7,7 @@
 | `art/exports/aptitude-plaza-v1` | 核心組 | [#5](https://github.com/z1nnz/chengtian/pull/5) art: add world direction and aptitude pl | — |
 | `art/exports/creek-repair-b` | B | [#70](https://github.com/z1nnz/chengtian/pull/70) B：工地和三種修法模型 CR03–CR09（外加 CR14、CR15、F01_F | #72、#73 |
 | `art/exports/creek-repair-b-props` | B | [#71](https://github.com/z1nnz/chengtian/pull/71) B：修水路玩法（清淤、接渠、通水）與測試場景 | — |
+| `art/exports/creekside-life-c` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | — |
 | `art/exports/elder-world-tree-hero-v1` | 核心組 | [#17](https://github.com/z1nnz/chengtian/pull/17) 整合青溪世界分支並還原樹伴原樹葉冠 | — |
 | `art/exports/forest-paths-b` | B | [#87](https://github.com/z1nnz/chengtian/pull/87) 【B】11/08 FP01–FP05：古林步道套件 | — |
 | `art/exports/forest-roots-b` | B | [#84](https://github.com/z1nnz/chengtian/pull/84) 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種 | — |
@@ -207,6 +208,11 @@
 | `art/references/VL03` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | — |
 | `art/references/VL04` | B | [#89](https://github.com/z1nnz/chengtian/pull/89) 【B】11/08 VL04–VL05：有人住的民居變體 | — |
 | `art/references/VL05` | B | [#89](https://github.com/z1nnz/chengtian/pull/89) 【B】11/08 VL04–VL05：有人住的民居變體 | — |
+| `art/references/WL01` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | — |
+| `art/references/WL02` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | — |
+| `art/references/WL03` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | — |
+| `art/references/WL04` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | — |
+| `art/references/WL05` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | — |
 | `art/references/WM01` | B | [#72](https://github.com/z1nnz/chengtian/pull/72) B：A3 西溪六件模型 WM01、02、04、05、07、09 | — |
 | `art/references/WM02` | B | [#72](https://github.com/z1nnz/chengtian/pull/72) B：A3 西溪六件模型 WM01、02、04、05、07、09 | — |
 | `art/references/WM04` | B | [#72](https://github.com/z1nnz/chengtian/pull/72) B：A3 西溪六件模型 WM01、02、04、05、07、09 | — |
@@ -255,6 +261,7 @@
 | `art/references/world-master-v1` | 核心組 | [#5](https://github.com/z1nnz/chengtian/pull/5) art: add world direction and aptitude pl | — |
 | `art/references/world-vision-v2` | 核心組 | [#17](https://github.com/z1nnz/chengtian/pull/17) 整合青溪世界分支並還原樹伴原樹葉冠 | — |
 | `art/source/creek-repair-b` | B | [#70](https://github.com/z1nnz/chengtian/pull/70) B：工地和三種修法模型 CR03–CR09（外加 CR14、CR15、F01_F | #72、#73 |
+| `art/source/creekside-life-c` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | — |
 | `art/source/forest-paths-b` | B | [#87](https://github.com/z1nnz/chengtian/pull/87) 【B】11/08 FP01–FP05：古林步道套件 | — |
 | `art/source/forest-roots-b` | B | [#84](https://github.com/z1nnz/chengtian/pull/84) 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種 | — |
 | `art/source/harvest-market-b` | B | [#63](https://github.com/z1nnz/chengtian/pull/63) 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） | — |
