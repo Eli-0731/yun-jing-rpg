@@ -8,6 +8,7 @@ FI03 竹圈抄網（工作包 §5：1.3 × 0.45 × 0.06 m，練圓環、網結�
 - cand-4：91（27+28+23+13）。補網一大片、柄尾多一個掛繩環；網形偏斜。
 
 建模取捨：照 cand-2。平放在地上（沿 X），網兜塌在竹圈下方，所以總高 0.06 m 以內；竹圈用一根彎竹、兩端併入柄並綁繩；網用細麻線網格（結點略粗），補網處用深色線；握把纏布。網線很細，在 LOD2 會改成只保留竹圈和柄的輪廓。
+第二版建模取捨（2026-11-09，#93 審查）：第一版平放、網繃在圈上，看起來像網球拍。cand-2 側視圖本來就是往下垂的網袋，平放時做不出來，所以照工作包第 1 節「靠在一旁的竹竿、抄網」改成握把斜插在岸邊泥裡（34°），網袋從竹圈往下垂約 20 cm、底部收窄綁起；網目放大到 3–4 cm、線加粗，竹圈略不圓，握把改成舊布條加不等距纏繩。高度因此超過工作包的 0.06 m（審查說垂下的深度可以放寬）。LOD2 用帶 alpha 的簡化袋形面。三視圖沿用 cand-2，沒有重新生成。
 
 == 正面提示詞 ==
 Three-view orthographic turnaround sheet of a bamboo-ring landing net with a short handle and visible open mesh, about 1.3 m long and 0.45 m wide, made of split bamboo, knotted hemp mesh and dark cord, showing a repaired mesh knot, worn hand grip and damp lower threads, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
