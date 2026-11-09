@@ -70,6 +70,8 @@ def make_sources():
     tw2=.5+.5*np.sin(math.tau*((X+Y)*28))
     S['net']=(lerp((.40,.33,.22),(.58,.48,.32),np.clip(tw2*.5+.4*fbm(4,3),0,1)),tw2,1.0,.92,0,0)   # thin hemp net cord, a little darker than the rope
     S['cord_dark']=(lerp((.18,.15,.12),(.32,.26,.19),np.clip(tw2*.5+.4*fbm(5,3),0,1)),tw2,1.0,.9,0,0)   # dark tarred cord (binding)
+    K.rng=np.random.default_rng(3204)   # #93 review round: bank mud where FI03's handle is pushed in (own seed: the other sources keep their textures)
+    S['mud']=(lerp((.20,.16,.11),(.36,.30,.22),np.clip(.5+.9*(fbm(5,3)-.5)+.2*(fbm(40,2)-.5),0,1)),.6*fbm(30,3)+.3*fbm(90,2),1.2,.70,0,0)
     out={}
     for k,(alb,h,s,r,m,glow) in S.items():
         mat=bpy.data.materials.new('src_'+k);mat.use_nodes=True;nt=mat.node_tree;bs=nt.nodes['Principled BSDF']
@@ -96,9 +98,11 @@ def endgrain():
 # ---------------- items (filled per item after its three-view is picked) ----------------
 PROPS={}
 TARGET={'WL01':('x',.70),'WL02':('x',.45),'WL03':('x',.65),'WL04':('x',.60),'WL05':('x',.38),
-        'FI01':('x',2.2),'FI02':('x',.28),'FI03':('x',1.3),'FI04':('x',.9),'FI05':('x',.5)}
+        'FI01':('x',2.2),'FI02':('x',.28),'FI03':('x',None),'FI04':('x',.9),'FI05':('x',.5)}
 LIMIT={'WL01':(.7,.4,.12),'WL02':(.45,.15,.12),'WL03':(.65,.3,.25),'WL04':(.6,.5,.25),'WL05':(.38,.28,.12),   # work pack §5, w × d × h
-       'FI01':(2.2,.2,.2),'FI02':(.28,.28,.12),'FI03':(1.3,.45,.06),'FI04':(.9,.38,.38),'FI05':(.5,.3,.2)}   # FI01: only its length is set (2.2 m); FI02: Ø0.28 × 0.12 lying on its side
+       'FI01':(2.2,.2,.2),'FI02':(.28,.12,.28),'FI03':(1.3,.45,.8),'FI04':(.9,.38,.38),'FI05':(.5,.3,.2)}   # FI01: only its length is set (2.2 m)
+# #93 review round: FI02 stands upright as in its three-view (0.28 wide, 0.12 deep, 0.28 high); FI03 is pushed into the bank at an angle so the
+# net bag can hang 15-25 cm below the ring: the pack's 0.06 m height was for the net lying flat (the review allows the hanging depth); TARGET None = built at true size
 NAME={'WL01':'WashBoard','WL02':'BeatingPaddle','WL03':'RolledLinen','WL04':'FoldedLinen','WL05':'AshDish',
       'FI01':'FishingPole','FI02':'LineSpool','FI03':'LandingNet','FI04':'FishTrap','FI05':'Floats'}
 MIN_TIER={k:'high' for k in TARGET}   # quality-tiers §4: roadside props that add richness; nothing to play with or stop the player
@@ -118,7 +122,8 @@ def run(pid):
     M=make_sources();meta=PROPS[pid](M)
     pts=np.array([(o.matrix_world@v.co)[:] for o in parts if not o['grp'].startswith('Detail_') for v in o.data.vertices]);lo,hi=pts.min(0),pts.max(0)
     allp=np.array([(o.matrix_world@v.co)[:] for o in parts for v in o.data.vertices]);alo,ahi=allp.min(0),allp.max(0)   # the limit holds for everything, Detail_ included
-    ax,tm=TARGET[pid];k='xyz'.index(ax);f=min([tm/(hi[k]-lo[k])]+[LIMIT[pid][i]/(ahi[i]-alo[i]) for i in range(3)])   # edge jitter and bevels move the size by a few mm: scale to the work pack's length, never past its limit
+    ax,tm=TARGET[pid];k='xyz'.index(ax);f=min([tm/(hi[k]-lo[k]) if tm else 1.]+[LIMIT[pid][i]/(ahi[i]-alo[i]) for i in range(3)])
+    print('WL_EXT',pid,'body',[round(float(x),4) for x in hi-lo],'all',[round(float(x),4) for x in ahi-alo],'scale',round(float(f),4))   # edge jitter and bevels move the size by a few mm: scale to the work pack's length, never past its limit
     for o in parts:o.data.transform(o.matrix_world);o.matrix_world=Matrix.Identity(4);o.data.transform(Matrix.Scale(f,4))
     pts=np.array([v.co[:] for o in parts if not o['grp'].startswith('Detail_') for v in o.data.vertices]);lo,hi=pts.min(0),pts.max(0);meta['scale_to_target']=round(float(f),4)
     off=Vector((-(lo[0]+hi[0])/2,-(lo[1]+hi[1])/2,-lo[2]))
@@ -145,6 +150,9 @@ def run(pid):
     bpy.ops.uv.smart_project(angle_limit=math.radians(meta.get('uv_angle',55)),island_margin=mg,area_weight=0,scale_to_bounds=False)
     bpy.ops.uv.select_all(action='SELECT');bpy.ops.uv.average_islands_scale();bpy.ops.uv.pack_islands(margin=mg,rotate=True)
     bpy.ops.object.mode_set(mode='OBJECT')
+    card=meta.get('card');V0=1-card['strip'] if card else 1.
+    if card:   # LOD2 card (FI03 net bag): the baked parts are squeezed below v = V0, the strip above holds the painted net with alpha
+        bu=A.data.uv_layers['Bake'];uv=np.empty(len(bu.data)*2,np.float32);bu.data.foreach_get('uv',uv);uv[1::2]*=V0-mg;bu.data.foreach_set('uv',uv)   # re-fetch: edit mode invalidated the old layer pointer
     for o in sc.objects:o.hide_render=o is not A
     mats=list(A.data.materials);one=np.ones((RES,RES),np.float32);padmask=[None]
     def pad(a):
@@ -204,11 +212,18 @@ def run(pid):
         dh=meta['damp']*(1+.35*(noise-.5));dm=np.clip((dh-pz)/(.35*meta['damp']),0,1)*filled
         col=col*(1-.30*dm[...,None])*(1-.05*dm[...,None]*np.array([1,0,-.6]));rough=np.clip(rough-.12*dm,0,1)
     if meta.get('paint'):col,rough=meta['paint'](col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta)
-    T={'alb':save(f'{pid}_Albedo',np.dstack([np.clip(col,0,1),one])),'nrm':save(f'{pid}_Normal',nrm,True),'orm':save(f'{pid}_ORM',np.dstack([ao,rough,0*one,one]),True)}
+    alpha=one.copy()
+    if card:   # paint the card strip: net colour and alpha (cord and knots opaque, holes clear), flat normal
+        r0=int(V0*RES);h=RES-r0;crgb,ca=card['pattern'](RES,h);filled=filled.copy();filled[r0:]=True;padmask[0]=filled
+        col=col.copy();col[r0:]=crgb;alpha[r0:]=ca;ao=ao.copy();ao[r0:]=.85;rough=rough.copy();rough[r0:]=.9
+        nrm=nrm.copy();nrm[r0:]=(.5,.5,1,1)
+    T={'alb':save(f'{pid}_Albedo',np.dstack([np.clip(col,0,1),alpha])),'nrm':save(f'{pid}_Normal',nrm,True),'orm':save(f'{pid}_ORM',np.dstack([ao,rough,0*one,one]),True)}
     save(f'{pid}_MaskURP',np.dstack([0*one,ao,0*one,1-rough]),True)
     fm=bpy.data.materials.new(f'M_{pid}_{NAME[pid]}');fm.use_nodes=True;nt=fm.node_tree;bs=nt.nodes['Principled BSDF'];fm.use_backface_culling=False
     def tn(im):t=nt.nodes.new('ShaderNodeTexImage');t.image=im;return t
-    nt.links.new(tn(T['alb']).outputs['Color'],bs.inputs['Base Color'])
+    ta_=tn(T['alb']);nt.links.new(ta_.outputs['Color'],bs.inputs['Base Color'])
+    if card and card.get('alpha',True):   # alpha clip (glTF: alphaMode MASK, cutoff 0.5, read from the Round node)
+        rn=nt.nodes.new('ShaderNodeMath');rn.operation='ROUND';nt.links.new(ta_.outputs['Alpha'],rn.inputs[0]);nt.links.new(rn.outputs[0],bs.inputs['Alpha'])
     nmn=nt.nodes.new('ShaderNodeNormalMap');nt.links.new(tn(T['nrm']).outputs['Color'],nmn.inputs['Color']);nt.links.new(nmn.outputs['Normal'],bs.inputs['Normal'])
     sp=nt.nodes.new('ShaderNodeSeparateColor');nt.links.new(tn(T['orm']).outputs['Color'],sp.inputs['Color']);nt.links.new(sp.outputs['Green'],bs.inputs['Roughness'])
     bs.inputs['Metallic'].default_value=0;bs.inputs['Specular IOR Level'].default_value=.35
@@ -225,10 +240,33 @@ def run(pid):
         d=A.copy();d.data=A.data.copy();sc.collection.objects.link(d);d.name=d.data.name=f'{pid}_{name}_LOD0'
         bm=bmesh.new();bm.from_mesh(d.data);la=bm.faces.layers.int['gid']
         bmesh.ops.delete(bm,geom=[f for f in bm.faces if f[la] not in ids],context='FACES');bm.to_mesh(d.data);bm.free()
-        d.data.attributes.remove(d.data.attributes['gid']);d.parent=root;grp=[d]
+        d.parent=root;grp=[d]
         for L,ratio in ((1,.5),(2,.15)):
             e=d.copy();e.data=d.data.copy();sc.collection.objects.link(e);e.name=e.data.name=f'{pid}_{name}_LOD{L}'
-            m=e.modifiers.new('d','DECIMATE');m.ratio=ratio;m.use_collapse_triangulate=True;sel(e);bpy.ops.object.modifier_apply(modifier='d');e.hide_render=True;grp.append(e)
+            cd_=card if (card and L==2 and name=='Body') else None
+            if cd_:   # LOD2 body: the modelled net (FI03) or line coil (FI02) is dropped for a low stand-in painted in the atlas strip
+                drop=[groups.index(g) for g in cd_['drop']];bm=bmesh.new();bm.from_mesh(e.data);la=bm.faces.layers.int['gid']
+                bmesh.ops.delete(bm,geom=[f_ for f_ in bm.faces if f_[la] in drop],context='FACES');bm.to_mesh(e.data);bm.free();ratio=cd_.get('ratio',ratio)
+            lr=meta.get('lod_ratios') if name=='Body' else None
+            if lr:   # per-group ratios (FI02: decimated as one, the thin cut boards lost their thickness at LOD2 while the many line turns kept theirs)
+                sub=[]
+                for gi,gn in enumerate(groups):
+                    if gn.startswith('Detail_'):continue
+                    o_=e.copy();o_.data=e.data.copy();sc.collection.objects.link(o_);bm=bmesh.new();bm.from_mesh(o_.data);la=bm.faces.layers.int['gid']
+                    bmesh.ops.delete(bm,geom=[f_ for f_ in bm.faces if f_[la]!=gi],context='FACES');bm.to_mesh(o_.data);bm.free()
+                    if not o_.data.polygons:bpy.data.objects.remove(o_);continue
+                    m=o_.modifiers.new('d','DECIMATE');m.ratio=lr.get(gn,(ratio,ratio))[L-1];m.use_collapse_triangulate=True;sel(o_);bpy.ops.object.modifier_apply(modifier='d');sub.append(o_)
+                nm_=e.name;bpy.data.objects.remove(e);sel(*sub);bpy.ops.object.join();e=bpy.context.object;e.name=e.data.name=nm_;e.parent=root;e.hide_render=True;grp.append(e)
+            else:
+                m=e.modifiers.new('d','DECIMATE');m.ratio=ratio;m.use_collapse_triangulate=True;sel(e);bpy.ops.object.modifier_apply(modifier='d');e.hide_render=True;grp.append(e)
+            if cd_:
+                bm=bmesh.new();bm.from_mesh(e.data);ul=bm.loops.layers.uv['UVMap'];vs=[bm.verts.new(Vector(v)*f+off) for v in cd_['verts']]
+                for fc,fu in zip(cd_['faces'],cd_['uvs']):
+                    nf=bm.faces.new([vs[i] for i in fc]);nf.smooth=True
+                    for l,(u_,v_) in zip(nf.loops,fu):l[ul].uv=(u_,V0+v_*(1-V0))
+                bm.to_mesh(e.data);bm.free()
+        for g in grp:
+            if 'gid' in g.data.attributes:g.data.attributes.remove(g.data.attributes['gid'])
         lods[name]=grp
     src=bpy.data.collections.new(f'{pid}_SourceParts');sc.collection.children.link(src)
     for o in srcparts+[A]:

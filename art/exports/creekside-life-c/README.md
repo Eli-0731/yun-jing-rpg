@@ -5,7 +5,7 @@
 | ID | WL01–WL05（#88）、FI01–FI05 |
 | 分支／PR | WL：art/c-1107-wl-washing-props ／ #88；FI：art/c-1107-fi-fishing-props ／ #93 |
 | 版本 | v001（檔名帶 `_v001`；之後改版另存 v002，不覆寫） |
-| 狀態 | Exported ／ Imported（Unity 6000.0.82f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖）／ In-game Verified：未驗（沒放進正式場景） |
+| 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖）／ In-game Verified：未驗（沒放進正式場景） |
 | 素材來源 | 原創；三視圖參考在 `art/references/WL01/`–`WL05/`、`art/references/FI01/`–`FI05/` |
 
 # A3 西溪洗衣小物 WL01–WL05、釣具 FI01–FI05
@@ -16,7 +16,7 @@
 - 先生成三視圖（每件至少 4 張）、自評選一張（分數和取捨在各自的 `prompt.txt`），再做灰模（`art/previews/creekside-life-c/<ID>/clay/`），最後上貼圖。
 - 原點在腳印中心、底部 z = 0，Blender −Y 是正面（FBX／Unity 是 −Z）。不附地面底板，五件分開，可各自擺放。
 - 一件一個材質、一套 1024 貼圖（11/07 小道具規則）；可有可無的小東西放 `Detail_*` 子物件（標準畫質關掉）。本體的環境遮蔽在烘焙時不含 Detail_，關掉後不會留下繩子或木釘的陰影。
-- LOD1 約 50%、LOD2 約 15%，LOD0 不減面。`minTier` 都是 `high`（畫質分級第 4 節：增加豐富度的路邊擺設，不擋路、不參與玩法），所以沒有碰撞。
+- LOD1 約 50%、LOD2 約 15%，LOD0 不減面（FI02、FI03 的 LOD2 例外，見各自說明）。`minTier` 都是 `high`（畫質分級第 4 節：增加豐富度的路邊擺設，不擋路、不參與玩法），所以沒有碰撞。
 - 重建：`blender -b --factory-startup -P art/source/creekside-life-c/build_wl.py -- WL01 [--clay]`；審圖與 QA：`BL=<blender> sh art/source/creekside-life-c/render_reviews.sh`；Unity：`UNITY=<Unity.exe> sh art/source/creekside-life-c/unity/run_unity_check.sh`。
 
 ### FI01 細竹釣竿（收起）（FishingPole，v001）
@@ -36,13 +36,13 @@
 
 ### FI02 木線輪與麻線（LineSpool，v001）
 
-照參考圖直立做好再側躺（0.28 × 0.28 × 0.12 m）：兩片立柱外側磨出指凹，上下兩根橫木，中間一根木軸繞滿麻線（兩層不整齊的線圈加幾道交叉），軸的一端是較新、較淺的換過的木栓；線頭繞在上橫木打結。
+第二版（#93 審查：第一版側躺、立柱是兩條方木，看起來像木箱）。照三視圖直立放（0.28 寬 × 0.12 深 × 0.28 高），線軸前後都露出來。兩片側板用 5.6 cm 薄板切出外形：外緣有弧度、兩個手指磨出的凹口、腳往外撇，邊緣不是直線；底橫木下緣挖成拱形，上橫木是一根略彎的圓木。麻線（粗 6 mm）纏三層、最外層只纏到一半，三道交叉，一圈鬆開垂在前面；線頭繞上橫木打結，兩條起毛的線尾垂下。右邊木栓是換過的較淺新木。貼圖：指凹和柱頂被手摸亮、較滑，腳和底橫木兩端較髒、帶一點苔，木紋順著側板直走。LOD：木框和麻線分開減面（整件一起減，LOD2 的薄側板會被壓成沒有厚度的片）；LOD2 把一圈圈的麻線換成 20 邊圓筒、線圈畫在貼圖上（減到 10% 的麻線會碎成尖刺）。第一版對照在 `art/previews/creekside-life-c/compare-v1/FI02.jpg`。
 
 | 項目 | 數字 |
 |---|---|
 | 三視圖 | `art/references/FI02/`，選用 cand-1（92） |
-| 尺寸（寬 × 深 × 高） | 0.28 × 0.268 × 0.118 m（上限 0.28 × 0.28 × 0.12 m） |
-| 三角面 LOD0 / LOD1 / LOD2 | 5,358 / 2,678 / 1,380（不含 Detail_：5,130 / 2,564 / 1,346） |
+| 尺寸（寬 × 深 × 高） | 0.28 × 0.116 × 0.279 m（上限 0.28 × 0.12 × 0.28 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 8,274 / 4,286 / 774（不含 Detail_：8,218 / 4,258 / 766） |
 | 物件數（每個 LOD） | 2（本體 1 + Detail_LooseEnd） |
 | 材質數 | 1（`M_FI02_LineSpool`，本體和 Detail_ 共用） |
 | 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
@@ -51,13 +51,13 @@
 
 ### FI03 竹圈抄網（LandingNet，v001）
 
-平放：一根彎竹圍成水滴形竹圈，兩端沿握把兩側用深色繩綁住，竹圈上幾處小綁繩；網兜塌在竹圈下面的地上（所以總高只有 4 cm），網線一條條建出、略歪扭、交叉處有網結，一處用深色線補過；握把纏舊布；網的遠端還濕。
+第二版（#93 審查：第一版平放、網繃平，看起來像網球拍）。握把斜插在岸邊泥裡（34°），網袋從竹圈往下垂約 20 cm、底部收窄綁起來：網目 3–4 cm（一圈 26 目、15 排，沿竹圈等距），網線粗 3.8 mm，每個交叉處網線鼓起成網結；網底一圈繩、七條繩收到底下打結；一處用深色線橫跨幾個網目補過，下半部還濕。竹圈略不圓、不完全平，兩端沿握把兩側用深色繩綁住，圈上五處小綁繩間距不一。握把纏一條舊布（每圈間距不同，是布條不是一圈圈環），加四段不等距的纏繩（5、4、2、6 圈），布和繩之間握手的竹子磨亮。插入處堆一小團泥。LOD2 把網換成 12 × 5 的簡化袋形面，網畫在 Albedo 的 alpha 裡（alpha clip 0.5、雙面），遠看還是袋子。第一版對照在 `art/previews/creekside-life-c/compare-v1/FI03.jpg`。
 
 | 項目 | 數字 |
 |---|---|
 | 三視圖 | `art/references/FI03/`，選用 cand-2（92） |
-| 尺寸（寬 × 深 × 高） | 1.3 × 0.442 × 0.043 m（上限 1.3 × 0.45 × 0.06 m） |
-| 三角面 LOD0 / LOD1 / LOD2 | 9,464 / 4,732 / 1,418（不含 Detail_：9,408 / 4,704 / 1,410） |
+| 尺寸（寬 × 深 × 高） | 1.081 × 0.415 × 0.686 m（上限 1.3 × 0.45 × 0.8 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 18,212 / 9,106 / 2,376（不含 Detail_：18,156 / 9,078 / 2,368） |
 | 物件數（每個 LOD） | 2（本體 1 + Detail_Repair） |
 | 材質數 | 1（`M_FI03_LandingNet`，本體和 Detail_ 共用） |
 | 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
@@ -172,7 +172,7 @@
 ## 驗證
 
 - QA（`tools/art/qa_lod0_basic.py` 嚴格與寬鬆、`tools/art/qa_contact_glb.py`）：結果在 `art/previews/creekside-life-c/qa/`。
-- Unity 6000.0.82f1 獨立匯入：`art/previews/creekside-life-c/unity/report.txt`，布（WL03、WL04）用雙面材質並加低角度截圖。
+- Unity 6000.3.28f1（main 自 #92 起的版本）獨立匯入：`art/previews/creekside-life-c/unity/report.txt`，布（WL03、WL04）和網（FI03）用雙面材質並加低角度截圖；FI03 另開 alpha clip（LOD2 袋形）。
 - 同光同角度並排（含 1.75 m 人形尺，灰模和成品各一張）：`art/previews/creekside-life-c/compare/`，總表 `compare-sheet.jpg`。WL01／02 對舊木器（C 木箱 BM01_01、B 柴堆 R03），WL03／04 對既有布件（C 舊蒲團 UP05、B 草蓆 TI06），WL05 對 BM05_03 方凳、BM06_01 石缸。
 
 FI01–FI05 對水工竹繩件：FI01、FI03、FI04 和 B 的河床清淤篩 B08、流速指示浮標 B09 同場（`FI-vs-waterworks`），FI02、FI05 對 B09（`FI02-FI05-vs-float`），FI04 對 B 的背簍 MK04（`FI04-vs-basket`，看得出不是背簍）。
@@ -189,7 +189,8 @@ FI01–FI05 對水工竹繩件：FI01、FI03、FI04 和 B 的河床清淤篩 B08
 - WL01 參考圖比例約 2.1 : 1，照工作包 0.70 × 0.40 m 做；圓肋上的木紋近看偏碎。
 - WL03 審查建議（加分項，這輪未做）：底色再壓暗一點、加幾塊髒污。
 - FI01 照工作包做成平放；「收納可斜靠」由擺放時整件旋轉處理。
-- FI03 的網線很細，LOD2（15%）只剩竹圈和握把的輪廓、網線大多消失。
+- FI03 尺寸：工作包 1.3 × 0.45 × 0.06 m 是平放的數字。審查要網袋下垂 15–25 cm，並說深度可放寬，所以改成斜插，外框 1.08 × 0.42 × 0.69 m（竿長仍 1.3 m）。`model_info.json` 的上限寫 1.3 × 0.45 × 0.8，請核心組確認擺放位置是否容得下。
+- FI03 LOD0 有 18,212 三角面（網一條條建出，每個交叉處網線鼓起成網結），是十件裡最多的；LOD1 9,106，LOD2 換成袋形面後 2,376。
 - FI05 單顆浮子的三視圖：工作包要求每個不同輪廓都要有四張以上候選，所以三種浮子另各生成 4 張，只改物件描述，細節在 `art/references/FI05/prompt.txt`。
 - WL03 為了把垂下的繩尾放進 0.3 m 深的上限，整件縮到長 0.57 m（上限 0.65 m）。
 - WL04 前兩輪（cand-1–8）照工作包原文生成都只畫一疊，第三輪只改物件描述（固定段 5.2、5.3 不動）才畫出兩疊，細節在 `art/references/WL04/prompt.txt`。

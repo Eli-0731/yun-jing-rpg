@@ -22,6 +22,7 @@ namespace YunJing.Editor
         const string Version = "v001";
         static readonly string[] Ids = { "WL01", "WL02", "WL03", "WL04", "WL05", "FI01", "FI02", "FI03", "FI04", "FI05" };
         static readonly HashSet<string> Cloth = new HashSet<string> { "WL03", "WL04", "FI03" };   // cloth and the net: both faces
+        static readonly HashSet<string> Cutout = new HashSet<string> { "FI03" };   // #93 review round: FI03's LOD2 card bag carries the net in the albedo alpha
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
         static string Out => Path.Combine(Repo, "art/previews/creekside-life-c/unity");
         static readonly List<string> Report = new List<string>();
@@ -87,8 +88,10 @@ namespace YunJing.Editor
                 var ti = (TextureImporter)AssetImporter.GetAtPath(path);
                 bool normal = path.EndsWith("_Normal.png"), linear = normal || path.EndsWith("_MaskURP.png") || path.EndsWith("_ORM.png");
                 var type = normal ? TextureImporterType.NormalMap : TextureImporterType.Default;
-                if (ti.textureType == type && ti.sRGBTexture == !linear) continue;
+                bool cut = Cutout.Any(c => path.EndsWith($"/{c}_Albedo.png"));   // alpha-tested net: keep its coverage in the smaller mips, or the far card goes bare
+                if (ti.textureType == type && ti.sRGBTexture == !linear && ti.mipMapsPreserveCoverage == cut) continue;
                 ti.textureType = type; ti.sRGBTexture = !linear; ti.mipmapEnabled = true;
+                ti.mipMapsPreserveCoverage = cut; if (cut) { ti.alphaTestReferenceValue = .5f; ti.alphaSource = TextureImporterAlphaSource.FromInput; }
                 ti.SaveAndReimport();
             }
         }
@@ -125,6 +128,7 @@ namespace YunJing.Editor
             mat.SetTexture("_MetallicGlossMap", mask); mat.EnableKeyword("_METALLICSPECGLOSSMAP"); mat.SetFloat("_Smoothness", 1);
             mat.SetTexture("_OcclusionMap", mask); mat.EnableKeyword("_OCCLUSIONMAP");
             if (Cloth.Contains(id)) mat.SetFloat("_Cull", (float)CullMode.Off);
+            if (Cutout.Contains(id)) { mat.SetFloat("_AlphaClip", 1); mat.SetFloat("_Cutoff", .5f); mat.EnableKeyword("_ALPHATEST_ON"); mat.SetOverrideTag("RenderType", "TransparentCutout"); mat.renderQueue = (int)RenderQueue.AlphaTest; }
             EditorUtility.SetDirty(mat); Mats[id] = mat;
             return mat;
         }
@@ -188,6 +192,12 @@ namespace YunJing.Editor
             Detail(go, true);
             Check(go.GetComponentsInChildren<Collider>(true).Length == 0, $"{id}: no collider (minTier high: hidden on the standard tier, so it must not block the way there)");
             if (Cloth.Contains(id)) Check(Mats[id].GetFloat("_Cull") == (float)CullMode.Off, $"{id}: cloth material renders both faces (Cull Off)");
+            if (Cutout.Contains(id))
+            {
+                var ti = (TextureImporter)AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(Tex(id, "Albedo")));
+                Check(Mats[id].GetFloat("_AlphaClip") == 1 && Mats[id].IsKeywordEnabled("_ALPHATEST_ON") && ti.DoesSourceTextureHaveAlpha() && ti.mipMapsPreserveCoverage,
+                    $"{id}: alpha clip 0.5 on, albedo has alpha, mip coverage kept (LOD2 card bag shows the net)");
+            }
             UnityEngine.Object.DestroyImmediate(go);
         }
 

@@ -147,18 +147,18 @@
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
    0.28,
-   0.268,
-   0.118
+   0.116,
+   0.279
   ],
   "body_dimensions_xyz_m": [
    0.28,
-   0.268,
-   0.118
+   0.116,
+   0.279
   ],
   "size_limit_xyz_m": [
    0.28,
-   0.28,
-   0.12
+   0.12,
+   0.28
   ],
   "within_limit": true,
   "minTier": "high",
@@ -172,8 +172,8 @@
   ],
   "lods": {
    "LOD0": {
-    "triangles": 5358,
-    "triangles_without_detail": 5130,
+    "triangles": 8274,
+    "triangles_without_detail": 8218,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -197,8 +197,8 @@
     }
    },
    "LOD1": {
-    "triangles": 2678,
-    "triangles_without_detail": 2564,
+    "triangles": 4286,
+    "triangles_without_detail": 4258,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -222,8 +222,8 @@
     }
    },
    "LOD2": {
-    "triangles": 1380,
-    "triangles_without_detail": 1346,
+    "triangles": 774,
+    "triangles_without_detail": 766,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -261,15 +261,16 @@
   },
   "material": "M_FI02_LineSpool",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 12,
+  "source_parts": 17,
   "coplanar_lifted": 0,
   "reference": "art/references/FI02/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
   "notes": [
-   "built upright (as the reference) and laid on its side: 0.28 × 0.28 × 0.12 m",
-   "the right axle end is a separate, paler replacement peg",
-   "Detail_LooseEnd: the loose end tied round the top bar"
+   "stands upright as in its three-view: 0.28 wide × 0.12 deep × 0.28 high; the coil is open front and back",
+   "posts cut from 5.6 cm board with curved outer edges, two finger notches and flared feet; the right axle peg is a separate, paler replacement",
+   "the line: three uneven layers, three crossing turns, one slack loop hanging out; tied round the top bar",
+   "Detail_LooseEnd: the two frayed tails"
   ]
  },
  "FI03": {
@@ -283,19 +284,19 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.3,
-   0.442,
-   0.043
+   1.081,
+   0.415,
+   0.686
   ],
   "body_dimensions_xyz_m": [
-   1.3,
-   0.442,
-   0.043
+   1.081,
+   0.415,
+   0.686
   ],
   "size_limit_xyz_m": [
    1.3,
    0.45,
-   0.06
+   0.8
   ],
   "within_limit": true,
   "minTier": "high",
@@ -309,8 +310,8 @@
   ],
   "lods": {
    "LOD0": {
-    "triangles": 9464,
-    "triangles_without_detail": 9408,
+    "triangles": 18212,
+    "triangles_without_detail": 18156,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -334,8 +335,8 @@
     }
    },
    "LOD1": {
-    "triangles": 4732,
-    "triangles_without_detail": 4704,
+    "triangles": 9106,
+    "triangles_without_detail": 9078,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -359,8 +360,8 @@
     }
    },
    "LOD2": {
-    "triangles": 1418,
-    "triangles_without_detail": 1410,
+    "triangles": 2376,
+    "triangles_without_detail": 2368,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -398,14 +399,15 @@
   },
   "material": "M_FI03_LandingNet",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 42,
+  "source_parts": 82,
   "coplanar_lifted": 0,
   "reference": "art/references/FI03/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
   "notes": [
-   "lying flat; the net bag has collapsed under the ring, so the item is a few cm high",
-   "the net is modelled cord by cord (thin tubes); Detail_Repair: the darker repaired cords"
+   "pushed handle-first into the bank mud at 34°; the net bag hangs about 20 cm below the ring (#93 review): the pack's 0.06 m height was for the net lying flat",
+   "net: 26 meshes round (spaced evenly along the cane) × 15 rows of 3–4 cm, cords 3.8 mm swelling into a knot at every crossing; a cord ring round the bottom row, seven cords drawn in to a tied knot; Detail_Repair: the mended patch",
+   "LOD2: the modelled net is replaced by a 12 × 5 card bag with the net in the albedo alpha (alpha clip 0.5); the material is double-sided"
   ]
  },
  "FI04": {

@@ -27,8 +27,8 @@ cmp WL05-vs-stone "$(m $E/WL05_v001.glb),$(m art/exports/modelling-basics-c/BM05
 cmp WL-set "$(m $E/WL01_v001.glb),$(m $E/WL02_v001.glb),$(m $E/WL03_v001.glb),$(m $E/WL04_v001.glb),$(m $E/WL05_v001.glb)" "-.45,.15,0;.05,-.32,20;.5,.3,-10;.55,-.3,5;-.45,-.38,-15"
 ;; esac
 case " $IDS " in *" FI"*)
-cmp FI-vs-waterworks "$(m $E/FI01_v001.glb),$(m $E/FI03_v001.glb),$(m $E/FI04_v001.glb),$(m art/exports/qingxi-waterworks-b/B08/B08.glb),$(m art/exports/qingxi-waterworks-b/B09/B09.glb)" "-1.1,.55,0;-.65,-.05,0;.75,-.1,0;1.55,-.75,0;.15,-.75,0"
+cmp FI-vs-waterworks "$(m $E/FI01_v001.glb),$(m $E/FI03_v001.glb),$(m $E/FI04_v001.glb),$(m art/exports/qingxi-waterworks-b/B08/B08.glb),$(m art/exports/qingxi-waterworks-b/B09/B09.glb)" "-1.1,.75,0;-.6,.05,0;.75,-.1,0;1.55,-.75,0;.15,-.75,0"
 cmp FI02-FI05-vs-float "$(m $E/FI02_v001.glb),$(m $E/FI05_v001.glb),$(m art/exports/qingxi-waterworks-b/B09/B09.glb)" "0,0,0;.55,0,0;1.1,0,0"
 cmp FI04-vs-basket "$(m $E/FI04_v001.glb),$(m art/exports/harvest-market-b/MK04_BackBasket/MK04_BackBasket_v001.fbx)" "0,0,0;1.0,0,0"
-cmp FI-set "$(m $E/FI01_v001.glb),$(m $E/FI02_v001.glb),$(m $E/FI03_v001.glb),$(m $E/FI04_v001.glb),$(m $E/FI05_v001.glb)" "-1.1,.55,0;-.95,-.45,15;-.85,-.1,8;.95,-.35,-20;.2,-.6,-5"
+cmp FI-set "$(m $E/FI01_v001.glb),$(m $E/FI02_v001.glb),$(m $E/FI03_v001.glb),$(m $E/FI04_v001.glb),$(m $E/FI05_v001.glb)" "-1.1,.75,0;-.3,-.6,15;-.45,.12,8;.95,-.35,-20;.35,-.75,-5"
 ;; esac
