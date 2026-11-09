@@ -1,0 +1,54 @@
+{
+ "B24": {
+  "objects": {
+   "MC02_B24_LOD0": {
+    "tris": 70724,
+    "errors": [],
+    "warnings": [
+     "MC02_B24_LOD0: ~99.74% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC02_B24_LOD0: 68 n-gons",
+     "hidden back-to-back faces: MC02_B24_LOD0 (13 pairs) - delete to save tris",
+     "asset lowest point z=-1.6289 (not resting on ground plane z=0)"
+    ],
+    "sec": 5.5
+   }
+  },
+  "reimport_dims": [
+   2.583,
+   23.997,
+   3.363
+  ],
+  "built_dims": [
+   2.583,
+   23.997,
+   3.363
+  ],
+  "reimport_error_m": 0.0
+ },
+ "B12": {
+  "objects": {
+   "MC02_B12_LOD0": {
+    "tris": 36652,
+    "errors": [],
+    "warnings": [
+     "MC02_B12_LOD0: ~99.92% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC02_B12_LOD0: 28 n-gons",
+     "hidden back-to-back faces: MC02_B12_LOD0 (15 pairs) - delete to save tris",
+     "asset lowest point z=-1.6289 (not resting on ground plane z=0)"
+    ],
+    "sec": 2.6
+   }
+  },
+  "reimport_dims": [
+   2.583,
+   11.997,
+   3.363
+  ],
+  "built_dims": [
+   2.583,
+   11.997,
+   3.363
+  ],
+  "reimport_error_m": 0.0
+ }
+}
