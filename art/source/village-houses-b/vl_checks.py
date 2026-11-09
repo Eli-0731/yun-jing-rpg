@@ -5,6 +5,7 @@ from mathutils import Vector
 from ti_core import S
 from vl_roof import roof_z, DEPTH, N_COURSE
 
+FLOOR_ = .54
 STARTER = {'size_m': (9.0478, 8.1891, 5.6129), 'wall_outer_m': {'front': -2.61, 'rear': 2.61, 'left': -3.61, 'right': 3.61}, 'floor_m': .54,
            'steps_m': (.18, .36, .54)}
 
@@ -56,7 +57,7 @@ def house_checks(aid, check, cfg):
               'right': ((12, -2.3, 1.6), (-1, 0, 0), 0)}
     got = {}
     for k, (p, d, ax) in probes.items():
-        h = cast(p, d); got[k] = round(h[0][ax], 4) if h else None
+        h = body(p, d); got[k] = round(h[0][ax], 4) if h else None
     ok = all(v is not None and abs(v - STARTER['wall_outer_m'][k]) < .02 for k, v in got.items())
     check('wall_outline_as_starterhouse', ok, {'measured_outer_faces_m': got, 'starterhouse_m': STARTER['wall_outer_m'],
           'walls_m': [round(got['right'] - got['left'] - .22, 3) if None not in got.values() else None, round(got['rear'] - got['front'] - .22, 3) if None not in got.values() else None]})
@@ -110,4 +111,95 @@ def house_checks(aid, check, cfg):
         sky = cast((2.5, 2.2, 9.), (0, 0, -1))
         check('roof_open_over_the_collapse', sky and sky[0].z < 4.0, {'first_hit_down_at_x2.5_y2.2': round(sky[0].z, 3) if sky else None, 'roof_there_was_m': round(roof_z(2.5, 2.2 / 3.45), 3)})
         out['tree_leaves'] = S.get('tree_leaves')
+    if cond in ('diligent', 'elderly'):
+        # every placed thing rests on what is under it: ray down from 3 mm above its foot onto the house without Detail_* (the porch,
+        # the stone sill) or the terrain at z = 0
+        rows = []
+        for label, x, y, zf in S.get('lived_rest', []):
+            h = body((x, y, zf + .003), (0, 0, -1))
+            under = round(h[0].z, 4) if h and h[0].z > zf - .05 else 0.
+            rows.append({'what': label, 'xy': [x, y], 'foot_z': zf, 'surface_z': under, 'gap_mm': round((zf - under) * 1000, 1)})
+        check('lived_in_things_rest_on_surfaces', rows and all(abs(r['gap_mm']) <= 3 for r in rows), rows)
+        if cond == 'diligent':
+            top = S.get('woodpile_top')
+            check('woodpile_collision_below_wall_probe', top is not None and top + .07 < 1.2, {'woodpile_top_m': top, 'collision_top_m': round(top + .07, 3) if top else None,
+                  'note': 'the wall probe of collision_closed_all_round runs at 1.2 m and passes over the woodpile box'})
+            out['tray_items'] = S.get('tray_items'); out['woodpile_top_m'] = top
+            # the stakes at the ends of the stack stay under the straw mat: from 0.5 mm over each stake's top (centre and four points
+            # 2.5 cm out) the first thing straight up is the mat's underside, 2-30 mm away; a stake through the mat finds nothing that close
+            rows = []
+            for xs, ys, zt in S.get('woodpile_stakes', []):
+                d = []
+                for dx, dy in ((0, 0), (.025, 0), (-.025, 0), (0, .025), (0, -.025)):
+                    h = body((xs + dx, ys + dy, zt + .0005), (0, 0, 1))
+                    d.append(round((h[0].z - zt) * 1000, 1) if h else None)
+                rows.append({'stake_xy': [xs, ys], 'top_z': zt, 'gap_up_to_mat_mm': d})
+            check('woodpile_stakes_under_the_mat', len(rows) == 4 and all(g is not None and 2 <= g <= 30 for r in rows for g in r['gap_up_to_mat_mm']), rows)
+            # every firewood piece touches another piece or the rails: section outlines (the pieces are straight prisms along x over
+            # both rails), sampled every 2 mm, nearest distance to any other outline or to the rail top z 0.07; overlap counts as 0
+            logs = S.get('woodpile_logs') or []
+            def segd(p, a, b):
+                ax, ay = b[0] - a[0], b[1] - a[1]; L = ax * ax + ay * ay
+                t = 0. if L == 0 else max(0., min(1., ((p[0] - a[0]) * ax + (p[1] - a[1]) * ay) / L))
+                return math.hypot(p[0] - a[0] - t * ax, p[1] - a[1] - t * ay)
+            def inside(p, poly):
+                c_ = False; n = len(poly)
+                for i in range(n):
+                    (y1_, z1_), (y2_, z2_) = poly[i], poly[(i + 1) % n]
+                    if (z1_ > p[1]) != (z2_ > p[1]) and p[0] < (y2_ - y1_) * (p[1] - z1_) / (z2_ - z1_) + y1_: c_ = not c_
+                return c_
+            box = [(min(q[0] for q in L), max(q[0] for q in L), min(q[1] for q in L), max(q[1] for q in L)) for L in logs]
+            gaps = []
+            for i, L in enumerate(logs):
+                near = [j for j, b in enumerate(box) if j != i and b[0] < box[i][1] + .02 and b[1] > box[i][0] - .02 and b[2] < box[i][3] + .02 and b[3] > box[i][2] - .02]
+                pts = []
+                for k in range(len(L)):
+                    a_, b_ = L[k], L[(k + 1) % len(L)]; n = max(1, int(math.hypot(b_[0] - a_[0], b_[1] - a_[1]) / .002))
+                    pts += [(a_[0] + (b_[0] - a_[0]) * t / n, a_[1] + (b_[1] - a_[1]) * t / n) for t in range(n)]
+                best = min(max(0., q[1] - .07) for q in pts)
+                for j in near:
+                    M = logs[j]
+                    for q in pts:
+                        if inside(q, M): best = 0.; break
+                        best = min(best, min(segd(q, M[k], M[(k + 1) % len(M)]) for k in range(len(M))))
+                    if best == 0.: break
+                gaps.append(round(best * 1000, 2))
+            check('woodpile_every_piece_touches', bool(gaps) and max(gaps) <= 1., {'pieces': len(gaps), 'max_gap_mm': max(gaps) if gaps else None,
+                  'over_0_5mm': sum(1 for g in gaps if g > .5), 'measured_on': 'emitted section outlines vs the other outlines and the rail top (0.07 m)'})
+        if cond == 'elderly':
+            # paper patches lie between the paper and the lattice without touching either: from 0.2 mm behind each patch's back face
+            # the first thing towards the wall is the paper, from 0.2 mm in front of its front face the first thing outwards (within
+            # 2 cm) is either nothing or the lattice, never closer than 0.3 mm
+            rows = []
+            for c, n, half in S.get('paper_patches', []):
+                c = Vector(c); n = Vector(n)
+                bk = cast(c - n * (half + .0002), -n); fr = cast(c + n * (half + .0002), n)
+                rows.append({'at': [round(q, 3) for q in c], 'gap_to_paper_mm': round((bk[1] + .0002) * 1000, 2) if bk else None,
+                             'gap_outwards_mm': round((fr[1] + .0002) * 1000, 2) if fr and fr[1] < .02 else None})
+            check('paper_patches_clear_of_paper_and_lattice', len(rows) >= 12 and all(r['gap_to_paper_mm'] is not None and .3 <= r['gap_to_paper_mm'] < 4
+                  and (r['gap_outwards_mm'] is None or r['gap_outwards_mm'] >= .3) for r in rows), {'patches': len(rows), 'rows': rows})
+            corn = S.get('corn') or {}
+            hooks = []
+            for x, y, z in corn.get('cords', []):
+                h = body((x, y, z - .02), (0, 0, 1)); hooks.append(round(h[1] * 1000, 1) if h else None)
+            check('corn_hangs_from_the_header_above_head_height', corn.get('lowest_z', 0) > FLOOR_ + 1.75 + .3 and all(g is not None and g < 21 for g in hooks),
+                  {'lowest_cob_z_m': corn.get('lowest_z'), 'porch_floor_m': FLOOR_, 'head_on_porch_m': FLOOR_ + 1.75,
+                   'cord_top_to_header_mm_from_2cm_below': hooks})
+            out['chair'] = S.get('chair'); out['bonsai'] = S.get('bonsai')
+    if S.get('detail_collision_obj'):
+        # each Detail_Small prop has a box in <ID>_Detail_Collision: from 1 m out, at 0.3 m and 1.2 m over the porch floor, a level ray
+        # aimed at the box centre along both of the box's own axes meets that collision mesh within 2 mm of the box face
+        dc = _bvh([S['detail_collision_obj']]); rows = []
+        for b in S.get('detail_boxes', []):
+            cx, cy = b['centre_xy']; yaw = b['yaw']; ca, sa = math.cos(yaw), math.sin(yaw)
+            for (ax, ay), half in (((ca, sa), b['half_m'][0]), ((-sa, ca), b['half_m'][1])):
+                for sgn in (1, -1):
+                    for zh in (.3, 1.2):
+                        z = FLOOR_ + zh
+                        if z > b['z'][1]: continue
+                        p = (cx + sgn * ax * (half + 1.), cy + sgn * ay * (half + 1.), z)
+                        h = dc(p, (-sgn * ax, -sgn * ay, 0))
+                        rows.append({'prop': b['prop'], 'z_m': round(z, 3), 'hit_after_m': round(h[1], 4) if h else None, 'expected_m': 1.0})
+        check('detail_props_have_collision', rows and all(r['hit_after_m'] is not None and abs(r['hit_after_m'] - 1.) < .002 for r in rows),
+              {'boxes': S.get('detail_boxes'), 'rays': rows})
     return out

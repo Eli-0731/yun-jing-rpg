@@ -10,12 +10,13 @@ using UnityEngine.Rendering.Universal;
 
 namespace YunJing.Editor
 {
-    // Work pack 2026-11-07, part 2 (VL01-VL03 empty-house variants of the Dondon StarterHouse), exported into art/exports/village-houses-b.
+    // Work pack 2026-11-07, part 2 (VL01-VL03 empty-house variants of the Dondon StarterHouse) and 2026-11-08 (VL04-VL05 lived-in variants), exported into art/exports/village-houses-b.
     // Imports each model into a gitignored folder, checks it against its model_info.json (size, origin, LOD levels and triangles, objects,
     // Detail_* objects, collider, four material slots: Main / Stone / Wood atlases and the roof-tile material, sockets), then walks a 1.75 m
     // CharacterController: up the three steps onto the porch and against the (closed) door; pushed at the back, left and right walls from
     // outside it stops outside; VL03: from outside the fallen right wall, up the rubble, stopped at the old wall line (nobody gets into the
-    // room or stuck in the heap). URP captures beside a 1.75 m capsule.
+    // room or stuck in the heap). VL04/VL05: walkers on the porch pushed at the drying rack, the bamboo chair and the bonsai stop at
+    // their boxes in <ID>_Detail_Collision, and walk through once that collider is switched off with Detail_Small. URP captures beside a 1.75 m capsule.
     // Writes artifacts/village-houses-unity/. Run with -executeMethod YunJing.Editor.VillageHousesModelCheck.Run
     // This is an editor batch check, not play in the game: nothing is placed in the main scene.
     public static class VillageHousesModelCheck
@@ -24,7 +25,7 @@ namespace YunJing.Editor
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
         static string Exports => Path.Combine(Repo, "art", "exports", "village-houses-b");
         static string Out => Path.Combine(Repo, "artifacts", "village-houses-unity");
-        static readonly string[] Wanted = { "VL01_LongEmptyHouse", "VL02_MovedInHouse", "VL03_HalfCollapsedHouse" };
+        static readonly string[] Wanted = { "VL01_LongEmptyHouse", "VL02_MovedInHouse", "VL03_HalfCollapsedHouse", "VL04_DiligentFamilyHouse", "VL05_ElderlyCoupleHouse" };
         static readonly string[] Slots = { "Main", "Stone", "Wood", "RoofTiles" };
         static readonly List<string> Report = new List<string>();
         static int failed;
@@ -32,7 +33,8 @@ namespace YunJing.Editor
         [Serializable] class Budget { public int triangles, objects, objects_without_detail, materials; }
         [Serializable] class BudgetPerLod { public Budget LOD0, LOD1, LOD2; }
         [Serializable] class LodTotals { public int LOD0, LOD1, LOD2; }
-        [Serializable] class ModelInfo { public string version, minTier; public float[] dimensions_m, bounds_min_m, bounds_max_m; public float ground_z_m; public bool collision; public LodTotals lod_totals; public BudgetPerLod budget_per_lod; public string[] detailObjects; }
+        [Serializable] class DetailBox { public string prop; public float yaw; public float[] centre_xy, half_m, z; }
+        [Serializable] class ModelInfo { public string version, minTier; public float[] dimensions_m, bounds_min_m, bounds_max_m; public float ground_z_m; public bool collision; public LodTotals lod_totals; public BudgetPerLod budget_per_lod; public string[] detailObjects; public DetailBox[] detail_collision_boxes; }
 
         static readonly Dictionary<string, ModelInfo> infos = new Dictionary<string, ModelInfo>();
         static ModelInfo Info(string id)
@@ -79,6 +81,8 @@ namespace YunJing.Editor
                 var foot = new Vector3(at.x, 0, at.z);
                 UpTheSteps(id, foot); Walls(id, foot);
                 if (id.StartsWith("VL03_")) OverTheRubble(id, foot);
+                if (id.StartsWith("VL04_")) AtTheWoodpile(id, foot);
+                if (Info(id).detail_collision_boxes != null && Info(id).detail_collision_boxes.Length > 0) IntoTheProps(id, go, foot);
                 var b = LodBounds(go);
                 var person = Person(foot + new Vector3(-(b.extents.x + .6f), 0, -2f));
                 var both = b; both.Encapsulate(person.GetComponent<Renderer>().bounds);
@@ -91,6 +95,24 @@ namespace YunJing.Editor
                 var dc = foot + new Vector3(0, 1.4f, -3.2f);
                 Shot(id + "_porch", dc, dc + new Vector3(.55f, .25f, -1).normalized * 6.5f, 40);
                 UnityEngine.Object.DestroyImmediate(on);
+                if (id.StartsWith("VL04_"))
+                {
+                    var wp = foot + new Vector3(4.1f, .5f, -.1f);
+                    Shot(id + "_woodpile", wp, wp + new Vector3(1, .35f, -.55f).normalized * 4.2f, 40);
+                    var sill = foot + new Vector3(2.2f, 1.1f, -2.86f);
+                    Shot(id + "_sill_tray", sill, sill + new Vector3(.25f, .55f, -1).normalized * 1.9f, 40);
+                }
+                if (id.StartsWith("VL05_"))      // Unity (x, up, z) = Blender (x, z, y)
+                {
+                    var corn = foot + new Vector3(0, 2.95f, -3.46f);
+                    Shot(id + "_corn", corn, corn + new Vector3(.3f, -.45f, -1).normalized * 2.6f, 40);
+                    var chair = foot + new Vector3(1.36f, .85f, -3.1f);
+                    Shot(id + "_chair", chair, chair + new Vector3(-.35f, .3f, -1).normalized * 2.1f, 40);
+                    var bon = foot + new Vector3(-1.36f, .85f, -3.0f);
+                    Shot(id + "_bonsai", bon, bon + new Vector3(.4f, .3f, -1).normalized * 1.9f, 40);
+                    var win = foot + new Vector3(2.35f, 2.0f, -2.6f);
+                    Shot(id + "_window_patches", win, win + new Vector3(0, -.05f, -1).normalized * 2.2f, 40);
+                }
                 var det = go.GetComponentsInChildren<Renderer>(true).Where(r => r.name.Contains("_Detail_")).ToArray();
                 if (det.Length > 0)
                 {
@@ -98,14 +120,17 @@ namespace YunJing.Editor
                     Shot(id + "_porch_no_detail", dc, dc + new Vector3(.55f, .25f, -1).normalized * 6.5f, 40);
                     foreach (var r in det) r.enabled = true;
                 }
-                // LOD1 / LOD2 as they look from the distances where the LODGroup switches to them
+                // LOD1 / LOD2 seen from the three-quarter camera (closer than where the group switches to them, so their loss shows).
+                // The group is switched off for these: left on it keeps picking LOD0 at this distance and the hand-picked level renders nothing.
                 var group = go.GetComponent<LODGroup>(); var lods = group.GetLODs();
+                group.enabled = false;
                 for (int lv = 1; lv < 3; lv++)
                 {
                     for (int k = 0; k < 3; k++) foreach (var r in lods[k].renderers) r.enabled = k == lv;
                     Shot($"{id}_LOD{lv}", c, c + new Vector3(.75f, .45f, -.85f).normalized * d, 35);
                 }
                 for (int k = 0; k < 3; k++) foreach (var r in lods[k].renderers) r.enabled = true;
+                group.enabled = true;
             }
             File.WriteAllText(Path.Combine(Out, "unity-verify-report.txt"), string.Join("\n", Report) + $"\n\nUnity {Application.unityVersion}; failed checks: {failed}; editor batch check only, not placed in the main scene, not played\n");
             Debug.Log("VILLAGE_HOUSES_" + (failed == 0 ? "PASS" : "FAIL") + "\n" + string.Join("\n", Report));
@@ -170,7 +195,7 @@ namespace YunJing.Editor
             var mats = Slots.ToDictionary(s => s, s => Mat(id, s));
             foreach (var r in go.GetComponentsInChildren<Renderer>(true))
             {
-                if (r.name == id + "_Collision") { r.enabled = false; continue; }
+                if (r.name == id + "_Collision" || r.name == id + "_Detail_Collision") { r.enabled = false; continue; }
                 r.sharedMaterials = r.sharedMaterials.Select(m =>
                 {
                     var name = m != null ? m.name : "";
@@ -182,8 +207,8 @@ namespace YunJing.Editor
             var cut = new[] { .1f, .035f, .006f };
             var group = go.GetComponent<LODGroup>(); if (group == null) group = go.AddComponent<LODGroup>();
             group.SetLODs(Enumerable.Range(0, 3).Select(i => new LOD(cut[i], go.GetComponentsInChildren<Renderer>(true).Where(r => r.name.EndsWith("_LOD" + i)).ToArray())).ToArray());
-            var col = go.GetComponentsInChildren<MeshFilter>(true).FirstOrDefault(m => m.name == id + "_Collision");
-            if (col != null) col.gameObject.AddComponent<MeshCollider>().sharedMesh = col.sharedMesh;
+            foreach (var col in go.GetComponentsInChildren<MeshFilter>(true).Where(m => m.name == id + "_Collision" || m.name == id + "_Detail_Collision"))
+                col.gameObject.AddComponent<MeshCollider>().sharedMesh = col.sharedMesh;
             return go;
         }
 
@@ -236,6 +261,13 @@ namespace YunJing.Editor
             var col = go.GetComponentsInChildren<MeshCollider>(true).FirstOrDefault(c => c.name == id + "_Collision");
             Check(info.collision && col != null && col.sharedMesh.triangles.Length > 0, $"{id}: {id}_Collision imported as MeshCollider ({(col ? col.sharedMesh.triangles.Length / 3 : 0)} triangles), renderer hidden");
             if (col != null) { var box = col.bounds; var all = b; all.Expand(.1f); Check(all.Contains(box.min) && all.Contains(box.max), $"{id}: the collider stays on the model"); }
+            if (info.detail_collision_boxes != null && info.detail_collision_boxes.Length > 0)
+            {
+                var dcol = go.GetComponentsInChildren<MeshCollider>(true).FirstOrDefault(c => c.name == id + "_Detail_Collision");
+                var dr = go.GetComponentsInChildren<Renderer>(true).FirstOrDefault(r => r.name == id + "_Detail_Collision");
+                Check(dcol != null && dcol.sharedMesh.triangles.Length / 3 == 12 * info.detail_collision_boxes.Length && (dr == null || !dr.enabled),
+                      $"{id}: {id}_Detail_Collision imported as its own MeshCollider ({(dcol ? dcol.sharedMesh.triangles.Length / 3 : 0)} triangles = {info.detail_collision_boxes.Length} boxes: {string.Join(", ", info.detail_collision_boxes.Select(x => x.prop))}), renderer hidden");
+            }
             Check(!go.GetComponentsInChildren<Renderer>(true).Any(r => r.enabled && r.sharedMaterials.Any(m => m == null || m.shader.name.Contains("Error"))), $"{id}: no missing or error shaders");
             foreach (var t in Directory.GetFiles(Path.Combine(Repo, "apps", "game", Root, id, "Textures"), "*_BaseColor.png"))
             {
@@ -326,6 +358,59 @@ namespace YunJing.Editor
                 Check(mid.x > 3.61f + .2f && back.x > 5.5f && back.y < .05f,
                       $"{id}: on z {z:F1} a walker goes up the rubble, stops outside the fallen wall's line (x {mid.x:F2} m, feet up to {feet.y:F3} m) and walks back off it (x {back.x:F2} m, feet {back.y:F3} m)");
             }
+            UnityEngine.Object.DestroyImmediate(cc.gameObject);
+        }
+
+        // VL04: the woodpile outside the right gable (x 3.86-4.34, z -1.52..1.32, collision top 0.78 m, higher than the 0.3 m step offset):
+        // walkers pushed at it from outside on three lines stop outside it and stay on the ground (nobody climbs the logs)
+        static void AtTheWoodpile(string id, Vector3 o)
+        {
+            Physics.SyncTransforms(); var cc = Walker();
+            foreach (float z in new[] { -1.2f, 0f, 1.0f })
+            {
+                cc.transform.position = o + new Vector3(6.0f, .02f, z); Physics.SyncTransforms();
+                var feet = Stroll(cc, o, Vector3.left, 260); var end = cc.transform.position - o;
+                Check(end.x > 4.34f + .2f && feet.y < .05f,
+                      $"{id}: on z {z:F1} a walker pushed at the woodpile from outside stops outside it (x {end.x:F2} m) and stays on the ground (feet {feet.x:F3}-{feet.y:F3} m)");
+            }
+            UnityEngine.Object.DestroyImmediate(cc.gameObject);
+        }
+
+        // VL04/VL05: on the porch (feet 0.54 m), two lines 0.1 m apart pushed level at each Detail_Small prop from its open side (the rack
+        // and the bonsai from the door side, the chair from the door side too: the bench is behind it). With <ID>_Detail_Collision on the
+        // walker stops with its 0.25 m capsule touching the prop's box (gap to the box 0.2-0.32 m from the capsule axis) and stays on the
+        // porch floor; with that collider switched off (as with Detail_Small at low quality) the same line walks on past the prop's centre.
+        static void IntoTheProps(string id, GameObject go, Vector3 o)
+        {
+            var dcol = go.GetComponentsInChildren<MeshCollider>(true).FirstOrDefault(c => c.name == id + "_Detail_Collision");
+            if (dcol == null) { Check(false, $"{id}: no {id}_Detail_Collision to walk into"); return; }
+            Physics.SyncTransforms(); var cc = Walker();
+            foreach (var bx in Info(id).detail_collision_boxes)
+            {
+                float ca = Mathf.Cos(bx.yaw), sa = Mathf.Sin(bx.yaw), cx = bx.centre_xy[0], cy = bx.centre_xy[1];
+                float gap(Vector3 q)    // distance in plan from q (relative to o; Unity x, z = Blender x, y) to the turned box
+                {
+                    float dx = q.x - cx, dy = q.z - cy, u = dx * ca + dy * sa, v = -dx * sa + dy * ca;
+                    float ou = Mathf.Max(0, Mathf.Abs(u) - bx.half_m[0]), ov = Mathf.Max(0, Mathf.Abs(v) - bx.half_m[1]);
+                    return Mathf.Sqrt(ou * ou + ov * ov);
+                }
+                float reachX = Mathf.Abs(bx.half_m[0] * ca) + Mathf.Abs(bx.half_m[1] * sa);   // the box's half width along x
+                float side = cx < 0 ? 1 : -1;                                                // the door side: towards x = 0
+                var dir = new Vector3(-side, 0, 0);
+                foreach (float dz in new[] { 0f, .1f })
+                {
+                    var start = new Vector3(cx + side * (reachX + 1.0f), .56f, cy + dz);
+                    dcol.enabled = true; cc.transform.position = o + start; Physics.SyncTransforms();
+                    var feet = Stroll(cc, o, dir, 150); var end = cc.transform.position - o; float g = gap(end);
+                    Check(g > .2f && g < .32f && Mathf.Abs(feet.y - .54f) < .04f && Mathf.Abs(feet.x - .54f) < .04f,
+                          $"{id}: on the porch at z {start.z:F2} a walker pushed at the {bx.prop} stops at its collision box (capsule axis {g:F3} m from the box, x {end.x:F2} m) and stays on the floor (feet {feet.x:F3}-{feet.y:F3} m)");
+                    dcol.enabled = false; cc.transform.position = o + start; Physics.SyncTransforms();
+                    Stroll(cc, o, dir, 150); var through = cc.transform.position - o;
+                    Check(side * (through.x - cx) < 0,
+                          $"{id}: with {id}_Detail_Collision switched off the same walker goes on past the {bx.prop} (x {through.x:F2} m, prop centre x {cx:F2} m)");
+                }
+            }
+            dcol.enabled = true;
             UnityEngine.Object.DestroyImmediate(cc.gameObject);
         }
 

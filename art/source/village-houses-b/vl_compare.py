@@ -1,7 +1,8 @@
 """VL acceptance sheet: StarterHouse v004 (untouched original) and VL01-03 LOD0 side by side in one render, same light and camera.
+With --five (work pack 2026-11-08) VL04 and VL05 join them: six panels.
 Reads only; the source .blend files are linked, not changed.
 
-blender --background --factory-startup --python vl_compare.py -- <repo root> <out.png>
+blender --background --factory-startup --python vl_compare.py -- <repo root> <out.png> [--five]
 """
 import sys, math
 from pathlib import Path
@@ -18,6 +19,10 @@ HOUSES = [('StarterHouse', ROOT / 'art/incoming/dondon/StarterHouse/v004/Starter
           ('VL01_LongEmptyHouse', SRC / 'VL01_LongEmptyHouse_v001.blend', 'LOD0'),
           ('VL02_MovedInHouse', SRC / 'VL02_MovedInHouse_v001.blend', 'LOD0'),
           ('VL03_HalfCollapsedHouse', SRC / 'VL03_HalfCollapsedHouse_v001.blend', 'LOD0')]
+if '--five' in args:
+    HOUSES += [('VL04_DiligentFamilyHouse', SRC / 'VL04_DiligentFamilyHouse_v001.blend', 'LOD0'),
+               ('VL05_ElderlyCoupleHouse', SRC / 'VL05_ElderlyCoupleHouse_v001.blend', 'LOD0')]
+MID = (len(HOUSES) - 1) / 2
 GAP = 12.6
 
 
@@ -50,7 +55,7 @@ bpy.ops.wm.read_factory_settings(use_empty=True)
 groups = []
 for i, (aid, path, lod) in enumerate(HOUSES):
     objs, roots = bring(path, lod)
-    for o in roots: o.location.x += (i - 1.5) * GAP
+    for o in roots: o.location.x += (i - MID) * GAP
     bpy.context.view_layer.update()
     groups.append((aid, objs))
     print('COMPARE_LOADED', aid, len(objs), flush=True)
@@ -65,7 +70,7 @@ sc = bpy.context.scene
 for i, (aid, g) in enumerate(groups):
     pl.show_only(g); cam, _, _ = pl.studio(g, 64)
     sc.render.resolution_x, sc.render.resolution_y = 1100, 1000
-    target = Vector(((i - 1.5) * GAP, -.6, 2.3))
+    target = Vector(((i - MID) * GAP, -.6, 2.3))
     cam.data.type = 'PERSP'; cam.data.lens = 50; cam.data.sensor_fit = 'AUTO'
     cam.location = target + D * DIST; cam.rotation_euler = (target - cam.location).to_track_quat('-Z', 'Y').to_euler()
     path = OUT.with_name(f'{OUT.stem}_{i}_{aid}.png'); sc.render.filepath = str(path); bpy.ops.render.render(write_still=True)
