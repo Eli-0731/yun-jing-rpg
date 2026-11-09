@@ -1,0 +1,79 @@
+{
+ "asset": "A04_SiltBar",
+ "version": "v001",
+ "source": "art/exports/creek-repair-b-props/A04_SiltBar/A04_SiltBar.fbx",
+ "source_root": null,
+ "source_unchanged": true,
+ "note": "原檔已有 LOD0/1/2；LOD0 不動，重做 LOD1／LOD2 並拆出 Detail_Small；A04_SiltBar_Water 一併留在本體",
+ "lod0_rule": "LOD0 = source geometry unchanged (modifiers applied, world transforms baked, recentred only)",
+ "recentre_offset_m": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "dimensions_m": [
+  2.4708,
+  2.9737,
+  0.6951
+ ],
+ "source_triangles": 4066,
+ "lod0_zero_area_triangles": 0,
+ "budget_per_lod": {
+  "LOD0": {
+   "triangles": 4066,
+   "triangles_without_detail": 4066,
+   "objects": 1,
+   "objects_without_detail": 1,
+   "materials": 2
+  },
+  "LOD1": {
+   "triangles": 2052,
+   "triangles_without_detail": 2052,
+   "objects": 1,
+   "objects_without_detail": 1,
+   "materials": 2
+  },
+  "LOD2": {
+   "triangles": 739,
+   "triangles_without_detail": 739,
+   "objects": 1,
+   "objects_without_detail": 1,
+   "materials": 2
+  }
+ },
+ "detail_parts": 0,
+ "body_parts": 553,
+ "detail_rule": "part bounding box under min(0.15 m, 0.12 x asset size) (plus listed names / collections)",
+ "minTier": "standard",
+ "detailObjects": [],
+ "materials": [
+  "LowWater",
+  "M_A04_SiltBar"
+ ],
+ "texture_resolution_px": {
+  "T_WW_Water_Normal": [
+   1024,
+   1024
+  ],
+  "T_A04_SiltBar_BaseColor": [
+   1024,
+   1024
+  ],
+  "T_A04_SiltBar_Normal": [
+   1024,
+   1024
+  ]
+ },
+ "lod_rule": "LOD1 about 50 %, LOD2 about 15 % of LOD0: limited dissolve of flat faces (material/UV/sharp kept), then collapse",
+ "lod_method": {
+  "lod_per_island": true,
+  "island_floor": 4,
+  "protect_borders": false,
+  "detail_closed_only": true,
+  "split_loose": true,
+  "only_lod0": true
+ },
+ "fbx": "A04_SiltBar_LOD_v001.fbx",
+ "units": "meters",
+ "front": "-Y (Blender)"
+}

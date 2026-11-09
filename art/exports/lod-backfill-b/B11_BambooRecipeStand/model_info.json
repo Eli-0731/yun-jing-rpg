@@ -1,0 +1,76 @@
+{
+ "asset": "B11_BambooRecipeStand",
+ "version": "v001",
+ "source": "art/exports/qingxi-alchemy-b/B11_BambooRecipeStand/v001/B11_BambooRecipeStand.fbx",
+ "source_root": null,
+ "source_unchanged": true,
+ "note": "qingxi-alchemy-b v001 原檔不動；LOD0 照原 LOD0，重做 LOD1／LOD2（原 LOD2 約 22%，改為約 15%），拆出 Detail_Small",
+ "lod0_rule": "LOD0 = source geometry unchanged (modifiers applied, world transforms baked, recentred only)",
+ "recentre_offset_m": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "dimensions_m": [
+  0.572,
+  0.36,
+  0.4547
+ ],
+ "source_triangles": 4064,
+ "lod0_zero_area_triangles": 0,
+ "budget_per_lod": {
+  "LOD0": {
+   "triangles": 4064,
+   "triangles_without_detail": 3128,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1
+  },
+  "LOD1": {
+   "triangles": 2032,
+   "triangles_without_detail": 1564,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1
+  },
+  "LOD2": {
+   "triangles": 608,
+   "triangles_without_detail": 468,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1
+  }
+ },
+ "detail_parts": 6,
+ "body_parts": 33,
+ "detail_rule": "part bounding box under min(0.04 m, 0.12 x asset size) (plus listed names / collections)",
+ "minTier": "standard",
+ "detailObjects": [
+  "B11_BambooRecipeStand_Detail_Small"
+ ],
+ "materials": [
+  "M_B11_BambooRecipeStand"
+ ],
+ "texture_resolution_px": {
+  "T_B11_BambooRecipeStand_BaseColor": [
+   1024,
+   1024
+  ],
+  "T_B11_BambooRecipeStand_Normal": [
+   1024,
+   1024
+  ],
+  "T_B11_BambooRecipeStand_BaseColor.001": [
+   1024,
+   1024
+  ]
+ },
+ "lod_rule": "LOD1 about 50 %, LOD2 about 15 % of LOD0: limited dissolve of flat faces (material/UV/sharp kept), then collapse",
+ "lod_method": {
+  "split_loose": true,
+  "only_lod0": true
+ },
+ "fbx": "B11_BambooRecipeStand_LOD_v001.fbx",
+ "units": "meters",
+ "front": "-Y (Blender)"
+}
