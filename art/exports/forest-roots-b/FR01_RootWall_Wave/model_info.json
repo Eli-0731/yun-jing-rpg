@@ -1,0 +1,204 @@
+{
+  "asset": "FR01_RootWall_Wave",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "FR01_RootWall_Wave_Detail_Small"
+  ],
+  "name_zh": "巨根矮牆段（波浪根）",
+  "slot": "D1_ForestEdge_to_D2_ElderTree",
+  "note": "巨根矮牆段（三視圖 FR01 candidate-01）：一條巨根兩起兩伏如波浪，小根沿它纏繞，後面另有一條較低的根。6 m 弦長、深 2 m、高不超過 2.2 m，沿半徑 17.3 m 的平面弧線擺，兩端各轉 10°，三段接成 60° 的彎牆；三種形的接頭斷面相同（所有根在接頭前鑽進同一道 0.95 m 高的土坡），可以任意混接。樹皮是縱向深裂、慢慢繞著根轉的老根皮（照 elder-world-tree-hero-v1 神木根的樣子），平躺處斷面壓扁成板根，上面磨得較平滑、較淺；背光面（+Y）和頂上長苔，接地處有泥，根腳有細根爬過土面、末端露出淺色根尖；土裡夾圓石，縫裡長蕨。和 A06 樹根樁（0.45 m 矮樁）、A03 倒木（一根橫躺的圓木）不同：這是比人高、從地底拱出來的活根。接口：Socket_Join_W／Socket_Join_E（接頭線中心，箭頭朝牆外延伸方向）。下一段的 Socket_Join_W 對上這段的 Socket_Join_E、方向相反。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 48972,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 24484,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 7344,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "FR01_RootWall_Wave_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "FR01_RootWall_Wave_Metallic.png": [
+      2048,
+      2048
+    ],
+    "FR01_RootWall_Wave_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "FR01_RootWall_Wave_Normal.png": [
+      2048,
+      2048
+    ],
+    "FR01_RootWall_Wave_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the 6 m chord at ground level; front (-Y) is the concave side of the arc",
+  "dimensions_m": [
+    5.9952,
+    1.9503,
+    2.0722
+  ],
+  "bounds_min_m": [
+    -2.9976,
+    -0.9618,
+    0.0
+  ],
+  "bounds_max_m": [
+    2.9976,
+    0.9885,
+    2.0722
+  ],
+  "size_limit_m": [
+    6.0,
+    2.0,
+    2.2
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        5.9952,
+        1.9364,
+        2.0722
+      ],
+      "min": [
+        -2.9976,
+        -0.9618,
+        0.0
+      ],
+      "max": [
+        2.9976,
+        0.9747,
+        2.0722
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        5.4943,
+        1.7835,
+        1.8566
+      ],
+      "min": [
+        -2.7958,
+        -0.795,
+        0.0183
+      ],
+      "max": [
+        2.6985,
+        0.9885,
+        1.8749
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 35094,
+      "LOD1": 17546,
+      "LOD2": 5264
+    },
+    "Detail_Small": {
+      "LOD0": 13878,
+      "LOD1": 6938,
+      "LOD2": 2080
+    }
+  },
+  "lod_totals": {
+    "LOD0": 48972,
+    "LOD1": 24484,
+    "LOD2": 7344
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FR01_RootWall_Wave_Main"
+  ],
+  "textures": [
+    "FR01_RootWall_Wave_BaseColor.png",
+    "FR01_RootWall_Wave_Metallic.png",
+    "FR01_RootWall_Wave_MetallicSmoothness.png",
+    "FR01_RootWall_Wave_Normal.png",
+    "FR01_RootWall_Wave_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "FR01_RootWall_Wave_BaseColor.png",
+    "Normal": "FR01_RootWall_Wave_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "FR01_RootWall_Wave_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FR01_RootWall_Wave_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Join_W": [
+      -2.85,
+      -0.1247,
+      0.0
+    ],
+    "Socket_Join_E": [
+      2.85,
+      -0.1247,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Join_E.001": [
+      2.85,
+      -0.1247,
+      0.0
+    ],
+    "Socket_Join_W.001": [
+      -2.85,
+      -0.1247,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "FR01_RootWall_Wave.001",
+    "FR01_RootWall_Wave_Collision.001",
+    "FR01_RootWall_Wave_Detail_Small_LOD0.001",
+    "FR01_RootWall_Wave_Detail_Small_LOD1.001",
+    "FR01_RootWall_Wave_Detail_Small_LOD2.001",
+    "FR01_RootWall_Wave_LOD0.001",
+    "FR01_RootWall_Wave_LOD1.001",
+    "FR01_RootWall_Wave_LOD2.001",
+    "Socket_Join_E.001",
+    "Socket_Join_W.001"
+  ],
+  "glb": "FR01_RootWall_Wave_v001.glb",
+  "interface": {
+    "chord_m": 5.7,
+    "arc_radius_m": 16.412,
+    "turn_per_section_deg": 20.0,
+    "joint_bank_height_m": 0.18,
+    "highest_top_m": 2.063,
+    "join": "next Socket_Join_W on this Socket_Join_E, rotated 180 deg about Z",
+    "sockets": [
+      "Socket_Join_E",
+      "Socket_Join_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/forest-roots-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/FR01/ (AI three-view FR01/candidate-01; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/forest-roots-unity/ (local Unity batch check, not committed)"
+}

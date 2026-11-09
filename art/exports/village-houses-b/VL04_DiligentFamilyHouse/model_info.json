@@ -1,0 +1,422 @@
+{
+  "asset": "VL04_DiligentFamilyHouse",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "VL04_DiligentFamilyHouse_Detail_Small"
+  ],
+  "name_zh": "有人住的民居（勤快人家）",
+  "slot": "A1_QingxiVillage_LivedHouse",
+  "note": "有人住的民居・勤快人家（三視圖 VL04 candidate-01）：外框照 StarterHouse v004。前廊左邊一副竹製交叉晾衣架，竿上晾著三件衣物；右山牆外一整齊柴堆（劈好的柴頭朝外、兩頭木樁夾住、上面蓋一片草簾）；右窗石窗台太窄，主人加釘一塊窗台板（兩根斜撐撐到牆上），板上一只長方竹匾曬辣椒、蘿蔔乾和蒜頭；門口一雙草鞋。灰泥沒有剝落、只有補過的新灰，地面掃得乾淨、木頭褪色但有人照顧；後坡一小塊換過新瓦。晾衣架、衣物、竹匾和裡面的乾菜、草鞋都在 Detail_Small，低畫質可關掉；柴堆、草簾、窗台板和斜撐算房子本體（柴堆有碰撞，關掉會穿幫）。碰撞：外牆、前廊、台階同 StarterHouse，柴堆另有一塊碰撞（從地面到草簾頂）。晾衣架連衣物另有一塊碰撞（前廊地面到 2.3 m），放在 _Detail_Collision，和 Detail_Small 一起開關，低畫質關掉小物時要一起關。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 89876,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 44937,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 12771,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "VL04_DiligentFamilyHouse_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL04_DiligentFamilyHouse_Wood_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the wall footprint at ground level, front -Y (same origin as StarterHouse v004, so a variant drops into its slot)",
+  "dimensions_m": [
+    8.9828,
+    8.1888,
+    5.5518
+  ],
+  "bounds_min_m": [
+    -4.4913,
+    -4.7212,
+    0.0
+  ],
+  "bounds_max_m": [
+    4.4915,
+    3.4676,
+    5.5518
+  ],
+  "size_limit_m": [
+    9.05,
+    8.19,
+    5.62
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        8.9828,
+        8.1888,
+        5.5518
+      ],
+      "min": [
+        -4.4913,
+        -4.7212,
+        0.0
+      ],
+      "max": [
+        4.4915,
+        3.4676,
+        5.5518
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        7.811,
+        6.5975,
+        2.4225
+      ],
+      "min": [
+        -3.8983,
+        -3.6188,
+        0.0
+      ],
+      "max": [
+        3.9126,
+        2.9787,
+        2.4225
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 11078,
+      "LOD1": 5538,
+      "LOD2": 1660
+    },
+    "Stone": {
+      "LOD0": 13744,
+      "LOD1": 6872,
+      "LOD2": 2060
+    },
+    "Wood": {
+      "LOD0": 14476,
+      "LOD1": 7238,
+      "LOD2": 2170
+    },
+    "Detail_Small": {
+      "LOD0": 21778,
+      "LOD1": 10889,
+      "LOD2": 3265
+    },
+    "Roof": {
+      "LOD0": 28800,
+      "LOD1": 14400,
+      "LOD2": 3616
+    }
+  },
+  "lod_totals": {
+    "LOD0": 89876,
+    "LOD1": 44937,
+    "LOD2": 12771
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_VL04_DiligentFamilyHouse_Main",
+    "M_VL04_DiligentFamilyHouse_RoofTiles",
+    "M_VL04_DiligentFamilyHouse_Stone",
+    "M_VL04_DiligentFamilyHouse_Wood"
+  ],
+  "textures": [
+    "VL04_DiligentFamilyHouse_BaseColor.png",
+    "VL04_DiligentFamilyHouse_Metallic.png",
+    "VL04_DiligentFamilyHouse_MetallicSmoothness.png",
+    "VL04_DiligentFamilyHouse_Normal.png",
+    "VL04_DiligentFamilyHouse_Roughness.png",
+    "VL04_DiligentFamilyHouse_Stone_BaseColor.png",
+    "VL04_DiligentFamilyHouse_Stone_Metallic.png",
+    "VL04_DiligentFamilyHouse_Stone_MetallicSmoothness.png",
+    "VL04_DiligentFamilyHouse_Stone_Normal.png",
+    "VL04_DiligentFamilyHouse_Stone_Roughness.png",
+    "VL04_DiligentFamilyHouse_Wood_BaseColor.png",
+    "VL04_DiligentFamilyHouse_Wood_Metallic.png",
+    "VL04_DiligentFamilyHouse_Wood_MetallicSmoothness.png",
+    "VL04_DiligentFamilyHouse_Wood_Normal.png",
+    "VL04_DiligentFamilyHouse_Wood_Roughness.png",
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_VL04_DiligentFamilyHouse_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL04_DiligentFamilyHouse_BaseColor.png",
+        "Normal": "VL04_DiligentFamilyHouse_Normal.png",
+        "MetallicSmoothness": "VL04_DiligentFamilyHouse_MetallicSmoothness.png"
+      },
+      "M_VL04_DiligentFamilyHouse_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_VL04_DiligentFamilyHouse_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL04_DiligentFamilyHouse_Stone_BaseColor.png",
+        "Normal": "VL04_DiligentFamilyHouse_Stone_Normal.png",
+        "MetallicSmoothness": "VL04_DiligentFamilyHouse_Stone_MetallicSmoothness.png"
+      },
+      "M_VL04_DiligentFamilyHouse_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL04_DiligentFamilyHouse_Wood_BaseColor.png",
+        "Normal": "VL04_DiligentFamilyHouse_Wood_Normal.png",
+        "MetallicSmoothness": "VL04_DiligentFamilyHouse_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "VL04_DiligentFamilyHouse_Collision: MeshCollider (convex off), renderer hidden",
+    "detail_collision": "VL04_DiligentFamilyHouse_Detail_Collision: MeshCollider (convex off), renderer hidden; switch it off together with VL04_DiligentFamilyHouse_Detail_Small_LOD0/1/2 (low quality), it only covers props inside Detail_Small"
+  },
+  "detail_collision_boxes": [
+    {
+      "prop": "drying_rack",
+      "yaw": 0.0,
+      "corners_xy": [
+        [
+          -3.6301,
+          -3.6288
+        ],
+        [
+          -0.94,
+          -3.6288
+        ],
+        [
+          -0.94,
+          -3.131
+        ],
+        [
+          -3.6301,
+          -3.131
+        ]
+      ],
+      "z": [
+        0.54,
+        2.3
+      ],
+      "centre_xy": [
+        -2.285,
+        -3.3799
+      ],
+      "half_m": [
+        1.345,
+        0.2489
+      ],
+      "prop_top_m": 2.422,
+      "vertices": 8276
+    }
+  ],
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Door": [
+      0.0,
+      -2.72,
+      0.54
+    ],
+    "Socket_Porch": [
+      0.0,
+      -3.12,
+      0.54
+    ],
+    "Socket_Path": [
+      0.0,
+      -4.72,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Door.001": [
+      0.0,
+      -2.72,
+      0.54
+    ],
+    "Socket_Path.001": [
+      0.0,
+      -4.72,
+      0.0
+    ],
+    "Socket_Porch.001": [
+      0.0,
+      -3.12,
+      0.54
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Door.001",
+    "Socket_Path.001",
+    "Socket_Porch.001",
+    "VL04_DiligentFamilyHouse.001",
+    "VL04_DiligentFamilyHouse_Collision.001",
+    "VL04_DiligentFamilyHouse_Detail_Collision.001",
+    "VL04_DiligentFamilyHouse_Detail_Small_LOD0.001",
+    "VL04_DiligentFamilyHouse_Detail_Small_LOD1.001",
+    "VL04_DiligentFamilyHouse_Detail_Small_LOD2.001",
+    "VL04_DiligentFamilyHouse_LOD0.001",
+    "VL04_DiligentFamilyHouse_LOD1.001",
+    "VL04_DiligentFamilyHouse_LOD2.001"
+  ],
+  "glb": "VL04_DiligentFamilyHouse_v001.glb",
+  "interface": {
+    "eave_underside_m": 3.345,
+    "ridge_m": 5.271,
+    "tray_items": {
+      "chillies": 22,
+      "radish": 9,
+      "garlic": 5
+    },
+    "woodpile_top_m": 0.709
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-houses-b/) on the StarterHouse v004 outline; procedural shaders baked to two 2048 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 123.9,
+        "median": 123.9,
+        "p90": 124.7,
+        "area_m2": 170.9
+      },
+      "inside_or_covered": {
+        "p10": 11.8,
+        "median": 31.0,
+        "p90": 42.9,
+        "area_m2": 254.6
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 204.9,
+        "median": 281.3,
+        "p90": 281.6,
+        "area_m2": 36.3
+      },
+      "inside_or_covered": {
+        "p10": 57.3,
+        "median": 68.9,
+        "p90": 142.1,
+        "area_m2": 45.9
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 99.1,
+        "median": 136.4,
+        "p90": 136.8,
+        "area_m2": 86.6
+      },
+      "inside_or_covered": {
+        "p10": 4.3,
+        "median": 33.5,
+        "p90": 79.1,
+        "area_m2": 208.7
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": [
+    9927,
+    24514
+  ],
+  "reference": "art/references/VL04/ (AI three-view VL04/candidate-01; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}
