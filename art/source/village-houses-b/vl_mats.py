@@ -17,7 +17,7 @@ STONE = ((.111, .147, .144), (.061, .084, .078), (.202, .242, .231))  # #5E6B6A,
 EARTH = ((.262, .144, .065), (.392, .235, .117))        # #8C6A48, #A88560
 
 
-def plaster(name, peel=.3, repair=0., grime=.6, moss=0., damp=1., seed=(0., 0., 0.), blacken=0., slot='Main', tone=1.):
+def plaster(name, peel=.3, repair=0., grime=.6, moss=0., damp=1., seed=(0., 0., 0.), blacken=0., slot='Main', tone=1., cracks=1.):
     m, g = tm._new(name, slot)
     P, Z, up = _p(g)
     Ps = g.vmath('ADD', P, seed)
@@ -42,7 +42,7 @@ def plaster(name, peel=.3, repair=0., grime=.6, moss=0., damp=1., seed=(0., 0., 
     # hairline cracks
     crack = g.maprange(g.math('ABSOLUTE', g.math('SUBTRACT', g.noise(Ps, 3.2, 3, .6), .5)), .008, .0, 0., 1.)
     crack = g.math('MULTIPLY', crack, g.maprange(g.noise(Ps, 1.1, 2, .5), .45, .6))
-    col = g.mix(g.math('MULTIPLY', crack, .8), col, (.17, .14, .1))
+    col = g.mix(g.math('MULTIPLY', crack, .8 * cracks), col, (.17, .14, .1))         # cracks < 1: someone has filled most of them
     # coat fallen off: mud brick in running bond (u = x + y along either wall, v = z)
     peelm = None; h = g.math('ADD', g.math('MULTIPLY', mid, .5), g.math('MULTIPLY', fine, .3))
     if peel:
@@ -112,25 +112,33 @@ def iron(name, slot='Main'):
 
 
 def palette(cond):
-    """cond: 'abandoned' | 'moved_in' | 'collapsed'."""
+    """cond: 'abandoned' | 'moved_in' | 'collapsed' (VL01-03) | 'diligent' | 'elderly' (VL04-05, lived in)."""
     P = {}
-    peel = {'abandoned': .62, 'moved_in': .03, 'collapsed': .5}[cond]
-    P['plaster'] = plaster('Lime_Plaster', peel=peel, repair=.8 if cond == 'moved_in' else 0., grime={'abandoned': .9, 'moved_in': .55, 'collapsed': 1.}[cond],
-                           moss=.35 if cond == 'collapsed' else 0., blacken=.35 if cond == 'collapsed' else 0., seed=(0., 0., 0.))
+    kept = cond in ('moved_in', 'diligent')          # someone keeps it up: little peel, fresh paper, little moss
+    peel = {'abandoned': .62, 'moved_in': .03, 'collapsed': .5, 'diligent': 0., 'elderly': .14}[cond]
+    repair = {'moved_in': .8, 'diligent': .5, 'elderly': .55}.get(cond, 0.)
+    P['plaster'] = plaster('Lime_Plaster', peel=peel, repair=repair, grime={'abandoned': .9, 'moved_in': .55, 'collapsed': 1., 'diligent': .5, 'elderly': .8}[cond],
+                           moss=.35 if cond == 'collapsed' else 0., blacken=.35 if cond == 'collapsed' else 0., seed=(0., 0., 0.),
+                           cracks=.35 if cond == 'diligent' else 1.)
     P['plaster_in'] = plaster('Lime_Plaster_Inside', peel=.35, grime=.8, damp=1.3, moss=.25 if cond == 'collapsed' else 0., blacken=.45 if cond == 'collapsed' else .1,
                               seed=(5.3, 1.7, 0.), tone=.8)
-    grey = {'abandoned': .75, 'moved_in': .35, 'collapsed': .6}[cond]
+    grey = {'abandoned': .75, 'moved_in': .35, 'collapsed': .6, 'diligent': .45, 'elderly': .4}[cond]
     dark, light = WOOD[2], WOOD[1]
     if cond == 'collapsed': dark, light = (.03, .016, .009), (.11, .06, .03)
+    if cond == 'elderly': dark, light = (.024, .012, .006), (.09, .045, .02)        # very old timber, darkened by smoke and years
     P['timber'] = cm.wood('Frame_Timber', dark, light, grey=grey, ground_h=.12, moss=cond == 'collapsed', moss_amt=.5)
-    P['plank'] = cm.wood('Porch_Plank', WOOD[0], (.26, .14, .06), grey=grey * .9, ground_h=0., polish=.05 if cond == 'moved_in' else 0.)
+    plank_dark, plank_light = (WOOD[0], (.26, .14, .06)) if cond != 'elderly' else ((.05, .028, .014), (.17, .1, .05))   # VL05: old boards, dark and worn
+    P['plank'] = cm.wood('Porch_Plank', plank_dark, plank_light, grey=grey * .9, ground_h=0., polish={'moved_in': .05, 'diligent': .12, 'elderly': .18}.get(cond, 0.))
     P['door'] = cm.wood('Door_Board', WOOD[2], WOOD[0], grey=grey, ground_h=0.)
+    moss_a, moss_b = (.35, .45) if kept else (.7, .9)
+    if cond == 'elderly': moss_a, moss_b = 1., 1.15                                   # moss on the stone base
     P['stone'] = [cm.stone(f'Plinth_Stone_{i}', light=l, dark=d, ochre=(.2, .19, .15), moss=m_, lichen=.6, crack=.5)
-                  for i, (l, d, m_) in enumerate(((STONE[2], STONE[1], .7 if cond != 'moved_in' else .35), (STONE[0], STONE[1], .9 if cond != 'moved_in' else .45)))]
+                  for i, (l, d, m_) in enumerate(((STONE[2], STONE[1], moss_a), (STONE[0], STONE[1], moss_b)))]
     P['mortar'] = tm.plain('Plinth_Mortar', (.05, .048, .042), rough=.9, noise=.3)
-    P['paper'] = cm.paper('Window_Paper', base=(.78, .74, .62) if cond == 'moved_in' else (.42, .33, .19), edge=(.5, .44, .33) if cond == 'moved_in' else (.17, .1, .045),
-                          age=.12 if cond == 'moved_in' else .8)
-    P['tile'] = cm.tile('Ridge_Tile', base=STONE[1], light=STONE[0], moss=.9 if cond != 'moved_in' else .45)
+    P['paper'] = cm.paper('Window_Paper', base=(.78, .74, .62) if kept else (.56, .47, .31) if cond == 'elderly' else (.42, .33, .19),
+                          edge=(.5, .44, .33) if kept else (.3, .22, .12) if cond == 'elderly' else (.17, .1, .045),
+                          age={'moved_in': .12, 'diligent': .3}.get(cond, .8))
+    P['tile'] = cm.tile('Ridge_Tile', base=STONE[1], light=STONE[0], moss=.45 if kept else .9)
     P['brass'] = __import__('mk_mats').brass('Door_Brass')
     P['clay'] = cm.clay('Clay_Jar', body=(.2, .11, .06), glaze=(.075, .04, .022))
     P['iron'] = iron('Nail_Iron')

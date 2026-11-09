@@ -31,7 +31,9 @@ WALLS = {'Front': ((0., -2.6), 0., 7.2, [(-2.35, 1.35, 1.35, 2.65, 'window'), (0
          'Rear': ((0., 2.6), math.pi, 7.2, [(0., 1.4, 1.35, 2.65, 'window')]),
          'Right': ((3.6, 0.), math.pi / 2, 5.2, [(0., 1.4, 1.35, 2.65, 'window')]),
          'Left': ((-3.6, 0.), -math.pi / 2, 5.2, [(0., 1.4, 1.35, 2.65, 'window')])}
-COND = {'VL01_LongEmptyHouse': 'abandoned', 'VL02_MovedInHouse': 'moved_in', 'VL03_HalfCollapsedHouse': 'collapsed'}
+COND = {'VL01_LongEmptyHouse': 'abandoned', 'VL02_MovedInHouse': 'moved_in', 'VL03_HalfCollapsedHouse': 'collapsed',
+        'VL04_DiligentFamilyHouse': 'diligent', 'VL05_ElderlyCoupleHouse': 'elderly'}
+LIVED = ('diligent', 'elderly')          # VL04-05 (work pack B-40h, 2026-11-08): lived-in houses, dressing in vl_lived.py
 
 
 def frame(name):
@@ -124,6 +126,7 @@ def window(P, name, cx, sill, w, h, cond, paper_keep=None):
         box(name + '_Lattice_H', (cx, -.075, sill + j * h / 5), (w - .08, .05, .025), P['timber'], bevel=0., group='Wood', grain='x')
     pw, ph = w - .1, h - .1
     sheet(name + '_Paper', 6, 5, lambda u, v: (cx - pw / 2 + pw * u, -.03, sill + .05 + ph * v), P['paper'], solid=.003, keep=paper_keep, grain='x')
+    if cond == 'elderly': __import__('vl_lived').paper_patches(P, name, cx, sill, w, h)
 
 
 def door(P, cond):
@@ -235,7 +238,9 @@ def props(P, cond):
     for x in (2.02, 2.98):
         box('Bench_Leg', (x, -3.15, .76), (.16, .30, .44), P['timber'], bevel=.01, seg=1, group='Wood', grain='z')
     prof = [(.21, 0), (.31, .10), (.36, .36), (.30, .58), (.18, .68), (.19, .74), (.145, .74), (.14, .66), (.25, .56), (.30, .35), (.25, .13), (.14, .07), (0., .07)]
-    for name, (x, y), s in (('Jar_Large', (-2.6, -3.13), 1.), ('Jar_Small', (-1.9, -3.18), .65)):
+    jars = (('Jar_Large', (-2.6, -3.13), 1.), ('Jar_Small', (-1.9, -3.18), .65))
+    if cond == 'diligent': jars = (('Jar_Large', (-2.75, -3.08), 1.), ('Jar_Small', (-2.08, -3.04), .65))   # pushed back to the wall, clear of the drying rack
+    for name, (x, y), s in jars:
         o = lathe(name, [(r * s, z * s) for r, z in [(0., 0.)] + prof], (x, y, FLOOR), P['clay'], seg=20)
         if cond == 'collapsed' and name == 'Jar_Small':
             o.location = (x - .1, y - .05, FLOOR + .2); o.rotation_euler = (1.45, 0., .6)
@@ -260,6 +265,16 @@ def roof(P, cond, R):
             return False
         cell = lambda kind, side, x, k, r: (0 if r < .35 else 1 if r < .58 else 2) + (4 if kind == 'roll' else 0)
         S['holes'] = patches
+    elif cond == 'diligent':                      # kept up: an even roof, one small patch re-laid with paler new tiles
+        def cell(kind, side, x, k, r):
+            if side == 1 and abs(x + 2.2) < .35 and abs(k - 4) <= 1 and r < .85: return 3 + (4 if kind == 'roll' else 0)
+            return (0 if r < .62 else 1 if r < .92 else 2) + (4 if kind == 'roll' else 0)
+    elif cond == 'elderly':                       # repaired a tile at a time over many years: old, dark-fired and mossy tiles mixed,
+        new = [(-1, 1.65, 5), (1, -2.4, 6)]     # paler single replacements scattered and two small re-laid patches
+        def cell(kind, side, x, k, r, new=new):
+            for s, xc, kc in new:
+                if s == side and abs(x - xc) < .35 and abs(k - kc) <= 1 and r < .8: return 3 + (4 if kind == 'roll' else 0)
+            return (3 if r > .95 else 0 if r < .42 else 1 if r < .7 else 2) + (4 if kind == 'roll' else 0)
     elif cond == 'moved_in':
         new = [(-1, -1.3, 6), (-1, 2.9, 3), (1, .6, 7)]
         def cell(kind, side, x, k, r, new=new):
@@ -702,9 +717,13 @@ def occluded_uvw(reach=.3, w=.06):
             if c.z < .012 and n.z < -.5: cur[p.index] *= w; hidden += 1; continue
             a = n.cross(Vector((0, 0, 1)) if abs(n.z) < .9 else Vector((1, 0, 0))).normalized(); b = n.cross(a)
             blocked = True
-            for d in (n, (n + a).normalized(), (n - a).normalized(), (n + b).normalized(), (n - b).normalized()):
-                ok, *_ = cast(dg, c + n * .004, d, reach)
-                if not ok: blocked = False; break
+            # 'both_sides' = start offset: a sheet thickened by its Solidify modifier (VL04 straw mat, washing) shows both faces, so probe
+            # from both, starting outside its own thickness
+            for sg in ((1, -1) if o.get('both_sides') else (1,)):
+                for d in (n, (n + a).normalized(), (n - a).normalized(), (n + b).normalized(), (n - b).normalized()):
+                    ok, *_ = cast(dg, c + n * sg * float(o.get('both_sides', .004)), d * sg, reach)
+                    if not ok: blocked = False; break
+                if not blocked: break
             if blocked: cur[p.index] *= w; hidden += 1
         at.data.foreach_set('value', cur)
     S['occluded_faces'] = (hidden, total)
@@ -726,6 +745,8 @@ def collision(cond):
         sec = lambda z: [(x + math.cos(k * math.tau / 8) * .14, -3.46 + math.sin(k * math.tau / 8) * .14, z) for k in range(8)]
         FP.hull_loft(V, F, [sec(FLOOR), sec(3.3)])
     prism(1.82, 3.18, -3.37, -2.93, FLOOR, 1.09)                  # bench
+    if cond in LIVED:
+        __import__('vl_lived').collision(prism, cond)
     if cond == 'collapsed':
         FP.hull_loft(V, F, [[(3.61, -1.45, 0.), (HEAP_X, -1.2, 0.), (HEAP_X, 2.2, 0.), (3.61, 2.45, 0.)],
                             [(3.61, -.6, .9), (3.95, -.5, .75), (3.95, 1.6, .75), (3.61, 1.7, .9)]])     # the heap as a ramp off the wall line
@@ -762,6 +783,8 @@ def build_house(aid):
             leaves(P, R, 60, -1.1, 1.1, -4.7, -3.8, .5, size=(.08, .12))
             for x, y in ((-1.3, -4.35), (1.3, -4.15), (-3.95, -3.9), (3.95, -3.9)):   # banked at the foot of the steps and plinth corners
                 leaves(P, R, 35, 0, 0, 0, 0, 0., pile=(x, y, .15), size=(.08, .12))
+        elif cond in LIVED:
+            __import__('vl_lived').dress(P, R, cond)
         elif cond == 'moved_in':
             broom(P); flower_pot(P, R)
             moss_on_roof(P, R, 6); plinth_grass(P, R, 8)
@@ -785,6 +808,7 @@ def build_house(aid):
         print('SETTLED', S.get('settled'), flush=True)
         interior_uvw(uv_in); occluded_uvw()
         S['collision_mesh'] = collision(cond)
+        if cond in LIVED: S['detail_collision_mesh'] = __import__('vl_lived').detail_collision(cond)
         S['prop'] = dict(kind='house', cond=cond)
     return build
 
@@ -798,15 +822,24 @@ NOTES = {
     'VL03_HalfCollapsedHouse': '半塌的空屋（三視圖 VL03 candidate-01）：外框照 StarterHouse v004。右山牆一端的屋頂塌陷（後坡整片、前坡靠屋脊的上半），斷椽外露、兩根垂進屋內；'
         '右牆往外倒成一堆土磚和碎瓦，只剩前角一段和低矮的牆根，從缺口看得到空屋內；一棵小樹從屋內長出、穿過缺口；木頭發黑受潮、瓦和瓦礫長苔、瓦礫上長草。'
         '碰撞：牆線照原屋封住（缺口處也擋），瓦礫堆另有一個斜面碰撞，人不會卡進屋內。',
+    'VL04_DiligentFamilyHouse': '有人住的民居・勤快人家（三視圖 VL04 candidate-01）：外框照 StarterHouse v004。前廊左邊一副竹製交叉晾衣架，竿上晾著三件衣物；'
+        '右山牆外一整齊柴堆（劈好的柴頭朝外、兩頭木樁夾住、上面蓋一片草簾）；右窗石窗台太窄，主人加釘一塊窗台板（兩根斜撐撐到牆上），板上一只長方竹匾曬辣椒、蘿蔔乾和蒜頭；門口一雙草鞋。'
+        '灰泥沒有剝落、只有補過的新灰，地面掃得乾淨、木頭褪色但有人照顧；後坡一小塊換過新瓦。晾衣架、衣物、竹匾和裡面的乾菜、草鞋都在 Detail_Small，低畫質可關掉；柴堆、草簾、窗台板和斜撐算房子本體（柴堆有碰撞，關掉會穿幫）。'
+        '碰撞：外牆、前廊、台階同 StarterHouse，柴堆另有一塊碰撞（從地面到草簾頂）。晾衣架連衣物另有一塊碰撞（前廊地面到 2.3 m），放在 _Detail_Collision，和 Detail_Small 一起開關，低畫質關掉小物時要一起關。',
+    'VL05_ElderlyCoupleHouse': '有人住的民居・老人家（三視圖 VL05 candidate-01）：外框照 StarterHouse v004。門右邊一張矮竹椅（略朝台階）；前廊橫樑下吊六串乾玉米（每串三根，苞葉往上紮成一束，用細繩繫在橫樑上）；'
+        '窗紙和門紙舊得發黃，上面補了好幾塊新舊不一的紙；門左邊一盆老松盆景（橢圓陶盆、四隻小腳、土面長苔）。'
+        '木頭很舊、顏色很深，石基長苔，瓦片新舊混雜（舊瓦、深色瓦、長苔的瓦之間零星換過幾片淺色新瓦，另有兩小塊整片重鋪）。'
+        '竹椅、玉米、盆景都在 Detail_Small，低畫質可關掉；補紙算窗戶本體。碰撞：外牆、前廊、台階同 StarterHouse；竹椅和盆景各有一塊碰撞（照實物外形外擴 1 cm，竹椅的跟著椅子轉向），放在 _Detail_Collision，和 Detail_Small 一起開關；玉米在頭頂上方，不加碰撞。',
 }
 
 
 def register(ASSETS):
     for aid, cond in COND.items():
-        ASSETS[aid] = dict(zh={'abandoned': '久無人住的空屋', 'moved_in': '剛有人住的空屋', 'collapsed': '半塌的空屋'}[cond], kind='house', cond=cond,
+        ASSETS[aid] = dict(zh={'abandoned': '久無人住的空屋', 'moved_in': '剛有人住的空屋', 'collapsed': '半塌的空屋',
+                               'diligent': '有人住的民居（勤快人家）', 'elderly': '有人住的民居（老人家）'}[cond], kind='house', cond=cond,
                            palette=palette_for(cond), build=build_house(aid), limit=(9.05 if cond != 'collapsed' else 9.36, 8.19, 5.62), tex=2048, ver='v001',
-                           box=((-4.53, -4.73, 0.), (4.53 if cond != 'collapsed' else HEAP_X + .02, 3.47, 5.62)), ref=f'{aid[:4]}/candidate-0{ {"abandoned": 4, "moved_in": 2, "collapsed": 1}[cond]}',
-                           slot='A1_QingxiVillage_EmptyHouse', minTier='standard', clamp_max=.03, uv_shape='CONVEX',
+                           box=((-4.53, -4.73, 0.), (4.53 if cond != 'collapsed' else HEAP_X + .02, 3.47, 5.62)), ref=f'{aid[:4]}/candidate-0{ {"abandoned": 4, "moved_in": 2, "collapsed": 1, "diligent": 1, "elderly": 1}[cond]}',
+                           slot='A1_QingxiVillage_LivedHouse' if cond in LIVED else 'A1_QingxiVillage_EmptyHouse', minTier='standard', clamp_max=.03, uv_shape='CONVEX',
                            atlases={'Main': ['Main', 'Detail_Small'], 'Stone': ['Stone'], 'Wood': ['Wood']},
                            origin='centre of the wall footprint at ground level, front -Y (same origin as StarterHouse v004, so a variant drops into its slot)',
                            note=NOTES[aid])

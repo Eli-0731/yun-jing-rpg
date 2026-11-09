@@ -102,7 +102,7 @@ def make_lods():
 def clamp_to_limit(cfg):
     """Separating flush faces pushes a piece out by a millimetre or two; pull every vertex back inside the footprint and above z = 0."""
     lo_b, hi_b = cfg.get('box') or ((-cfg['limit'][0] / 2, -cfg['limit'][1] / 2, 0.), (cfg['limit'][0] / 2, cfg['limit'][1] / 2, 99.)); moved = 0
-    objs = [o for g in S['lods'].values() for o in g.values()] + ([S['collision_obj']] if S.get('collision_obj') else [])
+    objs = [o for g in S['lods'].values() for o in g.values()] + collision_objs()
     for o in objs:
         me = o.data; co = np.zeros(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
         w = co + np.array(o.location, np.float32)
@@ -189,7 +189,17 @@ def make_collision(aid):
     bm = bmesh.new(); bm.from_mesh(me); bmesh.ops.recalc_face_normals(bm, faces=bm.faces); bm.to_mesh(me); bm.free()
     o = bpy.data.objects.new(aid + '_Collision', me); S['lodcol'].objects.link(o); o.hide_render = True
     S['collision_obj'] = o
+    det = S.get('detail_collision_mesh')   # VL04/VL05: boxes for the props in Detail_Small, switched off with it
+    if det:
+        md = bpy.data.meshes.new(aid + '_Detail_Collision'); md.from_pydata(det[0], [], det[1]); md.update()
+        bm = bmesh.new(); bm.from_mesh(md); bmesh.ops.recalc_face_normals(bm, faces=bm.faces); bm.to_mesh(md); bm.free()
+        od = bpy.data.objects.new(aid + '_Detail_Collision', md); S['lodcol'].objects.link(od); od.hide_render = True
+        S['detail_collision_obj'] = od
     return o
+
+
+def collision_objs():
+    return [o for o in (S.get('collision_obj'), S.get('detail_collision_obj')) if o]
 
 
 def export_fbx(path):
@@ -197,7 +207,7 @@ def export_fbx(path):
     root = bpy.data.objects.new(a, None); S['lodcol'].objects.link(root); S['root'] = root
     for groups in S['lods'].values():
         for o in groups.values(): o.parent = root
-    extra = [S['collision_obj']] if S.get('collision_obj') else []
+    extra = collision_objs()
     for o in extra: o.parent = root
     for e in S['sockets'].values():
         mw = e.matrix_world.copy()
@@ -332,6 +342,8 @@ def run(aid, force=False):
     check('fbx_has_lod0_1_2', all(any(n.split('.')[0].endswith(f'_LOD{lv}') for n in names) for lv in (0, 1, 2)), names)
     check('fbx_sockets', sorted(k.split('.')[0] for k in rt['sockets']) == sorted(S['sockets']), rt['sockets'])
     check('fbx_collision', cfg.get('no_collision') or (aid + '_Collision') in [n.split('.')[0] for n in names], cfg.get('no_collision') or 'collision mesh present')
+    if S.get('detail_collision_obj'):
+        check('fbx_detail_collision', (aid + '_Detail_Collision') in [n.split('.')[0] for n in names], 'prop collision mesh present, apart from the house collision')
     glb = exp / f'{aid}_{VER}.glb'; export_glb(glb)
     check('glb_written', glb.exists() and glb.stat().st_size > 1000, {'bytes': glb.stat().st_size})
     pl.ten_views(lod0, prev / 'turnaround', f'art/source/{KIT}/blend/{aid}_{VER}.blend')
@@ -368,7 +380,10 @@ def run(aid, force=False):
         'unity': {'pipeline': 'URP Lit', 'axes': 'imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z',
                   'materials': {m.name: dict(m['unity']) for m in sorted({m for g in S['lods'].values() for o in g.values() for m in o.data.materials}, key=lambda m: m.name)},
                   'normal_maps': 'OpenGL +Y', 'MetallicSmoothness': 'R metallic, A smoothness', 'lod_group': 'objects end in _LOD0/_LOD1/_LOD2 under one root',
-                  'collision': f'{aid}_Collision: MeshCollider (convex off), renderer hidden'},
+                  'collision': f'{aid}_Collision: MeshCollider (convex off), renderer hidden',
+                  **({'detail_collision': f'{aid}_Detail_Collision: MeshCollider (convex off), renderer hidden; switch it off together with '
+                      f'{aid}_Detail_Small_LOD0/1/2 (low quality), it only covers props inside Detail_Small'} if S.get('detail_collision_obj') else {})},
+        **({'detail_collision_boxes': S.get('detail_boxes')} if S.get('detail_collision_obj') else {}),
         'collision': bool(S.get('collision_obj')),
         **({'ground_z_m': cfg['ground_z']} if 'ground_z' in cfg else {}),
         **({'parts': S['part_notes']} if S.get('part_notes') else {}),
