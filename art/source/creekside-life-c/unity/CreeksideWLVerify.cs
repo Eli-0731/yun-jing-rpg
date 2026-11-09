@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 namespace YunJing.Editor
 {
-    // Unity check of C's creekside washing props WL01–WL05 (art/exports/creekside-life-c, Eli-0731), after the modelling-basics-c
+    // Unity check of C's creekside props: washing WL01–WL05 and fishing FI01–FI05 (art/exports/creekside-life-c, Eli-0731), after the modelling-basics-c
     // check (QingxiBasicsVerify). It does not change apps/game: run_unity_check.sh copies this file in for one batch run and removes it.
     // Imports the delivered FBX and textures, builds one URP Lit per item, compares with model_info.json (size within 2 cm, the work
     // pack's size limit, triangles per LOD, objects, one material, 1024 textures, minTier, detailObjects), switches Detail_* off the
@@ -20,8 +20,8 @@ namespace YunJing.Editor
     {
         const string Models = "Assets/YunJing/Models/CreeksideC";   // temporary copy of art/exports, removed by the run script
         const string Version = "v001";
-        static readonly string[] Ids = { "WL01", "WL02", "WL03", "WL04", "WL05" };
-        static readonly HashSet<string> Cloth = new HashSet<string> { "WL03", "WL04" };
+        static readonly string[] Ids = { "WL01", "WL02", "WL03", "WL04", "WL05", "FI01", "FI02", "FI03", "FI04", "FI05" };
+        static readonly HashSet<string> Cloth = new HashSet<string> { "WL03", "WL04", "FI03" };   // cloth and the net: both faces
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
         static string Out => Path.Combine(Repo, "art/previews/creekside-life-c/unity");
         static readonly List<string> Report = new List<string>();
@@ -232,6 +232,15 @@ namespace YunJing.Editor
             Frame("WL-set-front", sa, front, 1.05f); Frame("WL-set-threequarter", sa, tq, 1.05f); UnityEngine.Object.DestroyImmediate(r2);
             Frame("WL-set-close", sb, tq, 1.0f);
             foreach (var g in set) UnityEngine.Object.DestroyImmediate(g);
+            // the five fishing props laid out together on the bank
+            var fi = new[] { Place("FI01", MatName["FI01"], new Vector3(0, 0, .55f), 0), Place("FI03", MatName["FI03"], new Vector3(-.2f, 0, -.1f), 8),
+                             Place("FI04", MatName["FI04"], new Vector3(.95f, 0, -.35f), -20), Place("FI02", MatName["FI02"], new Vector3(-.95f, 0, -.45f), 15),
+                             Place("FI05", MatName["FI05"], new Vector3(.2f, 0, -.6f), -5) };
+            var fb = Box(fi.SelectMany(g => Level(g, 0)));
+            var r3 = Ruler(new Vector3(fb.max.x + .45f, 0, 0)); var fa = fb; fa.Encapsulate(r3.GetComponent<Renderer>().bounds);
+            Frame("FI-set-front", fa, front, 1.05f); Frame("FI-set-threequarter", fa, tq, 1.05f); UnityEngine.Object.DestroyImmediate(r3);
+            Frame("FI-set-close", fb, tq, 1.0f);
+            foreach (var g in fi) UnityEngine.Object.DestroyImmediate(g);
             Report.Add("INFO renders written to art/previews/creekside-life-c/unity");
         }
 

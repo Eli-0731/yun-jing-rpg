@@ -1,5 +1,5 @@
 #!/bin/sh
-# Unity check of C's creekside props (WL01–WL05) without changing apps/game: copies CreeksideWLVerify.cs into the project for one
+# Unity check of C's creekside props (WL01–WL05, FI01–FI05) without changing apps/game: copies CreeksideWLVerify.cs into the project for one
 # batch run, then removes it, the temporary model copies and the URP settings the run switches on.
 #   UNITY=<Unity.exe 6000.0.82f1> sh art/source/creekside-life-c/unity/run_unity_check.sh   (from the repo root)
 # Results: art/previews/creekside-life-c/unity/report.txt and renders; log in artifacts/unity-creekside.log.

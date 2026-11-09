@@ -58,6 +58,18 @@ def make_sources():
                 +wz[...,None]*np.array([.04,.02,0]),.4*fbm(120,2)+.3*fbm(24,3)+.3*gk-.2*gp,.9,.84,0,0)   # warm-grey fieldstone, as BM05/BM06
     pores=np.clip((fbm(160,1)-.6)*5,0,1)
     S['ash']=(lerp((.47,.46,.44),(.66,.65,.62),np.clip(.5+.8*(fbm(5,3)-.5),0,1))*(1-.12*pores[...,None]),.5*fbm(60,2)-.3*pores,.8,.95,0,0)   # pressed lye-ash cake, matte grey
+    # FI sources (added after the WL ones, each with its own seed, so WL01–WL05 keep their exact textures)
+    K.rng=np.random.default_rng(3201)
+    st=np.clip((fbm(30,2,aniso=30)-.5)*2+.5,0,1);bl=fbm(4,3,aniso=8)   # fibres along the cane (V), broad soft colour along it
+    spots=np.clip((fbm(18,2)-.72)*5,0,1)
+    S['bamboo']=(lerp((.48,.40,.24),(.74,.64,.40),np.clip(.5+.8*(bl-.5)+.12*(st-.5),0,1))*(1-.25*spots[...,None]),.5*st+.3*bl,1.0,.55,0,0)   # old cane: straw-gold, darker water spots, glossy skin
+    S['bamboo_split']=(lerp((.56,.46,.29),(.78,.68,.47),np.clip(.5+.6*(bl-.5)+.35*(st-.5),0,1)),1.2*st,1.4,.75,0,0)   # split cane: inner fibres show, matte
+    K.rng=np.random.default_rng(3202)
+    S['floatwood']=(*board((.42,.33,.22),(.62,.51,.36),(.55,.51,.45),.30,.35,.5),1.2,.82,0,0)   # light timber (paulownia-like), a little paler than cedar; at first it read as wax
+    K.rng=np.random.default_rng(3203)
+    tw2=.5+.5*np.sin(math.tau*((X+Y)*28))
+    S['net']=(lerp((.40,.33,.22),(.58,.48,.32),np.clip(tw2*.5+.4*fbm(4,3),0,1)),tw2,1.0,.92,0,0)   # thin hemp net cord, a little darker than the rope
+    S['cord_dark']=(lerp((.18,.15,.12),(.32,.26,.19),np.clip(tw2*.5+.4*fbm(5,3),0,1)),tw2,1.0,.9,0,0)   # dark tarred cord (binding)
     out={}
     for k,(alb,h,s,r,m,glow) in S.items():
         mat=bpy.data.materials.new('src_'+k);mat.use_nodes=True;nt=mat.node_tree;bs=nt.nodes['Principled BSDF']
@@ -83,11 +95,15 @@ def endgrain():
 
 # ---------------- items (filled per item after its three-view is picked) ----------------
 PROPS={}
-TARGET={'WL01':('x',.70),'WL02':('x',.45),'WL03':('x',.65),'WL04':('x',.60),'WL05':('x',.38)}
-LIMIT={'WL01':(.7,.4,.12),'WL02':(.45,.15,.12),'WL03':(.65,.3,.25),'WL04':(.6,.5,.25),'WL05':(.38,.28,.12)}   # work pack §5, w × d × h
-NAME={'WL01':'WashBoard','WL02':'BeatingPaddle','WL03':'RolledLinen','WL04':'FoldedLinen','WL05':'AshDish'}
+TARGET={'WL01':('x',.70),'WL02':('x',.45),'WL03':('x',.65),'WL04':('x',.60),'WL05':('x',.38),
+        'FI01':('x',2.2),'FI02':('x',.28),'FI03':('x',1.3),'FI04':('x',.9),'FI05':('x',.5)}
+LIMIT={'WL01':(.7,.4,.12),'WL02':(.45,.15,.12),'WL03':(.65,.3,.25),'WL04':(.6,.5,.25),'WL05':(.38,.28,.12),   # work pack §5, w × d × h
+       'FI01':(2.2,.2,.2),'FI02':(.28,.28,.12),'FI03':(1.3,.45,.06),'FI04':(.9,.38,.38),'FI05':(.5,.3,.2)}   # FI01: only its length is set (2.2 m); FI02: Ø0.28 × 0.12 lying on its side
+NAME={'WL01':'WashBoard','WL02':'BeatingPaddle','WL03':'RolledLinen','WL04':'FoldedLinen','WL05':'AshDish',
+      'FI01':'FishingPole','FI02':'LineSpool','FI03':'LandingNet','FI04':'FishTrap','FI05':'Floats'}
 MIN_TIER={k:'high' for k in TARGET}   # quality-tiers §4: roadside props that add richness; nothing to play with or stop the player
 exec(open(HERE/'wl_items.py',encoding='utf-8').read())
+for _f in sorted(HERE.glob('fi_items*.py')):exec(open(_f,encoding='utf-8').read())   # FI01 in fi_items.py, FI02–FI05 in fi_items_b.py
 
 # ---------------- bake / split / LOD / export ----------------
 def sel(*obs):
