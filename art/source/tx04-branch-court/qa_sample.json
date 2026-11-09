@@ -2,18 +2,21 @@
  "GATE": {
   "objects": {
    "TX04_GATE_Accent_LOD0": {
-    "tris": 216,
+    "tris": 540,
     "errors": [
-     "floating/detached part in TX04_GATE_Accent_LOD0 (56 verts at [0.305, -0.01, 1.98])"
+     "floating/detached part in TX04_GATE_Accent_LOD0 (56 verts at [-0.305, -0.01, 1.96])",
+     "floating/detached part in TX04_GATE_Accent_LOD0 (56 verts at [0.305, -0.01, 1.96])",
+     "floating/detached part in TX04_GATE_Accent_LOD0 (56 verts at [0.0, -0.64, 3.81])",
+     "floating/detached part in TX04_GATE_Accent_LOD0 (56 verts at [0.0, 0.695, 3.375])"
     ],
     "warnings": [
-     "TX04_GATE_Accent_LOD0: ~19.2% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
-     "asset lowest point z=0.635 (not resting on ground plane z=0)"
+     "TX04_GATE_Accent_LOD0: ~56.21% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "asset lowest point z=0.585 (not resting on ground plane z=0)"
     ],
-    "sec": 0.0
+    "sec": 0.1
    },
    "TX04_GATE_LOD0": {
-    "tris": 71924,
+    "tris": 71816,
     "errors": [
      "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.08, -0.057, 1.02])",
      "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.19, -0.057, 1.02])",
@@ -54,18 +57,19 @@
      "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.19, -0.057, 2.82])",
      "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.3, -0.057, 2.82])",
      "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.41, -0.057, 2.82])",
-     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.52, -0.057, 2.82])"
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.52, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (56 verts at [0.0, -0.675, 3.81])"
     ],
     "warnings": [
-     "TX04_GATE_LOD0: ~99.02% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_GATE_LOD0: ~95.81% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
      "TX04_GATE_LOD0: 590 n-gons",
-     "hidden back-to-back faces: TX04_GATE_LOD0 (66 pairs) - delete to save tris",
+     "hidden back-to-back faces: TX04_GATE_LOD0 (64 pairs) - delete to save tris",
      "10 parts fully enclosed, not touching (eyes/internals?): ['TX04_GATE_LOD0', 'TX04_GATE_LOD0', 'TX04_GATE_LOD0', 'TX04_GATE_LOD0', 'TX04_GATE_LOD0']"
     ],
-    "sec": 6.4
+    "sec": 6.2
    },
    "JOINED_TX04_GATE_Accent_LOD0+TX04_GATE_LOD0": {
-    "tris": 72140,
+    "tris": 72356,
     "floating_errors": [],
     "note": "joined check: floating only"
    }
@@ -84,31 +88,17 @@
  },
  "WALL_ST": {
   "objects": {
-   "TX04_WALL_ST_Accent_LOD0": {
-    "tris": 108,
-    "errors": [],
-    "warnings": [
-     "TX04_WALL_ST_Accent_LOD0: ~60.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
-     "asset lowest point z=0.02 (not resting on ground plane z=0)"
-    ],
-    "sec": 0.0
-   },
    "TX04_WALL_ST_LOD0": {
-    "tris": 15108,
+    "tris": 15216,
     "errors": [],
     "warnings": [
-     "TX04_WALL_ST_LOD0: ~99.89% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_WALL_ST_LOD0: ~99.96% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
      "TX04_WALL_ST_LOD0: duplicate verts=67 loose verts=0",
      "TX04_WALL_ST_LOD0: 178 n-gons",
      "hidden back-to-back faces: TX04_WALL_ST_LOD0 (4 pairs) - delete to save tris",
      "asset lowest point z=0.0023 (not resting on ground plane z=0)"
     ],
     "sec": 1.2
-   },
-   "JOINED_TX04_WALL_ST_Accent_LOD0+TX04_WALL_ST_LOD0": {
-    "tris": 15216,
-    "floating_errors": [],
-    "note": "joined check: floating only"
    }
   },
   "reimport_dims": [

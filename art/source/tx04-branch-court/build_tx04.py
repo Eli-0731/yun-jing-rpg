@@ -46,6 +46,30 @@ def accent(o):
     """move a finished part onto the accent material/group (its UVs are re-projected onto the plaster strip)"""
     mc.reuv(o, 'plaster'); o.data.materials.clear(); o.data.materials.append(mc.MAT['accent']); o['grp'] = 'Accent'; return o
 
+WALLTEX = ROOT / 'art/textures' / PKG
+def wall_material():
+    """M_TX04_Wall: the TX04 lime-plaster tile (gen_wall_tex.py, 4 x 4 m per 1024 px), irregular blotches and rain streaks"""
+    mat = bpy.data.materials.new('M_TX04_Wall'); mat.use_nodes = True; nt = mat.node_tree; bs = nt.nodes['Principled BSDF']
+    a = nt.nodes.new('ShaderNodeTexImage'); a.image = bpy.data.images.load(str(WALLTEX / 'T_TX04_Wall_Albedo.png'))
+    n = nt.nodes.new('ShaderNodeTexImage'); n.image = bpy.data.images.load(str(WALLTEX / 'T_TX04_Wall_Normal.png')); n.image.colorspace_settings.name = 'Non-Color'
+    nm = nt.nodes.new('ShaderNodeNormalMap'); nm.inputs['Strength'].default_value = .6
+    nt.links.new(a.outputs['Color'], bs.inputs['Base Color']); nt.links.new(n.outputs['Color'], nm.inputs['Color']); nt.links.new(nm.outputs['Normal'], bs.inputs['Normal'])
+    bs.inputs['Roughness'].default_value = .92; mc.MAT['wall'] = mat; return mat
+
+def wallmat(o, ztop, seed=0):
+    """put a plaster part on M_TX04_Wall: side faces U = along the face, V = height with the part's top edge at the tile top
+    (streaks hang from under the coping / lintel); a random U offset per part so neighbouring walls never repeat"""
+    bm = bmesh.new(); bm.from_mesh(o.data); lay = bm.loops.layers.uv.get('UVMap') or bm.loops.layers.uv.new('UVMap')
+    uoff = random.Random(seed * 131 + len(bm.verts)).random()
+    for f in bm.faces:
+        nrm = f.normal
+        for l in f.loops:
+            p = l.vert.co
+            if abs(nrm.z) < .7:
+                a = Vector((-nrm.y, nrm.x, 0)).normalized(); l[lay].uv = (p.dot(a) / 4 + uoff, 1 - (ztop - p.z) / 4)
+            else: l[lay].uv = (p.x / 4 + uoff, p.y / 4)
+    bm.to_mesh(o.data); bm.free(); o.data.materials.clear(); o.data.materials.append(mc.MAT['wall']); return o
+
 def socket(name, loc, rot=(0, 0, 0)):
     e = bpy.data.objects.new(name, None); e.empty_display_type = 'ARROWS'; e.empty_display_size = .3
     e.location = loc; e.rotation_euler = rot; bpy.context.scene.collection.objects.link(e); SOCKETS.append(e); return e
@@ -54,7 +78,7 @@ def area(o):
     return sum(p.area for p in o.data.polygons)
 
 def build(mid):
-    mc.clear(); mc.load_trim(); accent_material(); SOCKETS.clear()
+    mc.clear(); mc.load_trim(); accent_material(); wall_material(); SOCKETS.clear()
     meta = globals()[mid]() or {}; parts = mc.parts; lim = LIMITS[mid]; tag = f'TX04_{mid}'
     bad = []
     for o in parts:
@@ -97,13 +121,15 @@ def build(mid):
     lods = [{'lod': lv, 'triangles': sum(mc.tris(o) for o in d.values()), 'objects': len(d), 'materials': len({m.name for o in d.values() for m in o.data.materials})}
             for lv, d in ((0, lod0), (1, out[1]), (2, out[2]))]
     info = {'id': f'TX04-{mid.replace("_", "-")}', 'package': 'docs/execution/2026-11-05/A-48h-mountain-city-architecture.md', 'author': 'A (Johnnnny0823)',
-            'version': 'v001', 'status': 'Exported; Imported/Visually Verified/In-game Verified: 未驗',
+            'version': 'v002', 'status': 'Exported; Imported/Visually Verified/In-game Verified: 未驗',
             'dimensions_m': [round(d, 3) for d in dims], 'limit_m': list(lim), 'grid_m': 4.0, 'origin': 'footprint centre, bottom z = 0, -Y = front',
             'minTier': TIER[mid], 'lods': lods, 'objectsLOD0': [o.name for o in lod0.values()],
             'detailObjects': [g for g in lod0 if g.startswith('Detail_')], 'glowObjects': [g for g in lod0 if g == 'Glow'],
             'materials': sorted({m.name for o in lod0.values() for m in o.data.materials}),
-            'textures': {n: '2048x2048' for n in ('T_MountainStreet_Albedo', 'T_MountainStreet_Normal', 'T_MountainStreet_MetallicSmoothness', 'T_MountainStreet_Emission')},
-            'textureNote': 'shared MC01 trim sheet (art/textures/mountain-street-houses-a); the accent material reuses Albedo/Normal',
+            'textures': {**{n: '2048x2048' for n in ('T_MountainStreet_Albedo', 'T_MountainStreet_Normal', 'T_MountainStreet_MetallicSmoothness', 'T_MountainStreet_Emission')},
+                         **{n: '1024x1024' for n in ('T_TX04_Wall_Albedo', 'T_TX04_Wall_Normal')}},
+            'textureNote': 'shared MC01 trim sheet (art/textures/mountain-street-houses-a); the accent material reuses Albedo/Normal; '
+                           'M_TX04_Wall uses the TX04 plaster tile (art/textures/tx04-branch-court, 4 x 4 m per tile, tiles along U)',
             'accent': {'material': 'M_TX04_Accent', 'object': f'{tag}_Accent' if 'Accent' in lod0 else None, 'defaultColor': ACCENT_DEFAULT,
                        'surfaceShare': round(acc_share, 4), 'limit': .10, 'howToRecolor': 'set the base colour (Unity: _BaseColor) of M_TX04_Accent'},
             'sockets': [{'name': e.name, 'location_m': [round(x, 3) for x in e.location], 'rotation_deg': [round(math.degrees(r), 1) for r in e.rotation_euler]} for e in SOCKETS],
@@ -267,10 +293,10 @@ def GATE():
         za, zd = zb, zb + .8
         if axis == 'x':
             stone_block(f'{name}_dado', (b - a - .26, .30, zd - za), ((a + b) / 2, y, (za + zd) / 2), 'granite', seed=hash(name) % 997)
-            mc.box(f'{name}_plaster', (b - a - .24, .22, 3.35 - zd), ((a + b) / 2, y, (zd + 3.35) / 2), 'plaster', 'Main', bev=0)
+            wallmat(mc.box(f'{name}_plaster', (b - a - .24, .22, 3.35 - zd), ((a + b) / 2, y, (zd + 3.35) / 2), 'plaster', 'Main', bev=0), 3.35, len(mc.parts))
         else:
             stone_block(f'{name}_dado', (.30, b - a - .26, zd - za), (y, (a + b) / 2, (za + zd) / 2), 'granite', seed=hash(name) % 991)
-            mc.box(f'{name}_plaster', (.22, b - a - .24, 3.35 - zd), (y, (a + b) / 2, (zd + 3.35) / 2), 'plaster', 'Main', bev=0)
+            wallmat(mc.box(f'{name}_plaster', (.22, b - a - .24, 3.35 - zd), (y, (a + b) / 2, (zd + 3.35) / 2), 'plaster', 'Main', bev=0), 3.35, len(mc.parts))
     for r_, y in enumerate(rows):
         bay(f'GATE_bayL{r_}', colx[0], colx[1], y); bay(f'GATE_bayR{r_}', colx[2], colx[3], y)
     for sx in (-1, 1): bay(f'GATE_end{sx:+d}', rows[0], rows[1], sx * 2.05, axis='y')
@@ -287,12 +313,13 @@ def GATE():
     for sx in (-1, 1):
         mc.box(f'GATE_jamb{sx:+d}', (.18, .2, 3.45 - zb), (sx * .72, yd, (zb + 3.45) / 2), 'beam', 'Main', bev=.012, axis=(0, 0, 1))
         stone_block(f'GATE_middado{sx:+d}', (2.05 - .81 - .14, .26, .8), (sx * (.81 + (2.05 - .81 - .14) / 2), yd, zb + .4), 'granite', seed=7480 + sx)
-        mc.box(f'GATE_midplaster{sx:+d}', (2.05 - .81 - .13, .18, 3.35 - zb - .8), (sx * (.81 + (2.05 - .81 - .13) / 2), yd, (zb + .8 + 3.35) / 2), 'plaster', 'Main', bev=0)
+        wallmat(mc.box(f'GATE_midplaster{sx:+d}', (2.05 - .81 - .13, .18, 3.35 - zb - .8), (sx * (.81 + (2.05 - .81 - .13) / 2), yd, (zb + .8 + 3.35) / 2), 'plaster', 'Main', bev=0), 3.35, len(mc.parts))
     mc.beam('GATE_midbeam', (-2.0, yd, 3.5), (2.0, yd, 3.5), .176, .2, 'beam', 'Main', bev=.012)
     mc.beam('GATE_doorhead', (-.75, yd, zd1 + .05), (.75, yd, zd1 + .05), .2, .1, 'beam', 'Main', bev=.01)
     mc.beam('GATE_sill', (-.62, yd, zb + .06), (.62, yd, zb + .06), .2, .16, 'oldwood', 'Main', bev=.012)   # sunk 2 cm into the paving
     for sx in (-1, 1):
-        leaf = mc.box(f'GATE_door{sx:+d}', (.6, .07, zd1 - zd0 - .17), (sx * .305, yd, (zd0 + .16 + zd1) / 2), 'plaster', 'Main', bev=.008, axis=(0, 0, 1)); accent(leaf)
+        zl0, zl1 = zb + .135, zd1 + .005   # review #90: the leaf used to stop 4.5 cm above the sill (a light line); now it sits 5 mm into the sill and the door head
+        leaf = mc.box(f'GATE_door{sx:+d}', (.6, .07, zl1 - zl0), (sx * .305, yd, (zl0 + zl1) / 2), 'plaster', 'Main', bev=.008, axis=(0, 0, 1)); accent(leaf)
         for i in range(5):
             for j in range(5):
                 mc.lathe(f'GATE_nail{sx:+d}{i}{j}', [(.004, 0), (.022, 0), (.02, .012), (.008, .022), (.004, .024)], 'bronze', 'Main', seg=10)
@@ -302,7 +329,11 @@ def GATE():
         o.data.transform(Matrix.Translation((sx * .1, yd - .035, 1.81)) @ Vector((0, -1, 0)).to_track_quat('Z', 'Y').to_matrix().to_4x4())
     # blank plaque board on the front frieze: frame + blank field; the plaque socket sits on its face
     yp = rows[0] - .13
-    mc.box('GATE_plaqueframe', (1.36, .06, .5), (0, yp, 3.81), 'beam', 'Main', bev=.012, axis=(1, 0, 0))
+    accent(mc.box('GATE_plaqueframe', (1.36, .06, .5), (0, yp, 3.81), 'beam', 'Main', bev=.012, axis=(1, 0, 0)))
+    # review #90: lacquer only on the doors, the plaque frame and a thin band along the lintels (front and courtyard faces)
+    for r_, y in enumerate(rows):
+        sy = -1 if r_ == 0 else 1
+        accent(mc.box(f'GATE_lintelband{r_}', (4.46, .014, .045), (0, y + sy * (.1 + .005), 3.375), 'beam', 'Main', bev=.003, axis=(1, 0, 0)))
     mc.box('GATE_plaquefield', (1.16, .03, .34), (0, yp - .035, 3.81), 'oldwood', 'Main', bev=.004, axis=(1, 0, 0))
     socket('Socket_Plaque', (0, yp - .05, 3.81), (math.radians(90), 0, 0))
     roof = hipgable('GATE_roof', 2.92, 1.38, 1.32, base_z=4.12, wx=2.15, wy=.55, hip_run=.9, seed=7470)
@@ -330,8 +361,8 @@ def WALL_ST():
                             ((a + b) / 2, 0, (z0 + z1) / 2), 'granite_moss' if ci == 0 else 'granite', amt=.009, bev=.02, seed=7500 + ci * 30 + k)
             x = b; k += 1
     mc.box('WALL_core', (L - .1, T - .06, Hf - .05), (0, 0, (Hf - .05) / 2 + .03), 'dark', 'Main', bev=0)
-    mc.box('WALL_plaster', (L - .01, T, Hw - Hf), (0, 0, (Hf + Hw) / 2), 'plaster', 'Main', bev=0)
-    post = mc.box('WALL_post', (.26, T + .08, Hw + .08 - .02), (-L / 2 + .13, 0, (Hw + .08 + .02) / 2), 'plaster', 'Main', bev=.012, axis=(0, 0, 1)); accent(post)
+    wallmat(mc.box('WALL_plaster', (L - .01, T, Hw - Hf), (0, 0, (Hf + Hw) / 2), 'plaster', 'Main', bev=0), Hw, 7502)
+    mc.box('WALL_post', (.26, T + .08, Hw + .08 - .02), (-L / 2 + .13, 0, (Hw + .08 + .02) / 2), 'beam', 'Main', bev=.012, axis=(0, 0, 1))   # dark cedar like the gate columns (review #90)
     stone_block('WALL_postbase', (.3, T + .12, .2), (-L / 2 + .17, 0, .1), 'granite_top', seed=7590)
     for sy in (-1, 1):
         mc.beam(f'WALL_frieze{sy:+d}', (-L / 2 + .25, sy * (T / 2 + .03), Hw - .1), (L / 2, sy * (T / 2 + .03), Hw - .1), .06, .12, 'beam', 'Main', bev=.008)
