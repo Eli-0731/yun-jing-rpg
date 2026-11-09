@@ -30,7 +30,7 @@ head=f"""| 項目 | 內容 |
 | 誰做的 | C（Eli-0731） |
 | 工作包 | docs/execution/2026-11-05/C-48h-a3-creekside-life.md（併入 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md 第一部分） |
 | ID | WL01–WL05（#88）、FI01–FI05 |
-| 分支／PR | WL：art/c-1107-wl-washing-props ／ #88；FI：art/c-1107-fi-fishing-props ／ 開 PR 後補 |
+| 分支／PR | WL：art/c-1107-wl-washing-props ／ #88；FI：art/c-1107-fi-fishing-props ／ #93 |
 | 版本 | v001（檔名帶 `_v001`；之後改版另存 v002，不覆寫） |
 | 狀態 | Exported ／ Imported（Unity 6000.0.82f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖）／ In-game Verified：未驗（沒放進正式場景） |
 | 素材來源 | 原創；三視圖參考在 `art/references/WL01/`–`WL05/`、`art/references/FI01/`–`FI05/` |
