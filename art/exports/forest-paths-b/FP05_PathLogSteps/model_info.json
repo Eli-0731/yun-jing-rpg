@@ -1,0 +1,244 @@
+{
+  "asset": "FP05_PathLogSteps",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "FP05_PathLogSteps_Detail_Small"
+  ],
+  "name_zh": "原木階梯",
+  "slot": "D1_ForestEdge_to_D2_ElderTree",
+  "note": "原木階梯（三視圖 FP05 candidate-01）：寬 2.0 m（同 FP01 加寬）、長 3 m，踏面總共升高 1.5 m（六階，每階 0.25 m、踏深 0.4 m）。六根半埋的原木（直徑約 0.27 m、長約 1.95 m）橫在每一階前緣，頂面被踩出一條平的淺色木心，下坡側各兩根木樁擋住；第三根是後來換上的新木，顏色較淺、苔少。木頭後面填實的土就是踏面；整段是實心土楔，底面在 z = 0。工作包寫 1.6×3×1.5，寬度已依指示改 2.0；1.5 是踏面升高，加上兩側土埂與蕨，總高約 1.7 m。兩端截面就是套件共用截面；上端接口高 1.5 m。碰撞：每階一個垂直台階（在原木前緣 0.55 半徑處），台階高 0.25 m；接口 Socket_Path_W（階腳）／Socket_Path_E（階頂）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 35064,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 17530,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 5258,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "FP05_PathLogSteps_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "FP05_PathLogSteps_Metallic.png": [
+      2048,
+      2048
+    ],
+    "FP05_PathLogSteps_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "FP05_PathLogSteps_Normal.png": [
+      2048,
+      2048
+    ],
+    "FP05_PathLogSteps_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint at the foot of the steps (z = 0); climbs along +Y, front (-Y) is the foot",
+  "dimensions_m": [
+    2.0,
+    3.0,
+    1.6716
+  ],
+  "bounds_min_m": [
+    -1.0,
+    -1.5,
+    0.0
+  ],
+  "bounds_max_m": [
+    1.0,
+    1.5,
+    1.6716
+  ],
+  "size_limit_m": [
+    2.0,
+    3.0,
+    1.8
+  ],
+  "pieces": {
+    "Ground": {
+      "dims_m": [
+        2.0,
+        3.0,
+        1.6199
+      ],
+      "min": [
+        -1.0,
+        -1.5,
+        0.0
+      ],
+      "max": [
+        1.0,
+        1.5,
+        1.6199
+      ]
+    },
+    "Main": {
+      "dims_m": [
+        1.9496,
+        2.5254,
+        1.6201
+      ],
+      "min": [
+        -0.9749,
+        -1.3914,
+        0.0199
+      ],
+      "max": [
+        0.9747,
+        1.134,
+        1.64
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        1.9755,
+        2.6972,
+        1.644
+      ],
+      "min": [
+        -0.9939,
+        -1.312,
+        0.0276
+      ],
+      "max": [
+        0.9816,
+        1.3851,
+        1.6716
+      ]
+    }
+  },
+  "lods": {
+    "Ground": {
+      "LOD0": 6304,
+      "LOD1": 4842,
+      "LOD2": 2778
+    },
+    "Main": {
+      "LOD0": 20384,
+      "LOD1": 8994,
+      "LOD2": 1758
+    },
+    "Detail_Small": {
+      "LOD0": 8376,
+      "LOD1": 3694,
+      "LOD2": 722
+    }
+  },
+  "lod_totals": {
+    "LOD0": 35064,
+    "LOD1": 17530,
+    "LOD2": 5258
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FP05_PathLogSteps_Main"
+  ],
+  "textures": [
+    "FP05_PathLogSteps_BaseColor.png",
+    "FP05_PathLogSteps_Metallic.png",
+    "FP05_PathLogSteps_MetallicSmoothness.png",
+    "FP05_PathLogSteps_Normal.png",
+    "FP05_PathLogSteps_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "FP05_PathLogSteps_BaseColor.png",
+    "Normal": "FP05_PathLogSteps_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "FP05_PathLogSteps_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FP05_PathLogSteps_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Path_W": [
+      0.0,
+      -1.5,
+      0.0
+    ],
+    "Socket_Path_E": [
+      0.0,
+      1.5,
+      1.5
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Path_E.001": [
+      0.0,
+      1.5,
+      1.5
+    ],
+    "Socket_Path_W.001": [
+      0.0,
+      -1.5,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "FP05_PathLogSteps.001",
+    "FP05_PathLogSteps_Collision.001",
+    "FP05_PathLogSteps_Detail_Small_LOD0.001",
+    "FP05_PathLogSteps_Detail_Small_LOD1.001",
+    "FP05_PathLogSteps_Detail_Small_LOD2.001",
+    "FP05_PathLogSteps_Ground_LOD0.001",
+    "FP05_PathLogSteps_Ground_LOD1.001",
+    "FP05_PathLogSteps_Ground_LOD2.001",
+    "FP05_PathLogSteps_LOD0.001",
+    "FP05_PathLogSteps_LOD1.001",
+    "FP05_PathLogSteps_LOD2.001",
+    "Socket_Path_E.001",
+    "Socket_Path_W.001"
+  ],
+  "glb": "FP05_PathLogSteps_v001.glb",
+  "interface": {
+    "length_m": 3.0,
+    "width_m": 2.0,
+    "section": "fp_parts.section: tread 1.16 m wide at 0.055-0.06 m, bank crests 0.12 m at 0.82 m out, edge 0.012 m at 1.0 m",
+    "joint": "next piece: its Socket_Path_W on this Socket_Path_E, rotated 180 deg about Z",
+    "end_section_vertices": 41,
+    "walk": "from Socket_Path_W (s = 0) to Socket_Path_E (s = L)",
+    "socket_heights_m": [
+      0.0,
+      1.5
+    ],
+    "sockets": [
+      "Socket_Path_E",
+      "Socket_Path_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/forest-paths-b/); procedural shaders (fp_mats.py, cr_mats.py, fr_mats.py) baked to one 2048 atlas; walking surface LODs by dropping grid rows (end rows kept)",
+  "ground_rows_per_lod": {
+    "LOD0": 61,
+    "LOD1": 44,
+    "LOD2": 20
+  },
+  "seam_normals_set": {
+    "FP05_PathLogSteps_Ground_LOD0": 160,
+    "FP05_PathLogSteps_Ground_LOD1": 160,
+    "FP05_PathLogSteps_Ground_LOD2": 160
+  },
+  "leaves_laid": 95,
+  "reference": "art/references/FP05/ (AI three-view FP05/candidate-01; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "not yet: Unity check not run (project editor 6000.0.82f1 is not installed here)"
+}

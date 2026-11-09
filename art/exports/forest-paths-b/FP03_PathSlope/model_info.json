@@ -1,0 +1,244 @@
+{
+  "asset": "FP03_PathSlope",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "FP03_PathSlope_Detail_Small"
+  ],
+  "name_zh": "林間土路坡段",
+  "slot": "D1_ForestEdge_to_D2_ElderTree",
+  "note": "林間土路坡段（三視圖 FP03 candidate-01）：長 6 m、寬 2.0 m（同 FP01 加寬），上升 1.2 m；坡形是平滑 S 形，兩端水平，中間最陡 16.7°（要求 ≤ 25°）。整段是實心土楔，底面在 z = 0。踏面兩側各一道雨水沖出的淺溝（最深 1.4 cm，在最陡處）；最陡的中段壓著三塊扁石當踏腳，兩條樹根斜過路面把坡抓住。兩端截面就是套件共用截面；上端接口高 1.2 m。碰撞：共用截面沿坡形的簡化土板（每 0.25 m 一段）；接口 Socket_Path_W（坡腳）／Socket_Path_E（坡頂）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 33126,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 16562,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 5302,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "FP03_PathSlope_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "FP03_PathSlope_Metallic.png": [
+      2048,
+      2048
+    ],
+    "FP03_PathSlope_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "FP03_PathSlope_Normal.png": [
+      2048,
+      2048
+    ],
+    "FP03_PathSlope_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint at the foot of the slope (z = 0); climbs along +X",
+  "dimensions_m": [
+    6.0,
+    2.0,
+    1.3685
+  ],
+  "bounds_min_m": [
+    -3.0,
+    -1.0,
+    0.0
+  ],
+  "bounds_max_m": [
+    3.0,
+    1.0,
+    1.3685
+  ],
+  "size_limit_m": [
+    6.0,
+    2.0,
+    1.6
+  ],
+  "pieces": {
+    "Ground": {
+      "dims_m": [
+        6.0,
+        2.0,
+        1.3189
+      ],
+      "min": [
+        -3.0,
+        -1.0,
+        0.0
+      ],
+      "max": [
+        3.0,
+        1.0,
+        1.3189
+      ]
+    },
+    "Main": {
+      "dims_m": [
+        3.1873,
+        1.9016,
+        1.0637
+      ],
+      "min": [
+        -1.4763,
+        -0.9379,
+        0.1667
+      ],
+      "max": [
+        1.711,
+        0.9637,
+        1.2304
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        5.6714,
+        1.9671,
+        1.3055
+      ],
+      "min": [
+        -2.8526,
+        -0.9848,
+        0.063
+      ],
+      "max": [
+        2.8188,
+        0.9824,
+        1.3685
+      ]
+    }
+  },
+  "lods": {
+    "Ground": {
+      "LOD0": 11218,
+      "LOD1": 6144,
+      "LOD2": 2016
+    },
+    "Main": {
+      "LOD0": 3080,
+      "LOD1": 1464,
+      "LOD2": 462
+    },
+    "Detail_Small": {
+      "LOD0": 18828,
+      "LOD1": 8954,
+      "LOD2": 2824
+    }
+  },
+  "lod_totals": {
+    "LOD0": 33126,
+    "LOD1": 16562,
+    "LOD2": 5302
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FP03_PathSlope_Main"
+  ],
+  "textures": [
+    "FP03_PathSlope_BaseColor.png",
+    "FP03_PathSlope_Metallic.png",
+    "FP03_PathSlope_MetallicSmoothness.png",
+    "FP03_PathSlope_Normal.png",
+    "FP03_PathSlope_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "FP03_PathSlope_BaseColor.png",
+    "Normal": "FP03_PathSlope_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "FP03_PathSlope_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FP03_PathSlope_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Path_W": [
+      -3.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Path_E": [
+      3.0,
+      0.0,
+      1.2
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Path_E.001": [
+      3.0,
+      0.0,
+      1.2
+    ],
+    "Socket_Path_W.001": [
+      -3.0,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "FP03_PathSlope.001",
+    "FP03_PathSlope_Collision.001",
+    "FP03_PathSlope_Detail_Small_LOD0.001",
+    "FP03_PathSlope_Detail_Small_LOD1.001",
+    "FP03_PathSlope_Detail_Small_LOD2.001",
+    "FP03_PathSlope_Ground_LOD0.001",
+    "FP03_PathSlope_Ground_LOD1.001",
+    "FP03_PathSlope_Ground_LOD2.001",
+    "FP03_PathSlope_LOD0.001",
+    "FP03_PathSlope_LOD1.001",
+    "FP03_PathSlope_LOD2.001",
+    "Socket_Path_E.001",
+    "Socket_Path_W.001"
+  ],
+  "glb": "FP03_PathSlope_v001.glb",
+  "interface": {
+    "length_m": 6.0,
+    "width_m": 2.0,
+    "section": "fp_parts.section: tread 1.16 m wide at 0.055-0.06 m, bank crests 0.12 m at 0.82 m out, edge 0.012 m at 1.0 m",
+    "joint": "next piece: its Socket_Path_W on this Socket_Path_E, rotated 180 deg about Z",
+    "end_section_vertices": 41,
+    "walk": "from Socket_Path_W (s = 0) to Socket_Path_E (s = L)",
+    "socket_heights_m": [
+      0.0,
+      1.2
+    ],
+    "sockets": [
+      "Socket_Path_E",
+      "Socket_Path_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/forest-paths-b/); procedural shaders (fp_mats.py, cr_mats.py, fr_mats.py) baked to one 2048 atlas; walking surface LODs by dropping grid rows (end rows kept)",
+  "ground_rows_per_lod": {
+    "LOD0": 121,
+    "LOD1": 62,
+    "LOD2": 14
+  },
+  "seam_normals_set": {
+    "FP03_PathSlope_Ground_LOD0": 160,
+    "FP03_PathSlope_Ground_LOD1": 160,
+    "FP03_PathSlope_Ground_LOD2": 160
+  },
+  "leaves_laid": 210,
+  "reference": "art/references/FP03/ (AI three-view FP03/candidate-01; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "not yet: Unity check not run (project editor 6000.0.82f1 is not installed here)"
+}
