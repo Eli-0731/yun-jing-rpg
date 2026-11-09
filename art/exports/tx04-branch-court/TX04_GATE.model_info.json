@@ -2,8 +2,8 @@
  "id": "TX04-GATE",
  "package": "docs/execution/2026-11-05/A-48h-mountain-city-architecture.md",
  "author": "A (Johnnnny0823)",
- "version": "v002",
- "status": "Exported; Imported/Visually Verified/In-game Verified: 未驗",
+ "version": "v003",
+ "status": "Exported; Imported (Unity 6000.0.82f1 check: art/previews/tx04-branch-court/unity/report.txt); In-game Verified: 未驗",
  "dimensions_m": [
   5.916,
   2.946,

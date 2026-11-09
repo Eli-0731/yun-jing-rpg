@@ -136,7 +136,7 @@ def build(mid):
     lods = [{'lod': lv, 'triangles': sum(mc.tris(o) for o in d.values()), 'objects': len(d), 'materials': len({m.name for o in d.values() for m in o.data.materials})}
             for lv, d in ((0, lod0), (1, out[1]), (2, out[2]))]
     info = {'id': f'TX04-{mid.replace("_", "-")}', 'package': 'docs/execution/2026-11-05/A-48h-mountain-city-architecture.md', 'author': 'A (Johnnnny0823)',
-            'version': 'v002', 'status': 'Exported; Imported/Visually Verified/In-game Verified: 未驗',
+            'version': 'v003', 'status': 'Exported; Imported (Unity 6000.0.82f1 check: art/previews/tx04-branch-court/unity/report.txt); In-game Verified: 未驗',
             'dimensions_m': [round(d, 3) for d in dims], 'limit_m': list(lim), 'grid_m': 4.0, 'origin': 'footprint centre, bottom z = 0, -Y = front',
             'minTier': TIER[mid], 'lods': lods, 'objectsLOD0': [o.name for o in lod0.values()],
             'detailObjects': [g for g in lod0 if g.startswith('Detail_')], 'glowObjects': [g for g in lod0 if g == 'Glow'],

@@ -34,3 +34,7 @@ for mid in sys.argv[1:]:
 S = 'TX04_sample_gate_walls_'
 row([PRE / f'{S}three_quarter.png', PRE / f'{S}three_quarter_clay.png', PRE / f'{S}front.png', PRE / f'{S}eye_1p7m.png'],
     ['樣品：院門＋兩側直牆（材質）', '灰模（同光同角度）', '正面', '1.7 m 人眼'], name='TX04_sample_gate_walls_sheet.jpg')
+A = 'TX04_academy_'
+if (PRE / f'{A}aerial.png').exists():
+    row([PRE / f'{A}aerial.png', PRE / f'{A}aerial_clay.png'], ['分院組裝（材質）', '灰模（同光同角度）'], h=720, name='TX04_academy_sheet_a.jpg')
+    row([PRE / f'{A}front.png', PRE / f'{A}courtyard_eye_1p7m.png'], ['正面', '院內 1.7 m 人眼'], h=720, name='TX04_academy_sheet_b.jpg')

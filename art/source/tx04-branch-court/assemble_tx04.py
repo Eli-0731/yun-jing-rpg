@@ -1,14 +1,20 @@
-"""Sample assembly for the TX04 PR: the gate with two straight wall segments on each side (LOD0, Cycles), material and clay,
-three-quarter and front views with a 1.75 m figure.
+"""TX04 assemblies (LOD0, Cycles), material and clay, with a 1.75 m figure.
+default: the sample (gate with two straight wall segments each side). --academy: the whole branch academy on the 4 m grid -
+gate in the front wall, corner walls, side walls, a rear doorway between two WALL_DO, the main hall at the back, the two side
+wings facing the courtyard and six paving bays (STEPS is a terrace piece and is shown on its own).
 
-    blender -b --factory-startup -P art/source/tx04-branch-court/assemble_tx04.py -- [--clay]
+    blender -b --factory-startup -P art/source/tx04-branch-court/assemble_tx04.py -- [--academy] [--clay]
 """
 import bpy, math, sys
 from pathlib import Path
 from mathutils import Vector, Matrix
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parents[2]; OUT = ROOT / 'art/previews/tx04-branch-court'; OUT.mkdir(parents=True, exist_ok=True)
-CLAY = '--clay' in sys.argv
-PARTS = [('GATE', (0, 0, 0), 0), ('WALL_ST', (-4.15, .04, 0), 0), ('WALL_ST', (-8.15, .04, 0), 0), ('WALL_ST', (4.15, .04, 0), 180), ('WALL_ST', (8.15, .04, 0), 180)]
+SAMPLE = [('GATE', (0, 0, 0), 0), ('WALL_ST', (-4.15, .04, 0), 0), ('WALL_ST', (-8.15, .04, 0), 0), ('WALL_ST', (4.15, .04, 0), 180), ('WALL_ST', (8.15, .04, 0), 180)]
+CLAY = '--clay' in sys.argv; ACAD = '--academy' in sys.argv
+if ACAD:   # the layout lives in the export folder so Unity places the same thing
+    import json
+    PARTS = [(p['id'], tuple(p['pos']), p['rotZ']) for p in json.loads((ROOT / 'art/exports/tx04-branch-court/tx04-academy-assembly.json').read_text(encoding='utf-8'))['parts']]
+if not ACAD: PARTS = SAMPLE
 bpy.ops.wm.read_factory_settings(use_empty=True); sc = bpy.context.scene
 sc.render.engine = 'CYCLES'; sc.cycles.samples = 64; sc.cycles.use_denoising = True
 try:
@@ -33,11 +39,15 @@ for mid, pos, rz in PARTS:
             for o in cache[mid]: o.data.materials.clear(); o.data.materials.append(clay)
     for s in cache[mid]:
         o = s.copy(); sc.collection.objects.link(o); o.matrix_world = Matrix.Translation(Vector(pos)) @ Matrix.Rotation(math.radians(rz), 4, 'Z'); objs.append(o)
-bpy.ops.mesh.primitive_cylinder_add(radius=.18, depth=1.45, location=(-1.6, -2.6, .725)); b = bpy.context.object
-bpy.ops.mesh.primitive_uv_sphere_add(radius=.13, location=(-1.6, -2.6, 1.62)); h = bpy.context.object
+fx, fy = (1.6, -6.0) if ACAD else (-1.6, -2.6)
+bpy.ops.mesh.primitive_cylinder_add(radius=.18, depth=1.45, location=(fx, fy, .725)); b = bpy.context.object
+bpy.ops.mesh.primitive_uv_sphere_add(radius=.13, location=(fx, fy, 1.62)); h = bpy.context.object
 fm = bpy.data.materials.new('fig'); fm.use_nodes = True; fm.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = (.35, .38, .42, 1)
 for o in (b, h): o.data.materials.append(fm)
 cam = bpy.data.objects.new('cam', bpy.data.cameras.new('cam')); sc.collection.objects.link(cam); sc.camera = cam
-for name, loc, at, lens in (('three_quarter', (-9.5, -13.5, 6.0), (0, 0, 2.4), 35), ('front', (0, -17, 2.6), (0, 0, 2.6), 35), ('eye_1p7m', (-2.5, -9.0, 1.7), (0, 0, 3.0), 28)):
+VIEWS = ((('aerial', (-24, -30, 21), (0, -1, 1.5), 35), ('front', (0, -40, 5.5), (0, 0, 4.0), 35), ('courtyard_eye_1p7m', (-1.2, -7.6, 1.7), (0, 4.5, 3.6), 24))
+         if ACAD else (('three_quarter', (-9.5, -13.5, 6.0), (0, 0, 2.4), 35), ('front', (0, -17, 2.6), (0, 0, 2.6), 35), ('eye_1p7m', (-2.5, -9.0, 1.7), (0, 0, 3.0), 28)))
+STEM = 'TX04_academy_' if ACAD else 'TX04_sample_gate_walls_'
+for name, loc, at, lens in VIEWS:
     cam.location = loc; cam.data.lens = lens; cam.rotation_euler = (Vector(at) - Vector(loc)).to_track_quat('-Z', 'Y').to_euler()
-    sc.render.filepath = str(OUT / f'TX04_sample_gate_walls_{name}{"_clay" if CLAY else ""}.png'); bpy.ops.render.render(write_still=True); print('wrote', sc.render.filepath, flush=True)
+    sc.render.filepath = str(OUT / f'{STEM}{name}{"_clay" if CLAY else ""}.png'); bpy.ops.render.render(write_still=True); print('wrote', sc.render.filepath, flush=True)
