@@ -1,0 +1,26 @@
+BM09 第二版參考圖與自評（2026-11-07，#69 審查：自己從三視圖開始重做）
+選用：BM09-large-v2-cand-3.png（92分）；BM09-curly-v2-cand-4.png（92分）。
+
+評分：比例和尺寸 30／三面一致 25／工作包細節（單一冠部、長羽葉的方向和彎曲、老葉褐尖）30／乾淨無字 15。
+- large-v2-cand-1：89（27+21+27+14）。三面清楚，但正面和側面幾乎一樣寬，頂視有投影。
+- large-v2-cand-2：88（27+20+27+14）。側面偏窄、外圈葉垂得過低，正側不對應。
+- large-v2-cand-3：92（28+22+28+14）。選用。單冠、羽葉由中心直立到外圈拱垂的層次最清楚；老葉褐尖只在最外圈下垂的葉；頂視對稱。
+- large-v2-cand-4：91（28+21+28+14）。和 3 號接近，褐葉比例稍多，頂視中心偏亂。
+- curly-v2-cand-1：88（27+20+27+14）。三面排成一列、頂視和側視大小不一。
+- curly-v2-cand-2：87（26+20+27+14）。株形偏高直、不夠矮。
+- curly-v2-cand-3：91（28+21+28+14）。捲尖清楚，但頂視投影很重。
+- curly-v2-cand-4：92（28+22+28+14）。選用。矮而外展，葉尖捲起、中心有新捲芽，老葉褐尖在外圈；三面一致。
+
+建模取捨：精確做成 0.8 m 和 0.3 m 高、單一冠部，不做參考圖的苔土底座和小石頭。羽片近看是一片片獨立、往下拱的面片，沿葉軸斜向前長；遠的 LOD 改成兩側下垂的帶狀面片。枯斷葉在 Detail_DryFronds。
+
+== large 提示詞（四張相同） ==
+Three-view turnaround of a large wild fern with long arching feathery fronds about 0.8 m tall, form: fronds rising from one crown at the soil line, surface: fresh green fronds with brown dried tips on the oldest ones. Layout: front, side and top views, same scale, plain light warm-grey background, even soft lighting.
+Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality.
+Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye
+Output: landscape 1536 x 1024, highest available quality.
+
+== curly 提示詞（四張相同） ==
+Three-view turnaround of a low curly woodland fern about 0.3 m tall, form: fronds rising from one crown at the soil line, surface: fresh green fronds with brown dried tips on the oldest ones. Layout: front, side and top views, same scale, plain light warm-grey background, even soft lighting.
+Art direction: semi-realistic 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), rendered like a high-end game asset with believable physically based materials: real wood grain and fibres, natural wear, grime and weathering, only a light painterly touch in the colour variation, no outlines and no cartoon shading, warm golden morning light from a low sun, soft warm rim light on edges, gentle cool blue-violet shadows (never pure black), natural colour palette (aged brown timber, warm grey stone, sunlit warm yellow-greens, cool teal shade greens), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, accurate real-world scale and proportions, clear readable shapes and a strong silhouette, game-ready asset look, high quality.
+Avoid: cartoon, stylized, cel-shaded, toon shading, thick outlines, ink outlines, flat colour fills, chibi, anime, mobile game icon look, plastic, glossy, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, noon lighting, modern objects, text, letters, numbers, Chinese characters, signature, logo, UI, watermark, frame, border, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, noisy texture, blurry, low resolution, cropped, cut off, floating parts, perspective distortion, fisheye
+Output: landscape 1536 x 1024, highest available quality.

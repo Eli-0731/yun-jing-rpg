@@ -1,0 +1,874 @@
+{
+ "SB01": {
+  "objects": {
+   "Detail_Moss_LOD0": {
+    "tris": 1200,
+    "errors": [
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [0.956, 1.918, 0.52])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.941, 1.027, 0.52])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.576, 1.938, 0.856])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [0.283, 1.913, 0.858])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.183, 1.916, 0.856])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.696, 1.934, 0.856])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.108, 1.93, 1.295])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [0.406, 1.938, 1.3])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-0.231, 1.942, 1.297])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.12, 1.932, 1.296])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.669, 1.945, 1.59])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [0.203, 1.913, 1.596])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-0.645, 1.911, 1.595])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.386, 1.931, 1.591])"
+    ],
+    "warnings": [
+     "Detail_Moss_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Detail_Moss_LOD0: 30 n-gons",
+     "asset lowest point z=0.4877 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_SB01_LOD0": {
+    "tris": 20508,
+    "errors": [],
+    "warnings": [
+     "MC01_SB01_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "hidden back-to-back faces: MC01_SB01_LOD0 (11 pairs) - delete to save tris",
+     "asset lowest point z=0.0021 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.9
+   },
+   "JOINED_Detail_Moss_LOD0+MC01_SB01_LOD0": {
+    "tris": 21708,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.999,
+   3.998,
+   1.998
+  ],
+  "built_dims": [
+   3.999,
+   3.998,
+   1.998
+  ],
+  "reimport_error_m": 0.0
+ },
+ "SB02": {
+  "objects": {
+   "Detail_Moss_LOD0": {
+    "tris": 1200,
+    "errors": [
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.937, -1.007, 0.521])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.938, -0.247, 0.519])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [0.898, 1.936, 0.52])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.359, 1.932, 0.521])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.523, 1.938, 0.85])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-0.121, 1.931, 0.849])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.571, 1.93, 0.85])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [0.693, 1.929, 1.18])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [0.103, 1.931, 1.179])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-0.652, 1.933, 1.178])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.412, 1.937, 1.177])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.507, 1.931, 1.508])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [0.608, 1.931, 1.509])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.595, 1.937, 1.509])"
+    ],
+    "warnings": [
+     "Detail_Moss_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Detail_Moss_LOD0: 30 n-gons",
+     "asset lowest point z=0.486 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_SB02_LOD0": {
+    "tris": 24088,
+    "errors": [],
+    "warnings": [
+     "MC01_SB02_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)"
+    ],
+    "sec": 1.2
+   },
+   "JOINED_Detail_Moss_LOD0+MC01_SB02_LOD0": {
+    "tris": 25288,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.999,
+   4.0,
+   2.0
+  ],
+  "built_dims": [
+   3.999,
+   4.0,
+   2.0
+  ],
+  "reimport_error_m": 0.0
+ },
+ "SB03": {
+  "objects": {
+   "Detail_Moss_LOD0": {
+    "tris": 1040,
+    "errors": [
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-0.412, -1.926, 0.519])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.153, 1.94, 0.521])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [0.559, 1.939, 0.52])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.915, -1.719, 0.521])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.701, 1.925, 0.821])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-0.17, 1.913, 0.823])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.3, 1.919, 1.115])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-0.251, 1.939, 1.117])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.291, 1.942, 1.117])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.02, 1.939, 1.491])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [0.073, 1.936, 1.488])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.314, 1.911, 1.489])"
+    ],
+    "warnings": [
+     "Detail_Moss_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Detail_Moss_LOD0: 26 n-gons",
+     "asset lowest point z=0.4877 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_SB03_LOD0": {
+    "tris": 20436,
+    "errors": [],
+    "warnings": [
+     "MC01_SB03_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_SB03_LOD0: 4 n-gons",
+     "hidden back-to-back faces: MC01_SB03_LOD0 (20 pairs) - delete to save tris"
+    ],
+    "sec": 0.9
+   },
+   "JOINED_Detail_Moss_LOD0+MC01_SB03_LOD0": {
+    "tris": 21476,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.999,
+   3.999,
+   1.998
+  ],
+  "built_dims": [
+   3.999,
+   3.999,
+   1.998
+  ],
+  "reimport_error_m": 0.0
+ },
+ "SB04": {
+  "objects": {
+   "MC01_SB04_LOD0": {
+    "tris": 15424,
+    "errors": [],
+    "warnings": [
+     "MC01_SB04_LOD0: ~99.74% UV overlap (ok only if mirrored/stacked on purpose; bakes break)"
+    ],
+    "sec": 0.7
+   }
+  },
+  "reimport_dims": [
+   3.995,
+   3.998,
+   1.998
+  ],
+  "built_dims": [
+   3.995,
+   3.998,
+   1.998
+  ],
+  "reimport_error_m": 0.0
+ },
+ "SB05": {
+  "objects": {
+   "Detail_Moss_LOD0": {
+    "tris": 320,
+    "errors": [
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [1.314, 1.918, 0.417])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.915, 0.884, 0.422])",
+     "floating/detached part in Detail_Moss_LOD0 (42 verts at [-1.927, -0.317, 0.423])"
+    ],
+    "warnings": [
+     "Detail_Moss_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Detail_Moss_LOD0: 8 n-gons",
+     "asset lowest point z=0.3855 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_SB05_LOD0": {
+    "tris": 11760,
+    "errors": [],
+    "warnings": [
+     "MC01_SB05_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "hidden back-to-back faces: MC01_SB05_LOD0 (4 pairs) - delete to save tris"
+    ],
+    "sec": 0.6
+   },
+   "JOINED_Detail_Moss_LOD0+MC01_SB05_LOD0": {
+    "tris": 12080,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.999,
+   3.999,
+   0.999
+  ],
+  "built_dims": [
+   3.999,
+   3.999,
+   0.999
+  ],
+  "reimport_error_m": 0.0
+ },
+ "SF01": {
+  "objects": {
+   "Detail_Cloth_LOD0": {
+    "tris": 1706,
+    "errors": [],
+    "warnings": [
+     "Detail_Cloth_LOD0: ~96.89% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Detail_Cloth_LOD0: 18 n-gons",
+     "asset lowest point z=0.79 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "Detail_Lanterns_LOD0": {
+    "tris": 1824,
+    "errors": [],
+    "warnings": [
+     "Detail_Lanterns_LOD0: ~97.4% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Detail_Lanterns_LOD0: duplicate verts=12 loose verts=0",
+     "Detail_Lanterns_LOD0: 20 n-gons",
+     "hidden back-to-back faces: Detail_Lanterns_LOD0 (68 pairs) - delete to save tris",
+     "asset lowest point z=1.704 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "Glow_LOD0": {
+    "tris": 88,
+    "errors": [
+     "floating/detached part in Glow_LOD0 (24 verts at [1.44, -1.78, 2.005])"
+    ],
+    "warnings": [
+     "Glow_LOD0: ~82.61% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Glow_LOD0: 4 n-gons",
+     "asset lowest point z=1.885 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_SF01_LOD0": {
+    "tris": 27732,
+    "errors": [],
+    "warnings": [
+     "MC01_SF01_LOD0: ~98.11% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_SF01_LOD0: 196 n-gons",
+     "hidden back-to-back faces: MC01_SF01_LOD0 (589 pairs) - delete to save tris"
+    ],
+    "sec": 1.3
+   },
+   "JOINED_Glow_LOD0+Detail_Lanterns_LOD0": {
+    "tris": 1912,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.998,
+   3.998,
+   3.0
+  ],
+  "built_dims": [
+   3.998,
+   3.998,
+   3.0
+  ],
+  "reimport_error_m": 0.0
+ },
+ "SF02": {
+  "objects": {
+   "Detail_Cloth_LOD0": {
+    "tris": 1706,
+    "errors": [],
+    "warnings": [
+     "Detail_Cloth_LOD0: ~97.19% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Detail_Cloth_LOD0: 18 n-gons",
+     "asset lowest point z=0.79 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "Detail_Lanterns_LOD0": {
+    "tris": 1824,
+    "errors": [],
+    "warnings": [
+     "Detail_Lanterns_LOD0: ~97.56% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Detail_Lanterns_LOD0: duplicate verts=12 loose verts=0",
+     "Detail_Lanterns_LOD0: 20 n-gons",
+     "hidden back-to-back faces: Detail_Lanterns_LOD0 (68 pairs) - delete to save tris",
+     "asset lowest point z=1.704 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "Glow_LOD0": {
+    "tris": 88,
+    "errors": [
+     "floating/detached part in Glow_LOD0 (24 verts at [1.44, -1.78, 2.005])"
+    ],
+    "warnings": [
+     "Glow_LOD0: ~52.94% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Glow_LOD0: 4 n-gons",
+     "asset lowest point z=1.885 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_SF02_LOD0": {
+    "tris": 40016,
+    "errors": [],
+    "warnings": [
+     "MC01_SF02_LOD0: ~97.94% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_SF02_LOD0: 172 n-gons",
+     "hidden back-to-back faces: MC01_SF02_LOD0 (645 pairs) - delete to save tris"
+    ],
+    "sec": 2.0
+   },
+   "JOINED_Glow_LOD0+Detail_Lanterns_LOD0": {
+    "tris": 1912,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.998,
+   3.998,
+   3.0
+  ],
+  "built_dims": [
+   3.998,
+   3.998,
+   3.0
+  ],
+  "reimport_error_m": 0.0
+ },
+ "SF03": {
+  "objects": {
+   "Detail_Cloth_LOD0": {
+    "tris": 2488,
+    "errors": [],
+    "warnings": [
+     "Detail_Cloth_LOD0: ~97.42% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Detail_Cloth_LOD0: 26 n-gons",
+     "asset lowest point z=0.79 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "Detail_Lanterns_LOD0": {
+    "tris": 2736,
+    "errors": [],
+    "warnings": [
+     "Detail_Lanterns_LOD0: ~98.33% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Detail_Lanterns_LOD0: duplicate verts=18 loose verts=0",
+     "Detail_Lanterns_LOD0: 30 n-gons",
+     "hidden back-to-back faces: Detail_Lanterns_LOD0 (102 pairs) - delete to save tris",
+     "asset lowest point z=1.704 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "Glow_LOD0": {
+    "tris": 132,
+    "errors": [
+     "floating/detached part in Glow_LOD0 (24 verts at [-1.02, -1.78, 2.005])",
+     "floating/detached part in Glow_LOD0 (24 verts at [1.44, -1.78, 2.005])"
+    ],
+    "warnings": [
+     "Glow_LOD0: ~55.81% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Glow_LOD0: 6 n-gons",
+     "asset lowest point z=1.885 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_SF03_LOD0": {
+    "tris": 29688,
+    "errors": [],
+    "warnings": [
+     "MC01_SF03_LOD0: ~97.93% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_SF03_LOD0: 238 n-gons",
+     "hidden back-to-back faces: MC01_SF03_LOD0 (644 pairs) - delete to save tris"
+    ],
+    "sec": 1.3
+   },
+   "JOINED_Glow_LOD0+Detail_Lanterns_LOD0": {
+    "tris": 2868,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.998,
+   3.998,
+   3.0
+  ],
+  "built_dims": [
+   3.998,
+   3.998,
+   3.0
+  ],
+  "reimport_error_m": 0.0
+ },
+ "HM01": {
+  "objects": {
+   "Glow_LOD0": {
+    "tris": 24,
+    "errors": [
+     "floating/detached part in Glow_LOD0 (8 verts at [0.7, -1.812, 1.7])"
+    ],
+    "warnings": [
+     "Glow_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "asset lowest point z=1.17 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_HM01_LOD0": {
+    "tris": 9800,
+    "errors": [],
+    "warnings": [
+     "MC01_HM01_LOD0: ~99.54% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_HM01_LOD0: 8 n-gons",
+     "hidden back-to-back faces: MC01_HM01_LOD0 (137 pairs) - delete to save tris"
+    ],
+    "sec": 0.6
+   },
+   "JOINED_Glow_LOD0+MC01_HM01_LOD0": {
+    "tris": 9824,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.88,
+   3.88,
+   3.0
+  ],
+  "built_dims": [
+   3.88,
+   3.88,
+   3.0
+  ],
+  "reimport_error_m": 0.0
+ },
+ "HM02": {
+  "objects": {
+   "Glow_LOD0": {
+    "tris": 12,
+    "errors": [],
+    "warnings": [
+     "Glow_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "asset lowest point z=1.17 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_HM02_LOD0": {
+    "tris": 9340,
+    "errors": [],
+    "warnings": [
+     "MC01_HM02_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_HM02_LOD0: 6 n-gons",
+     "hidden back-to-back faces: MC01_HM02_LOD0 (147 pairs) - delete to save tris"
+    ],
+    "sec": 0.6
+   },
+   "JOINED_Glow_LOD0+MC01_HM02_LOD0": {
+    "tris": 9352,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.88,
+   3.88,
+   3.0
+  ],
+  "built_dims": [
+   3.88,
+   3.88,
+   3.0
+  ],
+  "reimport_error_m": 0.0
+ },
+ "HM03": {
+  "objects": {
+   "Glow_LOD0": {
+    "tris": 24,
+    "errors": [
+     "floating/detached part in Glow_LOD0 (8 verts at [1.812, 0.3, 1.7])"
+    ],
+    "warnings": [
+     "Glow_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "asset lowest point z=1.17 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_HM03_LOD0": {
+    "tris": 9464,
+    "errors": [],
+    "warnings": [
+     "MC01_HM03_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_HM03_LOD0: 6 n-gons",
+     "hidden back-to-back faces: MC01_HM03_LOD0 (133 pairs) - delete to save tris"
+    ],
+    "sec": 0.5
+   },
+   "JOINED_Glow_LOD0+MC01_HM03_LOD0": {
+    "tris": 9488,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.88,
+   3.88,
+   3.0
+  ],
+  "built_dims": [
+   3.88,
+   3.88,
+   3.0
+  ],
+  "reimport_error_m": 0.0
+ },
+ "RF01": {
+  "objects": {
+   "MC01_RF01_LOD0": {
+    "tris": 80552,
+    "errors": [],
+    "warnings": [
+     "MC01_RF01_LOD0: ~96.53% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_RF01_LOD0: duplicate verts=2 loose verts=0",
+     "MC01_RF01_LOD0: 478 n-gons",
+     "hidden back-to-back faces: MC01_RF01_LOD0 (97 pairs) - delete to save tris"
+    ],
+    "sec": 2.5
+   }
+  },
+  "reimport_dims": [
+   5.54,
+   5.512,
+   1.824
+  ],
+  "built_dims": [
+   5.54,
+   5.512,
+   1.824
+  ],
+  "reimport_error_m": 0.0
+ },
+ "RF02": {
+  "objects": {
+   "MC01_RF02_LOD0": {
+    "tris": 54368,
+    "errors": [],
+    "warnings": [
+     "MC01_RF02_LOD0: ~97.97% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_RF02_LOD0: 226 n-gons",
+     "hidden back-to-back faces: MC01_RF02_LOD0 (4 pairs) - delete to save tris"
+    ],
+    "sec": 1.7
+   }
+  },
+  "reimport_dims": [
+   3.998,
+   5.476,
+   1.824
+  ],
+  "built_dims": [
+   3.998,
+   5.476,
+   1.824
+  ],
+  "reimport_error_m": 0.0
+ },
+ "RF03": {
+  "objects": {
+   "MC01_RF03_LOD0": {
+    "tris": 67752,
+    "errors": [],
+    "warnings": [
+     "MC01_RF03_LOD0: ~96.94% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_RF03_LOD0: 356 n-gons",
+     "hidden back-to-back faces: MC01_RF03_LOD0 (8 pairs) - delete to save tris"
+    ],
+    "sec": 2.2
+   }
+  },
+  "reimport_dims": [
+   4.769,
+   5.511,
+   1.824
+  ],
+  "built_dims": [
+   4.769,
+   5.511,
+   1.824
+  ],
+  "reimport_error_m": 0.0
+ },
+ "RF04": {
+  "objects": {
+   "MC01_RF04_LOD0": {
+    "tris": 38748,
+    "errors": [],
+    "warnings": [
+     "MC01_RF04_LOD0: ~99.46% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_RF04_LOD0: 138 n-gons",
+     "hidden back-to-back faces: MC01_RF04_LOD0 (3 pairs) - delete to save tris"
+    ],
+    "sec": 1.2
+   }
+  },
+  "reimport_dims": [
+   3.998,
+   4.756,
+   1.72
+  ],
+  "built_dims": [
+   3.998,
+   4.756,
+   1.72
+  ],
+  "reimport_error_m": 0.0
+ },
+ "CP01": {
+  "objects": {
+   "MC01_CP01_LOD0": {
+    "tris": 14712,
+    "errors": [],
+    "warnings": [
+     "MC01_CP01_LOD0: ~99.89% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_CP01_LOD0: 22 n-gons",
+     "hidden back-to-back faces: MC01_CP01_LOD0 (54 pairs) - delete to save tris"
+    ],
+    "sec": 0.7
+   }
+  },
+  "reimport_dims": [
+   3.99,
+   2.995,
+   3.0
+  ],
+  "built_dims": [
+   3.99,
+   2.995,
+   3.0
+  ],
+  "reimport_error_m": 0.0
+ },
+ "CP02": {
+  "objects": {
+   "MC01_CP02_LOD0": {
+    "tris": 12552,
+    "errors": [],
+    "warnings": [
+     "MC01_CP02_LOD0: ~99.79% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_CP02_LOD0: 16 n-gons",
+     "hidden back-to-back faces: MC01_CP02_LOD0 (44 pairs) - delete to save tris"
+    ],
+    "sec": 0.6
+   }
+  },
+  "reimport_dims": [
+   3.994,
+   2.995,
+   3.0
+  ],
+  "built_dims": [
+   3.994,
+   2.995,
+   3.0
+  ],
+  "reimport_error_m": 0.0
+ },
+ "DT01": {
+  "objects": {
+   "Glow_LOD0": {
+    "tris": 44,
+    "errors": [],
+    "warnings": [
+     "Glow_LOD0: ~67.44% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Glow_LOD0: 2 n-gons",
+     "asset lowest point z=1.875 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_DT01_LOD0": {
+    "tris": 2536,
+    "errors": [],
+    "warnings": [
+     "MC01_DT01_LOD0: ~92.89% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_DT01_LOD0: duplicate verts=6 loose verts=0",
+     "MC01_DT01_LOD0: 22 n-gons",
+     "hidden back-to-back faces: MC01_DT01_LOD0 (169 pairs) - delete to save tris"
+    ],
+    "sec": 0.1
+   },
+   "JOINED_Glow_LOD0+MC01_DT01_LOD0": {
+    "tris": 2580,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   0.598,
+   0.598,
+   2.5
+  ],
+  "built_dims": [
+   0.598,
+   0.598,
+   2.5
+  ],
+  "reimport_error_m": 0.0
+ },
+ "DT02": {
+  "objects": {
+   "MC01_DT02_LOD0": {
+    "tris": 1268,
+    "errors": [],
+    "warnings": [
+     "MC01_DT02_LOD0: ~95.92% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_DT02_LOD0: 16 n-gons",
+     "hidden back-to-back faces: MC01_DT02_LOD0 (44 pairs) - delete to save tris",
+     "asset lowest point z=0.005 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   }
+  },
+  "reimport_dims": [
+   0.959,
+   0.14,
+   1.685
+  ],
+  "built_dims": [
+   0.959,
+   0.14,
+   1.685
+  ],
+  "reimport_error_m": 0.0
+ },
+ "DT03": {
+  "objects": {
+   "Glow_LOD0": {
+    "tris": 44,
+    "errors": [],
+    "warnings": [
+     "Glow_LOD0: ~78.95% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "Glow_LOD0: 2 n-gons",
+     "asset lowest point z=0.2128 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "MC01_DT03_LOD0": {
+    "tris": 1148,
+    "errors": [],
+    "warnings": [
+     "MC01_DT03_LOD0: ~96.43% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_DT03_LOD0: duplicate verts=6 loose verts=0",
+     "MC01_DT03_LOD0: 10 n-gons",
+     "hidden back-to-back faces: MC01_DT03_LOD0 (34 pairs) - delete to save tris"
+    ],
+    "sec": 0.1
+   },
+   "JOINED_Glow_LOD0+MC01_DT03_LOD0": {
+    "tris": 1192,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   0.284,
+   0.246,
+   0.681
+  ],
+  "built_dims": [
+   0.284,
+   0.246,
+   0.681
+  ],
+  "reimport_error_m": 0.0
+ },
+ "DT04": {
+  "objects": {
+   "MC01_DT04_LOD0": {
+    "tris": 3684,
+    "errors": [],
+    "warnings": [
+     "MC01_DT04_LOD0: ~96.3% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_DT04_LOD0: 32 n-gons"
+    ],
+    "sec": 0.1
+   }
+  },
+  "reimport_dims": [
+   2.498,
+   0.298,
+   1.3
+  ],
+  "built_dims": [
+   2.498,
+   0.298,
+   1.3
+  ],
+  "reimport_error_m": 0.0
+ },
+ "DT05": {
+  "objects": {
+   "MC01_DT05_LOD0": {
+    "tris": 2200,
+    "errors": [],
+    "warnings": [
+     "MC01_DT05_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)"
+    ],
+    "sec": 0.1
+   }
+  },
+  "reimport_dims": [
+   3.984,
+   0.357,
+   0.197
+  ],
+  "built_dims": [
+   3.984,
+   0.357,
+   0.197
+  ],
+  "reimport_error_m": 0.0
+ },
+ "DT06": {
+  "objects": {
+   "MC01_DT06_LOD0": {
+    "tris": 1632,
+    "errors": [],
+    "warnings": [
+     "MC01_DT06_LOD0: ~96.4% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "MC01_DT06_LOD0: 28 n-gons",
+     "hidden back-to-back faces: MC01_DT06_LOD0 (96 pairs) - delete to save tris"
+    ],
+    "sec": 0.1
+   }
+  },
+  "reimport_dims": [
+   0.698,
+   0.15,
+   0.9
+  ],
+  "built_dims": [
+   0.698,
+   0.15,
+   0.9
+  ],
+  "reimport_error_m": 0.0
+ }
+}

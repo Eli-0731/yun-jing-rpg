@@ -116,31 +116,31 @@
  {
   "file": "art\\exports\\modelling-basics-c\\BM09_01.glb",
   "objects": 3,
-  "triangles": 13972,
+  "triangles": 10090,
   "findings": []
  },
  {
   "file": "art\\exports\\modelling-basics-c\\BM09_02.glb",
   "objects": 3,
-  "triangles": 5706,
+  "triangles": 6606,
   "findings": []
  },
  {
   "file": "art\\exports\\modelling-basics-c\\BM10_01.glb",
   "objects": 1,
-  "triangles": 128,
+  "triangles": 4608,
   "findings": []
  },
  {
   "file": "art\\exports\\modelling-basics-c\\BM10_02.glb",
   "objects": 1,
-  "triangles": 128,
+  "triangles": 512,
   "findings": []
  },
  {
   "file": "art\\exports\\modelling-basics-c\\BM10_03.glb",
   "objects": 1,
-  "triangles": 128,
+  "triangles": 512,
   "findings": []
  }
 ]
