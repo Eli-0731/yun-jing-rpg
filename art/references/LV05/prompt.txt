@@ -1,0 +1,17 @@
+LV05 醃菜甕三個（大中小，有蓋、壓石）（工作包第二部分表 A：0.9 × 0.5 × 0.6 m，練和 BM03 陶罐不同：寬口、厚蓋、蓋上壓一塊石頭）三視圖與自評（2026-11-10）
+選用：LV05-cand-2.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），四張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：88（26+27+23+12）。中甕用布包口、繩綁，不是提示詞的厚陶蓋。
+- cand-2：92（28+29+23+12）。選用。大中小三個深褐釉甕，寬口、厚陶蓋、蓋上各壓一顆灰色河石；釉面有往下的流痕、口沿露出未上釉的陶，大甕蓋緣缺一角，底部一圈濕土和小草。
+- cand-3：89（26+27+23+13）。小甕用布包口；大甕口沿有繩，偏離提示詞。
+- cand-4：89（26+27+23+13）。有甕身貼補丁布，壓石長苔；細節偏多。
+
+建模取捨：照 cand-2。三個甕用不同的輪廓（大甕肩寬、中甕直身、小甕矮胖），都是寬口、口沿未上釉，蓋子是厚陶蓋，蓋上壓河石（練和 BM03 陶罐的差別：寬口、厚蓋、壓石）；釉面流痕、大甕蓋缺角、底部濕土。三個甕各自分開放，不焊成一塊。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a group of three wide-mouthed glazed pickling jars of different sizes, each with a heavy clay lid and a smooth river stone pressing on the lid, group about 0.9 m wide, 0.5 m deep and 0.6 m tall, made of dark brown glazed clay, unglazed rims and grey river stones, showing drip marks on the glaze, a chipped lid edge and damp soil around the bases, used in the yards of houses in a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

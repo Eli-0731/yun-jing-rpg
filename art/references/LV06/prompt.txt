@@ -1,0 +1,17 @@
+LV06 劈柴木墩與柴刀（工作包第二部分表 A：0.6 × 0.6 × 0.6 m，練年輪切面、刀砍的痕、刀插在木墩上）三視圖與自評（2026-11-10）
+選用：LV06-cand-4.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），四張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（27+28+23+13）。木墩直身、頂面刀痕和年輪清楚，柴刀窄長；腳邊一堆劈柴。
+- cand-2：92（28+28+24+12）。根部外撇、樹皮一片片剝落，頂面放射裂紋；柴刀偏小。
+- cand-3：91（27+28+23+13）。和 cand-1 相近，刀形像短刀。
+- cand-4：93（28+29+24+12）。選用。木墩根部外撇、樹皮剝落露出淺色木頭；頂面年輪、放射裂紋和許多交叉的刀痕；一把寬刃柴刀斜插在頂上、木柄纏布條；腳邊幾塊劈好的柴和木屑。
+
+建模取捨：照 cand-4。木墩頂面做年輪切面和交叉刀痕（練「年輪切面、刀砍的痕」），柴刀斜插進頂面（刀身一部分埋在木頭裡，練「刀插在木墩上」）；側面樹皮一片片剝落、底部外撇；腳邊兩三塊劈柴（Detail_）。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a thick tree-stump chopping block with a small chopping knife stuck into its top and a few split firewood pieces at its foot, about 0.6 m wide and 0.6 m tall, made of old pale stump wood with visible growth rings, an iron blade with a wooden handle and split pine, showing many crossing cut marks on the top, bark peeling at the sides and wood chips on the ground, used in the yards of houses in a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
