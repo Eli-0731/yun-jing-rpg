@@ -1,0 +1,22 @@
+{
+ "FI03_v001": {
+  "FI03_Body_LOD0": {
+   "pieces": 116,
+   "within_1mm": 107,
+   "gap_1_3mm": 9,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.1,
+   "worst_at": []
+  },
+  "FI03_Detail_Repair_LOD0": {
+   "pieces": 4,
+   "within_1mm": 2,
+   "gap_1_3mm": 2,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.2,
+   "worst_at": []
+  }
+ }
+}
