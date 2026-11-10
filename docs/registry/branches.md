@@ -1,20 +1,19 @@
 # 分支總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-09 14:36 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-09 14:59 UTC。
 > 「main 沒有的檔案」= 這條分支改過、而現在內容和 main 不一樣的檔案數（用內容比，不是比提交編號）。0 代表分支裡的東西都已在 main，刪掉也不會遺失，但先保留不刪。
 
 - 主線：1 條
-- 內容都在 main，可封存：55 條
-- 待審：1 條
+- 內容都在 main，可封存：57 條
 - 核心組進行中：1 條
 - 舊版或試驗，保留參考：19 條
 - 內容都在 main（只差幾個小檔）：6 條
 
 | 分支 | 分類 | 最後更新 | 最後提交者 | main 沒有的檔案 | PR | 做了什麼 | 備註 |
 |---|---|---|---|---:|---|---|---|
-| `main` | 主線 | 2026-11-09 | z1nnz | 0 | 沒有 PR | Merge pull request #92 from z1nnz/game/core-1109-unity63-main |  |
+| `main` | 主線 | 2026-11-09 | z1nnz | 0 | 沒有 PR | Merge pull request #90 from z1nnz/art/a-1105-tx04-branch-court |  |
 | `art/a-1105-mc01-street-houses` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#80](https://github.com/z1nnz/chengtian/pull/80) 已合併 | 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05、SF01–03、HM01–03、RF01–04、CP01–02、DT01–06） |  |
-| `art/a-1105-tx04-branch-court` | 待審 | 2026-11-09 | Johnnnny0823 | 55 | [#90](https://github.com/z1nnz/chengtian/pull/90) 開啟中 | 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） |  |
+| `art/a-1105-tx04-branch-court` | 內容都在 main，可封存 | 2026-11-09 | Johnnnny0823 | 0 | [#90](https://github.com/z1nnz/chengtian/pull/90) 已合併 | 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） |  |
 | `art/b-1107-fr-forest-roots` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#84](https://github.com/z1nnz/chengtian/pull/84) 已合併 | 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種、獨木橋） |  |
 | `art/b-1107-sg-mountain-stairs` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#83](https://github.com/z1nnz/chengtian/pull/83) 已合併 | 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 |  |
 | `art/b-1107-vl-houses-lod` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#85](https://github.com/z1nnz/chengtian/pull/85) 已合併 | 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23 件 |  |
@@ -22,6 +21,7 @@
 | `art/b-1108-vl-lived-homes` | 內容都在 main，可封存 | 2026-11-09 | joshsu54 | 0 | [#89](https://github.com/z1nnz/chengtian/pull/89) 已合併 | 【B】11/08 VL04–VL05：有人住的民居變體 |  |
 | `docs/core-1109-registry-after-83` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#86](https://github.com/z1nnz/chengtian/pull/86) 已合併 | docs: 重新產生帳本（#80–#89 合併後），規範更正提交名字 |  |
 | `docs/core-1109-registry-after-88` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#91](https://github.com/z1nnz/chengtian/pull/91) 已合併 | docs: 重新產生帳本（#88 合併後） |  |
+| `docs/core-1109-registry-after-92` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#94](https://github.com/z1nnz/chengtian/pull/94) 已合併 | docs: 重新產生帳本（#90、#92 合併後） |  |
 | `feature/qingxi-creek-chapter` | 核心組進行中 | 2026-11-09 | z1nnz | 436 | 沒有 PR | docs: B 112 小時包修正 VH03 時數 | 核心組進行中：故事定稿、工作包、區塊資料、11/07 文件。尚未合回 main（待整併）。 |
 | `game/core-1109-unity63` | 舊版或試驗，保留參考 | 2026-11-09 | z1nnz | 800 | 沒有 PR | FIX: 上游河道檢查改比對所有同名物件，D1 也有一條短河道 |  |
 | `game/core-1109-unity63-main` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#92](https://github.com/z1nnz/chengtian/pull/92) 已合併 | 【核心組】11/09 Unity 升級到 6000.3.28f1（6.3 LTS） |  |
