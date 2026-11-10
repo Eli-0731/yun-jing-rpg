@@ -94,6 +94,13 @@ def make_sources():
     vf=np.clip((fbm(60,2,aniso=50)-.5)*2+.5,0,1);vc=np.clip((fbm(25,2,aniso=40)-.62)*5,0,1)
     S['bark']=(lerp((.22,.16,.11),(.42,.32,.24),np.clip(.5+.6*(fbm(5,3)-.5)+.35*(vf-.5),0,1))*(1-.35*vc[...,None]),1.2*vf-.8*vc,2.0,.92,0,0)
     S['stumpwood']=(lerp((.50,.42,.34),(.74,.66,.56),np.clip(.5+.7*(fbm(4,3,aniso=6)-.5)+.2*(vf-.5),0,1))*(1-.40*vc[...,None]),.6*vf-1.0*vc,1.6,.85,0,0)
+    K.rng=np.random.default_rng(3306)   # LV07: dried gourd shell, tan with darker freckles
+    gs=np.clip((fbm(10,3)-.6)*3,0,1)*.6+np.clip((fbm(40,2)-.7)*3,0,1)*.4   # soft blotches, a few small freckles
+    S['gourd']=(lerp((.55,.38,.19),(.78,.60,.33),np.clip(.5+.7*(fbm(3,3)-.5),0,1))*(1-.16*gs[...,None]),.15*fbm(20,2)-.1*gs,.5,.62,0,0)
+    S['cloth_dark']=(*linen((.24,.26,.32),(.15,.16,.21),3308),.6,.92,0,0)   # LV10: dark indigo cloth of the sandal and clog thongs
+    K.rng=np.random.default_rng(3307)   # LV08: the rain cape's old straw and palm fibre, golden going grey-green, strong strands along V
+    cf=np.clip((fbm(70,2,aniso=60)-.5)*2.2+.5,0,1);cg=np.clip(.5+.9*(fbm(4,3,aniso=4)-.5),0,1)
+    S['cape']=(lerp((.40,.38,.22),(.76,.62,.34),np.clip(.30+.50*cg+.55*(cf-.5),0,1))*(1-.22*np.clip((fbm(8,3,aniso=8)-.55)*3,0,1))[...,None]*(1-.25*np.clip((.35-cf)*3,0,1))[...,None],1.8*cf,2.2,.9,0,0)   # dark gaps between the strands
     out={}
     for k,(alb,h,s,r,m,glow) in S.items():
         mat=bpy.data.materials.new('src_'+k);mat.use_nodes=True;nt=mat.node_tree;bs=nt.nodes['Principled BSDF']
@@ -119,9 +126,11 @@ def endgrain():
 
 # ---------------- items (filled per item after its three-view is picked) ----------------
 PROPS={}
-TARGET={'LV01':('x',None),'LV02':('x',None),'LV03':('z',None),'LV04':('z',None),'LV05':('x',None),'LV06':('x',None)}   # None: built at true size, only held to the limit
-LIMIT={'LV01':(.8,.8,.6),'LV02':(1.4,.4,.3),'LV03':(.5,.1,2.4),'LV04':(.5,.5,.8),'LV05':(.9,.5,.6),'LV06':(.6,.6,.6)}   # work pack part 2 table A, w × d × h
-NAME={'LV01':'ChickenCoop','LV02':'BroomDustpan','LV03':'BambooLadder','LV04':'HangingBasket','LV05':'PickleJars','LV06':'ChoppingBlock'}
+TARGET={k:('x',None) for k in ('LV01','LV02','LV03','LV04','LV05','LV06','LV07','LV08','LV09','LV10','LV11','LV12')}   # None: built at true size, only held to the limit
+LIMIT={'LV01':(.8,.8,.6),'LV02':(1.4,.4,.3),'LV03':(.5,.1,2.4),'LV04':(.5,.5,.8),'LV05':(.9,.5,.6),'LV06':(.6,.6,.6),
+       'LV07':(.4,.2,.5),'LV08':(.8,.4,1.6),'LV09':(.4,.4,1.2),'LV10':(.4,.3,.1),'LV11':(.8,.3,.5),'LV12':(.35,.35,.25)}   # work pack part 2 table A, w × d × h
+NAME={'LV01':'ChickenCoop','LV02':'BroomDustpan','LV03':'BambooLadder','LV04':'HangingBasket','LV05':'PickleJars','LV06':'ChoppingBlock',
+      'LV07':'GourdLadle','LV08':'RainHatCapeRack','LV09':'BirdcagePole','LV10':'StrawSandalsClogs','LV11':'WhetstoneBench','LV12':'StrawEggBasket'}
 MIN_TIER={k:'high' for k in TARGET}   # quality-tiers §4: roadside props that add richness; nothing to play with or stop the player
 for _f in [CK/'wl_items.py']+sorted(CK.glob('fi_items*.py')):exec(open(_f,encoding='utf-8').read())   # part helpers (_sheet, _cane, _lathe, _ring, _plate …)
 PROPS.clear()   # only the LV items below
