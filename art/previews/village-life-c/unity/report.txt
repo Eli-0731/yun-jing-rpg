@@ -83,4 +83,89 @@ PASS LV06: minTier = high (quality tiers §4: roadside dressing)
 PASS LV06: detailObjects Detail_Chips, Detail_ClothEnds → 6 meshes present
 PASS LV06: Detail_* off still shows the body (1 mesh per LOD)
 PASS LV06: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV07: Albedo / MaskURP / Normal textures found
+PASS LV07: textures 1024x1024 (small prop: 1024 or less)
+PASS LV07: LV07_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV07: imported size 0.301 x 0.154 x 0.499 m matches model_info 0.301 x 0.154 x 0.499 within 2 cm
+PASS LV07: within the work pack's limit 0.4 x 0.2 x 0.5 m
+PASS LV07: base at y = 0.000 (origin on the ground)
+PASS LV07: triangles LOD0/1/2 = 9186 / 4592 / 1374 (50% / 15%), model_info 9186 / 4592 / 1374
+PASS LV07: objects per LOD 3 / 3 / 3 (model_info 3 / 3 / 3)
+PASS LV07: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV07: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS LV07: minTier = high (quality tiers §4: roadside dressing)
+PASS LV07: detailObjects Detail_Stitches, Detail_Tail → 6 meshes present
+PASS LV07: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV07: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV08: Albedo / MaskURP / Normal textures found
+PASS LV08: textures 1024x1024 (small prop: 1024 or less)
+PASS LV08: LV08_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV08: imported size 0.712 x 0.391 x 1.600 m matches model_info 0.711 x 0.391 x 1.6 within 2 cm
+PASS LV08: within the work pack's limit 0.8 x 0.4 x 1.6 m
+PASS LV08: base at y = 0.000 (origin on the ground)
+PASS LV08: triangles LOD0/1/2 = 18084 / 9042 / 2712 (50% / 15%), model_info 18084 / 9042 / 2712
+PASS LV08: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS LV08: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV08: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS LV08: minTier = high (quality tiers §4: roadside dressing)
+PASS LV08: detailObjects Detail_Fringe → 3 meshes present
+PASS LV08: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV08: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV09: Albedo / MaskURP / Normal textures found
+PASS LV09: textures 1024x1024 (small prop: 1024 or less)
+PASS LV09: LV09_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV09: imported size 0.387 x 0.298 x 1.172 m matches model_info 0.387 x 0.298 x 1.172 within 2 cm
+PASS LV09: within the work pack's limit 0.4 x 0.4 x 1.2 m
+PASS LV09: base at y = 0.000 (origin on the ground)
+PASS LV09: triangles LOD0/1/2 = 11492 / 6892 / 1576 (60% / 14%), model_info 11492 / 6892 / 1576
+PASS LV09: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS LV09: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV09: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS LV09: minTier = high (quality tiers §4: roadside dressing)
+PASS LV09: detailObjects Detail_Cloth → 3 meshes present
+PASS LV09: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV09: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV09: alpha clip 0.5 on, albedo has alpha, mip coverage kept (LOD2 card bag shows the net)
+PASS LV10: Albedo / MaskURP / Normal textures found
+PASS LV10: textures 1024x1024 (small prop: 1024 or less)
+PASS LV10: LV10_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV10: imported size 0.382 x 0.255 x 0.089 m matches model_info 0.382 x 0.255 x 0.089 within 2 cm
+PASS LV10: within the work pack's limit 0.4 x 0.3 x 0.1 m
+PASS LV10: base at y = 0.000 (origin on the ground)
+PASS LV10: triangles LOD0/1/2 = 6336 / 3168 / 948 (50% / 15%), model_info 6336 / 3168 / 948
+PASS LV10: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS LV10: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV10: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS LV10: minTier = high (quality tiers §4: roadside dressing)
+PASS LV10: detailObjects Detail_Frays → 3 meshes present
+PASS LV10: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV10: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV11: Albedo / MaskURP / Normal textures found
+PASS LV11: textures 1024x1024 (small prop: 1024 or less)
+PASS LV11: LV11_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV11: imported size 0.782 x 0.262 x 0.457 m matches model_info 0.782 x 0.262 x 0.457 within 2 cm
+PASS LV11: within the work pack's limit 0.8 x 0.3 x 0.5 m
+PASS LV11: base at y = 0.000 (origin on the ground)
+PASS LV11: triangles LOD0/1/2 = 9006 / 4502 / 1350 (50% / 15%), model_info 9006 / 4502 / 1350
+PASS LV11: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS LV11: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV11: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS LV11: minTier = high (quality tiers §4: roadside dressing)
+PASS LV11: no detailObjects, and no Detail_ mesh in the model
+PASS LV11: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV11: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV12: Albedo / MaskURP / Normal textures found
+PASS LV12: textures 1024x1024 (small prop: 1024 or less)
+PASS LV12: LV12_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV12: imported size 0.334 x 0.328 x 0.221 m matches model_info 0.334 x 0.328 x 0.221 within 2 cm
+PASS LV12: within the work pack's limit 0.35 x 0.35 x 0.25 m
+PASS LV12: base at y = 0.000 (origin on the ground)
+PASS LV12: triangles LOD0/1/2 = 10748 / 5374 / 1612 (50% / 15%), model_info 10748 / 5374 / 1612
+PASS LV12: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS LV12: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV12: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS LV12: minTier = high (quality tiers §4: roadside dressing)
+PASS LV12: no detailObjects, and no Detail_ mesh in the model
+PASS LV12: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV12: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
 INFO renders written to art/previews/village-life-c/unity

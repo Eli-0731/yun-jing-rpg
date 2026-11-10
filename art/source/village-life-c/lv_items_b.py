@@ -15,6 +15,14 @@ def _smooth_prof(prof,sub=3):
         for k in range(sub+1):
             t=k/(sub+1);out.append(.5*((2*p1)+(-p0+p2)*t+(2*p0-5*p1+4*p2-p3)*t*t+(-p0+3*p1-3*p2+p3)*t**3))
     out.append(P[-1]);return [(max(0.,p.x) if i else 0.,p.y) for i,p in enumerate(out)]
+def _spline(P,sub=3):
+    """Catmull-Rom through 3D points, `sub` new points per span"""
+    P=[Vector(p) for p in P];out=[]
+    for i in range(len(P)-1):
+        p0,p1,p2,p3=P[max(i-1,0)],P[i],P[i+1],P[min(i+2,len(P)-1)]
+        for k in range(sub+1):
+            t=k/(sub+1);out.append(.5*((2*p1)+(-p0+p2)*t+(2*p0-5*p1+4*p2-p3)*t*t+(-p0+3*p1-3*p2+p3)*t**3))
+    return out+[P[-1]]
 def _half_shell(name,prof,t,c,NS,mat,grp,scale=.25):
     """half of a thin shell of revolution about the vertical line (0, c): prof = [(r, z)] from the bottom pole (r = 0) up to
     the top; the half kept is y >= c (the back), the cut faces -Y. Inner surface = the profile moved in along its normal
@@ -347,7 +355,7 @@ def LV10(M):
         kp=Vector(knot)
         for k,sx in enumerate((-1,1)):   # two straps from the knot to the sides, padded cloth over a cord
             ax,ay=anchors;pts=[Vector((sx*ax,ay,side_z-.004)),Vector((sx*ax*.96,ay-.004,side_z+.012)),Vector((sx*peak[0],peak[1],peak[2])),Vector((sx*.012,kp.y+.012,kp.z+.002)),kp+Vector((sx*.003,.002,0))]
-            tube(f'{tag}_Strap{k}',pts,.0062,M['cloth_dark'],'Body',sides=7,scale=.05)
+            tube(f'{tag}_Strap{k}',_spline(pts,4),.0062,M['cloth_dark'],'Body',sides=7,scale=.05)
         tube(f'{tag}_Post',[kp,kp+Vector((0,-.002,-.012)),Vector((0,kp.y-.003,post_z))],.0052,M['cloth_dark'],'Body',sides=7,scale=.05)
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=2,radius=.0095,location=kp);o=bpy.context.object;o.scale=(1.25,1.1,.9);bpy.ops.object.transform_apply(scale=True)
         bm=bmesh.new();bm.from_mesh(o.data);bpy.data.objects.remove(o);finish(f'{tag}_Knot',bm,M['cloth_dark'],'Body',.04)
@@ -362,8 +370,8 @@ def LV10(M):
         inset=[]
         for i,(x,y) in enumerate(ol):   # the rim's centre line: the outline moved in by the rope's radius
             xa,ya=ol[i-1];xb,yb=ol[(i+1)%len(ol)];tx,ty=xb-xa,yb-ya;l=math.hypot(tx,ty);inset.append((x-ty/l*.0074,y+tx/l*.0074))
-        rp=[Vector((x,y,.0098+.0006*math.sin(7*i))) for i,(x,y) in enumerate(inset)];rp=rp+[rp[0]+(rp[1]-rp[0])*.6]
-        rope(f'LV10_Sandal{k}_Rim',rp,.0078,M['straw'],'Body')
+        rp=[Vector((x,y,.0098+.0006*math.sin(7*i))) for i,(x,y) in enumerate(inset)];rp=rp+[rp[0]+(rp[1]-rp[0])*.6+Vector((0,0,.0026))]   # the end rides up over the start
+        tube(f'LV10_Sandal{k}_Rim',rp,.0078,M['straw'],'Body',sides=8,scale=.06,up=Vector((0,0,1)))   # one thick braid; its plait is painted (ply tubes lay flat along the sole's edge)
         thong(f'LV10_Sandal{k}',.0105,(0,-.070,.032),(.031,-.018,.036),(.032,.012),.004)
         place(n0,cx,cy,rot);SH.append(('s',cx,cy,rot))
     # wooden clogs on two teeth
@@ -379,6 +387,9 @@ def LV10(M):
             c_,s_=math.cos(-rot),math.sin(-rot);lx=(px-cx)*c_-(py-cy)*s_;ly=(px-cx)*s_+(py-cy)*c_
             on=filled*(np.abs(lx)<.06)*(np.abs(ly)<.125)
             if kind=='s':   # the sole's braid (herringbone rows across), the heel and ball pressed flat and darker
+                rim=on*(pz>.004)*(np.abs(onrm[...,2])<.9)   # the rim braid: slanted plait bands along it
+                pl=.5+.5*np.sin(math.tau*(np.arctan2(ly/.12,lx/.046)*14+pz*90))
+                col=col*(1-.25*np.clip((.4-pl)*3,0,1)*rim)[...,None]
                 top=on*(pz<.0125)*(onrm[...,2]>.6)
                 br=.5+.5*np.sin(math.tau*(ly*70+np.abs(lx)*48));br2=.5+.5*np.sin(math.tau*lx*26)
                 col=col*(1-(.30*np.clip((.35-br)*3,0,1)+.10*br2)[...,None]*top[...,None])
@@ -394,3 +405,151 @@ def LV10(M):
             'the sandal sole is a flat plate with a braided rope rim; the braid, the pressed heel and ball are painted; clog mud and foot print painted',
             'thongs: two padded cloth straps from a toe knot to the sides and a post into the sole; Detail_Frays: frayed threads at the knots']}
 PROPS['LV10']=LV10
+
+# ---------------- LV11 a long whetstone on a low wooden bench, a water bowl at one end (cand-1) ----------------
+def LV11(M):
+    """a low four-legged bench: a thick top board, the legs' through-tenons showing square on top (a little proud), aprons
+    front and back and stretchers at the sides tenoned through the legs; on it a long grey whetstone, its top worn into a
+    smooth hollow along its length (deepest in the middle, the ends high) with rough split sides; a small clay bowl of
+    water at the left end; wet dark stains run down the bench under the stone; a cloth hangs from the front apron and an
+    old board is nailed across the back apron."""
+    TZ0,TZ1=.277,.330
+    box('LV11_Top',(.78,.26,TZ1-TZ0),(0,0,(TZ0+TZ1)/2),M['cedar'],'Body',bev=.006,cuts=4,jit=.0015,seed=1101)
+    for i,x in enumerate((-.31,.31)):
+        for j,y in enumerate((-.085,.085)):
+            box(f'LV11_Leg{i}{j}',(.06,.058,TZ0+.002),(x,y,(TZ0+.002)/2),M['cedar_b'],'Body',bev=.005,cuts=3,jit=.0012,seed=1110+2*i+j)
+            box(f'LV11_Tenon{i}{j}',(.034,.032,.06),(x,y,TZ1+.0035-.03),M['cedar_b'],'Body',bev=.002,seed=1120+2*i+j)   # through the top, end grain showing
+    for j,y in enumerate((-.085,.085)):box(f'LV11_Apron{j}',(.71,.024,.054),(0,y,.243),M['cedar'],'Body',bev=.004,cuts=3,jit=.001,seed=1130+j)   # tenons out past the legs
+    for i,x in enumerate((-.31,.31)):box(f'LV11_Stretcher{i}',(.03,.26,.04),(x,0,.09),M['cedar'],'Body',bev=.004,jit=.001,seed=1135+i)
+    box('LV11_Repair',(.19,.012,.036),(.17,.103,.24),M['cedar_new'],'Body',bev=.003,jit=.0008,seed=1138,rot=Matrix.Rotation(math.radians(-22),4,'Y'))   # a board nailed across the back apron
+    for k,dx in enumerate((-.075,.075)):
+        p=Vector((.17+dx*math.cos(math.radians(22)),.109,.24+dx*math.sin(math.radians(22))))
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=8,ring_count=5,radius=.0045,location=p);o=bpy.context.object;o.scale=(1,.5,1);bpy.ops.object.transform_apply(scale=True)
+        bm=bmesh.new();bm.from_mesh(o.data);bpy.data.objects.remove(o);finish(f'LV11_Nail{k}',bm,M['iron'],'Body',.04)
+    # the whetstone: a heightfield top (hollow along X, a shallow U across) over rough split sides
+    SX,SL,SW,SH=.085,.29,.085,.135;nx,ny=48,14;bm=bmesh.new()
+    def top(x,y):
+        xr=(x-SX)/SL;yr=y/SW
+        dip=.046*max(0.,1-xr*xr)**1.4   # the whole top sinks in the middle (the rims too), a little more along the centre line
+        return TZ1-.002+SH-.010*max(0.,abs(xr)-.85)/.15-dip*(.8+.2*max(0.,1-yr*yr))-.007*abs(yr)**8
+    def nz(x,y,z):return .0035*math.sin(61*x+1.3)*math.sin(47*z+.4*y)+.0025*math.sin(97*z+33*x)+.002*math.sin(140*y+80*z)
+    T=[[None]*ny for _ in range(nx)];B=[[None]*ny for _ in range(nx)]
+    for i in range(nx):
+        for j in range(ny):
+            x=SX-SL+2*SL*i/(nx-1);y=-SW+2*SW*j/(ny-1);edge=i in (0,nx-1) or j in (0,ny-1)
+            T[i][j]=bm.verts.new((x,y,top(x,y)-(.004 if edge else 0)));B[i][j]=bm.verts.new((x,y,TZ1-.002))
+    for i in range(nx-1):
+        for j in range(ny-1):
+            bm.faces.new((T[i][j],T[i+1][j],T[i+1][j+1],T[i][j+1]));bm.faces.new((B[i][j],B[i][j+1],B[i+1][j+1],B[i+1][j]))
+    ring=[(i,0) for i in range(nx)]+[(nx-1,j) for j in range(1,ny)]+[(i,ny-1) for i in range(nx-2,-1,-1)]+[(0,j) for j in range(ny-2,0,-1)]
+    NL=6;walls=[]
+    for (i,j) in ring:   # side wall columns: NL rows from the top edge down to the bottom, rough split faces
+        t_,b_=T[i][j],B[i][j];col=[t_]
+        nx_=-1 if i==0 else 1 if i==nx-1 else 0;ny_=-1 if j==0 else 1 if j==ny-1 else 0
+        for r in range(1,NL):
+            f=r/NL;p=t_.co.lerp(b_.co,f);n=Vector((nx_,ny_,0)).normalized() if (nx_ or ny_) else Vector((0,0,0))
+            col.append(bm.verts.new(p+n*(nz(p.x,p.y,p.z)+.003*math.sin(math.pi*f))))
+        col.append(b_);walls.append(col)
+    for a,b in zip(walls,walls[1:]+walls[:1]):
+        for r in range(NL):bm.faces.new((a[r],b[r],b[r+1],a[r+1]))
+    bmesh.ops.recalc_face_normals(bm,faces=bm.faces)
+    for f in bm.faces:f.smooth=True
+    finish('LV11_Stone',bm,M['whet'],'Body',.25)
+    # the water bowl: a thick clay bowl and the water surface
+    BX=-.30;bz=TZ1-.002
+    _lathe('LV11_Bowl',[(0,.004),(0,.040),(.12,.052),(.45,.063),(.85,.066),(1,.064),(1,.056),(.85,.058),(.45,.050),(.25,.034),(.18,.012),(.18,.004)],(Vector((BX,0,bz)),Vector((BX,0,bz+.074))),M['clay'],'Body',NS=32,scale=.15,loop=True)
+    _lathe('LV11_Water',[(0,.0545),(1,.0545),(1,0)],(Vector((BX,0,bz+.040)),Vector((BX,0,bz+.060))),M['water'],'Body',NS=32,scale=.15)
+    # a cloth hanging from the front apron, its lower edge torn
+    rr=random.Random(1111);rows=[]
+    for u in np.linspace(0,1,6):
+        row=[]
+        for x in np.linspace(.03,.17,7):
+            z=.268-.15*u-(rr.uniform(0,.035) if u==1 else 0);row.append((x+.004*math.sin(u*5),-.0985-.003*u-.004*u*u,z))
+        rows.append(row)
+    _sheet('LV11_Cloth',rows,None,None,M['linen_b'],'Body',t=.0025)
+    def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
+        P=(pos-np.array(meta['offset'][:]))/meta['scale_to_target'];px,py,pz=P[...,0],P[...,1],P[...,2]
+        st=filled*(pz>TZ1)*(np.abs(py)<SW+.004)*(np.abs(px-SX)<SL+.004)
+        hol=st*(onrm[...,2]>.6)*(pz<TZ1+SH-.006)   # the worn hollow: paler, smooth, a wet sheen in the middle
+        col=col*(1+.18*hol[...,None]);rough=np.clip(rough-.35*hol,0,1)
+        sk=np.clip((np.sin(px*55+1.2)+.6*np.sin(px*131+.3)+.5*(noise-.5)-.95)*3,0,1)   # a few stains running down the front under the stone
+        wet=filled*(onrm[...,1]<-.6)*(pz<TZ1+.002)*(pz>.19)*(np.abs(px-SX)<SL)*sk*np.clip((pz-.19)/.12+.3*(noise-.5),0,1)
+        top_w=filled*(pz>TZ1-.004)*(pz<TZ1+.004)*np.clip(1-(np.abs(py)-SW)/.025,0,1)*(np.abs(py)>SW-.002)*(np.abs(px-SX)<SL+.01)
+        w=np.clip(wet+top_w,0,1);col=col*(1-.40*w[...,None]);rough=np.clip(rough-.2*w,0,1)
+        mo=filled*np.clip((.07-pz)/.06,0,1)*np.clip((noise-.45)*3,0,1)   # moss and earth at the feet
+        col=col*(1-.3*mo[...,None])+mo[...,None]*np.array([.09,.13,.04])
+        return col,rough
+    return {'paint':paint,'wear':1.0,'grime':.9,'uv_angle':50,'notes':['a low bench: top board, four legs with through-tenons showing on top, aprons front and back, side stretchers; a cloth on the front apron, a board nailed on the back',
+            'the whetstone (0.58 m) is a heightfield: its top worn into a hollow along X (4 cm deep) and a shallow U across, the sides rough split stone',
+            'a clay bowl of water at the left end; the hollow is paler and smooth; wet stains under the stone painted']}
+PROPS['LV11']=LV11
+
+# ---------------- LV12 a small round straw-lined basket of eggs (cand-4) ----------------
+def LV12(M):
+    """a small round basket (the over-under weave in the texture) with a thick rim and a foot ring, one side a little
+    crushed in (the rim lower there); inside, a nest of straw a hand's depth below the rim, untidy straw ends sticking up
+    and out over the rim all round; six clean cream eggs lying on the straw, each a smooth egg shape, a little different
+    in size, none touching another; a cloth patch painted on the side."""
+    rr=random.Random(1212)
+    TH_D=-.75   # the crushed side (front right)
+    def dent(th,z):return 1-.09*math.exp(-((math.atan2(math.sin(th-TH_D),math.cos(th-TH_D)))/.5)**2)*max(0.,z/.17)**1.5
+    def D(p):p=Vector(p);f=dent(math.atan2(p.y,p.x),p.z);return Vector((p.x*f,p.y*f,p.z))
+    sag=lambda th,r:-.010*math.exp(-((math.atan2(math.sin(th-TH_D),math.cos(th-TH_D)))/.5)**2)*(r/.145)**4
+    prof=[(0,0),(.088,0),(.104,.004),(.111,.015),(.121,.05),(.132,.10),(.140,.14),(.145,.168)]
+    bk=_shell('LV12_Basket',prof,.006,40,M['weave'],'Body',zfun=sag,scale=.3)
+    for v in bk.data.vertices:v.co=D(v.co)
+    rzf=lambda th:.171+sag(th,.145)
+    def hoop(name,pts,r,sides=8):   # a closed ring tube round Z: each section in its radial–vertical plane, faces welded all the way round
+        bm=bmesh.new();N=len(pts);R_=[]
+        for p in pts:
+            n=Vector((p.x,p.y,0)).normalized();R_.append([bm.verts.new(p+(n*math.cos(math.tau*(k+.5)/sides)+Vector((0,0,1))*math.sin(math.tau*(k+.5)/sides))*r) for k in range(sides)])
+        for i in range(N):
+            a,b=R_[i],R_[(i+1)%N]
+            for k in range(sides):bm.faces.new((a[k],a[(k+1)%sides],b[(k+1)%sides],b[k]))
+        bmesh.ops.recalc_face_normals(bm,faces=bm.faces)
+        for f in bm.faces:f.smooth=True
+        return finish(name,bm,M['bamboo_old'],'Body',.06)
+    hoop('LV12_Rim',[D((.1435*math.cos(t),.1435*math.sin(t),rzf(t))) for t in np.linspace(0,math.tau,72,endpoint=False)],.0085)
+    hoop('LV12_Foot',[D((.1075*math.cos(t),.1075*math.sin(t),.0068)) for t in np.linspace(0,math.tau,48,endpoint=False)],.0066)
+    # the straw nest: a shallow dish of straw meeting the basket's inside
+    zn=lambda r:.146+1.15*r*r   # high enough that the eggs show over the rim
+    rs=list(np.linspace(.002,.128,11));zp=[zn(r) for r in rs]
+    np_=[((z-.132)/.04,r) for z,r in zip(zp,rs)]+[((z-.0065-.132)/.04,r) for z,r in reversed(list(zip(zp,rs)))]
+    ne=_lathe('LV12_Nest',np_,(Vector((0,0,.132)),Vector((0,0,.172))),M['straw'],'Body',NS=40,scale=.15,loop=True)
+    for v in ne.data.vertices:v.co=D(v.co)
+    # untidy straw ends: from inside the rim up and out over it, some standing up
+    for k in range(64):
+        th=math.tau*k/64+rr.uniform(-.04,.04);u=Vector((math.cos(th),math.sin(th),0));L=rr.uniform(.035,.075);up=rr.random()<.14 or k in (15,16,17)   # over the rim's lap at the back they stand up instead
+        p0=u*(.112-rr.uniform(0,.012))+Vector((0,0,zn(.112)+.0008-rr.uniform(0,.004)))   # rooted in the nest, each at its own depth
+        if up:   # a few stand up, bending over
+            tw=Vector((rr.uniform(-1,1),rr.uniform(-1,1),0)).normalized()*rr.uniform(.012,.03);pts=[p0,p0+u*.008+Vector((0,0,.025)),p0+u*.016+tw*.4+Vector((0,0,.03+L*.35)),p0+u*.02+tw+Vector((0,0,.025+L*.4))]
+        else:
+            top=rzf(th)+.0085+.0046;pts=[p0,u*.128+Vector((0,0,top-.006)),u*.1435+Vector((0,0,top)),u*(.148+L*.25)+Vector((rr.uniform(-.008,.008),rr.uniform(-.01,.01),top-L*.25+rr.uniform(-.01,.012)))]
+        pts=[D(p) for p in pts];r0=rr.uniform(.0014,.0019)
+        _taper(f'LV12_Straw{k:02d}',_spline(pts,2),[r0]*(len(_spline(pts,2))-1)+[.0005],M['straw'],'Body',sides=3,scale=.04,up=Vector((rr.uniform(-1,1),rr.uniform(-1,1),rr.uniform(-1,1))))   # each rolled its own way: neighbours' faces never lie in one plane
+    for k in range(26):   # loose bits lying on the nest between the eggs
+        th=rr.uniform(0,math.tau);r=rr.uniform(.02,.11);a=rr.uniform(0,math.tau);L=rr.uniform(.03,.06)
+        c=Vector((r*math.cos(th),r*math.sin(th),0));d=Vector((math.cos(a),math.sin(a),0));lz=rr.uniform(0,.003);sl=rr.uniform(-.0015,.0025)
+        pts=[c-d*L/2,c,c+d*L/2];pts=[D(Vector((p.x,p.y,zn(min(.125,p.length))+.0011+lz+sl*i))) for i,p in enumerate(pts)]   # lying on the straw, a corner down (a flat face lay along the nest)
+        _taper(f'LV12_Loose{k:02d}',pts,[.0013,.0015,.0005],M['straw'],'Body',sides=3,scale=.04,up=Vector((math.cos(k*2.39),math.sin(k*2.39),-1.2)))
+    # six eggs lying on the straw
+    ep=[(0,0),(.04,.0108),(.13,.0176),(.3,.0212),(.45,.0222),(.6,.0213),(.75,.0186),(.88,.0135),(.96,.0076),(1,0)]
+    EG=[(0.,0.,.4,.0,1.0)]+[(.058,math.radians(72*k+18),math.radians(90+72*k+18)+rr.uniform(-.15,.15),rr.uniform(-.12,.12),rr.uniform(.93,1.04)) for k in range(5)]
+    for k,(r,th,ax,tilt,sc) in enumerate(EG):
+        c=Vector((r*math.cos(th),r*math.sin(th),0));c.z=zn(r)+.0222*sc+.002
+        d=Vector((math.cos(ax)*math.cos(tilt),math.sin(ax)*math.cos(tilt),math.sin(tilt)));L=.058*sc
+        _lathe(f'LV12_Egg{k}',[(s,rd*sc) for s,rd in ep],(c-d*L*.47,c+d*L*.53),M['egg'],'Body',NS=20,scale=.08)
+    def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
+        P=(pos-np.array(meta['offset'][:]))/meta['scale_to_target'];px,py,pz=P[...,0],P[...,1],P[...,2]
+        th=np.arctan2(py,px);r=np.hypot(px,py)
+        out=filled*(r>.10)*(pz<.165)*(onrm[...,0]*px+onrm[...,1]*py>0)
+        pt=out*(np.abs(np.arctan2(np.sin(th-2.3),np.cos(th-2.3)))<.30)*(np.abs(pz-.085)<.035)   # a cloth patch on the side
+        b=pt*((np.abs(np.arctan2(np.sin(th-2.3),np.cos(th-2.3)))>.27)|(np.abs(pz-.085)>.031))
+        col=np.where(pt[...,None]>0,np.array([.62,.57,.48])*(.85+.3*noise[...,None]),col);col=col*(1-.35*b[...,None])
+        ft=filled*np.clip((.03-pz)/.03,0,1);mo=ft*np.clip((noise-.5)*3,0,1)   # earth and a little moss at the foot
+        col=col*(1-.25*ft[...,None])+mo[...,None]*np.array([.06,.09,.02])
+        return col,rough
+    return {'paint':paint,'wear':.9,'grime':.7,'uv_angle':50,'notes':['a round basket 0.31 m across (the weave in the texture), thick rim and foot ring, crushed in a little on the front right',
+            'a straw nest inside, 64 straw ends sticking up and out over the rim, 26 loose bits on the nest',
+            'six smooth cream eggs (5.4–6.0 cm) lying on the straw, none touching another; a cloth patch painted on the side']}
+PROPS['LV12']=LV12

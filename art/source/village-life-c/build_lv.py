@@ -98,6 +98,11 @@ def make_sources():
     gs=np.clip((fbm(10,3)-.6)*3,0,1)*.6+np.clip((fbm(40,2)-.7)*3,0,1)*.4   # soft blotches, a few small freckles
     S['gourd']=(lerp((.55,.38,.19),(.78,.60,.33),np.clip(.5+.7*(fbm(3,3)-.5),0,1))*(1-.16*gs[...,None]),.15*fbm(20,2)-.1*gs,.5,.62,0,0)
     S['cloth_dark']=(*linen((.24,.26,.32),(.15,.16,.21),3308),.6,.92,0,0)   # LV10: dark indigo cloth of the sandal and clog thongs
+    K.rng=np.random.default_rng(3309)   # LV11: fine grey whetstone, and the water in its bowl
+    S['whet']=(lerp((.29,.30,.31),(.47,.47,.46),np.clip(.5+.7*(fbm(4,3)-.5)+.12*(fbm(50,2)-.5),0,1))*(1-.10*np.clip((fbm(12,2,aniso=5)-.62)*4,0,1))[...,None],.25*fbm(40,2),.6,.7,0,0)
+    S['water']=(lerp((.17,.30,.30),(.30,.46,.43),np.clip(.5+.6*(fbm(3,2)-.5),0,1)),.05*fbm(8,2),.2,.08,0,0)
+    K.rng=np.random.default_rng(3310)   # LV12: clean cream eggshell, very faint speckle
+    S['egg']=(lerp((.80,.68,.50),(.90,.80,.64),np.clip(.5+.5*(fbm(3,2)-.5),0,1))*(1-.05*np.clip((fbm(60,2)-.65)*4,0,1))[...,None],.05*fbm(30,2),.2,.5,0,0)
     K.rng=np.random.default_rng(3307)   # LV08: the rain cape's old straw and palm fibre, golden going grey-green, strong strands along V
     cf=np.clip((fbm(70,2,aniso=60)-.5)*2.2+.5,0,1);cg=np.clip(.5+.9*(fbm(4,3,aniso=4)-.5),0,1)
     S['cape']=(lerp((.40,.38,.22),(.76,.62,.34),np.clip(.30+.50*cg+.55*(cf-.5),0,1))*(1-.22*np.clip((fbm(8,3,aniso=8)-.55)*3,0,1))[...,None]*(1-.25*np.clip((.35-cf)*3,0,1))[...,None],1.8*cf,2.2,.9,0,0)   # dark gaps between the strands

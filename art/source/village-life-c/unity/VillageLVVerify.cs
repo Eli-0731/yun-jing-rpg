@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 namespace YunJing.Editor
 {
-    // Unity check of C's village props LV01–LV06 (art/exports/village-life-c, Eli-0731), copied from art/source/creekside-life-c/unity (itself after the modelling-basics-c
+    // Unity check of C's village props LV01–LV12 (art/exports/village-life-c, Eli-0731), copied from art/source/creekside-life-c/unity (itself after the modelling-basics-c
     // check (QingxiBasicsVerify). It does not change apps/game: run_unity_check.sh copies this file in for one batch run and removes it.
     // Imports the delivered FBX and textures, builds one URP Lit per item, compares with model_info.json (size within 2 cm, the work
     // pack's size limit, triangles per LOD, objects, one material, 1024 textures, minTier, detailObjects), switches Detail_* off the
@@ -20,9 +20,9 @@ namespace YunJing.Editor
     {
         const string Models = "Assets/YunJing/Models/VillageC";   // temporary copy of art/exports, removed by the run script
         const string Version = "v001";
-        static readonly string[] Ids = { "LV01", "LV02", "LV03", "LV04", "LV05", "LV06" };
+        static readonly string[] Ids = { "LV01", "LV02", "LV03", "LV04", "LV05", "LV06", "LV07", "LV08", "LV09", "LV10", "LV11", "LV12" };
         static readonly HashSet<string> Cloth = new HashSet<string> { };   // thin open weave or cloth: both faces (filled per item)
-        static readonly HashSet<string> Cutout = new HashSet<string> { };   // items whose LOD2 stand-in carries an open weave in the albedo alpha
+        static readonly HashSet<string> Cutout = new HashSet<string> { "LV09" };   // items whose LOD2 stand-in carries an open weave in the albedo alpha
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
         static string Out => Path.Combine(Repo, "art/previews/village-life-c/unity");
         static readonly List<string> Report = new List<string>();
@@ -245,6 +245,32 @@ namespace YunJing.Editor
             Frame("LV-set-front", sa, front, 1.05f); Frame("LV-set-threequarter", sa, tq, 1.05f); UnityEngine.Object.DestroyImmediate(r2);
             Frame("LV-set-close", sb, tq, 1.0f);
             foreach (var g in set) UnityEngine.Object.DestroyImmediate(g);
+            // LV07–LV12 together, as by a door and in a yard
+            var set2 = new[] { Place("LV07", MatName["LV07"], new Vector3(-1.3f, 0, .6f), 0), Place("LV08", MatName["LV08"], new Vector3(-.55f, 0, .55f), 8),
+                               Place("LV09", MatName["LV09"], new Vector3(.3f, 0, .65f), -10), Place("LV10", MatName["LV10"], new Vector3(-.6f, 0, -.35f), 6),
+                               Place("LV11", MatName["LV11"], new Vector3(.45f, 0, -.3f), -4), Place("LV12", MatName["LV12"], new Vector3(1.25f, 0, .15f), 0) };
+            var sb2 = Box(set2.SelectMany(g => Level(g, 0)));
+            var r3 = Ruler(new Vector3(sb2.max.x + .45f, 0, 0)); var sa2 = sb2; sa2.Encapsulate(r3.GetComponent<Renderer>().bounds);
+            Frame("LV-set2-front", sa2, front, 1.05f); Frame("LV-set2-threequarter", sa2, tq, 1.05f); UnityEngine.Object.DestroyImmediate(r3);
+            Frame("LV-set2-close", sb2, tq, 1.0f);
+            foreach (var g in set2) UnityEngine.Object.DestroyImmediate(g);
+            // work pack part 2 D: all twelve side by side in two rows, with the 1.75 m figure
+            var rows = new List<GameObject>(); float rowW = 0;
+            for (int r = 0; r < 2; r++)
+            {
+                float x = 0; var row = new List<GameObject>();
+                for (int i = 0; i < 6; i++)
+                {
+                    string id = Ids[r * 6 + i]; var g = Place(id, MatName[id], Vector3.zero, 0); var bb = Box(Level(g, 0));
+                    g.transform.position += new Vector3(x - bb.min.x, 0, r == 0 ? .9f : -.6f); x += bb.size.x + .3f; row.Add(g);
+                }
+                foreach (var g in row) g.transform.position += new Vector3(-(x - .3f) / 2, 0, 0);
+                rows.AddRange(row); rowW = Mathf.Max(rowW, x);
+            }
+            var ab = Box(rows.SelectMany(g => Level(g, 0)));
+            var r4 = Ruler(new Vector3(ab.max.x + .5f, 0, 0)); var aa = ab; aa.Encapsulate(r4.GetComponent<Renderer>().bounds);
+            Frame("LV-all-front", aa, front, 1.02f); Frame("LV-all-threequarter", aa, tq, 1.02f); UnityEngine.Object.DestroyImmediate(r4);
+            foreach (var g in rows) UnityEngine.Object.DestroyImmediate(g);
             Report.Add("INFO renders written to art/previews/village-life-c/unity");
         }
 
