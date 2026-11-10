@@ -1,0 +1,17 @@
+LV10 草鞋與木屐各一雙（工作包第二部分表 A：0.4 × 0.3 × 0.1 m，練小物件的比例、編織紋用貼圖表現）三視圖與自評（2026-11-10）
+選用：LV10-cand-1.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），四張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：92（28+28+24+12）。選用。左邊一雙草鞋（稻草辮繞成鞋底、深色布帶人字夾腳），右邊一雙木屐（一塊淺色舊木板、底下兩個齒、深色布帶），三面同一地線；草鞋壓扁、木屐齒沾泥、布帶末端散開。
+- cand-2：85（26+25+22+12）。圖幅不是 3:2，側面兩雙疊著畫、比例不一致（木屐齒很高）。
+- cand-3：91（28+27+24+12）。和 cand-1 相近，木屐板較寬、布帶很厚。
+- cand-4：91（28+27+24+12）。和 cand-1 相近，草鞋邊較高、像草編拖鞋。
+
+建模取捨：照 cand-1。練「小物件的比例」：草鞋長 0.24 m、木屐長 0.23 m，鞋帶高度、木屐齒高 3 cm 照真實尺寸；兩雙並排、稍微錯開角度，不是排列整齊。「編織紋用貼圖表現」：草鞋底是一片有厚度的鞋底形狀、邊緣一圈粗辮子，草編紋全在貼圖上（不逐根建）；木屐的木紋、齒上的泥也在貼圖上。布帶是扁的帶子（人字），末端散開的線頭是 Detail_。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a pair of woven straw sandals beside a pair of simple wooden clogs with two teeth under each sole, about 0.4 m wide, 0.3 m deep and 0.1 m tall, made of braided straw, old pale wood and dark cloth straps, showing flattened worn straw, mud on the clog teeth and frayed strap ends, used at the doorsteps of houses in a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
