@@ -1,0 +1,13 @@
+{
+ "LV12_v001": {
+  "LV12_Body_LOD0": {
+   "pieces": 100,
+   "within_1mm": 90,
+   "gap_1_3mm": 10,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.9,
+   "worst_at": []
+  }
+ }
+}
