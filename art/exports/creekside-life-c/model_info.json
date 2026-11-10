@@ -1,4 +1,697 @@
 {
+ "FI01": {
+  "id": "FI01",
+  "name": "FishingPole",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/FI01_v001.fbx",
+   "glb": "art/exports/creekside-life-c/FI01_v001.glb",
+   "blend": "art/source/creekside-life-c/FI01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.2,
+   0.153,
+   0.055
+  ],
+  "body_dimensions_xyz_m": [
+   2.2,
+   0.139,
+   0.055
+  ],
+  "size_limit_xyz_m": [
+   2.2,
+   0.2,
+   0.2
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Line"
+  ],
+  "detailMeshes": [
+   "FI01_Detail_Line_LOD0",
+   "FI01_Detail_Line_LOD1",
+   "FI01_Detail_Line_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 7480,
+    "triangles_without_detail": 4680,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI01_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI01_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3740,
+    "triangles_without_detail": 2340,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI01_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI01_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1122,
+    "triangles_without_detail": 702,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI01_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI01_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "FI01_Body_LOD0",
+    "FI01_Body_LOD1",
+    "FI01_Body_LOD2"
+   ],
+   "Detail_Line": [
+    "FI01_Detail_Line_LOD0",
+    "FI01_Detail_Line_LOD1",
+    "FI01_Detail_Line_LOD2"
+   ]
+  },
+  "material": "M_FI01_FishingPole",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 20,
+  "coplanar_lifted": 0,
+  "reference": "art/references/FI01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "lies flat along X; the work pack allows it to be leant against something when placed (rotate the whole item)",
+   "Detail_Line: the line, its guides and the stick winder with the wound line; the splint and its lashing are part of the body"
+  ]
+ },
+ "FI02": {
+  "id": "FI02",
+  "name": "LineSpool",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/FI02_v001.fbx",
+   "glb": "art/exports/creekside-life-c/FI02_v001.glb",
+   "blend": "art/source/creekside-life-c/FI02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.28,
+   0.116,
+   0.279
+  ],
+  "body_dimensions_xyz_m": [
+   0.28,
+   0.116,
+   0.279
+  ],
+  "size_limit_xyz_m": [
+   0.28,
+   0.12,
+   0.28
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_LooseEnd"
+  ],
+  "detailMeshes": [
+   "FI02_Detail_LooseEnd_LOD0",
+   "FI02_Detail_LooseEnd_LOD1",
+   "FI02_Detail_LooseEnd_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 8274,
+    "triangles_without_detail": 8218,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI02_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI02_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 4286,
+    "triangles_without_detail": 4258,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI02_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI02_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 774,
+    "triangles_without_detail": 766,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI02_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI02_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "FI02_Body_LOD0",
+    "FI02_Body_LOD1",
+    "FI02_Body_LOD2"
+   ],
+   "Detail_LooseEnd": [
+    "FI02_Detail_LooseEnd_LOD0",
+    "FI02_Detail_LooseEnd_LOD1",
+    "FI02_Detail_LooseEnd_LOD2"
+   ]
+  },
+  "material": "M_FI02_LineSpool",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 17,
+  "coplanar_lifted": 0,
+  "reference": "art/references/FI02/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "stands upright as in its three-view: 0.28 wide × 0.12 deep × 0.28 high; the coil is open front and back",
+   "posts cut from 5.6 cm board with curved outer edges, two finger notches and flared feet; the right axle peg is a separate, paler replacement",
+   "the line: three uneven layers, three crossing turns, one slack loop hanging out; tied round the top bar",
+   "Detail_LooseEnd: the two frayed tails"
+  ]
+ },
+ "FI03": {
+  "id": "FI03",
+  "name": "LandingNet",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/FI03_v001.fbx",
+   "glb": "art/exports/creekside-life-c/FI03_v001.glb",
+   "blend": "art/source/creekside-life-c/FI03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.081,
+   0.415,
+   0.686
+  ],
+  "body_dimensions_xyz_m": [
+   1.081,
+   0.415,
+   0.686
+  ],
+  "size_limit_xyz_m": [
+   1.3,
+   0.45,
+   0.8
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Repair"
+  ],
+  "detailMeshes": [
+   "FI03_Detail_Repair_LOD0",
+   "FI03_Detail_Repair_LOD1",
+   "FI03_Detail_Repair_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 18212,
+    "triangles_without_detail": 18156,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI03_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI03_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 9106,
+    "triangles_without_detail": 9078,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI03_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI03_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 2376,
+    "triangles_without_detail": 2368,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI03_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI03_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "FI03_Body_LOD0",
+    "FI03_Body_LOD1",
+    "FI03_Body_LOD2"
+   ],
+   "Detail_Repair": [
+    "FI03_Detail_Repair_LOD0",
+    "FI03_Detail_Repair_LOD1",
+    "FI03_Detail_Repair_LOD2"
+   ]
+  },
+  "material": "M_FI03_LandingNet",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 82,
+  "coplanar_lifted": 0,
+  "reference": "art/references/FI03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "pushed handle-first into the bank mud at 34°; the net bag hangs about 20 cm below the ring (#93 review): the pack's 0.06 m height was for the net lying flat",
+   "net: 26 meshes round (spaced evenly along the cane) × 15 rows of 3–4 cm, cords 3.8 mm swelling into a knot at every crossing; a cord ring round the bottom row, seven cords drawn in to a tied knot; Detail_Repair: the mended patch",
+   "LOD2: the modelled net is replaced by a 12 × 5 card bag with the net in the albedo alpha (alpha clip 0.5); the material is double-sided"
+  ]
+ },
+ "FI04": {
+  "id": "FI04",
+  "name": "FishTrap",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/FI04_v001.fbx",
+   "glb": "art/exports/creekside-life-c/FI04_v001.glb",
+   "blend": "art/source/creekside-life-c/FI04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.892,
+   0.38,
+   0.38
+  ],
+  "body_dimensions_xyz_m": [
+   0.892,
+   0.38,
+   0.38
+  ],
+  "size_limit_xyz_m": [
+   0.9,
+   0.38,
+   0.38
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Fray",
+   "Detail_Patch"
+  ],
+  "detailMeshes": [
+   "FI04_Detail_Fray_LOD0",
+   "FI04_Detail_Fray_LOD1",
+   "FI04_Detail_Fray_LOD2",
+   "FI04_Detail_Patch_LOD0",
+   "FI04_Detail_Patch_LOD1",
+   "FI04_Detail_Patch_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 10016,
+    "triangles_without_detail": 9876,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI04_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI04_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 5008,
+    "triangles_without_detail": 4938,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI04_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI04_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1514,
+    "triangles_without_detail": 1480,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI04_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI04_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "FI04_Body_LOD0",
+    "FI04_Body_LOD1",
+    "FI04_Body_LOD2"
+   ],
+   "Detail_Fray": [
+    "FI04_Detail_Fray_LOD0",
+    "FI04_Detail_Fray_LOD1",
+    "FI04_Detail_Fray_LOD2"
+   ],
+   "Detail_Patch": [
+    "FI04_Detail_Patch_LOD0",
+    "FI04_Detail_Patch_LOD1",
+    "FI04_Detail_Patch_LOD2"
+   ]
+  },
+  "material": "M_FI04_FishTrap",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 58,
+  "coplanar_lifted": 0,
+  "reference": "art/references/FI04/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "lies on its side, tilted so the cone rests on the ground from mouth to tail",
+   "the inner funnel at the mouth is what makes it a trap (not the old carrying basket)",
+   "Detail_Patch: the woven patch; Detail_Fray: frayed lashing ends"
+  ]
+ },
+ "FI05": {
+  "id": "FI05",
+  "name": "Floats",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/creekside-life-c/FI05_v001.fbx",
+   "glb": "art/exports/creekside-life-c/FI05_v001.glb",
+   "blend": "art/source/creekside-life-c/FI05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.437,
+   0.3,
+   0.074
+  ],
+  "body_dimensions_xyz_m": [
+   0.437,
+   0.3,
+   0.074
+  ],
+  "size_limit_xyz_m": [
+   0.5,
+   0.3,
+   0.2
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Tail"
+  ],
+  "detailMeshes": [
+   "FI05_Detail_Tail_LOD0",
+   "FI05_Detail_Tail_LOD1",
+   "FI05_Detail_Tail_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 2792,
+    "triangles_without_detail": 2764,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI05_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI05_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1396,
+    "triangles_without_detail": 1382,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI05_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI05_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 418,
+    "triangles_without_detail": 414,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "FI05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "FI05_Normal.png": [
+      1024,
+      1024
+     ],
+     "FI05_ORM.png": [
+      1024,
+      1024
+     ],
+     "FI05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "FI05_Body_LOD0",
+    "FI05_Body_LOD1",
+    "FI05_Body_LOD2"
+   ],
+   "Detail_Tail": [
+    "FI05_Detail_Tail_LOD0",
+    "FI05_Detail_Tail_LOD1",
+    "FI05_Detail_Tail_LOD2"
+   ]
+  },
+  "material": "M_FI05_Floats",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 8,
+  "coplanar_lifted": 0,
+  "reference": "art/references/FI05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "three floats of different shapes: spindle (a, ~0.2 m, peg), barrel (b, ~0.12 m, bore, one end chipped), egg (c, ~0.08 m, neck groove)",
+   "one loose line ties them together through the barrel's bore, with a hand-tied knot; Detail_Tail: the frayed tail from the knot"
+  ]
+ },
  "WL01": {
   "id": "WL01",
   "name": "WashBoard",
