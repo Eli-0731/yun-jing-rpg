@@ -3,7 +3,7 @@
 | 誰做的 | A（Johnnnny0823） |
 | 工作包 | docs/execution/2026-11-08/A-80h-mountain-city.md（第二部分：山城街道小件） |
 | ID | ST01–ST06 |
-| 分支／PR | art/a-1108-st-street-furniture ／ PR 待開 |
+| 分支／PR | art/a-1108-st-street-furniture ／ #100 |
 | 版本 | v001 |
 | 狀態 | Exported；Imported：見「驗收紀錄」的 Unity 6000.3.28f1 檢查；Visually Verified：預覽圖；In-game Verified：未驗 |
 | 素材來源 | 原創。建模腳本 `art/source/mountain-street-a/build_st.py`，沿用 MC01（#80）的建模函式與共用貼圖；三視圖用 Codex CLI 生成，存 `art/references/ST01`–`ST06/` |
