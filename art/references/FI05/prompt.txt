@@ -1,0 +1,50 @@
+FI05 三顆不同大小的木浮子與繩（工作包 §5：0.5 × 0.3 × 0.2 m，練簡單形狀變體）三視圖與自評（2026-11-09）
+選用：FI05-cand-1.png（91分，整組）；紡錘形 FI05-float-a-cand-4.png（92）、鼓形 FI05-float-b-cand-3.png（92）、蛋形 FI05-float-c-cand-2.png（92）
+
+工作包第 5 節：「每件與 FI05 的每個不同輪廓先生成至少四張三視圖」。所以先用第 11 節原文（正面、負面一字不改）生成整組 4 張，再為三種輪廓各生成 4 張：只把物件描述換成單顆浮子，其餘（用途、版面、固定段 5.2）和負面提示詞 5.3 一字不動，全文在本檔最後。
+評分：形體與尺寸比例 30／練習重點（三種不同的簡單形狀）30／提示詞細節（水漬、一顆有缺角、手打的繩結）25／乾淨無字無記號、三面同一地線同比例 15。
+
+**整組**
+- cand-1：91（27+28+23+13）。選用（整組擺法）。三顆形狀真的不同（扁圓、大圓、小的有缺角），一條麻線串起、中間打結。
+- cand-2：86（26+22+25+13）。三顆都是同一種瓶形，只是並排。
+- cand-3：88（27+24+24+13）。三顆都是圓球，只差大小。
+- cand-4：87（26+23+25+13）。三顆同樣的鼓形加布條。
+
+**紡錘形（a）**
+- cand-1：90（27+27+23+13）。中段纏一塊布，看起來像修補。
+- cand-2：90（27+27+23+13）。釘了一小塊補片。
+- cand-3：85（27+27+23+8）。畫了藍色波浪紋，工作包規定道具無記號。
+- cand-4：92（28+28+24+12）。選用。兩端尖、頂端短木栓、繩結在栓下，只有兩道淡紅色的浮標漆圈和水漬。
+
+**鼓形（b）**
+- cand-1：91（27+28+23+13）。缺角和釘補片都有，補片多餘。
+- cand-2：90（27+27+23+13）。乾淨但看不到缺角。
+- cand-3：92（28+28+24+12）。選用。兩端平、中心穿孔走繩，端面一角缺損（工作包「一顆有缺角」就是這顆）。
+- cand-4：90（27+27+23+13）。多纏了繩。
+
+**蛋形（c）**
+- cand-1：90（27+27+23+13）。多兩道漆圈。
+- cand-2：92（28+28+24+12）。選用。頸部一圈刻槽、繩子在槽裡打結，下半部水漬。
+- cand-3：91（28+27+23+13）。和 cand-2 相近，頂部尖一點。
+- cand-4：90（27+27+23+13）。有裂縫，頸槽淺。
+
+建模取捨：照整組 cand-1 的擺法，三顆用照各自選圖做的紡錘形（長約 0.2 m）、鼓形（約 0.12 m、有缺角）、蛋形（約 0.08 m），以一條鬆麻線串起、中間一個不整齊的手打結，躺在地上；合計不超過 0.5 × 0.3 × 0.2 m。紡錘形的兩道漆圈畫得很淡（浮標用的顏色，不是記號）。
+
+== 整組正面提示詞（工作包原文）==
+Three-view orthographic turnaround sheet of three different small wooden fishing floats joined by loose hemp line, about group about 0.5 m wide, 0.3 m deep and 0.2 m tall, made of aged lightweight timber and hemp line, showing water stains, one chipped float and an uneven hand-tied knot, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞（四組相同，工作包原文）==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
+
+== 單顆 a 紡錘形正面提示詞 ==
+Three-view orthographic turnaround sheet of a single long spindle-shaped wooden fishing float tapered at both ends with a short peg on top, about 0.22 m long and 0.05 m thick, made of aged lightweight timber with a short loose hemp line tied to it, showing water stains and an uneven hand-tied knot, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 單顆 b 鼓形正面提示詞 ==
+Three-view orthographic turnaround sheet of a single short barrel-shaped wooden fishing float with flat ends and a hole through its length for the line, about 0.12 m long and 0.07 m wide, made of aged lightweight timber with a short loose hemp line through it, showing water stains and one chipped edge, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 單顆 c 蛋形正面提示詞 ==
+Three-view orthographic turnaround sheet of a single small egg-shaped wooden fishing float with a carved groove round its neck for the line, about 0.08 m long and 0.05 m wide, made of aged lightweight timber with a short loose hemp line tied in the groove, showing water stains, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
