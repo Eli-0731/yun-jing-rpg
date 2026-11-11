@@ -1,0 +1,17 @@
+GC01 溪邊圓石散件一組（5 顆不同形）（工作包第二部分表 B：每顆 0.1–0.4 m，練被水沖圓的石頭：圓但不完美、底部埋土）三視圖與自評（2026-11-12）
+選用：GC01-cand-2.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：92（28+28+24+12）。五顆分開、三排是三個方向；形狀清楚，石英脈、底部苔；水線（下半較暗）不太明顯。
+- cand-2：93（28+29+24+12）。選用。五顆形狀各不同：大的圓胖、扁長、高的蛋形、矮扁、小圓；都是被水沖圓但不完美（有平面和凹），暖灰帶藍灰，淺色石英脈，下半濕而較暗，凹處一點泥沙和一條藻線。
+- cand-3：91（28+27+24+12）。石頭排成直欄，每個方向五顆；形狀較相近，偏扁。
+- cand-4：90（27+27+24+12）。有一顆頂上凹一個坑，五顆裡兩顆太像。
+
+建模取捨：照 cand-2。練「被水沖圓的石頭：圓但不完美、底部埋土」：每顆是一個圓滑的團塊，用幾個大的低頻起伏讓它不對稱、帶一兩個平一點的面；底部壓平並往下多出一點（埋在土裡的部分，原點在每顆的底部中心）。石英脈、下半濕暗、凹處泥沙、一條藻線畫在貼圖上。五顆各自是單獨物件，可以分開擺。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a set of five separate water-rounded creek pebbles and cobbles of different sizes and shapes laid out apart from each other, each about 0.1 to 0.4 m long, made of smooth warm-grey and blue-grey river stone with pale quartz veins, showing wet darker lower halves, a little silt in the hollows and a thin line of algae, used on the banks of a clear creek in a mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

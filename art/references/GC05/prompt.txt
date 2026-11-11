@@ -1,0 +1,17 @@
+GC05 長在倒木上的層狀菇（工作包第二部分表 B：0.4 × 0.2 × 0.3 m，練一片片半圓疊上去的層次）三視圖與自評（2026-11-12）
+選用：GC05-cand-4.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：92（28+28+24+12）。倒木截段，側面一大片層狀菇；頂上苔和小花；層次清楚但菇片幾乎連成一片。
+- cand-2：91（28+27+24+12）。菇片較少，倒木的端面很亂。
+- cand-3：91（28+27+24+12）。菇片厚、只有一層層往右延伸。
+- cand-4：93（28+29+24+12）。選用。倒木截段，側面兩叢半圓的層狀菇，一片片往上疊（上小下大），每片有同心色帶、邊緣淺；頂上一層苔，兩端斷面碎爛；側面看得到菇片一層層伸出來。
+
+建模取捨：照 cand-4。練「一片片半圓疊上去的層次」：每片菇是一個半圓的厚片（上面微拱、下面平、邊緣圓），從樹皮裡長出來（根部埋進樹皮），一叢五到六片上下錯開往上疊；同心色帶在貼圖上。倒木是一段剝了一部分樹皮的圓木，兩端斷面碎爛、頂上一層苔。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a short section of a mossy fallen log with several layered half-round bracket fungi growing out of its side, about 0.4 m long, 0.2 m deep and 0.3 m tall, made of dark wet bark and pale cream-to-brown shelf fungi with concentric bands, showing the stacked shelf layers, moss on top of the log and crumbling wood at the cut ends, used on the forest floor near a mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

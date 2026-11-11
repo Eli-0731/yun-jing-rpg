@@ -1,0 +1,21 @@
+GC03 半埋在土裡的扁石一組（4 顆）（工作包第二部分表 B：每顆 0.3–0.6 m，練石頭和地面接觸的地方：一圈土、草）三視圖與自評（2026-11-12）
+選用：GC03-cand-6.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），八張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：89（28+28+21+12）。只畫一顆石頭（提示詞要四顆），三面清楚，石頭和地面交界有土和草。
+- cand-2：88（27+28+21+12）。只有一顆，形狀圓頂、裂紋清楚。
+- cand-3：90（28+28+22+12）。只有一顆，苔和草最好；不到四顆，照規則重生四張（cand-5–8）。
+- cand-4：88（27+28+21+12）。只有一顆，偏扁。
+- cand-5：92（28+28+24+12）。四顆扁石大小不同，每顆一圈草和土；側面四顆形狀相近。
+- cand-6：93（28+29+24+12）。選用。四顆扁石大小不同、頂面被風化成圓拱，有一兩道裂縫；每顆和地面交界一圈壓實的土和短草，頂上邊緣小片苔。
+- cand-7：88（27+28+21+12）。只有一顆，又高又厚。
+- cand-8：89（27+28+22+12）。一顆大石旁邊幾顆小的，連成一團，不是分開的四顆。
+
+建模取捨：照 cand-6。第一輪四張（cand-1–4）都只畫一顆，最高 90 分，照「90 分以上才建模」重生四張，選 cand-6。練「石頭和地面接觸的地方」：每顆扁石露出地面的是被風化的圓拱頂，下半埋在土裡（模型只做地面以上，底部 z = 0，擺放時直接放在地面上），交界一圈壓實的土墊（貼地、往外漸薄）和一圈短草（Detail_）；裂縫和苔畫在貼圖上。四顆各自是單獨物件（石頭、土墊、草算同一顆），可以分開擺。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a set of four separate flat stones half-buried in the ground, each with a ring of packed soil and short grass around its edge, each about 0.3 to 0.6 m wide, made of warm-grey fieldstone and dark earth, showing weathered rounded tops, soil line where the stone meets the ground and small moss patches, used in the ground of a mountain valley village and forest. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

@@ -1,0 +1,17 @@
+GC04 地上的小野菇一叢（普通、不發光）（工作包第二部分表 B：0.3 × 0.3 × 0.15 m，練菇傘和菇柄、大小不一；和發光蕈不同）三視圖與自評（2026-11-12）
+選用：GC04-cand-1.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：92（28+28+24+12）。選用。一叢高矮不一的普通菇：一朵大的、幾朵中的、幾朵小的；菇傘淺褐、邊緣有破口，菇柄白、根部沾土，菇褶看得到；底下落葉和土。
+- cand-2：91（28+27+24+12）。有一朵翻過來的破傘，菇柄較長。
+- cand-3：90（27+27+24+12）。菇擠在一起，個別菇傘不好分。
+- cand-4：92（28+28+24+12）。和 cand-1 相近，大菇偏高、比例像傘。
+
+建模取捨：照 cand-1，但壓到工作包的 0.15 m 高：菇傘是有厚度的淺圓頂（下面一圈菇褶畫成放射紋），菇柄略彎、根部粗、沾土；大小七朵，兩朵菇傘邊緣破一角；底下一小片落葉和土（貼地）。顏色淺褐到褐、不發光，和發光蕈不同。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a small cluster of ordinary non-glowing wild mushrooms of different heights growing from leaf litter, about 0.3 m wide and 0.15 m tall, made of soft tan and brown caps with pale stems and gills, showing a few broken caps, dirt on the stems and fallen leaves around the base, used on the forest floor near a mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

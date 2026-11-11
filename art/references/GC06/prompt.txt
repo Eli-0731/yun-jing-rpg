@@ -1,0 +1,17 @@
+GC06 小落石堆（工作包第二部分表 B：1.2 × 1 × 0.6 m，練很多石頭堆在一起不穿插、不懸空）三視圖與自評（2026-11-12）
+選用：GC06-cand-4.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（28+27+24+12）。石堆偏尖，側面像一座小山。
+- cand-2：92（28+28+24+12）。三角形石堆、碎石填縫、草；石頭偏方。
+- cand-3：91（28+27+24+12）。石頭偏少，中間空。
+- cand-4：93（28+29+24+12）。選用。石堆是大小不同的石頭彼此靠著：大的在底下，上面幾顆有新斷面（較淺色）；幾顆圓石混在裡面；石縫填了土和碎石，下層石頭之間長草。
+
+建模取捨：照 cand-4。練「很多石頭堆在一起不穿插、不懸空」：二十多顆有稜角的石頭和幾顆圓石，從大到小一層層放上去，每顆都靠在地面或下面的石頭上（由程式往下放到接觸為止，不互相穿插）；石縫底部一片土和碎石；下層石頭之間幾叢草（Detail_）；頂上幾顆的新斷面畫淺色。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a small natural pile of fallen rocks at the foot of a slope, many stones of different sizes resting on each other without floating gaps, about 1.2 m wide, 1 m deep and 0.6 m tall, made of warm-grey angular rock with a few rounded stones, showing soil and gravel filling the gaps, grass growing between the lower stones and fresh light-coloured breaks on the top stones, used along mountain paths around a valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

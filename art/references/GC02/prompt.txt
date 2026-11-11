@@ -1,0 +1,17 @@
+GC02 山路碎石散件一組（5 顆不同形）（工作包第二部分表 B：每顆 0.1–0.3 m，練有稜角的碎石，和 GC01 一眼分得出）三視圖與自評（2026-11-12）
+選用：GC02-cand-3.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：86（26+25+22+13）。圖裡石頭很多很小，排法不像三視圖。
+- cand-2：91（28+27+24+12）。五顆分三欄；形狀尖，帶草叢（提示詞沒有）。
+- cand-3：92（28+28+24+12）。選用。五顆形狀各不同：大塊斜劈面、楔形、尖高的一片、矮扁塊、小塊；稜角清楚，新斷面較淺色，舊面有地衣和灰塵；三排是三個方向。
+- cand-4：92（28+28+24+12）。和 cand-2 相近，楔形那顆比例較好，但多了不少草。
+
+建模取捨：照 cand-3。練「有稜角的碎石」：每顆從一個多面體用幾個平面切出斷面（平的大面、銳利但小倒角的稜），和 GC01 的圓滑團塊一眼分得開；新斷面顏色較淺，舊面帶地衣和灰塵（貼圖）。五顆各自是單獨物件。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a set of five separate angular broken mountain stones of different sizes laid out apart from each other, each about 0.1 to 0.3 m long, made of sharp-edged warm-grey rock with fresh lighter break faces, showing dust in the creases, small chips and a little lichen on the older faces, used along mountain paths around a valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
