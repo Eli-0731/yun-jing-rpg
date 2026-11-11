@@ -1,6 +1,6 @@
 # PR 總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；要更新就重跑。產生時間：2026-11-10 16:05 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；要更新就重跑。產生時間：2026-11-11 09:20 UTC。
 > 人：A = Johnnnny0823（John）、B = joshsu54（Josh）、C = Eli-0731（Eli）、核心組 = z1nnz（含 Claude Code、Codex 代提交）。
 
 | PR | 誰 | 狀態 | 日期 | 分支 | 做了什麼（標題） | 動到的主要資料夾（檔案數） |
@@ -96,3 +96,6 @@
 | [#93](https://github.com/z1nnz/chengtian/pull/93) | C | 已合併 | 2026-11-10 | `Eli-0731:art/c-1107-fi-fishing-props` | 【C】11/07 FI01–FI05：西溪釣具五件（釣竿、線輪、抄網、魚筌、浮子） | `art/previews/creekside-life-c`(221)、`art/textures/creekside-life-c`(20)、`art/references/FI05`(17)、`art/exports/creekside-life-c`(12)、`art/source/creekside-life-c`(12) 等 9 處 |
 | [#94](https://github.com/z1nnz/chengtian/pull/94) | 核心組 | 已合併 | 2026-11-09 | `docs/core-1109-registry-after-92` | docs: 重新產生帳本（#90、#92 合併後） | `docs/registry/branches.md`(1)、`docs/registry/prs.md`(1) |
 | [#95](https://github.com/z1nnz/chengtian/pull/95) | 核心組 | 已合併 | 2026-11-09 | `docs/core-1109-registry-after-90` | docs: 重新產生帳本（#90 合併後） | `docs/registry/branches.md`(1)、`docs/registry/folders.md`(1)、`docs/registry/prs.md`(1) |
+| [#96](https://github.com/z1nnz/chengtian/pull/96) | 核心組 | 已合併 | 2026-11-10 | `docs/core-1111-registry-after-93` | docs: 重新產生帳本（#93 合併後） | `docs/registry/branches.md`(1)、`docs/registry/folders.md`(1)、`docs/registry/prs.md`(1) |
+| [#97](https://github.com/z1nnz/chengtian/pull/97) | 核心組 | 已合併 | 2026-11-11 | `docs/core-1111-readme-contributing` | 【核心組】11/11 文件：README 與 CONTRIBUTING 更新為承天 | `CONTRIBUTING.md`(1)、`README.md`(1) |
+| [#98](https://github.com/z1nnz/chengtian/pull/98) | A | 開啟中 | 2026-11-11 | `art/a-1105-mc02-rope-bridge` | 【A】11/05 MC02：24 m、12 m 索橋 | `art/previews/mc02-rope-bridge`(45)、`art/source/mc02-rope-bridge`(8)、`art/exports/mc02-rope-bridge`(5)、`art/references/MC02-12M`(5)、`art/references/MC02-24M`(5) 等 9 處 |
