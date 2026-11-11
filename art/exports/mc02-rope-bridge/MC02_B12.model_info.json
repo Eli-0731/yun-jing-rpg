@@ -7,12 +7,12 @@
  "dimensions_m": [
   2.583,
   11.997,
-  3.363
+  2.934
  ],
  "bounds_min_m": [
   -1.291,
   0.001,
-  -1.629
+  -1.2
  ],
  "bounds_max_m": [
   1.292,
@@ -21,7 +21,7 @@
  ],
  "length_m": 12.0,
  "deckWidth_m": 1.6,
- "sag_m": 1.5,
+ "sag_m": 0.45,
  "bridgehead_m": 1.4,
  "endDeckHeights_m": [
   0.0,
@@ -33,19 +33,19 @@
  "lods": [
   {
    "lod": 0,
-   "triangles": 36652,
+   "triangles": 35212,
    "objects": 1,
    "materials": 1
   },
   {
    "lod": 1,
-   "triangles": 18326,
+   "triangles": 17606,
    "objects": 1,
    "materials": 1
   },
   {
    "lod": 2,
-   "triangles": 5930,
+   "triangles": 5578,
    "objects": 1,
    "materials": 1
   }
@@ -66,7 +66,7 @@
  },
  "textureNote": "shared MC01 trim sheet (art/textures/mountain-street-houses-a)",
  "collision": "MC02_B12_Collision (one mesh: smooth deck ribbon over the full length incl. bridgeheads, 1.1 m guard walls both sides)",
- "maxDeckSlope_deg": 33.1,
+ "maxDeckSlope_deg": 11.1,
  "fbx": "art/exports/mc02-rope-bridge/MC02_B12.fbx",
  "fps": "不寫（手機未實測）"
 }

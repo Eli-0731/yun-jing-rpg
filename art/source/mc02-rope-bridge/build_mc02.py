@@ -1,6 +1,6 @@
 """承天 · 11/05 A 包 MC02 索橋（Johnnnny0823）。Exports go to art/exports/mc02-rope-bridge.
 
-Two walkable chain bridges, 24 m and 12 m long, 1.6 m deck, 1.5 m sag, both ends at the same height. Same hand and the same
+Two walkable chain bridges, 24 m and 12 m long, 1.6 m deck, 1.5 m / 0.45 m sag, both ends at the same height. Same hand and the same
 shared 2048 trim sheet as MC01 / TX04 (M_MountainStreet_Trim), so the bridges batch with the street and the academy; geometry
 helpers from the MC01 builder and stone_block from the TX04 builder (both merged).
 
@@ -28,21 +28,25 @@ import build_tx04 as tx
 PKG = 'mc02-rope-bridge'; OUT = ROOT / 'art/exports' / PKG; PRE = ROOT / 'art/previews' / PKG
 for p in (OUT, PRE): p.mkdir(parents=True, exist_ok=True)
 SPEC = {'B24': 24.0, 'B12': 12.0}
-W, SAG, HEAD = 1.6, 1.5, 1.4          # deck width, sag, bridgehead depth
+W, HEAD = 1.6, 1.4                     # deck width, bridgehead depth
+# sag per span: 1.5 m on the 24 m bridge (package); the 12 m bridge sags 0.45 m so both ends stay under 12 degrees
+# (review on PR #98: 1.5 m on 12 m gave 33 degrees and read as a ramp of stair-like planks)
+SAG_BY_SPAN = {24.0: 1.5, 12.0: .45}
+def sag(L): return SAG_BY_SPAN[float(L)]
 PX = .78                               # deck chain x (under the plank ends)
 POST_X, POST_H = 1.02, 1.45            # stone post centre x, height above the walking surface
 HAND_Z = 1.05                          # hand chain anchor height above the walking surface
 
 def deck_z(y, L):
-    """walking-surface height: 0 on the bridgeheads, a parabola sagging SAG at mid span between them"""
+    """walking-surface height: 0 on the bridgeheads, a parabola sagging sag(L) at mid span between them"""
     a, b = HEAD, L - HEAD
     if y <= a or y >= b: return 0.0
-    t = (y - a) / (b - a); return -SAG * 4 * t * (1 - t)
+    t = (y - a) / (b - a); return -sag(L) * 4 * t * (1 - t)
 
 def hand_z(y, L):
     """hand chain: anchored at HAND_Z on the inner faces of the posts, sagging with the deck so it stays ~1.05 m above it"""
     a, b = HEAD - .2, L - HEAD + .2
-    t = min(1.0, max(0.0, (y - a) / (b - a))); return HAND_Z - SAG * 4 * t * (1 - t) * .98
+    t = min(1.0, max(0.0, (y - a) / (b - a))); return HAND_Z - sag(L) * 4 * t * (1 - t) * .98
 
 def chain(name, path_fn, y0, y1, seed, link=.13, r_link=.045, wire=.011):
     """a chain of alternating torus links along a curve x(y), z(y) from y0 to y1, link length `link` measured along the curve"""
@@ -178,7 +182,7 @@ def build(mid):
     info = {'id': f'MC02-{int(L)}M', 'package': 'docs/execution/2026-11-05/A-48h-mountain-city-architecture.md', 'author': 'A (Johnnnny0823)',
             'version': 'v001', 'status': 'Exported; Imported/In-game Verified: 未驗',
             'dimensions_m': [round(float(d), 3) for d in dims], 'bounds_min_m': [round(float(v), 3) for v in mn], 'bounds_max_m': [round(float(v), 3) for v in mx],
-            'length_m': L, 'deckWidth_m': W, 'sag_m': SAG, 'bridgehead_m': HEAD, 'endDeckHeights_m': endz,
+            'length_m': L, 'deckWidth_m': W, 'sag_m': sag(L), 'bridgehead_m': HEAD, 'endDeckHeights_m': endz,
             'origin': 'centre of end A outer edge at walking-surface height (z = 0 at both ends); runs along +Y to end B at y = length',
             'cliffBoardwalk': 'place the origin on a CliffBoardwalk v001 connector (its deck is at +1.2 m, running along Y): both ends meet the boardwalk deck height',
             'minTier': 'low', 'lods': lods, 'objectsLOD0': [lod0.name], 'detailObjects': [], 'glowObjects': [],
@@ -186,7 +190,7 @@ def build(mid):
             'textures': {n: '2048x2048' for n in ('T_MountainStreet_Albedo', 'T_MountainStreet_Normal', 'T_MountainStreet_MetallicSmoothness', 'T_MountainStreet_Emission')},
             'textureNote': 'shared MC01 trim sheet (art/textures/mountain-street-houses-a)',
             'collision': f'{tag}_Collision (one mesh: smooth deck ribbon over the full length incl. bridgeheads, 1.1 m guard walls both sides)',
-            'maxDeckSlope_deg': round(math.degrees(math.atan(SAG * 4 / (L - 2 * HEAD))), 1),
+            'maxDeckSlope_deg': round(math.degrees(math.atan(sag(L) * 4 / (L - 2 * HEAD))), 1),
             'fbx': f'art/exports/{PKG}/{tag}.fbx', 'fps': '不寫（手機未實測）'}
     (OUT / f'{tag}.model_info.json').write_text(json.dumps(info, ensure_ascii=False, indent=1), encoding='utf-8')
     print(mid, 'LOD tris', [l['triangles'] for l in lods], 'dims', info['dimensions_m'], 'min', info['bounds_min_m'], 'slope', info['maxDeckSlope_deg'], flush=True)

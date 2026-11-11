@@ -54,7 +54,7 @@ for mid in mids:
             if o.parent is None: o.location = o.location + at
         objs += [o for o in new if o.type == 'MESH']
     if CLAY: clay_all(objs)
-    figure(-.95, -1.6, 0); figure(.3, L / 2, -1.5)   # first figure stands beside the eye-height camera
+    figure(-.95, -1.6, 0); figure(.3, L / 2, -{24: 1.5, 12: .45}[int(round(L))])   # first figure stands beside the eye-height camera
     cam = bpy.data.objects.new('cam', bpy.data.cameras.new('cam')); sc.collection.objects.link(cam); sc.camera = cam
     span = L + 12
     for name, loc, at, lens in (('three_quarter', (-span * .55, L / 2 - span * .32, span * .22), (0, L / 2, -.8), 35),

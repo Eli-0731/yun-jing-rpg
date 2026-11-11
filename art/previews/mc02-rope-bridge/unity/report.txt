@@ -1,11 +1,11 @@
 PASS shared MC01 trim sheet: Albedo / Normal / MetallicSmoothness imported
 Unity 6000.3.28f1, pipeline URP
-PASS B12: imported size 2.584 x 11.998 x 3.363 m matches model_info 2.583 x 11.997 x 3.363
+PASS B12: imported size 2.584 x 11.998 x 2.934 m matches model_info 2.583 x 11.997 x 2.934
 PASS B12: runs along +Z from 0.001 to 11.999 m (origin at end A, length 12 m)
-PASS B12: triangles LOD0/1/2 = 36652 / 18326 / 5930, model_info 36652 / 18326 / 5930
+PASS B12: triangles LOD0/1/2 = 35212 / 17606 / 5578, model_info 35212 / 17606 / 5578
 PASS B12: one shared material (M_MountainStreet_Trim)
 PASS B12: collision imported as MeshCollider (1452 tris), render hidden
-PASS B12: walkable deck, 48 rays along the centre line: 0 misses, max offset from the modelled deck 0.1 cm, max step beyond the slope between 25 cm samples 0.1 cm
+PASS B12: walkable deck, 48 rays along the centre line: 0 misses, max offset from the modelled deck 0.0 cm, max step beyond the slope between 25 cm samples 0.0 cm
 PASS B12: guard collision at the deck edge (0.80 m from the centre line at 0.6 m above the deck)
 PASS B12: CliffBoardwalk v001 found in the project (Assets/YunJing/Models/CollaboratorWorldV1/CliffBoardwalk_v001.fbx)
 PASS B12: joint end A with CliffBoardwalk: walking height 0.000 .. 0.000 m over 2 m across the joint (step 0.0 cm)
