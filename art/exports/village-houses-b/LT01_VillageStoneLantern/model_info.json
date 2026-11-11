@@ -1,0 +1,323 @@
+{
+  "asset": "LT01_VillageStoneLantern",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "LT01_VillageStoneLantern_Detail_Small"
+  ],
+  "name_zh": "村口石燈（中式）",
+  "slot": "A1_QingxiVillage_Gate",
+  "note": "Chinese village-gate stone lantern, to stand in for G01 at the village gate (Gate_Lantern_L / _R). Squared off and sturdy, no writing. The flame glows by the baked emission map (strength set by the game: 0 = unlit); Socket_Light at the chamber centre for a small warm point light.",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 8630,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 4315,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 1293,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "LT01_VillageStoneLantern_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "LT01_VillageStoneLantern_Emission.png": [
+      1024,
+      1024
+    ],
+    "LT01_VillageStoneLantern_Metallic.png": [
+      1024,
+      1024
+    ],
+    "LT01_VillageStoneLantern_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "LT01_VillageStoneLantern_Normal.png": [
+      1024,
+      1024
+    ],
+    "LT01_VillageStoneLantern_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre, bottom z = 0, front -Y (as G01)",
+  "dimensions_m": [
+    0.7,
+    0.7,
+    1.8006
+  ],
+  "bounds_min_m": [
+    -0.35,
+    -0.35,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.35,
+    0.35,
+    1.8006
+  ],
+  "size_limit_m": [
+    0.7,
+    0.7,
+    1.8
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        0.696,
+        0.696,
+        1.8006
+      ],
+      "min": [
+        -0.348,
+        -0.348,
+        0.0
+      ],
+      "max": [
+        0.348,
+        0.348,
+        1.8006
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.7,
+        0.7,
+        1.6745
+      ],
+      "min": [
+        -0.35,
+        -0.35,
+        0.0
+      ],
+      "max": [
+        0.35,
+        0.35,
+        1.6745
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 6324,
+      "LOD1": 3162,
+      "LOD2": 948
+    },
+    "Detail_Small": {
+      "LOD0": 2306,
+      "LOD1": 1153,
+      "LOD2": 345
+    }
+  },
+  "lod_totals": {
+    "LOD0": 8630,
+    "LOD1": 4315,
+    "LOD2": 1293
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_LT01_VillageStoneLantern_Main"
+  ],
+  "textures": [
+    "LT01_VillageStoneLantern_BaseColor.png",
+    "LT01_VillageStoneLantern_Emission.png",
+    "LT01_VillageStoneLantern_Metallic.png",
+    "LT01_VillageStoneLantern_MetallicSmoothness.png",
+    "LT01_VillageStoneLantern_Normal.png",
+    "LT01_VillageStoneLantern_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_LT01_VillageStoneLantern_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "LT01_VillageStoneLantern_BaseColor.png",
+        "Normal": "LT01_VillageStoneLantern_Normal.png",
+        "MetallicSmoothness": "LT01_VillageStoneLantern_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "LT01_VillageStoneLantern_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "parts": {
+    "base_courses_m": [
+      [
+        0.62,
+        0.0,
+        0.15
+      ],
+      [
+        0.52,
+        0.147,
+        0.27
+      ],
+      [
+        0.43,
+        0.267,
+        0.39
+      ]
+    ],
+    "post_m": [
+      0.32,
+      0.386,
+      1.026
+    ],
+    "collar_m": [
+      [
+        0.46,
+        1.022,
+        1.066
+      ],
+      [
+        0.56,
+        1.062,
+        1.152
+      ]
+    ],
+    "chamber_m": [
+      0.44,
+      1.148,
+      1.482
+    ],
+    "cavity_m": [
+      0.3,
+      1.2,
+      1.42
+    ],
+    "openings_front_back_m": [
+      0.22,
+      1.235,
+      1.385
+    ],
+    "openings_sides_m": [
+      0.1,
+      1.22,
+      1.4
+    ],
+    "cap_rings_halfwidth_z_lift_m": [
+      [
+        0.3,
+        1.474,
+        0.0
+      ],
+      [
+        0.338,
+        1.493,
+        0.016
+      ],
+      [
+        0.348,
+        1.502,
+        0.022
+      ],
+      [
+        0.348,
+        1.585,
+        0.026
+      ],
+      [
+        0.333,
+        1.601,
+        0.022
+      ],
+      [
+        0.125,
+        1.69,
+        0.0
+      ],
+      [
+        0.085,
+        1.7,
+        0.0
+      ]
+    ],
+    "boss_m": [
+      [
+        0.18,
+        1.697,
+        1.8
+      ]
+    ],
+    "light_socket_m": [
+      0.0,
+      0.0,
+      1.3
+    ],
+    "glow": "the flame only: emission baked into the Main atlas (Emission map); the material starts at strength 0, the game sets it",
+    "g01_note": "G01 is 0.59 x 0.59 x 2.13 m with G01_LightSocket at z 1.553; LT01 follows the work pack 0.7 x 0.7 x 1.8 m, origin as G01"
+  },
+  "sockets_blender_xyz": {
+    "Socket_Light": [
+      0.0,
+      0.0,
+      1.3
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Light.001": [
+      0.0,
+      0.0,
+      1.3
+    ]
+  },
+  "fbx_objects": [
+    "LT01_VillageStoneLantern.001",
+    "LT01_VillageStoneLantern_Collision.001",
+    "LT01_VillageStoneLantern_Detail_Small_LOD0.001",
+    "LT01_VillageStoneLantern_Detail_Small_LOD1.001",
+    "LT01_VillageStoneLantern_Detail_Small_LOD2.001",
+    "LT01_VillageStoneLantern_LOD0.001",
+    "LT01_VillageStoneLantern_LOD1.001",
+    "LT01_VillageStoneLantern_LOD2.001",
+    "Socket_Light.001"
+  ],
+  "glb": "LT01_VillageStoneLantern_v001.glb",
+  "interface": {
+    "cap_lift_m": 0.0225,
+    "socket_m": [
+      0.0,
+      0.0,
+      1.3
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-houses-b/lt_lantern.py: chiselled stone blocks, boolean-hollowed chamber, lofted cap); procedural stone, moss and flame shaders baked to one 1024 atlas (Main, with an Emission map for the flame)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 314.8,
+        "median": 315.2,
+        "p90": 317.2,
+        "area_m2": 7.5
+      },
+      "inside_or_covered": null,
+      "atlas_px": 1024,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "art/references/LT01/ (AI three-view LT01/LT01-fix-cand-1; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check, not committed)",
+  "based_on": "new piece (work pack 2026-11-09 LT01) replacing G01 (art/exports/qingxi-day12-c/G01, not changed); size and origin per the work pack and G01"
+}
