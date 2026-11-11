@@ -1,0 +1,101 @@
+{
+ "views": [
+  {
+   "name": "LG01_eye_1.7m_root_end_approach",
+   "eye": [
+    -14.5,
+    -2.4,
+    1.7
+   ],
+   "target": [
+    -6,
+    0,
+    2.0
+   ],
+   "lens": 22
+  },
+  {
+   "name": "LG01_eye_1.7m_on_trunk_forward",
+   "eye": [
+    -3.5,
+    -0.05,
+    3.65
+   ],
+   "target": [
+    6,
+    0.1,
+    2.6
+   ],
+   "lens": 22
+  },
+  {
+   "name": "LG01_eye_1.7m_on_trunk_back_to_roots",
+   "eye": [
+    -2.6,
+    -0.04,
+    3.68
+   ],
+   "target": [
+    -8,
+    0,
+    2.7
+   ],
+   "lens": 22
+  },
+  {
+   "name": "LG01_eye_1.7m_valley_side",
+   "eye": [
+    0.5,
+    -7.0,
+    1.7
+   ],
+   "target": [
+    0,
+    0,
+    1.4
+   ],
+   "lens": 22
+  },
+  {
+   "name": "LG01_overview",
+   "eye": [
+    14,
+    -14,
+    9
+   ],
+   "target": [
+    0,
+    0,
+    1.5
+   ],
+   "lens": 26
+  }
+ ],
+ "pieces": [
+  {
+   "id": "LG01_GiantLogBridge",
+   "offset": [
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "figures_1_75m": [
+  [
+   -12.2,
+   -1.4,
+   0,
+   20
+  ],
+  [
+   1.5,
+   0.08,
+   1.92,
+   180
+  ]
+ ],
+ "placeholder_terrain_blocks": [],
+ "camera": "perspective, eye at the listed point (1.7 m above the surface stood on)",
+ "engine": "EEVEE"
+}

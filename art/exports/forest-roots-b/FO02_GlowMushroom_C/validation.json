@@ -1,0 +1,189 @@
+{
+  "asset": "FO02_GlowMushroom_C",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.6,
+          -0.5425,
+          0.0
+        ],
+        "max": [
+          0.5431,
+          0.5424,
+          0.4009
+        ],
+        "box_m": [
+          [
+            -0.6,
+            -0.6,
+            0.0
+          ],
+          [
+            0.6,
+            0.6,
+            0.8
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01931
+      }
+    },
+    {
+      "check": "caps_thick_and_domed",
+      "pass": true,
+      "detail": {
+        "cap_radius_and_thickness_at_half_radius_m": [
+          [
+            0.26,
+            0.0863
+          ],
+          [
+            0.16,
+            0.058
+          ],
+          [
+            0.14,
+            0.0597
+          ],
+          [
+            0.1,
+            0.0391
+          ],
+          [
+            0.085,
+            0.0354
+          ],
+          [
+            0.05,
+            0.02
+          ],
+          [
+            0.05,
+            0.0197
+          ]
+        ],
+        "need": "thickness >= 0.22 x cap radius at half radius (a domed cap with body, not a disc)"
+      }
+    },
+    {
+      "check": "glow_only_under_caps",
+      "pass": true,
+      "detail": {
+        "glow_surface_share": 0.216,
+        "glow_faces_mean_normal_z": -0.323,
+        "glow_area_facing_up_share": 0.0,
+        "emission_atlas": "FO02_GlowMushroom_C_Emission.png",
+        "note": "faces whose baked Emission texel (at the UV centre) is above 0.08: a small share of the surface, facing down under the caps"
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": [
+        "Socket_GlowLight"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 61500,
+          "LOD1": 30749,
+          "LOD2": 9223
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 44818,
+            "LOD1": 22408,
+            "LOD2": 6722
+          },
+          "Detail_Small": {
+            "LOD0": 16682,
+            "LOD1": 8341,
+            "LOD2": 2501
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.1431,
+          1.0848,
+          0.4009
+        ],
+        "blend_dims_m": [
+          1.1431,
+          1.0848,
+          0.4009
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "FO02_GlowMushroom_C.001",
+        "FO02_GlowMushroom_C_Collision.001",
+        "FO02_GlowMushroom_C_Detail_Small_LOD0.001",
+        "FO02_GlowMushroom_C_Detail_Small_LOD1.001",
+        "FO02_GlowMushroom_C_Detail_Small_LOD2.001",
+        "FO02_GlowMushroom_C_LOD0.001",
+        "FO02_GlowMushroom_C_LOD1.001",
+        "FO02_GlowMushroom_C_LOD2.001",
+        "Socket_GlowLight.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_GlowLight.001": [
+          -0.06,
+          0.05,
+          0.2646
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 3699112
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 111,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

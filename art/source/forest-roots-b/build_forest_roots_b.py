@@ -22,7 +22,7 @@ sys.path.insert(0, str(HERE))
 import numpy as np
 from mathutils import Vector, Matrix
 import ti_core, ti_mats, ti_pipeline as pl
-import fr_wall, fr_arch, fr_vines, fr_bridge
+import fr_wall, fr_arch, fr_vines, fr_bridge, fr_giantlog, fr_mushroom
 from ti_core import S
 
 KIT = 'forest-roots-b'
@@ -33,6 +33,7 @@ LOD_DROPS = {1: (2, 99), 2: (1, 2, 99)}
 
 ASSETS = {}
 fr_wall.register(ASSETS); fr_arch.register(ASSETS); fr_vines.register(ASSETS); fr_bridge.register(ASSETS)
+fr_giantlog.register(ASSETS); fr_mushroom.register(ASSETS)          # LG01, FO02 A/B/C (work pack 2026-11-09 B-112h batch C)
 
 
 def route_details():
@@ -105,10 +106,13 @@ def clamp_to_limit(cfg):
         me = o.data; co = np.zeros(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
         w = co + np.array(o.location, np.float32)
         c = w.copy(); c[:, 0] = np.clip(c[:, 0], lo_b[0], hi_b[0]); c[:, 1] = np.clip(c[:, 1], lo_b[1], hi_b[1]); c[:, 2] = np.maximum(c[:, 2], lo_b[2])
-        moved = max(moved, float(np.abs(c - w).max()))
+        dm = np.abs(c - w)
+        if float(dm.max()) > moved:
+            i = int(dm.max(axis=1).argmax()); S['clamp_worst'] = (o.name, [round(float(v), 3) for v in w[i]])
+        moved = max(moved, float(dm.max()))
         me.vertices.foreach_set('co', (c - np.array(o.location, np.float32)).ravel()); me.update()
     S['clamped_m'] = round(moved, 5)
-    assert moved < cfg.get('clamp_max', .02), ('clamp moved a vertex too far', moved)   # TE03: buried stone bottoms are flattened onto z = 0
+    assert moved < cfg.get('clamp_max', .02), ('clamp moved a vertex too far', moved, S.get('clamp_worst'))   # TE03: buried stone bottoms are flattened onto z = 0
 
 
 def leaf_lods(src, tex_dir):
@@ -358,6 +362,8 @@ def _strip(paths, out):
 
 # ------------------------------------------------------------------ FR checks
 from fr_checks import *   # noqa: F401,F403  wall_checks, arch_checks, vine_checks, bridge_checks, _bvh
+from fr_giantlog import giantlog_checks   # noqa: F401
+from fr_mushroom import mushroom_checks   # noqa: F401
 
 
 def spec_checks(aid, check):
