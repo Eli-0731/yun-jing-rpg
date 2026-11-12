@@ -125,6 +125,10 @@ def make_sources():
     S['cap']=(lerp((.38,.25,.14),(.64,.46,.28),np.clip(.5+.8*(fbm(4,3)-.5),0,1)),.2*fbm(30,2),.5,.62,0,0)
     S['stem']=(lerp((.70,.64,.52),(.86,.80,.68),np.clip(.5+.6*(fbm(5,3,aniso=8)-.5),0,1)),.3*fbm(40,2,aniso=12),.6,.7,0,0)
     S['gill']=(lerp((.58,.48,.36),(.74,.64,.50),np.clip(.5+.5*(fbm(6,2)-.5),0,1)),.2*fbm(20,2),.3,.8,0,0)
+    K.rng=np.random.default_rng(3405)   # GC08: pine cone scales, glossy acorn shell, rough acorn cap
+    S['cone']=(lerp((.26,.15,.08),(.50,.32,.17),np.clip(.5+.7*(fbm(5,3)-.5),0,1)),.3*fbm(40,2),.8,.8,0,0)
+    S['acorn']=(lerp((.36,.20,.09),(.60,.38,.17),np.clip(.5+.6*(fbm(4,3,aniso=4)-.5),0,1)),.1*fbm(30,2),.3,.45,0,0)
+    S['acorncap']=(lerp((.30,.25,.16),(.48,.40,.27),np.clip(.5+.7*(fbm(8,3)-.5),0,1)),.9*fbm(70,2),1.6,.92,0,0)
     S['fungus']=(lerp((.52,.40,.27),(.80,.70,.54),np.clip(.5+.7*(fbm(4,3)-.5),0,1)),.3*fbm(30,2),.7,.78,0,0)
     out={}
     for k,(alb,h,s,r,m,glow) in S.items():
@@ -151,9 +155,9 @@ def endgrain():
 
 # ---------------- items (filled per item after its three-view is picked) ----------------
 PROPS={}
-TARGET={k:('x',None) for k in ('GC01','GC02','GC03','GC04','GC05','GC06')}   # None: built at true size, only held to the limit
-LIMIT={'GC01':(1.8,.5,.4),'GC02':(1.4,.4,.3),'GC03':(2.6,.75,.3),'GC04':(.3,.3,.15),'GC05':(.4,.2,.3),'GC06':(1.2,1.,.6)}   # work pack part 2 table B; GC01–GC03: the laid-out set (each stone 0.1–0.4 / 0.1–0.3 / 0.3–0.6 m, checked per stone)
-NAME={'GC01':'CreekPebbles','GC02':'PathRubble','GC03':'HalfBuriedFlatStones','GC04':'WildMushroomCluster','GC05':'BracketFungusLog','GC06':'RockfallPile'}
+TARGET={k:('x',None) for k in ('GC01','GC02','GC03','GC04','GC05','GC06','GC07','GC08')}   # None: built at true size, only held to the limit
+LIMIT={'GC01':(1.8,.5,.4),'GC02':(1.4,.4,.3),'GC03':(2.6,.75,.3),'GC04':(.3,.3,.15),'GC05':(.4,.2,.3),'GC06':(1.2,1.,.6),'GC07':(1.25,1.,.25),'GC08':(.6,.15,.13)}   # GC07–GC08: the 11/08 40h pack, table B (laid-out sets; each piece checked on its own)   # work pack part 2 table B; GC01–GC03: the laid-out set (each stone 0.1–0.4 / 0.1–0.3 / 0.3–0.6 m, checked per stone)
+NAME={'GC01':'CreekPebbles','GC02':'PathRubble','GC03':'HalfBuriedFlatStones','GC04':'WildMushroomCluster','GC05':'BracketFungusLog','GC06':'RockfallPile','GC07':'DeadBranches','GC08':'PineConesAcorns'}
 MIN_TIER={**{k:'high' for k in TARGET},'GC06':'standard'}   # quality-tiers §4: ground clutter that adds richness is high; the rock pile is big enough to stand in the way (standard, with a box)
 for _f in [CK/'wl_items.py']+sorted(CK.glob('fi_items*.py')):exec(open(_f,encoding='utf-8').read())   # part helpers (_sheet, _cane, _lathe, _ring, _plate …)
 for _f in sorted((ROOT/'art/source/village-life-c').glob('lv_items*.py')):exec(open(_f,encoding='utf-8').read())   # LV helpers (_taper, _shell, _band, _spline …)

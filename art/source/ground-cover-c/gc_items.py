@@ -484,3 +484,100 @@ def GC06(M):
             'notes':['24 rocks (20 angular, 4 rounded), big ones first; each lowered until it rests on the ground or on a stone already placed (rays down from its vertices and up from the stones under it): none passes into another, none hangs',
                      'a low earth spread under the pile; Detail_Gravel: 60 small chips dropped the same way; Detail_Grass: grass between the lower stones; fresh pale breaks on the top stones painted']}
 PROPS['GC06']=GC06
+
+# ---------------- GC07 six separate fallen dead branches (cand-1) ----------------
+def GC07(M):
+    """six dead branches 0.3–1.2 m, laid out apart: each main limb a tapering bent tube lying on the ground (its
+    underside touching), side twigs growing out of it and forking smaller, pointing sideways and up (never into the
+    ground); broken ends show pale wood (painted on the end faces); peeling bark and lichen painted. Each branch is its
+    own object with its own FBX, origin at its bottom centre."""
+    rr=random.Random(707);SPEC=[(1.20,.034,.5),(.95,.028,.7),(.80,.024,.4),(.60,.020,.8),(.45,.016,.5),(.30,.012,.9)]   # all bowed the same way: neighbours do not run into each other
+    ENDS=[]
+    for k,(L,r0,bend) in enumerate(SPEC):
+        g=f'S{k+1}';y0=.38-k*.155;N=14
+        pts=[];rad=[]
+        for i in range(N):
+            u=i/(N-1);x=-L/2+L*u;y=y0+bend*.11*math.sin(math.pi*u)+.025*math.sin(u*7+k)*u+.018*max(0.,u-.6)*(1 if k%2 else -1)*6   # bent, and kinked towards the thin end
+            r=r0*(1-.74*u**.9)
+            z=r+.008*max(0.,math.sin(math.pi*(u*1.3-.15)))*(1 if k%2 else .5)   # it rests on its thicker parts, the rest bowed a little off the ground
+            pts.append(Vector((x,y,z)));rad.append(r)
+        pts[0].z=rad[0];pts[-1].z=rad[-1]+.004
+        sp=_spline(pts,2);sr=list(np.interp(np.linspace(0,1,len(sp)),np.linspace(0,1,N),rad))
+        _taper(f'GC07_Limb{k}',sp,sr,M['bark'],g,sides=9,scale=.2)
+        ENDS.append((pts[0],pts[1]-pts[0],rad[0]));ENDS.append((pts[-1],pts[-1]-pts[-2],rad[-1]))
+        nt=max(2,int(L*5))
+        for j in range(nt):   # side twigs, some forking
+            u=rr.uniform(.18,.92);i=min(N-2,int(u*(N-1)));p=pts[i].lerp(pts[i+1],u*(N-1)-i);r=float(np.interp(u,np.linspace(0,1,N),rad))
+            t=(pts[i+1]-pts[i]).normalized();side=Vector((-t.y,t.x,0))*(1 if rr.random()<.5 else -1)
+            d=(t*rr.uniform(.6,1.1)+side*rr.uniform(.5,1.)+Vector((0,0,rr.uniform(.05,.35)))).normalized();tl=rr.uniform(.10,.30)*min(1.,L/.8+.3)   # mostly sideways along the ground, a little up
+            tp=[p+d*r*.6]
+            for q in range(1,5):
+                d=(d+Vector((rr.uniform(-.3,.3),rr.uniform(-.3,.3),rr.uniform(-.12,.08)))).normalized();tp.append(tp[-1]+d*tl/4)
+            tp=[Vector((v.x,v.y,max(v.z,.004+r*.3))) for v in tp];tr=r*.42
+            _taper(f'GC07_Twig{k}_{j}',tp,[tr,tr*.8,tr*.6,tr*.45,tr*.25],M['bark'],g,sides=6,scale=.08,up=Vector((rr.uniform(-1,1),rr.uniform(-1,1),rr.uniform(-1,1))))   # each rolled its own way
+            if rr.random()<.7:   # a fork off the twig
+                b=tp[2];d2=(d+Vector((rr.uniform(-.8,.8),rr.uniform(-.8,.8),.3))).normalized();l2=tl*.45
+                fp=[b,b+d2*l2*.5,b+d2*l2+Vector((0,0,.01))];fp=[Vector((v.x,v.y,max(v.z,.004))) for v in fp]
+                _taper(f'GC07_Fork{k}_{j}',fp,[tr*.5,tr*.35,tr*.15],M['bark'],g,sides=5,scale=.06,up=Vector((rr.uniform(-1,1),rr.uniform(-1,1),rr.uniform(-1,1))))
+    def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
+        P=(pos-np.array(meta['offset'][:]))/meta['scale_to_target']
+        for p,d,r in ENDS:   # broken ends: pale exposed wood on the end faces
+            d=d.normalized();dv=np.array(d[:]);q=P-np.array(p[:]);ax=q@dv
+            end=filled*(np.linalg.norm(q-ax[...,None]*dv,axis=-1)<r*1.1)*(np.abs(ax)<r*.6)*np.clip(np.abs(onrm@dv)*2-1,0,1)
+            col=np.where(end[...,None]>0,np.array([.62,.52,.38])*(.85+.3*noise[...,None]),col)
+        peel=filled*np.clip((noise-.58)*4,0,1)*np.clip(onrm[...,2],0,1);col=col*(1-.5*peel[...,None])+peel[...,None]*np.array([.42,.36,.28])*.5   # bark peeled away on top
+        lic=filled*np.clip((mid-.62)*5,0,1);col=col*(1-.6*lic[...,None])+lic[...,None]*np.array([.58,.62,.50])*.6   # lichen
+        return col,rough
+    return {'paint':paint,'wear':.6,'grime':.8,'uv_angle':50,'separate':True,
+            'notes':['six branches 0.3–1.2 m laid out apart, each its own object GC07_S1–S6 with its own FBX, origin at its bottom centre',
+                     'main limb: a tapering bent tube resting on its thicker parts; twigs fork off it sideways and up; broken ends pale, peeling bark and lichen painted']}
+PROPS['GC07']=GC07
+
+# ---------------- GC08 four pine cones and four acorns (cand-3) ----------------
+def GC08(M):
+    """four pine cones (12, 9, 7 and 5 cm) and four acorns (3.5–3 cm), laid out apart: a cone is 56–84 woody scales on a
+    core in a spiral (137.5° apart), each a small tongue thickened at its tip, half open and turned up, smaller at the top
+    and bottom; an acorn is a smooth nut under a scaly cap with a short stalk; one acorn has lost its cap and lies on its
+    side. Each its own object with its own FBX; dirt on the bottoms painted."""
+    rr=random.Random(808);x=-.27
+    def cone(name,g,H,R,n,cx):
+        _lathe(f'{name}_Core',[(0,.002),(.06,R*.32),(.5,R*.38),(.92,R*.18),(1,.002)],(Vector((cx,0,.006)),Vector((cx,0,H*.96))),M['cone'],g,NS=10,scale=.05)
+        for i in range(n):
+            h=(i+.5)/n;z=.006+H*.92*h;a=i*math.radians(137.5)+rr.uniform(-.12,.12)
+            rad=R*(.35+.65*math.sin(math.pi*min(1.,h*1.05))**.7);L=R*(.55+.5*math.sin(math.pi*h))*(1.1 if h<.5 else .9);w=L*.75;t=L*.22
+            out=Vector((math.cos(a),math.sin(a),0));up=Vector((0,0,1));el=-.15+1.15*h**1.2   # half open: the lower scales stand straight out (a little down), the upper ones turn up
+            d=(out*math.cos(el)+up*math.sin(el)).normalized();tg=Vector((-out.y,out.x,0));tw=rr.uniform(-.2,.2);tg=(tg*math.cos(tw)+d.cross(tg).normalized()*math.sin(tw)).normalized();nrm=d.cross(tg).normalized()   # each scale twisted a little: neighbours never lie in one plane
+            base=Vector((cx,0,z))+out*rad*.25
+            bm=bmesh.new();V=[]
+            L=L*1.15
+            for u,ww,tt in ((0,w*.45,t*.35),(.55,w,t*.5),(1,w*.42,t*1.0)):   # a tongue: narrow at the core, widest past the middle, a thick blunt tip
+                for sx in (-1,1):
+                    for sz in (-1,1):V.append(bm.verts.new(base+d*(L*u)+tg*(sx*ww/2)+nrm*(sz*tt/2)))
+            def q(a_,b_,c_,d_):bm.faces.new((V[a_],V[b_],V[c_],V[d_]))
+            for j in range(2):
+                o=j*4;nn=o+4;q(o+0,nn+0,nn+1,o+1);q(o+2,o+3,nn+3,nn+2);q(o+0,o+2,nn+2,nn+0);q(o+1,nn+1,nn+3,o+3)
+            q(0,1,3,2);q(8,10,11,9);bmesh.ops.recalc_face_normals(bm,faces=bm.faces)
+            finish(f'{name}_Scale{i:02d}',bm,M['cone'],g,.04)
+    for k,(H,R,n) in enumerate(((.12,.034,84),(.09,.028,72),(.07,.022,64),(.05,.017,56))):
+        cx=x+R*1.6;n0=len(parts);cone(f'GC08_Cone{k}',f'S{k+1}',H,R,n,cx);x+=R*3.2+.03
+        mz=min(v.co.z for o in parts[n0:] for v in o.data.vertices)
+        for o in parts[n0:]:o.data.transform(Matrix.Translation((0,0,-mz-.0003)))   # set down on its lowest scales
+    for k,(H,R,cap) in enumerate(((.035,.0105,True),(.033,.0098,True),(.030,.0092,True),(.031,.0094,False))):
+        g=f'S{k+5}';cx=x+.016
+        if cap:
+            _lathe(f'GC08_Nut{k}',[(0,0),(.12,R*.62),(.35,R*.92),(.6,R),(.85,R*.96),(1,R*.9)],(Vector((cx,0,.0)),Vector((cx,0,H*.78))),M['acorn'],g,NS=18,scale=.04)
+            cp=[(0,R*.92),(.2,R*1.14),(.55,R*1.12),(1,R*.55),(1,.002),(.9,.002),(.55,R*.92),(.2,R*.94)]
+            _lathe(f'GC08_Cap{k}',cp,(Vector((cx,0,H*.62)),Vector((cx,0,H*.86))),M['acorncap'],g,NS=18,scale=.03,loop=True)
+            _lathe(f'GC08_Stalk{k}',[(0,.0016),(1,.0012)],(Vector((cx,0,H*.84)),Vector((cx+.002,0,H))),M['acorncap'],g,NS=6,scale=.02)
+        else:   # lost its cap: lying on its side
+            _lathe(f'GC08_Nut{k}',[(0,0),(.12,R*.62),(.35,R*.92),(.6,R),(.85,R*.96),(1,R*.9),(1,0)],(Vector((cx-H*.39,0,R)),Vector((cx+H*.39,0,R))),M['acorn'],g,NS=18,scale=.04)
+        x+=.04
+    def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
+        P=(pos-np.array(meta['offset'][:]))/meta['scale_to_target'];pz=P[...,2]
+        dirt=filled*np.clip((.012-pz)/.01,0,1)*np.clip(.6+(noise-.5),0,1);col=col*(1-.45*dirt[...,None])+dirt[...,None]*np.array([.12,.09,.06])*.45
+        tip=filled*np.clip((edge-.4)*2,0,1);col=col*(1+.25*tip[...,None])   # paler scale tips
+        return col,rough
+    return {'paint':paint,'wear':.5,'grime':.6,'uv_angle':50,'separate':True,
+            'notes':['four pine cones (12, 9, 7, 5 cm) and four acorns, laid out apart, each its own object GC08_S1–S8 with its own FBX, origin at its bottom centre',
+                     'cone: 56–84 scales on a spiral 137.5° apart, half open, thickened tips; acorn: smooth nut, scaly cap (texture), stalk; one acorn without its cap lies on its side']}
+PROPS['GC08']=GC08

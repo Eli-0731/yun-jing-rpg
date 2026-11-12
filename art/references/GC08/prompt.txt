@@ -1,0 +1,17 @@
+GC08 松果與橡實散件一組（8 顆）（11/08 工作包表 B：每顆 0.03–0.12 m，練很小的東西要看得清楚輪廓）三視圖與自評（2026-11-12）
+選用：GC08-cand-3.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-08/C-40h-more-village-life.md 第 4 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（28+27+24+12）。八顆排成兩欄，松果和橡實大小對比清楚。
+- cand-2：89（27+26+24+12）。八顆很小，排在一條線上，輪廓看不清。
+- cand-3：93（28+29+24+12）。選用。四顆松果（大到小，鱗片半開）和四顆橡實（一顆沒有殼斗），三排是三個方向；底部沾土。
+- cand-4：92（28+28+24+12）。和 cand-3 相近，松果較瘦長。
+
+建模取捨：照 cand-3。練「很小的東西要看得清楚輪廓」：松果的鱗片是一片片小鱗（沿螺旋排列、越往上越小、半開向外翹），輪廓靠鱗片尖端撐出來；橡實是平滑的殼加一頂有粗紋的殼斗，一顆沒有殼斗。八顆各自是單獨物件、原點在各自底部中心，另存單獨 FBX。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a set of eight separate small pine cones and acorns of different sizes laid out apart from each other, each about 0.03 to 0.12 m long, made of brown woody scales, glossy acorn shells and rough acorn caps, showing half-opened pine cone scales, one acorn without its cap and a little dirt on the bottoms, used on the forest floor near a mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

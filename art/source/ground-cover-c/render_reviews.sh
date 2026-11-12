@@ -1,5 +1,5 @@
 #!/bin/sh
-# Review images and QA for C's ground stones and mushrooms GC01–GC06 (from the repo root). Blender 4.5.3: BL=<blender.exe>.
+# Review images and QA for C's ground stones and mushrooms GC01–GC08 (from the repo root). Blender 4.5.3: BL=<blender.exe>.
 #   sh art/source/ground-cover-c/render_reviews.sh GC01 [GC02 ...]      (no id: all six)
 # The render rig and QA are shared with creekside-life-c (render_wl.py there).
 # For each id: grey model (front, side, three-quarter), four views with the 1.75 m figure, a close-up, wireframe,
@@ -7,7 +7,7 @@
 BL="${BL:?set BL to blender.exe}";S=art/source/ground-cover-c;R=art/source/creekside-life-c;P=art/previews/ground-cover-c;E=art/exports/ground-cover-c;Q=$P/qa
 m(){ cygpath -m "$1" 2>/dev/null || echo "$1"; }
 r(){ MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $R/render_wl.py)" -- "$@" 2>&1 | grep -E "Error|Traceback"; true; }
-IDS="${*:-GC01 GC02 GC03 GC04 GC05 GC06}";mkdir -p $Q $P/compare
+IDS="${*:-GC01 GC02 GC03 GC04 GC05 GC06 GC07 GC08}";mkdir -p $Q $P/compare
 for id in $IDS; do
   D=$P/$id;G=$(m $E/${id}_v001.glb);F=$(m $E/${id}_v001.fbx)
   r --glb "$(m $D/clay/$id-clay.glb)" --out "$(m $D/clay)" --tag $id-clay --views front,side,threequarter --clay --samples 32
@@ -26,3 +26,4 @@ cmp GC01-GC03-vs-rocks "$(m $E/GC01_v001.glb),$(m $E/GC02_v001.glb),$(m $E/GC03_
 cmp GC04-GC05-vs-forest "$(m $E/GC04_v001.glb),$(m $E/GC05_v001.glb),$(m $B/modelling-basics-c/BM09_02.glb),$(m $B/modelling-basics-c/BM10_02.glb)" "-.3,0,0;.3,0,0;-.95,0,0;1.1,0,0"
 cmp GC06-vs-CR03 "$(m $E/GC06_v001.glb),$(m $B/creek-repair-b/CR03_StonePile/CR03_StonePile_v001.fbx)" "-.8,0,0;.9,0,0"
 cmp GC-set "$(m $E/GC01_v001.glb),$(m $E/GC02_v001.glb),$(m $E/GC03_v001.glb),$(m $E/GC04_v001.glb),$(m $E/GC05_v001.glb),$(m $E/GC06_v001.glb)" "-.3,1.1,0;-.3,.6,0;-.3,.05,0;1.15,-.75,0;.45,-.8,10;-1.15,-1.15,0"
+cmp GC07-GC08-vs-forest "$(m $E/GC07_v001.glb),$(m $E/GC08_v001.glb),$(m $E/GC05_v001.glb),$(m $B/modelling-basics-c/BM10_02.glb)" "0,.25,0;0,-.55,0;-.95,-.55,0;.95,-.55,0"

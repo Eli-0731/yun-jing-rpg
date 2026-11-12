@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 namespace YunJing.Editor
 {
-    // Unity check of C's ground stones and mushrooms GC01–GC06 (art/exports/ground-cover-c, Eli-0731), copied from art/source/creekside-life-c/unity (itself after the modelling-basics-c
+    // Unity check of C's ground stones, mushrooms and forest-floor bits GC01–GC08 (art/exports/ground-cover-c, Eli-0731), copied from art/source/creekside-life-c/unity (itself after the modelling-basics-c
     // check (QingxiBasicsVerify). It does not change apps/game: run_unity_check.sh copies this file in for one batch run and removes it.
     // Imports the delivered FBX and textures, builds one URP Lit per item, compares with model_info.json (size within 2 cm, the work
     // pack's size limit, triangles per LOD, objects, one material, 1024 textures, minTier, detailObjects), switches Detail_* off the
@@ -20,10 +20,10 @@ namespace YunJing.Editor
     {
         const string Models = "Assets/YunJing/Models/GroundC";   // temporary copy of art/exports, removed by the run script
         const string Version = "v001";
-        static readonly string[] Ids = { "GC01", "GC02", "GC03", "GC04", "GC05", "GC06" };
+        static readonly string[] Ids = { "GC01", "GC02", "GC03", "GC04", "GC05", "GC06", "GC07", "GC08" };
         static readonly HashSet<string> Cloth = new HashSet<string> { };   // thin open weave or cloth: both faces (filled per item)
         static readonly HashSet<string> Cutout = new HashSet<string> { };
-        static readonly HashSet<string> Separate = new HashSet<string> { "GC01", "GC02", "GC03" };   // one object per stone, each with its own pivot and LOD group   // items whose LOD2 stand-in carries an open weave in the albedo alpha
+        static readonly HashSet<string> Separate = new HashSet<string> { "GC01", "GC02", "GC03", "GC07", "GC08" };   // one object per stone, each with its own pivot and LOD group   // items whose LOD2 stand-in carries an open weave in the albedo alpha
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
         static string Out => Path.Combine(Repo, "art/previews/ground-cover-c/unity");
         static readonly List<string> Report = new List<string>();
@@ -266,7 +266,7 @@ namespace YunJing.Editor
             foreach (var g in set) UnityEngine.Object.DestroyImmediate(g);
             // one stone of each loose set placed alone from its own FBX
             var alone = new List<GameObject>();
-            foreach (var (id, n) in new[] { ("GC01", 1), ("GC02", 3), ("GC03", 2) })
+            foreach (var (id, n) in new[] { ("GC01", 1), ("GC02", 3), ("GC03", 2), ("GC07", 4), ("GC08", 1) })
             {
                 var g = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>($"{Models}/{id}/{id}_S{n}_{Version}.fbx"));
                 var m = Mat(id, MatName[id]); foreach (var r in g.GetComponentsInChildren<Renderer>(true)) r.sharedMaterials = Enumerable.Repeat(m, r.sharedMaterials.Length).ToArray();

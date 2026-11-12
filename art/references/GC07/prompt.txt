@@ -1,0 +1,17 @@
+GC07 枯枝散件一組（6 根不同形）（11/08 工作包表 B：每根 0.3–1.2 m，練細長形狀的彎曲和分叉，每根能單獨擺）三視圖與自評（2026-11-12）
+選用：GC07-cand-1.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-08/C-40h-more-village-life.md 第 4 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：93（28+29+24+12）。選用。六根長短不同（長的帶彎，短的較直），主枝上有幾根分叉的細枝，斷口參差、露出淺色木頭，樹皮剝落、帶地衣和苔。
+- cand-2：92（28+28+24+12）。分叉多，形狀較相近。
+- cand-3：91（28+27+24+12）。樹皮翹得很厲害，像鱗片。
+- cand-4：83（26+27+22+8）。圖上寫了 Front View 等英文字。
+
+建模取捨：照 cand-1。練「細長形狀的彎曲和分叉」：每根主枝是一條彎曲的漸細管（沿路徑掃），分叉的細枝從主枝表面長出、越分越細，兩端是斷口（參差的端面露出淺色木頭）；剝落的樹皮、地衣、苔在貼圖上。六根各自是單獨物件，原點在各自底部中心，另存單獨 FBX，和 GC01–GC03 同樣做法。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a set of six separate fallen dead branches of different lengths and shapes laid out apart from each other, each about 0.3 to 1.2 m long, made of grey-brown weathered bark and pale exposed wood, showing broken ends, small side twigs, patches of lichen and peeling bark, used on the forest floor near a mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
