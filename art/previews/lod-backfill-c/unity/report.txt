@@ -1,0 +1,85 @@
+Unity 6000.3.28f1, pipeline URP
+PASS Q01: one LODGroup, 3 levels, 2 / 2 / 2 renderer(s)
+PASS Q01: LOD0 4248 triangles = the source 4248 (LOD0 untouched)
+PASS Q01: triangles LOD0/1/2 = 4248 / 2124 / 1660 (50% / 39%), model_info 4248 / 2124 / 1660
+PASS Q01: objects per LOD 2 / 2 / 2
+PASS Q01: materials per LOD 5 / 5 / 5 (same set on every level; model_info 5)
+PASS Q01: LOD0 size 1.250 x 0.553 x 1.765 m = the source 1.25 x 0.5532 x 1.765 within 2 cm
+INFO Q01: materials without a base texture in Unity: blank_hemp_paper, hemp, warm_gray_stone
+PASS Q02: one LODGroup, 3 levels, 1 / 1 / 1 renderer(s)
+PASS Q02: LOD0 376 triangles = the source 376 (LOD0 untouched)
+PASS Q02: triangles LOD0/1/2 = 376 / 270 / 246 (72% / 65%), model_info 376 / 270 / 246
+PASS Q02: objects per LOD 1 / 1 / 1
+PASS Q02: materials per LOD 2 / 2 / 2 (same set on every level; model_info 2)
+PASS Q02: LOD0 size 0.480 x 0.363 x 0.829 m = the source 0.48 x 0.3633 x 0.8289 within 2 cm
+INFO Q02: materials without a base texture in Unity: none
+PASS Q03: one LODGroup, 3 levels, 1 / 1 / 1 renderer(s)
+PASS Q03: LOD0 1136 triangles = the source 1136 (LOD0 untouched)
+PASS Q03: triangles LOD0/1/2 = 1136 / 628 / 464 (55% / 41%), model_info 1136 / 628 / 464
+PASS Q03: objects per LOD 1 / 1 / 1
+PASS Q03: materials per LOD 6 / 6 / 6 (same set on every level; model_info 6)
+PASS Q03: LOD0 size 0.247 x 0.217 x 1.050 m = the source 0.2465 x 0.2172 x 1.05 within 2 cm
+INFO Q03: materials without a base texture in Unity: warm_gray_stone, hemp, blank_hemp_paper
+PASS Q04: one LODGroup, 3 levels, 2 / 2 / 2 renderer(s)
+PASS Q04: LOD0 3488 triangles = the source 3488 (LOD0 untouched)
+PASS Q04: triangles LOD0/1/2 = 3488 / 1744 / 1362 (50% / 39%), model_info 3488 / 1744 / 1362
+PASS Q04: objects per LOD 2 / 2 / 2
+PASS Q04: materials per LOD 5 / 5 / 5 (same set on every level; model_info 5)
+PASS Q04: LOD0 size 0.850 x 0.420 x 1.241 m = the source 0.85 x 0.42 x 1.2411 within 2 cm
+INFO Q04: materials without a base texture in Unity: blank_hemp_paper, hemp
+PASS C01: one LODGroup, 3 levels, 1 / 1 / 1 renderer(s)
+PASS C01: LOD0 1956 triangles = the source 1956 (LOD0 untouched)
+PASS C01: triangles LOD0/1/2 = 1956 / 1254 / 968 (64% / 49%), model_info 1956 / 1254 / 968
+PASS C01: objects per LOD 1 / 1 / 1
+PASS C01: materials per LOD 3 / 3 / 3 (same set on every level; model_info 3)
+PASS C01: LOD0 size 0.481 x 0.392 x 0.600 m = the source 0.4807 x 0.3918 x 0.6 within 2 cm
+INFO C01: materials without a base texture in Unity: none
+PASS C02: one LODGroup, 3 levels, 1 / 1 / 1 renderer(s)
+PASS C02: LOD0 1512 triangles = the source 1512 (LOD0 untouched)
+PASS C02: triangles LOD0/1/2 = 1512 / 808 / 688 (53% / 46%), model_info 1512 / 808 / 688
+PASS C02: objects per LOD 1 / 1 / 1
+PASS C02: materials per LOD 2 / 2 / 2 (same set on every level; model_info 2)
+PASS C02: LOD0 size 1.150 x 0.635 x 0.660 m = the source 1.15 x 0.635 x 0.66 within 2 cm
+INFO C02: materials without a base texture in Unity: none
+PASS C03: one LODGroup, 3 levels, 1 / 1 / 1 renderer(s)
+PASS C03: LOD0 2400 triangles = the source 2400 (LOD0 untouched)
+PASS C03: triangles LOD0/1/2 = 2400 / 1200 / 1084 (50% / 45%), model_info 2400 / 1200 / 1084
+PASS C03: objects per LOD 1 / 1 / 1
+PASS C03: materials per LOD 4 / 4 / 4 (same set on every level; model_info 4)
+PASS C03: LOD0 size 0.481 x 0.325 x 0.281 m = the source 0.481 x 0.3248 x 0.281 within 2 cm
+INFO C03: materials without a base texture in Unity: aged_bronze
+PASS C04: one LODGroup, 3 levels, 1 / 1 / 1 renderer(s)
+PASS C04: LOD0 712 triangles = the source 712 (LOD0 untouched)
+PASS C04: triangles LOD0/1/2 = 712 / 364 / 266 (51% / 37%), model_info 712 / 364 / 266
+PASS C04: objects per LOD 1 / 1 / 1
+PASS C04: materials per LOD 3 / 3 / 3 (same set on every level; model_info 3)
+PASS C04: LOD0 size 0.351 x 0.296 x 0.162 m = the source 0.3509 x 0.2958 x 0.1623 within 2 cm
+INFO C04: materials without a base texture in Unity: none
+PASS C05: one LODGroup, 3 levels, 1 / 1 / 1 renderer(s)
+PASS C05: LOD0 816 triangles = the source 816 (LOD0 untouched)
+PASS C05: triangles LOD0/1/2 = 816 / 408 / 274 (50% / 34%), model_info 816 / 408 / 274
+PASS C05: objects per LOD 1 / 1 / 1
+PASS C05: materials per LOD 4 / 4 / 4 (same set on every level; model_info 4)
+PASS C05: LOD0 size 0.400 x 0.293 x 0.254 m = the source 0.4 x 0.2933 x 0.254 within 2 cm
+INFO C05: materials without a base texture in Unity: aged_bronze, warm_paper
+PASS C06: one LODGroup, 3 levels, 1 / 1 / 1 renderer(s)
+PASS C06: LOD0 972 triangles = the source 972 (LOD0 untouched)
+PASS C06: triangles LOD0/1/2 = 972 / 486 / 402 (50% / 41%), model_info 972 / 486 / 402
+PASS C06: objects per LOD 1 / 1 / 1
+PASS C06: materials per LOD 2 / 2 / 2 (same set on every level; model_info 2)
+PASS C06: LOD0 size 0.800 x 0.335 x 0.450 m = the source 0.8 x 0.335 x 0.45 within 2 cm
+INFO C06: materials without a base texture in Unity: none
+PASS C07: one LODGroup, 3 levels, 1 / 1 / 1 renderer(s)
+PASS C07: LOD0 1044 triangles = the source 1044 (LOD0 untouched)
+PASS C07: triangles LOD0/1/2 = 1044 / 602 / 486 (58% / 47%), model_info 1044 / 602 / 486
+PASS C07: objects per LOD 1 / 1 / 1
+PASS C07: materials per LOD 5 / 5 / 5 (same set on every level; model_info 5)
+PASS C07: LOD0 size 0.280 x 0.280 x 0.587 m = the source 0.28 x 0.28 x 0.587 within 2 cm
+INFO C07: materials without a base texture in Unity: aged_bronze, warm_lamp_paper
+PASS C08: one LODGroup, 3 levels, 1 / 1 / 1 renderer(s)
+PASS C08: LOD0 1188 triangles = the source 1188 (LOD0 untouched)
+PASS C08: triangles LOD0/1/2 = 1188 / 646 / 646 (54% / 54%), model_info 1188 / 646 / 646
+PASS C08: objects per LOD 1 / 1 / 1
+PASS C08: materials per LOD 5 / 5 / 5 (same set on every level; model_info 5)
+PASS C08: LOD0 size 0.382 x 0.290 x 0.101 m = the source 0.382 x 0.29 x 0.101 within 2 cm
+INFO C08: materials without a base texture in Unity: aged_bronze, warm_paper

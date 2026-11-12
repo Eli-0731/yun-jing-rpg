@@ -1,0 +1,1022 @@
+{
+ "Q01": {
+  "id": "Q01",
+  "version": "v001",
+  "source": "art/exports/qingxi-village-signs-v1/Q01.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   1.25,
+   0.553,
+   1.765
+  ],
+  "source_dimensions_xyz_m": [
+   1.25,
+   0.5532,
+   1.765
+  ],
+  "source_triangles": 4248,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 4248,
+    "triangles_without_detail": 3600,
+    "objects": 2,
+    "materials": 5,
+    "textures_px": {
+     "weathered_oak_basecolor": [
+      128,
+      128
+     ],
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 2124,
+    "triangles_without_detail": 1800,
+    "objects": 2,
+    "materials": 5,
+    "textures_px": {
+     "weathered_oak_basecolor": [
+      128,
+      128
+     ],
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1660,
+    "triangles_without_detail": 1396,
+    "objects": 2,
+    "materials": 5,
+    "textures_px": {
+     "weathered_oak_basecolor": [
+      128,
+      128
+     ],
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.391,
+  "detail_parts": 6,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/Q01/Q01_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/Q01/Q01_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/Q01/Q01_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/Q01/Textures"
+  }
+ },
+ "Q02": {
+  "id": "Q02",
+  "version": "v001",
+  "source": "art/exports/qingxi-village-signs-v1/Q02.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   0.48,
+   0.363,
+   0.829
+  ],
+  "source_dimensions_xyz_m": [
+   0.48,
+   0.3633,
+   0.8289
+  ],
+  "source_triangles": 376,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 376,
+    "triangles_without_detail": 376,
+    "objects": 1,
+    "materials": 2,
+    "textures_px": {
+     "weathered_oak_basecolor": [
+      128,
+      128
+     ],
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 270,
+    "triangles_without_detail": 270,
+    "objects": 1,
+    "materials": 2,
+    "textures_px": {
+     "weathered_oak_basecolor": [
+      128,
+      128
+     ],
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 246,
+    "triangles_without_detail": 246,
+    "objects": 1,
+    "materials": 2,
+    "textures_px": {
+     "weathered_oak_basecolor": [
+      128,
+      128
+     ],
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.654,
+  "detail_parts": 0,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/Q02/Q02_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/Q02/Q02_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/Q02/Q02_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/Q02/Textures"
+  }
+ },
+ "Q03": {
+  "id": "Q03",
+  "version": "v001",
+  "source": "art/exports/qingxi-village-signs-v1/Q03.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   0.247,
+   0.217,
+   1.05
+  ],
+  "source_dimensions_xyz_m": [
+   0.2465,
+   0.2172,
+   1.05
+  ],
+  "source_triangles": 1136,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 1136,
+    "triangles_without_detail": 1136,
+    "objects": 1,
+    "materials": 6,
+    "textures_px": {
+     "aged_bamboo_basecolor": [
+      128,
+      128
+     ],
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ],
+     "faded_sage_basecolor": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 628,
+    "triangles_without_detail": 628,
+    "objects": 1,
+    "materials": 6,
+    "textures_px": {
+     "aged_bamboo_basecolor": [
+      128,
+      128
+     ],
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ],
+     "faded_sage_basecolor": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 464,
+    "triangles_without_detail": 464,
+    "objects": 1,
+    "materials": 6,
+    "textures_px": {
+     "aged_bamboo_basecolor": [
+      128,
+      128
+     ],
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ],
+     "faded_sage_basecolor": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.408,
+  "detail_parts": 0,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/Q03/Q03_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/Q03/Q03_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/Q03/Q03_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/Q03/Textures"
+  }
+ },
+ "Q04": {
+  "id": "Q04",
+  "version": "v001",
+  "source": "art/exports/qingxi-village-signs-v1/Q04.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   0.85,
+   0.42,
+   1.241
+  ],
+  "source_dimensions_xyz_m": [
+   0.85,
+   0.42,
+   1.2411
+  ],
+  "source_triangles": 3488,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 3488,
+    "triangles_without_detail": 3272,
+    "objects": 2,
+    "materials": 5,
+    "textures_px": {
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ],
+     "weathered_oak_basecolor": [
+      128,
+      128
+     ],
+     "aged_bamboo_basecolor": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1744,
+    "triangles_without_detail": 1636,
+    "objects": 2,
+    "materials": 5,
+    "textures_px": {
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ],
+     "weathered_oak_basecolor": [
+      128,
+      128
+     ],
+     "aged_bamboo_basecolor": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1362,
+    "triangles_without_detail": 1278,
+    "objects": 2,
+    "materials": 5,
+    "textures_px": {
+     "endgrain_dark_basecolor": [
+      128,
+      128
+     ],
+     "weathered_oak_basecolor": [
+      128,
+      128
+     ],
+     "aged_bamboo_basecolor": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.39,
+  "detail_parts": 2,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/Q04/Q04_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/Q04/Q04_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/Q04/Q04_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/Q04/Textures"
+  }
+ },
+ "C01": {
+  "id": "C01",
+  "version": "v001",
+  "source": "art/exports/qingxi-return-c/C01.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   0.481,
+   0.392,
+   0.6
+  ],
+  "source_dimensions_xyz_m": [
+   0.4807,
+   0.3918,
+   0.6
+  ],
+  "source_triangles": 1956,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 1956,
+    "triangles_without_detail": 1956,
+    "objects": 1,
+    "materials": 3,
+    "textures_px": {
+     "bamboo_weave_packed": [
+      128,
+      128
+     ],
+     "bamboo_rim_packed": [
+      128,
+      128
+     ],
+     "hemp_rope_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1254,
+    "triangles_without_detail": 1254,
+    "objects": 1,
+    "materials": 3,
+    "textures_px": {
+     "bamboo_weave_packed": [
+      128,
+      128
+     ],
+     "bamboo_rim_packed": [
+      128,
+      128
+     ],
+     "hemp_rope_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 968,
+    "triangles_without_detail": 968,
+    "objects": 1,
+    "materials": 3,
+    "textures_px": {
+     "bamboo_weave_packed": [
+      128,
+      128
+     ],
+     "bamboo_rim_packed": [
+      128,
+      128
+     ],
+     "hemp_rope_packed": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.495,
+  "detail_parts": 0,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/C01/C01_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/C01/C01_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/C01/C01_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/C01/Textures"
+  }
+ },
+ "C02": {
+  "id": "C02",
+  "version": "v001",
+  "source": "art/exports/qingxi-return-c/C02.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   1.15,
+   0.635,
+   0.66
+  ],
+  "source_dimensions_xyz_m": [
+   1.15,
+   0.635,
+   0.66
+  ],
+  "source_triangles": 1512,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 1512,
+    "triangles_without_detail": 1512,
+    "objects": 1,
+    "materials": 2,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 808,
+    "triangles_without_detail": 808,
+    "objects": 1,
+    "materials": 2,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 688,
+    "triangles_without_detail": 688,
+    "objects": 1,
+    "materials": 2,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.455,
+  "detail_parts": 0,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/C02/C02_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/C02/C02_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/C02/C02_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/C02/Textures"
+  }
+ },
+ "C03": {
+  "id": "C03",
+  "version": "v001",
+  "source": "art/exports/qingxi-return-c/C03.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   0.481,
+   0.325,
+   0.281
+  ],
+  "source_dimensions_xyz_m": [
+   0.481,
+   0.3248,
+   0.281
+  ],
+  "source_triangles": 2400,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 2400,
+    "triangles_without_detail": 2400,
+    "objects": 1,
+    "materials": 4,
+    "textures_px": {
+     "bamboo_weave_packed": [
+      128,
+      128
+     ],
+     "bamboo_rim_packed": [
+      128,
+      128
+     ],
+     "hemp_rope_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1200,
+    "triangles_without_detail": 1200,
+    "objects": 1,
+    "materials": 4,
+    "textures_px": {
+     "bamboo_weave_packed": [
+      128,
+      128
+     ],
+     "bamboo_rim_packed": [
+      128,
+      128
+     ],
+     "hemp_rope_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1084,
+    "triangles_without_detail": 1084,
+    "objects": 1,
+    "materials": 4,
+    "textures_px": {
+     "bamboo_weave_packed": [
+      128,
+      128
+     ],
+     "bamboo_rim_packed": [
+      128,
+      128
+     ],
+     "hemp_rope_packed": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.452,
+  "detail_parts": 0,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/C03/C03_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/C03/C03_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/C03/C03_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/C03/Textures"
+  }
+ },
+ "C04": {
+  "id": "C04",
+  "version": "v001",
+  "source": "art/exports/qingxi-return-c/C04.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   0.351,
+   0.296,
+   0.162
+  ],
+  "source_dimensions_xyz_m": [
+   0.3509,
+   0.2958,
+   0.1623
+  ],
+  "source_triangles": 712,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 712,
+    "triangles_without_detail": 712,
+    "objects": 1,
+    "materials": 3,
+    "textures_px": {
+     "sage_hemp_packed": [
+      128,
+      128
+     ],
+     "hemp_rope_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 364,
+    "triangles_without_detail": 364,
+    "objects": 1,
+    "materials": 3,
+    "textures_px": {
+     "sage_hemp_packed": [
+      128,
+      128
+     ],
+     "hemp_rope_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 266,
+    "triangles_without_detail": 266,
+    "objects": 1,
+    "materials": 3,
+    "textures_px": {
+     "sage_hemp_packed": [
+      128,
+      128
+     ],
+     "hemp_rope_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.374,
+  "detail_parts": 0,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/C04/C04_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/C04/C04_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/C04/C04_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/C04/Textures"
+  }
+ },
+ "C05": {
+  "id": "C05",
+  "version": "v001",
+  "source": "art/exports/qingxi-return-c/C05.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   0.4,
+   0.293,
+   0.254
+  ],
+  "source_dimensions_xyz_m": [
+   0.4,
+   0.2933,
+   0.254
+  ],
+  "source_triangles": 816,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 816,
+    "triangles_without_detail": 816,
+    "objects": 1,
+    "materials": 4,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 408,
+    "triangles_without_detail": 408,
+    "objects": 1,
+    "materials": 4,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 274,
+    "triangles_without_detail": 274,
+    "objects": 1,
+    "materials": 4,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.336,
+  "detail_parts": 0,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/C05/C05_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/C05/C05_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/C05/C05_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/C05/Textures"
+  }
+ },
+ "C06": {
+  "id": "C06",
+  "version": "v001",
+  "source": "art/exports/qingxi-return-c/C06.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   0.8,
+   0.335,
+   0.45
+  ],
+  "source_dimensions_xyz_m": [
+   0.8,
+   0.335,
+   0.45
+  ],
+  "source_triangles": 972,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 972,
+    "triangles_without_detail": 972,
+    "objects": 1,
+    "materials": 2,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 486,
+    "triangles_without_detail": 486,
+    "objects": 1,
+    "materials": 2,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 402,
+    "triangles_without_detail": 402,
+    "objects": 1,
+    "materials": 2,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.414,
+  "detail_parts": 0,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/C06/C06_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/C06/C06_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/C06/C06_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/C06/Textures"
+  }
+ },
+ "C07": {
+  "id": "C07",
+  "version": "v001",
+  "source": "art/exports/qingxi-return-c/C07.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   0.28,
+   0.28,
+   0.587
+  ],
+  "source_dimensions_xyz_m": [
+   0.28,
+   0.28,
+   0.587
+  ],
+  "source_triangles": 1044,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 1044,
+    "triangles_without_detail": 1044,
+    "objects": 1,
+    "materials": 5,
+    "textures_px": {
+     "bamboo_rim_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ],
+     "wood_endgrain_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 602,
+    "triangles_without_detail": 602,
+    "objects": 1,
+    "materials": 5,
+    "textures_px": {
+     "bamboo_rim_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ],
+     "wood_endgrain_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 486,
+    "triangles_without_detail": 486,
+    "objects": 1,
+    "materials": 5,
+    "textures_px": {
+     "bamboo_rim_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ],
+     "wood_endgrain_packed": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.466,
+  "detail_parts": 0,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/C07/C07_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/C07/C07_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/C07/C07_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/C07/Textures"
+  }
+ },
+ "C08": {
+  "id": "C08",
+  "version": "v001",
+  "source": "art/exports/qingxi-return-c/C08.glb",
+  "source_untouched": true,
+  "dimensions_xyz_m": [
+   0.382,
+   0.29,
+   0.101
+  ],
+  "source_dimensions_xyz_m": [
+   0.382,
+   0.29,
+   0.101
+  ],
+  "source_triangles": 1188,
+  "lod0_equals_source": true,
+  "lods": {
+   "LOD0": {
+    "triangles": 1188,
+    "triangles_without_detail": 1188,
+    "objects": 1,
+    "materials": 5,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ],
+     "brown_leather_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 646,
+    "triangles_without_detail": 646,
+    "objects": 1,
+    "materials": 5,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ],
+     "brown_leather_packed": [
+      128,
+      128
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 646,
+    "triangles_without_detail": 646,
+    "objects": 1,
+    "materials": 5,
+    "textures_px": {
+     "wood_endgrain_packed": [
+      128,
+      128
+     ],
+     "old_warm_wood_packed": [
+      128,
+      128
+     ],
+     "brown_leather_packed": [
+      128,
+      128
+     ]
+    }
+   }
+  },
+  "lod2_share": 0.544,
+  "detail_parts": 0,
+  "minTier": "standard",
+  "lod_method": "per part: limited dissolve (1°, keeps material / UV / sharp edges), then collapse to 50 % / 15 % but never below 30 % of the part at LOD2; parts of ≤ 24 faces kept whole; LOD2 leaves out parts shorter than 5 % of the item diagonal",
+  "files": {
+   "fbx": "art/exports/lod-backfill-c/C08/C08_LOD_v001.fbx",
+   "glb": "art/exports/lod-backfill-c/C08/C08_LOD_v001.glb",
+   "blend": "art/exports/lod-backfill-c/C08/C08_LOD_v001.blend",
+   "textures": "art/exports/lod-backfill-c/C08/Textures"
+  }
+ }
+}
