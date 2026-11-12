@@ -1,4 +1,4 @@
-"""FA01 瀑布卡：先存灰模，再加透明貼圖匯出。"""
+﻿"""FA01 瀑布卡：先存灰模，再加透明貼圖匯出。"""
 from pathlib import Path
 import bpy, json
 
@@ -43,9 +43,10 @@ info={
  'pivot':'底部中心','front':'-Y',
  'reference':'art/references/sky-and-distance-v1/FA01/three-view.png',
  'lods':[{'name':'LOD0','triangles':2,'materials':1,'textures':[{'name':'FA01.png','size':[1024,1024],'channels':'RGBA'}]}],
- 'uv_animation':{'axis':'V','speed_uv_per_second':-0.12,'wrap':'Repeat'},
+ 'uv_animation':{'axis':'V','speed_uv_per_second':0.12,'wrap':'Repeat'},
  'status':'Blender 灰模與匯出已完成；Unity 6000.3.28f1 實機未驗'
 }
 (out/'model_info.json').write_text(json.dumps(info,ensure_ascii=False,indent=2),encoding='utf-8')
 print('FA01_DONE',len(mesh.polygons),len(mesh.materials),tuple(obj.dimensions))
+
 

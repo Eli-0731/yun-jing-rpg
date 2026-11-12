@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "FA01",
   "name": "遠景瀑布卡",
   "units": "m",
@@ -29,7 +29,7 @@
   ],
   "uv_animation": {
     "axis": "V",
-    "speed_uv_per_second": -0.12,
+    "speed_uv_per_second": 0.12,
     "wrap": "Repeat"
   },
   "status": "Blender 灰模與匯出已完成；Unity 6000.3.28f1 實機未驗"
