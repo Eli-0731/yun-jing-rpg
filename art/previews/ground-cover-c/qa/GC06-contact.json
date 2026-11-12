@@ -1,0 +1,31 @@
+{
+ "GC06_v001": {
+  "GC06_Body_LOD0": {
+   "pieces": 25,
+   "within_1mm": 25,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "GC06_Detail_Grass_LOD0": {
+   "pieces": 15,
+   "within_1mm": 15,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "GC06_Detail_Gravel_LOD0": {
+   "pieces": 60,
+   "within_1mm": 60,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}
