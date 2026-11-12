@@ -1,0 +1,58 @@
+{
+ "GC07_v001": {
+  "GC07_S1_LOD0": {
+   "pieces": 9,
+   "within_1mm": 9,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.2,
+   "worst_at": []
+  },
+  "GC07_S2_LOD0": {
+   "pieces": 8,
+   "within_1mm": 8,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.2,
+   "worst_at": []
+  },
+  "GC07_S3_LOD0": {
+   "pieces": 8,
+   "within_1mm": 8,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "GC07_S4_LOD0": {
+   "pieces": 6,
+   "within_1mm": 6,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "GC07_S5_LOD0": {
+   "pieces": 3,
+   "within_1mm": 3,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "GC07_S6_LOD0": {
+   "pieces": 4,
+   "within_1mm": 4,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}
