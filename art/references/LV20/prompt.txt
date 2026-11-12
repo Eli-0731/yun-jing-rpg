@@ -1,0 +1,17 @@
+LV20 蒲扇與竹扇各一（11/08 工作包表 A：0.4 × 0.3 × 0.05 m，練扁平物件的厚度、扇面紋路用貼圖）三視圖與自評（2026-11-12）
+選用：LV20-cand-3.png（90分）
+
+提示詞照工作包 docs/execution/2026-11-08/C-40h-more-village-life.md 第 4 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：88（27+27+21+13）。摺扇疊在蒲扇上面，兩把黏在一起看不出各自的輪廓。
+- cand-2：87（27+26+21+13）。同 cand-1，摺扇疊在蒲扇上。
+- cand-3：90（28+28+21+13）。選用。蒲扇和半開的摺扇兩把都畫出來（第三格用來畫摺扇），蒲扇緣有破葉、柄纏布，摺扇白紙無字、竹骨清楚；三格不是同一件的三個方向，扣分。
+- cand-4：86（27+26+20+13）。只有蒲扇，沒有摺扇。
+
+建模取捨：照 cand-3 的兩把扇子，並排平放（工作包高度 0.05 m）。練「扁平物件的厚度」：蒲扇面是 3 mm 厚的圓扇面，外圈一條竹緣，柄是一根圓木柄纏布；摺扇半開約 100°，扇骨是 14 根 2 mm 厚的竹片，扇面是一張有摺痕的薄紙（3 mm 起伏的波浪），兩片邊骨較厚。「扇面紋路用貼圖」：蒲葉的放射葉脈、紙面的舊黃都在貼圖上；紙面不畫畫、不寫字。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a round palm-leaf fan with a short handle beside a folding bamboo fan half open, about 0.4 m wide and 0.3 m tall, made of dried palm leaf, bamboo ribs and plain paper, showing a frayed palm-leaf edge, a worn handle and faded plain paper with no painting or writing, used in the houses of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

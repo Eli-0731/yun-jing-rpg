@@ -1,0 +1,17 @@
+LV15 陶油燈台（11/08 工作包表 A：0.2 × 0.2 × 0.4 m，練高腳燈座的旋轉體、燈芯碟）三視圖與自評（2026-11-12）
+選用：LV15-cand-3.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-08/C-40h-more-village-life.md 第 4 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：92（28+28+24+12）。燈柱纏了一塊布（提示詞沒有），底座缺角。
+- cand-2：91（28+27+24+12）。柱身直、底座有腰線；碟子較淺。
+- cand-3：93（28+29+24+12）。選用。喇叭形底座、細長燈柱中段一道腰箍、上端收口托住一個淺碟（碟內上釉較深）；碟裡一根棉燈芯、上方燻黑；油漬從碟緣沿柱身流下；底座缺一角。
+- cand-4：92（28+28+24+12）。柱身有兩道腰箍，燈柱纏繩。
+
+建模取捨：照 cand-3。練「高腳燈座的旋轉體」：底座、燈柱、腰箍、承托、燈碟用同一條輪廓轉出來（一個實心旋轉體加一個薄殼碟），輪廓有台階和弧面；「燈芯碟」：碟是有厚度的淺碟、碟緣一處小嘴，燈芯是一段搓成的棉繩從碟心斜搭到碟嘴，碟裡一層油面。燻黑、油漬流痕、上釉的碟內畫在貼圖上；底座缺角用切塊做出來。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a simple tall-stemmed clay oil lamp stand with a shallow oil dish and a cotton wick on top, about 0.2 m wide and 0.4 m tall, made of unglazed warm-brown clay with a darker glazed dish, showing soot above the wick, oil stains running down the stem and a chipped base, used in the houses of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

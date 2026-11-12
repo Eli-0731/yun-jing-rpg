@@ -1,0 +1,17 @@
+LV16 木洗臉盆架與木盆（11/08 工作包表 A：0.5 × 0.4 × 0.9 m，練三腳架的榫接、木盆的箍）三視圖與自評（2026-11-12）
+選用：LV16-cand-1.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-08/C-40h-more-village-life.md 第 4 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：93（28+29+24+12）。選用。三隻斜腳的架子，頂上一圈托架、下段一個三角橫檔，榫頭穿出腳外看得到；木盆是木條拼的圓盆、兩道竹箍；一隻腳上掛一條舊布；盆身有水漬。
+- cand-2：91（28+27+24+12）。像四腳凳，三腳架看不清楚。
+- cand-3：91（28+27+24+12）。盆很深像桶，腳上纏繩。
+- cand-4：92（28+28+24+12）。和 cand-1 相近，側面橫檔穿出過長。
+
+建模取捨：照 cand-1。練「三腳架的榫接」：三隻往外斜的腳，頂上三根托檔圍成三角托住盆，下段三根橫檔，每個接頭的榫頭穿出腳外 1 cm；「木盆的箍」：盆是 16 片木條拼成的圓錐盆（每片之間有細縫），兩道竹箍箍住、箍的接頭重疊綁住，盆底一塊圓板。一隻腳上掛一條粗布；水漬在貼圖上。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a three-legged wooden washbasin stand holding a round wooden basin bound with bamboo hoops, a small cloth hung on one leg, about 0.5 m wide and 0.9 m tall, made of old cedar, bamboo hoops and coarse cotton, showing water stains on the basin, mortise joints on the stand and a faded cloth, used in the houses of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

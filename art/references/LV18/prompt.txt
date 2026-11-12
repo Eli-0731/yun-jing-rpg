@@ -1,0 +1,17 @@
+LV18 木算盤（11/08 工作包表 A：0.35 × 0.12 × 0.05 m，練很多一樣的珠子排整齊（用陣列））三視圖與自評（2026-11-12）
+選用：LV18-cand-3.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-08/C-40h-more-village-life.md 第 4 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：92（28+28+24+12）。上二下五、13 檔；框角磨損；一顆珠缺角。
+- cand-2：91（28+27+24+12）。珠子偏大偏扁，框有補片。
+- cand-3：93（28+29+24+12）。選用。深色硬木框、中間一根橫樑，13 根細桿，上二下五的扁圓珠（淺色、被摸得光滑），框角磨損，一顆珠缺一小角；側面看得到框厚。
+- cand-4：91（28+27+24+12）。框角綁繩，珠子顏色太一致。
+
+建模取捨：照 cand-3。工作包尺寸寫 w × d × h = 0.35 × 0.12 × 0.05 m，所以算盤平放在桌上（框面朝上）。練「用陣列排很多一樣的珠子」：做一顆珠（扁圓旋轉體），用陣列（Blender 的 Array 修改器套在一根桿上，再整排複製到 13 根桿）排出 91 顆，不一顆顆擺；有幾顆被撥到不同位置。一顆缺角的珠是單獨一顆。框角磨損、珠子摸亮在貼圖上。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a wooden abacus with a dark frame, a centre beam and rows of rounded beads on thin rods, about 0.35 m wide, 0.12 m tall and 0.05 m thick, made of dark hardwood and lighter polished bead wood, showing worn corners of the frame, beads polished by use and one slightly chipped bead, used in the shops of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

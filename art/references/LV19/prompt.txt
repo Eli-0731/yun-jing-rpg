@@ -1,0 +1,17 @@
+LV19 竹簸箕（曬穀用）（11/08 工作包表 A：0.8 × 0.6 × 0.15 m，練一邊開口的淺籃形；和竹篩、晾茶竹匾不同）三視圖與自評（2026-11-12）
+選用：LV19-cand-4.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-08/C-40h-more-village-life.md 第 4 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：92（28+28+24+12）。後牆高、往前斜到開口；開口邊緣磨深。
+- cand-2：91（28+27+24+12）。開口很平，後牆矮，像一般淺籃。
+- cand-3：90（27+28+23+12）。像半個碗。
+- cand-4：93（28+29+24+12）。選用。一邊開口的淺籃：後面和兩側圍起來（後高約 15 cm，往前降到開口貼地），開口邊緣一條較深的磨痕，粗竹緣沿著三邊；一塊補片；編紋裡卡了幾粒米。
+
+建模取捨：照 cand-4。練「一邊開口的淺籃形」：底面和三面牆是一張連續的薄殼（從後往前高度降到零，開口那邊是平的倒口），編紋在貼圖上；沿後面和兩側一條粗竹緣，每隔一段用細篾綁住；開口邊緣一條薄竹壓邊。和竹篩（圓、四邊一樣高）、晾茶竹匾（平的圓匾）一眼分得開。補片、米粒（Detail_）、倒口磨深在貼圖或小件上。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a shallow woven bamboo winnowing basket open at one side for pouring grain, about 0.8 m wide, 0.6 m deep and 0.15 m tall, made of split bamboo with a thicker bamboo rim, showing a darker worn pouring edge, a few grains of rice caught in the weave and one repaired section, used in the yards of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
