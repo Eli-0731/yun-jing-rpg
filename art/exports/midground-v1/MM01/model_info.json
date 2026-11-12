@@ -1,0 +1,30 @@
+{
+  "id": "MM01",
+  "name_zh": "喀斯特中景石峰",
+  "units": "m",
+  "reference": "art/references/midground-v1/MM01/three-view.png",
+  "method": "不規則雙軸高度場與岩脊置換，單一連續山體",
+  "pivot": "方形山腳中央",
+  "dimensions_m": [
+    78.0,
+    78.0,
+    116.41
+  ],
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangles": 12464,
+      "materials": 1,
+      "textures": [
+        {
+          "name": "T_KarstRock.png",
+          "resolution": [
+            1024,
+            1024
+          ]
+        }
+      ]
+    }
+  ],
+  "unity_import": "未驗證"
+}
