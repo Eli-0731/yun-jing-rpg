@@ -1,0 +1,13 @@
+{
+  "id": "LF01",
+  "units": "m",
+  "triangles": 614,
+  "variants": [
+    "slate",
+    "warm",
+    "pale"
+  ],
+  "animation": "24 fps, frame 1–25 循環；左右翅各自動畫",
+  "minTier": "standard",
+  "unity_import": "未驗證"
+}

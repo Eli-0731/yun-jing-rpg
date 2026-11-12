@@ -1,0 +1,12 @@
+{
+  "id": "LF02",
+  "units": "m",
+  "triangles": 256,
+  "variants": [
+    "ivory",
+    "yellow"
+  ],
+  "animation": "24 fps, frame 1–25 循環；左右翅各自動畫",
+  "minTier": "high",
+  "unity_import": "未驗證"
+}
