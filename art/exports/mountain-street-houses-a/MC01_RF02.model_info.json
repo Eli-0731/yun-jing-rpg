@@ -1,0 +1,65 @@
+{
+ "id": "MC01-RF02",
+ "package": "docs/execution/2026-11-05/A-48h-mountain-city-architecture.md",
+ "author": "A (Johnnnny0823)",
+ "version": "v001",
+ "status": "Exported; Imported/Visually Verified/In-game Verified: 未驗",
+ "dimensions_m": [
+  3.998,
+  5.476,
+  1.824
+ ],
+ "limit_m": [
+  4.0,
+  5.8,
+  2.6
+ ],
+ "grid_m": 4.0,
+ "origin": "footprint centre, bottom z = 0, -Y = street front",
+ "minTier": "low",
+ "lods": [
+  {
+   "lod": 0,
+   "triangles": 54368,
+   "objects": 1,
+   "materials": 1
+  },
+  {
+   "lod": 1,
+   "triangles": 27184,
+   "objects": 1,
+   "materials": 1
+  },
+  {
+   "lod": 2,
+   "triangles": 8154,
+   "objects": 1,
+   "materials": 1
+  }
+ ],
+ "objectsLOD0": [
+  "MC01_RF02_LOD0"
+ ],
+ "detailObjects": [],
+ "glowObjects": [],
+ "materials": [
+  "M_MountainStreet_Trim"
+ ],
+ "textures": {
+  "T_MountainStreet_Albedo": "2048x2048",
+  "T_MountainStreet_Normal": "2048x2048",
+  "T_MountainStreet_MetallicSmoothness": "2048x2048",
+  "T_MountainStreet_Emission": "2048x2048"
+ },
+ "textureNote": "one trim sheet shared by every MC01 module (D3 §4); 256 px/m",
+ "collision": "MC01_RF02_Collision (1 boxes)",
+ "extra": {
+  "kind": "gable",
+  "flushEnds": [
+   "-X",
+   "+X"
+  ]
+ },
+ "fbx": "art/exports/mountain-street-houses-a/MC01_RF02.fbx",
+ "fps": "不寫（手機未實測）"
+}

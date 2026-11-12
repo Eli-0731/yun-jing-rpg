@@ -1,0 +1,377 @@
+{
+  "asset": "VL03_HalfCollapsedHouse",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "VL03_HalfCollapsedHouse_Detail_Small"
+  ],
+  "name_zh": "半塌的空屋",
+  "slot": "A1_QingxiVillage_EmptyHouse",
+  "note": "半塌的空屋（三視圖 VL03 candidate-01）：外框照 StarterHouse v004。右山牆一端的屋頂塌陷（後坡整片、前坡靠屋脊的上半），斷椽外露、兩根垂進屋內；右牆往外倒成一堆土磚和碎瓦，只剩前角一段和低矮的牆根，從缺口看得到空屋內；一棵小樹從屋內長出、穿過缺口；木頭發黑受潮、瓦和瓦礫長苔、瓦礫上長草。碰撞：牆線照原屋封住（缺口處也擋），瓦礫堆另有一個斜面碰撞，人不會卡進屋內。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 72884,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 36437,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 10303,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "VL03_HalfCollapsedHouse_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL03_HalfCollapsedHouse_Wood_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the wall footprint at ground level, front -Y (same origin as StarterHouse v004, so a variant drops into its slot)",
+  "dimensions_m": [
+    9.2773,
+    8.1912,
+    5.5518
+  ],
+  "bounds_min_m": [
+    -4.4913,
+    -4.7212,
+    0.0
+  ],
+  "bounds_max_m": [
+    4.786,
+    3.47,
+    5.5518
+  ],
+  "size_limit_m": [
+    9.36,
+    8.19,
+    5.62
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        9.2446,
+        8.1912,
+        5.5518
+      ],
+      "min": [
+        -4.4913,
+        -4.7212,
+        0.0
+      ],
+      "max": [
+        4.7533,
+        3.47,
+        5.5518
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        8.8982,
+        7.2125,
+        5.3967
+      ],
+      "min": [
+        -4.1122,
+        -3.9199,
+        0.0
+      ],
+      "max": [
+        4.786,
+        3.2927,
+        5.3967
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 12422,
+      "LOD1": 6206,
+      "LOD2": 1860
+    },
+    "Stone": {
+      "LOD0": 13272,
+      "LOD1": 6636,
+      "LOD2": 1990
+    },
+    "Wood": {
+      "LOD0": 12492,
+      "LOD1": 6246,
+      "LOD2": 1872
+    },
+    "Detail_Small": {
+      "LOD0": 11450,
+      "LOD1": 5725,
+      "LOD2": 1717
+    },
+    "Roof": {
+      "LOD0": 23248,
+      "LOD1": 11624,
+      "LOD2": 2864
+    }
+  },
+  "lod_totals": {
+    "LOD0": 72884,
+    "LOD1": 36437,
+    "LOD2": 10303
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_VL03_HalfCollapsedHouse_Main",
+    "M_VL03_HalfCollapsedHouse_RoofTiles",
+    "M_VL03_HalfCollapsedHouse_Stone",
+    "M_VL03_HalfCollapsedHouse_Wood"
+  ],
+  "textures": [
+    "VL03_HalfCollapsedHouse_BaseColor.png",
+    "VL03_HalfCollapsedHouse_Metallic.png",
+    "VL03_HalfCollapsedHouse_MetallicSmoothness.png",
+    "VL03_HalfCollapsedHouse_Normal.png",
+    "VL03_HalfCollapsedHouse_Roughness.png",
+    "VL03_HalfCollapsedHouse_Stone_BaseColor.png",
+    "VL03_HalfCollapsedHouse_Stone_Metallic.png",
+    "VL03_HalfCollapsedHouse_Stone_MetallicSmoothness.png",
+    "VL03_HalfCollapsedHouse_Stone_Normal.png",
+    "VL03_HalfCollapsedHouse_Stone_Roughness.png",
+    "VL03_HalfCollapsedHouse_Wood_BaseColor.png",
+    "VL03_HalfCollapsedHouse_Wood_Metallic.png",
+    "VL03_HalfCollapsedHouse_Wood_MetallicSmoothness.png",
+    "VL03_HalfCollapsedHouse_Wood_Normal.png",
+    "VL03_HalfCollapsedHouse_Wood_Roughness.png",
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_VL03_HalfCollapsedHouse_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL03_HalfCollapsedHouse_BaseColor.png",
+        "Normal": "VL03_HalfCollapsedHouse_Normal.png",
+        "MetallicSmoothness": "VL03_HalfCollapsedHouse_MetallicSmoothness.png"
+      },
+      "M_VL03_HalfCollapsedHouse_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_VL03_HalfCollapsedHouse_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL03_HalfCollapsedHouse_Stone_BaseColor.png",
+        "Normal": "VL03_HalfCollapsedHouse_Stone_Normal.png",
+        "MetallicSmoothness": "VL03_HalfCollapsedHouse_Stone_MetallicSmoothness.png"
+      },
+      "M_VL03_HalfCollapsedHouse_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL03_HalfCollapsedHouse_Wood_BaseColor.png",
+        "Normal": "VL03_HalfCollapsedHouse_Wood_Normal.png",
+        "MetallicSmoothness": "VL03_HalfCollapsedHouse_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "VL03_HalfCollapsedHouse_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Door": [
+      0.0,
+      -2.72,
+      0.54
+    ],
+    "Socket_Porch": [
+      0.0,
+      -3.12,
+      0.54
+    ],
+    "Socket_Path": [
+      0.0,
+      -4.72,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Door.001": [
+      0.0,
+      -2.72,
+      0.54
+    ],
+    "Socket_Path.001": [
+      0.0,
+      -4.72,
+      0.0
+    ],
+    "Socket_Porch.001": [
+      0.0,
+      -3.12,
+      0.54
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Door.001",
+    "Socket_Path.001",
+    "Socket_Porch.001",
+    "VL03_HalfCollapsedHouse.001",
+    "VL03_HalfCollapsedHouse_Collision.001",
+    "VL03_HalfCollapsedHouse_Detail_Small_LOD0.001",
+    "VL03_HalfCollapsedHouse_Detail_Small_LOD1.001",
+    "VL03_HalfCollapsedHouse_Detail_Small_LOD2.001",
+    "VL03_HalfCollapsedHouse_LOD0.001",
+    "VL03_HalfCollapsedHouse_LOD1.001",
+    "VL03_HalfCollapsedHouse_LOD2.001"
+  ],
+  "glb": "VL03_HalfCollapsedHouse_v001.glb",
+  "interface": {
+    "eave_underside_m": 3.345,
+    "ridge_m": 5.271,
+    "tree_leaves": 215
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-houses-b/) on the StarterHouse v004 outline; procedural shaders baked to two 2048 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 109.4,
+        "median": 109.4,
+        "p90": 109.8,
+        "area_m2": 144.9
+      },
+      "inside_or_covered": {
+        "p10": 10.4,
+        "median": 27.4,
+        "p90": 91.5,
+        "area_m2": 251.6
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 235.5,
+        "median": 284.2,
+        "p90": 284.6,
+        "area_m2": 35.2
+      },
+      "inside_or_covered": {
+        "p10": 69.6,
+        "median": 69.6,
+        "p90": 173.7,
+        "area_m2": 41.4
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 100.9,
+        "median": 138.7,
+        "p90": 139.1,
+        "area_m2": 81.9
+      },
+      "inside_or_covered": {
+        "p10": 5.8,
+        "median": 34.0,
+        "p90": 96.9,
+        "area_m2": 179.9
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": [
+    7877,
+    18077
+  ],
+  "reference": "art/references/VL03/ (AI three-view VL03/candidate-01; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}

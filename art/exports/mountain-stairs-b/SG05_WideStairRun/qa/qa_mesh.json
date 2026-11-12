@@ -1,0 +1,109 @@
+{
+ "SG05_WideStairRun_Detail_Small_LOD0": {
+  "tris": 2504,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 72,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "SG05_WideStairRun_Detail_Small_LOD1": {
+  "tris": 1252,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 72,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "SG05_WideStairRun_Detail_Small_LOD2": {
+  "tris": 375,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 72,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "SG05_WideStairRun_LOD0": {
+  "tris": 146541,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 2,
+  "coplanar_two_sides": 18,
+  "closed_pieces": 146,
+  "open_pieces": 60,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     0.04,
+     0.98,
+     1.45
+    ],
+    1
+   ],
+   [
+    [
+     -0.16,
+     0.87,
+     1.4
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "SG05_WideStairRun_LOD1": {
+  "tris": 73270,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 146,
+  "open_pieces": 60,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "SG05_WideStairRun_LOD2": {
+  "tris": 21981,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 146,
+  "open_pieces": 60,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

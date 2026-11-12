@@ -1,0 +1,572 @@
+{
+  "asset": "VL04_DiligentFamilyHouse",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -4.4913,
+          -4.7212,
+          0.0
+        ],
+        "max": [
+          4.4915,
+          3.4676,
+          5.5518
+        ],
+        "box_m": [
+          [
+            -4.53,
+            -4.73,
+            0.0
+          ],
+          [
+            4.53,
+            3.47,
+            5.62
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01007
+      }
+    },
+    {
+      "check": "wall_outline_as_starterhouse",
+      "pass": true,
+      "detail": {
+        "measured_outer_faces_m": {
+          "front": -2.61,
+          "rear": 2.61,
+          "left": -3.6124,
+          "right": 3.6124
+        },
+        "starterhouse_m": {
+          "front": -2.61,
+          "rear": 2.61,
+          "left": -3.61,
+          "right": 3.61
+        },
+        "walls_m": [
+          7.005,
+          5.0
+        ]
+      }
+    },
+    {
+      "check": "porch_and_steps_as_starterhouse",
+      "pass": true,
+      "detail": {
+        "step_tops_m": [
+          0.18,
+          0.359,
+          0.539
+        ],
+        "porch_floor_m": 0.54,
+        "starterhouse_m": {
+          "steps": [
+            0.18,
+            0.36,
+            0.54
+          ],
+          "porch": 0.54
+        },
+        "rise_m": 0.18
+      }
+    },
+    {
+      "check": "eave_underside_at_least_2_6m",
+      "pass": true,
+      "detail": {
+        "front_eave_underside_m": 3.345,
+        "above_porch_m": 2.805,
+        "world_constant_m": 2.6
+      }
+    },
+    {
+      "check": "outline_size_as_starterhouse",
+      "pass": true,
+      "detail": {
+        "dims_m": [
+          8.983,
+          8.189,
+          5.552
+        ],
+        "starterhouse_dims_m": [
+          9.0478,
+          8.1891,
+          5.6129
+        ],
+        "ridge_top_m": 5.271,
+        "tolerance_m": 0.35,
+        "note": "same walls, plinth, porch and roof curve; the tile courses and ridge are rebuilt, so the overall box differs by a few centimetres"
+      }
+    },
+    {
+      "check": "collision_closed_all_round",
+      "pass": true,
+      "detail": {
+        "collision_wall_faces_m": {
+          "front": -2.61,
+          "rear": 2.61,
+          "left": -3.61,
+          "right": 3.61
+        },
+        "porch_floor_m": 0.54
+      }
+    },
+    {
+      "check": "lived_in_things_rest_on_surfaces",
+      "pass": true,
+      "detail": [
+        {
+          "what": "rack_leg",
+          "xy": [
+            -3.3385,
+            -3.6
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.5409,
+          "gap_mm": -0.9
+        },
+        {
+          "what": "rack_leg",
+          "xy": [
+            -3.3015,
+            -3.16
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "rack_leg",
+          "xy": [
+            -1.2685,
+            -3.6
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "rack_leg",
+          "xy": [
+            -1.2315,
+            -3.16
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "woodpile_rail",
+          "xy": [
+            3.97,
+            0.0
+          ],
+          "foot_z": 0.0,
+          "surface_z": 0.0003,
+          "gap_mm": -0.3
+        },
+        {
+          "what": "woodpile_rail",
+          "xy": [
+            4.23,
+            0.0
+          ],
+          "foot_z": 0.0,
+          "surface_z": 0.0,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "woodpile_stake",
+          "xy": [
+            3.9,
+            -1.595
+          ],
+          "foot_z": 0.0,
+          "surface_z": 0.0,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "woodpile_stake",
+          "xy": [
+            4.3,
+            -1.595
+          ],
+          "foot_z": 0.0,
+          "surface_z": -0.0,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "woodpile_stake",
+          "xy": [
+            3.9,
+            1.395
+          ],
+          "foot_z": 0.0,
+          "surface_z": 0.0,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "woodpile_stake",
+          "xy": [
+            4.3,
+            1.395
+          ],
+          "foot_z": 0.0,
+          "surface_z": -0.0,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "sill_board",
+          "xy": [
+            2.2,
+            -2.8
+          ],
+          "foot_z": 1.29,
+          "surface_z": 1.2902,
+          "gap_mm": -0.2
+        },
+        {
+          "what": "tray",
+          "xy": [
+            2.2,
+            -2.8655
+          ],
+          "foot_z": 1.312,
+          "surface_z": 1.3127,
+          "gap_mm": -0.7
+        },
+        {
+          "what": "sandal",
+          "xy": [
+            -0.17,
+            -3.0
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        },
+        {
+          "what": "sandal",
+          "xy": [
+            0.09,
+            -3.03
+          ],
+          "foot_z": 0.54,
+          "surface_z": 0.54,
+          "gap_mm": 0.0
+        }
+      ]
+    },
+    {
+      "check": "woodpile_collision_below_wall_probe",
+      "pass": true,
+      "detail": {
+        "woodpile_top_m": 0.709,
+        "collision_top_m": 0.779,
+        "note": "the wall probe of collision_closed_all_round runs at 1.2 m and passes over the woodpile box"
+      }
+    },
+    {
+      "check": "woodpile_stakes_under_the_mat",
+      "pass": true,
+      "detail": [
+        {
+          "stake_xy": [
+            3.9,
+            -1.595
+          ],
+          "top_z": 0.7268,
+          "gap_up_to_mat_mm": [
+            7.3,
+            5.4,
+            9.1,
+            12.1,
+            13.8
+          ]
+        },
+        {
+          "stake_xy": [
+            4.3,
+            -1.595
+          ],
+          "top_z": 0.6937,
+          "gap_up_to_mat_mm": [
+            8.5,
+            6.6,
+            10.5,
+            12.5,
+            15.7
+          ]
+        },
+        {
+          "stake_xy": [
+            3.9,
+            1.395
+          ],
+          "top_z": 0.7215,
+          "gap_up_to_mat_mm": [
+            7.3,
+            5.9,
+            8.5,
+            14.2,
+            11.4
+          ]
+        },
+        {
+          "stake_xy": [
+            4.3,
+            1.395
+          ],
+          "top_z": 0.6938,
+          "gap_up_to_mat_mm": [
+            8.0,
+            6.8,
+            9.0,
+            14.3,
+            12.2
+          ]
+        }
+      ]
+    },
+    {
+      "check": "woodpile_every_piece_touches",
+      "pass": true,
+      "detail": {
+        "pieces": 164,
+        "max_gap_mm": 0.0,
+        "over_0_5mm": 0,
+        "measured_on": "emitted section outlines vs the other outlines and the rail top (0.07 m)"
+      }
+    },
+    {
+      "check": "detail_props_have_collision",
+      "pass": true,
+      "detail": {
+        "boxes": [
+          {
+            "prop": "drying_rack",
+            "yaw": 0.0,
+            "corners_xy": [
+              [
+                -3.6301,
+                -3.6288
+              ],
+              [
+                -0.94,
+                -3.6288
+              ],
+              [
+                -0.94,
+                -3.131
+              ],
+              [
+                -3.6301,
+                -3.131
+              ]
+            ],
+            "z": [
+              0.54,
+              2.3
+            ],
+            "centre_xy": [
+              -2.285,
+              -3.3799
+            ],
+            "half_m": [
+              1.345,
+              0.2489
+            ],
+            "prop_top_m": 2.422,
+            "vertices": 8276
+          }
+        ],
+        "rays": [
+          {
+            "prop": "drying_rack",
+            "z_m": 0.84,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "drying_rack",
+            "z_m": 1.74,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "drying_rack",
+            "z_m": 0.84,
+            "hit_after_m": 0.9999,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "drying_rack",
+            "z_m": 1.74,
+            "hit_after_m": 0.9999,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "drying_rack",
+            "z_m": 0.84,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "drying_rack",
+            "z_m": 1.74,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "drying_rack",
+            "z_m": 0.84,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          },
+          {
+            "prop": "drying_rack",
+            "z_m": 1.74,
+            "hit_after_m": 1.0,
+            "expected_m": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 89876,
+          "LOD1": 44937,
+          "LOD2": 12771
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.142,
+        "per_group": {
+          "Main": {
+            "LOD0": 11078,
+            "LOD1": 5538,
+            "LOD2": 1660
+          },
+          "Stone": {
+            "LOD0": 13744,
+            "LOD1": 6872,
+            "LOD2": 2060
+          },
+          "Wood": {
+            "LOD0": 14476,
+            "LOD1": 7238,
+            "LOD2": 2170
+          },
+          "Detail_Small": {
+            "LOD0": 21778,
+            "LOD1": 10889,
+            "LOD2": 3265
+          },
+          "Roof": {
+            "LOD0": 28800,
+            "LOD1": 14400,
+            "LOD2": 3616
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          8.9828,
+          8.1888,
+          5.5518
+        ],
+        "blend_dims_m": [
+          8.9828,
+          8.1888,
+          5.5518
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_Door.001",
+        "Socket_Path.001",
+        "Socket_Porch.001",
+        "VL04_DiligentFamilyHouse.001",
+        "VL04_DiligentFamilyHouse_Collision.001",
+        "VL04_DiligentFamilyHouse_Detail_Collision.001",
+        "VL04_DiligentFamilyHouse_Detail_Small_LOD0.001",
+        "VL04_DiligentFamilyHouse_Detail_Small_LOD1.001",
+        "VL04_DiligentFamilyHouse_Detail_Small_LOD2.001",
+        "VL04_DiligentFamilyHouse_LOD0.001",
+        "VL04_DiligentFamilyHouse_LOD1.001",
+        "VL04_DiligentFamilyHouse_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Door.001": [
+          0.0,
+          -2.72,
+          0.54
+        ],
+        "Socket_Path.001": [
+          0.0,
+          -4.72,
+          0.0
+        ],
+        "Socket_Porch.001": [
+          0.0,
+          -3.12,
+          0.54
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "fbx_detail_collision",
+      "pass": true,
+      "detail": "prop collision mesh present, apart from the house collision"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 8947716
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 341,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

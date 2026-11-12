@@ -1,0 +1,233 @@
+{
+  "asset": "FR04_LogBridge",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -3.4944,
+          -0.4706,
+          0.0
+        ],
+        "max": [
+          3.4656,
+          0.4673,
+          1.0632
+        ],
+        "box_m": [
+          [
+            -3.5,
+            -0.5,
+            0.0
+          ],
+          [
+            3.5,
+            0.5,
+            1.2
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.00132
+      }
+    },
+    {
+      "check": "deck_flat_and_wide",
+      "pass": true,
+      "detail": {
+        "deck_z_m": [
+          0.843,
+          0.847
+        ],
+        "flat_width_m_every_0_25m": [
+          0.61,
+          0.58,
+          0.57,
+          0.56,
+          0.56,
+          0.58,
+          0.59,
+          0.57,
+          0.55,
+          0.53,
+          0.51,
+          0.52,
+          0.51,
+          0.52,
+          0.55,
+          0.55
+        ],
+        "need": "width >= 0.5 m, z within 3 cm",
+        "design_deck_z_m": 0.85
+      }
+    },
+    {
+      "check": "steps_even_rises",
+      "pass": true,
+      "detail": {
+        "by_end": {
+          "W": {
+            "tops_m": [
+              0.17,
+              0.34,
+              0.51,
+              0.68
+            ],
+            "rises_m": [
+              0.17,
+              0.17,
+              0.17,
+              0.17,
+              0.17
+            ]
+          },
+          "E": {
+            "tops_m": [
+              0.17,
+              0.34,
+              0.51,
+              0.68
+            ],
+            "rises_m": [
+              0.17,
+              0.17,
+              0.17,
+              0.17,
+              0.17
+            ]
+          }
+        },
+        "largest_rise_m": 0.17,
+        "need_m": 0.2
+      }
+    },
+    {
+      "check": "walk_line_clear",
+      "pass": true,
+      "detail": {
+        "blocked": [],
+        "rays": "along X over the deck at y -0.2/0/0.2, 0.05/0.9/1.75 m up; straight up over every step"
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": [
+        "Socket_Deck",
+        "Socket_Path_E",
+        "Socket_Path_W"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 21886,
+          "LOD1": 10942,
+          "LOD2": 3281
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 18782,
+            "LOD1": 9390,
+            "LOD2": 2816
+          },
+          "Detail_Small": {
+            "LOD0": 3104,
+            "LOD1": 1552,
+            "LOD2": 465
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          6.9599,
+          0.9379,
+          1.0632
+        ],
+        "blend_dims_m": [
+          6.9599,
+          0.9379,
+          1.0632
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 5e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "FR04_LogBridge.001",
+        "FR04_LogBridge_Collision.001",
+        "FR04_LogBridge_Detail_Small_LOD0.001",
+        "FR04_LogBridge_Detail_Small_LOD1.001",
+        "FR04_LogBridge_Detail_Small_LOD2.001",
+        "FR04_LogBridge_LOD0.001",
+        "FR04_LogBridge_LOD1.001",
+        "FR04_LogBridge_LOD2.001",
+        "Socket_Deck.001",
+        "Socket_Path_E.001",
+        "Socket_Path_W.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Deck.001": [
+          0.0,
+          0.0,
+          0.85
+        ],
+        "Socket_Path_E.001": [
+          3.5,
+          0.0,
+          0.0
+        ],
+        "Socket_Path_W.001": [
+          -3.5,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 2339816
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 133,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

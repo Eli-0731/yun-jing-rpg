@@ -1,0 +1,87 @@
+PASS shared MC01 trim sheet: Albedo / Normal / MetallicSmoothness imported
+PASS TX04 wall tile: T_TX04_Wall_Albedo / _Normal imported
+PASS T_MountainStreet_Albedo: source 2048, imported 1024 x 1024 (QingxiImportBudget caps model textures at 1024)
+PASS T_MountainStreet_Normal: source 2048, imported 1024 x 1024 (QingxiImportBudget caps model textures at 1024)
+PASS T_TX04_Wall_Albedo: source 1024, imported 1024 x 1024 (QingxiImportBudget caps model textures at 1024)
+PASS T_TX04_Wall_Normal: source 1024, imported 1024 x 1024 (QingxiImportBudget caps model textures at 1024)
+Unity 6000.0.82f1, pipeline URP
+INFO axis: Blender +X -> Unity +X, Blender +Y -> Unity +Z, Blender +Z -> Unity +Y (WALL_CO bounds centre x = -0.816)
+PASS GATE: imported size 5.916 x 2.947 x 5.713 m matches model_info 5.916 x 2.946 x 5.713
+PASS GATE: base at y = 0.001
+PASS GATE: triangles LOD0/1/2 = 72268 / 33566 / 10068, model_info 72368 / 33566 / 10068
+PASS GATE: 2 LOD0 objects (model_info 2)
+PASS GATE: every FBX material slot mapped to a shared URP material
+PASS GATE: materials M_MountainStreet_Trim, M_TX04_Accent, M_TX04_Roof, M_TX04_Wall (model_info M_MountainStreet_Trim, M_TX04_Accent, M_TX04_Roof, M_TX04_Wall)
+PASS GATE: TX04_GATE_Accent on M_TX04_Accent, lacquer share 2.9% (limit 10%)
+PASS GATE: Socket_Plaque at (0.00, 3.81, -0.69) (Blender 0, -0.69, 3.81)
+PASS GATE: Socket_Emblem at (0.00, 5.63, 0.04) (Blender 0, 0.04, 5.63)
+PASS GATE: LODGroup 3 levels x 2 renderers
+PASS GATE: collision imported as MeshCollider (60 tris), render hidden
+PASS HALL: imported size 13.976 x 8.928 x 7.945 m matches model_info 13.976 x 8.928 x 7.944
+PASS HALL: base at y = 0.000
+PASS HALL: triangles LOD0/1/2 = 185540 / 88758 / 23912, model_info 185640 / 88758 / 23912
+PASS HALL: 2 LOD0 objects (model_info 2)
+PASS HALL: every FBX material slot mapped to a shared URP material
+PASS HALL: materials M_MountainStreet_Trim, M_TX04_Accent, M_TX04_Roof, M_TX04_Wall (model_info M_MountainStreet_Trim, M_TX04_Accent, M_TX04_Roof, M_TX04_Wall)
+PASS HALL: TX04_HALL_Accent on M_TX04_Accent, lacquer share 0.8% (limit 10%)
+PASS HALL: Socket_Plaque at (0.00, 4.68, -2.60) (Blender 0, -2.595, 4.68)
+PASS HALL: Socket_Emblem at (0.00, 7.93, 0.53) (Blender 0, 0.525, 7.93)
+PASS HALL: LODGroup 3 levels x 2 renderers
+PASS HALL: collision imported as MeshCollider (48 tris), render hidden
+PASS PAVE: imported size 3.990 x 3.991 x 0.129 m matches model_info 3.99 x 3.99 x 0.129
+PASS PAVE: base at y = 0.003
+PASS PAVE: triangles LOD0/1/2 = 4056 / 2028 / 608, model_info 4056 / 2028 / 608
+PASS PAVE: 1 LOD0 objects (model_info 1)
+PASS PAVE: every FBX material slot mapped to a shared URP material
+PASS PAVE: materials M_MountainStreet_Trim (model_info M_MountainStreet_Trim)
+INFO PAVE: no lacquer (review #90: lacquer only on gate / hall doors, plaque frames, lintel band)
+PASS PAVE: LODGroup 3 levels x 1 renderers
+PASS PAVE: collision imported as MeshCollider (12 tris), render hidden
+PASS SIDE: imported size 7.936 x 4.968 x 4.939 m matches model_info 7.936 x 4.968 x 4.938
+PASS SIDE: base at y = 0.000
+PASS SIDE: triangles LOD0/1/2 = 82744 / 41372 / 12410, model_info 82744 / 41372 / 12410
+PASS SIDE: 1 LOD0 objects (model_info 1)
+PASS SIDE: every FBX material slot mapped to a shared URP material
+PASS SIDE: materials M_MountainStreet_Trim, M_TX04_Roof, M_TX04_Wall (model_info M_MountainStreet_Trim, M_TX04_Roof, M_TX04_Wall)
+INFO SIDE: no lacquer (review #90: lacquer only on gate / hall doors, plaque frames, lintel band)
+PASS SIDE: LODGroup 3 levels x 1 renderers
+PASS SIDE: collision imported as MeshCollider (48 tris), render hidden
+PASS STEPS: imported size 4.000 x 2.000 x 0.794 m matches model_info 4 x 2 x 0.794
+PASS STEPS: base at y = 0.000
+PASS STEPS: triangles LOD0/1/2 = 1392 / 696 / 208, model_info 1392 / 696 / 208
+PASS STEPS: 1 LOD0 objects (model_info 1)
+PASS STEPS: every FBX material slot mapped to a shared URP material
+PASS STEPS: materials M_MountainStreet_Trim (model_info M_MountainStreet_Trim)
+INFO STEPS: no lacquer (review #90: lacquer only on gate / hall doors, plaque frames, lintel band)
+PASS STEPS: LODGroup 3 levels x 1 renderers
+PASS STEPS: collision imported as MeshCollider (60 tris), render hidden
+PASS WALL_CO: imported size 2.368 x 2.367 x 2.477 m matches model_info 2.368 x 2.367 x 2.477
+PASS WALL_CO: base at y = 0.002
+PASS WALL_CO: triangles LOD0/1/2 = 15684 / 7842 / 2352, model_info 15684 / 7842 / 2352
+PASS WALL_CO: 1 LOD0 objects (model_info 1)
+PASS WALL_CO: every FBX material slot mapped to a shared URP material
+PASS WALL_CO: materials M_MountainStreet_Trim, M_TX04_Roof, M_TX04_Wall (model_info M_MountainStreet_Trim, M_TX04_Roof, M_TX04_Wall)
+INFO WALL_CO: no lacquer (review #90: lacquer only on gate / hall doors, plaque frames, lintel band)
+PASS WALL_CO: LODGroup 3 levels x 1 renderers
+PASS WALL_CO: collision imported as MeshCollider (24 tris), render hidden
+PASS WALL_DO: imported size 4.000 x 0.694 x 2.498 m matches model_info 4 x 0.694 x 2.498
+PASS WALL_DO: base at y = 0.002
+PASS WALL_DO: triangles LOD0/1/2 = 15328 / 7664 / 2298, model_info 15328 / 7664 / 2298
+PASS WALL_DO: 1 LOD0 objects (model_info 1)
+PASS WALL_DO: every FBX material slot mapped to a shared URP material
+PASS WALL_DO: materials M_MountainStreet_Trim, M_TX04_Roof, M_TX04_Wall (model_info M_MountainStreet_Trim, M_TX04_Roof, M_TX04_Wall)
+INFO WALL_DO: no lacquer (review #90: lacquer only on gate / hall doors, plaque frames, lintel band)
+PASS WALL_DO: LODGroup 3 levels x 1 renderers
+PASS WALL_DO: collision imported as MeshCollider (12 tris), render hidden
+PASS WALL_ST: imported size 4.000 x 0.694 x 2.478 m matches model_info 4 x 0.694 x 2.478
+PASS WALL_ST: base at y = 0.002
+PASS WALL_ST: triangles LOD0/1/2 = 15244 / 7622 / 2286, model_info 15244 / 7622 / 2286
+PASS WALL_ST: 1 LOD0 objects (model_info 1)
+PASS WALL_ST: every FBX material slot mapped to a shared URP material
+PASS WALL_ST: materials M_MountainStreet_Trim, M_TX04_Roof, M_TX04_Wall (model_info M_MountainStreet_Trim, M_TX04_Roof, M_TX04_Wall)
+INFO WALL_ST: no lacquer (review #90: lacquer only on gate / hall doors, plaque frames, lintel band)
+PASS WALL_ST: LODGroup 3 levels x 1 renderers
+PASS WALL_ST: collision imported as MeshCollider (12 tris), render hidden
+PASS academy: 26 / 26 modules placed from tx04-academy-assembly.json
+PASS accent recolour: M_TX04_Accent _BaseColor set to a blue sect colour, only the gate lacquer parts use it
+INFO renders written to art/previews/tx04-branch-court/unity

@@ -1,0 +1,255 @@
+{
+  "asset": "FR01_RootWall_Stacked",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -2.9976,
+          -0.9618,
+          0.0
+        ],
+        "max": [
+          2.9976,
+          1.0,
+          2.1724
+        ],
+        "box_m": [
+          [
+            -3.0,
+            -1.0,
+            0.0
+          ],
+          [
+            3.0,
+            1.0,
+            2.2
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.00986
+      }
+    },
+    {
+      "check": "taller_than_a_person",
+      "pass": true,
+      "detail": {
+        "highest_top_m": 2.168,
+        "person_m": 1.75,
+        "limit_m": 2.2,
+        "top_profile_every_0.14m": [
+          0.18,
+          0.22,
+          0.6,
+          0.93,
+          1.17,
+          1.32,
+          1.42,
+          1.47,
+          1.52,
+          1.66,
+          1.79,
+          1.91,
+          2.02,
+          2.08,
+          2.12,
+          2.15,
+          2.17,
+          2.16,
+          2.12,
+          2.04,
+          2.03,
+          2.06,
+          2.07,
+          2.08,
+          2.12,
+          2.14,
+          2.13,
+          2.11,
+          2.06,
+          1.96,
+          1.93,
+          1.84,
+          1.72,
+          1.56,
+          1.37,
+          1.36,
+          1.36,
+          1.31,
+          0.53,
+          0.22,
+          0.18
+        ]
+      }
+    },
+    {
+      "check": "joint_sections_match",
+      "pass": true,
+      "detail": {
+        "west_z_m": [
+          0.026,
+          0.066,
+          0.099,
+          0.126,
+          0.147,
+          0.163,
+          0.175,
+          0.182,
+          0.184,
+          0.182,
+          0.175,
+          0.164,
+          0.147,
+          0.126,
+          0.098,
+          0.066,
+          0.026
+        ],
+        "east_z_m": [
+          0.026,
+          0.066,
+          0.099,
+          0.126,
+          0.147,
+          0.163,
+          0.175,
+          0.182,
+          0.184,
+          0.182,
+          0.175,
+          0.163,
+          0.147,
+          0.126,
+          0.099,
+          0.066,
+          0.026
+        ],
+        "max_difference_m": 0.0007,
+        "note": "every shape uses the same earth-bank section on the joint line (3 cm in from it); roots dive into the ground before it"
+      }
+    },
+    {
+      "check": "three_sections_join",
+      "pass": true,
+      "detail": {
+        "joint_line_gap_mm": 0.0,
+        "turn_per_section_deg": -20.0,
+        "three_sections_turn_deg": 60.0
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": [
+        "Socket_Join_E",
+        "Socket_Join_W"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 66048,
+          "LOD1": 33022,
+          "LOD2": 9906
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 46214,
+            "LOD1": 23106,
+            "LOD2": 6932
+          },
+          "Detail_Small": {
+            "LOD0": 19834,
+            "LOD1": 9916,
+            "LOD2": 2974
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          5.9952,
+          1.9618,
+          2.1724
+        ],
+        "blend_dims_m": [
+          5.9952,
+          1.9618,
+          2.1724
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "FR01_RootWall_Stacked.001",
+        "FR01_RootWall_Stacked_Collision.001",
+        "FR01_RootWall_Stacked_Detail_Small_LOD0.001",
+        "FR01_RootWall_Stacked_Detail_Small_LOD1.001",
+        "FR01_RootWall_Stacked_Detail_Small_LOD2.001",
+        "FR01_RootWall_Stacked_LOD0.001",
+        "FR01_RootWall_Stacked_LOD1.001",
+        "FR01_RootWall_Stacked_LOD2.001",
+        "Socket_Join_E.001",
+        "Socket_Join_W.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Join_E.001": [
+          2.85,
+          -0.1247,
+          0.0
+        ],
+        "Socket_Join_W.001": [
+          -2.85,
+          -0.1247,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 4470116
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 311,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

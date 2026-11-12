@@ -6,7 +6,7 @@
 param(
     [string]$Config = 'tools/qingxi-terrain/checks/qingxi-world-preview.json',
     [switch]$Inventory,
-    [string]$EditorPath = 'D:\DevTools\Unity\6000.0.82f1\Editor\Unity.exe'
+    [string]$EditorPath = 'C:\Program Files\Unity\Hub\Editor\6000.3.28f1\Editor\Unity.exe'
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)

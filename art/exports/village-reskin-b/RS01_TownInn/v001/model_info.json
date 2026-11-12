@@ -1,0 +1,363 @@
+{
+  "asset": "RS01_TownInn",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "RS01_TownInn_Detail_Small"
+  ],
+  "name_zh": "客棧換材質（VL 質感）",
+  "slot": "TownLayout_TownInn",
+  "note": "Dondon TownLayout v004 的客棧，外形不動，瓦、牆、木、石全部換成 VL01–05 那一套質感（11/09 工作包 RS01）；原檔不改，另存新檔",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 51088,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 25544,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 8224,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "RS01_TownInn_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Tile_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Tile_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Tile_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Tile_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Tile_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Wood_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre, z = 0 at the lowest ground contact",
+  "dimensions_m": [
+    14.38,
+    14.7891,
+    10.4074
+  ],
+  "bounds_min_m": [
+    -7.19,
+    -7.3945,
+    0.0
+  ],
+  "bounds_max_m": [
+    7.19,
+    7.3945,
+    10.4074
+  ],
+  "size_limit_m": [
+    14.42,
+    14.829099999999999,
+    10.4274
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        14.38,
+        14.7891,
+        10.4074
+      ],
+      "min": [
+        -7.19,
+        -7.3945,
+        0.0
+      ],
+      "max": [
+        7.19,
+        7.3945,
+        10.4074
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        9.9666,
+        9.1066,
+        1.53
+      ],
+      "min": [
+        -2.938,
+        -3.6586,
+        1.45
+      ],
+      "max": [
+        7.0286,
+        5.448,
+        2.98
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 4376,
+      "LOD1": 2188,
+      "LOD2": 656
+    },
+    "Wood": {
+      "LOD0": 25800,
+      "LOD1": 12900,
+      "LOD2": 3870
+    },
+    "Stone": {
+      "LOD0": 648,
+      "LOD1": 324,
+      "LOD2": 96
+    },
+    "Tile": {
+      "LOD0": 17512,
+      "LOD1": 8756,
+      "LOD2": 3190
+    },
+    "Detail_Small": {
+      "LOD0": 2752,
+      "LOD1": 1376,
+      "LOD2": 412
+    }
+  },
+  "lod_totals": {
+    "LOD0": 51088,
+    "LOD1": 25544,
+    "LOD2": 8224
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_RS01_TownInn_Main",
+    "M_RS01_TownInn_Stone",
+    "M_RS01_TownInn_Tile",
+    "M_RS01_TownInn_Wood"
+  ],
+  "textures": [
+    "RS01_TownInn_BaseColor.png",
+    "RS01_TownInn_Metallic.png",
+    "RS01_TownInn_MetallicSmoothness.png",
+    "RS01_TownInn_Normal.png",
+    "RS01_TownInn_Roughness.png",
+    "RS01_TownInn_Stone_BaseColor.png",
+    "RS01_TownInn_Stone_Metallic.png",
+    "RS01_TownInn_Stone_MetallicSmoothness.png",
+    "RS01_TownInn_Stone_Normal.png",
+    "RS01_TownInn_Stone_Roughness.png",
+    "RS01_TownInn_Tile_BaseColor.png",
+    "RS01_TownInn_Tile_Metallic.png",
+    "RS01_TownInn_Tile_MetallicSmoothness.png",
+    "RS01_TownInn_Tile_Normal.png",
+    "RS01_TownInn_Tile_Roughness.png",
+    "RS01_TownInn_Wood_BaseColor.png",
+    "RS01_TownInn_Wood_Metallic.png",
+    "RS01_TownInn_Wood_MetallicSmoothness.png",
+    "RS01_TownInn_Wood_Normal.png",
+    "RS01_TownInn_Wood_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_RS01_TownInn_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS01_TownInn_BaseColor.png",
+        "Normal": "RS01_TownInn_Normal.png",
+        "MetallicSmoothness": "RS01_TownInn_MetallicSmoothness.png"
+      },
+      "M_RS01_TownInn_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS01_TownInn_Stone_BaseColor.png",
+        "Normal": "RS01_TownInn_Stone_Normal.png",
+        "MetallicSmoothness": "RS01_TownInn_Stone_MetallicSmoothness.png"
+      },
+      "M_RS01_TownInn_Tile": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS01_TownInn_Tile_BaseColor.png",
+        "Normal": "RS01_TownInn_Tile_Normal.png",
+        "MetallicSmoothness": "RS01_TownInn_Tile_MetallicSmoothness.png"
+      },
+      "M_RS01_TownInn_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS01_TownInn_Wood_BaseColor.png",
+        "Normal": "RS01_TownInn_Wood_Normal.png",
+        "MetallicSmoothness": "RS01_TownInn_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "RS01_TownInn_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": false,
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "fbx_objects": [
+    "RS01_TownInn.001",
+    "RS01_TownInn_Detail_Small_LOD0.001",
+    "RS01_TownInn_Detail_Small_LOD1.001",
+    "RS01_TownInn_Detail_Small_LOD2.001",
+    "RS01_TownInn_LOD0.001",
+    "RS01_TownInn_LOD1.001",
+    "RS01_TownInn_LOD2.001"
+  ],
+  "glb": "RS01_TownInn_v001.glb",
+  "interface": {
+    "source_coplanar_nudged": {
+      "pairs_found": 1130,
+      "faces_moved": 597,
+      "rounds": 4,
+      "pairs_left": 0,
+      "push_m": 0.001,
+      "vertices_moved": 898,
+      "max_shift_m": 0.003
+    },
+    "tile_mean_hex": "#33373C",
+    "source_parts_by_material": {
+      "TL09_Iron": 2,
+      "TL09_Timber": 167,
+      "TL09_Board": 58,
+      "TL09_Lacquer": 33,
+      "TL09_Paper": 2,
+      "TL09_Cloth": 3,
+      "TL09_Plaster": 21,
+      "TL09_Pale": 2,
+      "TL09_Stone": 4,
+      "TL09_Tile": 98,
+      "TL09_Glaze": 1,
+      "TL09_Lantern": 2,
+      "TL09_Rope": 2,
+      "TL09_Brass": 1,
+      "TL09_Clay": 6
+    }
+  },
+  "modeling_method": "source mesh split into its loose parts with vertices unchanged (except: where two parts had faces in one plane facing the same way, the face of the smaller part is pulled back 1 mm so the baked atlas does not z-fight); the 15 flat source materials swapped for the VL procedural set (art/source/village-reskin-b/), baked to four 2048 atlases (Main, Stone, Wood, Tile); LOD1/LOD2 rebuilt from the new LOD0; at LOD2 the 88 long tile-course bands are three-segment boxes reading the same atlas (a collapse decimate stalls on them)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 58.5,
+        "median": 58.5,
+        "p90": 58.5,
+        "area_m2": 889.3
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 108.2,
+        "median": 108.2,
+        "p90": 108.4,
+        "area_m2": 320.2
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 50.6,
+        "median": 50.7,
+        "p90": 50.8,
+        "area_m2": 1085.6
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Tile": {
+      "visible": {
+        "p10": 60.3,
+        "median": 61.2,
+        "p90": 61.9,
+        "area_m2": 685.4
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "no three-view (a re-texture, work pack: original and new side by side under the same light instead)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/exports/lod-backfill-b/TownInn/TownInn_LOD_v001.blend (from TownLayout v004; the source files are not changed)",
+  "source_triangles": 51152
+}

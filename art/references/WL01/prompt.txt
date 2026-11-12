@@ -1,0 +1,17 @@
+WL01 老木洗衣板（工作包 §5：0.7 × 0.4 × 0.12 m，練平整面和有節奏的橫肋）三視圖與自評（2026-11-09）
+選用：WL01-cand-4.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-05/C-48h-a3-creekside-life.md 第 11 節原文（正面、負面一字不改，含固定段 5.2、5.3），四張相同。評分：符合工作包的形體與尺寸比例 30／練習重點（平整搓洗面、橫肋節奏）30／提示詞要求的細節（磨亮的肋、下緣濕暗、一條修補板）25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（27+28+23+13）。上窄下寬的梯形板，背面框架完整；但輪廓偏斜，平放時兩側高低不一，肋條排列略亂。
+- cand-2：92（28+28+23+13）。沒有側框，結構最簡單，有提手孔和釘住的修補板；側面看肋條過深，像鋸齒。
+- cand-3：91（26+28+24+13）。有側框和上橫木，但沒有提手，上緣厚重像門框，不像手持的洗衣板。
+- cand-4：93（28+29+24+12）。選用。左右兩條側框夾住中間的搓洗板，上方一塊被磨出淺凹的平面，下方 14 條圓肋節奏一致且中段略有磨平，下段一條用麻繩綁住的修補板，底緣濕暗帶一點苔；背面三條橫檔、側面看得出肋條起伏。
+
+建模取捨：照 cand-4 的結構（側框＋中板＋上方平面＋橫肋＋繩綁修補板＋背面橫檔），平放在地上（肋朝上），長 0.7 m 沿 X、寬 0.4 m 沿 Y、含背面橫檔總高 0.12 m 以內。參考圖的長寬比約 2.1，工作包是 1.75，照工作包尺寸。苔只在下緣角落少量；修補板的綁繩和提手孔邊的磨損放在 Detail_ 子物件。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of an old ribbed wooden washing board with a broad smooth rubbing face, about 0.7 m long, 0.4 m wide and 0.12 m thick, made of old cedar with raised transverse ribs, showing smooth hand-worn ribs, dark damp lower edge and one repaired slat, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

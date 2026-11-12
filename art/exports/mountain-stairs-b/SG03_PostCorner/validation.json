@@ -1,0 +1,187 @@
+{
+  "asset": "SG03_PostCorner",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.1236,
+          -0.1266,
+          -0.095
+        ],
+        "max": [
+          0.1309,
+          0.1303,
+          1.1072
+        ],
+        "box_m": [
+          [
+            -0.15,
+            -0.15,
+            -0.1
+          ],
+          [
+            0.15,
+            0.15,
+            1.25
+          ]
+        ]
+      }
+    },
+    {
+      "check": "lowest_point_at_design_z",
+      "pass": true,
+      "detail": {
+        "min_z": -0.095,
+        "design_min_z": -0.095,
+        "largest_clamp_m": 0
+      }
+    },
+    {
+      "check": "tenon_fits_sg01_socket",
+      "pass": true,
+      "detail": {
+        "tenon_width_m": 0.14,
+        "socket_m": 0.15,
+        "tenon_bottom_z_m": -0.095,
+        "socket_depth_m": 0.1
+      }
+    },
+    {
+      "check": "top_above_handrail",
+      "pass": true,
+      "detail": {
+        "post_top_z_m": 1.1071,
+        "handrail_top_m": 0.9
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": [
+        "Socket_Base",
+        "Socket_Rail_E",
+        "Socket_Rail_N",
+        "Socket_Rail_S",
+        "Socket_Rail_W"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 1012,
+          "LOD1": 505,
+          "LOD2": 150
+        },
+        "LOD1": 0.499,
+        "LOD2": 0.148,
+        "per_group": {
+          "Main": {
+            "LOD0": 756,
+            "LOD1": 378,
+            "LOD2": 112
+          },
+          "Detail_Small": {
+            "LOD0": 256,
+            "LOD1": 127,
+            "LOD2": 38
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          0.2545,
+          0.2568,
+          1.2022
+        ],
+        "blend_dims_m": [
+          0.2545,
+          0.2568,
+          1.2022
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 5e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "SG03_PostCorner.001",
+        "SG03_PostCorner_Collision.001",
+        "SG03_PostCorner_Detail_Small_LOD0.001",
+        "SG03_PostCorner_Detail_Small_LOD1.001",
+        "SG03_PostCorner_Detail_Small_LOD2.001",
+        "SG03_PostCorner_LOD0.001",
+        "SG03_PostCorner_LOD1.001",
+        "SG03_PostCorner_LOD2.001",
+        "Socket_Base.001",
+        "Socket_Rail_E.001",
+        "Socket_Rail_N.001",
+        "Socket_Rail_S.001",
+        "Socket_Rail_W.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Base.001": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "Socket_Rail_E.001": [
+          0.1,
+          0.0,
+          0.0
+        ],
+        "Socket_Rail_N.001": [
+          0.0,
+          0.1,
+          -0.0
+        ],
+        "Socket_Rail_S.001": [
+          0.0,
+          -0.1,
+          0.0
+        ],
+        "Socket_Rail_W.001": [
+          -0.1,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 381188
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 111,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

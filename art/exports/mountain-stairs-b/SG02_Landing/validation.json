@@ -1,0 +1,239 @@
+{
+  "asset": "SG02_Landing",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.9999,
+          -1.9999,
+          0.0
+        ],
+        "max": [
+          1.9997,
+          1.9998,
+          0.755
+        ],
+        "box_m": [
+          [
+            -2.0,
+            -2.0,
+            0.0
+          ],
+          [
+            2.0,
+            2.0,
+            0.8
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.00143
+      }
+    },
+    {
+      "check": "walking_surface_level",
+      "pass": true,
+      "detail": {
+        "samples": 115,
+        "z_min_max_m": [
+          0.3967,
+          0.4
+        ],
+        "design_m": 0.4,
+        "tolerance_m": 0.008
+      }
+    },
+    {
+      "check": "edges_flush_with_sg01_top",
+      "pass": true,
+      "detail": {
+        "edge_z_m": {
+          "S": 0.3951,
+          "N": 0.3974,
+          "E": 0.3977,
+          "W": 0.3984
+        },
+        "note": "SG01 Socket_Top (z 1.6 in SG01) sits on Socket_Edge_*: the top tread meets the landing at the same height"
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": {
+        "missing": []
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 22452,
+          "LOD1": 11225,
+          "LOD2": 3367
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 20952,
+            "LOD1": 10476,
+            "LOD2": 3142
+          },
+          "Detail_Small": {
+            "LOD0": 1500,
+            "LOD1": 749,
+            "LOD2": 225
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          3.9996,
+          3.9997,
+          0.755
+        ],
+        "blend_dims_m": [
+          3.9996,
+          3.9997,
+          0.755
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 5e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "SG02_Landing.001",
+        "SG02_Landing_Collision.001",
+        "SG02_Landing_Detail_Small_LOD0.001",
+        "SG02_Landing_Detail_Small_LOD1.001",
+        "SG02_Landing_Detail_Small_LOD2.001",
+        "SG02_Landing_LOD0.001",
+        "SG02_Landing_LOD1.001",
+        "SG02_Landing_LOD2.001",
+        "Socket_Edge_E.001",
+        "Socket_Edge_N.001",
+        "Socket_Edge_S.001",
+        "Socket_Edge_W.001",
+        "Socket_Lantern.001",
+        "Socket_Post_E.001",
+        "Socket_Post_N.001",
+        "Socket_Post_NE.001",
+        "Socket_Post_NW.001",
+        "Socket_Post_S.001",
+        "Socket_Post_SE.001",
+        "Socket_Post_SW.001",
+        "Socket_Post_W.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Edge_E.001": [
+          2.0,
+          0.0,
+          0.4
+        ],
+        "Socket_Edge_N.001": [
+          0.0,
+          2.0,
+          0.4
+        ],
+        "Socket_Edge_S.001": [
+          0.0,
+          -2.0,
+          0.4
+        ],
+        "Socket_Edge_W.001": [
+          -2.0,
+          0.0,
+          0.4
+        ],
+        "Socket_Lantern.001": [
+          1.32,
+          1.32,
+          0.755
+        ],
+        "Socket_Post_E.001": [
+          1.8,
+          0.0,
+          0.4
+        ],
+        "Socket_Post_N.001": [
+          0.0,
+          1.8,
+          0.4
+        ],
+        "Socket_Post_NE.001": [
+          1.8,
+          1.8,
+          0.4
+        ],
+        "Socket_Post_NW.001": [
+          -1.8,
+          1.8,
+          0.4
+        ],
+        "Socket_Post_S.001": [
+          0.0,
+          -1.8,
+          0.4
+        ],
+        "Socket_Post_SE.001": [
+          1.8,
+          -1.8,
+          0.4
+        ],
+        "Socket_Post_SW.001": [
+          -1.8,
+          -1.8,
+          0.4
+        ],
+        "Socket_Post_W.001": [
+          -1.8,
+          0.0,
+          0.4
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 2505152
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 168,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}
