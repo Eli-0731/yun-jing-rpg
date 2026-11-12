@@ -1,0 +1,150 @@
+{
+ "RS02_Blacksmith_Detail_Small_LOD0": {
+  "tris": 15620,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 1,
+  "coplanar_two_sides": 390,
+  "closed_pieces": 163,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -2.43,
+     -0.34,
+     0.41
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "RS02_Blacksmith_Detail_Small_LOD1": {
+  "tris": 7810,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 163,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "RS02_Blacksmith_Detail_Small_LOD2": {
+  "tris": 2342,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 163,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "RS02_Blacksmith_LOD0": {
+  "tris": 79892,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 14,
+  "coplanar_two_sides": 477,
+  "closed_pieces": 1927,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -0.32,
+     -0.75,
+     1.13
+    ],
+    2
+   ],
+   [
+    [
+     -1.47,
+     -0.34,
+     4.3
+    ],
+    2
+   ],
+   [
+    [
+     -1.22,
+     -0.18,
+     4.37
+    ],
+    2
+   ],
+   [
+    [
+     1.22,
+     -0.34,
+     4.3
+    ],
+    2
+   ],
+   [
+    [
+     1.46,
+     -0.18,
+     4.37
+    ],
+    2
+   ],
+   [
+    [
+     -1.46,
+     -0.43,
+     4.25
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "RS02_Blacksmith_LOD1": {
+  "tris": 39946,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 1927,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "RS02_Blacksmith_LOD2": {
+  "tris": 11980,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 1013,
+  "open_pieces": 1828,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}
