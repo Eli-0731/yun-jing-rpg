@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 namespace YunJing.Editor
 {
-    // Unity check of C's village props LV01–LV12 (art/exports/village-life-c, Eli-0731), copied from art/source/creekside-life-c/unity (itself after the modelling-basics-c
+    // Unity check of C's village props LV01–LV20 (art/exports/village-life-c, Eli-0731), copied from art/source/creekside-life-c/unity (itself after the modelling-basics-c
     // check (QingxiBasicsVerify). It does not change apps/game: run_unity_check.sh copies this file in for one batch run and removes it.
     // Imports the delivered FBX and textures, builds one URP Lit per item, compares with model_info.json (size within 2 cm, the work
     // pack's size limit, triangles per LOD, objects, one material, 1024 textures, minTier, detailObjects), switches Detail_* off the
@@ -20,7 +20,7 @@ namespace YunJing.Editor
     {
         const string Models = "Assets/YunJing/Models/VillageC";   // temporary copy of art/exports, removed by the run script
         const string Version = "v001";
-        static readonly string[] Ids = { "LV01", "LV02", "LV03", "LV04", "LV05", "LV06", "LV07", "LV08", "LV09", "LV10", "LV11", "LV12" };
+        static readonly string[] Ids = { "LV01", "LV02", "LV03", "LV04", "LV05", "LV06", "LV07", "LV08", "LV09", "LV10", "LV11", "LV12", "LV13", "LV14", "LV15", "LV16", "LV17", "LV18", "LV19", "LV20" };
         static readonly HashSet<string> Cloth = new HashSet<string> { };   // thin open weave or cloth: both faces (filled per item)
         static readonly HashSet<string> Cutout = new HashSet<string> { "LV09" };   // items whose LOD2 stand-in carries an open weave in the albedo alpha
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
@@ -254,6 +254,18 @@ namespace YunJing.Editor
             Frame("LV-set2-front", sa2, front, 1.05f); Frame("LV-set2-threequarter", sa2, tq, 1.05f); UnityEngine.Object.DestroyImmediate(r3);
             Frame("LV-set2-close", sb2, tq, 1.0f);
             foreach (var g in set2) UnityEngine.Object.DestroyImmediate(g);
+            // 11/08 pack C: LV13–LV20 side by side with the 1.75 m figure and one old prop (LV05, from the first batch)
+            var set3 = new List<GameObject>(); float sx = 0;
+            foreach (var id in new[] { "LV13", "LV14", "LV15", "LV16", "LV17", "LV18", "LV19", "LV20", "LV05" })
+            {
+                var g = Place(id, MatName[id], Vector3.zero, 0); var bb = Box(Level(g, 0));
+                g.transform.position += new Vector3(sx - bb.min.x, 0, 0); sx += bb.size.x + .25f; set3.Add(g);
+            }
+            foreach (var g in set3) g.transform.position += new Vector3(-(sx - .25f) / 2, 0, 0);
+            var s3 = Box(set3.SelectMany(g => Level(g, 0)));
+            var r5 = Ruler(new Vector3(s3.max.x + .45f, 0, 0)); var a3 = s3; a3.Encapsulate(r5.GetComponent<Renderer>().bounds);
+            Frame("LV-set3-front", a3, front, 1.02f); Frame("LV-set3-threequarter", a3, tq, 1.02f); UnityEngine.Object.DestroyImmediate(r5);
+            foreach (var g in set3) UnityEngine.Object.DestroyImmediate(g);
             // work pack part 2 D: all twelve side by side in two rows, with the 1.75 m figure
             var rows = new List<GameObject>(); float rowW = 0;
             for (int r = 0; r < 2; r++)

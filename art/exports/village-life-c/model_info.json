@@ -1636,5 +1636,1038 @@
    "a straw nest inside, 64 straw ends sticking up and out over the rim, 26 loose bits on the nest",
    "six smooth cream eggs (5.4–6.0 cm) lying on the straw, none touching another; a cloth patch painted on the side"
   ]
+ },
+ "LV13": {
+  "id": "LV13",
+  "name": "BambooSteamerStack",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV13_v001.fbx",
+   "glb": "art/exports/village-life-c/LV13_v001.glb",
+   "blend": "art/source/village-life-c/LV13_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.448,
+   0.44,
+   0.454
+  ],
+  "body_dimensions_xyz_m": [
+   0.417,
+   0.416,
+   0.454
+  ],
+  "size_limit_xyz_m": [
+   0.45,
+   0.45,
+   0.5
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Fray"
+  ],
+  "detailMeshes": [
+   "LV13_Detail_Fray_LOD0",
+   "LV13_Detail_Fray_LOD1",
+   "LV13_Detail_Fray_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 6386,
+    "triangles_without_detail": 5826,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV13_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV13_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV13_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV13_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3192,
+    "triangles_without_detail": 2912,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV13_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV13_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV13_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV13_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 956,
+    "triangles_without_detail": 872,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV13_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV13_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV13_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV13_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV13_Body_LOD0",
+    "LV13_Body_LOD1",
+    "LV13_Body_LOD2"
+   ],
+   "Detail_Fray": [
+    "LV13_Detail_Fray_LOD0",
+    "LV13_Detail_Fray_LOD1",
+    "LV13_Detail_Fray_LOD2"
+   ]
+  },
+  "material": "M_LV13_BambooSteamerStack",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 68,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV13/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "three tiers of the same make: band, foot ring over the tier below, woven floor (weave in the texture), four binding strips and a lapped joint; each turned and set a few mm off",
+   "a shallow woven dome lid with a rim band, knob and loop handle; Detail_Fray: frayed strips at the lid edge; the lowest tier darkened by steam"
+  ]
+ },
+ "LV14": {
+  "id": "LV14",
+  "name": "TieredFoodBox",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV14_v001.fbx",
+   "glb": "art/exports/village-life-c/LV14_v001.glb",
+   "blend": "art/source/village-life-c/LV14_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.383,
+   0.245,
+   0.5
+  ],
+  "body_dimensions_xyz_m": [
+   0.383,
+   0.245,
+   0.5
+  ],
+  "size_limit_xyz_m": [
+   0.4,
+   0.3,
+   0.5
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 5056,
+    "triangles_without_detail": 5056,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV14_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV14_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV14_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV14_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 2528,
+    "triangles_without_detail": 2528,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV14_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV14_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV14_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV14_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 758,
+    "triangles_without_detail": 758,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV14_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV14_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV14_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV14_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV14_Body_LOD0",
+    "LV14_Body_LOD1",
+    "LV14_Body_LOD2"
+   ]
+  },
+  "material": "M_LV14_TieredFoodBox",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 58,
+  "coplanar_lifted": 3,
+  "reference": "art/references/LV14/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a footed base, three tiers and a lid; each sits on a lip set into the one below (a dark groove between layers); the middle tier 5 mm off",
+   "an arched handle on two side posts, brass pins into every tier, hemp at the top; brass corner plates; lacquer worn to the wood at edges (painted), a patch board"
+  ]
+ },
+ "LV15": {
+  "id": "LV15",
+  "name": "ClayOilLampStand",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV15_v001.fbx",
+   "glb": "art/exports/village-life-c/LV15_v001.glb",
+   "blend": "art/source/village-life-c/LV15_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.172,
+   0.172,
+   0.39
+  ],
+  "body_dimensions_xyz_m": [
+   0.172,
+   0.172,
+   0.39
+  ],
+  "size_limit_xyz_m": [
+   0.2,
+   0.2,
+   0.4
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2760,
+    "triangles_without_detail": 2760,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV15_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV15_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV15_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV15_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1380,
+    "triangles_without_detail": 1380,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV15_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV15_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV15_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV15_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 414,
+    "triangles_without_detail": 414,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV15_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV15_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV15_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV15_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV15_Body_LOD0",
+    "LV15_Body_LOD1",
+    "LV15_Body_LOD2"
+   ]
+  },
+  "material": "M_LV15_ClayOilLampStand",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 6,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV15/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "the stand is one turned profile (foot, stem, collar, cup) with a chip cut out of the foot; the dish a glazed shell with oil in it",
+   "a twisted cotton wick from the middle of the dish to the rim; soot and oil runs painted"
+  ]
+ },
+ "LV16": {
+  "id": "LV16",
+  "name": "WashbasinStand",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV16_v001.fbx",
+   "glb": "art/exports/village-life-c/LV16_v001.glb",
+   "blend": "art/source/village-life-c/LV16_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.475,
+   0.4,
+   0.795
+  ],
+  "body_dimensions_xyz_m": [
+   0.475,
+   0.4,
+   0.795
+  ],
+  "size_limit_xyz_m": [
+   0.5,
+   0.4,
+   0.9
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 4734,
+    "triangles_without_detail": 4734,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV16_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV16_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV16_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV16_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 2366,
+    "triangles_without_detail": 2366,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV16_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV16_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV16_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV16_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 710,
+    "triangles_without_detail": 710,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV16_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV16_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV16_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV16_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV16_Body_LOD0",
+    "LV16_Body_LOD1",
+    "LV16_Body_LOD2"
+   ]
+  },
+  "material": "M_LV16_WashbasinStand",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 32,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV16/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "three splayed legs; top rails and lower stretchers pass through the legs (tenon ends show); the basin rests on the top rails",
+   "the basin: sixteen staves with gaps, a round bottom, two bamboo hoops tied where they lap; a peg on the front leg with a cloth over it; water stains painted"
+  ]
+ },
+ "LV17": {
+  "id": "LV17",
+  "name": "DeskSet",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV17_v001.fbx",
+   "glb": "art/exports/village-life-c/LV17_v001.glb",
+   "blend": "art/source/village-life-c/LV17_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.46,
+   0.26,
+   0.2
+  ],
+  "body_dimensions_xyz_m": [
+   0.46,
+   0.26,
+   0.2
+  ],
+  "size_limit_xyz_m": [
+   0.5,
+   0.3,
+   0.2
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1894,
+    "triangles_without_detail": 1894,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV17_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV17_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV17_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV17_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 946,
+    "triangles_without_detail": 946,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV17_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV17_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV17_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV17_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 284,
+    "triangles_without_detail": 284,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV17_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV17_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV17_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV17_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV17_Body_LOD0",
+    "LV17_Body_LOD1",
+    "LV17_Body_LOD2"
+   ]
+  },
+  "material": "M_LV17_DeskSet",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 20,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV17/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a low tray with a brush rack (posts on feet, top bar, three brushes on brass hooks), an inkstone with a well and a pool cut in, and a bronze paperweight bar",
+   "no writing or carving anywhere; dried ink painted in the well"
+  ]
+ },
+ "LV18": {
+  "id": "LV18",
+  "name": "Abacus",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV18_v001.fbx",
+   "glb": "art/exports/village-life-c/LV18_v001.glb",
+   "blend": "art/source/village-life-c/LV18_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.35,
+   0.12,
+   0.03
+  ],
+  "body_dimensions_xyz_m": [
+   0.35,
+   0.12,
+   0.03
+  ],
+  "size_limit_xyz_m": [
+   0.35,
+   0.12,
+   0.05
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 15004,
+    "triangles_without_detail": 15004,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV18_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV18_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV18_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV18_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 7502,
+    "triangles_without_detail": 7502,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV18_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV18_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV18_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV18_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 2250,
+    "triangles_without_detail": 2250,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV18_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV18_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV18_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV18_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV18_Body_LOD0",
+    "LV18_Body_LOD1",
+    "LV18_Body_LOD2"
+   ]
+  },
+  "material": "M_LV18_Abacus",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 20,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV18/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "frame, beam and 13 rods; 91 beads from one bead with two Array modifiers (5 × 13 below the beam, 2 × 13 above), applied; one chipped bead",
+   "lying flat (the work pack gives 0.35 × 0.12 × 0.05 m as w × d × h)"
+  ]
+ },
+ "LV19": {
+  "id": "LV19",
+  "name": "WinnowingBasket",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV19_v001.fbx",
+   "glb": "art/exports/village-life-c/LV19_v001.glb",
+   "blend": "art/source/village-life-c/LV19_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.738,
+   0.558,
+   0.15
+  ],
+  "body_dimensions_xyz_m": [
+   0.738,
+   0.558,
+   0.15
+  ],
+  "size_limit_xyz_m": [
+   0.8,
+   0.6,
+   0.15
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Rice"
+  ],
+  "detailMeshes": [
+   "LV19_Detail_Rice_LOD0",
+   "LV19_Detail_Rice_LOD1",
+   "LV19_Detail_Rice_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 6176,
+    "triangles_without_detail": 5280,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV19_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV19_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV19_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV19_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3088,
+    "triangles_without_detail": 2640,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV19_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV19_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV19_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV19_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 926,
+    "triangles_without_detail": 792,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV19_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV19_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV19_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV19_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV19_Body_LOD0",
+    "LV19_Body_LOD1",
+    "LV19_Body_LOD2"
+   ],
+   "Detail_Rice": [
+    "LV19_Detail_Rice_LOD0",
+    "LV19_Detail_Rice_LOD1",
+    "LV19_Detail_Rice_LOD2"
+   ]
+  },
+  "material": "M_LV19_WinnowingBasket",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 27,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV19/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "one shell: floor rising to a back wall and side walls, down to nothing at the open front; the weave in the texture",
+   "a thick bamboo rim tied on at nine places, a flat strip along the pouring edge (worn darker, painted), a woven patch; Detail_Rice: a few grains"
+  ]
+ },
+ "LV20": {
+  "id": "LV20",
+  "name": "PalmAndFoldingFans",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV20_v001.fbx",
+   "glb": "art/exports/village-life-c/LV20_v001.glb",
+   "blend": "art/source/village-life-c/LV20_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.374,
+   0.3,
+   0.021
+  ],
+  "body_dimensions_xyz_m": [
+   0.374,
+   0.291,
+   0.021
+  ],
+  "size_limit_xyz_m": [
+   0.4,
+   0.3,
+   0.05
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Fray"
+  ],
+  "detailMeshes": [
+   "LV20_Detail_Fray_LOD0",
+   "LV20_Detail_Fray_LOD1",
+   "LV20_Detail_Fray_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 3644,
+    "triangles_without_detail": 3500,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV20_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV20_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV20_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV20_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1822,
+    "triangles_without_detail": 1750,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV20_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV20_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV20_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV20_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 560,
+    "triangles_without_detail": 524,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV20_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV20_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV20_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV20_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV20_Body_LOD0",
+    "LV20_Body_LOD1",
+    "LV20_Body_LOD2"
+   ],
+   "Detail_Fray": [
+    "LV20_Detail_Fray_LOD0",
+    "LV20_Detail_Fray_LOD1",
+    "LV20_Detail_Fray_LOD2"
+   ]
+  },
+  "material": "M_LV20_PalmAndFoldingFans",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 38,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV20/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a palm-leaf fan: 3 mm leaf disc, bamboo rim, cloth-bound handle (Detail_Fray: frayed leaf edge); veins painted",
+   "a folding fan opened 100°: 10 ribs stacked on a brass rivet (alternately tilted 12°), thicker guards, a pleated plain paper leaf with nothing on it"
+  ]
  }
 }

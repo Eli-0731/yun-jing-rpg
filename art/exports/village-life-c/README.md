@@ -1,16 +1,16 @@
 | 項目 | 內容 |
 |---|---|
 | 誰做的 | C（Eli-0731） |
-| 工作包 | docs/execution/2026-11-07/C-128h-creekside-and-village-life.md 第二部分 A（LV01–LV12）與 D（十二件並排） |
-| ID | LV01–LV12 |
-| 分支／PR | LV01–LV06：art/c-1107-lv01-06-village-life；LV07–LV12：art/c-1110-lv07-12-village-life ／ 開 PR 後補（一次一張，等前一張結案） |
+| 工作包 | docs/execution/2026-11-07/C-128h-creekside-and-village-life.md 第二部分 A（LV01–LV12）與 D（十二件並排）；docs/execution/2026-11-08/C-40h-more-village-life.md 表 A（LV13–LV20）與 C（八件並排） |
+| ID | LV01–LV20 |
+| 分支／PR | LV01–LV06：art/c-1107-lv01-06-village-life；LV07–LV12：art/c-1110-lv07-12-village-life；LV13–LV20：art/c-1108-lv13-lv20-village-props ／ 開 PR 後補（一次一張，等前一張結案） |
 | 版本 | v001（檔名帶 `_v001`；之後改版另存 v002，不覆寫） |
 | 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖）／ In-game Verified：未驗（沒放進正式場景） |
-| 素材來源 | 原創；三視圖參考在 `art/references/LV01/`–`art/references/LV12/` |
+| 素材來源 | 原創；三視圖參考在 `art/references/LV01/`–`art/references/LV20/` |
 
-# 青溪村裡生活小物 LV01–LV12
+# 青溪村裡生活小物 LV01–LV20
 
-工作包第二部分 A 的十二件：讓 A1 青溪村各戶門口、院子、牆邊有一點生活的東西。靜態擺設，沒有玩法、碰撞或動畫；擺進世界由核心組做。
+128 小時工作包第二部分 A 的十二件，加 11/08 40 小時工作包表 A 的八件：讓 A1 青溪村各戶門口、院子、牆邊有一點生活的東西。靜態擺設，沒有玩法、碰撞或動畫；擺進世界由核心組做。
 
 **共同做法**
 - 先生成三視圖（每件 4 張）、自評選一張（分數和取捨在各自的 `prompt.txt`），再做灰模（`art/previews/village-life-c/<ID>/clay/`），最後上貼圖。一件只專心練工作包寫的那一兩個技巧。
@@ -200,11 +200,131 @@
 | minTier | high |
 | 檔案 | `art/exports/village-life-c/LV12_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV12_v001.glb`（LOD0）、`art/source/village-life-c/LV12_v001.blend` |
 
+### LV13 竹蒸籠一疊（三層加蓋）（BambooSteamerStack，v001）
+
+練「圓形竹圈的重複、層與層的接縫」（11/08 工作包）。三層用同一種做法：一圈竹片圍成的圈、底下一圈較厚的腳圈、裡面一張編織的籠底（編紋在貼圖上），圈上四條直向綁片和一段搭接的接頭；上一層的腳圈套在下一層的上緣上，就是層與層的接縫，每層稍微轉一點、偏幾公釐。蓋子是編織的淺圓頂，加一圈蓋緣、頂上竹鈕和提環，蓋緣一圈破篾翹起（Detail_）。最下一層被蒸氣燻深在貼圖上。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/LV13/`，選用 cand-3（93） |
+| 尺寸（寬 × 深 × 高） | 0.448 × 0.44 × 0.454 m（上限 0.45 × 0.45 × 0.5 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 6,386 / 3,192 / 956（不含 Detail_：5,826 / 2,912 / 872） |
+| 物件數（每個 LOD） | 2（本體 1 + Detail_Fray） |
+| 材質數 | 1（`M_LV13_BambooSteamerStack`，本體和 Detail_ 共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | high |
+| 檔案 | `art/exports/village-life-c/LV13_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV13_v001.glb`（LOD0）、`art/source/village-life-c/LV13_v001.blend` |
+
+### LV14 木提盒（三層食盒）（TieredFoodBox，v001）
+
+練「方盒疊放、提把的弧線、漆面磨損」。底座、三層盒和蓋疊起來，每層底下有一圈子口坐進下一層（兩層之間看得到一道深色縫），中層偏 5 mm。提把是兩根立柱接一條彎過頂的弧形把，頂上纏麻繩，黃銅銷子從立柱穿進每一層；四角黃銅包角；側面一塊補板。暗紅漆只在邊、角和把手上磨掉露出木色（貼圖），不畫花紋。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/LV14/`，選用 cand-2（93） |
+| 尺寸（寬 × 深 × 高） | 0.383 × 0.245 × 0.5 m（上限 0.4 × 0.3 × 0.5 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 5,056 / 2,528 / 758（不含 Detail_：5,056 / 2,528 / 758） |
+| 物件數（每個 LOD） | 1（本體 1 + 無） |
+| 材質數 | 1（`M_LV14_TieredFoodBox`，本體和 Detail_ 共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | high |
+| 檔案 | `art/exports/village-life-c/LV14_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV14_v001.glb`（LOD0）、`art/source/village-life-c/LV14_v001.blend` |
+
+### LV15 陶油燈台（ClayOilLampStand，v001）
+
+練「高腳燈座的旋轉體、燈芯碟」。燈座是一條輪廓轉出來的實心旋轉體：喇叭形底座、細長燈柱、中段一道腰箍、上端的托；燈碟是有厚度的淺碟，碟內上釉較深，裡面一層油，一根搓成的棉燈芯從碟心斜搭到碟緣。燈芯上方燻黑、油沿燈柱流下的痕在貼圖上；底座缺一角是切出來的。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/LV15/`，選用 cand-3（93） |
+| 尺寸（寬 × 深 × 高） | 0.172 × 0.172 × 0.39 m（上限 0.2 × 0.2 × 0.4 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 2,760 / 1,380 / 414（不含 Detail_：2,760 / 1,380 / 414） |
+| 物件數（每個 LOD） | 1（本體 1 + 無） |
+| 材質數 | 1（`M_LV15_ClayOilLampStand`，本體和 Detail_ 共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | high |
+| 檔案 | `art/exports/village-life-c/LV15_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV15_v001.glb`（LOD0）、`art/source/village-life-c/LV15_v001.blend` |
+
+### LV16 木洗臉盆架與木盆（WashbasinStand，v001）
+
+練「三腳架的榫接、木盆的箍」。三隻往外斜的方腳，頂上三根托檔、下段三根橫檔，每根都穿過腳、榫頭露在外面；盆坐在頂上的托檔上。木盆是 16 片木條圍成的圓錐盆（片與片之間有細縫）加一塊圓底，兩道竹箍、搭接處用麻繩綁住；前腳上一根木釘掛一條粗布。盆身水漬在貼圖上。盆連箍寬 0.38 m，配合工作包的深度 0.4 m。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/LV16/`，選用 cand-1（93） |
+| 尺寸（寬 × 深 × 高） | 0.475 × 0.4 × 0.795 m（上限 0.5 × 0.4 × 0.9 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 4,734 / 2,366 / 710（不含 Detail_：4,734 / 2,366 / 710） |
+| 物件數（每個 LOD） | 1（本體 1 + 無） |
+| 材質數 | 1（`M_LV16_WashbasinStand`，本體和 Detail_ 共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | high |
+| 檔案 | `art/exports/village-life-c/LV16_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV16_v001.glb`（LOD0）、`art/source/village-life-c/LV16_v001.blend` |
+
+### LV17 書桌小物（筆架、硯台、紙鎮）（DeskSet，v001）
+
+練「三件小東西的比例和擺放，不寫字」。一塊矮木托上：後面一個筆架（兩根立柱站在腳座上、一根橫樑），三支毛筆用黃銅小鉤掛著（筆桿、筆箍、筆毛分開做）；前左一方黑硯，切出一個淺墨池和一個較深的水池，池裡乾墨在貼圖上；前右一條古銅紙鎮，霧面帶一點綠鏽。全部不寫字、不刻字。照工作包高度 0.2 m 調整比例。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/LV17/`，選用 cand-1（92） |
+| 尺寸（寬 × 深 × 高） | 0.46 × 0.26 × 0.2 m（上限 0.5 × 0.3 × 0.2 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 1,894 / 946 / 284（不含 Detail_：1,894 / 946 / 284） |
+| 物件數（每個 LOD） | 1（本體 1 + 無） |
+| 材質數 | 1（`M_LV17_DeskSet`，本體和 Detail_ 共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | high |
+| 檔案 | `art/exports/village-life-c/LV17_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV17_v001.glb`（LOD0）、`art/source/village-life-c/LV17_v001.blend` |
+
+### LV18 木算盤（Abacus，v001）
+
+練「很多一樣的珠子排整齊（用陣列）」。深色硬木框、一根橫樑、13 根細桿；珠子只做一顆（扁圓旋轉體），用兩個 Array 修改器排出來：梁下 5 顆 × 13 檔、梁上 2 顆 × 13 檔，共 91 顆，再套用；一顆珠子用切塊切出缺角。工作包尺寸是 w × d × h = 0.35 × 0.12 × 0.05 m，所以算盤平放（框面朝上）。框角磨淺在貼圖上。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/LV18/`，選用 cand-3（93） |
+| 尺寸（寬 × 深 × 高） | 0.35 × 0.12 × 0.03 m（上限 0.35 × 0.12 × 0.05 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 15,004 / 7,502 / 2,250（不含 Detail_：15,004 / 7,502 / 2,250） |
+| 物件數（每個 LOD） | 1（本體 1 + 無） |
+| 材質數 | 1（`M_LV18_Abacus`，本體和 Detail_ 共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | high |
+| 檔案 | `art/exports/village-life-c/LV18_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV18_v001.glb`（LOD0）、`art/source/village-life-c/LV18_v001.blend` |
+
+### LV19 竹簸箕（曬穀用）（WinnowingBasket，v001）
+
+練「一邊開口的淺籃形」；和竹篩、晾茶竹匾不同。底面和後牆、兩側牆是一張連續的薄殼，從後面約 13 cm 高往前降到開口貼地，開口那邊是平的倒口；沿後面和兩側一條粗竹緣，九處用麻繩綁住，倒口沿一條薄竹壓邊。編紋在貼圖上，倒口磨深；一塊補片；籃裡十幾粒米（Detail_）。竹篩是圓的、四邊一樣高，竹匾是平的圓匾，一眼分得開。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/LV19/`，選用 cand-4（93） |
+| 尺寸（寬 × 深 × 高） | 0.738 × 0.558 × 0.15 m（上限 0.8 × 0.6 × 0.15 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 6,176 / 3,088 / 926（不含 Detail_：5,280 / 2,640 / 792） |
+| 物件數（每個 LOD） | 2（本體 1 + Detail_Rice） |
+| 材質數 | 1（`M_LV19_WinnowingBasket`，本體和 Detail_ 共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | high |
+| 檔案 | `art/exports/village-life-c/LV19_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV19_v001.glb`（LOD0）、`art/source/village-life-c/LV19_v001.blend` |
+
+### LV20 蒲扇與竹扇各一（PalmAndFoldingFans，v001）
+
+練「扁平物件的厚度、扇面紋路用貼圖」。兩把並排平放：蒲扇是一片 3 mm 的葉面、外圈竹緣、圓木柄纏布，葉面放射葉脈在貼圖上，葉緣幾根破葉（Detail_）；摺扇開約 100°，10 根竹骨疊在黃銅鉚釘上（一根正一根反斜 12°，疊起來不黏在同一面），兩根邊骨較厚，扇面是一張有摺痕的白紙，不畫畫、不寫字。三視圖四張都沒把兩把扇子好好並排，選了把兩把都畫出來的 cand-3。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/LV20/`，選用 cand-3（90） |
+| 尺寸（寬 × 深 × 高） | 0.374 × 0.3 × 0.021 m（上限 0.4 × 0.3 × 0.05 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 3,644 / 1,822 / 560（不含 Detail_：3,500 / 1,750 / 524） |
+| 物件數（每個 LOD） | 2（本體 1 + Detail_Fray） |
+| 材質數 | 1（`M_LV20_PalmAndFoldingFans`，本體和 Detail_ 共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | high |
+| 檔案 | `art/exports/village-life-c/LV20_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV20_v001.glb`（LOD0）、`art/source/village-life-c/LV20_v001.blend` |
+
 ## 驗證
 
-- QA（`tools/art/qa_lod0_basic.py` 嚴格與寬鬆、`tools/art/qa_contact_glb.py`）：十二件嚴格、寬鬆都是 0 項，結果在 `art/previews/village-life-c/qa/`。
+- QA（`tools/art/qa_lod0_basic.py` 嚴格與寬鬆、`tools/art/qa_contact_glb.py`）：二十件嚴格、寬鬆都是 0 項，結果在 `art/previews/village-life-c/qa/`。
 - Unity 6000.3.28f1 獨立匯入：`art/previews/village-life-c/unity/report.txt`。
-- 同光同角度並排（含 1.75 m 人形尺，灰模和成品各一張）：`art/previews/village-life-c/compare/`。LV01／LV04 對 B 的竹篩 MK02、背簍 MK04；LV02／LV03 對 B 的柴堆 R03、C 的木樁 BM02_01；LV05 對 C 的陶罐 BM03_01–03；LV06 對 BM02_01、R03；`LV-set` 是 LV01–LV06 放在一起。LV07／LV11 對 BM02_01、R03；LV08／LV09 對 C 的晾藥架 TY08（工作包「不做已有的」：形狀要分得開）；LV10／LV12 對 MK02、MK04 和 LV04；`LV-set2` 是 LV07–LV12 放在一起。工作包第二部分 D 的十二件並排（兩排、配 1.75 m 人形）在 Unity 審圖 `art/previews/village-life-c/unity/LV-all-*.png`。
+- 同光同角度並排（含 1.75 m 人形尺，灰模和成品各一張）：`art/previews/village-life-c/compare/`。LV01／LV04 對 B 的竹篩 MK02、背簍 MK04；LV02／LV03 對 B 的柴堆 R03、C 的木樁 BM02_01；LV05 對 C 的陶罐 BM03_01–03；LV06 對 BM02_01、R03；`LV-set` 是 LV01–LV06 放在一起。LV07／LV11 對 BM02_01、R03；LV08／LV09 對 C 的晾藥架 TY08（工作包「不做已有的」：形狀要分得開）；LV10／LV12 對 MK02、MK04 和 LV04；`LV-set2` 是 LV07–LV12 放在一起。工作包第二部分 D 的十二件並排（兩排、配 1.75 m 人形）在 Unity 審圖 `art/previews/village-life-c/unity/LV-all-*.png`。LV13–LV20：LV13／LV19 對 MK02 竹篩和 LV12；LV14／LV17／LV18 對 LV11；LV15／LV16 對陶罐 BM03_01 和洗衣板 WL01；LV20 對捶衣棒 WL02 和 WL04；11/08 包 C 的八件並排（配 1.75 m 人形和第一批的 LV05）在 `art/previews/village-life-c/unity/LV-set3-*.png`。
 
 **和既有模型的三個共同點**
 1. 材料一看就認得、帶使用痕跡：竹篾、竹竿、麻繩、舊木和陶都用 creekside-life-c 同一套來源貼圖，和 MK02、MK04 的竹編，BM02、R03 的木頭同一種畫法。
@@ -222,4 +342,7 @@
 - LV08：深度上限 0.4 m，斗笠只有 0.38 m 寬，比三視圖小；蓑衣的草絲紋在貼圖上，近看才分得出一根根。
 - LV09：竹環、鐵眼和麻繩圈互扣，彼此間有 0.3 mm 的縫；LOD2 的竹條是貼圖（alpha clip），近看是平的，小門在 LOD2 也一起拿掉。
 - LV10：鞋底編紋、草辮邊的斜紋都是貼圖，側面近看草辮是一條平滑的管。
+- LV17：照工作包高度 0.2 m，筆架比三視圖矮，毛筆 15 cm。
+- LV18：工作包尺寸的高只有 0.05 m，算盤平放；沒有做珠子被撥到不同位置。
+- LV20：三視圖四張都沒把兩把扇子並排畫，照 cand-3 的兩把扇子自己排；摺扇骨數從三視圖的 14 根減成 10 根。
 - LV12：草墊頂面是一個淺碟，平滑，草的亂主要靠翹出的草尾；布補丁在背面。

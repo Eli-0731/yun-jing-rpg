@@ -168,4 +168,116 @@ PASS LV12: minTier = high (quality tiers §4: roadside dressing)
 PASS LV12: no detailObjects, and no Detail_ mesh in the model
 PASS LV12: Detail_* off still shows the body (1 mesh per LOD)
 PASS LV12: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV13: Albedo / MaskURP / Normal textures found
+PASS LV13: textures 1024x1024 (small prop: 1024 or less)
+PASS LV13: LV13_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV13: imported size 0.448 x 0.440 x 0.454 m matches model_info 0.448 x 0.44 x 0.454 within 2 cm
+PASS LV13: within the work pack's limit 0.45 x 0.45 x 0.5 m
+PASS LV13: base at y = 0.000 (origin on the ground)
+PASS LV13: triangles LOD0/1/2 = 6386 / 3192 / 956 (50% / 15%), model_info 6386 / 3192 / 956
+PASS LV13: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS LV13: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV13: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS LV13: minTier = high (quality tiers §4: roadside dressing)
+PASS LV13: detailObjects Detail_Fray → 3 meshes present
+PASS LV13: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV13: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV14: Albedo / MaskURP / Normal textures found
+PASS LV14: textures 1024x1024 (small prop: 1024 or less)
+PASS LV14: LV14_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV14: imported size 0.383 x 0.245 x 0.500 m matches model_info 0.383 x 0.245 x 0.5 within 2 cm
+PASS LV14: within the work pack's limit 0.4 x 0.3 x 0.5 m
+PASS LV14: base at y = 0.000 (origin on the ground)
+PASS LV14: triangles LOD0/1/2 = 5056 / 2528 / 758 (50% / 15%), model_info 5056 / 2528 / 758
+PASS LV14: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS LV14: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV14: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS LV14: minTier = high (quality tiers §4: roadside dressing)
+PASS LV14: no detailObjects, and no Detail_ mesh in the model
+PASS LV14: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV14: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV15: Albedo / MaskURP / Normal textures found
+PASS LV15: textures 1024x1024 (small prop: 1024 or less)
+PASS LV15: LV15_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV15: imported size 0.172 x 0.172 x 0.390 m matches model_info 0.172 x 0.172 x 0.39 within 2 cm
+PASS LV15: within the work pack's limit 0.2 x 0.2 x 0.4 m
+PASS LV15: base at y = 0.000 (origin on the ground)
+PASS LV15: triangles LOD0/1/2 = 2760 / 1380 / 414 (50% / 15%), model_info 2760 / 1380 / 414
+PASS LV15: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS LV15: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV15: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS LV15: minTier = high (quality tiers §4: roadside dressing)
+PASS LV15: no detailObjects, and no Detail_ mesh in the model
+PASS LV15: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV15: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV16: Albedo / MaskURP / Normal textures found
+PASS LV16: textures 1024x1024 (small prop: 1024 or less)
+PASS LV16: LV16_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV16: imported size 0.475 x 0.400 x 0.795 m matches model_info 0.475 x 0.4 x 0.795 within 2 cm
+PASS LV16: within the work pack's limit 0.5 x 0.4 x 0.9 m
+PASS LV16: base at y = 0.000 (origin on the ground)
+PASS LV16: triangles LOD0/1/2 = 4734 / 2366 / 710 (50% / 15%), model_info 4734 / 2366 / 710
+PASS LV16: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS LV16: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV16: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS LV16: minTier = high (quality tiers §4: roadside dressing)
+PASS LV16: no detailObjects, and no Detail_ mesh in the model
+PASS LV16: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV16: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV17: Albedo / MaskURP / Normal textures found
+PASS LV17: textures 1024x1024 (small prop: 1024 or less)
+PASS LV17: LV17_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV17: imported size 0.460 x 0.260 x 0.200 m matches model_info 0.46 x 0.26 x 0.2 within 2 cm
+PASS LV17: within the work pack's limit 0.5 x 0.3 x 0.2 m
+PASS LV17: base at y = 0.000 (origin on the ground)
+PASS LV17: triangles LOD0/1/2 = 1894 / 946 / 284 (50% / 15%), model_info 1894 / 946 / 284
+PASS LV17: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS LV17: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV17: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS LV17: minTier = high (quality tiers §4: roadside dressing)
+PASS LV17: no detailObjects, and no Detail_ mesh in the model
+PASS LV17: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV17: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV18: Albedo / MaskURP / Normal textures found
+PASS LV18: textures 1024x1024 (small prop: 1024 or less)
+PASS LV18: LV18_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV18: imported size 0.350 x 0.120 x 0.030 m matches model_info 0.35 x 0.12 x 0.03 within 2 cm
+PASS LV18: within the work pack's limit 0.35 x 0.12 x 0.05 m
+PASS LV18: base at y = 0.000 (origin on the ground)
+PASS LV18: triangles LOD0/1/2 = 15004 / 7502 / 2250 (50% / 15%), model_info 15004 / 7502 / 2250
+PASS LV18: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS LV18: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV18: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS LV18: minTier = high (quality tiers §4: roadside dressing)
+PASS LV18: no detailObjects, and no Detail_ mesh in the model
+PASS LV18: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV18: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV19: Albedo / MaskURP / Normal textures found
+PASS LV19: textures 1024x1024 (small prop: 1024 or less)
+PASS LV19: LV19_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV19: imported size 0.738 x 0.559 x 0.150 m matches model_info 0.738 x 0.558 x 0.15 within 2 cm
+PASS LV19: within the work pack's limit 0.8 x 0.6 x 0.15 m
+PASS LV19: base at y = 0.000 (origin on the ground)
+PASS LV19: triangles LOD0/1/2 = 6176 / 3088 / 926 (50% / 15%), model_info 6176 / 3088 / 926
+PASS LV19: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS LV19: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV19: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS LV19: minTier = high (quality tiers §4: roadside dressing)
+PASS LV19: detailObjects Detail_Rice → 3 meshes present
+PASS LV19: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV19: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
+PASS LV20: Albedo / MaskURP / Normal textures found
+PASS LV20: textures 1024x1024 (small prop: 1024 or less)
+PASS LV20: LV20_GroundOrigin is the model root; all LOD meshes hang under it
+PASS LV20: imported size 0.374 x 0.300 x 0.021 m matches model_info 0.374 x 0.3 x 0.021 within 2 cm
+PASS LV20: within the work pack's limit 0.4 x 0.3 x 0.05 m
+PASS LV20: base at y = 0.000 (origin on the ground)
+PASS LV20: triangles LOD0/1/2 = 3644 / 1822 / 560 (50% / 15%), model_info 3644 / 1822 / 560
+PASS LV20: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS LV20: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS LV20: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS LV20: minTier = high (quality tiers §4: roadside dressing)
+PASS LV20: detailObjects Detail_Fray → 3 meshes present
+PASS LV20: Detail_* off still shows the body (1 mesh per LOD)
+PASS LV20: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
 INFO renders written to art/previews/village-life-c/unity

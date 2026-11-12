@@ -103,6 +103,17 @@ def make_sources():
     S['water']=(lerp((.17,.30,.30),(.30,.46,.43),np.clip(.5+.6*(fbm(3,2)-.5),0,1)),.05*fbm(8,2),.2,.08,0,0)
     K.rng=np.random.default_rng(3310)   # LV12: clean cream eggshell, very faint speckle
     S['egg']=(lerp((.80,.68,.50),(.90,.80,.64),np.clip(.5+.5*(fbm(3,2)-.5),0,1))*(1-.05*np.clip((fbm(60,2)-.65)*4,0,1))[...,None],.05*fbm(30,2),.2,.5,0,0)
+    K.rng=np.random.default_rng(3311)   # LV13–LV20 sources (own seeds after the others)
+    S['lacquer']=(lerp((.30,.07,.05),(.48,.13,.09),np.clip(.5+.6*(fbm(4,3)-.5),0,1))*(1-.12*np.clip((fbm(30,2)-.6)*4,0,1))[...,None],.12*fbm(40,2),.3,.38,0,0)   # LV14: old dark-red lacquer, a soft sheen
+    S['brass']=(lerp((.42,.32,.14),(.66,.52,.26),np.clip(.5+.7*(fbm(5,3)-.5),0,1))*(1-.3*np.clip((fbm(12,2)-.55)*3,0,1))[...,None],.2*fbm(30,2),.4,.45,.85,0)
+    S['bronze']=(lerp((.20,.18,.12),(.34,.31,.21),np.clip(.5+.7*(fbm(5,3)-.5),0,1))+np.clip((fbm(8,3)-.55)*2,0,1)[...,None]*np.array([.02,.08,.06]),.2*fbm(30,2),.4,.62,.7,0)   # dull, a green patina
+    S['inkstone']=(lerp((.07,.07,.08),(.17,.17,.18),np.clip(.5+.6*(fbm(5,3)-.5),0,1)),.15*fbm(50,2),.4,.55,0,0)
+    S['bristle']=(lerp((.18,.15,.12),(.42,.36,.28),np.clip(.5+.8*(fbm(60,2,aniso=40)-.5),0,1)),.6*fbm(80,2,aniso=50),.8,.85,0,0)
+    S['palm']=(lerp((.48,.40,.22),(.74,.64,.40),np.clip(.5+.6*(fbm(4,3)-.5)+.3*(fbm(50,2,aniso=30)-.5),0,1)),.8*fbm(60,2,aniso=40),1.2,.8,0,0)   # dried palm leaf, veins along V
+    S['paper']=(lerp((.72,.66,.54),(.86,.81,.70),np.clip(.5+.5*(fbm(5,3)-.5),0,1))*(1-.06*np.clip((fbm(40,2)-.6)*4,0,1))[...,None],.1*fbm(60,2),.3,.9,0,0)   # faded plain paper, nothing on it
+    S['hardwood']=(*board((.12,.07,.05),(.24,.15,.09),(.22,.19,.16),.08,.15,.7),1.0,.6,0,0)   # dark hardwood (abacus frame, brush rack)
+    S['beadwood']=(*board((.40,.24,.12),(.62,.42,.24),(.55,.48,.40),.05,.0,.9),.6,.45,0,0)   # polished bead wood
+    S['clay_red']=(lerp((.42,.26,.16),(.60,.40,.26),np.clip(.5+.8*(fbm(5,3)-.5),0,1)),.4*fbm(60,2)+.3*fbm(12,3),1.0,.88,0,0)   # LV15 warm-brown unglazed clay
     K.rng=np.random.default_rng(3307)   # LV08: the rain cape's old straw and palm fibre, golden going grey-green, strong strands along V
     cf=np.clip((fbm(70,2,aniso=60)-.5)*2.2+.5,0,1);cg=np.clip(.5+.9*(fbm(4,3,aniso=4)-.5),0,1)
     S['cape']=(lerp((.40,.38,.22),(.76,.62,.34),np.clip(.30+.50*cg+.55*(cf-.5),0,1))*(1-.22*np.clip((fbm(8,3,aniso=8)-.55)*3,0,1))[...,None]*(1-.25*np.clip((.35-cf)*3,0,1))[...,None],1.8*cf,2.2,.9,0,0)   # dark gaps between the strands
@@ -131,11 +142,13 @@ def endgrain():
 
 # ---------------- items (filled per item after its three-view is picked) ----------------
 PROPS={}
-TARGET={k:('x',None) for k in ('LV01','LV02','LV03','LV04','LV05','LV06','LV07','LV08','LV09','LV10','LV11','LV12')}   # None: built at true size, only held to the limit
+TARGET={k:('x',None) for k in ('LV01','LV02','LV03','LV04','LV05','LV06','LV07','LV08','LV09','LV10','LV11','LV12','LV13','LV14','LV15','LV16','LV17','LV18','LV19','LV20')}   # None: built at true size, only held to the limit
 LIMIT={'LV01':(.8,.8,.6),'LV02':(1.4,.4,.3),'LV03':(.5,.1,2.4),'LV04':(.5,.5,.8),'LV05':(.9,.5,.6),'LV06':(.6,.6,.6),
-       'LV07':(.4,.2,.5),'LV08':(.8,.4,1.6),'LV09':(.4,.4,1.2),'LV10':(.4,.3,.1),'LV11':(.8,.3,.5),'LV12':(.35,.35,.25)}   # work pack part 2 table A, w × d × h
+       'LV07':(.4,.2,.5),'LV08':(.8,.4,1.6),'LV09':(.4,.4,1.2),'LV10':(.4,.3,.1),'LV11':(.8,.3,.5),'LV12':(.35,.35,.25),
+       'LV13':(.45,.45,.5),'LV14':(.4,.3,.5),'LV15':(.2,.2,.4),'LV16':(.5,.4,.9),'LV17':(.5,.3,.2),'LV18':(.35,.12,.05),'LV19':(.8,.6,.15),'LV20':(.4,.3,.05)}   # LV13–LV20: the 11/08 40h pack, table A   # work pack part 2 table A, w × d × h
 NAME={'LV01':'ChickenCoop','LV02':'BroomDustpan','LV03':'BambooLadder','LV04':'HangingBasket','LV05':'PickleJars','LV06':'ChoppingBlock',
-      'LV07':'GourdLadle','LV08':'RainHatCapeRack','LV09':'BirdcagePole','LV10':'StrawSandalsClogs','LV11':'WhetstoneBench','LV12':'StrawEggBasket'}
+      'LV07':'GourdLadle','LV08':'RainHatCapeRack','LV09':'BirdcagePole','LV10':'StrawSandalsClogs','LV11':'WhetstoneBench','LV12':'StrawEggBasket',
+      'LV13':'BambooSteamerStack','LV14':'TieredFoodBox','LV15':'ClayOilLampStand','LV16':'WashbasinStand','LV17':'DeskSet','LV18':'Abacus','LV19':'WinnowingBasket','LV20':'PalmAndFoldingFans'}
 MIN_TIER={k:'high' for k in TARGET}   # quality-tiers §4: roadside props that add richness; nothing to play with or stop the player
 for _f in [CK/'wl_items.py']+sorted(CK.glob('fi_items*.py')):exec(open(_f,encoding='utf-8').read())   # part helpers (_sheet, _cane, _lathe, _ring, _plate …)
 PROPS.clear()   # only the LV items below

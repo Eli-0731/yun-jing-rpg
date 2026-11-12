@@ -1,13 +1,13 @@
 #!/bin/sh
-# Review images and QA for C's village props LV01–LV12 (from the repo root). Blender 4.5.3: BL=<blender.exe>.
-#   sh art/source/village-life-c/render_reviews.sh LV01 [LV02 ...]      (no id: all twelve; the comparisons run for the ids given)
+# Review images and QA for C's village props LV01–LV20 (from the repo root). Blender 4.5.3: BL=<blender.exe>.
+#   sh art/source/village-life-c/render_reviews.sh LV01 [LV02 ...]      (no id: all twenty; the comparisons run for the ids given)
 # The render rig and QA are shared with creekside-life-c (render_wl.py there).
 # For each id: grey model (front, side, three-quarter), four views with the 1.75 m figure, a close-up, wireframe,
 # LOD0 / LOD1 with Detail_* off, strict and loose QA, contact table; then the style comparisons and one sheet per id.
 BL="${BL:?set BL to blender.exe}";S=art/source/village-life-c;R=art/source/creekside-life-c;P=art/previews/village-life-c;E=art/exports/village-life-c;Q=$P/qa
 m(){ cygpath -m "$1" 2>/dev/null || echo "$1"; }
 r(){ MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $R/render_wl.py)" -- "$@" 2>&1 | grep -E "Error|Traceback"; true; }
-IDS="${*:-LV01 LV02 LV03 LV04 LV05 LV06 LV07 LV08 LV09 LV10 LV11 LV12}";mkdir -p $Q $P/compare
+IDS="${*:-LV01 LV02 LV03 LV04 LV05 LV06 LV07 LV08 LV09 LV10 LV11 LV12 LV13 LV14 LV15 LV16 LV17 LV18 LV19 LV20}";mkdir -p $Q $P/compare
 for id in $IDS; do
   D=$P/$id;G=$(m $E/${id}_v001.glb);F=$(m $E/${id}_v001.fbx)
   r --glb "$(m $D/clay/$id-clay.glb)" --out "$(m $D/clay)" --tag $id-clay --views front,side,threequarter --clay --samples 32
@@ -35,4 +35,11 @@ cmp LV07-LV11-vs-wood "$(m $E/LV07_v001.glb),$(m $E/LV11_v001.glb),$(m $B/modell
 cmp LV08-LV09-vs-TY08 "$(m $E/LV08_v001.glb),$(m $E/LV09_v001.glb),$(m $B/qingxi-day12-c/TY08.glb)" "-.6,0,0;.3,0,0;1.6,0,0"
 cmp LV10-LV12-vs-woven "$(m $E/LV10_v001.glb),$(m $E/LV12_v001.glb),$(m $H/MK02_HarvestSieve/MK02_HarvestSieve_v001.fbx),$(m $H/MK04_BackBasket/MK04_BackBasket_v001.fbx),$(m $E/LV04_v001.glb)" "-.35,-.2,0;.2,-.2,0;-1.15,.1,0;.95,.1,0;1.65,.1,0"
 cmp LV-set2 "$(m $E/LV07_v001.glb),$(m $E/LV08_v001.glb),$(m $E/LV09_v001.glb),$(m $E/LV10_v001.glb),$(m $E/LV11_v001.glb),$(m $E/LV12_v001.glb)" "-1.3,.6,0;-.55,.55,8;.3,.65,-10;-.6,-.35,6;.45,-.3,-4;1.25,.15,0"
+fi
+if has LV13; then
+cmp LV13-LV19-vs-woven "$(m $E/LV13_v001.glb),$(m $E/LV19_v001.glb),$(m $H/MK02_HarvestSieve/MK02_HarvestSieve_v001.fbx),$(m $E/LV12_v001.glb)" "-.5,0,0;.45,0,0;1.4,0,0;-1.15,0,0"
+cmp LV14-LV17-LV18-vs-LV11 "$(m $E/LV14_v001.glb),$(m $E/LV17_v001.glb),$(m $E/LV18_v001.glb),$(m $E/LV11_v001.glb)" "-.45,0,0;.15,0,0;.15,-.3,0;1.1,.05,0"
+cmp LV15-LV16-vs-BM03 "$(m $E/LV15_v001.glb),$(m $E/LV16_v001.glb),$(m $B/modelling-basics-c/BM03_01.glb),$(m $B/creekside-life-c/WL01_v001.glb)" "-.45,0,0;.15,0,0;.8,0,0;-1.1,0,0"
+cmp LV20-vs-WL02 "$(m $E/LV20_v001.glb),$(m $B/creekside-life-c/WL02_v001.glb),$(m $B/creekside-life-c/WL04_v001.glb)" "0,0,0;.55,0,0;-.55,0,0"
+cmp LV-set3 "$(m $E/LV13_v001.glb),$(m $E/LV14_v001.glb),$(m $E/LV15_v001.glb),$(m $E/LV16_v001.glb),$(m $E/LV17_v001.glb),$(m $E/LV18_v001.glb),$(m $E/LV19_v001.glb),$(m $E/LV20_v001.glb),$(m $B/modelling-basics-c/BM03_01.glb)" "-1.5,.3,0;-.95,.3,0;-.5,.3,0;0,.3,0;.6,.3,0;.6,-.2,0;1.4,.1,0;-.4,-.35,0;-1.4,-.35,0"
 fi
