@@ -1,0 +1,236 @@
+{
+  "asset": "VH01_TwoStoreyHouse",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -3.9794,
+          -3.462,
+          0.0
+        ],
+        "max": [
+          3.9794,
+          3.012,
+          7.4553
+        ],
+        "box_m": [
+          [
+            -4.0,
+            -3.5,
+            0.0
+          ],
+          [
+            4.0,
+            3.5,
+            7.5
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01007
+      }
+    },
+    {
+      "check": "ground_floor_stone_walls",
+      "pass": true,
+      "detail": {
+        "face_stone_hits_m": {
+          "front": -2.435,
+          "rear": 2.379,
+          "left": -3.27,
+          "right": 3.274
+        },
+        "design_m": {
+          "front": -2.3899999999999997,
+          "rear": 2.3899999999999997,
+          "left": -3.29,
+          "right": 3.29
+        },
+        "tolerance_m": 0.05,
+        "note": "rays at 1.0-1.6 m on a pier; face stones are rough, 0.05 m allowed"
+      }
+    },
+    {
+      "check": "upper_floor_overhangs",
+      "pass": true,
+      "detail": {
+        "upper_face_hits_m": {
+          "left": -3.483,
+          "right": 3.483,
+          "rear": 2.495
+        },
+        "overhang_past_stone_faces_m": {
+          "left": 0.193,
+          "right": 0.193,
+          "rear": 0.105
+        }
+      }
+    },
+    {
+      "check": "front_gallery",
+      "pass": true,
+      "detail": {
+        "deck_top_m": 2.85,
+        "rail_face_y_m": -2.985,
+        "gallery_edge_m": -3.0,
+        "headroom_under_eave_m": 2.4
+      }
+    },
+    {
+      "check": "roof_steeper_than_vl",
+      "pass": true,
+      "detail": {
+        "vh_front_slope_deg_0.4_to_0.9m_from_ridge": 32.7,
+        "vl_same_span_deg": 27.2
+      }
+    },
+    {
+      "check": "two_storeys_taller_than_vl",
+      "pass": true,
+      "detail": {
+        "height_m": 7.455,
+        "vl_height_m": 5.552
+      }
+    },
+    {
+      "check": "collision_closed_and_gallery_walkable_under",
+      "pass": true,
+      "detail": {
+        "collision_faces_m": {
+          "front": -2.42,
+          "rear": 2.42,
+          "left": -3.32,
+          "right": 3.32
+        },
+        "collision_above_ground_under_gallery_m": 2.45
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 83420,
+          "LOD1": 41709,
+          "LOD2": 11901
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.143,
+        "per_group": {
+          "Main": {
+            "LOD0": 3572,
+            "LOD1": 1786,
+            "LOD2": 534
+          },
+          "Stone": {
+            "LOD0": 21908,
+            "LOD1": 10954,
+            "LOD2": 3286
+          },
+          "Wood": {
+            "LOD0": 29804,
+            "LOD1": 14902,
+            "LOD2": 4470
+          },
+          "Detail_Small": {
+            "LOD0": 3176,
+            "LOD1": 1587,
+            "LOD2": 475
+          },
+          "Roof": {
+            "LOD0": 24960,
+            "LOD1": 12480,
+            "LOD2": 3136
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          7.9587,
+          6.474,
+          7.4553
+        ],
+        "blend_dims_m": [
+          7.9587,
+          6.474,
+          7.4553
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_Door.001",
+        "Socket_Gallery.001",
+        "Socket_Path.001",
+        "VH01_TwoStoreyHouse.001",
+        "VH01_TwoStoreyHouse_Collision.001",
+        "VH01_TwoStoreyHouse_Detail_Small_LOD0.001",
+        "VH01_TwoStoreyHouse_Detail_Small_LOD1.001",
+        "VH01_TwoStoreyHouse_Detail_Small_LOD2.001",
+        "VH01_TwoStoreyHouse_LOD0.001",
+        "VH01_TwoStoreyHouse_LOD1.001",
+        "VH01_TwoStoreyHouse_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Door.001": [
+          0.0,
+          -2.3,
+          0.28
+        ],
+        "Socket_Gallery.001": [
+          0.0,
+          -2.65,
+          2.85
+        ],
+        "Socket_Path.001": [
+          0.0,
+          -2.64,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 9247076
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 440,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}
