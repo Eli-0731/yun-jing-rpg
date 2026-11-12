@@ -1,0 +1,79 @@
+{
+ "id": "ST04",
+ "package": "docs/execution/2026-11-08/A-80h-mountain-city.md",
+ "author": "A (Johnnnny0823)",
+ "version": "v001",
+ "status": "Exported; Imported: see README (Unity 6000.3.28f1 check); In-game Verified: 未驗",
+ "dimensions_m": [
+  1.798,
+  0.479,
+  0.479
+ ],
+ "bounds_min_m": [
+  -0.899,
+  -0.239,
+  0.0
+ ],
+ "bounds_max_m": [
+  0.899,
+  0.239,
+  0.479
+ ],
+ "limit_m": [
+  1.8,
+  0.5,
+  0.5
+ ],
+ "origin": "free-standing, seat faces -Y",
+ "minTier": "low",
+ "lods": [
+  {
+   "lod": 0,
+   "triangles": 8285,
+   "objects": 2,
+   "materials": 2
+  },
+  {
+   "lod": 1,
+   "triangles": 3938,
+   "objects": 2,
+   "materials": 2
+  },
+  {
+   "lod": 2,
+   "triangles": 1188,
+   "objects": 2,
+   "materials": 2
+  }
+ ],
+ "objectsLOD0": [
+  "ST_ST04_LOD0",
+  "ST_ST04_Detail_Moss_LOD0"
+ ],
+ "detailObjects": [
+  "ST_ST04_Detail_Moss_LOD0"
+ ],
+ "glowObjects": [],
+ "materials": [
+  "M_MountainStreet_Trim",
+  "M_StreetFurniture"
+ ],
+ "textures": {
+  "T_MountainStreet_Albedo": "2048x2048",
+  "T_MountainStreet_Normal": "2048x2048",
+  "T_MountainStreet_MetallicSmoothness": "2048x2048",
+  "T_MountainStreet_Emission": "2048x2048",
+  "T_StreetFurniture_Albedo": "1024x1024",
+  "T_StreetFurniture_Normal": "1024x1024",
+  "T_StreetFurniture_MetallicSmoothness": "1024x1024",
+  "T_StreetFurniture_Emission": "1024x1024"
+ },
+ "textureNote": "M_MountainStreet_*: shared MC01 trim sheet (art/textures/mountain-street-houses-a); M_StreetFurniture_*: art/textures/mountain-street-a (256 px/m)",
+ "sockets": [],
+ "collision": "ST_ST04_Collision (3 boxes)",
+ "extra": {
+  "seatHeight_m": 0.48
+ },
+ "fbx": "art/exports/mountain-street-a/ST_ST04.fbx",
+ "fps": "不寫（手機未實測）"
+}
