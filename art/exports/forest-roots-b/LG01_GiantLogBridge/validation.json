@@ -1,0 +1,244 @@
+{
+  "asset": "LG01_GiantLogBridge",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -11.0,
+          -2.4878,
+          0.0
+        ],
+        "max": [
+          11.0,
+          2.4915,
+          3.8738
+        ],
+        "box_m": [
+          [
+            -11.0,
+            -2.5,
+            0.0
+          ],
+          [
+            11.0,
+            2.5,
+            4.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.00615
+      }
+    },
+    {
+      "check": "walk_line_continuous_ground_to_ground",
+      "pass": true,
+      "detail": {
+        "end_z_m": [
+          0.005,
+          0.005
+        ],
+        "largest_5cm_step_m": 0.0246,
+        "steepest_25cm_deg": 26.2,
+        "deck_z_at_butt_middle_break_m": [
+          2.039,
+          2.045,
+          1.018
+        ],
+        "need": "ends on the ground (<= 6 cm), no step over 4 cm in 5 cm, no 25 cm stretch steeper than 30 deg"
+      }
+    },
+    {
+      "check": "worn_band_wide_enough",
+      "pass": true,
+      "detail": {
+        "band_width_m_every_0_5m": [
+          0.93,
+          0.94,
+          0.92,
+          0.94,
+          0.93,
+          0.96,
+          0.94,
+          0.95,
+          0.94,
+          0.96,
+          0.92,
+          0.96,
+          0.94,
+          0.94,
+          0.92,
+          0.9,
+          0.91,
+          0.94,
+          0.94,
+          0.92,
+          0.91,
+          0.84,
+          0.89,
+          0.92,
+          0.71,
+          0.9,
+          0.65,
+          0.97,
+          1.22
+        ],
+        "need_m": 0.6,
+        "note": "within 5 cm of the centre-line height"
+      }
+    },
+    {
+      "check": "walk_line_clear",
+      "pass": true,
+      "detail": {
+        "blocked_at": [],
+        "count": 0,
+        "rays": "segment by segment along the line at y -0.25 / 0 / 0.25 m, 0.15 / 0.9 / 1.75 m above it"
+      }
+    },
+    {
+      "check": "span_clear_underneath",
+      "pass": true,
+      "detail": {
+        "underside_z_m": [
+          0.593,
+          0.737,
+          0.736,
+          0.843,
+          0.772,
+          0.625
+        ],
+        "note": "nothing between z 0 and the trunk over the middle: the ravine goes there"
+      }
+    },
+    {
+      "check": "torn_roots_rise",
+      "pass": true,
+      "detail": {
+        "top_z_m": 3.874,
+        "note": "the torn-up roots behind the butt"
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": [
+        "Socket_Deck",
+        "Socket_Path_E",
+        "Socket_Path_W"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 387650,
+          "LOD1": 193824,
+          "LOD2": 58145
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 309818,
+            "LOD1": 154908,
+            "LOD2": 46472
+          },
+          "Detail_Small": {
+            "LOD0": 77832,
+            "LOD1": 38916,
+            "LOD2": 11673
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          22.0,
+          4.9793,
+          3.8738
+        ],
+        "blend_dims_m": [
+          22.0,
+          4.9793,
+          3.8738
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "LG01_GiantLogBridge.001",
+        "LG01_GiantLogBridge_Collision.001",
+        "LG01_GiantLogBridge_Detail_Small_LOD0.001",
+        "LG01_GiantLogBridge_Detail_Small_LOD1.001",
+        "LG01_GiantLogBridge_Detail_Small_LOD2.001",
+        "LG01_GiantLogBridge_LOD0.001",
+        "LG01_GiantLogBridge_LOD1.001",
+        "LG01_GiantLogBridge_LOD2.001",
+        "Socket_Deck.001",
+        "Socket_Path_E.001",
+        "Socket_Path_W.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Deck.001": [
+          0.0,
+          0.0389,
+          2.0454
+        ],
+        "Socket_Path_E.001": [
+          11.0,
+          0.021,
+          -0.0
+        ],
+        "Socket_Path_W.001": [
+          -11.0,
+          -0.0848,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 24619896
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 222,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

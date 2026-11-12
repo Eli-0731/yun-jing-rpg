@@ -1,0 +1,222 @@
+{
+  "asset": "LG01_GiantLogBridge",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "LG01_GiantLogBridge_Detail_Small"
+  ],
+  "name_zh": "倒伏巨木橋",
+  "slot": "D5_MushroomValley",
+  "note": "倒伏巨木橋（三視圖 LG01-cand-3）：22 × 5 × 4 m，一棵比 FR04 大很多的古樹倒在谷底上方。樹幹從樹頭（x −6.4，半徑 1.0 m）到斷口（x 8.3，半徑 0.52 m），兩端擱在谷邊、中段微微拱起，x −3.4～4.4 底下是空的（最高離地 0.75 m），谷由關卡地形放在下面。樹幹頂被走出一條約 0.84 m 寬的平滑路線：樹皮磨掉，露出銀褐色木面，中間踩得較深，苔從兩側邊緣長進來；路面高度樹頭 2.1 m、中段 2.0 m、斷口 1.0 m。兩端都用土坡和地面順接：樹根那頭是撕裂的半個根盤塌成的土堆（x −11 到樹頭，約 26°），樹梢那頭是一道土和石頭的坡（x 11 到斷口，約 21°）。樹頭照三視圖 cand-3 擴張成一大束粗扭根（每側 20 條），順著土坡往兩側、往後流下插進地面，互相交疊、偶爾拱起；樹頭後方一叢從土裡扯起的中型根往後上方翹（2.4–3.1 m）、末端斷頭；根之間夾細根和石頭；走道從土坡中間上去，根離走線至少 0.62 m 加根半徑。樹梢端四根斷掉的大枝往兩側張開，還有幾根折斷的小枝；下側面有一層層的層狀蕈。沒有木板、沒有繩子。苔綠 #3F5A2E、深樹皮 #2B2018。碰撞：樹幹一條平頂簡化管、兩個土坡、扯起的根各一條管、四根大枝各一條管。接口：Socket_Path_W／Socket_Path_E（兩端地面，朝外）、Socket_Deck（中段路面）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 387650,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 193824,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 58145,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "LG01_GiantLogBridge_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "LG01_GiantLogBridge_Metallic.png": [
+      2048,
+      2048
+    ],
+    "LG01_GiantLogBridge_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "LG01_GiantLogBridge_Normal.png": [
+      2048,
+      2048
+    ],
+    "LG01_GiantLogBridge_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint at ground level; walk along X, root end at -X",
+  "dimensions_m": [
+    22.0,
+    4.9793,
+    3.8738
+  ],
+  "bounds_min_m": [
+    -11.0,
+    -2.4878,
+    0.0
+  ],
+  "bounds_max_m": [
+    11.0,
+    2.4915,
+    3.8738
+  ],
+  "size_limit_m": [
+    22.0,
+    5.0,
+    4.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        22.0,
+        4.9793,
+        3.1786
+      ],
+      "min": [
+        -11.0,
+        -2.4878,
+        0.0
+      ],
+      "max": [
+        11.0,
+        2.4915,
+        3.1786
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        21.3776,
+        4.8911,
+        3.8738
+      ],
+      "min": [
+        -10.7242,
+        -2.4375,
+        0.0
+      ],
+      "max": [
+        10.6534,
+        2.4536,
+        3.8738
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 309818,
+      "LOD1": 154908,
+      "LOD2": 46472
+    },
+    "Detail_Small": {
+      "LOD0": 77832,
+      "LOD1": 38916,
+      "LOD2": 11673
+    }
+  },
+  "lod_totals": {
+    "LOD0": 387650,
+    "LOD1": 193824,
+    "LOD2": 58145
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_LG01_GiantLogBridge_Main"
+  ],
+  "textures": [
+    "LG01_GiantLogBridge_BaseColor.png",
+    "LG01_GiantLogBridge_Metallic.png",
+    "LG01_GiantLogBridge_MetallicSmoothness.png",
+    "LG01_GiantLogBridge_Normal.png",
+    "LG01_GiantLogBridge_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "LG01_GiantLogBridge_BaseColor.png",
+    "Normal": "LG01_GiantLogBridge_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "LG01_GiantLogBridge_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "LG01_GiantLogBridge_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Path_W": [
+      -11.0,
+      -0.0848,
+      0.0
+    ],
+    "Socket_Path_E": [
+      11.0,
+      0.021,
+      0.0
+    ],
+    "Socket_Deck": [
+      0.0,
+      0.0389,
+      2.0454
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Deck.001": [
+      0.0,
+      0.0389,
+      2.0454
+    ],
+    "Socket_Path_E.001": [
+      11.0,
+      0.021,
+      -0.0
+    ],
+    "Socket_Path_W.001": [
+      -11.0,
+      -0.0848,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "LG01_GiantLogBridge.001",
+    "LG01_GiantLogBridge_Collision.001",
+    "LG01_GiantLogBridge_Detail_Small_LOD0.001",
+    "LG01_GiantLogBridge_Detail_Small_LOD1.001",
+    "LG01_GiantLogBridge_Detail_Small_LOD2.001",
+    "LG01_GiantLogBridge_LOD0.001",
+    "LG01_GiantLogBridge_LOD1.001",
+    "LG01_GiantLogBridge_LOD2.001",
+    "Socket_Deck.001",
+    "Socket_Path_E.001",
+    "Socket_Path_W.001"
+  ],
+  "glb": "LG01_GiantLogBridge_v001.glb",
+  "interface": {
+    "deck_z_m": {
+      "butt": 2.039,
+      "middle": 2.045,
+      "break": 1.018
+    },
+    "band_width_min_m": 0.65,
+    "steepest_deg": 26.2,
+    "span_m": [
+      -3.4,
+      4.4
+    ],
+    "walk": "Socket_Path_W (x -11, ground) -> root heap 26 deg -> trunk top -> crown bank -> Socket_Path_E (x +11, ground)",
+    "sockets": [
+      "Socket_Deck",
+      "Socket_Path_E",
+      "Socket_Path_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/forest-roots-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/LG01/ (AI three-view LG01/LG01-cand-3; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/forest-roots-unity/ (local Unity batch check, not committed)"
+}
