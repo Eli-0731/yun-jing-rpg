@@ -1,0 +1,213 @@
+{
+  "asset": "SG04_RestShelter",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "SG04_RestShelter_Detail_Small"
+  ],
+  "name_zh": "半途歇腳石亭",
+  "slot": "B1_SectGateStairs",
+  "note": "半途歇腳石亭（三視圖 SG04/REST-SHELTER candidate-01）：4 × 3 m、高 4 m，背靠崖壁的半開石亭。前面兩根 0.3 m 方石柱（中心距 3.3 m），柱礎三面各刻一個凹框圓紋；石額枋 0.34 m 高，正面浮一朵雲頭，柱與枋交角有石雀替；兩根側枋從柱子伸回崖壁（右側那根擱在岩石上）。單坡青瓦頂 17°，從崖壁斜下到前簷，簷下緣離地 2.95 m（世界常數 ≥ 2.6），額枋下淨高 2.75 m、雀替處 2.49 m。瓦是板瓦一列、筒瓦壓縫，前簷有瓦當和滴水，靠崖處一道壓脊灰縫，下段瓦面長苔。後面和右側是崖壁本身（不是砌牆）。沿崖一條石凳，座高 0.45 m，右端斷角用一塊較淺的石頭補上；左後角一個石水盆，竹管從岩縫引水。全石構、單坡、只有兩根前柱：和 TE05 四柱木亭、RK03 茶亭、WM09 竹亭一眼分得出。地面 0.06 m 石板。接口：Socket_Front（正面入口地面）、Socket_Seat（凳面中心）、Socket_Basin（盆口中心）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 49064,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 24531,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 7358,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "SG04_RestShelter_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "SG04_RestShelter_Metallic.png": [
+      2048,
+      2048
+    ],
+    "SG04_RestShelter_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "SG04_RestShelter_Normal.png": [
+      2048,
+      2048
+    ],
+    "SG04_RestShelter_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint at ground level; open front faces -Y, cliff at +Y and +X",
+  "dimensions_m": [
+    4.0,
+    2.9598,
+    3.9608
+  ],
+  "bounds_min_m": [
+    -2.0,
+    -1.484,
+    0.0
+  ],
+  "bounds_max_m": [
+    2.0,
+    1.4758,
+    3.9608
+  ],
+  "size_limit_m": [
+    4.0,
+    3.0,
+    4.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        4.0,
+        2.9598,
+        3.9608
+      ],
+      "min": [
+        -2.0,
+        -1.484,
+        0.0
+      ],
+      "max": [
+        2.0,
+        1.4758,
+        3.9608
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        3.7401,
+        2.5231,
+        3.3328
+      ],
+      "min": [
+        -1.9845,
+        -1.3575,
+        0.0499
+      ],
+      "max": [
+        1.7556,
+        1.1657,
+        3.3828
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 45394,
+      "LOD1": 22696,
+      "LOD2": 6809
+    },
+    "Detail_Small": {
+      "LOD0": 3670,
+      "LOD1": 1835,
+      "LOD2": 549
+    }
+  },
+  "lod_totals": {
+    "LOD0": 49064,
+    "LOD1": 24531,
+    "LOD2": 7358
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_SG04_RestShelter_Main"
+  ],
+  "textures": [
+    "SG04_RestShelter_BaseColor.png",
+    "SG04_RestShelter_Metallic.png",
+    "SG04_RestShelter_MetallicSmoothness.png",
+    "SG04_RestShelter_Normal.png",
+    "SG04_RestShelter_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "SG04_RestShelter_BaseColor.png",
+    "Normal": "SG04_RestShelter_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "SG04_RestShelter_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "SG04_RestShelter_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Front": [
+      0.0,
+      -1.5,
+      0.0
+    ],
+    "Socket_Seat": [
+      0.52,
+      0.72,
+      0.45
+    ],
+    "Socket_Basin": [
+      -1.17,
+      0.67,
+      0.62
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Basin.001": [
+      -1.17,
+      0.67,
+      0.62
+    ],
+    "Socket_Front.001": [
+      0.0,
+      -1.5,
+      0.0
+    ],
+    "Socket_Seat.001": [
+      0.52,
+      0.72,
+      0.45
+    ]
+  },
+  "fbx_objects": [
+    "SG04_RestShelter.001",
+    "SG04_RestShelter_Collision.001",
+    "SG04_RestShelter_Detail_Small_LOD0.001",
+    "SG04_RestShelter_Detail_Small_LOD1.001",
+    "SG04_RestShelter_Detail_Small_LOD2.001",
+    "SG04_RestShelter_LOD0.001",
+    "SG04_RestShelter_LOD1.001",
+    "SG04_RestShelter_LOD2.001",
+    "Socket_Basin.001",
+    "Socket_Front.001",
+    "Socket_Seat.001"
+  ],
+  "glb": "SG04_RestShelter_v001.glb",
+  "interface": {
+    "eave_underside_min_m": 3.052,
+    "architrave_clear_m": 2.719,
+    "seat_m": 0.45,
+    "sockets": [
+      "Socket_Basin",
+      "Socket_Front",
+      "Socket_Seat"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/mountain-stairs-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/SG04/ (AI three-view SG04/REST-SHELTER; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/mountain-stairs-unity/ (local Unity batch check, not committed)"
+}

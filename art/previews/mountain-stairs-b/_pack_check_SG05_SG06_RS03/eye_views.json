@@ -1,0 +1,142 @@
+{
+ "views": [
+  {
+   "name": "SG05_SG06_RS03_eye_1.7m_stair_foot",
+   "eye": [
+    -1.6,
+    -4.6,
+    1.7
+   ],
+   "target": [
+    0,
+    8,
+    3.4
+   ],
+   "lens": 22
+  },
+  {
+   "name": "SG05_SG06_RS03_eye_1.7m_on_landing",
+   "eye": [
+    2.2,
+    2.6,
+    3.3
+   ],
+   "target": [
+    0,
+    11,
+    3.6
+   ],
+   "lens": 22
+  },
+  {
+   "name": "SG05_SG06_RS03_eye_1.7m_back_down",
+   "eye": [
+    -1.0,
+    8.0,
+    3.3
+   ],
+   "target": [
+    0,
+    -3,
+    0.6
+   ],
+   "lens": 22
+  },
+  {
+   "name": "SG05_SG06_RS03_overview",
+   "eye": [
+    11,
+    -9,
+    7.5
+   ],
+   "target": [
+    0,
+    5.5,
+    2.2
+   ],
+   "lens": 26
+  }
+ ],
+ "pieces": [
+  {
+   "id": "SG05_WideStairRun",
+   "offset": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "SG06_WideLanding",
+   "offset": [
+    0,
+    5.1,
+    0.8
+   ]
+  },
+  {
+   "id": "SG03_RailSloped",
+   "offset": [
+    -2.84,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "SG03_RailSloped",
+   "offset": [
+    2.84,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "RS03_SectGate",
+   "offset": [
+    0,
+    11.17,
+    1.6
+   ]
+  }
+ ],
+ "figures_1_75m": [
+  [
+   -1.6,
+   -1.2,
+   0,
+   10
+  ],
+  [
+   1.6,
+   6.2,
+   1.6,
+   -20
+  ],
+  [
+   -0.6,
+   9.6,
+   1.6,
+   180
+  ]
+ ],
+ "placeholder_terrain_blocks": [
+  [
+   -3.49,
+   1.61,
+   0,
+   3.49,
+   8.59,
+   0.8
+  ],
+  [
+   -10,
+   8.6,
+   0,
+   10,
+   20,
+   1.6
+  ]
+ ],
+ "camera": "perspective, eye at the listed point (1.7 m above the surface stood on)",
+ "engine": "EEVEE"
+}

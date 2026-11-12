@@ -1,0 +1,244 @@
+{
+  "asset": "FP01_PathStraight",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "FP01_PathStraight_Detail_Small"
+  ],
+  "name_zh": "林間土路直段",
+  "slot": "D1_ForestEdge_to_D2_ElderTree",
+  "note": "林間土路直段（三視圖 FP01 candidate-01）：長 6 m、寬 2.0 m（工作包原寫 1.6 m，2026-11-09 依使用者指示加寬：踏面 1.16 m、兩側土埂各 0.42 m）、高 0.3 m 以內。踩實的深褐林土路面，比兩側土埂低約 6 cm，中間有一道踩出的淺溝（深 8 mm）；兩條細樹根斜斜橫過路面、只露出上半；小石頭被踢到兩側土埂上，苔從外緣爬上埂頂，落葉（楓葉與長葉，橘、褐、黃）沿兩側堆、少數散在路面，兩側各三到四叢蕨拱向路面。兩端截面就是套件共用截面（最後 0.4 m 起伏漸平），任一段的端口可接任一段；路面貼圖沿路方向以 6 m 為週期，兩端顏色相同。和石板山路、山城石階、村路、茶田步道、碎石小徑不同：沒有石板、碎石、路緣，只有土。碰撞：一塊共用截面的簡化土板（不含起伏、樹根、石頭、植物）；接口 Socket_Path_W／Socket_Path_E（兩端中線地面，朝外）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 35248,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 17665,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 4840,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "FP01_PathStraight_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "FP01_PathStraight_Metallic.png": [
+      2048,
+      2048
+    ],
+    "FP01_PathStraight_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "FP01_PathStraight_Normal.png": [
+      2048,
+      2048
+    ],
+    "FP01_PathStraight_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint at ground level; walk along X, west end at -X",
+  "dimensions_m": [
+    6.0,
+    2.0,
+    0.2184
+  ],
+  "bounds_min_m": [
+    -3.0,
+    -1.0,
+    0.0
+  ],
+  "bounds_max_m": [
+    3.0,
+    1.0,
+    0.2184
+  ],
+  "size_limit_m": [
+    6.0,
+    2.0,
+    0.3
+  ],
+  "pieces": {
+    "Ground": {
+      "dims_m": [
+        6.0,
+        2.0,
+        0.1279
+      ],
+      "min": [
+        -3.0,
+        -1.0,
+        0.0
+      ],
+      "max": [
+        3.0,
+        1.0,
+        0.1279
+      ]
+    },
+    "Main": {
+      "dims_m": [
+        4.0956,
+        1.8605,
+        0.2144
+      ],
+      "min": [
+        -2.0839,
+        -0.932,
+        0.004
+      ],
+      "max": [
+        2.0117,
+        0.9284,
+        0.2184
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        5.6438,
+        1.9857,
+        0.2116
+      ],
+      "min": [
+        -2.8015,
+        -0.9866,
+        0.0025
+      ],
+      "max": [
+        2.8423,
+        0.9991,
+        0.2141
+      ]
+    }
+  },
+  "lods": {
+    "Ground": {
+      "LOD0": 10402,
+      "LOD1": 5242,
+      "LOD2": 1114
+    },
+    "Main": {
+      "LOD0": 3856,
+      "LOD1": 1928,
+      "LOD2": 578
+    },
+    "Detail_Small": {
+      "LOD0": 20990,
+      "LOD1": 10495,
+      "LOD2": 3148
+    }
+  },
+  "lod_totals": {
+    "LOD0": 35248,
+    "LOD1": 17665,
+    "LOD2": 4840
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FP01_PathStraight_Main"
+  ],
+  "textures": [
+    "FP01_PathStraight_BaseColor.png",
+    "FP01_PathStraight_Metallic.png",
+    "FP01_PathStraight_MetallicSmoothness.png",
+    "FP01_PathStraight_Normal.png",
+    "FP01_PathStraight_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "FP01_PathStraight_BaseColor.png",
+    "Normal": "FP01_PathStraight_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "FP01_PathStraight_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FP01_PathStraight_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Path_W": [
+      -3.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Path_E": [
+      3.0,
+      0.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Path_E.001": [
+      3.0,
+      0.0,
+      0.0
+    ],
+    "Socket_Path_W.001": [
+      -3.0,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "FP01_PathStraight.001",
+    "FP01_PathStraight_Collision.001",
+    "FP01_PathStraight_Detail_Small_LOD0.001",
+    "FP01_PathStraight_Detail_Small_LOD1.001",
+    "FP01_PathStraight_Detail_Small_LOD2.001",
+    "FP01_PathStraight_Ground_LOD0.001",
+    "FP01_PathStraight_Ground_LOD1.001",
+    "FP01_PathStraight_Ground_LOD2.001",
+    "FP01_PathStraight_LOD0.001",
+    "FP01_PathStraight_LOD1.001",
+    "FP01_PathStraight_LOD2.001",
+    "Socket_Path_E.001",
+    "Socket_Path_W.001"
+  ],
+  "glb": "FP01_PathStraight_v001.glb",
+  "interface": {
+    "length_m": 6.0,
+    "width_m": 2.0,
+    "section": "fp_parts.section: tread 1.16 m wide at 0.055-0.06 m, bank crests 0.12 m at 0.82 m out, edge 0.012 m at 1.0 m",
+    "joint": "next piece: its Socket_Path_W on this Socket_Path_E, rotated 180 deg about Z",
+    "end_section_vertices": 41,
+    "walk": "from Socket_Path_W (s = 0) to Socket_Path_E (s = L)",
+    "socket_heights_m": [
+      0.0,
+      0.0
+    ],
+    "sockets": [
+      "Socket_Path_E",
+      "Socket_Path_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/forest-paths-b/); procedural shaders (fp_mats.py, cr_mats.py, fr_mats.py) baked to one 2048 atlas; walking surface LODs by dropping grid rows (end rows kept)",
+  "ground_rows_per_lod": {
+    "LOD0": 121,
+    "LOD1": 61,
+    "LOD2": 13
+  },
+  "seam_normals_set": {
+    "FP01_PathStraight_Ground_LOD0": 160,
+    "FP01_PathStraight_Ground_LOD1": 160,
+    "FP01_PathStraight_Ground_LOD2": 160
+  },
+  "leaves_laid": 210,
+  "reference": "art/references/FP01/ (AI three-view FP01/candidate-01; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "not yet: Unity check not run (project editor 6000.0.82f1 is not installed here)"
+}

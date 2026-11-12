@@ -1,0 +1,18 @@
+FI02 木線輪與麻線（工作包 §5：Ø0.28 × 0.12 m，練圓形中心和繞線）三視圖與自評（2026-11-09）
+選用：FI02-cand-1.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-05/C-48h-a3-creekside-life.md 第 11 節原文（正面、負面一字不改，含固定段 5.2、5.3），四張相同。評分：形體與尺寸比例 30／練習重點（圓形中心、繞線）30／提示詞細節（磨出的指凹、不整齊的線圈、換過的木栓）25／乾淨無字、三面同一地線同比例 15。
+- cand-1：92（28+28+24+12）。選用。兩側立柱夾一個繞滿麻線的圓筒，側面看得到線圈的圓；立柱外側有手指磨出的凹口；一端木栓顏色較新（換過的）；線圈不整齊、有幾道交叉。
+- cand-2：88（25+26+24+13）。扁平的 H 形線板，練「圓形中心」不明顯。
+- cand-3：91（27+28+23+13）。上方手把有指凹、圓木栓；多了一塊釘上的木片，換栓不明顯。
+- cand-4：90（27+27+23+13）。和 cand-1 相近，指凹在上橫木，換栓不明顯。
+
+建模取捨：照 cand-1。兩片立柱（外側指凹）、上下兩根橫木、中間一根圓軸穿過立柱，軸上繞麻線成圓筒（線圈用幾圈較粗的螺旋加不規則交叉的線表現）；一端軸頭較新。工作包尺寸 Ø0.28 × 0.12：整件側躺在地上，0.28 × 0.28 × 0.12 m 以內。
+第二版建模取捨（2026-11-09，#93 審查）：第一版為了配工作包 Ø0.28 × 0.12 把整件側躺，兩根立柱又是方木，看起來像木箱。改成照 cand-1 直立（0.28 寬 × 0.12 深 × 0.28 高）；立柱改用 5.6 cm 薄板切出 cand-1 正面的外形（弧形外緣、兩個指凹、外撇的腳），底橫木下緣挖拱，線軸前後露出；麻線再亂一點，一圈鬆開垂在前面，線頭打結後垂兩條線尾。三視圖沿用 cand-1，沒有重新生成。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a small wooden line spool with neatly wound hemp fishing line, about 0.28 m wide and 0.12 m deep, made of aged cedar and hemp line, showing worn finger notches, uneven line coils and a replaced wooden peg, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

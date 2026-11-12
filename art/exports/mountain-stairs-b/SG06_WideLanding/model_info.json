@@ -1,0 +1,277 @@
+{
+  "asset": "SG06_WideLanding",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "SG06_WideLanding_Detail_Small"
+  ],
+  "name_zh": "寬版轉折平台",
+  "slot": "B1_SectGateStairs",
+  "note": "寬版轉折平台（三視圖 SG06-cand-3）：7 × 7 m、高 0.8 m，走面水平在 z 0.8。鋪法照 SG02：外圍一圈 0.5 m 寬的收邊壓頂石，中間 6 × 6 m 的 1 m 大石板，接縫填土、長苔，中間十字被腳磨亮；正中一塊 2 × 2 m 的方心石，雲紋團花（四個雲頭繞中心、外一圈圓環、四角岔角卷雲）刻在石面以下，沒有東西高過走面。壓頂石下面一道勒腳、兩層牆石，四面正中各一塊雲紋浮雕石板。四角各一座圓鼓形燈座（直徑 0.86 m、高 0.3 m，兩圈鼓釘，和 SG02 蓮瓣燈座同大），頂面中心 Socket_Lantern_NE／NW／SW／SE 放現成石燈（G01 或 LT01）。四邊中點 Socket_Edge_S／N／E／W（z 0.8、朝外）：SG05 的 Socket_Top 對上就是上來的段；往上走的段立在與平台頂同高的地面上，Socket_Bottom 對上 Socket_Edge_*。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 183331,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 91664,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 27498,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "SG06_WideLanding_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "SG06_WideLanding_Metallic.png": [
+      2048,
+      2048
+    ],
+    "SG06_WideLanding_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "SG06_WideLanding_Normal.png": [
+      2048,
+      2048
+    ],
+    "SG06_WideLanding_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint at the bottom; the walking surface is level at z 0.8",
+  "dimensions_m": [
+    6.9992,
+    6.9989,
+    1.09
+  ],
+  "bounds_min_m": [
+    -3.4994,
+    -3.4991,
+    0.0
+  ],
+  "bounds_max_m": [
+    3.4998,
+    3.4998,
+    1.09
+  ],
+  "size_limit_m": [
+    7.0,
+    7.0,
+    0.8
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        6.9992,
+        6.9989,
+        1.09
+      ],
+      "min": [
+        -3.4994,
+        -3.4991,
+        0.0
+      ],
+      "max": [
+        3.4998,
+        3.4998,
+        1.09
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        6.978,
+        6.9791,
+        1.0332
+      ],
+      "min": [
+        -3.4902,
+        -3.4881,
+        0.003
+      ],
+      "max": [
+        3.4877,
+        3.491,
+        1.0362
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 169411,
+      "LOD1": 84704,
+      "LOD2": 25410
+    },
+    "Detail_Small": {
+      "LOD0": 13920,
+      "LOD1": 6960,
+      "LOD2": 2088
+    }
+  },
+  "lod_totals": {
+    "LOD0": 183331,
+    "LOD1": 91664,
+    "LOD2": 27498
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_SG06_WideLanding_Main"
+  ],
+  "textures": [
+    "SG06_WideLanding_BaseColor.png",
+    "SG06_WideLanding_Metallic.png",
+    "SG06_WideLanding_MetallicSmoothness.png",
+    "SG06_WideLanding_Normal.png",
+    "SG06_WideLanding_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "SG06_WideLanding_BaseColor.png",
+    "Normal": "SG06_WideLanding_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "SG06_WideLanding_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "SG06_WideLanding_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Lantern_NE": [
+      3.03,
+      3.03,
+      1.09
+    ],
+    "Socket_Lantern_NW": [
+      -3.03,
+      3.03,
+      1.09
+    ],
+    "Socket_Lantern_SW": [
+      -3.03,
+      -3.03,
+      1.09
+    ],
+    "Socket_Lantern_SE": [
+      3.03,
+      -3.03,
+      1.09
+    ],
+    "Socket_Edge_S": [
+      0.0,
+      -3.5,
+      0.8
+    ],
+    "Socket_Edge_N": [
+      0.0,
+      3.5,
+      0.8
+    ],
+    "Socket_Edge_E": [
+      3.5,
+      0.0,
+      0.8
+    ],
+    "Socket_Edge_W": [
+      -3.5,
+      0.0,
+      0.8
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Edge_E.001": [
+      3.5,
+      0.0,
+      0.8
+    ],
+    "Socket_Edge_N.001": [
+      0.0,
+      3.5,
+      0.8
+    ],
+    "Socket_Edge_S.001": [
+      0.0,
+      -3.5,
+      0.8
+    ],
+    "Socket_Edge_W.001": [
+      -3.5,
+      0.0,
+      0.8
+    ],
+    "Socket_Lantern_NE.001": [
+      3.03,
+      3.03,
+      1.09
+    ],
+    "Socket_Lantern_NW.001": [
+      -3.03,
+      3.03,
+      1.09
+    ],
+    "Socket_Lantern_SE.001": [
+      3.03,
+      -3.03,
+      1.09
+    ],
+    "Socket_Lantern_SW.001": [
+      -3.03,
+      -3.03,
+      1.09
+    ]
+  },
+  "fbx_objects": [
+    "SG06_WideLanding.001",
+    "SG06_WideLanding_Collision.001",
+    "SG06_WideLanding_Detail_Small_LOD0.001",
+    "SG06_WideLanding_Detail_Small_LOD1.001",
+    "SG06_WideLanding_Detail_Small_LOD2.001",
+    "SG06_WideLanding_LOD0.001",
+    "SG06_WideLanding_LOD1.001",
+    "SG06_WideLanding_LOD2.001",
+    "Socket_Edge_E.001",
+    "Socket_Edge_N.001",
+    "Socket_Edge_S.001",
+    "Socket_Edge_W.001",
+    "Socket_Lantern_NE.001",
+    "Socket_Lantern_NW.001",
+    "Socket_Lantern_SE.001",
+    "Socket_Lantern_SW.001"
+  ],
+  "glb": "SG06_WideLanding_v001.glb",
+  "interface": {
+    "top_z_m": 0.8,
+    "size_m": [
+      7,
+      7
+    ],
+    "heart_stone_m": 2.0,
+    "lantern_seats": 4,
+    "sockets": [
+      "Socket_Edge_E",
+      "Socket_Edge_N",
+      "Socket_Edge_S",
+      "Socket_Edge_W",
+      "Socket_Lantern_NE",
+      "Socket_Lantern_NW",
+      "Socket_Lantern_SE",
+      "Socket_Lantern_SW"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/mountain-stairs-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/SG06/ (AI three-view SG06/SG06-cand-3; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/mountain-stairs-unity/ (local Unity batch check, not committed)"
+}
