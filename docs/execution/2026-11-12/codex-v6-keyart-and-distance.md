@@ -87,3 +87,18 @@ KA05、KA06、KA08、KA09、KA10 在 `art/codex-1108-keyart` 上只有選定圖�
 
 A1（KA11 → KA12 → KA13）→ A2 → B（SK01–03 → CL01–03 → SK04–06 → MC-S → FA01）→ C（MM01–02 → MM03–06 → GR01、GR04 → VP04 → TX02 → LF01–03 → 全包檢查）。
 用量用完就停在那一項，報告寫到哪裡為止，下次接著做。
+
+## 8. D 部分：重做未達標的舊件（11/12 審查後追加，約 16 小時）
+
+11/11 起核心組（含你）的模型要和 Josh、Eli 看齊，比不上就重做（`docs/standards/core-modelling-bar-v1.md`，在 `game/core-1110-hud-redesign` 分支；重點：**直接用 Josh 的 `art/source/village-houses-b/cr_parts.py`、`vl_mats.py` 和 Eli 的 `art/source/creekside-life-c/build_wl.py` 烘焙清單**，不要自己再寫一套）。審查意見在各 PR 的留言。
+
+| 項目 | PR／分支 | 要改什麼 | 時數 |
+|---|---|---|---:|
+| FE01 木棧橋三段 | #108／`art/codex-1108-rice-and-ferry` | 木板有寬窄、翹曲、裂縫、釘痕，下緣濕黑長苔；樁有樹皮殘留和水痕；扶手改粗木欄或繩欄 | 5 |
+| FE02 擺渡船、FE03 渡口小棚 | 同上 | 船舷彎曲、補丁、竹編篷和舊布；小棚補生活痕跡 | 4 |
+| TX01 飛升榜 | #109／`art/codex-1108-tx01-ascension-board` | 不要青綠瓦；用 John MC01 的共用 Trim Sheet 和建模函式；石台加厚加磨損；榜面空白 | 3 |
+| C2 借住處外屋與室內 | #110／`art/codex-1108-c2-home-interior` | 外屋改用 VL 的材料（舊灰牆、舊木、黛瓦）；室內照 TI01–08 的材質水準；後門位置不變 | 4 |
+
+**這四件推回各自原本的分支**（不是 v6 分支），推完在報告寫明。RI01、RI02、MO01、SK 骨架、KA01–KA10 已通過，不用動。
+
+順序：做完 C 部分後做 D（FE01 → FE02、FE03 → TX01 → C2）。
