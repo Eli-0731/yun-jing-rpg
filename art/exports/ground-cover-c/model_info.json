@@ -1,0 +1,970 @@
+{
+ "GC01": {
+  "id": "GC01",
+  "name": "CreekPebbles",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/ground-cover-c/GC01_v001.fbx",
+   "glb": "art/exports/ground-cover-c/GC01_v001.glb",
+   "blend": "art/source/ground-cover-c/GC01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.658,
+   0.32,
+   0.26
+  ],
+  "body_dimensions_xyz_m": [
+   1.658,
+   0.32,
+   0.26
+  ],
+  "size_limit_xyz_m": [
+   1.8,
+   0.5,
+   0.4
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 6400,
+    "triangles_without_detail": 6400,
+    "objects": 5,
+    "objects_without_detail": 5,
+    "materials": 1,
+    "textures_px": {
+     "GC01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC01_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC01_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3200,
+    "triangles_without_detail": 3200,
+    "objects": 5,
+    "objects_without_detail": 5,
+    "materials": 1,
+    "textures_px": {
+     "GC01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC01_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC01_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 960,
+    "triangles_without_detail": 960,
+    "objects": 5,
+    "objects_without_detail": 5,
+    "materials": 1,
+    "textures_px": {
+     "GC01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC01_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC01_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "S1": [
+    "GC01_S1_LOD0",
+    "GC01_S1_LOD1",
+    "GC01_S1_LOD2"
+   ],
+   "S2": [
+    "GC01_S2_LOD0",
+    "GC01_S2_LOD1",
+    "GC01_S2_LOD2"
+   ],
+   "S3": [
+    "GC01_S3_LOD0",
+    "GC01_S3_LOD1",
+    "GC01_S3_LOD2"
+   ],
+   "S4": [
+    "GC01_S4_LOD0",
+    "GC01_S4_LOD1",
+    "GC01_S4_LOD2"
+   ],
+   "S5": [
+    "GC01_S5_LOD0",
+    "GC01_S5_LOD1",
+    "GC01_S5_LOD2"
+   ]
+  },
+  "material": "M_GC01_CreekPebbles",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 5,
+  "pieces": {
+   "S1": [
+    0.399,
+    0.32,
+    0.26
+   ],
+   "S2": [
+    0.316,
+    0.205,
+    0.14
+   ],
+   "S3": [
+    0.199,
+    0.17,
+    0.2
+   ],
+   "S4": [
+    0.212,
+    0.159,
+    0.1
+   ],
+   "S5": [
+    0.119,
+    0.109,
+    0.09
+   ]
+  },
+  "stone_files": {
+   "S1": "art/exports/ground-cover-c/GC01_S1_v001.fbx",
+   "S2": "art/exports/ground-cover-c/GC01_S2_v001.fbx",
+   "S3": "art/exports/ground-cover-c/GC01_S3_v001.fbx",
+   "S4": "art/exports/ground-cover-c/GC01_S4_v001.fbx",
+   "S5": "art/exports/ground-cover-c/GC01_S5_v001.fbx"
+  },
+  "coplanar_lifted": 0,
+  "reference": "art/references/GC01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "five creek stones laid out 0.1 m apart along X, each its own object GC01_S1–S5 with its origin at its bottom centre (take any one out and it stands on the ground)",
+   "water-rounded but not perfect: broad bumps and dents and one or two softly flat faces, the underside flatter; quartz veins, wet lower half, silt and an algae line are painted"
+  ]
+ },
+ "GC02": {
+  "id": "GC02",
+  "name": "PathRubble",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/ground-cover-c/GC02_v001.fbx",
+   "glb": "art/exports/ground-cover-c/GC02_v001.glb",
+   "blend": "art/source/ground-cover-c/GC02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.361,
+   0.255,
+   0.212
+  ],
+  "body_dimensions_xyz_m": [
+   1.361,
+   0.255,
+   0.212
+  ],
+  "size_limit_xyz_m": [
+   1.4,
+   0.4,
+   0.3
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2926,
+    "triangles_without_detail": 2926,
+    "objects": 5,
+    "objects_without_detail": 5,
+    "materials": 1,
+    "textures_px": {
+     "GC02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC02_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC02_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1460,
+    "triangles_without_detail": 1460,
+    "objects": 5,
+    "objects_without_detail": 5,
+    "materials": 1,
+    "textures_px": {
+     "GC02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC02_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC02_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 434,
+    "triangles_without_detail": 434,
+    "objects": 5,
+    "objects_without_detail": 5,
+    "materials": 1,
+    "textures_px": {
+     "GC02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC02_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC02_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "S1": [
+    "GC02_S1_LOD0",
+    "GC02_S1_LOD1",
+    "GC02_S1_LOD2"
+   ],
+   "S2": [
+    "GC02_S2_LOD0",
+    "GC02_S2_LOD1",
+    "GC02_S2_LOD2"
+   ],
+   "S3": [
+    "GC02_S3_LOD0",
+    "GC02_S3_LOD1",
+    "GC02_S3_LOD2"
+   ],
+   "S4": [
+    "GC02_S4_LOD0",
+    "GC02_S4_LOD1",
+    "GC02_S4_LOD2"
+   ],
+   "S5": [
+    "GC02_S5_LOD0",
+    "GC02_S5_LOD1",
+    "GC02_S5_LOD2"
+   ]
+  },
+  "material": "M_GC02_PathRubble",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 5,
+  "pieces": {
+   "S1": [
+    0.288,
+    0.255,
+    0.158
+   ],
+   "S2": [
+    0.217,
+    0.134,
+    0.141
+   ],
+   "S3": [
+    0.115,
+    0.092,
+    0.212
+   ],
+   "S4": [
+    0.207,
+    0.151,
+    0.071
+   ],
+   "S5": [
+    0.118,
+    0.099,
+    0.071
+   ]
+  },
+  "stone_files": {
+   "S1": "art/exports/ground-cover-c/GC02_S1_v001.fbx",
+   "S2": "art/exports/ground-cover-c/GC02_S2_v001.fbx",
+   "S3": "art/exports/ground-cover-c/GC02_S3_v001.fbx",
+   "S4": "art/exports/ground-cover-c/GC02_S4_v001.fbx",
+   "S5": "art/exports/ground-cover-c/GC02_S5_v001.fbx"
+  },
+  "coplanar_lifted": 0,
+  "reference": "art/references/GC02/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "five broken stones laid out 0.1 m apart along X, each its own object GC02_S1–S5 with its origin at its bottom centre",
+   "convex-hull break faces with a 4 mm bevel, the underside cut flat; the two biggest upward breaks painted as fresh pale breaks, dust, lichen and faint bedding painted"
+  ]
+ },
+ "GC03": {
+  "id": "GC03",
+  "name": "HalfBuriedFlatStones",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/ground-cover-c/GC03_v001.fbx",
+   "glb": "art/exports/ground-cover-c/GC03_v001.glb",
+   "blend": "art/source/ground-cover-c/GC03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.35,
+   0.535,
+   0.153
+  ],
+  "body_dimensions_xyz_m": [
+   2.35,
+   0.535,
+   0.153
+  ],
+  "size_limit_xyz_m": [
+   2.6,
+   0.75,
+   0.3
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 10012,
+    "triangles_without_detail": 10012,
+    "objects": 4,
+    "objects_without_detail": 4,
+    "materials": 1,
+    "textures_px": {
+     "GC03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC03_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC03_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 5004,
+    "triangles_without_detail": 5004,
+    "objects": 4,
+    "objects_without_detail": 4,
+    "materials": 1,
+    "textures_px": {
+     "GC03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC03_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC03_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1500,
+    "triangles_without_detail": 1500,
+    "objects": 4,
+    "objects_without_detail": 4,
+    "materials": 1,
+    "textures_px": {
+     "GC03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC03_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC03_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "S1": [
+    "GC03_S1_LOD0",
+    "GC03_S1_LOD1",
+    "GC03_S1_LOD2"
+   ],
+   "S2": [
+    "GC03_S2_LOD0",
+    "GC03_S2_LOD1",
+    "GC03_S2_LOD2"
+   ],
+   "S3": [
+    "GC03_S3_LOD0",
+    "GC03_S3_LOD1",
+    "GC03_S3_LOD2"
+   ],
+   "S4": [
+    "GC03_S4_LOD0",
+    "GC03_S4_LOD1",
+    "GC03_S4_LOD2"
+   ]
+  },
+  "material": "M_GC03_HalfBuriedFlatStones",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 246,
+  "pieces": {
+   "S1": [
+    0.68,
+    0.514,
+    0.152
+   ],
+   "S2": [
+    0.531,
+    0.491,
+    0.122
+   ],
+   "S3": [
+    0.458,
+    0.42,
+    0.107
+   ],
+   "S4": [
+    0.42,
+    0.354,
+    0.092
+   ]
+  },
+  "stone_files": {
+   "S1": "art/exports/ground-cover-c/GC03_S1_v001.fbx",
+   "S2": "art/exports/ground-cover-c/GC03_S2_v001.fbx",
+   "S3": "art/exports/ground-cover-c/GC03_S3_v001.fbx",
+   "S4": "art/exports/ground-cover-c/GC03_S4_v001.fbx"
+  },
+  "coplanar_lifted": 0,
+  "reference": "art/references/GC03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "four half-buried flat stones 0.3–0.58 m laid out apart, each with its earth ring and short grass as one object GC03_S1–S4, origin at its bottom centre",
+   "only the top of each stone is modelled (the part above ground, bottom flat at z = 0): place them straight on the ground; cracks, moss and the earth line are painted"
+  ]
+ },
+ "GC04": {
+  "id": "GC04",
+  "name": "WildMushroomCluster",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/ground-cover-c/GC04_v001.fbx",
+   "glb": "art/exports/ground-cover-c/GC04_v001.glb",
+   "blend": "art/source/ground-cover-c/GC04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.286,
+   0.277,
+   0.124
+  ],
+  "body_dimensions_xyz_m": [
+   0.286,
+   0.273,
+   0.124
+  ],
+  "size_limit_xyz_m": [
+   0.3,
+   0.3,
+   0.15
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Leaves"
+  ],
+  "detailMeshes": [
+   "GC04_Detail_Leaves_LOD0",
+   "GC04_Detail_Leaves_LOD1",
+   "GC04_Detail_Leaves_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 10150,
+    "triangles_without_detail": 8990,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "GC04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC04_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC04_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 5074,
+    "triangles_without_detail": 4494,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "GC04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC04_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC04_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1522,
+    "triangles_without_detail": 1348,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "GC04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC04_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC04_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "GC04_Body_LOD0",
+    "GC04_Body_LOD1",
+    "GC04_Body_LOD2"
+   ],
+   "Detail_Leaves": [
+    "GC04_Detail_Leaves_LOD0",
+    "GC04_Detail_Leaves_LOD1",
+    "GC04_Detail_Leaves_LOD2"
+   ]
+  },
+  "material": "M_GC04_WildMushroomCluster",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 28,
+  "pieces": {
+   "Body": [
+    0.286,
+    0.273,
+    0.124
+   ]
+  },
+  "stone_files": {},
+  "coplanar_lifted": 0,
+  "reference": "art/references/GC04/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "seven ordinary non-glowing mushrooms 1.2–12.5 cm high on a low earth patch; two caps with a piece broken out of the rim",
+   "cap: a lathe shell with the gill plane under it (gills painted as radial lines), stem bent a little, thicker and dirty at the foot",
+   "Detail_Leaves: thirteen fallen leaves lying on the earth"
+  ]
+ },
+ "GC05": {
+  "id": "GC05",
+  "name": "BracketFungusLog",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/ground-cover-c/GC05_v001.fbx",
+   "glb": "art/exports/ground-cover-c/GC05_v001.glb",
+   "blend": "art/source/ground-cover-c/GC05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.4,
+   0.181,
+   0.237
+  ],
+  "body_dimensions_xyz_m": [
+   0.4,
+   0.181,
+   0.197
+  ],
+  "size_limit_xyz_m": [
+   0.4,
+   0.2,
+   0.3
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Plants"
+  ],
+  "detailMeshes": [
+   "GC05_Detail_Plants_LOD0",
+   "GC05_Detail_Plants_LOD1",
+   "GC05_Detail_Plants_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 4492,
+    "triangles_without_detail": 4092,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "GC05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC05_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC05_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 2246,
+    "triangles_without_detail": 2046,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "GC05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC05_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC05_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 673,
+    "triangles_without_detail": 613,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "GC05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC05_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC05_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "GC05_Body_LOD0",
+    "GC05_Body_LOD1",
+    "GC05_Body_LOD2"
+   ],
+   "Detail_Plants": [
+    "GC05_Detail_Plants_LOD0",
+    "GC05_Detail_Plants_LOD1",
+    "GC05_Detail_Plants_LOD2"
+   ]
+  },
+  "material": "M_GC05_BracketFungusLog",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 37,
+  "pieces": {
+   "Body": [
+    0.4,
+    0.181,
+    0.197
+   ]
+  },
+  "stone_files": {},
+  "coplanar_lifted": 0,
+  "reference": "art/references/GC05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a fallen-log section 0.38 m long, taller than deep (the 0.2 m depth limit), ragged hollowed rotten ends, moss over the top (Detail_Plants: small plants in it)",
+   "two clusters of half-round bracket fungi stacked on the front, each shelf thick at the bark and thin at the rim, its back edge inside the bark; concentric bands painted"
+  ]
+ },
+ "GC06": {
+  "id": "GC06",
+  "name": "RockfallPile",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/ground-cover-c/GC06_v001.fbx",
+   "glb": "art/exports/ground-cover-c/GC06_v001.glb",
+   "blend": "art/source/ground-cover-c/GC06_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.148,
+   0.942,
+   0.478
+  ],
+  "body_dimensions_xyz_m": [
+   1.148,
+   0.92,
+   0.478
+  ],
+  "size_limit_xyz_m": [
+   1.2,
+   1.0,
+   0.6
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Grass",
+   "Detail_Gravel"
+  ],
+  "detailMeshes": [
+   "GC06_Detail_Grass_LOD0",
+   "GC06_Detail_Grass_LOD1",
+   "GC06_Detail_Grass_LOD2",
+   "GC06_Detail_Gravel_LOD0",
+   "GC06_Detail_Gravel_LOD1",
+   "GC06_Detail_Gravel_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 14242,
+    "triangles_without_detail": 13064,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "GC06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC06_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC06_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 7120,
+    "triangles_without_detail": 6532,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "GC06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC06_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC06_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 2134,
+    "triangles_without_detail": 1958,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "GC06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC06_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC06_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "GC06_Body_LOD0",
+    "GC06_Body_LOD1",
+    "GC06_Body_LOD2"
+   ],
+   "Detail_Grass": [
+    "GC06_Detail_Grass_LOD0",
+    "GC06_Detail_Grass_LOD1",
+    "GC06_Detail_Grass_LOD2"
+   ],
+   "Detail_Gravel": [
+    "GC06_Detail_Gravel_LOD0",
+    "GC06_Detail_Gravel_LOD1",
+    "GC06_Detail_Gravel_LOD2"
+   ]
+  },
+  "material": "M_GC06_RockfallPile",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 100,
+  "pieces": {
+   "Body": [
+    1.148,
+    0.92,
+    0.478
+   ]
+  },
+  "stone_files": {},
+  "coplanar_lifted": 0,
+  "reference": "art/references/GC06/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "box: body_dimensions centred on the footprint (or a convex hull); the pile stands in the way, so standard tier",
+  "notes": [
+   "24 rocks (20 angular, 4 rounded), big ones first; each lowered until it rests on the ground or on a stone already placed (rays down from its vertices and up from the stones under it): none passes into another, none hangs",
+   "a low earth spread under the pile; Detail_Gravel: 60 small chips dropped the same way; Detail_Grass: grass between the lower stones; fresh pale breaks on the top stones painted"
+  ]
+ }
+}

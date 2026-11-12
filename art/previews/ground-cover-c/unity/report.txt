@@ -1,0 +1,92 @@
+Unity 6000.3.28f1, pipeline URP
+PASS GC01: Albedo / MaskURP / Normal textures found
+PASS GC01: textures 1024x1024 (small prop: 1024 or less)
+PASS GC01: GC01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS GC01: imported size 1.658 x 0.320 x 0.260 m matches model_info 1.658 x 0.32 x 0.26 within 2 cm
+PASS GC01: within the work pack's limit 1.8 x 0.5 x 0.4 m
+PASS GC01: base at y = 0.000 (origin on the ground)
+PASS GC01: triangles LOD0/1/2 = 6400 / 3200 / 960 (50% / 15%), model_info 6400 / 3200 / 960
+PASS GC01: objects per LOD 5 / 5 / 5 (model_info 5 / 5 / 5)
+PASS GC01: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS GC01: 1 LODGroup(s) with 3 levels covering all 5 LOD0 renderers
+PASS GC01: minTier = high (quality tiers §4: ground clutter high; the rock pile stands in the way, standard)
+PASS GC01: no detailObjects, and no Detail_ mesh in the model
+PASS GC01: Detail_* off still shows the body (5 of 5 body mesh(es) per LOD)
+PASS GC01: 5 stones, each its own object with its origin at its bottom centre
+PASS GC01: GC01_S1…S5_v001.fbx each hold one stone (LOD0/1/2), standing on the ground at the origin: to place it alone
+PASS GC01: no collider in the model (GC06: the box is the scene's, from body_dimensions)
+PASS GC02: Albedo / MaskURP / Normal textures found
+PASS GC02: textures 1024x1024 (small prop: 1024 or less)
+PASS GC02: GC02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS GC02: imported size 1.361 x 0.255 x 0.212 m matches model_info 1.361 x 0.255 x 0.212 within 2 cm
+PASS GC02: within the work pack's limit 1.4 x 0.4 x 0.3 m
+PASS GC02: base at y = 0.000 (origin on the ground)
+PASS GC02: triangles LOD0/1/2 = 2926 / 1460 / 434 (50% / 15%), model_info 2926 / 1460 / 434
+PASS GC02: objects per LOD 5 / 5 / 5 (model_info 5 / 5 / 5)
+PASS GC02: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS GC02: 1 LODGroup(s) with 3 levels covering all 5 LOD0 renderers
+PASS GC02: minTier = high (quality tiers §4: ground clutter high; the rock pile stands in the way, standard)
+PASS GC02: no detailObjects, and no Detail_ mesh in the model
+PASS GC02: Detail_* off still shows the body (5 of 5 body mesh(es) per LOD)
+PASS GC02: 5 stones, each its own object with its origin at its bottom centre
+PASS GC02: GC02_S1…S5_v001.fbx each hold one stone (LOD0/1/2), standing on the ground at the origin: to place it alone
+PASS GC02: no collider in the model (GC06: the box is the scene's, from body_dimensions)
+PASS GC03: Albedo / MaskURP / Normal textures found
+PASS GC03: textures 1024x1024 (small prop: 1024 or less)
+PASS GC03: GC03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS GC03: imported size 2.350 x 0.535 x 0.153 m matches model_info 2.35 x 0.535 x 0.153 within 2 cm
+PASS GC03: within the work pack's limit 2.6 x 0.75 x 0.3 m
+PASS GC03: base at y = 0.000 (origin on the ground)
+PASS GC03: triangles LOD0/1/2 = 10012 / 5004 / 1500 (50% / 15%), model_info 10012 / 5004 / 1500
+PASS GC03: objects per LOD 4 / 4 / 4 (model_info 4 / 4 / 4)
+PASS GC03: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS GC03: 1 LODGroup(s) with 3 levels covering all 4 LOD0 renderers
+PASS GC03: minTier = high (quality tiers §4: ground clutter high; the rock pile stands in the way, standard)
+PASS GC03: no detailObjects, and no Detail_ mesh in the model
+PASS GC03: Detail_* off still shows the body (4 of 4 body mesh(es) per LOD)
+PASS GC03: 4 stones, each its own object with its origin at its bottom centre
+PASS GC03: GC03_S1…S4_v001.fbx each hold one stone (LOD0/1/2), standing on the ground at the origin: to place it alone
+PASS GC03: no collider in the model (GC06: the box is the scene's, from body_dimensions)
+PASS GC04: Albedo / MaskURP / Normal textures found
+PASS GC04: textures 1024x1024 (small prop: 1024 or less)
+PASS GC04: GC04_GroundOrigin is the model root; all LOD meshes hang under it
+PASS GC04: imported size 0.286 x 0.277 x 0.124 m matches model_info 0.286 x 0.277 x 0.124 within 2 cm
+PASS GC04: within the work pack's limit 0.3 x 0.3 x 0.15 m
+PASS GC04: base at y = 0.000 (origin on the ground)
+PASS GC04: triangles LOD0/1/2 = 10150 / 5074 / 1522 (50% / 15%), model_info 10150 / 5074 / 1522
+PASS GC04: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS GC04: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS GC04: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS GC04: minTier = high (quality tiers §4: ground clutter high; the rock pile stands in the way, standard)
+PASS GC04: detailObjects Detail_Leaves → 3 meshes present
+PASS GC04: Detail_* off still shows the body (1 of 1 body mesh(es) per LOD)
+PASS GC04: no collider in the model (GC06: the box is the scene's, from body_dimensions)
+PASS GC05: Albedo / MaskURP / Normal textures found
+PASS GC05: textures 1024x1024 (small prop: 1024 or less)
+PASS GC05: GC05_GroundOrigin is the model root; all LOD meshes hang under it
+PASS GC05: imported size 0.400 x 0.181 x 0.237 m matches model_info 0.4 x 0.181 x 0.237 within 2 cm
+PASS GC05: within the work pack's limit 0.4 x 0.2 x 0.3 m
+PASS GC05: base at y = 0.000 (origin on the ground)
+PASS GC05: triangles LOD0/1/2 = 4492 / 2246 / 673 (50% / 15%), model_info 4492 / 2246 / 673
+PASS GC05: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS GC05: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS GC05: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS GC05: minTier = high (quality tiers §4: ground clutter high; the rock pile stands in the way, standard)
+PASS GC05: detailObjects Detail_Plants → 3 meshes present
+PASS GC05: Detail_* off still shows the body (1 of 1 body mesh(es) per LOD)
+PASS GC05: no collider in the model (GC06: the box is the scene's, from body_dimensions)
+PASS GC06: Albedo / MaskURP / Normal textures found
+PASS GC06: textures 1024x1024 (small prop: 1024 or less)
+PASS GC06: GC06_GroundOrigin is the model root; all LOD meshes hang under it
+PASS GC06: imported size 1.148 x 0.942 x 0.478 m matches model_info 1.148 x 0.942 x 0.478 within 2 cm
+PASS GC06: within the work pack's limit 1.2 x 1 x 0.6 m
+PASS GC06: base at y = 0.000 (origin on the ground)
+PASS GC06: triangles LOD0/1/2 = 14242 / 7120 / 2134 (50% / 15%), model_info 14242 / 7120 / 2134
+PASS GC06: objects per LOD 3 / 3 / 3 (model_info 3 / 3 / 3)
+PASS GC06: 1 material for every LOD and Detail_ mesh (small prop: one material)
+PASS GC06: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS GC06: minTier = standard (quality tiers §4: ground clutter high; the rock pile stands in the way, standard)
+PASS GC06: detailObjects Detail_Grass, Detail_Gravel → 6 meshes present
+PASS GC06: Detail_* off still shows the body (1 of 1 body mesh(es) per LOD)
+PASS GC06: no collider in the model (GC06: the box is the scene's, from body_dimensions)
+INFO renders written to art/previews/ground-cover-c/unity

@@ -98,9 +98,9 @@ def _shard(name,size,seed,mat,grp,npts=30,bev=.004,flat=.12,scale=.25,ripple=1.)
     bmesh.ops.dissolve_degenerate(bm,edges=bm.edges[:],dist=.0006*max(1.,L_/.1));bmesh.ops.recalc_face_normals(bm,faces=bm.faces)   # slivers from the cut gave a zero-area UV face
     for f in bm.faces:f.smooth=False
     o=finish(name,bm,mat,grp,scale)
-    if bev:bevel(o,min(bev,.025*min(size)),2,angle=25)   # a 4 mm bevel folded over itself on the small stones
+    if bev and min(size)>=.1:bevel(o,min(bev,.025*min(size)),2,angle=25)   # a bevel folded over itself on the thin stones (under 10 cm): they keep sharp edges
     b2=bmesh.new();b2.from_mesh(o.data);bmesh.ops.dissolve_degenerate(b2,edges=b2.edges[:],dist=.0004)   # bevel corners where many break edges meet left needle faces (zero-area UV)
-    bmesh.ops.delete(b2,geom=[f for f in b2.faces if f.calc_area()<2e-8],context='FACES');b2.to_mesh(o.data);b2.free()
+    bmesh.ops.delete(b2,geom=[f for f in b2.faces if f.calc_area()<2e-8],context='FACES');bmesh.ops.delete(b2,geom=[v for v in b2.verts if not v.link_faces],context='VERTS');b2.to_mesh(o.data);b2.free()
     return o,br
 
 # ---------------- GC02 five separate angular broken path stones (cand-3) ----------------

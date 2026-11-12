@@ -110,12 +110,12 @@ def make_sources():
     # GC sources (own seeds after all the LV ones)
     K.rng=np.random.default_rng(3401)   # GC01: water-rounded creek stone, warm grey and blue-grey, soft large mottling, a fine grain
     mo=np.clip(.5+.8*(fbm(3,3)-.5),0,1);gr=fbm(60,2)
-    S['river']=(lerp((.38,.37,.35),(.60,.58,.54),np.clip(mo+.12*(gr-.5),0,1)),.25*gr+.2*fbm(8,2),.7,.72,0,0)
-    S['river_b']=(lerp((.33,.36,.40),(.52,.56,.60),np.clip(mo+.12*(gr-.5),0,1)),.25*gr+.2*fbm(8,2),.7,.70,0,0)
+    S['river']=(lerp((.29,.28,.27),(.48,.46,.43),np.clip(mo+.12*(gr-.5),0,1)),.25*gr+.2*fbm(8,2),.7,.72,0,0)
+    S['river_b']=(lerp((.25,.28,.32),(.41,.45,.49),np.clip(mo+.12*(gr-.5),0,1)),.25*gr+.2*fbm(8,2),.7,.70,0,0)
     K.rng=np.random.default_rng(3402)   # GC02 / GC06: angular broken rock, warm grey, grainy, a few darker mineral flecks
     gk=np.clip((fbm(90,2)-.6)*4,0,1);rk=np.clip(.5+.8*(fbm(4,4)-.5)+.25*(fbm(25,2)-.5),0,1)
     S['rock']=(lerp((.33,.31,.29),(.54,.51,.47),rk)*(1-.12*gk[...,None]),.5*fbm(40,3)+.2*gk,1.4,.86,0,0)
-    S['field']=(lerp((.42,.39,.34),(.60,.56,.49),np.clip(.5+.7*(fbm(5,3)-.5),0,1))*(1-.10*gk[...,None]),.4*fbm(30,3),1.1,.84,0,0)   # GC03 weathered fieldstone, a touch browner
+    S['field']=(lerp((.33,.30,.26),(.49,.45,.39),np.clip(.5+.7*(fbm(5,3)-.5),0,1))*(1-.10*gk[...,None]),.4*fbm(30,3),1.1,.84,0,0)   # GC03 weathered fieldstone, a touch browner
     K.rng=np.random.default_rng(3403)   # ground: dark earth with grit, short grass, moss
     S['soil']=(lerp((.17,.13,.09),(.33,.26,.18),np.clip(.5+.8*(fbm(6,3)-.5)+.25*(fbm(70,2)-.5),0,1)),.5*fbm(50,2)+.3*fbm(12,2),1.2,.93,0,0)
     S['grass']=(lerp((.17,.27,.08),(.42,.52,.18),np.clip(.5+.8*(fbm(4,3,aniso=6)-.5),0,1)),.3*fbm(40,2,aniso=10),.6,.8,0,0)
@@ -292,13 +292,13 @@ def run(pid):
     pieces={g:[i] for i,g in enumerate(groups) if not g.startswith('Detail_')} if sep else {'Body':[i for i,g in enumerate(groups) if not g.startswith('Detail_')]}
     for i,g in enumerate(groups):
         if g.startswith('Detail_'):pieces[g]=[i]
-    root=bpy.data.objects.new(f'{pid}_GroundOrigin',None);sc.collection.objects.link(root);lods={}
+    root=bpy.data.objects.new(f'{pid}_GroundOrigin',None);sc.collection.objects.link(root);lods={};pivots=[]
     for name,ids in pieces.items():
         d=A.copy();d.data=A.data.copy();sc.collection.objects.link(d);d.name=d.data.name=f'{pid}_{name}_LOD0'
         bm=bmesh.new();bm.from_mesh(d.data);la=bm.faces.layers.int['gid']
-        bmesh.ops.delete(bm,geom=[f for f in bm.faces if f[la] not in ids],context='FACES');bm.to_mesh(d.data);bm.free()
+        bmesh.ops.delete(bm,geom=[f for f in bm.faces if f[la] not in ids],context='FACES');bmesh.ops.delete(bm,geom=[v for v in bm.verts if not v.link_faces],context='VERTS');bm.to_mesh(d.data);bm.free()   # loose vertices (left by the rock clean-up) would ride along into every piece
         d.parent=root;grp=[d]
-        if sep and not name.startswith('Detail_'):   # the stone's own origin: its bottom centre, so it stands on the ground when taken out alone
+        if sep and not name.startswith('Detail_'):   # the stone's own origin at its bottom centre (an empty pivot between it and the root came out turned 90° in Unity's FBX import)
             co=np.array([v.co[:] for v in d.data.vertices]);c=Vector(((co[:,0].min()+co[:,0].max())/2,(co[:,1].min()+co[:,1].max())/2,co[:,2].min()))
             d.data.transform(Matrix.Translation(-c));d.location=c
         for L,ratio in ((1,.5),(2,.15)):
@@ -341,10 +341,20 @@ def run(pid):
         q=np.array([v.co[:] for v in lods[n][0].data.vertices]);piece_dims[n]=[round(float(x),3) for x in q.max(0)-q.min(0)]
     stem=f'{pid}_{VERSION}'
     bpy.ops.wm.save_as_mainfile(filepath=str(HERE/f'{stem}.blend'),compress=True)
-    sel(root,*[g[0] for g in lods.values()]);bpy.ops.export_scene.gltf(filepath=str(OUT/f'{stem}.glb'),use_selection=True,export_format='GLB',export_apply=True)
-    sel(root,*[d for g in lods.values() for d in g]);bpy.ops.export_scene.fbx(filepath=str(OUT/f'{stem}.fbx'),use_selection=True,object_types={'MESH','EMPTY'},global_scale=1.0,apply_unit_scale=True,
+    bpy.context.view_layer.update();sel(root,*pivots,*[g[0] for g in lods.values()]);bpy.ops.export_scene.gltf(filepath=str(OUT/f'{stem}.glb'),use_selection=True,export_format='GLB',export_apply=True)
+    sel(root,*pivots,*[d for g in lods.values() for d in g]);bpy.ops.export_scene.fbx(filepath=str(OUT/f'{stem}.fbx'),use_selection=True,object_types={'MESH','EMPTY'},global_scale=1.0,apply_unit_scale=True,
         apply_scale_options='FBX_SCALE_ALL',bake_space_transform=True,axis_forward='-Z',axis_up='Y',use_mesh_modifiers=True,mesh_smooth_type='FACE',
         use_tspace=True,add_leaf_bones=False,bake_anim=False,path_mode='RELATIVE',embed_textures=False)
+    stone_files={}
+    for n in ([k for k in lods if not k.startswith('Detail_')] if sep else []):   # each stone also as its own FBX, origin at its bottom centre: take it out and place it alone
+        keep=[(o,o.parent,o.location.copy()) for o in lods[n]]
+        for o in lods[n]:o.parent=None;o.location=(0,0,0)
+        bpy.context.view_layer.update();sel(*lods[n]);fn=f'{pid}_{n}_{VERSION}.fbx'
+        bpy.ops.export_scene.fbx(filepath=str(OUT/fn),use_selection=True,object_types={'MESH'},global_scale=1.0,apply_unit_scale=True,apply_scale_options='FBX_SCALE_ALL',bake_space_transform=True,
+            axis_forward='-Z',axis_up='Y',use_mesh_modifiers=True,mesh_smooth_type='FACE',use_tspace=True,add_leaf_bones=False,bake_anim=False,path_mode='RELATIVE',embed_textures=False)
+        for o,pa,lo in keep:o.parent=pa;o.location=lo
+        stone_files[n]=f'art/exports/{PKG}/{fn}'
+    bpy.context.view_layer.update()
     tri=lambda o:sum(len(p.vertices)-2 for p in o.data.polygons)
     detail=[g for g in pieces if g.startswith('Detail_')]
     texinfo={f'{pid}_{k}.png':[RES,RES] for k in ('Albedo','Normal','ORM','MaskURP')}
@@ -358,7 +368,7 @@ def run(pid):
           'minTier':MIN_TIER[pid],'detailObjects':detail,'detailMeshes':[f'{pid}_{g}_LOD{L}' for g in detail for L in range(3)],
           'lods':per_lod,'objects':{n:[d.name for d in g] for n,g in lods.items()},'material':fm.name,
           'textures':'one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)',
-          'source_parts':len(srcparts),'pieces':piece_dims,'coplanar_lifted':meta['coplanar_lifted'],
+          'source_parts':len(srcparts),'pieces':piece_dims,'stone_files':stone_files,'coplanar_lifted':meta['coplanar_lifted'],
           'reference':f'art/references/{pid}/prompt.txt','origin':'footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)',
           'collision':meta.get('collision','none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one')}
     if 'notes' in meta:info['notes']=meta['notes']
