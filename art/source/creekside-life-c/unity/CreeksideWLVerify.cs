@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 namespace YunJing.Editor
 {
-    // Unity check of C's creekside washing props WL01–WL05 (art/exports/creekside-life-c, Eli-0731), after the modelling-basics-c
+    // Unity check of C's creekside props: washing WL01–WL05 and fishing FI01–FI05 (art/exports/creekside-life-c, Eli-0731), after the modelling-basics-c
     // check (QingxiBasicsVerify). It does not change apps/game: run_unity_check.sh copies this file in for one batch run and removes it.
     // Imports the delivered FBX and textures, builds one URP Lit per item, compares with model_info.json (size within 2 cm, the work
     // pack's size limit, triangles per LOD, objects, one material, 1024 textures, minTier, detailObjects), switches Detail_* off the
@@ -20,8 +20,9 @@ namespace YunJing.Editor
     {
         const string Models = "Assets/YunJing/Models/CreeksideC";   // temporary copy of art/exports, removed by the run script
         const string Version = "v001";
-        static readonly string[] Ids = { "WL01", "WL02", "WL03", "WL04", "WL05" };
-        static readonly HashSet<string> Cloth = new HashSet<string> { "WL03", "WL04" };
+        static readonly string[] Ids = { "WL01", "WL02", "WL03", "WL04", "WL05", "FI01", "FI02", "FI03", "FI04", "FI05" };
+        static readonly HashSet<string> Cloth = new HashSet<string> { "WL03", "WL04", "FI03" };   // cloth and the net: both faces
+        static readonly HashSet<string> Cutout = new HashSet<string> { "FI03" };   // #93 review round: FI03's LOD2 card bag carries the net in the albedo alpha
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
         static string Out => Path.Combine(Repo, "art/previews/creekside-life-c/unity");
         static readonly List<string> Report = new List<string>();
@@ -87,8 +88,10 @@ namespace YunJing.Editor
                 var ti = (TextureImporter)AssetImporter.GetAtPath(path);
                 bool normal = path.EndsWith("_Normal.png"), linear = normal || path.EndsWith("_MaskURP.png") || path.EndsWith("_ORM.png");
                 var type = normal ? TextureImporterType.NormalMap : TextureImporterType.Default;
-                if (ti.textureType == type && ti.sRGBTexture == !linear) continue;
+                bool cut = Cutout.Any(c => path.EndsWith($"/{c}_Albedo.png"));   // alpha-tested net: keep its coverage in the smaller mips, or the far card goes bare
+                if (ti.textureType == type && ti.sRGBTexture == !linear && ti.mipMapsPreserveCoverage == cut) continue;
                 ti.textureType = type; ti.sRGBTexture = !linear; ti.mipmapEnabled = true;
+                ti.mipMapsPreserveCoverage = cut; if (cut) { ti.alphaTestReferenceValue = .5f; ti.alphaSource = TextureImporterAlphaSource.FromInput; }
                 ti.SaveAndReimport();
             }
         }
@@ -125,6 +128,7 @@ namespace YunJing.Editor
             mat.SetTexture("_MetallicGlossMap", mask); mat.EnableKeyword("_METALLICSPECGLOSSMAP"); mat.SetFloat("_Smoothness", 1);
             mat.SetTexture("_OcclusionMap", mask); mat.EnableKeyword("_OCCLUSIONMAP");
             if (Cloth.Contains(id)) mat.SetFloat("_Cull", (float)CullMode.Off);
+            if (Cutout.Contains(id)) { mat.SetFloat("_AlphaClip", 1); mat.SetFloat("_Cutoff", .5f); mat.EnableKeyword("_ALPHATEST_ON"); mat.SetOverrideTag("RenderType", "TransparentCutout"); mat.renderQueue = (int)RenderQueue.AlphaTest; }
             EditorUtility.SetDirty(mat); Mats[id] = mat;
             return mat;
         }
@@ -188,6 +192,12 @@ namespace YunJing.Editor
             Detail(go, true);
             Check(go.GetComponentsInChildren<Collider>(true).Length == 0, $"{id}: no collider (minTier high: hidden on the standard tier, so it must not block the way there)");
             if (Cloth.Contains(id)) Check(Mats[id].GetFloat("_Cull") == (float)CullMode.Off, $"{id}: cloth material renders both faces (Cull Off)");
+            if (Cutout.Contains(id))
+            {
+                var ti = (TextureImporter)AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(Tex(id, "Albedo")));
+                Check(Mats[id].GetFloat("_AlphaClip") == 1 && Mats[id].IsKeywordEnabled("_ALPHATEST_ON") && ti.DoesSourceTextureHaveAlpha() && ti.mipMapsPreserveCoverage,
+                    $"{id}: alpha clip 0.5 on, albedo has alpha, mip coverage kept (LOD2 card bag shows the net)");
+            }
             UnityEngine.Object.DestroyImmediate(go);
         }
 
@@ -232,6 +242,15 @@ namespace YunJing.Editor
             Frame("WL-set-front", sa, front, 1.05f); Frame("WL-set-threequarter", sa, tq, 1.05f); UnityEngine.Object.DestroyImmediate(r2);
             Frame("WL-set-close", sb, tq, 1.0f);
             foreach (var g in set) UnityEngine.Object.DestroyImmediate(g);
+            // the five fishing props laid out together on the bank
+            var fi = new[] { Place("FI01", MatName["FI01"], new Vector3(0, 0, .55f), 0), Place("FI03", MatName["FI03"], new Vector3(-.2f, 0, -.1f), 8),
+                             Place("FI04", MatName["FI04"], new Vector3(.95f, 0, -.35f), -20), Place("FI02", MatName["FI02"], new Vector3(-.95f, 0, -.45f), 15),
+                             Place("FI05", MatName["FI05"], new Vector3(.2f, 0, -.6f), -5) };
+            var fb = Box(fi.SelectMany(g => Level(g, 0)));
+            var r3 = Ruler(new Vector3(fb.max.x + .45f, 0, 0)); var fa = fb; fa.Encapsulate(r3.GetComponent<Renderer>().bounds);
+            Frame("FI-set-front", fa, front, 1.05f); Frame("FI-set-threequarter", fa, tq, 1.05f); UnityEngine.Object.DestroyImmediate(r3);
+            Frame("FI-set-close", fb, tq, 1.0f);
+            foreach (var g in fi) UnityEngine.Object.DestroyImmediate(g);
             Report.Add("INFO renders written to art/previews/creekside-life-c/unity");
         }
 

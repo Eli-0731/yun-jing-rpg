@@ -1,0 +1,78 @@
+{
+ "id": "TX04-PAVE",
+ "package": "docs/execution/2026-11-05/A-48h-mountain-city-architecture.md",
+ "author": "A (Johnnnny0823)",
+ "version": "v003",
+ "status": "Exported; Imported (Unity 6000.0.82f1 check: art/previews/tx04-branch-court/unity/report.txt); In-game Verified: 未驗",
+ "dimensions_m": [
+  3.99,
+  3.99,
+  0.129
+ ],
+ "limit_m": [
+  4.0,
+  4.0,
+  0.2
+ ],
+ "grid_m": 4.0,
+ "origin": "footprint centre, bottom z = 0, -Y = front",
+ "minTier": "low",
+ "lods": [
+  {
+   "lod": 0,
+   "triangles": 4056,
+   "objects": 1,
+   "materials": 1
+  },
+  {
+   "lod": 1,
+   "triangles": 2028,
+   "objects": 1,
+   "materials": 1
+  },
+  {
+   "lod": 2,
+   "triangles": 608,
+   "objects": 1,
+   "materials": 1
+  }
+ ],
+ "objectsLOD0": [
+  "TX04_PAVE_LOD0"
+ ],
+ "detailObjects": [],
+ "glowObjects": [],
+ "materials": [
+  "M_MountainStreet_Trim"
+ ],
+ "textures": {
+  "T_MountainStreet_Albedo": "2048x2048",
+  "T_MountainStreet_Normal": "2048x2048",
+  "T_MountainStreet_MetallicSmoothness": "2048x2048",
+  "T_MountainStreet_Emission": "2048x2048",
+  "T_TX04_Wall_Albedo": "1024x1024",
+  "T_TX04_Wall_Normal": "1024x1024"
+ },
+ "materialNotes": {
+  "M_TX04_Roof": "same textures as M_MountainStreet_Trim, normal map strength 0.5 (Unity: _BumpScale 0.5)",
+  "M_TX04_Wall": "T_TX04_Wall_Albedo / _Normal, normal strength 0.6, smoothness 0.08",
+  "M_TX04_Accent": "trim Albedo x AccentColor (Unity: _BaseColor), trim Normal, smoothness 0.45"
+ },
+ "textureNote": "shared MC01 trim sheet (art/textures/mountain-street-houses-a); the accent material reuses Albedo/Normal; M_TX04_Wall uses the TX04 plaster tile (art/textures/tx04-branch-court, 4 x 4 m per tile, tiles along U)",
+ "accent": {
+  "material": "M_TX04_Accent",
+  "object": null,
+  "defaultColor": "#8E2F25",
+  "surfaceShare": 0.0,
+  "limit": 0.1,
+  "howToRecolor": "set the base colour (Unity: _BaseColor) of M_TX04_Accent"
+ },
+ "sockets": [],
+ "collision": "TX04_PAVE_Collision (1 boxes)",
+ "extra": {
+  "walkTop": 0.12,
+  "kerbs": "-X and -Y edges only (one kerb line per grid line when tiled)"
+ },
+ "fbx": "art/exports/tx04-branch-court/TX04_PAVE.fbx",
+ "fps": "不寫（手機未實測）"
+}

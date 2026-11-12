@@ -1,0 +1,332 @@
+{
+ "GATE": {
+  "objects": {
+   "TX04_GATE_Accent_LOD0": {
+    "tris": 540,
+    "errors": [
+     "floating/detached part in TX04_GATE_Accent_LOD0 (56 verts at [-0.305, -0.01, 1.96])",
+     "floating/detached part in TX04_GATE_Accent_LOD0 (56 verts at [0.305, -0.01, 1.96])",
+     "floating/detached part in TX04_GATE_Accent_LOD0 (56 verts at [0.0, -0.64, 3.81])",
+     "floating/detached part in TX04_GATE_Accent_LOD0 (56 verts at [0.0, 0.695, 3.375])"
+    ],
+    "warnings": [
+     "TX04_GATE_Accent_LOD0: ~49.17% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "asset lowest point z=0.585 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "TX04_GATE_LOD0": {
+    "tris": 71828,
+    "errors": [
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.08, -0.057, 1.02])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.19, -0.057, 1.02])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.3, -0.057, 1.02])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.41, -0.057, 1.02])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.52, -0.057, 1.02])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.08, -0.057, 1.47])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.19, -0.057, 1.47])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.3, -0.057, 1.47])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.41, -0.057, 1.47])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.52, -0.057, 1.47])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.08, -0.057, 2.37])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.19, -0.057, 2.37])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.3, -0.057, 2.37])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.41, -0.057, 2.37])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.52, -0.057, 2.37])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.08, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.19, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.3, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.41, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [-0.52, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.08, -0.057, 1.02])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.19, -0.057, 1.02])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.3, -0.057, 1.02])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.41, -0.057, 1.02])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.52, -0.057, 1.02])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.08, -0.057, 1.47])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.19, -0.057, 1.47])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.3, -0.057, 1.47])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.41, -0.057, 1.47])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.52, -0.057, 1.47])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.08, -0.057, 2.37])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.19, -0.057, 2.37])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.3, -0.057, 2.37])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.41, -0.057, 2.37])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.52, -0.057, 2.37])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.08, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.19, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.3, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.41, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (50 verts at [0.52, -0.057, 2.82])",
+     "floating/detached part in TX04_GATE_LOD0 (56 verts at [0.0, -0.675, 3.81])"
+    ],
+    "warnings": [
+     "TX04_GATE_LOD0: ~96.04% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_GATE_LOD0: 590 n-gons",
+     "hidden back-to-back faces: TX04_GATE_LOD0 (71 pairs) - delete to save tris",
+     "10 parts fully enclosed, not touching (eyes/internals?): ['TX04_GATE_LOD0', 'TX04_GATE_LOD0', 'TX04_GATE_LOD0', 'TX04_GATE_LOD0', 'TX04_GATE_LOD0']"
+    ],
+    "sec": 5.6
+   },
+   "JOINED_TX04_GATE_Accent_LOD0+TX04_GATE_LOD0": {
+    "tris": 72368,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   5.916,
+   2.946,
+   5.713
+  ],
+  "built_dims": [
+   5.916,
+   2.946,
+   5.713
+  ],
+  "reimport_error_m": 0.0
+ },
+ "WALL_ST": {
+  "objects": {
+   "TX04_WALL_ST_LOD0": {
+    "tris": 15244,
+    "errors": [],
+    "warnings": [
+     "TX04_WALL_ST_LOD0: ~99.94% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_WALL_ST_LOD0: 178 n-gons",
+     "hidden back-to-back faces: TX04_WALL_ST_LOD0 (4 pairs) - delete to save tris"
+    ],
+    "sec": 1.2
+   }
+  },
+  "reimport_dims": [
+   4.0,
+   0.694,
+   2.478
+  ],
+  "built_dims": [
+   4.0,
+   0.694,
+   2.478
+  ],
+  "reimport_error_m": 0.0
+ },
+ "WALL_CO": {
+  "objects": {
+   "TX04_WALL_CO_LOD0": {
+    "tris": 15684,
+    "errors": [],
+    "warnings": [
+     "TX04_WALL_CO_LOD0: ~89.62% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_WALL_CO_LOD0: duplicate verts=22 loose verts=0",
+     "TX04_WALL_CO_LOD0: 178 n-gons",
+     "hidden back-to-back faces: TX04_WALL_CO_LOD0 (16 pairs) - delete to save tris"
+    ],
+    "sec": 1.4
+   }
+  },
+  "reimport_dims": [
+   2.368,
+   2.367,
+   2.477
+  ],
+  "built_dims": [
+   2.368,
+   2.367,
+   2.477
+  ],
+  "reimport_error_m": 0.0
+ },
+ "WALL_DO": {
+  "objects": {
+   "TX04_WALL_DO_LOD0": {
+    "tris": 15328,
+    "errors": [],
+    "warnings": [
+     "TX04_WALL_DO_LOD0: ~97.42% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_WALL_DO_LOD0: duplicate verts=2 loose verts=0",
+     "TX04_WALL_DO_LOD0: 172 n-gons",
+     "hidden back-to-back faces: TX04_WALL_DO_LOD0 (8 pairs) - delete to save tris"
+    ],
+    "sec": 1.2
+   }
+  },
+  "reimport_dims": [
+   4.0,
+   0.694,
+   2.498
+  ],
+  "built_dims": [
+   4.0,
+   0.694,
+   2.498
+  ],
+  "reimport_error_m": 0.0
+ },
+ "HALL": {
+  "objects": {
+   "TX04_HALL_Accent_LOD0": {
+    "tris": 432,
+    "errors": [
+     "floating/detached part in TX04_HALL_Accent_LOD0 (56 verts at [-0.4, -1.075, 2.225])",
+     "floating/detached part in TX04_HALL_Accent_LOD0 (56 verts at [0.4, -1.075, 2.225])",
+     "floating/detached part in TX04_HALL_Accent_LOD0 (56 verts at [0.0, -2.535, 4.68])"
+    ],
+    "warnings": [
+     "TX04_HALL_Accent_LOD0: ~39.65% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "asset lowest point z=0.845 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "TX04_HALL_LOD0": {
+    "tris": 185208,
+    "errors": [
+     "floating/detached part in TX04_HALL_LOD0 (56 verts at [0.0, -1.075, 3.7])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.12, -1.128, 1.3])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.303, -1.128, 1.3])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.487, -1.128, 1.3])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.67, -1.128, 1.3])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.12, -1.128, 1.75])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.303, -1.128, 1.75])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.487, -1.128, 1.75])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.67, -1.128, 1.75])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.12, -1.128, 2.2])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.303, -1.128, 2.2])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.487, -1.128, 2.2])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.67, -1.128, 2.2])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.12, -1.128, 2.65])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.303, -1.128, 2.65])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.487, -1.128, 2.65])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.67, -1.128, 2.65])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.12, -1.128, 3.1])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.303, -1.128, 3.1])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.487, -1.128, 3.1])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.67, -1.128, 3.1])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.12, -1.128, 3.55])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.303, -1.128, 3.55])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.487, -1.128, 3.55])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [-0.67, -1.128, 3.55])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.12, -1.128, 1.3])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.303, -1.128, 1.3])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.487, -1.128, 1.3])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.67, -1.128, 1.3])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.12, -1.128, 1.75])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.303, -1.128, 1.75])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.487, -1.128, 1.75])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.67, -1.128, 1.75])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.12, -1.128, 2.2])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.303, -1.128, 2.2])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.487, -1.128, 2.2])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.67, -1.128, 2.2])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.12, -1.128, 2.65])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.303, -1.128, 2.65])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.487, -1.128, 2.65])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.67, -1.128, 2.65])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.12, -1.128, 3.1])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.303, -1.128, 3.1])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.487, -1.128, 3.1])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.67, -1.128, 3.1])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.12, -1.128, 3.55])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.303, -1.128, 3.55])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.487, -1.128, 3.55])",
+     "floating/detached part in TX04_HALL_LOD0 (50 verts at [0.67, -1.128, 3.55])",
+     "floating/detached part in TX04_HALL_LOD0 (56 verts at [0.0, -2.575, 4.68])"
+    ],
+    "warnings": [
+     "TX04_HALL_LOD0: ~99.27% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_HALL_LOD0: 1438 n-gons",
+     "hidden back-to-back faces: TX04_HALL_LOD0 (808 pairs) - delete to save tris"
+    ],
+    "sec": 14.2
+   },
+   "JOINED_TX04_HALL_Accent_LOD0+TX04_HALL_LOD0": {
+    "tris": 185640,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   13.976,
+   8.928,
+   7.944
+  ],
+  "built_dims": [
+   13.976,
+   8.928,
+   7.944
+  ],
+  "reimport_error_m": 0.0
+ },
+ "SIDE": {
+  "objects": {
+   "TX04_SIDE_LOD0": {
+    "tris": 82744,
+    "errors": [],
+    "warnings": [
+     "TX04_SIDE_LOD0: ~95.63% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "TX04_SIDE_LOD0: 558 n-gons",
+     "hidden back-to-back faces: TX04_SIDE_LOD0 (231 pairs) - delete to save tris"
+    ],
+    "sec": 7.8
+   }
+  },
+  "reimport_dims": [
+   7.936,
+   4.968,
+   4.938
+  ],
+  "built_dims": [
+   7.936,
+   4.968,
+   4.938
+  ],
+  "reimport_error_m": 0.0
+ },
+ "PAVE": {
+  "objects": {
+   "TX04_PAVE_LOD0": {
+    "tris": 4056,
+    "errors": [],
+    "warnings": [
+     "TX04_PAVE_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "asset lowest point z=0.0027 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.5
+   }
+  },
+  "reimport_dims": [
+   3.99,
+   3.99,
+   0.129
+  ],
+  "built_dims": [
+   3.99,
+   3.99,
+   0.129
+  ],
+  "reimport_error_m": 0.0
+ },
+ "STEPS": {
+  "objects": {
+   "TX04_STEPS_LOD0": {
+    "tris": 1392,
+    "errors": [],
+    "warnings": [
+     "TX04_STEPS_LOD0: ~76.71% UV overlap (ok only if mirrored/stacked on purpose; bakes break)"
+    ],
+    "sec": 0.3
+   }
+  },
+  "reimport_dims": [
+   4.0,
+   2.0,
+   0.794
+  ],
+  "built_dims": [
+   4.0,
+   2.0,
+   0.794
+  ],
+  "reimport_error_m": 0.0
+ }
+}
