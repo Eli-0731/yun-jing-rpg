@@ -1,0 +1,13 @@
+{
+ "LV16_v001": {
+  "LV16_Body_LOD0": {
+   "pieces": 32,
+   "within_1mm": 32,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.2,
+   "worst_at": []
+  }
+ }
+}
