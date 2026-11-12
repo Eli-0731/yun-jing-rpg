@@ -38,3 +38,22 @@
 
 - 影像檢查：SK01–SK06 長條皆為 4096 × 1024 RGB，左右及上下霧色邊界已檢；CL01–CL03 為 2048 × 512 RGBA 且左右像素一致；FA01 水紋上下像素一致。這些為檔案接縫檢查，不能代替弧面或卡片的實機驗收。
 - FA01 GLB 回匯：`FA01_LOD0` 為 2 個三角面、1 個材質、尺寸 4 × 40 公尺。三視圖、灰模、`model_info.json` 與重建腳本均附在資產旁。
+
+## C 部分｜中景地形與小件（2026-11-13）
+
+- 分支：`art/core-1112-codex-keyart-distance`。依第 7 節順序完成 MM01–02、MM03–06、GR01／GR04、VP04、TX02、LF01–03、全包檢查；各項完成後皆分別提交並推送。
+- 實際工作時間約 1.1 小時（依 02:25 至 03:25 左右的作業及提交時間估算；各項時間為近似值，含生成、建模、目視檢查、測試與提交）。
+- 自製模型均先生成、檢視並保存各自 AI 三視圖。MM01／MM02 第一個未提交的圓柱輪廓已捨棄；本輪改用高度場，整組並排檢查後又加寬峰體、重輸出並重新 QA。
+
+| ID | 自評／10 | 預覽路徑 | 實際工時 | 沒做到或仍待驗證 |
+|---|---:|---|---:|---|
+| MM01–MM02 | 6.6 | `art/exports/midground-v1/MM01/MM01_preview.png` | 約 0.17 小時 | 高度場峰體較寬，但岩面仍較單調，與三視圖的岩台、樹木差距明顯；Unity 霧與地形埋入未驗。各 12,464 三角面，低於 15,000。 |
+| MM03–MM06 | 7.0 | `art/exports/midground-v1/MM03/MM03_preview.png` | 約 0.15 小時 | 四件為 2 三角面的 RGBA 遠景卡；透明排序、雙面材質和 MM05 連片接縫尚待 Unity 驗證。 |
+| GR01／GR04 | 7.2 | `art/exports/ground-textures-v1/GR01/GR01_2x2-preview.png` | 約 0.08 小時 | 2048 Albedo／Normal／MaskURP 已輸出，各通道邊緣像素接縫為零；法線由來源亮度推算，地形中的 4 m 重複感與 URP 匯入未驗。 |
+| VP04 | 7.0 | `art/exports/village-props-v1/VP04/VP04_preview.png` | 約 0.23 小時 | Git 可見歷史與工作樹中未找到 v009 幾何，故從三視圖重建；獨立瓦材質已製作。近看細節與 Unity 匯入仍待審。3,752 三角面，Blender QA 0 錯誤。 |
+| TX02 | 7.2 | `art/exports/mountain-city-v1/TX02/TX02_preview.png` | 約 0.18 小時 | 鐘及撞木各有可旋轉樞軸，鐘面空白；4,772 三角面、Blender QA 0 錯誤。未取得可檢視的 TE05 預覽，無法宣稱完成並排視覺比較；Unity 匯入與動畫未驗。 |
+| LF01–LF03 | 6.8 | `art/exports/life-v1/LF02/LF02_animation-preview.png` | 約 0.13 小時 | 飛鳥三色、蝴蝶兩色與雙翅動畫的 GLB 通道已檢查；LF03 透明光點與夜晚粒子參數已交付。飛鳥仍偏簡化，群體擺位及 Unity 動畫／粒子效能未驗。 |
+| 全包檢查 | 6.7 | `art/exports/midground-v1/C-pack-review/C-midground-with-SK03.png` | 約 0.16 小時 | SK03、兩件石峰網格渲染與 MM03 樹丘卡已同畫面並排；石峰較暗且畫法與樹丘有落差，場景光照、霧與遮擋須再審。此圖是美術合成，非 Unity 實景。 |
+
+- MM01／MM02 Blender 5.2.2 遊戲資產 QA 再驗均為 0 錯誤；UV 有意共用平鋪貼圖，底面 -1 m 預計埋入地形。MM03–MM06、VP04、TX02 的 QA 與輸出細節記於各資產 README／`model_info.json`。
+- C 各項提交：`5b222762`、`27d4bbd6`、`5d97ceef`、`bf7f158d`、`551af947`、`48fe3eb4`、`1efce2f2`。D 部分尚未開始；依第 8 節另回原分支處理。
