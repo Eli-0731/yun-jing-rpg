@@ -1,0 +1,22 @@
+{
+ "LV19_v001": {
+  "LV19_Body_LOD0": {
+   "pieces": 13,
+   "within_1mm": 13,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.3,
+   "worst_at": []
+  },
+  "LV19_Detail_Rice_LOD0": {
+   "pieces": 14,
+   "within_1mm": 14,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}
