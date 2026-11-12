@@ -1,0 +1,13 @@
+{
+ "LV18_v001": {
+  "LV18_Body_LOD0": {
+   "pieces": 106,
+   "within_1mm": 106,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}
