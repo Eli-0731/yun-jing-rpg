@@ -1,11 +1,10 @@
-# KA08 物件清單｜B1 山門石階
+﻿# KA08｜物件清單
 
-| 畫面部位 | 已有模型與路徑 | 還缺的東西 | 建議負責 |
-|---|---|---|---|
-| 分段長石階 | SG01_StraightRun：art/exports/mountain-stairs-b/SG01_StraightRun/SG01_StraightRun_v001.glb | 依山坡轉折拼接與碰撞測試 | 世界整合 |
-| 歇腳平台 | SG02_Landing：art/exports/mountain-stairs-b/SG02_Landing/SG02_Landing_v001.glb | 階高與平台銜接 | 世界整合 |
-| 石欄 | SG03 系列：art/exports/mountain-stairs-b/SG03_RailStraight/ 等 | 轉角、末端節奏與墜落邊界 | 世界整合 |
-| 山門 | SectGate：art/incoming/dondon/SectGate/v001/SectGate_v001.fbx | 與實際地形位置和體量校準 | 世界整合／山門負責人 |
-| 峭壁、雲海、遠山 | 地形與天空遠景待製 | 崖壁接地、遠山層次與雲海卡 | 世界整合／天空遠景 |
+| 畫面物件 | 已有模型與路徑 | 缺口／建議負責 |
+|---|---|---|
+| 石階直段、平台與石欄 | SG01、SG02、SG03：`art/exports/mountain-stairs-b/` | 按坡度拼接轉折與停留平台，確認通行寬度；世界整合與 Josh。 |
+| 山門 | 施工圖 SectGate，Dondon 資產 | 在 B1 對位並核對實際比例；世界整合與協作者。 |
+| 崖松、峭壁和雲海 | B1 施工圖與現有植被、岩石 | 崖壁接地及遠景霧層；世界整合與遠景製作。 |
 
-此舊圖的內容是 B1 山門石階；舊施工圖中 KA08 對到 D2 的編號已不符合畫面，區塊圖依畫面採 B1。
+- 圖像題材是 B1 山門大石階，因此 `zone-map.png` 用 B1 俯視圖。施工圖目前將「KA08」標到 D2-S1，與此 v4 圖不一致；世界整合須核對編號，不能把本圖當 D2 神木。
+- v4 分支只有選定圖；`chosen.png` 與 `KA08-selected.png` 相同，沒有四張可交的獨立候選圖。
