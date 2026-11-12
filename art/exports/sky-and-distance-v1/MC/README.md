@@ -1,7 +1,7 @@
-﻿# MC-S 山城剪影卡
+# MC-S 山城剪影卡
 
-- 視角：A4 觀景亭（122, 22）向東北遠望；畫面僅留霧中的山城與崖壁，觀景亭不在卡上。
-- `MC-S.png`：2048 × 1024 RGBA。左右、上、下以 alpha 漸退，作為單張遠景卡；不用環繞平鋪。
-- `MC-S-source.png`：選定的生成來源。由 `art/source/sky-and-distance-v1/build_mountain_city_card.py` 重建尺寸、色調與漸退。
-- `MC-S_sky-preview.png`：合成到 SK05 東北山景的預覽；`MC-S_seam-check.png`：四張卡並排確認透明邊界不留硬接縫。正式配置只放一張。
-- 山城的屋脊、樓閣與少量舊金色燈點在中距霧層仍可辨認；燈點沒有自發光材質。Unity 弧面方向、深度遮擋與實機畫面尚未驗證。
+- 成品：`MC-S.png`，2048 × 1024 RGBA。來源為 `art/source/sky-and-distance-v1/MC-S-source.png`；處理腳本為 `build_city_card.py`。
+- 場景：A4 觀景亭 `(122, 22)` 朝東北方向。崖上層疊屋頂、樓閣、棧道與少量暗暖燈點，底部退入灰藍霧。原畫左側的近景觀景亭已在透明遮罩中淡除。
+- `MC-S_sky-preview.png`：與 SK03 天空合成，檢查畫面尺度和霧色。
+- `MC-S_four-panel-check.png`：置於四片 90° 天空弧面拼接圖上檢查方位與四片分界。MC-S 為單張遠景卡，本身不做左右平鋪。
+- 遮罩經收邊與柔化，卡片外緣為透明。Unity 中的實際深度、UV 方位及場景光照尚待匯入檢查。
