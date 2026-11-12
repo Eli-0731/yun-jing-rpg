@@ -1,0 +1,44 @@
+{
+  "id": "VP04",
+  "name_zh": "茶棚",
+  "units": "m",
+  "reference": "art/references/village-props-v1/VP04/three-view.png",
+  "source_note": "原規格提到的 v009 幾何未在目前工作樹或可見 Git 物件找到，故依三視圖重建",
+  "tile_material": "VP04_Tile_Albedo.png，VP04_Tile_UV 獨立；無 RK03 貼圖或 UV",
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangles": 3752,
+      "materials": 8,
+      "textures": [
+        {
+          "name": "VP04_Tile_Albedo.png",
+          "resolution": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "name": "VP04_Wood_Albedo.png",
+          "resolution": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "name": "VP04_WoodLight_Albedo.png",
+          "resolution": [
+            1024,
+            1024
+          ]
+        }
+      ]
+    }
+  ],
+  "dimensions_m": [
+    3.6,
+    3.0,
+    3.08
+  ],
+  "unity_import": "未驗證"
+}
