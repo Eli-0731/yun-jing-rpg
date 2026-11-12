@@ -966,5 +966,407 @@
    "24 rocks (20 angular, 4 rounded), big ones first; each lowered until it rests on the ground or on a stone already placed (rays down from its vertices and up from the stones under it): none passes into another, none hangs",
    "a low earth spread under the pile; Detail_Gravel: 60 small chips dropped the same way; Detail_Grass: grass between the lower stones; fresh pale breaks on the top stones painted"
   ]
+ },
+ "GC07": {
+  "id": "GC07",
+  "name": "DeadBranches",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/ground-cover-c/GC07_v001.fbx",
+   "glb": "art/exports/ground-cover-c/GC07_v001.glb",
+   "blend": "art/source/ground-cover-c/GC07_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.206,
+   0.986,
+   0.17
+  ],
+  "body_dimensions_xyz_m": [
+   1.206,
+   0.986,
+   0.17
+  ],
+  "size_limit_xyz_m": [
+   1.25,
+   1.0,
+   0.25
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 5738,
+    "triangles_without_detail": 5738,
+    "objects": 6,
+    "objects_without_detail": 6,
+    "materials": 1,
+    "textures_px": {
+     "GC07_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC07_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC07_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC07_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 2866,
+    "triangles_without_detail": 2866,
+    "objects": 6,
+    "objects_without_detail": 6,
+    "materials": 1,
+    "textures_px": {
+     "GC07_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC07_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC07_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC07_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 856,
+    "triangles_without_detail": 856,
+    "objects": 6,
+    "objects_without_detail": 6,
+    "materials": 1,
+    "textures_px": {
+     "GC07_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC07_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC07_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC07_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "S1": [
+    "GC07_S1_LOD0",
+    "GC07_S1_LOD1",
+    "GC07_S1_LOD2"
+   ],
+   "S2": [
+    "GC07_S2_LOD0",
+    "GC07_S2_LOD1",
+    "GC07_S2_LOD2"
+   ],
+   "S3": [
+    "GC07_S3_LOD0",
+    "GC07_S3_LOD1",
+    "GC07_S3_LOD2"
+   ],
+   "S4": [
+    "GC07_S4_LOD0",
+    "GC07_S4_LOD1",
+    "GC07_S4_LOD2"
+   ],
+   "S5": [
+    "GC07_S5_LOD0",
+    "GC07_S5_LOD1",
+    "GC07_S5_LOD2"
+   ],
+   "S6": [
+    "GC07_S6_LOD0",
+    "GC07_S6_LOD1",
+    "GC07_S6_LOD2"
+   ]
+  },
+  "material": "M_GC07_DeadBranches",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 38,
+  "pieces": {
+   "S1": [
+    1.206,
+    0.46,
+    0.076
+   ],
+   "S2": [
+    0.958,
+    0.221,
+    0.086
+   ],
+   "S3": [
+    0.807,
+    0.311,
+    0.089
+   ],
+   "S4": [
+    0.611,
+    0.308,
+    0.17
+   ],
+   "S5": [
+    0.535,
+    0.311,
+    0.032
+   ],
+   "S6": [
+    0.385,
+    0.125,
+    0.036
+   ]
+  },
+  "stone_files": {
+   "S1": "art/exports/ground-cover-c/GC07_S1_v001.fbx",
+   "S2": "art/exports/ground-cover-c/GC07_S2_v001.fbx",
+   "S3": "art/exports/ground-cover-c/GC07_S3_v001.fbx",
+   "S4": "art/exports/ground-cover-c/GC07_S4_v001.fbx",
+   "S5": "art/exports/ground-cover-c/GC07_S5_v001.fbx",
+   "S6": "art/exports/ground-cover-c/GC07_S6_v001.fbx"
+  },
+  "coplanar_lifted": 0,
+  "reference": "art/references/GC07/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "six branches 0.3–1.2 m laid out apart, each its own object GC07_S1–S6 with its own FBX, origin at its bottom centre",
+   "main limb: a tapering bent tube resting on its thicker parts; twigs fork off it sideways and up; broken ends pale, peeling bark and lichen painted"
+  ]
+ },
+ "GC08": {
+  "id": "GC08",
+  "name": "PineConesAcorns",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/ground-cover-c/GC08_v001.fbx",
+   "glb": "art/exports/ground-cover-c/GC08_v001.glb",
+   "blend": "art/source/ground-cover-c/GC08_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.578,
+   0.103,
+   0.13
+  ],
+  "body_dimensions_xyz_m": [
+   0.578,
+   0.103,
+   0.13
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.15,
+   0.13
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 7542,
+    "triangles_without_detail": 7542,
+    "objects": 8,
+    "objects_without_detail": 8,
+    "materials": 1,
+    "textures_px": {
+     "GC08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC08_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC08_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3768,
+    "triangles_without_detail": 3768,
+    "objects": 8,
+    "objects_without_detail": 8,
+    "materials": 1,
+    "textures_px": {
+     "GC08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC08_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC08_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1126,
+    "triangles_without_detail": 1126,
+    "objects": 8,
+    "objects_without_detail": 8,
+    "materials": 1,
+    "textures_px": {
+     "GC08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "GC08_Normal.png": [
+      1024,
+      1024
+     ],
+     "GC08_ORM.png": [
+      1024,
+      1024
+     ],
+     "GC08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "S1": [
+    "GC08_S1_LOD0",
+    "GC08_S1_LOD1",
+    "GC08_S1_LOD2"
+   ],
+   "S2": [
+    "GC08_S2_LOD0",
+    "GC08_S2_LOD1",
+    "GC08_S2_LOD2"
+   ],
+   "S3": [
+    "GC08_S3_LOD0",
+    "GC08_S3_LOD1",
+    "GC08_S3_LOD2"
+   ],
+   "S4": [
+    "GC08_S4_LOD0",
+    "GC08_S4_LOD1",
+    "GC08_S4_LOD2"
+   ],
+   "S5": [
+    "GC08_S5_LOD0",
+    "GC08_S5_LOD1",
+    "GC08_S5_LOD2"
+   ],
+   "S6": [
+    "GC08_S6_LOD0",
+    "GC08_S6_LOD1",
+    "GC08_S6_LOD2"
+   ],
+   "S7": [
+    "GC08_S7_LOD0",
+    "GC08_S7_LOD1",
+    "GC08_S7_LOD2"
+   ],
+   "S8": [
+    "GC08_S8_LOD0",
+    "GC08_S8_LOD1",
+    "GC08_S8_LOD2"
+   ]
+  },
+  "material": "M_GC08_PineConesAcorns",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 290,
+  "pieces": {
+   "S1": [
+    0.103,
+    0.103,
+    0.13
+   ],
+   "S2": [
+    0.084,
+    0.084,
+    0.099
+   ],
+   "S3": [
+    0.065,
+    0.064,
+    0.077
+   ],
+   "S4": [
+    0.052,
+    0.051,
+    0.056
+   ],
+   "S5": [
+    0.023,
+    0.023,
+    0.035
+   ],
+   "S6": [
+    0.022,
+    0.022,
+    0.033
+   ],
+   "S7": [
+    0.02,
+    0.02,
+    0.03
+   ],
+   "S8": [
+    0.024,
+    0.018,
+    0.018
+   ]
+  },
+  "stone_files": {
+   "S1": "art/exports/ground-cover-c/GC08_S1_v001.fbx",
+   "S2": "art/exports/ground-cover-c/GC08_S2_v001.fbx",
+   "S3": "art/exports/ground-cover-c/GC08_S3_v001.fbx",
+   "S4": "art/exports/ground-cover-c/GC08_S4_v001.fbx",
+   "S5": "art/exports/ground-cover-c/GC08_S5_v001.fbx",
+   "S6": "art/exports/ground-cover-c/GC08_S6_v001.fbx",
+   "S7": "art/exports/ground-cover-c/GC08_S7_v001.fbx",
+   "S8": "art/exports/ground-cover-c/GC08_S8_v001.fbx"
+  },
+  "coplanar_lifted": 0,
+  "reference": "art/references/GC08/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "four pine cones (12, 9, 7, 5 cm) and four acorns, laid out apart, each its own object GC08_S1–S8 with its own FBX, origin at its bottom centre",
+   "cone: 56–84 scales on a spiral 137.5° apart, half open, thickened tips; acorn: smooth nut, scaly cap (texture), stalk; one acorn without its cap lies on its side"
+  ]
  }
 }
