@@ -14,10 +14,10 @@
 
 **共同做法**
 - 先生成三視圖（每件 4 張，GC03 重生一次共 8 張）、自評選一張（分數和取捨在各自的 `prompt.txt`），再做灰模（`art/previews/ground-cover-c/<ID>/clay/`），最後上貼圖。
-- **GC01–GC03、GC07、GC08 每一件都能單獨拿出來擺**（工作包「不要焊成一塊」）：每顆是自己的物件，掛在自己的空節點 `<ID>_S<n>` 下，節點在那顆石頭的底部中心，LOD0／1／2 都在它下面（Unity 會在每顆上各建一個 LODGroup）。整組的原點 `<ID>_GroundOrigin` 在排開時的腳印中心。
+- **GC01–GC03、GC07、GC08 每一件都能單獨拿出來擺**（工作包「不要焊成一塊」）：每件是自己的物件 `<ID>_S<n>_LOD0`（LOD1、LOD2 是 `_LOD1`、`_LOD2`），原點在那一件的底部中心，直接掛在整組的根 `<ID>_GroundOrigin` 下（根在排開時的腳印中心）。另外每件各匯出一個自己的 FBX `<ID>_S<n>_v001.fbx`（含 LOD0–2），要單獨擺時直接拖那個檔案。
 - 原點在腳印中心、底部 z = 0，Blender −Y 是正面（FBX／Unity 是 −Z）。不附地面底板。
 - 一件一個材質、一套 1024 貼圖；可有可無的小東西放 `Detail_*`（標準畫質關掉）。
-- LOD1 約 50%、LOD2 約 15%，LOD0 不減面。`minTier`：GC01–GC05 是 `high`（增加豐富度的地面雜物），GC06 是 `standard`（石堆會擋路，場景要用 `body_dimensions` 加一個盒碰撞）。
+- LOD1 約 50%、LOD2 約 15%，LOD0 不減面。`minTier`：GC01–GC05、GC07、GC08 是 `high`（增加豐富度的地面雜物），GC06 是 `standard`（石堆會擋路，場景要用 `body_dimensions` 加一個盒碰撞）。
 - 建模流程和 village-life-c、creekside-life-c 相同，共用那裡的工具和來源貼圖；這裡只放 GC 自己的物件（`gc_items.py`）和建模腳本（`build_gc.py`）。
 - 重建：`blender -b --factory-startup -P art/source/ground-cover-c/build_gc.py -- GC01 [--clay]`；審圖與 QA：`BL=<blender> sh art/source/ground-cover-c/render_reviews.sh`；Unity：`UNITY=<Unity.exe 6000.3.28f1> sh art/source/ground-cover-c/unity/run_unity_check.sh`。
 
@@ -29,13 +29,13 @@
 |---|---|
 | 三視圖 | `art/references/GC01/`，選用 cand-2（93） |
 | 尺寸（寬 × 深 × 高） | 1.658 × 0.32 × 0.26 m（上限 1.8 × 0.5 × 0.4 m，整組排開） |
-| 每顆尺寸 | S1 0.399 × 0.32 × 0.26；S2 0.316 × 0.205 × 0.14；S3 0.199 × 0.17 × 0.2；S4 0.212 × 0.159 × 0.1；S5 0.119 × 0.109 × 0.09 m |
+| 每件尺寸 | S1 0.399 × 0.32 × 0.26；S2 0.316 × 0.205 × 0.14；S3 0.199 × 0.17 × 0.2；S4 0.212 × 0.159 × 0.1；S5 0.119 × 0.109 × 0.09 m |
 | 三角面 LOD0 / LOD1 / LOD2 | 6,400 / 3,200 / 960（不含 Detail_：6,400 / 3,200 / 960） |
-| 物件數（每個 LOD） | 5（本體 5 顆，每顆一個物件（`GC01_S1`…，原點在各自底部中心、各自一個 LOD 組） + 無） |
+| 物件數（每個 LOD） | 5（本體 5 件，每件一個物件（`GC01_S1_LOD0`…，原點在各自底部中心） + 無） |
 | 材質數 | 1（`M_GC01_CreekPebbles`，全部共用） |
 | 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
 | minTier | high |
-| 檔案 | `art/exports/ground-cover-c/GC01_v001.fbx`（LOD0–2）、`art/exports/ground-cover-c/GC01_v001.glb`（LOD0）、`art/source/ground-cover-c/GC01_v001.blend` |
+| 檔案 | `art/exports/ground-cover-c/GC01_v001.fbx`（LOD0–2）、`art/exports/ground-cover-c/GC01_v001.glb`（LOD0）、`art/source/ground-cover-c/GC01_v001.blend`；單件 FBX `GC01_S1_v001.fbx`–`GC01_S5_v001.fbx`（每件含 LOD0–2） |
 
 ### GC02 山路碎石散件一組（5 顆不同形）（PathRubble，v001）
 
@@ -45,13 +45,13 @@
 |---|---|
 | 三視圖 | `art/references/GC02/`，選用 cand-3（92） |
 | 尺寸（寬 × 深 × 高） | 1.361 × 0.255 × 0.212 m（上限 1.4 × 0.4 × 0.3 m，整組排開） |
-| 每顆尺寸 | S1 0.288 × 0.255 × 0.158；S2 0.217 × 0.134 × 0.141；S3 0.115 × 0.092 × 0.212；S4 0.207 × 0.151 × 0.071；S5 0.118 × 0.099 × 0.071 m |
+| 每件尺寸 | S1 0.288 × 0.255 × 0.158；S2 0.217 × 0.134 × 0.141；S3 0.115 × 0.092 × 0.212；S4 0.207 × 0.151 × 0.071；S5 0.118 × 0.099 × 0.071 m |
 | 三角面 LOD0 / LOD1 / LOD2 | 2,926 / 1,460 / 434（不含 Detail_：2,926 / 1,460 / 434） |
-| 物件數（每個 LOD） | 5（本體 5 顆，每顆一個物件（`GC02_S1`…，原點在各自底部中心、各自一個 LOD 組） + 無） |
+| 物件數（每個 LOD） | 5（本體 5 件，每件一個物件（`GC02_S1_LOD0`…，原點在各自底部中心） + 無） |
 | 材質數 | 1（`M_GC02_PathRubble`，全部共用） |
 | 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
 | minTier | high |
-| 檔案 | `art/exports/ground-cover-c/GC02_v001.fbx`（LOD0–2）、`art/exports/ground-cover-c/GC02_v001.glb`（LOD0）、`art/source/ground-cover-c/GC02_v001.blend` |
+| 檔案 | `art/exports/ground-cover-c/GC02_v001.fbx`（LOD0–2）、`art/exports/ground-cover-c/GC02_v001.glb`（LOD0）、`art/source/ground-cover-c/GC02_v001.blend`；單件 FBX `GC02_S1_v001.fbx`–`GC02_S5_v001.fbx`（每件含 LOD0–2） |
 
 ### GC03 半埋在土裡的扁石一組（4 顆）（HalfBuriedFlatStones，v001）
 
@@ -61,13 +61,13 @@
 |---|---|
 | 三視圖 | `art/references/GC03/`，選用 cand-6（93） |
 | 尺寸（寬 × 深 × 高） | 2.35 × 0.535 × 0.153 m（上限 2.6 × 0.75 × 0.3 m，整組排開） |
-| 每顆尺寸 | S1 0.68 × 0.514 × 0.152；S2 0.531 × 0.491 × 0.122；S3 0.458 × 0.42 × 0.107；S4 0.42 × 0.354 × 0.092 m |
+| 每件尺寸 | S1 0.68 × 0.514 × 0.152；S2 0.531 × 0.491 × 0.122；S3 0.458 × 0.42 × 0.107；S4 0.42 × 0.354 × 0.092 m |
 | 三角面 LOD0 / LOD1 / LOD2 | 10,012 / 5,004 / 1,500（不含 Detail_：10,012 / 5,004 / 1,500） |
-| 物件數（每個 LOD） | 4（本體 4 顆，每顆一個物件（`GC03_S1`…，原點在各自底部中心、各自一個 LOD 組） + 無） |
+| 物件數（每個 LOD） | 4（本體 4 件，每件一個物件（`GC03_S1_LOD0`…，原點在各自底部中心） + 無） |
 | 材質數 | 1（`M_GC03_HalfBuriedFlatStones`，全部共用） |
 | 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
 | minTier | high |
-| 檔案 | `art/exports/ground-cover-c/GC03_v001.fbx`（LOD0–2）、`art/exports/ground-cover-c/GC03_v001.glb`（LOD0）、`art/source/ground-cover-c/GC03_v001.blend` |
+| 檔案 | `art/exports/ground-cover-c/GC03_v001.fbx`（LOD0–2）、`art/exports/ground-cover-c/GC03_v001.glb`（LOD0）、`art/source/ground-cover-c/GC03_v001.blend`；單件 FBX `GC03_S1_v001.fbx`–`GC03_S4_v001.fbx`（每件含 LOD0–2） |
 
 ### GC04 地上的小野菇一叢（普通、不發光）（WildMushroomCluster，v001）
 
@@ -122,13 +122,13 @@
 |---|---|
 | 三視圖 | `art/references/GC07/`，選用 cand-1（93） |
 | 尺寸（寬 × 深 × 高） | 1.206 × 0.986 × 0.17 m（上限 1.25 × 1.0 × 0.25 m，整組排開） |
-| 每顆尺寸 | S1 1.206 × 0.46 × 0.076；S2 0.958 × 0.221 × 0.086；S3 0.807 × 0.311 × 0.089；S4 0.611 × 0.308 × 0.17；S5 0.535 × 0.311 × 0.032；S6 0.385 × 0.125 × 0.036 m |
+| 每件尺寸 | S1 1.206 × 0.46 × 0.076；S2 0.958 × 0.221 × 0.086；S3 0.807 × 0.311 × 0.089；S4 0.611 × 0.308 × 0.17；S5 0.535 × 0.311 × 0.032；S6 0.385 × 0.125 × 0.036 m |
 | 三角面 LOD0 / LOD1 / LOD2 | 5,738 / 2,866 / 856（不含 Detail_：5,738 / 2,866 / 856） |
-| 物件數（每個 LOD） | 6（本體 6 顆，每顆一個物件（`GC07_S1`…，原點在各自底部中心、各自一個 LOD 組） + 無） |
+| 物件數（每個 LOD） | 6（本體 6 件，每件一個物件（`GC07_S1_LOD0`…，原點在各自底部中心） + 無） |
 | 材質數 | 1（`M_GC07_DeadBranches`，全部共用） |
 | 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
 | minTier | high |
-| 檔案 | `art/exports/ground-cover-c/GC07_v001.fbx`（LOD0–2）、`art/exports/ground-cover-c/GC07_v001.glb`（LOD0）、`art/source/ground-cover-c/GC07_v001.blend` |
+| 檔案 | `art/exports/ground-cover-c/GC07_v001.fbx`（LOD0–2）、`art/exports/ground-cover-c/GC07_v001.glb`（LOD0）、`art/source/ground-cover-c/GC07_v001.blend`；單件 FBX `GC07_S1_v001.fbx`–`GC07_S6_v001.fbx`（每件含 LOD0–2） |
 
 ### GC08 松果與橡實散件一組（8 顆）（PineConesAcorns，v001）
 
@@ -138,13 +138,13 @@
 |---|---|
 | 三視圖 | `art/references/GC08/`，選用 cand-3（93） |
 | 尺寸（寬 × 深 × 高） | 0.578 × 0.103 × 0.13 m（上限 0.6 × 0.15 × 0.13 m，整組排開） |
-| 每顆尺寸 | S1 0.103 × 0.103 × 0.13；S2 0.084 × 0.084 × 0.099；S3 0.065 × 0.064 × 0.077；S4 0.052 × 0.051 × 0.056；S5 0.023 × 0.023 × 0.035；S6 0.022 × 0.022 × 0.033；S7 0.02 × 0.02 × 0.03；S8 0.024 × 0.018 × 0.018 m |
+| 每件尺寸 | S1 0.103 × 0.103 × 0.13；S2 0.084 × 0.084 × 0.099；S3 0.065 × 0.064 × 0.077；S4 0.052 × 0.051 × 0.056；S5 0.023 × 0.023 × 0.035；S6 0.022 × 0.022 × 0.033；S7 0.02 × 0.02 × 0.03；S8 0.024 × 0.018 × 0.018 m |
 | 三角面 LOD0 / LOD1 / LOD2 | 7,542 / 3,768 / 1,126（不含 Detail_：7,542 / 3,768 / 1,126） |
-| 物件數（每個 LOD） | 8（本體 8 顆，每顆一個物件（`GC08_S1`…，原點在各自底部中心、各自一個 LOD 組） + 無） |
+| 物件數（每個 LOD） | 8（本體 8 件，每件一個物件（`GC08_S1_LOD0`…，原點在各自底部中心） + 無） |
 | 材質數 | 1（`M_GC08_PineConesAcorns`，全部共用） |
 | 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
 | minTier | high |
-| 檔案 | `art/exports/ground-cover-c/GC08_v001.fbx`（LOD0–2）、`art/exports/ground-cover-c/GC08_v001.glb`（LOD0）、`art/source/ground-cover-c/GC08_v001.blend` |
+| 檔案 | `art/exports/ground-cover-c/GC08_v001.fbx`（LOD0–2）、`art/exports/ground-cover-c/GC08_v001.glb`（LOD0）、`art/source/ground-cover-c/GC08_v001.blend`；單件 FBX `GC08_S1_v001.fbx`–`GC08_S8_v001.fbx`（每件含 LOD0–2） |
 
 ## 驗證
 
@@ -155,7 +155,7 @@
 **和既有模型的三個共同點**
 1. 石頭有層次：大塊柔和的深淺、濕和乾的分界、淡淡的層理和少量筆觸，和 A04、A05、CR03 一樣是暖灰石色。
 2. 地面交界都有東西：GC01 腳邊的泥沙、GC03 的土墊和草、GC04 的土和落葉、GC06 的土和碎石，和 BM10 的地面貼片同一種土色。
-3. 磨損有位置：GC02、GC06 朝上的新斷面較淺、舊面有地衣；GC01 下半濕暗；GC05 的爛木在斷面和剝皮處。
+3. 磨損有位置：GC02、GC06 朝上的新斷面較淺、舊面有地衣；GC01 下半濕暗；GC05 的爛木在斷面和剝皮處；GC07 的淺色斷口在兩端、地衣在朝上那面；GC08 的沾土只在底部。
 
 ## 已知問題與未驗
 

@@ -18,15 +18,15 @@ for k in sorted(info):
     tex=', '.join(sorted({f'{w}×{h}' for w,h in l['LOD0']['textures_px'].values()}))
     det=', '.join(d['detailObjects']) if d['detailObjects'] else '無'
     pcs=d.get('pieces',{})
-    body=f"本體 {len(pcs)} 顆，每顆一個物件（`{k}_S1`…，原點在各自底部中心、各自一個 LOD 組）" if len(pcs)>1 else '本體 1'
+    body=f"本體 {len(pcs)} 件，每件一個物件（`{k}_S1_LOD0`…，原點在各自底部中心）" if len(pcs)>1 else '本體 1'
     rows.append(f"### {k} {name}（{d['name']}，{d['version']}）\n\n{desc}\n\n"
       f"| 項目 | 數字 |\n|---|---|\n| 三視圖 | `art/references/{k}/`，選用 {ref} |\n"
       f"| 尺寸（寬 × 深 × 高） | {d['dimensions_xyz_m'][0]} × {d['dimensions_xyz_m'][1]} × {d['dimensions_xyz_m'][2]} m（上限 {' × '.join(str(x) for x in d['size_limit_xyz_m'])} m{'，整組排開' if len(pcs)>1 else ''}） |\n"
-      +(f"| 每顆尺寸 | {'；'.join(f'{n} {v[0]} × {v[1]} × {v[2]}' for n,v in pcs.items())} m |\n" if len(pcs)>1 else '')+
+      +(f"| 每件尺寸 | {'；'.join(f'{n} {v[0]} × {v[1]} × {v[2]}' for n,v in pcs.items())} m |\n" if len(pcs)>1 else '')+
       f"| 三角面 LOD0 / LOD1 / LOD2 | {l['LOD0']['triangles']:,} / {l['LOD1']['triangles']:,} / {l['LOD2']['triangles']:,}（不含 Detail_：{l['LOD0']['triangles_without_detail']:,} / {l['LOD1']['triangles_without_detail']:,} / {l['LOD2']['triangles_without_detail']:,}） |\n"
       f"| 物件數（每個 LOD） | {l['LOD0']['objects']}（{body} + {det}） |\n"
       f"| 材質數 | 1（`{d['material']}`，全部共用） |\n| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，{tex} |\n"
-      f"| minTier | {d['minTier']} |\n| 檔案 | `{d['files']['fbx']}`（LOD0–2）、`{d['files']['glb']}`（LOD0）、`{d['files']['blend']}` |\n")
+      f"| minTier | {d['minTier']} |\n| 檔案 | `{d['files']['fbx']}`（LOD0–2）、`{d['files']['glb']}`（LOD0）、`{d['files']['blend']}`{"；單件 FBX `"+k+"_S1_v001.fbx`–`"+k+"_S"+str(len(pcs))+"_v001.fbx`（每件含 LOD0–2）" if d.get("stone_files") else ""} |\n")
 head="""| 項目 | 內容 |
 |---|---|
 | 誰做的 | C（Eli-0731） |
@@ -43,10 +43,10 @@ head="""| 項目 | 內容 |
 
 **共同做法**
 - 先生成三視圖（每件 4 張，GC03 重生一次共 8 張）、自評選一張（分數和取捨在各自的 `prompt.txt`），再做灰模（`art/previews/ground-cover-c/<ID>/clay/`），最後上貼圖。
-- **GC01–GC03、GC07、GC08 每一件都能單獨拿出來擺**（工作包「不要焊成一塊」）：每顆是自己的物件，掛在自己的空節點 `<ID>_S<n>` 下，節點在那顆石頭的底部中心，LOD0／1／2 都在它下面（Unity 會在每顆上各建一個 LODGroup）。整組的原點 `<ID>_GroundOrigin` 在排開時的腳印中心。
+- **GC01–GC03、GC07、GC08 每一件都能單獨拿出來擺**（工作包「不要焊成一塊」）：每件是自己的物件 `<ID>_S<n>_LOD0`（LOD1、LOD2 是 `_LOD1`、`_LOD2`），原點在那一件的底部中心，直接掛在整組的根 `<ID>_GroundOrigin` 下（根在排開時的腳印中心）。另外每件各匯出一個自己的 FBX `<ID>_S<n>_v001.fbx`（含 LOD0–2），要單獨擺時直接拖那個檔案。
 - 原點在腳印中心、底部 z = 0，Blender −Y 是正面（FBX／Unity 是 −Z）。不附地面底板。
 - 一件一個材質、一套 1024 貼圖；可有可無的小東西放 `Detail_*`（標準畫質關掉）。
-- LOD1 約 50%、LOD2 約 15%，LOD0 不減面。`minTier`：GC01–GC05 是 `high`（增加豐富度的地面雜物），GC06 是 `standard`（石堆會擋路，場景要用 `body_dimensions` 加一個盒碰撞）。
+- LOD1 約 50%、LOD2 約 15%，LOD0 不減面。`minTier`：GC01–GC05、GC07、GC08 是 `high`（增加豐富度的地面雜物），GC06 是 `standard`（石堆會擋路，場景要用 `body_dimensions` 加一個盒碰撞）。
 - 建模流程和 village-life-c、creekside-life-c 相同，共用那裡的工具和來源貼圖；這裡只放 GC 自己的物件（`gc_items.py`）和建模腳本（`build_gc.py`）。
 - 重建：`blender -b --factory-startup -P art/source/ground-cover-c/build_gc.py -- GC01 [--clay]`；審圖與 QA：`BL=<blender> sh art/source/ground-cover-c/render_reviews.sh`；Unity：`UNITY=<Unity.exe 6000.3.28f1> sh art/source/ground-cover-c/unity/run_unity_check.sh`。
 
@@ -61,7 +61,7 @@ tail="""
 **和既有模型的三個共同點**
 1. 石頭有層次：大塊柔和的深淺、濕和乾的分界、淡淡的層理和少量筆觸，和 A04、A05、CR03 一樣是暖灰石色。
 2. 地面交界都有東西：GC01 腳邊的泥沙、GC03 的土墊和草、GC04 的土和落葉、GC06 的土和碎石，和 BM10 的地面貼片同一種土色。
-3. 磨損有位置：GC02、GC06 朝上的新斷面較淺、舊面有地衣；GC01 下半濕暗；GC05 的爛木在斷面和剝皮處。
+3. 磨損有位置：GC02、GC06 朝上的新斷面較淺、舊面有地衣；GC01 下半濕暗；GC05 的爛木在斷面和剝皮處；GC07 的淺色斷口在兩端、地衣在朝上那面；GC08 的沾土只在底部。
 
 ## 已知問題與未驗
 
