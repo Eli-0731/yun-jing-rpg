@@ -1,0 +1,28 @@
+{
+  "background": "sky-and-distance-v1/SK/SK03_sky-preview.png",
+  "foreground": [
+    {
+      "file": "midground-v1/C-pack-review/MM01_transparent.png",
+      "x": 45,
+      "bottom": 900,
+      "width": 420,
+      "height": 661
+    },
+    {
+      "file": "midground-v1/C-pack-review/MM02_transparent.png",
+      "x": 425,
+      "bottom": 910,
+      "width": 415,
+      "height": 563
+    },
+    {
+      "file": "midground-v1/MM03/MM03_Albedo.png",
+      "x": 825,
+      "bottom": 895,
+      "width": 1120,
+      "height": 373
+    }
+  ],
+  "purpose": "中景石峰、樹丘與 SK 遠山同畫面尺度與色彩檢查；非遊戲鏡頭或 Unity 實機",
+  "finding": "石峰與遠景色階可分辨；MM01/02 岩面仍偏單調，需在實際地形與植被中再審。"
+}

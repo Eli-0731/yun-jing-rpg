@@ -4,11 +4,11 @@
   "units": "m",
   "reference": "art/references/midground-v1/MM01/three-view.png",
   "method": "不規則雙軸高度場與岩脊置換，單一連續山體",
-  "pivot": "方形山腳中央",
+  "pivot": "圓角山腳中央",
   "dimensions_m": [
     78.0,
     78.0,
-    116.41
+    115.76
   ],
   "lods": [
     {

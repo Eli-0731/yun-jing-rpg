@@ -23,7 +23,7 @@ def peak_height(x, y, px, py, height, wx, wy, angle, seed):
     u, v = c*dx+s*dy, -s*dx+c*dy
     d = math.sqrt((u/wx)**2+(v/wy)**2)
     # 陡直主壁與數段不對稱的岩脊；噪聲只在岩面，不形成方形塊體。
-    main = height / (1+d**3.2)
+    main = height / (1+d**7.0)
     shoulder = height*.09*math.exp(-((u-8)/16)**2-((v+4)/12)**2)
     ribs = (1+.07*math.sin(math.atan2(v,u)*5+seed+.25*d)
             +.04*math.sin(math.atan2(v,u)*9-.7*d))
@@ -111,7 +111,7 @@ def make(name, peaks):
     info={'id':name,'name_zh':'喀斯特中景石峰','units':'m',
           'reference':f'art/references/midground-v1/{name}/three-view.png',
           'method':'不規則雙軸高度場與岩脊置換，單一連續山體',
-          'pivot':'方形山腳中央','dimensions_m':[2*R,2*R,round(max(zs),2)],
+          'pivot':'圓角山腳中央','dimensions_m':[2*R,2*R,round(max(zs),2)],
           'lods':[{'name':'LOD0','triangles':len(faces),'materials':1,
                    'textures':[{'name':'T_KarstRock.png','resolution':[1024,1024]}]}],
           'unity_import':'未驗證'}
@@ -119,5 +119,5 @@ def make(name, peaks):
     print('DONE',name,len(faces),round(max(zs),2))
 
 
-make('MM01',[(0,0,100,10,13,.36,.3)])
-make('MM02',[(-12,-3,86,11,15,.48,1.1),(13,7,63,9,11,-.2,2.4)])
+make('MM01',[(-8,1,96,18,20,.36,.3),(11,7,70,13,16,-.25,2.0),(-18,-9,48,12,14,.2,1.4)])
+make('MM02',[(-14,-4,82,20,20,.48,1.1),(12,7,65,18,18,-.2,2.4),(20,-11,39,12,15,.1,3.1)])
