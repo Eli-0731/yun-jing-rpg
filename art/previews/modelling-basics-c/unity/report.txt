@@ -311,10 +311,10 @@ PASS BM09_01_Fronds: Albedo / MaskURP / Normal textures found
 PASS BM09_01_Fronds: alpha-cut foliage material (cutoff 0.45, both faces)
 PASS BM09_01_Rachis: Albedo / MaskURP / Normal textures found
 PASS BM09_01: BM09_01_GroundOrigin is the model root (Unity names it BM09_01); all LOD meshes hang under it
-PASS BM09_01: imported size 1.153 x 1.193 x 0.800 m matches model_info 1.153199 x 1.193166 x 0.8
-PASS BM09_01: body 1.153 x 1.193 x 0.800 m, height within 1.5 cm of the work pack's 0.8 m
+PASS BM09_01: imported size 1.699 x 1.631 x 0.800 m matches model_info 1.698589 x 1.630656 x 0.8
+PASS BM09_01: body 1.699 x 1.631 x 0.800 m, height within 1.5 cm of the work pack's 0.8 m
 PASS BM09_01: base at y = 0.000 (origin on the ground)
-PASS BM09_01: triangles LOD0/1/2 = 13972 / 7000 / 2122 (50% / 15%), model_info 13972 / 7000 / 2122
+PASS BM09_01: triangles LOD0/1/2 = 10090 / 3548 / 1008 (35% / 10%), model_info 10090 / 3548 / 1008
 PASS BM09_01: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
 PASS BM09_01: minTier = standard (work pack: standard)
 PASS BM09_01: detailObjects Detail_DryFronds → 3 meshes present
@@ -326,21 +326,22 @@ PASS BM09_02_Fronds: Albedo / MaskURP / Normal textures found
 PASS BM09_02_Fronds: alpha-cut foliage material (cutoff 0.45, both faces)
 PASS BM09_02_Rachis: Albedo / MaskURP / Normal textures found
 PASS BM09_02: BM09_02_GroundOrigin is the model root (Unity names it BM09_02); all LOD meshes hang under it
-PASS BM09_02: imported size 0.467 x 0.440 x 0.300 m matches model_info 0.467299 x 0.439983 x 0.3
-PASS BM09_02: body 0.467 x 0.440 x 0.300 m, height within 1.5 cm of the work pack's 0.3 m
+PASS BM09_02: imported size 0.601 x 0.690 x 0.300 m matches model_info 0.600973 x 0.68958 x 0.3
+PASS BM09_02: body 0.601 x 0.690 x 0.300 m, height within 1.5 cm of the work pack's 0.3 m
 PASS BM09_02: base at y = 0.000 (origin on the ground)
-PASS BM09_02: triangles LOD0/1/2 = 5706 / 2862 / 830 (50% / 15%), model_info 5706 / 2862 / 830
+PASS BM09_02: triangles LOD0/1/2 = 6606 / 2456 / 780 (37% / 12%), model_info 6606 / 2456 / 780
 PASS BM09_02: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
 PASS BM09_02: minTier = high (work pack: high)
 PASS BM09_02: detailObjects Detail_DryFronds → 3 meshes present
 PASS BM09_02: standard tier (Detail_* off) still shows 2 body mesh(es) per LOD
 PASS BM09_02: no collider (minTier high: hidden on the standard tier, so it must not block the way there)
 PASS BM10_01_Ground: Albedo / MaskURP / Normal textures found
+PASS BM10_01_Ground: alpha-cut foliage material (cutoff 0.45, both faces)
 PASS BM10_01: BM10_01_GroundOrigin is the model root (Unity names it BM10_01); all LOD meshes hang under it
-PASS BM10_01: imported size 1.000 x 1.000 x 0.006 m matches model_info 1 x 1 x 0.006
-PASS BM10_01: body 1.000 x 1.000 x 0.006 m, width within 1.5 cm of the work pack's 1 m
+PASS BM10_01: imported size 1.000 x 1.000 x 0.023 m matches model_info 1 x 1 x 0.023065
+PASS BM10_01: body 1.000 x 1.000 x 0.023 m, width within 1.5 cm of the work pack's 1 m
 PASS BM10_01: base at y = 0.000 (origin on the ground)
-PASS BM10_01: triangles LOD0/1/2 = 128 / 64 / 18 (50% / 14%), model_info 128 / 64 / 18
+PASS BM10_01: triangles LOD0/1/2 = 4608 / 1152 / 200 (25% / 4%), model_info 4608 / 1152 / 200
 PASS BM10_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
 PASS BM10_01: minTier = ultra (work pack: ultra)
 PASS BM10_01: detailObjects  → 0 meshes present
@@ -349,10 +350,10 @@ PASS BM10_01: no collider (minTier ultra: hidden on the standard tier, so it mus
 PASS BM10_02_Ground: Albedo / MaskURP / Normal textures found
 PASS BM10_02_Ground: alpha-cut foliage material (cutoff 0.45, both faces)
 PASS BM10_02: BM10_02_GroundOrigin is the model root (Unity names it BM10_02); all LOD meshes hang under it
-PASS BM10_02: imported size 1.000 x 1.000 x 0.006 m matches model_info 1 x 1 x 0.006
-PASS BM10_02: body 1.000 x 1.000 x 0.006 m, width within 1.5 cm of the work pack's 1 m
+PASS BM10_02: imported size 1.000 x 1.000 x 0.004 m matches model_info 1 x 1 x 0.003668
+PASS BM10_02: body 1.000 x 1.000 x 0.004 m, width within 1.5 cm of the work pack's 1 m
 PASS BM10_02: base at y = 0.000 (origin on the ground)
-PASS BM10_02: triangles LOD0/1/2 = 128 / 64 / 18 (50% / 14%), model_info 128 / 64 / 18
+PASS BM10_02: triangles LOD0/1/2 = 512 / 128 / 32 (25% / 6%), model_info 512 / 128 / 32
 PASS BM10_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
 PASS BM10_02: minTier = ultra (work pack: ultra)
 PASS BM10_02: detailObjects  → 0 meshes present
@@ -361,10 +362,10 @@ PASS BM10_02: no collider (minTier ultra: hidden on the standard tier, so it mus
 PASS BM10_03_Ground: Albedo / MaskURP / Normal textures found
 PASS BM10_03_Ground: alpha-cut foliage material (cutoff 0.45, both faces)
 PASS BM10_03: BM10_03_GroundOrigin is the model root (Unity names it BM10_03); all LOD meshes hang under it
-PASS BM10_03: imported size 1.000 x 1.000 x 0.006 m matches model_info 1 x 1 x 0.006
-PASS BM10_03: body 1.000 x 1.000 x 0.006 m, width within 1.5 cm of the work pack's 1 m
+PASS BM10_03: imported size 1.000 x 1.000 x 0.004 m matches model_info 1 x 1 x 0.003674
+PASS BM10_03: body 1.000 x 1.000 x 0.004 m, width within 1.5 cm of the work pack's 1 m
 PASS BM10_03: base at y = 0.000 (origin on the ground)
-PASS BM10_03: triangles LOD0/1/2 = 128 / 64 / 18 (50% / 14%), model_info 128 / 64 / 18
+PASS BM10_03: triangles LOD0/1/2 = 512 / 128 / 32 (25% / 6%), model_info 512 / 128 / 32
 PASS BM10_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
 PASS BM10_03: minTier = ultra (work pack: ultra)
 PASS BM10_03: detailObjects  → 0 meshes present

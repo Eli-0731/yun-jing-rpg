@@ -1,0 +1,112 @@
+{
+ "id": "TX04-GATE",
+ "package": "docs/execution/2026-11-05/A-48h-mountain-city-architecture.md",
+ "author": "A (Johnnnny0823)",
+ "version": "v003",
+ "status": "Exported; Imported (Unity 6000.0.82f1 check: art/previews/tx04-branch-court/unity/report.txt); In-game Verified: 未驗",
+ "dimensions_m": [
+  5.916,
+  2.946,
+  5.713
+ ],
+ "limit_m": [
+  6.0,
+  3.0,
+  6.0
+ ],
+ "grid_m": 4.0,
+ "origin": "footprint centre, bottom z = 0, -Y = front",
+ "minTier": "low",
+ "lods": [
+  {
+   "lod": 0,
+   "triangles": 72368,
+   "objects": 2,
+   "materials": 4
+  },
+  {
+   "lod": 1,
+   "triangles": 33566,
+   "objects": 2,
+   "materials": 4
+  },
+  {
+   "lod": 2,
+   "triangles": 10068,
+   "objects": 2,
+   "materials": 4
+  }
+ ],
+ "objectsLOD0": [
+  "TX04_GATE_LOD0",
+  "TX04_GATE_Accent_LOD0"
+ ],
+ "detailObjects": [],
+ "glowObjects": [],
+ "materials": [
+  "M_MountainStreet_Trim",
+  "M_TX04_Accent",
+  "M_TX04_Roof",
+  "M_TX04_Wall"
+ ],
+ "textures": {
+  "T_MountainStreet_Albedo": "2048x2048",
+  "T_MountainStreet_Normal": "2048x2048",
+  "T_MountainStreet_MetallicSmoothness": "2048x2048",
+  "T_MountainStreet_Emission": "2048x2048",
+  "T_TX04_Wall_Albedo": "1024x1024",
+  "T_TX04_Wall_Normal": "1024x1024"
+ },
+ "materialNotes": {
+  "M_TX04_Roof": "same textures as M_MountainStreet_Trim, normal map strength 0.5 (Unity: _BumpScale 0.5)",
+  "M_TX04_Wall": "T_TX04_Wall_Albedo / _Normal, normal strength 0.6, smoothness 0.08",
+  "M_TX04_Accent": "trim Albedo x AccentColor (Unity: _BaseColor), trim Normal, smoothness 0.45"
+ },
+ "textureNote": "shared MC01 trim sheet (art/textures/mountain-street-houses-a); the accent material reuses Albedo/Normal; M_TX04_Wall uses the TX04 plaster tile (art/textures/tx04-branch-court, 4 x 4 m per tile, tiles along U)",
+ "accent": {
+  "material": "M_TX04_Accent",
+  "object": "TX04_GATE_Accent",
+  "defaultColor": "#8E2F25",
+  "surfaceShare": 0.0287,
+  "limit": 0.1,
+  "howToRecolor": "set the base colour (Unity: _BaseColor) of M_TX04_Accent"
+ },
+ "sockets": [
+  {
+   "name": "Socket_Plaque",
+   "location_m": [
+    0.0,
+    -0.69,
+    3.81
+   ],
+   "rotation_deg": [
+    90.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Socket_Emblem",
+   "location_m": [
+    0.0,
+    0.04,
+    5.63
+   ],
+   "rotation_deg": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ ],
+ "collision": "TX04_GATE_Collision (5 boxes)",
+ "extra": {
+  "doorway_m": [
+   1.24,
+   2.86
+  ],
+  "walkTop": 0.45
+ },
+ "fbx": "art/exports/tx04-branch-court/TX04_GATE.fbx",
+ "fps": "不寫（手機未實測）"
+}

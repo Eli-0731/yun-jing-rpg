@@ -4,6 +4,7 @@ blender --background --factory-startup --python qa_fbx.py -- <asset.fbx> [out.js
 import bpy, bmesh, collections, json, sys
 import numpy as np
 from pathlib import Path
+from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
 TOLS = (.001, .0005, .0001)
@@ -97,8 +98,51 @@ def loose(V, T, root, reach=.005):
         step = max(1, len(ids) // 300); touch = False
         for co in q[::step].tolist():
             if any(comp[h[2]] != r for h in bvh.find_nearest_range(co, reach)): touch = True; break
-        if not touch: out.append(dict(verts=len(ids), centre=[round(float(x), 3) for x in q.mean(0)], size=[round(float(x), 3) for x in q.max(0) - q.min(0)]))
-    return sorted(out, key=lambda d: -d['verts']), len(verts)
+        if not touch: out.append((r, dict(verts=len(ids), centre=[round(float(x), 3) for x in q.mean(0)], size=[round(float(x), 3) for x in q.max(0) - q.min(0)])))
+    # contact is two-way: a plank resting on a leg has no vertex over the leg, but the leg's top vertices lie on the plank.
+    # So a piece also counts as touched when another piece's vertex lies within reach of it.
+    if out:
+        flagged = {r for r, _ in out}; touched = set()
+        for r, ids in verts.items():
+            step = max(1, len(ids) // 300)
+            for co in V[ids][::step].tolist():
+                for h in bvh.find_nearest_range(co, reach):
+                    o = int(comp[h[2]])
+                    if o != r and o in flagged: touched.add(o)
+        out = [(r, d) for r, d in out if r not in touched]
+    # contact by penetration: a spoke end or a paddle passing through a rim segment has no vertex near the rim's surface,
+    # but its vertices lie inside the rim's closed volume (or the rim's inside it). Inside = the nearest face's normal points away.
+    if out:
+        lo_b = {r: V[ids].min(0) - reach for r, ids in verts.items()}; hi_b = {r: V[ids].max(0) + reach for r, ids in verts.items()}
+        cache = {}
+        def piece_bvh(r):
+            if r not in cache:
+                tri = T[comp == r]; cache[r] = BVHTree.FromPolygons([tuple(v) for v in V.tolist()], tri.tolist(), all_triangles=True)
+            return cache[r]
+        closed_c = {}
+        def closed(r):          # only a closed piece has an inside; a leaf sheet or a strip does not
+            if r not in closed_c:
+                tri = T[comp == r]; e = np.sort(np.concatenate([tri[:, [0, 1]], tri[:, [1, 2]], tri[:, [2, 0]]]), 1)
+                _, n = np.unique(e, axis=0, return_counts=True); closed_c[r] = bool((n == 2).all())
+            return closed_c[r]
+        def inside(r, co):
+            if not closed(r): return False
+            loc, nrm, _, _ = piece_bvh(r).find_nearest(co)
+            return loc is not None and (Vector(co) - loc).dot(nrm) < 0
+        keep = []
+        for r, d in out:
+            lo, hi = lo_b[r], hi_b[r]; hit = False
+            for o, ids in verts.items():
+                if o == r or (hi_b[o] < lo).any() or (lo_b[o] > hi).any(): continue
+                for a_, b_, pts in ((r, o, V[verts[o]]), (o, r, V[verts[r]])):     # o's vertices inside r, then r's inside o
+                    m = ((pts >= lo_b[a_]) & (pts <= hi_b[a_])).all(1); pts = pts[m]
+                    for co in pts[::max(1, len(pts) // 200)].tolist():
+                        if inside(a_, co): hit = True; break
+                    if hit: break
+                if hit: break
+            if not hit: keep.append((r, d))
+        out = keep
+    return sorted([d for _, d in out], key=lambda d: -d['verts']), len(verts)
 
 
 def main():

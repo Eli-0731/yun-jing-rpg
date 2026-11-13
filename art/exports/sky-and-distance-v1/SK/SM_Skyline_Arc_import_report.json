@@ -1,0 +1,34 @@
+{
+  "asset": "SM_Skyline_Arc",
+  "origin": "world centre",
+  "radius_m": 800.0,
+  "height_m": 240.0,
+  "arc_degrees": 90,
+  "arc_length_m": 1256.6370614359173,
+  "segments": 64,
+  "source_vertices": 130,
+  "source_quads": 64,
+  "source_triangles": 128,
+  "qa_errors": 0,
+  "qa_warnings": 0,
+  "fbx": {
+    "meshes": 1,
+    "vertices": 130,
+    "triangles": 128,
+    "radius_error_max_m": 8.975580351489043e-05,
+    "bottom_error_m": 9.216184844262898e-05,
+    "height_error_m": 0.0001373291015625,
+    "object_origin_error_m": 0.0,
+    "uv_layers": 1
+  },
+  "glb": {
+    "meshes": 1,
+    "vertices": 256,
+    "triangles": 128,
+    "radius_error_max_m": 3.767336863802484e-05,
+    "bottom_error_m": 0.0,
+    "height_error_m": 0.0,
+    "object_origin_error_m": 0.0,
+    "uv_layers": 1
+  }
+}

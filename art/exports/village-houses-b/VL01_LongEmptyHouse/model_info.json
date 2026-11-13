@@ -1,0 +1,376 @@
+{
+  "asset": "VL01_LongEmptyHouse",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "VL01_LongEmptyHouse_Detail_Small"
+  ],
+  "name_zh": "久無人住的空屋",
+  "slot": "A1_QingxiVillage_EmptyHouse",
+  "note": "久無人住的空屋（三視圖 VL01 candidate-04）：外框照 Dondon StarterHouse v004（牆 7.2 × 5.2 m、石基 0.54 m、前廊 1.08 m、三級 0.18 m 石階、曲面雙坡瓦頂、前坡蓋過前廊）。門和五扇窗用舊木板釘成 X 加一道橫板，釘頭下有鏽水痕；窗紙在木板後面破洞。前坡兩處、後坡一處缺瓦，缺口看得到掛瓦條和一根椽子；屋脊和簷口長草、瓦面長苔；灰泥一塊塊剝落露出土磚；前廊、門檻和台階上堆著落葉。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 76060,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 38030,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 10584,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "VL01_LongEmptyHouse_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL01_LongEmptyHouse_Wood_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the wall footprint at ground level, front -Y (same origin as StarterHouse v004, so a variant drops into its slot)",
+  "dimensions_m": [
+    8.9828,
+    8.1976,
+    5.5518
+  ],
+  "bounds_min_m": [
+    -4.4913,
+    -4.73,
+    0.0
+  ],
+  "bounds_max_m": [
+    4.4915,
+    3.4676,
+    5.5518
+  ],
+  "size_limit_m": [
+    9.05,
+    8.19,
+    5.62
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        8.9828,
+        8.1888,
+        5.5518
+      ],
+      "min": [
+        -4.4913,
+        -4.7212,
+        0.0
+      ],
+      "max": [
+        4.4915,
+        3.4676,
+        5.5518
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        8.1313,
+        8.0619,
+        5.4701
+      ],
+      "min": [
+        -4.0885,
+        -4.73,
+        0.0
+      ],
+      "max": [
+        4.0428,
+        3.3319,
+        5.4701
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 4012,
+      "LOD1": 2006,
+      "LOD2": 600
+    },
+    "Stone": {
+      "LOD0": 13744,
+      "LOD1": 6872,
+      "LOD2": 2060
+    },
+    "Wood": {
+      "LOD0": 16412,
+      "LOD1": 8206,
+      "LOD2": 2460
+    },
+    "Detail_Small": {
+      "LOD0": 13876,
+      "LOD1": 6938,
+      "LOD2": 2080
+    },
+    "Roof": {
+      "LOD0": 28016,
+      "LOD1": 14008,
+      "LOD2": 3384
+    }
+  },
+  "lod_totals": {
+    "LOD0": 76060,
+    "LOD1": 38030,
+    "LOD2": 10584
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_VL01_LongEmptyHouse_Main",
+    "M_VL01_LongEmptyHouse_RoofTiles",
+    "M_VL01_LongEmptyHouse_Stone",
+    "M_VL01_LongEmptyHouse_Wood"
+  ],
+  "textures": [
+    "VL01_LongEmptyHouse_BaseColor.png",
+    "VL01_LongEmptyHouse_Metallic.png",
+    "VL01_LongEmptyHouse_MetallicSmoothness.png",
+    "VL01_LongEmptyHouse_Normal.png",
+    "VL01_LongEmptyHouse_Roughness.png",
+    "VL01_LongEmptyHouse_Stone_BaseColor.png",
+    "VL01_LongEmptyHouse_Stone_Metallic.png",
+    "VL01_LongEmptyHouse_Stone_MetallicSmoothness.png",
+    "VL01_LongEmptyHouse_Stone_Normal.png",
+    "VL01_LongEmptyHouse_Stone_Roughness.png",
+    "VL01_LongEmptyHouse_Wood_BaseColor.png",
+    "VL01_LongEmptyHouse_Wood_Metallic.png",
+    "VL01_LongEmptyHouse_Wood_MetallicSmoothness.png",
+    "VL01_LongEmptyHouse_Wood_Normal.png",
+    "VL01_LongEmptyHouse_Wood_Roughness.png",
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_VL01_LongEmptyHouse_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL01_LongEmptyHouse_BaseColor.png",
+        "Normal": "VL01_LongEmptyHouse_Normal.png",
+        "MetallicSmoothness": "VL01_LongEmptyHouse_MetallicSmoothness.png"
+      },
+      "M_VL01_LongEmptyHouse_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_VL01_LongEmptyHouse_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL01_LongEmptyHouse_Stone_BaseColor.png",
+        "Normal": "VL01_LongEmptyHouse_Stone_Normal.png",
+        "MetallicSmoothness": "VL01_LongEmptyHouse_Stone_MetallicSmoothness.png"
+      },
+      "M_VL01_LongEmptyHouse_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL01_LongEmptyHouse_Wood_BaseColor.png",
+        "Normal": "VL01_LongEmptyHouse_Wood_Normal.png",
+        "MetallicSmoothness": "VL01_LongEmptyHouse_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "VL01_LongEmptyHouse_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Door": [
+      0.0,
+      -2.72,
+      0.54
+    ],
+    "Socket_Porch": [
+      0.0,
+      -3.12,
+      0.54
+    ],
+    "Socket_Path": [
+      0.0,
+      -4.72,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Door.001": [
+      0.0,
+      -2.72,
+      0.54
+    ],
+    "Socket_Path.001": [
+      0.0,
+      -4.72,
+      0.0
+    ],
+    "Socket_Porch.001": [
+      0.0,
+      -3.12,
+      0.54
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Door.001",
+    "Socket_Path.001",
+    "Socket_Porch.001",
+    "VL01_LongEmptyHouse.001",
+    "VL01_LongEmptyHouse_Collision.001",
+    "VL01_LongEmptyHouse_Detail_Small_LOD0.001",
+    "VL01_LongEmptyHouse_Detail_Small_LOD1.001",
+    "VL01_LongEmptyHouse_Detail_Small_LOD2.001",
+    "VL01_LongEmptyHouse_LOD0.001",
+    "VL01_LongEmptyHouse_LOD1.001",
+    "VL01_LongEmptyHouse_LOD2.001"
+  ],
+  "glb": "VL01_LongEmptyHouse_v001.glb",
+  "interface": {
+    "eave_underside_m": 3.345,
+    "ridge_m": 5.271
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-houses-b/) on the StarterHouse v004 outline; procedural shaders baked to two 2048 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 126.1,
+        "median": 126.1,
+        "p90": 126.1,
+        "area_m2": 151.4
+      },
+      "inside_or_covered": {
+        "p10": 12.0,
+        "median": 31.1,
+        "p90": 43.7,
+        "area_m2": 239.5
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 215.7,
+        "median": 282.6,
+        "p90": 283.0,
+        "area_m2": 36.6
+      },
+      "inside_or_covered": {
+        "p10": 57.6,
+        "median": 69.2,
+        "p90": 142.7,
+        "area_m2": 45.6
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 95.6,
+        "median": 131.8,
+        "p90": 132.5,
+        "area_m2": 90.5
+      },
+      "inside_or_covered": {
+        "p10": 4.3,
+        "median": 32.4,
+        "p90": 77.2,
+        "area_m2": 222.9
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": [
+    7400,
+    14997
+  ],
+  "reference": "art/references/VL01/ (AI three-view VL01/candidate-04; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}

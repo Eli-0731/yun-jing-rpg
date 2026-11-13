@@ -18,6 +18,9 @@ OUT = ART / 'previews' / KIT / AID
 info = json.loads((ART / 'exports' / KIT / AID / 'model_info.json').read_text(encoding='utf-8'))
 HUMAN = 1.75
 VIEWS = [('01_front', '正面', Vector((0, -1, 0))), ('02_three_quarter', '3/4', Vector((1, -1, 0)).normalized())]
+if '--four' in argv:   # 2026-11-07 pack: four views with the 1.75 m figure (front, side, back, 3/4); older pieces keep their two
+    VIEWS = [('01_front', '正面', Vector((0, -1, 0))), ('02_side', '側面', Vector((1, 0, 0))), ('03_back', '背面', Vector((0, 1, 0))),
+             ('04_three_quarter', '3/4', Vector((1, -1, 0)).normalized())]
 
 scene = bpy.context.scene
 for img in bpy.data.images:                      # textures live next to the FBX
@@ -47,7 +50,8 @@ lo, hi = Vector((1e9,) * 3), Vector((-1e9,) * 3)
 for o in asset:
     for c in o.bound_box:
         w = o.matrix_world @ Vector(c); lo = Vector(map(min, lo, w)); hi = Vector(map(max, hi, w))
-lift = -lo.z if lo.z < -1e-4 else 0.0
+gz = info.get('ground_z_m')   # a piece whose origin is not on the ground (RI03: the axle) says where its ground is; parts below it (the wheel in its channel) go under the floor
+lift = -gz if gz is not None else (-lo.z if lo.z < -1e-4 else 0.0)
 if lift:
     for o in asset: o.matrix_world = Matrix.Translation((0, 0, lift)) @ o.matrix_world
     lo.z += lift; hi.z += lift

@@ -1,0 +1,31 @@
+{
+ "FI04_v001": {
+  "FI04_Body_LOD0": {
+   "pieces": 51,
+   "within_1mm": 1,
+   "gap_1_3mm": 50,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.8,
+   "worst_at": []
+  },
+  "FI04_Detail_Fray_LOD0": {
+   "pieces": 6,
+   "within_1mm": 0,
+   "gap_1_3mm": 6,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.8,
+   "worst_at": []
+  },
+  "FI04_Detail_Patch_LOD0": {
+   "pieces": 1,
+   "within_1mm": 0,
+   "gap_1_3mm": 1,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.8,
+   "worst_at": []
+  }
+ }
+}

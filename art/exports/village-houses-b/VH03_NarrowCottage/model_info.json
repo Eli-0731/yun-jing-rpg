@@ -1,0 +1,389 @@
+{
+  "asset": "VH03_NarrowCottage",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "VH03_NarrowCottage_Detail_Small"
+  ],
+  "name_zh": "窄長小屋",
+  "slot": "A1_QingxiVillage_House",
+  "note": "窄長小屋（三視圖 VH03-cand-2）：山牆朝巷子的窄長單層屋，3.6 × 5.8 m，坐在 0.25 m 石基上，屋脊順著長向。門開在東側長邊（木板對開門，一扇半開，門前一級踏石），長邊各兩扇直欞窗，山牆一扇小窗。牆是石灰泥加亂石牆腳，轉角木柱、牆頂木樑、腰枋、山牆中柱都橫平豎直，沒有斜撐。屋頂用 VL 的筒瓦與板瓦，屋脊兩端低調起翹。屋後靠山牆接一段 2 m 深的矮棚：單坡木板頂加壓條，西面和背面是木板牆，東面敞開，後半堆柴、前半留空地，人可以走進去。老人家：舊而深色的木頭、補過的灰泥、石腳長苔；東側門邊放有木蓋的陶缸、矮板凳、掛在木釘上的竹匾、靠牆的竹竿、一小堆柴、一個竹籃（竹匾、竹籃、草在 Detail_Small）。碰撞：屋子連石基（門關著）、門前踏石、矮棚的背牆、西牆與柴堆（棚子東面敞開，前半可以走進去）、陶缸、板凳、柴堆。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 79010,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 39504,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 11319,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "VH03_NarrowCottage_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Normal.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "VH03_NarrowCottage_Wood_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the lot at ground level, front (the lane, the gable end) -Y",
+  "dimensions_m": [
+    4.678,
+    8.6787,
+    4.8084
+  ],
+  "bounds_min_m": [
+    -2.262,
+    -4.4016,
+    0.0
+  ],
+  "bounds_max_m": [
+    2.416,
+    4.2772,
+    4.8084
+  ],
+  "size_limit_m": [
+    5.0,
+    9.0,
+    5.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        4.678,
+        8.6263,
+        4.8084
+      ],
+      "min": [
+        -2.262,
+        -4.4016,
+        0.0
+      ],
+      "max": [
+        2.416,
+        4.2247,
+        4.8084
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        4.4591,
+        8.3813,
+        1.9268
+      ],
+      "min": [
+        -2.1059,
+        -4.1042,
+        0.0
+      ],
+      "max": [
+        2.3532,
+        4.2772,
+        1.9268
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 5536,
+      "LOD1": 2768,
+      "LOD2": 830
+    },
+    "Stone": {
+      "LOD0": 11284,
+      "LOD1": 5642,
+      "LOD2": 1692
+    },
+    "Wood": {
+      "LOD0": 28880,
+      "LOD1": 14440,
+      "LOD2": 4332
+    },
+    "Detail_Small": {
+      "LOD0": 11422,
+      "LOD1": 5710,
+      "LOD2": 1713
+    },
+    "Roof": {
+      "LOD0": 21888,
+      "LOD1": 10944,
+      "LOD2": 2752
+    }
+  },
+  "lod_totals": {
+    "LOD0": 79010,
+    "LOD1": 39504,
+    "LOD2": 11319
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_VH03_NarrowCottage_Main",
+    "M_VH03_NarrowCottage_RoofTiles",
+    "M_VH03_NarrowCottage_Stone",
+    "M_VH03_NarrowCottage_Wood"
+  ],
+  "textures": [
+    "VH03_NarrowCottage_BaseColor.png",
+    "VH03_NarrowCottage_Metallic.png",
+    "VH03_NarrowCottage_MetallicSmoothness.png",
+    "VH03_NarrowCottage_Normal.png",
+    "VH03_NarrowCottage_Roughness.png",
+    "VH03_NarrowCottage_Stone_BaseColor.png",
+    "VH03_NarrowCottage_Stone_Metallic.png",
+    "VH03_NarrowCottage_Stone_MetallicSmoothness.png",
+    "VH03_NarrowCottage_Stone_Normal.png",
+    "VH03_NarrowCottage_Stone_Roughness.png",
+    "VH03_NarrowCottage_Wood_BaseColor.png",
+    "VH03_NarrowCottage_Wood_Metallic.png",
+    "VH03_NarrowCottage_Wood_MetallicSmoothness.png",
+    "VH03_NarrowCottage_Wood_Normal.png",
+    "VH03_NarrowCottage_Wood_Roughness.png",
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_VH03_NarrowCottage_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VH03_NarrowCottage_BaseColor.png",
+        "Normal": "VH03_NarrowCottage_Normal.png",
+        "MetallicSmoothness": "VH03_NarrowCottage_MetallicSmoothness.png"
+      },
+      "M_VH03_NarrowCottage_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_VH03_NarrowCottage_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VH03_NarrowCottage_Stone_BaseColor.png",
+        "Normal": "VH03_NarrowCottage_Stone_Normal.png",
+        "MetallicSmoothness": "VH03_NarrowCottage_Stone_MetallicSmoothness.png"
+      },
+      "M_VH03_NarrowCottage_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VH03_NarrowCottage_Wood_BaseColor.png",
+        "Normal": "VH03_NarrowCottage_Wood_Normal.png",
+        "MetallicSmoothness": "VH03_NarrowCottage_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "VH03_NarrowCottage_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Door": [
+      1.8,
+      -0.9,
+      0.25
+    ],
+    "Socket_Lane": [
+      0.0,
+      -4.3,
+      0.0
+    ],
+    "Socket_Shed": [
+      0.0,
+      2.975,
+      0.02
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Door.001": [
+      1.8,
+      -0.9,
+      0.25
+    ],
+    "Socket_Lane.001": [
+      0.0,
+      -4.3,
+      0.0
+    ],
+    "Socket_Shed.001": [
+      0.0,
+      2.975,
+      0.02
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Door.001",
+    "Socket_Lane.001",
+    "Socket_Shed.001",
+    "VH03_NarrowCottage.001",
+    "VH03_NarrowCottage_Collision.001",
+    "VH03_NarrowCottage_Detail_Small_LOD0.001",
+    "VH03_NarrowCottage_Detail_Small_LOD1.001",
+    "VH03_NarrowCottage_Detail_Small_LOD2.001",
+    "VH03_NarrowCottage_LOD0.001",
+    "VH03_NarrowCottage_LOD1.001",
+    "VH03_NarrowCottage_LOD2.001"
+  ],
+  "glb": "VH03_NarrowCottage_v001.glb",
+  "interface": {
+    "ridge_m": [
+      4.725,
+      4.721,
+      4.725
+    ],
+    "shed_roof_m": [
+      2.125,
+      1.926
+    ],
+    "collision": {
+      "lane": -3.95,
+      "east": 1.95,
+      "west": -1.95,
+      "shed_back": 4.05
+    }
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-houses-b/vh_lane.py, vh_roof.py, props from vh_court.py); procedural shaders baked to three 2048 atlases (Main, Stone, Wood); roof tiles on the shared 1024 VL tile texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 137.1,
+        "median": 185.3,
+        "p90": 194.2,
+        "area_m2": 39.0
+      },
+      "inside_or_covered": {
+        "p10": 16.5,
+        "median": 67.3,
+        "p90": 131.8,
+        "area_m2": 165.2
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 192.1,
+        "median": 263.8,
+        "p90": 263.9,
+        "area_m2": 39.1
+      },
+      "inside_or_covered": {
+        "p10": 64.6,
+        "median": 66.7,
+        "p90": 192.2,
+        "area_m2": 25.3
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 110.7,
+        "median": 127.9,
+        "p90": 128.8,
+        "area_m2": 87.8
+      },
+      "inside_or_covered": {
+        "p10": 6.3,
+        "median": 43.2,
+        "p90": 98.5,
+        "area_m2": 209.6
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": [
+    10263,
+    20571
+  ],
+  "reference": "art/references/VH03/ (AI three-view VH03/VH03-cand-2; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check, not committed)",
+  "based_on": "new outline (work pack 2026-11-09 VH03); materials and roof tiles shared with VL01-05, VH01 and VH02"
+}

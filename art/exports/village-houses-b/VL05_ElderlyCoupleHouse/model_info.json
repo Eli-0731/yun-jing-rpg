@@ -1,0 +1,468 @@
+{
+  "asset": "VL05_ElderlyCoupleHouse",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "VL05_ElderlyCoupleHouse_Detail_Small"
+  ],
+  "name_zh": "有人住的民居（老人家）",
+  "slot": "A1_QingxiVillage_LivedHouse",
+  "note": "有人住的民居・老人家（三視圖 VL05 candidate-01）：外框照 StarterHouse v004。門右邊一張矮竹椅（略朝台階）；前廊橫樑下吊六串乾玉米（每串三根，苞葉往上紮成一束，用細繩繫在橫樑上）；窗紙和門紙舊得發黃，上面補了好幾塊新舊不一的紙；門左邊一盆老松盆景（橢圓陶盆、四隻小腳、土面長苔）。木頭很舊、顏色很深，石基長苔，瓦片新舊混雜（舊瓦、深色瓦、長苔的瓦之間零星換過幾片淺色新瓦，另有兩小塊整片重鋪）。竹椅、玉米、盆景都在 Detail_Small，低畫質可關掉；補紙算窗戶本體。碰撞：外牆、前廊、台階同 StarterHouse；竹椅和盆景各有一塊碰撞（照實物外形外擴 1 cm，竹椅的跟著椅子轉向），放在 _Detail_Collision，和 Detail_Small 一起開關；玉米在頭頂上方，不加碰撞。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 88882,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 44439,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 12624,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "VL05_ElderlyCoupleHouse_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL05_ElderlyCoupleHouse_Wood_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the wall footprint at ground level, front -Y (same origin as StarterHouse v004, so a variant drops into its slot)",
+  "dimensions_m": [
+    8.9828,
+    8.1888,
+    5.5518
+  ],
+  "bounds_min_m": [
+    -4.4913,
+    -4.7212,
+    0.0
+  ],
+  "bounds_max_m": [
+    4.4915,
+    3.4676,
+    5.5518
+  ],
+  "size_limit_m": [
+    9.05,
+    8.19,
+    5.62
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        8.9828,
+        8.1888,
+        5.5518
+      ],
+      "min": [
+        -4.4913,
+        -4.7212,
+        0.0
+      ],
+      "max": [
+        4.4915,
+        3.4676,
+        5.5518
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        7.7487,
+        7.2821,
+        4.1547
+      ],
+      "min": [
+        -3.8529,
+        -3.896,
+        0.0
+      ],
+      "max": [
+        3.8958,
+        3.3861,
+        4.1547
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 4040,
+      "LOD1": 2020,
+      "LOD2": 606
+    },
+    "Stone": {
+      "LOD0": 13744,
+      "LOD1": 6872,
+      "LOD2": 2060
+    },
+    "Wood": {
+      "LOD0": 14476,
+      "LOD1": 7238,
+      "LOD2": 2170
+    },
+    "Detail_Small": {
+      "LOD0": 27822,
+      "LOD1": 13909,
+      "LOD2": 4172
+    },
+    "Roof": {
+      "LOD0": 28800,
+      "LOD1": 14400,
+      "LOD2": 3616
+    }
+  },
+  "lod_totals": {
+    "LOD0": 88882,
+    "LOD1": 44439,
+    "LOD2": 12624
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_VL05_ElderlyCoupleHouse_Main",
+    "M_VL05_ElderlyCoupleHouse_RoofTiles",
+    "M_VL05_ElderlyCoupleHouse_Stone",
+    "M_VL05_ElderlyCoupleHouse_Wood"
+  ],
+  "textures": [
+    "VL05_ElderlyCoupleHouse_BaseColor.png",
+    "VL05_ElderlyCoupleHouse_Metallic.png",
+    "VL05_ElderlyCoupleHouse_MetallicSmoothness.png",
+    "VL05_ElderlyCoupleHouse_Normal.png",
+    "VL05_ElderlyCoupleHouse_Roughness.png",
+    "VL05_ElderlyCoupleHouse_Stone_BaseColor.png",
+    "VL05_ElderlyCoupleHouse_Stone_Metallic.png",
+    "VL05_ElderlyCoupleHouse_Stone_MetallicSmoothness.png",
+    "VL05_ElderlyCoupleHouse_Stone_Normal.png",
+    "VL05_ElderlyCoupleHouse_Stone_Roughness.png",
+    "VL05_ElderlyCoupleHouse_Wood_BaseColor.png",
+    "VL05_ElderlyCoupleHouse_Wood_Metallic.png",
+    "VL05_ElderlyCoupleHouse_Wood_MetallicSmoothness.png",
+    "VL05_ElderlyCoupleHouse_Wood_Normal.png",
+    "VL05_ElderlyCoupleHouse_Wood_Roughness.png",
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_VL05_ElderlyCoupleHouse_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL05_ElderlyCoupleHouse_BaseColor.png",
+        "Normal": "VL05_ElderlyCoupleHouse_Normal.png",
+        "MetallicSmoothness": "VL05_ElderlyCoupleHouse_MetallicSmoothness.png"
+      },
+      "M_VL05_ElderlyCoupleHouse_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_VL05_ElderlyCoupleHouse_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL05_ElderlyCoupleHouse_Stone_BaseColor.png",
+        "Normal": "VL05_ElderlyCoupleHouse_Stone_Normal.png",
+        "MetallicSmoothness": "VL05_ElderlyCoupleHouse_Stone_MetallicSmoothness.png"
+      },
+      "M_VL05_ElderlyCoupleHouse_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL05_ElderlyCoupleHouse_Wood_BaseColor.png",
+        "Normal": "VL05_ElderlyCoupleHouse_Wood_Normal.png",
+        "MetallicSmoothness": "VL05_ElderlyCoupleHouse_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "VL05_ElderlyCoupleHouse_Collision: MeshCollider (convex off), renderer hidden",
+    "detail_collision": "VL05_ElderlyCoupleHouse_Detail_Collision: MeshCollider (convex off), renderer hidden; switch it off together with VL05_ElderlyCoupleHouse_Detail_Small_LOD0/1/2 (low quality), it only covers props inside Detail_Small"
+  },
+  "detail_collision_boxes": [
+    {
+      "prop": "bamboo_chair",
+      "yaw": -0.35,
+      "corners_xy": [
+        [
+          1.0725,
+          -3.2154
+        ],
+        [
+          1.5056,
+          -3.3735
+        ],
+        [
+          1.661,
+          -2.9476
+        ],
+        [
+          1.2279,
+          -2.7895
+        ]
+      ],
+      "z": [
+        0.54,
+        1.405
+      ],
+      "centre_xy": [
+        1.3667,
+        -3.0815
+      ],
+      "half_m": [
+        0.2305,
+        0.2267
+      ],
+      "prop_top_m": 1.395,
+      "vertices": 2498
+    },
+    {
+      "prop": "bonsai",
+      "yaw": 0.0,
+      "corners_xy": [
+        [
+          -1.7041,
+          -3.2098
+        ],
+        [
+          -0.9091,
+          -3.2098
+        ],
+        [
+          -0.9091,
+          -2.7952
+        ],
+        [
+          -1.7041,
+          -2.7952
+        ]
+      ],
+      "z": [
+        0.54,
+        1.368
+      ],
+      "centre_xy": [
+        -1.3066,
+        -3.0025
+      ],
+      "half_m": [
+        0.3975,
+        0.2073
+      ],
+      "prop_top_m": 1.358,
+      "vertices": 2729
+    }
+  ],
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Door": [
+      0.0,
+      -2.72,
+      0.54
+    ],
+    "Socket_Porch": [
+      0.0,
+      -3.12,
+      0.54
+    ],
+    "Socket_Path": [
+      0.0,
+      -4.72,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Door.001": [
+      0.0,
+      -2.72,
+      0.54
+    ],
+    "Socket_Path.001": [
+      0.0,
+      -4.72,
+      0.0
+    ],
+    "Socket_Porch.001": [
+      0.0,
+      -3.12,
+      0.54
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Door.001",
+    "Socket_Path.001",
+    "Socket_Porch.001",
+    "VL05_ElderlyCoupleHouse.001",
+    "VL05_ElderlyCoupleHouse_Collision.001",
+    "VL05_ElderlyCoupleHouse_Detail_Collision.001",
+    "VL05_ElderlyCoupleHouse_Detail_Small_LOD0.001",
+    "VL05_ElderlyCoupleHouse_Detail_Small_LOD1.001",
+    "VL05_ElderlyCoupleHouse_Detail_Small_LOD2.001",
+    "VL05_ElderlyCoupleHouse_LOD0.001",
+    "VL05_ElderlyCoupleHouse_LOD1.001",
+    "VL05_ElderlyCoupleHouse_LOD2.001"
+  ],
+  "glb": "VL05_ElderlyCoupleHouse_v001.glb",
+  "interface": {
+    "eave_underside_m": 3.345,
+    "ridge_m": 5.271,
+    "chair": {
+      "centre": [
+        1.36,
+        -3.1
+      ],
+      "yaw": -0.35,
+      "seat_m": 0.4,
+      "back_top_m": 0.85
+    },
+    "bonsai": {
+      "centre": [
+        -1.36,
+        -3.0
+      ],
+      "top_m": 0.812
+    }
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-houses-b/) on the StarterHouse v004 outline; procedural shaders baked to two 2048 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 117.0,
+        "median": 127.4,
+        "p90": 127.4,
+        "area_m2": 156.7
+      },
+      "inside_or_covered": {
+        "p10": 12.1,
+        "median": 31.6,
+        "p90": 44.1,
+        "area_m2": 239.1
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 220.1,
+        "median": 282.0,
+        "p90": 282.3,
+        "area_m2": 36.9
+      },
+      "inside_or_covered": {
+        "p10": 57.4,
+        "median": 69.1,
+        "p90": 142.4,
+        "area_m2": 45.3
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 99.1,
+        "median": 136.4,
+        "p90": 136.8,
+        "area_m2": 86.6
+      },
+      "inside_or_covered": {
+        "p10": 4.3,
+        "median": 33.5,
+        "p90": 79.1,
+        "area_m2": 208.7
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": [
+    7401,
+    23884
+  ],
+  "reference": "art/references/VL05/ (AI three-view VL05/candidate-01; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}

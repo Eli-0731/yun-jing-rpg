@@ -1,0 +1,321 @@
+{
+  "asset": "RS02_Blacksmith",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -3.715,
+          -3.0232,
+          0.0
+        ],
+        "max": [
+          3.715,
+          2.7,
+          5.36
+        ],
+        "box_m": [
+          [
+            -3.735,
+            -3.0432,
+            0.0
+          ],
+          [
+            3.735,
+            2.72,
+            5.38
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0
+      }
+    },
+    {
+      "check": "shape_unchanged_triangles",
+      "pass": true,
+      "detail": {
+        "lod0_triangles": 95512,
+        "source_triangles": 86854,
+        "source_zero_area_dropped": 64,
+        "reviewed_part_edits": [
+          {
+            "part": "anvil and stump",
+            "why": "review (Unity shot): body, a 5 cm light steel slab and a heel block stacked; octagonal stump",
+            "replaced_parts": 7,
+            "triangles_before": 1636,
+            "triangles_after": 3610
+          },
+          {
+            "part": "forge",
+            "why": "review (Unity shot): ~70 bricks of 20-80 cm, hood and back wall one block each, texture smeared",
+            "replaced_parts": 69,
+            "new_bricks": 1016,
+            "triangles_before": 7452,
+            "triangles_after": 13220
+          },
+          {
+            "part": "forge fire",
+            "why": "review: a few lumps with a giraffe-like glow pattern; a heap of coal, some burning (dark crust, glowing cracks)",
+            "replaced_parts": 23,
+            "new_lumps": 72,
+            "triangles_before": 460,
+            "triangles_after": 1440
+          }
+        ]
+      }
+    },
+    {
+      "check": "shape_unchanged_size",
+      "pass": true,
+      "detail": {
+        "dimensions_m": [
+          7.43,
+          5.7232,
+          5.36
+        ],
+        "source_dimensions_m": [
+          7.43,
+          5.7232,
+          5.36
+        ],
+        "max_error_m": 0.0
+      }
+    },
+    {
+      "check": "source_coplanar_pulled_apart",
+      "pass": true,
+      "detail": {
+        "pairs_found": 149,
+        "faces_moved": 87,
+        "rounds": 3,
+        "pairs_left": 0,
+        "push_m": 0.0015,
+        "tol_m": 0.0011,
+        "vertices_moved": 143,
+        "max_shift_m": 0.003
+      }
+    },
+    {
+      "check": "roof_tile_dark_not_teal",
+      "pass": true,
+      "detail": {
+        "tile_atlas_mean_srgb": [
+          0.213,
+          0.227,
+          0.232
+        ],
+        "hex": "#363A3B",
+        "saturation": 0.082,
+        "target": "#3A4048",
+        "source_tile": "Smithy_Jade_Tile_0-3, linear (.07-.115, .14-.185, .15-.195)"
+      }
+    },
+    {
+      "check": "collision_boxes_made",
+      "pass": true,
+      "detail": {
+        "boxes": 196,
+        "triangles": 2352,
+        "skipped_parts": [
+          "Forge_Brick",
+          "Forge_Soot_Lining",
+          "Forge_Coal_Bed",
+          "Forge_Burning",
+          "Charcoal",
+          "Hot_Ember",
+          "Coal_Lump",
+          "Quench_Water"
+        ],
+        "rule": "one box per part with its lowest point under 2.2 m (roof tile and Detail_Small none): the smaller of its axis-aligned and principal-axes box, thin sides opened to 2 cm"
+      }
+    },
+    {
+      "check": "collision_probe_tops",
+      "pass": true,
+      "detail": [
+        {
+          "probe": "floor",
+          "xy": [
+            0.0,
+            -2.0
+          ],
+          "ray_from_z_m": 6.0,
+          "top_z_m": 0.14,
+          "expected": [
+            0.12,
+            0.2
+          ],
+          "ok": true
+        },
+        {
+          "probe": "floor_by_anvil",
+          "xy": [
+            1.5,
+            -0.2
+          ],
+          "ray_from_z_m": 6.0,
+          "top_z_m": 0.18,
+          "expected": [
+            0.16,
+            0.2
+          ],
+          "ok": true
+        },
+        {
+          "probe": "forge",
+          "xy": [
+            -1.8,
+            1.0
+          ],
+          "ray_from_z_m": 6.0,
+          "top_z_m": 2.213,
+          "expected": [
+            1.85,
+            6.0
+          ],
+          "ok": true
+        },
+        {
+          "probe": "anvil_stump",
+          "xy": [
+            0.25,
+            -0.75
+          ],
+          "ray_from_z_m": 6.0,
+          "top_z_m": 1.142,
+          "expected": [
+            0.5,
+            1.2
+          ],
+          "ok": true
+        },
+        {
+          "probe": "ground_outside",
+          "xy": [
+            0.0,
+            -3.6
+          ],
+          "ray_from_z_m": 6.0,
+          "top_z_m": null,
+          "expected": null,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 95512,
+          "LOD1": 47756,
+          "LOD2": 14322
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 5720,
+            "LOD1": 2860,
+            "LOD2": 858
+          },
+          "Stone": {
+            "LOD0": 26244,
+            "LOD1": 13122,
+            "LOD2": 3936
+          },
+          "Wood": {
+            "LOD0": 11036,
+            "LOD1": 5518,
+            "LOD2": 1654
+          },
+          "Tile": {
+            "LOD0": 36892,
+            "LOD1": 18446,
+            "LOD2": 5532
+          },
+          "Detail_Small": {
+            "LOD0": 15620,
+            "LOD1": 7810,
+            "LOD2": 2342
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          7.43,
+          5.7232,
+          5.36
+        ],
+        "blend_dims_m": [
+          7.43,
+          5.7232,
+          5.36
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 2e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "RS02_Blacksmith.001",
+        "RS02_Blacksmith_Collision.001",
+        "RS02_Blacksmith_Detail_Small_LOD0.001",
+        "RS02_Blacksmith_Detail_Small_LOD1.001",
+        "RS02_Blacksmith_Detail_Small_LOD2.001",
+        "RS02_Blacksmith_LOD0.001",
+        "RS02_Blacksmith_LOD1.001",
+        "RS02_Blacksmith_LOD2.001",
+        "Socket_ForgeLight.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_ForgeLight.001": [
+          -1.8,
+          0.55,
+          0.95
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 15637380
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 593,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

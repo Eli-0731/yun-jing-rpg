@@ -8,7 +8,7 @@ from pathlib import Path
 from mathutils import Vector
 
 aid, out = sys.argv[sys.argv.index('--') + 1:][:2]
-out = Path(out).resolve(); out.mkdir(parents=True, exist_ok=True)
+out = Path(out); out.mkdir(parents=True, exist_ok=True)
 sc = bpy.context.scene
 sc.render.engine = 'CYCLES'; sc.cycles.samples = 1; sc.cycles.use_denoising = False; sc.cycles.max_bounces = 0
 sc.render.resolution_x = sc.render.resolution_y = 360; sc.view_settings.view_transform = 'Standard'
