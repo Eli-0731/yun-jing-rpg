@@ -1,0 +1,28 @@
+{
+ "LV04_v001": {
+  "LV04_Body_LOD0": {
+   "pieces": 37,
+   "within_1mm": 34,
+   "gap_1_3mm": 2,
+   "gap_3_10mm": 1,
+   "gap_over_10mm": 0,
+   "largest_mm": 3.2,
+   "worst_at": [
+    [
+     -0.1,
+     -0.051,
+     0.03
+    ]
+   ]
+  },
+  "LV04_Detail_Frays_LOD0": {
+   "pieces": 14,
+   "within_1mm": 14,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.9,
+   "worst_at": []
+  }
+ }
+}
