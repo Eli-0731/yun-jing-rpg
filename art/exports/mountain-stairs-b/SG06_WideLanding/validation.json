@@ -1,0 +1,249 @@
+{
+  "asset": "SG06_WideLanding",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -3.4994,
+          -3.4991,
+          0.0
+        ],
+        "max": [
+          3.4998,
+          3.4998,
+          1.09
+        ],
+        "box_m": [
+          [
+            -3.5,
+            -3.5,
+            0.0
+          ],
+          [
+            3.5,
+            3.5,
+            1.11
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.00133
+      }
+    },
+    {
+      "check": "walking_surface_level",
+      "pass": true,
+      "detail": {
+        "samples": 360,
+        "z_min_max_m": [
+          0.7958,
+          0.8
+        ],
+        "design_m": 0.8
+      }
+    },
+    {
+      "check": "heart_stone_cut_below_surface",
+      "pass": true,
+      "detail": {
+        "z_min_max_m": [
+          0.782,
+          0.7915
+        ],
+        "note": "the medallion is cut up to 2.2 cm into the stone, nothing above z 0.8"
+      }
+    },
+    {
+      "check": "edges_flush_with_sg05_top",
+      "pass": true,
+      "detail": {
+        "S": 0.796,
+        "N": 0.7981,
+        "E": 0.7975,
+        "W": 0.7976
+      }
+    },
+    {
+      "check": "four_lantern_seats",
+      "pass": true,
+      "detail": {
+        "socket_xyz_and_seat_top_m": {
+          "NE": [
+            3.03,
+            3.03,
+            1.09,
+            1.09
+          ],
+          "NW": [
+            -3.03,
+            3.03,
+            1.09,
+            1.09
+          ],
+          "SW": [
+            -3.03,
+            -3.03,
+            1.09,
+            1.09
+          ],
+          "SE": [
+            3.03,
+            -3.03,
+            1.09,
+            1.09
+          ]
+        },
+        "seat_diameter_m": 0.86
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": {
+        "missing": []
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 183331,
+          "LOD1": 91664,
+          "LOD2": 27498
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 169411,
+            "LOD1": 84704,
+            "LOD2": 25410
+          },
+          "Detail_Small": {
+            "LOD0": 13920,
+            "LOD1": 6960,
+            "LOD2": 2088
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          6.9992,
+          6.9989,
+          1.09
+        ],
+        "blend_dims_m": [
+          6.9992,
+          6.9989,
+          1.09
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "SG06_WideLanding.001",
+        "SG06_WideLanding_Collision.001",
+        "SG06_WideLanding_Detail_Small_LOD0.001",
+        "SG06_WideLanding_Detail_Small_LOD1.001",
+        "SG06_WideLanding_Detail_Small_LOD2.001",
+        "SG06_WideLanding_LOD0.001",
+        "SG06_WideLanding_LOD1.001",
+        "SG06_WideLanding_LOD2.001",
+        "Socket_Edge_E.001",
+        "Socket_Edge_N.001",
+        "Socket_Edge_S.001",
+        "Socket_Edge_W.001",
+        "Socket_Lantern_NE.001",
+        "Socket_Lantern_NW.001",
+        "Socket_Lantern_SE.001",
+        "Socket_Lantern_SW.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Edge_E.001": [
+          3.5,
+          0.0,
+          0.8
+        ],
+        "Socket_Edge_N.001": [
+          0.0,
+          3.5,
+          0.8
+        ],
+        "Socket_Edge_S.001": [
+          0.0,
+          -3.5,
+          0.8
+        ],
+        "Socket_Edge_W.001": [
+          -3.5,
+          0.0,
+          0.8
+        ],
+        "Socket_Lantern_NE.001": [
+          3.03,
+          3.03,
+          1.09
+        ],
+        "Socket_Lantern_NW.001": [
+          -3.03,
+          3.03,
+          1.09
+        ],
+        "Socket_Lantern_SE.001": [
+          3.03,
+          -3.03,
+          1.09
+        ],
+        "Socket_Lantern_SW.001": [
+          -3.03,
+          -3.03,
+          1.09
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 13774296
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 253,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

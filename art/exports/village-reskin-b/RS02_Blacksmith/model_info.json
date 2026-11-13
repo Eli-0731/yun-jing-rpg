@@ -1,0 +1,503 @@
+{
+  "asset": "RS02_Blacksmith",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "RS02_Blacksmith_Detail_Small"
+  ],
+  "name_zh": "鐵匠鋪換材質（VL 質感）",
+  "slot": "TownLayout_Blacksmith",
+  "note": "Dondon Blacksmith v001 的鐵匠鋪，外形不動，瓦、木、石、爐磚、鐵件換成 VL／VH 那一套質感（11/09 工作包 RS02）；原檔不改，另存新檔",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 95512,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 47756,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 14322,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "RS02_Blacksmith_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Emission.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Tile_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Tile_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Tile_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Tile_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Tile_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS02_Blacksmith_Wood_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre, z = 0 at the lowest ground contact",
+  "dimensions_m": [
+    7.43,
+    5.7232,
+    5.36
+  ],
+  "bounds_min_m": [
+    -3.715,
+    -3.0232,
+    0.0
+  ],
+  "bounds_max_m": [
+    3.715,
+    2.7,
+    5.36
+  ],
+  "size_limit_m": [
+    7.47,
+    5.7632,
+    5.38
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        7.3555,
+        5.7232,
+        5.36
+      ],
+      "min": [
+        -3.6777,
+        -3.0232,
+        0.0
+      ],
+      "max": [
+        3.6777,
+        2.7,
+        5.36
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        7.43,
+        5.6712,
+        4.3343
+      ],
+      "min": [
+        -3.715,
+        -3.01,
+        0.311
+      ],
+      "max": [
+        3.715,
+        2.6612,
+        4.6452
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 5720,
+      "LOD1": 2860,
+      "LOD2": 858
+    },
+    "Stone": {
+      "LOD0": 26244,
+      "LOD1": 13122,
+      "LOD2": 3936
+    },
+    "Wood": {
+      "LOD0": 11036,
+      "LOD1": 5518,
+      "LOD2": 1654
+    },
+    "Tile": {
+      "LOD0": 36892,
+      "LOD1": 18446,
+      "LOD2": 5532
+    },
+    "Detail_Small": {
+      "LOD0": 15620,
+      "LOD1": 7810,
+      "LOD2": 2342
+    }
+  },
+  "lod_totals": {
+    "LOD0": 95512,
+    "LOD1": 47756,
+    "LOD2": 14322
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_RS02_Blacksmith_Main",
+    "M_RS02_Blacksmith_Stone",
+    "M_RS02_Blacksmith_Tile",
+    "M_RS02_Blacksmith_Wood"
+  ],
+  "textures": [
+    "RS02_Blacksmith_BaseColor.png",
+    "RS02_Blacksmith_Emission.png",
+    "RS02_Blacksmith_Metallic.png",
+    "RS02_Blacksmith_MetallicSmoothness.png",
+    "RS02_Blacksmith_Normal.png",
+    "RS02_Blacksmith_Roughness.png",
+    "RS02_Blacksmith_Stone_BaseColor.png",
+    "RS02_Blacksmith_Stone_Metallic.png",
+    "RS02_Blacksmith_Stone_MetallicSmoothness.png",
+    "RS02_Blacksmith_Stone_Normal.png",
+    "RS02_Blacksmith_Stone_Roughness.png",
+    "RS02_Blacksmith_Tile_BaseColor.png",
+    "RS02_Blacksmith_Tile_Metallic.png",
+    "RS02_Blacksmith_Tile_MetallicSmoothness.png",
+    "RS02_Blacksmith_Tile_Normal.png",
+    "RS02_Blacksmith_Tile_Roughness.png",
+    "RS02_Blacksmith_Wood_BaseColor.png",
+    "RS02_Blacksmith_Wood_Metallic.png",
+    "RS02_Blacksmith_Wood_MetallicSmoothness.png",
+    "RS02_Blacksmith_Wood_Normal.png",
+    "RS02_Blacksmith_Wood_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_RS02_Blacksmith_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS02_Blacksmith_BaseColor.png",
+        "Normal": "RS02_Blacksmith_Normal.png",
+        "MetallicSmoothness": "RS02_Blacksmith_MetallicSmoothness.png"
+      },
+      "M_RS02_Blacksmith_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS02_Blacksmith_Stone_BaseColor.png",
+        "Normal": "RS02_Blacksmith_Stone_Normal.png",
+        "MetallicSmoothness": "RS02_Blacksmith_Stone_MetallicSmoothness.png"
+      },
+      "M_RS02_Blacksmith_Tile": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS02_Blacksmith_Tile_BaseColor.png",
+        "Normal": "RS02_Blacksmith_Tile_Normal.png",
+        "MetallicSmoothness": "RS02_Blacksmith_Tile_MetallicSmoothness.png"
+      },
+      "M_RS02_Blacksmith_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS02_Blacksmith_Wood_BaseColor.png",
+        "Normal": "RS02_Blacksmith_Wood_Normal.png",
+        "MetallicSmoothness": "RS02_Blacksmith_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "RS02_Blacksmith_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_ForgeLight": [
+      -1.8,
+      0.55,
+      0.95
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_ForgeLight.001": [
+      -1.8,
+      0.55,
+      0.95
+    ]
+  },
+  "fbx_objects": [
+    "RS02_Blacksmith.001",
+    "RS02_Blacksmith_Collision.001",
+    "RS02_Blacksmith_Detail_Small_LOD0.001",
+    "RS02_Blacksmith_Detail_Small_LOD1.001",
+    "RS02_Blacksmith_Detail_Small_LOD2.001",
+    "RS02_Blacksmith_LOD0.001",
+    "RS02_Blacksmith_LOD1.001",
+    "RS02_Blacksmith_LOD2.001",
+    "Socket_ForgeLight.001"
+  ],
+  "glb": "RS02_Blacksmith_v001.glb",
+  "interface": {
+    "source_coplanar_nudged": {
+      "pairs_found": 149,
+      "faces_moved": 87,
+      "rounds": 3,
+      "pairs_left": 0,
+      "push_m": 0.0015,
+      "tol_m": 0.0011,
+      "vertices_moved": 143,
+      "max_shift_m": 0.003
+    },
+    "tile_mean_hex": "#363A3B",
+    "source_parts_by_material": {
+      "Quench_Water": 1,
+      "Smithy_Joints": 1,
+      "Smithy_Bluestone_0": 32,
+      "Smithy_Bluestone_1": 32,
+      "Smithy_Bluestone_2": 28,
+      "Smithy_Bluestone_3": 27,
+      "Smithy_Aged_Timber": 74,
+      "Smithy_Jade_Tile_0": 187,
+      "Smithy_Jade_Tile_1": 204,
+      "Smithy_Jade_Tile_2": 163,
+      "Smithy_Jade_Tile_3": 163,
+      "Forged_Dark_Iron": 17,
+      "Charcoal": 33,
+      "Forge_Firebrick_0": 18,
+      "Forge_Firebrick_1": 19,
+      "Forge_Firebrick_2": 18,
+      "Forge_Firebrick_3": 12,
+      "Smithy_Workbench_Wood": 10,
+      "Brushed_Sword_Steel": 4,
+      "Smithy_Old_Brass": 6,
+      "Hot_Ember": 8
+    },
+    "collision_probes": [
+      {
+        "probe": "floor",
+        "xy": [
+          0.0,
+          -2.0
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": 0.14,
+        "expected": [
+          0.12,
+          0.2
+        ],
+        "ok": true
+      },
+      {
+        "probe": "floor_by_anvil",
+        "xy": [
+          1.5,
+          -0.2
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": 0.18,
+        "expected": [
+          0.16,
+          0.2
+        ],
+        "ok": true
+      },
+      {
+        "probe": "forge",
+        "xy": [
+          -1.8,
+          1.0
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": 2.213,
+        "expected": [
+          1.85,
+          6.0
+        ],
+        "ok": true
+      },
+      {
+        "probe": "anvil_stump",
+        "xy": [
+          0.25,
+          -0.75
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": 1.142,
+        "expected": [
+          0.5,
+          1.2
+        ],
+        "ok": true
+      },
+      {
+        "probe": "ground_outside",
+        "xy": [
+          0.0,
+          -3.6
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": null,
+        "expected": null,
+        "ok": true
+      }
+    ]
+  },
+  "modeling_method": "as RS01: the lod-backfill LOD0 split into its loose parts, vertices unchanged (except the 1 mm coplanar pull-back); the 21 flat source materials swapped for the VL / VH procedural set, baked to four 2048 atlases (Main, Stone, Wood, Tile; the forge embers also an emission map); LOD1/LOD2 rebuilt from the new LOD0",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 309.5,
+        "median": 324.3,
+        "p90": 337.9,
+        "area_m2": 25.2
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 86.1,
+        "median": 86.1,
+        "p90": 86.5,
+        "area_m2": 351.0
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 132.8,
+        "median": 137.4,
+        "p90": 141.3,
+        "area_m2": 148.4
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Tile": {
+      "visible": {
+        "p10": 124.8,
+        "median": 132.8,
+        "p90": 139.4,
+        "area_m2": 113.1
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "no three-view (a re-texture, work pack: original and new side by side under the same light instead)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/exports/lod-backfill-b/Blacksmith/Blacksmith_LOD_v001.blend (Dondon Blacksmith v001; the source files are not changed)",
+  "source_triangles": 86854,
+  "uv_detached_zero_faces": 302,
+  "collision_boxes": {
+    "boxes": 196,
+    "triangles": 2352,
+    "skipped_parts": [
+      "Forge_Brick",
+      "Forge_Soot_Lining",
+      "Forge_Coal_Bed",
+      "Forge_Burning",
+      "Charcoal",
+      "Hot_Ember",
+      "Coal_Lump",
+      "Quench_Water"
+    ],
+    "rule": "one box per part with its lowest point under 2.2 m (roof tile and Detail_Small none): the smaller of its axis-aligned and principal-axes box, thin sides opened to 2 cm",
+    "by_part": {
+      "Anvil_Body": 1,
+      "Anvil_Steel_Face": 1,
+      "Anvil_Stump_Log": 1,
+      "Anvil_Waist_Feet": 1,
+      "Bellows_Box": 1,
+      "Bellows_Handle": 1,
+      "Bellows_Lid_Batten": 1,
+      "Bellows_Nozzle": 1,
+      "Bellows_Post": 4,
+      "Bellows_Rail": 2,
+      "Bellows_Rod": 1,
+      "Bellows_Skid": 2,
+      "Brushed_Sword_Steel": 3,
+      "Forge_Core": 5,
+      "Forge_Hood_Core": 3,
+      "Forge_Poker": 1,
+      "Forge_Voussoir": 17,
+      "Forged_Dark_Iron": 10,
+      "Hammer_Handle": 1,
+      "Hammer_Head": 1,
+      "Smithy_Aged_Timber": 13,
+      "Smithy_Bluestone_0": 28,
+      "Smithy_Bluestone_1": 32,
+      "Smithy_Bluestone_2": 28,
+      "Smithy_Bluestone_3": 27,
+      "Smithy_Joints": 1,
+      "Smithy_Workbench_Wood": 9
+    }
+  }
+}

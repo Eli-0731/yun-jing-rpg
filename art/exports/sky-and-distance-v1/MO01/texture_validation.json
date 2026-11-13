@@ -1,0 +1,39 @@
+{
+  "moon_day": {
+    "size_px": [
+      2048,
+      2048
+    ],
+    "center_alpha": 0.0,
+    "left_mid_alpha": 0.470588,
+    "right_mid_alpha": 0.0,
+    "corner_alpha": 0.0,
+    "opaque_or_visible_px": 317514,
+    "file_bytes": 279596
+  },
+  "moon_night": {
+    "size_px": [
+      2048,
+      2048
+    ],
+    "center_alpha": 0.0,
+    "left_mid_alpha": 1.0,
+    "right_mid_alpha": 0.0,
+    "corner_alpha": 0.0,
+    "opaque_or_visible_px": 316840,
+    "file_bytes": 283148
+  },
+  "moon_halo": {
+    "size_px": [
+      2048,
+      2048
+    ],
+    "center_alpha": 0.0,
+    "left_mid_alpha": 0.14902,
+    "right_mid_alpha": 0.0,
+    "corner_alpha": 0.0,
+    "opaque_or_visible_px": 618656,
+    "file_bytes": 230793
+  },
+  "pass": true
+}

@@ -1,0 +1,831 @@
+{
+ "LV01": {
+  "id": "LV01",
+  "name": "ChickenCoop",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV01_v001.fbx",
+   "glb": "art/exports/village-life-c/LV01_v001.glb",
+   "blend": "art/source/village-life-c/LV01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.8,
+   0.798,
+   0.575
+  ],
+  "body_dimensions_xyz_m": [
+   0.8,
+   0.798,
+   0.575
+  ],
+  "size_limit_xyz_m": [
+   0.8,
+   0.8,
+   0.6
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Feathers",
+   "Detail_Straw"
+  ],
+  "detailMeshes": [
+   "LV01_Detail_Feathers_LOD0",
+   "LV01_Detail_Feathers_LOD1",
+   "LV01_Detail_Feathers_LOD2",
+   "LV01_Detail_Straw_LOD0",
+   "LV01_Detail_Straw_LOD1",
+   "LV01_Detail_Straw_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 18268,
+    "triangles_without_detail": 17928,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV01_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV01_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 9134,
+    "triangles_without_detail": 8964,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV01_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV01_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 2738,
+    "triangles_without_detail": 2688,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV01_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV01_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV01_Body_LOD0",
+    "LV01_Body_LOD1",
+    "LV01_Body_LOD2"
+   ],
+   "Detail_Feathers": [
+    "LV01_Detail_Feathers_LOD0",
+    "LV01_Detail_Feathers_LOD1",
+    "LV01_Detail_Feathers_LOD2"
+   ],
+   "Detail_Straw": [
+    "LV01_Detail_Straw_LOD0",
+    "LV01_Detail_Straw_LOD1",
+    "LV01_Detail_Straw_LOD2"
+   ]
+  },
+  "material": "M_LV01_ChickenCoop",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 76,
+  "coplanar_lifted": 1,
+  "reference": "art/references/LV01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "an upturned dome (0.8 × 0.6 m): 16 strips from the top knot to the rim, 6 rings over and under them",
+   "thick bottom rim bound with rope at 8 places; one fresher repair strip tied over a broken one",
+   "Detail_Straw: straw caught in the weave; Detail_Feathers: two feathers by the rim"
+  ]
+ },
+ "LV02": {
+  "id": "LV02",
+  "name": "BroomDustpan",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV02_v001.fbx",
+   "glb": "art/exports/village-life-c/LV02_v001.glb",
+   "blend": "art/source/village-life-c/LV02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.32,
+   0.386,
+   0.234
+  ],
+  "body_dimensions_xyz_m": [
+   1.32,
+   0.386,
+   0.234
+  ],
+  "size_limit_xyz_m": [
+   1.4,
+   0.4,
+   0.3
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Nails",
+   "Detail_Tail"
+  ],
+  "detailMeshes": [
+   "LV02_Detail_Nails_LOD0",
+   "LV02_Detail_Nails_LOD1",
+   "LV02_Detail_Nails_LOD2",
+   "LV02_Detail_Tail_LOD0",
+   "LV02_Detail_Tail_LOD1",
+   "LV02_Detail_Tail_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 7984,
+    "triangles_without_detail": 7876,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV02_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV02_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3992,
+    "triangles_without_detail": 3938,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV02_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV02_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1196,
+    "triangles_without_detail": 1180,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV02_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV02_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV02_Body_LOD0",
+    "LV02_Body_LOD1",
+    "LV02_Body_LOD2"
+   ],
+   "Detail_Nails": [
+    "LV02_Detail_Nails_LOD0",
+    "LV02_Detail_Nails_LOD1",
+    "LV02_Detail_Nails_LOD2"
+   ],
+   "Detail_Tail": [
+    "LV02_Detail_Tail_LOD0",
+    "LV02_Detail_Tail_LOD1",
+    "LV02_Detail_Tail_LOD2"
+   ]
+  },
+  "material": "M_LV02_BroomDustpan",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 110,
+  "coplanar_lifted": 1,
+  "reference": "art/references/LV02/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "lying down beside the dustpan (cand-3 draws it standing; the prompt and the 0.3 m height have it lying)",
+   "64 twigs (some forked) bound in three places into a flat worn fan; bamboo handle with a rope wrap at the top and a cloth band tied mid-way",
+   "dustpan: three floor boards, wedge sides, back board and a horseshoe grip lashed with crossed rope; a patch board nailed into the floor",
+   "Detail_Tail: the frayed rope tail at the handle top; Detail_Nails: the patch nail heads"
+  ]
+ },
+ "LV03": {
+  "id": "LV03",
+  "name": "BambooLadder",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV03_v001.fbx",
+   "glb": "art/exports/village-life-c/LV03_v001.glb",
+   "blend": "art/source/village-life-c/LV03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.495,
+   0.081,
+   2.381
+  ],
+  "body_dimensions_xyz_m": [
+   0.495,
+   0.081,
+   2.381
+  ],
+  "size_limit_xyz_m": [
+   0.5,
+   0.1,
+   2.4
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 11788,
+    "triangles_without_detail": 11788,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV03_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV03_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 5894,
+    "triangles_without_detail": 5894,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV03_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV03_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1768,
+    "triangles_without_detail": 1768,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV03_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV03_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV03_Body_LOD0",
+    "LV03_Body_LOD1",
+    "LV03_Body_LOD2"
+   ]
+  },
+  "material": "M_LV03_BambooLadder",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 67,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "built upright, 0.5 wide × 2.4 high (the pack's 0.1 m depth): lean it against a wall when placed",
+   "two poles with nodes at uneven spacing, wider at the foot; seven rungs lashed the same way at every joint (turns above and below, an X over the rung)",
+   "the fourth rung is a fresher bamboo replacement; rung tops darker in the middle where they are stepped on"
+  ]
+ },
+ "LV04": {
+  "id": "LV04",
+  "name": "HangingBasket",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV04_v001.fbx",
+   "glb": "art/exports/village-life-c/LV04_v001.glb",
+   "blend": "art/source/village-life-c/LV04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.476,
+   0.48,
+   0.765
+  ],
+  "body_dimensions_xyz_m": [
+   0.476,
+   0.48,
+   0.765
+  ],
+  "size_limit_xyz_m": [
+   0.5,
+   0.5,
+   0.8
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Frays"
+  ],
+  "detailMeshes": [
+   "LV04_Detail_Frays_LOD0",
+   "LV04_Detail_Frays_LOD1",
+   "LV04_Detail_Frays_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 5306,
+    "triangles_without_detail": 5110,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV04_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV04_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 2652,
+    "triangles_without_detail": 2554,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV04_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV04_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 794,
+    "triangles_without_detail": 766,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV04_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV04_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV04_Body_LOD0",
+    "LV04_Body_LOD1",
+    "LV04_Body_LOD2"
+   ],
+   "Detail_Frays": [
+    "LV04_Detail_Frays_LOD0",
+    "LV04_Detail_Frays_LOD1",
+    "LV04_Detail_Frays_LOD2"
+   ]
+  },
+  "material": "M_LV04_HangingBasket",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 51,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV04/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a shallow basket (0.46 m across) with its rim drooping a little on one side; the weave is in the texture, the rim band lashed every 30°",
+   "three cords tied to the rim go up to a knot and a hanging loop (0.8 m high in all); the origin is at the basket bottom: it stands on the ground until hung",
+   "four dried leaves and five chillies lying in it; a grey cloth patch on the side",
+   "Detail_Frays: fibres sticking out of the cords"
+  ]
+ },
+ "LV05": {
+  "id": "LV05",
+  "name": "PickleJars",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV05_v001.fbx",
+   "glb": "art/exports/village-life-c/LV05_v001.glb",
+   "blend": "art/source/village-life-c/LV05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.847,
+   0.443,
+   0.54
+  ],
+  "body_dimensions_xyz_m": [
+   0.847,
+   0.443,
+   0.54
+  ],
+  "size_limit_xyz_m": [
+   0.9,
+   0.5,
+   0.6
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3990,
+    "triangles_without_detail": 3990,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV05_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV05_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1994,
+    "triangles_without_detail": 1994,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV05_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV05_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 598,
+    "triangles_without_detail": 598,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV05_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV05_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV05_Body_LOD0",
+    "LV05_Body_LOD1",
+    "LV05_Body_LOD2"
+   ]
+  },
+  "material": "M_LV05_PickleJars",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 12,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "three jars standing apart (not joined): big 0.35 × 0.47 m with broad shoulders, middle straight-sided, small squat",
+   "wide mouths with an unglazed band, a thick clay lid on each and a river stone pressing it; the big lid chipped",
+   "unlike BM03 (narrow neck, no lid): wide mouth, heavy lid, press stone; glaze drips and damp earth round the feet are painted"
+  ]
+ },
+ "LV06": {
+  "id": "LV06",
+  "name": "ChoppingBlock",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/village-life-c/LV06_v001.fbx",
+   "glb": "art/exports/village-life-c/LV06_v001.glb",
+   "blend": "art/source/village-life-c/LV06_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.479,
+   0.544,
+   0.514
+  ],
+  "body_dimensions_xyz_m": [
+   0.479,
+   0.544,
+   0.514
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.6,
+   0.6
+  ],
+  "within_limit": true,
+  "minTier": "high",
+  "detailObjects": [
+   "Detail_Chips",
+   "Detail_ClothEnds"
+  ],
+  "detailMeshes": [
+   "LV06_Detail_Chips_LOD0",
+   "LV06_Detail_Chips_LOD1",
+   "LV06_Detail_Chips_LOD2",
+   "LV06_Detail_ClothEnds_LOD0",
+   "LV06_Detail_ClothEnds_LOD1",
+   "LV06_Detail_ClothEnds_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 3552,
+    "triangles_without_detail": 3392,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV06_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV06_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1776,
+    "triangles_without_detail": 1696,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV06_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV06_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 534,
+    "triangles_without_detail": 508,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "LV06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "LV06_Normal.png": [
+      1024,
+      1024
+     ],
+     "LV06_ORM.png": [
+      1024,
+      1024
+     ],
+     "LV06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "LV06_Body_LOD0",
+    "LV06_Body_LOD1",
+    "LV06_Body_LOD2"
+   ],
+   "Detail_Chips": [
+    "LV06_Detail_Chips_LOD0",
+    "LV06_Detail_Chips_LOD1",
+    "LV06_Detail_Chips_LOD2"
+   ],
+   "Detail_ClothEnds": [
+    "LV06_Detail_ClothEnds_LOD0",
+    "LV06_Detail_ClothEnds_LOD1",
+    "LV06_Detail_ClothEnds_LOD2"
+   ]
+  },
+  "material": "M_LV06_ChoppingBlock",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 34,
+  "coplanar_lifted": 0,
+  "reference": "art/references/LV06/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a stump 0.4 m high, its foot flaring into root lobes; pale weathered wood with seven strips of bark, the top ones peeling",
+   "the cut top: end grain with growth rings and checks, crossing cut marks painted on it; a broad chopping knife driven in at a slant, handle bound with cloth",
+   "three split logs at the foot; Detail_ClothEnds: the hanging cloth ends; Detail_Chips: wood chips"
+  ]
+ }
+}

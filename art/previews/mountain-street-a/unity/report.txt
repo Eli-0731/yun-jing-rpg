@@ -1,0 +1,143 @@
+PASS T_MountainStreet_*: Albedo / Normal / MetallicSmoothness / Emission imported
+PASS T_MountainStreet_Albedo: source 2048, imported 1024 x 1024 (QingxiImportBudget caps model textures at 1024)
+PASS T_StreetFurniture_*: Albedo / Normal / MetallicSmoothness / Emission imported
+PASS T_StreetFurniture_Albedo: source 1024, imported 1024 x 1024 (QingxiImportBudget caps model textures at 1024)
+Unity 6000.3.28f1, pipeline URP
+INFO axis: Blender +X -> Unity +X, Blender +Y -> Unity +Z, Blender +Z -> Unity +Y (ST06_E bounds centre x = 0.138)
+PASS ST01: imported size 0.598 x 0.598 x 2.400 m matches model_info 0.598 x 0.597 x 2.4
+PASS ST01: lowest point y = 0.000 (model_info 0)
+PASS ST01: triangles LOD0/1/2 = 14330 / 6626 / 2004, model_info 14330 / 6626 / 2004
+PASS ST01: 3 LOD0 objects (model_info 3)
+PASS ST01: every FBX material slot mapped to a shared URP material
+PASS ST01: materials M_MountainStreet_Glow, M_MountainStreet_Trim (model_info M_MountainStreet_Glow, M_MountainStreet_Trim)
+PASS ST01: ST_ST01_Glow_LOD0 on an emissive _Glow material
+PASS ST01: LODGroup 3 levels x 3 renderers
+PASS ST01: collision imported as MeshCollider (36 tris), render hidden
+PASS ST02: imported size 7.994 x 0.340 x 0.973 m matches model_info 7.993 x 0.34 x 0.973
+PASS ST02: lowest point y = -0.966 (model_info -0.966)
+PASS ST02: triangles LOD0/1/2 = 6980 / 3368 / 1010, model_info 6980 / 3368 / 1010
+PASS ST02: 2 LOD0 objects (model_info 2)
+PASS ST02: every FBX material slot mapped to a shared URP material
+PASS ST02: materials M_StreetFurniture, M_StreetFurniture_Glow (model_info M_StreetFurniture, M_StreetFurniture_Glow)
+PASS ST02: ST_ST02_Glow_LOD0 on an emissive _Glow material
+PASS ST02: Socket_HookA at (-3.96, 0.00, 0.00) (Blender -3.955, 0, 0)
+PASS ST02: Socket_HookB at (3.96, 0.00, 0.00) (Blender 3.955, 0, 0)
+PASS ST02: LODGroup 3 levels x 2 renderers
+PASS ST02: no collision (hanging piece)
+PASS ST02_4M: imported size 3.993 x 0.340 x 0.835 m matches model_info 3.993 x 0.34 x 0.835
+PASS ST02_4M: lowest point y = -0.828 (model_info -0.828)
+PASS ST02_4M: triangles LOD0/1/2 = 4948 / 2308 / 692, model_info 4948 / 2308 / 692
+PASS ST02_4M: 2 LOD0 objects (model_info 2)
+PASS ST02_4M: every FBX material slot mapped to a shared URP material
+PASS ST02_4M: materials M_StreetFurniture, M_StreetFurniture_Glow (model_info M_StreetFurniture, M_StreetFurniture_Glow)
+PASS ST02_4M: ST_ST02_4M_Glow_LOD0 on an emissive _Glow material
+PASS ST02_4M: Socket_HookA at (-1.96, 0.00, 0.00) (Blender -1.955, 0, 0)
+PASS ST02_4M: Socket_HookB at (1.96, 0.00, 0.00) (Blender 1.955, 0, 0)
+PASS ST02_4M: LODGroup 3 levels x 2 renderers
+PASS ST02_4M: no collision (hanging piece)
+PASS ST02_6M: imported size 5.993 x 0.340 x 0.890 m matches model_info 5.993 x 0.34 x 0.89
+PASS ST02_6M: lowest point y = -0.883 (model_info -0.883)
+PASS ST02_6M: triangles LOD0/1/2 = 5964 / 2836 / 850, model_info 5964 / 2836 / 850
+PASS ST02_6M: 2 LOD0 objects (model_info 2)
+PASS ST02_6M: every FBX material slot mapped to a shared URP material
+PASS ST02_6M: materials M_StreetFurniture, M_StreetFurniture_Glow (model_info M_StreetFurniture, M_StreetFurniture_Glow)
+PASS ST02_6M: ST_ST02_6M_Glow_LOD0 on an emissive _Glow material
+PASS ST02_6M: Socket_HookA at (-2.96, 0.00, 0.00) (Blender -2.955, 0, 0)
+PASS ST02_6M: Socket_HookB at (2.96, 0.00, 0.00) (Blender 2.955, 0, 0)
+PASS ST02_6M: LODGroup 3 levels x 2 renderers
+PASS ST02_6M: no collision (hanging piece)
+PASS ST03_C: imported size 0.498 x 0.498 x 0.297 m matches model_info 0.498 x 0.498 x 0.297
+PASS ST03_C: lowest point y = 0.000 (model_info 0)
+PASS ST03_C: triangles LOD0/1/2 = 398 / 174 / 60, model_info 398 / 174 / 60
+PASS ST03_C: 2 LOD0 objects (model_info 2)
+PASS ST03_C: every FBX material slot mapped to a shared URP material
+PASS ST03_C: materials M_MountainStreet_Trim (model_info M_MountainStreet_Trim)
+PASS ST03_C: LODGroup 3 levels x 2 renderers
+PASS ST03_C: collision imported as MeshCollider (48 tris), render hidden
+PASS ST03_D: imported size 3.999 x 0.500 x 2.297 m matches model_info 3.999 x 0.5 x 2.297
+PASS ST03_D: lowest point y = 0.000 (model_info 0)
+PASS ST03_D: triangles LOD0/1/2 = 8762 / 3975 / 1192, model_info 8762 / 3975 / 1192
+PASS ST03_D: 2 LOD0 objects (model_info 2)
+PASS ST03_D: every FBX material slot mapped to a shared URP material
+PASS ST03_D: materials M_MountainStreet_Trim (model_info M_MountainStreet_Trim)
+PASS ST03_D: LODGroup 3 levels x 2 renderers
+PASS ST03_D: collision imported as MeshCollider (396 tris), render hidden
+PASS ST03_S: imported size 4.000 x 0.500 x 0.300 m matches model_info 3.999 x 0.5 x 0.3
+PASS ST03_S: lowest point y = 0.000 (model_info 0)
+PASS ST03_S: triangles LOD0/1/2 = 2678 / 1185 / 356, model_info 2678 / 1185 / 356
+PASS ST03_S: 2 LOD0 objects (model_info 2)
+PASS ST03_S: every FBX material slot mapped to a shared URP material
+PASS ST03_S: materials M_MountainStreet_Trim, M_StreetFurniture (model_info M_MountainStreet_Trim, M_StreetFurniture)
+PASS ST03_S: LODGroup 3 levels x 2 renderers
+PASS ST03_S: collision imported as MeshCollider (36 tris), render hidden
+PASS ST04: imported size 1.798 x 0.479 x 0.479 m matches model_info 1.798 x 0.479 x 0.479
+PASS ST04: lowest point y = 0.000 (model_info 0)
+PASS ST04: triangles LOD0/1/2 = 8285 / 3938 / 1188, model_info 8285 / 3938 / 1188
+PASS ST04: 2 LOD0 objects (model_info 2)
+PASS ST04: every FBX material slot mapped to a shared URP material
+PASS ST04: materials M_MountainStreet_Trim, M_StreetFurniture (model_info M_MountainStreet_Trim, M_StreetFurniture)
+PASS ST04: LODGroup 3 levels x 2 renderers
+PASS ST04: collision imported as MeshCollider (36 tris), render hidden
+PASS ST05_A: imported size 0.590 x 0.068 x 1.773 m matches model_info 0.59 x 0.068 x 1.773
+PASS ST05_A: lowest point y = 0.000 (model_info 0)
+PASS ST05_A: triangles LOD0/1/2 = 3152 / 1576 / 472, model_info 3152 / 1576 / 472
+PASS ST05_A: 1 LOD0 objects (model_info 1)
+PASS ST05_A: every FBX material slot mapped to a shared URP material
+PASS ST05_A: materials M_MountainStreet_Trim, M_StreetFurniture (model_info M_MountainStreet_Trim, M_StreetFurniture)
+PASS ST05_A: Socket_Hang at (0.00, 1.76, 0.00) (Blender 0, 0, 1.761)
+PASS ST05_A: LODGroup 3 levels x 1 renderers
+PASS ST05_A: no collision (hanging piece)
+PASS ST05_B: imported size 0.590 x 0.071 x 1.758 m matches model_info 0.59 x 0.071 x 1.758
+PASS ST05_B: lowest point y = 0.000 (model_info 0)
+PASS ST05_B: triangles LOD0/1/2 = 3152 / 1576 / 472, model_info 3152 / 1576 / 472
+PASS ST05_B: 1 LOD0 objects (model_info 1)
+PASS ST05_B: every FBX material slot mapped to a shared URP material
+PASS ST05_B: materials M_MountainStreet_Trim, M_StreetFurniture (model_info M_MountainStreet_Trim, M_StreetFurniture)
+PASS ST05_B: Socket_Hang at (0.00, 1.75, 0.00) (Blender 0, 0, 1.746)
+PASS ST05_B: LODGroup 3 levels x 1 renderers
+PASS ST05_B: no collision (hanging piece)
+PASS ST05_C: imported size 0.590 x 0.070 x 1.769 m matches model_info 0.59 x 0.069 x 1.769
+PASS ST05_C: lowest point y = 0.000 (model_info 0)
+PASS ST05_C: triangles LOD0/1/2 = 3152 / 1576 / 472, model_info 3152 / 1576 / 472
+PASS ST05_C: 1 LOD0 objects (model_info 1)
+PASS ST05_C: every FBX material slot mapped to a shared URP material
+PASS ST05_C: materials M_MountainStreet_Trim, M_StreetFurniture (model_info M_MountainStreet_Trim, M_StreetFurniture)
+PASS ST05_C: Socket_Hang at (0.00, 1.76, 0.00) (Blender 0, 0, 1.757)
+PASS ST05_C: LODGroup 3 levels x 1 renderers
+PASS ST05_C: no collision (hanging piece)
+PASS ST06_C: imported size 0.198 x 0.198 x 1.095 m matches model_info 0.198 x 0.198 x 1.095
+PASS ST06_C: lowest point y = 0.000 (model_info 0)
+PASS ST06_C: triangles LOD0/1/2 = 362 / 162 / 56, model_info 362 / 162 / 56
+PASS ST06_C: 2 LOD0 objects (model_info 2)
+PASS ST06_C: every FBX material slot mapped to a shared URP material
+PASS ST06_C: materials M_MountainStreet_Trim (model_info M_MountainStreet_Trim)
+PASS ST06_C: LODGroup 3 levels x 2 renderers
+PASS ST06_C: collision imported as MeshCollider (12 tris), render hidden
+PASS ST06_E: imported size 0.473 x 0.198 x 1.100 m matches model_info 0.473 x 0.198 x 1.1
+PASS ST06_E: lowest point y = 0.000 (model_info 0)
+PASS ST06_E: triangles LOD0/1/2 = 683 / 313 / 101, model_info 683 / 313 / 101
+PASS ST06_E: 2 LOD0 objects (model_info 2)
+PASS ST06_E: every FBX material slot mapped to a shared URP material
+PASS ST06_E: materials M_MountainStreet_Trim (model_info M_MountainStreet_Trim)
+PASS ST06_E: LODGroup 3 levels x 2 renderers
+PASS ST06_E: collision imported as MeshCollider (24 tris), render hidden
+PASS ST06_S: imported size 1.854 x 0.193 x 0.931 m matches model_info 1.854 x 0.193 x 0.931
+PASS ST06_S: lowest point y = 0.115 (model_info 0.115)
+PASS ST06_S: triangles LOD0/1/2 = 3748 / 1874 / 562, model_info 3748 / 1874 / 562
+PASS ST06_S: 1 LOD0 objects (model_info 1)
+PASS ST06_S: every FBX material slot mapped to a shared URP material
+PASS ST06_S: materials M_MountainStreet_Trim, M_StreetFurniture (model_info M_MountainStreet_Trim, M_StreetFurniture)
+PASS ST06_S: LODGroup 3 levels x 1 renderers
+PASS ST06_S: collision imported as MeshCollider (12 tris), render hidden
+PASS ST04 seat: ray at x = -0.42 hits collision at 0.480 m (seat .48)
+PASS ST04 seat: ray at x = 0.00 hits collision at 0.480 m (seat .48)
+PASS ST04 seat: ray at x = 0.42 hits collision at 0.480 m (seat .48)
+PASS ST03_S: channel floor collision at 0.120 m (.12)
+PASS ST03_S: rim collision at 0.300 m (.30)
+PASS ST03_D: floor steps 2.12 1.94 1.76 1.57 1.39 1.21 1.03 0.85 0.67 0.48 0.30 m, each 0.182 lower
+PASS ST06_S: horizontal ray at 0.3 m stops at the railing (z = -0.050)
+PASS ST06_S: horizontal ray at 0.9 m stops at the railing (z = -0.050)
+PASS ST06_S: 1.75 m capsule moving into the panel is stopped at z = -0.050
+PASS street: 53 / 53 parts placed from st-street-assembly.json
+PASS street: walking from the street toward the cliff at x = -2.2 hits the bench / railing after 1.55 m
+INFO renders written to art/previews/mountain-street-a/unity

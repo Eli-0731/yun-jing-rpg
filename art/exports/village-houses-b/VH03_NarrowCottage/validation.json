@@ -1,0 +1,228 @@
+{
+  "asset": "VH03_NarrowCottage",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -2.262,
+          -4.4016,
+          0.0
+        ],
+        "max": [
+          2.416,
+          4.2772,
+          4.8084
+        ],
+        "box_m": [
+          [
+            -2.5,
+            -4.5,
+            0.0
+          ],
+          [
+            2.5,
+            4.5,
+            5.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01006
+      }
+    },
+    {
+      "check": "gable_end_faces_lane",
+      "pass": true,
+      "detail": {
+        "ridge_top_along_y_m": [
+          4.725,
+          4.721,
+          4.725
+        ],
+        "roof_over_long_walls_m": [
+          3.023,
+          3.023
+        ],
+        "lane_face_hit_y_m": -3.91,
+        "gable_wall_y_m": -3.8
+      }
+    },
+    {
+      "check": "door_on_long_side",
+      "pass": true,
+      "detail": {
+        "hit_at_door_x_m": 1.725,
+        "hit_beside_door_x_m": 1.8,
+        "long_side_m": 5.8,
+        "gable_width_m": 3.6
+      }
+    },
+    {
+      "check": "rear_lean_to_lower",
+      "pass": true,
+      "detail": {
+        "shed_roof_top_m": [
+          2.125,
+          1.926
+        ],
+        "main_eave_over_walls_m": [
+          3.023,
+          3.023
+        ],
+        "shed_back_m": 4.15
+      }
+    },
+    {
+      "check": "collision_closed_step_up",
+      "pass": true,
+      "detail": {
+        "collision_faces_m": {
+          "lane": -3.95,
+          "east": 1.95,
+          "west": -1.95,
+          "shed_back": 4.05
+        },
+        "step_top_m": 0.125
+      }
+    },
+    {
+      "check": "shed_open_to_walk_in",
+      "pass": true,
+      "detail": {
+        "ray_through_open_side_first_hit_x_m": -1.58,
+        "west_wall_inner_x_m": -1.58,
+        "clear_floor_y_m": [
+          2.15,
+          3.33
+        ]
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 79010,
+          "LOD1": 39504,
+          "LOD2": 11319
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.143,
+        "per_group": {
+          "Main": {
+            "LOD0": 5536,
+            "LOD1": 2768,
+            "LOD2": 830
+          },
+          "Stone": {
+            "LOD0": 11284,
+            "LOD1": 5642,
+            "LOD2": 1692
+          },
+          "Wood": {
+            "LOD0": 28880,
+            "LOD1": 14440,
+            "LOD2": 4332
+          },
+          "Detail_Small": {
+            "LOD0": 11422,
+            "LOD1": 5710,
+            "LOD2": 1713
+          },
+          "Roof": {
+            "LOD0": 21888,
+            "LOD1": 10944,
+            "LOD2": 2752
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          4.678,
+          8.6787,
+          4.8084
+        ],
+        "blend_dims_m": [
+          4.678,
+          8.6787,
+          4.8084
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_Door.001",
+        "Socket_Lane.001",
+        "Socket_Shed.001",
+        "VH03_NarrowCottage.001",
+        "VH03_NarrowCottage_Collision.001",
+        "VH03_NarrowCottage_Detail_Small_LOD0.001",
+        "VH03_NarrowCottage_Detail_Small_LOD1.001",
+        "VH03_NarrowCottage_Detail_Small_LOD2.001",
+        "VH03_NarrowCottage_LOD0.001",
+        "VH03_NarrowCottage_LOD1.001",
+        "VH03_NarrowCottage_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Door.001": [
+          1.8,
+          -0.9,
+          0.25
+        ],
+        "Socket_Lane.001": [
+          0.0,
+          -4.3,
+          0.0
+        ],
+        "Socket_Shed.001": [
+          0.0,
+          2.975,
+          0.02
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 9479664
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 342,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

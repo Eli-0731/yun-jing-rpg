@@ -5,7 +5,7 @@ Each view is rendered twice with identical camera and lights: first with the bak
 (Base Color unlinked and set to 0.5 grey; leaf alpha stays linked so cards keep their cut-out).
 Writes art/previews/village-houses-b/<ID>/ruler_<view>_material.png and ruler_<view>_grey.png; the model files are not touched.
 
-blender --background --factory-startup art/source/village-houses-b/blend/<ID>_<version>.blend --python ruler_views.py -- <ID> <repo>/art
+blender --background --factory-startup art/source/village-houses-b/blend/<ID>_<version>.blend --python ruler_views.py -- <ID> <repo>/art [--four] [--kit <kit>]
 """
 import bpy, bmesh, json, math, sys
 from pathlib import Path
@@ -13,7 +13,7 @@ from mathutils import Vector, Matrix
 
 argv = sys.argv[sys.argv.index('--') + 1:]
 AID, ART = argv[0], Path(argv[1])
-KIT = 'village-houses-b'
+KIT = argv[argv.index('--kit') + 1] if '--kit' in argv else 'village-houses-b'   # other kits built on this pipeline (village-reskin-b, roadside-landmarks-b)
 OUT = ART / 'previews' / KIT / AID
 info = json.loads((ART / 'exports' / KIT / AID / 'model_info.json').read_text(encoding='utf-8'))
 HUMAN = 1.75
