@@ -1,17 +1,10 @@
-"""彙整翅膀動畫影格，產出溪畔夜間螢火粒子貼圖。"""
+"""產出溪畔夜間螢火粒子貼圖；鳥與蝶的新版預覽另由 make_lf_game_previews.py 製作。"""
 from pathlib import Path
 import json
 import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT=Path(__file__).resolve().parents[2]/'exports/life-v1'
-for code in ('LF01','LF02'):
-    folder=ROOT/code
-    frames=[Image.open(folder/f'{code}_animation-preview_{f:02}.png').convert('RGBA') for f in (1,7,13,19)]
-    sheet=Image.new('RGBA',(1920,480),(226,230,229,255))
-    for i,frame in enumerate(frames): sheet.alpha_composite(frame,(i*480,0))
-    sheet.convert('RGB').save(folder/f'{code}_animation-preview.png')
-
 folder=ROOT/'LF03'; folder.mkdir(parents=True,exist_ok=True)
 n=256
 yy,xx=np.mgrid[0:n,0:n]

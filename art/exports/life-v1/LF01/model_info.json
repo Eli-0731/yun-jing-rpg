@@ -1,13 +1,28 @@
 {
   "id": "LF01",
+  "name_zh": "遠處飛鳥",
   "units": "m",
-  "triangles": 614,
-  "variants": [
-    "slate",
-    "warm",
-    "pale"
+  "reference": "art/references/life-v1/LF01/three-view.png",
+  "type": "雙面透明小卡",
+  "distance_preview_m": 60,
+  "width_m": 0.5,
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangles": 2,
+      "materials": 1,
+      "texture_resolution": [
+        1024,
+        1024
+      ]
+    }
   ],
-  "animation": "24 fps, frame 1–25 循環；左右翅各自動畫",
-  "minTier": "standard",
+  "variants": {
+    "spread": "LF01_Spread.png",
+    "folded": "LF01_Folded.png"
+  },
+  "runtime": "以影格或材質切換變體；不含 GLB 內建拍翅動畫",
+  "unity_material": "URP 雙面透明、Alpha Blend；關閉陰影",
+  "collision": false,
   "unity_import": "未驗證"
 }
