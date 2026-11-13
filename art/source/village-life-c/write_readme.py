@@ -27,7 +27,7 @@ head="""| 項目 | 內容 |
 | 誰做的 | C（Eli-0731） |
 | 工作包 | docs/execution/2026-11-07/C-128h-creekside-and-village-life.md 第二部分 A（LV01–LV12，這張先交 LV01–LV06） |
 | ID | LV01–LV06 |
-| 分支／PR | art/c-1107-lv01-06-village-life ／ 開 PR 後補（等 #93 結案再開） |
+| 分支／PR | art/c-1107-lv01-06-village-life ／ 本批送審 |
 | 版本 | v001（檔名帶 `_v001`；之後改版另存 v002，不覆寫） |
 | 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖）／ In-game Verified：未驗（沒放進正式場景） |
 | 素材來源 | 原創；三視圖參考在 `art/references/LV01/`–`art/references/LV06/` |
@@ -49,7 +49,8 @@ tail="""
 ## 驗證
 
 - QA（`tools/art/qa_lod0_basic.py` 嚴格與寬鬆、`tools/art/qa_contact_glb.py`）：六件嚴格、寬鬆都是 0 項，結果在 `art/previews/village-life-c/qa/`。
-- Unity 6000.3.28f1 獨立匯入：`art/previews/village-life-c/unity/report.txt`。
+- FBX 原始資料與回匯覆核：`blender -b --factory-startup --python-exit-code 1 -P art/source/village-life-c/verify_delivery.py`。檢查每個 LOD 的原始面數、物件／材質數、貼圖解析度、UV、回匯尺寸與底部原點；記錄在 `art/previews/village-life-c/qa/fbx-roundtrip.json`。
+- Unity 6000.3.28f1 既有獨立匯入報告：`art/previews/village-life-c/unity/report.txt`，84 項 PASS。本輪核對模型及報告一致，沒有重跑 Unity Editor；模型與 FBX 沒有修改。
 - 同光同角度並排（含 1.75 m 人形尺，灰模和成品各一張）：`art/previews/village-life-c/compare/`。LV01／LV04 對 B 的竹篩 MK02、背簍 MK04；LV02／LV03 對 B 的柴堆 R03、C 的木樁 BM02_01；LV05 對 C 的陶罐 BM03_01–03；LV06 對 BM02_01、R03；`LV-set` 是六件放在一起。
 
 **和既有模型的三個共同點**
@@ -60,6 +61,7 @@ tail="""
 ## 已知問題與未驗
 
 - 正式場景擺放、手機上的效果都未驗。
+- Blender 4.5.3 回匯 FBX 後，LV01／LV02／LV03／LV04／LV06 的部分 LOD1／LOD2 面數較原始檔少；逐項差異列在 `qa/fbx-roundtrip.json`。`model_info.json` 的面數與 FBX 原始資料、既有 Unity 匯入報告一致，沒有以 Blender 回匯數字覆寫它們。
 - LV02：三視圖四張都把掃帚畫成直立，照提示詞和工作包高度改成平躺；綁好的那段芯看起來偏像一截光滑木頭。
 - LV03：工作包尺寸深 0.1 m，模型是直立的；靠牆的角度要在擺放時整件傾斜。
 - LV04：原點在籃底，單獨擺放是籃子著地、繩子立起；要掛起來時以頂上的繩圈為掛點。
