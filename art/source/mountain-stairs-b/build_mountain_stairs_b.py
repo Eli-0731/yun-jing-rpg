@@ -1,4 +1,5 @@
 """mountain-stairs-b v001 (work pack B-104h part 2, batch 1): SG01 straight stair run, SG02 turning landing, SG03 balustrade set, SG04 rest shelter.
+Work pack 2026-11-09 B-112h batch C adds SG05 wide stair run and SG06 wide landing (sg_wide.py, grey-white granite).
 
 Run one asset per process:
   blender --background --factory-startup --python art/source/mountain-stairs-b/build_mountain_stairs_b.py -- SG01_StraightRun --force
@@ -24,7 +25,7 @@ sys.path.insert(0, str(HERE))
 import numpy as np
 from mathutils import Vector, Matrix
 import ti_core, ti_mats, ti_pipeline as pl
-import sg_parts as SG, sg_rail, sg_landing, sg_shelter
+import sg_parts as SG, sg_rail, sg_landing, sg_shelter, sg_wide
 from ti_core import S
 
 KIT = 'mountain-stairs-b'
@@ -34,7 +35,7 @@ LOD_TARGET = {1: .50, 2: .15}
 LOD_DROPS = {1: (2, 99), 2: (1, 2, 99)}
 
 ASSETS = {}
-SG.register(ASSETS); sg_rail.register(ASSETS); sg_landing.register(ASSETS); sg_shelter.register(ASSETS)
+SG.register(ASSETS); sg_rail.register(ASSETS); sg_landing.register(ASSETS); sg_shelter.register(ASSETS); sg_wide.register(ASSETS)
 
 
 def route_details():
@@ -107,10 +108,13 @@ def clamp_to_limit(cfg):
         me = o.data; co = np.zeros(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
         w = co + np.array(o.location, np.float32)
         c = w.copy(); c[:, 0] = np.clip(c[:, 0], lo_b[0], hi_b[0]); c[:, 1] = np.clip(c[:, 1], lo_b[1], hi_b[1]); c[:, 2] = np.maximum(c[:, 2], lo_b[2])
-        moved = max(moved, float(np.abs(c - w).max()))
+        dm = np.abs(c - w)
+        if float(dm.max()) > moved:
+            i = int(dm.max(axis=1).argmax()); S['clamp_worst'] = (o.name, [round(float(v), 3) for v in w[i]])
+        moved = max(moved, float(dm.max()))
         me.vertices.foreach_set('co', (c - np.array(o.location, np.float32)).ravel()); me.update()
     S['clamped_m'] = round(moved, 5)
-    assert moved < cfg.get('clamp_max', .02), ('clamp moved a vertex too far', moved)   # TE03: buried stone bottoms are flattened onto z = 0
+    assert moved < cfg.get('clamp_max', .02), ('clamp moved a vertex too far', moved, S.get('clamp_worst'))   # TE03: buried stone bottoms are flattened onto z = 0
 
 
 def make_collision(aid):
@@ -507,6 +511,10 @@ def shelter_checks(aid, check):
     need = {'Socket_Front', 'Socket_Seat', 'Socket_Basin'}
     check('sockets_present', need <= set(S['sockets']), sorted(S['sockets']))
     return {'eave_underside_min_m': round(min(eave), 3), 'architrave_clear_m': round(min(head), 3), 'seat_m': SH.SEAT, 'sockets': sorted(S['sockets'])}
+
+
+def wide_stair_checks(aid, check): return sg_wide.wide_stair_checks(aid, check, _bvh, S['lods'][0]['Main'])
+def wide_landing_checks(aid, check): return sg_wide.wide_landing_checks(aid, check, _bvh, S['lods'][0]['Main'])
 
 
 def spec_checks(aid, check):

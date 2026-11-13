@@ -1,0 +1,810 @@
+{
+  "asset": "RS01_TownInn",
+  "version": "v002",
+  "minTier": "standard",
+  "detailObjects": [
+    "RS01_TownInn_Detail_Small"
+  ],
+  "name_zh": "客棧換材質（VL 質感）",
+  "slot": "TownLayout_TownInn",
+  "note": "Dondon TownLayout v004 的客棧，瓦、牆、木、石全部換成 VL01–05 那一套質感（11/09 工作包 RS01）；原檔不改，另存新檔。v002（2026-11-10，使用者決定）：原樓梯太陡（38.7°、踏面 25 cm、鏤空）、起步卡在牆角、頂端撞客房隔間，人上不了二樓，改成雙跑折返梯（20 階、每階 17.3 cm、踏面 28 cm、約 32°），頂平台向東接二樓走廊；加中牆、樓梯下封板、二樓樓梯井欄杆；其他不動",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 49020,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 24510,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 7914,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "RS01_TownInn_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Tile_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Tile_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Tile_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Tile_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Tile_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS01_TownInn_Wood_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre, z = 0 at the lowest ground contact",
+  "dimensions_m": [
+    14.38,
+    14.7891,
+    10.4074
+  ],
+  "bounds_min_m": [
+    -7.19,
+    -7.3945,
+    0.0
+  ],
+  "bounds_max_m": [
+    7.19,
+    7.3945,
+    10.4074
+  ],
+  "size_limit_m": [
+    14.42,
+    14.829099999999999,
+    10.4274
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        14.38,
+        14.7891,
+        10.4074
+      ],
+      "min": [
+        -7.19,
+        -7.3945,
+        0.0
+      ],
+      "max": [
+        7.19,
+        7.3945,
+        10.4074
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        9.9666,
+        9.1066,
+        1.53
+      ],
+      "min": [
+        -2.938,
+        -3.6586,
+        1.45
+      ],
+      "max": [
+        7.0286,
+        5.448,
+        2.98
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 4428,
+      "LOD1": 2214,
+      "LOD2": 664
+    },
+    "Wood": {
+      "LOD0": 23680,
+      "LOD1": 11840,
+      "LOD2": 3552
+    },
+    "Stone": {
+      "LOD0": 648,
+      "LOD1": 324,
+      "LOD2": 96
+    },
+    "Tile": {
+      "LOD0": 17512,
+      "LOD1": 8756,
+      "LOD2": 3190
+    },
+    "Detail_Small": {
+      "LOD0": 2752,
+      "LOD1": 1376,
+      "LOD2": 412
+    }
+  },
+  "lod_totals": {
+    "LOD0": 49020,
+    "LOD1": 24510,
+    "LOD2": 7914
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_RS01_TownInn_Main",
+    "M_RS01_TownInn_Stone",
+    "M_RS01_TownInn_Tile",
+    "M_RS01_TownInn_Wood"
+  ],
+  "textures": [
+    "RS01_TownInn_BaseColor.png",
+    "RS01_TownInn_Metallic.png",
+    "RS01_TownInn_MetallicSmoothness.png",
+    "RS01_TownInn_Normal.png",
+    "RS01_TownInn_Roughness.png",
+    "RS01_TownInn_Stone_BaseColor.png",
+    "RS01_TownInn_Stone_Metallic.png",
+    "RS01_TownInn_Stone_MetallicSmoothness.png",
+    "RS01_TownInn_Stone_Normal.png",
+    "RS01_TownInn_Stone_Roughness.png",
+    "RS01_TownInn_Tile_BaseColor.png",
+    "RS01_TownInn_Tile_Metallic.png",
+    "RS01_TownInn_Tile_MetallicSmoothness.png",
+    "RS01_TownInn_Tile_Normal.png",
+    "RS01_TownInn_Tile_Roughness.png",
+    "RS01_TownInn_Wood_BaseColor.png",
+    "RS01_TownInn_Wood_Metallic.png",
+    "RS01_TownInn_Wood_MetallicSmoothness.png",
+    "RS01_TownInn_Wood_Normal.png",
+    "RS01_TownInn_Wood_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_RS01_TownInn_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS01_TownInn_BaseColor.png",
+        "Normal": "RS01_TownInn_Normal.png",
+        "MetallicSmoothness": "RS01_TownInn_MetallicSmoothness.png"
+      },
+      "M_RS01_TownInn_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS01_TownInn_Stone_BaseColor.png",
+        "Normal": "RS01_TownInn_Stone_Normal.png",
+        "MetallicSmoothness": "RS01_TownInn_Stone_MetallicSmoothness.png"
+      },
+      "M_RS01_TownInn_Tile": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS01_TownInn_Tile_BaseColor.png",
+        "Normal": "RS01_TownInn_Tile_Normal.png",
+        "MetallicSmoothness": "RS01_TownInn_Tile_MetallicSmoothness.png"
+      },
+      "M_RS01_TownInn_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS01_TownInn_Wood_BaseColor.png",
+        "Normal": "RS01_TownInn_Wood_Normal.png",
+        "MetallicSmoothness": "RS01_TownInn_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "RS01_TownInn_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_GuestRoom_1": [
+      0.62,
+      0.17,
+      3.95
+    ],
+    "Socket_GuestRoom_2": [
+      0.62,
+      3.12,
+      3.95
+    ],
+    "Socket_GuestRoom_3": [
+      0.62,
+      5.3,
+      3.95
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_GuestRoom_1.001": [
+      0.62,
+      0.17,
+      3.95
+    ],
+    "Socket_GuestRoom_2.001": [
+      0.62,
+      3.12,
+      3.95
+    ],
+    "Socket_GuestRoom_3.001": [
+      0.62,
+      5.3,
+      3.95
+    ]
+  },
+  "fbx_objects": [
+    "RS01_TownInn.001",
+    "RS01_TownInn_Collision.001",
+    "RS01_TownInn_Detail_Small_LOD0.001",
+    "RS01_TownInn_Detail_Small_LOD1.001",
+    "RS01_TownInn_Detail_Small_LOD2.001",
+    "RS01_TownInn_LOD0.001",
+    "RS01_TownInn_LOD1.001",
+    "RS01_TownInn_LOD2.001",
+    "Socket_GuestRoom_1.001",
+    "Socket_GuestRoom_2.001",
+    "Socket_GuestRoom_3.001"
+  ],
+  "glb": "RS01_TownInn_v002.glb",
+  "interface": {
+    "source_coplanar_nudged": {
+      "pairs_found": 1013,
+      "faces_moved": 544,
+      "rounds": 4,
+      "pairs_left": 0,
+      "push_m": 0.001,
+      "tol_m": 0.0005,
+      "vertices_moved": 799,
+      "max_shift_m": 0.003
+    },
+    "tile_mean_hex": "#353A3E",
+    "source_parts_by_material": {
+      "TL09_Iron": 2,
+      "TL09_Timber": 167,
+      "TL09_Board": 58,
+      "TL09_Lacquer": 33,
+      "TL09_Paper": 2,
+      "TL09_Cloth": 3,
+      "TL09_Plaster": 21,
+      "TL09_Pale": 2,
+      "TL09_Stone": 4,
+      "TL09_Tile": 98,
+      "TL09_Glaze": 1,
+      "TL09_Lantern": 2,
+      "TL09_Rope": 2,
+      "TL09_Brass": 1,
+      "TL09_Clay": 6
+    },
+    "collision_probes": [
+      {
+        "probe": "dining_floor",
+        "xy": [
+          2.0,
+          -3.0
+        ],
+        "ray_from_z_m": 3.5,
+        "top_z_m": 0.49,
+        "expected": [
+          0.47,
+          0.51
+        ],
+        "ok": true
+      },
+      {
+        "probe": "ground_outside",
+        "xy": [
+          8.5,
+          0.0
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": null,
+        "expected": null,
+        "ok": true
+      },
+      {
+        "probe": "entry_step",
+        "xy": [
+          5.9,
+          0.0
+        ],
+        "ray_from_z_m": 2.0,
+        "top_z_m": 0.449,
+        "expected": [
+          0.2,
+          0.47
+        ],
+        "ok": true
+      },
+      {
+        "probe": "flight1_tread_6",
+        "xy": [
+          -2.65,
+          -3.09
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": 1.528,
+        "expected": [
+          1.5,
+          1.56
+        ],
+        "ok": true
+      },
+      {
+        "probe": "half_landing",
+        "xy": [
+          -2.1,
+          -5.2
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": 2.566,
+        "expected": [
+          2.54,
+          2.6
+        ],
+        "ok": true
+      },
+      {
+        "probe": "flight2_tread_4",
+        "xy": [
+          -1.55,
+          -3.65
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": 3.258,
+        "expected": [
+          3.23,
+          3.29
+        ],
+        "ok": true
+      },
+      {
+        "probe": "old_wall_end_gone",
+        "xy": [
+          0.51,
+          -2.2
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": 3.95,
+        "expected": [
+          3.93,
+          3.97
+        ],
+        "ok": true
+      },
+      {
+        "probe": "top_landing",
+        "xy": [
+          -1.5,
+          -2.0
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": 3.95,
+        "expected": [
+          3.93,
+          3.97
+        ],
+        "ok": true
+      },
+      {
+        "probe": "upper_hall",
+        "xy": [
+          2.0,
+          -3.0
+        ],
+        "ray_from_z_m": 6.0,
+        "top_z_m": 3.95,
+        "expected": [
+          3.93,
+          3.97
+        ],
+        "ok": true
+      }
+    ]
+  },
+  "modeling_method": "source mesh split into its loose parts with vertices unchanged (except: where two parts had faces in one plane facing the same way, the face of the smaller part is pulled back 1 mm so the baked atlas does not z-fight); the 15 flat source materials swapped for the VL procedural set (art/source/village-reskin-b/), baked to four 2048 atlases (Main, Stone, Wood, Tile); LOD1/LOD2 rebuilt from the new LOD0; at LOD2 the 88 long tile-course bands are three-segment boxes reading the same atlas (a collapse decimate stalls on them)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 57.5,
+        "median": 57.5,
+        "p90": 57.5,
+        "area_m2": 946.1
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 108.2,
+        "median": 108.2,
+        "p90": 108.4,
+        "area_m2": 320.2
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 42.2,
+        "median": 42.2,
+        "p90": 42.3,
+        "area_m2": 1115.0
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Tile": {
+      "visible": {
+        "p10": 59.0,
+        "median": 59.9,
+        "p90": 60.6,
+        "area_m2": 685.4
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "no three-view (a re-texture, work pack: original and new side by side under the same light instead)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/exports/lod-backfill-b/TownInn/TownInn_LOD_v001.blend (from TownLayout v004; the source files are not changed)",
+  "source_triangles": 51152,
+  "uv_detached_zero_faces": 13447,
+  "collision_boxes": {
+    "boxes": 391,
+    "triangles": 4692,
+    "skipped_parts": [
+      "Lantern_Part",
+      "Rope_Part"
+    ],
+    "rule": "one box per part with its lowest point under 6.15 m (roof tile and Detail_Small none): the smaller of its axis-aligned and principal-axes box, thin sides opened to 2 cm",
+    "by_part": {
+      "Board": 35,
+      "Brass": 1,
+      "Cloth": 3,
+      "Hall_Shutter_00_Batten_0": 1,
+      "Hall_Shutter_00_Batten_1": 1,
+      "Hall_Shutter_00_Board_0": 1,
+      "Hall_Shutter_00_Board_1": 1,
+      "Hall_Shutter_00_Board_2": 1,
+      "Hall_Shutter_01_Batten_0": 1,
+      "Hall_Shutter_01_Batten_1": 1,
+      "Hall_Shutter_01_Board_0": 1,
+      "Hall_Shutter_01_Board_1": 1,
+      "Hall_Shutter_01_Board_2": 1,
+      "Hall_Shutter_02_Batten_0": 1,
+      "Hall_Shutter_02_Batten_1": 1,
+      "Hall_Shutter_02_Board_0": 1,
+      "Hall_Shutter_02_Board_1": 1,
+      "Hall_Shutter_02_Board_2": 1,
+      "Hall_Shutter_03_Batten_0": 1,
+      "Hall_Shutter_03_Batten_1": 1,
+      "Hall_Shutter_03_Board_0": 1,
+      "Hall_Shutter_03_Board_1": 1,
+      "Hall_Shutter_03_Board_2": 1,
+      "Hall_Shutter_04_Batten_0": 1,
+      "Hall_Shutter_04_Batten_1": 1,
+      "Hall_Shutter_04_Board_0": 1,
+      "Hall_Shutter_04_Board_1": 1,
+      "Hall_Shutter_04_Board_2": 1,
+      "Hall_Shutter_05_Batten_0": 1,
+      "Hall_Shutter_05_Batten_1": 1,
+      "Hall_Shutter_05_Board_0": 1,
+      "Hall_Shutter_05_Board_1": 1,
+      "Hall_Shutter_05_Board_2": 1,
+      "Hall_Shutter_06_Batten_0": 1,
+      "Hall_Shutter_06_Batten_1": 1,
+      "Hall_Shutter_06_Board_0": 1,
+      "Hall_Shutter_06_Board_1": 1,
+      "Hall_Shutter_06_Board_2": 1,
+      "Hall_Shutter_07_Batten_0": 1,
+      "Hall_Shutter_07_Batten_1": 1,
+      "Hall_Shutter_07_Board_0": 1,
+      "Hall_Shutter_07_Board_1": 1,
+      "Hall_Shutter_07_Board_2": 1,
+      "Hall_Shutter_08_Batten_0": 1,
+      "Hall_Shutter_08_Batten_1": 1,
+      "Hall_Shutter_08_Board_0": 1,
+      "Hall_Shutter_08_Board_1": 1,
+      "Hall_Shutter_08_Board_2": 1,
+      "Hall_Shutter_09_Batten_0": 1,
+      "Hall_Shutter_09_Batten_1": 1,
+      "Hall_Shutter_09_Board_0": 1,
+      "Hall_Shutter_09_Board_1": 1,
+      "Hall_Shutter_09_Board_2": 1,
+      "Hall_Shutter_10_Batten_0": 1,
+      "Hall_Shutter_10_Batten_1": 1,
+      "Hall_Shutter_10_Board_0": 1,
+      "Hall_Shutter_10_Board_1": 1,
+      "Hall_Shutter_10_Board_2": 1,
+      "Hall_Shutter_11_Batten_0": 1,
+      "Hall_Shutter_11_Batten_1": 1,
+      "Hall_Shutter_11_Board_0": 1,
+      "Hall_Shutter_11_Board_1": 1,
+      "Hall_Shutter_11_Board_2": 1,
+      "Hall_Shutter_12_Batten_0": 1,
+      "Hall_Shutter_12_Batten_1": 1,
+      "Hall_Shutter_12_Board_0": 1,
+      "Hall_Shutter_12_Board_1": 1,
+      "Hall_Shutter_12_Board_2": 1,
+      "Hall_Shutter_13_Batten_0": 1,
+      "Hall_Shutter_13_Batten_1": 1,
+      "Hall_Shutter_13_Board_0": 1,
+      "Hall_Shutter_13_Board_1": 1,
+      "Hall_Shutter_13_Board_2": 1,
+      "Hall_Shutter_14_Batten_0": 1,
+      "Hall_Shutter_14_Batten_1": 1,
+      "Hall_Shutter_14_Board_0": 1,
+      "Hall_Shutter_14_Board_1": 1,
+      "Hall_Shutter_14_Board_2": 1,
+      "Hall_Shutter_15_Batten_0": 1,
+      "Hall_Shutter_15_Batten_1": 1,
+      "Hall_Shutter_15_Board_0": 1,
+      "Hall_Shutter_15_Board_1": 1,
+      "Hall_Shutter_15_Board_2": 1,
+      "Hall_Shutter_16_Batten_0": 1,
+      "Hall_Shutter_16_Batten_1": 1,
+      "Hall_Shutter_16_Board_0": 1,
+      "Hall_Shutter_16_Board_1": 1,
+      "Hall_Shutter_16_Board_2": 1,
+      "Hall_Shutter_17_Batten_0": 1,
+      "Hall_Shutter_17_Batten_1": 1,
+      "Hall_Shutter_17_Board_0": 1,
+      "Hall_Shutter_17_Board_1": 1,
+      "Hall_Shutter_17_Board_2": 1,
+      "Hall_Shutter_18_Batten_0": 1,
+      "Hall_Shutter_18_Batten_1": 1,
+      "Hall_Shutter_18_Board_0": 1,
+      "Hall_Shutter_18_Board_1": 1,
+      "Hall_Shutter_18_Board_2": 1,
+      "Hall_Shutter_19_Batten_0": 1,
+      "Hall_Shutter_19_Batten_1": 1,
+      "Hall_Shutter_19_Board_0": 1,
+      "Hall_Shutter_19_Board_1": 1,
+      "Hall_Shutter_19_Board_2": 1,
+      "Hall_Window_Sill_0": 1,
+      "Hall_Window_Sill_1": 1,
+      "Hall_Window_Sill_2": 1,
+      "Hall_Window_Sill_3": 1,
+      "Hall_Window_Sill_4": 1,
+      "Iron": 2,
+      "Lacquer": 32,
+      "Pale": 2,
+      "Paper": 2,
+      "Plaster": 20,
+      "Stair1_String_0": 1,
+      "Stair1_String_1": 1,
+      "Stair1_Tread_01": 1,
+      "Stair1_Tread_02": 1,
+      "Stair1_Tread_03": 1,
+      "Stair1_Tread_04": 1,
+      "Stair1_Tread_05": 1,
+      "Stair1_Tread_06": 1,
+      "Stair1_Tread_07": 1,
+      "Stair1_Tread_08": 1,
+      "Stair1_Tread_09": 1,
+      "Stair1_Tread_10": 1,
+      "Stair1_Tread_11": 1,
+      "Stair1_Wall_Rail": 1,
+      "Stair2_String_0": 1,
+      "Stair2_String_1": 1,
+      "Stair2_Tread_01": 1,
+      "Stair2_Tread_02": 1,
+      "Stair2_Tread_03": 1,
+      "Stair2_Tread_04": 1,
+      "Stair2_Tread_05": 1,
+      "Stair2_Tread_06": 1,
+      "Stair2_Tread_07": 1,
+      "Stair_Landing_Half": 1,
+      "Stair_Landing_Half_Beam": 1,
+      "Stair_Landing_Top": 1,
+      "Stair_Landing_Top_Beam": 1,
+      "Stair_Screen_East": 1,
+      "Stair_Screen_North": 1,
+      "Stair_Screen_Post_0": 1,
+      "Stair_Screen_Post_1": 1,
+      "Stair_Screen_Post_2": 1,
+      "Stair_Screen_Rail_00": 1,
+      "Stair_Screen_Rail_01": 1,
+      "Stair_Screen_Rail_10": 1,
+      "Stair_Screen_Rail_11": 1,
+      "Stair_Spine_Post_Landing": 1,
+      "Stair_Spine_Post_North": 1,
+      "Stair_Spine_Rail_Slope": 1,
+      "Stair_Spine_Rail_Top": 1,
+      "Stair_Spine_Under_Landing": 1,
+      "Stair_Spine_Wall": 1,
+      "Stone": 4,
+      "Timber": 129,
+      "Well_Rail_Baluster_00": 1,
+      "Well_Rail_Baluster_01": 1,
+      "Well_Rail_Baluster_02": 1,
+      "Well_Rail_Baluster_03": 1,
+      "Well_Rail_Baluster_04": 1,
+      "Well_Rail_Baluster_05": 1,
+      "Well_Rail_Baluster_06": 1,
+      "Well_Rail_Baluster_07": 1,
+      "Well_Rail_Bottom_0": 1,
+      "Well_Rail_Bottom_1": 1,
+      "Well_Rail_Post_0": 1,
+      "Well_Rail_Post_1": 1,
+      "Well_Rail_Post_2": 1,
+      "Well_Rail_Top": 1
+    }
+  },
+  "stair_v002": {
+    "removed_v001_parts": {
+      "treads": 17,
+      "stringers": 2,
+      "hand_rail": 1,
+      "floor_strip": 1,
+      "hall_window_boards": 5,
+      "hall_window_mullions": 10,
+      "hall_window_mid_rails": 5
+    },
+    "removed_v001_triangles": 4428,
+    "new_parts": 171,
+    "new_triangles": 2360,
+    "risers": 20,
+    "riser_m": 0.173,
+    "tread_m": 0.28,
+    "nosing_m": 0.02,
+    "pitch_deg": 31.7,
+    "flight_widths_m": [
+      1.02,
+      1.0
+    ],
+    "half_landing": {
+      "z_m": 2.566,
+      "y_m": [
+        -5.827,
+        -4.63
+      ]
+    },
+    "top_landing": {
+      "z_m": 3.95,
+      "y_m": [
+        -2.67,
+        -1.356
+      ],
+      "opens_east_onto_upper_floor_at_x_m": -0.99
+    },
+    "foot": {
+      "y_m": -1.55,
+      "faces": "north (+y), the dining room"
+    },
+    "balusters": 8,
+    "trimmed_wall": {
+      "part": "Plaster_Part.009",
+      "material": "lime plaster",
+      "x_m": [
+        0.46,
+        0.56
+      ],
+      "y_m_before": [
+        -3.05,
+        5.85
+      ],
+      "y_m_after": [
+        -1.36,
+        5.85
+      ],
+      "vertices_moved": 28,
+      "faces": 108,
+      "triangles_changed": 0,
+      "why": "its free end stood 1.5 m in front of the top landing, past the guest-room partition (y -1.35)"
+    },
+    "hall_windows": {
+      "bays": 5,
+      "openings_m": [
+        1.04,
+        1.38
+      ],
+      "sill_z_m": 4.8,
+      "head_z_m": 6.2,
+      "leaves": 20,
+      "leaf_m": [
+        0.518,
+        1.38
+      ],
+      "open_deg": 90,
+      "leaf_reach_onto_balcony_m": 0.52,
+      "balcony_clear_m": 0.89,
+      "closable_in_game": false
+    },
+    "guest_room_sockets": {
+      "at_blender_xyz": {
+        "Socket_GuestRoom_1": [
+          0.62,
+          0.17,
+          3.95
+        ],
+        "Socket_GuestRoom_2": [
+          0.62,
+          3.12,
+          3.95
+        ],
+        "Socket_GuestRoom_3": [
+          0.62,
+          5.3,
+          3.95
+        ]
+      },
+      "forward": "+x, out of the door into the upper hall",
+      "use": "where the game puts the interact prompt; the door boards are fixed on a solid wall"
+    }
+  }
+}

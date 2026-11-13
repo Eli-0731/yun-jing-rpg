@@ -1,0 +1,20 @@
+VH01 三視圖提示詞與選圖
+工作包：2026-11-09 B｜112 小時（不同外形的民居、舊建築換材質、路上地標）第 6 節 VH01。固定段照 docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md 附錄（game/core-1108-world-east-valley）。
+
+選用：VH01-cand-1.png。備選：VH01-cand-4.png。
+選用理由：底層石砌、二層木構出挑、內凹的窄外廊、陡的黛瓦山牆頂與收斂的起翹都清楚；正面、側面、背面三張和四分之三視角對得上；沒有斜撐木骨或日式構件。
+沒選的原因：
+- cand-2：側面底層幾乎都是灰泥，石砌底層不明顯。
+- cand-3：側面多了一座柴棚，不在描述裡，會干擾輪廓。
+- cand-4：可用；牆面石塊紋偏亮、偏碎，作備選。
+建模時注意：AI 圖比例偏高瘦，尺寸照工作包 8 × 7 × 7.5 m。
+
+工具與張數：
+- Codex CLI 0.167.0，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 4 張（VH01-cand-1..4），原尺寸存檔，沒有 seed。生成日期 2026-11-09。
+- 提示詞組法：物件句＋建築 Layout 段（工作包第 6 節：建築用建築 Layout 段）＋5.2 美術方向；Codex 沒有負面欄，所以把 5.3 負面提示加上第 6 節那句，以「Avoid:」接在最後。全部原文，一字未改。
+
+== 工作包原文（VH01 物件句）==
+Three-view orthographic turnaround sheet of a modest two-storey rural Chinese farmhouse, about 8 m wide, 7 m deep and 7.5 m tall, with a stone and timber ground floor, an overhanging timber upper floor with a small narrow gallery, plaster infill panels with plain vertical wooden lattice windows, and a fairly steep dark grey clay tile gable roof with restrained upturned eaves, old weathered dark wood and repaired plaster, lived-in but unadorned, no writing.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of a modest two-storey rural Chinese farmhouse, about 8 m wide, 7 m deep and 7.5 m tall, with a stone and timber ground floor, an overhanging timber upper floor with a small narrow gallery, plaster infill panels with plain vertical wooden lattice windows, and a fairly steep dark grey clay tile gable roof with restrained upturned eaves, old weathered dark wood and repaired plaster, lived-in but unadorned, no writing. Layout: one three-quarter view from slightly above at eye height of a person, plus front, side and back orthographic views on the same sheet at the same scale, plain light warm-grey background, even soft lighting, building only (no landscape around it except a small ground patch). Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, no Japanese stone toro lantern, not Tudor half-timbering, no diagonal braces on plaster walls, no bright teal roof, no glossy plastic look

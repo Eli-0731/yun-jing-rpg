@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "pass": true,
+  "errors": [],
+  "warnings": [
+    "SM_RI02_Rice_Golden_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_RI02_Rice_Golden_LOD1: duplicate verts=930 loose verts=0"
+  ],
+  "ground_z": -0.0,
+  "zfighting": [],
+  "floating": [],
+  "back_to_back": [],
+  "enclosed": [],
+  "objects": {
+    "SM_RI02_Rice_Golden_LOD1": {
+      "verts": 2352,
+      "faces": 1050,
+      "tris": 1050,
+      "ngons": 0,
+      "boundary_edges": 2352,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 930,
+      "islands": 651,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 4,
+      "uv_maps": 1,
+      "uv_oob_pct": 0.0,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 100.0
+    }
+  }
+}

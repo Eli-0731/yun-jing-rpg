@@ -1,0 +1,3 @@
+RI01 三視圖：正交三格、同一個 10×6 m 水田模組，俯視、正面、右側，前緣 0.8 m 入水缺口，石砌夯土田埂、灰藍淺水、少量秧苗，暖灰底，無字、無人、無動物。第一張 RI01-paddy-concept-v001.png 偏透視，不當三視圖；第二張 RI01-paddy-threeview-v002.png 實際檢視後用於建模。
+
+Flooded BaseColor：俯視淺水水田貼圖，可透視深暖泥斑、細小石頭、灰藍靜水、薄淤泥，不含流波、泡沫、植物、字、框；輸出複製至 art/exports/valley-and-home-v1/RI01/v005/textures/RI01_Flooded_BaseColor.png。單張鋪整塊田面，未宣稱精確無縫。

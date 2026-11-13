@@ -1,6 +1,6 @@
 # PR 總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；要更新就重跑。產生時間：2026-11-09 14:35 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；要更新就重跑。產生時間：2026-11-11 09:20 UTC。
 > 人：A = Johnnnny0823（John）、B = joshsu54（Josh）、C = Eli-0731（Eli）、核心組 = z1nnz（含 Claude Code、Codex 代提交）。
 
 | PR | 誰 | 狀態 | 日期 | 分支 | 做了什麼（標題） | 動到的主要資料夾（檔案數） |
@@ -90,7 +90,12 @@
 | [#87](https://github.com/z1nnz/chengtian/pull/87) | B | 已合併 | 2026-11-09 | `art/b-1108-fp-forest-paths` | 【B】11/08 FP01–FP05：古林步道套件 | `art/previews/forest-paths-b`(269)、`art/exports/forest-paths-b`(74)、`art/source/forest-paths-b`(29)、`art/references/FP01`(5)、`art/references/FP02`(5) 等 10 處 |
 | [#88](https://github.com/z1nnz/chengtian/pull/88) | C | 已合併 | 2026-11-09 | `Eli-0731:art/c-1107-wl-washing-props` | 【C】11/07 WL01–WL05：西溪洗衣小物五件 | `art/previews/creekside-life-c`(164)、`art/textures/creekside-life-c`(20)、`art/source/creekside-life-c`(15)、`art/references/WL04`(13)、`art/exports/creekside-life-c`(12) 等 9 處 |
 | [#89](https://github.com/z1nnz/chengtian/pull/89) | B | 已合併 | 2026-11-09 | `art/b-1108-vl-lived-homes` | 【B】11/08 VL04–VL05：有人住的民居變體 | `art/previews/village-houses-b`(57)、`art/exports/village-houses-b`(51)、`art/source/village-houses-b`(9)、`art/references/VL04`(5)、`art/references/VL05`(5) 等 6 處 |
-| [#90](https://github.com/z1nnz/chengtian/pull/90) | A | 開啟中 | 2026-11-09 | `art/a-1105-tx04-branch-court` | 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | `art/previews/tx04-branch-court`(109)、`art/exports/tx04-branch-court`(18)、`art/source/tx04-branch-court`(15)、`art/references/TX04-GATE`(5)、`art/references/TX04-HALL`(5) 等 16 處 |
+| [#90](https://github.com/z1nnz/chengtian/pull/90) | A | 已合併 | 2026-11-09 | `art/a-1105-tx04-branch-court` | 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | `art/previews/tx04-branch-court`(109)、`art/exports/tx04-branch-court`(18)、`art/source/tx04-branch-court`(15)、`art/references/TX04-GATE`(5)、`art/references/TX04-HALL`(5) 等 16 處 |
 | [#91](https://github.com/z1nnz/chengtian/pull/91) | 核心組 | 已合併 | 2026-11-09 | `docs/core-1109-registry-after-88` | docs: 重新產生帳本（#88 合併後） | `docs/registry/branches.md`(1)、`docs/registry/folders.md`(1)、`docs/registry/prs.md`(1) |
 | [#92](https://github.com/z1nnz/chengtian/pull/92) | 核心組 | 已合併 | 2026-11-09 | `game/core-1109-unity63-main` | 【核心組】11/09 Unity 升級到 6000.3.28f1（6.3 LTS） | `apps/game/ProjectSettings`(5)、`apps/game/Assets`(3)、`apps/game/Packages`(2)、`docs/architecture.md`(1)、`tools/qingxi-terrain/check-grounding.ps1`(1) |
-| [#93](https://github.com/z1nnz/chengtian/pull/93) | C | 開啟中 | 2026-11-09 | `Eli-0731:art/c-1107-fi-fishing-props` | 【C】11/07 FI01–FI05：西溪釣具五件（釣竿、線輪、抄網、魚筌、浮子） | `art/previews/creekside-life-c`(205)、`art/textures/creekside-life-c`(20)、`art/references/FI05`(17)、`art/exports/creekside-life-c`(12)、`art/source/creekside-life-c`(12) 等 9 處 |
+| [#93](https://github.com/z1nnz/chengtian/pull/93) | C | 已合併 | 2026-11-10 | `Eli-0731:art/c-1107-fi-fishing-props` | 【C】11/07 FI01–FI05：西溪釣具五件（釣竿、線輪、抄網、魚筌、浮子） | `art/previews/creekside-life-c`(221)、`art/textures/creekside-life-c`(20)、`art/references/FI05`(17)、`art/exports/creekside-life-c`(12)、`art/source/creekside-life-c`(12) 等 9 處 |
+| [#94](https://github.com/z1nnz/chengtian/pull/94) | 核心組 | 已合併 | 2026-11-09 | `docs/core-1109-registry-after-92` | docs: 重新產生帳本（#90、#92 合併後） | `docs/registry/branches.md`(1)、`docs/registry/prs.md`(1) |
+| [#95](https://github.com/z1nnz/chengtian/pull/95) | 核心組 | 已合併 | 2026-11-09 | `docs/core-1109-registry-after-90` | docs: 重新產生帳本（#90 合併後） | `docs/registry/branches.md`(1)、`docs/registry/folders.md`(1)、`docs/registry/prs.md`(1) |
+| [#96](https://github.com/z1nnz/chengtian/pull/96) | 核心組 | 已合併 | 2026-11-10 | `docs/core-1111-registry-after-93` | docs: 重新產生帳本（#93 合併後） | `docs/registry/branches.md`(1)、`docs/registry/folders.md`(1)、`docs/registry/prs.md`(1) |
+| [#97](https://github.com/z1nnz/chengtian/pull/97) | 核心組 | 已合併 | 2026-11-11 | `docs/core-1111-readme-contributing` | 【核心組】11/11 文件：README 與 CONTRIBUTING 更新為承天 | `CONTRIBUTING.md`(1)、`README.md`(1) |
+| [#98](https://github.com/z1nnz/chengtian/pull/98) | A | 開啟中 | 2026-11-11 | `art/a-1105-mc02-rope-bridge` | 【A】11/05 MC02：24 m、12 m 索橋 | `art/previews/mc02-rope-bridge`(45)、`art/source/mc02-rope-bridge`(8)、`art/exports/mc02-rope-bridge`(5)、`art/references/MC02-12M`(5)、`art/references/MC02-24M`(5) 等 9 處 |

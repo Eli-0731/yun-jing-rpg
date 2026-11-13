@@ -1,0 +1,51 @@
+{
+  "asset": "RI01",
+  "version": "v014",
+  "minTier": "standard",
+  "detailObjects": [
+    "Detail_RI01_Bund_EdgeGrass_LOD0"
+  ],
+  "triangles": {
+    "Detail_EdgeGrass_LOD0": 54,
+    "Paddy_Base_LOD0": 4208,
+    "Paddy_Dry_LOD0": 12,
+    "Paddy_Flooded_LOD0": 144,
+    "Paddy_Grown_LOD0": 492,
+    "Bund_Straight_LOD0": 84,
+    "Bund_Corner_LOD0": 192,
+    "Bund_T_LOD0": 168,
+    "Paddy_Base_LOD1": 3032,
+    "Paddy_Dry_LOD1": 12,
+    "Paddy_Flooded_LOD1": 84,
+    "Paddy_Grown_LOD1": 252,
+    "Bund_Straight_LOD1": 60,
+    "Bund_Corner_LOD1": 144,
+    "Bund_T_LOD1": 120,
+    "Paddy_Base_LOD2": 1232,
+    "Paddy_Dry_LOD2": 12,
+    "Paddy_Flooded_LOD2": 42,
+    "Paddy_Grown_LOD2": 81,
+    "Bund_Straight_LOD2": 60,
+    "Bund_Corner_LOD2": 96,
+    "Bund_T_LOD2": 96,
+    "Paddy_Collision": 72
+  },
+  "states": [
+    "Dry",
+    "Flooded",
+    "Grown"
+  ],
+  "inlet": {
+    "name": "Slot_Inlet",
+    "width_m": 0.8,
+    "center_x_m": -2.8
+  },
+  "bounds_m": [
+    10,
+    6
+  ],
+  "grid_m": 1,
+  "source": "art/source/valley-and-home-v1/RI01/RI01-paddy-pack-v014.blend",
+  "three_view": "art/references/valley-and-home-v1/RI01/RI01-paddy-threeview-v002.png",
+  "status": "Blender export, 18 combination QA cases and FBX/GLB reimport passed; one Flooded LOD comparison visually reviewed; Unity in-game unverified"
+}

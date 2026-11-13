@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "pass": true,
+  "errors": [],
+  "warnings": [
+    "SM_RI02_Rice_Seedling_LOD2: ~99.54% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_RI02_Rice_Seedling_LOD2: duplicate verts=242 loose verts=0"
+  ],
+  "ground_z": -0.0,
+  "zfighting": [],
+  "floating": [],
+  "back_to_back": [],
+  "enclosed": [],
+  "objects": {
+    "SM_RI02_Rice_Seedling_LOD2": {
+      "verts": 514,
+      "faces": 202,
+      "tris": 202,
+      "ngons": 0,
+      "boundary_edges": 514,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 242,
+      "islands": 156,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 2,
+      "uv_maps": 1,
+      "uv_oob_pct": 3.3,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 99.54,
+      "uv_coverage_pct": 96.0
+    }
+  }
+}
