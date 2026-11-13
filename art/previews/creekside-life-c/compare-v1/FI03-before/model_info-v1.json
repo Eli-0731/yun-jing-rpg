@@ -1,0 +1,136 @@
+{
+ "id": "FI03",
+ "name": "LandingNet",
+ "version": "v001",
+ "files": {
+  "fbx": "art/exports/creekside-life-c/FI03_v001.fbx",
+  "glb": "art/exports/creekside-life-c/FI03_v001.glb",
+  "blend": "art/source/creekside-life-c/FI03_v001.blend"
+ },
+ "bake_device": "OPTIX",
+ "dimensions_xyz_m": [
+  1.3,
+  0.442,
+  0.043
+ ],
+ "body_dimensions_xyz_m": [
+  1.3,
+  0.442,
+  0.043
+ ],
+ "size_limit_xyz_m": [
+  1.3,
+  0.45,
+  0.06
+ ],
+ "within_limit": true,
+ "minTier": "high",
+ "detailObjects": [
+  "Detail_Repair"
+ ],
+ "detailMeshes": [
+  "FI03_Detail_Repair_LOD0",
+  "FI03_Detail_Repair_LOD1",
+  "FI03_Detail_Repair_LOD2"
+ ],
+ "lods": {
+  "LOD0": {
+   "triangles": 9464,
+   "triangles_without_detail": 9408,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1,
+   "textures_px": {
+    "FI03_Albedo.png": [
+     1024,
+     1024
+    ],
+    "FI03_Normal.png": [
+     1024,
+     1024
+    ],
+    "FI03_ORM.png": [
+     1024,
+     1024
+    ],
+    "FI03_MaskURP.png": [
+     1024,
+     1024
+    ]
+   }
+  },
+  "LOD1": {
+   "triangles": 4732,
+   "triangles_without_detail": 4704,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1,
+   "textures_px": {
+    "FI03_Albedo.png": [
+     1024,
+     1024
+    ],
+    "FI03_Normal.png": [
+     1024,
+     1024
+    ],
+    "FI03_ORM.png": [
+     1024,
+     1024
+    ],
+    "FI03_MaskURP.png": [
+     1024,
+     1024
+    ]
+   }
+  },
+  "LOD2": {
+   "triangles": 1418,
+   "triangles_without_detail": 1410,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1,
+   "textures_px": {
+    "FI03_Albedo.png": [
+     1024,
+     1024
+    ],
+    "FI03_Normal.png": [
+     1024,
+     1024
+    ],
+    "FI03_ORM.png": [
+     1024,
+     1024
+    ],
+    "FI03_MaskURP.png": [
+     1024,
+     1024
+    ]
+   }
+  }
+ },
+ "objects": {
+  "Body": [
+   "FI03_Body_LOD0",
+   "FI03_Body_LOD1",
+   "FI03_Body_LOD2"
+  ],
+  "Detail_Repair": [
+   "FI03_Detail_Repair_LOD0",
+   "FI03_Detail_Repair_LOD1",
+   "FI03_Detail_Repair_LOD2"
+  ]
+ },
+ "material": "M_FI03_LandingNet",
+ "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+ "source_parts": 42,
+ "coplanar_lifted": 0,
+ "reference": "art/references/FI03/prompt.txt",
+ "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+ "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+ "notes": [
+  "lying flat; the net bag has collapsed under the ring, so the item is a few cm high",
+  "the net is modelled cord by cord (thin tubes); Detail_Repair: the darker repaired cords"
+ ]
+}

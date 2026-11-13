@@ -1,0 +1,133 @@
+{
+  "asset": "FR03_VineCurtain_Sparse",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.973,
+          -0.0526,
+          -2.945
+        ],
+        "max": [
+          0.973,
+          0.0436,
+          -0.006
+        ],
+        "box_m": [
+          [
+            -1.0,
+            -0.1,
+            -3.0
+          ],
+          [
+            1.0,
+            0.1,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "lowest_point_at_design_z",
+      "pass": true,
+      "detail": {
+        "min_z": -2.945,
+        "design_min_z": -2.945,
+        "largest_clamp_m": 0
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 4064,
+          "LOD1": 2032,
+          "LOD2": 634
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.156,
+        "per_group": {
+          "Main": {
+            "LOD0": 3168,
+            "LOD1": 1584,
+            "LOD2": 474
+          },
+          "Leaves": {
+            "LOD0": 896,
+            "LOD1": 448,
+            "LOD2": 160
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.946,
+          0.0963,
+          2.939
+        ],
+        "blend_dims_m": [
+          1.946,
+          0.0963,
+          2.939
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 5e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "FR03_VineCurtain_Sparse.001",
+        "FR03_VineCurtain_Sparse_LOD0.001",
+        "FR03_VineCurtain_Sparse_LOD1.001",
+        "FR03_VineCurtain_Sparse_LOD2.001",
+        "FR03_VineCurtain_Sparse_Leaves_LOD0.001",
+        "FR03_VineCurtain_Sparse_Leaves_LOD1.001",
+        "FR03_VineCurtain_Sparse_Leaves_LOD2.001",
+        "Socket_Hang.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Hang.001": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 1829400
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 68,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

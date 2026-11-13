@@ -30,7 +30,7 @@
 
 ## Unity 與內容
 
-- Unity `6000.0.85f1`、URP `17.0.4`、FishNet `4.7.2` 固定版本。2026-10-25 起改用 6000.0.85f1。FishNet 4.7.4 的 Yak 外掛無法編譯，4.7.3 需要 Unity 6.3 以上的 `SceneHandle`，因此固定在 4.7.2。
+- Unity `6000.3.28f1`（6.3 LTS，以 `apps/game/ProjectSettings/ProjectVersion.txt` 為準）、URP `17.3.0`、Input System `1.20.1`、FishNet `4.7.2` 固定版本。不要用其他版本的 Unity 開這個專案，會改寫 URP 設定並弄壞 `Library`。FishNet 4.7.4 的 Yak 外掛無法編譯，所以先固定在 4.7.2；6.3 已可評估 4.7.3。Windows 開著「智慧型應用程式控制」時，Unity 6.3 的 `NiceIO.dll` 會被擋而無法編譯。
 - 大型素材使用 Git LFS；不得提交 `Library`、`Temp`、建置產物、憑證或私鑰。
 - 道具、配方、功法及事件使用版本化資料定義。
 - 新模型必須保留三視圖、來源、比例、面數、LOD、碰撞與匯出驗證。

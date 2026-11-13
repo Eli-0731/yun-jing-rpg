@@ -1,0 +1,80 @@
+{
+ "asset": "TE04_Tray_v001",
+ "tris": 39776,
+ "objects": [
+  "TE04_Tray_Detail_Small_LOD0",
+  "TE04_Tray_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 4612,
+   "groups": {
+    "Detail_Small|two_sides_inside": {
+     "pairs": 3905,
+     "overlap_cm2": 1707.09
+    },
+    "Tray|two_sides_between": {
+     "pairs": 707,
+     "overlap_cm2": 213.46
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 4379,
+   "groups": {
+    "Detail_Small|two_sides_inside": {
+     "pairs": 3837,
+     "overlap_cm2": 1706.35
+    },
+    "Tray|two_sides_between": {
+     "pairs": 542,
+     "overlap_cm2": 154.27
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 36,
+   "groups": {
+    "Tray|two_sides_between": {
+     "pairs": 36,
+     "overlap_cm2": 9.46
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 1
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "TE04_Tray_Detail_Small_LOD0": 1
+  }
+ },
+ "pieces": 369,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

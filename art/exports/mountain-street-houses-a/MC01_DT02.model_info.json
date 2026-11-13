@@ -1,0 +1,62 @@
+{
+ "id": "MC01-DT02",
+ "package": "docs/execution/2026-11-05/A-48h-mountain-city-architecture.md",
+ "author": "A (Johnnnny0823)",
+ "version": "v001",
+ "status": "Exported; Imported/Visually Verified/In-game Verified: 未驗",
+ "dimensions_m": [
+  0.959,
+  0.14,
+  1.685
+ ],
+ "limit_m": [
+  1.0,
+  0.2,
+  1.8
+ ],
+ "grid_m": 4.0,
+ "origin": "footprint centre, bottom z = 0, -Y = street front",
+ "minTier": "low",
+ "lods": [
+  {
+   "lod": 0,
+   "triangles": 1268,
+   "objects": 1,
+   "materials": 1
+  },
+  {
+   "lod": 1,
+   "triangles": 634,
+   "objects": 1,
+   "materials": 1
+  },
+  {
+   "lod": 2,
+   "triangles": 190,
+   "objects": 1,
+   "materials": 1
+  }
+ ],
+ "objectsLOD0": [
+  "MC01_DT02_LOD0"
+ ],
+ "detailObjects": [],
+ "glowObjects": [],
+ "materials": [
+  "M_MountainStreet_Trim"
+ ],
+ "textures": {
+  "T_MountainStreet_Albedo": "2048x2048",
+  "T_MountainStreet_Normal": "2048x2048",
+  "T_MountainStreet_MetallicSmoothness": "2048x2048",
+  "T_MountainStreet_Emission": "2048x2048"
+ },
+ "textureNote": "one trim sheet shared by every MC01 module (D3 §4); 256 px/m",
+ "collision": "MC01_DT02_Collision (0 boxes)",
+ "extra": {
+  "mount": "back plate on a post or wall at -X, arm along +X",
+  "noWriting": true
+ },
+ "fbx": "art/exports/mountain-street-houses-a/MC01_DT02.fbx",
+ "fps": "不寫（手機未實測）"
+}

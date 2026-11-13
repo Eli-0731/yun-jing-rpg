@@ -1,0 +1,239 @@
+{
+ "note": "TX04 branch academy demo layout, Blender coordinates (m, -Y = front, rotZ in degrees about +Z). 4 m grid: wall centre lines at x = +-8 and y = +-10, the gate in the front wall, a rear doorway between the two WALL_DO, the hall at the back, the side wings facing the courtyard, six paving bays. STEPS (terrace level change) is not used in this flat layout.",
+ "parts": [
+  {
+   "id": "GATE",
+   "pos": [
+    0,
+    -10.04,
+    0
+   ],
+   "rotZ": 0
+  },
+  {
+   "id": "WALL_ST",
+   "pos": [
+    -4,
+    -10,
+    0
+   ],
+   "rotZ": 0
+  },
+  {
+   "id": "WALL_ST",
+   "pos": [
+    4,
+    -10,
+    0
+   ],
+   "rotZ": 180
+  },
+  {
+   "id": "WALL_CO",
+   "pos": [
+    8,
+    -10,
+    0
+   ],
+   "rotZ": 0
+  },
+  {
+   "id": "WALL_CO",
+   "pos": [
+    -8,
+    -10,
+    0
+   ],
+   "rotZ": -90
+  },
+  {
+   "id": "WALL_CO",
+   "pos": [
+    8,
+    10,
+    0
+   ],
+   "rotZ": 90
+  },
+  {
+   "id": "WALL_CO",
+   "pos": [
+    -8,
+    10,
+    0
+   ],
+   "rotZ": 180
+  },
+  {
+   "id": "WALL_DO",
+   "pos": [
+    -4,
+    10,
+    0
+   ],
+   "rotZ": 0
+  },
+  {
+   "id": "WALL_DO",
+   "pos": [
+    4,
+    10,
+    0
+   ],
+   "rotZ": 180
+  },
+  {
+   "id": "HALL",
+   "pos": [
+    0,
+    4.5,
+    0
+   ],
+   "rotZ": 0
+  },
+  {
+   "id": "SIDE",
+   "pos": [
+    -5.2,
+    -4.5,
+    0
+   ],
+   "rotZ": 90
+  },
+  {
+   "id": "SIDE",
+   "pos": [
+    5.2,
+    -4.5,
+    0
+   ],
+   "rotZ": -90
+  },
+  {
+   "id": "WALL_ST",
+   "pos": [
+    -8,
+    -6,
+    0
+   ],
+   "rotZ": 90
+  },
+  {
+   "id": "WALL_ST",
+   "pos": [
+    -8,
+    -2,
+    0
+   ],
+   "rotZ": 90
+  },
+  {
+   "id": "WALL_ST",
+   "pos": [
+    -8,
+    2,
+    0
+   ],
+   "rotZ": 90
+  },
+  {
+   "id": "WALL_ST",
+   "pos": [
+    -8,
+    6,
+    0
+   ],
+   "rotZ": 90
+  },
+  {
+   "id": "WALL_ST",
+   "pos": [
+    8,
+    -6,
+    0
+   ],
+   "rotZ": 90
+  },
+  {
+   "id": "WALL_ST",
+   "pos": [
+    8,
+    -2,
+    0
+   ],
+   "rotZ": 90
+  },
+  {
+   "id": "WALL_ST",
+   "pos": [
+    8,
+    2,
+    0
+   ],
+   "rotZ": 90
+  },
+  {
+   "id": "WALL_ST",
+   "pos": [
+    8,
+    6,
+    0
+   ],
+   "rotZ": 90
+  },
+  {
+   "id": "PAVE",
+   "pos": [
+    -2,
+    -6.5,
+    0
+   ],
+   "rotZ": 0
+  },
+  {
+   "id": "PAVE",
+   "pos": [
+    -2,
+    -2.5,
+    0
+   ],
+   "rotZ": 0
+  },
+  {
+   "id": "PAVE",
+   "pos": [
+    -2,
+    1.5,
+    0
+   ],
+   "rotZ": 0
+  },
+  {
+   "id": "PAVE",
+   "pos": [
+    2,
+    -6.5,
+    0
+   ],
+   "rotZ": 0
+  },
+  {
+   "id": "PAVE",
+   "pos": [
+    2,
+    -2.5,
+    0
+   ],
+   "rotZ": 0
+  },
+  {
+   "id": "PAVE",
+   "pos": [
+    2,
+    1.5,
+    0
+   ],
+   "rotZ": 0
+  }
+ ]
+}

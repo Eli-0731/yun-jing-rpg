@@ -1,0 +1,74 @@
+{
+ "asset": "LT01_VillageStoneLantern_v001",
+ "tris": 8630,
+ "objects": [
+  "LT01_VillageStoneLantern_Detail_Small_LOD0",
+  "LT01_VillageStoneLantern_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 18,
+   "groups": {
+    "VillageStoneLantern|two_sides_between": {
+     "pairs": 15,
+     "overlap_cm2": 20.0
+    },
+    "VillageStoneLantern|two_sides_inside": {
+     "pairs": 3,
+     "overlap_cm2": 0.52
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 3,
+   "groups": {
+    "VillageStoneLantern|two_sides_inside": {
+     "pairs": 3,
+     "overlap_cm2": 0.52
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 3,
+   "groups": {
+    "VillageStoneLantern|two_sides_inside": {
+     "pairs": 3,
+     "overlap_cm2": 0.52
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 149,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

@@ -1,0 +1,289 @@
+{
+  "asset": "FP04_PathRootCrossing",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -3.0,
+          -1.195,
+          0.0
+        ],
+        "max": [
+          3.0,
+          1.195,
+          0.5201
+        ],
+        "box_m": [
+          [
+            -3.0,
+            -1.2,
+            0.0
+          ],
+          [
+            3.0,
+            1.2,
+            0.8
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0
+      }
+    },
+    {
+      "check": "end_sections_join_every_lod",
+      "pass": true,
+      "detail": {
+        "per_lod": {
+          "LOD0": {
+            "end_vertices": [
+              43,
+              43
+            ],
+            "matched": 41,
+            "max_dz_mm": 0.0,
+            "chained_gap_mm": 0.0,
+            "normal_difference": 0.00293
+          },
+          "LOD1": {
+            "end_vertices": [
+              43,
+              43
+            ],
+            "matched": 41,
+            "max_dz_mm": 0.0,
+            "chained_gap_mm": 0.0,
+            "normal_difference": 0.00408
+          },
+          "LOD2": {
+            "end_vertices": [
+              43,
+              43
+            ],
+            "matched": 41,
+            "max_dz_mm": 0.0,
+            "chained_gap_mm": 0.0,
+            "normal_difference": 0.00081
+          }
+        },
+        "lod0_vs_lod1_lod2_end_vertices_max_mm": 0.0,
+        "need": "end rows identical, chained copy gap <= 2 mm, same corner normals"
+      }
+    },
+    {
+      "check": "joint_is_kit_section",
+      "pass": true,
+      "detail": {
+        "max_deviation_mm": 0.0,
+        "section_heights_m": {
+          "0.0": 0.057,
+          "0.2": 0.063,
+          "0.4": 0.0612,
+          "0.5": 0.0912,
+          "0.62": 0.12,
+          "0.7": 0.0801,
+          "0.8": 0.012
+        }
+      }
+    },
+    {
+      "check": "joint_colour_matches",
+      "pass": true,
+      "detail": {
+        "whole_joint_line_difference": 0.0009,
+        "worst_16cm_window_difference": 0.009,
+        "same_measure_on_two_rows_inside_the_piece": 0.0071,
+        "need": "line <= 0.006, every 16 cm window <= 0.015 (linear); the inside-row figure is for reference only",
+        "single_corner_difference": {
+          "mean": 0.0056,
+          "max": 0.0412,
+          "at_across_m": 0.36
+        },
+        "mean_value_at_joint": 0.2258,
+        "corners": 41,
+        "note": "bilinear, 0.7 texel (about 1.4 mm) in from each end-row corner; single corners differ by the 1-3 mm soil grit between the two sample points (2.8 mm apart across the joint), which the joint renders (joint_*.png) do not show. The control takes the same samples either side of the grid rows at 1/4 and 3/4 of the length, where there is no joint: that is how much the soil grain alone changes over the same 2.8 mm"
+      }
+    },
+    {
+      "check": "tread_walkable",
+      "pass": true,
+      "detail": {
+        "slope_max_deg": 13.87,
+        "need_slope_deg": 35.0,
+        "largest_step_m": 0.13,
+        "need_step_m": 0.2,
+        "cross_slope_max_deg": 2.49,
+        "rise_m": 0.0,
+        "walk_lines": {
+          "-0.3": {
+            "steps_m": [
+              0.13,
+              0.118
+            ]
+          },
+          "-0.15": {
+            "steps_m": [
+              0.108,
+              0.11
+            ]
+          },
+          "0.0": {
+            "steps_m": [
+              0.124,
+              0.124
+            ]
+          },
+          "0.15": {
+            "steps_m": [
+              0.11,
+              0.108
+            ]
+          },
+          "0.3": {
+            "steps_m": [
+              0.113,
+              0.125
+            ]
+          }
+        },
+        "how": "rays down onto the collision mesh along t = -0.3 / -0.15 / 0 / 0.15 / 0.3 every 2.5 cm; a run of rises steeper than 40 deg counts as one step (its height); slope is over 0.2 m windows without a step"
+      }
+    },
+    {
+      "check": "visible_surface_near_collision",
+      "pass": true,
+      "detail": {
+        "visible_above_collision_m": [
+          -0.0118,
+          0.0033
+        ],
+        "largest_step_on_walk_lines_m": 0.0076,
+        "samples_skipped_at_steps_or_root": 77,
+        "note": "walk lines t = -0.25 / 0 / 0.25 every 2.5 cm on LOD0 (soil, roots, stones, logs; leaves, moss and ferns are Detail_Small and do not hold a foot); feet sink at most 2.5 cm, stand at most 6 cm over the collision; the round face of a step log or the big root (within 0.2 / 0.32 m) is skipped"
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": [
+        "Socket_Path_E",
+        "Socket_Path_W"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 34514,
+          "LOD1": 17297,
+          "LOD2": 4730
+        },
+        "LOD1": 0.501,
+        "LOD2": 0.137,
+        "per_group": {
+          "Ground": {
+            "LOD0": 10402,
+            "LOD1": 5242,
+            "LOD2": 1114
+          },
+          "Main": {
+            "LOD0": 9738,
+            "LOD1": 4868,
+            "LOD2": 1460
+          },
+          "Detail_Small": {
+            "LOD0": 14374,
+            "LOD1": 7187,
+            "LOD2": 2156
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          6.0,
+          2.39,
+          0.5201
+        ],
+        "blend_dims_m": [
+          6.0,
+          2.39,
+          0.5201
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "FP04_PathRootCrossing.001",
+        "FP04_PathRootCrossing_Collision.001",
+        "FP04_PathRootCrossing_Detail_Small_LOD0.001",
+        "FP04_PathRootCrossing_Detail_Small_LOD1.001",
+        "FP04_PathRootCrossing_Detail_Small_LOD2.001",
+        "FP04_PathRootCrossing_Ground_LOD0.001",
+        "FP04_PathRootCrossing_Ground_LOD1.001",
+        "FP04_PathRootCrossing_Ground_LOD2.001",
+        "FP04_PathRootCrossing_LOD0.001",
+        "FP04_PathRootCrossing_LOD1.001",
+        "FP04_PathRootCrossing_LOD2.001",
+        "Socket_Path_E.001",
+        "Socket_Path_W.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Path_E.001": [
+          3.0,
+          0.0,
+          0.0
+        ],
+        "Socket_Path_W.001": [
+          -3.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 3159476
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 172,
+  "not_checked": [
+    "Unity import and walking (not run)",
+    "in-engine lighting",
+    "mobile frame rate (not measured)"
+  ]
+}

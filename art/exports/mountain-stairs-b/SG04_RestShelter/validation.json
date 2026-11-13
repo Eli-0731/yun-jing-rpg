@@ -1,0 +1,220 @@
+{
+  "asset": "SG04_RestShelter",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -2.0,
+          -1.484,
+          0.0
+        ],
+        "max": [
+          2.0,
+          1.4758,
+          3.9608
+        ],
+        "box_m": [
+          [
+            -2.0,
+            -1.5,
+            0.0
+          ],
+          [
+            2.0,
+            1.5,
+            4.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.00147
+      }
+    },
+    {
+      "check": "eave_underside_at_least_2_6m",
+      "pass": true,
+      "detail": {
+        "eave_underside_z_m": [
+          3.052,
+          3.052,
+          3.052,
+          3.052,
+          3.052
+        ],
+        "rule": "modeling-style-spec-v1 section 4: eave underside >= 2.6 m"
+      }
+    },
+    {
+      "check": "clear_height_under_architrave",
+      "pass": true,
+      "detail": {
+        "underside_z_m": [
+          2.719,
+          2.753,
+          2.757,
+          2.76,
+          2.719
+        ],
+        "floor_m": 0.06,
+        "need_m": 2.3,
+        "note": "brackets at the columns come down to 2.49 m"
+      }
+    },
+    {
+      "check": "bench_seat_height",
+      "pass": true,
+      "detail": {
+        "seat_z_m": [
+          0.4418,
+          0.4387,
+          0.436
+        ],
+        "design_m": 0.45
+      }
+    },
+    {
+      "check": "floor_level",
+      "pass": true,
+      "detail": {
+        "z_min_max_m": [
+          0.058,
+          0.0632
+        ],
+        "design_m": 0.06
+      }
+    },
+    {
+      "check": "open_depth_inside",
+      "pass": true,
+      "detail": {
+        "first_hit_y_at_1m_height": [
+          1.165,
+          1.137,
+          1.061
+        ],
+        "note": "from the open front (y -1.5) to the rock is at least 2.1 m"
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": [
+        "Socket_Basin",
+        "Socket_Front",
+        "Socket_Seat"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 49064,
+          "LOD1": 24531,
+          "LOD2": 7358
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 45394,
+            "LOD1": 22696,
+            "LOD2": 6809
+          },
+          "Detail_Small": {
+            "LOD0": 3670,
+            "LOD1": 1835,
+            "LOD2": 549
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          4.0,
+          2.9598,
+          3.9608
+        ],
+        "blend_dims_m": [
+          4.0,
+          2.9598,
+          3.9608
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 2e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "SG04_RestShelter.001",
+        "SG04_RestShelter_Collision.001",
+        "SG04_RestShelter_Detail_Small_LOD0.001",
+        "SG04_RestShelter_Detail_Small_LOD1.001",
+        "SG04_RestShelter_Detail_Small_LOD2.001",
+        "SG04_RestShelter_LOD0.001",
+        "SG04_RestShelter_LOD1.001",
+        "SG04_RestShelter_LOD2.001",
+        "Socket_Basin.001",
+        "Socket_Front.001",
+        "Socket_Seat.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Basin.001": [
+          -1.17,
+          0.67,
+          0.62
+        ],
+        "Socket_Front.001": [
+          0.0,
+          -1.5,
+          0.0
+        ],
+        "Socket_Seat.001": [
+          0.52,
+          0.72,
+          0.45
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 4419972
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 183,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}
