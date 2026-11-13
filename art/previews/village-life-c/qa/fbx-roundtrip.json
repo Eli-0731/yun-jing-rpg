@@ -1,0 +1,211 @@
+{
+  "blender": "4.5.3 LTS",
+  "pass": true,
+  "unity_report": "Existing report checked for consistency; Unity was not rerun by this script.",
+  "items": [
+    {
+      "id": "LV01",
+      "fbx_sha256": "612ed728e989e8132ce13f72d8b8ab0c165189cd41253e3f9afa1dbeb88bfbc5",
+      "dimensions": [
+        0.7999999523162842,
+        0.7982728779315948,
+        0.5745379630067333
+      ],
+      "bottom_z": -3.013396110418398e-08,
+      "lods": {
+        "LOD0": {
+          "source_triangles": 18268,
+          "blender_import_triangles": 18268,
+          "importer_removed": 0,
+          "objects": 3,
+          "materials": 1
+        },
+        "LOD1": {
+          "source_triangles": 9134,
+          "blender_import_triangles": 9134,
+          "importer_removed": 0,
+          "objects": 3,
+          "materials": 1
+        },
+        "LOD2": {
+          "source_triangles": 2738,
+          "blender_import_triangles": 2733,
+          "importer_removed": 5,
+          "objects": 3,
+          "materials": 1
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "LV02",
+      "fbx_sha256": "8fe129fe329bc1047a2b816377177e16c985b11fcfdf835278abfadd163c8dc3",
+      "dimensions": [
+        1.3204548358917236,
+        0.3862720876932144,
+        0.23350743917433725
+      ],
+      "bottom_z": -1.4581365448407269e-08,
+      "lods": {
+        "LOD0": {
+          "source_triangles": 7984,
+          "blender_import_triangles": 7984,
+          "importer_removed": 0,
+          "objects": 3,
+          "materials": 1
+        },
+        "LOD1": {
+          "source_triangles": 3992,
+          "blender_import_triangles": 3987,
+          "importer_removed": 5,
+          "objects": 3,
+          "materials": 1
+        },
+        "LOD2": {
+          "source_triangles": 1196,
+          "blender_import_triangles": 1142,
+          "importer_removed": 54,
+          "objects": 3,
+          "materials": 1
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "LV03",
+      "fbx_sha256": "29f712150d410f106969e0e4eebe7627e1acc3eac7bc5acafa9a5fa36d2a4986",
+      "dimensions": [
+        0.4947896897792816,
+        0.08094392716884613,
+        2.3809766799964596
+      ],
+      "bottom_z": -3.0555415975186406e-09,
+      "lods": {
+        "LOD0": {
+          "source_triangles": 11788,
+          "blender_import_triangles": 11788,
+          "importer_removed": 0,
+          "objects": 1,
+          "materials": 1
+        },
+        "LOD1": {
+          "source_triangles": 5894,
+          "blender_import_triangles": 5894,
+          "importer_removed": 0,
+          "objects": 1,
+          "materials": 1
+        },
+        "LOD2": {
+          "source_triangles": 1768,
+          "blender_import_triangles": 1766,
+          "importer_removed": 2,
+          "objects": 1,
+          "materials": 1
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "LV04",
+      "fbx_sha256": "9ab89227f6c0fdb994b2544ca270e2fb9caac6f19b2cd99114e7a5cc823563c5",
+      "dimensions": [
+        0.47626498341560364,
+        0.48042529821395874,
+        0.7651999774136549
+      ],
+      "bottom_z": -1.8135548174313953e-08,
+      "lods": {
+        "LOD0": {
+          "source_triangles": 5306,
+          "blender_import_triangles": 5306,
+          "importer_removed": 0,
+          "objects": 2,
+          "materials": 1
+        },
+        "LOD1": {
+          "source_triangles": 2652,
+          "blender_import_triangles": 2652,
+          "importer_removed": 0,
+          "objects": 2,
+          "materials": 1
+        },
+        "LOD2": {
+          "source_triangles": 794,
+          "blender_import_triangles": 775,
+          "importer_removed": 19,
+          "objects": 2,
+          "materials": 1
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "LV05",
+      "fbx_sha256": "7aa8dd0fbeac616ec4d17f6e4e9f9673d2ffeac0b5b726fc0eafd8805ec11803",
+      "dimensions": [
+        0.8471324443817139,
+        0.4429383724927902,
+        0.5403056907965382
+      ],
+      "bottom_z": -1.672045790712673e-08,
+      "lods": {
+        "LOD0": {
+          "source_triangles": 3990,
+          "blender_import_triangles": 3990,
+          "importer_removed": 0,
+          "objects": 1,
+          "materials": 1
+        },
+        "LOD1": {
+          "source_triangles": 1994,
+          "blender_import_triangles": 1994,
+          "importer_removed": 0,
+          "objects": 1,
+          "materials": 1
+        },
+        "LOD2": {
+          "source_triangles": 598,
+          "blender_import_triangles": 598,
+          "importer_removed": 0,
+          "objects": 1,
+          "materials": 1
+        }
+      },
+      "pass": true
+    },
+    {
+      "id": "LV06",
+      "fbx_sha256": "bc267a1f90275fecbe157390a67c598f5e99aa3d8ab466da7a5cea2a76a451f8",
+      "dimensions": [
+        0.47938549518585205,
+        0.5438971221446991,
+        0.5137897339142654
+      ],
+      "bottom_z": -2.0531544464574836e-08,
+      "lods": {
+        "LOD0": {
+          "source_triangles": 3552,
+          "blender_import_triangles": 3552,
+          "importer_removed": 0,
+          "objects": 3,
+          "materials": 1
+        },
+        "LOD1": {
+          "source_triangles": 1776,
+          "blender_import_triangles": 1776,
+          "importer_removed": 0,
+          "objects": 3,
+          "materials": 1
+        },
+        "LOD2": {
+          "source_triangles": 534,
+          "blender_import_triangles": 523,
+          "importer_removed": 11,
+          "objects": 3,
+          "materials": 1
+        }
+      },
+      "pass": true
+    }
+  ]
+}

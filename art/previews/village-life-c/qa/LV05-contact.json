@@ -1,0 +1,13 @@
+{
+ "LV05_v001": {
+  "LV05_Body_LOD0": {
+   "pieces": 12,
+   "within_1mm": 11,
+   "gap_1_3mm": 1,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.0,
+   "worst_at": []
+  }
+ }
+}

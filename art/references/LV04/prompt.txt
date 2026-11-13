@@ -1,0 +1,17 @@
+LV04 竹編吊籃（掛著晾菜乾）（工作包第二部分表 A：0.5 × 0.5 × 0.8 m（含掛繩），練淺籃和吊繩、裡面一點乾菜）三視圖與自評（2026-11-10）
+選用：LV04-cand-1.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），四張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：92（28+28+24+12）。選用。淺圓籃、籃緣一邊垂下一點；三條麻繩收到頂上一個繩圈並打結，繩頭起毛；籃裡幾片乾菜葉和一把紅辣椒，籃邊一塊補丁。
+- cand-2：87（25+27+23+12）。側視圖籃子歪斜、像只畫了一半。
+- cand-3：91（27+28+23+13）。籃子更寬、菜更多；吊繩一邊太長、不對稱。
+- cand-4：91（27+28+23+13）。繩結清楚；籃子偏深，不是淺籃。
+
+建模取捨：照 cand-1。淺籃用竹篾編（底部放射、側邊一圈圈），籃緣一圈粗竹篾收邊、一邊略垂（練「淺籃」）；三條麻繩從籃緣三處綁起、往上收到頂上一個繩圈（練「吊繩」）；籃裡幾片乾菜葉、一小把紅辣椒（練「裡面一點乾菜」）。原點在籃底中心，頂上繩圈是掛點；單獨擺放時是籃子著地、繩子立起（擺放時由核心組掛上）。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a shallow round woven bamboo basket hanging from three hemp cords, holding a few dried vegetable leaves and chilli-red pods drying in the air, about 0.5 m wide and 0.8 m tall including the cords, made of split bamboo, hemp cord and dried vegetables, showing a sagging rim, frayed cord ends and uneven drying produce, used in the yards of houses in a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

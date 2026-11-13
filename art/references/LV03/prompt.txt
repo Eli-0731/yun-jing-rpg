@@ -1,0 +1,17 @@
+LV03 靠牆的竹梯（工作包第二部分表 A：0.5 × 0.1 × 2.4 m，練竹節、橫檔綁繩的重複節奏）三視圖與自評（2026-11-10）
+選用：LV03-cand-4.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），四張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（27+28+23+13）。兩根粗竹、深色橫檔、中間一根換過的淺色橫檔；側視圖看得到橫檔穿出竹竿。
+- cand-2：90（27+27+23+13）。和 cand-1 相近，多一塊纏布；竹竿太直、竹節太平均。
+- cand-3：90（27+27+23+13）。上段綁一塊布垂下，比較搶眼；橫檔節奏清楚。
+- cand-4：93（28+29+24+12）。選用。下寬上窄，竹節位置不齊，每根橫檔兩端用麻繩交叉綁，中間一根顏色較淺的換新橫檔，竿腳較暗、帶一點苔。
+
+建模取捨：照 cand-4。兩根粗竹竿下寬上窄，竹節間距不一（練「竹節」）；七根橫檔兩端交叉綁麻繩，綁法一樣、位置略有高低（練「橫檔綁繩的重複節奏」）；一根換新的淺色橫檔；常踩的橫檔中間磨暗。工作包尺寸深 0.1 m，所以模型是直立的，靠牆的角度由擺放時整件傾斜。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a simple bamboo ladder with lashed rungs, about 0.5 m wide and 2.4 m tall, made of two thick bamboo poles, thinner bamboo rungs and hemp lashings, showing darker hand-worn rungs, uneven bamboo nodes and one replaced rung of lighter colour, used in the yards of houses in a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
