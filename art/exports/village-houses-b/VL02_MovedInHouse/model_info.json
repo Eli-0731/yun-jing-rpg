@@ -1,0 +1,376 @@
+{
+  "asset": "VL02_MovedInHouse",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "VL02_MovedInHouse_Detail_Small"
+  ],
+  "name_zh": "剛有人住的空屋",
+  "slot": "A1_QingxiVillage_EmptyHouse",
+  "note": "剛有人住的空屋（三視圖 VL02 candidate-02）：外框照 StarterHouse v004。新糊的白窗紙、前廊掃乾淨（掃起的落葉推到台階旁）、門邊靠一支掃帚、右窗台一盆粉紅小花；前坡兩處、後坡一處換了幾片顏色較淺的新瓦；舊灰泥上有較新的補灰。玩家第一天分到的就是這種。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 63186,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 31592,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 8769,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "VL02_MovedInHouse_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "VL02_MovedInHouse_Wood_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the wall footprint at ground level, front -Y (same origin as StarterHouse v004, so a variant drops into its slot)",
+  "dimensions_m": [
+    8.9828,
+    8.1888,
+    5.5518
+  ],
+  "bounds_min_m": [
+    -4.4913,
+    -4.7212,
+    0.0
+  ],
+  "bounds_max_m": [
+    4.4915,
+    3.4676,
+    5.5518
+  ],
+  "size_limit_m": [
+    9.05,
+    8.19,
+    5.62
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        8.9828,
+        8.1888,
+        5.5518
+      ],
+      "min": [
+        -4.4913,
+        -4.7212,
+        0.0
+      ],
+      "max": [
+        4.4915,
+        3.4676,
+        5.5518
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        7.8026,
+        7.2274,
+        4.0736
+      ],
+      "min": [
+        -3.9162,
+        -3.9029,
+        0.0
+      ],
+      "max": [
+        3.8864,
+        3.3245,
+        4.0736
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 4404,
+      "LOD1": 2202,
+      "LOD2": 660
+    },
+    "Stone": {
+      "LOD0": 13744,
+      "LOD1": 6872,
+      "LOD2": 2060
+    },
+    "Wood": {
+      "LOD0": 14512,
+      "LOD1": 7256,
+      "LOD2": 2176
+    },
+    "Detail_Small": {
+      "LOD0": 1726,
+      "LOD1": 862,
+      "LOD2": 257
+    },
+    "Roof": {
+      "LOD0": 28800,
+      "LOD1": 14400,
+      "LOD2": 3616
+    }
+  },
+  "lod_totals": {
+    "LOD0": 63186,
+    "LOD1": 31592,
+    "LOD2": 8769
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_VL02_MovedInHouse_Main",
+    "M_VL02_MovedInHouse_RoofTiles",
+    "M_VL02_MovedInHouse_Stone",
+    "M_VL02_MovedInHouse_Wood"
+  ],
+  "textures": [
+    "VL02_MovedInHouse_BaseColor.png",
+    "VL02_MovedInHouse_Metallic.png",
+    "VL02_MovedInHouse_MetallicSmoothness.png",
+    "VL02_MovedInHouse_Normal.png",
+    "VL02_MovedInHouse_Roughness.png",
+    "VL02_MovedInHouse_Stone_BaseColor.png",
+    "VL02_MovedInHouse_Stone_Metallic.png",
+    "VL02_MovedInHouse_Stone_MetallicSmoothness.png",
+    "VL02_MovedInHouse_Stone_Normal.png",
+    "VL02_MovedInHouse_Stone_Roughness.png",
+    "VL02_MovedInHouse_Wood_BaseColor.png",
+    "VL02_MovedInHouse_Wood_Metallic.png",
+    "VL02_MovedInHouse_Wood_MetallicSmoothness.png",
+    "VL02_MovedInHouse_Wood_Normal.png",
+    "VL02_MovedInHouse_Wood_Roughness.png",
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_VL02_MovedInHouse_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL02_MovedInHouse_BaseColor.png",
+        "Normal": "VL02_MovedInHouse_Normal.png",
+        "MetallicSmoothness": "VL02_MovedInHouse_MetallicSmoothness.png"
+      },
+      "M_VL02_MovedInHouse_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_VL02_MovedInHouse_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL02_MovedInHouse_Stone_BaseColor.png",
+        "Normal": "VL02_MovedInHouse_Stone_Normal.png",
+        "MetallicSmoothness": "VL02_MovedInHouse_Stone_MetallicSmoothness.png"
+      },
+      "M_VL02_MovedInHouse_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL02_MovedInHouse_Wood_BaseColor.png",
+        "Normal": "VL02_MovedInHouse_Wood_Normal.png",
+        "MetallicSmoothness": "VL02_MovedInHouse_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "VL02_MovedInHouse_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Door": [
+      0.0,
+      -2.72,
+      0.54
+    ],
+    "Socket_Porch": [
+      0.0,
+      -3.12,
+      0.54
+    ],
+    "Socket_Path": [
+      0.0,
+      -4.72,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Door.001": [
+      0.0,
+      -2.72,
+      0.54
+    ],
+    "Socket_Path.001": [
+      0.0,
+      -4.72,
+      0.0
+    ],
+    "Socket_Porch.001": [
+      0.0,
+      -3.12,
+      0.54
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Door.001",
+    "Socket_Path.001",
+    "Socket_Porch.001",
+    "VL02_MovedInHouse.001",
+    "VL02_MovedInHouse_Collision.001",
+    "VL02_MovedInHouse_Detail_Small_LOD0.001",
+    "VL02_MovedInHouse_Detail_Small_LOD1.001",
+    "VL02_MovedInHouse_Detail_Small_LOD2.001",
+    "VL02_MovedInHouse_LOD0.001",
+    "VL02_MovedInHouse_LOD1.001",
+    "VL02_MovedInHouse_LOD2.001"
+  ],
+  "glb": "VL02_MovedInHouse_v001.glb",
+  "interface": {
+    "eave_underside_m": 3.345,
+    "ridge_m": 5.271
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-houses-b/) on the StarterHouse v004 outline; procedural shaders baked to two 2048 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 130.4,
+        "median": 130.4,
+        "p90": 130.5,
+        "area_m2": 154.9
+      },
+      "inside_or_covered": {
+        "p10": 12.4,
+        "median": 31.9,
+        "p90": 45.2,
+        "area_m2": 235.6
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 219.4,
+        "median": 281.1,
+        "p90": 281.5,
+        "area_m2": 36.8
+      },
+      "inside_or_covered": {
+        "p10": 57.3,
+        "median": 68.9,
+        "p90": 142.0,
+        "area_m2": 45.3
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 98.6,
+        "median": 135.8,
+        "p90": 136.2,
+        "area_m2": 86.7
+      },
+      "inside_or_covered": {
+        "p10": 4.3,
+        "median": 33.3,
+        "p90": 78.7,
+        "area_m2": 208.7
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": [
+    5517,
+    12271
+  ],
+  "reference": "art/references/VL02/ (AI three-view VL02/candidate-02; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}

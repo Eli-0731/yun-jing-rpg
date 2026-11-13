@@ -1,0 +1,91 @@
+{
+ "asset": "VH02_LCourtyardHouse_v001",
+ "tris": 156752,
+ "objects": [
+  "VH02_LCourtyardHouse_Detail_Small_LOD0",
+  "VH02_LCourtyardHouse_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 2208,
+   "groups": {
+    "LCourtyardHouse|two_sides_between": {
+     "pairs": 2142,
+     "overlap_cm2": 141792.98
+    },
+    "LCourtyardHouse|two_sides_inside": {
+     "pairs": 64,
+     "overlap_cm2": 30.05
+    },
+    "Detail_Small|two_sides_between": {
+     "pairs": 2,
+     "overlap_cm2": 2.7
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 1744,
+   "groups": {
+    "LCourtyardHouse|two_sides_between": {
+     "pairs": 1680,
+     "overlap_cm2": 136070.69
+    },
+    "LCourtyardHouse|two_sides_inside": {
+     "pairs": 64,
+     "overlap_cm2": 30.05
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 1506,
+   "groups": {
+    "LCourtyardHouse|two_sides_between": {
+     "pairs": 1442,
+     "overlap_cm2": 135568.79
+    },
+    "LCourtyardHouse|two_sides_inside": {
+     "pairs": 64,
+     "overlap_cm2": 30.05
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 7,
+  "1e-08": 652
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {
+   "VH02_LCourtyardHouse_LOD0": 7
+  },
+  "1e-08": {
+   "VH02_LCourtyardHouse_Detail_Small_LOD0": 2,
+   "VH02_LCourtyardHouse_LOD0": 650
+  }
+ },
+ "pieces": 1744,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

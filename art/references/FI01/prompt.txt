@@ -1,0 +1,17 @@
+FI01 細竹釣竿（收起狀態）（工作包 §5：長 2.2 m，收納可斜靠，練竹節和繫繩）三視圖與自評（2026-11-09）
+選用：FI01-cand-2.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-05/C-48h-a3-creekside-life.md 第 11 節原文（正面、負面一字不改，含固定段 5.2、5.3），四張相同。評分：形體與尺寸比例 30／練習重點（竹節、繫繩）30／提示詞細節（被手磨亮的握把、彎的竿尖、修補過的繫線處）25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（27+28+23+13）。竹節清楚、一段裂竹用繩綁住；握把是一截粗木套，比例偏粗，釣線捲成一大圈掛在中段。
+- cand-2：92（28+29+23+12）。選用。竿身最細長、竹節一節節變細，竿尖自然下彎；上段一塊裂竹夾板用麻繩交叉綁住（修補），釣線沿竿身拉到下段一個小線架上繞好，是收起來的樣子；握把磨亮。
+- cand-3：90（27+27+23+13）。繫繩和捲線清楚；中段纏一塊藍布，不像修補繫線。
+- cand-4：90（27+27+23+13）。竿尖彎得太多像鉤子，竹節和繫繩不夠清楚。
+
+建模取捨：照 cand-2。整支平放在地上（沿 X，長 2.2 m），以一條竹管從握把到竿尖逐節變細，竹節做成微凸的環；竿尖最後 30 cm 下彎；上段裂竹夾板和交叉綁繩、下段小線架和繞好的線、竿尖的繫線點。工作包說「收納可斜靠」：模型做成平放，原點在腳印中心，擺放時可整件轉成斜靠。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a slender jointed bamboo fishing pole in a stored, unbaited state, about 2.2 m long, made of old split bamboo and hemp line, showing grip polished by hands, bent tip and repaired line binding, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

@@ -1,0 +1,176 @@
+{
+  "asset": "SG03_RailStraight",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.8048,
+          -0.1472,
+          0.0
+        ],
+        "max": [
+          0.805,
+          0.1007,
+          0.9009
+        ],
+        "box_m": [
+          [
+            -0.81,
+            -0.15,
+            0.0
+          ],
+          [
+            0.81,
+            0.15,
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.00806
+      }
+    },
+    {
+      "check": "handrail_top_in_world_range",
+      "pass": true,
+      "detail": {
+        "handrail_top_z_m": [
+          0.9006,
+          0.9002,
+          0.9001,
+          0.8994,
+          0.9009
+        ],
+        "design_m": 0.9,
+        "rule": "balustrade 0.9-1.05 m"
+      }
+    },
+    {
+      "check": "ends_run_into_post_faces",
+      "pass": true,
+      "detail": {
+        "end_x_m": [
+          -0.8048,
+          0.805
+        ],
+        "post_face_x_m": 0.8,
+        "into_post_m": 0.005,
+        "note": "the seam against the post is closed; measured again in the assembly"
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": [
+        "Socket_Post_A",
+        "Socket_Post_B"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 3182,
+          "LOD1": 1591,
+          "LOD2": 475
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.149,
+        "per_group": {
+          "Main": {
+            "LOD0": 3116,
+            "LOD1": 1558,
+            "LOD2": 466
+          },
+          "Detail_Small": {
+            "LOD0": 66,
+            "LOD1": 33,
+            "LOD2": 9
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.6098,
+          0.2479,
+          0.9009
+        ],
+        "blend_dims_m": [
+          1.6098,
+          0.2479,
+          0.9009
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 2e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "SG03_RailStraight.001",
+        "SG03_RailStraight_Collision.001",
+        "SG03_RailStraight_Detail_Small_LOD0.001",
+        "SG03_RailStraight_Detail_Small_LOD1.001",
+        "SG03_RailStraight_Detail_Small_LOD2.001",
+        "SG03_RailStraight_LOD0.001",
+        "SG03_RailStraight_LOD1.001",
+        "SG03_RailStraight_LOD2.001",
+        "Socket_Post_A.001",
+        "Socket_Post_B.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Post_A.001": [
+          -0.9,
+          0.0,
+          0.0
+        ],
+        "Socket_Post_B.001": [
+          0.9,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 439424
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 93,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

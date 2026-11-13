@@ -1,0 +1,22 @@
+{
+ "WL02_v001": {
+  "WL02_Body_LOD0": {
+   "pieces": 7,
+   "within_1mm": 7,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "WL02_Detail_Cord_LOD0": {
+   "pieces": 3,
+   "within_1mm": 3,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}

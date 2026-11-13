@@ -1,0 +1,206 @@
+{
+  "asset": "FO02_GlowMushroom_B",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "FO02_GlowMushroom_B_Detail_Small"
+  ],
+  "name_zh": "發光蕈群 B",
+  "slot": "D5_MushroomValley",
+  "note": "發光蕈群（三視圖 FO02-cand-1）：三種叢 A／B／C，每叢在 1.2 × 1.2 × 0.8 m 內，從一小丘深色土和苔長出來。每叢 7–8 朵、大小差很多（蕈傘半徑 0.04–0.29 m）：蕈傘是有厚度的圓頂，邊緣厚、往內捲，傘緣微波浪、跟著蕈柄歪；傘底是真的放射狀菌褶（一片片薄褶從傘底垂下）。蕈柄彎、肉質，腳下膨大、傘下微微外擴。傘面暗紫褐、不鮮豔，頂上有苔；只有菌褶發青光（Emission，內半圈的褶緣最亮、到傘緣淡掉），發光面積少。和 Eli 的普通野菇 GC04 不同：這是 D5 蕈谷的發光大蕈叢。Socket_GlowLight 在最大那朵傘下，給遊戲放一盞青色點光；發光強度由遊戲設定（0 = 不亮）。碰撞：大朵蕈柄各一根八角柱（做到傘頂、至少 0.45 m 高），小朵不擋。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 59756,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD1": {
+      "triangles": 29877,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD2": {
+      "triangles": 8963,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    }
+  },
+  "texture_resolution_px": {
+    "FO02_GlowMushroom_B_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "FO02_GlowMushroom_B_Emission.png": [
+      1024,
+      1024
+    ],
+    "FO02_GlowMushroom_B_Metallic.png": [
+      1024,
+      1024
+    ],
+    "FO02_GlowMushroom_B_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "FO02_GlowMushroom_B_Normal.png": [
+      1024,
+      1024
+    ],
+    "FO02_GlowMushroom_B_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint on the ground",
+  "dimensions_m": [
+    1.1076,
+    1.0828,
+    0.6243
+  ],
+  "bounds_min_m": [
+    -0.5487,
+    -0.5485,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.5589,
+    0.5343,
+    0.6243
+  ],
+  "size_limit_m": [
+    1.2,
+    1.2,
+    0.8
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        1.1076,
+        1.0828,
+        0.6243
+      ],
+      "min": [
+        -0.5487,
+        -0.5485,
+        0.0
+      ],
+      "max": [
+        0.5589,
+        0.5343,
+        0.6243
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        1.0137,
+        0.9675,
+        0.1487
+      ],
+      "min": [
+        -0.5248,
+        -0.4907,
+        0.0
+      ],
+      "max": [
+        0.4888,
+        0.4768,
+        0.1487
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 43742,
+      "LOD1": 21871,
+      "LOD2": 6561
+    },
+    "Detail_Small": {
+      "LOD0": 16014,
+      "LOD1": 8006,
+      "LOD2": 2402
+    }
+  },
+  "lod_totals": {
+    "LOD0": 59756,
+    "LOD1": 29877,
+    "LOD2": 8963
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FO02_GlowMushroom_B_Glow",
+    "M_FO02_GlowMushroom_B_Main"
+  ],
+  "textures": [
+    "FO02_GlowMushroom_B_BaseColor.png",
+    "FO02_GlowMushroom_B_Emission.png",
+    "FO02_GlowMushroom_B_Metallic.png",
+    "FO02_GlowMushroom_B_MetallicSmoothness.png",
+    "FO02_GlowMushroom_B_Normal.png",
+    "FO02_GlowMushroom_B_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "FO02_GlowMushroom_B_BaseColor.png",
+    "Normal": "FO02_GlowMushroom_B_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "FO02_GlowMushroom_B_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FO02_GlowMushroom_B_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_GlowLight": [
+      -0.27,
+      0.11,
+      0.4752
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_GlowLight.001": [
+      -0.27,
+      0.11,
+      0.4752
+    ]
+  },
+  "fbx_objects": [
+    "FO02_GlowMushroom_B.001",
+    "FO02_GlowMushroom_B_Collision.001",
+    "FO02_GlowMushroom_B_Detail_Small_LOD0.001",
+    "FO02_GlowMushroom_B_Detail_Small_LOD1.001",
+    "FO02_GlowMushroom_B_Detail_Small_LOD2.001",
+    "FO02_GlowMushroom_B_LOD0.001",
+    "FO02_GlowMushroom_B_LOD1.001",
+    "FO02_GlowMushroom_B_LOD2.001",
+    "Socket_GlowLight.001"
+  ],
+  "glb": "FO02_GlowMushroom_B_v001.glb",
+  "interface": {
+    "mushrooms": 10,
+    "cap_radii_m": [
+      0.02,
+      0.021,
+      0.026,
+      0.04,
+      0.06,
+      0.075,
+      0.09,
+      0.13,
+      0.22,
+      0.25
+    ],
+    "glow_surface_share": 0.234,
+    "sockets": [
+      "Socket_GlowLight"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/forest-roots-b/); procedural shaders (cr_mats.py) baked to one 1024 atlas",
+  "reference": "art/references/FO02/ (AI three-view FO02/FO02-cand-1; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/forest-roots-unity/ (local Unity batch check, not committed)"
+}

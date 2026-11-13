@@ -1,0 +1,76 @@
+{
+ "asset": "SG04_RestShelter_v001",
+ "tris": 49064,
+ "objects": [
+  "SG04_RestShelter_Detail_Small_LOD0",
+  "SG04_RestShelter_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 605,
+   "groups": {
+    "Detail_Small|two_sides_inside": {
+     "pairs": 544,
+     "overlap_cm2": 2445.28
+    },
+    "RestShelter|two_sides_between": {
+     "pairs": 61,
+     "overlap_cm2": 606.63
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 34,
+   "groups": {
+    "RestShelter|two_sides_between": {
+     "pairs": 34,
+     "overlap_cm2": 461.57
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 16,
+   "groups": {
+    "RestShelter|two_sides_between": {
+     "pairs": 16,
+     "overlap_cm2": 248.21
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 20
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "SG04_RestShelter_LOD0": 20
+  }
+ },
+ "pieces": 253,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

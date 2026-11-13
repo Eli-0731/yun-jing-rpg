@@ -1,0 +1,3553 @@
+{
+ "what": "2026-11-07 pack part 2: 30 m zigzag stair sample (SG01-SG04) from SectGate",
+ "units": "metres, Blender axes (Unity = x, z, y)",
+ "placement": "position = model origin, rotation about +Z; not an official placement in the game scene",
+ "top_z_m": 30.4,
+ "counts": {
+  "SectGate": 1,
+  "SG01_StraightRun": 19,
+  "SG03_RailSloped": 38,
+  "SG02_Landing": 19,
+  "SG03_RailStraight": 76,
+  "SG03_PostCorner": 57,
+  "SG03_PostEnd": 38,
+  "G01": 19,
+  "SG04_RestShelter": 1
+ },
+ "route_m": [
+  [
+   0.0,
+   -4.0,
+   0.0
+  ],
+  [
+   0.0,
+   3.0,
+   0.0
+  ],
+  [
+   0.0,
+   6.2,
+   1.6
+  ],
+  [
+   0.0,
+   8.2,
+   1.6
+  ],
+  [
+   -5.2,
+   8.2,
+   3.2
+  ],
+  [
+   -7.2,
+   8.2,
+   3.2
+  ],
+  [
+   -7.2,
+   13.4,
+   4.8
+  ],
+  [
+   -7.2,
+   15.4,
+   4.8
+  ],
+  [
+   -2.0,
+   15.4,
+   6.4
+  ],
+  [
+   0.0,
+   15.4,
+   6.4
+  ],
+  [
+   0.0,
+   20.6,
+   8.0
+  ],
+  [
+   0.0,
+   22.6,
+   8.0
+  ],
+  [
+   -5.2,
+   22.6,
+   9.6
+  ],
+  [
+   -7.2,
+   22.6,
+   9.6
+  ],
+  [
+   -7.2,
+   27.8,
+   11.2
+  ],
+  [
+   -7.2,
+   29.8,
+   11.2
+  ],
+  [
+   -2.0,
+   29.8,
+   12.8
+  ],
+  [
+   0.0,
+   29.8,
+   12.8
+  ],
+  [
+   0.0,
+   35.0,
+   14.4
+  ],
+  [
+   0.0,
+   37.0,
+   14.4
+  ],
+  [
+   -5.2,
+   37.0,
+   16.0
+  ],
+  [
+   -7.2,
+   37.0,
+   16.0
+  ],
+  [
+   -7.2,
+   42.2,
+   17.6
+  ],
+  [
+   -7.2,
+   44.2,
+   17.6
+  ],
+  [
+   -2.0,
+   44.2,
+   19.2
+  ],
+  [
+   0.0,
+   44.2,
+   19.2
+  ],
+  [
+   0.0,
+   49.4,
+   20.8
+  ],
+  [
+   0.0,
+   51.4,
+   20.8
+  ],
+  [
+   -5.2,
+   51.4,
+   22.4
+  ],
+  [
+   -7.2,
+   51.4,
+   22.4
+  ],
+  [
+   -7.2,
+   56.6,
+   24.0
+  ],
+  [
+   -7.2,
+   58.6,
+   24.0
+  ],
+  [
+   -2.0,
+   58.6,
+   25.6
+  ],
+  [
+   0.0,
+   58.6,
+   25.6
+  ],
+  [
+   0.0,
+   63.8,
+   27.2
+  ],
+  [
+   0.0,
+   65.8,
+   27.2
+  ],
+  [
+   -5.2,
+   65.8,
+   28.8
+  ],
+  [
+   -7.2,
+   65.8,
+   28.8
+  ],
+  [
+   -7.2,
+   71.0,
+   30.4
+  ],
+  [
+   -7.2,
+   73.0,
+   30.4
+  ]
+ ],
+ "pieces": [
+  {
+   "id": "SectGate",
+   "kit": "incoming/dondon",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "existing Dondon gate (art/incoming/dondon/SectGate/v001), not modified"
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    4.6,
+    0.0
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "flight 1: bottom z 0.0 m",
+   "flight": 1
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.34,
+    4.6,
+    0.0
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 1
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.34,
+    4.6,
+    0.0
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 1
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    8.2,
+    1.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 1
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    8.2,
+    1.6
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "flight 2: bottom z 1.6 m",
+   "flight": 2
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    6.86,
+    1.6
+   ],
+   "rotation_z_deg": 90.0,
+   "flight": 2
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    9.54,
+    1.6
+   ],
+   "rotation_z_deg": 90.0,
+   "flight": 2
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    8.2,
+    2.8
+   ],
+   "rotation_z_deg": 180.0,
+   "landing": 2
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    11.8,
+    3.2
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "flight 3: bottom z 3.2 m",
+   "flight": 3
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.54,
+    11.8,
+    3.2
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 3
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.86,
+    11.8,
+    3.2
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 3
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    15.4,
+    4.4
+   ],
+   "rotation_z_deg": 90.0,
+   "landing": 3
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    15.4,
+    4.8
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "flight 4: bottom z 4.8 m",
+   "flight": 4
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    16.74,
+    4.8
+   ],
+   "rotation_z_deg": 270.0,
+   "flight": 4
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    14.06,
+    4.8
+   ],
+   "rotation_z_deg": 270.0,
+   "flight": 4
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    15.4,
+    6.0
+   ],
+   "rotation_z_deg": 270.0,
+   "landing": 4
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    19.0,
+    6.4
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "flight 5: bottom z 6.4 m",
+   "flight": 5
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.34,
+    19.0,
+    6.4
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 5
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.34,
+    19.0,
+    6.4
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 5
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    22.6,
+    7.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 5
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    22.6,
+    8.0
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "flight 6: bottom z 8.0 m",
+   "flight": 6
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    21.26,
+    8.0
+   ],
+   "rotation_z_deg": 90.0,
+   "flight": 6
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    23.94,
+    8.0
+   ],
+   "rotation_z_deg": 90.0,
+   "flight": 6
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    22.6,
+    9.2
+   ],
+   "rotation_z_deg": 180.0,
+   "landing": 6
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    26.2,
+    9.6
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "flight 7: bottom z 9.6 m",
+   "flight": 7
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.54,
+    26.2,
+    9.6
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 7
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.86,
+    26.2,
+    9.6
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 7
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    29.8,
+    10.8
+   ],
+   "rotation_z_deg": 90.0,
+   "landing": 7
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    29.8,
+    11.2
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "flight 8: bottom z 11.2 m",
+   "flight": 8
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    31.14,
+    11.2
+   ],
+   "rotation_z_deg": 270.0,
+   "flight": 8
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    28.46,
+    11.2
+   ],
+   "rotation_z_deg": 270.0,
+   "flight": 8
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    29.8,
+    12.4
+   ],
+   "rotation_z_deg": 270.0,
+   "landing": 8
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    33.4,
+    12.8
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "flight 9: bottom z 12.8 m",
+   "flight": 9
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.34,
+    33.4,
+    12.8
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 9
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.34,
+    33.4,
+    12.8
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 9
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    37.0,
+    14.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 9
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    37.0,
+    14.4
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "flight 10: bottom z 14.4 m",
+   "flight": 10
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    35.66,
+    14.4
+   ],
+   "rotation_z_deg": 90.0,
+   "flight": 10
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    38.34,
+    14.4
+   ],
+   "rotation_z_deg": 90.0,
+   "flight": 10
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    37.0,
+    15.6
+   ],
+   "rotation_z_deg": 180.0,
+   "landing": 10
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    40.6,
+    16.0
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "flight 11: bottom z 16.0 m",
+   "flight": 11
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.54,
+    40.6,
+    16.0
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 11
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.86,
+    40.6,
+    16.0
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 11
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    44.2,
+    17.2
+   ],
+   "rotation_z_deg": 90.0,
+   "landing": 11
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    44.2,
+    17.6
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "flight 12: bottom z 17.6 m",
+   "flight": 12
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    45.54,
+    17.6
+   ],
+   "rotation_z_deg": 270.0,
+   "flight": 12
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    42.86,
+    17.6
+   ],
+   "rotation_z_deg": 270.0,
+   "flight": 12
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    44.2,
+    18.8
+   ],
+   "rotation_z_deg": 270.0,
+   "landing": 12
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    47.8,
+    19.2
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "flight 13: bottom z 19.2 m",
+   "flight": 13
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.34,
+    47.8,
+    19.2
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 13
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.34,
+    47.8,
+    19.2
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 13
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    51.4,
+    20.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 13
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    51.4,
+    20.8
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "flight 14: bottom z 20.8 m",
+   "flight": 14
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    50.06,
+    20.8
+   ],
+   "rotation_z_deg": 90.0,
+   "flight": 14
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    52.74,
+    20.8
+   ],
+   "rotation_z_deg": 90.0,
+   "flight": 14
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    51.4,
+    22.0
+   ],
+   "rotation_z_deg": 180.0,
+   "landing": 14
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    55.0,
+    22.4
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "flight 15: bottom z 22.4 m",
+   "flight": 15
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.54,
+    55.0,
+    22.4
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 15
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.86,
+    55.0,
+    22.4
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 15
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    58.6,
+    23.6
+   ],
+   "rotation_z_deg": 90.0,
+   "landing": 15
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    58.6,
+    24.0
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "flight 16: bottom z 24.0 m",
+   "flight": 16
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    59.94,
+    24.0
+   ],
+   "rotation_z_deg": 270.0,
+   "flight": 16
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    57.26,
+    24.0
+   ],
+   "rotation_z_deg": 270.0,
+   "flight": 16
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    58.6,
+    25.2
+   ],
+   "rotation_z_deg": 270.0,
+   "landing": 16
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    62.2,
+    25.6
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "flight 17: bottom z 25.6 m",
+   "flight": 17
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.34,
+    62.2,
+    25.6
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 17
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.34,
+    62.2,
+    25.6
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 17
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    65.8,
+    26.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 17
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    65.8,
+    27.2
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "flight 18: bottom z 27.2 m",
+   "flight": 18
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    64.46,
+    27.2
+   ],
+   "rotation_z_deg": 90.0,
+   "flight": 18
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -3.6,
+    67.14,
+    27.2
+   ],
+   "rotation_z_deg": 90.0,
+   "flight": 18
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    65.8,
+    28.4
+   ],
+   "rotation_z_deg": 180.0,
+   "landing": 18
+  },
+  {
+   "id": "SG01_StraightRun",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    69.4,
+    28.8
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "flight 19: bottom z 28.8 m",
+   "flight": 19
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.54,
+    69.4,
+    28.8
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 19
+  },
+  {
+   "id": "SG03_RailSloped",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.86,
+    69.4,
+    28.8
+   ],
+   "rotation_z_deg": 0.0,
+   "flight": 19
+  },
+  {
+   "id": "SG02_Landing",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    73.0,
+    30.0
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "top landing (end of the sample)",
+   "landing": 19
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.9,
+    10.0,
+    1.6
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 1
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -0.9,
+    10.0,
+    1.6
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 1
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    10.0,
+    1.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 1
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    10.0,
+    1.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 1
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.8,
+    10.0,
+    1.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 1
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    7.3,
+    1.6
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 1
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    9.1,
+    1.6
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 1
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    6.4,
+    1.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 1
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    8.2,
+    1.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 1
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    1.32,
+    9.52,
+    1.955
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 1
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    9.1,
+    3.2
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 2
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    7.3,
+    3.2
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 2
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    10.0,
+    3.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 2
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    8.2,
+    3.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 2
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    6.4,
+    3.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 2
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.1,
+    6.4,
+    3.2
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 2
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -6.3,
+    6.4,
+    3.2
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 2
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    6.4,
+    3.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 2
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    6.4,
+    3.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 2
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    -8.52,
+    6.88,
+    3.555
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 2
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -6.3,
+    17.2,
+    4.8
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 3
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.1,
+    17.2,
+    4.8
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 3
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    17.2,
+    4.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 3
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    17.2,
+    4.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 3
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    17.2,
+    4.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 3
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    16.3,
+    4.8
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 3
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    14.5,
+    4.8
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 3
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    15.4,
+    4.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 3
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    13.6,
+    4.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 3
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    -8.52,
+    16.72,
+    5.155
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 3
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    14.5,
+    6.4
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 4
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    16.3,
+    6.4
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 4
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    13.6,
+    6.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 4
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    15.4,
+    6.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 4
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    17.2,
+    6.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 4
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -0.9,
+    13.6,
+    6.4
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 4
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.9,
+    13.6,
+    6.4
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 4
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.8,
+    13.6,
+    6.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 4
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    13.6,
+    6.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 4
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    1.32,
+    14.08,
+    6.755
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 4
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.9,
+    24.4,
+    8.0
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 5
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -0.9,
+    24.4,
+    8.0
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 5
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    24.4,
+    8.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 5
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    24.4,
+    8.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 5
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.8,
+    24.4,
+    8.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 5
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    21.7,
+    8.0
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 5
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    23.5,
+    8.0
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 5
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    20.8,
+    8.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 5
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    22.6,
+    8.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 5
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    1.32,
+    23.92,
+    8.355
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 5
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    23.5,
+    9.6
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 6
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    21.7,
+    9.6
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 6
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    24.4,
+    9.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 6
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    22.6,
+    9.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 6
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    20.8,
+    9.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 6
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.1,
+    20.8,
+    9.6
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 6
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -6.3,
+    20.8,
+    9.6
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 6
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    20.8,
+    9.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 6
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    20.8,
+    9.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 6
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    -8.52,
+    21.28,
+    9.955
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 6
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -6.3,
+    31.6,
+    11.2
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 7
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.1,
+    31.6,
+    11.2
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 7
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    31.6,
+    11.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 7
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    31.6,
+    11.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 7
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    31.6,
+    11.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 7
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    30.7,
+    11.2
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 7
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    28.9,
+    11.2
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 7
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    29.8,
+    11.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 7
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    28.0,
+    11.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 7
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    -8.52,
+    31.12,
+    11.555
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 7
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    28.9,
+    12.8
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 8
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    30.7,
+    12.8
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 8
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    28.0,
+    12.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 8
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    29.8,
+    12.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 8
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    31.6,
+    12.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 8
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -0.9,
+    28.0,
+    12.8
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 8
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.9,
+    28.0,
+    12.8
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 8
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.8,
+    28.0,
+    12.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 8
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    28.0,
+    12.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 8
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    1.32,
+    28.48,
+    13.155
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 8
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    36.1,
+    14.4
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 9
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    37.9,
+    14.4
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 9
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    35.2,
+    14.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 9
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    37.0,
+    14.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 9
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    38.8,
+    14.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 9
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    1.32,
+    38.32,
+    14.755
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 9
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    37.9,
+    16.0
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 10
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    36.1,
+    16.0
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 10
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    38.8,
+    16.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 10
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    37.0,
+    16.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 10
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    35.2,
+    16.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 10
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.1,
+    35.2,
+    16.0
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 10
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -6.3,
+    35.2,
+    16.0
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 10
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    35.2,
+    16.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 10
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    35.2,
+    16.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 10
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    -8.52,
+    35.68,
+    16.355
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 10
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -6.3,
+    46.0,
+    17.6
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 11
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.1,
+    46.0,
+    17.6
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 11
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    46.0,
+    17.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 11
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    46.0,
+    17.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 11
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    46.0,
+    17.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 11
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    45.1,
+    17.6
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 11
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    43.3,
+    17.6
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 11
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    44.2,
+    17.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 11
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    42.4,
+    17.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 11
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    -8.52,
+    45.52,
+    17.955
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 11
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    43.3,
+    19.2
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 12
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    45.1,
+    19.2
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 12
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    42.4,
+    19.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 12
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    44.2,
+    19.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 12
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    46.0,
+    19.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 12
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -0.9,
+    42.4,
+    19.2
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 12
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.9,
+    42.4,
+    19.2
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 12
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.8,
+    42.4,
+    19.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 12
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    42.4,
+    19.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 12
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    1.32,
+    42.88,
+    19.555
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 12
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.9,
+    53.2,
+    20.8
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 13
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -0.9,
+    53.2,
+    20.8
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 13
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    53.2,
+    20.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 13
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    53.2,
+    20.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 13
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.8,
+    53.2,
+    20.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 13
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    50.5,
+    20.8
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 13
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    52.3,
+    20.8
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 13
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    49.6,
+    20.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 13
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    51.4,
+    20.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 13
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    1.32,
+    52.72,
+    21.155
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 13
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    52.3,
+    22.4
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 14
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    50.5,
+    22.4
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 14
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    53.2,
+    22.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 14
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    51.4,
+    22.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 14
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    49.6,
+    22.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 14
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.1,
+    49.6,
+    22.4
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 14
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -6.3,
+    49.6,
+    22.4
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 14
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    49.6,
+    22.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 14
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    49.6,
+    22.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 14
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    -8.52,
+    50.08,
+    22.755
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 14
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -6.3,
+    60.4,
+    24.0
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 15
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.1,
+    60.4,
+    24.0
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 15
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    60.4,
+    24.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 15
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    60.4,
+    24.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 15
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    60.4,
+    24.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 15
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    59.5,
+    24.0
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 15
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    57.7,
+    24.0
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 15
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    58.6,
+    24.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 15
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    56.8,
+    24.0
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 15
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    -8.52,
+    59.92,
+    24.355
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 15
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    57.7,
+    25.6
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 16
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    59.5,
+    25.6
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 16
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    56.8,
+    25.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 16
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    58.6,
+    25.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 16
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    60.4,
+    25.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 16
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -0.9,
+    56.8,
+    25.6
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 16
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.9,
+    56.8,
+    25.6
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 16
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.8,
+    56.8,
+    25.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 16
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    56.8,
+    25.6
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 16
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    1.32,
+    57.28,
+    25.955
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 16
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.9,
+    67.6,
+    27.2
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 17
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -0.9,
+    67.6,
+    27.2
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 17
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    67.6,
+    27.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 17
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    67.6,
+    27.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 17
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -1.8,
+    67.6,
+    27.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 17
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    64.9,
+    27.2
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 17
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    66.7,
+    27.2
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 17
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    64.0,
+    27.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 17
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    1.8,
+    65.8,
+    27.2
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 17
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    1.32,
+    67.12,
+    27.555
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 17
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    66.7,
+    28.8
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 18
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    64.9,
+    28.8
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 18
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    67.6,
+    28.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 18
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    65.8,
+    28.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 18
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    64.0,
+    28.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 18
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.1,
+    64.0,
+    28.8
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 18
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -6.3,
+    64.0,
+    28.8
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "straight bay along the landing edge",
+   "landing": 18
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    64.0,
+    28.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 18
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    64.0,
+    28.8
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 18
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    -8.52,
+    64.48,
+    29.155
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 18
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -6.3,
+    74.8,
+    30.4
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 19
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -8.1,
+    74.8,
+    30.4
+   ],
+   "rotation_z_deg": 180.0,
+   "note": "straight bay along the landing edge",
+   "landing": 19
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    74.8,
+    30.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 19
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -7.2,
+    74.8,
+    30.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 19
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    74.8,
+    30.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 19
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    72.1,
+    30.4
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 19
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    73.9,
+    30.4
+   ],
+   "rotation_z_deg": 90.0,
+   "note": "straight bay along the landing edge",
+   "landing": 19
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    71.2,
+    30.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 19
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -5.4,
+    73.0,
+    30.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 19
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    73.9,
+    30.4
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 19
+  },
+  {
+   "id": "SG03_RailStraight",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    72.1,
+    30.4
+   ],
+   "rotation_z_deg": 270.0,
+   "note": "straight bay along the landing edge",
+   "landing": 19
+  },
+  {
+   "id": "SG03_PostCorner",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    73.0,
+    30.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 19
+  },
+  {
+   "id": "SG03_PostEnd",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    -9.0,
+    71.2,
+    30.4
+   ],
+   "rotation_z_deg": 0.0,
+   "landing": 19
+  },
+  {
+   "id": "G01",
+   "kit": "qingxi-day12-c",
+   "version": "v001",
+   "position_m": [
+    -5.88,
+    74.32,
+    30.755
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "existing C lantern on the lotus base",
+   "landing": 19
+  },
+  {
+   "id": "SG04_RestShelter",
+   "kit": "mountain-stairs-b",
+   "version": "v001",
+   "position_m": [
+    0.0,
+    40.5,
+    14.4
+   ],
+   "rotation_z_deg": 0.0,
+   "note": "open front on the landing edge (no rail there)",
+   "landing": 9
+  }
+ ]
+}

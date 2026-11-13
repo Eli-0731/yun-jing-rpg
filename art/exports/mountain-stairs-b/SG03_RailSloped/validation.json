@@ -1,0 +1,225 @@
+{
+  "asset": "SG03_RailSloped",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.1307,
+          -1.5302,
+          0.5543
+        ],
+        "max": [
+          0.1309,
+          1.5302,
+          2.887
+        ],
+        "box_m": [
+          [
+            -0.15,
+            -1.6,
+            0.0
+          ],
+          [
+            0.15,
+            1.6,
+            3.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "lowest_point_at_design_z",
+      "pass": true,
+      "detail": {
+        "min_z": 0.55425,
+        "design_min_z": 0.5475,
+        "largest_clamp_m": 0
+      }
+    },
+    {
+      "check": "posts_on_sg01_sockets",
+      "pass": true,
+      "detail": {
+        "error_mm": {
+          "Post_0": 0.0,
+          "Post_1": 0.0,
+          "Post_2": 0.0
+        },
+        "note": "SG03 placed at x = +1.34 against SG01 Socket_Post_R0..2"
+      }
+    },
+    {
+      "check": "handrail_above_nosing_in_world_range",
+      "pass": true,
+      "detail": {
+        "y_and_height_above_nosing_m": [
+          [
+            -1.06,
+            1.0204
+          ],
+          [
+            -0.7,
+            1.0201
+          ],
+          [
+            -0.34,
+            1.0193
+          ],
+          [
+            0.34,
+            1.0192
+          ],
+          [
+            0.7,
+            1.0202
+          ],
+          [
+            1.06,
+            1.0194
+          ]
+        ],
+        "design_m": 1.02,
+        "rule": "balustrade 0.9-1.05 m"
+      }
+    },
+    {
+      "check": "tenons_fit_sockets",
+      "pass": true,
+      "detail": [
+        {
+          "post": 0,
+          "tenon_m": 0.14,
+          "hole_m": 0.15,
+          "tenon_bottom_above_floor_m": 0.005
+        },
+        {
+          "post": 1,
+          "tenon_m": 0.14,
+          "hole_m": 0.15,
+          "tenon_bottom_above_floor_m": 0.005
+        },
+        {
+          "post": 2,
+          "tenon_m": 0.14,
+          "hole_m": 0.15,
+          "tenon_bottom_above_floor_m": 0.005
+        }
+      ]
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": [
+        "Socket_Post_0",
+        "Socket_Post_1",
+        "Socket_Post_2"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 7230,
+          "LOD1": 3613,
+          "LOD2": 1083
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 6462,
+            "LOD1": 3230,
+            "LOD2": 968
+          },
+          "Detail_Small": {
+            "LOD0": 768,
+            "LOD1": 383,
+            "LOD2": 115
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          0.2616,
+          3.0603,
+          2.3328
+        ],
+        "blend_dims_m": [
+          0.2616,
+          3.0603,
+          2.3328
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "SG03_RailSloped.001",
+        "SG03_RailSloped_Collision.001",
+        "SG03_RailSloped_Detail_Small_LOD0.001",
+        "SG03_RailSloped_Detail_Small_LOD1.001",
+        "SG03_RailSloped_Detail_Small_LOD2.001",
+        "SG03_RailSloped_LOD0.001",
+        "SG03_RailSloped_LOD1.001",
+        "SG03_RailSloped_LOD2.001",
+        "Socket_Post_0.001",
+        "Socket_Post_1.001",
+        "Socket_Post_2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Post_0.001": [
+          0.0,
+          -1.4,
+          0.66
+        ],
+        "Socket_Post_1.001": [
+          0.0,
+          0.0,
+          1.22
+        ],
+        "Socket_Post_2.001": [
+          0.0,
+          1.4,
+          2.06
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 1684928
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 161,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

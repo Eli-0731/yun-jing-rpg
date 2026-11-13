@@ -498,8 +498,8 @@
  },
  "BM09_01": {
   "BM09_01_Detail_DryFronds_LOD0": {
-   "pieces": 36,
-   "within_1mm": 36,
+   "pieces": 55,
+   "within_1mm": 55,
    "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
@@ -507,28 +507,28 @@
    "worst_at": []
   },
   "BM09_01_Fronds_LOD0": {
-   "pieces": 792,
-   "within_1mm": 780,
-   "gap_1_3mm": 12,
-   "gap_3_10mm": 0,
-   "gap_over_10mm": 0,
-   "largest_mm": 1.8,
-   "worst_at": []
-  },
-  "BM09_01_Rachis_LOD0": {
-   "pieces": 20,
-   "within_1mm": 20,
+   "pieces": 846,
+   "within_1mm": 846,
    "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
-   "largest_mm": 0.3,
+   "largest_mm": 0.1,
+   "worst_at": []
+  },
+  "BM09_01_Rachis_LOD0": {
+   "pieces": 18,
+   "within_1mm": 18,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
    "worst_at": []
   }
  },
  "BM09_02": {
   "BM09_02_Detail_DryFronds_LOD0": {
-   "pieces": 36,
-   "within_1mm": 36,
+   "pieces": 57,
+   "within_1mm": 57,
    "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
@@ -536,21 +536,21 @@
    "worst_at": []
   },
   "BM09_02_Fronds_LOD0": {
-   "pieces": 312,
-   "within_1mm": 130,
-   "gap_1_3mm": 182,
+   "pieces": 372,
+   "within_1mm": 372,
+   "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
-   "largest_mm": 1.9,
+   "largest_mm": 0.6,
    "worst_at": []
   },
   "BM09_02_Rachis_LOD0": {
    "pieces": 15,
-   "within_1mm": 8,
-   "gap_1_3mm": 7,
+   "within_1mm": 15,
+   "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
-   "largest_mm": 1.9,
+   "largest_mm": 0.0,
    "worst_at": []
   }
  },

@@ -1,0 +1,137 @@
+{
+ "id": "FI02",
+ "name": "LineSpool",
+ "version": "v001",
+ "files": {
+  "fbx": "art/exports/creekside-life-c/FI02_v001.fbx",
+  "glb": "art/exports/creekside-life-c/FI02_v001.glb",
+  "blend": "art/source/creekside-life-c/FI02_v001.blend"
+ },
+ "bake_device": "OPTIX",
+ "dimensions_xyz_m": [
+  0.28,
+  0.268,
+  0.118
+ ],
+ "body_dimensions_xyz_m": [
+  0.28,
+  0.268,
+  0.118
+ ],
+ "size_limit_xyz_m": [
+  0.28,
+  0.28,
+  0.12
+ ],
+ "within_limit": true,
+ "minTier": "high",
+ "detailObjects": [
+  "Detail_LooseEnd"
+ ],
+ "detailMeshes": [
+  "FI02_Detail_LooseEnd_LOD0",
+  "FI02_Detail_LooseEnd_LOD1",
+  "FI02_Detail_LooseEnd_LOD2"
+ ],
+ "lods": {
+  "LOD0": {
+   "triangles": 5358,
+   "triangles_without_detail": 5130,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1,
+   "textures_px": {
+    "FI02_Albedo.png": [
+     1024,
+     1024
+    ],
+    "FI02_Normal.png": [
+     1024,
+     1024
+    ],
+    "FI02_ORM.png": [
+     1024,
+     1024
+    ],
+    "FI02_MaskURP.png": [
+     1024,
+     1024
+    ]
+   }
+  },
+  "LOD1": {
+   "triangles": 2678,
+   "triangles_without_detail": 2564,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1,
+   "textures_px": {
+    "FI02_Albedo.png": [
+     1024,
+     1024
+    ],
+    "FI02_Normal.png": [
+     1024,
+     1024
+    ],
+    "FI02_ORM.png": [
+     1024,
+     1024
+    ],
+    "FI02_MaskURP.png": [
+     1024,
+     1024
+    ]
+   }
+  },
+  "LOD2": {
+   "triangles": 1380,
+   "triangles_without_detail": 1346,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 1,
+   "textures_px": {
+    "FI02_Albedo.png": [
+     1024,
+     1024
+    ],
+    "FI02_Normal.png": [
+     1024,
+     1024
+    ],
+    "FI02_ORM.png": [
+     1024,
+     1024
+    ],
+    "FI02_MaskURP.png": [
+     1024,
+     1024
+    ]
+   }
+  }
+ },
+ "objects": {
+  "Body": [
+   "FI02_Body_LOD0",
+   "FI02_Body_LOD1",
+   "FI02_Body_LOD2"
+  ],
+  "Detail_LooseEnd": [
+   "FI02_Detail_LooseEnd_LOD0",
+   "FI02_Detail_LooseEnd_LOD1",
+   "FI02_Detail_LooseEnd_LOD2"
+  ]
+ },
+ "material": "M_FI02_LineSpool",
+ "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+ "source_parts": 12,
+ "coplanar_lifted": 0,
+ "reference": "art/references/FI02/prompt.txt",
+ "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+ "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+ "notes": [
+  "built upright (as the reference) and laid on its side: 0.28 × 0.28 × 0.12 m",
+  "the right axle end is a separate, paler replacement peg",
+  "Detail_LooseEnd: the loose end tied round the top bar"
+ ]
+}

@@ -1,0 +1,158 @@
+{
+  "asset": "FP02_PathCurve30_R",
+  "source": "art/source/forest-paths-b/blend/FP02_PathCurve30_R_v001.blend",
+  "same_geometry": true,
+  "render_of": "exported LOD0 with baked textures",
+  "views": [
+    {
+      "file": "01_front.png",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "camera_location": [
+        0.0,
+        -16.4485,
+        0.1079
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "02_right.png",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "camera_location": [
+        16.4485,
+        0.0,
+        0.1079
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "03_rear.png",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "camera_location": [
+        0.0,
+        16.4485,
+        0.1079
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "04_left.png",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "camera_location": [
+        -16.4485,
+        0.0,
+        0.1079
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "05_front_right.png",
+      "direction": [
+        1,
+        -1,
+        0.45
+      ],
+      "camera_location": [
+        11.0833,
+        -11.0833,
+        5.0954
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "06_rear_right.png",
+      "direction": [
+        1,
+        1,
+        0.45
+      ],
+      "camera_location": [
+        11.0833,
+        11.0833,
+        5.0954
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "07_rear_left.png",
+      "direction": [
+        -1,
+        1,
+        0.45
+      ],
+      "camera_location": [
+        -11.0833,
+        11.0833,
+        5.0954
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "08_front_left.png",
+      "direction": [
+        -1,
+        -1,
+        0.45
+      ],
+      "camera_location": [
+        -11.0833,
+        -11.0833,
+        5.0954
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "09_top.png",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "camera_location": [
+        0.0,
+        0.0,
+        16.5564
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "10_high_front.png",
+      "direction": [
+        0,
+        -1,
+        1
+      ],
+      "camera_location": [
+        0.0,
+        -11.6309,
+        11.7388
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    }
+  ]
+}

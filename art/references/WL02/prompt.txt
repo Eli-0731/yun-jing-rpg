@@ -1,0 +1,17 @@
+WL02 洗衣木槌（工作包 §5：0.45 × 0.15 × 0.12 m，練握柄過渡與端面木紋）三視圖與自評（2026-11-09）
+選用：WL02-cand-3.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-05/C-48h-a3-creekside-life.md 第 11 節原文（正面、負面一字不改，含固定段 5.2、5.3），四張相同。評分：形體與尺寸比例 30／練習重點（握柄到槌頭的過渡、端面木紋）30／提示詞細節（圓的打擊邊、磨亮的握把、端面細裂）25／乾淨無字、三面同一地線同比例 15。
+- cand-1：89（26+27+23+13）。槌頭很厚實，但握柄頂端是大圓頭，像擀麵棍；端面木紋只在底緣一點。
+- cand-2：90（27+27+23+13）。過渡乾淨，脖子纏布＋麻繩；端面年輪幾乎看不到。
+- cand-3：92（28+29+22+13）。選用。側面清楚看到槌頭的端面年輪和放射狀細裂（本件練習重點），握柄有兩段手指凹、頂端穿孔掛繩，脖子纏麻繩，槌頭前緣磨亮。
+- cand-4：90（27+28+22+13）。和 cand-3 同一型，端面年輪較少，纏布較散。
+
+建模取捨：照 cand-3。槌頭是厚板（底部最厚、往握柄收薄），端面年輪用專門的端面木紋貼圖；握柄是有手指凹的圓斷面，頂端穿孔。平放在地上，長 0.45 m 沿 X。脖子的麻繩纏繞屬於本體；掛繩和繩尾、補在纏繩上的小布片放 Detail_。參考圖上槌頭面的布補丁不做（工作包沒要求、也避免和 WL03/04 的布混淆）。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a short laundry beating paddle with a shaped handle and thick rounded head, about 0.45 m long, 0.15 m wide and 0.12 m thick, made of old brown cedar, showing rounded striking edge, hand-polished grip and fine end-grain checks, used in the A3 west-creek washing steps and fishing bank of a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

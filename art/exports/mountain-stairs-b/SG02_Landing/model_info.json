@@ -1,0 +1,337 @@
+{
+  "asset": "SG02_Landing",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "SG02_Landing_Detail_Small"
+  ],
+  "name_zh": "轉折平台",
+  "slot": "B1_SectGateStairs",
+  "note": "轉折平台（三視圖 SG02/LANDING candidate-01）：4 × 4 m、厚 0.4 m，走面水平在 z 0.4。外圍一圈 0.4 m 寬的收邊石（全高），中間 3 × 3 塊 0.15 m 厚大石板，接縫填土長苔，中間十字被腳磨亮。+X +Y 角一座蓮瓣圓燈座（直徑 0.86 m、高 0.375 m，16 瓣），頂面中心 Socket_Lantern 放現成 G01 石燈（底 0.6 m）。-Y 面一塊收邊石用兩支鐵鋦釘補著。四邊中點 Socket_Edge_S/N/E/W（z 0.4、朝外）：SG01 的 Socket_Top 對上就是上來的段，Socket_Bottom 對上就是往上走的段（那段立在與平台頂同高的地面上）；平台轉 90° 讓燈座落在沒有樓梯的兩邊之間。收邊石上 8 個 Socket_Post_*（離外緣 0.2 m，角與邊中點）給 SG03 欄杆柱，柱中心距 1.8 m；有樓梯的那邊不放邊中點的柱。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 22452,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 11225,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 3367,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "SG02_Landing_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "SG02_Landing_Metallic.png": [
+      2048,
+      2048
+    ],
+    "SG02_Landing_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "SG02_Landing_Normal.png": [
+      2048,
+      2048
+    ],
+    "SG02_Landing_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the footprint at the bottom; the walking surface is level at z 0.4",
+  "dimensions_m": [
+    3.9996,
+    3.9997,
+    0.755
+  ],
+  "bounds_min_m": [
+    -1.9999,
+    -1.9999,
+    0.0
+  ],
+  "bounds_max_m": [
+    1.9997,
+    1.9998,
+    0.755
+  ],
+  "size_limit_m": [
+    4.0,
+    4.0,
+    0.8
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        3.9996,
+        3.9997,
+        0.755
+      ],
+      "min": [
+        -1.9999,
+        -1.9999,
+        0.0
+      ],
+      "max": [
+        1.9997,
+        1.9998,
+        0.755
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        3.2611,
+        3.2481,
+        0.1083
+      ],
+      "min": [
+        -1.6325,
+        -1.6127,
+        0.3899
+      ],
+      "max": [
+        1.6287,
+        1.6354,
+        0.4982
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 20952,
+      "LOD1": 10476,
+      "LOD2": 3142
+    },
+    "Detail_Small": {
+      "LOD0": 1500,
+      "LOD1": 749,
+      "LOD2": 225
+    }
+  },
+  "lod_totals": {
+    "LOD0": 22452,
+    "LOD1": 11225,
+    "LOD2": 3367
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_SG02_Landing_Main"
+  ],
+  "textures": [
+    "SG02_Landing_BaseColor.png",
+    "SG02_Landing_Metallic.png",
+    "SG02_Landing_MetallicSmoothness.png",
+    "SG02_Landing_Normal.png",
+    "SG02_Landing_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "BaseColor": "SG02_Landing_BaseColor.png",
+    "Normal": "SG02_Landing_Normal.png (OpenGL +Y)",
+    "MetallicSmoothness": "SG02_Landing_MetallicSmoothness.png (R metallic, A smoothness)",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "SG02_Landing_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Lantern": [
+      1.32,
+      1.32,
+      0.755
+    ],
+    "Socket_Edge_S": [
+      0.0,
+      -2.0,
+      0.4
+    ],
+    "Socket_Edge_N": [
+      0.0,
+      2.0,
+      0.4
+    ],
+    "Socket_Edge_E": [
+      2.0,
+      0.0,
+      0.4
+    ],
+    "Socket_Edge_W": [
+      -2.0,
+      0.0,
+      0.4
+    ],
+    "Socket_Post_SW": [
+      -1.8,
+      -1.8,
+      0.4
+    ],
+    "Socket_Post_SE": [
+      1.8,
+      -1.8,
+      0.4
+    ],
+    "Socket_Post_NE": [
+      1.8,
+      1.8,
+      0.4
+    ],
+    "Socket_Post_NW": [
+      -1.8,
+      1.8,
+      0.4
+    ],
+    "Socket_Post_S": [
+      0.0,
+      -1.8,
+      0.4
+    ],
+    "Socket_Post_N": [
+      0.0,
+      1.8,
+      0.4
+    ],
+    "Socket_Post_E": [
+      1.8,
+      0.0,
+      0.4
+    ],
+    "Socket_Post_W": [
+      -1.8,
+      0.0,
+      0.4
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Edge_E.001": [
+      2.0,
+      0.0,
+      0.4
+    ],
+    "Socket_Edge_N.001": [
+      0.0,
+      2.0,
+      0.4
+    ],
+    "Socket_Edge_S.001": [
+      0.0,
+      -2.0,
+      0.4
+    ],
+    "Socket_Edge_W.001": [
+      -2.0,
+      0.0,
+      0.4
+    ],
+    "Socket_Lantern.001": [
+      1.32,
+      1.32,
+      0.755
+    ],
+    "Socket_Post_E.001": [
+      1.8,
+      0.0,
+      0.4
+    ],
+    "Socket_Post_N.001": [
+      0.0,
+      1.8,
+      0.4
+    ],
+    "Socket_Post_NE.001": [
+      1.8,
+      1.8,
+      0.4
+    ],
+    "Socket_Post_NW.001": [
+      -1.8,
+      1.8,
+      0.4
+    ],
+    "Socket_Post_S.001": [
+      0.0,
+      -1.8,
+      0.4
+    ],
+    "Socket_Post_SE.001": [
+      1.8,
+      -1.8,
+      0.4
+    ],
+    "Socket_Post_SW.001": [
+      -1.8,
+      -1.8,
+      0.4
+    ],
+    "Socket_Post_W.001": [
+      -1.8,
+      0.0,
+      0.4
+    ]
+  },
+  "fbx_objects": [
+    "SG02_Landing.001",
+    "SG02_Landing_Collision.001",
+    "SG02_Landing_Detail_Small_LOD0.001",
+    "SG02_Landing_Detail_Small_LOD1.001",
+    "SG02_Landing_Detail_Small_LOD2.001",
+    "SG02_Landing_LOD0.001",
+    "SG02_Landing_LOD1.001",
+    "SG02_Landing_LOD2.001",
+    "Socket_Edge_E.001",
+    "Socket_Edge_N.001",
+    "Socket_Edge_S.001",
+    "Socket_Edge_W.001",
+    "Socket_Lantern.001",
+    "Socket_Post_E.001",
+    "Socket_Post_N.001",
+    "Socket_Post_NE.001",
+    "Socket_Post_NW.001",
+    "Socket_Post_S.001",
+    "Socket_Post_SE.001",
+    "Socket_Post_SW.001",
+    "Socket_Post_W.001"
+  ],
+  "glb": "SG02_Landing_v001.glb",
+  "interface": {
+    "top_z_m": 0.4,
+    "size_m": [
+      4,
+      4
+    ],
+    "lantern_socket_z_m": 0.755,
+    "post_centres_m": "corners and edge middles, 0.2 m in from the outer face, 1.8 m apart",
+    "sockets": [
+      "Socket_Edge_E",
+      "Socket_Edge_N",
+      "Socket_Edge_S",
+      "Socket_Edge_W",
+      "Socket_Lantern",
+      "Socket_Post_E",
+      "Socket_Post_N",
+      "Socket_Post_NE",
+      "Socket_Post_NW",
+      "Socket_Post_S",
+      "Socket_Post_SE",
+      "Socket_Post_SW",
+      "Socket_Post_W"
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/mountain-stairs-b/); procedural shaders (cr_mats.py) baked to one 2048 atlas",
+  "reference": "art/references/SG02/ (AI three-view SG02/LANDING; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/mountain-stairs-unity/ (local Unity batch check, not committed)"
+}

@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "pass": true,
+  "errors": [],
+  "warnings": [
+    "SM_RI01_Bund_Straight_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_RI01_Bund_Straight_LOD0: duplicate verts=75 loose verts=0",
+    "asset lowest point z=0.0143 (not resting on ground plane z=0)"
+  ],
+  "ground_z": 0.0143,
+  "zfighting": [],
+  "floating": [],
+  "back_to_back": [],
+  "enclosed": [],
+  "objects": {
+    "SM_RI01_Bund_Straight_LOD0": {
+      "verts": 150,
+      "faces": 84,
+      "tris": 84,
+      "ngons": 0,
+      "boundary_edges": 150,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 75,
+      "islands": 33,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 3,
+      "uv_maps": 1,
+      "uv_oob_pct": 57.94,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 4.9
+    }
+  }
+}

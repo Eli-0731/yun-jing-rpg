@@ -1,0 +1,28 @@
+{
+  "id": "FE03",
+  "version": "v008",
+  "source": "art/source/valley-and-home-v1/FE03/fe03-rework-pack-v008.blend",
+  "reference": "art/references/valley-and-home-v1/FE03/",
+  "method": "既有模型接口保留；Josh cr_parts/cr_mats/vl_mats 零件與材質；Eli AO、粗糙度、物件法線、Pointiness、位置圖烘焙",
+  "lods": {
+    "Detail_FE03_FerryShed_LOD0": 376,
+    "SM_FE03_FerryShed_LOD0": 6024,
+    "SM_FE03_FerryShed_LOD1": 4938,
+    "SM_FE03_FerryShed_LOD2": 3734,
+    "SM_FE03_MooringPost_LOD0": 208,
+    "SM_FE03_Rework_Detail_Small_LOD0": 288,
+    "SM_FE03_Rework_Detail_Small_LOD1": 128,
+    "SM_FE03_Rework_LOD0": 2516,
+    "SM_FE03_Rework_LOD1": 1132,
+    "SM_FE03_Rework_LOD2": 502
+  },
+  "materials": {
+    "Detail_FE03_FerryShed_LOD0": 2,
+    "SM_FE03_FerryShed_LOD0": 6,
+    "SM_FE03_MooringPost_LOD0": 3,
+    "SM_FE03_Rework_Detail_Small_LOD0": 1,
+    "SM_FE03_Rework_LOD0": 1
+  },
+  "texture_resolution": 512,
+  "unity_import": "未驗證"
+}

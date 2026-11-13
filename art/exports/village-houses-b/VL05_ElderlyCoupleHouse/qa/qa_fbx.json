@@ -1,0 +1,80 @@
+{
+ "asset": "VL05_ElderlyCoupleHouse_v001",
+ "tris": 88882,
+ "objects": [
+  "VL05_ElderlyCoupleHouse_Detail_Small_LOD0",
+  "VL05_ElderlyCoupleHouse_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 491,
+   "groups": {
+    "ElderlyCoupleHouse|two_sides_between": {
+     "pairs": 392,
+     "overlap_cm2": 50441.7
+    },
+    "Detail_Small/ElderlyCoupleHouse|two_sides_between": {
+     "pairs": 59,
+     "overlap_cm2": 490.38
+    },
+    "Detail_Small|two_sides_inside": {
+     "pairs": 40,
+     "overlap_cm2": 489.36
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 382,
+   "groups": {
+    "ElderlyCoupleHouse|two_sides_between": {
+     "pairs": 382,
+     "overlap_cm2": 50031.73
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 240,
+   "groups": {
+    "ElderlyCoupleHouse|two_sides_between": {
+     "pairs": 240,
+     "overlap_cm2": 38691.23
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 7
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "VL05_ElderlyCoupleHouse_Detail_Small_LOD0": 7
+  }
+ },
+ "pieces": 784,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

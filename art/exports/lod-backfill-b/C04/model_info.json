@@ -1,0 +1,75 @@
+{
+ "asset": "C04",
+ "version": "v001",
+ "source": "art/exports/creek-repair-b-props/C04/C04.fbx",
+ "source_root": null,
+ "source_unchanged": true,
+ "note": "creek-repair-b-props 原檔不動；原本沒有 LOD，零件合併為本體＋Detail_Small 並補 LOD1／LOD2",
+ "lod0_rule": "LOD0 = source geometry unchanged (modifiers applied, world transforms baked, recentred only)",
+ "recentre_offset_m": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "dimensions_m": [
+  1.2559,
+  0.062,
+  0.3102
+ ],
+ "source_triangles": 2424,
+ "lod0_zero_area_triangles": 0,
+ "budget_per_lod": {
+  "LOD0": {
+   "triangles": 2424,
+   "triangles_without_detail": 504,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 3
+  },
+  "LOD1": {
+   "triangles": 1204,
+   "triangles_without_detail": 244,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 3
+  },
+  "LOD2": {
+   "triangles": 362,
+   "triangles_without_detail": 74,
+   "objects": 2,
+   "objects_without_detail": 1,
+   "materials": 3
+  }
+ },
+ "detail_parts": 5,
+ "body_parts": 3,
+ "detail_rule": "part bounding box under min(0.08 m, 0.12 x asset size) (plus listed names / collections)",
+ "minTier": "standard",
+ "detailObjects": [
+  "C04_Detail_Small"
+ ],
+ "materials": [
+  "aged_bamboo",
+  "natural_hemp",
+  "old_joinery"
+ ],
+ "texture_resolution_px": {
+  "aged_bamboo_packed": [
+   128,
+   128
+  ],
+  "natural_hemp_packed": [
+   128,
+   128
+  ],
+  "old_joinery_packed": [
+   128,
+   128
+  ]
+ },
+ "lod_rule": "LOD1 about 50 %, LOD2 about 15 % of LOD0: limited dissolve of flat faces (material/UV/sharp kept), then collapse",
+ "lod_method": {},
+ "fbx": "C04_LOD_v001.fbx",
+ "units": "meters",
+ "front": "-Y (Blender)"
+}

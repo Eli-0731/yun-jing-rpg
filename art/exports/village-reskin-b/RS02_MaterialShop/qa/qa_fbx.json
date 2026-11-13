@@ -1,0 +1,278 @@
+{
+ "asset": "RS02_MaterialShop_v001",
+ "tris": 130488,
+ "objects": [
+  "RS02_MaterialShop_Detail_Small_LOD0",
+  "RS02_MaterialShop_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 5321,
+   "groups": {
+    "Detail_Small|two_sides_between": {
+     "pairs": 4811,
+     "overlap_cm2": 5699.67
+    },
+    "MaterialShop|two_sides_between": {
+     "pairs": 276,
+     "overlap_cm2": 90080.88
+    },
+    "Detail_Small|two_sides_inside": {
+     "pairs": 234,
+     "overlap_cm2": 53.35
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 1054,
+   "groups": {
+    "Detail_Small|two_sides_between": {
+     "pairs": 784,
+     "overlap_cm2": 861.3
+    },
+    "MaterialShop|two_sides_between": {
+     "pairs": 270,
+     "overlap_cm2": 90078.29
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 264,
+   "groups": {
+    "MaterialShop|two_sides_between": {
+     "pairs": 264,
+     "overlap_cm2": 90057.86
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 1356,
+ "loose_over_5mm": 15,
+ "loose_list": [
+  {
+   "verts": 120,
+   "centre": [
+    -0.14,
+    -2.81,
+    1.63
+   ],
+   "size": [
+    0.154,
+    0.021,
+    0.154
+   ]
+  },
+  {
+   "verts": 120,
+   "centre": [
+    0.14,
+    -2.81,
+    1.63
+   ],
+   "size": [
+    0.154,
+    0.021,
+    0.154
+   ]
+  },
+  {
+   "verts": 56,
+   "centre": [
+    -0.425,
+    -2.735,
+    2.31
+   ],
+   "size": [
+    0.65,
+    0.02,
+    0.87
+   ]
+  },
+  {
+   "verts": 56,
+   "centre": [
+    0.425,
+    -2.735,
+    2.31
+   ],
+   "size": [
+    0.65,
+    0.02,
+    0.87
+   ]
+  },
+  {
+   "verts": 56,
+   "centre": [
+    -0.425,
+    -2.765,
+    2.08
+   ],
+   "size": [
+    0.69,
+    0.04,
+    0.035
+   ]
+  },
+  {
+   "verts": 56,
+   "centre": [
+    -0.425,
+    -2.765,
+    2.31
+   ],
+   "size": [
+    0.69,
+    0.04,
+    0.035
+   ]
+  },
+  {
+   "verts": 56,
+   "centre": [
+    -0.425,
+    -2.765,
+    2.54
+   ],
+   "size": [
+    0.69,
+    0.04,
+    0.035
+   ]
+  },
+  {
+   "verts": 56,
+   "centre": [
+    0.425,
+    -2.765,
+    2.08
+   ],
+   "size": [
+    0.69,
+    0.04,
+    0.035
+   ]
+  },
+  {
+   "verts": 56,
+   "centre": [
+    0.425,
+    -2.765,
+    2.31
+   ],
+   "size": [
+    0.69,
+    0.04,
+    0.035
+   ]
+  },
+  {
+   "verts": 56,
+   "centre": [
+    0.425,
+    -2.765,
+    2.54
+   ],
+   "size": [
+    0.69,
+    0.04,
+    0.035
+   ]
+  },
+  {
+   "verts": 56,
+   "centre": [
+    3.48,
+    -3.25,
+    2.63
+   ],
+   "size": [
+    0.1,
+    0.7,
+    0.1
+   ]
+  },
+  {
+   "verts": 56,
+   "centre": [
+    2.35,
+    -3.12,
+    0.66
+   ],
+   "size": [
+    1.48,
+    0.55,
+    0.075
+   ]
+  },
+  {
+   "verts": 44,
+   "centre": [
+    -0.14,
+    -2.778,
+    1.65
+   ],
+   "size": [
+    0.12,
+    0.024,
+    0.19
+   ]
+  },
+  {
+   "verts": 44,
+   "centre": [
+    0.14,
+    -2.778,
+    1.65
+   ],
+   "size": [
+    0.12,
+    0.024,
+    0.19
+   ]
+  },
+  {
+   "verts": 12,
+   "centre": [
+    2.79,
+    -3.15,
+    1.98
+   ],
+   "size": [
+    0.186,
+    0.155,
+    0.413
+   ]
+  }
+ ]
+}

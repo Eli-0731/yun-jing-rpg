@@ -1,0 +1,27 @@
+{
+  "Board": {
+    "lods": {
+      "SM_TX01_Board_LOD0": 4580,
+      "Detail_TX01_Board_LOD0": 4452,
+      "SM_TX01_Board_LOD1": 3296,
+      "SM_TX01_Board_LOD2": 1602,
+      "UCX_TX01_Board_Base": 12,
+      "UCX_TX01_Board_LeftPost": 12,
+      "UCX_TX01_Board_RightPost": 12,
+      "UCX_TX01_Board_Panel": 12
+    },
+    "source_meshes": 131,
+    "detail_meshes": 94
+  },
+  "Plaque": {
+    "lods": {
+      "SM_TX01_Plaque_LOD0": 44,
+      "Detail_TX01_Plaque_LOD0": 176,
+      "SM_TX01_Plaque_LOD1": 30,
+      "SM_TX01_Plaque_LOD2": 14,
+      "UCX_TX01_Plaque": 12
+    },
+    "source_meshes": 1,
+    "detail_meshes": 4
+  }
+}
