@@ -10,14 +10,17 @@
 | `art/exports/creekside-life-c` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | #93 |
 | `art/exports/elder-world-tree-hero-v1` | 核心組 | [#17](https://github.com/z1nnz/chengtian/pull/17) 整合青溪世界分支並還原樹伴原樹葉冠 | — |
 | `art/exports/forest-paths-b` | B | [#87](https://github.com/z1nnz/chengtian/pull/87) 【B】11/08 FP01–FP05：古林步道套件 | — |
-| `art/exports/forest-roots-b` | B | [#84](https://github.com/z1nnz/chengtian/pull/84) 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種 | — |
+| `art/exports/forest-roots-b` | B | [#84](https://github.com/z1nnz/chengtian/pull/84) 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種 | #103 |
 | `art/exports/giant-tree-v1` | 核心組 | [#17](https://github.com/z1nnz/chengtian/pull/17) 整合青溪世界分支並還原樹伴原樹葉冠 | — |
 | `art/exports/harvest-market-b` | B | [#63](https://github.com/z1nnz/chengtian/pull/63) 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） | — |
 | `art/exports/irrigation-v1` | — | 早於 PR 流程（直接提交） | — |
 | `art/exports/irrigation-v2` | — | 早於 PR 流程（直接提交） | — |
 | `art/exports/lod-backfill-b` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | — |
+| `art/exports/mc02-rope-bridge` | A | [#98](https://github.com/z1nnz/chengtian/pull/98) 【A】11/05 MC02：24 m、12 m 索橋 | — |
 | `art/exports/modelling-basics-c` | C | [#67](https://github.com/z1nnz/chengtian/pull/67) art(C): 基礎建模練習 BM01 舊木箱 3 種（0.5 / 0.8 /  | #69、#81 |
-| `art/exports/mountain-stairs-b` | B | [#83](https://github.com/z1nnz/chengtian/pull/83) 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 | — |
+| `art/exports/mountain-city-v1` | 核心組 | [#109](https://github.com/z1nnz/chengtian/pull/109) 【核心組】11/08 TX01：飛升榜（Codex） | — |
+| `art/exports/mountain-stairs-b` | B | [#83](https://github.com/z1nnz/chengtian/pull/83) 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 | #103 |
+| `art/exports/mountain-street-a` | A | [#100](https://github.com/z1nnz/chengtian/pull/100) 【A】11/08 ST01–ST06：山城街道小件 | — |
 | `art/exports/mountain-street-houses-a` | A | [#80](https://github.com/z1nnz/chengtian/pull/80) 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05 | — |
 | `art/exports/qingxi-alchemy-b` | 核心組、B | [#37](https://github.com/z1nnz/chengtian/pull/37) 整合協作者青溪告示、回村道具與煉製工坊 | #36 |
 | `art/exports/qingxi-alchemy-table-v1` | 核心組 | [#49](https://github.com/z1nnz/chengtian/pull/49) 青溪新手村：A／B／C 協作者成果接入與路線地形 | — |
@@ -41,12 +44,15 @@
 | `art/exports/qingxi-waterworks-b` | B | [#52](https://github.com/z1nnz/chengtian/pull/52) Add Qingxi waterworks B: old-channel rep | — |
 | `art/exports/qingxi-winding-road-v1` | 核心組 | [#17](https://github.com/z1nnz/chengtian/pull/17) 整合青溪世界分支並還原樹伴原樹葉冠 | — |
 | `art/exports/qingxi-world-ruins-b` | B | [#57](https://github.com/z1nnz/chengtian/pull/57) Add qingxi-world-ruins-b kit: boundary p | — |
+| `art/exports/sky-and-distance-v1` | 核心組 | [#107](https://github.com/z1nnz/chengtian/pull/107) 【核心組】11/08 MO01、SK：細彎缺月與天際線弧面骨架（Codex） | — |
 | `art/exports/tea-brewing-b` | B | [#58](https://github.com/z1nnz/chengtian/pull/58) feat: 第 1 天・在家泡茶（工作包 B）＋ TI09／RK04／TI10  | — |
 | `art/exports/tea-terraces-b` | 核心組、B | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | #79 |
 | `art/exports/territory-backyard-a` | A | [#56](https://github.com/z1nnz/chengtian/pull/56) 新手領地後院 A 第一批：靈田、青靈草四階段與 TY01–TY04 參考圖 | #59 |
 | `art/exports/territory-interior-b` | B | [#54](https://github.com/z1nnz/chengtian/pull/54) 新手領地屋內 TI01–TI08 家具與 Unity 展示（第一批） | — |
 | `art/exports/tx04-branch-court` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
-| `art/exports/village-houses-b` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | #89 |
+| `art/exports/valley-and-home-v1` | 核心組 | [#108](https://github.com/z1nnz/chengtian/pull/108) 【核心組】11/08 RI01、RI02、FE01–FE03：水田、稻株、木棧橋 | — |
+| `art/exports/village-houses-b` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | #89、#101 |
+| `art/exports/village-reskin-b` | B | [#101](https://github.com/z1nnz/chengtian/pull/101) 【B】11/09 VH01–03、RS01–03、LT01：民居新外形與舊建築換 | — |
 | `art/exports/world-props-a` | A、核心組 | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | #75 |
 | `art/exports/zhuo-boar-a` | A | [#61](https://github.com/z1nnz/chengtian/pull/61) 第 3 天・濁化山豬：遭遇玩法、山豬與小松模型 | — |
 | `art/incoming/dondon/AlchemyFurnace` | B | [#3](https://github.com/z1nnz/chengtian/pull/3) assets: dondon2.0 素材交接第一批與第二批（art/incomi | — |
@@ -149,6 +155,7 @@
 | `art/references/FI03` | C | [#93](https://github.com/z1nnz/chengtian/pull/93) 【C】11/07 FI01–FI05：西溪釣具五件（釣竿、線輪、抄網、魚筌、浮子 | — |
 | `art/references/FI04` | C | [#93](https://github.com/z1nnz/chengtian/pull/93) 【C】11/07 FI01–FI05：西溪釣具五件（釣竿、線輪、抄網、魚筌、浮子 | — |
 | `art/references/FI05` | C | [#93](https://github.com/z1nnz/chengtian/pull/93) 【C】11/07 FI01–FI05：西溪釣具五件（釣竿、線輪、抄網、魚筌、浮子 | — |
+| `art/references/FO02` | B | [#103](https://github.com/z1nnz/chengtian/pull/103) 【B】11/09 LG01、FO02、SG05–06：倒木、發光蕈與寬版石階 | — |
 | `art/references/FP01` | B | [#87](https://github.com/z1nnz/chengtian/pull/87) 【B】11/08 FP01–FP05：古林步道套件 | — |
 | `art/references/FP02` | B | [#87](https://github.com/z1nnz/chengtian/pull/87) 【B】11/08 FP01–FP05：古林步道套件 | — |
 | `art/references/FP03` | B | [#87](https://github.com/z1nnz/chengtian/pull/87) 【B】11/08 FP01–FP05：古林步道套件 | — |
@@ -158,6 +165,8 @@
 | `art/references/FR02` | B | [#84](https://github.com/z1nnz/chengtian/pull/84) 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種 | — |
 | `art/references/FR03` | B | [#84](https://github.com/z1nnz/chengtian/pull/84) 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種 | — |
 | `art/references/FR04` | B | [#84](https://github.com/z1nnz/chengtian/pull/84) 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種 | — |
+| `art/references/LG01` | B | [#103](https://github.com/z1nnz/chengtian/pull/103) 【B】11/09 LG01、FO02、SG05–06：倒木、發光蕈與寬版石階 | — |
+| `art/references/LT01` | B | [#101](https://github.com/z1nnz/chengtian/pull/101) 【B】11/09 VH01–03、RS01–03、LT01：民居新外形與舊建築換 | — |
 | `art/references/MC01-CP01` | A | [#80](https://github.com/z1nnz/chengtian/pull/80) 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05 | — |
 | `art/references/MC01-CP02` | A | [#80](https://github.com/z1nnz/chengtian/pull/80) 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05 | — |
 | `art/references/MC01-DT01` | A | [#80](https://github.com/z1nnz/chengtian/pull/80) 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05 | — |
@@ -181,6 +190,8 @@
 | `art/references/MC01-SF01` | A | [#80](https://github.com/z1nnz/chengtian/pull/80) 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05 | — |
 | `art/references/MC01-SF02` | A | [#80](https://github.com/z1nnz/chengtian/pull/80) 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05 | — |
 | `art/references/MC01-SF03` | A | [#80](https://github.com/z1nnz/chengtian/pull/80) 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05 | — |
+| `art/references/MC02-12M` | A | [#98](https://github.com/z1nnz/chengtian/pull/98) 【A】11/05 MC02：24 m、12 m 索橋 | — |
+| `art/references/MC02-24M` | A | [#98](https://github.com/z1nnz/chengtian/pull/98) 【A】11/05 MC02：24 m、12 m 索橋 | — |
 | `art/references/MK01` | B | [#63](https://github.com/z1nnz/chengtian/pull/63) 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） | — |
 | `art/references/MK02` | B | [#63](https://github.com/z1nnz/chengtian/pull/63) 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） | — |
 | `art/references/MK03` | B | [#63](https://github.com/z1nnz/chengtian/pull/63) 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） | — |
@@ -200,6 +211,14 @@
 | `art/references/SG02` | B | [#83](https://github.com/z1nnz/chengtian/pull/83) 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 | — |
 | `art/references/SG03` | B | [#83](https://github.com/z1nnz/chengtian/pull/83) 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 | — |
 | `art/references/SG04` | B | [#83](https://github.com/z1nnz/chengtian/pull/83) 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 | — |
+| `art/references/SG05` | B | [#103](https://github.com/z1nnz/chengtian/pull/103) 【B】11/09 LG01、FO02、SG05–06：倒木、發光蕈與寬版石階 | — |
+| `art/references/SG06` | B | [#103](https://github.com/z1nnz/chengtian/pull/103) 【B】11/09 LG01、FO02、SG05–06：倒木、發光蕈與寬版石階 | — |
+| `art/references/ST01` | A | [#100](https://github.com/z1nnz/chengtian/pull/100) 【A】11/08 ST01–ST06：山城街道小件 | — |
+| `art/references/ST02` | A | [#100](https://github.com/z1nnz/chengtian/pull/100) 【A】11/08 ST01–ST06：山城街道小件 | — |
+| `art/references/ST03` | A | [#100](https://github.com/z1nnz/chengtian/pull/100) 【A】11/08 ST01–ST06：山城街道小件 | — |
+| `art/references/ST04` | A | [#100](https://github.com/z1nnz/chengtian/pull/100) 【A】11/08 ST01–ST06：山城街道小件 | — |
+| `art/references/ST05` | A | [#100](https://github.com/z1nnz/chengtian/pull/100) 【A】11/08 ST01–ST06：山城街道小件 | — |
+| `art/references/ST06` | A | [#100](https://github.com/z1nnz/chengtian/pull/100) 【A】11/08 ST01–ST06：山城街道小件 | — |
 | `art/references/TE01` | 核心組 | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | — |
 | `art/references/TE02` | 核心組 | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | — |
 | `art/references/TE03` | 核心組 | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | — |
@@ -217,6 +236,9 @@
 | `art/references/TY05` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
 | `art/references/TY06` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
 | `art/references/TY10` | A | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | — |
+| `art/references/VH01` | B | [#101](https://github.com/z1nnz/chengtian/pull/101) 【B】11/09 VH01–03、RS01–03、LT01：民居新外形與舊建築換 | — |
+| `art/references/VH02` | B | [#101](https://github.com/z1nnz/chengtian/pull/101) 【B】11/09 VH01–03、RS01–03、LT01：民居新外形與舊建築換 | — |
+| `art/references/VH03` | B | [#101](https://github.com/z1nnz/chengtian/pull/101) 【B】11/09 VH01–03、RS01–03、LT01：民居新外形與舊建築換 | — |
 | `art/references/VL01` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | — |
 | `art/references/VL02` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | — |
 | `art/references/VL03` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | — |
@@ -240,6 +262,8 @@
 | `art/references/harvest-market-b-v2` | B | [#63](https://github.com/z1nnz/chengtian/pull/63) 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） | — |
 | `art/references/heroine-01` | 核心組 | [#23](https://github.com/z1nnz/chengtian/pull/23) 女主角參考設定與離線技藝研習原型 | #25、#27 |
 | `art/references/irrigation-v1` | — | 早於 PR 流程（直接提交） | — |
+| `art/references/keyart` | 核心組 | [#111](https://github.com/z1nnz/chengtian/pull/111) 【核心組】11/08 KA01–KA10：十區主視覺與氛圍卡（Codex） | — |
+| `art/references/mountain-city-v1` | 核心組 | [#109](https://github.com/z1nnz/chengtian/pull/109) 【核心組】11/08 TX01：飛升榜（Codex） | — |
 | `art/references/mountain-stairs-20261108-v001` | B | [#83](https://github.com/z1nnz/chengtian/pull/83) 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 | — |
 | `art/references/part2-threeviews-20261107-v001` | B | [#83](https://github.com/z1nnz/chengtian/pull/83) 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 | — |
 | `art/references/qingxi-alchemy-b` | 核心組、B | [#37](https://github.com/z1nnz/chengtian/pull/37) 整合協作者青溪告示、回村道具與煉製工坊 | #36 |
@@ -268,20 +292,25 @@
 | `art/references/qingxi-waymarker-v1` | 核心組 | [#20](https://github.com/z1nnz/chengtian/pull/20) 青溪道路近景與三件可擺放小物件 | — |
 | `art/references/qingxi-winding-road-v1` | 核心組 | [#17](https://github.com/z1nnz/chengtian/pull/17) 整合青溪世界分支並還原樹伴原樹葉冠 | — |
 | `art/references/qingxi-world-ruins-b` | B | [#57](https://github.com/z1nnz/chengtian/pull/57) Add qingxi-world-ruins-b kit: boundary p | — |
+| `art/references/sky-and-distance-v1` | 核心組 | [#107](https://github.com/z1nnz/chengtian/pull/107) 【核心組】11/08 MO01、SK：細彎缺月與天際線弧面骨架（Codex） | — |
 | `art/references/tea-irrigation-20261107-v001` | B | [#79](https://github.com/z1nnz/chengtian/pull/79) 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、 | — |
 | `art/references/territory-backyard-a` | A | [#56](https://github.com/z1nnz/chengtian/pull/56) 新手領地後院 A 第一批：靈田、青靈草四階段與 TY01–TY04 參考圖 | #59 |
 | `art/references/territory-interior-b` | B | [#54](https://github.com/z1nnz/chengtian/pull/54) 新手領地屋內 TI01–TI08 家具與 Unity 展示（第一批） | — |
+| `art/references/valley-and-home-v1` | 核心組 | [#108](https://github.com/z1nnz/chengtian/pull/108) 【核心組】11/08 RI01、RI02、FE01–FE03：水田、稻株、木棧橋 | — |
 | `art/references/world-directions-v1` | 核心組 | [#5](https://github.com/z1nnz/chengtian/pull/5) art: add world direction and aptitude pl | — |
 | `art/references/world-master-v1` | 核心組 | [#5](https://github.com/z1nnz/chengtian/pull/5) art: add world direction and aptitude pl | — |
 | `art/references/world-vision-v2` | 核心組 | [#17](https://github.com/z1nnz/chengtian/pull/17) 整合青溪世界分支並還原樹伴原樹葉冠 | — |
 | `art/source/creek-repair-b` | B | [#70](https://github.com/z1nnz/chengtian/pull/70) B：工地和三種修法模型 CR03–CR09（外加 CR14、CR15、F01_F | #72、#73 |
 | `art/source/creekside-life-c` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | #93 |
 | `art/source/forest-paths-b` | B | [#87](https://github.com/z1nnz/chengtian/pull/87) 【B】11/08 FP01–FP05：古林步道套件 | — |
-| `art/source/forest-roots-b` | B | [#84](https://github.com/z1nnz/chengtian/pull/84) 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種 | — |
+| `art/source/forest-roots-b` | B | [#84](https://github.com/z1nnz/chengtian/pull/84) 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種 | #103 |
 | `art/source/harvest-market-b` | B | [#63](https://github.com/z1nnz/chengtian/pull/63) 工作包 02-B：第 4 天・第一次收成（拔草、3D 分揀、秤重販售） | — |
 | `art/source/lod-backfill-b` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | — |
+| `art/source/mc02-rope-bridge` | A | [#98](https://github.com/z1nnz/chengtian/pull/98) 【A】11/05 MC02：24 m、12 m 索橋 | — |
 | `art/source/modelling-basics-c` | C | [#67](https://github.com/z1nnz/chengtian/pull/67) art(C): 基礎建模練習 BM01 舊木箱 3 種（0.5 / 0.8 /  | #69、#81 |
-| `art/source/mountain-stairs-b` | B | [#83](https://github.com/z1nnz/chengtian/pull/83) 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 | — |
+| `art/source/mountain-city-v1` | 核心組 | [#109](https://github.com/z1nnz/chengtian/pull/109) 【核心組】11/08 TX01：飛升榜（Codex） | — |
+| `art/source/mountain-stairs-b` | B | [#83](https://github.com/z1nnz/chengtian/pull/83) 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 | #103 |
+| `art/source/mountain-street-a` | A | [#100](https://github.com/z1nnz/chengtian/pull/100) 【A】11/08 ST01–ST06：山城街道小件 | — |
 | `art/source/mountain-street-houses-a` | A | [#80](https://github.com/z1nnz/chengtian/pull/80) 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05 | — |
 | `art/source/qingxi-alchemy-b` | 核心組、B | [#37](https://github.com/z1nnz/chengtian/pull/37) 整合協作者青溪告示、回村道具與煉製工坊 | #36 |
 | `art/source/qingxi-alchemy-table-v1` | 核心組 | [#49](https://github.com/z1nnz/chengtian/pull/49) 青溪新手村：A／B／C 協作者成果接入與路線地形 | — |
@@ -297,11 +326,14 @@
 | `art/source/qingxi-waterhead-a` | A | [#45](https://github.com/z1nnz/chengtian/pull/45) 青溪上游調查（工作包 A）：河床重做、水材質與 B 組對齊、水土分離與碰撞 | — |
 | `art/source/qingxi-waterworks-b` | B | [#52](https://github.com/z1nnz/chengtian/pull/52) Add Qingxi waterworks B: old-channel rep | — |
 | `art/source/qingxi-world-ruins-b` | B | [#57](https://github.com/z1nnz/chengtian/pull/57) Add qingxi-world-ruins-b kit: boundary p | — |
+| `art/source/sky-and-distance-v1` | 核心組 | [#107](https://github.com/z1nnz/chengtian/pull/107) 【核心組】11/08 MO01、SK：細彎缺月與天際線弧面骨架（Codex） | — |
 | `art/source/tea-terraces-b` | 核心組、B | [#74](https://github.com/z1nnz/chengtian/pull/74) B 東坡茶田第一批：TE01 梯田、TE02 茶樹、TE03 步道 | #79 |
 | `art/source/territory-backyard-a` | A | [#56](https://github.com/z1nnz/chengtian/pull/56) 新手領地後院 A 第一批：靈田、青靈草四階段與 TY01–TY04 參考圖 | #59 |
 | `art/source/territory-interior-b` | B | [#54](https://github.com/z1nnz/chengtian/pull/54) 新手領地屋內 TI01–TI08 家具與 Unity 展示（第一批） | — |
 | `art/source/tx04-branch-court` | A | [#90](https://github.com/z1nnz/chengtian/pull/90) 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） | — |
-| `art/source/village-houses-b` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | #89 |
+| `art/source/valley-and-home-v1` | 核心組 | [#108](https://github.com/z1nnz/chengtian/pull/108) 【核心組】11/08 RI01、RI02、FE01–FE03：水田、稻株、木棧橋 | — |
+| `art/source/village-houses-b` | B | [#85](https://github.com/z1nnz/chengtian/pull/85) 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23  | #89、#101 |
+| `art/source/village-reskin-b` | B | [#101](https://github.com/z1nnz/chengtian/pull/101) 【B】11/09 VH01–03、RS01–03、LT01：民居新外形與舊建築換 | — |
 | `art/source/world-props-a` | A、核心組 | [#68](https://github.com/z1nnz/chengtian/pull/68) A 包：把世界補起來 — 16 種世界模型（SC/RK/WM/TY） | #75 |
 | `art/source/zhuo-boar-a` | A | [#61](https://github.com/z1nnz/chengtian/pull/61) 第 3 天・濁化山豬：遭遇玩法、山豬與小松模型 | — |
 | `tools/art` | — | 早於 PR 流程（直接提交） | — |
