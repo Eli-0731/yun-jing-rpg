@@ -1,0 +1,136 @@
+{
+  "SM_FE01_Straight_LOD0": {
+    "vertices": 408,
+    "triangles": 716,
+    "dimensions_m": [
+      1.58847,
+      3.0,
+      1.53
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "Detail_FE01_Straight_RopeBamboo_LOD0": {
+    "vertices": 680,
+    "triangles": 1352,
+    "dimensions_m": [
+      1.598,
+      3.0,
+      0.24043
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE01_Straight_LOD1": {
+    "vertices": 372,
+    "triangles": 644,
+    "dimensions_m": [
+      1.58847,
+      3.0,
+      1.53
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE01_Straight_LOD2": {
+    "vertices": 279,
+    "triangles": 458,
+    "dimensions_m": [
+      1.58847,
+      3.0,
+      1.53
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE01_Straight_Collision": {
+    "vertices": 8,
+    "triangles": 12,
+    "dimensions_m": [
+      1.58,
+      2.98,
+      0.14
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+    "Detail_FE01_Straight_RopeBamboo_LOD0"
+  ],
+  "waterline_z_m": 0,
+  "deck_top_z_m": 0.45,
+  "pile_bottom_z_m": -1,
+  "source": "art/source/valley-and-home-v1/FE01/FE01-straight-pack-v006.blend",
+  "status": {
+    "Exported": true,
+    "Imported": true,
+    "Visually Verified": true,
+    "In-game Verified": false,
+    "variant": "Straight only; Corner and End remain unfinished",
+    "preview": "art/previews/valley-and-home-v1/FE01/v006/FE01_straight_A11_materials.png"
+  },
+  "exports": {
+    "fbx": {
+      "bytes": 2088364,
+      "reimported_meshes": 5,
+      "max_dimension_error_m": 4e-06
+    },
+    "glb": {
+      "bytes": 2224212,
+      "reimported_meshes": 5,
+      "max_dimension_error_m": 4e-06
+    }
+  },
+  "textures": {
+    "BaseColor_1024": 6,
+    "Normal_512": 1,
+    "ORM_512": 1,
+    "bytes": 1994812
+  },
+  "qa": {
+    "profile": "game",
+    "LOD0_errors": 0,
+    "LOD1_errors": 0,
+    "LOD2_errors": 0,
+    "warnings_by_lod": {
+      "LOD0": [
+        "SM_FE01_Straight_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE01_Straight_LOD0: duplicate verts=684 loose verts=0",
+        "Detail_FE01_Straight_RopeBamboo_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "Detail_FE01_Straight_RopeBamboo_LOD0: duplicate verts=1340 loose verts=0",
+        "hidden back-to-back faces: SM_FE01_Straight_LOD0<->Detail_FE01_Straight_RopeBamboo_LOD0 (16 pairs) - delete to save tris",
+        "hidden back-to-back faces: SM_FE01_Straight_LOD0 (5 pairs) - delete to save tris",
+        "asset lowest point z=-1.0 (not resting on ground plane z=0)"
+      ],
+      "LOD1": [
+        "SM_FE01_Straight_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE01_Straight_LOD1: duplicate verts=620 loose verts=0",
+        "hidden back-to-back faces: SM_FE01_Straight_LOD1 (5 pairs) - delete to save tris",
+        "asset lowest point z=-1.0 (not resting on ground plane z=0)"
+      ],
+      "LOD2": [
+        "SM_FE01_Straight_LOD2: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE01_Straight_LOD2: duplicate verts=441 loose verts=0",
+        "hidden back-to-back faces: SM_FE01_Straight_LOD2 (5 pairs) - delete to save tris",
+        "asset lowest point z=-1.0 (not resting on ground plane z=0)"
+      ]
+    },
+    "accepted_warning_reason": "Tiled UVs intentionally overlap; caps are planar triangulable n-gons; lashings and deck joins have hidden back-to-back contact surfaces; lowest point z=-1 m is the required submerged pile depth."
+  }
+}

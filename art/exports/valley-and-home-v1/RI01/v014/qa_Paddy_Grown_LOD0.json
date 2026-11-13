@@ -1,0 +1,101 @@
+{
+  "ok": true,
+  "pass": true,
+  "errors": [],
+  "warnings": [
+    "SM_RI01_Paddy_Base_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_RI01_Paddy_Base_LOD0: duplicate verts=3691 loose verts=0",
+    "SM_RI01_State_Grown_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_RI01_State_Grown_LOD0: duplicate verts=12 loose verts=0",
+    "Detail_RI01_Bund_EdgeGrass_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "asset lowest point z=-0.0082 (not resting on ground plane z=0)"
+  ],
+  "ground_z": -0.0082,
+  "zfighting": [],
+  "floating": [],
+  "back_to_back": [],
+  "enclosed": [],
+  "objects": {
+    "SM_RI01_Paddy_Base_LOD0": {
+      "verts": 7382,
+      "faces": 4208,
+      "tris": 4208,
+      "ngons": 0,
+      "boundary_edges": 7382,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 3691,
+      "islands": 1587,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 4,
+      "uv_maps": 1,
+      "uv_oob_pct": 87.48,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 100.0
+    },
+    "SM_RI01_State_Grown_LOD0": {
+      "verts": 1464,
+      "faces": 492,
+      "tris": 492,
+      "ngons": 0,
+      "boundary_edges": 1464,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 12,
+      "islands": 486,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 2,
+      "uv_maps": 1,
+      "uv_oob_pct": 2.44,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 100.0
+    },
+    "Detail_RI01_Bund_EdgeGrass_LOD0": {
+      "verts": 162,
+      "faces": 54,
+      "tris": 54,
+      "ngons": 0,
+      "boundary_edges": 162,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 0,
+      "islands": 54,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 1,
+      "uv_maps": 1,
+      "uv_oob_pct": 0.0,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 50.0
+    }
+  }
+}
