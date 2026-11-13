@@ -15,3 +15,11 @@
 `verify_c2_reardoor.py`：兩件母檔結構通過；兩個 FBX 回匯通過（外屋 506 meshes／108616 三角面；室內含家具 349 meshes／247978 三角面）。室內整包 GLB 生成後達 325 MB，未作最終交付；Unity 應用 FBX 與個別資產，不應用整包房間作手機端最終網格。Unity 編譯、碰撞、開門、睡眠與手機效能尚未驗證。後門外的台基及地面落差須在 Unity 場景補可走階或坡道。
 
 來源歸屬：StarterHouse v004 由 Dondon 製作；TI01–TI08d 由協作者 B 製作。此交付是 z1nnz 與 Codex 的外屋後門改版、室內門洞與配置工作；原作者歸屬保留。
+
+## 2026-11-13 審查重做：外屋 v006、室內 v031
+
+依 11/12 審查，以 Josh 的 VL 材料函式重做外屋的舊灰牆、舊木、石基、黛瓦及窗紙；室內殼體以 TI 的舊木、石、窗紙材質函式配合 VL 的室內舊灰牆，保留協作者 B 的 TI01–TI08d 家具材質與配置。函式副本位於 `art/source/c2-home-interior-v1/shared/`，重建腳本為 `rework_c2_v006.py`。10 張 512 像素 BaseColor 貼圖由上述函式取樣輸出，位於 `v006/Textures/`；新增貼圖已打包於來源 `.blend`，室內 FBX 另引用本資料夾的貼圖檔。幾何未重建。
+
+外屋來源：`art/source/c2-home-interior-v1/StarterHouse_reardoor_v006.blend`；輸出：`v006/StarterHouse_reardoor_v006.fbx`、`.glb`。室內來源：`art/source/c2-home-interior-v1/lodging-room-reardoor-v031.blend`；輸出：`v006/lodging-room-reardoor-v031.fbx`。預覽：`art/previews/c2-home-interior-v1/v006/rear-door-v006.png`、`front-v006.png`、`interior-reardoor-v031.png`。
+
+`verify_c2_v006.py` 核對外屋與室內的後門門檻、兩側門框座標及尺寸，均與 v005／v030 完全一致。外屋 FBX 回匯 506 網格／108,616 三角面；室內 FBX 回匯 551 網格／253,802 三角面；外屋 GLB 亦可回匯。室內整屋仍只供配置檢視，正式手機端場景應採個別 TI 資產。Unity 中材質亮度、後門開關、碰撞、台基地面落差和手機效能未驗。

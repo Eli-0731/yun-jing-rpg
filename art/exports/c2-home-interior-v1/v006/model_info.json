@@ -1,0 +1,100 @@
+{
+  "outer": {
+    "source": "art\\source\\c2-home-interior-v1\\StarterHouse_reardoor_v006.blend",
+    "materials_changed": {
+      "VL_wood": 277,
+      "VL_plank": 40,
+      "VL_paper": 8,
+      "VL_stone": 51,
+      "VL_plaster": 22,
+      "VL_tile": 96
+    },
+    "rear_door": {
+      "Rear_Door_Outer_Jamb": {
+        "center": [
+          0.63529,
+          2.69,
+          1.66282
+        ],
+        "size": [
+          0.09882,
+          0.25,
+          2.28216
+        ]
+      },
+      "Rear_Door_Outer_Jamb.001": {
+        "center": [
+          -0.63529,
+          2.69,
+          1.66282
+        ],
+        "size": [
+          0.09882,
+          0.25,
+          2.28216
+        ]
+      },
+      "Rear_Door_Threshold": {
+        "center": [
+          0.0,
+          2.635,
+          0.58
+        ],
+        "size": [
+          1.2,
+          0.24,
+          0.08
+        ]
+      }
+    },
+    "preview": "art\\previews\\c2-home-interior-v1\\v006\\rear-door-v006.png"
+  },
+  "interior": {
+    "source": "art\\source\\c2-home-interior-v1\\lodging-room-reardoor-v031.blend",
+    "materials_changed": {
+      "TI_wood": 340,
+      "TI_paper": 35,
+      "TI_plaster": 48,
+      "TI_stone": 54
+    },
+    "rear_door": {
+      "RearDoor_SM_IK_door_jamb_-1_LOD0": {
+        "center": [
+          -0.67,
+          2.5,
+          1.1
+        ],
+        "size": [
+          0.14,
+          0.22,
+          2.2
+        ]
+      },
+      "RearDoor_SM_IK_door_jamb_1_LOD0": {
+        "center": [
+          0.67,
+          2.5,
+          1.1
+        ],
+        "size": [
+          0.14,
+          0.22,
+          2.2
+        ]
+      },
+      "RearDoor_SM_IK_door_threshold_LOD0": {
+        "center": [
+          0.0,
+          2.5,
+          0.04
+        ],
+        "size": [
+          1.2,
+          0.28,
+          0.08
+        ]
+      }
+    },
+    "preview": "art\\previews\\c2-home-interior-v1\\v006\\interior-reardoor-v031.png"
+  }
+}
