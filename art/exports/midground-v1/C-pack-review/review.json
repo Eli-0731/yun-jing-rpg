@@ -1,0 +1,28 @@
+{
+  "background": "sky-and-distance-v1/SK/SK03_sky-preview.png",
+  "foreground": [
+    {
+      "file": "midground-v1/MM01/MM01_Albedo.png",
+      "x": 35,
+      "bottom": 905,
+      "width": 440,
+      "height": 435
+    },
+    {
+      "file": "midground-v1/MM02/MM02_Albedo.png",
+      "x": 465,
+      "bottom": 905,
+      "width": 575,
+      "height": 575
+    },
+    {
+      "file": "midground-v1/MM03/MM03_Albedo.png",
+      "x": 1030,
+      "bottom": 895,
+      "width": 990,
+      "height": 330
+    }
+  ],
+  "purpose": "中景石峰、樹丘與 SK 遠山同畫面尺度與色彩檢查；非遊戲鏡頭或 Unity 實機",
+  "finding": "MM01/02 已換成有岩台與松樹的透明卡，兩種剪影可辨；遊戲距離、透明排序和霧仍待 Unity 場景驗收。"
+}
