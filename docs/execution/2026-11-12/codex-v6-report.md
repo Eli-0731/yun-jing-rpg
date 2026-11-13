@@ -65,4 +65,5 @@
 ## D 部分｜舊件重做進度（2026-11-13）
 
 - FE01：已於原分支 `art/codex-1108-rice-and-ferry` 提交並推送 `cbb8a43e`。Straight、Corner、End 的 v008 木棧橋改用 Josh 零件與材料函式，烘焙 Eli 的輔助圖；三段 Blender 網格的同向共面、退化面、零 UV 均為 0，FBX 1 mm 同向近共面為 0。比較預覽：`art/previews/valley-and-home-v1/FE01/v008/FE01_vs_FR04.png`（在原分支）。自評 7.5／10，實際工時約 0.6 小時；Unity 匯入、行走碰撞和水邊接縫未驗。
-- 下一項依序為 FE02／FE03；TX01、C2 尚未開始。
+- FE02／FE03：已於同一原分支提交並推送 `164f1f41`。FE02 v008 補彎曲船舷、船首尾翹度、修補木片、竹編弧篷與舊布；FE03 v008 補貨箱、掛布、船槳等生活痕跡。新增部分使用 Josh 零件與材料函式及 Eli 烘焙清單。FBX 同向重疊面、零面積 UV 均為 0；新增圖集沒有 UV 衝突。舊船殼仍有 2 處極小同向重疊及雙面薄片，原有共用貼圖 UV 互疊。預覽：`art/previews/valley-and-home-v1/FE02/v008/FE02_threequarter.png`、`art/previews/valley-and-home-v1/FE03/v008/FE03_threequarter.png`（皆在原分支）。自評 FE02 7.3／10、FE03 7.2／10，實際工時合計約 0.8 小時；Unity 水面、浮力、同場比例與碰撞未驗。
+- 下一項依序為 TX01；C2 尚未開始。
