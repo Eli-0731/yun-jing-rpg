@@ -61,3 +61,8 @@
 ### C 部分補正（2026-11-13）
 
 檢查第 7 節交付項目時發現 MM03–MM06 的初版對應漏了遠山脊。已於 `83c1de57` 校正為 MM03 樹丘、MM04 斷崖牆、MM05 梯田遠坡、MM06 遠山脊。MM04、MM05 使用原先已審的三視圖重新編號並重建；MM06 新選三視圖、製作 2048 × 1024 RGBA 輪廓卡，預覽為 `art/exports/midground-v1/MM06/MM06_preview.png`。三件皆為 2 個三角面，已重新輸出灰模、FBX、GLB 與 `model_info.json`。這項補正約 0.25 小時；自評 MM06 為 7.3／10。Unity 透明排序與場景距離仍未驗證。前述 C 表格的 MM05 接縫風險現應讀為 MM04 斷崖牆的連片接縫。
+
+## D 部分｜舊件重做進度（2026-11-13）
+
+- FE01：已於原分支 `art/codex-1108-rice-and-ferry` 提交並推送 `cbb8a43e`。Straight、Corner、End 的 v008 木棧橋改用 Josh 零件與材料函式，烘焙 Eli 的輔助圖；三段 Blender 網格的同向共面、退化面、零 UV 均為 0，FBX 1 mm 同向近共面為 0。比較預覽：`art/previews/valley-and-home-v1/FE01/v008/FE01_vs_FR04.png`（在原分支）。自評 7.5／10，實際工時約 0.6 小時；Unity 匯入、行走碰撞和水邊接縫未驗。
+- 下一項依序為 FE02／FE03；TX01、C2 尚未開始。
