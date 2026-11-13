@@ -1,16 +1,16 @@
 {
   "id": "MM04",
-  "name_zh": "樹丘乙",
+  "name_zh": "斷崖牆",
   "units": "m",
   "reference": "art/references/midground-v1/MM04/three-view.png",
   "type": "遠景透明卡片",
   "pivot": "可見輪廓底部中央",
   "dimensions_m": [
-    180,
+    80,
     0,
-    65.49
+    54.09
   ],
-  "visible_height_m": 55,
+  "visible_height_m": 50,
   "lods": [
     {
       "name": "LOD0",
@@ -20,8 +20,8 @@
         {
           "name": "MM04_Albedo.png",
           "resolution": [
-            2172,
-            724
+            1774,
+            887
           ],
           "channels": "RGBA"
         }

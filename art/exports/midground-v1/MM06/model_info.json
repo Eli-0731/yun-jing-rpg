@@ -1,16 +1,16 @@
 {
   "id": "MM06",
-  "name_zh": "梯田遠坡",
+  "name_zh": "遠山脊",
   "units": "m",
   "reference": "art/references/midground-v1/MM06/three-view.png",
   "type": "遠景透明卡片",
   "pivot": "可見輪廓底部中央",
   "dimensions_m": [
-    150,
+    180,
     0,
-    44.35
+    189.63
   ],
-  "visible_height_m": 40,
+  "visible_height_m": 45,
   "lods": [
     {
       "name": "LOD0",
@@ -20,8 +20,8 @@
         {
           "name": "MM06_Albedo.png",
           "resolution": [
-            2172,
-            724
+            2048,
+            1024
           ],
           "channels": "RGBA"
         }

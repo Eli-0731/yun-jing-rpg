@@ -9,9 +9,9 @@ ROOT=Path.cwd()
 OUT=ROOT/'art/exports/midground-v1'
 SPECS={
     'MM03':('樹丘甲',150,42),
-    'MM04':('樹丘乙',180,55),
-    'MM05':('斷崖牆',80,50),
-    'MM06':('梯田遠坡',150,40),
+    'MM04':('斷崖牆',80,50),
+    'MM05':('梯田遠坡',150,40),
+    'MM06':('遠山脊',180,45),
 }
 
 def build(asset,name,width,target_visible_height):
