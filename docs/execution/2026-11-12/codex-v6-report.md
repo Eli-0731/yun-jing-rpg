@@ -66,4 +66,5 @@
 
 - FE01：已於原分支 `art/codex-1108-rice-and-ferry` 提交並推送 `cbb8a43e`。Straight、Corner、End 的 v008 木棧橋改用 Josh 零件與材料函式，烘焙 Eli 的輔助圖；三段 Blender 網格的同向共面、退化面、零 UV 均為 0，FBX 1 mm 同向近共面為 0。比較預覽：`art/previews/valley-and-home-v1/FE01/v008/FE01_vs_FR04.png`（在原分支）。自評 7.5／10，實際工時約 0.6 小時；Unity 匯入、行走碰撞和水邊接縫未驗。
 - FE02／FE03：已於同一原分支提交並推送 `164f1f41`。FE02 v008 補彎曲船舷、船首尾翹度、修補木片、竹編弧篷與舊布；FE03 v008 補貨箱、掛布、船槳等生活痕跡。新增部分使用 Josh 零件與材料函式及 Eli 烘焙清單。FBX 同向重疊面、零面積 UV 均為 0；新增圖集沒有 UV 衝突。舊船殼仍有 2 處極小同向重疊及雙面薄片，原有共用貼圖 UV 互疊。預覽：`art/previews/valley-and-home-v1/FE02/v008/FE02_threequarter.png`、`art/previews/valley-and-home-v1/FE03/v008/FE03_threequarter.png`（皆在原分支）。自評 FE02 7.3／10、FE03 7.2／10，實際工時合計約 0.8 小時；Unity 水面、浮力、同場比例與碰撞未驗。
-- 下一項依序為 TX01；C2 尚未開始。
+- TX01：已於原分支 `art/codex-1108-tx01-ascension-board` 提交並推送 `f865cec9`。v005 榜與匾沿用 John MC01 共用 2048 Trim Sheet 及建模函式，屋瓦改黛瓦，木構改舊木，石台改兩層錯縫鑿面石塊，厚度由 0.32 m 增至 0.64 m；榜格與匾面空白。FBX、GLB 四次回匯均通過，網格退化面、零 UV、反向封閉面為 0。原有榜格與結構貼合仍有 493 組同向共面（v004 為 507 組），匾額銅邊有 20 組，須在 Unity 判斷是否可見閃面。預覽：`art/previews/mountain-city-v1/TX01/v005/TX01_Board_threequarter.png`、`TX01_Plaque_threequarter.png`（在原分支）。自評 7.4／10，實際工時約 0.6 小時；Unity 材質、碰撞與可讀距離未驗。
+- 下一項依序為 C2。
