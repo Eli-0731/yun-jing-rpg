@@ -23,3 +23,9 @@
 外屋來源：`art/source/c2-home-interior-v1/StarterHouse_reardoor_v006.blend`；輸出：`v006/StarterHouse_reardoor_v006.fbx`、`.glb`。室內來源：`art/source/c2-home-interior-v1/lodging-room-reardoor-v031.blend`；輸出：`v006/lodging-room-reardoor-v031.fbx`。預覽：`art/previews/c2-home-interior-v1/v006/rear-door-v006.png`、`front-v006.png`、`interior-reardoor-v031.png`。
 
 `verify_c2_v006.py` 核對外屋與室內的後門門檻、兩側門框座標及尺寸，均與 v005／v030 完全一致。外屋 FBX 回匯 506 網格／108,616 三角面；室內 FBX 回匯 551 網格／253,802 三角面；外屋 GLB 亦可回匯。室內整屋仍只供配置檢視，正式手機端場景應採個別 TI 資產。Unity 中材質亮度、後門開關、碰撞、台基地面落差和手機效能未驗。
+
+## 2026-11-13 v7 A1 修正：外屋 v007、室內 v032
+
+屋瓦 BaseColor 改為黛灰色，平均 RGB 約 `#3A4048`，保留原瓦面明暗細節。室內灰牆改為大面積舊灰，只在牆腳與背陰角落保留少量剝落露磚。牆面改用已存在的 `C2_v006` 世界投影 UV 作渲染 UV，並把垂直比例調整至 3.5 m，避免牆頂重複取到牆腳磚區。其餘幾何、家具、後門位置與尺寸不變。
+
+可編輯母檔在 `art/source/c2-home-interior-v1/`：`StarterHouse_reardoor_v007.blend`、`lodging-room-reardoor-v032.blend`；重建與驗證腳本同資料夾的 `rework_c2_v007_textures.py`、`rework_c2_v007.py`、`verify_c2_v007.py`。FBX、外屋 GLB 與完整貼圖在 `v007/`；預覽在 `art/previews/c2-home-interior-v1/v007/`。已核對母檔網格數、面數、尺寸及後門定位與前版相同，並檢視兩張新預覽；Unity 匯入與實景亮度仍待場景驗收。

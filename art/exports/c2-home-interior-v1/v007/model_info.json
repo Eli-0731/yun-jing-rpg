@@ -1,0 +1,101 @@
+{
+  "outer": {
+    "source": "D:\\chengtian\\1-進行中\\codex-v4-c2-home-interior\\art\\source\\c2-home-interior-v1\\StarterHouse_reardoor_v007.blend",
+    "export": "D:\\chengtian\\1-進行中\\codex-v4-c2-home-interior\\art\\exports\\c2-home-interior-v1\\v007\\StarterHouse_reardoor_v007.fbx",
+    "meshes": 507,
+    "tris": 28084,
+    "changed_texture_nodes": 1,
+    "rear_door": {
+      "Rear_Door_Outer_Jamb": [
+        [
+          0.63529,
+          2.69,
+          1.66282
+        ],
+        [
+          0.09882,
+          0.25,
+          2.28216
+        ]
+      ],
+      "Rear_Door_Outer_Jamb.001": [
+        [
+          -0.63529,
+          2.69,
+          1.66282
+        ],
+        [
+          0.09882,
+          0.25,
+          2.28216
+        ]
+      ],
+      "Rear_Door_Threshold": [
+        [
+          0.0,
+          2.635,
+          0.58
+        ],
+        [
+          1.2,
+          0.24,
+          0.08
+        ]
+      ]
+    },
+    "plaster_uv_panels": 0,
+    "previews": [
+      "D:\\chengtian\\1-進行中\\codex-v4-c2-home-interior\\art\\previews\\c2-home-interior-v1\\v007\\rear-door-v007.png",
+      "D:\\chengtian\\1-進行中\\codex-v4-c2-home-interior\\art\\previews\\c2-home-interior-v1\\v007\\front-v007.png"
+    ]
+  },
+  "interior": {
+    "source": "D:\\chengtian\\1-進行中\\codex-v4-c2-home-interior\\art\\source\\c2-home-interior-v1\\lodging-room-reardoor-v032.blend",
+    "export": "D:\\chengtian\\1-進行中\\codex-v4-c2-home-interior\\art\\exports\\c2-home-interior-v1\\v007\\lodging-room-reardoor-v032.fbx",
+    "meshes": 551,
+    "tris": 225930,
+    "changed_texture_nodes": 1,
+    "rear_door": {
+      "RearDoor_SM_IK_door_jamb_-1_LOD0": [
+        [
+          -0.67,
+          2.5,
+          1.1
+        ],
+        [
+          0.14,
+          0.22,
+          2.2
+        ]
+      ],
+      "RearDoor_SM_IK_door_jamb_1_LOD0": [
+        [
+          0.67,
+          2.5,
+          1.1
+        ],
+        [
+          0.14,
+          0.22,
+          2.2
+        ]
+      ],
+      "RearDoor_SM_IK_door_threshold_LOD0": [
+        [
+          0.0,
+          2.5,
+          0.04
+        ],
+        [
+          1.2,
+          0.28,
+          0.08
+        ]
+      ]
+    },
+    "plaster_uv_panels": 48,
+    "previews": [
+      "D:\\chengtian\\1-進行中\\codex-v4-c2-home-interior\\art\\previews\\c2-home-interior-v1\\v007\\interior-reardoor-v032.png"
+    ]
+  }
+}
