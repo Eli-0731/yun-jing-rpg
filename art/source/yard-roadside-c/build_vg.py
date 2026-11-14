@@ -212,10 +212,12 @@ def run(pid):
     bm.to_mesh(A.data);bm.free()
     for u in [u for u in A.data.uv_layers if u.name not in ('Tiled','CardUV')]:A.data.uv_layers.remove(u)
     bu=A.data.uv_layers.new(name='Bake');A.data.uv_layers.active=bu;sel(A);mg=16/RES
+    fc_=np.zeros(len(A.data.polygons),np.int32);A.data.attributes['iscard'].data.foreach_get('value',fc_)
+    A.data.polygons.foreach_set('hide',fc_.astype(bool));A.data.update()   # card faces take no room in the baked part of the atlas: they are unwrapped into the strip
     bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT')
     bpy.ops.uv.smart_project(angle_limit=math.radians(meta.get('uv_angle',55)),island_margin=mg,area_weight=0,scale_to_bounds=False)
     bpy.ops.uv.select_all(action='SELECT');bpy.ops.uv.average_islands_scale();bpy.ops.uv.pack_islands(margin=mg,rotate=True)
-    bpy.ops.object.mode_set(mode='OBJECT')
+    bpy.ops.mesh.reveal();bpy.ops.object.mode_set(mode='OBJECT')
     card=meta.get('card');V0=1-card['strip'] if card else 1.
     if card:   # LOD2 card (FI03 net bag): the baked parts are squeezed below v = V0, the strip above holds the painted net with alpha
         bu=A.data.uv_layers['Bake'];uv=np.empty(len(bu.data)*2,np.float32);bu.data.foreach_get('uv',uv);uv[1::2]*=V0-mg   # re-fetch: edit mode invalidated the old layer pointer

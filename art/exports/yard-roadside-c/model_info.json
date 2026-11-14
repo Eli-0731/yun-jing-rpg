@@ -144,5 +144,131 @@
    "each crop is one recipe repeated along its ridge with random size, leaf count, lean and turn (12 greens, 12 radishes, 18 onion clumps)",
    "Detail_Stones (7 small stones on the rim) and Detail_Weeds (10 weeds in the furrows) are off at the standard tier"
   ]
+ },
+ "VG02": {
+  "id": "VG02",
+  "name": "GourdTrellis",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-roadside-c/VG02_v001.fbx",
+   "glb": "art/exports/yard-roadside-c/VG02_v001.glb",
+   "blend": "art/source/yard-roadside-c/VG02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.165,
+   1.447,
+   2.016
+  ],
+  "body_dimensions_xyz_m": [
+   2.165,
+   1.447,
+   2.016
+  ],
+  "size_limit_xyz_m": [
+   2.4,
+   1.6,
+   2.1
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 18116,
+    "triangles_without_detail": 18116,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG02_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG02_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 9058,
+    "triangles_without_detail": 9058,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG02_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG02_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 2716,
+    "triangles_without_detail": 2716,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG02_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG02_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "VG02_Body_LOD0",
+    "VG02_Body_LOD1",
+    "VG02_Body_LOD2"
+   ]
+  },
+  "material": "M_VG02_GourdTrellis",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 216,
+  "coplanar_lifted": 0,
+  "reference": "art/references/VG02/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "bamboo poles with raised nodes; every joint is lashed with cord (two loops on each diagonal of the crossing), nothing nailed",
+   "the vine stems and the three gourds are modelled; the leaves (three sprites) and four flowers are cards drawn in the top 22 % of the atlas, alpha clip: turn on Mip Maps Preserve Coverage for the albedo in Unity",
+   "the posts go into the ground (no base stones); no cloth wraps"
+  ]
  }
 }
