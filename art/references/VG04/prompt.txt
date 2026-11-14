@@ -1,0 +1,17 @@
+VG04 草垛（2 種：圓頂的、被抽掉一角的）（11/11 工作包第 2 節：直徑 2.2 m、高 2.4 m，A1、A6 田邊，練大塊的軟輪廓、邊緣要毛）三視圖與自評（2026-11-14）
+選用：VG04-cand-3.png（91分）
+
+提示詞照工作包 docs/execution/2026-11-11/C-36h-yard-and-roadside-props.md 第 6 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。兩種都有，中間多一圈繩和一塊草蓆補丁；抽掉的一角畫成掀開的門簾。
+- cand-2：90（27+28+23+12）。層次清楚，補丁多。
+- cand-3：91（28+28+23+12）。選用。圓頂、一層層往下披的稻草、邊緣毛，頂上有草帽和中心木桿；第二種一側被抽開、露出裡面一捆捆的草和中心桿。
+- cand-4：89（27+27+23+12）。繩圈太多，像綁起來的草屋。
+
+建模取捨：照 cand-3 的輪廓和層次，兩種各一個（VG04_A 完整、VG04_B 抽掉一角，各自單獨物件和單獨 FBX）。四張圖都把「抽掉一角」畫成綁起來的門簾，這裡照工作包文字做成一側下方被抽走一塊的凹口：凹口裡露出一捆捆橫放的草把和中心木桿，凹口上緣的草披下來、地上散落幾束。本體是略不對稱的圓頂（不是光滑的饅頭）：每層草披是一圈往外翹的裙邊，裙邊下緣和輪廓外的散草用 alpha clip 的草邊面片。不做草蓆補丁。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a rural Chinese rice straw haystack, about 2.2 m in diameter and 2.4 m tall, a rounded dome of bundled dry straw around a central pole with a small straw cap, loose shaggy edges with stray stalks, shown in two versions: complete, and with one side partly pulled away, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

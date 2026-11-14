@@ -1,0 +1,17 @@
+VG02 瓜架（竹架上爬著葫蘆藤，吊三顆葫蘆）（11/11 工作包第 2 節：2.4 × 1.6 × 2.1 m，A1 院內，練細竹竿的綁接、藤和葉用帶透明貼圖的面片）三視圖與自評（2026-11-14）
+選用：VG02-cand-4.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-11/C-36h-yard-and-roadside-props.md 第 6 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。下方多了一圈矮欄，像圍欄。
+- cand-2：92（28+28+24+12）。架形清楚，但柱上纏了好幾塊布。
+- cand-3：91（28+28+23+12）。腳邊墊石、下方有橫桿，葉子偏黃。
+- cand-4：93（28+29+24+12）。選用。四根立柱、頂上縱橫幾根細竿、兩側各一根斜撐和兩根橫檔，節點用繩綁，藤從兩側爬上頂，三顆大小不同的葫蘆吊在頂架下。
+
+建模取捨：照 cand-4。竹竿都是有竹節的細竿，每個交叉點一圈一圈的綁繩（練綁接）；藤是沿柱和頂架走的細管；葉子用面片加透明貼圖（一張葉形、alpha clip），沿藤排列、大小朝向隨機，頂上密、柱上疏；三顆葫蘆是實體（上小下大兩個球腹），各用一小段藤柄吊著；小黃花做兩三朵面片。柱腳不墊石（直接插地），不纏布。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a rustic bamboo gourd trellis, about 2.4 m wide, 1.6 m deep and 2.1 m tall, thin bamboo poles lashed together with cord, a gourd vine with broad leaves climbing over the top, three hanging bottle gourds of different sizes, weathered bamboo, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

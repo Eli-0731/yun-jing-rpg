@@ -1,0 +1,17 @@
+VG05 兩輪手推板車（完好的，空車）（11/11 工作包第 2 節：2.2 × 1.1 × 1 m，A1、A2 路邊，練輪子的圓和輻條、車架的榫接）三視圖與自評（2026-11-14）
+選用：VG05-cand-3.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-11/C-36h-yard-and-roadside-props.md 第 6 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（28+28+23+12）。車斗後段偏高，側板釘了木片。
+- cand-2：92（28+28+24+12）。欄杆偏高，像有圍欄的車斗。
+- cand-3：93（28+29+24+12）。選用。平板車床加低矮邊欄，兩個十二輻的木輪包鐵圈，兩根長把手，前面一根支腳，空車。
+- cand-4：90（27+28+23+12）。把手上纏布、側板有破布和斜釘的木條。
+
+建模取捨：照 cand-3。車架是兩根長縱樑（往前伸出成把手）加幾根橫樑，橫樑的榫頭穿出縱樑；車床是一片片木板；邊欄是短立柱加一條橫木，立柱榫進縱樑。輪子：輪轂、十二根輻條、六段輪輞拼成的圓、外包一圈鐵箍和鉚釘，輪軸穿過車架下的軸座。前支腳加兩根斜撐。完好的空車，和翻倒的破車 A2_OverturnedCart 不同。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of an intact two-wheeled rural Chinese wooden handcart, about 2.2 m long, 1.1 m wide and 1 m tall, a flat plank bed with low side rails, two spoked wooden wheels with iron rims, two long handles and a small prop leg, empty, old worn wood, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

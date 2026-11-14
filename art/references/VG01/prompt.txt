@@ -1,0 +1,17 @@
+VG01 菜畦一組（三條土壟，各種一種菜：青菜、蘿蔔、蔥）（11/11 工作包第 2 節：3 × 2 × 0.4 m，A1 院內，練重複排列但每棵略不同、土壟的起伏）三視圖與自評（2026-11-14）
+選用：VG01-cand-3.png（92分）
+
+提示詞照工作包 docs/execution/2026-11-11/C-36h-yard-and-roadside-props.md 第 6 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：88（26+27+23+12）。土壟沿長邊排成三排，四周有石塊邊和一片木板，不是單純的土壟。
+- cand-2：91（28+28+23+12）。三條壟各一種菜，很清楚；外圈土堤偏高，像一個整塊的台子。
+- cand-3：92（28+29+23+12）。選用。三條土壟前後走向，各種青菜、蘿蔔、蔥，壟間有走道溝，四周只有土和幾顆小石，沒有圍欄。
+- cand-4：80（27+27+20+6）。四周是石砌矮牆加木欄，違反 no fence。
+
+建模取捨：照 cand-3。三條壟是同一個起伏的土面（壟頂略圓、壟間是踩實的淺溝，四周土緣參差地斜到地面），不做石牆、不做木欄。每條壟的菜用陣列加隨機：先做一棵的做法（葉數、大小、朝向、傾斜是參數），再沿壟排開，每棵參數各自隨機，不是一棵棵手擺。青菜是一圈寬葉、蘿蔔是羽狀裂葉加露出土面的白肩、蔥是直立的細管葉。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a small rural Chinese kitchen garden plot, about 3 m wide, 2 m deep and 0.4 m tall, three raised earth ridges each planted with a different crop: leafy greens, radish tops, and spring onions, plants slightly uneven in size and spacing, dark damp soil, no fence, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

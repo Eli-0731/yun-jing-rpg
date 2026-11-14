@@ -1,0 +1,17 @@
+VG07 石磨（上下兩片、木推柄、石座）（11/11 工作包第 2 節：1 × 1 × 0.9 m，A1 院內，練兩個圓柱疊放、磨盤邊的鑿痕、出料的石槽口）三視圖與自評（2026-11-14）
+選用：VG07-cand-4.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-11/C-36h-yard-and-roadside-props.md 第 6 節物件句，加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。石座是木架夾石塊，推柄有兩根。
+- cand-2：92（28+28+24+12）。推柄很長，磨盤偏薄。
+- cand-3：91（28+28+23+12）。上片比下片大很多，像一個桶。
+- cand-4：93（28+29+24+12）。選用。上下兩片圓磨盤疊在一圈有溝的石承盤上，承盤前面伸出一個出料槽口，上片側邊一個木推柄，下面是塊石砌的圓座。
+
+建模取捨：照 cand-4。上片、下片是兩個略不正圓的圓柱（上片有進料孔、兩片之間一道縫），磨盤側面一圈斜的鑿痕做在法線和貼圖上，邊緣有幾處崩口做在形狀上；承盤是一圈凹槽加往前伸出的槽嘴；推柄是榫進上片側邊木座的一根橫木加一根立握把。石座用大小不同的塊石圍成圓台。槽裡的粉色淺灰在貼圖上。不做木板補丁。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a rural Chinese hand-turned stone grain mill, about 1 m wide and 0.9 m tall, two round millstones stacked on a stone base with a carved runoff channel and spout, a wooden push handle, chisel marks around the rim, worn grey stone with flour-pale dust in the grooves, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
