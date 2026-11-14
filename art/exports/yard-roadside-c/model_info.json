@@ -270,5 +270,132 @@
    "the vine stems and the three gourds are modelled; the leaves (three sprites) and four flowers are cards drawn in the top 22 % of the atlas, alpha clip: turn on Mip Maps Preserve Coverage for the albedo in Unity",
    "the posts go into the ground (no base stones); no cloth wraps"
   ]
+ },
+ "VG03": {
+  "id": "VG03",
+  "name": "ClothesPole",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-roadside-c/VG03_v001.fbx",
+   "glb": "art/exports/yard-roadside-c/VG03_v001.glb",
+   "blend": "art/source/yard-roadside-c/VG03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.54,
+   0.297,
+   1.832
+  ],
+  "body_dimensions_xyz_m": [
+   2.54,
+   0.297,
+   1.832
+  ],
+  "size_limit_xyz_m": [
+   2.6,
+   0.6,
+   1.9
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 7264,
+    "triangles_without_detail": 7264,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG03_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG03_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3632,
+    "triangles_without_detail": 3632,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG03_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG03_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1088,
+    "triangles_without_detail": 1088,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG03_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG03_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "VG03_Body_LOD0",
+    "VG03_Body_LOD1",
+    "VG03_Body_LOD2"
+   ]
+  },
+  "material": "M_VG03_ClothesPole",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 50,
+  "coplanar_lifted": 0,
+  "reference": "art/references/VG03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "two forked posts of crooked natural timber set in the ground; the bamboo pole lies in the crotches and is tied with cord",
+   "the jacket hangs with its sleeves on the pole, the trousers are folded over it; the folds deepen towards the hems and are in the shape, not only in the normal map",
+   "frayed hems are cards in the top 10 % of the atlas (alpha clip): turn on Mip Maps Preserve Coverage for the albedo in Unity; the two patches are painted",
+   "no cloth wraps or boards on the posts"
+  ]
  }
 }

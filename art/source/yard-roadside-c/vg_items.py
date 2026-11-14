@@ -129,7 +129,7 @@ def VG01(M):
 PROPS['VG01']=VG01
 
 # ---------------- VG02 bamboo gourd trellis with a vine and three hanging gourds (cand-4) ----------------
-def _bcane(name,a,b,r0,r1,mat,grp,gap=.26,sides=8,bow=0.,bowdir=(0,0,1),ph=0.):
+def _bcane(name,a,b,r0,r1,mat,grp,gap=.26,sides=8,bow=0.,bowdir=(0,0,1),ph=0.,bulge=1.16):
     """a bamboo pole from a to b with few rings: at every node a short raised ring (three sections), straight between;
     radius r0 → r1, the pole bowed a little towards bowdir"""
     a,b=Vector(a),Vector(b);L=(b-a).length;bd=Vector(bowdir);ss=[0.];s=gap*(.35+.5*ph)
@@ -137,7 +137,7 @@ def _bcane(name,a,b,r0,r1,mat,grp,gap=.26,sides=8,bow=0.,bowdir=(0,0,1),ph=0.):
     ss.append(L);pts=[];rad=[]
     for i,s in enumerate(ss):
         u=s/L;pts.append(a.lerp(b,u)+bd*bow*math.sin(math.pi*u));r=r0+(r1-r0)*u
-        rad.append(r*1.16 if (0<i<len(ss)-1 and (i-1)%3==1) else r)
+        rad.append(r*bulge if (0<i<len(ss)-1 and (i-1)%3==1) else r)
     return _taper(name,pts,rad,mat,grp,sides=sides,scale=.3)
 def _xlash(name,c,a,b,R,mat,grp,cord=.0032):
     """a cross lashing where two poles (directions a, b) meet at c: two cord loops over the crossing, one on each diagonal"""
@@ -255,3 +255,95 @@ def VG02(M):
                      'the vine stems and the three gourds are modelled; the leaves (three sprites) and four flowers are cards drawn in the top 22 % of the atlas, alpha clip: turn on Mip Maps Preserve Coverage for the albedo in Unity',
                      'the posts go into the ground (no base stones); no cloth wraps']}
 PROPS['VG02']=VG02
+
+# ---------------- VG03 clothes-drying pole: two forked posts, a bamboo pole, a jacket and a pair of trousers (cand-4) ----------------
+def _drape(name,x0,x1,zc,rp,front,back,mat,grp,seed,t=.0045,amp=.022,flare=0.,kx=17.,side_drop=0.):
+    """a piece of cloth hung over a pole running along X (centre height zc, radius rp): it goes up the back, over the pole
+    and down the front; front / back: the hanging lengths (a number, or a function of u = 0..1 across). Its weight pulls
+    it into vertical folds that deepen towards the hem, the hem waves, the sides hang a little lower (side_drop).
+    Returns the object and the two hem polylines (front, back)."""
+    r_=random.Random(seed);ph=[r_.uniform(0,6.28) for _ in range(6)];g=rp*1.06+t/2+.0005;gt=rp+t/2-.0008;nx=max(4,int(round((x1-x0)/.036)))
+    rows=[];hf=[];hb=[];nb=max(3,int((back(.5) if callable(back) else back)/.055));nf=max(3,int((front(.5) if callable(front) else front)/.055))
+    for i in range(nx+1):
+        u=i/nx;x=x0+(x1-x0)*u;lf=(front(u) if callable(front) else front);lb=(back(u) if callable(back) else back)
+        e=side_drop*(2*u-1)**2;lf=lf*(1+.025*math.sin(u*9+ph[0]))+e;lb=lb*(1+.03*math.sin(u*7+ph[1]))+e
+        def fold(d,L,sg):   # the fold depth at drop d of a flap of length L
+            q=min(1.,d/max(L,1e-6));return amp*q**1.3*(math.sin(x*kx+ph[2]+sg)+.5*math.sin(x*kx*2.3+ph[3]+sg*2))
+        row=[]
+        for j in range(nb,0,-1):d=lb*j/nb;q=d/lb;row.append((x+flare*(2*u-1)*q+.006*math.sin(q*5+ph[4]+x*3),g+.006*q+fold(d,lb,1.7),zc-d))
+        for a in np.linspace(0,math.pi,7):row.append((x,g*math.cos(a),zc+(g+(gt-g)*math.sin(a)**2)*math.sin(a)))   # its weight presses it onto the top of the pole
+        for j in range(1,nf+1):d=lf*j/nf;q=d/lf;row.append((x+flare*(2*u-1)*q+.006*math.sin(q*5+ph[5]+x*3),-g-.006*q-fold(d,lf,0.),zc-d))
+        rows.append(row);hb.append(Vector(row[0]));hf.append(Vector(row[-1]))
+    n0=min(len(r) for r in rows);assert all(len(r)==n0 for r in rows),'_drape: the flap lengths must give the same row count'
+    return _sheet(name,rows,None,None,mat,grp,t=t),hf,hb
+def _fringe(name,hem,nrm,mat,grp,cells,h=.05,seed=0,step=2):
+    """a ragged, frayed edge below a hem: a row of cards (alpha clip) hanging from the hem polyline, each showing one of
+    the ragged-edge sprites; the card starts 4 mm above the hem so it runs into the cloth"""
+    r_=random.Random(seed);n=Vector(nrm)
+    for k in range(0,len(hem)-step,step):
+        a,b=hem[k],hem[k+step];hh=h*r_.uniform(.7,1.15);up=Vector((0,0,.004));off=n*0.
+        rows=[[tuple(a-Vector((0,0,hh))+off),tuple(b-Vector((0,0,hh))+off)],[tuple(a+up+off),tuple(b+up+off)]]
+        _surf(f'{name}{k:02d}',rows,mat,grp,scale=.3,card=cells[r_.randrange(len(cells))])
+def _rags(W_,H_,cells,base):
+    """the ragged hem sprites: cloth colour above a torn edge with a few loose threads; cells = [(u0, u1, seed)]"""
+    rgb=np.zeros((H_,W_,3),np.float32);al=np.zeros((H_,W_),np.float32)
+    for u0,u1,seed in cells:
+        x0,x1=int(u0*W_),int(u1*W_);w=x1-x0;r=np.random.default_rng(seed);xx=(np.arange(w)[None,:]+.5)/w;yy=(np.arange(H_)[:,None]+.5)/H_
+        edge=.55+.16*np.sin(xx*math.tau*1.5+r.uniform(0,6))+.10*np.sin(xx*math.tau*4+r.uniform(0,6))+.06*np.sin(xx*math.tau*9+r.uniform(0,6))
+        a=yy>edge
+        for _ in range(7):   # loose threads hanging below the tear
+            cx=r.uniform(.05,.95);L=r.uniform(.15,.45);wob=.02*np.sin(yy*30+r.uniform(0,6));e0=.55+.16*np.sin(cx*math.tau*1.5)
+            a|=(np.abs(xx-cx-wob)<.012)&(yy>e0-L)&(yy<e0+.1)
+        tone=.80+.20*yy+.06*np.sin(xx*40+seed)
+        rgb[:,x0:x1]=np.asarray(base)[None,None,:]*tone[...,None];al[:,x0:x1]=a
+    return rgb,al
+def VG03(M):
+    """two posts of natural crooked timber forked at the top, set in the ground; a bamboo pole lies in the two crotches and
+    is tied down; a jacket hangs with its sleeves threaded on the pole, a pair of trousers is folded over it. The cloth
+    hangs in folds that deepen towards the hems (the practice point); the hems are frayed (alpha clip cards)."""
+    rr=random.Random(4303);ZC=1.475;RP=.021;PXs=(-1.09,1.09);W1=M['cedar_b']
+    for q,px in enumerate(PXs):
+        sg=1 if px>0 else -1;c=[Vector((px+sg*.03,0,-0.0)),Vector((px+sg*.012,.012*sg,.45)),Vector((px-sg*.010,-.010*sg,.95)),Vector((px,0,ZC-.085))]
+        _taper(f'VG03_Post{q}',c,[.052,.048,.044,.041],W1,'Body',sides=9,scale=.3)
+        for j,sy in enumerate((-1,1)):   # the fork: two limbs leaving the trunk below the pole and passing either side of it
+            a=c[-1]+Vector((0,0,-.03));b=Vector((px+sg*.02*j,sy*.060,ZC+.02));e=Vector((px+sg*(.03 if j else -.02),sy*(.115+.02*j),ZC+.30+.05*j))
+            _taper(f'VG03_Fork{q}{j}',[a,a.lerp(b,.6)+Vector((0,sy*.012,0)),b,b.lerp(e,.55)+Vector((0,sy*.006,0)),e],[.036,.033,.030,.027,.024],W1,'Body',sides=8,scale=.3)
+        for j in range(3):_ring(f'VG03_Tie{q}{j}',(px+(j-1)*.013,(j-1)*.004,ZC-.012),(.25*(j-1),1,0),.050+.003*j,.0042,M['hemp'],'Body',n=13,wob=.003)   # cord over the pole and under the crotch
+        _ring(f'VG03_TieX{q}',(px,0,ZC-.11),(0,0,1),.047,.0042,M['hemp'],'Body',n=13)
+    _bcane('VG03_Pole',(-1.27,0,ZC),(1.27,0,ZC),RP,RP,M['bamboo'],'Body',gap=.30,sides=12,ph=.4,bow=0.,bulge=1.06)   # straight and even: the cloth lies on its nodes
+    CEL=[(.01,.03,.32,.97),(.34,.03,.65,.97),(.67,.03,.99,.97)];L1=M['linen'];L2=M['linen_b'];zc=ZC
+    # the jacket: body and two sleeves, each a piece hung over the pole
+    jx=-.37
+    o,hf,hb=_drape('VG03_JacketBody',jx-.30,jx+.30,zc,RP,.74,.72,L1,'Body',4310,amp=.062,kx=15.,flare=-.035,side_drop=.035)
+    _fringe('VG03_JacketHemF',hf,(0,-1,0),M['linen'],'Body',CEL,seed=1);_fringe('VG03_JacketHemB',hb,(0,1,0),M['linen'],'Body',CEL,seed=2)
+    for q,sg in enumerate((-1,1)):
+        a,b=sorted((jx+sg*.295,jx+sg*.585))
+        fl=(lambda u,sg=sg:.30+.09*(u if sg>0 else 1-u))   # the sleeve widens a little to its cuff
+        o,hf,hb=_drape(f'VG03_Sleeve{q}',a,b,zc,RP+.004,fl,fl,L1,'Body',4320+q,amp=.034,kx=19,side_drop=.02)
+        _fringe(f'VG03_SleeveHem{q}',hf,(0,-1,0),M['linen'],'Body',CEL,h=.035,seed=3+q)
+    # the trousers: folded over the pole at the waist; in front the two legs hang side by side
+    tx=.42
+    for q,sg in enumerate((-1,1)):
+        a,b=sorted((tx+sg*.012,tx+sg*.235))
+        o,hf,hb=_drape(f'VG03_Leg{q}',a,b,zc,RP,.80+.03*q,.25,L2,'Body',4330+q,amp=.046,kx=19,flare=.012*sg,side_drop=.015)
+        _fringe(f'VG03_LegHem{q}',hf,(0,-1,0),M['linen_b'],'Body',CEL,seed=6+q)
+    def pattern(W_,H_):return _rags(W_,H_,[(.0,.333,3),(.333,.667,5),(.667,1.,8)],(.60,.55,.45))
+    def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
+        P=(pos-np.array(meta['offset'][:]))/meta['scale_to_target'];px,py,pz=P[...,0],P[...,1],P[...,2]
+        cloth=filled*(mid>.5)
+        fade=cloth*np.clip((ZC-.15-pz)/.6,0,1);col=col*(1-.10*fade[...,None])                      # dirtier towards the hems
+        band=cloth*(py<0)*(np.abs(px-(jx-.02+.05*(ZC-pz)))<.022)*(pz>ZC-.56)*(pz<ZC-.03);col=col*(1-.22*band[...,None])   # the collar band down the front opening (painted)
+        for (cx,cz,w,h,tint) in ((jx+.10,ZC-.52,.12,.10,(.50,.47,.42)),(tx-.11,ZC-.50,.10,.12,(.47,.48,.50))):   # two sewn patches on the front
+            dxp=np.abs(px-cx)/(w/2);dzp=np.abs(pz-cz)/(h/2);ins=cloth*(py<0)*(np.maximum(dxp,dzp)<1);rim=ins*(np.maximum(dxp,dzp)>.86)
+            st=rim*(np.sin((px+pz)*260)>0)                                                          # running stitches round the patch
+            col=col*(1-ins[...,None])+ins[...,None]*(np.array(tint)*(.85+.3*noise[...,None]));col=col*(1-.55*st[...,None])
+        ft=filled*(1-cloth)*np.clip((.30-pz)/.28,0,1)*np.clip((noise-.35)*2.5,0,1)                  # mossy feet of the posts
+        col=col*(1-.35*ft[...,None])+ft[...,None]*np.array([.07,.10,.04])
+        return col,rough
+    for k in ('linen','linen_b'):M[k]['mid']=1.
+    return {'paint':paint,'wear':.7,'grime':.6,'ao_k':.4,'uv_angle':60,'card':{'strip':.10,'pattern':pattern,'alpha':True},
+            'notes':['two forked posts of crooked natural timber set in the ground; the bamboo pole lies in the crotches and is tied with cord',
+                     'the jacket hangs with its sleeves on the pole, the trousers are folded over it; the folds deepen towards the hems and are in the shape, not only in the normal map',
+                     'frayed hems are cards in the top 10 % of the atlas (alpha clip): turn on Mip Maps Preserve Coverage for the albedo in Unity; the two patches are painted',
+                     'no cloth wraps or boards on the posts']}
+PROPS['VG03']=VG03
