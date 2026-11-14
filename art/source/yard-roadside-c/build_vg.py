@@ -13,7 +13,7 @@ import bpy,bmesh,json,math,sys,random
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'creekside-life-c'))
 import wl_kit as K
-from wl_kit import fbm,lerp,board,finish,tube,rope,box_bm,box,bevel,subdiv,jitter,join,apply,separate_coplanar,parts,link
+from wl_kit import fbm,lerp,board,finish,tube,rope,box_bm,box,bevel,subdiv,jitter,join,apply,separate_coplanar,parts,link,leaf,tuft
 from mathutils import Vector,Matrix
 import numpy as np
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2];PKG='yard-roadside-c';CK=ROOT/'art/source/creekside-life-c'   # CK: the shared kit and part helpers
@@ -170,6 +170,7 @@ NAME={'VG01':'VegetableBeds','VG02':'GourdTrellis','VG03':'ClothesPole','VG04':'
 MIN_TIER={k:'standard' for k in IDS}   # work pack §3.5: large yard pieces, seen at the standard tier too
 for _f in [CK/'wl_items.py']+sorted(CK.glob('fi_items*.py')):exec(open(_f,encoding='utf-8').read())   # part helpers (_sheet, _cane, _lathe, _ring, _plate …)
 for _f in sorted((ROOT/'art/source/village-life-c').glob('lv_items*.py')):exec(open(_f,encoding='utf-8').read())   # LV part helpers (_hoop2, _staves …)
+exec(open(ROOT/'art/source/ground-cover-c/gc_items.py',encoding='utf-8').read())   # _blob, _shard (stones)
 PROPS.clear()   # only the VG items below
 for _f in sorted(HERE.glob('vg_items*.py')):exec(open(_f,encoding='utf-8').read())
 
