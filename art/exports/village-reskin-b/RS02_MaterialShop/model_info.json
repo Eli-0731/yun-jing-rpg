@@ -1,0 +1,448 @@
+{
+  "asset": "RS02_MaterialShop",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "RS02_MaterialShop_Detail_Small"
+  ],
+  "name_zh": "材料鋪換材質（VL 質感）",
+  "slot": "TownLayout_MaterialShop",
+  "note": "Dondon MaterialShop v001 的材料鋪，外形不動，瓦、牆、木、石、貨品換成 VL／VH 那一套質感（11/09 工作包 RS02）；原檔不改，另存新檔；原點照原檔（和 StarterHouse／VL 相同）",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 130488,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 65244,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 19570,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "RS02_MaterialShop_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Tile_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Tile_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Tile_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Tile_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Tile_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS02_MaterialShop_Wood_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre, z = 0 at the lowest ground contact",
+  "dimensions_m": [
+    9.0478,
+    8.1891,
+    5.6129
+  ],
+  "bounds_min_m": [
+    -4.395,
+    -4.72,
+    0.0
+  ],
+  "bounds_max_m": [
+    4.6528,
+    3.4691,
+    5.6129
+  ],
+  "size_limit_m": [
+    9.087788619995116,
+    8.229064979553222,
+    5.6328773689270015
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        8.9958,
+        8.1891,
+        5.6129
+      ],
+      "min": [
+        -4.343,
+        -4.72,
+        0.0
+      ],
+      "max": [
+        4.6528,
+        3.4691,
+        5.6129
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        8.79,
+        7.6609,
+        5.1952
+      ],
+      "min": [
+        -4.395,
+        -4.2025,
+        0.0015
+      ],
+      "max": [
+        4.395,
+        3.4584,
+        5.1967
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 16160,
+      "LOD1": 8080,
+      "LOD2": 2424
+    },
+    "Wood": {
+      "LOD0": 29420,
+      "LOD1": 14710,
+      "LOD2": 4412
+    },
+    "Stone": {
+      "LOD0": 5948,
+      "LOD1": 2974,
+      "LOD2": 892
+    },
+    "Tile": {
+      "LOD0": 45696,
+      "LOD1": 22848,
+      "LOD2": 6854
+    },
+    "Detail_Small": {
+      "LOD0": 33264,
+      "LOD1": 16632,
+      "LOD2": 4988
+    }
+  },
+  "lod_totals": {
+    "LOD0": 130488,
+    "LOD1": 65244,
+    "LOD2": 19570
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_RS02_MaterialShop_Main",
+    "M_RS02_MaterialShop_Stone",
+    "M_RS02_MaterialShop_Tile",
+    "M_RS02_MaterialShop_Wood"
+  ],
+  "textures": [
+    "RS02_MaterialShop_BaseColor.png",
+    "RS02_MaterialShop_Metallic.png",
+    "RS02_MaterialShop_MetallicSmoothness.png",
+    "RS02_MaterialShop_Normal.png",
+    "RS02_MaterialShop_Roughness.png",
+    "RS02_MaterialShop_Stone_BaseColor.png",
+    "RS02_MaterialShop_Stone_Metallic.png",
+    "RS02_MaterialShop_Stone_MetallicSmoothness.png",
+    "RS02_MaterialShop_Stone_Normal.png",
+    "RS02_MaterialShop_Stone_Roughness.png",
+    "RS02_MaterialShop_Tile_BaseColor.png",
+    "RS02_MaterialShop_Tile_Metallic.png",
+    "RS02_MaterialShop_Tile_MetallicSmoothness.png",
+    "RS02_MaterialShop_Tile_Normal.png",
+    "RS02_MaterialShop_Tile_Roughness.png",
+    "RS02_MaterialShop_Wood_BaseColor.png",
+    "RS02_MaterialShop_Wood_Metallic.png",
+    "RS02_MaterialShop_Wood_MetallicSmoothness.png",
+    "RS02_MaterialShop_Wood_Normal.png",
+    "RS02_MaterialShop_Wood_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_RS02_MaterialShop_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS02_MaterialShop_BaseColor.png",
+        "Normal": "RS02_MaterialShop_Normal.png",
+        "MetallicSmoothness": "RS02_MaterialShop_MetallicSmoothness.png"
+      },
+      "M_RS02_MaterialShop_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS02_MaterialShop_Stone_BaseColor.png",
+        "Normal": "RS02_MaterialShop_Stone_Normal.png",
+        "MetallicSmoothness": "RS02_MaterialShop_Stone_MetallicSmoothness.png"
+      },
+      "M_RS02_MaterialShop_Tile": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS02_MaterialShop_Tile_BaseColor.png",
+        "Normal": "RS02_MaterialShop_Tile_Normal.png",
+        "MetallicSmoothness": "RS02_MaterialShop_Tile_MetallicSmoothness.png"
+      },
+      "M_RS02_MaterialShop_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS02_MaterialShop_Wood_BaseColor.png",
+        "Normal": "RS02_MaterialShop_Wood_Normal.png",
+        "MetallicSmoothness": "RS02_MaterialShop_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "RS02_MaterialShop_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "fbx_objects": [
+    "RS02_MaterialShop.001",
+    "RS02_MaterialShop_Collision.001",
+    "RS02_MaterialShop_Detail_Small_LOD0.001",
+    "RS02_MaterialShop_Detail_Small_LOD1.001",
+    "RS02_MaterialShop_Detail_Small_LOD2.001",
+    "RS02_MaterialShop_LOD0.001",
+    "RS02_MaterialShop_LOD1.001",
+    "RS02_MaterialShop_LOD2.001"
+  ],
+  "glb": "RS02_MaterialShop_v001.glb",
+  "interface": {
+    "source_coplanar_nudged": {
+      "pairs_found": 305,
+      "faces_moved": 72,
+      "rounds": 3,
+      "pairs_left": 0,
+      "push_m": 0.0015,
+      "tol_m": 0.0011,
+      "vertices_moved": 352,
+      "max_shift_m": 0.003
+    },
+    "tile_mean_hex": "#363A3B",
+    "source_parts_by_material": {
+      "Dark_Brass": 5,
+      "Aged_Chestnut_Timber": 263,
+      "Shop_Ochre_Canvas": 13,
+      "Worn_Porch_Boards": 53,
+      "Shop_Glazed_Jar_1": 5,
+      "Shop_Glazed_Jar_2": 4,
+      "Warm_Window_Paper": 6,
+      "Blue_Stone_0": 12,
+      "Blue_Stone_1": 17,
+      "Blue_Stone_2": 15,
+      "Blue_Stone_3": 10,
+      "Dark_Joint": 1,
+      "Warm_Lime_Plaster": 23,
+      "Shop_Glazed_Jar_0": 5,
+      "Shop_Linen_Sacks": 3,
+      "Shop_Jade_Ore": 7,
+      "Celadon_Grey_Tile_2": 288,
+      "Celadon_Grey_Tile_3": 132,
+      "Celadon_Grey_Tile_4": 165,
+      "Celadon_Grey_Tile_1": 154,
+      "Celadon_Grey_Tile_0": 77,
+      "Shop_Dark_Coin_Centre": 1,
+      "Shop_Dried_Herbs": 12
+    },
+    "collision_probes": [
+      {
+        "probe": "step_1",
+        "xy": [
+          0.0,
+          -4.5
+        ],
+        "top_z_m": 0.18,
+        "expected": [
+          0.15,
+          0.21
+        ],
+        "ok": true
+      },
+      {
+        "probe": "porch",
+        "xy": [
+          0.2,
+          -3.2
+        ],
+        "top_z_m": 0.54,
+        "expected": [
+          0.52,
+          0.56
+        ],
+        "ok": true
+      },
+      {
+        "probe": "floor_inside",
+        "xy": [
+          0.0,
+          0.0
+        ],
+        "top_z_m": 0.54,
+        "expected": [
+          0.52,
+          0.56
+        ],
+        "ok": true
+      },
+      {
+        "probe": "ground_outside",
+        "xy": [
+          0.0,
+          -5.2
+        ],
+        "top_z_m": null,
+        "expected": null,
+        "ok": true
+      }
+    ]
+  },
+  "modeling_method": "every exported mesh of the source evaluated with its modifiers (what the source FBX holds), origin kept; parts under min(0.35 m, 12 % of the size) to Detail_Small; then as RS01: loose parts, vertices unchanged except the 1 mm coplanar pull-back; the 23 flat source materials swapped for the VL / VH set, four 2048 atlases",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 116.8,
+        "median": 117.0,
+        "p90": 117.5,
+        "area_m2": 212.9
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 127.7,
+        "median": 127.7,
+        "p90": 128.7,
+        "area_m2": 179.4
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 80.7,
+        "median": 83.2,
+        "p90": 85.0,
+        "area_m2": 383.0
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Tile": {
+      "visible": {
+        "p10": 89.9,
+        "median": 97.7,
+        "p90": 108.8,
+        "area_m2": 188.5
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "no three-view (a re-texture, work pack: original and new side by side under the same light instead)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/MaterialShop/v001/MaterialShop_v001.blend (Dondon MaterialShop v001; read only, not changed)",
+  "source_triangles": 118064,
+  "uv_detached_zero_faces": 3523,
+  "collision_boxes": {
+    "boxes": 204,
+    "triangles": 2448,
+    "skipped_parts": [
+      "Jar_",
+      "Warm_Window_Paper",
+      "Shop_Jade_Ore",
+      "Shop_Dried_Herbs"
+    ],
+    "rule": "one box per part with its lowest point under 2.2 m (roof tile and Detail_Small none): the smaller of its axis-aligned and principal-axes box, thin sides opened to 2 cm",
+    "by_part": {
+      "Aged_Chestnut_Timber": 86,
+      "Blue_Stone_0": 12,
+      "Blue_Stone_1": 15,
+      "Blue_Stone_2": 15,
+      "Blue_Stone_3": 10,
+      "Dark_Brass": 1,
+      "Dark_Joint": 1,
+      "Shop_Linen_Sacks": 3,
+      "Warm_Lime_Plaster": 15,
+      "Worn_Porch_Boards": 46
+    }
+  }
+}

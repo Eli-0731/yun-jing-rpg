@@ -1,38 +1,57 @@
 # 分支總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-09 14:36 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-13 12:47 UTC。
 > 「main 沒有的檔案」= 這條分支改過、而現在內容和 main 不一樣的檔案數（用內容比，不是比提交編號）。0 代表分支裡的東西都已在 main，刪掉也不會遺失，但先保留不刪。
 
 - 主線：1 條
-- 內容都在 main，可封存：55 條
-- 待審：1 條
+- 待審：8 條
+- 內容都在 main，可封存：69 條
+- 舊版或試驗，保留參考：17 條
 - 核心組進行中：1 條
-- 舊版或試驗，保留參考：19 條
 - 內容都在 main（只差幾個小檔）：6 條
 
 | 分支 | 分類 | 最後更新 | 最後提交者 | main 沒有的檔案 | PR | 做了什麼 | 備註 |
 |---|---|---|---|---:|---|---|---|
-| `main` | 主線 | 2026-11-09 | z1nnz | 0 | 沒有 PR | Merge pull request #92 from z1nnz/game/core-1109-unity63-main |  |
+| `main` | 主線 | 2026-11-13 | z1nnz | 0 | 沒有 PR | Merge pull request #108 from z1nnz/art/codex-1108-rice-and-ferry |  |
+| `art/a-1111-cb-covered-bridge` | 待審 | 2026-11-13 | Johnnnny0823 | 49 | [#113](https://github.com/z1nnz/chengtian/pull/113) 開啟中 | 【A】11/11 CB01：西溪風雨橋 |  |
+| `art/codex-1108-c2-home-interior` | 待審 | 2026-11-13 | z1nnz | 80 | [#110](https://github.com/z1nnz/chengtian/pull/110) 開啟中 | 【核心組】11/08 C2：借住處後門與室內配置對位（Codex） |  |
+| `art/codex-1108-rice-and-ferry` | 內容都在 main，可封存 | 2026-11-13 | z1nnz | 0 | [#108](https://github.com/z1nnz/chengtian/pull/108) 已合併 | 【核心組】11/08 RI01、RI02、FE01–FE03：水田、稻株、木棧橋、擺渡船、渡口小棚（Codex） |  |
+| `art/codex-1108-sky-layers` | 舊版或試驗，保留參考 | 2026-11-13 | z1nnz | 64 | 沒有 PR | SK06: 全周淡藍遠山環接候選 |  |
+| `art/codex-1108-tx01-ascension-board` | 內容都在 main，可封存 | 2026-11-13 | z1nnz | 0 | [#109](https://github.com/z1nnz/chengtian/pull/109) 已合併 | 【核心組】11/08 TX01：飛升榜（Codex） |  |
+| `art/core-1112-codex-keyart-distance` | 待審 | 2026-11-13 | z1nnz | 307 | [#112](https://github.com/z1nnz/chengtian/pull/112) 開啟中 | 【核心組】11/12 KA05–KA13、SK01–06、CL01–03、MC-S、FA01：主視覺補齊與天空遠景（Codex v6 A、B） |  |
+| `art/xianxia-great-tree` | 待審 | 2026-11-13 | joshsu54 | 1153 | [#114](https://github.com/z1nnz/chengtian/pull/114) 開啟中 | 【B】11/11 TR01–TR07 樹種重做＋XT01 仙俠大樹（綠／金） |  |
+| `game/codex-1113-world-plan` | 舊版或試驗，保留參考 | 2026-11-13 | z1nnz | 608 | 沒有 PR | 世界規劃：完成 D3 與 KA07 對圖 |  |
+| `game/core-1110-hud-redesign` | 舊版或試驗，保留參考 | 2026-11-13 | z1nnz | 599 | 沒有 PR | 青溪村：村口換 LT01 中式石燈、鐵匠鋪與材料鋪換 RS02、加 VH01–03 三間民居；Codex v8 世界規劃說明 |  |
+| `art/a-1105-mc02-rope-bridge` | 內容都在 main，可封存 | 2026-11-12 | z1nnz | 0 | [#98](https://github.com/z1nnz/chengtian/pull/98) 已合併 | 【A】11/05 MC02：24 m、12 m 索橋 |  |
+| `art/a-1108-st-street-furniture` | 內容都在 main，可封存 | 2026-11-12 | z1nnz | 0 | [#100](https://github.com/z1nnz/chengtian/pull/100) 已合併 | 【A】11/08 ST01–ST06：山城街道小件 |  |
+| `art/b-1109-lg-forest-and-stairs` | 內容都在 main，可封存 | 2026-11-12 | z1nnz | 0 | [#103](https://github.com/z1nnz/chengtian/pull/103) 已合併 | 【B】11/09 LG01、FO02、SG05–06：倒木、發光蕈與寬版石階 |  |
+| `art/b-1109-ps-roadside-landmarks` | 待審 | 2026-11-12 | joshsu54 | 436 | [#102](https://github.com/z1nnz/chengtian/pull/102) 開啟中 | 【B】11/09 PS01–02、BT01、FS01、RI04、FE04、BS01：路上地標 |  |
+| `art/b-1109-vh-village-houses` | 內容都在 main，可封存 | 2026-11-12 | z1nnz | 0 | [#101](https://github.com/z1nnz/chengtian/pull/101) 已合併 | 【B】11/09 VH01–03、RS01–03、LT01：民居新外形與舊建築換材質 |  |
+| `art/b-1111-cw-yard-walls-and-well` | 待審 | 2026-11-12 | joshsu54 | 459 | [#104](https://github.com/z1nnz/chengtian/pull/104) 開啟中 | 【B】11/11 WE01、CW01、CW02、XB01：水井、院牆、院門、石板橋，加院門開關元件 |  |
+| `art/b-1111-gn-granary-and-shed` | 待審 | 2026-11-12 | joshsu54 | 581 | [#105](https://github.com/z1nnz/chengtian/pull/105) 開啟中 | 【B】11/11 GN01、AN01：穀倉、牛棚與食槽（接在院落 A 段之後） |  |
+| `art/b-1111-tr-trees-conifer` | 待審 | 2026-11-12 | joshsu54 | 116 | [#106](https://github.com/z1nnz/chengtian/pull/106) 開啟中 | 【B】11/11 TR01–TR02：松、柏 |  |
+| `art/codex-1108-keyart` | 內容都在 main，可封存 | 2026-11-12 | z1nnz | 0 | [#111](https://github.com/z1nnz/chengtian/pull/111) 已合併 | 【核心組】11/08 KA01–KA10：十區主視覺與氛圍卡（Codex） |  |
+| `art/codex-1108-moon-and-skyline-arc` | 內容都在 main，可封存 | 2026-11-12 | z1nnz | 0 | [#107](https://github.com/z1nnz/chengtian/pull/107) 已合併 | 【核心組】11/08 MO01、SK：細彎缺月與天際線弧面骨架（Codex） |  |
+| `docs/core-1111-readme-contributing` | 內容都在 main，可封存 | 2026-11-11 | z1nnz | 0 | [#97](https://github.com/z1nnz/chengtian/pull/97) 已合併 | 【核心組】11/11 文件：README 與 CONTRIBUTING 更新為承天 |  |
+| `docs/core-1111-registry-after-93` | 內容都在 main，可封存 | 2026-11-11 | z1nnz | 0 | [#96](https://github.com/z1nnz/chengtian/pull/96) 已合併 | docs: 重新產生帳本（#93 合併後） |  |
+| `docs/core-1111-registry-after-97` | 內容都在 main，可封存 | 2026-11-11 | z1nnz | 0 | [#99](https://github.com/z1nnz/chengtian/pull/99) 已合併 | docs: 重新產生帳本（#97 合併後） |  |
+| `feature/qingxi-creek-chapter` | 核心組進行中 | 2026-11-11 | z1nnz | 440 | 沒有 PR | docs: 11/11 加派 B 64h 樹全部重做（TR01–TR09） | 核心組進行中：故事定稿、工作包、區塊資料、11/07 文件。尚未合回 main（待整併）。 |
 | `art/a-1105-mc01-street-houses` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#80](https://github.com/z1nnz/chengtian/pull/80) 已合併 | 【A】11/05 MC01：山城街屋模組全套 23 件＋三棟組裝（SB01–05、SF01–03、HM01–03、RF01–04、CP01–02、DT01–06） |  |
-| `art/a-1105-tx04-branch-court` | 待審 | 2026-11-09 | Johnnnny0823 | 55 | [#90](https://github.com/z1nnz/chengtian/pull/90) 開啟中 | 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） |  |
+| `art/a-1105-tx04-branch-court` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#90](https://github.com/z1nnz/chengtian/pull/90) 已合併 | 【A】11/05 TX04：太玄分院模組（全套 8 件＋分院組裝） |  |
 | `art/b-1107-fr-forest-roots` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#84](https://github.com/z1nnz/chengtian/pull/84) 已合併 | 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種、獨木橋） |  |
 | `art/b-1107-sg-mountain-stairs` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#83](https://github.com/z1nnz/chengtian/pull/83) 已合併 | 【B】11/07 SG01–SG04：山城大石階套件與 30 m 之字形組裝 |  |
 | `art/b-1107-vl-houses-lod` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#85](https://github.com/z1nnz/chengtian/pull/85) 已合併 | 【B】11/07 VL01–VL03：空屋變體三種＋舊素材 LOD 補件 23 件 |  |
 | `art/b-1108-fp-forest-paths` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#87](https://github.com/z1nnz/chengtian/pull/87) 已合併 | 【B】11/08 FP01–FP05：古林步道套件 |  |
-| `art/b-1108-vl-lived-homes` | 內容都在 main，可封存 | 2026-11-09 | joshsu54 | 0 | [#89](https://github.com/z1nnz/chengtian/pull/89) 已合併 | 【B】11/08 VL04–VL05：有人住的民居變體 |  |
+| `art/b-1108-vl-lived-homes` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#89](https://github.com/z1nnz/chengtian/pull/89) 已合併 | 【B】11/08 VL04–VL05：有人住的民居變體 |  |
 | `docs/core-1109-registry-after-83` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#86](https://github.com/z1nnz/chengtian/pull/86) 已合併 | docs: 重新產生帳本（#80–#89 合併後），規範更正提交名字 |  |
 | `docs/core-1109-registry-after-88` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#91](https://github.com/z1nnz/chengtian/pull/91) 已合併 | docs: 重新產生帳本（#88 合併後） |  |
-| `feature/qingxi-creek-chapter` | 核心組進行中 | 2026-11-09 | z1nnz | 436 | 沒有 PR | docs: B 112 小時包修正 VH03 時數 | 核心組進行中：故事定稿、工作包、區塊資料、11/07 文件。尚未合回 main（待整併）。 |
-| `game/core-1109-unity63` | 舊版或試驗，保留參考 | 2026-11-09 | z1nnz | 800 | 沒有 PR | FIX: 上游河道檢查改比對所有同名物件，D1 也有一條短河道 |  |
+| `docs/core-1109-registry-after-90` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#95](https://github.com/z1nnz/chengtian/pull/95) 已合併 | docs: 重新產生帳本（#90 合併後） |  |
+| `docs/core-1109-registry-after-92` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#94](https://github.com/z1nnz/chengtian/pull/94) 已合併 | docs: 重新產生帳本（#90、#92 合併後） |  |
+| `game/core-1109-unity63` | 舊版或試驗，保留參考 | 2026-11-09 | z1nnz | 534 | 沒有 PR | FIX: 上游河道檢查改比對所有同名物件，D1 也有一條短河道 |  |
 | `game/core-1109-unity63-main` | 內容都在 main，可封存 | 2026-11-09 | z1nnz | 0 | [#92](https://github.com/z1nnz/chengtian/pull/92) 已合併 | 【核心組】11/09 Unity 升級到 6000.3.28f1（6.3 LTS） |  |
 | `art/b-1107-te04-te05-ri03-tea-wheel` | 內容都在 main，可封存 | 2026-11-08 | z1nnz | 0 | [#79](https://github.com/z1nnz/chengtian/pull/79) 已合併 | 【B】11/07 TE04、TE05、RI03：採茶竹簍與晾茶竹匾、東坡觀景亭、稻田灌溉大水車 |  |
-| `art/codex-1108-c2-home-interior` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 33 | 沒有 PR | C2: 借住處後門與室內配置對位 |  |
-| `art/codex-1108-keyart` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 20 | 沒有 PR | KA01-KA10: 十區主視覺與氛圍卡 |  |
-| `art/codex-1108-moon-and-skyline-arc` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 31 | 沒有 PR | MO01: 交付細彎缺月與天際線弧面骨架 |  |
-| `art/codex-1108-rice-and-ferry` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 238 | 沒有 PR | RI01: 修水田三狀態 LOD0 疊面並通過 QA |  |
-| `art/codex-1108-tx01-ascension-board` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 25 | 沒有 PR | TX01: 交付飛升榜 LOD 與匯出包 |  |
 | `docs/core-1108-registry-after-79` | 內容都在 main，可封存 | 2026-11-08 | z1nnz | 0 | [#82](https://github.com/z1nnz/chengtian/pull/82) 已合併 | docs: 重新產生帳本（#79 合併後） |  |
-| `game/core-1108-world-east-valley` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 801 | 沒有 PR | docs: 第 2 階段同鏡位比對圖，接續指示標明還沒解決的畫面問題 |  |
+| `game/core-1108-world-east-valley` | 舊版或試驗，保留參考 | 2026-11-08 | z1nnz | 535 | 沒有 PR | docs: 第 2 階段同鏡位比對圖，接續指示標明還沒解決的畫面問題 |  |
 | `docs/core-1107-labeling-rules` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#78](https://github.com/z1nnz/chengtian/pull/78) 已合併 | 【核心組】11/07 標註規則 v1 與分支／PR／資料夾總帳 | 核心組 11/07 標註規則、總帳工具、PR 範本更新。 |
 | `feature/basic-combat-a` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#66](https://github.com/z1nnz/chengtian/pull/66) 已合併 | A：基礎戰鬥手感（空手三段、蓄力重擊、閃避） |  |
 | `feature/creek-repair-b-a3` | 內容都在 main，可封存 | 2026-11-07 | z1nnz | 0 | [#72](https://github.com/z1nnz/chengtian/pull/72) 已合併 | B：A3 西溪六件模型 WM01、02、04、05、07、09 |  |
@@ -83,15 +102,15 @@
 | `feature/qingxi-entry-style-v13` | 內容都在 main，可封存 | 2026-10-26 | z1nnz | 0 | [#22](https://github.com/z1nnz/chengtian/pull/22) 已合併 | 青溪村口 v13：組裝原樹與入口資產，提供審圖及三人工作包 |  |
 | `feature/qingxi-rabbit-v003` | 內容都在 main，可封存 | 2026-10-26 | Codex | 0 | [#21](https://github.com/z1nnz/chengtian/pull/21) 已合併 | 山兔 v003：Dondon v002 綁骨、五段動畫與 LOD／匯出（待 Unity 驗收） |  |
 | `feature/qingxi-road-props-v12` | 內容都在 main（只差幾個小檔） | 2026-10-26 | z1nnz | 3 | [#20](https://github.com/z1nnz/chengtian/pull/20) 已合併 | 青溪道路近景與三件可擺放小物件 |  |
-| `integration/20261026` | 舊版或試驗，保留參考 | 2026-10-26 | z1nnz | 111 | [#17](https://github.com/z1nnz/chengtian/pull/17) 已合併 | 整合青溪世界分支並還原樹伴原樹葉冠 | 10/26 核心組整合分支；#17 已合主要內容，其餘是當時的試驗。保留參考，不再合。 |
+| `integration/20261026` | 舊版或試驗，保留參考 | 2026-10-26 | z1nnz | 112 | [#17](https://github.com/z1nnz/chengtian/pull/17) 已合併 | 整合青溪世界分支並還原樹伴原樹葉冠 | 10/26 核心組整合分支；#17 已合主要內容，其餘是當時的試驗。保留參考，不再合。 |
 | `assets/joshsu54-qingxi-town-concept` | 內容都在 main，可封存 | 2026-10-25 | joshsu54 | 0 | [#16](https://github.com/z1nnz/chengtian/pull/16) 關閉未合併 | 青溪起始小鎮：概念圖、Blender 配置（坊市移出湖面）與神木 v1 | B 青溪小鎮概念、配置與神木 v1；#16 關閉未合併。城鎮以 Dondon TownLayout 為準。 |
-| `chore/unity-6000.0.85f1` | 舊版或試驗，保留參考 | 2026-10-25 | joshsu54 | 27 | [#15](https://github.com/z1nnz/chengtian/pull/15) 關閉未合併 | Unity 改用 6000.0.85f1，FishNet 固定 4.7.2，補上 .meta 與 AI 模組 | B 提議 Unity 改 6000.0.85f1、FishNet 4.7.2；#15 關閉未合併。專案實際建置用 6000.0.82f1，版本待統一。 |
+| `chore/unity-6000.0.85f1` | 舊版或試驗，保留參考 | 2026-10-25 | joshsu54 | 28 | [#15](https://github.com/z1nnz/chengtian/pull/15) 關閉未合併 | Unity 改用 6000.0.85f1，FishNet 固定 4.7.2，補上 .meta 與 AI 模組 | B 提議 Unity 改 6000.0.85f1、FishNet 4.7.2；#15 關閉未合併。專案實際建置用 6000.0.82f1，版本待統一。 |
 | `feature/qingxi-hunt-graybox` | 舊版或試驗，保留參考 | 2026-10-25 | joshsu54 | 1 | [#13](https://github.com/z1nnz/chengtian/pull/13) 關閉未合併 | 青溪狩獵區灰盒：配置、Unity Builder、Blender 驗證與美術補件 v001 | #13 關閉；狩獵灰盒最後由 A 的 #41 合併。 |
 | `feature/qingxi-hunt-graybox-johnny` | 舊版或試驗，保留參考 | 2026-10-25 | Johnnnny0823 | 6 | [#14](https://github.com/z1nnz/chengtian/pull/14) 關閉未合併 | 新增青溪狩獵灰盒與重建驗證，修正 FishNet 編譯阻擋 | #14 關閉；狩獵灰盒最後由 #41 合併。 |
 | `feature/qingxi-rabbit-hunt` | 內容都在 main，可封存 | 2026-10-25 | z1nnz | 0 | [#12](https://github.com/z1nnz/chengtian/pull/12) 已合併 | feat: add Qingxi rabbit hunt rewards and merchant sales |  |
 | `feature/qingxi-reuse-world-v2` | 舊版或試驗，保留參考 | 2026-10-25 | z1nnz | 38 | 沒有 PR | Build Qingxi riverside prop kit and animated water preview | 核心組 10/25 青溪世界樣片；主專案資料夾目前停在這條。內容多已由後續 PR 取代。 |
 | `feature/qingxi-world-foundation-v1` | 舊版或試驗，保留參考 | 2026-10-25 | z1nnz | 24 | 沒有 PR | Add browser route walkthrough for Qingxi blockout | 核心組 10/25 青溪世界雛形與瀏覽器走線；已被後續版本取代。保留參考。 |
-| `very-strong` | 舊版或試驗，保留參考 | 2026-10-25 | joshsu54 | 71 | 沒有 PR | feat: playable first-person Qingxi world (town + hunt area) in apps/game | B 10/25 第一人稱青溪世界（城鎮＋狩獵區）原型；後來改走 #27、#49 的整合。保留參考，不再合。 |
+| `very-strong` | 舊版或試驗，保留參考 | 2026-10-25 | joshsu54 | 72 | 沒有 PR | feat: playable first-person Qingxi world (town + hunt area) in apps/game | B 10/25 第一人稱青溪世界（城鎮＋狩獵區）原型；後來改走 #27、#49 的整合。保留參考，不再合。 |
 | `assets/dondon-import` | 內容都在 main，可封存 | 2026-10-24 | z1nnz | 0 | [#2](https://github.com/z1nnz/chengtian/pull/2) 關閉未合併 | dondon2.0 素材交接：第一批與第二批（art/incoming/dondon） | #2 關閉；Dondon 交接改由 #3 合併，內容都在 main。 |
 | `chore/collaboration-workflow` | 內容都在 main（只差幾個小檔） | 2026-10-24 | z1nnz | 3 | [#1](https://github.com/z1nnz/chengtian/pull/1) 已合併 | 建立協作者自行合併流程與素材檢查 |  |
 | `very-string-donon` | 內容都在 main（只差幾個小檔） | 2026-10-24 | joshsu54 | 1 | [#3](https://github.com/z1nnz/chengtian/pull/3) 已合併 | assets: dondon2.0 素材交接第一批與第二批（art/incoming/dondon） |  |

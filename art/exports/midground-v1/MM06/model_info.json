@@ -1,0 +1,34 @@
+{
+  "id": "MM06",
+  "name_zh": "遠山脊",
+  "units": "m",
+  "reference": "art/references/midground-v1/MM06/three-view.png",
+  "type": "遠景透明卡片",
+  "pivot": "可見輪廓底部中央",
+  "dimensions_m": [
+    180,
+    0,
+    189.63
+  ],
+  "visible_height_m": 45,
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangles": 2,
+      "materials": 1,
+      "textures": [
+        {
+          "name": "MM06_Albedo.png",
+          "resolution": [
+            2048,
+            1024
+          ],
+          "channels": "RGBA"
+        }
+      ]
+    }
+  ],
+  "unity_material": "URP Unlit 或 Lit，Transparent、雙面；Alpha Blend；由核心組實測透明排序",
+  "collision": false,
+  "unity_import": "未驗證"
+}

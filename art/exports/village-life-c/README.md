@@ -2,21 +2,21 @@
 |---|---|
 | 誰做的 | C（Eli-0731） |
 | 工作包 | docs/execution/2026-11-07/C-128h-creekside-and-village-life.md 第二部分 A（LV01–LV12）與 D（十二件並排） |
-| ID | LV01–LV12 |
-| 分支／PR | LV01–LV06：art/c-1107-lv01-06-village-life；LV07–LV12：art/c-1110-lv07-12-village-life ／ 開 PR 後補（一次一張，等前一張結案） |
+| ID | LV01–LV12（本批新增 LV07–LV12） |
+| 分支／PR | LV01–LV06：[#116](https://github.com/z1nnz/chengtian/pull/116)；LV07–LV12：art/c-1110-lv07-12-village-life ／ [本批 PR](https://github.com/z1nnz/chengtian/pulls?q=is%3Apr%20author%3AEli-0731%20head%3Aart%2Fc-1110-lv07-12-village-life) |
 | 版本 | v001（檔名帶 `_v001`；之後改版另存 v002，不覆寫） |
 | 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖）／ In-game Verified：未驗（沒放進正式場景） |
 | 素材來源 | 原創；三視圖參考在 `art/references/LV01/`–`art/references/LV12/` |
 
 # 青溪村裡生活小物 LV01–LV12
 
-工作包第二部分 A 的十二件：讓 A1 青溪村各戶門口、院子、牆邊有一點生活的東西。靜態擺設，沒有玩法、碰撞或動畫；擺進世界由核心組做。
+LV01–LV06 已由 #116 合併；本批新增 LV07–LV12，並完成十二件並排。工作包第二部分 A 的十二件：讓 A1 青溪村各戶門口、院子、牆邊有一點生活的東西。靜態擺設，沒有玩法、碰撞或動畫；擺進世界由核心組做。
 
 **共同做法**
 - 先生成三視圖（每件 4 張）、自評選一張（分數和取捨在各自的 `prompt.txt`），再做灰模（`art/previews/village-life-c/<ID>/clay/`），最後上貼圖。一件只專心練工作包寫的那一兩個技巧。
 - 原點在腳印中心、底部 z = 0，Blender −Y 是正面（FBX／Unity 是 −Z）。不附地面底板。
 - 一件一個材質、一套 1024 貼圖；可有可無的小東西放 `Detail_*` 子物件（標準畫質關掉），本體的環境遮蔽烘焙時不含 Detail_。
-- LOD1 約 50%、LOD2 約 15%，LOD0 不減面。`minTier` 都是 `high`（畫質分級第 4 節：增加豐富度的擺設，不擋路、不參與玩法），所以沒有碰撞。
+- LOD1 約 50%、LOD2 約 15%，LOD0 不減面；LV09 的 LOD1 為 60%，保留籠條輪廓，LOD2 改用 alpha clip。`minTier` 都是 `high`（畫質分級第 4 節：增加豐富度的擺設，不擋路、不參與玩法），所以沒有碰撞。
 - 建模流程和 creekside-life-c（WL、FI）相同，共用那裡的工具（`wl_kit.py`、零件函式、審圖相機 `render_wl.py`），這裡只放 LV 自己的物件和建模腳本。
 - 重建：`blender -b --factory-startup -P art/source/village-life-c/build_lv.py -- LV01 [--clay]`；審圖與 QA：`BL=<blender> sh art/source/village-life-c/render_reviews.sh`；Unity：`UNITY=<Unity.exe 6000.3.28f1> sh art/source/village-life-c/unity/run_unity_check.sh`。
 
@@ -203,7 +203,8 @@
 ## 驗證
 
 - QA（`tools/art/qa_lod0_basic.py` 嚴格與寬鬆、`tools/art/qa_contact_glb.py`）：十二件嚴格、寬鬆都是 0 項，結果在 `art/previews/village-life-c/qa/`。
-- Unity 6000.3.28f1 獨立匯入：`art/previews/village-life-c/unity/report.txt`。
+- FBX 原始資料與回匯覆核：`blender -b --factory-startup --python-exit-code 1 -P art/source/village-life-c/verify_delivery.py`。檢查每個 LOD 的原始面數、物件／材質數、貼圖解析度、UV、回匯尺寸與底部原點；記錄在 `art/previews/village-life-c/qa/fbx-roundtrip.json`。
+- Unity 6000.3.28f1 既有獨立匯入報告：`art/previews/village-life-c/unity/report.txt`，169 項 PASS（LV01–LV12）。本輪核對模型及報告一致，沒有重跑 Unity Editor；模型與 FBX 沒有修改。
 - 同光同角度並排（含 1.75 m 人形尺，灰模和成品各一張）：`art/previews/village-life-c/compare/`。LV01／LV04 對 B 的竹篩 MK02、背簍 MK04；LV02／LV03 對 B 的柴堆 R03、C 的木樁 BM02_01；LV05 對 C 的陶罐 BM03_01–03；LV06 對 BM02_01、R03；`LV-set` 是 LV01–LV06 放在一起。LV07／LV11 對 BM02_01、R03；LV08／LV09 對 C 的晾藥架 TY08（工作包「不做已有的」：形狀要分得開）；LV10／LV12 對 MK02、MK04 和 LV04；`LV-set2` 是 LV07–LV12 放在一起。工作包第二部分 D 的十二件並排（兩排、配 1.75 m 人形）在 Unity 審圖 `art/previews/village-life-c/unity/LV-all-*.png`。
 
 **和既有模型的三個共同點**
@@ -214,6 +215,7 @@
 ## 已知問題與未驗
 
 - 正式場景擺放、手機上的效果都未驗。
+- Blender 4.5.3 回匯 FBX 後，部分物件的 LOD1／LOD2 面數較原始檔少；逐項差異列在 `qa/fbx-roundtrip.json`。`model_info.json` 的面數與 FBX 原始資料、既有 Unity 匯入報告一致，沒有以 Blender 回匯數字覆寫它們。
 - LV02：三視圖四張都把掃帚畫成直立，照提示詞和工作包高度改成平躺；綁好的那段芯看起來偏像一截光滑木頭。
 - LV03：工作包尺寸深 0.1 m，模型是直立的；靠牆的角度要在擺放時整件傾斜。
 - LV04：原點在籃底，單獨擺放是籃子著地、繩子立起；要掛起來時以頂上的繩圈為掛點。

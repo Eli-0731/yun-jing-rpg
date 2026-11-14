@@ -1,5 +1,6 @@
 """village-houses-b v001 (work pack B-104h part 2, batch 3): VL01 long-empty house, VL02 just-moved-into house, VL03 half-collapsed
-house, all three on the Dondon StarterHouse v004 outline.
+house, all three on the Dondon StarterHouse v004 outline. Work pack 2026-11-09 (B-112h, batch A) adds VH01.. (vh_house.py, vh_roof.py):
+new house forms on the same three-atlas + shared tile texture scheme.
 
 Run one asset per process:
   blender --background --factory-startup --python art/source/village-houses-b/build_village_houses_b.py -- VL01_LongEmptyHouse --force
@@ -24,7 +25,7 @@ sys.path.insert(0, str(HERE))
 import numpy as np
 from mathutils import Vector, Matrix
 import ti_core, ti_mats, ti_pipeline as pl
-import vl_house, vl_roof
+import vl_house, vl_roof, vh_house, vh_court, vh_lane, lt_lantern
 from ti_core import S
 
 KIT = 'village-houses-b'
@@ -35,6 +36,10 @@ LOD_DROPS = {1: (2, 99), 2: (1, 2, 99)}
 
 ASSETS = {}
 vl_house.register(ASSETS)
+vh_house.register(ASSETS)   # work pack 2026-11-09 B-112h batch A: VH01..
+vh_court.register(ASSETS)   # VH02
+vh_lane.register(ASSETS)    # VH03
+lt_lantern.register(ASSETS) # LT01 (village-gate stone lantern, one 1024 atlas)
 
 
 def route_details():
@@ -303,7 +308,7 @@ def run(aid, force=False):
     roof = S['lod0'].pop('Roof', None)                  # tiles keep their own UVs and are built per LOD
     for name, groups in cfg['atlases'].items():
         objs = [S['lod0'][g] for g in groups if g in S['lod0']]
-        pl.uv_atlas(cfg.get('uv_weight'), cfg['tex'], shape=cfg.get('uv_shape', 'CONCAVE'), objs=objs); pl.spread_zero_uv(objs)
+        pl.uv_atlas(cfg.get('uv_weight'), cfg['tex'], shape=cfg.get('uv_shape', 'CONCAVE'), objs=objs, detach_zero=cfg.get('uv_detach_zero', False)); pl.spread_zero_uv(objs)
         S['texel_density'] = {**S.get('texel_density', {}), name: texel_density(objs, cfg['tex'])}
         pl.bake(exp / 'Textures', cfg['tex'], objs=objs, prefix=aid if name == 'Main' else f'{aid}_{name}')
     lod_report = make_lods()
@@ -390,11 +395,11 @@ def run(aid, force=False):
         'sockets_blender_xyz': {k: [round(v, 4) for v in e.matrix_world.translation] for k, e in S['sockets'].items()},
         'sockets_fbx_reimport_xyz': rt['sockets'], 'fbx_objects': rt['objects'], 'glb': glb.name,
         'interface': spec,
-        'modeling_method': f'procedural mesh construction (art/source/{KIT}/) on the StarterHouse v004 outline; procedural shaders baked to two {cfg["tex"]} atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)',
+        'modeling_method': cfg.get('method') or f'procedural mesh construction (art/source/{KIT}/) on the StarterHouse v004 outline; procedural shaders baked to two {cfg["tex"]} atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)',
         'texel_density_px_per_m': S.get('texel_density'), 'hidden_faces_downweighted': S.get('occluded_faces'),
         'reference': f"art/references/{cfg['ref'].split('/')[0]}/ (AI three-view {cfg['ref']}; proportions from the work pack's written sizes, not measured from the image)",
         'unity_import_verified': 'see artifacts/village-houses-unity/ (local Unity batch check, not committed)',
-        'based_on': 'art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)',
+        'based_on': cfg.get('based_on') or 'art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)',
     }
     (exp / 'model_info.json').write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding='utf-8')
     val = {'asset': aid, 'checks': checks, 'all_pass': all(c['pass'] for c in checks), 'seconds': round(time.time() - t0),
@@ -415,10 +420,19 @@ def close_shot(objs, path, samples=32, target=None, eye=None, lens=40):
 
 def wire(objs, path):
     """Wireframe over the baked colour, same 3/4 angle as the hero."""
+    # 2026-11-09: the wires take the last material slot (an offset past the end clamps there). Before this a house's last slot was the
+    # roof tiles and the 4 mm wires were under a pixel at the hero distance, so the earlier VL wireframe sheets show next to no wires.
+    wm = bpy.data.materials.get('QA_Wire_Orange') or bpy.data.materials.new('QA_Wire_Orange')
+    wm.use_nodes = True; bs = wm.node_tree.nodes['Principled BSDF']
+    bs.inputs['Base Color'].default_value = (.95, .45, .05, 1); bs.inputs['Roughness'].default_value = 1.     # orange: reads on dark tile and on lime plaster
+    bs.inputs['Emission Color'].default_value = (.95, .45, .05, 1); bs.inputs['Emission Strength'].default_value = .6
+    lo, hi = pl.eval_bounds(objs); th = max(.008, max(hi - lo) / 600)      # about 1.5 px at the hero framing, whatever the size
     for o in objs:
-        m = o.modifiers.new('QA_Wire', 'WIREFRAME'); m.thickness = .004; m.use_replace = False; m.material_offset = 99
+        o.data.materials.append(wm)
+        m = o.modifiers.new('QA_Wire', 'WIREFRAME'); m.thickness = th; m.use_replace = False; m.material_offset = 999; m.use_even_offset = False   # even offset throws spikes off acute corners
     pl.persp_shot(objs, path, samples=24)
-    for o in objs: o.modifiers.remove(o.modifiers['QA_Wire'])
+    for o in objs:
+        o.modifiers.remove(o.modifiers['QA_Wire']); o.data.materials.pop()
 
 
 def _strip(paths, out):
@@ -433,6 +447,10 @@ def _strip(paths, out):
 
 # ------------------------------------------------------------------ FR checks
 from vl_checks import *   # noqa: F401,F403  house_checks, texel_density
+from vh_house import vhouse_checks   # noqa: F401
+from vh_court import vcourt_checks   # noqa: F401
+from vh_lane import vlane_checks   # noqa: F401
+from lt_lantern import lantern_checks   # noqa: F401
 
 
 def spec_checks(aid, check):

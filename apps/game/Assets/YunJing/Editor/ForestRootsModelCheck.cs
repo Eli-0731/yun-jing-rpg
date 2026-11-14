@@ -24,7 +24,8 @@ namespace YunJing.Editor
         static string Exports => Path.Combine(Repo, "art", "exports", "forest-roots-b");
         static string Out => Path.Combine(Repo, "artifacts", "forest-roots-unity");
         static readonly string[] Wanted = { "FR01_RootWall_Stacked", "FR01_RootWall_Braided", "FR01_RootWall_Wave", "FR02_RootArch",
-                                            "FR03_VineCurtain_Dense", "FR03_VineCurtain_Sparse", "FR04_LogBridge" };
+                                            "FR03_VineCurtain_Dense", "FR03_VineCurtain_Sparse", "FR04_LogBridge",
+                                            "LG01_GiantLogBridge", "FO02_GlowMushroom_A", "FO02_GlowMushroom_B", "FO02_GlowMushroom_C" };
         static readonly List<string> Report = new List<string>();
         static int failed;
 
@@ -81,6 +82,8 @@ namespace YunJing.Editor
                 if (id == "FR02_RootArch") WalkThroughArch(id, foot);
                 if (id.StartsWith("FR03_")) WalkThroughCurtain(id, foot);
                 if (id == "FR04_LogBridge") WalkOverBridge(id, foot);
+                if (id == "LG01_GiantLogBridge") WalkOverGiantLog(id, foot);
+                if (id.StartsWith("FO02_")) BumpMushrooms(id, foot);
                 var b = LodBounds(go);
                 var person = Person(foot + new Vector3(-(b.extents.x + .6f), 0, 0));
                 var both = b; both.Encapsulate(person.GetComponent<Renderer>().bounds);
@@ -88,6 +91,14 @@ namespace YunJing.Editor
                 Shot(id + "_three_quarter", c, c + new Vector3(.75f, .35f, -.85f).normalized * d, 35);
                 Shot(id + "_front", c, c + new Vector3(0, .1f, -1).normalized * d, 35);
                 person.SetActive(false);
+                if (id == "LG01_GiantLogBridge")
+                {   // eye height 1.7 m: on the ground before the root heap, and standing on the trunk looking along the walk
+                    Shot(id + "_eye_1.7m_ground", foot + new Vector3(-4f, 1.6f, 0), foot + new Vector3(-13.5f, 1.7f, -1.2f), 60);
+                    Shot(id + "_eye_1.7m_on_trunk", foot + new Vector3(6f, 1.9f, .1f), foot + new Vector3(-3f, 2.04f + 1.7f, 0), 60);
+                    var on = Person(foot + new Vector3(0, 2.04f, 0));
+                    Shot(id + "_walk", b.center, b.center + new Vector3(.8f, .45f, -.9f).normalized * b.size.magnitude * 1.0f, 35);
+                    UnityEngine.Object.DestroyImmediate(on);
+                }
                 if (id == "FR02_RootArch" || id == "FR04_LogBridge")
                 {   // the capsule where a player walks: under the crown / on the deck
                     var on = Person(foot + (id == "FR02_RootArch" ? new Vector3(0, .012f, 0) : new Vector3(-.6f, .85f, 0)));
@@ -149,6 +160,8 @@ namespace YunJing.Editor
             mat.SetTexture("_BaseMap", Tex(id, id + "_BaseColor.png")); mat.SetColor("_BaseColor", Color.white);
             mat.SetTexture("_BumpMap", Tex(id, id + "_Normal.png")); mat.EnableKeyword("_NORMALMAP");
             mat.SetTexture("_MetallicGlossMap", Tex(id, id + "_MetallicSmoothness.png")); mat.EnableKeyword("_METALLICSPECGLOSSMAP"); mat.SetFloat("_Smoothness", 1);
+            var glow = Tex(id, id + "_Emission.png");          // FO02: the gill glow; strength is the game's (0 = off), the checks light it at 2
+            if (glow != null) { mat.SetTexture("_EmissionMap", glow); mat.SetColor("_EmissionColor", Color.white * 2f); mat.EnableKeyword("_EMISSION"); mat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive; }
             EditorUtility.SetDirty(mat); return mat;
         }
 
@@ -356,6 +369,46 @@ namespace YunJing.Editor
             Stroll(cc, o, Vector3.forward, 90); var side = cc.transform.position - o;
             Check(side.z < -.4f && side.y < .1f, $"{id}: a walker on the ground pushed at the log's flank stops at it (centre z {side.z:F2} m)");
             UnityEngine.Object.DestroyImmediate(cc.gameObject);
+        }
+
+        // LG01: from the ground 0.5 m past the root end, up the root heap, along the trunk top, down the crown bank to the ground
+        static void WalkOverGiantLog(string id, Vector3 o)
+        {
+            Physics.SyncTransforms(); var cc = Walker();
+            cc.transform.position = o + new Vector3(-11.5f, .02f, 0); Physics.SyncTransforms();
+            float midLo = 99, top = -99; int f = 0;
+            for (; f < 1400 && cc.transform.position.x - o.x < 11.4f; f++)
+            {
+                cc.Move(Vector3.right * (1.4f / 60f) + Vector3.down * (9.8f / 60f));
+                var p = cc.transform.position - o; top = Mathf.Max(top, p.y);
+                if (p.x > -3f && p.x < 3f) midLo = Mathf.Min(midLo, p.y);
+            }
+            var end = cc.transform.position - o;
+            Check(midLo > 1.6f && top < 2.3f && end.x > 11.3f && end.y < .06f && Mathf.Abs(end.z) < .3f,
+                  $"{id}: walker climbs the root heap, crosses on the trunk and walks down the crown bank (lowest feet over the middle 6 m {midLo:F3} m, design deck 1.70 m at x +3, highest {top:F3} m, end x {end.x:F2} m, y {end.y:F3} m, z {end.z:F2} m, {f} frames at 1.4 m/s)");
+            cc.transform.position = o + new Vector3(0, .02f, -2.4f); Physics.SyncTransforms();
+            Stroll(cc, o, Vector3.forward, 150); var side = cc.transform.position - o;
+            Check(side.z < -.4f && side.y < .1f, $"{id}: a walker on the ravine floor pushed at the trunk stops at it (centre z {side.z:F2} m)");
+            UnityEngine.Object.DestroyImmediate(cc.gameObject);
+        }
+
+        // FO02: the big caps' stems have a low collider; a walker pushed at the biggest one stops, the small ones are brushed past
+        static void BumpMushrooms(string id, Vector3 o)
+        {
+            // head-on at the biggest cap's post (a controller glances round a round post hit off centre): A and C from the front;
+            // B from the side along y 0.11, because a small cap stands right in front of its big one
+            bool side = id.EndsWith("_B");
+            float x = id.EndsWith("_A") ? .06f : -.06f;
+            Physics.SyncTransforms(); var cc = Walker();
+            cc.transform.position = o + (side ? new Vector3(-1.6f, .02f, .11f) : new Vector3(x, .02f, -1.6f)); Physics.SyncTransforms();
+            Stroll(cc, o, side ? Vector3.right : Vector3.forward, 150); var end = cc.transform.position - o;
+            float along = side ? end.x : end.z;
+            Check(along < 0f && along > -.9f && end.y < .12f, $"{id}: a walker pushed at the biggest mushroom stops at its stem ({(side ? "from the side, centre x" : "centre z")} {along:F2} m, feet {end.y:F3} m)");
+            UnityEngine.Object.DestroyImmediate(cc.gameObject);
+            var m = Mat(id);
+            Check(m.IsKeywordEnabled("_EMISSION") && m.GetTexture("_EmissionMap") != null, $"{id}: URP Lit with the Emission map on (_EMISSION, {(m.GetTexture("_EmissionMap") ? m.GetTexture("_EmissionMap").name : "none")})");
+            for (int k = 0; k < 2; k++)    // shot twice, the first thrown away: the very first frame with a new glow map came out violet (A), later frames cyan
+                Shot(id + "_under_caps_low", o + new Vector3(0, .42f, 0), o + new Vector3(.25f, .1f, -1.15f), 45);
         }
 
         static void Lighting()

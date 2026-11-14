@@ -1,0 +1,111 @@
+{
+ "Detail_TX01_Board_LOD0": {
+  "tris": 4436,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 94,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "SM_TX01_Board_LOD0": {
+  "tris": 11052,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 493,
+  "coplanar_two_sides": 97,
+  "closed_pieces": 185,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -3.05,
+     0.05,
+     2.71
+    ],
+    12
+   ],
+   [
+    [
+     -2.28,
+     0.05,
+     2.71
+    ],
+    12
+   ],
+   [
+    [
+     -1.52,
+     0.05,
+     2.71
+    ],
+    12
+   ],
+   [
+    [
+     -0.76,
+     0.05,
+     2.71
+    ],
+    12
+   ],
+   [
+    [
+     0.0,
+     0.05,
+     2.71
+    ],
+    12
+   ],
+   [
+    [
+     0.77,
+     0.05,
+     2.71
+    ],
+    12
+   ]
+  ],
+  "inverted_at": []
+ },
+ "SM_TX01_Board_LOD1": {
+  "tris": 7956,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 185,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "SM_TX01_Board_LOD2": {
+  "tris": 3868,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 185,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}
