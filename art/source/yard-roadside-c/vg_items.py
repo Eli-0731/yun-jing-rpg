@@ -347,3 +347,104 @@ def VG03(M):
                      'frayed hems are cards in the top 10 % of the atlas (alpha clip): turn on Mip Maps Preserve Coverage for the albedo in Unity; the two patches are painted',
                      'no cloth wraps or boards on the posts']}
 PROPS['VG03']=VG03
+
+# ---------------- VG04 rice-straw haystacks: _01 complete, _02 with one side pulled away (cand-3) ----------------
+def _straw_fringe(W_,H_,cells):
+    """the straw fringe sprites: a solid band of straw at the top breaking into separate strands of uneven length;
+    cells = [(u0, u1, seed)]"""
+    rgb=np.zeros((H_,W_,3),np.float32);al=np.zeros((H_,W_),np.float32)
+    for u0,u1,seed in cells:
+        x0,x1=int(u0*W_),int(u1*W_);w=x1-x0;r=np.random.default_rng(seed);xx=(np.arange(w)[None,:]+.5)/w;yy=(np.arange(H_)[:,None]+.5)/H_
+        a=(yy>.80)&(xx>-1);shade=np.zeros((H_,w),np.float32)+.5
+        for _ in range(26):
+            cx=r.uniform(.02,.98);L=r.uniform(.25,.80)*(1 if r.random()<.75 else 1.2);wd=r.uniform(.012,.028);lean=r.uniform(-.10,.10)
+            xs=cx+lean*(.85-yy)+.01*np.sin(yy*14+r.uniform(0,6));m=(np.abs(xx-xs)<wd*np.clip((yy-(.85-L))/.25,.25,1))&(yy>.85-L)&(yy<.9)
+            a|=m;shade=np.where(m,r.uniform(.25,1.),shade)
+        c=np.array([.46,.37,.19])[None,None,:]*(1-shade[...,None])+np.array([.80,.68,.40])[None,None,:]*shade[...,None]
+        rgb[:,x0:x1]=np.where(a[...,None],c*(.75+.25*yy[...,None]),np.array([.62,.52,.30]));al[:,x0:x1]=a
+    return rgb,al
+def _haystack(M,pid,seed,pulled):
+    """a rounded, slightly lopsided dome of rice straw round a centre pole: a solid core, six overlapping skirts of
+    thatch whose lower rims are jagged in the shape, a fringe of loose strands under every rim (alpha clip cards), a small
+    straw cap tied round the pole. pulled: one side of the lower half has been pulled away, the hollow shows the bundles
+    the stack is built from, and loose straw lies in front of it."""
+    rr=random.Random(seed);NS=48;ph=[rr.uniform(0,6.28) for _ in range(8)];TH0=-1.05;HAY=M['hay'];OLD=M['hay_old']
+    ZP=[0,.25,.55,.90,1.25,1.55,1.80,1.98,2.07];RP_=[.78,.84,.86,.81,.70,.55,.36,.19,.06]
+    def cav(th,z):
+        if not pulled:return 0.
+        d=abs(math.atan2(math.sin(th-TH0),math.cos(th-TH0)));a=max(0.,min(1.,(.78-d)/.30));a=a*a*(3-2*a);b=max(0.,min(1.,(1.18-z)/.22));b=b*b*(3-2*b);return a*b
+    def Rf(th,z):
+        r=float(np.interp(z,ZP,RP_));lump=1+.045*math.sin(2*th+ph[0])+.035*math.sin(3*th+ph[1]+z*1.3)+.02*math.sin(5*th+ph[2]-z*2)
+        return r*lump*(1-.52*cav(th,z))
+    def surf(name,zs,rfun,mat,grp,close=None,vscale=.5):
+        """rings round Z at the heights zs(th) → a surface with the straw running down it (Tiled: u round, v down)"""
+        bm=bmesh.new();lay=bm.loops.layers.uv.new('Tiled');R_=[]
+        for i in range(len(zs)):
+            ring=[]
+            for k in range(NS):
+                th=math.tau*k/NS;z=zs[i](th,k) if callable(zs[i]) else zs[i];r=rfun(th,z,i,k);ring.append(bm.verts.new((r*math.cos(th),r*math.sin(th),z)))
+            R_.append(ring)
+        du=rr.random();dv=rr.random()
+        for i in range(len(zs)-1):
+            for k in range(NS):
+                q=(R_[i][k],R_[i][(k+1)%NS],R_[i+1][(k+1)%NS],R_[i+1][k]);f=bm.faces.new(q);f.smooth=True
+                for l,(kk,ii) in zip(f.loops,((k,i),(k+1,i),(k+1,i+1),(k,i+1))):
+                    v=R_[ii][kk%NS].co;l[lay].uv=(kk/NS*5.6/vscale*.5+du,-v.z/vscale+dv+.25*Vector((v.x,v.y)).length/vscale)
+        if close:
+            if 'top' in close:
+                c=bm.verts.new((0,0,max(v.co.z for v in R_[0])+.03))
+                for k in range(NS):bm.faces.new((c,R_[0][(k+1)%NS],R_[0][k]))
+            if 'bottom' in close:bm.faces.new(list(R_[-1]))
+        RC=[[v.co.copy() for v in ring] for ring in R_];return finish(name,bm,mat,grp,vscale,keep_uv=True),RC
+    # the core: closed, a little inside the thatch
+    surf(f'{pid}_Core',[2.02,1.90,1.70,1.45,1.15,.85,.55,.28,0.],lambda th,z,i,k:max(.03,Rf(th,z)-.035),OLD,'Body',close=('top','bottom'))
+    CEL=[(.005,.03,.325,.97),(.338,.03,.658,.97),(.671,.03,.995,.97)];nc=[0]
+    LAY=[(.60,.015),(.98,.44),(1.34,.84),(1.63,1.20),(1.87,1.50),(2.06,1.78)]
+    for q,(zt,zb) in enumerate(LAY):
+        jz=[rr.uniform(-.035,.025) for _ in range(NS)];jr=[rr.uniform(0,.045) for _ in range(NS)];low=q==0;tp=rr.uniform(0,6.28);ta=rr.uniform(.03,.07)   # each skirt sits a little askew
+        def zrow(s):return (lambda th,k,s=s:zt+(zb-.07*(not low)-zt)*s+(jz[k]*s*s if not low else abs(jz[k])*.4*s*s)+(ta*math.sin(th+tp)+.025*math.sin(3*th+tp*2))*(s if low else 1.)*(0. if low else 1.))
+        def rfun(th,z,i,k,q=q):s=i/4;return Rf(th,z)+.012-.075*(1-s)**2+(.075+.03*math.sin(2*th+tp))*s*s+jr[k]*s*s+(.034 if q%2 else 0)
+        o,R_=surf(f'{pid}_Thatch{q}',[zrow(s) for s in (0,.25,.5,.75,1.)],rfun,HAY,'Body',vscale=.5)
+        rim=list(R_[-1])
+        for k in range(0,NS,2):   # the fringe under this rim
+            a,b=rim[k],rim[(k+2)%NS];m=(a+b)/2;out=Vector((m.x,m.y,0)).normalized();hh=rr.uniform(.13,.21)
+            dn=(out*(.10 if low else .05)+Vector((0,0,-1))*(.012 if low else 1.)).normalized()*(hh*(.6 if low else 1.))
+            lo_a=a+dn;lo_b=b+dn;lo_a.z=max(lo_a.z,.004+.002*(k%4));lo_b.z=max(lo_b.z,.004+.002*(k%4))
+            _surf(f'{pid}_Fringe{q}_{k:02d}',[[tuple(lo_a),tuple(lo_b)],[tuple(a),tuple(b)]],HAY,'Body',scale=.3,card=CEL[nc[0]%3]);nc[0]+=1
+    # the cap: a small cone of straw tied round the pole, and the pole end
+    _rod(f'{pid}_Pole',(0,0,1.85),(.012,.008,2.335),.034,M['cedar_b'],'Body',sides=9,scale=.2)
+    jc=[rr.uniform(-.03,.03) for _ in range(NS)]
+    surf(f'{pid}_Cap',[2.215,(lambda th,k:2.15+jc[k]*.3),(lambda th,k:2.05+jc[k])],lambda th,z,i,k:(.040,.14,.30+.04*math.sin(3*th+ph[3]))[i],HAY,'Body')
+    _hoop2(f'{pid}_CapTie',[Vector((.047*math.cos(t),.047*math.sin(t),2.205)) for t in np.linspace(0,math.tau,18,endpoint=False)],.011,M['hemp'],'Body',sides=6)
+    # Detail_: stray stalks standing out of the thatch (the standard tier hides them; the jagged rims and fringes stay)
+    for k in range(36):
+        th=rr.uniform(0,math.tau);z=rr.uniform(.25,1.85)
+        if cav(th,z)>.2:continue
+        r=Rf(th,z)+.02;p=Vector((r*math.cos(th),r*math.sin(th),z));out=Vector((math.cos(th),math.sin(th),0));L=rr.uniform(.16,.34);sd=Vector((-out.y,out.x,0))*rr.uniform(-.5,.5)
+        _taper(f'{pid}_Stalk{k:02d}',[p-out*.14,p+out*L*.35+sd*L*.2-Vector((0,0,L*.25)),p+out*L*.55+sd*L*.45-Vector((0,0,L*.75))],[.0045,.0035,.0012],HAY,'Detail_Stalks',sides=3,scale=.1,up=(rr.uniform(-1,1),rr.uniform(-1,1),.4))
+    if pulled:   # the hollow: bundles lying across it, loose straw in front
+        d0=Vector((math.cos(TH0),math.sin(TH0),0));t0=Vector((-d0.y,d0.x,0))
+        for k,(rad,tz,off,L) in enumerate(((.45,.115,-.09,.56),(.63,.11,.05,.52),(.52,.325,.0,.50),(.41,.50,-.04,.44),(.69,.30,.12,.40))):
+            c=d0*rad+t0*off+Vector((0,0,tz));ax=(t0*math.cos(.25*(k-2))+d0*math.sin(.25*(k-2))).normalized();rb=.105+.008*math.sin(k*2.1)
+            prof=[(0,rb*.92),(.06,rb),(.42,rb*.93),(.5,rb*.80),(.58,rb*.93),(.94,rb),(1,rb*.92)]
+            _lathe(f'{pid}_Bundle{k}',prof,(c-ax*L/2,c+ax*L/2),HAY,'Body',NS=12,scale=.3)
+            _ring(f'{pid}_BundleTie{k}',c,ax,rb*.80+.004,.006,M['hemp'],'Body',n=11)
+        o=_blob(f'{pid}_Loose',(.62,.42,.09),seed+5,OLD,'Body',sub=3,scale=.4,bumps=7,amp=.12);o.data.transform(Matrix.Rotation(TH0,4,'Z'));o.data.transform(Matrix.Translation(d0*.80+Vector((0,0,-.012))))
+        for k in range(14):
+            a=TH0+rr.uniform(-.5,.5);r=rr.uniform(.6,.86);p=Vector((r*math.cos(a),r*math.sin(a),0.));dr=Vector((rr.uniform(-1,1),rr.uniform(-1,1),0)).normalized();L=rr.uniform(.22,.42)
+            _taper(f'{pid}_LooseStalk{k:02d}',[p,p+dr*L*.5+Vector((0,0,.010)),p+dr*L+Vector((0,0,.003))],[.005,.0045,.002],HAY,'Detail_Stalks',sides=3,scale=.1,up=(rr.uniform(-1,1),rr.uniform(-1,1),1))
+    def pattern(W_,H_):return _straw_fringe(W_,H_,[(.0,.333,2),(.333,.667,7),(.667,1.,9)])
+    def paint(col,rough,pos,onrm,ao,cav_,edge,noise,mid,filled,meta):
+        P=(pos-np.array(meta['offset'][:]))/meta['scale_to_target'];pz=P[...,2]
+        low=filled*np.clip((.75-pz)/.7,0,1)*np.clip(.35+noise,0,1)          # the lower thatch has been out longest: greyer and damp near the ground
+        g=col.mean(2,keepdims=True);col=col*(1-.45*low[...,None])+low[...,None]*.45*(g*np.array([1.02,.98,.88])*.85)
+        sun=filled*np.clip((pz-1.2)/.9,0,1)*np.clip(onrm[...,2],0,1);col=col*(1+.10*sun[...,None]*np.array([1,.95,.8]))
+        return col,rough
+    return {'paint':paint,'wear':.2,'grime':.7,'ao_k':.6,'uv_angle':66,'card':{'strip':.12,'pattern':pattern,'alpha':True},
+            'collision':'none in the model; if the scene needs one, a capsule of radius 0.95 m and height 2.0 m',
+            'notes':['a lopsided dome, not a smooth bun: six overlapping thatch skirts with rims jagged in the shape, a fringe of loose strands under every rim',
+                     'the fringes are cards in the top 12 % of the atlas (alpha clip): turn on Mip Maps Preserve Coverage for the albedo in Unity',
+                     'Detail_Stalks: stray stalks, off at the standard tier']+(['one side of the lower half is pulled away: the hollow shows five tied bundles, loose straw lies in front (the three-views drew this as a tied-back curtain; made as the work pack words it)'] if pulled else [])}
+def VG04_01(M):return _haystack(M,'VG04_01',4401,False)
+def VG04_02(M):return _haystack(M,'VG04_02',4402,True)
+PROPS['VG04_01']=VG04_01;PROPS['VG04_02']=VG04_02

@@ -397,5 +397,280 @@
    "frayed hems are cards in the top 10 % of the atlas (alpha clip): turn on Mip Maps Preserve Coverage for the albedo in Unity; the two patches are painted",
    "no cloth wraps or boards on the posts"
   ]
+ },
+ "VG04_01": {
+  "id": "VG04_01",
+  "name": "Haystack",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-roadside-c/VG04_01_v001.fbx",
+   "glb": "art/exports/yard-roadside-c/VG04_01_v001.glb",
+   "blend": "art/source/yard-roadside-c/VG04_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.028,
+   2.09,
+   2.336
+  ],
+  "body_dimensions_xyz_m": [
+   2.028,
+   2.081,
+   2.336
+  ],
+  "size_limit_xyz_m": [
+   2.2,
+   2.2,
+   2.4
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Stalks"
+  ],
+  "detailMeshes": [
+   "VG04_01_Detail_Stalks_LOD0",
+   "VG04_01_Detail_Stalks_LOD1",
+   "VG04_01_Detail_Stalks_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 4398,
+    "triangles_without_detail": 3894,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG04_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG04_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG04_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG04_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 2199,
+    "triangles_without_detail": 1947,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG04_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG04_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG04_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG04_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 658,
+    "triangles_without_detail": 584,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG04_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG04_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG04_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG04_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "VG04_01_Body_LOD0",
+    "VG04_01_Body_LOD1",
+    "VG04_01_Body_LOD2"
+   ],
+   "Detail_Stalks": [
+    "VG04_01_Detail_Stalks_LOD0",
+    "VG04_01_Detail_Stalks_LOD1",
+    "VG04_01_Detail_Stalks_LOD2"
+   ]
+  },
+  "material": "M_VG04_01_Haystack",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 190,
+  "coplanar_lifted": 0,
+  "reference": "art/references/VG04/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; if the scene needs one, a capsule of radius 0.95 m and height 2.0 m",
+  "notes": [
+   "a lopsided dome, not a smooth bun: six overlapping thatch skirts with rims jagged in the shape, a fringe of loose strands under every rim",
+   "the fringes are cards in the top 12 % of the atlas (alpha clip): turn on Mip Maps Preserve Coverage for the albedo in Unity",
+   "Detail_Stalks: stray stalks, off at the standard tier"
+  ]
+ },
+ "VG04_02": {
+  "id": "VG04_02",
+  "name": "HaystackPulled",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-roadside-c/VG04_02_v001.fbx",
+   "glb": "art/exports/yard-roadside-c/VG04_02_v001.glb",
+   "blend": "art/source/yard-roadside-c/VG04_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.152,
+   1.967,
+   2.348
+  ],
+  "body_dimensions_xyz_m": [
+   2.152,
+   1.941,
+   2.348
+  ],
+  "size_limit_xyz_m": [
+   2.2,
+   2.2,
+   2.4
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Stalks"
+  ],
+  "detailMeshes": [
+   "VG04_02_Detail_Stalks_LOD0",
+   "VG04_02_Detail_Stalks_LOD1",
+   "VG04_02_Detail_Stalks_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 6190,
+    "triangles_without_detail": 5574,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG04_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG04_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG04_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG04_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3095,
+    "triangles_without_detail": 2787,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG04_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG04_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG04_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG04_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 927,
+    "triangles_without_detail": 835,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG04_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG04_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG04_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG04_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "VG04_02_Body_LOD0",
+    "VG04_02_Body_LOD1",
+    "VG04_02_Body_LOD2"
+   ],
+   "Detail_Stalks": [
+    "VG04_02_Detail_Stalks_LOD0",
+    "VG04_02_Detail_Stalks_LOD1",
+    "VG04_02_Detail_Stalks_LOD2"
+   ]
+  },
+  "material": "M_VG04_02_HaystackPulled",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 209,
+  "coplanar_lifted": 0,
+  "reference": "art/references/VG04/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; if the scene needs one, a capsule of radius 0.95 m and height 2.0 m",
+  "notes": [
+   "a lopsided dome, not a smooth bun: six overlapping thatch skirts with rims jagged in the shape, a fringe of loose strands under every rim",
+   "the fringes are cards in the top 12 % of the atlas (alpha clip): turn on Mip Maps Preserve Coverage for the albedo in Unity",
+   "Detail_Stalks: stray stalks, off at the standard tier",
+   "one side of the lower half is pulled away: the hollow shows five tied bundles, loose straw lies in front (the three-views drew this as a tied-back curtain; made as the work pack words it)"
+  ]
  }
 }

@@ -163,10 +163,10 @@ def endgrain():
 
 # ---------------- items (filled per item after its three-view is picked) ----------------
 PROPS={}
-IDS=('VG01','VG02','VG03','VG04','VG05','VG06','VG07','VG08')
+IDS=('VG01','VG02','VG03','VG04_01','VG04_02','VG05','VG06','VG07','VG08')   # VG04: two kinds, each its own model
 TARGET={k:('x',None) for k in IDS}   # built at true size, only held to the limit
-LIMIT={'VG01':(3,2,.4),'VG02':(2.4,1.6,2.1),'VG03':(2.6,.6,1.9),'VG04':(2.2,2.2,2.4),'VG05':(2.2,1.1,1),'VG06':(1.8,.5,.6),'VG07':(1,1,.9),'VG08':(1.6,.5,.45)}   # work pack §2, w × d × h
-NAME={'VG01':'VegetableBeds','VG02':'GourdTrellis','VG03':'ClothesPole','VG04':'Haystacks','VG05':'Handcart','VG06':'CarryingPoleBaskets','VG07':'StoneMill','VG08':'StoneTrough'}
+LIMIT={'VG01':(3,2,.4),'VG02':(2.4,1.6,2.1),'VG03':(2.6,.6,1.9),'VG04_01':(2.2,2.2,2.4),'VG04_02':(2.2,2.2,2.4),'VG05':(2.2,1.1,1),'VG06':(1.8,.5,.6),'VG07':(1,1,.9),'VG08':(1.6,.5,.45)}   # work pack §2, w × d × h
+NAME={'VG01':'VegetableBeds','VG02':'GourdTrellis','VG03':'ClothesPole','VG04_01':'Haystack','VG04_02':'HaystackPulled','VG05':'Handcart','VG06':'CarryingPoleBaskets','VG07':'StoneMill','VG08':'StoneTrough'}
 MIN_TIER={k:'standard' for k in IDS}   # work pack §3.5: large yard pieces, seen at the standard tier too
 for _f in [CK/'wl_items.py']+sorted(CK.glob('fi_items*.py')):exec(open(_f,encoding='utf-8').read())   # part helpers (_sheet, _cane, _lathe, _ring, _plate …)
 for _f in sorted((ROOT/'art/source/village-life-c').glob('lv_items*.py')):exec(open(_f,encoding='utf-8').read())   # LV part helpers (_hoop2, _staves …)
@@ -180,7 +180,7 @@ def sel(*obs):
     for o in obs:o.select_set(True)
     bpy.context.view_layer.objects.active=obs[0]
 def run(pid):
-    sel_txt=(REF/pid/'prompt.txt').read_text(encoding='utf-8')
+    rid=pid.split('_')[0];sel_txt=(REF/rid/'prompt.txt').read_text(encoding='utf-8')
     assert '選用：' in sel_txt,f'{pid}: pick a saved three-view before modelling'
     bpy.ops.wm.read_factory_settings(use_empty=True);parts.clear();K.uvr.seed(77)
     sc=bpy.context.scene;sc.unit_settings.system='METRIC';sc.render.engine='CYCLES';dev=K.gpu(sc);sc.cycles.samples=16;sc.render.bake.margin=8;sc.render.bake.margin_type='EXTEND'
@@ -371,7 +371,7 @@ def run(pid):
           'lods':per_lod,'objects':{n:[d.name for d in g] for n,g in lods.items()},'material':fm.name,
           'textures':'one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)',
           'source_parts':len(srcparts),'coplanar_lifted':meta['coplanar_lifted'],
-          'reference':f'art/references/{pid}/prompt.txt','origin':'footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)',
+          'reference':f'art/references/{rid}/prompt.txt','origin':'footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)',
           'collision':meta.get('collision','none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one')}
     if 'notes' in meta:info['notes']=meta['notes']
     print('WL_DONE',json.dumps(info,ensure_ascii=False));return info

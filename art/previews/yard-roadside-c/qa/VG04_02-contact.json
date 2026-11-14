@@ -1,0 +1,22 @@
+{
+ "VG04_02_v001": {
+  "VG04_02_Body_LOD0": {
+   "pieces": 21,
+   "within_1mm": 21,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "VG04_02_Detail_Stalks_LOD0": {
+   "pieces": 44,
+   "within_1mm": 43,
+   "gap_1_3mm": 1,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.7,
+   "worst_at": []
+  }
+ }
+}
