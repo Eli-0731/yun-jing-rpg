@@ -1106,5 +1106,150 @@
    "the push handle goes through a wooden socket block let into the upper stone, bound with cord; the base is thirteen fieldstones piled round a core, small stones at the foot",
    "the collision box covers the tray and base, not the handle or the spout tip"
   ]
+ },
+ "VG08": {
+  "id": "VG08",
+  "name": "StoneTrough",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-roadside-c/VG08_v001.fbx",
+   "glb": "art/exports/yard-roadside-c/VG08_v001.glb",
+   "blend": "art/source/yard-roadside-c/VG08_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.511,
+   0.469,
+   0.414
+  ],
+  "body_dimensions_xyz_m": [
+   1.511,
+   0.469,
+   0.414
+  ],
+  "size_limit_xyz_m": [
+   1.6,
+   0.5,
+   0.45
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2032,
+    "triangles_without_detail": 2032,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG08_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG08_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1016,
+    "triangles_without_detail": 1016,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG08_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG08_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 304,
+    "triangles_without_detail": 304,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG08_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG08_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "VG08_Body_LOD0",
+    "VG08_Body_LOD1",
+    "VG08_Body_LOD2"
+   ]
+  },
+  "material": "M_VG08_StoneTrough",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 3,
+  "coplanar_lifted": 0,
+  "reference": "art/references/VG08/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "VG08_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      1.48,
+      0.43,
+      0.4
+     ],
+     "center_xyz_m": [
+      -0.0,
+      0.0,
+      0.2
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "one block hollowed out: the walls are 6–9 cm thick and uneven, the inside narrows to a flat floor; the rim is chipped in the shape, one corner broken off",
+   "it sits on two flat stones; no iron staples (the pack asks for stone only)",
+   "painted: the old water line with dark algae below it and streaks above, silt on the floor, moss low on the outside and along the rim, pale lichen, rusty runs",
+   "the collision box is the whole block with its two stones"
+  ]
  }
 }

@@ -257,3 +257,66 @@ def VG07(M):
                      'the push handle goes through a wooden socket block let into the upper stone, bound with cord; the base is thirteen fieldstones piled round a core, small stones at the foot',
                      'the collision box covers the tray and base, not the handle or the spout tip']}
 PROPS['VG07']=VG07
+
+# ---------------- VG08 long stone feeding trough (cand-3) ----------------
+def _rrect(hx,hy,rc,NS):
+    """NS points evenly spaced round a rounded rectangle (half sizes hx, hy; corner radius rc), starting mid-way along +X side"""
+    pts=[]
+    for cx,cy,a0 in ((hx-rc,hy-rc,0.),(-hx+rc,hy-rc,math.pi/2),(-hx+rc,-hy+rc,math.pi),(hx-rc,-hy+rc,1.5*math.pi)):
+        for a in np.linspace(a0,a0+math.pi/2,9):pts.append((cx+rc*math.cos(a),cy+rc*math.sin(a)))
+    pts=[((hx,0.))]+pts+[((hx,0.))];P=np.array(pts);L=np.concatenate([[0],np.cumsum(np.linalg.norm(np.diff(P,axis=0),axis=1))])
+    s=np.linspace(0,L[-1],NS,endpoint=False);return [(float(np.interp(v,L,P[:,0])),float(np.interp(v,L,P[:,1]))) for v in s]
+def VG08(M):
+    """one block of stone hollowed out: the walls keep their thickness (6–9 cm, uneven as hewn), the rim is chipped in
+    the shape, the inside narrows to a flat floor; it sits on two flat stones. Water marks and moss inside are painted."""
+    rr=random.Random(5801);ST=M['stone'];NS=72;HX,HY=.745,.215;Z0=.072;ZR=.405
+    ph=[rr.uniform(0,6.28) for _ in range(8)]
+    def wall(t):return .074+.013*math.sin(2*t+ph[0])+.007*math.sin(5*t+ph[1])
+    CH=[(rr.uniform(0,math.tau),rr.uniform(.10,.26),rr.uniform(.018,.045)) for _ in range(5)]+[(.62,.20,.075)]   # (where, half width, depth); the last is one broken corner
+    def chip(t):return sum(d*max(0.,1-(abs(((t-c+math.pi)%math.tau)-math.pi)/w)**2)**.7 for c,w,d in CH)+.006*math.sin(2*t+ph[2])+.004*math.sin(5*t+ph[3])
+    def wob(t,z):return .006*math.sin(3*t+ph[4]+z*7)+.004*math.sin(7*t+ph[5]-z*11)+.002*math.sin(13*t+ph[6])
+    #        inset from the outer size, height, uses the wall, takes chips, corner radius
+    LV=[(.034,Z0,0,0,.05),(.006,Z0+.030,0,0,.05),(-.004,Z0+.11,0,0,.055),(-.006,Z0+.20,0,0,.055),(.002,ZR-.022,0,.5,.05),(.012,ZR-.004,0,1,.045),(.024,ZR,0,1,.04),
+        (-.016,ZR,1,1,.035),(-.004,ZR-.008,1,1,.035),(.004,ZR-.03,1,.4,.035),(.016,Z0+.20,1,0,.04),(.034,Z0+.105,1,0,.05),(.058,Z0+.088,1,0,.05)]
+    bm=bmesh.new();R_=[]
+    for ins,z,w,cp,rc in LV:
+        base=_rrect(HX-.066,HY-.066,.03,NS) if w else _rrect(HX,HY,rc,NS);ring=[]
+        for k,(x,y) in enumerate(base):
+            t=math.tau*k/NS;xa,ya=base[k-1];xb,yb=base[(k+1)%NS];n=Vector((yb-ya,-(xb-xa),0)).normalized()   # outward normal of the loop
+            d=ins+((wall(t)-.066) if w else 0.)-wob(t,z)*(.6 if w else 1.)
+            ring.append(bm.verts.new((x-n.x*d,y-n.y*d,z-chip(t)*cp+(.004*math.sin(6*t+ph[7]) if z<Z0+.09 and w else 0.))))
+        R_.append(ring)
+    for a,b in zip(R_,R_[1:]):
+        for k in range(NS):bm.faces.new((a[k],a[(k+1)%NS],b[(k+1)%NS],b[k]))
+    c0=bm.verts.new((0,0,Z0));c1=bm.verts.new((0,0,Z0+.086))
+    for k in range(NS):bm.faces.new((c0,R_[0][(k+1)%NS],R_[0][k]));bm.faces.new((c1,R_[-1][k],R_[-1][(k+1)%NS]))
+    bmesh.ops.recalc_face_normals(bm,faces=bm.faces)
+    for f in bm.faces:f.smooth=True
+    o=finish('VG08_Trough',bm,ST,'Body',.35)
+    # two flat stones under it
+    for k,x in enumerate((-.50,.51)):
+        o=_blob(f'VG08_Foot{k}',(.31+.03*k,.47-.02*k,.088),5810+k,ST,'Body',sub=2,bumps=6,amp=.12,flats=4,flat_amt=.8,scale=.3)
+        o.data.transform(Matrix.Rotation(.08-.2*k,4,'Z'));o.data.transform(Matrix.Translation((x,.005*k,0)))
+    def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
+        P=(pos-np.array(meta['offset'][:]))/meta['scale_to_target'];px,py,pz=P[...,0],P[...,1],P[...,2]
+        inside=filled*(np.abs(px)<HX-.055)*(np.abs(py)<HY-.05)*(pz>Z0+.08)
+        outn=px*onrm[...,0]/HX+py*onrm[...,1]/HY                              # > 0: the face looks away from the middle
+        inner=inside*((outn<-.02)|(onrm[...,2]>.6))
+        zl=Z0+.215+.012*np.sin(px*9)+.02*(noise-.5)                           # the old water line
+        wet=inner*np.clip((zl-pz)/.03,0,1);col=col*(1-.6*wet[...,None])+wet[...,None]*.6*np.array([.20,.24,.15])   # below it: dark, green with algae
+        line=inner*np.clip(1-np.abs(pz-zl)/.012,0,1);col=col*(1-.35*line[...,None])+line[...,None]*.35*np.array([.70,.68,.60])   # the pale scale left at the line
+        run=inner*np.clip((pz-zl)/.02,0,1)*np.clip((np.sin(px*70+noise*4)-.5)*2,0,1)*np.clip((ZR-pz)/.1,0,1);col=col*(1-.22*run[...,None])   # streaks above it
+        floor=inner*(onrm[...,2]>.6)*(pz<Z0+.12);col=col*(1-.25*floor[...,None])+floor[...,None]*.25*np.array([.25,.22,.14])   # silt on the floor
+        out=filled*(1-inside)
+        drip=out*(np.abs(onrm[...,2])<.5)*np.clip((np.sin(px*37+py*31+noise*3)-.55)*2.2,0,1)*np.clip((pz-Z0-.05)/.2,0,1);col=col*(1-.20*drip[...,None])+drip[...,None]*.06*np.array([.5,.4,.2])   # rust-brown runs from the rim
+        ms=out*np.clip((noise-.55)*2.8+np.clip((.20-pz)/.2,0,1)*.75+(cav-.5),0,1);col=col*(1-.55*ms[...,None])+ms[...,None]*.55*np.array([.23,.32,.11]);rough=np.clip(rough+.05*ms,0,1)
+        rim=out*(onrm[...,2]>.5)*(pz>ZR-.09)*np.clip((mid-.45)*3,0,1);col=col*(1-.3*rim[...,None])+rim[...,None]*.3*np.array([.26,.34,.12])   # moss along the rim top
+        li=out*np.clip((np.sin(px*23+3*noise)*np.sin(pz*41+py*29)-.80)*7,0,1);col=col*(1-.30*li[...,None])+li[...,None]*.30*np.array([.72,.74,.66])   # pale lichen spots
+        chipm=filled*(pz>ZR-.07)*np.clip((edge-.5)*2.5,0,1);col=col*(1+.10*chipm[...,None])                                        # fresh-looking broken edges, a little paler
+        return col,rough
+    return {'paint':paint,'wear':.8,'grime':.9,'uv_angle':66,'collision_box':((1.48,.43,.40),(0,0,.20)),
+            'notes':['one block hollowed out: the walls are 6–9 cm thick and uneven, the inside narrows to a flat floor; the rim is chipped in the shape, one corner broken off',
+                     'it sits on two flat stones; no iron staples (the pack asks for stone only)',
+                     'painted: the old water line with dark algae below it and streaks above, silt on the floor, moss low on the outside and along the rim, pale lichen, rusty runs',
+                     'the collision box is the whole block with its two stones']}
+PROPS['VG08']=VG08
