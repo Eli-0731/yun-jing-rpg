@@ -690,5 +690,150 @@
    "Detail_Stalks: stray stalks, off at the standard tier",
    "one side of the lower half is pulled away: the hollow shows five tied bundles, loose straw lies in front (the three-views drew this as a tied-back curtain; made as the work pack words it)"
   ]
+ },
+ "VG05": {
+  "id": "VG05",
+  "name": "Handcart",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-roadside-c/VG05_v001.fbx",
+   "glb": "art/exports/yard-roadside-c/VG05_v001.glb",
+   "blend": "art/source/yard-roadside-c/VG05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.144,
+   1.096,
+   0.93
+  ],
+  "body_dimensions_xyz_m": [
+   2.144,
+   1.096,
+   0.93
+  ],
+  "size_limit_xyz_m": [
+   2.2,
+   1.1,
+   1
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 7740,
+    "triangles_without_detail": 7740,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG05_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG05_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3870,
+    "triangles_without_detail": 3870,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG05_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG05_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1160,
+    "triangles_without_detail": 1160,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "VG05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "VG05_Normal.png": [
+      1024,
+      1024
+     ],
+     "VG05_ORM.png": [
+      1024,
+      1024
+     ],
+     "VG05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "VG05_Body_LOD0",
+    "VG05_Body_LOD1",
+    "VG05_Body_LOD2"
+   ]
+  },
+  "material": "M_VG05_Handcart",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 109,
+  "coplanar_lifted": 2,
+  "reference": "art/references/VG05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "VG05_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      1.44,
+      1.1,
+      0.9
+     ],
+     "center_xyz_m": [
+      0.359,
+      0.0,
+      0.45
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "two long beams run the whole length and thin into the handles; four cross beams pass through them (tenon ends show); the bed is six separate planks",
+   "wheels: a turned hub with two iron bands, twelve tapered spokes, six felloes, an iron tyre and rivet heads; the axle runs through two blocks under the beams, a linchpin outside each hub",
+   "low rails: posts let into the beams, a side board, a top rail through the posts; a prop leg with two braces keeps the bed level",
+   "intact and empty; the collision box covers the bed and wheels, not the handles"
+  ]
  }
 }
