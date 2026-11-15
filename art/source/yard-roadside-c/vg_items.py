@@ -122,7 +122,7 @@ def VG01(M):
         return col,rough
     M['soil']['mid']=1.
     return {'paint':paint,'wear':.3,'grime':.5,'ao_k':.55,'uv_angle':60,
-            'collision':'box 2.8 × 1.9 × 0.2 m on the earth (the plants are not solid); the player walks round the plot',
+            'collision_box':((2.60,1.70,.17),(0,0,.085)),'collision':'one box over the earth (the plants are not solid): the player walks round the plot',
             'notes':['three ridges on one piece of earth: rounded tops, trodden furrows, a ragged rim down to the ground; no fence or stone wall',
                      'each crop is one recipe repeated along its ridge with random size, leaf count, lean and turn (12 greens, 12 radishes, 18 onion clumps)',
                      'Detail_Stones (7 small stones on the rim) and Detail_Weeds (10 weeds in the furrows) are off at the standard tier']}
@@ -421,7 +421,7 @@ def _haystack(M,pid,seed,pulled):
         th=rr.uniform(0,math.tau);z=rr.uniform(.25,1.85)
         if cav(th,z)>.2:continue
         r=Rf(th,z)+.02;p=Vector((r*math.cos(th),r*math.sin(th),z));out=Vector((math.cos(th),math.sin(th),0));L=rr.uniform(.16,.34);sd=Vector((-out.y,out.x,0))*rr.uniform(-.5,.5)
-        _taper(f'{pid}_Stalk{k:02d}',[p-out*.14,p+out*L*.35+sd*L*.2-Vector((0,0,L*.25)),p+out*L*.55+sd*L*.45-Vector((0,0,L*.75))],[.0045,.0035,.0012],HAY,'Detail_Stalks',sides=3,scale=.1,up=(rr.uniform(-1,1),rr.uniform(-1,1),.4))
+        _taper(f'{pid}_Stalk{k:02d}',[p-out*.22,p+out*L*.35+sd*L*.2-Vector((0,0,L*.25)),p+out*L*.55+sd*L*.45-Vector((0,0,L*.75))],[.0045,.0035,.0012],HAY,'Detail_Stalks',sides=3,scale=.1,up=(rr.uniform(-1,1),rr.uniform(-1,1),.4))
     if pulled:   # the hollow: bundles lying across it, loose straw in front
         d0=Vector((math.cos(TH0),math.sin(TH0),0));t0=Vector((-d0.y,d0.x,0))
         for k,(rad,tz,off,L) in enumerate(((.45,.115,-.09,.56),(.63,.11,.05,.52),(.52,.325,.0,.50),(.41,.50,-.04,.44),(.69,.30,.12,.40))):

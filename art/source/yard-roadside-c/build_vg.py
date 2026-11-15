@@ -344,6 +344,12 @@ def run(pid):
             if 'gid' in g.data.attributes:g.data.attributes.remove(g.data.attributes['gid'])
             if 'iscard' in g.data.attributes:g.data.attributes.remove(g.data.attributes['iscard'])
         lods[name]=grp
+    col_obj=None;col_info=None
+    if meta.get('collision_box'):   # work pack §3.5: a simple collider for the pieces a player would walk into: one box, <ID>_Collision, FBX and .blend only
+        size,cen=meta['collision_box'];size=[s*f for s in size];cen=Vector(cen)*f+off
+        col_obj=bpy.data.objects.new(f'{pid}_Collision',bpy.data.meshes.new(f'{pid}_Collision'));bmc=box_bm(size,cen);bmc.to_mesh(col_obj.data);bmc.free()
+        sc.collection.objects.link(col_obj);col_obj.parent=root;col_obj.hide_render=True;col_obj.display_type='WIRE'
+        col_info={'mesh':col_obj.name,'primitives':[{'type':'box','size_xyz_m':[round(float(s),3) for s in size],'center_xyz_m':[round(float(c),3) for c in cen]}],'note':meta.get('collision','')}
     src=bpy.data.collections.new(f'{pid}_SourceParts');sc.collection.children.link(src)
     for o in srcparts+[A]:
         for c in list(o.users_collection):c.objects.unlink(o)
@@ -354,7 +360,7 @@ def run(pid):
     stem=f'{pid}_{VERSION}'
     bpy.ops.wm.save_as_mainfile(filepath=str(HERE/f'{stem}.blend'),compress=True)
     sel(root,*[g[0] for g in lods.values()]);bpy.ops.export_scene.gltf(filepath=str(OUT/f'{stem}.glb'),use_selection=True,export_format='GLB',export_apply=True)
-    sel(root,*[d for g in lods.values() for d in g]);bpy.ops.export_scene.fbx(filepath=str(OUT/f'{stem}.fbx'),use_selection=True,object_types={'MESH','EMPTY'},global_scale=1.0,apply_unit_scale=True,
+    sel(root,*[d for g in lods.values() for d in g],*([col_obj] if col_obj else []));bpy.ops.export_scene.fbx(filepath=str(OUT/f'{stem}.fbx'),use_selection=True,object_types={'MESH','EMPTY'},global_scale=1.0,apply_unit_scale=True,
         apply_scale_options='FBX_SCALE_ALL',bake_space_transform=True,axis_forward='-Z',axis_up='Y',use_mesh_modifiers=True,mesh_smooth_type='FACE',
         use_tspace=True,add_leaf_bones=False,bake_anim=False,path_mode='RELATIVE',embed_textures=False)
     tri=lambda o:sum(len(p.vertices)-2 for p in o.data.polygons)
@@ -372,7 +378,7 @@ def run(pid):
           'textures':'one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)',
           'source_parts':len(srcparts),'coplanar_lifted':meta['coplanar_lifted'],
           'reference':f'art/references/{rid}/prompt.txt','origin':'footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)',
-          'collision':meta.get('collision','none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one')}
+          'collision':col_info or meta.get('collision','none in the model; add a box from body_dimensions if the scene needs one')}
     if 'notes' in meta:info['notes']=meta['notes']
     print('WL_DONE',json.dumps(info,ensure_ascii=False));return info
 ids=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else list(PROPS)

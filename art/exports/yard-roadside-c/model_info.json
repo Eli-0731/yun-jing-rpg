@@ -138,7 +138,25 @@
   "coplanar_lifted": 0,
   "reference": "art/references/VG01/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
-  "collision": "box 2.8 × 1.9 × 0.2 m on the earth (the plants are not solid); the player walks round the plot",
+  "collision": {
+   "mesh": "VG01_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      2.6,
+      1.7,
+      0.17
+     ],
+     "center_xyz_m": [
+      -0.017,
+      -0.009,
+      0.085
+     ]
+    }
+   ],
+   "note": "one box over the earth (the plants are not solid): the player walks round the plot"
+  },
   "notes": [
    "three ridges on one piece of earth: rounded tops, trodden furrows, a ragged rim down to the ground; no fence or stone wall",
    "each crop is one recipe repeated along its ridge with random size, leaf count, lean and turn (12 greens, 12 radishes, 18 onion clumps)",

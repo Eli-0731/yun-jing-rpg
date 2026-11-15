@@ -1,0 +1,83 @@
+Unity 6000.3.28f1, pipeline URP
+PASS VG01: Albedo / MaskURP / Normal textures found
+PASS VG01: textures 1024x1024 (1024 or less)
+PASS VG01: VG01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS VG01: imported size 2.859 x 1.941 x 0.337 m matches model_info 2.859 x 1.941 x 0.336 within 2 cm
+PASS VG01: within the work pack's limit 3 x 2 x 0.4 m
+PASS VG01: base at y = 0.000 (origin on the ground)
+PASS VG01: triangles LOD0/1/2 = 17054 / 8527 / 2558 (50% / 15%), model_info 17054 / 8527 / 2558
+PASS VG01: objects per LOD 3 / 3 / 3 (model_info 3 / 3 / 3)
+PASS VG01: 1 material for every LOD and Detail_ mesh (one material)
+PASS VG01: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS VG01: minTier = standard (work pack §3.5: large yard pieces, shown at the standard tier too)
+PASS VG01: detailObjects Detail_Stones, Detail_Weeds → 6 meshes present
+PASS VG01: Detail_* off still shows the body (1 mesh per LOD)
+PASS VG01: one simple collider VG01_Collision, 2.60 x 1.70 x 0.17 m, inside the model's footprint
+PASS VG01: cloth material renders both faces (Cull Off)
+PASS VG02: Albedo / MaskURP / Normal textures found
+PASS VG02: textures 1024x1024 (1024 or less)
+PASS VG02: VG02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS VG02: imported size 2.166 x 1.447 x 2.016 m matches model_info 2.165 x 1.447 x 2.016 within 2 cm
+PASS VG02: within the work pack's limit 2.4 x 1.6 x 2.1 m
+PASS VG02: base at y = 0.000 (origin on the ground)
+PASS VG02: triangles LOD0/1/2 = 18116 / 9058 / 2716 (50% / 15%), model_info 18116 / 9058 / 2716
+PASS VG02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS VG02: 1 material for every LOD and Detail_ mesh (one material)
+PASS VG02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS VG02: minTier = standard (work pack §3.5: large yard pieces, shown at the standard tier too)
+PASS VG02: no detailObjects, and no Detail_ mesh in the model
+PASS VG02: Detail_* off still shows the body (1 mesh per LOD)
+PASS VG02: no collider in the model
+PASS VG02: cloth material renders both faces (Cull Off)
+PASS VG02: alpha clip 0.5 on, albedo has alpha, Mip Maps Preserve Coverage on
+PASS VG03: Albedo / MaskURP / Normal textures found
+PASS VG03: textures 1024x1024 (1024 or less)
+PASS VG03: VG03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS VG03: imported size 2.540 x 0.297 x 1.832 m matches model_info 2.54 x 0.297 x 1.832 within 2 cm
+PASS VG03: within the work pack's limit 2.6 x 0.6 x 1.9 m
+PASS VG03: base at y = 0.000 (origin on the ground)
+PASS VG03: triangles LOD0/1/2 = 7264 / 3632 / 1088 (50% / 15%), model_info 7264 / 3632 / 1088
+PASS VG03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS VG03: 1 material for every LOD and Detail_ mesh (one material)
+PASS VG03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS VG03: minTier = standard (work pack §3.5: large yard pieces, shown at the standard tier too)
+PASS VG03: no detailObjects, and no Detail_ mesh in the model
+PASS VG03: Detail_* off still shows the body (1 mesh per LOD)
+PASS VG03: no collider in the model
+PASS VG03: cloth material renders both faces (Cull Off)
+PASS VG03: alpha clip 0.5 on, albedo has alpha, Mip Maps Preserve Coverage on
+PASS VG04_01: Albedo / MaskURP / Normal textures found
+PASS VG04_01: textures 1024x1024 (1024 or less)
+PASS VG04_01: VG04_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS VG04_01: imported size 2.028 x 2.090 x 2.336 m matches model_info 2.028 x 2.09 x 2.336 within 2 cm
+PASS VG04_01: within the work pack's limit 2.2 x 2.2 x 2.4 m
+PASS VG04_01: base at y = 0.000 (origin on the ground)
+PASS VG04_01: triangles LOD0/1/2 = 4398 / 2199 / 658 (50% / 15%), model_info 4398 / 2199 / 658
+PASS VG04_01: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS VG04_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS VG04_01: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS VG04_01: minTier = standard (work pack §3.5: large yard pieces, shown at the standard tier too)
+PASS VG04_01: detailObjects Detail_Stalks → 3 meshes present
+PASS VG04_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS VG04_01: no collider in the model
+PASS VG04_01: cloth material renders both faces (Cull Off)
+PASS VG04_01: alpha clip 0.5 on, albedo has alpha, Mip Maps Preserve Coverage on
+PASS VG04_02: Albedo / MaskURP / Normal textures found
+PASS VG04_02: textures 1024x1024 (1024 or less)
+PASS VG04_02: VG04_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS VG04_02: imported size 2.152 x 1.967 x 2.348 m matches model_info 2.152 x 1.967 x 2.348 within 2 cm
+PASS VG04_02: within the work pack's limit 2.2 x 2.2 x 2.4 m
+PASS VG04_02: base at y = 0.000 (origin on the ground)
+PASS VG04_02: triangles LOD0/1/2 = 6190 / 3095 / 927 (50% / 15%), model_info 6190 / 3095 / 927
+PASS VG04_02: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS VG04_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS VG04_02: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS VG04_02: minTier = standard (work pack §3.5: large yard pieces, shown at the standard tier too)
+PASS VG04_02: detailObjects Detail_Stalks → 3 meshes present
+PASS VG04_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS VG04_02: no collider in the model
+PASS VG04_02: cloth material renders both faces (Cull Off)
+PASS VG04_02: alpha clip 0.5 on, albedo has alpha, Mip Maps Preserve Coverage on
+PASS LV05: Albedo / MaskURP / Normal textures found
+PASS LV05: textures 1024x1024 (1024 or less)
+INFO renders written to art/previews/yard-roadside-c/unity
