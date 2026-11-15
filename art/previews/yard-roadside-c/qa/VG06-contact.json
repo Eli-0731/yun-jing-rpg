@@ -1,0 +1,13 @@
+{
+ "VG06_v001": {
+  "VG06_Body_LOD0": {
+   "pieces": 41,
+   "within_1mm": 41,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.9,
+   "worst_at": []
+  }
+ }
+}

@@ -111,3 +111,61 @@ def VG05(M):
                      'low rails: posts let into the beams, a side board, a top rail through the posts; a prop leg with two braces keeps the bed level',
                      'intact and empty; the collision box covers the bed and wheels, not the handles']}
 PROPS['VG05']=VG05
+
+# ---------------- VG06 carrying pole and two baskets, set down (cand-1) ----------------
+def VG06(M):
+    """two round baskets stand on the ground, the flat pole lies across their rims with its cords slack. The weave is
+    in the texture; modelled: the rim hoop and its bindings, two split-bamboo strips crossing under each bottom and
+    running up the sides, four cords per basket gathered round the pole, a peg near each end of the pole."""
+    rr=random.Random(5601);WV,SP_,OLD,HP=M['weave'],M['bamboo_split'],M['bamboo_old'],M['hemp']
+    PR=[(.0,0.),(.06,0.),(.112,0.),(.150,.012),(.184,.060),(.205,.140),(.216,.235),(.221,.325)];ZR=.325;ZP=ZR+.0105+.0125;XC=.62
+    def basket(tag,xc,rot,k):
+        c=Vector((xc,0,.0045));prof=[(r*k,z) for r,z in PR[2:]]
+        o=_shell(f'VG06_Basket{tag}',prof,.008,36,WV,'Body',scale=.22);o.data.transform(Matrix.Rotation(rot,4,'Z'));o.data.transform(Matrix.Translation(c))
+        _hoop2(f'VG06_Rim{tag}',[c+Vector(((PR[-1][0]*k+.002)*math.cos(t),(PR[-1][0]*k+.002)*math.sin(t),ZR)) for t in np.linspace(0,math.tau,40,endpoint=False)],.0105,OLD,'Body',sides=6,phase=0.)
+        for q in range(8):   # the rim is bound to the basket wall every eighth of the way round
+            a=rot+math.tau*(q+.5)/8;p=c+Vector(((PR[-1][0]*k+.002)*math.cos(a),(PR[-1][0]*k+.002)*math.sin(a),ZR))
+            _ring(f'VG06_RimTie{tag}{q}',p,(-math.sin(a),math.cos(a),.38),.0150,.0026,HP,'Body',n=9)
+        P2=[(-r*k,z) for r,z in reversed(PR[1:])]+[(0.,0.)]+[(r*k,z) for r,z in PR[1:]]
+        for j,th in enumerate((rot+.3,rot+.3+math.pi/2)):   # two strips cross under the bottom and run up to the rim
+            e=Vector((math.cos(th),math.sin(th),0));path=[];N_=[]
+            for i,(ro,z) in enumerate(P2):
+                a_,b_=P2[max(i-1,0)],P2[min(i+1,len(P2)-1)];t=Vector((b_[0]-a_[0],b_[1]-a_[1])).normalized();n2=Vector((t.y,-t.x))
+                low=max(0.,1-abs(ro)/.13);off=.0012+(.0046*low if j else 0.)
+                n3=e*n2.x+Vector((0,0,n2.y));path.append(c+e*ro+Vector((0,0,z))+n3*off);N_.append(n3)
+            path[0].z-=.004;path[-1].z-=.004
+            _strip(f'VG06_Strip{tag}{j}',path,lambda i,N_=N_:N_[i],.024,.0036,SP_,'Body',scale=.2)
+        # four cords from the rim, slack, gathered round the pole above the basket's middle
+        for q in range(4):
+            a=rot+math.pi/4+math.tau*q/4;e=Vector((math.cos(a),math.sin(a),0));R_=PR[-1][0]*k;sy=1 if e.y>0 else -1
+            top=Vector((xc+.012*(q-1.5),sy*.030,ZP+.004))
+            pts=[c+e*(R_+.016)+Vector((0,0,ZR-.022)),c+e*(R_+.0165)+Vector((0,0,ZR+.004)),c+e*(R_+.002)+Vector((0,0,ZR+.0165)),c+e*(R_*.80)+Vector((0,0,ZR+.004)),
+                 c+e*(R_*.52)+Vector((0,0,ZR-.022-.01*(q%2))),Vector((top.x+e.x*.03,sy*.070,ZR-.008)),top+Vector((0,sy*.006,-.004)),Vector((top.x,sy*.004,ZP+.0215))]
+            tube(f'VG06_Cord{tag}{q}',_spline(pts,3),.0042,HP,'Body',sides=5,scale=.05)
+        for q in range(3):   # the wrap round the pole
+            x=xc+.013*(q-1);loop=K.round_loop([(x,-.0315,ZP-.0165),(x,.0315,ZP-.0165),(x+.004,.0315,ZP+.0165),(x+.004,-.0315,ZP+.0165)],.009,n=3)[:-2]
+            tube(f'VG06_Wrap{tag}{q}',loop,.0042,HP,'Body',sides=5,scale=.05)
+    basket('L',-XC,.4,1.0);basket('R',XC,2.1,.965)
+    # the flat pole across the rims: widest and thickest in the middle, ends thinner and a little upturned
+    st=[]
+    for x in (-.878,-.862,-.74,-.45,-.15,.15,.45,.74,.862,.878):
+        u=abs(x)/.878;w=.060-.014*u*u;h=.025-.004*u*u;end=abs(x)>.87
+        st.append(((x,0,ZP+.016*max(0,u-.74)**1.5/.05**.5*.25),w*(.72 if end else 1),h*(.7 if end else 1),.0075*(.7 if end else 1)))
+    _beam('VG06_Pole',st,OLD,'Body',jit=.0006,seed=5610)
+    for s in (-1,1):_rod(f'VG06_Peg{"LR"[s>0]}',(s*.705,0,ZP-.020),(s*.705,.002,ZP+.030),.0062,M['cedar_b'],'Body',sides=7,scale=.05)
+    def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
+        P=(pos-np.array(meta['offset'][:]))/meta['scale_to_target'];px,py,pz=P[...,0],P[...,1],P[...,2]
+        pole=filled*(pz>ZP-.014)*(np.abs(py)<.031)*(onrm[...,2]>-.5)
+        shine=pole*np.clip(1-np.abs(px)/.30,0,1)                          # the middle of the pole: polished by the shoulder
+        col=col*(1+.22*shine[...,None])+shine[...,None]*np.array([.05,.035,.01]);rough=np.clip(rough-.30*shine,0,1)
+        node=pole*np.clip(1-np.abs(np.abs(px)-.50)/.006,0,1);node2=pole*np.clip(1-np.abs(np.abs(px)-.80)/.006,0,1)   # bamboo nodes
+        col=col*(1-.45*np.maximum(node,node2)[...,None])
+        low=filled*np.clip((.10-pz)/.09,0,1)*np.clip(.35+noise,0,1)       # the basket bottoms: damp and soiled from standing on the ground
+        col=col*(1-.40*low[...,None])+low[...,None]*.40*np.array([.20,.19,.11])
+        ms=filled*np.clip((.16-pz)/.12,0,1)*np.clip((noise-.55)*4,0,1);col=col*(1-.4*ms[...,None])+ms[...,None]*.4*np.array([.22,.30,.11])
+        return col,rough
+    return {'paint':paint,'wear':.7,'grime':.7,'uv_angle':50,'collision':'none in the model',
+            'notes':['set down: the baskets stand on the ground, the pole lies across both rims and the cords hang slack',
+                     'the weave is in the texture (the wall is a plain bowl with thickness); modelled: rim hoop with eight bindings, two split-bamboo strips crossing under the bottom, four cords per basket, the wraps round the pole, two pegs',
+                     'the middle of the pole is painted paler and smoother (polished by the shoulder); bamboo nodes are painted']}
+PROPS['VG06']=VG06
