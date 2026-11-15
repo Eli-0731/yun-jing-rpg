@@ -169,3 +169,91 @@ def VG06(M):
                      'the weave is in the texture (the wall is a plain bowl with thickness); modelled: rim hoop with eight bindings, two split-bamboo strips crossing under the bottom, four cords per basket, the wraps round the pole, two pegs',
                      'the middle of the pole is painted paler and smoother (polished by the shoulder); bamboo nodes are painted']}
 PROPS['VG06']=VG06
+
+# ---------------- VG07 stone hand mill on a fieldstone base (cand-4) ----------------
+def _turned(name,rings,NS,mat,grp,gfun=None,scale=.3,fan=(True,True)):
+    """a solid turned about Z through rings = [(r, z, g)]; gfun(k) in 0..1 cuts the radius by g * 0.012 at spoke k
+    (dressing notches down the side of a millstone); both ends closed by fans to the axis"""
+    bm=bmesh.new();R_=[]
+    for r,z,g in rings:
+        R_.append([bm.verts.new(((r-(g*.012*gfun(k) if gfun else 0))*math.cos(math.tau*k/NS),(r-(g*.012*gfun(k) if gfun else 0))*math.sin(math.tau*k/NS),z)) for k in range(NS)])
+    for a,b in zip(R_,R_[1:]):
+        for k in range(NS):bm.faces.new((a[k],a[(k+1)%NS],b[(k+1)%NS],b[k]))
+    for ring,(r,z,g) in ((R_[0],rings[0]),(R_[-1],rings[-1])):
+        c=bm.verts.new((0,0,z))
+        for k in range(NS):bm.faces.new((c,ring[k],ring[(k+1)%NS]))
+    bmesh.ops.recalc_face_normals(bm,faces=bm.faces)
+    for f in bm.faces:f.smooth=True
+    return finish(name,bm,mat,grp,scale)
+def VG07(M):
+    """a base of piled fieldstones; on it the catch tray (a round stone with a ring channel and a spout to the front),
+    the lower millstone fixed in its middle, the upper millstone on top: a feed hole, dressing notches down its side,
+    a wooden socket block let into the side with the push handle through it, bound with cord."""
+    rr=random.Random(5701);ST,WD,HP=M['stone'],M['cedar_b'],M['hemp']
+    ZT=.40;RT=.43    # the tray's underside and radius
+    # the base: a core and two rings of fieldstones
+    _turned('VG07_Core',[(.30,0.,0),(.29,.20,0),(.26,ZT+.004,0)],20,ST,'Body')
+    for k in range(7):
+        a=math.tau*k/7+rr.uniform(-.12,.12);sz=(rr.uniform(.27,.34),rr.uniform(.20,.25),rr.uniform(.20,.26));rad=.395-sz[1]/2
+        o=_blob(f'VG07_BaseStone{k}',sz,5710+k,ST,'Body',sub=2,bumps=8,amp=.17,flats=5,flat_amt=.8,scale=.3)
+        o.data.transform(Matrix.Rotation(a+math.pi/2+rr.uniform(-.2,.2),4,'Z'));o.data.transform(Matrix.Translation((rad*math.cos(a),rad*math.sin(a),0)))
+    for k in range(6):
+        a=math.tau*(k+.5)/6+rr.uniform(-.12,.12);sz=(rr.uniform(.25,.31),rr.uniform(.18,.22),rr.uniform(.20,.235));rad=.36-sz[1]/2;z=ZT+.012-sz[2]
+        o=_blob(f'VG07_UpperStone{k}',sz,5720+k,ST,'Body',sub=2,bumps=8,amp=.17,flats=5,flat_amt=.8,scale=.3)
+        o.data.transform(Matrix.Rotation(a+math.pi/2+rr.uniform(-.2,.2),4,'Z'));o.data.transform(Matrix.Translation((rad*math.cos(a),rad*math.sin(a),z)))
+    for k in range(5):   # small chinking stones at the foot
+        a=rr.uniform(0,math.tau);sz=(rr.uniform(.09,.14),rr.uniform(.07,.10),rr.uniform(.05,.08))
+        o=_blob(f'VG07_Chink{k}',sz,5730+k,ST,'Body',sub=1,bumps=4,amp=.10,scale=.2);o.data.transform(Matrix.Rotation(a,4,'Z'));o.data.transform(Matrix.Translation((.40*math.cos(a),.40*math.sin(a),0)))
+    # the catch tray: outer wall, ring channel, a raised seat for the lower stone
+    tray=_turned('VG07_Tray',[(RT-.05,ZT,0),(RT-.012,ZT+.018,0),(RT,ZT+.05,0),(RT,ZT+.118,0),(RT-.008,ZT+.130,0),(RT-.030,ZT+.130,0),(RT-.036,ZT+.120,0),
+                              (RT-.042,ZT+.086,0),(.275,ZT+.082,0),(.262,ZT+.094,0),(.10,ZT+.094,0)],48,ST,'Body')
+    _boolean(tray,_cutter('VG07_cutSpout',(.078,.16,.060),(0,-RT+.02,ZT+.086+.030)))   # the outlet through the wall
+    jitter(tray,.0035,5740,freq=11)
+    # the spout: a stone lip with a groove, running out and a little down from the outlet
+    bm=bmesh.new();R_=[]
+    for y,w,h,gw,dz in ((-RT+.055,.150,.105,.076,0.),(-RT-.02,.136,.098,.070,-.006),(-RT-.075,.112,.080,.060,-.016),(-RT-.098,.094,.062,.052,-.024)):
+        zt=ZT+.128+dz;zg=ZT+.084+dz*1.2;zb=zt-h
+        R_.append([bm.verts.new(p) for p in ((-w/2+.012,y,zb),(w/2-.012,y,zb),(w/2,y,zb+.02),(w/2,y,zt),(gw/2+.004,y,zt),(gw/2-.006,y,zg),(-gw/2+.006,y,zg),(-gw/2-.004,y,zt),(-w/2,y,zt),(-w/2,y,zb+.02))])
+    for a,b in zip(R_,R_[1:]):
+        for k in range(10):bm.faces.new((a[k],a[(k+1)%10],b[(k+1)%10],b[k]))
+    bm.faces.new(R_[0]);bm.faces.new(list(reversed(R_[-1])));o=finish('VG07_Spout',bm,ST,'Body',.3);jitter(o,.002,5741,freq=14)
+    o=box('VG07_SpoutProp',(.135,.075,ZT+.02),(0,-RT+.012,(ZT+.02)/2),ST,'Body',bev=.012,segs=2,cuts=2,jit=.006,seed=5742)   # an upright slab under the spout
+    # the lower millstone, fixed in the tray
+    Z0=ZT+.090;Z1=Z0+.120
+    o=_turned('VG07_LowerStone',[(.244,Z0,0),(.250,Z0+.012,0),(.251,Z1-.014,0),(.246,Z1-.003,0),(.236,Z1,0)],48,ST,'Body');jitter(o,.0025,5743,freq=13)
+    # the upper millstone: dressing notches down the upper two thirds of its side, a feed hole
+    Z2=Z1-.001;Z3=Z2+.185
+    g=lambda k:(1. if k%4<2 else 0.)
+    up=_turned('VG07_UpperStone',[(.236,Z2,0),(.244,Z2+.006,0),(.247,Z2+.050,0),(.247,Z2+.064,1),(.246,Z3-.016,1),(.238,Z3-.003,.8),(.226,Z3,0),(.12,Z3+.004,0),
+                                  (.046,Z3+.003,0),(.036,Z3-.010,0),(.031,Z3-.085,0)],72,ST,'Body',gfun=g)
+    # the handle: a socket block let into the stone's side, the push bar through it, bound with cord
+    zh=Z2+.105
+    _bar('VG07_Socket',(.262,0,Z2+.030),(.262,0,Z3+.050),.075,.062,WD,'Body',up=(1,0,0),bev=.005,seed=5750)
+    _lathe('VG07_Handle',[(0,.021),(.02,.024),(.45,.024),(.92,.021),(.985,.019),(1,.012)],((.175,0,zh),(.555,.004,zh+.004)),M['cedar'],'Body',NS=12,scale=.2)
+    for q,x in enumerate((.3085,.321)):_ring(f'VG07_HandleTie{q}',(x,0,zh),(1,0,0),.0275,.0045,HP,'Body',n=12)
+    for q in range(3):   # cord round the top of the block and the stone's shoulder
+        _ring(f'VG07_SocketTie{q}',(.262,0,Z3+.012+.0105*q),(0,0,1),.049,.0048,HP,'Body',n=14)
+    def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
+        P=(pos-np.array(meta['offset'][:]))/meta['scale_to_target'];px,py,pz=P[...,0],P[...,1],P[...,2];pr=np.hypot(px,py);th=np.arctan2(py,px)
+        stone=filled*(col[...,2]>col[...,0]*.72)                                           # not the wood or cord
+        mill=stone*(pz>Z0+.004)*(pr<.256);col=col*(1+.13*mill[...,None])                    # the two millstones: a paler, finer stone than the base
+        topf=mill*(pz>Z3-.004)*(pr>.05)*np.clip(onrm[...,2],0,1)                           # radial dressing furrows on the top face
+        fur=np.clip((np.sin(th*36+pr*14)-.72)*4,0,1);col=col*(1-.30*(topf*fur)[...,None])
+        side=mill*(pz<Z3-.01)*(np.abs(onrm[...,2])<.5);pick=np.clip((np.sin(pz*520+th*9)-.55)*2.5,0,1)   # pick marks round the sides
+        col=col*(1-.13*(side*pick)[...,None])
+        chan=stone*(pz>ZT+.070)*(pz<ZT+.105)*(pr>.255)*(pr<RT-.03)*np.clip(onrm[...,2],0,1)   # the channel: pale meal left in it
+        meal=chan*np.clip(.35+1.3*noise,0,1);col=col*(1-.55*meal[...,None])+meal[...,None]*.55*np.array([.80,.76,.66])
+        lip=stone*(py<-RT+.06)*(np.abs(px)<.05)*(pz>ZT+.05)*np.clip(onrm[...,2],0,1);col=col*(1-.4*lip[...,None])+lip[...,None]*.4*np.array([.74,.70,.60])
+        drip=stone*(py<-RT+.08)*(np.abs(px)<.09)*(pz<ZT+.06)*np.clip(.5+noise,0,1);col=col*(1-.30*drip[...,None])   # damp streak under the spout
+        base=stone*(pz<ZT)
+        ms=base*np.clip((cav-.40)*1.6+(noise-.42)*3.2+np.clip((.25-pz)/.25,0,1)*.7,0,1)*np.clip(.3+onrm[...,2],0,1)     # moss in the joints and on the stones' tops, more near the ground
+        col=col*(1-.55*ms[...,None])+ms[...,None]*.55*np.array([.22,.31,.11]);rough=np.clip(rough+.05*ms,0,1)
+        soil=base*np.clip((.07-pz)/.07,0,1);col=col*(1-.45*soil[...,None])+soil[...,None]*.45*np.array([.24,.18,.12])
+        grip=filled*(1-stone)*(px>.42);col=col*(1+.12*grip[...,None]);rough=np.clip(rough-.15*grip,0,1)
+        return col,rough
+    return {'paint':paint,'wear':.8,'grime':.9,'uv_angle':60,'collision_box':((.86,.86,.80),(0,0,.40)),
+            'notes':['two cylinders stacked: the lower millstone fixed in the catch tray, the upper one on it with a feed hole and dressing notches cut down its side (in the shape); pick marks and the radial furrows on top are painted',
+                     'the catch tray has a ring channel and an outlet cut through its wall; the spout is a grooved stone lip running out to the front, an upright slab under it',
+                     'the push handle goes through a wooden socket block let into the upper stone, bound with cord; the base is thirteen fieldstones piled round a core, small stones at the foot',
+                     'the collision box covers the tray and base, not the handle or the spout tip']}
+PROPS['VG07']=VG07
