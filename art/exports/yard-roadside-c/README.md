@@ -2,13 +2,13 @@
 |---|---|
 | 誰做的 | C（Eli-0731） |
 | 工作包 | docs/execution/2026-11-11/C-36h-yard-and-roadside-props.md |
-| ID | VG01–VG04（VG04 是兩種：VG04_01、VG04_02） |
+| ID | VG01–VG08（VG04 是兩種：VG04_01、VG04_02） |
 | 分支／PR | 批 A（VG01–VG04）：art/c-1111-vg-yard-props；批 B（VG05–VG08）：art/c-1111-vg-roadside-props ／ 開 PR 後補（一次一張，等前一張結案） |
 | 版本 | v001（檔名帶 `_v001`；之後改版另存 v002，不覆寫） |
 | 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖）／ In-game Verified：未驗（沒放進正式場景） |
 | 素材來源 | 原創；三視圖參考在 `art/references/VG01/`–`art/references/VG08/` |
 
-# 院子和路邊的東西 VG01–VG04
+# 院子和路邊的東西 VG01–VG08
 
 11/11 的 36 小時包：青溪村院子裡和路邊比較大件的東西，遠遠就看得到。靜態擺設，沒有玩法或動畫；擺進世界由核心組做，這裡不改主場景、不改區塊 JSON。
 
@@ -102,12 +102,76 @@
 | 碰撞 | 模型裡沒有 |
 | 檔案 | `art/exports/yard-roadside-c/VG04_02_v001.fbx`（LOD0–2）、`art/exports/yard-roadside-c/VG04_02_v001.glb`（LOD0）、`art/source/yard-roadside-c/VG04_02_v001.blend` |
 
+### VG05 兩輪手推板車（完好的空車）（Handcart，v001）
+
+練「輪子的圓和輻條；車架的榫接」。兩根縱樑從車尾一路伸到車頭，前段削細削圓成把手；四根橫樑穿過縱樑，榫頭從外側露出來，同時托住車板。車床是六片各自寬窄、長短、厚薄不同的木板。邊欄：每側三根立柱插進縱樑，內側一片側板、上面一根橫木穿過立柱，車尾一片擋板加一根橫木，後立柱用繩綁住；車頭那端敞開。輪子：車出來的輪轂加兩道鐵箍，十二根由粗到細的輻條，六段輪輞拼成圓，外包一圈鐵箍、外側十二顆鉚釘；輪軸穿過縱樑下的兩塊軸座，輪轂外各插一根鐵銷。車頭下一根支腳加兩根斜撐，讓車床放平。完好的空車，和翻倒的破車 A2_OverturnedCart 不同。輪胎和支腳底的泥、車板的曬白、把手的磨亮畫在貼圖上。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/VG05/`，選用 cand-3（93） |
+| 尺寸（寬 × 深 × 高） | 2.144 × 1.096 × 0.93 m（上限 2.2 × 1.1 × 1 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 7,740 / 3,870 / 1,160（不含 Detail_：7,740 / 3,870 / 1,160） |
+| 物件數（每個 LOD） | 1（本體 1 + 無） |
+| 材質數 | 1（`M_VG05_Handcart`，全部共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | standard |
+| 碰撞 | `VG05_Collision`：一個盒子 1.44 × 1.1 × 0.9 m（只在 FBX 和 .blend 裡，不顯示） |
+| 檔案 | `art/exports/yard-roadside-c/VG05_v001.fbx`（LOD0–2）、`art/exports/yard-roadside-c/VG05_v001.glb`（LOD0）、`art/source/yard-roadside-c/VG05_v001.blend` |
+
+### VG06 扁擔與兩個籮筐（放下來的樣子）（CarryingPoleBaskets，v001）
+
+練「竹編用貼圖；扁擔中間磨亮」。兩個籮筐放在地上，扁擔橫架在兩個筐口上，繩子鬆垂。竹編紋路在貼圖上，筐壁是一個有厚度的光滑碗形；建出來的有：筐口一圈竹箍和八處綁紮、每個筐底交叉的兩條竹篾（從筐底繞上筐壁到筐口）、每筐四條繩從筐口收到扁擔上、扁擔上的繩圈、兩端各一根擋繩的木栓。扁擔中間寬厚、兩端收窄微翹；中間被肩膀磨亮（較淺較光滑）和竹節畫在貼圖上。右邊的筐略小一點、轉了個方向。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/VG06/`，選用 cand-1（92） |
+| 尺寸（寬 × 深 × 高） | 1.757 × 0.48 × 0.38 m（上限 1.8 × 0.5 × 0.6 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 7,992 / 3,996 / 1,198（不含 Detail_：7,992 / 3,996 / 1,198） |
+| 物件數（每個 LOD） | 1（本體 1 + 無） |
+| 材質數 | 1（`M_VG06_CarryingPoleBaskets`，全部共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 檔案 | `art/exports/yard-roadside-c/VG06_v001.fbx`（LOD0–2）、`art/exports/yard-roadside-c/VG06_v001.glb`（LOD0）、`art/source/yard-roadside-c/VG06_v001.blend` |
+
+### VG07 石磨（卵石基座上的手推磨）（StoneMill，v001）
+
+練「兩個圓柱疊放；石頭表面的鑿痕；出料的槽口」。下磨盤固定在接料盤中間，上磨盤疊在上面：頂面中心一個進料孔，側面上三分之二有一道道鑿出來的直槽（做在形狀上）；側面的鑿點和頂面放射狀的磨紋畫在貼圖上。接料盤是一塊圓石，一圈環形的槽、外緣一圈矮壁，正面的壁上開了缺口接出料槽口——一條帶溝的石舌往外往下伸，下面立一塊石板撐著。上磨盤側面嵌一塊木座，推柄穿過木座，用繩綁住。基座是十三塊卵石圍著一個芯堆成兩圈，腳邊幾顆小石頭。槽裡殘留的粉、槽口下的濕痕、基座的青苔和泥畫在貼圖上。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/VG07/`，選用 cand-4（93） |
+| 尺寸（寬 × 深 × 高） | 0.983 × 0.975 × 0.846 m（上限 1 × 1 × 0.9 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 5,586 / 2,792 / 836（不含 Detail_：5,586 / 2,792 / 836） |
+| 物件數（每個 LOD） | 1（本體 1 + 無） |
+| 材質數 | 1（`M_VG07_StoneMill`，全部共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | standard |
+| 碰撞 | `VG07_Collision`：一個盒子 0.86 × 0.86 × 0.8 m（只在 FBX 和 .blend 裡，不顯示） |
+| 檔案 | `art/exports/yard-roadside-c/VG07_v001.fbx`（LOD0–2）、`art/exports/yard-roadside-c/VG07_v001.glb`（LOD0）、`art/source/yard-roadside-c/VG07_v001.blend` |
+
+### VG08 餵牲口的長石槽（StoneTrough，v001）
+
+練「挖空的厚度；內側的水漬和青苔」。整塊石頭挖空：槽壁厚 6–9 cm、各處不一樣（手鑿的），內側往下收窄到平的槽底；槽口的缺角做在形狀上，其中一個角缺得比較大。下面墊兩塊扁石。內側的舊水線（水線下深色帶綠、水線上有流痕）、槽底的淤泥、外側下半和槽口的青苔、淺色地衣、鏽色流痕都畫在貼圖上。照工作包只做石頭，沒有鐵件。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/VG08/`，選用 cand-3（93） |
+| 尺寸（寬 × 深 × 高） | 1.511 × 0.469 × 0.414 m（上限 1.6 × 0.5 × 0.45 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 2,032 / 1,016 / 304（不含 Detail_：2,032 / 1,016 / 304） |
+| 物件數（每個 LOD） | 1（本體 1 + 無） |
+| 材質數 | 1（`M_VG08_StoneTrough`，全部共用） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| minTier | standard |
+| 碰撞 | `VG08_Collision`：一個盒子 1.48 × 0.43 × 0.4 m（只在 FBX 和 .blend 裡，不顯示） |
+| 檔案 | `art/exports/yard-roadside-c/VG08_v001.fbx`（LOD0–2）、`art/exports/yard-roadside-c/VG08_v001.glb`（LOD0）、`art/source/yard-roadside-c/VG08_v001.blend` |
+
 ## 驗證
 
-- QA（`tools/art/qa_lod0_basic.py` 嚴格與寬鬆、`tools/art/qa_contact_glb.py`）：VG01、VG02、VG03、VG04_01、VG04_02 嚴格、寬鬆都是 0 項；接觸檢查本體都是 0 mm，結果在 `art/previews/yard-roadside-c/qa/`。
-- Unity 6000.3.28f1 獨立匯入：`art/previews/yard-roadside-c/unity/report.txt`（批 A 五個模型 81 項全過）。檢查內容：匯入尺寸和 model_info 差 2 cm 內、在工作包上限內、底部在地面、每個 LOD 的三角面和物件數、一個材質、貼圖 1024、`minTier = standard`、Detail_ 關掉後本體還在、VG01 有一個碰撞盒而其餘沒有、alpha clip 的三件 Albedo 有 alpha 且 Mip Maps Preserve Coverage 打開。
+- QA（`tools/art/qa_lod0_basic.py` 嚴格與寬鬆、`tools/art/qa_contact_glb.py`）：九個模型（VG01、VG02、VG03、VG04_01、VG04_02、VG05–VG08）嚴格、寬鬆都是 0 項；接觸檢查本體都在 1 mm 內（VG06 0.9 mm、VG07 0.2 mm，其餘 0 mm），結果在 `art/previews/yard-roadside-c/qa/`。
+- Unity 6000.3.28f1 獨立匯入：`art/previews/yard-roadside-c/unity/report.txt`（九個模型 137 項全過）。檢查內容：匯入尺寸和 model_info 差 2 cm 內、在工作包上限內、底部在地面、每個 LOD 的三角面和物件數、一個材質、貼圖 1024、`minTier = standard`、Detail_ 關掉後本體還在、VG01、VG05、VG07、VG08 各有一個碰撞盒而其餘沒有、alpha clip 的三件 Albedo 有 alpha 且 Mip Maps Preserve Coverage 打開。
 - 每件的審圖在 `art/previews/yard-roadside-c/<ID>/`：灰模（`clay/`）、四個方向加 1.75 m 人形尺、近看、線框、LOD0／LOD1／LOD2（不含 Detail_）。
-- 同光同角度並排（含 1.75 m 人形尺，灰模和成品各一張）：`art/previews/yard-roadside-c/compare/`。VG01 對 C 的蕨 BM09_02、落葉貼片 BM10_02 和醃菜甕 LV05；VG02、VG03 對 C 的竹梯 LV03 和蓑衣架 LV08；VG04 對 B 的柴堆 R03 和 C 的稻草蛋籃 LV12；`VG-setA` 是批 A 五個放在一起加 LV05。Unity 裡的並排是 `unity/VG-set-*.png`。
+- 同光同角度並排（含 1.75 m 人形尺，灰模和成品各一張）：`art/previews/yard-roadside-c/compare/`。VG01 對 C 的蕨 BM09_02、落葉貼片 BM10_02 和醃菜甕 LV05；VG02、VG03 對 C 的竹梯 LV03 和蓑衣架 LV08；VG04 對 B 的柴堆 R03 和 C 的稻草蛋籃 LV12；VG05 對 B 的翻倒板車 A2_OverturnedCart 和 LV05；VG06 對 C 的雞罩 LV01、蛋籃 LV12、吊籃 LV04；VG07、VG08 對 B 的枯井 D3_DryWell 和 LV05。`VG-setA`、`VG-setB` 是兩批各自放在一起加 LV05，`VG-all` 是全包九個模型加 LV05。Unity 裡的並排是 `unity/VG-set-*.png`。
 
 ## 已知問題與未驗
 
@@ -117,4 +181,8 @@
 - VG03：上衣是三片布搭在竿上拼成的（衣身、兩袖），不是一件縫好的衣服，從背面看得出來；領條和補丁是畫的。
 - VG04：草披的稻草紋路是貼圖，草絲只有下緣那一圈是面片；VG04_02 的凹口照工作包文字做，和三視圖畫的門簾不同。VG04_02 有幾根地上的散草（Detail_）離地 2.7 mm。
 - 灰模圖上 alpha clip 的面片是沒裁的方片（裁切在貼圖的 alpha）。
-- VG05–VG08（批 B）還沒做。
+- VG05：車板、邊欄的木紋和鐵箍的鏽是貼圖；輪子不能轉（和車架是同一個網格）；鉚釘只在輪子外側。碰撞盒只蓋車床和輪子，不含把手。
+- VG06：竹編是貼圖，筐壁是光滑的碗形，近看筐口看得出壁是一整片；繩子是鬆垂擺好的固定形狀。接觸檢查最大 0.9 mm。
+- VG07：基座卵石面數低（每顆 320 個三角面），近看輪廓有稜角；上磨盤不能轉；頂面的磨紋和側面的鑿點是畫的，只有側面的直槽做在形狀上。
+- VG08：LOD0 只有 2,032 個三角面，槽壁的起伏比較圓滑，手鑿的粗糙感主要靠貼圖；水線只畫在內側。
+- 並排用的 B 的 A2_OverturnedCart、D3_DryWell、R03_FirewoodNeat 的 GLB 在 LFS 裡，重跑並排前要先 `git lfs pull` 這三個檔。

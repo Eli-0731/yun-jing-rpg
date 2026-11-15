@@ -31,3 +31,12 @@ cmp VG02-VG03-vs-bamboo "$(m $E/VG02_v001.glb),$(m $E/VG03_v001.glb),$(m $V/LV03
 cmp VG04-vs-straw "$(m $E/VG04_01_v001.glb),$(m $E/VG04_02_v001.glb),$(m $B/qingxi-world-ruins-b/R03_FirewoodNeat/R03_FirewoodNeat_v001.glb),$(m $V/LV12_v001.glb)" "-1.35,0,0;1.35,0,0;3.0,0,0;-2.9,0,0"
 cmp VG-setA "$(m $E/VG01_v001.glb),$(m $E/VG02_v001.glb),$(m $E/VG03_v001.glb),$(m $E/VG04_01_v001.glb),$(m $E/VG04_02_v001.glb),$(m $V/LV05_v001.glb)" "0,-2.3,0;-2.6,.9,0;.6,1.6,0;3.1,.4,0;5.6,.4,0;2.3,-2.3,0"
 fi
+if has VG05; then
+W=$B/qingxi-world-ruins-b
+cmp VG05-vs-cart "$(m $E/VG05_v001.glb),$(m $W/A2_OverturnedCart/A2_OverturnedCart_v001.glb),$(m $V/LV05_v001.glb)" "-.6,0,0;2.4,.2,0;1.0,-1.1,0"
+cmp VG06-vs-baskets "$(m $E/VG06_v001.glb),$(m $V/LV01_v001.glb),$(m $V/LV12_v001.glb),$(m $V/LV04_v001.glb)" "0,0,0;1.6,.1,0;-1.3,.1,0;.0,-.8,0"
+cmp VG07-VG08-vs-stone "$(m $E/VG07_v001.glb),$(m $E/VG08_v001.glb),$(m $W/D3_DryWell/D3_DryWell_v001.glb),$(m $V/LV05_v001.glb)" "-1.0,.3,0;.6,-.5,0;1.6,.9,0;-.4,-.9,0"
+cmp VG-setB "$(m $E/VG05_v001.glb),$(m $E/VG06_v001.glb),$(m $E/VG07_v001.glb),$(m $E/VG08_v001.glb),$(m $V/LV05_v001.glb)" "-.9,1.0,0;-1.2,-1.0,0;1.9,.9,0;1.3,-1.0,0;2.6,-.9,0"
+# the whole pack side by side (work pack §2 "全包檢查"), with one older prop (LV05)
+cmp VG-all "$(m $E/VG01_v001.glb),$(m $E/VG02_v001.glb),$(m $E/VG03_v001.glb),$(m $E/VG04_01_v001.glb),$(m $E/VG04_02_v001.glb),$(m $E/VG05_v001.glb),$(m $E/VG06_v001.glb),$(m $E/VG07_v001.glb),$(m $E/VG08_v001.glb),$(m $V/LV05_v001.glb)" "-4.2,-1.6,0;-4.4,1.6,0;-1.5,1.9,0;1.6,1.7,0;4.3,1.7,0;-.8,-1.6,0;1.9,-2.0,0;3.6,-1.5,0;5.2,-1.9,0;-2.6,-2.6,0"
+fi
