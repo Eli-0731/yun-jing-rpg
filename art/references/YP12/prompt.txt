@@ -1,0 +1,17 @@
+YP12 大水缸（陶缸、木蓋、木瓢）（11/14 工作包 A 批；A1 院子）三視圖與自評（2026-11-16）
+選用：YP12-cand-3.png（92分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節和 A1 設定圖 V6（院子近景）、物件清單 docs/execution/world-plan/A1-inventory.md 寫（這份工作包沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。蓋子只蓋一小塊、放得歪，缸身補了一塊用繩縫的陶片。
+- cand-2：90（27+28+23+12）。缸口水痕多，側面補了一大塊。
+- cand-3：92（28+28+24+12）。選用。圓肚大缸、捲口、上半深褐釉下半露胎，木蓋蓋住半個缸口，葫蘆瓢擱在蓋上，缸裡有水。
+- cand-4：89（27+27+23+12）。蓋子是方的，缸身裂縫用鐵釘補。
+
+建模取捨：照 cand-3。缸身是一圈厚壁（裡外都做），捲口，手拉坯的不正圓；上半深褐釉、下半露胎的界線不齊，畫在貼圖上。木蓋是三片照圓裁的板、上面兩根釘住的橫檔，蓋住半個多一點的缸口；缸裡的水面在缸口下 8 cm。瓢是半個葫蘆綁一根木柄，擱在蓋上。圖上補在缸身的陶片不做。缸口往下的淡色水痕、缸腳的青苔和泥畫在貼圖上。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a large Chinese village earthenware water vat, about 0.8 m wide, 0.8 m deep and 0.9 m tall, a big round-bellied dark brown glazed ceramic vat with a thick rolled rim and unglazed lower part, a round wooden plank lid covering half of the mouth, a dried gourd dipper with a wooden handle resting on the lid, water inside, drip stains and moss at the foot, used in the yards of a lived-in Chinese southern mountain village, not Japanese, old and worn, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

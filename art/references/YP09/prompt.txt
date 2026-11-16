@@ -1,0 +1,17 @@
+YP09 木箱兩種（一般木箱、帶蓋的米箱）（11/14 工作包 A 批；A1 院子和攤位）三視圖與自評（2026-11-16）
+選用：YP09-cand-4.png（92分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節和 A1 設定圖 V6（院子近景）、物件清單 docs/execution/world-plan/A1-inventory.md 寫（這份工作包沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（28+28+23+12）。兩種都清楚，米箱補的木片偏大、箱腳多了一圈框。
+- cand-2：85（24+27+22+12）。兩個箱子畫得太小、米箱偏高偏窄，比例不對。
+- cand-3：91（28+28+23+12）。米箱側面多一根橫檔，木箱補片上有交叉的繩。
+- cand-4：92（28+28+24+12）。選用。木箱：四角立柱、每面三片橫板、兩端繩把手；米箱：後高前低、斜蓋五片板、兩個鐵鉸鏈、前面一個木扣。
+
+建模取捨：照 cand-4，兩個各自一個模型（YP09_01 木箱、YP09_02 米箱）。四角立柱比板面凸出，每面的橫板夾在立柱之間、寬窄不一、板間留縫，底是四片板，立柱上釘大頭釘。木箱兩端各一條麻繩把手，穿過端板在裡面打結。米箱後高前低，兩端最上面一片板照斜度裁；斜蓋是五片前後向的板、下面兩根橫檔，前緣挑出；後面兩個鐵鉸鏈（蓋上一片、背板一片、一根軸），前面一個木舌和木塊當扣；蓋子是關著的。米箱前面一塊補的木片照圖做。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of two old Chinese village wooden storage boxes side by side, a plain open plank crate about 0.6 m wide, 0.4 m deep and 0.35 m tall with rope handles, and a taller lidded rice chest about 0.6 m wide, 0.45 m deep and 0.55 m tall with a sloping hinged plank lid, thick boards joined by wooden dowels and corner battens, a few iron nails, used in the yards of a lived-in Chinese southern mountain village, not Japanese, old and worn, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

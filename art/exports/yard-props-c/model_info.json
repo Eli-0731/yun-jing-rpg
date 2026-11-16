@@ -591,5 +591,607 @@
    "a short rail at each end and a long rail front and back; the rail tenons go through the legs and are keyed with wedges (Detail_Keys)",
    "painted: the seat worn pale and smooth along the middle, mud and a little moss on the feet"
   ]
+ },
+ "YP09_01": {
+  "id": "YP09_01",
+  "name": "CrateOpen",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP09_01_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP09_01_v001.glb",
+   "blend": "art/source/yard-props-c/YP09_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.676,
+   0.41,
+   0.346
+  ],
+  "body_dimensions_xyz_m": [
+   0.676,
+   0.402,
+   0.346
+  ],
+  "size_limit_xyz_m": [
+   0.72,
+   0.45,
+   0.4
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Nails"
+  ],
+  "detailMeshes": [
+   "YP09_01_Detail_Nails_LOD0",
+   "YP09_01_Detail_Nails_LOD1",
+   "YP09_01_Detail_Nails_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 4524,
+    "triangles_without_detail": 3996,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP09_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP09_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP09_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP09_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 2262,
+    "triangles_without_detail": 1998,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP09_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP09_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP09_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP09_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 676,
+    "triangles_without_detail": 598,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP09_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP09_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP09_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP09_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP09_01_Body_LOD0",
+    "YP09_01_Body_LOD1",
+    "YP09_01_Body_LOD2"
+   ],
+   "Detail_Nails": [
+    "YP09_01_Detail_Nails_LOD0",
+    "YP09_01_Detail_Nails_LOD1",
+    "YP09_01_Detail_Nails_LOD2"
+   ]
+  },
+  "material": "M_YP09_01_CrateOpen",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 54,
+  "coplanar_lifted": 1,
+  "reference": "art/references/YP09/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP09_01_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.6,
+      0.4,
+      0.34
+     ],
+     "center_xyz_m": [
+      0.0,
+      0.0,
+      0.171
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "four corner posts standing proud; three board rows on every side set between the posts, their widths unequal, gaps between them; four bottom boards",
+   "a hemp rope handle through each end, knotted inside; nails on the posts are Detail_Nails",
+   "painted: damp, soil and moss at the foot, sun-greyed patches higher up"
+  ]
+ },
+ "YP09_02": {
+  "id": "YP09_02",
+  "name": "RiceChest",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP09_02_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP09_02_v001.glb",
+   "blend": "art/source/yard-props-c/YP09_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.621,
+   0.521,
+   0.55
+  ],
+  "body_dimensions_xyz_m": [
+   0.621,
+   0.521,
+   0.55
+  ],
+  "size_limit_xyz_m": [
+   0.68,
+   0.56,
+   0.6
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Nails"
+  ],
+  "detailMeshes": [
+   "YP09_02_Detail_Nails_LOD0",
+   "YP09_02_Detail_Nails_LOD1",
+   "YP09_02_Detail_Nails_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 3428,
+    "triangles_without_detail": 2592,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP09_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP09_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP09_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP09_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1714,
+    "triangles_without_detail": 1296,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP09_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP09_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP09_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP09_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 512,
+    "triangles_without_detail": 388,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP09_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP09_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP09_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP09_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP09_02_Body_LOD0",
+    "YP09_02_Body_LOD1",
+    "YP09_02_Body_LOD2"
+   ],
+   "Detail_Nails": [
+    "YP09_02_Detail_Nails_LOD0",
+    "YP09_02_Detail_Nails_LOD1",
+    "YP09_02_Detail_Nails_LOD2"
+   ]
+  },
+  "material": "M_YP09_02_RiceChest",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 77,
+  "coplanar_lifted": 3,
+  "reference": "art/references/YP09/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP09_02_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.62,
+      0.5,
+      0.54
+     ],
+     "center_xyz_m": [
+      0.0,
+      -0.0,
+      0.271
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "a rice chest taller at the back: four corner posts, board rows between them, the end walls topped by a board cut to the slope",
+   "the lid is five boards running front to back with two battens under it, overhanging at the front; two iron strap hinges with a pin at the back, a wooden tongue and block as the hasp at the front; the lid is closed (one mesh with the chest)",
+   "one board mended with a nailed piece; nails are Detail_Nails; painted: damp and moss at the foot, moss on the lid, the pale worn place where the lid is lifted"
+  ]
+ },
+ "YP11": {
+  "id": "YP11",
+  "name": "CarryingPoleBuckets",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP11_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP11_v001.glb",
+   "blend": "art/source/yard-props-c/YP11_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.692,
+   0.397,
+   0.389
+  ],
+  "body_dimensions_xyz_m": [
+   1.692,
+   0.397,
+   0.389
+  ],
+  "size_limit_xyz_m": [
+   1.8,
+   0.5,
+   0.6
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Rivets"
+  ],
+  "detailMeshes": [
+   "YP11_Detail_Rivets_LOD0",
+   "YP11_Detail_Rivets_LOD1",
+   "YP11_Detail_Rivets_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 9332,
+    "triangles_without_detail": 8628,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP11_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP11_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP11_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP11_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 4666,
+    "triangles_without_detail": 4314,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP11_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP11_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP11_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP11_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1398,
+    "triangles_without_detail": 1294,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP11_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP11_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP11_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP11_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP11_Body_LOD0",
+    "YP11_Body_LOD1",
+    "YP11_Body_LOD2"
+   ],
+   "Detail_Rivets": [
+    "YP11_Detail_Rivets_LOD0",
+    "YP11_Detail_Rivets_LOD1",
+    "YP11_Detail_Rivets_LOD2"
+   ]
+  },
+  "material": "M_YP11_CarryingPoleBuckets",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 89,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP11/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "set down, not carried: the two pails stand on the ground, the pole lies across their rims between the ears; the three-view shows it lifted",
+   "each pail: twelve staves, two hoops with rivets (Detail_Rivets), two drilled ear staves, water inside; the bail rope runs from the ears to a wooden hook tied to the pole end, slack",
+   "painted: the pole worn pale in the middle, damp and moss at the feet of the pails"
+  ]
+ },
+ "YP12": {
+  "id": "YP12",
+  "name": "WaterVat",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP12_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP12_v001.glb",
+   "blend": "art/source/yard-props-c/YP12_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.788,
+   0.786,
+   0.908
+  ],
+  "body_dimensions_xyz_m": [
+   0.788,
+   0.786,
+   0.908
+  ],
+  "size_limit_xyz_m": [
+   0.85,
+   0.85,
+   0.98
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Nails"
+  ],
+  "detailMeshes": [
+   "YP12_Detail_Nails_LOD0",
+   "YP12_Detail_Nails_LOD1",
+   "YP12_Detail_Nails_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 3764,
+    "triangles_without_detail": 3632,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP12_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP12_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP12_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP12_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1882,
+    "triangles_without_detail": 1816,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP12_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP12_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP12_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP12_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 562,
+    "triangles_without_detail": 544,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP12_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP12_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP12_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP12_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP12_Body_LOD0",
+    "YP12_Body_LOD1",
+    "YP12_Body_LOD2"
+   ],
+   "Detail_Nails": [
+    "YP12_Detail_Nails_LOD0",
+    "YP12_Detail_Nails_LOD1",
+    "YP12_Detail_Nails_LOD2"
+   ]
+  },
+  "material": "M_YP12_WaterVat",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 18,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP12/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP12_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.78,
+      0.78,
+      0.86
+     ],
+     "center_xyz_m": [
+      -0.001,
+      0.001,
+      0.434
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "one thick thrown wall with a rolled rim (inside modelled too), pushed a little out of round; water 8 cm below the rim",
+   "the lid is three boards cut to the circle under two nailed battens, covering a little more than half of the mouth; the dipper is half a gourd with a stick bound to it by three turns of cord",
+   "painted: the glaze stops at an uneven line above bare clay, a few chips, pale lime runs under the rim, moss and soil at the foot; the stone patch of the three-view is left out"
+  ]
  }
 }

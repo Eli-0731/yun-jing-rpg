@@ -34,6 +34,8 @@ TABLE={
  'YP03':('WaterBucketLadle',(.50,.50,.50),'standard'),
  'YP04':('StoneMortarPestle',(.60,.60,.75),'standard'),
  'YP05_01':('BenchLong',(1.6,.40,.50),'standard'),'YP05_02':('BenchShort',(.70,.40,.50),'standard'),
+ 'YP09_01':('CrateOpen',(.72,.45,.40),'standard'),'YP09_02':('RiceChest',(.68,.56,.60),'standard'),
+ 'YP11':('CarryingPoleBuckets',(1.8,.5,.6),'standard'),'YP12':('WaterVat',(.85,.85,.98),'standard'),
 }
 IDS=tuple(TABLE);TARGET={k:('x',None) for k in IDS};LIMIT={k:v[1] for k,v in TABLE.items()};NAME={k:v[0] for k,v in TABLE.items()};MIN_TIER={k:v[2] for k,v in TABLE.items()}
 for _f in [CK/'wl_items.py']+sorted(CK.glob('fi_items*.py')):exec(open(_f,encoding='utf-8').read())   # part helpers (_sheet, _cane, _lathe, _ring, _plate …)

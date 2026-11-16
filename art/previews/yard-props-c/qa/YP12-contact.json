@@ -1,0 +1,22 @@
+{
+ "YP12_v001": {
+  "YP12_Body_LOD0": {
+   "pieces": 12,
+   "within_1mm": 5,
+   "gap_1_3mm": 7,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.0,
+   "worst_at": []
+  },
+  "YP12_Detail_Nails_LOD0": {
+   "pieces": 6,
+   "within_1mm": 0,
+   "gap_1_3mm": 6,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.0,
+   "worst_at": []
+  }
+ }
+}

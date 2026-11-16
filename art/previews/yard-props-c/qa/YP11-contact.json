@@ -1,0 +1,22 @@
+{
+ "YP11_v001": {
+  "YP11_Body_LOD0": {
+   "pieces": 57,
+   "within_1mm": 50,
+   "gap_1_3mm": 7,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.6,
+   "worst_at": []
+  },
+  "YP11_Detail_Rivets_LOD0": {
+   "pieces": 32,
+   "within_1mm": 32,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.8,
+   "worst_at": []
+  }
+ }
+}

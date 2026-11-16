@@ -1,0 +1,22 @@
+{
+ "YP09_02_v001": {
+  "YP09_02_Body_LOD0": {
+   "pieces": 39,
+   "within_1mm": 39,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.3,
+   "worst_at": []
+  },
+  "YP09_02_Detail_Nails_LOD0": {
+   "pieces": 38,
+   "within_1mm": 37,
+   "gap_1_3mm": 1,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.0,
+   "worst_at": []
+  }
+ }
+}
