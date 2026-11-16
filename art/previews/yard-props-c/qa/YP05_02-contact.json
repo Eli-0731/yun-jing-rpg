@@ -1,0 +1,22 @@
+{
+ "YP05_02_v001": {
+  "YP05_02_Body_LOD0": {
+   "pieces": 13,
+   "within_1mm": 13,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "YP05_02_Detail_Keys_LOD0": {
+   "pieces": 8,
+   "within_1mm": 8,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}

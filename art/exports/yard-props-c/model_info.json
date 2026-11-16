@@ -1,0 +1,595 @@
+{
+ "YP03": {
+  "id": "YP03",
+  "name": "WaterBucketLadle",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP03_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP03_v001.glb",
+   "blend": "art/source/yard-props-c/YP03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.488,
+   0.357,
+   0.471
+  ],
+  "body_dimensions_xyz_m": [
+   0.488,
+   0.356,
+   0.471
+  ],
+  "size_limit_xyz_m": [
+   0.5,
+   0.5,
+   0.5
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Rivets"
+  ],
+  "detailMeshes": [
+   "YP03_Detail_Rivets_LOD0",
+   "YP03_Detail_Rivets_LOD1",
+   "YP03_Detail_Rivets_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 3970,
+    "triangles_without_detail": 3490,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1984,
+    "triangles_without_detail": 1744,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 594,
+    "triangles_without_detail": 522,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP03_Body_LOD0",
+    "YP03_Body_LOD1",
+    "YP03_Body_LOD2"
+   ],
+   "Detail_Rivets": [
+    "YP03_Detail_Rivets_LOD0",
+    "YP03_Detail_Rivets_LOD1",
+    "YP03_Detail_Rivets_LOD2"
+   ]
+  },
+  "material": "M_YP03_WaterBucketLadle",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 50,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP03/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "fourteen staves (their tops not level), two iron hoops each with ten rivets (Detail_Rivets), a bottom board let into the staves",
+   "two opposite staves run up past the rim and are drilled; the hemp rope handle goes through and is knotted outside",
+   "still water 4 cm below the rim; the ladle (turned bowl, long handle) lies across the rim clear of the ears",
+   "one stave mended with a small nailed board; painted: rust runs under the hoops, the wet band inside, damp and moss at the foot"
+  ]
+ },
+ "YP04": {
+  "id": "YP04",
+  "name": "StoneMortarPestle",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP04_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP04_v001.glb",
+   "blend": "art/source/yard-props-c/YP04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.493,
+   0.432,
+   0.708
+  ],
+  "body_dimensions_xyz_m": [
+   0.493,
+   0.432,
+   0.708
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.6,
+   0.75
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1590,
+    "triangles_without_detail": 1590,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP04_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP04_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 794,
+    "triangles_without_detail": 794,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP04_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP04_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 238,
+    "triangles_without_detail": 238,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP04_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP04_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP04_Body_LOD0",
+    "YP04_Body_LOD1",
+    "YP04_Body_LOD2"
+   ]
+  },
+  "material": "M_YP04_StoneMortarPestle",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 7,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP04/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP04_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.43,
+      0.43,
+      0.45
+     ],
+     "center_xyz_m": [
+      -0.027,
+      0.002,
+      0.225
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "one block of stone: the outside is chiselled into facets (flat shaded, every vertex moved on its own), a little waisted, a foot ring; the bowl is deep and round and smooth; a crack runs down from the rim on the front",
+   "the pestle leans in the bowl against the rim: rounded working end, four turns of cord at the grip, a knob on top; a small heap of grain in the bowl",
+   "the stone patch and iron staples of the three-view are left out (a cracked mortar is not mended that way)",
+   "painted: the weathered outside, the smoother worn bowl, meal dust on the rim, moss and soil at the foot; the collision box is the mortar only"
+  ]
+ },
+ "YP05_01": {
+  "id": "YP05_01",
+  "name": "BenchLong",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP05_01_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP05_01_v001.glb",
+   "blend": "art/source/yard-props-c/YP05_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.503,
+   0.389,
+   0.453
+  ],
+  "body_dimensions_xyz_m": [
+   1.503,
+   0.389,
+   0.453
+  ],
+  "size_limit_xyz_m": [
+   1.6,
+   0.4,
+   0.5
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Keys"
+  ],
+  "detailMeshes": [
+   "YP05_01_Detail_Keys_LOD0",
+   "YP05_01_Detail_Keys_LOD1",
+   "YP05_01_Detail_Keys_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 1136,
+    "triangles_without_detail": 744,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP05_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP05_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP05_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP05_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 568,
+    "triangles_without_detail": 372,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP05_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP05_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP05_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP05_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 168,
+    "triangles_without_detail": 110,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP05_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP05_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP05_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP05_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP05_01_Body_LOD0",
+    "YP05_01_Body_LOD1",
+    "YP05_01_Body_LOD2"
+   ],
+   "Detail_Keys": [
+    "YP05_01_Detail_Keys_LOD0",
+    "YP05_01_Detail_Keys_LOD1",
+    "YP05_01_Detail_Keys_LOD2"
+   ]
+  },
+  "material": "M_YP05_01_BenchLong",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 26,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP05_01_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      1.5,
+      0.3,
+      0.45
+     ],
+     "center_xyz_m": [
+      -0.001,
+      0.0,
+      0.225
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "a thick plank seat, dished in the middle (in the shape), its edges not straight; four legs splayed toward the ends and to front and back, their tenons through the seat, sawn off 4 mm proud",
+   "a short rail at each end and a long rail front and back; the rail tenons go through the legs and are keyed with wedges (Detail_Keys); a nailed mending board on the front edge of the seat",
+   "painted: the seat worn pale and smooth along the middle, mud and a little moss on the feet"
+  ]
+ },
+ "YP05_02": {
+  "id": "YP05_02",
+  "name": "BenchShort",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP05_02_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP05_02_v001.glb",
+   "blend": "art/source/yard-props-c/YP05_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.627,
+   0.389,
+   0.451
+  ],
+  "body_dimensions_xyz_m": [
+   0.627,
+   0.389,
+   0.451
+  ],
+  "size_limit_xyz_m": [
+   0.7,
+   0.4,
+   0.5
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Keys"
+  ],
+  "detailMeshes": [
+   "YP05_02_Detail_Keys_LOD0",
+   "YP05_02_Detail_Keys_LOD1",
+   "YP05_02_Detail_Keys_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 1052,
+    "triangles_without_detail": 700,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP05_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP05_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP05_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP05_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 526,
+    "triangles_without_detail": 350,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP05_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP05_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP05_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP05_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 156,
+    "triangles_without_detail": 104,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP05_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP05_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP05_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP05_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP05_02_Body_LOD0",
+    "YP05_02_Body_LOD1",
+    "YP05_02_Body_LOD2"
+   ],
+   "Detail_Keys": [
+    "YP05_02_Detail_Keys_LOD0",
+    "YP05_02_Detail_Keys_LOD1",
+    "YP05_02_Detail_Keys_LOD2"
+   ]
+  },
+  "material": "M_YP05_02_BenchShort",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 21,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP05_02_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.62,
+      0.3,
+      0.45
+     ],
+     "center_xyz_m": [
+      -0.001,
+      0.0,
+      0.225
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "a thick plank seat, dished in the middle (in the shape), its edges not straight; four legs splayed toward the ends and to front and back, their tenons through the seat, sawn off 4 mm proud",
+   "a short rail at each end and a long rail front and back; the rail tenons go through the legs and are keyed with wedges (Detail_Keys)",
+   "painted: the seat worn pale and smooth along the middle, mud and a little moss on the feet"
+  ]
+ }
+}
