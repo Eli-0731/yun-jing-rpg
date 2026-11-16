@@ -1,8 +1,8 @@
 {
  "YP03_v001": {
   "YP03_Body_LOD0": {
-   "pieces": 26,
-   "within_1mm": 26,
+   "pieces": 28,
+   "within_1mm": 28,
    "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
@@ -15,7 +15,7 @@
    "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
-   "largest_mm": 0.6,
+   "largest_mm": 0.5,
    "worst_at": []
   }
  }

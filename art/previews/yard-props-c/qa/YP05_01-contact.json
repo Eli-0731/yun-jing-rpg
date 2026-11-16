@@ -1,8 +1,8 @@
 {
  "YP05_01_v001": {
   "YP05_01_Body_LOD0": {
-   "pieces": 14,
-   "within_1mm": 14,
+   "pieces": 16,
+   "within_1mm": 16,
    "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,

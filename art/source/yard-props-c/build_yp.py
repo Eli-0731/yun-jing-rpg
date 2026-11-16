@@ -45,4 +45,16 @@ for _f in sorted(_VG.parent.glob('vg_items*.py')):exec(open(_f,encoding='utf-8')
 PROPS.clear()   # only the YP items below
 for _f in sorted(HERE.glob('yp_items*.py')):exec(open(_f,encoding='utf-8').read())
 
-exec(compile(_t[_b:],str(_VG),'exec'))   # bake / split / LOD / export, and the command line
+def _relief(nrm,pos,filled,h,k=1.):
+    """a painted height field (metres, on the baked position map) added to the baked tangent normal map: cracks, checks,
+    chisel facets, flaked glaze. The slope is taken along U and V from neighbouring texels of the same island."""
+    h=np.asarray(h,np.float32);m=float(np.median(np.linalg.norm(pos[:,1:]-pos[:,:-1],axis=2)[filled[:,1:]&filled[:,:-1]]))
+    def grad(ax):
+        d=np.linalg.norm(np.roll(pos,-1,ax)-np.roll(pos,1,ax),axis=2);ok=np.roll(filled,-1,ax)&np.roll(filled,1,ax)&filled&(d<6*m)&(d>1e-9)
+        return np.clip(np.where(ok,(np.roll(h,-1,ax)-np.roll(h,1,ax))/np.maximum(d,1e-9),0)*k,-1.2,1.2)
+    n=nrm[...,:3]*2-1;n[...,0]-=grad(1);n[...,1]-=grad(0);n/=np.maximum(np.linalg.norm(n,axis=2,keepdims=True),1e-6)
+    out=nrm.copy();out[...,:3]=n*.5+.5;return out
+_tail=_t[_b:];_hook="    if meta.get('paint'):col,rough=meta['paint'](col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta)\n"
+assert _hook in _tail
+_tail=_tail.replace(_hook,_hook+"    if meta.get('relief'):nrm=_relief(nrm,pos,filled,meta['relief'](),meta.get('relief_k',1.))   # YP: painted relief into the normal map\n")
+exec(compile(_tail,str(_VG),'exec'))   # bake / split / LOD / export, and the command line

@@ -1,0 +1,17 @@
+YP06 草蓆（攤平、捲起）與曬穀竹匾（11/14 工作包 A 批；A1 院子，設定圖 V6 曬穀的地方）三視圖與自評（2026-11-16）
+選用：YP06-cand-4.png（92分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節和 A1 設定圖 V6（院子近景）、物件清單 docs/execution/world-plan/A1-inventory.md 寫（這份工作包沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。三樣都有，但草蓆背面多了兩根竹條，補的布偏多。
+- cand-2：89（27+27+23+12）。草蓆是斜紋編，破口多，捲起的那捲偏粗。
+- cand-3：90（27+28+23+12）。編紋清楚，但竹匾邊框太厚，草蓆補了三塊。
+- cand-4：92（28+28+24+12）。選用。攤平的草蓆（四邊草鬚、一個破口、一塊補布）、橫放的蓆捲（兩道草繩）、竹匾（竹圈邊、匾裡一層穀、背面十字竹條），三樣各有正、側、背。
+
+建模取捨：照 cand-4，三個各自一個模型（YP06_01 攤平草蓆、YP06_02 蓆捲、YP06_03 曬穀竹匾），可以分開擺。攤平的草蓆貼地、不是一片平面：有起伏、一角翹起，四邊草鬚做成一根根的草，一個破口做在形狀上，一塊補布和縫線照圖做。蓆捲是同一張蓆捲成螺旋（端面看得到一圈圈）、兩道草繩各打一個結，橫躺。竹匾是淺盤：兩圈竹圈夾住編面、用藤條一段段綁住，匾裡一層穀（鼓起、邊緣薄），背面兩根交叉的竹條。編紋做在貼圖和法線上。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a set of three Chinese village drying things side by side: a woven rice-straw mat spread flat about 1.8 m long and 0.9 m wide, the same kind of straw mat rolled up and tied with two straw cords, and a large shallow round woven bamboo winnowing tray about 1.1 m across with a thin layer of golden unhusked rice spread on it, frayed mat edges, used in the yards of a lived-in Chinese southern mountain village, not Japanese, old and worn, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

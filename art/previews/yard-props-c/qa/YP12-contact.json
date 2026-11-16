@@ -6,7 +6,7 @@
    "gap_1_3mm": 7,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
-   "largest_mm": 2.0,
+   "largest_mm": 1.7,
    "worst_at": []
   },
   "YP12_Detail_Nails_LOD0": {
@@ -15,7 +15,16 @@
    "gap_1_3mm": 6,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
-   "largest_mm": 2.0,
+   "largest_mm": 1.7,
+   "worst_at": []
+  },
+  "YP12_Detail_Staples_LOD0": {
+   "pieces": 3,
+   "within_1mm": 3,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
    "worst_at": []
   }
  }

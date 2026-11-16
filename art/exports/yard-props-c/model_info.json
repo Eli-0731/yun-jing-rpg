@@ -36,8 +36,8 @@
   ],
   "lods": {
    "LOD0": {
-    "triangles": 3970,
-    "triangles_without_detail": 3490,
+    "triangles": 4058,
+    "triangles_without_detail": 3578,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -61,8 +61,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1984,
-    "triangles_without_detail": 1744,
+    "triangles": 2028,
+    "triangles_without_detail": 1788,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -86,8 +86,8 @@
     }
    },
    "LOD2": {
-    "triangles": 594,
-    "triangles_without_detail": 522,
+    "triangles": 608,
+    "triangles_without_detail": 536,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -125,16 +125,16 @@
   },
   "material": "M_YP03_WaterBucketLadle",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 50,
+  "source_parts": 52,
   "coplanar_lifted": 0,
   "reference": "art/references/YP03/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one",
   "notes": [
-   "fourteen staves (their tops not level), two iron hoops each with ten rivets (Detail_Rivets), a bottom board let into the staves",
+   "fourteen staves (their tops not level, some with a corner broken off or worn short), two iron hoops each with ten rivets (Detail_Rivets) and a lapped joint, a bottom board let into the staves",
    "two opposite staves run up past the rim and are drilled; the hemp rope handle goes through and is knotted outside",
    "still water 4 cm below the rim; the ladle (turned bowl, long handle) lies across the rim clear of the ears",
-   "one stave mended with a small nailed board; painted: rust runs under the hoops, the wet band inside, damp and moss at the foot"
+   "one stave mended with a small nailed board; painted, with the relief also in the normal map: checks along the staves, splits down from the rim, rusty pitted hoops and rust runs under them, sun-greyed patches, the wet band inside, damp and moss at the foot"
   ]
  },
  "YP04": {
@@ -148,13 +148,13 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   0.493,
-   0.432,
+   0.494,
+   0.436,
    0.708
   ],
   "body_dimensions_xyz_m": [
-   0.493,
-   0.432,
+   0.494,
+   0.436,
    0.708
   ],
   "size_limit_xyz_m": [
@@ -168,8 +168,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 1590,
-    "triangles_without_detail": 1590,
+    "triangles": 3262,
+    "triangles_without_detail": 3262,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -193,8 +193,8 @@
     }
    },
    "LOD1": {
-    "triangles": 794,
-    "triangles_without_detail": 794,
+    "triangles": 1630,
+    "triangles_without_detail": 1630,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -218,8 +218,8 @@
     }
    },
    "LOD2": {
-    "triangles": 238,
-    "triangles_without_detail": 238,
+    "triangles": 488,
+    "triangles_without_detail": 488,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -267,8 +267,8 @@
       0.45
      ],
      "center_xyz_m": [
-      -0.027,
-      0.002,
+      -0.026,
+      -0.002,
       0.225
      ]
     }
@@ -276,10 +276,10 @@
    "note": ""
   },
   "notes": [
-   "one block of stone: the outside is chiselled into facets (flat shaded, every vertex moved on its own), a little waisted, a foot ring; the bowl is deep and round and smooth; a crack runs down from the rim on the front",
+   "one block of stone, hewn: the outside is uneven swells and broad pick flats (in the shape), a little waisted, a foot ring; the rim is not level and knocked off in four places; the bowl is deep and round and smooth; a crack runs down from the rim on the front",
    "the pestle leans in the bowl against the rim: rounded working end, four turns of cord at the grip, a knob on top; a small heap of grain in the bowl",
    "the stone patch and iron staples of the three-view are left out (a cracked mortar is not mended that way)",
-   "painted: the weathered outside, the smoother worn bowl, meal dust on the rim, moss and soil at the foot; the collision box is the mortar only"
+   "painted, with the relief also in the normal map: small tilted pick facets and pits, the crack going on down, rain streaks, pale lichen, the smoother worn bowl, meal dust on the rim, moss and soil at the foot; the collision box is the mortar only"
   ]
  },
  "YP05_01": {
@@ -295,12 +295,12 @@
   "dimensions_xyz_m": [
    1.503,
    0.389,
-   0.453
+   0.464
   ],
   "body_dimensions_xyz_m": [
    1.503,
    0.389,
-   0.453
+   0.464
   ],
   "size_limit_xyz_m": [
    1.6,
@@ -319,8 +319,8 @@
   ],
   "lods": {
    "LOD0": {
-    "triangles": 1136,
-    "triangles_without_detail": 744,
+    "triangles": 2016,
+    "triangles_without_detail": 1624,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -344,8 +344,8 @@
     }
    },
    "LOD1": {
-    "triangles": 568,
-    "triangles_without_detail": 372,
+    "triangles": 1008,
+    "triangles_without_detail": 812,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -369,8 +369,8 @@
     }
    },
    "LOD2": {
-    "triangles": 168,
-    "triangles_without_detail": 110,
+    "triangles": 300,
+    "triangles_without_detail": 242,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -408,7 +408,7 @@
   },
   "material": "M_YP05_01_BenchLong",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 26,
+  "source_parts": 28,
   "coplanar_lifted": 0,
   "reference": "art/references/YP05/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
@@ -433,8 +433,8 @@
   },
   "notes": [
    "a thick plank seat, dished in the middle (in the shape), its edges not straight; four legs splayed toward the ends and to front and back, their tenons through the seat, sawn off 4 mm proud",
-   "a short rail at each end and a long rail front and back; the rail tenons go through the legs and are keyed with wedges (Detail_Keys); a nailed mending board on the front edge of the seat",
-   "painted: the seat worn pale and smooth along the middle, mud and a little moss on the feet"
+   "a short rail at each end and a long rail front and back; the rail tenons go through the legs and are keyed with wedges (Detail_Keys); a nailed mending board on the front edge of the seat; one end is split along the grain and bound round with four turns of cord",
+   "painted, with the relief also in the normal map: checks along the grain, knots, shallow adze scallops, sun-greyed patches; the seat worn pale and smooth along the middle, mud and a little moss on the feet"
   ]
  },
  "YP05_02": {
@@ -450,12 +450,12 @@
   "dimensions_xyz_m": [
    0.627,
    0.389,
-   0.451
+   0.461
   ],
   "body_dimensions_xyz_m": [
    0.627,
    0.389,
-   0.451
+   0.461
   ],
   "size_limit_xyz_m": [
    0.7,
@@ -474,8 +474,8 @@
   ],
   "lods": {
    "LOD0": {
-    "triangles": 1052,
-    "triangles_without_detail": 700,
+    "triangles": 1908,
+    "triangles_without_detail": 1556,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -499,8 +499,8 @@
     }
    },
    "LOD1": {
-    "triangles": 526,
-    "triangles_without_detail": 350,
+    "triangles": 954,
+    "triangles_without_detail": 778,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -524,8 +524,8 @@
     }
    },
    "LOD2": {
-    "triangles": 156,
-    "triangles_without_detail": 104,
+    "triangles": 284,
+    "triangles_without_detail": 232,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -563,7 +563,7 @@
   },
   "material": "M_YP05_02_BenchShort",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 21,
+  "source_parts": 23,
   "coplanar_lifted": 0,
   "reference": "art/references/YP05/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
@@ -588,8 +588,8 @@
   },
   "notes": [
    "a thick plank seat, dished in the middle (in the shape), its edges not straight; four legs splayed toward the ends and to front and back, their tenons through the seat, sawn off 4 mm proud",
-   "a short rail at each end and a long rail front and back; the rail tenons go through the legs and are keyed with wedges (Detail_Keys)",
-   "painted: the seat worn pale and smooth along the middle, mud and a little moss on the feet"
+   "a short rail at each end and a long rail front and back; the rail tenons go through the legs and are keyed with wedges (Detail_Keys); four turns of cord bound round one end of the seat",
+   "painted, with the relief also in the normal map: checks along the grain, knots, shallow adze scallops, sun-greyed patches; the seat worn pale and smooth along the middle, mud and a little moss on the feet"
   ]
  },
  "YP09_01": {
@@ -629,8 +629,8 @@
   ],
   "lods": {
    "LOD0": {
-    "triangles": 4524,
-    "triangles_without_detail": 3996,
+    "triangles": 4560,
+    "triangles_without_detail": 4032,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -654,8 +654,8 @@
     }
    },
    "LOD1": {
-    "triangles": 2262,
-    "triangles_without_detail": 1998,
+    "triangles": 2280,
+    "triangles_without_detail": 2016,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -679,8 +679,8 @@
     }
    },
    "LOD2": {
-    "triangles": 676,
-    "triangles_without_detail": 598,
+    "triangles": 682,
+    "triangles_without_detail": 604,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -742,9 +742,9 @@
    "note": ""
   },
   "notes": [
-   "four corner posts standing proud; three board rows on every side set between the posts, their widths unequal, gaps between them; four bottom boards",
+   "four corner posts standing proud; three board rows on every side set between the posts, their widths unequal, gaps between them; four bottom boards; the front top board has lost a corner and the bottom one is split along the grain",
    "a hemp rope handle through each end, knotted inside; nails on the posts are Detail_Nails",
-   "painted: damp, soil and moss at the foot, sun-greyed patches higher up"
+   "painted, with the relief also in the normal map: checks along every board, sun-greyed patches, rust runs under the nails, damp, soil and moss at the foot"
   ]
  },
  "YP09_02": {
@@ -784,8 +784,8 @@
   ],
   "lods": {
    "LOD0": {
-    "triangles": 3428,
-    "triangles_without_detail": 2592,
+    "triangles": 3456,
+    "triangles_without_detail": 2620,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -809,8 +809,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1714,
-    "triangles_without_detail": 1296,
+    "triangles": 1728,
+    "triangles_without_detail": 1310,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -834,8 +834,8 @@
     }
    },
    "LOD2": {
-    "triangles": 512,
-    "triangles_without_detail": 388,
+    "triangles": 516,
+    "triangles_without_detail": 392,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -897,9 +897,9 @@
    "note": ""
   },
   "notes": [
-   "a rice chest taller at the back: four corner posts, board rows between them, the end walls topped by a board cut to the slope",
+   "a rice chest taller at the back: four corner posts, board rows between them, the end walls topped by a board cut to the slope; the middle front board is split along the grain",
    "the lid is five boards running front to back with two battens under it, overhanging at the front; two iron strap hinges with a pin at the back, a wooden tongue and block as the hasp at the front; the lid is closed (one mesh with the chest)",
-   "one board mended with a nailed piece; nails are Detail_Nails; painted: damp and moss at the foot, moss on the lid, the pale worn place where the lid is lifted"
+   "one board mended with a nailed piece; nails are Detail_Nails; painted, with the relief also in the normal map: checks along every board, knots in the lid, sun-greyed patches, rust runs under the nails, damp and moss at the foot, moss on the lid, the pale worn place where the lid is lifted"
   ]
  },
  "YP11": {
@@ -1035,8 +1035,8 @@
   "collision": "none in the model; add a box from body_dimensions if the scene needs one",
   "notes": [
    "set down, not carried: the two pails stand on the ground, the pole lies across their rims between the ears; the three-view shows it lifted",
-   "each pail: twelve staves, two hoops with rivets (Detail_Rivets), two drilled ear staves, water inside; the bail rope runs from the ears to a wooden hook tied to the pole end, slack",
-   "painted: the pole worn pale in the middle, damp and moss at the feet of the pails"
+   "each pail: twelve staves (tops not level, some chipped), two hoops with rivets (Detail_Rivets), two drilled ear staves, water inside; the bail rope runs from the ears to a wooden hook tied to the pole end, slack",
+   "painted, with the relief also in the normal map: checks and rim splits in the staves, rusty hoops, checks in the pole and its middle worn pale, damp and moss at the feet of the pails"
   ]
  },
  "YP12": {
@@ -1067,18 +1067,22 @@
   "within_limit": true,
   "minTier": "standard",
   "detailObjects": [
-   "Detail_Nails"
+   "Detail_Nails",
+   "Detail_Staples"
   ],
   "detailMeshes": [
    "YP12_Detail_Nails_LOD0",
    "YP12_Detail_Nails_LOD1",
-   "YP12_Detail_Nails_LOD2"
+   "YP12_Detail_Nails_LOD2",
+   "YP12_Detail_Staples_LOD0",
+   "YP12_Detail_Staples_LOD1",
+   "YP12_Detail_Staples_LOD2"
   ],
   "lods": {
    "LOD0": {
-    "triangles": 3764,
-    "triangles_without_detail": 3632,
-    "objects": 2,
+    "triangles": 4928,
+    "triangles_without_detail": 4664,
+    "objects": 3,
     "objects_without_detail": 1,
     "materials": 1,
     "textures_px": {
@@ -1101,9 +1105,9 @@
     }
    },
    "LOD1": {
-    "triangles": 1882,
-    "triangles_without_detail": 1816,
-    "objects": 2,
+    "triangles": 2464,
+    "triangles_without_detail": 2332,
+    "objects": 3,
     "objects_without_detail": 1,
     "materials": 1,
     "textures_px": {
@@ -1126,9 +1130,9 @@
     }
    },
    "LOD2": {
-    "triangles": 562,
-    "triangles_without_detail": 544,
-    "objects": 2,
+    "triangles": 734,
+    "triangles_without_detail": 698,
+    "objects": 3,
     "objects_without_detail": 1,
     "materials": 1,
     "textures_px": {
@@ -1161,11 +1165,16 @@
     "YP12_Detail_Nails_LOD0",
     "YP12_Detail_Nails_LOD1",
     "YP12_Detail_Nails_LOD2"
+   ],
+   "Detail_Staples": [
+    "YP12_Detail_Staples_LOD0",
+    "YP12_Detail_Staples_LOD1",
+    "YP12_Detail_Staples_LOD2"
    ]
   },
   "material": "M_YP12_WaterVat",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 18,
+  "source_parts": 21,
   "coplanar_lifted": 0,
   "reference": "art/references/YP12/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
@@ -1189,9 +1198,10 @@
    "note": ""
   },
   "notes": [
-   "one thick thrown wall with a rolled rim (inside modelled too), pushed a little out of round; water 8 cm below the rim",
-   "the lid is three boards cut to the circle under two nailed battens, covering a little more than half of the mouth; the dipper is half a gourd with a stick bound to it by three turns of cord",
-   "painted: the glaze stops at an uneven line above bare clay, pale lime runs under the rim, moss and soil at the foot; the stone patch of the three-view is left out"
+   "one thick thrown wall with a rolled rim (inside modelled too), pushed a little out of round; two raised cord bands on the shoulder; the rim is chipped in three places; water 8 cm below the rim",
+   "the lid is three boards cut to the circle under two nailed battens (a corner split off the front board), covering a little more than half of the mouth; the dipper is half a gourd with a stick bound to it by three turns of cord",
+   "a crack runs down the front-left of the wall, held by three iron staples (Detail_Staples)",
+   "painted, with the relief also in the normal map: the glaze stops at an uneven line with tongues above bare clay, glaze flaked off in angular patches, the crack and its seep stain, two thrown lines, lime runs under the rim, the scale line inside, moss and soil at the foot, checks and knots in the lid"
   ]
  }
 }
