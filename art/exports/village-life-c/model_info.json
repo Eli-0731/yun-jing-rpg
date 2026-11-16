@@ -1250,7 +1250,7 @@
  },
  "LV10": {
   "id": "LV10",
-  "name": "StrawSandalsClogs",
+  "name": "StrawSandalsClothShoes",
   "version": "v001",
   "files": {
    "fbx": "art/exports/village-life-c/LV10_v001.fbx",
@@ -1259,14 +1259,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   0.382,
-   0.255,
-   0.089
+   0.393,
+   0.284,
+   0.067
   ],
   "body_dimensions_xyz_m": [
-   0.382,
-   0.255,
-   0.087
+   0.386,
+   0.268,
+   0.067
   ],
   "size_limit_xyz_m": [
    0.4,
@@ -1285,8 +1285,8 @@
   ],
   "lods": {
    "LOD0": {
-    "triangles": 6336,
-    "triangles_without_detail": 6112,
+    "triangles": 8936,
+    "triangles_without_detail": 8796,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1310,8 +1310,8 @@
     }
    },
    "LOD1": {
-    "triangles": 3168,
-    "triangles_without_detail": 3056,
+    "triangles": 4468,
+    "triangles_without_detail": 4398,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1335,8 +1335,8 @@
     }
    },
    "LOD2": {
-    "triangles": 948,
-    "triangles_without_detail": 916,
+    "triangles": 1338,
+    "triangles_without_detail": 1318,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1372,17 +1372,18 @@
     "LV10_Detail_Frays_LOD2"
    ]
   },
-  "material": "M_LV10_StrawSandalsClogs",
+  "material": "M_LV10_StrawSandalsClothShoes",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 42,
-  "coplanar_lifted": 0,
+  "source_parts": 40,
+  "coplanar_lifted": 1,
   "reference": "art/references/LV10/prompt.txt",
   "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none: a small prop on the ground the player walks round; add a box from body_dimensions if the scene needs one",
   "notes": [
-   "two straw sandals (0.24 m) and two wooden clogs (0.225 m, teeth 3.4 cm), each its own piece, set down a little askew",
-   "the sandal sole is a flat plate with a braided rope rim; the braid, the pressed heel and ball are painted; clog mud and foot print painted",
-   "thongs: two padded cloth straps from a toe knot to the sides and a post into the sole; Detail_Frays: frayed threads at the knots"
+   "#117 review: remade as Chinese footwear — two straw sandals (0.24 m) and two black cloth shoes (0.245 m), each its own piece, set down a little askew",
+   "straw sandal: a flat sole with a braided rope rim; two front ears, two side ears and a heel loop of straw cord; two laces cross over the instep (no toe thong), tied at the heel loop with slack ends; weave, pressed heel and ball, mud painted",
+   "cloth shoe: a round-toed upper with thickness and a bound opening on a thick white sole; the cloth layers and stitches of the sole, the dust and the near-black colour are painted",
+   "the laces lie slack (no foot inside), so they do not stand as tall as in the three-view; Detail_Frays: loose straw ends on the sandal rims"
   ]
  },
  "LV11": {

@@ -97,7 +97,7 @@ def make_sources():
     K.rng=np.random.default_rng(3306)   # LV07: dried gourd shell, tan with darker freckles
     gs=np.clip((fbm(10,3)-.6)*3,0,1)*.6+np.clip((fbm(40,2)-.7)*3,0,1)*.4   # soft blotches, a few small freckles
     S['gourd']=(lerp((.55,.38,.19),(.78,.60,.33),np.clip(.5+.7*(fbm(3,3)-.5),0,1))*(1-.16*gs[...,None]),.15*fbm(20,2)-.1*gs,.5,.62,0,0)
-    S['cloth_dark']=(*linen((.24,.26,.32),(.15,.16,.21),3308),.6,.92,0,0)   # LV10: dark indigo cloth of the sandal and clog thongs
+    S['cloth_dark']=(*linen((.24,.26,.32),(.15,.16,.21),3308),.6,.92,0,0)   # LV10: dark indigo cloth (the cloth shoes' uppers)
     K.rng=np.random.default_rng(3309)   # LV11: fine grey whetstone, and the water in its bowl
     S['whet']=(lerp((.29,.30,.31),(.47,.47,.46),np.clip(.5+.7*(fbm(4,3)-.5)+.12*(fbm(50,2)-.5),0,1))*(1-.10*np.clip((fbm(12,2,aniso=5)-.62)*4,0,1))[...,None],.25*fbm(40,2),.6,.7,0,0)
     S['water']=(lerp((.17,.30,.30),(.30,.46,.43),np.clip(.5+.6*(fbm(3,2)-.5),0,1)),.05*fbm(8,2),.2,.08,0,0)
@@ -135,7 +135,7 @@ TARGET={k:('x',None) for k in ('LV01','LV02','LV03','LV04','LV05','LV06','LV07',
 LIMIT={'LV01':(.8,.8,.6),'LV02':(1.4,.4,.3),'LV03':(.5,.1,2.4),'LV04':(.5,.5,.8),'LV05':(.9,.5,.6),'LV06':(.6,.6,.6),
        'LV07':(.4,.2,.5),'LV08':(.8,.4,1.6),'LV09':(.4,.4,1.2),'LV10':(.4,.3,.1),'LV11':(.8,.3,.5),'LV12':(.35,.35,.25)}   # work pack part 2 table A, w × d × h
 NAME={'LV01':'ChickenCoop','LV02':'BroomDustpan','LV03':'BambooLadder','LV04':'HangingBasket','LV05':'PickleJars','LV06':'ChoppingBlock',
-      'LV07':'GourdLadle','LV08':'RainHatCapeRack','LV09':'BirdcagePole','LV10':'StrawSandalsClogs','LV11':'WhetstoneBench','LV12':'StrawEggBasket'}
+      'LV07':'GourdLadle','LV08':'RainHatCapeRack','LV09':'BirdcagePole','LV10':'StrawSandalsClothShoes','LV11':'WhetstoneBench','LV12':'StrawEggBasket'}
 MIN_TIER={k:'high' for k in TARGET}   # quality-tiers §4: roadside props that add richness; nothing to play with or stop the player
 for _f in [CK/'wl_items.py']+sorted(CK.glob('fi_items*.py')):exec(open(_f,encoding='utf-8').read())   # part helpers (_sheet, _cane, _lathe, _ring, _plate …)
 PROPS.clear()   # only the LV items below
