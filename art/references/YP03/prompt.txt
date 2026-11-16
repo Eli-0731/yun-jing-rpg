@@ -1,0 +1,17 @@
+YP03 木水桶與木杓（11/14 工作包 A 批：鐵箍、水面；A1 院子，設定圖 V6 門邊的木桶和杓）三視圖與自評（2026-11-16）
+選用：YP03-cand-4.png（92分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節和 A1 設定圖 V6（院子近景）、物件清單 docs/execution/world-plan/A1-inventory.md 寫（這份工作包沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。桶身偏高，箍上多了兩塊方鐵片，桶板用繩縫補。
+- cand-2：91（28+28+23+12）。兩道鐵箍和鉚釘清楚，但桶口青苔多、補的木片偏大。
+- cand-3：89（27+27+23+12）。提繩上纏了布，桶身下方補了斜木片，雜。
+- cand-4：92（28+28+24+12）。選用。桶板一片片、兩道帶鉚釘的鐵箍、兩片加高的桶板穿繩當提把、水面接近桶口、長柄木杓橫擱在桶口。
+
+建模取捨：照 cand-4。桶身是一片片桶板圍成（上寬下窄），兩道鐵箍各一圈鉚釘；相對的兩片桶板加高、鑽孔，麻繩穿過打結當提把；桶底一片圓板；水面是桶內一片圓面。木杓：車出來的杓斗加一根長柄，橫擱在桶口、杓斗一半在水面上方。桶身一小塊補的木片照圖做。桶腳的濕痕和青苔畫在貼圖上。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of an old Chinese wooden water bucket with a wooden ladle, about 0.4 m wide, 0.4 m deep and 0.45 m tall, staved bucket bound by two dark iron hoops, a rope handle through two raised staves, still water inside near the brim, a long-handled carved wooden dipper resting across the rim, wet darker wood near the base, used in the yards of a lived-in Chinese southern mountain village, not Japanese, old and worn, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

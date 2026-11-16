@@ -1,0 +1,17 @@
+YP04 石臼與木杵（11/14 工作包 A 批；A1 院子，設定圖 V6 長凳旁的石臼）三視圖與自評（2026-11-16）
+選用：YP04-cand-3.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節和 A1 設定圖 V6（院子近景）、物件清單 docs/execution/world-plan/A1-inventory.md 寫（這份工作包沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。臼口圓、臼身鼓，但臼身釘了兩個鐵扣，杵頭偏大。
+- cand-2：88（26+27+23+12）。臼身歪斜、一側補了石片，側視和正視對不上。
+- cand-3：91（28+28+23+12）。選用。厚壁石臼，臼身手鑿的塊面清楚、腰略收，木杵斜靠在臼裡、握把處纏繩，臼裡有穀。
+- cand-4：89（27+27+23+12）。杵上綁紅布條，臼口裂縫用鐵釘補，雜。
+
+建模取捨：照 cand-3。臼身是一塊車出來的厚石，外面做成手鑿的塊面（不是光滑圓柱）、腰略收、底有一圈腳，臼窩深而圓；臼口一道裂縫做在形狀上。圖上補在臼身的石片和鐵釘不做（石臼裂了不會這樣補）。木杵：下端圓頭、杵身往上收、握把處纏四圈麻繩、頂端一個圓頭，斜靠在臼窩裡。臼窩裡一小堆穀。臼腳的青苔和泥畫在貼圖上。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a Chinese village stone mortar with a wooden pestle, about 0.5 m wide, 0.5 m deep and 0.65 m tall, a thick hand-chiselled grey granite mortar with a deep round bowl and visible chisel marks, a heavy worn wooden pestle with a rounded head leaning inside it, a little husked grain in the bowl, moss near the base, used in the yards of a lived-in Chinese southern mountain village, not Japanese, old and worn, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
