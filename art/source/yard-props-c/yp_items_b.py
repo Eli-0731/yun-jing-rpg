@@ -137,7 +137,6 @@ def YP12(M):
         edge_z=.20+.05*np.sin(th*3+1.3)+.035*np.sin(th*7+.4)+.05*(noise-.5)                 # where the glaze stops: an uneven line
         bare=outer*np.clip((edge_z-pz)/.02,0,1);clay=np.array([.60,.44,.31])*(1+.25*(noise-.5))[...,None]
         col=col*(1-bare[...,None])+bare[...,None]*clay;rough=np.clip(rough+.45*bare,0,1)
-        chip=outer*(1-bare)*np.clip((np.sin(th*9+pz*31)*np.sin(pz*43-th*5)-.93)*20,0,1)*(pz<.5);col=col*(1-.8*chip[...,None])+chip[...,None]*.8*clay;rough=np.clip(rough+.3*chip,0,1)   # glaze chipped off in a few places
         drip=outer*np.clip((np.sin(th*13+1.1)*np.sin(th*5+.3)-.80)*6,0,1)*np.clip((pz-.50-.12*np.sin(th*4))/.12,0,1)*np.clip((.79-pz)/.04,0,1);col=col*(1-.22*drip[...,None])+drip[...,None]*.22*np.array([.60,.55,.47])   # pale lime runs down from the rim
         col,rough=_moss_low(col,rough,P,onrm,noise,cav,outer,h=.12,amt=.6,soil=.05)
         inner=vat*(1-outer)*(pz>zw);col=col*(1-.25*inner[...,None])
@@ -145,7 +144,7 @@ def YP12(M):
     return {'paint':paint,'wear':.6,'grime':.8,'uv_angle':66,'collision_box':((.78,.78,.86),(0,0,.43)),
             'notes':['one thick thrown wall with a rolled rim (inside modelled too), pushed a little out of round; water 8 cm below the rim',
                      'the lid is three boards cut to the circle under two nailed battens, covering a little more than half of the mouth; the dipper is half a gourd with a stick bound to it by three turns of cord',
-                     'painted: the glaze stops at an uneven line above bare clay, a few chips, pale lime runs under the rim, moss and soil at the foot; the stone patch of the three-view is left out']}
+                     'painted: the glaze stops at an uneven line above bare clay, pale lime runs under the rim, moss and soil at the foot; the stone patch of the three-view is left out']}
 PROPS['YP12']=YP12
 
 # ---------------- YP11 carrying pole and two water buckets, set down (cand-3) ----------------
