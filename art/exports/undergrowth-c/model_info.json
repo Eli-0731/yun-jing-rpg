@@ -1,0 +1,142 @@
+{
+ "SH01": {
+  "id": "SH01",
+  "name": "UnderstoryShrubBroadleaf",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/SH01_v001.fbx",
+   "glb": "art/exports/undergrowth-c/SH01_v001.glb",
+   "blend": "art/source/undergrowth-c/SH01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.937,
+   1.398,
+   1.93
+  ],
+  "body_dimensions_xyz_m": [
+   1.937,
+   1.398,
+   1.93
+  ],
+  "size_limit_xyz_m": [
+   2.2,
+   2.2,
+   2.4
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Litter"
+  ],
+  "detailMeshes": [
+   "SH01_Detail_Litter_LOD0",
+   "SH01_Detail_Litter_LOD1",
+   "SH01_Detail_Litter_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 16614,
+    "triangles_without_detail": 16478,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "SH01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "SH01_Normal.png": [
+      1024,
+      1024
+     ],
+     "SH01_ORM.png": [
+      1024,
+      1024
+     ],
+     "SH01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3274,
+    "triangles_without_detail": 3206,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "SH01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "SH01_Normal.png": [
+      1024,
+      1024
+     ],
+     "SH01_ORM.png": [
+      1024,
+      1024
+     ],
+     "SH01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1168,
+    "triangles_without_detail": 1148,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "SH01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "SH01_Normal.png": [
+      1024,
+      1024
+     ],
+     "SH01_ORM.png": [
+      1024,
+      1024
+     ],
+     "SH01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "SH01_Body_LOD0",
+    "SH01_Body_LOD1",
+    "SH01_Body_LOD2"
+   ],
+   "Detail_Litter": [
+    "SH01_Detail_Litter_LOD0",
+    "SH01_Detail_Litter_LOD1",
+    "SH01_Detail_Litter_LOD2"
+   ]
+  },
+  "material": "M_SH01_UnderstoryShrubBroadleaf",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 218,
+  "coplanar_lifted": 0,
+  "reference": "art/references/SH01/prompt.txt",
+  "origin": "stem base centre on the ground (z = 0); the stems run on 0.18 m under the ground; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "seven thin stems from one point, each curving out at its own angle (a fan across the front, narrower from the side, the whole shrub leaning a little right and back); the stems run on 0.18 m under the ground",
+   "36 side branches (three to five per stem, alternating round it), three or four twigs on each: three orders of thickness; one branch broken off short",
+   "1836 five-vertex leaves (four outline points and a raised midrib), one by one along the twigs and the outer halves of the branches, alternate, the stalk on the twig, a young leaf at each tip; no leaf cards",
+   "leaf colour: up and out light and warm, down and in deep and cool, blended continuously, a few low leaves yellowing; in the albedo and in the vertex colour (A: canopy occlusion); UV2 \"Wind\": u wind weight (0 at the stem base, 1 at the leaf tips), v phase",
+   "LOD1: a quarter of the leaves, each 1.6 × larger, the wood decimated to 15 %; LOD2: a twelfth of the leaves, 2.5 × larger, wood 6 %",
+   "moss and soil at the stem feet, pale lichen higher up, painted; Detail_Litter (34 fallen leaves) is off at the standard tier; no collision (it is walked through)"
+  ]
+ }
+}
