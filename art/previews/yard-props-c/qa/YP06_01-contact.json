@@ -1,0 +1,22 @@
+{
+ "YP06_01_v001": {
+  "YP06_01_Body_LOD0": {
+   "pieces": 158,
+   "within_1mm": 86,
+   "gap_1_3mm": 72,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.7,
+   "worst_at": []
+  },
+  "YP06_01_Detail_Stitches_LOD0": {
+   "pieces": 20,
+   "within_1mm": 20,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.6,
+   "worst_at": []
+  }
+ }
+}

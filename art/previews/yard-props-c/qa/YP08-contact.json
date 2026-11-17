@@ -1,0 +1,31 @@
+{
+ "YP08_v001": {
+  "YP08_Body_LOD0": {
+   "pieces": 150,
+   "within_1mm": 123,
+   "gap_1_3mm": 27,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.3,
+   "worst_at": []
+  },
+  "YP08_Detail_Lashings_LOD0": {
+   "pieces": 24,
+   "within_1mm": 24,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "YP08_Detail_Nails_LOD0": {
+   "pieces": 4,
+   "within_1mm": 4,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.2,
+   "worst_at": []
+  }
+ }
+}

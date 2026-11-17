@@ -592,6 +592,1022 @@
    "painted, with the relief also in the normal map: checks along the grain, knots, shallow adze scallops, sun-greyed patches; the seat worn pale and smooth along the middle, mud and a little moss on the feet"
   ]
  },
+ "YP06_01": {
+  "id": "YP06_01",
+  "name": "RushMatFlat",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP06_01_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP06_01_v001.glb",
+   "blend": "art/source/yard-props-c/YP06_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.8,
+   0.952,
+   0.03
+  ],
+  "body_dimensions_xyz_m": [
+   1.8,
+   0.952,
+   0.03
+  ],
+  "size_limit_xyz_m": [
+   1.95,
+   1.05,
+   0.12
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Stitches"
+  ],
+  "detailMeshes": [
+   "YP06_01_Detail_Stitches_LOD0",
+   "YP06_01_Detail_Stitches_LOD1",
+   "YP06_01_Detail_Stitches_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 6526,
+    "triangles_without_detail": 6246,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP06_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP06_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP06_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP06_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3262,
+    "triangles_without_detail": 3122,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP06_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP06_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP06_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP06_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 978,
+    "triangles_without_detail": 936,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP06_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP06_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP06_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP06_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP06_01_Body_LOD0",
+    "YP06_01_Body_LOD1",
+    "YP06_01_Body_LOD2"
+   ],
+   "Detail_Stitches": [
+    "YP06_01_Detail_Stitches_LOD0",
+    "YP06_01_Detail_Stitches_LOD1",
+    "YP06_01_Detail_Stitches_LOD2"
+   ]
+  },
+  "material": "M_YP06_01_RushMatFlat",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 178,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP06/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a woven rush mat lying on the ground, 1 cm thick: low waves, one slanting rumple and one corner riding up are in the shape; 156 loose straw ends round the edge",
+   "a cloth patch sewn on with 20 stitches (Detail_Stitches); the weave is in the texture and the normal map",
+   "painted, with the relief also in the normal map: one tear with frayed ends, grey weathered patches, dirt, a little moss toward the edges, the middle walked pale",
+   "no collision: it is walked over"
+  ]
+ },
+ "YP06_02": {
+  "id": "YP06_02",
+  "name": "RushMatRolled",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP06_02_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP06_02_v001.glb",
+   "blend": "art/source/yard-props-c/YP06_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.958,
+   0.207,
+   0.2
+  ],
+  "body_dimensions_xyz_m": [
+   0.958,
+   0.207,
+   0.2
+  ],
+  "size_limit_xyz_m": [
+   1.0,
+   0.3,
+   0.26
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 12916,
+    "triangles_without_detail": 12916,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP06_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP06_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP06_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP06_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 6458,
+    "triangles_without_detail": 6458,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP06_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP06_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP06_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP06_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1936,
+    "triangles_without_detail": 1936,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP06_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP06_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP06_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP06_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP06_02_Body_LOD0",
+    "YP06_02_Body_LOD1",
+    "YP06_02_Body_LOD2"
+   ]
+  },
+  "material": "M_YP06_02_RushMatRolled",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 107,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP06/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP06_02_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.86,
+      0.18,
+      0.17
+     ],
+     "center_xyz_m": [
+      0.001,
+      -0.005,
+      0.174
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "the mat rolled up: one spiral band 9 mm thick, a little over four turns (the rings show at both ends), flattened a little by its weight; straw ends stick out of both ends and along the loose edge",
+   "two straw ropes, each knotted on top with two loose tails",
+   "painted: grey weathered patches, dirt, damp and a little moss underneath"
+  ]
+ },
+ "YP06_03": {
+  "id": "YP06_03",
+  "name": "DryingTrayRice",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP06_03_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP06_03_v001.glb",
+   "blend": "art/source/yard-props-c/YP06_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.843,
+   0.841,
+   0.09
+  ],
+  "body_dimensions_xyz_m": [
+   0.808,
+   0.808,
+   0.082
+  ],
+  "size_limit_xyz_m": [
+   0.9,
+   0.9,
+   0.14
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Lashings"
+  ],
+  "detailMeshes": [
+   "YP06_03_Detail_Lashings_LOD0",
+   "YP06_03_Detail_Lashings_LOD1",
+   "YP06_03_Detail_Lashings_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 6150,
+    "triangles_without_detail": 1734,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP06_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP06_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP06_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP06_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3074,
+    "triangles_without_detail": 866,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP06_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP06_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP06_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP06_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 922,
+    "triangles_without_detail": 260,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP06_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP06_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP06_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP06_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP06_03_Body_LOD0",
+    "YP06_03_Body_LOD1",
+    "YP06_03_Body_LOD2"
+   ],
+   "Detail_Lashings": [
+    "YP06_03_Detail_Lashings_LOD0",
+    "YP06_03_Detail_Lashings_LOD1",
+    "YP06_03_Detail_Lashings_LOD2"
+   ]
+  },
+  "material": "M_YP06_03_DryingTrayRice",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 54,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP06/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP06_03_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.8,
+      0.8,
+      0.08
+     ],
+     "center_xyz_m": [
+      0.0,
+      0.0,
+      0.04
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "a shallow woven dish (the weave is in the texture and the normal map), a rim of two split-bamboo hoops lashed with rattan at sixteen places (Detail_Lashings), two crossed slats under it",
+   "a thin heap of unhusked rice inside, thinner toward the rim; painted, with the relief also in the normal map: single grains, shallow rake furrows; grey patches and a little moss on the tray"
+  ]
+ },
+ "YP07_01": {
+  "id": "YP07_01",
+  "name": "PotScallion",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP07_01_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP07_01_v001.glb",
+   "blend": "art/source/yard-props-c/YP07_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.344,
+   0.304,
+   0.5
+  ],
+  "body_dimensions_xyz_m": [
+   0.344,
+   0.304,
+   0.5
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.6,
+   0.62
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2964,
+    "triangles_without_detail": 2964,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP07_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP07_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP07_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP07_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1482,
+    "triangles_without_detail": 1482,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP07_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP07_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP07_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP07_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 444,
+    "triangles_without_detail": 444,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP07_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP07_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP07_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP07_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP07_01_Body_LOD0",
+    "YP07_01_Body_LOD1",
+    "YP07_01_Body_LOD2"
+   ]
+  },
+  "material": "M_YP07_01_PotScallion",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 56,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP07/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP07_01_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.28,
+      0.28,
+      0.2
+     ],
+     "center_xyz_m": [
+      0.028,
+      -0.012,
+      0.102
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "a thick hand-made terracotta pot (rolled rim, out of round, one chip in the rim), soil mounded inside",
+   "six clumps of spring onions, every leaf a five-sided tube rising from a pale sheath, about one in four bent over; no leaf cards",
+   "painted, with the relief also in the normal map: lime bloom, pits, finger ridges, a crack down from the rim, the damp foot with moss; the highest leaf tips yellowing"
+  ]
+ },
+ "YP07_02": {
+  "id": "YP07_02",
+  "name": "TubBroadHerb",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP07_02_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP07_02_v001.glb",
+   "blend": "art/source/yard-props-c/YP07_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.408,
+   0.4,
+   0.446
+  ],
+  "body_dimensions_xyz_m": [
+   0.408,
+   0.4,
+   0.446
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.6,
+   0.62
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 5238,
+    "triangles_without_detail": 5238,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP07_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP07_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP07_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP07_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 2618,
+    "triangles_without_detail": 2618,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP07_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP07_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP07_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP07_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 785,
+    "triangles_without_detail": 785,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP07_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP07_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP07_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP07_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP07_02_Body_LOD0",
+    "YP07_02_Body_LOD1",
+    "YP07_02_Body_LOD2"
+   ]
+  },
+  "material": "M_YP07_02_TubBroadHerb",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 183,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP07/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP07_02_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.28,
+      0.28,
+      0.21
+     ],
+     "center_xyz_m": [
+      0.003,
+      0.018,
+      0.11
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "a small coopered tub: twelve staves (tops uneven, some chipped), two split-bamboo hoops with their ends lashed, a bottom board, soil mounded inside",
+   "thirteen stems; the leaves stand in opposite pairs, turned a quarter at each node, every leaf a cupped toothed blade (about 140 leaves), four young leaves at each top; no leaf cards",
+   "painted, with the relief also in the normal map: grey weathered staves with checks, a damp mossy foot; some leaves yellow-green"
+  ]
+ },
+ "YP07_03": {
+  "id": "YP07_03",
+  "name": "PotFloweringHerb",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP07_03_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP07_03_v001.glb",
+   "blend": "art/source/yard-props-c/YP07_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.354,
+   0.287,
+   0.353
+  ],
+  "body_dimensions_xyz_m": [
+   0.354,
+   0.287,
+   0.353
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.6,
+   0.62
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 6148,
+    "triangles_without_detail": 6148,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP07_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP07_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP07_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP07_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3074,
+    "triangles_without_detail": 3074,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP07_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP07_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP07_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP07_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 922,
+    "triangles_without_detail": 922,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP07_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP07_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP07_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP07_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP07_03_Body_LOD0",
+    "YP07_03_Body_LOD1",
+    "YP07_03_Body_LOD2"
+   ]
+  },
+  "material": "M_YP07_03_PotFloweringHerb",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 254,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP07/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP07_03_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.27,
+      0.27,
+      0.19
+     ],
+     "center_xyz_m": [
+      -0.003,
+      -0.011,
+      0.098
+     ]
+    }
+   ],
+   "note": ""
+  },
+  "notes": [
+   "a thick hand-made terracotta pot with a piece broken out of the rim and a smaller chip, soil mounded inside",
+   "fourteen thin stems, small leaves in opposite pairs (140 leaves), a spike of seven small pale purple buds on each stem; no leaf cards",
+   "painted, with the relief also in the normal map: lime bloom, pits, finger ridges, a crack running down from the broken place, the damp foot with moss"
+  ]
+ },
+ "YP08": {
+  "id": "YP08",
+  "name": "WallHangings",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP08_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP08_v001.glb",
+   "blend": "art/source/yard-props-c/YP08_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.6,
+   0.377,
+   0.798
+  ],
+  "body_dimensions_xyz_m": [
+   1.6,
+   0.377,
+   0.792
+  ],
+  "size_limit_xyz_m": [
+   1.75,
+   0.5,
+   1.2
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Lashings",
+   "Detail_Nails"
+  ],
+  "detailMeshes": [
+   "YP08_Detail_Lashings_LOD0",
+   "YP08_Detail_Lashings_LOD1",
+   "YP08_Detail_Lashings_LOD2",
+   "YP08_Detail_Nails_LOD0",
+   "YP08_Detail_Nails_LOD1",
+   "YP08_Detail_Nails_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 19084,
+    "triangles_without_detail": 16788,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP08_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP08_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 9541,
+    "triangles_without_detail": 8393,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP08_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP08_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 2859,
+    "triangles_without_detail": 2517,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP08_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP08_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP08_Body_LOD0",
+    "YP08_Body_LOD1",
+    "YP08_Body_LOD2"
+   ],
+   "Detail_Lashings": [
+    "YP08_Detail_Lashings_LOD0",
+    "YP08_Detail_Lashings_LOD1",
+    "YP08_Detail_Lashings_LOD2"
+   ],
+   "Detail_Nails": [
+    "YP08_Detail_Nails_LOD0",
+    "YP08_Detail_Nails_LOD1",
+    "YP08_Detail_Nails_LOD2"
+   ]
+  },
+  "material": "M_YP08_WallHangings",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 178,
+  "coplanar_lifted": 1,
+  "reference": "art/references/YP08/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "hangs on a wall: the wall is the plane behind the two back boards (the back of the model); the origin is the footprint centre under the lowest hanging tip, as for every item of this pack",
+   "two brackets (back board, arm, brace, nails as Detail_Nails) carry a bamboo pole lashed to the arms; four wooden hooks hang on the pole",
+   "the sieve: a shallow woven dish (weave in the texture and normal map), a split-bamboo hoop lashed at twelve places (Detail_Lashings), crossed slats on the back, hung by a cord from two points of the rim",
+   "the chilli string (group Chillies): 58 dried chillies, each a bent tapering tube, tied round a cord; the garlic plait (group Garlic): 15 bulbs, each with its dried root tuft, down a plait; the maize bunch (group Maize): five cobs, tips down, husks pulled up into a four-turn tie and flaring above it",
+   "painted: the weathered brackets with moss on top, chillies unevenly dark, grey patches on the sieve"
+  ]
+ },
  "YP09_01": {
   "id": "YP09_01",
   "name": "CrateOpen",

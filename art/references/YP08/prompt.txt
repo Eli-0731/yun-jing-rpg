@@ -7,7 +7,7 @@ YP08 牆上掛串（竹篩、辣椒、玉米、蒜）（11/14 工作包 A 批；
 - cand-3：88（26+27+23+12）。圖上有字和標籤，竹篩破成洞。
 - cand-4：92（28+28+24+12）。選用。兩塊釘在牆上的木托板托一根竹竿，竿上四個木鉤，依序掛竹篩、辣椒串、蒜辮、玉米束；沒有字。
 
-建模取捨：照 cand-4，一個模型（原點在牆面、托板背面貼牆）。兩塊木托板各一根斜撐，竹竿有節、用麻繩綁在托板上；四個木鉤（樹杈做的）掛在竿上。竹篩：竹圈邊加編面（編紋在貼圖和法線上），背面十字竹條，用繩掛。辣椒串：一條一條的乾辣椒繞著一根繩，有彎有皺。蒜辮：一顆顆蒜頭、蒜葉編成辮。玉米束：四到五根玉米、外皮翻上去紮成一束，玉米粒做在貼圖和法線上。四樣是同一個模型（工作包列為一種），掛的東西各自一個群組，可以隱藏。
+建模取捨：照 cand-4，一個模型（原點在牆面、托板背面貼牆）。兩塊木托板各一根斜撐，竹竿有節、用麻繩綁在托板上；四個木鉤（樹杈做的）掛在竿上。竹篩：竹圈邊加編面（編紋在貼圖和法線上），背面十字竹條，用繩掛。辣椒串：一條一條的乾辣椒繞著一根繩，有彎有皺。蒜辮：一顆顆蒜頭、蒜葉編成辮。玉米束：四到五根玉米、外皮翻上去紮成一束，玉米粒做在貼圖和法線上。四樣和竹竿、托板是同一個模型（工作包列為一種）。
 
 == 正面提示詞 ==
 Three-view orthographic turnaround sheet of a set of Chinese village things hung to dry on a house wall, about 1.6 m wide, 0.2 m deep and 0.9 m tall, hanging in a row from a horizontal bamboo rod with wooden pegs: a round flat woven bamboo sieve about 0.55 m across, a long string of dried red chili peppers, a braided string of garlic bulbs, and a bunch of dried yellow corn cobs tied by their husks, hemp cords, used in the yards of a lived-in Chinese southern mountain village, not Japanese, old and worn, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.

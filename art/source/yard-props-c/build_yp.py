@@ -34,6 +34,9 @@ TABLE={
  'YP03':('WaterBucketLadle',(.50,.50,.50),'standard'),
  'YP04':('StoneMortarPestle',(.60,.60,.75),'standard'),
  'YP05_01':('BenchLong',(1.6,.40,.50),'standard'),'YP05_02':('BenchShort',(.70,.40,.50),'standard'),
+ 'YP06_01':('RushMatFlat',(1.95,1.05,.12),'standard'),'YP06_02':('RushMatRolled',(1.0,.30,.26),'standard'),'YP06_03':('DryingTrayRice',(.90,.90,.14),'standard'),
+ 'YP07_01':('PotScallion',(.60,.60,.62),'standard'),'YP07_02':('TubBroadHerb',(.60,.60,.62),'standard'),'YP07_03':('PotFloweringHerb',(.60,.60,.62),'standard'),
+ 'YP08':('WallHangings',(1.75,.50,1.2),'standard'),
  'YP09_01':('CrateOpen',(.72,.45,.40),'standard'),'YP09_02':('RiceChest',(.68,.56,.60),'standard'),
  'YP11':('CarryingPoleBuckets',(1.8,.5,.6),'standard'),'YP12':('WaterVat',(.85,.85,.98),'standard'),
 }
