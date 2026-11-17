@@ -1,0 +1,333 @@
+Unity 6000.3.28f1, pipeline URP
+PASS YP01_01: Albedo / MaskURP / Normal textures found
+PASS YP01_01: textures 1024x1024 (1024 or less)
+PASS YP01_01: YP01_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP01_01: imported size 2.033 x 3.071 x 0.174 m matches model_info 2.033 x 3.071 x 0.174 within 2 cm
+PASS YP01_01: within the work pack's limit 2.1 x 3.1 x 0.25 m
+PASS YP01_01: base at y = 0.000 (origin on the ground)
+PASS YP01_01: triangles LOD0/1/2 = 9830 / 4914 / 1474 (50% / 15%), model_info 9830 / 4914 / 1474
+PASS YP01_01: objects per LOD 3 / 3 / 3 (model_info 3 / 3 / 3)
+PASS YP01_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP01_01: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS YP01_01: minTier = standard (yard props, shown at the standard tier too)
+PASS YP01_01: detailObjects Detail_Stones, Detail_Weeds → 6 meshes present
+PASS YP01_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP01_01: one simple collider YP01_01_Collision, 1.84 x 2.84 x 0.16 m, inside the model's footprint
+PASS YP01_02: Albedo / MaskURP / Normal textures found
+PASS YP01_02: textures 1024x1024 (1024 or less)
+PASS YP01_02: YP01_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP01_02: imported size 0.796 x 2.600 x 0.422 m matches model_info 0.796 x 2.599 x 0.422 within 2 cm
+PASS YP01_02: within the work pack's limit 0.95 x 2.8 x 0.55 m
+PASS YP01_02: base at y = 0.000 (origin on the ground)
+PASS YP01_02: triangles LOD0/1/2 = 8050 / 4025 / 1206 (50% / 15%), model_info 8050 / 4025 / 1206
+PASS YP01_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS YP01_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP01_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS YP01_02: minTier = standard (yard props, shown at the standard tier too)
+PASS YP01_02: no detailObjects, and no Detail_ mesh in the model
+PASS YP01_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP01_02: no collider in the model
+PASS YP01_02: cloth material renders both faces (Cull Off)
+PASS YP01_03: Albedo / MaskURP / Normal textures found
+PASS YP01_03: textures 1024x1024 (1024 or less)
+PASS YP01_03: YP01_03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP01_03: imported size 0.668 x 2.596 x 0.681 m matches model_info 0.668 x 2.596 x 0.681 within 2 cm
+PASS YP01_03: within the work pack's limit 0.95 x 2.8 x 0.75 m
+PASS YP01_03: base at y = 0.000 (origin on the ground)
+PASS YP01_03: triangles LOD0/1/2 = 7762 / 3880 / 1164 (50% / 15%), model_info 7762 / 3880 / 1164
+PASS YP01_03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS YP01_03: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP01_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS YP01_03: minTier = standard (yard props, shown at the standard tier too)
+PASS YP01_03: no detailObjects, and no Detail_ mesh in the model
+PASS YP01_03: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP01_03: no collider in the model
+PASS YP01_03: cloth material renders both faces (Cull Off)
+PASS YP01_04: Albedo / MaskURP / Normal textures found
+PASS YP01_04: textures 1024x1024 (1024 or less)
+PASS YP01_04: YP01_04_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP01_04: imported size 0.725 x 2.594 x 1.466 m matches model_info 0.725 x 2.594 x 1.465 within 2 cm
+PASS YP01_04: within the work pack's limit 0.95 x 2.8 x 1.65 m
+PASS YP01_04: base at y = 0.000 (origin on the ground)
+PASS YP01_04: triangles LOD0/1/2 = 21010 / 10504 / 3151 (50% / 15%), model_info 21010 / 10504 / 3151
+PASS YP01_04: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS YP01_04: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP01_04: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS YP01_04: minTier = standard (yard props, shown at the standard tier too)
+PASS YP01_04: no detailObjects, and no Detail_ mesh in the model
+PASS YP01_04: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP01_04: no collider in the model
+PASS YP01_04: cloth material renders both faces (Cull Off)
+PASS YP02: Albedo / MaskURP / Normal textures found
+PASS YP02: textures 1024x1024 (1024 or less)
+PASS YP02: YP02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP02: imported size 2.501 x 0.349 x 1.995 m matches model_info 2.501 x 0.349 x 1.995 within 2 cm
+PASS YP02: within the work pack's limit 2.7 x 0.5 x 2.1 m
+PASS YP02: base at y = 0.000 (origin on the ground)
+PASS YP02: triangles LOD0/1/2 = 9824 / 4912 / 1472 (50% / 15%), model_info 9824 / 4912 / 1472
+PASS YP02: objects per LOD 3 / 3 / 3 (model_info 3 / 3 / 3)
+PASS YP02: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP02: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS YP02: minTier = standard (yard props, shown at the standard tier too)
+PASS YP02: detailObjects Detail_Stones, Detail_Weeds → 6 meshes present
+PASS YP02: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP02: one simple collider YP02_Collision, 0.12 x 0.12 x 1.95 m, inside the model's footprint
+PASS YP02: cloth material renders both faces (Cull Off)
+PASS YP03: Albedo / MaskURP / Normal textures found
+PASS YP03: textures 1024x1024 (1024 or less)
+PASS YP03: YP03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP03: imported size 0.488 x 0.357 x 0.472 m matches model_info 0.488 x 0.357 x 0.471 within 2 cm
+PASS YP03: within the work pack's limit 0.5 x 0.5 x 0.5 m
+PASS YP03: base at y = 0.000 (origin on the ground)
+PASS YP03: triangles LOD0/1/2 = 4058 / 2028 / 608 (50% / 15%), model_info 4058 / 2028 / 608
+PASS YP03: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP03: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP03: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP03: minTier = standard (yard props, shown at the standard tier too)
+PASS YP03: detailObjects Detail_Rivets → 3 meshes present
+PASS YP03: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP03: no collider in the model
+PASS YP04: Albedo / MaskURP / Normal textures found
+PASS YP04: textures 1024x1024 (1024 or less)
+PASS YP04: YP04_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP04: imported size 0.494 x 0.436 x 0.708 m matches model_info 0.494 x 0.436 x 0.708 within 2 cm
+PASS YP04: within the work pack's limit 0.6 x 0.6 x 0.75 m
+PASS YP04: base at y = 0.000 (origin on the ground)
+PASS YP04: triangles LOD0/1/2 = 3262 / 1630 / 488 (50% / 15%), model_info 3262 / 1630 / 488
+PASS YP04: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS YP04: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP04: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS YP04: minTier = standard (yard props, shown at the standard tier too)
+PASS YP04: no detailObjects, and no Detail_ mesh in the model
+PASS YP04: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP04: one simple collider YP04_Collision, 0.43 x 0.43 x 0.45 m, inside the model's footprint
+PASS YP05_01: Albedo / MaskURP / Normal textures found
+PASS YP05_01: textures 1024x1024 (1024 or less)
+PASS YP05_01: YP05_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP05_01: imported size 1.503 x 0.389 x 0.464 m matches model_info 1.503 x 0.389 x 0.464 within 2 cm
+PASS YP05_01: within the work pack's limit 1.6 x 0.4 x 0.5 m
+PASS YP05_01: base at y = 0.000 (origin on the ground)
+PASS YP05_01: triangles LOD0/1/2 = 2016 / 1008 / 300 (50% / 15%), model_info 2016 / 1008 / 300
+PASS YP05_01: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP05_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP05_01: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP05_01: minTier = standard (yard props, shown at the standard tier too)
+PASS YP05_01: detailObjects Detail_Keys → 3 meshes present
+PASS YP05_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP05_01: one simple collider YP05_01_Collision, 1.50 x 0.30 x 0.45 m, inside the model's footprint
+PASS YP05_02: Albedo / MaskURP / Normal textures found
+PASS YP05_02: textures 1024x1024 (1024 or less)
+PASS YP05_02: YP05_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP05_02: imported size 0.627 x 0.389 x 0.461 m matches model_info 0.627 x 0.389 x 0.461 within 2 cm
+PASS YP05_02: within the work pack's limit 0.7 x 0.4 x 0.5 m
+PASS YP05_02: base at y = 0.000 (origin on the ground)
+PASS YP05_02: triangles LOD0/1/2 = 1908 / 954 / 284 (50% / 15%), model_info 1908 / 954 / 284
+PASS YP05_02: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP05_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP05_02: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP05_02: minTier = standard (yard props, shown at the standard tier too)
+PASS YP05_02: detailObjects Detail_Keys → 3 meshes present
+PASS YP05_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP05_02: one simple collider YP05_02_Collision, 0.62 x 0.30 x 0.45 m, inside the model's footprint
+PASS YP06_01: Albedo / MaskURP / Normal textures found
+PASS YP06_01: textures 1024x1024 (1024 or less)
+PASS YP06_01: YP06_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP06_01: imported size 1.800 x 0.952 x 0.030 m matches model_info 1.8 x 0.952 x 0.03 within 2 cm
+PASS YP06_01: within the work pack's limit 1.95 x 1.05 x 0.12 m
+PASS YP06_01: base at y = 0.000 (origin on the ground)
+PASS YP06_01: triangles LOD0/1/2 = 6526 / 3262 / 978 (50% / 15%), model_info 6526 / 3262 / 978
+PASS YP06_01: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP06_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP06_01: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP06_01: minTier = standard (yard props, shown at the standard tier too)
+PASS YP06_01: detailObjects Detail_Stitches → 3 meshes present
+PASS YP06_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP06_01: no collider in the model
+PASS YP06_02: Albedo / MaskURP / Normal textures found
+PASS YP06_02: textures 1024x1024 (1024 or less)
+PASS YP06_02: YP06_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP06_02: imported size 0.958 x 0.207 x 0.200 m matches model_info 0.958 x 0.207 x 0.2 within 2 cm
+PASS YP06_02: within the work pack's limit 1 x 0.3 x 0.26 m
+PASS YP06_02: base at y = 0.000 (origin on the ground)
+PASS YP06_02: triangles LOD0/1/2 = 12916 / 6458 / 1936 (50% / 15%), model_info 12916 / 6458 / 1936
+PASS YP06_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS YP06_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP06_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS YP06_02: minTier = standard (yard props, shown at the standard tier too)
+PASS YP06_02: no detailObjects, and no Detail_ mesh in the model
+PASS YP06_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP06_02: one simple collider YP06_02_Collision, 0.86 x 0.18 x 0.17 m, inside the model's footprint
+PASS YP06_03: Albedo / MaskURP / Normal textures found
+PASS YP06_03: textures 1024x1024 (1024 or less)
+PASS YP06_03: YP06_03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP06_03: imported size 0.843 x 0.841 x 0.090 m matches model_info 0.843 x 0.841 x 0.09 within 2 cm
+PASS YP06_03: within the work pack's limit 0.9 x 0.9 x 0.14 m
+PASS YP06_03: base at y = 0.000 (origin on the ground)
+PASS YP06_03: triangles LOD0/1/2 = 6150 / 3074 / 922 (50% / 15%), model_info 6150 / 3074 / 922
+PASS YP06_03: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP06_03: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP06_03: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP06_03: minTier = standard (yard props, shown at the standard tier too)
+PASS YP06_03: detailObjects Detail_Lashings → 3 meshes present
+PASS YP06_03: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP06_03: one simple collider YP06_03_Collision, 0.80 x 0.80 x 0.08 m, inside the model's footprint
+PASS YP07_01: Albedo / MaskURP / Normal textures found
+PASS YP07_01: textures 1024x1024 (1024 or less)
+PASS YP07_01: YP07_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP07_01: imported size 0.344 x 0.304 x 0.500 m matches model_info 0.344 x 0.304 x 0.5 within 2 cm
+PASS YP07_01: within the work pack's limit 0.6 x 0.6 x 0.62 m
+PASS YP07_01: base at y = 0.000 (origin on the ground)
+PASS YP07_01: triangles LOD0/1/2 = 2964 / 1482 / 444 (50% / 15%), model_info 2964 / 1482 / 444
+PASS YP07_01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS YP07_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP07_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS YP07_01: minTier = standard (yard props, shown at the standard tier too)
+PASS YP07_01: no detailObjects, and no Detail_ mesh in the model
+PASS YP07_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP07_01: one simple collider YP07_01_Collision, 0.28 x 0.28 x 0.20 m, inside the model's footprint
+PASS YP07_01: cloth material renders both faces (Cull Off)
+PASS YP07_02: Albedo / MaskURP / Normal textures found
+PASS YP07_02: textures 1024x1024 (1024 or less)
+PASS YP07_02: YP07_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP07_02: imported size 0.408 x 0.400 x 0.446 m matches model_info 0.408 x 0.4 x 0.446 within 2 cm
+PASS YP07_02: within the work pack's limit 0.6 x 0.6 x 0.62 m
+PASS YP07_02: base at y = 0.000 (origin on the ground)
+PASS YP07_02: triangles LOD0/1/2 = 5238 / 2618 / 785 (50% / 15%), model_info 5238 / 2618 / 785
+PASS YP07_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS YP07_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP07_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS YP07_02: minTier = standard (yard props, shown at the standard tier too)
+PASS YP07_02: no detailObjects, and no Detail_ mesh in the model
+PASS YP07_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP07_02: one simple collider YP07_02_Collision, 0.28 x 0.28 x 0.21 m, inside the model's footprint
+PASS YP07_02: cloth material renders both faces (Cull Off)
+PASS YP07_03: Albedo / MaskURP / Normal textures found
+PASS YP07_03: textures 1024x1024 (1024 or less)
+PASS YP07_03: YP07_03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP07_03: imported size 0.354 x 0.287 x 0.353 m matches model_info 0.354 x 0.287 x 0.353 within 2 cm
+PASS YP07_03: within the work pack's limit 0.6 x 0.6 x 0.62 m
+PASS YP07_03: base at y = 0.000 (origin on the ground)
+PASS YP07_03: triangles LOD0/1/2 = 6148 / 3074 / 922 (50% / 15%), model_info 6148 / 3074 / 922
+PASS YP07_03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS YP07_03: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP07_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS YP07_03: minTier = standard (yard props, shown at the standard tier too)
+PASS YP07_03: no detailObjects, and no Detail_ mesh in the model
+PASS YP07_03: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP07_03: one simple collider YP07_03_Collision, 0.27 x 0.27 x 0.19 m, inside the model's footprint
+PASS YP07_03: cloth material renders both faces (Cull Off)
+PASS YP08: Albedo / MaskURP / Normal textures found
+PASS YP08: textures 1024x1024 (1024 or less)
+PASS YP08: YP08_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP08: imported size 1.601 x 0.377 x 0.798 m matches model_info 1.6 x 0.377 x 0.798 within 2 cm
+PASS YP08: within the work pack's limit 1.75 x 0.5 x 1.2 m
+PASS YP08: base at y = 0.000 (origin on the ground)
+PASS YP08: triangles LOD0/1/2 = 19084 / 9541 / 2859 (50% / 15%), model_info 19084 / 9541 / 2859
+PASS YP08: objects per LOD 3 / 3 / 3 (model_info 3 / 3 / 3)
+PASS YP08: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP08: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS YP08: minTier = standard (yard props, shown at the standard tier too)
+PASS YP08: detailObjects Detail_Lashings, Detail_Nails → 6 meshes present
+PASS YP08: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP08: no collider in the model
+PASS YP09_01: Albedo / MaskURP / Normal textures found
+PASS YP09_01: textures 1024x1024 (1024 or less)
+PASS YP09_01: YP09_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP09_01: imported size 0.676 x 0.410 x 0.346 m matches model_info 0.676 x 0.41 x 0.346 within 2 cm
+PASS YP09_01: within the work pack's limit 0.72 x 0.45 x 0.4 m
+PASS YP09_01: base at y = 0.000 (origin on the ground)
+PASS YP09_01: triangles LOD0/1/2 = 4560 / 2280 / 682 (50% / 15%), model_info 4560 / 2280 / 682
+PASS YP09_01: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP09_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP09_01: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP09_01: minTier = standard (yard props, shown at the standard tier too)
+PASS YP09_01: detailObjects Detail_Nails → 3 meshes present
+PASS YP09_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP09_01: one simple collider YP09_01_Collision, 0.60 x 0.40 x 0.34 m, inside the model's footprint
+PASS YP09_02: Albedo / MaskURP / Normal textures found
+PASS YP09_02: textures 1024x1024 (1024 or less)
+PASS YP09_02: YP09_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP09_02: imported size 0.621 x 0.521 x 0.550 m matches model_info 0.621 x 0.521 x 0.55 within 2 cm
+PASS YP09_02: within the work pack's limit 0.68 x 0.56 x 0.6 m
+PASS YP09_02: base at y = 0.000 (origin on the ground)
+PASS YP09_02: triangles LOD0/1/2 = 3456 / 1728 / 516 (50% / 15%), model_info 3456 / 1728 / 516
+PASS YP09_02: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP09_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP09_02: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP09_02: minTier = standard (yard props, shown at the standard tier too)
+PASS YP09_02: detailObjects Detail_Nails → 3 meshes present
+PASS YP09_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP09_02: one simple collider YP09_02_Collision, 0.62 x 0.50 x 0.54 m, inside the model's footprint
+PASS YP10: Albedo / MaskURP / Normal textures found
+PASS YP10: textures 1024x1024 (1024 or less)
+PASS YP10: YP10_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP10: imported size 1.774 x 0.628 x 0.941 m matches model_info 1.774 x 0.628 x 0.941 within 2 cm
+PASS YP10: within the work pack's limit 1.85 x 0.8 x 1 m
+PASS YP10: base at y = 0.000 (origin on the ground)
+PASS YP10: triangles LOD0/1/2 = 7064 / 3532 / 1058 (50% / 15%), model_info 7064 / 3532 / 1058
+PASS YP10: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP10: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP10: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP10: minTier = standard (yard props, shown at the standard tier too)
+PASS YP10: detailObjects Detail_Rivets → 3 meshes present
+PASS YP10: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP10: one simple collider YP10_Collision, 1.30 x 0.62 x 0.62 m, inside the model's footprint
+PASS YP11: Albedo / MaskURP / Normal textures found
+PASS YP11: textures 1024x1024 (1024 or less)
+PASS YP11: YP11_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP11: imported size 1.692 x 0.397 x 0.389 m matches model_info 1.692 x 0.397 x 0.389 within 2 cm
+PASS YP11: within the work pack's limit 1.8 x 0.5 x 0.6 m
+PASS YP11: base at y = 0.000 (origin on the ground)
+PASS YP11: triangles LOD0/1/2 = 9332 / 4666 / 1398 (50% / 15%), model_info 9332 / 4666 / 1398
+PASS YP11: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP11: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP11: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP11: minTier = standard (yard props, shown at the standard tier too)
+PASS YP11: detailObjects Detail_Rivets → 3 meshes present
+PASS YP11: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP11: no collider in the model
+PASS YP12: Albedo / MaskURP / Normal textures found
+PASS YP12: textures 1024x1024 (1024 or less)
+PASS YP12: YP12_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP12: imported size 0.788 x 0.787 x 0.908 m matches model_info 0.788 x 0.786 x 0.908 within 2 cm
+PASS YP12: within the work pack's limit 0.85 x 0.85 x 0.98 m
+PASS YP12: base at y = 0.000 (origin on the ground)
+PASS YP12: triangles LOD0/1/2 = 4928 / 2464 / 734 (50% / 15%), model_info 4928 / 2464 / 734
+PASS YP12: objects per LOD 3 / 3 / 3 (model_info 3 / 3 / 3)
+PASS YP12: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP12: 1 LODGroup(s) with 3 levels covering all 3 LOD0 renderers
+PASS YP12: minTier = standard (yard props, shown at the standard tier too)
+PASS YP12: detailObjects Detail_Nails, Detail_Staples → 6 meshes present
+PASS YP12: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP12: one simple collider YP12_Collision, 0.78 x 0.78 x 0.86 m, inside the model's footprint
+PASS YP13_01: Albedo / MaskURP / Normal textures found
+PASS YP13_01: textures 1024x1024 (1024 or less)
+PASS YP13_01: YP13_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP13_01: imported size 1.223 x 1.228 x 1.188 m matches model_info 1.223 x 1.228 x 1.188 within 2 cm
+PASS YP13_01: within the work pack's limit 1.5 x 1.5 x 1.35 m
+PASS YP13_01: base at y = 0.000 (origin on the ground)
+PASS YP13_01: triangles LOD0/1/2 = 8270 / 4133 / 1239 (50% / 15%), model_info 8270 / 4133 / 1239
+PASS YP13_01: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP13_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP13_01: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP13_01: minTier = standard (yard props, shown at the standard tier too)
+PASS YP13_01: detailObjects Detail_Base → 3 meshes present
+PASS YP13_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP13_01: no collider in the model
+PASS YP13_01: cloth material renders both faces (Cull Off)
+PASS YP13_02: Albedo / MaskURP / Normal textures found
+PASS YP13_02: textures 1024x1024 (1024 or less)
+PASS YP13_02: YP13_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS YP13_02: imported size 0.627 x 0.704 x 0.399 m matches model_info 0.627 x 0.704 x 0.399 within 2 cm
+PASS YP13_02: within the work pack's limit 0.9 x 0.9 x 0.6 m
+PASS YP13_02: base at y = 0.000 (origin on the ground)
+PASS YP13_02: triangles LOD0/1/2 = 10930 / 5464 / 1638 (50% / 15%), model_info 10930 / 5464 / 1638
+PASS YP13_02: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS YP13_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS YP13_02: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers
+PASS YP13_02: minTier = standard (yard props, shown at the standard tier too)
+PASS YP13_02: detailObjects Detail_Base → 3 meshes present
+PASS YP13_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS YP13_02: no collider in the model
+PASS YP13_02: cloth material renders both faces (Cull Off)
+INFO renders written to art/previews/yard-props-c/unity

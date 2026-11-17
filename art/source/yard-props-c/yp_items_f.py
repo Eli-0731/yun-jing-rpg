@@ -116,7 +116,7 @@ def YP10(M):
             st=rim*(np.sin(((P-c)@ax_+(P-c)@ay_)*230)>0);col=col*(1-ins[...,None])+ins[...,None]*(np.array(tint)*(.80+.4*noise[...,None]));col=col*(1-.55*st[...,None]);h+=.0014*ins-.0012*st
         R_['h']=h;return col,rough
     M['burlap']['mid']=1.
-    return {'paint':paint,'relief':lambda:R_['h'],'wear':.9,'grime':.8,'ao_k':.5,'uv_angle':55,'collision_box':((1.30,.66,.62),(-.12,0,.31)),
+    return {'paint':paint,'relief':lambda:R_['h'],'wear':.9,'grime':.8,'ao_k':.5,'uv_angle':55,'collision_box':((1.30,.62,.62),(-.12,0,.31)),
             'collision':'one box over the wheel, tray and sacks; the handles are not solid',
             'notes':['a solid plank wheel: an iron tyre, an iron ring with twelve rivets on each face, two nailed battens a side, a turned hub on an axle with linchpins outside the shafts',
                      'two shafts run from the axle up to the handles (thinned, rounded, bound with cord); the tray is separate boards: four bottom planks, two boards each side and end, flaring upwards, two nailed battens on each side',
