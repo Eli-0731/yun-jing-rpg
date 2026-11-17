@@ -26,3 +26,7 @@ _ku=np.abs(((X*26)%1)-.5)*2;_kv=np.abs(((Y*20+.5*np.floor(X*26))%1)-.5)*2;_kh=np
 E['maize']=(lerp((.62,.40,.08),(.94,.72,.20),np.clip(.35+.5*_kh+.3*(fbm(5,3)-.5),0,1))*(1-.45*np.clip((.35-_kh)*3,0,1))[...,None],1.5*_kh,2.0,.50,0,0)
 _hs=np.clip((fbm(50,2,aniso=40)-.5)*2+.5,0,1)
 E['husk']=(lerp((.58,.48,.30),(.86,.76,.54),np.clip(.5+.6*(fbm(4,3,aniso=6)-.5)+.3*(_hs-.5),0,1)),.9*_hs,1.3,.86,0,0)
+K.rng=np.random.default_rng(3505)   # YP10: sacking — a coarse plain weave of thick hemp thread, tan, 60 threads to a 0.5 m tile
+_bu=np.floor(X*60);_bv=np.floor(Y*60);_bc=((_bu+_bv)%2)>0;_bfu=np.abs(((X*60)%1)-.5)*2;_bfv=np.abs(((Y*60)%1)-.5)*2
+_bh=np.where(_bc,1-_bfu**2,1-_bfv**2);_bg=np.clip((np.maximum(_bfu,_bfv)-.72)*3.5,0,1)
+E['burlap']=(lerp((.40,.31,.19),(.68,.56,.37),np.clip(.45+.30*(_bh-.5)+.55*(fbm(4,3)-.5)+.2*(fbm(40,2)-.5),0,1))*(1-.35*_bg[...,None]),_bh-.6*_bg+.25*fbm(50,2),1.5,.94,0,0)

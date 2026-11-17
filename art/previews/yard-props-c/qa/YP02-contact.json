@@ -1,0 +1,31 @@
+{
+ "YP02_v001": {
+  "YP02_Body_LOD0": {
+   "pieces": 27,
+   "within_1mm": 27,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "YP02_Detail_Stones_LOD0": {
+   "pieces": 8,
+   "within_1mm": 8,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "YP02_Detail_Weeds_LOD0": {
+   "pieces": 40,
+   "within_1mm": 40,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}

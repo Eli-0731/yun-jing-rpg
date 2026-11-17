@@ -1,4 +1,170 @@
 {
+ "YP02": {
+  "id": "YP02",
+  "name": "WashingLine",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP02_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP02_v001.glb",
+   "blend": "art/source/yard-props-c/YP02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.501,
+   0.349,
+   1.995
+  ],
+  "body_dimensions_xyz_m": [
+   2.501,
+   0.157,
+   1.991
+  ],
+  "size_limit_xyz_m": [
+   2.7,
+   0.5,
+   2.1
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Stones",
+   "Detail_Weeds"
+  ],
+  "detailMeshes": [
+   "YP02_Detail_Stones_LOD0",
+   "YP02_Detail_Stones_LOD1",
+   "YP02_Detail_Stones_LOD2",
+   "YP02_Detail_Weeds_LOD0",
+   "YP02_Detail_Weeds_LOD1",
+   "YP02_Detail_Weeds_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 9824,
+    "triangles_without_detail": 8544,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 4912,
+    "triangles_without_detail": 4272,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1472,
+    "triangles_without_detail": 1280,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP02_Body_LOD0",
+    "YP02_Body_LOD1",
+    "YP02_Body_LOD2"
+   ],
+   "Detail_Stones": [
+    "YP02_Detail_Stones_LOD0",
+    "YP02_Detail_Stones_LOD1",
+    "YP02_Detail_Stones_LOD2"
+   ],
+   "Detail_Weeds": [
+    "YP02_Detail_Weeds_LOD0",
+    "YP02_Detail_Weeds_LOD1",
+    "YP02_Detail_Weeds_LOD2"
+   ]
+  },
+  "material": "M_YP02_WashingLine",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 75,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP02/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP02_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      0.12,
+      0.12,
+      1.95
+     ],
+     "center_xyz_m": [
+      -1.05,
+      -0.006,
+      0.975
+     ]
+    }
+   ],
+   "note": "the box is the left pole; give the right pole the same box at +1.05 m. The rope and the cloth are not solid"
+  },
+  "notes": [
+   "two bamboo poles set in the ground, a bamboo cross pole lashed across their tops with a cross lashing and three turns; the three-view has this cross pole (the pack names two poles and a rope)",
+   "a hemp rope tied round each pole (three turns and a hanging end), sagging 17 cm in the middle",
+   "a pale jacket (body and two sleeves), a faded blue cloth, a striped towel: each a piece with thickness folded over the rope, folds deepening towards uneven, torn hems; no alpha cards",
+   "painted, with the relief also in the normal map: the jacket front edge and four knot buttons, three sewn patches, the towel stripes, sun-bleached patches, damp green pole feet, drying cracks",
+   "Detail_Stones (8 stones at the pole feet) and Detail_Weeds (10 grass tufts) are off at the standard tier"
+  ]
+ },
  "YP03": {
   "id": "YP03",
   "name": "WaterBucketLadle",
@@ -1916,6 +2082,163 @@
    "a rice chest taller at the back: four corner posts, board rows between them, the end walls topped by a board cut to the slope; the middle front board is split along the grain",
    "the lid is five boards running front to back with two battens under it, overhanging at the front; two iron strap hinges with a pin at the back, a wooden tongue and block as the hasp at the front; the lid is closed (one mesh with the chest)",
    "one board mended with a nailed piece; nails are Detail_Nails; painted, with the relief also in the normal map: checks along every board, knots in the lid, sun-greyed patches, rust runs under the nails, damp and moss at the foot, moss on the lid, the pale worn place where the lid is lifted"
+  ]
+ },
+ "YP10": {
+  "id": "YP10",
+  "name": "Wheelbarrow",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP10_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP10_v001.glb",
+   "blend": "art/source/yard-props-c/YP10_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.774,
+   0.628,
+   0.941
+  ],
+  "body_dimensions_xyz_m": [
+   1.774,
+   0.628,
+   0.941
+  ],
+  "size_limit_xyz_m": [
+   1.85,
+   0.8,
+   1.0
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Rivets"
+  ],
+  "detailMeshes": [
+   "YP10_Detail_Rivets_LOD0",
+   "YP10_Detail_Rivets_LOD1",
+   "YP10_Detail_Rivets_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 7064,
+    "triangles_without_detail": 6096,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP10_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP10_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP10_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP10_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3532,
+    "triangles_without_detail": 3048,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP10_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP10_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP10_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP10_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1058,
+    "triangles_without_detail": 914,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP10_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP10_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP10_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP10_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP10_Body_LOD0",
+    "YP10_Body_LOD1",
+    "YP10_Body_LOD2"
+   ],
+   "Detail_Rivets": [
+    "YP10_Detail_Rivets_LOD0",
+    "YP10_Detail_Rivets_LOD1",
+    "YP10_Detail_Rivets_LOD2"
+   ]
+  },
+  "material": "M_YP10_Wheelbarrow",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 107,
+  "coplanar_lifted": 4,
+  "reference": "art/references/YP10/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP10_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      1.3,
+      0.66,
+      0.62
+     ],
+     "center_xyz_m": [
+      -0.128,
+      0.0,
+      0.31
+     ]
+    }
+   ],
+   "note": "one box over the wheel, tray and sacks; the handles are not solid"
+  },
+  "notes": [
+   "a solid plank wheel: an iron tyre, an iron ring with twelve rivets on each face, two nailed battens a side, a turned hub on an axle with linchpins outside the shafts",
+   "two shafts run from the axle up to the handles (thinned, rounded, bound with cord); the tray is separate boards: four bottom planks, two boards each side and end, flaring upwards, two nailed battens on each side",
+   "two splayed legs with a brace to each shaft and a cross bar, lashed with cord; it stands on the wheel and the two legs",
+   "two full sacks tied at the neck with two turns of cord, the mouth cloth flaring in pleats; a sewn patch on each is painted, with its stitches in the normal map",
+   "Detail_Rivets (rivets and nail heads) is off at the standard tier; painted, with the relief also in the normal map: checks, the two seams of the three wheel planks, rust, mud low down"
   ]
  },
  "YP11": {

@@ -1,0 +1,17 @@
+YP10 獨輪車（11/14 工作包 A 批：木輪、車斗裡放兩個麻袋；A1 院子，設定圖 V6）三視圖與自評（2026-11-16）
+選用：YP10-cand-4.png（92分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節和 A1 設定圖 V6（院子近景）、物件清單 docs/execution/world-plan/A1-inventory.md 寫（這份工作包沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（28+28+23+12）。結構清楚，但車斗側板釘了一塊淺色補板太顯眼，把手纏白布。
+- cand-2：90（27+28+23+12）。車斗有青苔和小苗，側板補了一塊麻布，雜。
+- cand-3：90（27+28+23+12）。把手太粗像棒槌，輪子偏小。
+- cand-4：92（28+28+24+12）。選用。實心木板輪（三片板拼、兩根橫木、鐵箍和鉚釘），兩根長轅從輪軸一路到把手，梯形車斗坐在轅上，兩隻腳加斜撐，把手纏麻繩，車斗裡兩個紮口的麻袋各有一塊補丁。
+
+建模取捨：照 cand-4。輪子是三片木板拼成的實心圓輪，兩面各兩根橫木釘住，外圈一道鐵箍和一圈鉚釘，輪軸穿過兩根轅的前端、外面插銷。兩根轅從輪軸往後斜上去、尾端削圓成把手、纏幾圈麻繩。車斗是梯形：底板幾片、兩片外斜的側板、前後擋板，各是一片片木板，角上有立木。兩隻腳在車斗後段、往外撇，和轅之間各一根斜撐，腳之間一根橫木。兩個麻袋：鼓、互相擠著、壓在車斗裡，袋口紮繩、袋口的布摺出來，補丁畫在貼圖上、縫線有凹凸。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a traditional Chinese wooden wheelbarrow with a single wooden wheel, about 1.6 m long, 0.7 m wide and 0.75 m tall, a solid plank-built wooden wheel with an iron tyre at the front between two long shafts that run back to become the two handles, a shallow plank tray, two rear prop legs, two full coarse hemp grain sacks tied at the neck lying in the tray, used in the yards of a lived-in Chinese southern mountain village, not Japanese, old and worn, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

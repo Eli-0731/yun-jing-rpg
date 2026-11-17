@@ -1,0 +1,22 @@
+{
+ "YP10_v001": {
+  "YP10_Body_LOD0": {
+   "pieces": 63,
+   "within_1mm": 63,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "YP10_Detail_Rivets_LOD0": {
+   "pieces": 44,
+   "within_1mm": 44,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.6,
+   "worst_at": []
+  }
+ }
+}

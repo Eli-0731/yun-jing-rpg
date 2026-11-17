@@ -1,0 +1,17 @@
+YP02 晾衣繩與衣物（11/14 工作包 A 批：兩根竹竿一條繩，3 件褪色布衣，衣物可以單面但要有垂墜；A1 院子，設定圖 V6）三視圖與自評（2026-11-16）
+選用：YP02-cand-4.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節和 A1 設定圖 V6（院子近景）、物件清單 docs/execution/world-plan/A1-inventory.md 寫（這份工作包沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。垂墜好，但竹竿上纏了兩圈布，底下墊大石。
+- cand-2：89（27+27+23+12）。竹竿立在石墩上，石墩不像這個院子的東西，竿上纏布。
+- cand-3：90（27+28+23+12）。乾淨，但橫竿中間接了一段、衣服下襬破得太碎。
+- cand-4：91（28+28+23+12）。選用。兩根竹竿立在地上（腳邊幾顆小石和草），頂上一根橫竹用麻繩十字綁，下面一條垂著的麻繩，繩上一件米白布衫、一塊褪色藍布、一條藍條紋布巾。
+
+建模取捨：照 cand-4。兩根竹竿有節、微彎，頂上一根橫竹用麻繩十字綁住（工作包寫兩根竹竿一條繩，橫竹是三視圖上撐住兩竿的那一根，照圖做）；麻繩兩端在竿上繞幾圈打結、中間下垂。三件布都是搭在繩上的布片，有厚度，摺痕往下襬變深、下襬不齊：布衫是衣身加兩隻袖子，藍布一塊，條紋布巾一條。補丁、條紋、領口的布邊畫在貼圖上。下襬的破口做在形狀上（下襬高低不齊），不用透明卡。竿腳的小石和草是 Detail 群組。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a Chinese village clothesline, about 3 m wide, 0.4 m deep and 1.9 m tall, two upright old bamboo poles with a horizontal bamboo cross pole lashed near the top with hemp rope, a sagging hemp rope tied between the poles, three faded hand-washed cloth garments hanging from it with natural drape and folds (an off-white linen tunic, a washed-out indigo cloth, a small striped off-white towel), used in the yards of a lived-in Chinese southern mountain village, not Japanese, old and worn, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

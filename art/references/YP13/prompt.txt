@@ -1,0 +1,25 @@
+YP13 溪邊水草與小花（11/14 工作包 A 批：兩種，給 A1 溪邊；設定圖 V5）三視圖與自評（2026-11-16）
+選用：YP13A-cand-3.png、YP13B-cand-4.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節和 A1 設定圖 V6（院子近景）、物件清單 docs/execution/world-plan/A1-inventory.md 寫（這份工作包沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- 水草 cand-1：89（27+27+23+12）。葉片少、有蒲棒，像香蒲不像溪邊的草叢。
+- 水草 cand-2：90（27+28+23+12）。葉片寬而亮，枯葉偏多。
+- 水草 cand-3：91（28+28+23+12）。選用。一叢長葉從基部散開，外圈的彎下去、中間的直立，幾根細穗高出葉子，基部有枯葉和小石。
+- 水草 cand-4：90（27+28+23+12）。腳下畫了一圈水，葉片交錯太亂。
+- 小花 cand-1：90（27+28+23+12）。花偏大偏多，像園藝花。
+- 小花 cand-2：89（27+27+23+12）。側視往一邊倒，和正視不是同一叢。
+- 小花 cand-3：90（27+28+23+12）。葉子好，但花太小太少，遠看只剩一團綠。
+- 小花 cand-4：91（28+28+23+12）。選用。矮矮一叢闊葉，細莖從葉間伸出來，莖頂幾朵白色五瓣小花和花苞，夾幾朵淡紫的，腳邊小石。
+
+建模取捨：兩個各自一個模型（YP13_01 水草、YP13_02 小花），可以分開擺。水草照 cand-3：約 60 片長葉一片一片做，有中摺，外圈彎垂、中間直立，葉尖發黃；五根細穗（細稈加一串小穗粒）；基部幾片枯葉貼地。小花照 cand-4：約 20 根細莖，莖上對生的葉、越往上越小，莖頂分叉、每叉一朵五瓣小花或花苞（白為主、幾朵淡紫），花瓣一片一片做。都不用葉片卡。腳下一小片土和小石是 Detail 群組；土片很薄，方便壓進地面。
+
+== 正面提示詞（YP13A） ==
+Three-view orthographic turnaround sheet of a clump of Chinese stream-bank water grass, about 0.6 m wide, 0.6 m deep and 0.7 m tall, long arching sword-shaped sweet-flag and sedge leaves growing from a wet muddy base with a few pebbles, some leaves bent and some with dry brown tips, a few slender seed heads, growing beside a clear creek of a Chinese southern mountain village, calm muted greens, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 正面提示詞（YP13B） ==
+Three-view orthographic turnaround sheet of a low clump of small Chinese stream-bank wildflowers, about 0.45 m wide, 0.45 m deep and 0.25 m tall, many thin stems with small oval leaves and tiny five-petal white flowers with a few pale violet ones, growing from damp soil with a little moss and two small pebbles, growing beside a clear creek of a Chinese southern mountain village, calm muted colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
