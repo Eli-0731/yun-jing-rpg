@@ -30,3 +30,10 @@ K.rng=np.random.default_rng(3505)   # YP10: sacking — a coarse plain weave of 
 _bu=np.floor(X*60);_bv=np.floor(Y*60);_bc=((_bu+_bv)%2)>0;_bfu=np.abs(((X*60)%1)-.5)*2;_bfv=np.abs(((Y*60)%1)-.5)*2
 _bh=np.where(_bc,1-_bfu**2,1-_bfv**2);_bg=np.clip((np.maximum(_bfu,_bfv)-.72)*3.5,0,1)
 E['burlap']=(lerp((.40,.31,.19),(.68,.56,.37),np.clip(.45+.30*(_bh-.5)+.55*(fbm(4,3)-.5)+.2*(fbm(40,2)-.5),0,1))*(1-.35*_bg[...,None]),_bh-.6*_bg+.25*fbm(50,2),1.5,.94,0,0)
+K.rng=np.random.default_rng(3506)   # YP01: the pale heart of a heading cabbage, yellow-green to cream, fine veins
+E['cabbage_heart']=(lerp((.52,.62,.30),(.80,.84,.56),np.clip(.5+.7*(fbm(4,3)-.5)+.25*(_vn_-.5),0,1)),.5*_vn_,.8,.60,0,0)
+K.rng=np.random.default_rng(3507)   # YP13: long creek-grass blades (veins along the blade), white petals, the yellow flower eye
+_rv=np.clip((fbm(50,2,aniso=40)-.5)*2.2+.5,0,1)
+E['reed']=(lerp((.17,.31,.11),(.47,.60,.22),np.clip(.5+.8*(fbm(4,3,aniso=5)-.5)+.25*(_rv-.5),0,1)),.8*_rv,1.1,.60,0,0)
+E['petal_white']=(lerp((.80,.78,.70),(.97,.96,.90),np.clip(.5+.6*(fbm(5,3)-.5),0,1)),.2*fbm(30,2),.4,.7,0,0)
+E['pollen']=(lerp((.72,.52,.10),(.94,.78,.24),np.clip(.5+.7*(fbm(8,3)-.5),0,1)),.5*fbm(60,2),.8,.8,0,0)

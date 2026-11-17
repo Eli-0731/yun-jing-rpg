@@ -1,4 +1,547 @@
 {
+ "YP01_01": {
+  "id": "YP01_01",
+  "name": "VegBedEarth",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP01_01_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP01_01_v001.glb",
+   "blend": "art/source/yard-props-c/YP01_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.033,
+   3.071,
+   0.174
+  ],
+  "body_dimensions_xyz_m": [
+   2.033,
+   3.071,
+   0.174
+  ],
+  "size_limit_xyz_m": [
+   2.1,
+   3.1,
+   0.25
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Stones",
+   "Detail_Weeds"
+  ],
+  "detailMeshes": [
+   "YP01_01_Detail_Stones_LOD0",
+   "YP01_01_Detail_Stones_LOD1",
+   "YP01_01_Detail_Stones_LOD2",
+   "YP01_01_Detail_Weeds_LOD0",
+   "YP01_01_Detail_Weeds_LOD1",
+   "YP01_01_Detail_Weeds_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 9830,
+    "triangles_without_detail": 8830,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 4914,
+    "triangles_without_detail": 4414,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1474,
+    "triangles_without_detail": 1324,
+    "objects": 3,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP01_01_Body_LOD0",
+    "YP01_01_Body_LOD1",
+    "YP01_01_Body_LOD2"
+   ],
+   "Detail_Stones": [
+    "YP01_01_Detail_Stones_LOD0",
+    "YP01_01_Detail_Stones_LOD1",
+    "YP01_01_Detail_Stones_LOD2"
+   ],
+   "Detail_Weeds": [
+    "YP01_01_Detail_Weeds_LOD0",
+    "YP01_01_Detail_Weeds_LOD1",
+    "YP01_01_Detail_Weeds_LOD2"
+   ]
+  },
+  "material": "M_YP01_01_VegBedEarth",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 66,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": {
+   "mesh": "YP01_01_Collision",
+   "primitives": [
+    {
+     "type": "box",
+     "size_xyz_m": [
+      1.84,
+      2.84,
+      0.16
+     ],
+     "center_xyz_m": [
+      -0.005,
+      0.001,
+      0.08
+     ]
+    }
+   ],
+   "note": "one box over the earth: the player walks round the bed"
+  },
+  "notes": [
+   "2.0 × 3.0 m of earth with three bare ridges along its length (centres at x = -0.62, 0, +0.62 m), trodden furrows, a ragged rim down to the ground",
+   "the crops are separate models (YP01_02 cabbages, YP01_03 spring onions, YP01_04 beans on a bamboo frame): put one on each ridge, origin on the ground under the ridge line; any crop fits any ridge",
+   "painted, with the relief also in the normal map: clods, a few pebbles, footprints in the furrows",
+   "Detail_Stones (9 stones on the rim) and Detail_Weeds (14 weeds) are off at the standard tier"
+  ]
+ },
+ "YP01_02": {
+  "id": "YP01_02",
+  "name": "RowCabbage",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP01_02_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP01_02_v001.glb",
+   "blend": "art/source/yard-props-c/YP01_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.796,
+   2.599,
+   0.422
+  ],
+  "body_dimensions_xyz_m": [
+   0.796,
+   2.599,
+   0.422
+  ],
+  "size_limit_xyz_m": [
+   0.95,
+   2.8,
+   0.55
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 8050,
+    "triangles_without_detail": 8050,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 4025,
+    "triangles_without_detail": 4025,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1206,
+    "triangles_without_detail": 1206,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP01_02_Body_LOD0",
+    "YP01_02_Body_LOD1",
+    "YP01_02_Body_LOD2"
+   ]
+  },
+  "material": "M_YP01_02_RowCabbage",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 151,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "one row for one ridge of YP01_01 (origin on the ground under the ridge line); it carries its own hilled-up soil, which covers the bare ridge",
+   "six heading cabbages: a pale heart, five inner leaves wrapping it, seven outer leaves lying open; every leaf is a cupped blade with a ruffled edge on a thick white rib; no leaf cards",
+   "painted: paler inner leaves, insect bites and splashed soil on the outer leaves; no collision (the bed has the box)"
+  ]
+ },
+ "YP01_03": {
+  "id": "YP01_03",
+  "name": "RowScallion",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP01_03_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP01_03_v001.glb",
+   "blend": "art/source/yard-props-c/YP01_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.668,
+   2.596,
+   0.681
+  ],
+  "body_dimensions_xyz_m": [
+   0.668,
+   2.596,
+   0.681
+  ],
+  "size_limit_xyz_m": [
+   0.95,
+   2.8,
+   0.75
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 7762,
+    "triangles_without_detail": 7762,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3880,
+    "triangles_without_detail": 3880,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1164,
+    "triangles_without_detail": 1164,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP01_03_Body_LOD0",
+    "YP01_03_Body_LOD1",
+    "YP01_03_Body_LOD2"
+   ]
+  },
+  "material": "M_YP01_03_RowScallion",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 149,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "one row for one ridge of YP01_01 (origin on the ground under the ridge line); it carries its own hilled-up soil, which covers the bare ridge",
+   "eleven clumps of spring onions, every leaf a five-sided tube rising from a pale sheath, about one in five bent over; no leaf cards; no collision (the bed has the box)"
+  ]
+ },
+ "YP01_04": {
+  "id": "YP01_04",
+  "name": "RowBeanFrame",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP01_04_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP01_04_v001.glb",
+   "blend": "art/source/yard-props-c/YP01_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.725,
+   2.594,
+   1.465
+  ],
+  "body_dimensions_xyz_m": [
+   0.725,
+   2.594,
+   1.465
+  ],
+  "size_limit_xyz_m": [
+   0.95,
+   2.8,
+   1.65
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 21010,
+    "triangles_without_detail": 21010,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 10504,
+    "triangles_without_detail": 10504,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 3151,
+    "triangles_without_detail": 3151,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP01_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP01_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP01_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP01_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP01_04_Body_LOD0",
+    "YP01_04_Body_LOD1",
+    "YP01_04_Body_LOD2"
+   ]
+  },
+  "material": "M_YP01_04_RowBeanFrame",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 467,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP01/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "one row for one ridge of YP01_01 (origin on the ground under the ridge line); it carries its own hilled-up soil, which covers the bare ridge",
+   "the frame: three pairs of bamboo canes crossed over the ridge and lashed, a ridge cane lying in the crossings, a rail tied half-way up each side",
+   "six bean vines wind up the canes (each a thin tube round its cane); leaves of three leaflets on short stalks, a few hanging pods, a tendril at each growing tip; every leaflet is its own blade, no leaf cards",
+   "painted, with the relief also in the normal map: grey weathered cane with drying cracks and dark feet; some leaves yellow-green; no collision (the bed has the box)"
+  ]
+ },
  "YP02": {
   "id": "YP02",
   "name": "WashingLine",
@@ -2541,6 +3084,281 @@
    "the lid is three boards cut to the circle under two nailed battens (a corner split off the front board), covering a little more than half of the mouth; the dipper is half a gourd with a stick bound to it by three turns of cord",
    "a crack runs down the front-left of the wall, held by three iron staples (Detail_Staples)",
    "painted, with the relief also in the normal map: the glaze stops at an uneven line with tongues above bare clay, glaze flaked off in angular patches, the crack and its seep stain, two thrown lines, lime runs under the rim, the scale line inside, moss and soil at the foot, checks and knots in the lid"
+  ]
+ },
+ "YP13_01": {
+  "id": "YP13_01",
+  "name": "CreekGrass",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP13_01_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP13_01_v001.glb",
+   "blend": "art/source/yard-props-c/YP13_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.223,
+   1.228,
+   1.188
+  ],
+  "body_dimensions_xyz_m": [
+   1.223,
+   1.228,
+   1.188
+  ],
+  "size_limit_xyz_m": [
+   1.5,
+   1.5,
+   1.35
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Base"
+  ],
+  "detailMeshes": [
+   "YP13_01_Detail_Base_LOD0",
+   "YP13_01_Detail_Base_LOD1",
+   "YP13_01_Detail_Base_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 8270,
+    "triangles_without_detail": 7380,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP13_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP13_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP13_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP13_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 4133,
+    "triangles_without_detail": 3689,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP13_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP13_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP13_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP13_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1239,
+    "triangles_without_detail": 1107,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP13_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP13_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP13_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP13_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP13_01_Body_LOD0",
+    "YP13_01_Body_LOD1",
+    "YP13_01_Body_LOD2"
+   ],
+   "Detail_Base": [
+    "YP13_01_Detail_Base_LOD0",
+    "YP13_01_Detail_Base_LOD1",
+    "YP13_01_Detail_Base_LOD2"
+   ]
+  },
+  "material": "M_YP13_01_CreekGrass",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 330,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP13/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a clump of tall creek grass about 1 m high: 72 long folded blades, upright in the middle, arching and hanging on the outside; every blade is its own piece, no leaf cards",
+   "five seed stalks above the leaves, each with a drooping panicle (16 small branches, 32 grains); seven dead blades lying round the base",
+   "Detail_Base (a thin patch of damp earth and five small stones) is off at the standard tier; the blades start 1 cm under the ground so the clump can be pressed into uneven ground; no collision",
+   "painted: yellowing outer ends and tips, brown dead sheaths at the base, brown spots"
+  ]
+ },
+ "YP13_02": {
+  "id": "YP13_02",
+  "name": "CreekFlowers",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/yard-props-c/YP13_02_v001.fbx",
+   "glb": "art/exports/yard-props-c/YP13_02_v001.glb",
+   "blend": "art/source/yard-props-c/YP13_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.627,
+   0.704,
+   0.399
+  ],
+  "body_dimensions_xyz_m": [
+   0.627,
+   0.704,
+   0.399
+  ],
+  "size_limit_xyz_m": [
+   0.9,
+   0.9,
+   0.6
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Base"
+  ],
+  "detailMeshes": [
+   "YP13_02_Detail_Base_LOD0",
+   "YP13_02_Detail_Base_LOD1",
+   "YP13_02_Detail_Base_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 10930,
+    "triangles_without_detail": 10120,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP13_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP13_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP13_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP13_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 5464,
+    "triangles_without_detail": 5060,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP13_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP13_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP13_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP13_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1638,
+    "triangles_without_detail": 1518,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "YP13_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "YP13_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "YP13_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "YP13_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "YP13_02_Body_LOD0",
+    "YP13_02_Body_LOD1",
+    "YP13_02_Body_LOD2"
+   ],
+   "Detail_Base": [
+    "YP13_02_Detail_Base_LOD0",
+    "YP13_02_Detail_Base_LOD1",
+    "YP13_02_Detail_Base_LOD2"
+   ]
+  },
+  "material": "M_YP13_02_CreekFlowers",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 597,
+  "coplanar_lifted": 0,
+  "reference": "art/references/YP13/prompt.txt",
+  "origin": "footprint centre, bottom z = 0, front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a low clump about 0.35 m high: 16 broad basal leaves, 20 thin stems with paired toothed leaves (200), each stem forking into three stalks: 44 five-petalled flowers (mostly white, a few pale purple) and 16 buds",
+   "every leaf and petal is its own piece, no leaf cards; the flower eye is a small yellow dome",
+   "Detail_Base (a thin patch of damp earth and four small stones) is off at the standard tier; the stems start under the ground so the clump can be pressed into uneven ground; no collision"
   ]
  }
 }

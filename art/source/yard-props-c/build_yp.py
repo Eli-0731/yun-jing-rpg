@@ -31,6 +31,7 @@ def make_sources():
 PROPS={}
 # id: (name, size limit w × d × h in m, minTier)
 TABLE={
+ 'YP01_01':('VegBedEarth',(2.1,3.1,.25),'standard'),'YP01_02':('RowCabbage',(.95,2.8,.55),'standard'),'YP01_03':('RowScallion',(.95,2.8,.75),'standard'),'YP01_04':('RowBeanFrame',(.95,2.8,1.65),'standard'),
  'YP02':('WashingLine',(2.7,.5,2.1),'standard'),
  'YP03':('WaterBucketLadle',(.50,.50,.50),'standard'),
  'YP04':('StoneMortarPestle',(.60,.60,.75),'standard'),
@@ -41,6 +42,7 @@ TABLE={
  'YP09_01':('CrateOpen',(.72,.45,.40),'standard'),'YP09_02':('RiceChest',(.68,.56,.60),'standard'),
  'YP10':('Wheelbarrow',(1.85,.80,1.0),'standard'),
  'YP11':('CarryingPoleBuckets',(1.8,.5,.6),'standard'),'YP12':('WaterVat',(.85,.85,.98),'standard'),
+ 'YP13_01':('CreekGrass',(1.5,1.5,1.35),'standard'),'YP13_02':('CreekFlowers',(.9,.9,.6),'standard'),
 }
 IDS=tuple(TABLE);TARGET={k:('x',None) for k in IDS};LIMIT={k:v[1] for k,v in TABLE.items()};NAME={k:v[0] for k,v in TABLE.items()};MIN_TIER={k:v[2] for k,v in TABLE.items()}
 for _f in [CK/'wl_items.py']+sorted(CK.glob('fi_items*.py')):exec(open(_f,encoding='utf-8').read())   # part helpers (_sheet, _cane, _lathe, _ring, _plate …)

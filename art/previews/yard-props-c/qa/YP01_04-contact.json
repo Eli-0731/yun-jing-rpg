@@ -1,0 +1,13 @@
+{
+ "YP01_04_v001": {
+  "YP01_04_Body_LOD0": {
+   "pieces": 467,
+   "within_1mm": 335,
+   "gap_1_3mm": 132,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.9,
+   "worst_at": []
+  }
+ }
+}

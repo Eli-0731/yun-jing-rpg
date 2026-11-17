@@ -1,0 +1,22 @@
+{
+ "YP13_01_v001": {
+  "YP13_01_Body_LOD0": {
+   "pieces": 324,
+   "within_1mm": 252,
+   "gap_1_3mm": 72,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.3,
+   "worst_at": []
+  },
+  "YP13_01_Detail_Base_LOD0": {
+   "pieces": 6,
+   "within_1mm": 6,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}
