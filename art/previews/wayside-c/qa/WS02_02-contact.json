@@ -1,0 +1,22 @@
+{
+ "WS02_02_v001": {
+  "WS02_02_Body_LOD0": {
+   "pieces": 90,
+   "within_1mm": 87,
+   "gap_1_3mm": 3,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.9,
+   "worst_at": []
+  },
+  "WS02_02_Detail_Base_LOD0": {
+   "pieces": 4,
+   "within_1mm": 4,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}

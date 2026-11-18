@@ -1,0 +1,31 @@
+{
+ "WS03_v001": {
+  "WS03_Body_LOD0": {
+   "pieces": 24,
+   "within_1mm": 24,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "WS03_Detail_Gravel_LOD0": {
+   "pieces": 70,
+   "within_1mm": 70,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "WS03_Detail_Weeds_LOD0": {
+   "pieces": 32,
+   "within_1mm": 32,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "WS05_01_v001": {
+  "WS05_01_Body_LOD0": {
+   "pieces": 115,
+   "within_1mm": 115,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "WS05_01_Detail_Stalks_LOD0": {
+   "pieces": 30,
+   "within_1mm": 30,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}

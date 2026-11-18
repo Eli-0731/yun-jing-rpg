@@ -1,0 +1,22 @@
+{
+ "WS04_01_v001": {
+  "WS04_01_Body_LOD0": {
+   "pieces": 3,
+   "within_1mm": 3,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "WS04_01_Detail_Weeds_LOD0": {
+   "pieces": 19,
+   "within_1mm": 19,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}
