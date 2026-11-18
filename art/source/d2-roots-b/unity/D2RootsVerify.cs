@@ -25,8 +25,12 @@ namespace YunJing.Editor
         const string BudgetModels = "Assets/YunJing/Models/D2RootsB", RawModels = "Assets/D2RootsBRawCheck";
         static string Models = BudgetModels;
         static bool Raw => Models == RawModels;
-        const string Version = "v005";
-        static readonly string[] Ids = { "DR01_RootArch" };
+        // DR01 is at v005, the DR02 wall modules at v001. D2_IDS (comma separated) limits a run to some of them.
+        static string Version(string id) => id.StartsWith("DR01") ? "v005" : "v001";
+        static readonly string[] AllIds = { "DR01_RootArch", "DR02_RootWall_A", "DR02_RootWall_B", "DR02_RootWall_C" };
+        static string[] Ids => string.IsNullOrEmpty(Environment.GetEnvironmentVariable("D2_IDS")) ? AllIds
+            : Environment.GetEnvironmentVariable("D2_IDS").Split(',').Select(x => x.Trim()).Where(x => x.Length > 0).ToArray();
+        static bool Wall(string id) => id.StartsWith("DR02");
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
         static string Exports => Path.Combine(Repo, "art/exports/d2-roots-b");
         static string Out(string id) => Path.Combine(Repo, "art/previews/d2-roots-b", id, "unity");
@@ -44,14 +48,17 @@ namespace YunJing.Editor
             Import();
             QingxiUrpUpgrade.EnsurePipeline();
             Report.Add($"Unity {Application.unityVersion}, pipeline {GraphicsSettings.currentRenderPipeline?.name ?? "built-in"}");
+            var own = new Dictionary<string, List<string>>();     // each report.txt gets the header and only its own asset's lines
             foreach (var id in Ids)
             {
                 Directory.CreateDirectory(Out(id));
                 EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
                 var info = JsonUtility.FromJson<Info>(File.ReadAllText(Path.Combine(Exports, id, "model_info.json")));
+                int start = Report.Count;
                 Inspect(id, info);
                 Shots(id, info);
-                File.WriteAllLines(Path.Combine(Out(id), "report.txt"), Report);
+                own[id] = Report.Skip(start).ToList();
+                File.WriteAllLines(Path.Combine(Out(id), "report.txt"), new[] { Report[0] }.Concat(own[id]));
             }
             // second pass: the same files outside the import budget, two shots for comparison
             Models = RawModels; Mats.Clear();
@@ -62,8 +69,9 @@ namespace YunJing.Editor
                 var before = Report.Count; int f0 = failures;
                 Shots(id, info);
                 Report.RemoveRange(before, Report.Count - before); failures = f0;
-                Report.Add($"INFO {id}: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)");
-                File.WriteAllLines(Path.Combine(Out(id), "report.txt"), Report);
+                var note = $"INFO {id}: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)";
+                Report.Add(note); own[id].Add(note);
+                File.WriteAllLines(Path.Combine(Out(id), "report.txt"), new[] { Report[0] }.Concat(own[id]));
             }
             Models = BudgetModels; Mats.Clear();
             foreach (var line in Report) Debug.Log("DR " + line);
@@ -78,7 +86,7 @@ namespace YunJing.Editor
         {
             foreach (var id in Ids)
             {
-                Copy(Path.Combine(Exports, id), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Version}.fbx");
+                Copy(Path.Combine(Exports, id), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Version(id)}.fbx");
                 Copy(Path.Combine(Exports, id, "Textures"), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
             }
             Copy(Path.Combine(Exports, "Shared"), Path.Combine(Repo, "apps/game", Models, "Shared"), "*.png");
@@ -171,7 +179,7 @@ namespace YunJing.Editor
 
         static GameObject Place(string id, Info info)
         {
-            var go = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>($"{Models}/{id}/{id}_{Version}.fbx"));
+            var go = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>($"{Models}/{id}/{id}_{Version(id)}.fbx"));
             foreach (var r in go.GetComponentsInChildren<Renderer>(true))
             {
                 r.sharedMaterials = r.sharedMaterials.Select(sm => Mat(id, SetOf(sm), info)).ToArray();
@@ -227,11 +235,12 @@ namespace YunJing.Editor
                 Report.Add($"INFO {id}: mesh compression {imp.meshCompression}; UV0 of LOD0 has {us.Length} distinct u and {vs.Length} distinct v over {m0.vertexCount} vertices (smallest step {du:0.000000} / {dv:0.000000})");
             }
             var sockets = go.GetComponentsInChildren<Transform>(true).Where(t => t.name.StartsWith("Socket_")).Select(t => $"{t.name} ({t.position.x:0.0}, {t.position.y:0.0}, {t.position.z:0.0})").ToArray();
-            Check(sockets.Length == 4, $"{id}: sockets {string.Join(", ", sockets)}");
+            Check(sockets.Length == (Wall(id) ? 2 : 4), $"{id}: sockets {string.Join(", ", sockets)}");
             // collision: a 1.75 m walker (radius 0.35) passes along the path through the arch; the arch feet block
             var col = go.GetComponentsInChildren<MeshCollider>(true);
             Check(col.Length == 1, $"{id}: one collision shell (MeshCollider, renderer off)");
             Physics.SyncTransforms();
+            if (Wall(id)) { WallChecks(id, go); UnityEngine.Object.DestroyImmediate(go); return; }
             bool through = !Physics.CapsuleCast(new Vector3(0, .45f, -16), new Vector3(0, 1.40f, -16), .35f, Vector3.forward, 32);
             bool wide = !Physics.CapsuleCast(new Vector3(-.75f, .45f, -16), new Vector3(-.75f, 1.40f, -16), .35f, Vector3.forward, 32)
                      && !Physics.CapsuleCast(new Vector3(.75f, .45f, -16), new Vector3(.75f, 1.40f, -16), .35f, Vector3.forward, 32);
@@ -246,6 +255,57 @@ namespace YunJing.Editor
                 Check(up && hu.distance > 4.5f, $"{id}: collision clear height under the {nm} crown {hu.distance + .1f:0.00} m");
             }
             UnityEngine.Object.DestroyImmediate(go);
+        }
+
+        // DR02: the root is a wall along x between its two sockets. A 1.75 m walker (radius 0.35) crossing it (along Unity z) is stopped
+        // everywhere between the sockets, also under variant A's raised hump (the gap there is about 1 m).
+        static void WallChecks(string id, GameObject go)
+        {
+            var s = go.GetComponentsInChildren<Transform>(true).Where(t => t.name.StartsWith("Socket_")).Select(t => t.position.x).OrderBy(x => x).ToArray();
+            int n = 0, stopped = 0;
+            for (float x = s[0] + .6f; x <= s[s.Length - 1] - .6f; x += .5f)
+            {
+                n++;
+                bool a = Physics.CapsuleCast(new Vector3(x, .45f, -9), new Vector3(x, 1.40f, -9), .35f, Vector3.forward, 18);
+                bool b = Physics.CapsuleCast(new Vector3(x, .45f, 9), new Vector3(x, 1.40f, 9), .35f, Vector3.back, 18);
+                if (a && b) stopped++;
+            }
+            Check(n > 0 && stopped >= n - 1, $"{id}: a walker crossing the wall is stopped at {stopped} of {n} places between the sockets (every 0.5 m)");
+            // an opening = every height from 0.3 m to 1.75 m clear (rays across the wall every 0.15 m) over at least 0.75 m of width
+            int run = 0, widest = 0;
+            for (float x = s[0] + .6f; x <= s[s.Length - 1] - .6f; x += .25f)
+            {
+                bool clear = true;
+                for (float y = .3f; y <= 1.76f && clear; y += .15f)
+                    clear = !Physics.Raycast(new Vector3(x, y, -9), Vector3.forward, 18) && !Physics.Raycast(new Vector3(x, y, 9), Vector3.back, 18);
+                run = clear ? run + 1 : 0; widest = Math.Max(widest, run);
+            }
+            Check(widest < 3, $"{id}: no opening a person could walk through between the sockets (widest column clear from 0.3 to 1.75 m: {widest * .25f:0.00} m)");
+            // two copies joined by the sockets (the copy's Socket_Head put on this one's Socket_Tail, position and rotation):
+            // a walker crossing the joint (2 m either side of it, every 0.5 m) is stopped
+            var tail = go.GetComponentsInChildren<Transform>(true).First(t => t.name.StartsWith("Socket_Tail"));
+            var head0 = go.GetComponentsInChildren<Transform>(true).First(t => t.name.StartsWith("Socket_Head"));
+            var dup = UnityEngine.Object.Instantiate(go);
+            var head = dup.GetComponentsInChildren<Transform>(true).First(t => t.name.StartsWith("Socket_Head"));
+            dup.transform.rotation = tail.rotation * Quaternion.Inverse(head.rotation) * dup.transform.rotation;
+            dup.transform.position += tail.position - head.position;
+            Physics.SyncTransforms();
+            var along = Vector3.ProjectOnPlane(tail.position - head0.position, Vector3.up).normalized;
+            var across = Vector3.Cross(Vector3.up, along);
+            int jn = 0, js = 0;
+            for (float k = -2; k <= 2.01f; k += .5f)
+            {
+                var p = tail.position + along * k;
+                jn++;
+                bool a1 = Physics.CapsuleCast(p - across * 9 + Vector3.up * .45f, p - across * 9 + Vector3.up * 1.4f, .35f, across, 18);
+                bool b1 = Physics.CapsuleCast(p + across * 9 + Vector3.up * .45f, p + across * 9 + Vector3.up * 1.4f, .35f, -across, 18);
+                if (a1 && b1) js++;
+            }
+            Check(js == jn && (head.position - tail.position).magnitude < .01f, $"{id}: two copies joined Socket_Head on Socket_Tail: a walker crossing the joint is stopped at {js} of {jn} places");
+            UnityEngine.Object.DestroyImmediate(dup);
+            Physics.SyncTransforms();
+            bool top = Physics.Raycast(new Vector3((s[0] + s[s.Length - 1]) / 2, 20, 0), Vector3.down, out var h, 25);
+            Report.Add($"INFO {id}: collision top at the middle {(top ? h.point.y : 0):0.00} m");
         }
 
         // ------------------------------------------------------------------ renders
@@ -274,6 +334,22 @@ namespace YunJing.Editor
             var lg = go.GetComponent<LODGroup>();
             lg.ForceLOD(0);
             // Blender (x, y, z) -> Unity (x, z, y) with the front (-Y) towards -Z
+            if (Wall(id))
+            {
+                ruler.transform.position = new Vector3(-1, .875f, -3);
+                Shot(id, "front-lod0", new Vector3(0, 1.6f, -17), new Vector3(0, 1.4f, 0), 36.2f);          // 30 mm
+                if (Raw) { Shot(id, "bark-close", new Vector3(-1.5f, 1.6f, -3.4f), new Vector3(-2.5f, 1.6f, -.3f), 22.9f); return; }
+                Shot(id, "threequarter", new Vector3(-11, 3.2f, -12), new Vector3(.5f, 1.3f, 0), 39.6f);    // 28 mm
+                Shot(id, "end", new Vector3(-16, 1.6f, -1), new Vector3(0, 1.5f, 0), 32.2f);
+                Shot(id, "back", new Vector3(2, 2.2f, 16), new Vector3(0, 1.4f, 0), 36.2f);
+                Shot(id, "bark-close", new Vector3(-1.5f, 1.6f, -3.4f), new Vector3(-2.5f, 1.6f, -.3f), 22.9f);
+                for (int i = 1; i < 3; i++) { lg.ForceLOD(i); Shot(id, $"front-lod{i}", new Vector3(0, 1.6f, -17), new Vector3(0, 1.4f, 0), 36.2f); }
+                lg.ForceLOD(1); Detail(go, false);
+                Shot(id, "front-standard-tier-lod1-nodetail", new Vector3(0, 1.6f, -17), new Vector3(0, 1.4f, 0), 36.2f);
+                Detail(go, true); lg.ForceLOD(-1);
+                Report.Add($"INFO renders written to art/previews/d2-roots-b/{id}/unity");
+                return;
+            }
             Shot(id, "V2cam-lod0", new Vector3(.5f, 1.7f, -15), new Vector3(0, 1.7f, 0), 49.4f);        // 22 mm on a 36 mm sensor, 16:9, level like concept V2; same position and lens as the core team's V2 camera
             if (Raw) { Shot(id, "bark-close", new Vector3(-2.2f, 1.6f, -3.2f), new Vector3(-5.4f, 1.8f, -.9f), 22.9f); return; }
             Shot(id, "threequarter", new Vector3(-15, 4.5f, -15), new Vector3(0, 2.6f, 0), 39.6f);     // 28 mm

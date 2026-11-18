@@ -5,8 +5,10 @@ from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
 
-def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR01_High', prefix='DR01_P_', lite=False, amount=1.0):
-    """lite=True：遊戲模型用的數量（蕨和葉叢少一點）。amount：數量再乘幾倍（v004 後拱 0.5）。"""
+def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR01_High', prefix='DR01_P_', lite=False, amount=1.0, avoid=False):
+    """lite=True：遊戲模型用的數量（蕨和葉叢少一點）。amount：數量再乘幾倍（v004 後拱 0.5）。
+    avoid=True：葉子、蕨、垂藤不能穿進根裡（DR02 起用；扭絞的股與股之間，下垂的葉子會插進隔壁那股）。
+    DR01 v005 交付時沒有開，開了亂數順序會變，植物位置跟著變。"""
     n_foot_fern = int(round((6 if lite else 7) * amount))
     n_foot_heart = int(round((6 if lite else 7) * amount))
     import core_plants
@@ -41,6 +43,24 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
         me.polygons.foreach_get('loop_start', ls)
         FM.extend(red[ls].tolist())          # 每個面的苔量（取第一個角）
     bvh = BVHTree.FromPolygons(V, F)
+
+    def clear(pts, gap=.015):
+        """這些點都在根外面、離表面至少 gap（avoid=False 時一律通過）。根管的面法線朝外。"""
+        if not avoid:
+            return True
+        for q in pts:
+            loc, nr, _, dist = bvh.find_nearest(q, 2.0)
+            if loc is not None and (q - loc).dot(nr) < gap:
+                return False
+        return True
+
+    def clear_obj(o, gap=.0):
+        """一整個植物物件（蕨）有沒有任何一點在根裡面。"""
+        if not avoid:
+            return True
+        M = o.matrix_world
+        vs = [M @ v.co for v in o.data.vertices]
+        return all(clear([q], gap) for q in vs if q.z > .03)      # 地面以上每個頂點都要在根外面
 
     def mat(name, *a, **k):
         return bpy.data.materials.get(name) or _leaf_material(name, *a, **k)
@@ -118,9 +138,14 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
         made = 0
         for i in range(40):
             h = hit_from(tc + R.uniform(-.03, .03), R.gauss(0, .45), R.uniform(-.2, .2))
-            if h is None or h[1].z < .55:
+            if h is None or h[1].z < (.75 if avoid else .55):
                 continue
-            o, so = fern(f'{prefix}Fern{k}', h[0] - Vector((0, 0, .04)), R, R.uniform(.5, .9), fern_mat, stem_mat)
+            # avoid：根頂上的蕨小一點、只長在近乎朝上的地方，葉才不會垂進旁邊那股根
+            o, so = fern(f'{prefix}Fern{k}', h[0] - Vector((0, 0, .04)), R, R.uniform(.32, .55) if avoid else R.uniform(.5, .9), fern_mat, stem_mat)
+            if not clear_obj(o):
+                bpy.data.objects.remove(o, do_unlink=True)
+                bpy.data.objects.remove(so, do_unlink=True)
+                continue
             keep(o, 'Ferns')
             keep(so, 'Stems')
             k += 1
@@ -139,8 +164,11 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
         t0.normalize()
         t1 = nr.cross(t0)
         n = R.randint(5, 8) if hang else R.randint(7, 11)
-        for k in range(n):
-            az = R.uniform(0, 2 * math.pi) if hang else 2 * math.pi * k / n + R.uniform(-.3, .3)
+        made = 0
+        for k in range(n * (5 if avoid else 1)):
+            if made >= n:
+                break
+            az = R.uniform(0, 2 * math.pi) if hang else 2 * math.pi * made / n + R.uniform(-.3, .3)
             rad = t0 * math.cos(az) + t1 * math.sin(az)
             if hang:
                 pd = (nr * R.uniform(.5, 1.0) + rad * R.uniform(.4, 1.0) + Vector((0, 0, R.uniform(0, .5)))).normalized()
@@ -151,7 +179,6 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
                 Lp = size * R.uniform(.16, .36)
                 ld = (rad + nr * R.uniform(-.35, -.05)).normalized()
             a, s2, u2 = _frame(pd)
-            buf.leaf(pos, a, s2, u2, Lp, .006 if hang else .008, shape=lambda u: 1.0, fold=0, tint=(.6, .7, .5), nu=1, nv=1)      # 葉柄
             ls = ld.cross(nr)
             if ls.length < .1:
                 ls = ld.cross(t0)
@@ -160,12 +187,16 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
             if ln.dot(nr) < 0:
                 ls, ln = -ls, -ln
             g = R.uniform(.82, 1.15)
+            L = size * (R.uniform(.15, .27) if hang else R.uniform(.11, .17))
+            base = pos + pd * Lp
+            if not clear([pos + pd * Lp * f for f in (.15, .3, .5, .75)] + [base] + [base + ld * L * f + ls * L * .2 * w for f in (.3, .6, 1.0) for w in (-1, 0, 1)]):
+                continue                                   # 這片會插進根裡：換個方向
+            made += 1
+            buf.leaf(pos, a, s2, u2, Lp, .006 if hang else .008, shape=lambda u: 1.0, fold=0, tint=(.6, .7, .5), nu=1, nv=1)      # 葉柄
             if hang:
-                L = size * R.uniform(.15, .27)
                 buf.leaf(pos + pd * Lp, ld, ls, ln, L, L * .40, shape=HEART, fold=.18, curl=.08, droop=R.uniform(.05, .3),
                          tint=(g, g, g * .96), nu=6, nv=4, twist=R.uniform(-.3, .3))
             else:
-                L = size * R.uniform(.11, .17)
                 buf.leaf(pos + pd * Lp - ld * (L * .12), ld, ls, ln, L, L * .55, shape=CORE_HEART, fold=.1, curl=.15, droop=.2,
                          tint=(g, g, g * .96), nu=8, nv=4, twist=R.uniform(-.3, .3))
 
@@ -187,6 +218,8 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
                 continue
             nseg = int(L / .13)
             sway = R.uniform(-.25, .25)
+            if not clear([p0 + Vector((sway * (j / nseg) ** 2, math.sin(j * .5 + i) * .05, -L * j / nseg)) for j in range(1, nseg)], .08):
+                continue                                  # 垂下去會穿過下面的根
             for j in range(nseg):
                 q = p0 + Vector((sway * (j / nseg) ** 2, math.sin(j * .5 + i) * .05, -L * j / nseg))
                 dq, sq, uq = _frame(Vector((0.05, 0, -1)))
@@ -241,6 +274,10 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
             pos = Vector((x, y, -.02))
             if nf < n_foot_fern and (nh >= n_foot_heart or R.random() < .5):
                 o, so = fern(f'{prefix}FootFern{kf}', pos, R, R.uniform(1.1, 1.8), fern_mat, stem_mat)
+                if not clear_obj(o):
+                    bpy.data.objects.remove(o, do_unlink=True)
+                    bpy.data.objects.remove(so, do_unlink=True)
+                    continue
                 keep(o, 'Ferns')
                 keep(so, 'Stems')
                 nf += 1
