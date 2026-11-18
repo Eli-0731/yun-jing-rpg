@@ -1,0 +1,21 @@
+Use your built-in image generation tool (image_gen) to make reference sheets for ONE 3D game asset, and save the PNG files into ./out/ with the exact file names below. Use V2.png in this folder as the main input reference image for every generation (it shows the asset: the giant root arch in the middle). V1.png (bird's-eye) and V4.png (seen from the other side, far away) show the same arch from other angles. Match V2's bark, colours, moss and painting style exactly. Do not write any code other than what is needed to copy the generated files into ./out/.
+
+The asset: "DR01 south entrance root arch" of an ancient forest. Two or three very thick tree roots (each 1.2-1.8 m thick) twist around each other like a rope and rise into one arch. Clear opening 8 m wide and 5 m high, roughly a rounded oval. The arch is asymmetric: the top sits slightly left of centre and the right shoulder is lower. At each foot the strands separate and fan out into five or six tapering roots that crawl 12-15 m outward along the ground and dive into the soil. Deep grey-brown old bark with long ridges and furrows that follow the twist of each root, pale grey lichen patches on the raised ridges, darker crevices. Thick dark olive-green moss in patches on the upward-facing surfaces, small ferns on top, a few thin hanging vines with small leaves under the crown. No trunk, no leaves canopy, no big tree behind it.
+
+Files to make (each a separate generation, landscape, at least 1536x1024):
+1. out/DR01-threeview-front-side-back.png : orthographic turnaround sheet with FRONT view, SIDE view (seen along the path direction's perpendicular, so the arch looks like a narrow leaning tower about 3-4 m deep with the foot roots spreading left and right), and BACK view, side by side, same scale, same ground line, with a small 1.75 m grey human silhouette for scale next to the front view.
+2. out/DR01-top-and-threequarter.png : left half a TOP view (straight down, showing the arch as a thick band and the two fans of foot roots spreading outward, total footprint about 30 m x 16 m), right half a three-quarter view from front-left at eye height 3 m.
+3. out/DR01-detail-bark-and-feet.png : a sheet of three close-ups: (a) bark surface at arm's length showing plates, furrows 5-15 cm deep, lichen and moss; (b) one foot where the strands separate and roots dive into wet dark soil with leaf litter; (c) the place on the crown where two strands cross, one pressed over the other, with moss, small ferns and hanging vines.
+4. out/DR01-threeview-alt.png : a second, different take of file 1 (different twisting and foot-root layout), so there is a choice.
+
+Layout rules for 1, 2, 4: one object only, plain light warm-grey background, flat ground line, even soft overcast lighting, no cast shadows on the background, no fog, no other trees, no rocks, no path, no altar, no text or labels.
+Style: Eastern xianxia fantasy, hand-painted look 3D game concept art, low saturation, overcast. Not a photo.
+When finished, list the files in ./out/ with their pixel sizes.
+
+---
+2026-11-16：Codex image_gen 依上面的提示詞出圖，輸入圖是 D2 設定圖 V2（主）、V1、V4。
+選用：DR01-threeview-front-side-back.png（正／側／背）、DR01-top-and-threequarter.png（頂視／斜角）、DR01-detail-bark-and-feet.png（樹皮、根腳、拱頂交叉處）。
+備選：DR01-threeview-alt.png（根裙更滿、拱洞更圓）。
+注意：圖裡的人形尺比例不準（拱洞看起來只有約 6 m 寬）。尺寸一律照工作包：淨跨 8 m、淨高 5 m、兩腳往外散 12–15 m。
+從圖上取用的：拱腳外側有很多條根從拱身中段一路流到地面，側看是三角形的根裙；拱身看得到五六股粗細不同的根互絞；
+樹皮是一片片順著根走的長鱗板，凸起處有灰藍白地衣斑；苔在朝上的面連成片；拱頂有蕨，拱底垂小葉藤。
