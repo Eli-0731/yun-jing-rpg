@@ -1,0 +1,25 @@
+WS02 乾草叢兩種（11/14 工作包 C 批；A2 村外官道路邊）三視圖與自評（2026-11-18）
+選用：WS02A-cand-4.png、WS02B-cand-1.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 C 批和 A2 區塊規劃 docs/execution/blocks/A2-A3-block-plan.md 寫（A2 沒有設定圖，工作包也沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- 高 cand-1：89（27+27+23+12）。石板地座。
+- 高 cand-2：90（27+28+23+12）。腳下一圈土丘偏大。
+- 高 cand-3：89（27+27+23+12）。石板地座。
+- 高 cand-4：91（28+28+23+12）。選用。長葉從密的基部拱出去，草黃到淺褐，中間幾片綠，上面幾根細稈頂著羽毛狀的淺色花穗；沒有地座。
+- 矮 cand-1：91（28+28+23+12）。選用。低低一團細葉，彎折、糾在一起，幾片平躺折斷，中間一點綠。
+- 矮 cand-2：90（27+28+23+12）。有穗，和高的那種太像。
+- 矮 cand-3：89（27+27+23+12）。石板地座。
+- 矮 cand-4：90（27+28+23+12）。乾淨但葉子太直。
+
+建模取捨：兩種各一個模型（WS02_01 高的乾芒草、WS02_02 矮的枯草團）。葉子一片片做，有中摺、彎垂，有的折斷，顏色草黃到淺褐、基部幾片綠；高的那種有幾根細稈和羽毛狀花穗（一根根細的小穗）。不用葉片卡。
+
+== 正面提示詞（WS02A） ==
+Three-view orthographic turnaround sheet of a tall clump of dry silver grass at the roadside, about 0.9 m wide, 0.9 m deep and 1.1 m tall, long arching straw-coloured and pale brown blades from a dense base, several feathery pale seed plumes on thin stems above, a few green blades left near the base, growing beside an old stone-paved official road outside a Chinese southern mountain village, calm natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 正面提示詞（WS02B） ==
+Three-view orthographic turnaround sheet of a low tuft of dry withered wild grass at the roadside, about 0.5 m wide, 0.5 m deep and 0.3 m tall, fine bent and tangled straw-coloured blades from a tight base, some lying flat and broken, a few faded green blades inside, a little soil at the base, growing beside an old stone-paved official road outside a Chinese southern mountain village, calm natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

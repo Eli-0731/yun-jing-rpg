@@ -1,0 +1,17 @@
+WS03 路邊碎石堆（11/14 工作包 C 批；A2 官道修路剩下的）三視圖與自評（2026-11-18）
+選用：WS03-cand-2.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 C 批和 A2 區塊規劃 docs/execution/blocks/A2-A3-block-plan.md 寫（A2 沒有設定圖，工作包也沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。乾淨，但底下一塊石板。
+- cand-2：91（28+28+23+12）。選用。大小不一的稜角灰石堆成一小堆，碎屑和小碎石往四周散，石縫裡幾叢雜草，沒有地座。
+- cand-3：90（27+28+23+12）。和 cand-2 接近，雜草比較多、石頭偏圓。
+- cand-4：89（27+27+23+12）。石板地座。
+
+建模取捨：照 cand-2。每顆石頭是有稜角的劈開花崗岩（劈面平、邊有缺角），從拳頭大到頭大，互相壓著疊成一小堆；周圍散的碎石子；石縫裡幾叢雜草是 Detail 群組。灰塵和一點青苔畫在貼圖上。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a small roadside heap of broken stones and gravel left from road mending, about 1.2 m wide, 0.9 m deep and 0.35 m tall, angular grey granite pieces of different sizes from fist-sized to head-sized with smaller chips and gravel spilling around the edges, a few weeds growing between, dust and a little moss, lying beside an old stone-paved official road outside a Chinese southern mountain village, old and weathered, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

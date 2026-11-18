@@ -1,0 +1,17 @@
+WS04 疊石小塔（11/14 工作包 C 批：行人隨手疊的，三到五塊石；A2 官道路邊）三視圖與自評（2026-11-18）
+選用：WS04-cand-4.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 C 批和 A2 區塊規劃 docs/execution/blocks/A2-A3-block-plan.md 寫（A2 沒有設定圖，工作包也沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。三塊和五塊都有，石頭偏圓、太正。
+- cand-2：89（27+27+23+12）。疊得太整齊像擺設。
+- cand-3：89（27+27+23+12）。五塊那座的底石太大。
+- cand-4：91（28+28+23+12）。選用。三塊和五塊各一座，扁圓的河石由大到小，頂上幾塊有點歪，灰和褐色的石頭帶一點青苔。
+
+建模取捨：兩座各一個模型（WS04_01 三塊、WS04_02 五塊），可以分開擺。每塊是扁圓的河石，形狀和大小各不同，一塊壓在下一塊上、有點歪（重心還在底石上），接觸面互相貼合。三視圖底下的石板不做；腳邊幾根草是 Detail 群組。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of two small cairns of stacked stones side by side made by passing travellers, one of three stones about 0.35 m tall and one of five stones about 0.5 m tall, flat rounded river stones of different sizes stacked from big at the bottom to small at the top, slightly off-balance, grey and brown stones with a little moss, lying beside an old stone-paved official road outside a Chinese southern mountain village, old and weathered, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

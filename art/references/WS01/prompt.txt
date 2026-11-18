@@ -1,0 +1,25 @@
+WS01 路邊野花叢（11/14 工作包 C 批：黃、紫兩種；A2 村外官道路邊）三視圖與自評（2026-11-18）
+選用：WS01A-cand-1.png、WS01B-cand-3.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 C 批和 A2 區塊規劃 docs/execution/blocks/A2-A3-block-plan.md 寫（A2 沒有設定圖，工作包也沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- 黃花 cand-1：91（28+28+23+12）。選用。一叢細莖分枝，葉子有鋸齒，頂上一朵朵黃色小菊和花苞，幾朵開過的，腳邊兩顆小石；沒有地座。
+- 黃花 cand-2：89（27+27+23+12）。腳下一塊石板地座，花比較少。
+- 黃花 cand-3：89（27+27+23+12）。也有石板地座。
+- 黃花 cand-4：90（27+28+23+12）。乾淨，但側視只有一束往前倒。
+- 紫花 cand-1：89（27+27+23+12）。石板地座。
+- 紫花 cand-2：89（27+27+23+12）。石板地座，葉子偏大。
+- 紫花 cand-3：91（28+28+23+12）。選用。方莖直立，對生的卵形葉，頂上短短一串紫色唇形小花，幾串開過變褐，腳邊小石；沒有地座。
+- 紫花 cand-4：90（27+28+23+12）。花穗好，但腳下一塊石板。
+
+建模取捨：兩種各一個模型（WS01_01 黃花、WS01_02 紫花）。黃花照 cand-1：細莖從基部分枝，鋸齒葉一片片做，莖頂的黃色小菊花瓣一片片做、中間黃色花心，花苞和開過的花幾朵。紫花照 cand-3：方莖直立，對生卵形葉往上變小，莖頂一串短花穗（一圈圈紫色唇形小花和綠色苞片），幾串開過變褐。都不用葉片卡。三視圖底下的石板地座不做；腳邊一小片土和小石是 Detail 群組。
+
+== 正面提示詞（WS01A） ==
+Three-view orthographic turnaround sheet of a roadside clump of small yellow wildflowers, about 0.5 m wide, 0.5 m deep and 0.45 m tall, many thin branching stems with narrow toothed leaves and small yellow daisy-like flower heads with yellow centres (like wild chrysanthemum), a few buds and faded flowers, a little soil and two pebbles at the base, growing beside an old stone-paved official road outside a Chinese southern mountain village, calm natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 正面提示詞（WS01B） ==
+Three-view orthographic turnaround sheet of a roadside clump of small purple wildflowers, about 0.45 m wide, 0.45 m deep and 0.35 m tall, upright square stems with paired oval leaves and short dense spikes of small purple-violet lipped flowers (like self-heal), a few spent brownish spikes, low leaves at the base, a little soil and a pebble, growing beside an old stone-paved official road outside a Chinese southern mountain village, calm natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

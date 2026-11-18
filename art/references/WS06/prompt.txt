@@ -1,0 +1,17 @@
+WS06 柴捆（11/14 工作包 C 批；A2 官道路邊）三視圖與自評（2026-11-18）
+選用：WS06-cand-4.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 C 批和 A2 區塊規劃 docs/execution/blocks/A2-A3-block-plan.md 寫（A2 沒有設定圖，工作包也沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90（27+28+23+12）。兩捆疊放，樹枝整齊，捆繩好，但比較像劈柴。
+- cand-2：90（27+28+23+12）。和 cand-1 很像。
+- cand-3：90（27+28+23+12）。細枝偏多、亂。
+- cand-4：91（28+28+23+12）。選用。兩捆柴疊放，粗細混雜的乾樹枝和劈開的枝條，頂上伸出細枝，每捆兩道草繩，切口是淺色的。
+
+建模取捨：照 cand-4：兩捆柴一捆壓在另一捆上，每捆是幾十根粗細不同的枝條（有樹皮、有分叉、幾根劈開的），兩道扭成的草繩捆住、勒進柴裡，切口淺色、有年輪；地上幾根散落的細枝是 Detail 群組。三視圖底下的石板不做。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of two bundles of firewood lying at the roadside, about 1.0 m long, 0.6 m wide and 0.45 m tall together, each bundle of dry brushwood sticks and split branches of mixed thickness tied with two loops of twisted straw rope, one bundle lying on the other, a few loose twigs on the ground, bark and pale cut ends, lying beside an old stone-paved official road outside a Chinese southern mountain village, old and weathered, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye

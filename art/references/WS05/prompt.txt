@@ -1,0 +1,17 @@
+WS05 稻草堆與稻束（11/14 工作包 C 批；A2 路邊田邊，A6 稻田也用）三視圖與自評（2026-11-18）
+選用：WS05-cand-1.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 C 批和 A2 區塊規劃 docs/execution/blocks/A2-A3-block-plan.md 寫（A2 沒有設定圖，工作包也沒有附逐件提示詞），加 11/07 包附錄的固定 Layout 段、5.2、5.3（一字不改），每張相同。評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：91（28+28+23+12）。選用。一堆低低的打過穀的稻草，旁邊三束立著的稻束，腰上綁草繩、下面散開像小帳篷。
+- cand-2：90（27+28+23+12）。稻束偏細，後面一段石牆。
+- cand-3：90（27+28+23+12）。稻草堆和稻束擠在一起。
+- cand-4：89（27+27+23+12）。稻草堆太圓。
+
+建模取捨：兩個模型（WS05_01 稻草堆、WS05_02 三束稻束），可以分開擺在路邊或田裡。稻草堆是一層層亂搭的稻草（每層是有厚度的草片，邊緣參差做在形狀上，草稈紋路畫在貼圖上），外面幾束散草；稻束是一把把稻草，腰上綁兩圈草繩、下面散開、頂上穗頭往下垂。三視圖底下的石板和背景的田不做。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a low loose heap of threshed rice straw and three rice sheaves standing upright beside it, the heap about 1.4 m wide, 1.2 m deep and 0.8 m tall, golden and greyish straw lying in tangled layers, each sheaf a bundle of rice straw tied at the waist with straw and spread out at the foot like a little tent, at the edge of a harvested paddy field, lying beside an old stone-paved official road outside a Chinese southern mountain village, old and weathered, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
