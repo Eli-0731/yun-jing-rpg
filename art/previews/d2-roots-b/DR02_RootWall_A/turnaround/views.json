@@ -1,6 +1,6 @@
 {
   "asset": "DR02_RootWall_A",
-  "version": "v001",
+  "version": "v002",
   "views": [
     {
       "name": "01_front",
@@ -163,5 +163,5 @@
       "mesh": "LOD0"
     }
   ],
-  "note": "遊戲模型 LOD0＋Detail_DR02_Plants，烘焙貼圖；白柱是 1.75 m 人形尺"
+  "note": "遊戲模型 LOD0＋Detail_DR02_Plants，烘焙貼圖；白柱是 1.75 m 人形尺；相機座標以新原點（底部中心）為準"
 }

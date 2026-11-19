@@ -2,16 +2,36 @@
 |---|---|
 | 誰做的 | B（joshsu54） |
 | 工作包 | docs/execution/2026-11-15/B-300h-D2-roots-and-wood.md（A 批），共同標準 docs/execution/2026-11-15/00-300h-共同標準.md |
-| ID | DR01（樣品，v005）、DR02 板根牆 A／B／C（v001）、DR03 收頭與交叉件（v001）、DR04 根間的樹洞（v001） |
+| ID | DR01（樣品，v006）、DR02 板根牆 A／B／C（v002）、DR03 收頭與交叉件（v002）、DR04 根間的樹洞（v002）；11/19 原點改到底部中心，形狀同 DR01 v005、其餘 v001 |
 | 分支／PR | art/b-1115-d2-root-arch-walls ／【B】11/15 DR01–04：D2 入口大根拱與板根牆 |
-| 版本 | **v005**（目前交付）。v001–v004 整份封存在 `DR01_RootArch/v001/`–`v004/`，預覽在 `art/previews/d2-roots-b/DR01_RootArch/v001/`–`v004/`，當時的腳本在 `art/source/d2-roots-b/v001_snapshot/`–`v004_snapshot/` |
-| 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查 27 項通過）／ Blender 與 Unity 審圖已出 ／ In-game Verified：未驗（沒放進 D2 場景，沒有和真正的神木、地面、霧一起截圖） |
+| 版本 | DR01 **v006**（目前交付，v005 的模型、原點移到底部中心）。v001–v005 整份封存在 `DR01_RootArch/v001/`–`v005/`，預覽在 `art/previews/d2-roots-b/DR01_RootArch/v001/`–`v004/`，當時的腳本在 `art/source/d2-roots-b/v001_snapshot/`–`v004_snapshot/` |
+| 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查：11/19 七件一起跑，DR01 28、DR02 各 20、DR03 收頭 19／交叉件 18、DR04 20 項全部通過）／ Blender 與 Unity 審圖已出 ／ In-game Verified：未驗（沒放進 D2 場景，沒有和真正的神木、地面、霧一起截圖） |
 | 素材來源 | 樹皮：Poly Haven `bark_brown_02`（CC0）。植物做法沿用核心組 D2 林下範本 `art/source/core-d2-v1/ground/plants.py`（原樣複製成 `core_plants.py`），根腳心形葉的葉形照核心組 `heart_plant`。其餘原創 |
-| 實際工時 | DR01 約 25 小時（2026-11-16 晚上到 11-18，估計值；工作包預估 40 小時）；DR02 三件約 4 小時（11-18，估計值；工作包預估 42 小時）；DR03 兩件約 6 小時（11-18 晚到 11-19，含交叉件第二輪；估計值；工作包預估 12 小時）；DR04 約 5 小時（11-19，估計值；工作包預估 10 小時）。以 Blender 程序化製作，三視圖由 Codex 出圖 |
+| 實際工時 | DR01 約 25 小時（2026-11-16 晚上到 11-18，估計值；工作包預估 40 小時）；DR02 三件約 4 小時（11-18，估計值；工作包預估 42 小時）；DR03 兩件約 6 小時（11-18 晚到 11-19，含交叉件第二輪；估計值；工作包預估 12 小時）；DR04 約 5 小時（11-19，估計值；工作包預估 10 小時）。11/19 補原點與設定圖對圖（七件）約 2 小時（估計值）。以 Blender 程序化製作，三視圖由 Codex 出圖 |
 
 # D2 根與木頭大件（B 包）
 
-## DR01 南入口大根拱（RootArch，v005，樣品）
+## 11/19 補交：原點改到底部中心、設定圖同鏡位對圖（DR01 v006、DR02–04 v002）
+
+照共同標準「每件都要交的東西」再對一次，補兩項：
+
+- **原點**：規定是「底部中心、z = 0 在地面，埋進土裡的部分往下延伸」。舊版的原點放在功能位置（DR01 南拱拱洞、DR02 根的中點、DR03 交叉點／沿 X 的中點、DR04 洞口），不是底部中心。新版把整件平移，原點落在 **LOD0 本體外框 XY 的中心** 正下方的地面；z 不動（z = 0 仍是地面，鑽土的部分在 z < 0）。形狀、UV、貼圖、LOD、碰撞殼、接口的相對位置都和舊版一樣，沒有重新烘焙。
+  - 平移量（舊座標裡新原點的位置，Blender x, y；單位 m）：DR01 (0.325, 2.693)；DR02 A (−0.498, 0.729)、B (−0.315, 0.265)、C (−0.325, 0.260)；DR03 收頭 (−0.339, −0.040)、交叉件 (−0.044, −0.007)；DR04 (0.119, 0.574)。
+  - `model_info.json` 加了 `previous_origin_m`（舊原點在新座標的位置）：用舊版擺好的場景，把新版往 −previous_origin_m 移就對回原處。接口（`Socket_*`）跟著整件一起移，用接口拼接的不受影響。
+  - `validation.json` 加了 `origin_at_bottom_centre`（外框中心離原點多遠，都是 0.000）。洞口、拱洞、根下暗縫的量測照舊版座標量（量法沒改，數字和舊版相同），所以那幾項的座標要加 previous_origin_m 才是新版座標。
+  - Unity 檢查多一項「原點在底部中心」（LOD0 本體外框中心離原點 2 cm 內），擺件時照 previous_origin_m 把舊原點放回世界原點，其餘檢查和鏡位都沒改。11/19 七件一起跑全部通過：DR01 28、DR02 A／B／C 各 20、DR03 收頭 19、交叉件 18、DR04 20 項（各比舊版多原點那一項；七件新原點離外框中心都是 0.000 m）。Unity 截圖和舊版同鏡位比對，DR02–04 平均像素差 0.02–0.03（同一張圖），DR01 2.06（只有影子深淺不同，形狀和構圖一樣）。
+  - 做法：`art/source/d2-roots-b/dr_pivot.py`（`to_bottom_centre()`）；`game_dr01.py`、`game_dr02.py` 的 `finish()` 在匯出前呼叫它，重建整件就直接是新版。這次是把舊版遊戲 blend 用 `reorigin_run.py` 轉過來（Blender 背景模式，一件約 1.5 分鐘：平移 → 匯出 → 存新版 blend → 跑 report）。
+  - 舊版整份封存：匯出在 `<件名>/v001/`（DR01 在 `v005/`），預覽在 `art/previews/d2-roots-b/<件名>/v001/`（DR01 在 `v005/`）。貼圖沒變，新舊版共用 `<件名>/Textures/`。
+  - `pack_dr02.py`（DR02 拼接示意，不交付）還是讀 v001 的 blend。
+- **對圖**：規定是「成品渲染 vs 設定圖裡同一個東西的並排圖，同光、同角度」。舊的對照圖拿的是 Codex 三視圖（平光），不是 D2 設定圖。新版每件加一張 `<件名>_vs_concept_<V>.jpg`：左邊是 D2 設定圖裡那一段的裁切，右邊是成品 LOD0，用 `preview_dr.py` 的陰天漫射光＋霧，相機照設定圖裡那一段的方向、高度、遠近估（設定圖是手繪、沒有相機資料，鏡位是對著畫面估的，不是量出來的）。
+  - DR01：設定圖 V2（本來就有同鏡位，`DR01_RootArch_vs_concept_V2.jpg` 重出）。
+  - DR02 A／B／C：設定圖 V3 祭壇後面順著地面往右爬的長根，從空地側看、略高於人眼。
+  - DR03 收頭：V5 左半，從神木斜下來、在路邊分成根指鑽進土裡的那幾條。交叉件：V5 右下，一條根拱起來壓過另一條。
+  - DR04：V5 最左邊，板根之間的黑洞口。
+  - 鏡位和裁切範圍在 `art/source/d2-roots-b/vs_concept.py`（`CAMS`、`CROPS`），並排用 `compose_concept.py`。設定圖本身不在版本庫（核心組的 D2 設定圖）。
+  - 舊的「Codex 三視圖 vs 成品」對照圖保留在 v001／v005 資料夾。
+
+## DR01 南入口大根拱（RootArch，v006，樣品；形狀同 v005）
 
 **v004 改成前後雙拱**（Josh 11/17：南北兩個入口都是拱門，要換別種形式才分得出來；11/18 看過 v003 交叉尖拱和雙拱預覽後選雙拱。審圖 `DR01_RootArch_v005_review.jpg`）。
 v001 是三股根絞成一個圓環；v002 加右肩一道副拱；v003 交叉尖拱（都已封存）；v004 是前後雙拱；**v005 只改兩拱之間的根**（v004 俯視像梯子、側面像橫梁、氣根像平行直條；對照圖 `DR01_RootArch_v004_vs_v005.jpg`），兩道拱本身、淨空、接口都沒動：
@@ -37,10 +57,10 @@ v001 是三股根絞成一個圓環；v002 加右肩一道副拱；v003 交叉�
 | 貼圖 | 四組（A–D），每組 Albedo、Normal、ORM、MaskURP 各一張，2048×2048，共 16 張；共用細節 `Shared/D2Bark_Detail_Normal.png`、`Shared/D2Bark_Detail_Albedo.png` 各 1024×1024 |
 | 紋素密度 | 交付檔約 71 px/m；照專案匯入規則（最大 1024）約 36 px/m。共用樹皮細節沿 UV0 重複 11.22 次 |
 | 碰撞 | `DR01_RootArch_Collision`，8,436 面，只含半徑 0.32 m 以上（人跨不過去）的根（MeshCollider，不顯示）；碰撞殼整段隧道淨高最低 5.28 m、淨跨最窄 9.00 m；Unity 裡南拱頂下 / 北拱頂下淨高見 `unity/report.txt` |
-| 接口 | `Socket_Path_S` (0, −3.5)／`Socket_Path_N` (0, 9.7)（隧道南北兩端），`Socket_Wall_W`／`Socket_Wall_E`（左右接 DR02 根牆，離原點 15 m） |
+| 接口 | `Socket_Path_S`／`Socket_Path_N`（隧道南北兩端，v006 座標 (−0.33, −6.19)／(−0.33, 7.01)），`Socket_Wall_W`／`Socket_Wall_E`（左右接 DR02 根牆，離南拱中線 15 m，v006 座標 (−15.33, −2.69)／(14.67, −2.69)） |
 | minTier | standard（地標、會擋路） |
-| 原點 | 南拱拱洞正下方地面（設定圖 V2 對的是這道拱），北拱在 +6.2 m；z = 0 是地面；Blender −Y 是南面（FBX／Unity 是 −Z） |
-| 檔案 | `DR01_RootArch/DR01_RootArch_v005.fbx`（LOD0–2、碰撞、接口）、`.glb`（LOD0）、`Textures/`、`model_info.json`、`validation.json`；原始檔 `art/source/d2-roots-b/blend/`（`_high_` 是高模，另一個是高模＋遊戲模型） |
+| 原點 | v006：底部中心（LOD0 本體外框 XY 中心正下方的地面），z = 0 是地面；Blender −Y 是南面（FBX／Unity 是 −Z）。v005 在南拱拱洞正下方（設定圖 V2 對的是這道拱），在 v006 座標是 (−0.325, −2.693)（`previous_origin_m`）；拱洞量測照 v005 座標 |
+| 檔案 | `DR01_RootArch/DR01_RootArch_v006.fbx`（LOD0–2、碰撞、接口）、`.glb`（LOD0）、`Textures/`、`model_info.json`、`validation.json`；原始檔 `art/source/d2-roots-b/blend/`（`_high_` 是高模，另一個是高模＋遊戲模型） |
 
 **做法**
 
@@ -55,7 +75,7 @@ v001 是三股根絞成一個圓環；v002 加右肩一道副拱；v003 交叉�
 
 **審圖**（`art/previews/d2-roots-b/DR01_RootArch/`）
 
-- `DR01_RootArch_vs_concept_V2.jpg`：設定圖 V2、遊戲模型同鏡位（加陪襯）、Unity 單件，三張並排。中間那張的神木、蕨、石頭、路和霧是陪襯（`art/source/d2-roots-b/preview_context.py`），只為了看拱洞有沒有框住神木，不是交付物件。沒有陪襯的同鏡位圖是 `DR01_RootArch_LOD0_V2cam.png`。
+- `DR01_RootArch_vs_concept_V2.jpg`：設定圖 V2、遊戲模型同鏡位（加陪襯）、Unity 單件，三張並排（v006 重出，鏡位照 v005 座標，畫面和 v005 相同）。中間那張的神木、蕨、石頭、路和霧是陪襯（`art/source/d2-roots-b/preview_context.py`），只為了看拱洞有沒有框住神木，不是交付物件。沒有陪襯的同鏡位圖是 `DR01_RootArch_LOD0_V2cam.png`。
 - `DR01_RootArch_unity_import_compare.jpg`：Unity 裡照專案匯入規則和交付原檔的差別（近看樹皮）。
 - `DR01_RootArch_LOD0_vs_LOD1_nodetail.jpg`：LOD0、LOD1（關掉 Detail_*）、LOD2 同角度。
 - `turnaround/`：十個方位各一張（1024×1024）和 `views.json`；`DR01_RootArch_turnaround_sheet.jpg` 是總覽。
@@ -85,7 +105,7 @@ exec(open('art/source/d2-roots-b/report_dr01.py', encoding='utf-8').read()); rep
 
 先跑 `report()` 再跑 Unity 檢查（Unity 檢查拿 `model_info.json` 比對）。掃描貼圖不進版本庫：從 Poly Haven 下載 `bark_brown_02` 2k（diff、nor_gl、rough、ao、disp），放到環境變數 `DR_TEX` 指的資料夾。Unity：`UNITY=<Unity.exe> sh art/source/d2-roots-b/unity/run_unity_check.sh`（約 3 分鐘，跑完會自己清掉暫存檔和 Unity 自動改的設定）。
 
-## DR02 板根牆模組（RootWall A／B／C，v001）
+## DR02 板根牆模組（RootWall A／B／C，v002；形狀同 v001）
 
 神木的板根往外延伸、繞著空地圍一圈的根牆。一件是一條根：粗頭在土裡冒出來、往細頭慢慢變細鑽回土裡；十幾股根繞著中心線慢慢扭絞（大多同一方向，幾股反繞壓在上面），斷面是底寬頂尖的帳篷形，朝上的面長苔。粗頭那段各股往兩側攤開、一條條落地（端視是帳篷，不是一塊切面）；貼地那段有幾股離開這一束、往旁邊爬進土裡，再加一些側邊小根抓地。
 
@@ -118,9 +138,9 @@ exec(open('art/source/d2-roots-b/report_dr01.py', encoding='utf-8').read()); rep
 | 碰撞 | `DR02_RootWall_<v>_Collision`（MeshCollider，不顯示），只含半徑 0.32 m 以上的根 |
 | 接口 | `Socket_Head`：粗頭頂面露出土的地方；`Socket_Tail`：細頭頂面鑽進土的地方再往回 2.5 m。兩個接口的 +X 都是根往細頭走的方向。**下一件的 `Socket_Head` 直接對到這件的 `Socket_Tail`（位置、方向一起對齊），再沿空地的弧轉一點**；這樣細頭最後 2.5 m 和下一件的粗頭並排，接縫處的牆不會塌（拼接檢查：重疊 2.5 m 時接縫牆頂最低 0.77 m；只重疊 1.2 m 時 0.49 m） |
 | 正面 | Blender −Y（FBX／Unity −Z）。粗頭→細頭時正面在右手邊，所以沿空地順時針擺，正面就朝空地 |
-| 原點 | 主根中段地面上（z = 0 是地面） |
+| 原點 | v002：底部中心（LOD0 本體外框 XY 中心正下方的地面，z = 0 是地面）。v001 在主根中段地面上，位置寫在 `model_info.json` 的 `previous_origin_m` |
 | minTier | standard（擋路的大件） |
-| 檔案 | `DR02_RootWall_<v>/DR02_RootWall_<v>_v001.fbx`（LOD0–2、碰撞、接口）、`.glb`（LOD0）、`Textures/`、`model_info.json`、`validation.json`；原始檔 `art/source/d2-roots-b/blend/DR02_RootWall_<v>_high_v001.blend`（高模）與 `DR02_RootWall_<v>_v001.blend`（高模＋遊戲模型） |
+| 檔案 | `DR02_RootWall_<v>/DR02_RootWall_<v>_v002.fbx`（LOD0–2、碰撞、接口）、`.glb`（LOD0）、`Textures/`、`model_info.json`、`validation.json`；原始檔 `art/source/d2-roots-b/blend/DR02_RootWall_<v>_high_v001.blend`（高模）與 `DR02_RootWall_<v>_v002.blend`（高模＋遊戲模型）。v001 封存在 `DR02_RootWall_<v>/v001/` |
 
 **做法**
 
@@ -132,14 +152,14 @@ exec(open('art/source/d2-roots-b/report_dr01.py', encoding='utf-8').read()); rep
 
 **審圖**（`art/previews/d2-roots-b/DR02_RootWall_<v>/`）
 
-- `DR02_RootWall_<v>_vs_concept.jpg`：設定圖三視圖、遊戲模型 LOD0 正面、粗頭端視並排。
+- `DR02_RootWall_<v>_vs_concept_V3.jpg`：設定圖 V3 祭壇後面的長根（局部）和成品 LOD0 並排，鏡位照 V3 估、陰天漫射光。舊的「Codex 三視圖 vs 成品」在 `v001/DR02_RootWall_<v>_vs_concept.jpg`。
 - `turnaround/`：十個方位各一張（1024×1024）和 `views.json`；`DR02_RootWall_<v>_turnaround_sheet.jpg` 是總覽。另有 LOD0 斜角、背面、人眼高、樹皮近看，和 LOD0／LOD1／LOD2／LOD1 關掉 Detail_ 的正面。
 - `unity/`：Unity 檢查報告和截圖（`*-rawimport.png` 是不套專案匯入規則的對照）。
 - `art/previews/d2-roots-b/DR02_pack/`：A、B、C、B 四件照接口規則首尾相接、排成半徑 26 m 空地外圈的一段弧（`pack_dr02.py`）：從空地另一頭俯看、從空地裡人眼高看、頂視。只為了看接起來的樣子，不是交付物件。
 
 **檢查**
 
-- Unity 6000.3.28f1 獨立匯入檢查：每件 19 項通過（DR01 原本的 27 項也重跑通過）。DR02 專用的：兩個接口；1.75 m 的人（半徑 0.35 m 膠囊）從兩側橫穿，在兩個接口之間每 0.5 m 都被擋住；兩個接口之間沒有 0.3–1.75 m 整段都空的地方；兩份同一件用接口首尾對接，接縫前後 2 m 橫穿都被擋住。
+- Unity 6000.3.28f1 獨立匯入檢查：v001 每件 19 項通過（DR01 原本的 27 項也重跑通過）；v002 每件 20 項（多原點那一項）。DR02 專用的：兩個接口；1.75 m 的人（半徑 0.35 m 膠囊）從兩側橫穿，在兩個接口之間每 0.5 m 都被擋住；兩個接口之間沒有 0.3–1.75 m 整段都空的地方；兩份同一件用接口首尾對接，接縫前後 2 m 橫穿都被擋住。
 - FBX 回匯尺寸和 Blender 一致；匯入後尺寸、三角面、材質數、物件數和 `model_info.json` 一致。
 
 **已知問題（還沒到驗收線）**
@@ -161,7 +181,7 @@ exec(open('art/source/d2-roots-b/pack_dr02.py', encoding='utf-8').read()); start
 
 Unity：`UNITY=<Unity.exe> sh art/source/d2-roots-b/unity/run_unity_check.sh` 一次檢查 DR01、DR02 三件和 DR03 兩件；只檢查其中幾件時加 `D2_IDS=DR02_RootWall_A,DR02_RootWall_B`。
 
-## DR03 根牆收頭與交叉件（RootEnd、RootCross，v001）
+## DR03 根牆收頭與交叉件（RootEnd、RootCross，v002；形狀同 v001）
 
 讓 DR02 板根牆接起來不露破綻的兩件小件，和 DR02 同一套根的做法（內芯＋一股股扭絞的根＋苔），樹皮、地衣、植物規則都一樣。
 
@@ -191,9 +211,9 @@ Unity：`UNITY=<Unity.exe> sh art/source/d2-roots-b/unity/run_unity_check.sh` �
 | 碰撞 | `<件名>_Collision`（MeshCollider，不顯示），只含半徑 0.32 m 以上的根（交叉件只有兩條主根，所以只有 172 面） |
 | 接口 | 收頭 `Socket_Wall`：位置、方向都對到 DR02 的 `Socket_Head`，收頭就往牆的反方向攤出去（它的 +X 朝牆）。交叉件 `Socket_Joint`：交叉點正下方，+X 是下面那條根的方向；對到 DR02 的 `Socket_Tail`（接頭）就蓋住接縫 |
 | 正面 | Blender −Y（FBX／Unity −Z） |
-| 原點 | 收頭：整件沿 X 的中點正下方地面；交叉件：交叉點正下方地面（z = 0 是地面） |
+| 原點 | v002：底部中心（LOD0 本體外框 XY 中心正下方的地面，z = 0 是地面）。v001 收頭在整件沿 X 的中點、交叉件在交叉點正下方，位置寫在 `model_info.json` 的 `previous_origin_m` |
 | minTier | standard |
-| 檔案 | `DR03_<件名>/DR03_<件名>_v001.fbx`（LOD0–2、碰撞、接口）、`.glb`（LOD0）、`Textures/`、`model_info.json`、`validation.json`；原始檔 `art/source/d2-roots-b/blend/DR03_<件名>_high_v001.blend`、`DR03_<件名>_v001.blend` |
+| 檔案 | `DR03_<件名>/DR03_<件名>_v002.fbx`（LOD0–2、碰撞、接口）、`.glb`（LOD0）、`Textures/`、`model_info.json`、`validation.json`；原始檔 `art/source/d2-roots-b/blend/DR03_<件名>_high_v001.blend`、`DR03_<件名>_v002.blend`。v001 封存在 `DR03_<件名>/v001/` |
 
 **做法**
 
@@ -205,14 +225,14 @@ Unity：`UNITY=<Unity.exe> sh art/source/d2-roots-b/unity/run_unity_check.sh` �
 
 **審圖**（`art/previews/d2-roots-b/DR03_<件名>/`）
 
-- `DR03_<件名>_vs_concept.jpg`：設定圖三視圖、遊戲模型 LOD0 正面，再加端視（收頭）或人眼高（交叉件）並排。
+- `DR03_<件名>_vs_concept_V5.jpg`：設定圖 V5 裡同一段根（收頭：左半往路邊攤開的根指；交叉件：右下拱起壓過另一條的根）和成品 LOD0 並排，鏡位照 V5 估、陰天漫射光。舊的「Codex 三視圖 vs 成品」在 `v001/`。
 - `turnaround/`：十個方位各一張（1024×1024）和 `views.json`；`DR03_<件名>_turnaround_sheet.jpg` 是總覽。另有 LOD0 斜角、背面、人眼高、樹皮近看（收頭從根指那一側拍，接牆那一頭在遊戲裡藏在牆裡），和 LOD0／LOD1／LOD2／LOD1 關掉 Detail_ 的正面。
 - `unity/`：Unity 檢查報告和截圖；收頭另有 `with-wall*.png`（接在 DR02 A 粗頭上），交叉件另有 `on-joint.png`（蓋在兩段 B 的接頭上）。
 - `art/previews/d2-roots-b/DR03_review/DR03_review_all.jpg`：上面兩張 Unity 使用畫面，下面兩件的設定圖對照。
 
 **檢查**
 
-- Unity 6000.3.28f1 獨立匯入檢查：只跑 DR03 時收頭 20 項、交叉件 19 項通過；六件一起跑時是 18／17 項（拿來對接的 DR02 A、B 的貼圖檢查改算在 DR02 自己的報告裡，`report.txt` 是這一次的），DR01 27 項、DR02 各 19 項也都通過，沒有失敗。DR03 專用的：接口一個；收頭用 `Socket_Wall` 接上 DR02 A 的 `Socket_Head` 後，接口方向指向牆（A 的尾端在接口方向 5 m 外），1.75 m 的人從兩側橫穿牆加收頭，接頭前後 2 m 每 0.5 m 都被擋住（9／9）；交叉件交叉點前後 1.5 m 橫穿下面那條根都被擋住（7／7）。
+- Unity 6000.3.28f1 獨立匯入檢查：v001 只跑 DR03 時收頭 20 項、交叉件 19 項通過；六件一起跑時是 18／17 項（v002 七件一起跑 19／18，多原點那一項）（拿來對接的 DR02 A、B 的貼圖檢查改算在 DR02 自己的報告裡，`report.txt` 是這一次的），DR01 27 項、DR02 各 19 項也都通過，沒有失敗。DR03 專用的：接口一個；收頭用 `Socket_Wall` 接上 DR02 A 的 `Socket_Head` 後，接口方向指向牆（A 的尾端在接口方向 5 m 外），1.75 m 的人從兩側橫穿牆加收頭，接頭前後 2 m 每 0.5 m 都被擋住（9／9）；交叉件交叉點前後 1.5 m 橫穿下面那條根都被擋住（7／7）。
 - FBX 回匯尺寸和 Blender 一致；匯入後尺寸、三角面、材質數、物件數和 `model_info.json` 一致。
 
 **已知問題（還沒到驗收線）**
@@ -230,7 +250,7 @@ exec(open('art/source/d2-roots-b/game_dr03.py', encoding='utf-8').read()); confi
 exec(open('art/source/d2-roots-b/report_dr03.py', encoding='utf-8').read()); report('E')                # 量測、FBX 回匯、十視圖、審圖、model_info／validation
 ```
 
-## DR04 根間的樹洞（RootHollow，v001）
+## DR04 根間的樹洞（RootHollow，v002；形狀同 v001）
 
 設定圖 V5 最左邊、板根之間的黑洞口。和 DR02 同一套根的做法（內芯＋一股股扭絞的根＋苔），樹皮、地衣、植物規則都一樣。
 
@@ -254,11 +274,11 @@ exec(open('art/source/d2-roots-b/report_dr03.py', encoding='utf-8').read()); rep
 | 材質數 | 2：本體 `M_DR04_RootHollow_A`、植物 `M_DR04_RootHollow_Leaf`（同一組貼圖最下面一條：葉子 0–0.5、落葉三種褐色 0.5–0.875，雙面） |
 | 貼圖 | Albedo、Normal、ORM、MaskURP 各一張 2048×2048（共 4 張）；共用 `Shared/D2Bark_Detail_*`（1024×1024） |
 | 碰撞 | `DR04_RootHollow_Collision`（MeshCollider，不顯示） |
-| 接口 | `Socket_Back`：背面正中的地面（y = 2.55 m），+X 朝後。擺的時候對到神木根部或 DR02 牆的側面 |
+| 接口 | `Socket_Back`：背面正中的地面（v002 座標 (−0.12, 1.98)；v001 是 y = 2.55 m），+X 朝後。擺的時候對到神木根部或 DR02 牆的側面 |
 | 正面 | Blender −Y（FBX／Unity −Z），看進洞口 |
-| 原點 | 洞口那道根拱正下方的地面（z = 0 是地面） |
+| 原點 | v002：底部中心（LOD0 本體外框 XY 中心正下方的地面，z = 0 是地面）。v001 在洞口那道根拱正下方，在 v002 座標是 (−0.119, −0.574)（`previous_origin_m`）；洞口量測照 v001 座標 |
 | minTier | standard |
-| 檔案 | `DR04_RootHollow/DR04_RootHollow_v001.fbx`（LOD0–2、碰撞、接口）、`.glb`（LOD0）、`Textures/`、`model_info.json`、`validation.json`（另有 `hollow_lod0`、`hollow_collision` 兩項洞口量測）；原始檔 `art/source/d2-roots-b/blend/DR04_RootHollow_high_v001.blend`、`DR04_RootHollow_v001.blend` |
+| 檔案 | `DR04_RootHollow/DR04_RootHollow_v002.fbx`（LOD0–2、碰撞、接口）、`.glb`（LOD0）、`Textures/`、`model_info.json`、`validation.json`（另有 `hollow_lod0`、`hollow_collision` 兩項洞口量測）；原始檔 `art/source/d2-roots-b/blend/DR04_RootHollow_high_v001.blend`、`DR04_RootHollow_v002.blend`。v001 封存在 `DR04_RootHollow/v001/` |
 
 **做法**
 
@@ -269,13 +289,13 @@ exec(open('art/source/d2-roots-b/report_dr03.py', encoding='utf-8').read()); rep
 
 **審圖**（`art/previews/d2-roots-b/DR04_RootHollow/`）
 
-- `DR04_RootHollow_vs_concept.jpg`：設定圖三視圖、遊戲模型 LOD0 正面、人眼高看進洞口並排。
+- `DR04_RootHollow_vs_concept_V5.jpg`：設定圖 V5 最左邊板根之間的黑洞口（局部）和成品 LOD0 並排，鏡位照 V5 估、陰天漫射光。設定圖的洞口嵌在更大一團根裡、苔亮、林下植物密，成品單件只有洞口這一段、苔偏暗。舊的「Codex 三視圖 vs 成品」在 `v001/DR04_RootHollow_vs_concept.jpg`。
 - `turnaround/`：十個方位各一張（1024×1024）和 `views.json`；`DR04_RootHollow_turnaround_sheet.jpg` 是總覽。另有 LOD0 斜角、側面、背面、人眼高、樹皮近看（洞口左側），和 LOD0／LOD1／LOD2／LOD1 關掉 Detail_ 的正面。
 - `unity/`：Unity 檢查報告和截圖（正面三個 LOD、斜角、人眼高、側面、背面、樹皮近看、標準檔 LOD1 關掉 Detail_、不套匯入預算的對照）。
 
 **檢查**
 
-- Unity 6000.3.28f1 獨立匯入檢查 19 項全部通過。DR04 專用的：接口一個；1.75 m 的人（半徑 0.35）沿洞口中線往裡走，在洞口就被擋住（中心停在 z = −0.17 m，不會鑽進洞裡）；從左右橫穿整件，z = −0.5 到 1.5 m 每 0.5 m 都被擋住（5／5）；從背後走過來被心材牆擋住；洞口碰撞淨高 1.61 m（記錄）。同一份 `D2RootsVerify.cs` 七件一起跑過一次（那次 DR04 只有橫穿 4／5，修碰撞後單跑 DR04 才全過），DR01 27 項、DR02 各 19 項、DR03 18／17 項都通過，報告內容和上次相同。
+- Unity 6000.3.28f1 獨立匯入檢查 v001 19 項、v002 20 項（多原點那一項）全部通過。DR04 專用的：接口一個；1.75 m 的人（半徑 0.35）沿洞口中線往裡走，在洞口就被擋住（中心停在 z = −0.17 m，不會鑽進洞裡）；從左右橫穿整件，z = −0.5 到 1.5 m 每 0.5 m 都被擋住（5／5）；從背後走過來被心材牆擋住；洞口碰撞淨高 1.61 m（記錄）。同一份 `D2RootsVerify.cs` 七件一起跑過一次（那次 DR04 只有橫穿 4／5，修碰撞後單跑 DR04 才全過），DR01 27 項、DR02 各 19 項、DR03 18／17 項都通過，報告內容和上次相同。
 - FBX 回匯尺寸和 Blender 一致；匯入後尺寸、三角面、材質數、物件數和 `model_info.json` 一致。
 
 **已知問題（還沒到驗收線）**

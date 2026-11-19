@@ -1,6 +1,6 @@
 {
   "asset": "DR03_RootEnd",
-  "version": "v001",
+  "version": "v002",
   "minTier": "standard",
   "detailObjects": [
     "Detail_DR03_Plants"
@@ -57,20 +57,26 @@
   "units": "meters",
   "front": "-Y (Blender)；收頭：根指往 +X 攤開，接牆的一端在 -X；交叉件：下面那條沿 X、上面那條和 X 夾 55°",
   "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
-  "origin": "收頭：整件（含鑽土的部分）沿 X 的中點正下方的地面；交叉件：交叉點正下方的地面。z = 0 是地面，鑽土的部分在 z < 0",
+  "origin": "底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，鑽土的部分在 z < 0",
+  "previous_origin_m": [
+    0.3385,
+    0.0401,
+    0.0
+  ],
+  "previous_origin_note": "v001 的原點（收頭：整件（含鑽土的部分）沿 X 的中點正下方的地面；交叉件：交叉點正下方的地面。z = 0 是地面，鑽土的部分在 z < 0）在這一版座標裡的位置；用 v001 擺好的場景，把這一版往 -previous_origin_m 移就對回原處",
   "dimensions_m": [
     8.8684,
     5.2172,
     3.3141
   ],
   "bounds_min_m": [
-    -4.7727,
-    -2.6487,
+    -4.4342,
+    -2.6086,
     -1.2979
   ],
   "bounds_max_m": [
-    4.0957,
-    2.5685,
+    4.4342,
+    2.6086,
     2.0162
   ],
   "shape": {
@@ -127,11 +133,11 @@
     "detail_tiling_on_uv0": 8.67,
     "mask_map": "MaskURP.png（R metal、G AO、A smoothness）"
   },
-  "collision": "DR03_RootEnd_Collision: MeshCollider (convex off), renderer hidden；只含半徑 0.32 m 以上的根（內芯和粗股）",
+  "collision": "DR03_RootEnd_Collision: MeshCollider (convex off), renderer hidden；只含內芯半徑 0.32 m 以上的根（內芯和粗股）",
   "sockets_blender_xyz": {
     "Socket_Wall": [
-      -2.1,
-      0.0,
+      -1.761,
+      0.04,
       0.0
     ]
   },
@@ -143,7 +149,7 @@
     }
   ],
   "files_sha256": {
-    "DR03_RootEnd_v001.fbx": "14c24661570d77abdad0d9dadfbdbf103dab2ca704bd480f67e580c900489167",
-    "DR03_RootEnd_v001.glb": "eeee9bdc0833bd034bae989f3f56af62adee8e45449f08bbe6fe9390c9dc01f5"
+    "DR03_RootEnd_v002.fbx": "eabb00369c94cf216e69df1b8322840e2d85f5104bb55579ec8a1ffa1c824b92",
+    "DR03_RootEnd_v002.glb": "cded139e75af8f8a18ec9b4bd76c24c56db9b6e311ed6136e367defe9d950ee5"
   }
 }

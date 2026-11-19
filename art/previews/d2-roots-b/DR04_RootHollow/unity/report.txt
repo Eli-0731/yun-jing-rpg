@@ -5,6 +5,7 @@ INFO DR04_RootHollow: imported at 1024x1024 on StandaloneWindows64 (importer max
 INFO DR04_RootHollow: bark detail on UV0, tiling 7.23
 PASS DR04_RootHollow: imported size 5.741 x 4.265 x 3.135 m matches model_info 5.7406 x 4.2649 x 3.1346 within 2 cm
 PASS DR04_RootHollow: lowest point y = -0.549 (root tips dive below the ground, origin on the ground)
+PASS DR04_RootHollow: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; z = 0 is the ground)
 PASS DR04_RootHollow: triangles LOD0/1/2 = 28873 / 14479 / 4282 (50% / 15%), model_info 28873 / 14479 / 4282
 PASS DR04_RootHollow: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
 PASS DR04_RootHollow: 2 materials over every LOD and Detail_ mesh (model_info 2; one per texture set and one two-sided for the plants)

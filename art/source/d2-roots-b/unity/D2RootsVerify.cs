@@ -25,8 +25,9 @@ namespace YunJing.Editor
         const string BudgetModels = "Assets/YunJing/Models/D2RootsB", RawModels = "Assets/D2RootsBRawCheck";
         static string Models = BudgetModels;
         static bool Raw => Models == RawModels;
-        // DR01 is at v005, the DR02 wall modules at v001. D2_IDS (comma separated) limits a run to some of them.
-        static string Version(string id) => id.StartsWith("DR01") ? "v005" : "v001";
+        // DR01 is at v006, everything else at v002 (same models as DR01 v005 / v001, origin moved to the bottom centre).
+        // D2_IDS (comma separated) limits a run to some of them.
+        static string Version(string id) => id.StartsWith("DR01") ? "v006" : "v002";
         static readonly string[] AllIds = { "DR01_RootArch", "DR02_RootWall_A", "DR02_RootWall_B", "DR02_RootWall_C", "DR03_RootEnd", "DR03_RootCross", "DR04_RootHollow" };
         static string[] Ids => string.IsNullOrEmpty(Environment.GetEnvironmentVariable("D2_IDS")) ? AllIds
             : Environment.GetEnvironmentVariable("D2_IDS").Split(',').Select(x => x.Trim()).Where(x => x.Length > 0).ToArray();
@@ -44,7 +45,7 @@ namespace YunJing.Editor
         [Serializable] class Lod { public int triangles, objects, materials; }
         [Serializable] class Lods { public Lod LOD0, LOD1, LOD2; public Lod[] All => new[] { LOD0, LOD1, LOD2 }; }
         [Serializable] class UnityInfo { public float detail_tiling_on_uv0; }
-        [Serializable] class Info { public float[] dimensions_m; public string minTier; public string[] detailObjects; public Lods budget_per_lod; public UnityInfo unity; }
+        [Serializable] class Info { public float[] dimensions_m; public string minTier; public string[] detailObjects; public Lods budget_per_lod; public UnityInfo unity; public float[] previous_origin_m; }
 
         public static void Run()
         {
@@ -193,6 +194,10 @@ namespace YunJing.Editor
             var kids = go.GetComponentsInChildren<Renderer>(true).Where(r => !IsCollision(r)).ToArray();
             var lg = go.GetComponent<LODGroup>(); if (lg == null) lg = go.AddComponent<LODGroup>();   // the importer already makes one from the _LODn names
             lg.SetLODs(Enumerable.Range(0, 3).Select(i => new LOD(cut[i], kids.Where(r => r.name.EndsWith("_LOD" + i)).ToArray())).ToArray());
+            // The origin is at the bottom centre; the checks and shots below were written around the old origin (arch / hollow centre line,
+            // middle of the root ...). Put the old origin back on the world origin: Blender (x, y, z) comes in as Unity (x, z, y).
+            var p = info.previous_origin_m;
+            if (p != null && p.Length == 3) go.transform.position = new Vector3(-p[0], -p[2], -p[1]);
             return go;
         }
 
@@ -211,6 +216,9 @@ namespace YunJing.Editor
             Check(Mathf.Abs(body.size.x - d[0]) <= .02f && Mathf.Abs(body.size.z - d[1]) <= .02f && Mathf.Abs(body.size.y - d[2]) <= .02f,
                 $"{id}: imported size {body.size.x:0.000} x {body.size.z:0.000} x {body.size.y:0.000} m matches model_info {d[0]} x {d[1]} x {d[2]} within 2 cm");
             Check(body.min.y < 0 && body.min.y > -1.5f, $"{id}: lowest point y = {body.min.y:0.000} (root tips dive below the ground, origin on the ground)");
+            var o = go.transform.position;
+            Check(Mathf.Abs(body.center.x - o.x) <= .02f && Mathf.Abs(body.center.z - o.z) <= .02f && Mathf.Abs(o.y) < .001f,
+                $"{id}: origin at the bottom centre (LOD0 body footprint centre {body.center.x - o.x:0.000}, {body.center.z - o.z:0.000} m from the origin; z = 0 is the ground)");
             var levels = info.budget_per_lod.All;
             var tris = Enumerable.Range(0, 3).Select(i => Tris(Level(go, i))).ToArray();
             Check(Enumerable.Range(0, 3).All(i => Mathf.Abs(tris[i] - levels[i].triangles) <= levels[i].triangles * .01f),

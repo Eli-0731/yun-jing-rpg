@@ -5,6 +5,7 @@ INFO DR03_RootEnd: imported at 1024x1024 on StandaloneWindows64 (importer max 10
 INFO DR03_RootEnd: bark detail on UV0, tiling 8.67
 PASS DR03_RootEnd: imported size 8.869 x 5.217 x 3.314 m matches model_info 8.8684 x 5.2172 x 3.3141 within 2 cm
 PASS DR03_RootEnd: lowest point y = -1.298 (root tips dive below the ground, origin on the ground)
+PASS DR03_RootEnd: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; z = 0 is the ground)
 PASS DR03_RootEnd: triangles LOD0/1/2 = 23426 / 11337 / 3372 (48% / 14%), model_info 23426 / 11337 / 3372
 PASS DR03_RootEnd: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
 PASS DR03_RootEnd: 2 materials over every LOD and Detail_ mesh (model_info 2; one per texture set and one two-sided for the plants)

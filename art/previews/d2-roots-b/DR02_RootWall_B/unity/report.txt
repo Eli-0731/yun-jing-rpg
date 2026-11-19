@@ -5,6 +5,7 @@ INFO DR02_RootWall_B: imported at 1024x1024 on StandaloneWindows64 (importer max
 INFO DR02_RootWall_B: bark detail on UV0, tiling 8.30
 PASS DR02_RootWall_B: imported size 15.323 x 7.439 x 2.929 m matches model_info 15.3223 x 7.4385 x 2.928 within 2 cm
 PASS DR02_RootWall_B: lowest point y = -1.172 (root tips dive below the ground, origin on the ground)
+PASS DR02_RootWall_B: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; z = 0 is the ground)
 PASS DR02_RootWall_B: triangles LOD0/1/2 = 27096 / 13564 / 4137 (50% / 15%), model_info 27096 / 13564 / 4137
 PASS DR02_RootWall_B: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
 PASS DR02_RootWall_B: 2 materials over every LOD and Detail_ mesh (model_info 2; one per texture set and one two-sided for the plants)

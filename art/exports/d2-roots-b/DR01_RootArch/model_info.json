@@ -1,6 +1,6 @@
 {
   "asset": "DR01_RootArch",
-  "version": "v005",
+  "version": "v006",
   "minTier": "standard",
   "detailObjects": [
     "Detail_DR01_Plants"
@@ -105,20 +105,26 @@
   "units": "meters",
   "front": "-Y (Blender)，從南邊看；路沿 Y 穿過拱洞",
   "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
-  "origin": "拱洞正下方地面；z = 0 是地面，根尾鑽土的部分在 z < 0",
+  "origin": "底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，根尾鑽土的部分在 z < 0",
+  "previous_origin_m": [
+    -0.3251,
+    -2.6925,
+    0.0
+  ],
+  "previous_origin_note": "v005 的原點（拱洞正下方地面、南拱的中線）在這一版座標裡的位置；用 v005 擺好的場景，把這一版往 -previous_origin_m 移就對回原處",
   "dimensions_m": [
     38.0155,
     33.591,
     9.3531
   ],
   "bounds_min_m": [
-    -18.6827,
-    -14.103,
+    -19.0078,
+    -16.7955,
     -0.87
   ],
   "bounds_max_m": [
-    19.3328,
-    19.488,
+    19.0077,
+    16.7955,
     8.4831
   ],
   "opening": {
@@ -189,23 +195,23 @@
   "collision": "DR01_RootArch_Collision: MeshCollider (convex off), renderer hidden；只含半徑 0.32 m 以上的根",
   "sockets_blender_xyz": {
     "Socket_Path_N": [
-      0.0,
-      9.7,
+      -0.325,
+      7.007,
       0.0
     ],
     "Socket_Path_S": [
-      0.0,
-      -3.5,
+      -0.325,
+      -6.193,
       0.0
     ],
     "Socket_Wall_E": [
-      15.0,
-      0.0,
+      14.675,
+      -2.693,
       0.0
     ],
     "Socket_Wall_W": [
-      -15.0,
-      0.0,
+      -15.325,
+      -2.693,
       0.0
     ]
   },
@@ -217,7 +223,7 @@
     }
   ],
   "files_sha256": {
-    "DR01_RootArch_v005.fbx": "69ff09d6bbc1622f398b370ccab5ea1ad8d138f9e389525f816a6c09524ec53a",
-    "DR01_RootArch_v005.glb": "366c06124d72c7daa4d92a3676f3946f67e10f919a0c4a4bfc0a6323ed4c799a"
+    "DR01_RootArch_v006.fbx": "8cbbf7f775781d409f32c67298fdd6396375ee6fbfb8c9cc506efbd071650d1b",
+    "DR01_RootArch_v006.glb": "2f023ab8818c2ef4b270126155994ff26ae9ec64844ede86ebcf139408328133"
   }
 }

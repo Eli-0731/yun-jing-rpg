@@ -6,7 +6,9 @@ from mathutils.bvhtree import BVHTree
 
 HERE = 'D:/yun-jing-d2-roots/art/source/d2-roots-b'
 ROOT = os.path.abspath(HERE + '/../../..').replace('\\', '/')
-VER = 'v001'
+VER = 'v002'                # v002：原點移到底部中心（dr_pivot.py），形狀和貼圖同 v001
+PREV_VER = 'v001'
+ORIGIN_NEW_TXT = '底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，鑽土的部分在 z < 0'
 NAME_ZH = {'A': '板根牆・高拱', 'B': '板根牆・低伏', 'C': '板根牆・分岔'}
 NOTE = {
     'A': '中段離地拱起，底下留一道約 1 m 高的暗縫（人走不進去），再往細頭鑽回土裡。',
@@ -165,10 +167,18 @@ def report(v, render=True, samples=48):
     DET = DET_NAME
     lods = {lv: [G(f'{asset}_LOD{lv}'), G(f'{DET}_LOD{lv}')] for lv in (0, 1, 2)}
     col = G(f'{asset}_Collision')
+    dp = _load('dr_pivot.py')
+    P = dp['pivot']()
+    dp['frame'](asset, False)       # 外框、接口：新原點（底部中心）
     lo, hi = bounds([lods[0][0]])
     dlo, dhi = bounds([lods[0][1]])
+    socks_xyz = {o.name: [round(c, 3) for c in o.matrix_world.translation] for o in bpy.data.objects if o.name.startswith('Socket_')}
+    centre_xy = [round((lo[i] + hi[i]) / 2, 3) for i in (0, 1)]
+    dp['frame'](asset, True)        # 下面量縫、量洞口、拍審圖鏡位都照舊原點的座標（量法和鏡位不用改）
     val = dict(asset=asset, version=VER, blender=bpy.app.version_string)
     val['bounds_main'] = dict(min=lo, max=hi, dims=[round(hi[i] - lo[i], 4) for i in range(3)])
+    val['origin_at_bottom_centre'] = dict(footprint_centre_xy_m=centre_xy, ok=all(abs(c) < .01 for c in centre_xy))
+    val['previous_origin_m'] = [round(-P.x, 4), round(-P.y, 4), 0.0]
     val['bounds_detail'] = dict(min=dlo, max=dhi)
     val['shape_lod0'] = shape(lods[0][0], b)
     val['shape_collision'] = shape(col, b)
@@ -203,7 +213,9 @@ def report(v, render=True, samples=48):
         'texture_resolution_px': {**tex, sh: [1024, 1024], sh.replace('_Normal', '_Albedo'): [1024, 1024]},
         'units': 'meters', 'front': FRONT_TXT,
         'up': '+Z (Blender); FBX exported Y-up, -Z forward, transforms baked',
-        'origin': ORIGIN_TXT,
+        'origin': ORIGIN_NEW_TXT,
+        'previous_origin_m': val['previous_origin_m'],
+        'previous_origin_note': f'{PREV_VER} 的原點（{ORIGIN_TXT}）在這一版座標裡的位置；用 {PREV_VER} 擺好的場景，把這一版往 -previous_origin_m 移就對回原處',
         'dimensions_m': val['bounds_main']['dims'], 'bounds_min_m': lo, 'bounds_max_m': hi,
         'shape': val['shape_lod0'],
         'lods': val['tris'], 'lod_rule': 'LOD0 不刪細節；LOD1 collapse 50%；LOD2 collapse 15%',
@@ -214,7 +226,7 @@ def report(v, render=True, samples=48):
                   'detail_mask': 'Albedo.png 的 alpha（1 = 樹皮，0 = 苔和葉）', 'detail_tiling_on_uv0': round(mat.get('unity_detail_tiling', 0), 2),
                   'mask_map': 'MaskURP.png（R metal、G AO、A smoothness）'},
         'collision': f'{asset}_Collision: MeshCollider (convex off), renderer hidden；只含內芯半徑 {COL_BIG:.2f} m 以上的根（內芯和粗股）',
-        'sockets_blender_xyz': {o.name: [round(c, 3) for c in o.matrix_world.translation] for o in bpy.data.objects if o.name.startswith('Socket_')},
+        'sockets_blender_xyz': socks_xyz,
         'external_assets': [{'name': 'bark_brown_02', 'source': 'https://polyhaven.com/a/bark_brown_02', 'license': 'CC0'}],
         'files_sha256': {f: sha(f'{EXP}/{f}') for f in sorted(os.listdir(EXP)) if f.endswith(('.fbx', '.glb'))},
     }
@@ -230,10 +242,10 @@ def report(v, render=True, samples=48):
         for nm, d in VIEWS:
             dv = Vector(d).normalized()
             dist = TURN_DIST if nm != '09_top' else TURN_DIST + 4
-            loc = Vector((0, 0, cz)) + dv * dist
-            pv['shot'](f'{PRE}/turnaround/{nm}.png', tuple(loc), (0, 0, cz), 50, res=(1024, 1024))
-            vj.append(dict(name=nm, direction=list(d), camera=[round(c, 3) for c in loc], lens_mm=50, file=f'turnaround/{nm}.png', mesh='LOD0'))
-        json.dump(dict(asset=asset, version=VER, views=vj, note=f'遊戲模型 LOD0＋{DET}，烘焙貼圖；白柱是 1.75 m 人形尺'),
+            loc = P + Vector((0, 0, cz)) + dv * dist        # 對著新原點（底部中心）轉一圈；場景在舊座標，所以加 P
+            pv['shot'](f'{PRE}/turnaround/{nm}.png', tuple(loc), tuple(P + Vector((0, 0, cz))), 50, res=(1024, 1024))
+            vj.append(dict(name=nm, direction=list(d), camera=[round(c, 3) for c in loc - P], lens_mm=50, file=f'turnaround/{nm}.png', mesh='LOD0'))
+        json.dump(dict(asset=asset, version=VER, views=vj, note=f'遊戲模型 LOD0＋{DET}，烘焙貼圖；白柱是 1.75 m 人形尺；相機座標以新原點（底部中心）為準'),
                   open(f'{PRE}/turnaround/views.json', 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
         pv['setup'](samples=samples)
         hm = bpy.data.objects.get('DR_Human_1p75m')
@@ -250,6 +262,7 @@ def report(v, render=True, samples=48):
         for n in ('tq', 'end', 'eye', 'back', 'bark'):
             loc, tgt, lens = SHOTS[n]
             pv['shot'](f'{PRE}/{asset}_LOD0_{n}.png', loc, tgt, lens, res=(1536, 864))
-    print(json.dumps({k: val[k] for k in ('bounds_main', 'shape_lod0', 'shape_collision', 'buried_depth_m', 'tris', 'lod_ratio', 'fbx_dims_match', 'texel_px_per_m', 'plants_inside_root_lod0')}, indent=1))
+    dp['frame'](asset, False)
+    print(json.dumps({k: val[k] for k in ('bounds_main', 'origin_at_bottom_centre', 'shape_lod0', 'shape_collision', 'buried_depth_m', 'tris', 'lod_ratio', 'fbx_dims_match', 'texel_px_per_m', 'plants_inside_root_lod0')}, indent=1))
     print(val['fbx_roundtrip'])
     return val

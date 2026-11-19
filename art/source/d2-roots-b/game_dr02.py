@@ -9,7 +9,7 @@ HERE = 'D:/yun-jing-d2-roots/art/source/d2-roots-b'
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
 ROOT = os.path.abspath(HERE + '/../../..').replace('\\', '/')
-VER = 'v001'
+VER = 'v002'               # v002：原點移到底部中心（dr_pivot.py）；v001 原點在根的中點
 SIZE = 2048
 STRIP = 96 / 2048           # 圖集最下面一條留給葉子（蕨羽片、心形葉）
 DET = 'Detail_DR02_Plants'   # 可關掉的小植物（畫質標準檔不顯示），照 quality-tiers-v1 命名 Detail_*
@@ -771,6 +771,7 @@ def finish():
         o.data.name = o.name
     for o in allm:
         o.parent = root
+    _load('dr_pivot.py')['to_bottom_centre'](root, low)       # v002：原點移到底部中心
     return _export(lods, col, socks, root)
 
 

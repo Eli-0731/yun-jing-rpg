@@ -10,7 +10,7 @@ if HERE not in sys.path:
     sys.path.insert(0, HERE)
 ROOT = os.path.abspath(HERE + '/../../..').replace('\\', '/')
 ASSET = 'DR01_RootArch'
-VER = 'v005'
+VER = 'v006'               # v006：v005 的模型，原點移到底部中心（dr_pivot.py）；v005 原點在拱洞正下方
 EXP = f'{ROOT}/art/exports/d2-roots-b/{ASSET}'
 TEX = EXP + '/Textures'
 SIZE = 2048
@@ -756,6 +756,7 @@ def finish():
         o.data.name = o.name
     for o in allm:
         o.parent = root
+    _load('dr_pivot.py')['to_bottom_centre'](root, low)       # v006：原點移到底部中心
     bpy.context.view_layer.update()
     os.makedirs(EXP, exist_ok=True)
     col.hide_render = False

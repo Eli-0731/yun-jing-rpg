@@ -6,7 +6,8 @@ from mathutils.bvhtree import BVHTree
 
 HERE = 'D:/yun-jing-d2-roots/art/source/d2-roots-b'
 ROOT = os.path.abspath(HERE + '/../../..').replace('\\', '/')
-ASSET, VER = 'DR01_RootArch', 'v005'
+ASSET, VER = 'DR01_RootArch', 'v006'     # v006：v005 的模型，原點移到底部中心（dr_pivot.py）
+PREV_VER = 'v005'
 EXP = f'{ROOT}/art/exports/d2-roots-b/{ASSET}'
 PRE = f'{ROOT}/art/previews/d2-roots-b/{ASSET}'
 VIEWS = [('01_front', (0, -1, .06)), ('02_right', (1, 0, .06)), ('03_rear', (0, 1, .06)), ('04_left', (-1, 0, .06)),
@@ -123,10 +124,19 @@ def report(render=True, samples=48):
     G = lambda n: bpy.data.objects[n]
     lods = {lv: [G(f'{ASSET}_LOD{lv}'), G(f'Detail_DR01_Plants_LOD{lv}')] for lv in (0, 1, 2)}
     col = G(f'{ASSET}_Collision')
+    dp = _load('dr_pivot.py')
+    P = dp['pivot']()
+    dp['frame'](ASSET, False)       # 外框、接口：新原點（底部中心）
     lo, hi = bounds([lods[0][0]])
     dlo, dhi = bounds([lods[0][1]])
+    socks_xyz = {o.name: [round(v, 3) for v in o.matrix_world.translation] for o in bpy.data.objects if o.name.startswith('Socket_')}
+    centre_xy = [round((lo[i] + hi[i]) / 2, 3) for i in (0, 1)]
+    dp['frame'](ASSET, True)        # 下面量拱洞、拍 V2 等鏡位都照 v005 的座標（拱洞中線 x = 0、南拱 y = 0）
     val = dict(asset=ASSET, version=VER, blender=bpy.app.version_string)
     val['bounds_main'] = dict(min=lo, max=hi, dims=[round(hi[i] - lo[i], 4) for i in range(3)])
+    val['origin_at_bottom_centre'] = dict(footprint_centre_xy_m=centre_xy, ok=all(abs(c) < .01 for c in centre_xy))
+    val['previous_origin_m'] = [round(-P.x, 4), round(-P.y, 4), 0.0]
+    val['opening_note'] = f'拱洞量測的座標是 {PREV_VER} 的（拱洞中線 x = 0）；換到這一版要加 previous_origin_m'
     val['bounds_detail'] = dict(min=dlo, max=dhi)
     val['opening_lod0'] = clearance(lods[0][0])
     val['opening_collision'] = clearance(col)
@@ -170,7 +180,9 @@ def report(render=True, samples=48):
         'texture_resolution_px': {**tex, **shared},
         'units': 'meters', 'front': '-Y (Blender)，從南邊看；路沿 Y 穿過拱洞',
         'up': '+Z (Blender); FBX exported Y-up, -Z forward, transforms baked',
-        'origin': '拱洞正下方地面；z = 0 是地面，根尾鑽土的部分在 z < 0',
+        'origin': '底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，根尾鑽土的部分在 z < 0',
+        'previous_origin_m': val['previous_origin_m'],
+        'previous_origin_note': f'{PREV_VER} 的原點（拱洞正下方地面、南拱的中線）在這一版座標裡的位置；用 {PREV_VER} 擺好的場景，把這一版往 -previous_origin_m 移就對回原處',
         'dimensions_m': val['bounds_main']['dims'], 'bounds_min_m': lo, 'bounds_max_m': hi,
         'opening': val['opening_lod0'], 'foot_root_spread_m': val['foot_root_spread_m'],
         'lods': val['tris'], 'lod_rule': 'LOD0 不刪細節；LOD1 collapse 50%；LOD2 collapse 15%',
@@ -181,7 +193,7 @@ def report(render=True, samples=48):
         'unity': {'shader': 'Universal Render Pipeline/Lit', 'detail_normal': 'Shared/D2Bark_Detail_Normal.png', 'detail_albedo': 'Shared/D2Bark_Detail_Albedo.png', 'detail_mask': '各組 Albedo.png 的 alpha（1 = 樹皮，0 = 苔和葉）',
                   'detail_tiling_on_uv0': round(mat.get('unity_detail_tiling', 0), 2), 'mask_map': '各組 MaskURP.png（R metal、G AO、A smoothness）'},
         'collision': f'{ASSET}_Collision: MeshCollider (convex off), renderer hidden；只含半徑 0.32 m 以上的根',
-        'sockets_blender_xyz': {o.name: [round(v, 3) for v in o.matrix_world.translation] for o in bpy.data.objects if o.name.startswith('Socket_')},
+        'sockets_blender_xyz': socks_xyz,
         'external_assets': [{'name': 'bark_brown_02', 'source': 'https://polyhaven.com/a/bark_brown_02', 'license': 'CC0'}],
         'files_sha256': {f: sha(f'{EXP}/{f}') for f in sorted(os.listdir(EXP)) if f.endswith(('.fbx', '.glb'))},
     }
@@ -193,10 +205,10 @@ def report(render=True, samples=48):
         for nm, d in VIEWS:
             dv = Vector(d).normalized()
             dist = 52 if nm != '09_top' else 60
-            loc = Vector((0, 3.1, 2.6)) + dv * dist          # v004：對準兩道拱中間
+            loc = Vector((0, 3.1, 2.6)) + dv * dist          # v004：對準兩道拱中間（v005 座標）
             pv['shot'](f'{PRE}/turnaround/{nm}.png', tuple(loc), (0, 3.1, 2.6), 50, res=(1024, 1024))
-            vj.append(dict(name=nm, direction=list(d), camera=[round(v, 3) for v in loc], lens_mm=50, file=f'turnaround/{nm}.png', mesh='LOD0'))
-        json.dump(dict(asset=ASSET, version=VER, views=vj, note='遊戲模型 LOD0＋Detail_DR01_Plants，烘焙貼圖；白柱是 1.75 m 人形尺'),
+            vj.append(dict(name=nm, direction=list(d), camera=[round(v, 3) for v in loc - P], lens_mm=50, file=f'turnaround/{nm}.png', mesh='LOD0'))
+        json.dump(dict(asset=ASSET, version=VER, views=vj, note='遊戲模型 LOD0＋Detail_DR01_Plants，烘焙貼圖；白柱是 1.75 m 人形尺；相機座標以新原點（底部中心）為準'),
                   open(f'{PRE}/turnaround/views.json', 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
         pv['setup'](samples=samples)
         for lv in (0, 1, 2):
@@ -216,6 +228,7 @@ def report(render=True, samples=48):
         pv['shot'](f'{PRE}/{ASSET}_LOD0_V2cam_context.png', loc, tgt, lens, res=(1536, 864))
         loc, tgt, lens = pv['VIEWS']['V2core']          # 核心組 root_arch.py 的 V2 鏡位（往上抬、3:2）
         pv['shot'](f'{PRE}/{ASSET}_LOD0_V2core_context.png', loc, tgt, lens, res=(1536, 1024))
-    print(json.dumps({k: val[k] for k in ('bounds_main', 'opening_lod0', 'foot_root_spread_m', 'buried_depth_m', 'tris', 'lod_ratio', 'fbx_dims_match')}, indent=1))
+    dp['frame'](ASSET, False)
+    print(json.dumps({k: val[k] for k in ('bounds_main', 'origin_at_bottom_centre', 'opening_lod0', 'foot_root_spread_m', 'buried_depth_m', 'tris', 'lod_ratio', 'fbx_dims_match')}, indent=1))
     print(val['fbx_roundtrip'])
     return val

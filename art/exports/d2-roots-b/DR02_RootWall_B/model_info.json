@@ -1,6 +1,6 @@
 {
   "asset": "DR02_RootWall_B",
-  "version": "v001",
+  "version": "v002",
   "minTier": "standard",
   "detailObjects": [
     "Detail_DR02_Plants"
@@ -57,20 +57,26 @@
   "units": "meters",
   "front": "-Y (Blender)；根沿 +X 走，粗頭在 -X、細頭在 +X",
   "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
-  "origin": "整條根（含頭尾鑽土的部分）中點正下方的地面；z = 0 是地面，鑽土的部分在 z < 0",
+  "origin": "底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，鑽土的部分在 z < 0",
+  "previous_origin_m": [
+    0.3151,
+    -0.2646,
+    0.0
+  ],
+  "previous_origin_note": "v001 的原點（整條根（含頭尾鑽土的部分）中點正下方的地面；z = 0 是地面，鑽土的部分在 z < 0）在這一版座標裡的位置；用 v001 擺好的場景，把這一版往 -previous_origin_m 移就對回原處",
   "dimensions_m": [
     15.3223,
     7.4385,
     2.928
   ],
   "bounds_min_m": [
-    -7.9763,
-    -3.4546,
+    -7.6612,
+    -3.7192,
     -1.1717
   ],
   "bounds_max_m": [
-    7.346,
-    3.9839,
+    7.6611,
+    3.7193,
     1.7563
   ],
   "shape": {
@@ -122,16 +128,16 @@
     "detail_tiling_on_uv0": 8.3,
     "mask_map": "MaskURP.png（R metal、G AO、A smoothness）"
   },
-  "collision": "DR02_RootWall_B_Collision: MeshCollider (convex off), renderer hidden；只含半徑 0.32 m 以上的根（內芯和粗股）",
+  "collision": "DR02_RootWall_B_Collision: MeshCollider (convex off), renderer hidden；只含內芯半徑 0.32 m 以上的根（內芯和粗股）",
   "sockets_blender_xyz": {
     "Socket_Head": [
-      -6.611,
-      0.002,
+      -6.296,
+      -0.263,
       0.0
     ],
     "Socket_Tail": [
-      2.99,
-      -0.481,
+      3.305,
+      -0.745,
       0.0
     ]
   },
@@ -143,7 +149,7 @@
     }
   ],
   "files_sha256": {
-    "DR02_RootWall_B_v001.fbx": "d1b07493846b293502d44da9ca08ecbad18c82fc3383698753b11ab6c31abd0d",
-    "DR02_RootWall_B_v001.glb": "ca0abba0be18e8be1ee0d8360979822fc7b123666397652f28181f64dbfac5f2"
+    "DR02_RootWall_B_v002.fbx": "582ebc2efd3711da5b3e2fce1f2d24ecb95361c047e8ea2ceafbebc084eddd8d",
+    "DR02_RootWall_B_v002.glb": "4648d8f8e5a29887926c885995fa247e8e9a3f7119e0e1e42fe432b592339bf6"
   }
 }

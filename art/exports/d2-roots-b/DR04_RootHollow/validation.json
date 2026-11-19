@@ -1,16 +1,16 @@
 {
   "asset": "DR04_RootHollow",
-  "version": "v001",
+  "version": "v002",
   "blender": "5.2.2 LTS",
   "bounds_main": {
     "min": [
-      -2.7514,
-      -1.559,
+      -2.8703,
+      -2.1325,
       -0.5485
     ],
     "max": [
-      2.9892,
-      2.7059,
+      2.8703,
+      2.1324,
       2.5861
     ],
     "dims": [
@@ -19,15 +19,27 @@
       3.1346
     ]
   },
+  "origin_at_bottom_centre": {
+    "footprint_centre_xy_m": [
+      0.0,
+      -0.0
+    ],
+    "ok": true
+  },
+  "previous_origin_m": [
+    -0.1189,
+    -0.5735,
+    0.0
+  ],
   "bounds_detail": {
     "min": [
-      -3.9383,
-      -2.3086,
+      -4.0572,
+      -2.8821,
       -0.4392
     ],
     "max": [
-      4.1431,
-      3.2579,
+      4.0242,
+      2.6844,
       2.3174
     ]
   },
@@ -119,8 +131,8 @@
     ],
     "sockets": {
       "Socket_Back": [
-        0.0,
-        2.55,
+        -0.1189,
+        1.9765,
         -0.0
       ]
     },
@@ -177,5 +189,6 @@
     "depth_hit_y_at_0.5m": 1.799,
     "depth_hit_y_at_1.0m": 1.625,
     "walker_stops_at_y_m": -0.019
-  }
+  },
+  "hollow_note": "洞口量測的座標是 v001 的（洞口中線 x = 0）；換到這一版要加 previous_origin_m"
 }

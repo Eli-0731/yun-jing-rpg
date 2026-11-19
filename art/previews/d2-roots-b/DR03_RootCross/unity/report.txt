@@ -5,6 +5,7 @@ INFO DR03_RootCross: imported at 1024x1024 on StandaloneWindows64 (importer max 
 INFO DR03_RootCross: bark detail on UV0, tiling 6.33
 PASS DR03_RootCross: imported size 7.826 x 7.156 x 2.641 m matches model_info 7.8256 x 7.1555 x 2.6404 within 2 cm
 PASS DR03_RootCross: lowest point y = -0.708 (root tips dive below the ground, origin on the ground)
+PASS DR03_RootCross: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; z = 0 is the ground)
 PASS DR03_RootCross: triangles LOD0/1/2 = 27946 / 14021 / 4299 (50% / 15%), model_info 27946 / 14021 / 4299
 PASS DR03_RootCross: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
 PASS DR03_RootCross: 2 materials over every LOD and Detail_ mesh (model_info 2; one per texture set and one two-sided for the plants)

@@ -64,8 +64,12 @@ def report(v='H', **kw):
     val = _report(v, **kw)
     asset = 'DR04_RootHollow'
     EXP = f'{ROOT}/art/exports/d2-roots-b/{asset}'
+    dp = _load('dr_pivot.py')
+    dp['frame'](asset, True)        # 洞口量法照 v001 的座標（洞口中線 x = 0、拱在 y = 0.22）
     val['hollow_lod0'] = hollow(bpy.data.objects[f'{asset}_LOD0'])
     val['hollow_collision'] = hollow(bpy.data.objects[f'{asset}_Collision'])
+    dp['frame'](asset, False)
+    val['hollow_note'] = f'洞口量測的座標是 {PREV_VER} 的（洞口中線 x = 0）；換到這一版要加 previous_origin_m'
     json.dump(val, open(f'{EXP}/validation.json', 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
     print('hollow', val['hollow_lod0'], val['hollow_collision'])
     return val

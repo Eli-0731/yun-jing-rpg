@@ -1,6 +1,6 @@
 {
   "asset": "DR04_RootHollow",
-  "version": "v001",
+  "version": "v002",
   "minTier": "standard",
   "detailObjects": [
     "Detail_DR04_Plants"
@@ -57,20 +57,26 @@
   "units": "meters",
   "front": "-Y (Blender)：看進洞口；背面（+Y）靠在神木或根牆上",
   "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
-  "origin": "洞口正下方的地面（洞口那道根拱的中線）；z = 0 是地面，鑽土的部分在 z < 0",
+  "origin": "底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，鑽土的部分在 z < 0",
+  "previous_origin_m": [
+    -0.1189,
+    -0.5735,
+    0.0
+  ],
+  "previous_origin_note": "v001 的原點（洞口正下方的地面（洞口那道根拱的中線）；z = 0 是地面，鑽土的部分在 z < 0）在這一版座標裡的位置；用 v001 擺好的場景，把這一版往 -previous_origin_m 移就對回原處",
   "dimensions_m": [
     5.7406,
     4.2649,
     3.1346
   ],
   "bounds_min_m": [
-    -2.7514,
-    -1.559,
+    -2.8703,
+    -2.1325,
     -0.5485
   ],
   "bounds_max_m": [
-    2.9892,
-    2.7059,
+    2.8703,
+    2.1324,
     2.5861
   ],
   "shape": {
@@ -132,8 +138,8 @@
   "collision": "DR04_RootHollow_Collision: MeshCollider (convex off), renderer hidden；只含內芯半徑 0.28 m 以上的根（內芯和粗股）",
   "sockets_blender_xyz": {
     "Socket_Back": [
-      0.0,
-      2.55,
+      -0.119,
+      1.977,
       0.0
     ]
   },
@@ -145,7 +151,7 @@
     }
   ],
   "files_sha256": {
-    "DR04_RootHollow_v001.fbx": "57dccd76342e7debb49ac68a789fc7e7d4e1d1f09365feddfa2663dfbc541b4a",
-    "DR04_RootHollow_v001.glb": "2393b2db44353e826afff9635d03a287e8dd34a9076efd54285adadb5657d87e"
+    "DR04_RootHollow_v002.fbx": "756a246a5bb1fc01e69ccad404a75664a4aaa8887bcba7ec2316f03dca3eb984",
+    "DR04_RootHollow_v002.glb": "31c2e0db2b8cf1415677b78bbb9de92c22a8b92c1d356a25931b23b2fa32e4a7"
   }
 }

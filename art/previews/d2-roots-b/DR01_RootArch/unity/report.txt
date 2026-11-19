@@ -11,6 +11,7 @@ PASS DR01_RootArch set D: Albedo / Normal / ORM / MaskURP textures found
 PASS DR01_RootArch set D: delivered textures 2048x2048 (larger than a person: 2048)
 PASS DR01_RootArch: imported size 38.017 x 33.592 x 9.354 m matches model_info 38.0155 x 33.591 x 9.3531 within 2 cm
 PASS DR01_RootArch: lowest point y = -0.871 (root tips dive below the ground, origin on the ground)
+PASS DR01_RootArch: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; z = 0 is the ground)
 PASS DR01_RootArch: triangles LOD0/1/2 = 114333 / 58392 / 17779 (51% / 16%), model_info 114333 / 58392 / 17779
 PASS DR01_RootArch: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
 PASS DR01_RootArch: 5 materials over every LOD and Detail_ mesh (model_info 5; one per texture set and one two-sided for the plants)
