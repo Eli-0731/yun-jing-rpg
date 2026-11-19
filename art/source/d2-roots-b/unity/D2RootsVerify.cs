@@ -27,10 +27,13 @@ namespace YunJing.Editor
         static bool Raw => Models == RawModels;
         // DR01 is at v005, the DR02 wall modules at v001. D2_IDS (comma separated) limits a run to some of them.
         static string Version(string id) => id.StartsWith("DR01") ? "v005" : "v001";
-        static readonly string[] AllIds = { "DR01_RootArch", "DR02_RootWall_A", "DR02_RootWall_B", "DR02_RootWall_C" };
+        static readonly string[] AllIds = { "DR01_RootArch", "DR02_RootWall_A", "DR02_RootWall_B", "DR02_RootWall_C", "DR03_RootEnd", "DR03_RootCross" };
         static string[] Ids => string.IsNullOrEmpty(Environment.GetEnvironmentVariable("D2_IDS")) ? AllIds
             : Environment.GetEnvironmentVariable("D2_IDS").Split(',').Select(x => x.Trim()).Where(x => x.Length > 0).ToArray();
         static bool Wall(string id) => id.StartsWith("DR02");
+        static bool Piece(string id) => id.StartsWith("DR03");      // DR03 end cap / crossing piece: one socket, used together with DR02
+        // DR03 is checked joined to DR02 A (end cap) and B (crossing piece), so those are imported too
+        static string[] ImportIds => Ids.Concat(Ids.Any(Piece) ? new[] { "DR02_RootWall_A", "DR02_RootWall_B" } : new string[0]).Distinct().ToArray();
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
         static string Exports => Path.Combine(Repo, "art/exports/d2-roots-b");
         static string Out(string id) => Path.Combine(Repo, "art/previews/d2-roots-b", id, "unity");
@@ -84,7 +87,7 @@ namespace YunJing.Editor
         // ------------------------------------------------------------------ import
         static void Import()
         {
-            foreach (var id in Ids)
+            foreach (var id in ImportIds)
             {
                 Copy(Path.Combine(Exports, id), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Version(id)}.fbx");
                 Copy(Path.Combine(Exports, id, "Textures"), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
@@ -235,12 +238,13 @@ namespace YunJing.Editor
                 Report.Add($"INFO {id}: mesh compression {imp.meshCompression}; UV0 of LOD0 has {us.Length} distinct u and {vs.Length} distinct v over {m0.vertexCount} vertices (smallest step {du:0.000000} / {dv:0.000000})");
             }
             var sockets = go.GetComponentsInChildren<Transform>(true).Where(t => t.name.StartsWith("Socket_")).Select(t => $"{t.name} ({t.position.x:0.0}, {t.position.y:0.0}, {t.position.z:0.0})").ToArray();
-            Check(sockets.Length == (Wall(id) ? 2 : 4), $"{id}: sockets {string.Join(", ", sockets)}");
+            Check(sockets.Length == (Wall(id) ? 2 : Piece(id) ? 1 : 4), $"{id}: sockets {string.Join(", ", sockets)}");
             // collision: a 1.75 m walker (radius 0.35) passes along the path through the arch; the arch feet block
             var col = go.GetComponentsInChildren<MeshCollider>(true);
             Check(col.Length == 1, $"{id}: one collision shell (MeshCollider, renderer off)");
             Physics.SyncTransforms();
             if (Wall(id)) { WallChecks(id, go); UnityEngine.Object.DestroyImmediate(go); return; }
+            if (Piece(id)) { PieceChecks(id, go); UnityEngine.Object.DestroyImmediate(go); return; }
             bool through = !Physics.CapsuleCast(new Vector3(0, .45f, -16), new Vector3(0, 1.40f, -16), .35f, Vector3.forward, 32);
             bool wide = !Physics.CapsuleCast(new Vector3(-.75f, .45f, -16), new Vector3(-.75f, 1.40f, -16), .35f, Vector3.forward, 32)
                      && !Physics.CapsuleCast(new Vector3(.75f, .45f, -16), new Vector3(.75f, 1.40f, -16), .35f, Vector3.forward, 32);
@@ -308,6 +312,60 @@ namespace YunJing.Editor
             Report.Add($"INFO {id}: collision top at the middle {(top ? h.point.y : 0):0.00} m");
         }
 
+        static Info InfoOf(string id) => JsonUtility.FromJson<Info>(File.ReadAllText(Path.Combine(Exports, id, "model_info.json")));
+        static Transform Sock(GameObject g, string name) => g.GetComponentsInChildren<Transform>(true).First(t => t.name.StartsWith(name));
+        // put `g` so that its socket `gs` sits exactly on `target` (position and rotation)
+        static void Snap(GameObject g, Transform gs, Transform target)
+        {
+            g.transform.rotation = target.rotation * Quaternion.Inverse(gs.rotation) * g.transform.rotation;
+            g.transform.position += target.position - gs.position;
+            Physics.SyncTransforms();
+        }
+        // a walker crossing a line (centre p, direction along) is stopped at every 0.5 m from k0 to k1
+        static int Stopped(Vector3 p, Vector3 along, float k0, float k1, out int n)
+        {
+            var across = Vector3.Cross(Vector3.up, along); int js = 0; n = 0;
+            for (float k = k0; k <= k1 + .01f; k += .5f)
+            {
+                var q = p + along * k; n++;
+                bool a = Physics.CapsuleCast(q - across * 9 + Vector3.up * .45f, q - across * 9 + Vector3.up * 1.4f, .35f, across, 18);
+                bool b = Physics.CapsuleCast(q + across * 9 + Vector3.up * .45f, q + across * 9 + Vector3.up * 1.4f, .35f, -across, 18);
+                if (a && b) js++;
+            }
+            return js;
+        }
+        static GameObject Partner(string id) => id == "DR03_RootEnd" ? Place("DR02_RootWall_A", InfoOf("DR02_RootWall_A")) : null;
+
+        // DR03 end cap: its Socket_Wall on DR02 A's Socket_Head; a walker crossing the line wall + cap is stopped from 2 m into the
+        // wall to 2 m out along the cap (no gap at the joint). Crossing piece: a walker crossing the lower root near the crossing is stopped.
+        static void PieceChecks(string id, GameObject go)
+        {
+            Physics.SyncTransforms();
+            if (id == "DR03_RootEnd")
+            {
+                var sw = Sock(go, "Socket_Wall");
+                var wall = Partner(id);
+                Snap(wall, Sock(wall, "Socket_Head"), sw);
+                var along = Vector3.ProjectOnPlane(sw.right, Vector3.up).normalized;      // Blender +X of the socket = towards the wall
+                var tail = Sock(wall, "Socket_Tail").position;
+                Check(Vector3.Dot(tail - sw.position, along) > 5, $"{id}: Socket_Wall points into the wall (DR02 A's tail lies {Vector3.Dot(tail - sw.position, along):0.0} m along it)");
+                int js = Stopped(sw.position, along, -2, 2, out int jn);
+                Check(js == jn, $"{id}: joined to DR02_RootWall_A (Socket_Wall on Socket_Head): a walker crossing the wall and cap is stopped at {js} of {jn} places (2 m either side of the joint, every 0.5 m)");
+                bool top = Physics.Raycast(sw.position - along * 1.5f + Vector3.up * 20, Vector3.down, out var h, 25);
+                Report.Add($"INFO {id}: collision top 1.5 m out from the wall {(top ? h.point.y : 0):0.00} m");
+                UnityEngine.Object.DestroyImmediate(wall);
+            }
+            else
+            {
+                var sj = Sock(go, "Socket_Joint");
+                int js = Stopped(sj.position, Vector3.right, -1.5f, 1.5f, out int jn);
+                Check(js == jn, $"{id}: a walker crossing the lower root is stopped at {js} of {jn} places (1.5 m either side of the crossing, every 0.5 m)");
+                bool top = Physics.Raycast(sj.position + Vector3.up * 20, Vector3.down, out var h, 25);
+                Report.Add($"INFO {id}: collision top at the crossing {(top ? h.point.y : 0):0.00} m");
+            }
+            Physics.SyncTransforms();
+        }
+
         // ------------------------------------------------------------------ renders
         static Camera cam; static RenderTexture target; static Light sun;
 
@@ -334,6 +392,43 @@ namespace YunJing.Editor
             var lg = go.GetComponent<LODGroup>();
             lg.ForceLOD(0);
             // Blender (x, y, z) -> Unity (x, z, y) with the front (-Y) towards -Z
+            if (Piece(id))
+            {
+                ruler.transform.position = new Vector3(-1, .875f, -2.6f);
+                var fr = new Vector3(0, 1.3f, -10); var fa = new Vector3(0, .7f, 0);
+                Shot(id, "front-lod0", fr, fa, 36.2f);
+                if (Raw) { Shot(id, "bark-close", new Vector3(-.8f, 1.3f, -2.6f), new Vector3(-.6f, .7f, -.2f), 22.9f); return; }
+                // crossing piece: seen from the obtuse side of the X (from -6.5,-7 the camera looks straight along the upper root)
+                if (id == "DR03_RootCross") Shot(id, "threequarter", new Vector3(4.4f, 3.0f, -8.4f), new Vector3(-.2f, .6f, .2f), 39.6f);
+                else Shot(id, "threequarter", new Vector3(-6.5f, 2.6f, -7), new Vector3(.3f, .6f, 0), 39.6f);
+                Shot(id, "end", id == "DR03_RootEnd" ? new Vector3(9, 1.3f, .6f) : new Vector3(-9, 1.3f, -.6f), fa, 32.2f);
+                Shot(id, "back", new Vector3(1.2f, 1.8f, 9.5f), fa, 36.2f);
+                Shot(id, "bark-close", new Vector3(-.8f, 1.3f, -2.6f), new Vector3(-.6f, .7f, -.2f), 22.9f);
+                for (int i = 1; i < 3; i++) { lg.ForceLOD(i); Shot(id, $"front-lod{i}", fr, fa, 36.2f); }
+                lg.ForceLOD(1); Detail(go, false);
+                Shot(id, "front-standard-tier-lod1-nodetail", fr, fa, 36.2f);
+                Detail(go, true); lg.ForceLOD(-1);
+                // in use: the end cap on the thick end of DR02 A; the crossing piece on the joint of two DR02 B
+                var extra = new List<GameObject>();
+                ruler.transform.position = new Vector3(2.5f, .875f, -2.2f);
+                if (id == "DR03_RootEnd")
+                {
+                    var w = Partner(id); Snap(w, Sock(w, "Socket_Head"), Sock(go, "Socket_Wall")); extra.Add(w);
+                    Shot(id, "with-wall", new Vector3(7.5f, 2.4f, -8), new Vector3(-2.5f, 1, 0), 39.6f);
+                    Shot(id, "with-wall-path", new Vector3(5, 1.65f, -3.2f), new Vector3(-1, .9f, .3f), 49.4f);
+                }
+                else
+                {
+                    var iB = InfoOf("DR02_RootWall_B");
+                    var w1 = Place("DR02_RootWall_B", iB); var w2 = Place("DR02_RootWall_B", iB); extra.Add(w1); extra.Add(w2);
+                    Snap(w1, Sock(w1, "Socket_Tail"), Sock(go, "Socket_Joint"));
+                    Snap(w2, Sock(w2, "Socket_Head"), Sock(w1, "Socket_Tail"));
+                    Shot(id, "on-joint", new Vector3(-6, 2.6f, -9), new Vector3(.5f, .8f, 0), 39.6f);
+                }
+                foreach (var e in extra) UnityEngine.Object.DestroyImmediate(e);
+                Report.Add($"INFO renders written to art/previews/d2-roots-b/{id}/unity");
+                return;
+            }
             if (Wall(id))
             {
                 ruler.transform.position = new Vector3(-1, .875f, -3);

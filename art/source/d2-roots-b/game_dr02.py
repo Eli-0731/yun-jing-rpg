@@ -626,7 +626,7 @@ def make_detail(seed=5):
             self.n += 1
             if nu >= 8 and nv == 2:          # 蕨的羽片：隔一片留一片、加寬、降面數；拱頂上的（離人最近也有四五公尺）三片留一片
                 far = origin.z > 3.0
-                if self.n % (3 if far else 2):
+                if self.n % (3 if far else c.get('fern_keep', 2)):     # fern_keep：DR03 交叉件根腳小蕨很多，三片留一片
                     return
                 W, nu, nv = W * (2.7 if far else 1.9), 2, 1
             elif nu == 1:                     # 藤的細莖
@@ -639,8 +639,11 @@ def make_detail(seed=5):
         low = bpy.data.objects[f'{ASSET}_LOD0']
         g = _coll('DR02_Game')
         outs = []
-        outs += dr01_dress.dress([low], b['centre'], b['frame'], b['fb'], b['PATH_HALF'], quick=True, seed=seed,
-                                 coll_name='DR02_Game', prefix='DR02_LP_', lite=True, amount=b['VAR']['plants'], avoid=True)
+        if 'dress_game' in b:            # DR03 交叉件：兩條根各長一次（第二條用 DR02_LQ_）
+            outs += b['dress_game'](low, dr01_dress, seed)
+        else:
+            outs += dr01_dress.dress([low], b['centre'], b['frame'], b['fb'], b['PATH_HALF'], quick=True, seed=seed,
+                                     coll_name='DR02_Game', prefix='DR02_LP_', lite=True, amount=b['VAR']['plants'], avoid=True)
     finally:
         core_plants.LeafBuf = Base
     keep = []
@@ -753,6 +756,24 @@ def finish():
     root = bpy.data.objects.new(ASSET, None)
     g.objects.link(root)
     socks = []
+    for nm, loc, rz in sockets(b):
+        e = bpy.data.objects.new(nm, None)
+        e.empty_display_size = .5
+        e.location = loc
+        e.rotation_euler = (0, 0, math.radians(rz))
+        g.objects.link(e)
+        e.parent = root
+        socks.append(e)
+    allm = [o for lst in lods.values() for o in lst] + [col]
+    for o in allm:
+        o.data.name = o.name
+    for o in allm:
+        o.parent = root
+    return _export(lods, col, socks, root)
+
+
+def sockets(b):
+    """回傳 [(名稱, (x, y, z), 方向角度)]。"""
     # 接口：Socket_Head 在粗頭頂面露出土的地方；Socket_Tail 在細頭頂面鑽進土的地方再往回 2.5 m（OVERLAP）。
     # 兩個接口的 +X 都是這段根往細頭走的方向。下一件的 Socket_Head 直接對到這件的 Socket_Tail（位置、方向都對齊），
     # 細頭最後 2.5 m 就和下一件的粗頭並在一起，接縫處的牆不會塌下去（量過：重疊 1.2 m 時接縫最低 0.58 m，2.5 m 時 0.8 m）
@@ -770,19 +791,11 @@ def finish():
         d = b['spine_at'](min(1, t + .01))[0] - b['spine_at'](max(0, t - .01))[0]
         return math.degrees(math.atan2(d.y, d.x))
     ph, pt = b['spine_at'](th)[0], b['spine_at'](t_tail)[0]
-    for nm, loc, rz in (('Socket_Head', (ph.x, ph.y, 0), heading(th)), ('Socket_Tail', (pt.x, pt.y, 0), heading(t_tail))):
-        e = bpy.data.objects.new(nm, None)
-        e.empty_display_size = .5
-        e.location = loc
-        e.rotation_euler = (0, 0, math.radians(rz))
-        g.objects.link(e)
-        e.parent = root
-        socks.append(e)
+    return [('Socket_Head', (ph.x, ph.y, 0), heading(th)), ('Socket_Tail', (pt.x, pt.y, 0), heading(t_tail))]
+
+
+def _export(lods, col, socks, root):
     allm = [o for lst in lods.values() for o in lst] + [col]
-    for o in allm:
-        o.data.name = o.name
-    for o in allm:
-        o.parent = root
     bpy.context.view_layer.update()
     os.makedirs(EXP, exist_ok=True)
     col.hide_render = False

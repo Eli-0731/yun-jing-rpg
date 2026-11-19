@@ -5,12 +5,13 @@ from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 
 
-def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR01_High', prefix='DR01_P_', lite=False, amount=1.0, avoid=False):
+def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR01_High', prefix='DR01_P_', lite=False, amount=1.0, avoid=False, foot=None, foot_size=1.0, foot_along=False, heart=1.0):
     """lite=True：遊戲模型用的數量（蕨和葉叢少一點）。amount：數量再乘幾倍（v004 後拱 0.5）。
     avoid=True：葉子、蕨、垂藤不能穿進根裡（DR02 起用；扭絞的股與股之間，下垂的葉子會插進隔壁那股）。
     DR01 v005 交付時沒有開，開了亂數順序會變，植物位置跟著變。"""
-    n_foot_fern = int(round((6 if lite else 7) * amount))
-    n_foot_heart = int(round((6 if lite else 7) * amount))
+    fa = amount if foot is None else foot          # foot：根腳的蕨、心形葉另外給數量（DR03 交叉件；預設跟 amount 一樣）
+    n_foot_fern = int(round((6 if lite else 7) * fa))
+    n_foot_heart = int(round((6 if lite else 7) * fa))
     import core_plants
     if not lite:
         importlib.reload(core_plants)      # lite 時呼叫端已換上降面數的 LeafBuf，不重載
@@ -240,7 +241,7 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
     for i in range(5):
         spots.append((R.uniform(.2, .8), R.choice([-1, 1, 1]) * R.uniform(.6, 1.5), R.randint(1, 2)))
     for tc, ac, want in spots:
-        want = int(round(want * amount))
+        want = int(round(want * amount * heart))     # heart：根上心形葉叢再乘幾倍（DR03 交叉件 .4：設定圖頂上主要是苔和小蕨）
         if want <= 0:
             continue
         made = 0
@@ -261,9 +262,16 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
         tries = nf = nh = 0
         while (nf < n_foot_fern or nh < n_foot_heart) and tries < 600:
             tries += 1
-            a = base + R.uniform(-1.6, 1.6)
-            dist = R.uniform(1.2, 7.5)
-            x, y = cf.x + math.cos(a) * dist, cf.y + math.sin(a) * dist
+            if foot_along:                    # 沿著根身兩側找（DR03 交叉件：根腳不是拱腳，整條根兩側都貼地）
+                tf = R.uniform(.05, .5) + .45 * foot
+                cc = centre(tf)
+                fd, fs, _ = frame(tf)
+                dist = R.choice((-1, 1)) * R.uniform(.35, 1.6)
+                x, y = cc.x + fs.x * dist, cc.y + fs.y * dist
+            else:
+                a = base + R.uniform(-1.6, 1.6)
+                dist = R.uniform(1.2, 7.5)
+                x, y = cf.x + math.cos(a) * dist, cf.y + math.sin(a) * dist
             if abs(x) < path_half + .3:
                 continue
             h = bvh.ray_cast(Vector((x, y, 9)), Vector((0, 0, -1)), 12)
@@ -273,7 +281,7 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
                 continue                      # 要貼著根
             pos = Vector((x, y, -.02))
             if nf < n_foot_fern and (nh >= n_foot_heart or R.random() < .5):
-                o, so = fern(f'{prefix}FootFern{kf}', pos, R, R.uniform(1.1, 1.8), fern_mat, stem_mat)
+                o, so = fern(f'{prefix}FootFern{kf}', pos, R, R.uniform(1.1, 1.8) * foot_size, fern_mat, stem_mat)
                 if not clear_obj(o):
                     bpy.data.objects.remove(o, do_unlink=True)
                     bpy.data.objects.remove(so, do_unlink=True)
@@ -283,7 +291,7 @@ def dress(objs, centre, frame, fb, path_half, quick=True, seed=5, coll_name='DR0
                 nf += 1
                 kf += 1
             elif nh < n_foot_heart:
-                clump(vb, pos, Vector((0, 0, 1)), R.uniform(1.6, 2.6), hang=False)
+                clump(vb, pos, Vector((0, 0, 1)), R.uniform(1.6, 2.6) * foot_size, hang=False)
                 nh += 1
                 kh += 1
     if vb.V:

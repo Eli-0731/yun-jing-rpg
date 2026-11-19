@@ -46,11 +46,11 @@ X0 = 0.0
 def set_variant(v):
     global VAR, SP, X0
     VAR = dict(VARIANTS[v], key=v)
-    pts = VAR['spine']
+    pts = VAR['roots'][0] if 'roots' in VAR else VAR['spine']     # roots：好幾條各自獨立的根（DR03 交叉件），植物、量測沿第一條
     if 'branches' in VAR:      # 分岔件：中心線接前面那條分枝，植物、量測都沿這一條
-        pts = tuple(p for p in pts if p[0] < 3.6) + VAR['branches'][0][1]
+        pts = tuple(p for p in pts if p[0] < VAR.get('fork_s', 3.6)) + VAR['branches'][0][1]
     ss = [p[0] for p in pts]
-    X0 = -(min(ss) + max(ss)) / 2         # 頭尾都在土裡：讓整條根的中點落在原點
+    X0 = VAR['x0'] if 'x0' in VAR else -(min(ss) + max(ss)) / 2         # 頭尾都在土裡：讓整條根的中點落在原點
     SP = [(Vector((X0 + s, y, z)), r, fl) for s, y, z, r, fl in pts]
 
 
@@ -173,10 +173,12 @@ def build(quick=True, seed=None, name='DR02_High', low=None, only_big=0.0):
         return side, nrm
 
     branches = VAR.get('branches', ())
-    trunk = [p for p in VAR['spine'] if not branches or p[0] < 3.6]
+    trunk = [p for p in VAR.get('spine', ()) if not branches or p[0] < VAR.get('fork_s', 3.6)]
     lines = [spine_at]                 # 每股根沿哪一條中心線走（分岔件：前一半走前分枝、後一半走後分枝）
     if branches:
         lines = [lambda t, sp=sp: _along(pts_of(trunk + list(sp)), t) for sg, sp in branches]
+    if 'roots' in VAR:
+        lines = [lambda t, sp=sp: _along(pts_of(sp), t) for sp in VAR['roots']]
 
     # ---- 內芯：一塊立起來的板根把整束根撐起來、填住根和根之間的縫（設定圖斷面是底寬頂尖的帳篷形）----
     for li, along in enumerate(lines):
@@ -185,7 +187,7 @@ def build(quick=True, seed=None, name='DR02_High', low=None, only_big=0.0):
             t = i / 30
             c, r, fl = along(t)
             th = next((j / 200 for j in range(201) if along(j / 200)[0].z > along(j / 200)[1] * along(j / 200)[2] * .35), .1)
-            u = max(0.0, min(1.0, (th * 1.25 - t) / max(th * 1.25, 1e-3)))
+            u = VAR.get('flare', 1.0) * max(0.0, min(1.0, (th * 1.25 - t) / max(th * 1.25, 1e-3)))
             pts.append((c.x, c.y, c.z - r * fl * (.06 + .25 * u), r * .76 * (1 - .10 * u), fl * .98))
         tb(f'Core{li}', pts, seed=3 + li * 5.1, rib=.26, twist=.05, moss_bias=top_moss)
 
@@ -203,8 +205,8 @@ def build(quick=True, seed=None, name='DR02_High', low=None, only_big=0.0):
         along = lines[k % len(lines)]
         th = t_head[k % len(lines)]
         ph0 = 2 * math.pi * k / N + R.uniform(-.25, .25)
-        dk = R.uniform(.84, 1.0)
-        rho = R.uniform(.20, .34)
+        dk = R.uniform(*VAR.get('dk', (.84, 1.0)))
+        rho = R.uniform(*VAR.get('rho', (.20, .34)))
         tw = turns * (1 if k % 4 else -.65) * R.uniform(.85, 1.15)
         t_end = 1.0                            # 尾端跟著中心線一起鑽進土裡，不留切口
         peeled = False
@@ -225,7 +227,7 @@ def build(quick=True, seed=None, name='DR02_High', low=None, only_big=0.0):
             ph = ph0 + t * 2 * math.pi * tw
             cv, sv = math.cos(ph), math.sin(ph)
             wd = 1 - .38 * max(0.0, sv) ** 1.3              # 上半邊收窄：帳篷形
-            u = max(0.0, min(1.0, (th * 1.25 - t) / (th * 1.25)))   # 0：束已離地；1：粗頭最末端
+            u = VAR.get('flare', 1.0) * max(0.0, min(1.0, (th * 1.25 - t) / (th * 1.25)))   # 0：束已離地；1：粗頭最末端（flare 0：不攤開）
             fan = 1 + .75 * u ** .8                          # 往兩側攤開（太開會露出股與股之間的縫，像一捆圓木）
             q = c + side * (cv * r * dk * wd * fan) + nrm * (sv * r * fl * dk * .90 * (1 - .25 * u))
             rr = r * rho * (1 + .15 * math.sin(t * 17 + k * 1.3)) * (1 + .35 * u)
@@ -245,7 +247,7 @@ def build(quick=True, seed=None, name='DR02_High', low=None, only_big=0.0):
 
     # ---- 粗頭：兩三條粗根從束裡往兩側斜後方離開、鑽進土裡（像從神木那邊延伸過來的根頸）----
     c0, r0, fl0 = spine_at(.10)
-    for j, (sg, back, rr, rise) in enumerate(((-1, .7, .40, .35), (1, .9, .36, .30), (1, 1.4, .26, .05))):
+    for j, (sg, back, rr, rise) in enumerate(((-1, .7, .40, .35), (1, .9, .36, .30), (1, 1.4, .26, .05)) if VAR.get('head_roots', True) else ()):
         p_top = c0 + Vector((.2 + .5 * j, sg * r0 * .80, -r0 * fl0 * .25 + rise))
         pts = [(p_top.x + .9, p_top.y - sg * .1, p_top.z + .2, rr * .7, 1.0), (p_top.x, p_top.y, p_top.z, rr, 1.25)]
         land = Vector((p_top.x - back * .9, p_top.y + sg * back * .8, rr * .5))
@@ -257,7 +259,7 @@ def build(quick=True, seed=None, name='DR02_High', low=None, only_big=0.0):
     # ---- 側邊小根：從主根貼地的那一段，往兩側斜後方爬 2–4 m 鑽進土裡（抓住地面，不是放在地上的一根木頭）----
     m = 0
     for li, along in enumerate(lines):
-        n_side = VAR.get('sides', 5) if li == 0 else 3
+        n_side = VAR.get('sides', 5) if li == 0 else VAR.get('branch_sides', 3)
         for i in range(n_side):
             t = R.uniform(.22, .88) if li == 0 else R.uniform(.35, .85)
             c, r, fl = along(t)

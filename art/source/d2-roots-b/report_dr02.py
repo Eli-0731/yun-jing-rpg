@@ -26,6 +26,18 @@ SHOTS = {
 }
 
 
+# 下面這幾個 DR03（report_dr03.py）會換掉
+ASSET_FMT = 'DR02_RootWall_{v}'
+BUILD = 'build_dr02.py'
+DET_NAME = 'Detail_DR02_Plants'
+SLOT = 'D2 空地外圈一圈，約 14 件首尾相接圍成弧（A／B／C 混用、可鏡像）'
+NOTE_HEAD = ('神木的板根延伸出去的樣子：一頭粗（從土裡斜著冒出來，最高）、一頭細鑽進土裡。整條是一塊立起來的內芯板根加上八到十二股'
+             '慢慢扭轉的根絞成一束，斷面底寬頂尖；有幾股半路離開這一束，往旁邊爬下去鑽進土裡。')
+FRONT_TXT = '-Y (Blender)；根沿 +X 走，粗頭在 -X、細頭在 +X'
+ORIGIN_TXT = '整條根（含頭尾鑽土的部分）中點正下方的地面；z = 0 是地面，鑽土的部分在 z < 0'
+TURN_DIST = 30
+
+
 def _load(n):
     p = f'{HERE}/{n}'
     g = {'__file__': p, '__name__': n[:-3]}
@@ -141,15 +153,15 @@ def sha(p):
 
 
 def report(v, render=True, samples=48):
-    asset = f'DR02_RootWall_{v}'
+    asset = ASSET_FMT.format(v=v)
     EXP = f'{ROOT}/art/exports/d2-roots-b/{asset}'
     PRE = f'{ROOT}/art/previews/d2-roots-b/{asset}'
     os.makedirs(PRE + '/turnaround', exist_ok=True)
-    b = _load('build_dr02.py')
+    b = _load(BUILD)
     b['set_variant'](v)
     pv = _load('preview_dr.py')
     G = lambda n: bpy.data.objects[n]
-    DET = 'Detail_DR02_Plants'
+    DET = DET_NAME
     lods = {lv: [G(f'{asset}_LOD{lv}'), G(f'{DET}_LOD{lv}')] for lv in (0, 1, 2)}
     col = G(f'{asset}_Collision')
     lo, hi = bounds([lods[0][0]])
@@ -183,15 +195,14 @@ def report(v, render=True, samples=48):
     sh = 'Shared/D2Bark_Detail_Normal.png'
     info = {
         'asset': asset, 'version': VER, 'minTier': 'standard', 'detailObjects': [DET],
-        'name_zh': NAME_ZH[v], 'slot': 'D2 空地外圈一圈，約 14 件首尾相接圍成弧（A／B／C 混用、可鏡像）',
-        'note': '神木的板根延伸出去的樣子：一頭粗（從土裡斜著冒出來，最高）、一頭細鑽進土裡。整條是一塊立起來的內芯板根加上八到十二股'
-                '慢慢扭轉的根絞成一束，斷面底寬頂尖；有幾股半路離開這一束，往旁邊爬下去鑽進土裡。' + NOTE[v] +
-                '樹皮：Poly Haven bark_brown_02 掃描凹凸推進高模幾何再烘焙；苔是鼓起來的苔墊。Detail_DR02_Plants：根上的蕨、心形葉小叢，兩端的蕨和心形葉。',
+        'name_zh': NAME_ZH[v], 'slot': SLOT,
+        'note': NOTE_HEAD + NOTE[v] +
+                f'樹皮：Poly Haven bark_brown_02 掃描凹凸推進高模幾何再烘焙；苔是鼓起來的苔墊。{DET}：根上的蕨、心形葉小叢，兩端的蕨和心形葉。',
         'budget_per_lod': {f'LOD{lv}': dict(triangles=sum(tri(o) for o in lst), objects=2, objects_without_detail=1, materials=len(mats)) for lv, lst in lods.items()},
         'texture_resolution_px': {**tex, sh: [1024, 1024], sh.replace('_Normal', '_Albedo'): [1024, 1024]},
-        'units': 'meters', 'front': '-Y (Blender)；根沿 +X 走，粗頭在 -X、細頭在 +X',
+        'units': 'meters', 'front': FRONT_TXT,
         'up': '+Z (Blender); FBX exported Y-up, -Z forward, transforms baked',
-        'origin': '整條根（含頭尾鑽土的部分）中點正下方的地面；z = 0 是地面，鑽土的部分在 z < 0',
+        'origin': ORIGIN_TXT,
         'dimensions_m': val['bounds_main']['dims'], 'bounds_min_m': lo, 'bounds_max_m': hi,
         'shape': val['shape_lod0'],
         'lods': val['tris'], 'lod_rule': 'LOD0 不刪細節；LOD1 collapse 50%；LOD2 collapse 15%',
@@ -217,7 +228,7 @@ def report(v, render=True, samples=48):
         cz = 1.2
         for nm, d in VIEWS:
             dv = Vector(d).normalized()
-            dist = 30 if nm != '09_top' else 34
+            dist = TURN_DIST if nm != '09_top' else TURN_DIST + 4
             loc = Vector((0, 0, cz)) + dv * dist
             pv['shot'](f'{PRE}/turnaround/{nm}.png', tuple(loc), (0, 0, cz), 50, res=(1024, 1024))
             vj.append(dict(name=nm, direction=list(d), camera=[round(c, 3) for c in loc], lens_mm=50, file=f'turnaround/{nm}.png', mesh='LOD0'))
