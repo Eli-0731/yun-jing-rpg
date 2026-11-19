@@ -432,6 +432,8 @@ def _save(arr, path, color):
     bpy.data.images.remove(im)
 
 
+COL_BIG = .32               # 碰撞殼只留內芯半徑大於這個值的根（DR04 的板根內芯細一點，設 0.28）
+LEAF_X = .5                 # 葉子那一條從 x = 0 到 LEAF_X（這段不疊樹皮細節、不當苔壓暗）
 LEAF = {'Ferns': (0.0, .25, (.13, .21, .095), (.27, .37, .18)), 'Leaves': (.25, .5, (.18, .27, .145), (.34, .43, .26))}   # x0, x1, 暗、亮 (sRGB)
 
 
@@ -441,7 +443,7 @@ def finish_textures():
     for f in os.listdir(TEX):
         os.remove(f'{TEX}/{f}')
     h0 = int(STRIP * SIZE)
-    half = int(.5 * SIZE)
+    half = int(LEAF_X * SIZE)              # 葉子那一條用到的寬度（DR04 多了落葉，到 0.875）
     for S in SETS:
         leaf = S == SETS[0]
         W = lambda k: f'{WORKTEX}/{ASSET}_{S}_{k}.png'
@@ -738,7 +740,7 @@ def finish():
             if at:
                 o.data.attributes.remove(at)
     # 碰撞殼：只留粗的根（半徑 > 0.32 m，也就是直徑 0.64 m 以上、人跨不過去的），6 邊、每 1.2 m 一環
-    cobjs = b['build'](quick=False, name='DR02_Col', low=(1.2, 6, 6), only_big=.32)
+    cobjs = b['build'](quick=False, name='DR02_Col', low=(1.2, 6, 6), only_big=COL_BIG)
     col = _join(cobjs, f'{ASSET}_Collision')
     for c in list(col.users_collection):
         c.objects.unlink(col)

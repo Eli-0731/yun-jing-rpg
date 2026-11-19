@@ -30,6 +30,7 @@ SHOTS = {
 ASSET_FMT = 'DR02_RootWall_{v}'
 BUILD = 'build_dr02.py'
 DET_NAME = 'Detail_DR02_Plants'
+COL_BIG = .32               # 和 game_dr02.COL_BIG 一樣（只寫進 model_info 的說明）
 SLOT = 'D2 空地外圈一圈，約 14 件首尾相接圍成弧（A／B／C 混用、可鏡像）'
 NOTE_HEAD = ('神木的板根延伸出去的樣子：一頭粗（從土裡斜著冒出來，最高）、一頭細鑽進土裡。整條是一塊立起來的內芯板根加上八到十二股'
              '慢慢扭轉的根絞成一束，斷面底寬頂尖；有幾股半路離開這一束，往旁邊爬下去鑽進土裡。')
@@ -212,7 +213,7 @@ def report(v, render=True, samples=48):
         'unity': {'shader': 'Universal Render Pipeline/Lit', 'detail_normal': sh, 'detail_albedo': sh.replace('_Normal', '_Albedo'),
                   'detail_mask': 'Albedo.png 的 alpha（1 = 樹皮，0 = 苔和葉）', 'detail_tiling_on_uv0': round(mat.get('unity_detail_tiling', 0), 2),
                   'mask_map': 'MaskURP.png（R metal、G AO、A smoothness）'},
-        'collision': f'{asset}_Collision: MeshCollider (convex off), renderer hidden；只含半徑 0.32 m 以上的根（內芯和粗股）',
+        'collision': f'{asset}_Collision: MeshCollider (convex off), renderer hidden；只含內芯半徑 {COL_BIG:.2f} m 以上的根（內芯和粗股）',
         'sockets_blender_xyz': {o.name: [round(c, 3) for c in o.matrix_world.translation] for o in bpy.data.objects if o.name.startswith('Socket_')},
         'external_assets': [{'name': 'bark_brown_02', 'source': 'https://polyhaven.com/a/bark_brown_02', 'license': 'CC0'}],
         'files_sha256': {f: sha(f'{EXP}/{f}') for f in sorted(os.listdir(EXP)) if f.endswith(('.fbx', '.glb'))},

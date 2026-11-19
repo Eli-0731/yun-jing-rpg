@@ -27,11 +27,12 @@ namespace YunJing.Editor
         static bool Raw => Models == RawModels;
         // DR01 is at v005, the DR02 wall modules at v001. D2_IDS (comma separated) limits a run to some of them.
         static string Version(string id) => id.StartsWith("DR01") ? "v005" : "v001";
-        static readonly string[] AllIds = { "DR01_RootArch", "DR02_RootWall_A", "DR02_RootWall_B", "DR02_RootWall_C", "DR03_RootEnd", "DR03_RootCross" };
+        static readonly string[] AllIds = { "DR01_RootArch", "DR02_RootWall_A", "DR02_RootWall_B", "DR02_RootWall_C", "DR03_RootEnd", "DR03_RootCross", "DR04_RootHollow" };
         static string[] Ids => string.IsNullOrEmpty(Environment.GetEnvironmentVariable("D2_IDS")) ? AllIds
             : Environment.GetEnvironmentVariable("D2_IDS").Split(',').Select(x => x.Trim()).Where(x => x.Length > 0).ToArray();
         static bool Wall(string id) => id.StartsWith("DR02");
         static bool Piece(string id) => id.StartsWith("DR03");      // DR03 end cap / crossing piece: one socket, used together with DR02
+        static bool Hollow(string id) => id.StartsWith("DR04");     // DR04 hollow between two buttress roots: one socket (Socket_Back)
         // DR03 is checked joined to DR02 A (end cap) and B (crossing piece), so those are imported too
         static string[] ImportIds => Ids.Concat(Ids.Any(Piece) ? new[] { "DR02_RootWall_A", "DR02_RootWall_B" } : new string[0]).Distinct().ToArray();
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
@@ -238,13 +239,14 @@ namespace YunJing.Editor
                 Report.Add($"INFO {id}: mesh compression {imp.meshCompression}; UV0 of LOD0 has {us.Length} distinct u and {vs.Length} distinct v over {m0.vertexCount} vertices (smallest step {du:0.000000} / {dv:0.000000})");
             }
             var sockets = go.GetComponentsInChildren<Transform>(true).Where(t => t.name.StartsWith("Socket_")).Select(t => $"{t.name} ({t.position.x:0.0}, {t.position.y:0.0}, {t.position.z:0.0})").ToArray();
-            Check(sockets.Length == (Wall(id) ? 2 : Piece(id) ? 1 : 4), $"{id}: sockets {string.Join(", ", sockets)}");
+            Check(sockets.Length == (Wall(id) ? 2 : Piece(id) || Hollow(id) ? 1 : 4), $"{id}: sockets {string.Join(", ", sockets)}");
             // collision: a 1.75 m walker (radius 0.35) passes along the path through the arch; the arch feet block
             var col = go.GetComponentsInChildren<MeshCollider>(true);
             Check(col.Length == 1, $"{id}: one collision shell (MeshCollider, renderer off)");
             Physics.SyncTransforms();
             if (Wall(id)) { WallChecks(id, go); UnityEngine.Object.DestroyImmediate(go); return; }
             if (Piece(id)) { PieceChecks(id, go); UnityEngine.Object.DestroyImmediate(go); return; }
+            if (Hollow(id)) { HollowChecks(id, go); UnityEngine.Object.DestroyImmediate(go); return; }
             bool through = !Physics.CapsuleCast(new Vector3(0, .45f, -16), new Vector3(0, 1.40f, -16), .35f, Vector3.forward, 32);
             bool wide = !Physics.CapsuleCast(new Vector3(-.75f, .45f, -16), new Vector3(-.75f, 1.40f, -16), .35f, Vector3.forward, 32)
                      && !Physics.CapsuleCast(new Vector3(.75f, .45f, -16), new Vector3(.75f, 1.40f, -16), .35f, Vector3.forward, 32);
@@ -366,6 +368,30 @@ namespace YunJing.Editor
             Physics.SyncTransforms();
         }
 
+        // DR04 hollow: the hole is 1.2 m deep and dark, a set piece and not a passage. A 1.75 m walker (radius 0.35) heading into it
+        // along its centre line is stopped at the mouth; walking across the piece (along x) the arches and buttresses stop it; from
+        // behind the back wall stops it.
+        static void HollowChecks(string id, GameObject go)
+        {
+            Physics.SyncTransforms();
+            bool mouth = Physics.CapsuleCast(new Vector3(0, .45f, -6), new Vector3(0, 1.4f, -6), .35f, Vector3.forward, out var hm, 12);
+            float stop = mouth ? -6 + hm.distance : 99;
+            Check(mouth && stop > -1.2f && stop < 1.0f, $"{id}: a walker heading into the hole is stopped with its centre at z = {stop:0.00} m (at the mouth, not inside)");
+            int js = 0, jn = 0;
+            for (float z = -.5f; z <= 1.51f; z += .5f)
+            {
+                jn++;
+                bool a = Physics.CapsuleCast(new Vector3(-9, .45f, z), new Vector3(-9, 1.4f, z), .35f, Vector3.right, 18);
+                bool b = Physics.CapsuleCast(new Vector3(9, .45f, z), new Vector3(9, 1.4f, z), .35f, Vector3.left, 18);
+                if (a && b) js++;
+            }
+            Check(js == jn, $"{id}: a walker crossing the piece side to side is stopped at {js} of {jn} places (z = -0.5 to 1.5 m, every 0.5 m)");
+            bool back = Physics.CapsuleCast(new Vector3(0, .45f, 9), new Vector3(0, 1.4f, 9), .35f, Vector3.back, out var hb, 12);
+            Check(back && 9 - hb.distance > 1.5f, $"{id}: a walker coming from behind is stopped by the back wall (centre at z = {(back ? 9 - hb.distance : 0):0.00} m)");
+            bool up = Physics.Raycast(new Vector3(0, .1f, .22f), Vector3.up, out var hu, 5);
+            Report.Add($"INFO {id}: collision clear height in the mouth {(up ? hu.distance + .1f : 0):0.00} m");
+        }
+
         // ------------------------------------------------------------------ renders
         static Camera cam; static RenderTexture target; static Light sun;
 
@@ -426,6 +452,24 @@ namespace YunJing.Editor
                     Shot(id, "on-joint", new Vector3(-6, 2.6f, -9), new Vector3(.5f, .8f, 0), 39.6f);
                 }
                 foreach (var e in extra) UnityEngine.Object.DestroyImmediate(e);
+                Report.Add($"INFO renders written to art/previews/d2-roots-b/{id}/unity");
+                return;
+            }
+            if (Hollow(id))
+            {
+                ruler.transform.position = new Vector3(-1, .875f, -3);
+                var fr = new Vector3(0, 1.3f, -8); var fa = new Vector3(0, .9f, .5f);
+                Shot(id, "front-lod0", fr, fa, 36.2f);
+                if (Raw) { Shot(id, "bark-close", new Vector3(-1.6f, 1.3f, -1.6f), new Vector3(-.7f, .9f, .4f), 22.9f); return; }
+                Shot(id, "threequarter", new Vector3(-5, 3.0f, -5.5f), new Vector3(0, .8f, .6f), 39.6f);
+                Shot(id, "eye", new Vector3(.7f, 1.6f, -3), new Vector3(-.1f, .6f, 1), 49.4f);
+                Shot(id, "end", new Vector3(7.5f, 1.4f, -.3f), new Vector3(0, .9f, .6f), 36.2f);
+                Shot(id, "back", new Vector3(1.5f, 2.2f, 8), new Vector3(0, .9f, .5f), 36.2f);
+                Shot(id, "bark-close", new Vector3(-1.6f, 1.3f, -1.6f), new Vector3(-.7f, .9f, .4f), 22.9f);
+                for (int i = 1; i < 3; i++) { lg.ForceLOD(i); Shot(id, $"front-lod{i}", fr, fa, 36.2f); }
+                lg.ForceLOD(1); Detail(go, false);
+                Shot(id, "front-standard-tier-lod1-nodetail", fr, fa, 36.2f);
+                Detail(go, true); lg.ForceLOD(-1);
                 Report.Add($"INFO renders written to art/previews/d2-roots-b/{id}/unity");
                 return;
             }
