@@ -1,0 +1,412 @@
+{
+  "asset": "CW02_B_GateClosed",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CW02_B_GateClosed_Detail_DoorL",
+    "CW02_B_GateClosed_Detail_DoorR",
+    "CW02_B_GateClosed_Detail_Small"
+  ],
+  "name_zh": "院門（關著）",
+  "slot": "A1_Yard_Gate",
+  "note": "院門（三視圖 CW02-cand-2）：兩根方木柱立在石柱礎上，上有門楣、額枋和前後兩根橫梁，梁下斜撐；檁條上一個小懸山瓦頂，瓦和 CW01 壓頂同一種黛瓦（#3A4048），兩端博風板。兩扇舊木板門（直板、內側三道橫帶、門軸立在門枕石上、上面有連楹，外側一個鐵門環），右扇下方釘一塊補板；門檻石中間被踩出淺凹，門外一塊踏石。兩邊短夯土牆和 CW01 同一個斷面，x ±1.2 m 端面就是 Socket_A／Socket_B，可以直接接院牆。門扇是獨立物件（Detail_DoorL、Detail_DoorR），繞 Socket_HingeL／Socket_HingeR 的垂直軸轉就能開關。柱間淨寬 1.34 m，門全開後淨寬 1.24 m。不貼門神、不寫字。 本件：兩扇門關著。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 37092,
+      "objects": 4,
+      "objects_without_detail": 1,
+      "materials": 3
+    },
+    "LOD1": {
+      "triangles": 18546,
+      "objects": 4,
+      "objects_without_detail": 1,
+      "materials": 3
+    },
+    "LOD2": {
+      "triangles": 5559,
+      "objects": 4,
+      "objects_without_detail": 1,
+      "materials": 3
+    }
+  },
+  "texture_resolution_px": {
+    "CW02_B_GateClosed_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Metallic.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Normal.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Roughness.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "CW02_B_GateClosed_Wood_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "gate centre on the ground, front (street) -Y; stubs end at x -1.2 / +1.2 like a CW01 straight",
+  "dimensions_m": [
+    2.4,
+    1.198,
+    2.7967
+  ],
+  "bounds_min_m": [
+    -1.2,
+    -0.599,
+    0.0
+  ],
+  "bounds_max_m": [
+    1.2,
+    0.599,
+    2.7967
+  ],
+  "size_limit_m": [
+    2.4,
+    1.2,
+    2.8
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        2.4,
+        1.198,
+        2.7967
+      ],
+      "min": [
+        -1.2,
+        -0.599,
+        0.0
+      ],
+      "max": [
+        1.2,
+        0.599,
+        2.7967
+      ]
+    },
+    "Detail_DoorL": {
+      "dims_m": [
+        0.7046,
+        0.1057,
+        2.216
+      ],
+      "min": [
+        -0.71,
+        -0.1261,
+        0.032
+      ],
+      "max": [
+        -0.0054,
+        -0.0203,
+        2.248
+      ]
+    },
+    "Detail_DoorR": {
+      "dims_m": [
+        0.7049,
+        0.1057,
+        2.216
+      ],
+      "min": [
+        0.0051,
+        -0.1261,
+        0.032
+      ],
+      "max": [
+        0.71,
+        -0.0203,
+        2.248
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        2.3338,
+        0.925,
+        2.6095
+      ],
+      "min": [
+        -1.1817,
+        -0.4951,
+        0.0
+      ],
+      "max": [
+        1.1521,
+        0.4299,
+        2.6095
+      ]
+    }
+  },
+  "lods": {
+    "Stone": {
+      "LOD0": 18200,
+      "LOD1": 9100,
+      "LOD2": 2730
+    },
+    "Main": {
+      "LOD0": 3272,
+      "LOD1": 1636,
+      "LOD2": 490
+    },
+    "Wood": {
+      "LOD0": 5852,
+      "LOD1": 2926,
+      "LOD2": 876
+    },
+    "Detail_DoorL": {
+      "LOD0": 4336,
+      "LOD1": 2168,
+      "LOD2": 650
+    },
+    "Detail_DoorR": {
+      "LOD0": 4448,
+      "LOD1": 2224,
+      "LOD2": 666
+    },
+    "Detail_Small": {
+      "LOD0": 984,
+      "LOD1": 492,
+      "LOD2": 147
+    }
+  },
+  "lod_totals": {
+    "LOD0": 37092,
+    "LOD1": 18546,
+    "LOD2": 5559
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CW02_B_GateClosed_Main",
+    "M_CW02_B_GateClosed_Stone",
+    "M_CW02_B_GateClosed_Wood"
+  ],
+  "textures": [
+    "CW02_B_GateClosed_BaseColor.png",
+    "CW02_B_GateClosed_Metallic.png",
+    "CW02_B_GateClosed_MetallicSmoothness.png",
+    "CW02_B_GateClosed_Normal.png",
+    "CW02_B_GateClosed_Roughness.png",
+    "CW02_B_GateClosed_Stone_BaseColor.png",
+    "CW02_B_GateClosed_Stone_Metallic.png",
+    "CW02_B_GateClosed_Stone_MetallicSmoothness.png",
+    "CW02_B_GateClosed_Stone_Normal.png",
+    "CW02_B_GateClosed_Stone_Roughness.png",
+    "CW02_B_GateClosed_Wood_BaseColor.png",
+    "CW02_B_GateClosed_Wood_Metallic.png",
+    "CW02_B_GateClosed_Wood_MetallicSmoothness.png",
+    "CW02_B_GateClosed_Wood_Normal.png",
+    "CW02_B_GateClosed_Wood_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_CW02_B_GateClosed_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "CW02_B_GateClosed_BaseColor.png",
+        "Normal": "CW02_B_GateClosed_Normal.png",
+        "MetallicSmoothness": "CW02_B_GateClosed_MetallicSmoothness.png"
+      },
+      "M_CW02_B_GateClosed_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "CW02_B_GateClosed_Stone_BaseColor.png",
+        "Normal": "CW02_B_GateClosed_Stone_Normal.png",
+        "MetallicSmoothness": "CW02_B_GateClosed_Stone_MetallicSmoothness.png"
+      },
+      "M_CW02_B_GateClosed_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "CW02_B_GateClosed_Wood_BaseColor.png",
+        "Normal": "CW02_B_GateClosed_Wood_Normal.png",
+        "MetallicSmoothness": "CW02_B_GateClosed_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "CW02_B_GateClosed_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "parts": {
+    "opening_between_posts_m": 1.34,
+    "clear_with_doors_open_m": 1.23,
+    "threshold_top_m": 0.12,
+    "lintel_underside_m": 2.14,
+    "doors": "own objects Detail_DoorL / Detail_DoorR; turn them about Socket_HingeL / Socket_HingeR (vertical axis)",
+    "door_leaf_m": {
+      "width": 0.666,
+      "height": 1.996
+    },
+    "roof": {
+      "half": 0.565,
+      "z_eave": 2.45,
+      "z_ridge": 2.698
+    },
+    "post_top": 2.3,
+    "lintel_underside": 2.14,
+    "stubs": "built with cw_wall.run, the same section as CW01; Socket_A / Socket_B at x -1.2 / +1.2 like a CW01 straight",
+    "state": "closed"
+  },
+  "sockets_blender_xyz": {
+    "Socket_HingeL": [
+      -0.67,
+      -0.08,
+      0.12
+    ],
+    "Socket_HingeR": [
+      0.67,
+      -0.08,
+      0.12
+    ],
+    "Socket_A": [
+      -1.2,
+      0.0,
+      0.0
+    ],
+    "Socket_B": [
+      1.2,
+      0.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_A.001": [
+      -1.2,
+      0.0,
+      0.0
+    ],
+    "Socket_B.001": [
+      1.2,
+      0.0,
+      0.0
+    ],
+    "Socket_HingeL.001": [
+      -0.67,
+      -0.08,
+      0.12
+    ],
+    "Socket_HingeR.001": [
+      0.67,
+      -0.08,
+      0.12
+    ]
+  },
+  "fbx_objects": [
+    "CW02_B_GateClosed.001",
+    "CW02_B_GateClosed_Collision.001",
+    "CW02_B_GateClosed_Detail_DoorL_LOD0.001",
+    "CW02_B_GateClosed_Detail_DoorL_LOD1.001",
+    "CW02_B_GateClosed_Detail_DoorL_LOD2.001",
+    "CW02_B_GateClosed_Detail_DoorR_LOD0.001",
+    "CW02_B_GateClosed_Detail_DoorR_LOD1.001",
+    "CW02_B_GateClosed_Detail_DoorR_LOD2.001",
+    "CW02_B_GateClosed_Detail_Small_LOD0.001",
+    "CW02_B_GateClosed_Detail_Small_LOD1.001",
+    "CW02_B_GateClosed_Detail_Small_LOD2.001",
+    "CW02_B_GateClosed_LOD0.001",
+    "CW02_B_GateClosed_LOD1.001",
+    "CW02_B_GateClosed_LOD2.001",
+    "Socket_A.001",
+    "Socket_B.001",
+    "Socket_HingeL.001",
+    "Socket_HingeR.001"
+  ],
+  "glb": "CW02_B_GateClosed_v001.glb",
+  "interface": {
+    "collision_first_hit_y_from_front_m": -0.11,
+    "clear_widths_m": [
+      null,
+      null,
+      null
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-yards-b/cw_gate.py, cw_wall.py, cw_parts.py); procedural shaders baked to three 2048 atlases (Main, Stone, Wood)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 663.0,
+        "median": 663.1,
+        "p90": 663.3,
+        "area_m2": 7.5
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 349.4,
+        "median": 355.9,
+        "p90": 365.2,
+        "area_m2": 22.1
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 319.9,
+        "median": 323.2,
+        "p90": 330.3,
+        "area_m2": 22.4
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "art/references/CW02/ (AI three-view CW02/CW02-cand-2; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-yards-unity/ (local Unity batch check VillageYardsModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}
