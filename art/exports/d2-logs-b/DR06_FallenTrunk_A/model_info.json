@@ -1,0 +1,301 @@
+{
+  "asset": "DR06_FallenTrunk_A",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "Detail_DR06_Plants"
+  ],
+  "name_zh": "倒伏巨木・短（長 10 m、徑 1.4 m）",
+  "slot": "D2 古樹空地四周的林地（工作包：4 件，兩種長度混用、可旋轉鏡像）",
+  "note": "一棵老樹連根倒下，躺在地上、陷進土裡約 0.14 R。一頭是翻起來立著的根盤：粗根從樹幹基部包過一座泥丘、往後捲過邊緣，貼著朝外那面（原本的根底）往中心收；上半圈幾條斷根伸出去，末端斷成淺色木刺；泥裡卡著石頭、垂著細根鬚；根盤前面一圈翻起的土。另一頭斷折，斷口一束長木刺。樹幹是扭轉長稜的老樹皮，側面幾大片剝皮露出風化木；一根往上翹的長斷枝、一兩個短枝樁、兩側層狀菌；頂上厚苔與地衣。樹皮：Poly Haven bark_brown_02 掃描凹凸推進高模幾何再烘焙。Detail_DR06_Plants：頂上的蕨、小樹苗、蕈，腳邊的大蕨、闊葉草、蕈、落葉、根盤的細根鬚。",
+  "references": "art/references/DR06/v001/（Codex 依 D2 設定圖 V1、V4、V5、V6 畫的三視圖、四分之三視圖、細節圖）",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 81353,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD1": {
+      "triangles": 40659,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD2": {
+      "triangles": 12126,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    }
+  },
+  "texture_resolution_px": {
+    "DR06_FallenTrunk_A_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR06_FallenTrunk_A_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR06_FallenTrunk_A_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR06_FallenTrunk_A_A_ORM.png": [
+      2048,
+      2048
+    ],
+    "Shared/D2Bark_Detail_Normal.png": [
+      1024,
+      1024
+    ],
+    "Shared/D2Bark_Detail_Albedo.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)：看樹幹的側面；根盤在 -X、斷口在 +X",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，陷進土裡的部分在 z < 0",
+  "dimensions_m": [
+    14.2646,
+    4.1418,
+    4.025
+  ],
+  "bounds_min_m": [
+    -7.1323,
+    -2.0709,
+    -0.3902
+  ],
+  "bounds_max_m": [
+    7.1323,
+    2.0709,
+    3.6348
+  ],
+  "shape": {
+    "trunk_top_z_m_every_1m": [
+      1.645,
+      1.348,
+      1.184,
+      1.163,
+      1.101,
+      1.102,
+      1.013,
+      1.05,
+      1.077
+    ],
+    "trunk_width_m_every_1m": [
+      1.572,
+      1.3,
+      1.32,
+      1.288,
+      1.357,
+      1.268,
+      1.314,
+      1.291,
+      1.147
+    ],
+    "trunk_diameter_mid_m": 1.304,
+    "plate_width_y_m": 3.791,
+    "plate_height_m": 3.635,
+    "gap_under_raised_base_m": [
+      0.194,
+      0.193,
+      0.174,
+      0.13,
+      0.068
+    ],
+    "blocked_fraction_at_0p3_1p0_1p7m": [
+      1.0,
+      1.0,
+      0.15
+    ]
+  },
+  "spec_check": {
+    "spec": {
+      "L": 10.0,
+      "D": 1.4,
+      "plate": 3.5
+    },
+    "trunk_length_root_collar_to_break_m": 10.163,
+    "overall_bbox_x_m": 14.2646,
+    "trunk_diameter_mid_m": 1.304,
+    "plate_width_m": 3.791,
+    "plate_height_m": 3.635,
+    "length_ok": true,
+    "diameter_ok": true,
+    "plate_ok": true,
+    "note": "工作包的 10 m／16 m 是樹幹長（根頸到斷口）；外框 X 另含根盤往後伸的根和斷口往前伸的木刺。徑量的是樹幹中段（0.3–0.9 L）在中心高處的左右寬"
+  },
+  "lods": {
+    "LOD0": {
+      "DR06_FallenTrunk_A_LOD0": 44644,
+      "Detail_DR06_Plants_LOD0": 36709
+    },
+    "LOD1": {
+      "DR06_FallenTrunk_A_LOD1": 22357,
+      "Detail_DR06_Plants_LOD1": 18302
+    },
+    "LOD2": {
+      "DR06_FallenTrunk_A_LOD2": 6728,
+      "Detail_DR06_Plants_LOD2": 5398
+    },
+    "collision": 492
+  },
+  "lod_rule": "LOD0 不刪細節；LOD1／LOD2：本體每件各自 collapse 再刪藏起來的面，植物整件 collapse；照實得比例修正，本體＋植物合計約為 LOD0 的 50%／15%；面積 0 的三角形匯出前刪掉",
+  "materials": [
+    "M_DR06_FallenTrunk_A_A",
+    "M_DR06_FallenTrunk_A_Leaf"
+  ],
+  "objects_per_lod": 2,
+  "material_note": "本體一個物件、一個材質 M_DR06_FallenTrunk_A_A（一組貼圖 2048）；Detail_DR06_Plants 一個材質 M_DR06_FallenTrunk_A_Leaf（同一組貼圖，雙面；葉、蕈、細枝、根鬚畫在圖集最下面一條）",
+  "uv": {
+    "UV0": "UVMap：烘焙圖集，所有 UV 島同比例（91.8 px/m）、不旋轉",
+    "UV1": "TileUV：樹皮件是每 2.6 m 重複的樹皮 UV，其他件同 UV0"
+  },
+  "unity": {
+    "shader": "Universal Render Pipeline/Lit",
+    "detail_normal": "Shared/D2Bark_Detail_Normal.png",
+    "detail_albedo": "Shared/D2Bark_Detail_Albedo.png",
+    "detail_mask": "Albedo.png 的 alpha（1 = 樹皮，0 = 苔和葉）",
+    "detail_tiling_on_uv0": 8.58,
+    "mask_map": "MaskURP.png（R metal、G AO、A smoothness）"
+  },
+  "collision": "DR06_FallenTrunk_A_Collision: MeshCollider (convex off), renderer hidden；樹幹（8 邊、每 1 m 一環、兩端封口）、粗的那根斷枝、根盤泥丘（16×10 的球）",
+  "sockets_blender_xyz": {},
+  "build_origin_m": [
+    -4.6434,
+    -0.1171,
+    0.0
+  ],
+  "build_origin_note": "建模座標（根盤在 x = 0、樹幹沿 +x、斷口在 x = L）的原點在本資產座標裡的位置；Unity 檢查把模型放在它的負值，審圖鏡位才對得上",
+  "length_build_m": 10.0,
+  "plate_x_build_m": -0.156,
+  "review_cams_build_xyz": [
+    {
+      "name": "tq",
+      "from": [
+        2.2,
+        -8.5,
+        1.7
+      ],
+      "at": [
+        4.2,
+        0,
+        1.4
+      ],
+      "lens_mm": 24
+    },
+    {
+      "name": "side",
+      "from": [
+        4.5,
+        -16.5,
+        1.7
+      ],
+      "at": [
+        4.5,
+        0,
+        1.3
+      ],
+      "lens_mm": 30
+    },
+    {
+      "name": "plate",
+      "from": [
+        -8.1,
+        -3.15,
+        1.8
+      ],
+      "at": [
+        -0.156,
+        0,
+        1.225
+      ],
+      "lens_mm": 30
+    },
+    {
+      "name": "plateq",
+      "from": [
+        2.8,
+        -5.6,
+        2.2
+      ],
+      "at": [
+        0,
+        0,
+        1.312
+      ],
+      "lens_mm": 26
+    },
+    {
+      "name": "snap",
+      "from": [
+        13.8,
+        -3.6,
+        1.8
+      ],
+      "at": [
+        9.7,
+        0,
+        0.9
+      ],
+      "lens_mm": 30
+    },
+    {
+      "name": "top",
+      "from": [
+        4.5,
+        -0.01,
+        21.0
+      ],
+      "at": [
+        4.5,
+        0,
+        0
+      ],
+      "lens_mm": 30
+    },
+    {
+      "name": "sap",
+      "from": [
+        7.8,
+        3.8,
+        3.1
+      ],
+      "at": [
+        6.2,
+        0,
+        2.2
+      ],
+      "lens_mm": 35
+    },
+    {
+      "name": "back",
+      "from": [
+        4.05,
+        12.0,
+        2.4
+      ],
+      "at": [
+        4.5,
+        0,
+        1.0
+      ],
+      "lens_mm": 28
+    }
+  ],
+  "external_assets": [
+    {
+      "name": "bark_brown_02",
+      "source": "https://polyhaven.com/a/bark_brown_02",
+      "license": "CC0"
+    }
+  ],
+  "files_sha256": {
+    "DR06_FallenTrunk_A_v001.fbx": "a5590d7e1d911cbe5ac88d7a1cf996c39c698a2d0b87ceed92bd4008ca392075",
+    "DR06_FallenTrunk_A_v001.glb": "fc63fe4db650153306883b1fb25d70fe7869ac43c375574dbf418c063580aa53"
+  }
+}
