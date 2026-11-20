@@ -1,0 +1,191 @@
+{
+  "asset": "FE04_NetRackMooring",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.5,
+          -0.3883,
+          0.0
+        ],
+        "max": [
+          1.471,
+          0.2539,
+          1.9761
+        ],
+        "box_m": [
+          [
+            -1.5,
+            -0.5,
+            0.0
+          ],
+          [
+            1.5,
+            0.5,
+            2.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.02211
+      }
+    },
+    {
+      "check": "net_see_through",
+      "pass": true,
+      "detail": {
+        "rays": 135,
+        "blocked_by_twine": 15,
+        "share": 0.111
+      }
+    },
+    {
+      "check": "net_hangs_from_middle_rail",
+      "pass": true,
+      "detail": {
+        "top_m": 1.287,
+        "lowest_m": 0.474,
+        "back_y_m_over_1.1m": -0.087,
+        "note": "over 1.1 m the net is in front of the rail it hangs on; lower down it swings free"
+      }
+    },
+    {
+      "check": "mooring_rope_grooves",
+      "pass": true,
+      "detail": {
+        "groove_vs_above_front_y_m": {
+          "0": [
+            -0.1412,
+            -0.1621
+          ],
+          "1": [
+            -0.1239,
+            -0.1412
+          ]
+        },
+        "note": "the rope loop lies in the groove; the ray at the groove meets the loop or the cut, both deeper than the face"
+      }
+    },
+    {
+      "check": "collision_net_and_posts",
+      "pass": true,
+      "detail": {
+        "net_front_y_m": -0.16,
+        "mooring_front_y_m": -0.16
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 69610,
+          "LOD1": 35219,
+          "LOD2": 8589
+        },
+        "LOD1": 0.506,
+        "LOD2": 0.123,
+        "per_group": {
+          "Main": {
+            "LOD0": 16894,
+            "LOD1": 8446,
+            "LOD2": 2534
+          },
+          "Detail_Small": {
+            "LOD0": 40378,
+            "LOD1": 20189,
+            "LOD2": 6055
+          },
+          "Detail_Net": {
+            "LOD0": 12338,
+            "LOD1": 6584,
+            "LOD2": 0
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          2.971,
+          0.6422,
+          1.9761
+        ],
+        "blend_dims_m": [
+          2.971,
+          0.6422,
+          1.9761
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 1e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "FE04_NetRackMooring.001",
+        "FE04_NetRackMooring_Collision.001",
+        "FE04_NetRackMooring_Detail_Net_LOD0.001",
+        "FE04_NetRackMooring_Detail_Net_LOD1.001",
+        "FE04_NetRackMooring_Detail_Small_LOD0.001",
+        "FE04_NetRackMooring_Detail_Small_LOD1.001",
+        "FE04_NetRackMooring_Detail_Small_LOD2.001",
+        "FE04_NetRackMooring_LOD0.001",
+        "FE04_NetRackMooring_LOD1.001",
+        "FE04_NetRackMooring_LOD2.001",
+        "Socket_Mooring_L.001",
+        "Socket_Mooring_R.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Mooring_L.001": [
+          -1.33,
+          -0.16,
+          0.47
+        ],
+        "Socket_Mooring_R.001": [
+          1.32,
+          -0.145,
+          0.5
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 6498196
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 184,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

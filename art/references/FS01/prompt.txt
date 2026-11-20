@@ -1,0 +1,37 @@
+FS01 三視圖提示詞與選圖
+工作包：2026-11-09 B｜112 小時（不同外形的民居、舊建築換材質、路上地標）第 6 節 FS01。固定段照 docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md 附錄（game/core-1108-world-east-valley）。
+最終選用：FS01-cand-6.png（維持不變；加強提示詞重出的結果見最後一節）。
+
+選用：FS01-cand-6.png（第二輪）。備選：FS01-cand-8.png。
+選用理由：小石龕、矮黛瓦頂、階梯石座、空的龕內、前方小石香爐都清楚；沒有任何文字；四分之三視角加正面、側面、背面，互相對得上。外形是方正石龕，和 RK06 土地祠、D3 倒下的小廟不同。
+第一輪（FS01-cand-1..4）全部不合格：cand-1、3、4 印了「2.6 m」「2.4 m」「2.0 m」尺寸字，cand-2 印了 Front View／Side View／Back View 和尺寸字。用同一提示詞重出第二輪 4 張（cand-5..8）。
+第二輪沒選的原因：
+- cand-5：屋面有一塊紅色補丁，側牆釘了一塊空白木牌，像要寫字。
+- cand-7：印了「2.6 m」「2.4 m」「2.0 m」尺寸字。
+- cand-8：可用；木柱較紅、較新，作備選。
+
+工具與張數：
+- Codex CLI 0.167.0，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 8 張（FS01-cand-1..8），原尺寸存檔，沒有 seed。生成日期 2026-11-09。
+- 提示詞組法：物件句＋建築 Layout 段（工作包第 6 節：建築用建築 Layout 段）＋5.2 美術方向；Codex 沒有負面欄，所以把 5.3 負面提示加上第 6 節那句，以「Avoid:」接在最後。全部原文，一字未改。
+
+== 工作包原文（FS01 物件句）==
+Three-view orthographic turnaround sheet of a tiny roadside field shrine in Chinese farmland, about 2.4 m wide, 2 m deep and 2.6 m tall, a small stone niche under a low dark tile roof on a stepped stone base, an empty interior with no statue, a small stone incense burner in front, worn and rain-stained, no writing.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of a tiny roadside field shrine in Chinese farmland, about 2.4 m wide, 2 m deep and 2.6 m tall, a small stone niche under a low dark tile roof on a stepped stone base, an empty interior with no statue, a small stone incense burner in front, worn and rain-stained, no writing. Layout: one three-quarter view from slightly above at eye height of a person, plus front, side and back orthographic views on the same sheet at the same scale, plain light warm-grey background, even soft lighting, building only (no landscape around it except a small ground patch). Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, no Japanese stone toro lantern, not Tudor half-timbering, no diagonal braces on plaster walls, no bright teal roof, no glossy plastic look
+
+== 加強提示詞重出（2026-11-09，使用者指示「做有問題的就好了」）==
+原因：第一輪 4 張、第二輪 1 張印了尺寸字或視圖名稱。
+做法：工作包物件句、Layout 段、5.2、5.3 和第 6 節負面句都原樣保留；另外在物件句後面加一句說明，在負面提示最後加幾個詞。這和工作包「固定段原樣接上」的做法不完全相同，PR 會寫明。用 Codex CLI 0.167.0（gpt-6.1-terra，推理 xhigh，內建 image_gen）生成 4 張：FS01-fix-cand-1..4，沒有 seed。
+加在物件句後的說明：Important: the sheet contains only the pictures, with no dimension lines, measurements, labels or captions anywhere.
+加在負面提示最後的詞：dimension lines, measurements, numbers, labels, captions, view names
+
+選用維持：FS01-cand-6.png（第二輪，原提示詞）。備選：FS01-fix-cand-2.png、FS01-fix-cand-4.png。
+理由：FS01 的問題只在第一輪印了字，第二輪的 cand-6 已經沒有字；加強提示詞這一輪的乾淨候選和 cand-6 外形相近，沒有更好，所以沿用原提示詞的結果。
+加強提示詞這一輪：
+- fix-1：右側柱子上有一排像刻字的紋樣，不採用。
+- fix-2、fix-4：沒有字，可作備選。
+- fix-3：屋面有一塊紅色補丁。
+
+== 加強提示詞重出實際送出的完整提示詞（4 張相同）==
+Three-view orthographic turnaround sheet of a tiny roadside field shrine in Chinese farmland, about 2.4 m wide, 2 m deep and 2.6 m tall, a small stone niche under a low dark tile roof on a stepped stone base, an empty interior with no statue, a small stone incense burner in front, worn and rain-stained, no writing. Important: the sheet contains only the pictures, with no dimension lines, measurements, labels or captions anywhere. Layout: one three-quarter view from slightly above at eye height of a person, plus front, side and back orthographic views on the same sheet at the same scale, plain light warm-grey background, even soft lighting, building only (no landscape around it except a small ground patch). Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, no Japanese stone toro lantern, not Tudor half-timbering, no diagonal braces on plaster walls, no bright teal roof, no glossy plastic look, dimension lines, measurements, numbers, labels, captions, view names
