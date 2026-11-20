@@ -1,0 +1,22 @@
+{
+ "LV09_v001": {
+  "LV09_Body_LOD0": {
+   "pieces": 62,
+   "within_1mm": 62,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.4,
+   "worst_at": []
+  },
+  "LV09_Detail_Cloth_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}

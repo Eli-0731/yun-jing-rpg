@@ -1,0 +1,22 @@
+{
+ "LV08_v001": {
+  "LV08_Body_LOD0": {
+   "pieces": 28,
+   "within_1mm": 26,
+   "gap_1_3mm": 2,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.6,
+   "worst_at": []
+  },
+  "LV08_Detail_Fringe_LOD0": {
+   "pieces": 46,
+   "within_1mm": 0,
+   "gap_1_3mm": 46,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.6,
+   "worst_at": []
+  }
+ }
+}

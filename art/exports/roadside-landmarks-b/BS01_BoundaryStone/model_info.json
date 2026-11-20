@@ -1,0 +1,239 @@
+{
+  "asset": "BS01_BoundaryStone",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "BS01_BoundaryStone_Detail_Small"
+  ],
+  "name_zh": "山腳界碑",
+  "slot": "D6_MountainFoot_BoundaryStone",
+  "note": "山腳的舊界碑（三視圖 BS01-cand-2）：灰白花崗石素面碑，立在長方石座上，碑頂兩肩圓，右前肩缺一角；碑身下半和石座長苔，石座上碑腳兩側幾叢小蕨和草。正面完全空白、不刻字，留 Socket_Inscription 給遊戲放字。碰撞：石座與碑身兩個方塊。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 10232,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 5114,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 1534,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "BS01_BoundaryStone_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "BS01_BoundaryStone_Metallic.png": [
+      1024,
+      1024
+    ],
+    "BS01_BoundaryStone_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "BS01_BoundaryStone_Normal.png": [
+      1024,
+      1024
+    ],
+    "BS01_BoundaryStone_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre, bottom z = 0, front (the blank face) -Y",
+  "dimensions_m": [
+    1.0,
+    0.5,
+    2.0004
+  ],
+  "bounds_min_m": [
+    -0.5,
+    -0.25,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.5,
+    0.25,
+    2.0004
+  ],
+  "size_limit_m": [
+    1.0,
+    0.5,
+    2.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        1.0,
+        0.5,
+        2.0004
+      ],
+      "min": [
+        -0.5,
+        -0.25,
+        0.0
+      ],
+      "max": [
+        0.5,
+        0.25,
+        2.0004
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.9354,
+        0.4971,
+        0.1078
+      ],
+      "min": [
+        -0.4696,
+        -0.25,
+        0.277
+      ],
+      "max": [
+        0.4657,
+        0.2471,
+        0.3848
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 8798,
+      "LOD1": 4398,
+      "LOD2": 1319
+    },
+    "Detail_Small": {
+      "LOD0": 1434,
+      "LOD1": 716,
+      "LOD2": 215
+    }
+  },
+  "lod_totals": {
+    "LOD0": 10232,
+    "LOD1": 5114,
+    "LOD2": 1534
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_BS01_BoundaryStone_Main"
+  ],
+  "textures": [
+    "BS01_BoundaryStone_BaseColor.png",
+    "BS01_BoundaryStone_Metallic.png",
+    "BS01_BoundaryStone_MetallicSmoothness.png",
+    "BS01_BoundaryStone_Normal.png",
+    "BS01_BoundaryStone_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_BS01_BoundaryStone_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "BS01_BoundaryStone_BaseColor.png",
+        "Normal": "BS01_BoundaryStone_Normal.png",
+        "MetallicSmoothness": "BS01_BoundaryStone_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "BS01_BoundaryStone_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "parts": {
+    "base_m": [
+      1.0,
+      0.5,
+      0.3
+    ],
+    "stele_width_thickness_bottom_top_m": [
+      0.8,
+      0.2,
+      0.27,
+      2.0
+    ],
+    "shoulder_radius_m": 0.21,
+    "chipped": "front right shoulder, two tilted cuts (about 0.12 m down at the corner)",
+    "Socket_Inscription": {
+      "at_blender_xyz": [
+        0.0,
+        -0.1,
+        1.22
+      ],
+      "forward": "out of the blank front face (-Y Blender)",
+      "field_m": [
+        0.56,
+        0.9
+      ],
+      "use": "the game can place an inscription decal here; the face itself has no writing"
+    }
+  },
+  "sockets_blender_xyz": {
+    "Socket_Inscription": [
+      0.0,
+      -0.1,
+      1.22
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Inscription.001": [
+      0.0,
+      -0.1,
+      1.22
+    ]
+  },
+  "fbx_objects": [
+    "BS01_BoundaryStone.001",
+    "BS01_BoundaryStone_Collision.001",
+    "BS01_BoundaryStone_Detail_Small_LOD0.001",
+    "BS01_BoundaryStone_Detail_Small_LOD1.001",
+    "BS01_BoundaryStone_Detail_Small_LOD2.001",
+    "BS01_BoundaryStone_LOD0.001",
+    "BS01_BoundaryStone_LOD1.001",
+    "BS01_BoundaryStone_LOD2.001",
+    "Socket_Inscription.001"
+  ],
+  "glb": "BS01_BoundaryStone_v001.glb",
+  "interface": {
+    "face_y_spread_m": 0.0014,
+    "top_m": [
+      1.946,
+      2.0,
+      1.823
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/roadside-landmarks-b/) on the StarterHouse v004 outline; procedural shaders baked to two 1024 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 382.8,
+        "median": 383.3,
+        "p90": 384.0,
+        "area_m2": 5.8
+      },
+      "inside_or_covered": null,
+      "atlas_px": 1024,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "art/references/BS01/ (AI three-view BS01/BS01-cand-2; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}

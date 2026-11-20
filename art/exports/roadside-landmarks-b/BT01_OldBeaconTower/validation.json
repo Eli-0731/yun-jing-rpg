@@ -1,0 +1,198 @@
+{
+  "asset": "BT01_OldBeaconTower",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -3.8738,
+          -3.8638,
+          0.0
+        ],
+        "max": [
+          3.95,
+          3.9855,
+          6.2962
+        ],
+        "box_m": [
+          [
+            -4.0,
+            -4.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01243
+      }
+    },
+    {
+      "check": "stair_climbs",
+      "pass": true,
+      "detail": {
+        "tread_tops_m": [
+          0.401,
+          1.593,
+          2.801,
+          4.001,
+          5.2
+        ],
+        "expected_m": [
+          0.4,
+          1.6,
+          2.8,
+          4.0,
+          5.2
+        ]
+      }
+    },
+    {
+      "check": "top_standable",
+      "pass": true,
+      "detail": {
+        "points": 54,
+        "at_top_level": 33,
+        "share": 0.61,
+        "top_m": 5.4
+      }
+    },
+    {
+      "check": "stair_reaches_top",
+      "pass": true,
+      "detail": {
+        "top_beside_last_tread_m": 5.367
+      }
+    },
+    {
+      "check": "breach_and_slope",
+      "pass": true,
+      "detail": {
+        "slope_at_3.4m_m": 1.167,
+        "wall_top_at_-60deg_m": 5.68
+      }
+    },
+    {
+      "check": "collision_top_and_stair",
+      "pass": true,
+      "detail": {
+        "top_m": 5.4,
+        "stair_mid_m": 2.7
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 63438,
+          "LOD1": 31718,
+          "LOD2": 9514
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Stone": {
+            "LOD0": 45268,
+            "LOD1": 22634,
+            "LOD2": 6790
+          },
+          "Main": {
+            "LOD0": 13656,
+            "LOD1": 6827,
+            "LOD2": 2047
+          },
+          "Detail_Small": {
+            "LOD0": 4514,
+            "LOD1": 2257,
+            "LOD2": 677
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          7.8238,
+          7.8493,
+          6.2962
+        ],
+        "blend_dims_m": [
+          7.8238,
+          7.8493,
+          6.2962
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 5e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "BT01_OldBeaconTower.001",
+        "BT01_OldBeaconTower_Collision.001",
+        "BT01_OldBeaconTower_Detail_Small_LOD0.001",
+        "BT01_OldBeaconTower_Detail_Small_LOD1.001",
+        "BT01_OldBeaconTower_Detail_Small_LOD2.001",
+        "BT01_OldBeaconTower_LOD0.001",
+        "BT01_OldBeaconTower_LOD1.001",
+        "BT01_OldBeaconTower_LOD2.001",
+        "Socket_Lookout.001",
+        "Socket_StairFoot.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Lookout.001": [
+          -0.4243,
+          -0.4243,
+          5.4
+        ],
+        "Socket_StairFoot.001": [
+          -0.5557,
+          -3.1514,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 11909636
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 825,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

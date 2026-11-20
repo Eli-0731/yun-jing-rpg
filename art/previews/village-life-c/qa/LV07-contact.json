@@ -1,0 +1,31 @@
+{
+ "LV07_v001": {
+  "LV07_Body_LOD0": {
+   "pieces": 8,
+   "within_1mm": 4,
+   "gap_1_3mm": 4,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 2.3,
+   "worst_at": []
+  },
+  "LV07_Detail_Stitches_LOD0": {
+   "pieces": 3,
+   "within_1mm": 3,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  },
+  "LV07_Detail_Tail_LOD0": {
+   "pieces": 1,
+   "within_1mm": 1,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}
