@@ -1,13 +1,13 @@
 #!/bin/sh
-# Review images and QA for C's village props LV01–LV06 (from the repo root). Blender 4.5.3: BL=<blender.exe>.
-#   sh art/source/village-life-c/render_reviews.sh LV01 [LV02 ...]      (no id: all six)
+# Review images and QA for C's village props LV01–LV12 (from the repo root). Blender 4.5.3: BL=<blender.exe>.
+#   sh art/source/village-life-c/render_reviews.sh LV01 [LV02 ...]      (no id: all twelve; the comparisons run for the ids given)
 # The render rig and QA are shared with creekside-life-c (render_wl.py there).
 # For each id: grey model (front, side, three-quarter), four views with the 1.75 m figure, a close-up, wireframe,
 # LOD0 / LOD1 with Detail_* off, strict and loose QA, contact table; then the style comparisons and one sheet per id.
 BL="${BL:?set BL to blender.exe}";S=art/source/village-life-c;R=art/source/creekside-life-c;P=art/previews/village-life-c;E=art/exports/village-life-c;Q=$P/qa
 m(){ cygpath -m "$1" 2>/dev/null || echo "$1"; }
 r(){ MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $R/render_wl.py)" -- "$@" 2>&1 | grep -E "Error|Traceback"; true; }
-IDS="${*:-LV01 LV02 LV03 LV04 LV05 LV06}";mkdir -p $Q $P/compare
+IDS="${*:-LV01 LV02 LV03 LV04 LV05 LV06 LV07 LV08 LV09 LV10 LV11 LV12}";mkdir -p $Q $P/compare
 for id in $IDS; do
   D=$P/$id;G=$(m $E/${id}_v001.glb);F=$(m $E/${id}_v001.fbx)
   r --glb "$(m $D/clay/$id-clay.glb)" --out "$(m $D/clay)" --tag $id-clay --views front,side,threequarter --clay --samples 32
@@ -22,8 +22,17 @@ done
 # style comparisons (work pack part 2 "風格": grey and textured, same light and angle as old props, with the 1.75 m figure)
 cmp(){ tag=$1;glbs=$2;at=$3; for c in "" "--clay"; do r --glb "$glbs" --at="$at" --out "$(m $P/compare)" --tag "$tag${c:+-clay}" --views threequarter,front $c --samples 64; done; }
 B=art/exports;H=$B/harvest-market-b
+has(){ case " $IDS " in *" $1 "*) return 0;; esac; return 1; }
+if has LV01; then
 cmp LV01-LV04-vs-woven "$(m $E/LV01_v001.glb),$(m $E/LV04_v001.glb),$(m $H/MK02_HarvestSieve/MK02_HarvestSieve_v001.fbx),$(m $H/MK04_BackBasket/MK04_BackBasket_v001.fbx)" "0,0,0;.85,0,0;-.95,.05,0;1.65,.05,0"
 cmp LV02-LV03-vs-wood "$(m $E/LV02_v001.glb),$(m $E/LV03_v001.glb),$(m $B/qingxi-world-ruins-b/R03_FirewoodNeat/R03_FirewoodNeat_v001.glb),$(m $B/modelling-basics-c/BM02_01.glb)" "0,-.15,0;1.05,.25,0;-1.25,.25,0;1.0,-.45,0"
 cmp LV05-vs-BM03 "$(m $E/LV05_v001.glb),$(m $B/modelling-basics-c/BM03_01.glb),$(m $B/modelling-basics-c/BM03_02.glb),$(m $B/modelling-basics-c/BM03_03.glb)" "0,0,0;.8,.05,0;1.2,.05,0;-.75,.05,0"
 cmp LV06-vs-wood "$(m $E/LV06_v001.glb),$(m $B/modelling-basics-c/BM02_01.glb),$(m $B/qingxi-world-ruins-b/R03_FirewoodNeat/R03_FirewoodNeat_v001.glb)" "0,0,0;.7,0,0;-1.05,0,0"
 cmp LV-set "$(m $E/LV01_v001.glb),$(m $E/LV02_v001.glb),$(m $E/LV03_v001.glb),$(m $E/LV04_v001.glb),$(m $E/LV05_v001.glb),$(m $E/LV06_v001.glb)" "-1.25,.35,10;.1,.85,-6;1.45,.7,0;.75,-.35,0;-.25,-.45,8;-1.35,-.65,-12"
+fi
+if has LV07; then
+cmp LV07-LV11-vs-wood "$(m $E/LV07_v001.glb),$(m $E/LV11_v001.glb),$(m $B/modelling-basics-c/BM02_01.glb),$(m $B/qingxi-world-ruins-b/R03_FirewoodNeat/R03_FirewoodNeat_v001.glb)" "-.45,-.1,0;.45,0,0;1.35,0,0;-1.9,.2,0"
+cmp LV08-LV09-vs-TY08 "$(m $E/LV08_v001.glb),$(m $E/LV09_v001.glb),$(m $B/qingxi-day12-c/TY08.glb)" "-.6,0,0;.3,0,0;1.6,0,0"
+cmp LV10-LV12-vs-woven "$(m $E/LV10_v001.glb),$(m $E/LV12_v001.glb),$(m $H/MK02_HarvestSieve/MK02_HarvestSieve_v001.fbx),$(m $H/MK04_BackBasket/MK04_BackBasket_v001.fbx),$(m $E/LV04_v001.glb)" "-.35,-.2,0;.2,-.2,0;-1.15,.1,0;.95,.1,0;1.65,.1,0"
+cmp LV-set2 "$(m $E/LV07_v001.glb),$(m $E/LV08_v001.glb),$(m $E/LV09_v001.glb),$(m $E/LV10_v001.glb),$(m $E/LV11_v001.glb),$(m $E/LV12_v001.glb)" "-1.3,.6,0;-.55,.55,8;.3,.65,-10;-.6,-.35,6;.45,-.3,-4;1.25,.15,0"
+fi
