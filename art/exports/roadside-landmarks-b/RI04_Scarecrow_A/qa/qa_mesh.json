@@ -1,0 +1,158 @@
+{
+ "RI04_Scarecrow_A_Detail_Small_LOD0": {
+  "tris": 7508,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 390,
+  "coplanar_two_sides": 50,
+  "closed_pieces": 257,
+  "open_pieces": 40,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -0.03,
+     -0.09,
+     0.0
+    ],
+    71
+   ],
+   [
+    [
+     -0.02,
+     -0.08,
+     0.0
+    ],
+    54
+   ],
+   [
+    [
+     -0.02,
+     -0.09,
+     0.0
+    ],
+    46
+   ],
+   [
+    [
+     -0.03,
+     -0.08,
+     0.0
+    ],
+    35
+   ],
+   [
+    [
+     -0.01,
+     -0.09,
+     0.0
+    ],
+    30
+   ],
+   [
+    [
+     -0.0,
+     -0.09,
+     0.0
+    ],
+    24
+   ]
+  ],
+  "inverted_at": []
+ },
+ "RI04_Scarecrow_A_Detail_Small_LOD1": {
+  "tris": 3754,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 257,
+  "open_pieces": 40,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "RI04_Scarecrow_A_Detail_Small_LOD2": {
+  "tris": 1126,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 76,
+  "open_pieces": 402,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "RI04_Scarecrow_A_LOD0": {
+  "tris": 66036,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 2,
+  "coplanar_two_sides": 253,
+  "closed_pieces": 1024,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     0.15,
+     -0.05,
+     1.19
+    ],
+    1
+   ],
+   [
+    [
+     0.06,
+     -0.11,
+     1.16
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "RI04_Scarecrow_A_LOD1": {
+  "tris": 33018,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 1024,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "RI04_Scarecrow_A_LOD2": {
+  "tris": 9904,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 542,
+  "open_pieces": 964,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

@@ -1,0 +1,409 @@
+{
+  "asset": "FS01_FieldShrine",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "FS01_FieldShrine_Detail_Small"
+  ],
+  "name_zh": "田間小廟",
+  "slot": "A6_RiceFields_FieldShrine",
+  "note": "稻田邊的小石龕（三視圖 FS01-cand-6）：兩層石台基加一級台階，龕身下段石砌、上段石灰泥，前面兩角有長短相間的角石，龕口直邊、上方兩角內凹成海棠角，龕內空著、沒有神像、不寫字；頂上一圈木額枋，懸山黛瓦頂（屋脊和正面平行，瓦是 VL 瓦片縮成 0.6 倍），兩側山牆木板封；龕前石台上一只三足石香爐（雙立耳、腹部兩道凸箍），爐裡香灰和三支殘香。台基四周長草，台面和台階有苔。碰撞：台基、台階、龕身（龕口算封住）、香爐、屋頂一整片（屋簷 1.7 m，比人低，人走到簷下就停）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 42580,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 21290,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 6103,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "FS01_FieldShrine_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Metallic.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Normal.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Roughness.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Stone_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Stone_Metallic.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Stone_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Stone_Normal.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Stone_Roughness.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Wood_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Wood_Metallic.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Wood_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Wood_Normal.png": [
+      1024,
+      1024
+    ],
+    "FS01_FieldShrine_Wood_Roughness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre, bottom z = 0, front (the niche opening) -Y",
+  "dimensions_m": [
+    2.3385,
+    1.9524,
+    2.5179
+  ],
+  "bounds_min_m": [
+    -1.1692,
+    -0.9874,
+    0.0
+  ],
+  "bounds_max_m": [
+    1.1692,
+    0.9649,
+    2.5179
+  ],
+  "size_limit_m": [
+    2.4,
+    2.0,
+    2.6
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        2.3385,
+        1.9524,
+        2.5179
+      ],
+      "min": [
+        -1.1692,
+        -0.9874,
+        0.0
+      ],
+      "max": [
+        1.1692,
+        0.9649,
+        2.5179
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        1.7927,
+        1.697,
+        0.605
+      ],
+      "min": [
+        -0.8967,
+        -0.9439,
+        0.0
+      ],
+      "max": [
+        0.8959,
+        0.7531,
+        0.605
+      ]
+    }
+  },
+  "lods": {
+    "Stone": {
+      "LOD0": 15020,
+      "LOD1": 7510,
+      "LOD2": 2252
+    },
+    "Main": {
+      "LOD0": 6776,
+      "LOD1": 3388,
+      "LOD2": 1016
+    },
+    "Wood": {
+      "LOD0": 6108,
+      "LOD1": 3054,
+      "LOD2": 916
+    },
+    "Detail_Small": {
+      "LOD0": 2772,
+      "LOD1": 1386,
+      "LOD2": 415
+    },
+    "Roof": {
+      "LOD0": 11904,
+      "LOD1": 5952,
+      "LOD2": 1504
+    }
+  },
+  "lod_totals": {
+    "LOD0": 42580,
+    "LOD1": 21290,
+    "LOD2": 6103
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_FS01_FieldShrine_Main",
+    "M_FS01_FieldShrine_RoofTiles",
+    "M_FS01_FieldShrine_Stone",
+    "M_FS01_FieldShrine_Wood"
+  ],
+  "textures": [
+    "FS01_FieldShrine_BaseColor.png",
+    "FS01_FieldShrine_Metallic.png",
+    "FS01_FieldShrine_MetallicSmoothness.png",
+    "FS01_FieldShrine_Normal.png",
+    "FS01_FieldShrine_Roughness.png",
+    "FS01_FieldShrine_Stone_BaseColor.png",
+    "FS01_FieldShrine_Stone_Metallic.png",
+    "FS01_FieldShrine_Stone_MetallicSmoothness.png",
+    "FS01_FieldShrine_Stone_Normal.png",
+    "FS01_FieldShrine_Stone_Roughness.png",
+    "FS01_FieldShrine_Wood_BaseColor.png",
+    "FS01_FieldShrine_Wood_Metallic.png",
+    "FS01_FieldShrine_Wood_MetallicSmoothness.png",
+    "FS01_FieldShrine_Wood_Normal.png",
+    "FS01_FieldShrine_Wood_Roughness.png",
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png"
+  ],
+  "texture_size_px": 1024,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_FS01_FieldShrine_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "FS01_FieldShrine_BaseColor.png",
+        "Normal": "FS01_FieldShrine_Normal.png",
+        "MetallicSmoothness": "FS01_FieldShrine_MetallicSmoothness.png"
+      },
+      "M_FS01_FieldShrine_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_FS01_FieldShrine_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "FS01_FieldShrine_Stone_BaseColor.png",
+        "Normal": "FS01_FieldShrine_Stone_Normal.png",
+        "MetallicSmoothness": "FS01_FieldShrine_Stone_MetallicSmoothness.png"
+      },
+      "M_FS01_FieldShrine_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "FS01_FieldShrine_Wood_BaseColor.png",
+        "Normal": "FS01_FieldShrine_Wood_Normal.png",
+        "MetallicSmoothness": "FS01_FieldShrine_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "FS01_FieldShrine_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "parts": {
+    "base_m": {
+      "xy": [
+        -0.8,
+        0.8,
+        -0.75,
+        0.62
+      ],
+      "courses_z": [
+        0.0,
+        0.14,
+        0.28
+      ]
+    },
+    "step_m": {
+      "xy": [
+        -0.55,
+        0.55,
+        -0.95,
+        -0.75
+      ],
+      "z": [
+        0.0,
+        0.14
+      ]
+    },
+    "niche_block_m": [
+      -0.72,
+      0.72,
+      -0.4,
+      0.55,
+      0.28,
+      1.68
+    ],
+    "opening_m": {
+      "width": 0.8,
+      "sill_z": 0.36,
+      "top_z": 1.44,
+      "corner_radius": 0.15,
+      "depth": 0.8
+    },
+    "roof": {
+      "scale": 0.6,
+      "ridge_y_m": 0.075,
+      "eave_front_y_m": -0.975,
+      "eave_back_y_m": 0.95,
+      "note": "VL tiles at 0.6 scale (vl_roof keeps 12 courses a slope)"
+    },
+    "burner_m": {
+      "at": [
+        0.0,
+        -0.58,
+        0.28
+      ],
+      "bowl_radius": 0.165,
+      "height_to_ears": 0.29
+    },
+    "Socket_Offering": "centre of the niche floor, for an offering placed by the game",
+    "inside": "empty, no statue, no writing"
+  },
+  "sockets_blender_xyz": {
+    "Socket_Offering": [
+      0.0,
+      0.0,
+      0.36
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Offering.001": [
+      0.0,
+      0.0,
+      0.36
+    ]
+  },
+  "fbx_objects": [
+    "FS01_FieldShrine.001",
+    "FS01_FieldShrine_Collision.001",
+    "FS01_FieldShrine_Detail_Small_LOD0.001",
+    "FS01_FieldShrine_Detail_Small_LOD1.001",
+    "FS01_FieldShrine_Detail_Small_LOD2.001",
+    "FS01_FieldShrine_LOD0.001",
+    "FS01_FieldShrine_LOD1.001",
+    "FS01_FieldShrine_LOD2.001",
+    "Socket_Offering.001"
+  ],
+  "glb": "FS01_FieldShrine_v001.glb",
+  "interface": {
+    "niche_hits_y_m": {
+      "0.6": 0.4,
+      "1.0": 0.4,
+      "1.3": 0.4
+    },
+    "ridge_m": [
+      2.431,
+      2.422,
+      2.431
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/roadside-landmarks-b/) on the StarterHouse v004 outline; procedural shaders baked to two 1024 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 264.6,
+        "median": 264.9,
+        "p90": 265.0,
+        "area_m2": 9.7
+      },
+      "inside_or_covered": null,
+      "atlas_px": 1024,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 174.6,
+        "median": 174.8,
+        "p90": 175.1,
+        "area_m2": 22.6
+      },
+      "inside_or_covered": null,
+      "atlas_px": 1024,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 225.7,
+        "median": 229.0,
+        "p90": 231.0,
+        "area_m2": 7.5
+      },
+      "inside_or_covered": {
+        "p10": 38.0,
+        "median": 168.5,
+        "p90": 181.7,
+        "area_m2": 11.4
+      },
+      "atlas_px": 1024,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "art/references/FS01/ (AI three-view FS01/FS01-cand-6; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}
