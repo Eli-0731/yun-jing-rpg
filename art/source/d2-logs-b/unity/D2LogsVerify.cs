@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 namespace YunJing.Editor
 {
-    // Unity check of B's D2 fallen logs and stumps (art/exports/d2-logs-b, joshsu54), the same way as D2RootsVerify (d2-roots-b). It does
+    // Unity check of B's D2 fallen logs and stumps (art/exports/d2-logs-b, joshsu54: DR06 fallen trunk, DR05 hollow log), the same way as D2RootsVerify (d2-roots-b). It does
     // not change apps/game: run_unity_check.sh copies this file in for one batch run and removes it together with the temporary model copies.
     // Imports the delivered FBX and textures, builds one URP Lit for the body (Albedo, Normal, MaskURP, shared bark detail on UV0) and one
     // two-sided for the plants, compares with model_info.json (size within 2 cm, triangles per LOD, objects, materials, 2048 textures,
@@ -24,7 +24,7 @@ namespace YunJing.Editor
         static string Models = BudgetModels;
         static bool Raw => Models == RawModels;
         static string Version(string id) => "v001";
-        static readonly string[] AllIds = { "DR06_FallenTrunk_B", "DR06_FallenTrunk_A" };
+        static readonly string[] AllIds = { "DR06_FallenTrunk_B", "DR06_FallenTrunk_A", "DR05_HollowLog" };
         static string[] Ids => string.IsNullOrEmpty(Environment.GetEnvironmentVariable("D2_IDS")) ? AllIds
             : Environment.GetEnvironmentVariable("D2_IDS").Split(',').Select(s => s.Trim()).Where(AllIds.Contains).ToArray();
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
@@ -37,10 +37,11 @@ namespace YunJing.Editor
         [Serializable] class Lods { public Lod LOD0, LOD1, LOD2; public Lod[] All => new[] { LOD0, LOD1, LOD2 }; }
         [Serializable] class UnityInfo { public float detail_tiling_on_uv0; }
         [Serializable] class Cam { public string name; public float[] from; public float[] at; public float lens_mm; }
+        [Serializable] class Tunnel { public float axis_y, floor_z, x0, x1; }
         [Serializable] class Info
         {
             public float[] dimensions_m; public string minTier; public string[] detailObjects; public Lods budget_per_lod; public UnityInfo unity;
-            public float[] build_origin_m; public float length_build_m, plate_x_build_m; public Cam[] review_cams_build_xyz;
+            public float[] build_origin_m; public float length_build_m, plate_x_build_m; public Cam[] review_cams_build_xyz; public Tunnel tunnel_build;
         }
 
         public static void Run()
@@ -237,11 +238,26 @@ namespace YunJing.Editor
             Physics.SyncTransforms();
             float L = info.length_build_m;
             int n = 0, hit = 0;
-            for (float x = .25f * L; x <= .95f * L; x += .5f, n++)
+            bool hollow = info.tunnel_build != null && info.tunnel_build.x1 > info.tunnel_build.x0;
+            float lo = hollow ? .15f : .25f, hi = hollow ? .85f : .95f;          // DR05: both ends are ragged and open, check the closed middle
+            for (float x = lo * L; x <= hi * L; x += .5f, n++)
                 if (Physics.CapsuleCast(new Vector3(x, .45f, -12), new Vector3(x, 1.40f, -12), .35f, Vector3.forward, 24)) hit++;
-            Check(hit == n, $"{id}: a walker crossing the trunk is stopped at {hit} of {n} places (every 0.5 m from 0.25 L to 0.95 L)");
-            bool plate = Physics.CapsuleCast(new Vector3(info.plate_x_build_m, .45f, -12), new Vector3(info.plate_x_build_m, 1.40f, -12), .35f, Vector3.forward, 24);
-            Check(plate, $"{id}: the root plate stops a walker (x = {info.plate_x_build_m:0.00})");
+            Check(hit == n, $"{id}: a walker crossing the trunk is stopped at {hit} of {n} places (every 0.5 m from {lo:0.00} L to {hi:0.00} L)");
+            if (info.tunnel_build != null && info.tunnel_build.x1 > info.tunnel_build.x0)
+            {
+                // DR05 hollow log: a crouching walker (1.1 m capsule, radius 0.3) goes through the tunnel from one end to the other; a standing
+                // one (1.75 m) is stopped by the roof
+                var t = info.tunnel_build; float f = t.floor_z;
+                bool crouch = Physics.CapsuleCast(new Vector3(-4, f + .32f, t.axis_y), new Vector3(-4, f + .80f, t.axis_y), .30f, Vector3.right, L + 8, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+                Check(!crouch, $"{id}: a crouching walker (1.1 m, radius 0.3) passes through the tunnel along x at y = {t.axis_y:0.00} (floor {f:0.00} m)");
+                bool stand = Physics.CapsuleCast(new Vector3(-4, f + .37f, t.axis_y), new Vector3(-4, f + 1.40f, t.axis_y), .35f, Vector3.right, L + 8);
+                Check(stand, $"{id}: a standing 1.75 m walker cannot walk upright through the tunnel (has to crouch)");
+            }
+            else
+            {
+                bool plate = Physics.CapsuleCast(new Vector3(info.plate_x_build_m, .45f, -12), new Vector3(info.plate_x_build_m, 1.40f, -12), .35f, Vector3.forward, 24);
+                Check(plate, $"{id}: the root plate stops a walker (x = {info.plate_x_build_m:0.00})");
+            }
             bool top = Physics.Raycast(new Vector3(.6f * L, 10, 0), Vector3.down, out var ht, 12);
             Check(top && ht.point.y > .8f, $"{id}: the top of the trunk is solid at 0.6 L (y = {(top ? ht.point.y : 0):0.00} m)");
             UnityEngine.Object.DestroyImmediate(go);
@@ -275,8 +291,8 @@ namespace YunJing.Editor
             var cams = info.review_cams_build_xyz.ToDictionary(c => c.name);
             void S(string file, Cam c) => Shot(id, file, new Vector3(c.from[0], c.from[2], c.from[1]), new Vector3(c.at[0], c.at[2], c.at[1]), c.lens_mm);
             S("side-lod0", cams["side"]);
-            if (Raw) { S("snap", cams["snap"]); return; }
-            foreach (var k in new[] { "tq", "plate", "plateq", "snap", "back", "sap" }) if (cams.ContainsKey(k)) S(k, cams[k]);
+            if (Raw) { var rk = cams.ContainsKey("snap") ? "snap" : "end"; S(rk, cams[rk]); return; }      // 空心倒木沒有斷口（snap），改拍洞口（end）
+            foreach (var k in new[] { "tq", "plate", "plateq", "snap", "back", "sap", "end", "endA", "inside", "peel" }) if (cams.ContainsKey(k)) S(k, cams[k]);
             for (int i = 1; i < 3; i++) { lg.ForceLOD(i); S($"side-lod{i}", cams["side"]); }
             lg.ForceLOD(1); Detail(go, false);
             S("side-standard-tier-lod1-nodetail", cams["side"]);

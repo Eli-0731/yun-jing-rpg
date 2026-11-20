@@ -1,0 +1,378 @@
+{
+  "asset": "DR05_HollowLog",
+  "version": "v001",
+  "blender": "5.2.2 LTS",
+  "bounds_main": {
+    "min": [
+      -3.9531,
+      -1.5021,
+      -0.598
+    ],
+    "max": [
+      3.9531,
+      1.5022,
+      2.4714
+    ],
+    "dims": [
+      7.9062,
+      3.0043,
+      3.0694
+    ]
+  },
+  "origin_at_bottom_centre": {
+    "footprint_centre_xy_m": [
+      0.0,
+      0.0
+    ],
+    "ok": true
+  },
+  "build_origin_in_asset_m": [
+    -3.9897,
+    0.0465,
+    0.0
+  ],
+  "bounds_detail": {
+    "min": [
+      -8.7442,
+      -2.699,
+      -0.0464
+    ],
+    "max": [
+      4.8119,
+      2.4513,
+      2.3808
+    ]
+  },
+  "shape_lod0": {
+    "top_z_m_every_1m": [
+      1.833,
+      1.987,
+      1.686,
+      1.62,
+      1.731,
+      1.685,
+      0.174
+    ],
+    "outer_width_m_every_1m": [
+      2.443,
+      2.035,
+      1.84,
+      1.83,
+      1.802,
+      1.936,
+      2.183
+    ],
+    "outer_diameter_mid_m": 1.889,
+    "tunnel_every_0p5m": [
+      {
+        "x": 0.5,
+        "height": 2.111,
+        "width": 2.162,
+        "floor_z": -0.12
+      },
+      {
+        "x": 1.0,
+        "height": 1.675,
+        "width": 1.784,
+        "floor_z": 0.119
+      },
+      {
+        "x": 1.5,
+        "height": 1.628,
+        "width": 1.768,
+        "floor_z": 0.147
+      },
+      {
+        "x": 2.0,
+        "height": 1.606,
+        "width": 1.774,
+        "floor_z": 0.145
+      },
+      {
+        "x": 2.5,
+        "height": 1.491,
+        "width": 1.606,
+        "floor_z": 0.184
+      },
+      {
+        "x": 3.0,
+        "height": 1.401,
+        "width": 1.509,
+        "floor_z": 0.22
+      },
+      {
+        "x": 4.0,
+        "height": 1.31,
+        "width": 1.427,
+        "floor_z": 0.249
+      },
+      {
+        "x": 4.5,
+        "height": 1.225,
+        "width": 1.352,
+        "floor_z": 0.277
+      },
+      {
+        "x": 5.0,
+        "height": 1.167,
+        "width": 1.366,
+        "floor_z": 0.309
+      },
+      {
+        "x": 5.5,
+        "height": 1.257,
+        "width": 1.469,
+        "floor_z": 0.276
+      },
+      {
+        "x": 6.0,
+        "height": 1.344,
+        "width": 1.56,
+        "floor_z": 0.24
+      },
+      {
+        "x": 6.5,
+        "height": 1.333,
+        "width": 1.578,
+        "floor_z": 0.247
+      }
+    ],
+    "tunnel_min_height_m": 1.167,
+    "tunnel_min_width_m": 1.352,
+    "tunnel_max_floor_z_m": 0.309,
+    "wall_thickness_m": {
+      "min": 0.12,
+      "max": 0.274,
+      "mean": 0.181
+    },
+    "blocked_fraction_at_0p3_1p0_1p7m": [
+      1.0,
+      1.0,
+      0.938
+    ]
+  },
+  "shape_collision": {
+    "top_z_m_every_1m": [
+      1.945,
+      1.88,
+      1.811,
+      1.77,
+      1.768,
+      1.788,
+      1.798
+    ],
+    "outer_width_m_every_1m": [
+      2.18,
+      2.113,
+      2.042,
+      1.999,
+      1.998,
+      2.019,
+      2.028
+    ],
+    "outer_diameter_mid_m": 2.034,
+    "tunnel_every_0p5m": [
+      {
+        "x": 0.5,
+        "height": 1.623,
+        "width": 1.69,
+        "floor_z": 0.149
+      },
+      {
+        "x": 1.0,
+        "height": 1.665,
+        "width": 1.733,
+        "floor_z": 0.116
+      },
+      {
+        "x": 1.5,
+        "height": 1.68,
+        "width": 1.75,
+        "floor_z": 0.094
+      },
+      {
+        "x": 2.0,
+        "height": 1.642,
+        "width": 1.71,
+        "floor_z": 0.094
+      },
+      {
+        "x": 2.5,
+        "height": 1.604,
+        "width": 1.671,
+        "floor_z": 0.095
+      },
+      {
+        "x": 3.0,
+        "height": 1.569,
+        "width": 1.634,
+        "floor_z": 0.096
+      },
+      {
+        "x": 3.5,
+        "height": 1.529,
+        "width": 1.593,
+        "floor_z": 0.101
+      },
+      {
+        "x": 4.0,
+        "height": 1.467,
+        "width": 1.527,
+        "floor_z": 0.126
+      },
+      {
+        "x": 4.5,
+        "height": 1.413,
+        "width": 1.472,
+        "floor_z": 0.148
+      },
+      {
+        "x": 5.0,
+        "height": 1.415,
+        "width": 1.474,
+        "floor_z": 0.151
+      },
+      {
+        "x": 5.5,
+        "height": 1.42,
+        "width": 1.479,
+        "floor_z": 0.153
+      },
+      {
+        "x": 6.0,
+        "height": 1.463,
+        "width": 1.525,
+        "floor_z": 0.138
+      },
+      {
+        "x": 6.5,
+        "height": 1.508,
+        "width": 1.571,
+        "floor_z": 0.121
+      },
+      {
+        "x": 7.0,
+        "height": 1.531,
+        "width": 1.594,
+        "floor_z": 0.109
+      },
+      {
+        "x": 7.5,
+        "height": 1.555,
+        "width": 1.62,
+        "floor_z": 0.095
+      }
+    ],
+    "tunnel_min_height_m": 1.413,
+    "tunnel_min_width_m": 1.472,
+    "tunnel_max_floor_z_m": 0.153,
+    "wall_thickness_m": {
+      "min": 0.172,
+      "max": 0.292,
+      "mean": 0.23
+    },
+    "blocked_fraction_at_0p3_1p0_1p7m": [
+      0.875,
+      0.875,
+      0.875
+    ]
+  },
+  "spec_check": {
+    "spec": {
+      "L": 8.0,
+      "D": 2.0
+    },
+    "shell_length_mean_m": 6.228,
+    "overall_bbox_x_m": 7.9062,
+    "outer_diameter_mid_m": 1.889,
+    "tunnel_min_height_m": 1.167,
+    "tunnel_min_width_m": 1.352,
+    "length_ok": true,
+    "diameter_ok": true,
+    "crawl_ok": true,
+    "note": "工作包：徑 2 m、長 8 m、人可以鑽進去。長量外框 X（兩頭洞口最外緣）；shell_length_mean 是軸心周圍 0.85 R 一圈從兩頭打進來的平均（洞口參差，+X 那頭上半塌掉）。外徑量中段（0.2–0.8 L）在軸心高處的左右寬。隧道從軸心往上下左右打（洞裡的朽木碎塊算地板），中段（0.15–0.85 L）最小內高 > 1.1 m、內寬 > 0.8 m 算可以彎腰鑽過"
+  },
+  "peel_fraction_side_high": 0.384,
+  "plants_inside_body_lod0": {
+    "vertices_checked": 25344,
+    "inside_body_over_2cm": 1022,
+    "inside_body_over_5cm": 386
+  },
+  "buried_depth_m": 0.598,
+  "tris": {
+    "LOD0": {
+      "DR05_HollowLog_LOD0": 31425,
+      "Detail_DR05_Plants_LOD0": 26631
+    },
+    "LOD1": {
+      "DR05_HollowLog_LOD1": 15747,
+      "Detail_DR05_Plants_LOD1": 13320
+    },
+    "LOD2": {
+      "DR05_HollowLog_LOD2": 4631,
+      "Detail_DR05_Plants_LOD2": 4050
+    },
+    "collision": 384
+  },
+  "lod_ratio": {
+    "LOD1": 0.501,
+    "LOD2": 0.15
+  },
+  "fbx_roundtrip": {
+    "objects": [
+      "DR05_HollowLog",
+      "DR05_HollowLog_Collision",
+      "DR05_HollowLog_LOD0",
+      "DR05_HollowLog_LOD1",
+      "DR05_HollowLog_LOD2",
+      "Detail_DR05_Plants_LOD0",
+      "Detail_DR05_Plants_LOD1",
+      "Detail_DR05_Plants_LOD2"
+    ],
+    "lod0_dimensions_m": [
+      7.9062,
+      3.0043,
+      3.0694
+    ],
+    "uv_layers": [
+      "UVMap",
+      "TileUV"
+    ],
+    "materials": [
+      "M_DR05_HollowLog_A",
+      "M_DR05_HollowLog_Leaf"
+    ]
+  },
+  "fbx_dims_match": true,
+  "textures_px": {
+    "DR05_HollowLog_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR05_HollowLog_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR05_HollowLog_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR05_HollowLog_A_ORM.png": [
+      2048,
+      2048
+    ]
+  },
+  "texel_px_per_m": 106.1,
+  "hidden_tris_removed_lod0": 424,
+  "tunnel_build": {
+    "axis_y": 0.079,
+    "floor_z": 0.329,
+    "x0": 0.0,
+    "x1": 8.0
+  },
+  "checks_not_in_this_file": [
+    "Unity 匯入與引擎內外觀：另見 art/previews/d2-logs-b/DR05_HollowLog/unity/report.txt",
+    "放進 D2 場景後的同鏡位截圖（場景由核心組擺）",
+    "實機效能、FPS"
+  ]
+}
