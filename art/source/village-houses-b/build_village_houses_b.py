@@ -72,17 +72,20 @@ def make_lods():
         lods[lv] = {}
         for gname, src in S['lod0'].items():
             n0 = tris(src.data); want = n0 * LOD_TARGET[lv]
+            whole = gname in S.get('no_decimate', ())     # FE04's net (wireframe twine): never collapsed; each LOD drops whole parts by their detail level
             for drop in LOD_DROPS[lv]:
                 me = src.data.copy(); bm = bmesh.new(); bm.from_mesh(me)
                 lay = bm.faces.layers.int.get('part_detail')
                 if lay is not None and drop < 99:
                     bmesh.ops.delete(bm, geom=[f for f in bm.faces if f[lay] >= drop], context='FACES')
                 bm.to_mesh(me); bm.free()
-                if tris(me) >= want * .98 or drop == 99: break
+                if whole or tris(me) >= want * .98 or drop == 99: break
                 bpy.data.meshes.remove(me)
+            if whole and tris(me) == 0:                    # nothing of this group left at this level: it is left out of the LOD
+                bpy.data.meshes.remove(me); report.setdefault(gname, {'LOD0': n0})[f'LOD{lv}'] = 0; continue
             o = src.copy(); o.data = me; S['lodcol'].objects.link(o)
             o.name = src.name.replace('_LOD0', f'_LOD{lv}'); me.name = o.name
-            r = min(1., want / max(tris(me), 1))
+            r = 1. if whole else min(1., want / max(tris(me), 1))
             bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active = o
             if r < .999:
                 m = o.modifiers.new('LOD_decimate', 'DECIMATE'); m.use_collapse_triangulate = True; m.ratio = r
@@ -112,10 +115,13 @@ def clamp_to_limit(cfg):
         me = o.data; co = np.zeros(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
         w = co + np.array(o.location, np.float32)
         c = w.copy(); c[:, 0] = np.clip(c[:, 0], lo_b[0], hi_b[0]); c[:, 1] = np.clip(c[:, 1], lo_b[1], hi_b[1]); c[:, 2] = np.maximum(c[:, 2], lo_b[2])
-        moved = max(moved, float(np.abs(c - w).max()))
+        dm = np.abs(c - w)
+        if float(dm.max()) > moved:
+            i = int(dm.max(axis=1).argmax()); S['clamp_worst'] = (o.name, [round(float(v), 3) for v in w[i]])
+        moved = max(moved, float(dm.max()))
         me.vertices.foreach_set('co', (c - np.array(o.location, np.float32)).ravel()); me.update()
     S['clamped_m'] = round(moved, 5)
-    assert moved < cfg.get('clamp_max', .02), ('clamp moved a vertex too far', moved)   # TE03: buried stone bottoms are flattened onto z = 0
+    assert moved < cfg.get('clamp_max', .02), ('clamp moved a vertex too far', moved, S.get('clamp_worst'))   # TE03: buried stone bottoms are flattened onto z = 0
 
 
 def roof_lods(src, tex_dir):
@@ -303,14 +309,16 @@ def run(aid, force=False):
         print('ALREADY_COMPLETE', aid, flush=True); return
     t0 = time.time()
     build(aid)
+    S['no_decimate'] = set(cfg.get('no_decimate', ()))     # after build(): build() starts from a cleared S
     ti_core.write_grain_attributes(); route_details()
     pl.join_groups()
     roof = S['lod0'].pop('Roof', None)                  # tiles keep their own UVs and are built per LOD
     for name, groups in cfg['atlases'].items():
         objs = [S['lod0'][g] for g in groups if g in S['lod0']]
-        pl.uv_atlas(cfg.get('uv_weight'), cfg['tex'], shape=cfg.get('uv_shape', 'CONCAVE'), objs=objs, detach_zero=cfg.get('uv_detach_zero', False)); pl.spread_zero_uv(objs)
-        S['texel_density'] = {**S.get('texel_density', {}), name: texel_density(objs, cfg['tex'])}
-        pl.bake(exp / 'Textures', cfg['tex'], objs=objs, prefix=aid if name == 'Main' else f'{aid}_{name}')
+        px = cfg.get('tex_atlas', {}).get(name, cfg['tex'])   # an atlas may bake larger than the asset's default (big stone / timber areas)
+        pl.uv_atlas(cfg.get('uv_weight'), px, shape=cfg.get('uv_shape', 'CONCAVE'), objs=objs, detach_zero=cfg.get('uv_detach_zero', False)); pl.spread_zero_uv(objs)
+        S['texel_density'] = {**S.get('texel_density', {}), name: texel_density(objs, px)}
+        pl.bake(exp / 'Textures', px, objs=objs, prefix=aid if name == 'Main' else f'{aid}_{name}')
     lod_report = make_lods()
     if roof is not None: lod_report['Roof'] = roof_lods(roof, exp / 'Textures')
     export_materials_multi(cfg)

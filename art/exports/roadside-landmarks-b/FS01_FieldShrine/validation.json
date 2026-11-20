@@ -1,0 +1,192 @@
+{
+  "asset": "FS01_FieldShrine",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.1692,
+          -0.9874,
+          0.0
+        ],
+        "max": [
+          1.1692,
+          0.9649,
+          2.5179
+        ],
+        "box_m": [
+          [
+            -1.2,
+            -1.0,
+            0.0
+          ],
+          [
+            1.2,
+            1.0,
+            2.6
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01006
+      }
+    },
+    {
+      "check": "niche_open_and_empty",
+      "pass": true,
+      "detail": {
+        "ray_hits_y_m": {
+          "0.6": 0.4,
+          "1.0": 0.4,
+          "1.3": 0.4
+        },
+        "back_wall_inner_y_m": 0.4
+      }
+    },
+    {
+      "check": "roof_ridge_across_front",
+      "pass": true,
+      "detail": {
+        "ridge_top_m": [
+          2.431,
+          2.422,
+          2.431
+        ],
+        "front_slope_m": 1.688,
+        "back_slope_m": 1.689
+      }
+    },
+    {
+      "check": "burner_in_front",
+      "pass": true,
+      "detail": {
+        "burner_ash_top_m": 0.48,
+        "step_top_m": 0.141,
+        "note": "rays from 1.2 m down, under the eave"
+      }
+    },
+    {
+      "check": "collision_step_body_eave",
+      "pass": true,
+      "detail": {
+        "step_front_y_m": -0.95,
+        "body_y_m": -0.47,
+        "eave_y_m_at_1.85": -0.975
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 42580,
+          "LOD1": 21290,
+          "LOD2": 6103
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.143,
+        "per_group": {
+          "Stone": {
+            "LOD0": 15020,
+            "LOD1": 7510,
+            "LOD2": 2252
+          },
+          "Main": {
+            "LOD0": 6776,
+            "LOD1": 3388,
+            "LOD2": 1016
+          },
+          "Wood": {
+            "LOD0": 6108,
+            "LOD1": 3054,
+            "LOD2": 916
+          },
+          "Detail_Small": {
+            "LOD0": 2772,
+            "LOD1": 1386,
+            "LOD2": 415
+          },
+          "Roof": {
+            "LOD0": 11904,
+            "LOD1": 5952,
+            "LOD2": 1504
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          2.3385,
+          1.9524,
+          2.5179
+        ],
+        "blend_dims_m": [
+          2.3385,
+          1.9524,
+          2.5179
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "FS01_FieldShrine.001",
+        "FS01_FieldShrine_Collision.001",
+        "FS01_FieldShrine_Detail_Small_LOD0.001",
+        "FS01_FieldShrine_Detail_Small_LOD1.001",
+        "FS01_FieldShrine_Detail_Small_LOD2.001",
+        "FS01_FieldShrine_LOD0.001",
+        "FS01_FieldShrine_LOD1.001",
+        "FS01_FieldShrine_LOD2.001",
+        "Socket_Offering.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Offering.001": [
+          0.0,
+          0.0,
+          0.36
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 3537824
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 248,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

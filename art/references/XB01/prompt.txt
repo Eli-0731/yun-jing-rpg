@@ -1,0 +1,20 @@
+XB01 三視圖提示詞與選圖
+工作包：2026-11-11 B｜40 小時（院牆院門、水井、石板橋、穀倉、牛棚）A 段 XB01。
+
+選用：XB01-cand-3.png。備選：XB01-cand-1.png。
+選用理由：長石板兩塊並排、分三跨，架在往上收分的石砌矮墩上，墩頂有橫的承石；沒有欄杆；墩腳到水位線長苔；另有五顆大小不同的平頂踏石。
+沒選的原因：
+- cand-1：可用；墩較矮胖、踏石排在橋前，作備選。
+- cand-2：右邊的踏石是一排圓柱，像人工石樁。
+- cand-4：橋板上釘了木條補丁（銅色鐵件），墩用圓卵石堆。
+建模時注意：橋和踏石分兩件交（XB01_A 橋、XB01_B 踏石五顆）；z 0 是墩腳的溪床，橋面頂 1.0 m；不做水面。
+
+工具與張數：
+- Codex CLI，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 4 張（XB01-cand-1..4），原尺寸存檔，沒有 seed。生成日期 2026-11-11。
+- 提示詞組法：物件句＋單件 Layout 段＋美術方向；Codex 沒有負面欄，所以把負面提示加上本包那句（not Japanese machiya … no glossy plastic look），以「Avoid:」接在最後。全部原文，一字未改。
+
+== 物件句 ==
+Three-view orthographic turnaround sheet of a low rural Chinese stone slab bridge, about 6 m long, 1.8 m wide and 1.2 m tall, two or three long rough-cut stone slabs resting on short stacked stone piers, no railings, edges worn round, moss near the waterline, shown together with a set of five flat-topped stepping stones of different sizes, no writing.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of a low rural Chinese stone slab bridge, about 6 m long, 1.8 m wide and 1.2 m tall, two or three long rough-cut stone slabs resting on short stacked stone piers, no railings, edges worn round, moss near the waterline, shown together with a set of five flat-topped stepping stones of different sizes, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only. Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, not Tudor half-timbering, no bright teal roof, no glossy plastic look

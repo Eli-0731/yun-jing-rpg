@@ -1,0 +1,208 @@
+{
+  "asset": "RI04_Scarecrow_A",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "RI04_Scarecrow_A_Detail_Small"
+  ],
+  "name_zh": "稻草人（直立）",
+  "slot": "A6_RiceFields_Scarecrow",
+  "note": "稻草人第一種（三視圖 RI04-cand-4）：木十字架、稻草紮的頭、舊斗笠、褪色破短褂（下襬和袖口撕破、三塊補丁）、草繩腰帶，袖口、橫木兩端、下襬下面、領口都冒出鬆散的稻草，輪廓蓬鬆不規則。沒有臉、不寫字。 碰撞：柱子和身體兩個方塊（人撞到會停，稻草本身不擋）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 73544,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD1": {
+      "triangles": 36772,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    },
+    "LOD2": {
+      "triangles": 11030,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 1
+    }
+  },
+  "texture_resolution_px": {
+    "RI04_Scarecrow_A_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RI04_Scarecrow_A_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RI04_Scarecrow_A_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RI04_Scarecrow_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "RI04_Scarecrow_A_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "foot of the post, bottom z = 0, front -Y",
+  "dimensions_m": [
+    1.1883,
+    0.4976,
+    1.8417
+  ],
+  "bounds_min_m": [
+    -0.5946,
+    -0.2481,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.5937,
+    0.2495,
+    1.8417
+  ],
+  "size_limit_m": [
+    1.2,
+    0.5,
+    1.9
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        1.1883,
+        0.4872,
+        1.8417
+      ],
+      "min": [
+        -0.5946,
+        -0.2377,
+        0.0
+      ],
+      "max": [
+        0.5937,
+        0.2495,
+        1.8417
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        0.6115,
+        0.4955,
+        1.6796
+      ],
+      "min": [
+        -0.3165,
+        -0.2481,
+        0.0
+      ],
+      "max": [
+        0.295,
+        0.2474,
+        1.6796
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 66036,
+      "LOD1": 33018,
+      "LOD2": 9904
+    },
+    "Detail_Small": {
+      "LOD0": 7508,
+      "LOD1": 3754,
+      "LOD2": 1126
+    }
+  },
+  "lod_totals": {
+    "LOD0": 73544,
+    "LOD1": 36772,
+    "LOD2": 11030
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_RI04_Scarecrow_A_Main"
+  ],
+  "textures": [
+    "RI04_Scarecrow_A_BaseColor.png",
+    "RI04_Scarecrow_A_Metallic.png",
+    "RI04_Scarecrow_A_MetallicSmoothness.png",
+    "RI04_Scarecrow_A_Normal.png",
+    "RI04_Scarecrow_A_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_RI04_Scarecrow_A_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RI04_Scarecrow_A_BaseColor.png",
+        "Normal": "RI04_Scarecrow_A_Normal.png",
+        "MetallicSmoothness": "RI04_Scarecrow_A_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "RI04_Scarecrow_A_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "parts": {
+    "kind": "A",
+    "lean_deg": 0.0,
+    "bar_tilt_deg": 0.0,
+    "bar_z_m": 1.3,
+    "neck_z_m": 1.47,
+    "hat": {
+      "radius": 0.238,
+      "brim_z": 1.655,
+      "apex_z": 1.835
+    },
+    "straw": "each straw a separate thin ribbon (one mesh per bundle): head, collar, sleeves and bar, the fringe under the tunic, pokes",
+    "no_face": true
+  },
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "fbx_objects": [
+    "RI04_Scarecrow_A.001",
+    "RI04_Scarecrow_A_Collision.001",
+    "RI04_Scarecrow_A_Detail_Small_LOD0.001",
+    "RI04_Scarecrow_A_Detail_Small_LOD1.001",
+    "RI04_Scarecrow_A_Detail_Small_LOD2.001",
+    "RI04_Scarecrow_A_LOD0.001",
+    "RI04_Scarecrow_A_LOD1.001",
+    "RI04_Scarecrow_A_LOD2.001"
+  ],
+  "glb": "RI04_Scarecrow_A_v001.glb",
+  "interface": {
+    "straw_reach_m": 0.57,
+    "lowest_m": 0.2
+  },
+  "modeling_method": "procedural mesh construction (art/source/roadside-landmarks-b/) on the StarterHouse v004 outline; procedural shaders baked to two 2048 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 299.3,
+        "median": 314.9,
+        "p90": 344.4,
+        "area_m2": 7.2
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "art/references/RI04/ (AI three-view RI04/RI04-cand-4; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}
