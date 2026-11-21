@@ -1,0 +1,22 @@
+{
+ "LV10_v001": {
+  "LV10_Body_LOD0": {
+   "pieces": 30,
+   "within_1mm": 30,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.5,
+   "worst_at": []
+  },
+  "LV10_Detail_Frays_LOD0": {
+   "pieces": 10,
+   "within_1mm": 10,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.5,
+   "worst_at": []
+  }
+ }
+}
