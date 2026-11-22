@@ -2,11 +2,11 @@
  "DP06_01": {
   "id": "DP06_01",
   "name": "MossCushionSmall",
-  "version": "v001",
+  "version": "v002",
   "files": {
-   "fbx": "art/exports/d2-moss-c/DP06_01_v001.fbx",
-   "glb": "art/exports/d2-moss-c/DP06_01_v001.glb",
-   "blend": "art/source/d2-moss-c/DP06_01_v001.blend"
+   "fbx": "art/exports/d2-moss-c/DP06_01_v002.fbx",
+   "glb": "art/exports/d2-moss-c/DP06_01_v002.glb",
+   "blend": "art/source/d2-moss-c/DP06_01_v002.blend"
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
@@ -30,8 +30,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 2590,
-    "triangles_without_detail": 2590,
+    "triangles": 2968,
+    "triangles_without_detail": 2968,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -55,8 +55,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1295,
-    "triangles_without_detail": 1295,
+    "triangles": 1484,
+    "triangles_without_detail": 1484,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -80,8 +80,8 @@
     }
    },
    "LOD2": {
-    "triangles": 388,
-    "triangles_without_detail": 388,
+    "triangles": 445,
+    "triangles_without_detail": 445,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -123,22 +123,22 @@
  "DP06_02": {
   "id": "DP06_02",
   "name": "MossMoundLobed",
-  "version": "v001",
+  "version": "v002",
   "files": {
-   "fbx": "art/exports/d2-moss-c/DP06_02_v001.fbx",
-   "glb": "art/exports/d2-moss-c/DP06_02_v001.glb",
-   "blend": "art/source/d2-moss-c/DP06_02_v001.blend"
+   "fbx": "art/exports/d2-moss-c/DP06_02_v002.fbx",
+   "glb": "art/exports/d2-moss-c/DP06_02_v002.glb",
+   "blend": "art/source/d2-moss-c/DP06_02_v002.blend"
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
    0.423,
    0.41,
-   0.178
+   0.185
   ],
   "body_dimensions_xyz_m": [
    0.423,
    0.41,
-   0.178
+   0.185
   ],
   "size_limit_xyz_m": [
    0.55,
@@ -151,8 +151,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3200,
-    "triangles_without_detail": 3200,
+    "triangles": 3674,
+    "triangles_without_detail": 3674,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -176,8 +176,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1599,
-    "triangles_without_detail": 1599,
+    "triangles": 1837,
+    "triangles_without_detail": 1837,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -201,8 +201,8 @@
     }
    },
    "LOD2": {
-    "triangles": 479,
-    "triangles_without_detail": 479,
+    "triangles": 551,
+    "triangles_without_detail": 551,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -244,22 +244,22 @@
  "DP06_03": {
   "id": "DP06_03",
   "name": "MossPatchSpreading",
-  "version": "v001",
+  "version": "v002",
   "files": {
-   "fbx": "art/exports/d2-moss-c/DP06_03_v001.fbx",
-   "glb": "art/exports/d2-moss-c/DP06_03_v001.glb",
-   "blend": "art/source/d2-moss-c/DP06_03_v001.blend"
+   "fbx": "art/exports/d2-moss-c/DP06_03_v002.fbx",
+   "glb": "art/exports/d2-moss-c/DP06_03_v002.glb",
+   "blend": "art/source/d2-moss-c/DP06_03_v002.blend"
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
    0.805,
    0.652,
-   0.118
+   0.116
   ],
   "body_dimensions_xyz_m": [
    0.805,
    0.652,
-   0.118
+   0.116
   ],
   "size_limit_xyz_m": [
    0.85,
@@ -272,8 +272,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3862,
-    "triangles_without_detail": 3862,
+    "triangles": 3832,
+    "triangles_without_detail": 3832,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -297,8 +297,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1931,
-    "triangles_without_detail": 1931,
+    "triangles": 1915,
+    "triangles_without_detail": 1915,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -322,8 +322,8 @@
     }
    },
    "LOD2": {
-    "triangles": 578,
-    "triangles_without_detail": 578,
+    "triangles": 574,
+    "triangles_without_detail": 574,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -365,11 +365,11 @@
  "DP06_04": {
   "id": "DP06_04",
   "name": "MossRootFootStrip",
-  "version": "v001",
+  "version": "v002",
   "files": {
-   "fbx": "art/exports/d2-moss-c/DP06_04_v001.fbx",
-   "glb": "art/exports/d2-moss-c/DP06_04_v001.glb",
-   "blend": "art/source/d2-moss-c/DP06_04_v001.blend"
+   "fbx": "art/exports/d2-moss-c/DP06_04_v002.fbx",
+   "glb": "art/exports/d2-moss-c/DP06_04_v002.glb",
+   "blend": "art/source/d2-moss-c/DP06_04_v002.blend"
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
@@ -393,8 +393,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3008,
-    "triangles_without_detail": 3008,
+    "triangles": 3452,
+    "triangles_without_detail": 3452,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -418,8 +418,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1503,
-    "triangles_without_detail": 1503,
+    "triangles": 1726,
+    "triangles_without_detail": 1726,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -443,8 +443,8 @@
     }
    },
    "LOD2": {
-    "triangles": 450,
-    "triangles_without_detail": 450,
+    "triangles": 517,
+    "triangles_without_detail": 517,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -486,22 +486,22 @@
  "DP06_05": {
   "id": "DP06_05",
   "name": "MossBoulderCap",
-  "version": "v001",
+  "version": "v002",
   "files": {
-   "fbx": "art/exports/d2-moss-c/DP06_05_v001.fbx",
-   "glb": "art/exports/d2-moss-c/DP06_05_v001.glb",
-   "blend": "art/source/d2-moss-c/DP06_05_v001.blend"
+   "fbx": "art/exports/d2-moss-c/DP06_05_v002.fbx",
+   "glb": "art/exports/d2-moss-c/DP06_05_v002.glb",
+   "blend": "art/source/d2-moss-c/DP06_05_v002.blend"
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
    0.473,
    0.403,
-   0.166
+   0.162
   ],
   "body_dimensions_xyz_m": [
    0.473,
    0.403,
-   0.166
+   0.162
   ],
   "size_limit_xyz_m": [
    0.52,
@@ -514,8 +514,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3856,
-    "triangles_without_detail": 3856,
+    "triangles": 3720,
+    "triangles_without_detail": 3720,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -539,8 +539,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1928,
-    "triangles_without_detail": 1928,
+    "triangles": 1860,
+    "triangles_without_detail": 1860,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -564,8 +564,8 @@
     }
    },
    "LOD2": {
-    "triangles": 578,
-    "triangles_without_detail": 578,
+    "triangles": 558,
+    "triangles_without_detail": 558,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -607,22 +607,22 @@
  "DP06_06": {
   "id": "DP06_06",
   "name": "MossTuftsScattered",
-  "version": "v001",
+  "version": "v002",
   "files": {
-   "fbx": "art/exports/d2-moss-c/DP06_06_v001.fbx",
-   "glb": "art/exports/d2-moss-c/DP06_06_v001.glb",
-   "blend": "art/source/d2-moss-c/DP06_06_v001.blend"
+   "fbx": "art/exports/d2-moss-c/DP06_06_v002.fbx",
+   "glb": "art/exports/d2-moss-c/DP06_06_v002.glb",
+   "blend": "art/source/d2-moss-c/DP06_06_v002.blend"
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
    0.486,
-   0.384,
-   0.101
+   0.385,
+   0.109
   ],
   "body_dimensions_xyz_m": [
    0.486,
-   0.384,
-   0.101
+   0.385,
+   0.109
   ],
   "size_limit_xyz_m": [
    0.58,
@@ -635,8 +635,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3840,
-    "triangles_without_detail": 3840,
+    "triangles": 3540,
+    "triangles_without_detail": 3540,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -660,8 +660,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1919,
-    "triangles_without_detail": 1919,
+    "triangles": 1769,
+    "triangles_without_detail": 1769,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -685,8 +685,8 @@
     }
    },
    "LOD2": {
-    "triangles": 575,
-    "triangles_without_detail": 575,
+    "triangles": 530,
+    "triangles_without_detail": 530,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,

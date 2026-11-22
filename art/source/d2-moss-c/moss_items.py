@@ -62,9 +62,43 @@ def _mound(name,c,rx,ry,H,M,grp,seed,nr=16,nth=56,noise=.18,lobes=(),bumps=96,bu
     cv,_,cf,_,_,_=delaunay_2d_cdt([Vector(p) for p in pts],[],[list(range(nth))],2,1e-7)
     assert len(cv)==len(pts),'the triangulation added or merged points'
     bm=bmesh.new();V=[bm.verts.new(c+Vector((p[0],p[1],zz))) for p,zz in zip(pts,z)];n=nth
-    for f_ in cf:
-        try:bm.faces.new([V[i] for i in f_])
-        except ValueError:pass
+    # Raise widely spaced faces into small shoots. A shoot shares the cushion's
+    # own edges, so the result stays continuous at the base and needs no cards.
+    rng=_rnd.Random(seed+7100)
+    candidates=list(range(len(cf)))
+    rng.shuffle(candidates)
+    occupied=set()
+    shoots=0
+    shoot_limit=min(int(1.4*bumps),int(.027*len(cf)))
+    for index in candidates:
+        face=cf[index]
+        f=bm.faces.new([V[i] for i in face])
+        if shoots>=shoot_limit or len(face)!=3 or any(i in occupied for i in face):
+            continue
+        radial=float(np.mean([F[i] for i in face]))
+        if radial>.967 or max(z[i] for i in face)<.006:
+            continue
+        edge_lengths=[(V[face[i]].co-V[face[(i+1)%3]].co).length for i in range(3)]
+        if max(edge_lengths)>2.65*sp or min(edge_lengths)<.45*sp:
+            continue
+        # A tilted, blunt shoot flows into the same cushion faces. Its
+        # crown is small and slightly asymmetric to avoid conical spikes.
+        center=sum((V[i].co for i in face),Vector())/3
+        toward=V[face[rng.randrange(3)]].co
+        crest=center.lerp(toward,rng.uniform(.06,.13))
+        height=min(.008,max(.0022,H*.053),min(edge_lengths)*.48)*rng.uniform(.64,1.08)
+        top=[]
+        for i in face:
+            co=crest.lerp(V[i].co,rng.uniform(.31,.44))
+            co.z+=height*rng.uniform(.79,1.)
+            top.append(bm.verts.new(co))
+        bm.faces.remove(f)
+        for i in range(3):
+            j=(i+1)%3
+            bm.faces.new((V[face[i]],V[face[j]],top[j],top[i]))
+        bm.faces.new(top)
+        shoots+=1
+        occupied.update(face)
     bmesh.ops.recalc_face_normals(bm,faces=bm.faces)
     for f_ in bm.faces:
         if f_.normal.z<0:f_.normal_flip()
@@ -106,7 +140,7 @@ def _mound(name,c,rx,ry,H,M,grp,seed,nr=16,nth=56,noise=.18,lobes=(),bumps=96,bu
 def _moss_paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
     """D2 moss: muted yellow-green on the tops of the tufts that face the sky, darker and cooler in the hollows"""
     up=np.clip((onrm[...,2]-.35)/.6,0,1)*ao;lit=up*(.8+.2*noise)   # follows the sky-facing tops, not a low-frequency blotch
-    tip=np.array([.40,.38,.10])   # D2 V6: muted yellow-green tips
+    tip=np.array([.46,.43,.18])   # D2 V6: muted yellow-green tips
     lum=col.mean(2,keepdims=True)/max(float(col.mean()),1e-4)   # keep the tuft pattern of the source: tint, do not paint over
     col=col*(1-.30*lit[...,None])+tip[None,None,:]*.30*lit[...,None]*np.clip(lum,.4,1.6)
     col=col*(1-.35*cav[...,None])
@@ -119,11 +153,11 @@ def dp06_01(M):   # A small round cushion (cand-3): one low rounded cushion, 0.2
 def dp06_02(M):   # B lumpy mound (cand-1): three or four merged lobes, 0.45 × 0.38 × 0.16
     _rnd.seed(6002)
     _mound('DP06_02_Moss',(0,0,0),.225,.19,.15,M,'Body',6002,nr=18,nth=84,noise=.14,
-           lobes=((-.45,.05,.78,.62),(.18,-.22,1.0,.66),(.0,.52,.66,.52),(.62,.24,.55,.44)),bumps=96,bump_r=(0.018,0.036),bump_h=.15,prof=(4.0,.6),lobe_floor=.18,fringe=0,fringe_len=(0.006,0.017))
+           lobes=((-.45,.05,.78,.62),(.18,-.22,1.0,.66),(.0,.52,.66,.52),(.62,.24,.55,.44)),bumps=96,bump_r=(0.018,0.036),bump_h=.22,prof=(3.2,.72),lobe_floor=.14,fringe=0,fringe_len=(0.006,0.017))
     return {'paint':_moss_paint,'grime':.6,'wear':0}
 def dp06_03(M):   # C large low spreading patch (cand-3): flat blanket with gentle humps, ragged lobed outline, 0.80 × 0.60 × 0.10
     _rnd.seed(6003)
-    _mound('DP06_03_Moss',(0,0,0),.40,.30,.085,M,'Body',6003,nr=20,nth=92,noise=.24,
+    _mound('DP06_03_Moss',(0,0,0),.40,.30,.085,M,'Body',6003,nr=17,nth=92,noise=.24,
            lobes=((-.45,.10,.85,.40),(.10,-.25,1.0,.45),(.45,.25,.80,.38),(-.05,.45,.70,.35),(.65,-.30,.55,.28)),bumps=192,bump_r=(0.022,0.044),bump_h=.32,prof=(1.6,.7),lobe_floor=.25,fringe=0,fringe_len=(0.007,0.017))
     return {'paint':_moss_paint,'grime':.6,'wear':0}
 def dp06_04(M):   # D root-foot strip (cand-1): a chain of soft humps tapering at both ends, 0.60 × 0.22 × 0.12, a slight curve to follow a root
@@ -133,15 +167,15 @@ def dp06_04(M):   # D root-foot strip (cand-1): a chain of soft humps tapering a
     return {'paint':_moss_paint,'grime':.6,'wear':0}
 def dp06_05(M):   # E boulder cap (cand-1): domed shell, edges drape to the ground line, hollow underneath where the rock sits
     _rnd.seed(6005)
-    _mound('DP06_05_Moss',(0,0,0),.225,.21,.14,M,'Body',6005,nr=16,nth=80,noise=.10,bumps=102,bump_r=(0.020,0.036),bump_h=.22,prof=(2.0,.75),
+    _mound('DP06_05_Moss',(0,0,0),.225,.21,.14,M,'Body',6005,nr=14,nth=80,noise=.10,bumps=102,bump_r=(0.020,0.036),bump_h=.22,prof=(2.0,.75),
            fringe=0,fringe_len=(0.009,0.019),hollow=(.90,.095))
     return {'paint':_moss_paint,'grime':.6,'wear':0}
 def dp06_06(M):   # F scattered tufts (cand-4): one larger tuft and six small separate ones over 0.50 × 0.40
     _rnd.seed(6006);r=_rnd.Random(606)
-    _mound('DP06_06_Big',(-.04,.02,0),.10,.09,.075,M,'Body',6061,nr=12,nth=52,noise=.12,bumps=48,bump_r=(0.013,0.024),bump_h=.28,prof=(1.8,.8),fringe=0,fringe_len=(0.005,0.011))
+    _mound('DP06_06_Big',(-.04,.02,0),.10,.09,.075,M,'Body',6061,nr=10,nth=52,noise=.12,bumps=48,bump_r=(0.013,0.024),bump_h=.28,prof=(1.8,.8),fringe=0,fringe_len=(0.005,0.011))
     small=((.17,.10,.045,.040),(.19,-.09,.035,.030),(-.20,.13,.038,.032),(-.21,-.10,.050,.042),(.02,-.16,.032,.028),(.06,.17,.028,.025))
     for i,(x,y,rad,h) in enumerate(small):
-        _mound(f'DP06_06_Tuft{i+1}',(x,y,0),rad*r.uniform(.9,1.1),rad*r.uniform(.85,1.0),h,M,'Body',6070+i,nr=7,nth=26,noise=.12,bumps=16,bump_r=(0.007,0.013),bump_h=.28,prof=(1.8,.8),fringe=0,fringe_len=(0.004,0.008),depth=.01)
+        _mound(f'DP06_06_Tuft{i+1}',(x,y,0),rad*r.uniform(.9,1.1),rad*r.uniform(.85,1.0),h,M,'Body',6070+i,nr=6,nth=24,noise=.12,bumps=16,bump_r=(0.007,0.013),bump_h=.28,prof=(1.8,.8),fringe=0,fringe_len=(0.004,0.008),depth=.01)
     return {'paint':_moss_paint,'grime':.6,'wear':0}
 
 PROPS.update({'DP06_01':dp06_01,'DP06_02':dp06_02,'DP06_03':dp06_03,'DP06_04':dp06_04,'DP06_05':dp06_05,'DP06_06':dp06_06})

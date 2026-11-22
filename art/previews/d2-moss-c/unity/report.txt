@@ -5,8 +5,8 @@ PASS DP06_01: DP06_01_GroundOrigin is the model root; all LOD meshes hang under 
 PASS DP06_01: imported size 0.248 x 0.247 x 0.102 m matches model_info 0.248 x 0.247 x 0.102 within 2 cm
 PASS DP06_01: within the work pack's limit 0.32 x 0.32 x 0.14 m
 PASS DP06_01: the soil skirt runs on 1.5 cm under the ground (origin on the ground, moss rim at z = 0)
-PASS DP06_01: triangles LOD0/1/2 = 2590 / 1295 / 388 (50% / 15%), model_info 2590 / 1295 / 388
-PASS DP06_01: LOD0 2590 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP06_01: triangles LOD0/1/2 = 2968 / 1484 / 445 (50% / 15%), model_info 2968 / 1484 / 445
+PASS DP06_01: LOD0 2968 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
 PASS DP06_01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS DP06_01: 1 material for every LOD and Detail_ mesh (one material)
 PASS DP06_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
@@ -18,11 +18,11 @@ PASS DP06_01: cloth material renders both faces (Cull Off)
 PASS DP06_02: Albedo / MaskURP / Normal textures found
 PASS DP06_02: textures 1024x1024 (1024 or less)
 PASS DP06_02: DP06_02_GroundOrigin is the model root; all LOD meshes hang under it
-PASS DP06_02: imported size 0.423 x 0.410 x 0.178 m matches model_info 0.423 x 0.41 x 0.178 within 2 cm
+PASS DP06_02: imported size 0.423 x 0.410 x 0.185 m matches model_info 0.423 x 0.41 x 0.185 within 2 cm
 PASS DP06_02: within the work pack's limit 0.55 x 0.48 x 0.22 m
 PASS DP06_02: the soil skirt runs on 1.5 cm under the ground (origin on the ground, moss rim at z = 0)
-PASS DP06_02: triangles LOD0/1/2 = 3200 / 1599 / 479 (50% / 15%), model_info 3200 / 1599 / 479
-PASS DP06_02: LOD0 3200 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP06_02: triangles LOD0/1/2 = 3674 / 1837 / 551 (50% / 15%), model_info 3674 / 1837 / 551
+PASS DP06_02: LOD0 3674 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
 PASS DP06_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS DP06_02: 1 material for every LOD and Detail_ mesh (one material)
 PASS DP06_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
@@ -34,11 +34,11 @@ PASS DP06_02: cloth material renders both faces (Cull Off)
 PASS DP06_03: Albedo / MaskURP / Normal textures found
 PASS DP06_03: textures 1024x1024 (1024 or less)
 PASS DP06_03: DP06_03_GroundOrigin is the model root; all LOD meshes hang under it
-PASS DP06_03: imported size 0.805 x 0.652 x 0.118 m matches model_info 0.805 x 0.652 x 0.118 within 2 cm
+PASS DP06_03: imported size 0.805 x 0.652 x 0.116 m matches model_info 0.805 x 0.652 x 0.116 within 2 cm
 PASS DP06_03: within the work pack's limit 0.85 x 0.68 x 0.14 m
 PASS DP06_03: the soil skirt runs on 1.5 cm under the ground (origin on the ground, moss rim at z = 0)
-PASS DP06_03: triangles LOD0/1/2 = 3862 / 1931 / 578 (50% / 15%), model_info 3862 / 1931 / 578
-PASS DP06_03: LOD0 3862 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP06_03: triangles LOD0/1/2 = 3832 / 1915 / 574 (50% / 15%), model_info 3832 / 1915 / 574
+PASS DP06_03: LOD0 3832 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
 PASS DP06_03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS DP06_03: 1 material for every LOD and Detail_ mesh (one material)
 PASS DP06_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
@@ -53,8 +53,8 @@ PASS DP06_04: DP06_04_GroundOrigin is the model root; all LOD meshes hang under 
 PASS DP06_04: imported size 0.602 x 0.215 x 0.146 m matches model_info 0.602 x 0.215 x 0.146 within 2 cm
 PASS DP06_04: within the work pack's limit 0.68 x 0.3 x 0.16 m
 PASS DP06_04: the soil skirt runs on 1.5 cm under the ground (origin on the ground, moss rim at z = 0)
-PASS DP06_04: triangles LOD0/1/2 = 3008 / 1503 / 450 (50% / 15%), model_info 3008 / 1503 / 450
-PASS DP06_04: LOD0 3008 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP06_04: triangles LOD0/1/2 = 3452 / 1726 / 517 (50% / 15%), model_info 3452 / 1726 / 517
+PASS DP06_04: LOD0 3452 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
 PASS DP06_04: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS DP06_04: 1 material for every LOD and Detail_ mesh (one material)
 PASS DP06_04: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
@@ -66,11 +66,11 @@ PASS DP06_04: cloth material renders both faces (Cull Off)
 PASS DP06_05: Albedo / MaskURP / Normal textures found
 PASS DP06_05: textures 1024x1024 (1024 or less)
 PASS DP06_05: DP06_05_GroundOrigin is the model root; all LOD meshes hang under it
-PASS DP06_05: imported size 0.473 x 0.403 x 0.167 m matches model_info 0.473 x 0.403 x 0.166 within 2 cm
+PASS DP06_05: imported size 0.473 x 0.403 x 0.162 m matches model_info 0.473 x 0.403 x 0.162 within 2 cm
 PASS DP06_05: within the work pack's limit 0.52 x 0.52 x 0.2 m
 PASS DP06_05: the draped lip sits on the origin plane (0.0 cm), hollow underneath for the rock
-PASS DP06_05: triangles LOD0/1/2 = 3856 / 1928 / 578 (50% / 15%), model_info 3856 / 1928 / 578
-PASS DP06_05: LOD0 3856 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP06_05: triangles LOD0/1/2 = 3720 / 1860 / 558 (50% / 15%), model_info 3720 / 1860 / 558
+PASS DP06_05: LOD0 3720 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
 PASS DP06_05: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS DP06_05: 1 material for every LOD and Detail_ mesh (one material)
 PASS DP06_05: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
@@ -82,11 +82,11 @@ PASS DP06_05: cloth material renders both faces (Cull Off)
 PASS DP06_06: Albedo / MaskURP / Normal textures found
 PASS DP06_06: textures 1024x1024 (1024 or less)
 PASS DP06_06: DP06_06_GroundOrigin is the model root; all LOD meshes hang under it
-PASS DP06_06: imported size 0.486 x 0.384 x 0.101 m matches model_info 0.486 x 0.384 x 0.101 within 2 cm
+PASS DP06_06: imported size 0.486 x 0.385 x 0.109 m matches model_info 0.486 x 0.385 x 0.109 within 2 cm
 PASS DP06_06: within the work pack's limit 0.58 x 0.48 x 0.12 m
 PASS DP06_06: the soil skirt runs on 1.5 cm under the ground (origin on the ground, moss rim at z = 0)
-PASS DP06_06: triangles LOD0/1/2 = 3840 / 1919 / 575 (50% / 15%), model_info 3840 / 1919 / 575
-PASS DP06_06: LOD0 3840 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP06_06: triangles LOD0/1/2 = 3540 / 1769 / 530 (50% / 15%), model_info 3540 / 1769 / 530
+PASS DP06_06: LOD0 3540 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
 PASS DP06_06: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS DP06_06: 1 material for every LOD and Detail_ mesh (one material)
 PASS DP06_06: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers

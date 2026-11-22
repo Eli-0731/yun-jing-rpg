@@ -20,7 +20,7 @@ namespace YunJing.Editor
     public static class D2MossVerify
     {
         const string Models = "Assets/YunJing/Models/D2MossC";   // temporary copy of art/exports, removed by the run script
-        const string Version = "v001";
+        const string Version = "v002";
         static readonly string[] AllIds = { "DP06_01", "DP06_02", "DP06_03", "DP06_04", "DP06_05", "DP06_06" };
         static string[] Ids;   // the ones model_info.json holds
         static readonly HashSet<string> Cloth = new HashSet<string> { "DP06_01", "DP06_02", "DP06_03", "DP06_04", "DP06_05", "DP06_06" };   // the strands over the rim are open at the root: both faces
@@ -76,7 +76,7 @@ namespace YunJing.Editor
             foreach (var id in Ids)
             {
                 Copy(Path.Combine(Repo, "art/exports/d2-moss-c"), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Version}.fbx");
-                Copy(Path.Combine(Repo, "art/textures/d2-moss-c"), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
+                Copy(Path.Combine(Repo, "art/textures/d2-moss-c", Version), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
             }
             AssetDatabase.Refresh();
             foreach (var guid in AssetDatabase.FindAssets("t:Model", new[] { Models }))

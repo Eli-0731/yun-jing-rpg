@@ -22,7 +22,8 @@ REF=ROOT/'art/references';TEX=ROOT/'art/textures'/PKG;OUT=ROOT/'art/exports'/PKG
 sys.path.insert(0,str(ROOT/'art/source/modelling-basics-c'));import meshfix
 for p in (TEX,OUT):p.mkdir(parents=True,exist_ok=True)
 X=np.arange(K.R)[None,:]/K.R;Y=np.arange(K.R)[:,None]/K.R
-RES=1024;VERSION='v001'
+RES=1024;VERSION='v002'
+TEX=TEX/VERSION;TEX.mkdir(parents=True,exist_ok=True)
 
 # ---------------- tiled source textures (D2 smalls, own seeds) ----------------
 def make_sources():
@@ -33,7 +34,7 @@ def make_sources():
     tu=np.clip((fbm(260,1)-.40)*2.6,0,1);big=fbm(6,3);dk=np.clip((fbm(7,3)-.60)*3,0,1)
     t=np.clip(.32+.62*clump*(.65+.35*tu)+.25*(big-.5),0,1)
     col=lerp((.045,.052,.018),(.27,.29,.085),t)   # D2 V6 side by side: lighter olive than v1 of this script*(1-.30*dk[...,None])+dk[...,None]*np.array([.03,.028,.012])
-    S['moss']=(col,1.6*clump+.5*tu+.3*big,3.6,.95,0,0)
+    S['moss']=(col,1.38*clump+.78*tu+.22*big,2.85,.83,0,0)
     K.rng=np.random.default_rng(5602)   # older brown-olive moss for the lower flanks
     cl=fbm(30,1);clump=np.clip((cl-.38)*2.6,0,1);tu=np.clip((fbm(140,1)-.42)*2.4,0,1)
     t=np.clip(.25+.7*clump*(.7+.3*tu)+.25*(fbm(8,3)-.5),0,1)
