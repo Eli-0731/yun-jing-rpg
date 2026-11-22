@@ -1,4 +1,2424 @@
 {
+ "DP14_01": {
+  "id": "DP14_01",
+  "name": "TwigShort",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP14_01_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP14_01_v001.glb",
+   "blend": "art/source/d2-floor-c/DP14_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.222,
+   0.041,
+   0.01
+  ],
+  "body_dimensions_xyz_m": [
+   0.222,
+   0.041,
+   0.01
+  ],
+  "size_limit_xyz_m": [
+   0.26,
+   0.12,
+   0.04
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 228,
+    "triangles_without_detail": 228,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 114,
+    "triangles_without_detail": 114,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 34,
+    "triangles_without_detail": 34,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP14_01_Body_LOD0",
+    "DP14_01_Body_LOD1",
+    "DP14_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP14_01_TwigShort",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP14/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP14_02": {
+  "id": "DP14_02",
+  "name": "TwigForked",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP14_02_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP14_02_v001.glb",
+   "blend": "art/source/d2-floor-c/DP14_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.391,
+   0.038,
+   0.014
+  ],
+  "body_dimensions_xyz_m": [
+   0.391,
+   0.038,
+   0.014
+  ],
+  "size_limit_xyz_m": [
+   0.42,
+   0.14,
+   0.04
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 312,
+    "triangles_without_detail": 312,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 156,
+    "triangles_without_detail": 156,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 46,
+    "triangles_without_detail": 46,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP14_02_Body_LOD0",
+    "DP14_02_Body_LOD1",
+    "DP14_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP14_02_TwigForked",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP14/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP14_03": {
+  "id": "DP14_03",
+  "name": "TwigCurved",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP14_03_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP14_03_v001.glb",
+   "blend": "art/source/d2-floor-c/DP14_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.526,
+   0.106,
+   0.019
+  ],
+  "body_dimensions_xyz_m": [
+   0.526,
+   0.106,
+   0.019
+  ],
+  "size_limit_xyz_m": [
+   0.58,
+   0.22,
+   0.05
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 392,
+    "triangles_without_detail": 392,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 196,
+    "triangles_without_detail": 196,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 58,
+    "triangles_without_detail": 58,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP14_03_Body_LOD0",
+    "DP14_03_Body_LOD1",
+    "DP14_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP14_03_TwigCurved",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 3,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP14/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP14_04": {
+  "id": "DP14_04",
+  "name": "TwigSMossy",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP14_04_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP14_04_v001.glb",
+   "blend": "art/source/d2-floor-c/DP14_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.743,
+   0.127,
+   0.027
+  ],
+  "body_dimensions_xyz_m": [
+   0.743,
+   0.127,
+   0.027
+  ],
+  "size_limit_xyz_m": [
+   0.8,
+   0.26,
+   0.06
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 434,
+    "triangles_without_detail": 434,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 216,
+    "triangles_without_detail": 216,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 65,
+    "triangles_without_detail": 65,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP14_04_Body_LOD0",
+    "DP14_04_Body_LOD1",
+    "DP14_04_Body_LOD2"
+   ]
+  },
+  "material": "M_DP14_04_TwigSMossy",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP14/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP14_05": {
+  "id": "DP14_05",
+  "name": "TwigPeeled",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP14_05_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP14_05_v001.glb",
+   "blend": "art/source/d2-floor-c/DP14_05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.974,
+   0.133,
+   0.026
+  ],
+  "body_dimensions_xyz_m": [
+   0.974,
+   0.133,
+   0.026
+  ],
+  "size_limit_xyz_m": [
+   1.0,
+   0.3,
+   0.07
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 662,
+    "triangles_without_detail": 662,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 330,
+    "triangles_without_detail": 330,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 98,
+    "triangles_without_detail": 98,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP14_05_Body_LOD0",
+    "DP14_05_Body_LOD1",
+    "DP14_05_Body_LOD2"
+   ]
+  },
+  "material": "M_DP14_05_TwigPeeled",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 4,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP14/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP14_06": {
+  "id": "DP14_06",
+  "name": "TwigCrooked",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP14_06_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP14_06_v001.glb",
+   "blend": "art/source/d2-floor-c/DP14_06_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.124,
+   0.222,
+   0.03
+  ],
+  "body_dimensions_xyz_m": [
+   1.124,
+   0.222,
+   0.03
+  ],
+  "size_limit_xyz_m": [
+   1.22,
+   0.4,
+   0.07
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 432,
+    "triangles_without_detail": 432,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 216,
+    "triangles_without_detail": 216,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 64,
+    "triangles_without_detail": 64,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP14_06_Body_LOD0",
+    "DP14_06_Body_LOD1",
+    "DP14_06_Body_LOD2"
+   ]
+  },
+  "material": "M_DP14_06_TwigCrooked",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 1,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP14/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP14_07": {
+  "id": "DP14_07",
+  "name": "TwigStraightFork",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP14_07_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP14_07_v001.glb",
+   "blend": "art/source/d2-floor-c/DP14_07_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.38,
+   0.085,
+   0.034
+  ],
+  "body_dimensions_xyz_m": [
+   1.38,
+   0.085,
+   0.034
+  ],
+  "size_limit_xyz_m": [
+   1.45,
+   0.3,
+   0.08
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 865,
+    "triangles_without_detail": 865,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_07_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_07_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_07_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_07_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 431,
+    "triangles_without_detail": 431,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_07_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_07_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_07_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_07_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 128,
+    "triangles_without_detail": 128,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_07_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_07_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_07_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_07_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP14_07_Body_LOD0",
+    "DP14_07_Body_LOD1",
+    "DP14_07_Body_LOD2"
+   ]
+  },
+  "material": "M_DP14_07_TwigStraightFork",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 6,
+  "coplanar_lifted": 1,
+  "reference": "art/references/DP14/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP14_08": {
+  "id": "DP14_08",
+  "name": "TwigLong",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP14_08_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP14_08_v001.glb",
+   "blend": "art/source/d2-floor-c/DP14_08_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.574,
+   0.128,
+   0.039
+  ],
+  "body_dimensions_xyz_m": [
+   1.574,
+   0.128,
+   0.039
+  ],
+  "size_limit_xyz_m": [
+   1.65,
+   0.36,
+   0.09
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 882,
+    "triangles_without_detail": 882,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_08_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_08_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 440,
+    "triangles_without_detail": 440,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_08_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_08_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 132,
+    "triangles_without_detail": 132,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP14_08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP14_08_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP14_08_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP14_08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP14_08_Body_LOD0",
+    "DP14_08_Body_LOD1",
+    "DP14_08_Body_LOD2"
+   ]
+  },
+  "material": "M_DP14_08_TwigLong",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 7,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP14/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP15_01": {
+  "id": "DP15_01",
+  "name": "BranchForkA",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP15_01_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP15_01_v001.glb",
+   "blend": "art/source/d2-floor-c/DP15_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.9,
+   0.431,
+   0.271
+  ],
+  "body_dimensions_xyz_m": [
+   1.9,
+   0.431,
+   0.271
+  ],
+  "size_limit_xyz_m": [
+   1.9,
+   0.7,
+   0.3
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 928,
+    "triangles_without_detail": 928,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 464,
+    "triangles_without_detail": 464,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 138,
+    "triangles_without_detail": 138,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP15_01_Body_LOD0",
+    "DP15_01_Body_LOD1",
+    "DP15_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP15_01_BranchForkA",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 14,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP15/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP15_02": {
+  "id": "DP15_02",
+  "name": "BranchCurvedTwoFork",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP15_02_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP15_02_v001.glb",
+   "blend": "art/source/d2-floor-c/DP15_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.267,
+   0.814,
+   0.241
+  ],
+  "body_dimensions_xyz_m": [
+   2.267,
+   0.814,
+   0.241
+  ],
+  "size_limit_xyz_m": [
+   2.3,
+   0.9,
+   0.32
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1470,
+    "triangles_without_detail": 1470,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 734,
+    "triangles_without_detail": 734,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 220,
+    "triangles_without_detail": 220,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP15_02_Body_LOD0",
+    "DP15_02_Body_LOD1",
+    "DP15_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP15_02_BranchCurvedTwoFork",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 21,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP15/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP15_03": {
+  "id": "DP15_03",
+  "name": "BranchLongSide",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP15_03_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP15_03_v001.glb",
+   "blend": "art/source/d2-floor-c/DP15_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.5,
+   0.573,
+   0.189
+  ],
+  "body_dimensions_xyz_m": [
+   2.5,
+   0.573,
+   0.189
+  ],
+  "size_limit_xyz_m": [
+   2.5,
+   0.95,
+   0.32
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1076,
+    "triangles_without_detail": 1076,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 538,
+    "triangles_without_detail": 538,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 160,
+    "triangles_without_detail": 160,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP15_03_Body_LOD0",
+    "DP15_03_Body_LOD1",
+    "DP15_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP15_03_BranchLongSide",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 14,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP15/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP15_04": {
+  "id": "DP15_04",
+  "name": "BranchYFork",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP15_04_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP15_04_v001.glb",
+   "blend": "art/source/d2-floor-c/DP15_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   2.8,
+   0.93,
+   0.291
+  ],
+  "body_dimensions_xyz_m": [
+   2.8,
+   0.93,
+   0.291
+  ],
+  "size_limit_xyz_m": [
+   2.8,
+   1.2,
+   0.34
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1332,
+    "triangles_without_detail": 1332,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 666,
+    "triangles_without_detail": 666,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 198,
+    "triangles_without_detail": 198,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP15_04_Body_LOD0",
+    "DP15_04_Body_LOD1",
+    "DP15_04_Body_LOD2"
+   ]
+  },
+  "material": "M_DP15_04_BranchYFork",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 20,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP15/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP15_05": {
+  "id": "DP15_05",
+  "name": "BranchPeeled",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP15_05_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP15_05_v001.glb",
+   "blend": "art/source/d2-floor-c/DP15_05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   3.1,
+   0.473,
+   0.201
+  ],
+  "body_dimensions_xyz_m": [
+   3.1,
+   0.473,
+   0.201
+  ],
+  "size_limit_xyz_m": [
+   3.1,
+   1.0,
+   0.34
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1182,
+    "triangles_without_detail": 1182,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 590,
+    "triangles_without_detail": 590,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 176,
+    "triangles_without_detail": 176,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP15_05_Body_LOD0",
+    "DP15_05_Body_LOD1",
+    "DP15_05_Body_LOD2"
+   ]
+  },
+  "material": "M_DP15_05_BranchPeeled",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 12,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP15/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP15_06": {
+  "id": "DP15_06",
+  "name": "BranchMossy",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP15_06_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP15_06_v001.glb",
+   "blend": "art/source/d2-floor-c/DP15_06_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   3.3,
+   0.584,
+   0.26
+  ],
+  "body_dimensions_xyz_m": [
+   3.3,
+   0.584,
+   0.26
+  ],
+  "size_limit_xyz_m": [
+   3.3,
+   1.3,
+   0.36
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1928,
+    "triangles_without_detail": 1928,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 964,
+    "triangles_without_detail": 964,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 289,
+    "triangles_without_detail": 289,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP15_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP15_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP15_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP15_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP15_06_Body_LOD0",
+    "DP15_06_Body_LOD1",
+    "DP15_06_Body_LOD2"
+   ]
+  },
+  "material": "M_DP15_06_BranchMossy",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 27,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP15/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the branch lies on it with 3–8 mm (40 % of its radius) in the soil, side twigs rise off it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP16_01": {
+  "id": "DP16_01",
+  "name": "BarkHalfTube",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP16_01_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP16_01_v001.glb",
+   "blend": "art/source/d2-floor-c/DP16_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.14,
+   0.082,
+   0.035
+  ],
+  "body_dimensions_xyz_m": [
+   0.14,
+   0.082,
+   0.035
+  ],
+  "size_limit_xyz_m": [
+   0.2,
+   0.14,
+   0.07
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 304,
+    "triangles_without_detail": 304,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 152,
+    "triangles_without_detail": 152,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 44,
+    "triangles_without_detail": 44,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP16_01_Body_LOD0",
+    "DP16_01_Body_LOD1",
+    "DP16_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP16_01_BarkHalfTube",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 1,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP16/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the piece rests on it, its lowest edge 4 mm in the soil",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP16_02": {
+  "id": "DP16_02",
+  "name": "BarkFlatThick",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP16_02_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP16_02_v001.glb",
+   "blend": "art/source/d2-floor-c/DP16_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.238,
+   0.14,
+   0.027
+  ],
+  "body_dimensions_xyz_m": [
+   0.238,
+   0.14,
+   0.027
+  ],
+  "size_limit_xyz_m": [
+   0.3,
+   0.18,
+   0.06
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 524,
+    "triangles_without_detail": 524,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 262,
+    "triangles_without_detail": 262,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 78,
+    "triangles_without_detail": 78,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP16_02_Body_LOD0",
+    "DP16_02_Body_LOD1",
+    "DP16_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP16_02_BarkFlatThick",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 1,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP16/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the piece rests on it, its lowest edge 4 mm in the soil",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP16_03": {
+  "id": "DP16_03",
+  "name": "BarkStripTwisted",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP16_03_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP16_03_v001.glb",
+   "blend": "art/source/d2-floor-c/DP16_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.342,
+   0.053,
+   0.063
+  ],
+  "body_dimensions_xyz_m": [
+   0.342,
+   0.053,
+   0.063
+  ],
+  "size_limit_xyz_m": [
+   0.4,
+   0.12,
+   0.09
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 472,
+    "triangles_without_detail": 472,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 236,
+    "triangles_without_detail": 236,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 70,
+    "triangles_without_detail": 70,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP16_03_Body_LOD0",
+    "DP16_03_Body_LOD1",
+    "DP16_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP16_03_BarkStripTwisted",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 1,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP16/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the piece rests on it, its lowest edge 4 mm in the soil",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP16_04": {
+  "id": "DP16_04",
+  "name": "BarkFlakes",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP16_04_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP16_04_v001.glb",
+   "blend": "art/source/d2-floor-c/DP16_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.191,
+   0.15,
+   0.019
+  ],
+  "body_dimensions_xyz_m": [
+   0.191,
+   0.15,
+   0.019
+  ],
+  "size_limit_xyz_m": [
+   0.26,
+   0.22,
+   0.05
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 960,
+    "triangles_without_detail": 960,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 480,
+    "triangles_without_detail": 480,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 144,
+    "triangles_without_detail": 144,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP16_04_Body_LOD0",
+    "DP16_04_Body_LOD1",
+    "DP16_04_Body_LOD2"
+   ]
+  },
+  "material": "M_DP16_04_BarkFlakes",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 5,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP16/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the piece rests on it, its lowest edge 4 mm in the soil",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP16_05": {
+  "id": "DP16_05",
+  "name": "BarkChunkCurved",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP16_05_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP16_05_v001.glb",
+   "blend": "art/source/d2-floor-c/DP16_05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.29,
+   0.19,
+   0.074
+  ],
+  "body_dimensions_xyz_m": [
+   0.29,
+   0.19,
+   0.074
+  ],
+  "size_limit_xyz_m": [
+   0.36,
+   0.22,
+   0.12
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1002,
+    "triangles_without_detail": 1002,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 501,
+    "triangles_without_detail": 501,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 150,
+    "triangles_without_detail": 150,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP16_05_Body_LOD0",
+    "DP16_05_Body_LOD1",
+    "DP16_05_Body_LOD2"
+   ]
+  },
+  "material": "M_DP16_05_BarkChunkCurved",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP16/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the piece rests on it, its lowest edge 4 mm in the soil",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP16_06": {
+  "id": "DP16_06",
+  "name": "BarkSheetRolled",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP16_06_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP16_06_v001.glb",
+   "blend": "art/source/d2-floor-c/DP16_06_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.384,
+   0.222,
+   0.059
+  ],
+  "body_dimensions_xyz_m": [
+   0.384,
+   0.222,
+   0.059
+  ],
+  "size_limit_xyz_m": [
+   0.46,
+   0.28,
+   0.12
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1016,
+    "triangles_without_detail": 1016,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 508,
+    "triangles_without_detail": 508,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 152,
+    "triangles_without_detail": 152,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP16_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP16_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP16_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP16_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP16_06_Body_LOD0",
+    "DP16_06_Body_LOD1",
+    "DP16_06_Body_LOD2"
+   ]
+  },
+  "material": "M_DP16_06_BarkSheetRolled",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 1,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP16/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the piece rests on it, its lowest edge 4 mm in the soil",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
  "DP17_01": {
   "id": "DP17_01",
   "name": "PebbleRound",
@@ -1691,6 +4111,1337 @@
   "coplanar_lifted": 0,
   "reference": "art/references/DP19/prompt.txt",
   "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP20_01": {
+  "id": "DP20_01",
+  "name": "RootNetCrossing",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP20_01_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP20_01_v001.glb",
+   "blend": "art/source/d2-floor-c/DP20_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.959,
+   0.521,
+   0.058
+  ],
+  "body_dimensions_xyz_m": [
+   0.959,
+   0.521,
+   0.058
+  ],
+  "size_limit_xyz_m": [
+   1.2,
+   0.9,
+   0.1
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1336,
+    "triangles_without_detail": 1336,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 668,
+    "triangles_without_detail": 668,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 200,
+    "triangles_without_detail": 200,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP20_01_Body_LOD0",
+    "DP20_01_Body_LOD1",
+    "DP20_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP20_01_RootNetCrossing",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 16,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP20/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP20_02": {
+  "id": "DP20_02",
+  "name": "RootNetFan",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP20_02_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP20_02_v001.glb",
+   "blend": "art/source/d2-floor-c/DP20_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.175,
+   1.049,
+   0.079
+  ],
+  "body_dimensions_xyz_m": [
+   1.175,
+   1.049,
+   0.079
+  ],
+  "size_limit_xyz_m": [
+   1.4,
+   1.2,
+   0.1
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3406,
+    "triangles_without_detail": 3406,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1702,
+    "triangles_without_detail": 1702,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 509,
+    "triangles_without_detail": 509,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP20_02_Body_LOD0",
+    "DP20_02_Body_LOD1",
+    "DP20_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP20_02_RootNetFan",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 35,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP20/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP20_03": {
+  "id": "DP20_03",
+  "name": "RootKnot",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP20_03_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP20_03_v001.glb",
+   "blend": "art/source/d2-floor-c/DP20_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.279,
+   1.388,
+   0.12
+  ],
+  "body_dimensions_xyz_m": [
+   1.279,
+   1.388,
+   0.12
+  ],
+  "size_limit_xyz_m": [
+   1.6,
+   1.6,
+   0.12
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2064,
+    "triangles_without_detail": 2064,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1032,
+    "triangles_without_detail": 1032,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 308,
+    "triangles_without_detail": 308,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP20_03_Body_LOD0",
+    "DP20_03_Body_LOD1",
+    "DP20_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP20_03_RootKnot",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 23,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP20/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP20_04": {
+  "id": "DP20_04",
+  "name": "RootsParallel",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP20_04_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP20_04_v001.glb",
+   "blend": "art/source/d2-floor-c/DP20_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.551,
+   0.155,
+   0.071
+  ],
+  "body_dimensions_xyz_m": [
+   1.551,
+   0.155,
+   0.071
+  ],
+  "size_limit_xyz_m": [
+   1.7,
+   0.4,
+   0.1
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1256,
+    "triangles_without_detail": 1256,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 627,
+    "triangles_without_detail": 627,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 188,
+    "triangles_without_detail": 188,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP20_04_Body_LOD0",
+    "DP20_04_Body_LOD1",
+    "DP20_04_Body_LOD2"
+   ]
+  },
+  "material": "M_DP20_04_RootsParallel",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 7,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP20/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP20_05": {
+  "id": "DP20_05",
+  "name": "RootNetBranching",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP20_05_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP20_05_v001.glb",
+   "blend": "art/source/d2-floor-c/DP20_05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.162,
+   1.146,
+   0.087
+  ],
+  "body_dimensions_xyz_m": [
+   1.162,
+   1.146,
+   0.087
+  ],
+  "size_limit_xyz_m": [
+   1.95,
+   1.4,
+   0.12
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1572,
+    "triangles_without_detail": 1572,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 785,
+    "triangles_without_detail": 785,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 234,
+    "triangles_without_detail": 234,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP20_05_Body_LOD0",
+    "DP20_05_Body_LOD1",
+    "DP20_05_Body_LOD2"
+   ]
+  },
+  "material": "M_DP20_05_RootNetBranching",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 17,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP20/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP20_06": {
+  "id": "DP20_06",
+  "name": "RootNetWideStones",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP20_06_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP20_06_v001.glb",
+   "blend": "art/source/d2-floor-c/DP20_06_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.912,
+   0.991,
+   0.081
+  ],
+  "body_dimensions_xyz_m": [
+   1.912,
+   0.991,
+   0.081
+  ],
+  "size_limit_xyz_m": [
+   2.3,
+   1.3,
+   0.14
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3988,
+    "triangles_without_detail": 3988,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1994,
+    "triangles_without_detail": 1994,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 598,
+    "triangles_without_detail": 598,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP20_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP20_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP20_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP20_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP20_06_Body_LOD0",
+    "DP20_06_Body_LOD1",
+    "DP20_06_Body_LOD2"
+   ]
+  },
+  "material": "M_DP20_06_RootNetWideStones",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 28,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP20/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP21_01": {
+  "id": "DP21_01",
+  "name": "StumpSmall",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP21_01_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP21_01_v001.glb",
+   "blend": "art/source/d2-floor-c/DP21_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.645,
+   0.605,
+   0.343
+  ],
+  "body_dimensions_xyz_m": [
+   0.645,
+   0.605,
+   0.343
+  ],
+  "size_limit_xyz_m": [
+   0.72,
+   0.72,
+   0.38
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1219,
+    "triangles_without_detail": 1219,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 609,
+    "triangles_without_detail": 609,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 182,
+    "triangles_without_detail": 182,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP21_01_Body_LOD0",
+    "DP21_01_Body_LOD1",
+    "DP21_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP21_01_StumpSmall",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 10,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP21/prompt.txt",
+  "origin": "trunk centre, z = 0 on the ground; the stump foot and the roots run on 6–10 cm under it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP21_02": {
+  "id": "DP21_02",
+  "name": "StumpBrokenSide",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP21_02_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP21_02_v001.glb",
+   "blend": "art/source/d2-floor-c/DP21_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.038,
+   1.05,
+   0.5
+  ],
+  "body_dimensions_xyz_m": [
+   1.038,
+   1.05,
+   0.5
+  ],
+  "size_limit_xyz_m": [
+   1.05,
+   1.05,
+   0.6
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1666,
+    "triangles_without_detail": 1666,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 832,
+    "triangles_without_detail": 832,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 249,
+    "triangles_without_detail": 249,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP21_02_Body_LOD0",
+    "DP21_02_Body_LOD1",
+    "DP21_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP21_02_StumpBrokenSide",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 12,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP21/prompt.txt",
+  "origin": "trunk centre, z = 0 on the ground; the stump foot and the roots run on 6–10 cm under it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP21_03": {
+  "id": "DP21_03",
+  "name": "StumpSplinter",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP21_03_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP21_03_v001.glb",
+   "blend": "art/source/d2-floor-c/DP21_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.266,
+   1.208,
+   0.653
+  ],
+  "body_dimensions_xyz_m": [
+   1.266,
+   1.208,
+   0.653
+  ],
+  "size_limit_xyz_m": [
+   1.4,
+   1.4,
+   0.82
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1787,
+    "triangles_without_detail": 1787,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 893,
+    "triangles_without_detail": 893,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 268,
+    "triangles_without_detail": 268,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP21_03_Body_LOD0",
+    "DP21_03_Body_LOD1",
+    "DP21_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP21_03_StumpSplinter",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 12,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP21/prompt.txt",
+  "origin": "trunk centre, z = 0 on the ground; the stump foot and the roots run on 6–10 cm under it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP21_04": {
+  "id": "DP21_04",
+  "name": "StumpSplit",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP21_04_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP21_04_v001.glb",
+   "blend": "art/source/d2-floor-c/DP21_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.79,
+   1.571,
+   1.081
+  ],
+  "body_dimensions_xyz_m": [
+   1.79,
+   1.571,
+   1.081
+  ],
+  "size_limit_xyz_m": [
+   1.8,
+   1.8,
+   1.12
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2163,
+    "triangles_without_detail": 2163,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1080,
+    "triangles_without_detail": 1080,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 324,
+    "triangles_without_detail": 324,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP21_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP21_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP21_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP21_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP21_04_Body_LOD0",
+    "DP21_04_Body_LOD1",
+    "DP21_04_Body_LOD2"
+   ]
+  },
+  "material": "M_DP21_04_StumpSplit",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 14,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP21/prompt.txt",
+  "origin": "trunk centre, z = 0 on the ground; the stump foot and the roots run on 6–10 cm under it",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP22_01": {
+  "id": "DP22_01",
+  "name": "PuddleLeavesTwigs",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP22_01_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP22_01_v001.glb",
+   "blend": "art/source/d2-floor-c/DP22_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.476,
+   0.422,
+   0.06
+  ],
+  "body_dimensions_xyz_m": [
+   0.476,
+   0.422,
+   0.06
+  ],
+  "size_limit_xyz_m": [
+   0.8,
+   0.7,
+   0.06
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1178,
+    "triangles_without_detail": 1178,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP22_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP22_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP22_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP22_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 588,
+    "triangles_without_detail": 588,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP22_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP22_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP22_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP22_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 176,
+    "triangles_without_detail": 176,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP22_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP22_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP22_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP22_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP22_01_Body_LOD0",
+    "DP22_01_Body_LOD1",
+    "DP22_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP22_01_PuddleLeavesTwigs",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 21,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP22/prompt.txt",
+  "origin": "footprint centre, z = 0 on the water line of the DS03 puddle: the leaves float on it or dip under, the twigs lie half sunk",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one"
  }
 }

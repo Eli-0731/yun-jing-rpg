@@ -223,4 +223,500 @@ PASS DP19_03: no detailObjects, and no Detail_ mesh in the model
 PASS DP19_03: Detail_* off still shows the body (1 mesh per LOD)
 PASS DP19_03: no collider in the model
 PASS DP19_03: cloth material renders both faces (Cull Off)
+PASS DP14_01: Albedo / MaskURP / Normal textures found
+PASS DP14_01: textures 1024x1024 (1024 or less)
+PASS DP14_01: DP14_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP14_01: imported size 0.222 x 0.041 x 0.010 m matches model_info 0.222 x 0.041 x 0.01 within 2 cm
+PASS DP14_01: within the work pack's limit 0.26 x 0.12 x 0.04 m
+PASS DP14_01: sinks 0.3 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP14_01: triangles LOD0/1/2 = 228 / 114 / 34 (50% / 15%), model_info 228 / 114 / 34
+PASS DP14_01: LOD0 228 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP14_01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP14_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP14_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP14_01: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP14_01: no detailObjects, and no Detail_ mesh in the model
+PASS DP14_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP14_01: no collider in the model
+PASS DP14_01: cloth material renders both faces (Cull Off)
+PASS DP14_02: Albedo / MaskURP / Normal textures found
+PASS DP14_02: textures 1024x1024 (1024 or less)
+PASS DP14_02: DP14_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP14_02: imported size 0.391 x 0.038 x 0.014 m matches model_info 0.391 x 0.038 x 0.014 within 2 cm
+PASS DP14_02: within the work pack's limit 0.42 x 0.14 x 0.04 m
+PASS DP14_02: sinks 0.4 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP14_02: triangles LOD0/1/2 = 312 / 156 / 46 (50% / 15%), model_info 312 / 156 / 46
+PASS DP14_02: LOD0 312 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP14_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP14_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP14_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP14_02: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP14_02: no detailObjects, and no Detail_ mesh in the model
+PASS DP14_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP14_02: no collider in the model
+PASS DP14_02: cloth material renders both faces (Cull Off)
+PASS DP14_03: Albedo / MaskURP / Normal textures found
+PASS DP14_03: textures 1024x1024 (1024 or less)
+PASS DP14_03: DP14_03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP14_03: imported size 0.526 x 0.106 x 0.019 m matches model_info 0.526 x 0.106 x 0.019 within 2 cm
+PASS DP14_03: within the work pack's limit 0.58 x 0.22 x 0.05 m
+PASS DP14_03: sinks 0.4 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP14_03: triangles LOD0/1/2 = 392 / 196 / 58 (50% / 15%), model_info 392 / 196 / 58
+PASS DP14_03: LOD0 392 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP14_03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP14_03: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP14_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP14_03: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP14_03: no detailObjects, and no Detail_ mesh in the model
+PASS DP14_03: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP14_03: no collider in the model
+PASS DP14_03: cloth material renders both faces (Cull Off)
+PASS DP14_04: Albedo / MaskURP / Normal textures found
+PASS DP14_04: textures 1024x1024 (1024 or less)
+PASS DP14_04: DP14_04_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP14_04: imported size 0.743 x 0.128 x 0.027 m matches model_info 0.743 x 0.127 x 0.027 within 2 cm
+PASS DP14_04: within the work pack's limit 0.8 x 0.26 x 0.06 m
+PASS DP14_04: sinks 0.5 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP14_04: triangles LOD0/1/2 = 434 / 216 / 65 (50% / 15%), model_info 434 / 216 / 65
+PASS DP14_04: LOD0 434 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP14_04: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP14_04: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP14_04: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP14_04: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP14_04: no detailObjects, and no Detail_ mesh in the model
+PASS DP14_04: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP14_04: no collider in the model
+PASS DP14_04: cloth material renders both faces (Cull Off)
+PASS DP14_05: Albedo / MaskURP / Normal textures found
+PASS DP14_05: textures 1024x1024 (1024 or less)
+PASS DP14_05: DP14_05_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP14_05: imported size 0.974 x 0.133 x 0.026 m matches model_info 0.974 x 0.133 x 0.026 within 2 cm
+PASS DP14_05: within the work pack's limit 1 x 0.3 x 0.07 m
+PASS DP14_05: sinks 0.5 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP14_05: triangles LOD0/1/2 = 662 / 330 / 98 (50% / 15%), model_info 662 / 330 / 98
+PASS DP14_05: LOD0 662 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP14_05: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP14_05: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP14_05: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP14_05: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP14_05: no detailObjects, and no Detail_ mesh in the model
+PASS DP14_05: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP14_05: no collider in the model
+PASS DP14_05: cloth material renders both faces (Cull Off)
+PASS DP14_06: Albedo / MaskURP / Normal textures found
+PASS DP14_06: textures 1024x1024 (1024 or less)
+PASS DP14_06: DP14_06_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP14_06: imported size 1.124 x 0.222 x 0.030 m matches model_info 1.124 x 0.222 x 0.03 within 2 cm
+PASS DP14_06: within the work pack's limit 1.22 x 0.4 x 0.07 m
+PASS DP14_06: sinks 0.6 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP14_06: triangles LOD0/1/2 = 432 / 216 / 64 (50% / 15%), model_info 432 / 216 / 64
+PASS DP14_06: LOD0 432 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP14_06: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP14_06: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP14_06: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP14_06: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP14_06: no detailObjects, and no Detail_ mesh in the model
+PASS DP14_06: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP14_06: no collider in the model
+PASS DP14_06: cloth material renders both faces (Cull Off)
+PASS DP14_07: Albedo / MaskURP / Normal textures found
+PASS DP14_07: textures 1024x1024 (1024 or less)
+PASS DP14_07: DP14_07_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP14_07: imported size 1.380 x 0.085 x 0.034 m matches model_info 1.38 x 0.085 x 0.034 within 2 cm
+PASS DP14_07: within the work pack's limit 1.45 x 0.3 x 0.08 m
+PASS DP14_07: sinks 0.6 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP14_07: triangles LOD0/1/2 = 865 / 431 / 128 (50% / 15%), model_info 865 / 431 / 128
+PASS DP14_07: LOD0 865 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP14_07: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP14_07: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP14_07: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP14_07: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP14_07: no detailObjects, and no Detail_ mesh in the model
+PASS DP14_07: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP14_07: no collider in the model
+PASS DP14_07: cloth material renders both faces (Cull Off)
+PASS DP14_08: Albedo / MaskURP / Normal textures found
+PASS DP14_08: textures 1024x1024 (1024 or less)
+PASS DP14_08: DP14_08_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP14_08: imported size 1.574 x 0.129 x 0.039 m matches model_info 1.574 x 0.128 x 0.039 within 2 cm
+PASS DP14_08: within the work pack's limit 1.65 x 0.36 x 0.09 m
+PASS DP14_08: sinks 0.8 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP14_08: triangles LOD0/1/2 = 882 / 440 / 132 (50% / 15%), model_info 882 / 440 / 132
+PASS DP14_08: LOD0 882 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP14_08: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP14_08: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP14_08: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP14_08: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP14_08: no detailObjects, and no Detail_ mesh in the model
+PASS DP14_08: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP14_08: no collider in the model
+PASS DP14_08: cloth material renders both faces (Cull Off)
+PASS DP15_01: Albedo / MaskURP / Normal textures found
+PASS DP15_01: textures 1024x1024 (1024 or less)
+PASS DP15_01: DP15_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP15_01: imported size 1.900 x 0.431 x 0.271 m matches model_info 1.9 x 0.431 x 0.271 within 2 cm
+PASS DP15_01: within the work pack's limit 1.9 x 0.7 x 0.3 m
+PASS DP15_01: sinks 1.8 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP15_01: triangles LOD0/1/2 = 928 / 464 / 138 (50% / 15%), model_info 928 / 464 / 138
+PASS DP15_01: LOD0 928 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP15_01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP15_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP15_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP15_01: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP15_01: no detailObjects, and no Detail_ mesh in the model
+PASS DP15_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP15_01: no collider in the model
+PASS DP15_01: cloth material renders both faces (Cull Off)
+PASS DP15_02: Albedo / MaskURP / Normal textures found
+PASS DP15_02: textures 1024x1024 (1024 or less)
+PASS DP15_02: DP15_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP15_02: imported size 2.267 x 0.814 x 0.241 m matches model_info 2.267 x 0.814 x 0.241 within 2 cm
+PASS DP15_02: within the work pack's limit 2.3 x 0.9 x 0.32 m
+PASS DP15_02: sinks 1.5 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP15_02: triangles LOD0/1/2 = 1470 / 734 / 220 (50% / 15%), model_info 1470 / 734 / 220
+PASS DP15_02: LOD0 1470 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP15_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP15_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP15_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP15_02: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP15_02: no detailObjects, and no Detail_ mesh in the model
+PASS DP15_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP15_02: no collider in the model
+PASS DP15_02: cloth material renders both faces (Cull Off)
+PASS DP15_03: Albedo / MaskURP / Normal textures found
+PASS DP15_03: textures 1024x1024 (1024 or less)
+PASS DP15_03: DP15_03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP15_03: imported size 2.500 x 0.573 x 0.189 m matches model_info 2.5 x 0.573 x 0.189 within 2 cm
+PASS DP15_03: within the work pack's limit 2.5 x 0.95 x 0.32 m
+PASS DP15_03: sinks 1.6 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP15_03: triangles LOD0/1/2 = 1076 / 538 / 160 (50% / 15%), model_info 1076 / 538 / 160
+PASS DP15_03: LOD0 1076 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP15_03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP15_03: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP15_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP15_03: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP15_03: no detailObjects, and no Detail_ mesh in the model
+PASS DP15_03: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP15_03: no collider in the model
+PASS DP15_03: cloth material renders both faces (Cull Off)
+PASS DP15_04: Albedo / MaskURP / Normal textures found
+PASS DP15_04: textures 1024x1024 (1024 or less)
+PASS DP15_04: DP15_04_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP15_04: imported size 2.800 x 0.930 x 0.291 m matches model_info 2.8 x 0.93 x 0.291 within 2 cm
+PASS DP15_04: within the work pack's limit 2.8 x 1.2 x 0.34 m
+PASS DP15_04: sinks 1.7 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP15_04: triangles LOD0/1/2 = 1332 / 666 / 198 (50% / 15%), model_info 1332 / 666 / 198
+PASS DP15_04: LOD0 1332 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP15_04: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP15_04: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP15_04: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP15_04: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP15_04: no detailObjects, and no Detail_ mesh in the model
+PASS DP15_04: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP15_04: no collider in the model
+PASS DP15_04: cloth material renders both faces (Cull Off)
+PASS DP15_05: Albedo / MaskURP / Normal textures found
+PASS DP15_05: textures 1024x1024 (1024 or less)
+PASS DP15_05: DP15_05_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP15_05: imported size 3.100 x 0.473 x 0.201 m matches model_info 3.1 x 0.473 x 0.201 within 2 cm
+PASS DP15_05: within the work pack's limit 3.1 x 1 x 0.34 m
+PASS DP15_05: sinks 1.7 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP15_05: triangles LOD0/1/2 = 1182 / 590 / 176 (50% / 15%), model_info 1182 / 590 / 176
+PASS DP15_05: LOD0 1182 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP15_05: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP15_05: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP15_05: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP15_05: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP15_05: no detailObjects, and no Detail_ mesh in the model
+PASS DP15_05: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP15_05: no collider in the model
+PASS DP15_05: cloth material renders both faces (Cull Off)
+PASS DP15_06: Albedo / MaskURP / Normal textures found
+PASS DP15_06: textures 1024x1024 (1024 or less)
+PASS DP15_06: DP15_06_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP15_06: imported size 3.300 x 0.584 x 0.260 m matches model_info 3.3 x 0.584 x 0.26 within 2 cm
+PASS DP15_06: within the work pack's limit 3.3 x 1.3 x 0.36 m
+PASS DP15_06: sinks 1.9 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP15_06: triangles LOD0/1/2 = 1928 / 964 / 289 (50% / 15%), model_info 1928 / 964 / 289
+PASS DP15_06: LOD0 1928 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP15_06: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP15_06: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP15_06: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP15_06: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP15_06: no detailObjects, and no Detail_ mesh in the model
+PASS DP15_06: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP15_06: no collider in the model
+PASS DP15_06: cloth material renders both faces (Cull Off)
+PASS DP16_01: Albedo / MaskURP / Normal textures found
+PASS DP16_01: textures 1024x1024 (1024 or less)
+PASS DP16_01: DP16_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP16_01: imported size 0.140 x 0.082 x 0.035 m matches model_info 0.14 x 0.082 x 0.035 within 2 cm
+PASS DP16_01: within the work pack's limit 0.2 x 0.14 x 0.07 m
+PASS DP16_01: sinks 0.4 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP16_01: triangles LOD0/1/2 = 304 / 152 / 44 (50% / 14%), model_info 304 / 152 / 44
+PASS DP16_01: LOD0 304 ≤ 4,000, LOD1 50% (about 50 %), LOD2 14% (about 15 %)
+PASS DP16_01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP16_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP16_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP16_01: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP16_01: no detailObjects, and no Detail_ mesh in the model
+PASS DP16_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP16_01: no collider in the model
+PASS DP16_01: cloth material renders both faces (Cull Off)
+PASS DP16_02: Albedo / MaskURP / Normal textures found
+PASS DP16_02: textures 1024x1024 (1024 or less)
+PASS DP16_02: DP16_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP16_02: imported size 0.238 x 0.140 x 0.027 m matches model_info 0.238 x 0.14 x 0.027 within 2 cm
+PASS DP16_02: within the work pack's limit 0.3 x 0.18 x 0.06 m
+PASS DP16_02: sinks 0.4 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP16_02: triangles LOD0/1/2 = 524 / 262 / 78 (50% / 15%), model_info 524 / 262 / 78
+PASS DP16_02: LOD0 524 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP16_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP16_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP16_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP16_02: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP16_02: no detailObjects, and no Detail_ mesh in the model
+PASS DP16_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP16_02: no collider in the model
+PASS DP16_02: cloth material renders both faces (Cull Off)
+PASS DP16_03: Albedo / MaskURP / Normal textures found
+PASS DP16_03: textures 1024x1024 (1024 or less)
+PASS DP16_03: DP16_03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP16_03: imported size 0.342 x 0.053 x 0.063 m matches model_info 0.342 x 0.053 x 0.063 within 2 cm
+PASS DP16_03: within the work pack's limit 0.4 x 0.12 x 0.09 m
+PASS DP16_03: sinks 0.4 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP16_03: triangles LOD0/1/2 = 472 / 236 / 70 (50% / 15%), model_info 472 / 236 / 70
+PASS DP16_03: LOD0 472 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP16_03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP16_03: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP16_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP16_03: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP16_03: no detailObjects, and no Detail_ mesh in the model
+PASS DP16_03: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP16_03: no collider in the model
+PASS DP16_03: cloth material renders both faces (Cull Off)
+PASS DP16_04: Albedo / MaskURP / Normal textures found
+PASS DP16_04: textures 1024x1024 (1024 or less)
+PASS DP16_04: DP16_04_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP16_04: imported size 0.191 x 0.150 x 0.019 m matches model_info 0.191 x 0.15 x 0.019 within 2 cm
+PASS DP16_04: within the work pack's limit 0.26 x 0.22 x 0.05 m
+PASS DP16_04: sinks 0.4 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP16_04: triangles LOD0/1/2 = 960 / 480 / 144 (50% / 15%), model_info 960 / 480 / 144
+PASS DP16_04: LOD0 960 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP16_04: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP16_04: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP16_04: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP16_04: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP16_04: no detailObjects, and no Detail_ mesh in the model
+PASS DP16_04: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP16_04: no collider in the model
+PASS DP16_04: cloth material renders both faces (Cull Off)
+PASS DP16_05: Albedo / MaskURP / Normal textures found
+PASS DP16_05: textures 1024x1024 (1024 or less)
+PASS DP16_05: DP16_05_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP16_05: imported size 0.290 x 0.190 x 0.074 m matches model_info 0.29 x 0.19 x 0.074 within 2 cm
+PASS DP16_05: within the work pack's limit 0.36 x 0.22 x 0.12 m
+PASS DP16_05: sinks 0.4 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP16_05: triangles LOD0/1/2 = 1002 / 501 / 150 (50% / 15%), model_info 1002 / 501 / 150
+PASS DP16_05: LOD0 1002 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP16_05: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP16_05: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP16_05: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP16_05: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP16_05: no detailObjects, and no Detail_ mesh in the model
+PASS DP16_05: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP16_05: no collider in the model
+PASS DP16_05: cloth material renders both faces (Cull Off)
+PASS DP16_06: Albedo / MaskURP / Normal textures found
+PASS DP16_06: textures 1024x1024 (1024 or less)
+PASS DP16_06: DP16_06_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP16_06: imported size 0.384 x 0.222 x 0.059 m matches model_info 0.384 x 0.222 x 0.059 within 2 cm
+PASS DP16_06: within the work pack's limit 0.46 x 0.28 x 0.12 m
+PASS DP16_06: sinks 0.4 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP16_06: triangles LOD0/1/2 = 1016 / 508 / 152 (50% / 15%), model_info 1016 / 508 / 152
+PASS DP16_06: LOD0 1016 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP16_06: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP16_06: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP16_06: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP16_06: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP16_06: no detailObjects, and no Detail_ mesh in the model
+PASS DP16_06: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP16_06: no collider in the model
+PASS DP16_06: cloth material renders both faces (Cull Off)
+PASS DP20_01: Albedo / MaskURP / Normal textures found
+PASS DP20_01: textures 1024x1024 (1024 or less)
+PASS DP20_01: DP20_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP20_01: imported size 0.959 x 0.521 x 0.058 m matches model_info 0.959 x 0.521 x 0.058 within 2 cm
+PASS DP20_01: within the work pack's limit 1.2 x 0.9 x 0.1 m
+PASS DP20_01: sinks 2.9 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP20_01: triangles LOD0/1/2 = 1336 / 668 / 200 (50% / 15%), model_info 1336 / 668 / 200
+PASS DP20_01: LOD0 1336 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP20_01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP20_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP20_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP20_01: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP20_01: no detailObjects, and no Detail_ mesh in the model
+PASS DP20_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP20_01: no collider in the model
+PASS DP20_01: cloth material renders both faces (Cull Off)
+PASS DP20_02: Albedo / MaskURP / Normal textures found
+PASS DP20_02: textures 1024x1024 (1024 or less)
+PASS DP20_02: DP20_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP20_02: imported size 1.175 x 1.049 x 0.079 m matches model_info 1.175 x 1.049 x 0.079 within 2 cm
+PASS DP20_02: within the work pack's limit 1.4 x 1.2 x 0.1 m
+PASS DP20_02: sinks 5.1 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP20_02: triangles LOD0/1/2 = 3406 / 1702 / 509 (50% / 15%), model_info 3406 / 1702 / 509
+PASS DP20_02: LOD0 3406 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP20_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP20_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP20_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP20_02: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP20_02: no detailObjects, and no Detail_ mesh in the model
+PASS DP20_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP20_02: no collider in the model
+PASS DP20_02: cloth material renders both faces (Cull Off)
+PASS DP20_03: Albedo / MaskURP / Normal textures found
+PASS DP20_03: textures 1024x1024 (1024 or less)
+PASS DP20_03: DP20_03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP20_03: imported size 1.279 x 1.388 x 0.120 m matches model_info 1.279 x 1.388 x 0.12 within 2 cm
+PASS DP20_03: within the work pack's limit 1.6 x 1.6 x 0.12 m
+PASS DP20_03: sinks 3.4 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP20_03: triangles LOD0/1/2 = 2064 / 1032 / 308 (50% / 15%), model_info 2064 / 1032 / 308
+PASS DP20_03: LOD0 2064 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP20_03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP20_03: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP20_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP20_03: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP20_03: no detailObjects, and no Detail_ mesh in the model
+PASS DP20_03: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP20_03: no collider in the model
+PASS DP20_03: cloth material renders both faces (Cull Off)
+PASS DP20_04: Albedo / MaskURP / Normal textures found
+PASS DP20_04: textures 1024x1024 (1024 or less)
+PASS DP20_04: DP20_04_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP20_04: imported size 1.552 x 0.155 x 0.072 m matches model_info 1.551 x 0.155 x 0.071 within 2 cm
+PASS DP20_04: within the work pack's limit 1.7 x 0.4 x 0.1 m
+PASS DP20_04: sinks 4.1 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP20_04: triangles LOD0/1/2 = 1256 / 627 / 188 (50% / 15%), model_info 1256 / 627 / 188
+PASS DP20_04: LOD0 1256 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP20_04: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP20_04: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP20_04: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP20_04: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP20_04: no detailObjects, and no Detail_ mesh in the model
+PASS DP20_04: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP20_04: no collider in the model
+PASS DP20_04: cloth material renders both faces (Cull Off)
+PASS DP20_05: Albedo / MaskURP / Normal textures found
+PASS DP20_05: textures 1024x1024 (1024 or less)
+PASS DP20_05: DP20_05_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP20_05: imported size 1.162 x 1.146 x 0.087 m matches model_info 1.162 x 1.146 x 0.087 within 2 cm
+PASS DP20_05: within the work pack's limit 1.95 x 1.4 x 0.12 m
+PASS DP20_05: sinks 4.0 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP20_05: triangles LOD0/1/2 = 1572 / 785 / 234 (50% / 15%), model_info 1572 / 785 / 234
+PASS DP20_05: LOD0 1572 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP20_05: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP20_05: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP20_05: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP20_05: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP20_05: no detailObjects, and no Detail_ mesh in the model
+PASS DP20_05: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP20_05: no collider in the model
+PASS DP20_05: cloth material renders both faces (Cull Off)
+PASS DP20_06: Albedo / MaskURP / Normal textures found
+PASS DP20_06: textures 1024x1024 (1024 or less)
+PASS DP20_06: DP20_06_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP20_06: imported size 1.912 x 0.991 x 0.081 m matches model_info 1.912 x 0.991 x 0.081 within 2 cm
+PASS DP20_06: within the work pack's limit 2.3 x 1.3 x 0.14 m
+PASS DP20_06: sinks 5.0 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP20_06: triangles LOD0/1/2 = 3988 / 1994 / 598 (50% / 15%), model_info 3988 / 1994 / 598
+PASS DP20_06: LOD0 3988 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP20_06: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP20_06: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP20_06: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP20_06: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP20_06: no detailObjects, and no Detail_ mesh in the model
+PASS DP20_06: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP20_06: no collider in the model
+PASS DP20_06: cloth material renders both faces (Cull Off)
+PASS DP21_01: Albedo / MaskURP / Normal textures found
+PASS DP21_01: textures 1024x1024 (1024 or less)
+PASS DP21_01: DP21_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP21_01: imported size 0.645 x 0.605 x 0.343 m matches model_info 0.645 x 0.605 x 0.343 within 2 cm
+PASS DP21_01: within the work pack's limit 0.72 x 0.72 x 0.38 m
+PASS DP21_01: sinks 6.0 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP21_01: triangles LOD0/1/2 = 1219 / 609 / 182 (50% / 15%), model_info 1219 / 609 / 182
+PASS DP21_01: LOD0 1219 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP21_01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP21_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP21_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP21_01: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP21_01: no detailObjects, and no Detail_ mesh in the model
+PASS DP21_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP21_01: no collider in the model
+PASS DP21_01: cloth material renders both faces (Cull Off)
+PASS DP21_02: Albedo / MaskURP / Normal textures found
+PASS DP21_02: textures 1024x1024 (1024 or less)
+PASS DP21_02: DP21_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP21_02: imported size 1.038 x 1.050 x 0.500 m matches model_info 1.038 x 1.05 x 0.5 within 2 cm
+PASS DP21_02: within the work pack's limit 1.05 x 1.05 x 0.6 m
+PASS DP21_02: sinks 5.9 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP21_02: triangles LOD0/1/2 = 1666 / 832 / 249 (50% / 15%), model_info 1666 / 832 / 249
+PASS DP21_02: LOD0 1666 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP21_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP21_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP21_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP21_02: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP21_02: no detailObjects, and no Detail_ mesh in the model
+PASS DP21_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP21_02: no collider in the model
+PASS DP21_02: cloth material renders both faces (Cull Off)
+PASS DP21_03: Albedo / MaskURP / Normal textures found
+PASS DP21_03: textures 1024x1024 (1024 or less)
+PASS DP21_03: DP21_03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP21_03: imported size 1.266 x 1.208 x 0.653 m matches model_info 1.266 x 1.208 x 0.653 within 2 cm
+PASS DP21_03: within the work pack's limit 1.4 x 1.4 x 0.82 m
+PASS DP21_03: sinks 6.1 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP21_03: triangles LOD0/1/2 = 1787 / 893 / 268 (50% / 15%), model_info 1787 / 893 / 268
+PASS DP21_03: LOD0 1787 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP21_03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP21_03: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP21_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP21_03: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP21_03: no detailObjects, and no Detail_ mesh in the model
+PASS DP21_03: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP21_03: no collider in the model
+PASS DP21_03: cloth material renders both faces (Cull Off)
+PASS DP21_04: Albedo / MaskURP / Normal textures found
+PASS DP21_04: textures 1024x1024 (1024 or less)
+PASS DP21_04: DP21_04_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP21_04: imported size 1.790 x 1.571 x 1.081 m matches model_info 1.79 x 1.571 x 1.081 within 2 cm
+PASS DP21_04: within the work pack's limit 1.8 x 1.8 x 1.12 m
+PASS DP21_04: sinks 7.7 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP21_04: triangles LOD0/1/2 = 2163 / 1080 / 324 (50% / 15%), model_info 2163 / 1080 / 324
+PASS DP21_04: LOD0 2163 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP21_04: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP21_04: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP21_04: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP21_04: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP21_04: no detailObjects, and no Detail_ mesh in the model
+PASS DP21_04: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP21_04: no collider in the model
+PASS DP21_04: cloth material renders both faces (Cull Off)
+PASS DP22_01: Albedo / MaskURP / Normal textures found
+PASS DP22_01: textures 1024x1024 (1024 or less)
+PASS DP22_01: DP22_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP22_01: imported size 0.476 x 0.422 x 0.060 m matches model_info 0.476 x 0.422 x 0.06 within 2 cm
+PASS DP22_01: within the work pack's limit 0.8 x 0.7 x 0.06 m
+PASS DP22_01: sinks 3.5 cm under the ground (origin on the ground; half-buried stones, roots and stumps run on below z = 0)
+PASS DP22_01: triangles LOD0/1/2 = 1178 / 588 / 176 (50% / 15%), model_info 1178 / 588 / 176
+PASS DP22_01: LOD0 1178 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP22_01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP22_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP22_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP22_01: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP22_01: no detailObjects, and no Detail_ mesh in the model
+PASS DP22_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP22_01: no collider in the model
+PASS DP22_01: cloth material renders both faces (Cull Off)
 INFO renders written to art/previews/d2-floor-c/unity

@@ -1,0 +1,19 @@
+{
+ "DP16_04_v001": {
+  "DP16_04_Body_LOD0": {
+   "pieces": 5,
+   "within_1mm": 4,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 1,
+   "gap_over_10mm": 0,
+   "largest_mm": 3.5,
+   "worst_at": [
+    [
+     -0.05,
+     -0.035,
+     0.011
+    ]
+   ]
+  }
+ }
+}

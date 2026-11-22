@@ -1,0 +1,13 @@
+{
+ "DP20_01_v001": {
+  "DP20_01_Body_LOD0": {
+   "pieces": 11,
+   "within_1mm": 11,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}

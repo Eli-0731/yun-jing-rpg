@@ -7,7 +7,7 @@
 BL="${BL:?set BL to blender.exe}";S=art/source/d2-floor-c;R=art/source/creekside-life-c;P=art/previews/d2-floor-c;E=art/exports/d2-floor-c;Q=$P/qa
 m(){ cygpath -m "$1" 2>/dev/null || echo "$1"; }
 r(){ MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $R/render_wl.py)" -- "$@" 2>&1 | grep -E "Error|Traceback"; true; }
-ALL="DP17_01 DP17_02 DP17_03 DP17_04 DP17_05 DP17_06 DP17_07 DP17_08 DP18_01 DP18_02 DP18_03 DP19_01 DP19_02 DP19_03"
+ALL="DP17_01 DP17_02 DP17_03 DP17_04 DP17_05 DP17_06 DP17_07 DP17_08 DP18_01 DP18_02 DP18_03 DP19_01 DP19_02 DP19_03 DP14_01 地上的細枯枝 DP14_02 地上的細枯枝 DP14_03 地上的細枯枝 DP14_04 地上的細枯枝 DP14_05 地上的細枯枝 DP14_06 地上的細枯枝 DP14_07 地上的細枯枝 DP14_08 地上的細枯枝 DP15_01 散落的斷枝 DP15_02 散落的斷枝 DP15_03 散落的斷枝 DP15_04 散落的斷枝 DP15_05 散落的斷枝 DP15_06 散落的斷枝 DP16_01 土堆邊的碎木片 DP16_02 土堆邊的碎木片 DP16_03 土堆邊的碎木片 DP16_04 土堆邊的碎木片 DP16_05 土堆邊的碎木片 DP16_06 土堆邊的碎木片 DP20_01 細根與枯枝 DP20_02 細根與枯枝 DP20_03 細根與枯枝 DP20_04 細根與枯枝 DP20_05 細根與枯枝 DP20_06 細根與枯枝 DP21_01 林下的朽木與根 DP21_02 林下的朽木與根 DP21_03 林下的朽木與根 DP21_04 林下的朽木與根 DP22_01 小水窪"
 IDS="${*:-$ALL}";mkdir -p $Q
 for id in $IDS; do
   V=v002;[ -f $E/${id}_v002.glb ] || V=v001;[ -f $E/${id}_$V.glb ] || continue   # DP01 is on v002, later IDs on v001

@@ -1,0 +1,19 @@
+{
+ "DP22_01_v001": {
+  "DP22_01_Body_LOD0": {
+   "pieces": 21,
+   "within_1mm": 19,
+   "gap_1_3mm": 1,
+   "gap_3_10mm": 1,
+   "gap_over_10mm": 0,
+   "largest_mm": 5.0,
+   "worst_at": [
+    [
+     0.163,
+     0.116,
+     0.017
+    ]
+   ]
+  }
+ }
+}

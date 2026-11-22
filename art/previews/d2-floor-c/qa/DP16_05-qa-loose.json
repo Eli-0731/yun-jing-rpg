@@ -1,0 +1,15 @@
+[
+ {
+  "file": "art\\exports\\d2-floor-c\\DP16_05_v001.glb",
+  "objects": 1,
+  "triangles": 1002,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "DP16_05_Body_LOD0",
+    "count": 1,
+    "note": "1 triangle pairs {'side two pieces': 1}, e.g. at [[0.077, 0.079, 0.029, 'n+0+1+1']]"
+   }
+  ]
+ }
+]

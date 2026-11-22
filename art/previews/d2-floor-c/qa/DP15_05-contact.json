@@ -1,0 +1,13 @@
+{
+ "DP15_05_v001": {
+  "DP15_05_Body_LOD0": {
+   "pieces": 12,
+   "within_1mm": 12,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}
