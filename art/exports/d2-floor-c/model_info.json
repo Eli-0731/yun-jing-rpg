@@ -1,0 +1,1696 @@
+{
+ "DP17_01": {
+  "id": "DP17_01",
+  "name": "PebbleRound",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP17_01_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP17_01_v001.glb",
+   "blend": "art/source/d2-floor-c/DP17_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.055,
+   0.052,
+   0.04
+  ],
+  "body_dimensions_xyz_m": [
+   0.055,
+   0.052,
+   0.04
+  ],
+  "size_limit_xyz_m": [
+   0.08,
+   0.08,
+   0.06
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 320,
+    "triangles_without_detail": 320,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 160,
+    "triangles_without_detail": 160,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 48,
+    "triangles_without_detail": 48,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP17_01_Body_LOD0",
+    "DP17_01_Body_LOD1",
+    "DP17_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP17_01_PebbleRound",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 1,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP17/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the lower 30–40 % of each stone is under the ground",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP17_02": {
+  "id": "DP17_02",
+  "name": "PebbleCluster",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP17_02_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP17_02_v001.glb",
+   "blend": "art/source/d2-floor-c/DP17_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.152,
+   0.121,
+   0.1
+  ],
+  "body_dimensions_xyz_m": [
+   0.152,
+   0.121,
+   0.1
+  ],
+  "size_limit_xyz_m": [
+   0.24,
+   0.2,
+   0.1
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 640,
+    "triangles_without_detail": 640,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 320,
+    "triangles_without_detail": 320,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 96,
+    "triangles_without_detail": 96,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP17_02_Body_LOD0",
+    "DP17_02_Body_LOD1",
+    "DP17_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP17_02_PebbleCluster",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 5,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP17/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the lower 30–40 % of each stone is under the ground",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP17_03": {
+  "id": "DP17_03",
+  "name": "StoneFlatMossy",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP17_03_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP17_03_v001.glb",
+   "blend": "art/source/d2-floor-c/DP17_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.15,
+   0.108,
+   0.06
+  ],
+  "body_dimensions_xyz_m": [
+   0.15,
+   0.108,
+   0.06
+  ],
+  "size_limit_xyz_m": [
+   0.18,
+   0.15,
+   0.06
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1623,
+    "triangles_without_detail": 1623,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 810,
+    "triangles_without_detail": 810,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 242,
+    "triangles_without_detail": 242,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP17_03_Body_LOD0",
+    "DP17_03_Body_LOD1",
+    "DP17_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP17_03_StoneFlatMossy",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP17/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the lower 30–40 % of each stone is under the ground",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP17_04": {
+  "id": "DP17_04",
+  "name": "StoneRoundMossy",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP17_04_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP17_04_v001.glb",
+   "blend": "art/source/d2-floor-c/DP17_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.19,
+   0.164,
+   0.14
+  ],
+  "body_dimensions_xyz_m": [
+   0.19,
+   0.164,
+   0.14
+  ],
+  "size_limit_xyz_m": [
+   0.24,
+   0.21,
+   0.14
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1569,
+    "triangles_without_detail": 1569,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 784,
+    "triangles_without_detail": 784,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 235,
+    "triangles_without_detail": 235,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP17_04_Body_LOD0",
+    "DP17_04_Body_LOD1",
+    "DP17_04_Body_LOD2"
+   ]
+  },
+  "material": "M_DP17_04_StoneRoundMossy",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP17/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the lower 30–40 % of each stone is under the ground",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP17_05": {
+  "id": "DP17_05",
+  "name": "StoneAngular",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP17_05_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP17_05_v001.glb",
+   "blend": "art/source/d2-floor-c/DP17_05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.178,
+   0.1,
+   0.247
+  ],
+  "body_dimensions_xyz_m": [
+   0.178,
+   0.1,
+   0.247
+  ],
+  "size_limit_xyz_m": [
+   0.28,
+   0.2,
+   0.26
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1280,
+    "triangles_without_detail": 1280,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 640,
+    "triangles_without_detail": 640,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 192,
+    "triangles_without_detail": 192,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP17_05_Body_LOD0",
+    "DP17_05_Body_LOD1",
+    "DP17_05_Body_LOD2"
+   ]
+  },
+  "material": "M_DP17_05_StoneAngular",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 1,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP17/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the lower 30–40 % of each stone is under the ground",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP17_06": {
+  "id": "DP17_06",
+  "name": "StonePair",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP17_06_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP17_06_v001.glb",
+   "blend": "art/source/d2-floor-c/DP17_06_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.28,
+   0.164,
+   0.16
+  ],
+  "body_dimensions_xyz_m": [
+   0.28,
+   0.164,
+   0.16
+  ],
+  "size_limit_xyz_m": [
+   0.45,
+   0.24,
+   0.16
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2849,
+    "triangles_without_detail": 2849,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1423,
+    "triangles_without_detail": 1423,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 426,
+    "triangles_without_detail": 426,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP17_06_Body_LOD0",
+    "DP17_06_Body_LOD1",
+    "DP17_06_Body_LOD2"
+   ]
+  },
+  "material": "M_DP17_06_StonePair",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 6,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP17/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the lower 30–40 % of each stone is under the ground",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP17_07": {
+  "id": "DP17_07",
+  "name": "StoneMossCap",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP17_07_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP17_07_v001.glb",
+   "blend": "art/source/d2-floor-c/DP17_07_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.298,
+   0.257,
+   0.24
+  ],
+  "body_dimensions_xyz_m": [
+   0.298,
+   0.257,
+   0.24
+  ],
+  "size_limit_xyz_m": [
+   0.34,
+   0.3,
+   0.24
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1627,
+    "triangles_without_detail": 1627,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_07_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_07_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_07_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_07_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 813,
+    "triangles_without_detail": 813,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_07_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_07_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_07_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_07_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 243,
+    "triangles_without_detail": 243,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_07_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_07_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_07_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_07_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP17_07_Body_LOD0",
+    "DP17_07_Body_LOD1",
+    "DP17_07_Body_LOD2"
+   ]
+  },
+  "material": "M_DP17_07_StoneMossCap",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP17/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the lower 30–40 % of each stone is under the ground",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP17_08": {
+  "id": "DP17_08",
+  "name": "StoneLarge",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP17_08_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP17_08_v001.glb",
+   "blend": "art/source/d2-floor-c/DP17_08_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.388,
+   0.318,
+   0.26
+  ],
+  "body_dimensions_xyz_m": [
+   0.388,
+   0.318,
+   0.26
+  ],
+  "size_limit_xyz_m": [
+   0.44,
+   0.38,
+   0.26
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1370,
+    "triangles_without_detail": 1370,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_08_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_08_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 685,
+    "triangles_without_detail": 685,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_08_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_08_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 205,
+    "triangles_without_detail": 205,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP17_08_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP17_08_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP17_08_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP17_08_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP17_08_Body_LOD0",
+    "DP17_08_Body_LOD1",
+    "DP17_08_Body_LOD2"
+   ]
+  },
+  "material": "M_DP17_08_StoneLarge",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP17/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground; the lower 30–40 % of each stone is under the ground",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP18_01": {
+  "id": "DP18_01",
+  "name": "PineConesThree",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP18_01_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP18_01_v001.glb",
+   "blend": "art/source/d2-floor-c/DP18_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.181,
+   0.099,
+   0.054
+  ],
+  "body_dimensions_xyz_m": [
+   0.181,
+   0.099,
+   0.054
+  ],
+  "size_limit_xyz_m": [
+   0.24,
+   0.18,
+   0.07
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2544,
+    "triangles_without_detail": 2544,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP18_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP18_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP18_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP18_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1272,
+    "triangles_without_detail": 1272,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP18_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP18_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP18_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP18_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 381,
+    "triangles_without_detail": 381,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP18_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP18_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP18_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP18_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP18_01_Body_LOD0",
+    "DP18_01_Body_LOD1",
+    "DP18_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP18_01_PineConesThree",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 195,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP18/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP18_02": {
+  "id": "DP18_02",
+  "name": "NutsAndAcorns",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP18_02_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP18_02_v001.glb",
+   "blend": "art/source/d2-floor-c/DP18_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.118,
+   0.132,
+   0.03
+  ],
+  "body_dimensions_xyz_m": [
+   0.118,
+   0.132,
+   0.03
+  ],
+  "size_limit_xyz_m": [
+   0.24,
+   0.22,
+   0.05
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 960,
+    "triangles_without_detail": 960,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP18_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP18_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP18_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP18_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 480,
+    "triangles_without_detail": 480,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP18_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP18_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP18_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP18_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 144,
+    "triangles_without_detail": 144,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP18_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP18_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP18_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP18_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP18_02_Body_LOD0",
+    "DP18_02_Body_LOD1",
+    "DP18_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP18_02_NutsAndAcorns",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 16,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP18/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP18_03": {
+  "id": "DP18_03",
+  "name": "WildFruits",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP18_03_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP18_03_v001.glb",
+   "blend": "art/source/d2-floor-c/DP18_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.175,
+   0.16,
+   0.029
+  ],
+  "body_dimensions_xyz_m": [
+   0.175,
+   0.16,
+   0.029
+  ],
+  "size_limit_xyz_m": [
+   0.2,
+   0.16,
+   0.05
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 752,
+    "triangles_without_detail": 752,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP18_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP18_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP18_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP18_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 376,
+    "triangles_without_detail": 376,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP18_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP18_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP18_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP18_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 112,
+    "triangles_without_detail": 112,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP18_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP18_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP18_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP18_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP18_03_Body_LOD0",
+    "DP18_03_Body_LOD1",
+    "DP18_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP18_03_WildFruits",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 10,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP18/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP19_01": {
+  "id": "DP19_01",
+  "name": "LeafPileSmall",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP19_01_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP19_01_v001.glb",
+   "blend": "art/source/d2-floor-c/DP19_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.383,
+   0.348,
+   0.09
+  ],
+  "body_dimensions_xyz_m": [
+   0.383,
+   0.348,
+   0.09
+  ],
+  "size_limit_xyz_m": [
+   0.4,
+   0.36,
+   0.09
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2080,
+    "triangles_without_detail": 2080,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP19_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP19_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP19_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP19_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1040,
+    "triangles_without_detail": 1040,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP19_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP19_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP19_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP19_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 312,
+    "triangles_without_detail": 312,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP19_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP19_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP19_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP19_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP19_01_Body_LOD0",
+    "DP19_01_Body_LOD1",
+    "DP19_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP19_01_LeafPileSmall",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 122,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP19/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP19_02": {
+  "id": "DP19_02",
+  "name": "LeafPileMedium",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP19_02_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP19_02_v001.glb",
+   "blend": "art/source/d2-floor-c/DP19_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.605,
+   0.569,
+   0.126
+  ],
+  "body_dimensions_xyz_m": [
+   0.605,
+   0.569,
+   0.126
+  ],
+  "size_limit_xyz_m": [
+   0.68,
+   0.6,
+   0.14
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2920,
+    "triangles_without_detail": 2920,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP19_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP19_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP19_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP19_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1460,
+    "triangles_without_detail": 1460,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP19_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP19_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP19_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP19_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 438,
+    "triangles_without_detail": 438,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP19_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP19_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP19_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP19_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP19_02_Body_LOD0",
+    "DP19_02_Body_LOD1",
+    "DP19_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP19_02_LeafPileMedium",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 232,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP19/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP19_03": {
+  "id": "DP19_03",
+  "name": "LeafDrift",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-floor-c/DP19_03_v001.fbx",
+   "glb": "art/exports/d2-floor-c/DP19_03_v001.glb",
+   "blend": "art/source/d2-floor-c/DP19_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.914,
+   0.344,
+   0.13
+  ],
+  "body_dimensions_xyz_m": [
+   0.914,
+   0.344,
+   0.13
+  ],
+  "size_limit_xyz_m": [
+   1.0,
+   0.4,
+   0.13
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3040,
+    "triangles_without_detail": 3040,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP19_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP19_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP19_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP19_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1520,
+    "triangles_without_detail": 1520,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP19_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP19_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP19_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP19_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 456,
+    "triangles_without_detail": 456,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP19_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP19_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP19_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP19_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP19_03_Body_LOD0",
+    "DP19_03_Body_LOD1",
+    "DP19_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP19_03_LeafDrift",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 242,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP19/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ }
+}

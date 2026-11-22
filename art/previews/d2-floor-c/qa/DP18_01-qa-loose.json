@@ -1,0 +1,15 @@
+[
+ {
+  "file": "art\\exports\\d2-floor-c\\DP18_01_v001.glb",
+  "objects": 1,
+  "triangles": 2544,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "DP18_01_Body_LOD0",
+    "count": 8,
+    "note": "8 triangle pairs {'side two pieces': 7, 'side z<0.02 two pieces': 1}, e.g. at [[-0.071, 0.026, 0.023, 'n-0+1-1'], [-0.071, 0.026, 0.023, 'n-0+1-1'], [-0.035, -0.012, 0.02, 'n-1-0+1'], [-0.036, -0.01, 0.02, 'n-1+0+1'], [-0.036, -0.01, 0.02, 'n-1+0+1'], [0.055, 0.037, 0.018, 'n+1-0-0']]"
+   }
+  ]
+ }
+]
