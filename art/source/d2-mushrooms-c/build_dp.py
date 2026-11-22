@@ -22,8 +22,10 @@ REF=ROOT/'art/references';TEX=ROOT/'art/textures'/PKG;OUT=ROOT/'art/exports'/PKG
 sys.path.insert(0,str(ROOT/'art/source/modelling-basics-c'));import meshfix
 for p in (TEX,OUT):p.mkdir(parents=True,exist_ok=True)
 X=np.arange(K.R)[None,:]/K.R;Y=np.arange(K.R)[:,None]/K.R
-RES=1024;VERSION='v002'
-TEX=TEX/VERSION;TEX.mkdir(parents=True,exist_ok=True)
+RES=1024
+VERSIONS={'DP01_01':'v002','DP01_02':'v002','DP01_03':'v002','DP01_04':'v002'}   # DP01 is on its second version; every later ID starts at v001
+TEX0=TEX
+SRC_HOOKS=[]   # extra source textures from the item files (DP02 white caps, DP03 brackets, DP04 slime mould): fn(S) adds entries to S
 
 # ---------------- tiled source textures (D2 smalls, own seeds) ----------------
 def make_sources():
@@ -60,6 +62,7 @@ def make_sources():
     vf=np.clip((fbm(50,2,aniso=40)-.5)*2+.5,0,1);pit=np.clip((fbm(20,2)-.66)*5,0,1)
     fl=np.clip((fbm(18,2,aniso=4)-.58)*5,0,1)   # flakes lifting off
     S['rotwood']=(lerp((.08,.06,.045),(.22,.16,.11),np.clip(.5+.7*(fbm(4,3,aniso=6)-.5)+.35*(vf-.5),0,1))*(1-.5*pit[...,None])*(1+.25*fl[...,None]),1.4*vf-1.0*pit+.8*fl,2.6,.95,0,0)   # D2: dark, wet, flaky
+    for fn in SRC_HOOKS:fn(S)
     out={}
     for k,(alb,h,s,r,m,glow) in S.items():
         mat=bpy.data.materials.new('src_'+k);mat.use_nodes=True;nt=mat.node_tree;bs=nt.nodes['Principled BSDF']
@@ -79,6 +82,9 @@ TABLE={
  'DP01_02':('BrownMushroomsStout',(.35,.30,.22),'standard'),
  'DP01_03':('BrownMushroomsRootRow',(.70,.20,.18),'standard'),
  'DP01_04':('BrownMushroomsTuft',(.30,.30,.18),'standard'),
+ 'DP02_01':('WhiteMushroomsMoss',(.25,.22,.20),'standard'),
+ 'DP02_02':('PaleMushroomsTall',(.20,.15,.20),'standard'),
+ 'DP02_03':('WhiteMushroomsLog',(.35,.20,.18),'standard'),
 }
 IDS=tuple(TABLE);TARGET={k:('x',None) for k in IDS}
 LIMIT={k:v[1] for k,v in TABLE.items()};NAME={k:v[0] for k,v in TABLE.items()};MIN_TIER={k:v[2] for k,v in TABLE.items()}
@@ -90,6 +96,8 @@ def sel(*obs):
     for o in obs:o.select_set(True)
     bpy.context.view_layer.objects.active=obs[0]
 def run(pid):
+    global VERSION,TEX
+    VERSION=VERSIONS.get(pid,'v001');TEX=TEX0/VERSION if VERSION!='v001' else TEX0;TEX.mkdir(parents=True,exist_ok=True)   # v001 textures sit in the package folder, later versions in a sub-folder
     rid=pid.split('_')[0];sel_txt=(REF/rid/'prompt.txt').read_text(encoding='utf-8')
     assert '選用：' in sel_txt,f'{pid}: pick a saved three-view before modelling'
     bpy.ops.wm.read_factory_settings(use_empty=True);parts.clear();K.uvr.seed(77)

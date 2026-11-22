@@ -486,5 +486,371 @@
   "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one",
   "notes": "a dense tuft of twelve mushrooms on a mossy chip of rotten wood"
+ },
+ "DP02_01": {
+  "id": "DP02_01",
+  "name": "WhiteMushroomsMoss",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-mushrooms-c/DP02_01_v001.fbx",
+   "glb": "art/exports/d2-mushrooms-c/DP02_01_v001.glb",
+   "blend": "art/source/d2-mushrooms-c/DP02_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.14,
+   0.115,
+   0.164
+  ],
+  "body_dimensions_xyz_m": [
+   0.14,
+   0.115,
+   0.164
+  ],
+  "size_limit_xyz_m": [
+   0.25,
+   0.22,
+   0.2
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3238,
+    "triangles_without_detail": 3238,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP02_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP02_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP02_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP02_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1618,
+    "triangles_without_detail": 1618,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP02_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP02_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP02_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP02_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 484,
+    "triangles_without_detail": 484,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP02_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP02_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP02_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP02_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP02_01_Body_LOD0",
+    "DP02_01_Body_LOD1",
+    "DP02_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP02_01_WhiteMushroomsMoss",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 29,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP02/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": "eight slender ivory mushrooms and two buttons on a moss cushion; caps and gills modelled, grooves in the texture"
+ },
+ "DP02_02": {
+  "id": "DP02_02",
+  "name": "PaleMushroomsTall",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-mushrooms-c/DP02_02_v001.fbx",
+   "glb": "art/exports/d2-mushrooms-c/DP02_02_v001.glb",
+   "blend": "art/source/d2-mushrooms-c/DP02_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.12,
+   0.074,
+   0.176
+  ],
+  "body_dimensions_xyz_m": [
+   0.12,
+   0.074,
+   0.176
+  ],
+  "size_limit_xyz_m": [
+   0.2,
+   0.15,
+   0.2
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1558,
+    "triangles_without_detail": 1558,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP02_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP02_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP02_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP02_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 779,
+    "triangles_without_detail": 779,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP02_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP02_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP02_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP02_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 232,
+    "triangles_without_detail": 232,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP02_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP02_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP02_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP02_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP02_02_Body_LOD0",
+    "DP02_02_Body_LOD1",
+    "DP02_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP02_02_PaleMushroomsTall",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 11,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP02/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": "three tall pale aqua-white mushrooms on a moss mound; the setting view shows them faintly glowing, the model only takes the colour (no emission)"
+ },
+ "DP02_03": {
+  "id": "DP02_03",
+  "name": "WhiteMushroomsLog",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-mushrooms-c/DP02_03_v001.fbx",
+   "glb": "art/exports/d2-mushrooms-c/DP02_03_v001.glb",
+   "blend": "art/source/d2-mushrooms-c/DP02_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.293,
+   0.112,
+   0.18
+  ],
+  "body_dimensions_xyz_m": [
+   0.293,
+   0.112,
+   0.18
+  ],
+  "size_limit_xyz_m": [
+   0.35,
+   0.2,
+   0.18
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2762,
+    "triangles_without_detail": 2762,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP02_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP02_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP02_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP02_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1381,
+    "triangles_without_detail": 1381,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP02_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP02_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP02_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP02_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 413,
+    "triangles_without_detail": 413,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP02_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP02_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP02_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP02_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP02_03_Body_LOD0",
+    "DP02_03_Body_LOD1",
+    "DP02_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP02_03_WhiteMushroomsLog",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 20,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP02/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": "a broken chunk of rotten log (half buried) with moss on top, six small ivory mushrooms"
  }
 }

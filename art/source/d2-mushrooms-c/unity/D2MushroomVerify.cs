@@ -20,10 +20,11 @@ namespace YunJing.Editor
     public static class D2MushroomVerify
     {
         const string Models = "Assets/YunJing/Models/D2MushroomsC";   // temporary copy of art/exports, removed by the run script
-        const string Version = "v002";
-        static readonly string[] AllIds = { "DP01_01", "DP01_02", "DP01_03", "DP01_04" };
+        static string Ver(string id) => id.StartsWith("DP01") ? "v002" : "v001";   // DP01 is on its second version, later IDs on their first
+        static string TexDir(string id) => Ver(id) == "v001" ? "art/textures/d2-mushrooms-c" : "art/textures/d2-mushrooms-c/" + Ver(id);
+        static readonly string[] AllIds = { "DP01_01", "DP01_02", "DP01_03", "DP01_04", "DP02_01", "DP02_02", "DP02_03" };
         static string[] Ids;   // the ones model_info.json holds
-        static readonly HashSet<string> Cloth = new HashSet<string> { "DP01_01", "DP01_02", "DP01_03", "DP01_04" };   // cap top and gills are two open sheets: both faces
+        static readonly HashSet<string> Cloth = new HashSet<string> { "DP01_01", "DP01_02", "DP01_03", "DP01_04", "DP02_01", "DP02_02", "DP02_03" };   // cap top and gills are two open sheets: both faces
         static readonly HashSet<string> Cutout = new HashSet<string>();   // no alpha-clip cards: every cap and gill is geometry
         static readonly HashSet<string> Collide = new HashSet<string>();   // filled from model_info.json: items with a "collision" block
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
@@ -75,8 +76,8 @@ namespace YunJing.Editor
         {
             foreach (var id in Ids)
             {
-                Copy(Path.Combine(Repo, "art/exports/d2-mushrooms-c"), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Version}.fbx");
-                Copy(Path.Combine(Repo, "art/textures/d2-mushrooms-c", Version), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
+                Copy(Path.Combine(Repo, "art/exports/d2-mushrooms-c"), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Ver(id)}.fbx");
+                Copy(Path.Combine(Repo, TexDir(id)), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
             }
             AssetDatabase.Refresh();
             foreach (var guid in AssetDatabase.FindAssets("t:Model", new[] { Models }))
@@ -141,7 +142,7 @@ namespace YunJing.Editor
 
         static GameObject Place(string id, string material, Vector3 at, float yaw)
         {
-            var go = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>($"{Models}/{id}/{id}_{Version}.fbx"));
+            var go = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>($"{Models}/{id}/{id}_{Ver(id)}.fbx"));
             go.transform.SetPositionAndRotation(at, Quaternion.Euler(0, yaw, 0));
             var m = Mat(id, material);
             foreach (var c in go.GetComponentsInChildren<Transform>(true).Where(t => t.name.EndsWith("_Collision")).ToArray())

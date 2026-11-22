@@ -4,8 +4,8 @@
 # then the D2 side-by-side (setting-view crops above, the D2 look-match renders below) → <ID>/d2/<ID>-d2-compare.jpg.
 #   D2=<folder with the D2 V1–V6.png> sh art/source/d2-mushrooms-c/make_sheets.sh [ID ...]
 P=art/previews/d2-mushrooms-c;S=art/source/d2-mushrooms-c
-pick(){ case $1 in DP01_01) echo DP01/DP01A-cand-1;; DP01_02) echo DP01/DP01B-cand-1;; DP01_03) echo DP01/DP01C-cand-1;; DP01_04) echo DP01/DP01D-cand-1;; esac; }
-IDS="${*:-DP01_01 DP01_02 DP01_03 DP01_04}"
+pick(){ case $1 in DP01_01) echo DP01/DP01A-cand-1;; DP01_02) echo DP01/DP01B-cand-1;; DP01_03) echo DP01/DP01C-cand-1;; DP01_04) echo DP01/DP01D-cand-1;; DP02_01) echo DP02/DP02A-cand-3;; DP02_02) echo DP02/DP02B-cand-1;; DP02_03) echo DP02/DP02C-cand-1;; esac; }
+IDS="${*:-DP01_01 DP01_02 DP01_03 DP01_04 DP02_01 DP02_02 DP02_03}"
 for id in $IDS; do
   D=$P/$id
   python art/source/creekside-life-c/compose_sheet.py $D/$id-sheet.jpg "$id 審圖（三視圖 $(basename $(pick $id))、灰模、成品、近看、線框、LOD0–2）" 4 \
