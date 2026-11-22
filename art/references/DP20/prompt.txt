@@ -1,0 +1,109 @@
+DP20 小型細根網（11/15 300h 包 C 批：六種，1–2 m；很細 1–5 cm 的根網，半埋在泥裡；比 DR13 細一級；D2 V6）三視圖與自評（2026-11-23）
+選用：DP20A-cand-1.png（90分）、DP20B-cand-7.png（90分）、DP20C-cand-1.png（90分）、DP20D-cand-5.png（90分）、DP20E-cand-8.png（90分）、DP20F-cand-1.png（90分）
+
+B、D、E 第一次的四張都畫成直立的枯樹、直立扭在一起的根或往下垂的根，不到 90 分；改用俯視、正面、側面的版面重畫（cand-5 到 cand-8）。
+Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每種四張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+- A cand-1：選用。細根交錯半埋，幾個根尖露出。
+- A cand-2：89 太高。
+- A cand-3：89 太平。
+- A cand-4：89 太碎。
+- B cand-1：87 直立像枯樹。
+- B cand-2：87 直立像枯樹。
+- B cand-3：87 直立像枯樹。
+- B cand-4：87 直立像枯樹。
+- B cand-5：89 太密成一片。
+- B cand-6：89 太滿。
+- B cand-7：選用（重畫）。從一條粗根往外扇開的細根網，平躺半埋。
+- B cand-8：88 太圓像一塊墊。
+- C cand-1：選用。細根打結成一團、縫裡長苔。
+- C cand-2：89 太高成土丘。
+- C cand-3：89 太整齊。
+- C cand-4：89 太亮。
+- D cand-1：88 三根直立互纏。
+- D cand-2：88 直立。
+- D cand-3：88 直立。
+- D cand-4：88 直立。
+- D cand-5：選用（重畫）。三條細根平行互纏、平躺半埋。
+- D cand-6：89 太粗。
+- D cand-7：89 太散。
+- D cand-8：89 端部太翹。
+- E cand-1：86 根往下垂、上面一塊土。
+- E cand-2：86 直立像樹。
+- E cand-3：86 直立像樹。
+- E cand-4：86 直立像樹。
+- E cand-5：89 太密。
+- E cand-6：89 太滿。
+- E cand-7：89 太寬。
+- E cand-8：選用（重畫）。一再分岔成細根的根網，平躺半埋。
+- F cand-1：選用。寬的根網、根間卡小石。
+- F cand-2：89 太高。
+- F cand-3：89 太密。
+- F cand-4：89 太窄。
+
+### DP20A
+PROMPT:
+Three-view orthographic turnaround sheet of a small net of thin tree roots about 1 m long, roots 1 to 3 cm thick crossing each other and half buried in dark soil, a few root tips sticking out, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark brown and grey-brown thin roots, deep wet brown soil, a little dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP20B
+PROMPT:
+Three-view orthographic turnaround sheet of a net of thin roots about 1.2 m long spreading in a fan from one thicker root 5 cm thick, half buried in dark soil, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark brown and grey-brown thin roots, deep wet brown soil, a little dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP20C
+PROMPT:
+Three-view orthographic turnaround sheet of a tangled knot of thin roots about 1.3 m across, roots 1 to 4 cm thick looping over each other, half buried, moss in the gaps, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark brown and grey-brown thin roots, deep wet brown soil, a little dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP20D
+PROMPT:
+Three-view orthographic turnaround sheet of a long straight run of three thin parallel roots about 1.5 m long, 2 to 4 cm thick, twisting slightly around each other, half buried, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark brown and grey-brown thin roots, deep wet brown soil, a little dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP20E
+PROMPT:
+Three-view orthographic turnaround sheet of a branching net of thin roots about 1.7 m long, roots splitting again and again into finer roots, half buried in dark soil, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark brown and grey-brown thin roots, deep wet brown soil, a little dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP20F
+PROMPT:
+Three-view orthographic turnaround sheet of a wide net of thin roots about 2 m long and 1 m wide, many 1 to 5 cm roots crossing, half buried, a few small stones caught between them, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark brown and grey-brown thin roots, deep wet brown soil, a little dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+
+# 重畫（cand-5 到 cand-8）的提示詞
+### DP20B -> art/references/DP20/DP20B-cand-5.png, art/references/DP20/DP20B-cand-6.png, art/references/DP20/DP20B-cand-7.png, art/references/DP20/DP20B-cand-8.png
+PROMPT:
+Three-view orthographic sheet (top view, front view, side view) of a FLAT object lying on the ground, a net of thin roots about 1.2 m long spreading in a fan from one thicker root 5 cm thick, lying flat and half buried in a thin layer of dark soil, nothing standing up, no tree, no trunk, a horizontal mat of roots seen from above in the top view, natural colours, no writing. Layout: top view (looking straight down), front view and side view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark brown and grey-brown thin roots, deep wet brown soil, a little dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP20D -> art/references/DP20/DP20D-cand-5.png, art/references/DP20/DP20D-cand-6.png, art/references/DP20/DP20D-cand-7.png, art/references/DP20/DP20D-cand-8.png
+PROMPT:
+Three-view orthographic sheet (top view, front view, side view) of a FLAT object lying on the ground, a long straight run of three thin parallel roots about 1.5 m long, 2 to 4 cm thick, twisting slightly around each other, half buried, natural colours, no writing. Layout: top view (looking straight down), front view and side view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark brown and grey-brown thin roots, deep wet brown soil, a little dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP20E -> art/references/DP20/DP20E-cand-5.png, art/references/DP20/DP20E-cand-6.png, art/references/DP20/DP20E-cand-7.png, art/references/DP20/DP20E-cand-8.png
+PROMPT:
+Three-view orthographic sheet (top view, front view, side view) of a FLAT object lying on the ground, a branching net of thin roots about 1.7 m long, roots splitting again and again into finer roots, lying flat and half buried in a thin layer of dark soil, nothing standing up, no tree, no trunk, a horizontal mat of roots seen from above in the top view, natural colours, no writing. Layout: top view (looking straight down), front view and side view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark brown and grey-brown thin roots, deep wet brown soil, a little dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

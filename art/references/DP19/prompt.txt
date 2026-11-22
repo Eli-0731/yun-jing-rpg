@@ -1,0 +1,40 @@
+DP19 落葉堆（11/15 300h 包 C 批：新三種，和 UG05 大小不同；葉子一片片立體堆疊，乾濕兩種顏色；D2 V2、V6）三視圖與自評（2026-11-23）
+選用：DP19A-cand-2.png（90分）、DP19B-cand-2.png（90分）、DP19C-cand-2.png（90分）
+
+Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每種四張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+- A cand-1：89 太高。
+- A cand-2：選用。低矮一小堆，葉片一片片分開、捲曲。
+- A cand-3：89 太亮。
+- A cand-4：89 太尖。
+- B cand-1：89 太扁。
+- B cand-2：選用。中堆，上層乾紅褐、下層暗濕褐。
+- B cand-3：89 太紅。
+- B cand-4：89 太尖。
+- C cand-1：88 後面一道牆。
+- C cand-2：選用。沿邊緣堆成一長條、上乾下濕。
+- C cand-3：89 太平。
+- C cand-4：89 後面有牆。
+
+### DP19A
+PROMPT:
+Three-view orthographic turnaround sheet of a small low pile of fallen dry leaves about 0.35 m across and 6 cm tall, each leaf a separate curled oval or lobed leaf stacked loosely, russet, ochre and faded brown, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (russet, ochre and faded brown dry leaves, dark wet brown leaves, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP19B
+PROMPT:
+Three-view orthographic turnaround sheet of a medium pile of fallen leaves about 0.6 m across and 0.1 m tall, the top leaves dry russet and ochre, the lower leaves dark wet brown, each leaf separate and curled, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (russet, ochre and faded brown dry leaves, dark wet brown leaves, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP19C
+PROMPT:
+Three-view orthographic turnaround sheet of a long drift of fallen leaves about 0.9 m long and 0.3 m wide piled against an edge, dry russet and ochre on top, dark wet brown underneath, each leaf separate, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (russet, ochre and faded brown dry leaves, dark wet brown leaves, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

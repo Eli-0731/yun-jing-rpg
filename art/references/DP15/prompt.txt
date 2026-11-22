@@ -1,0 +1,73 @@
+DP15 中斷枝（11/15 300h 包 C 批：六種，1.5–3 m；有分岔、一頭斷、一頭有小枝；D2 V4、V6）三視圖與自評（2026-11-23）
+選用：DP15A-cand-1.png（90分）、DP15B-cand-3.png（91分）、DP15C-cand-1.png（91分）、DP15D-cand-1.png（91分）、DP15E-cand-1.png（90分）、DP15F-cand-1.png（91分）
+
+Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每種四張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+- A cand-1：選用。一個叉、一端長淺色碎木刺斷口、另一端細枝。
+- A cand-2：89 太直立像樹。
+- A cand-3：89 太彎。
+- A cand-4：89 叉太短。
+- B cand-1：89 太小。
+- B cand-2：89 側視只有一點。
+- B cand-3：選用。彎曲、兩個叉、碎斷口、細端小枝、苔斑。
+- B cand-4：90 叉太規則。
+- C cand-1：選用。直的長枝一根長側枝、淺色碎斷口。
+- C cand-2：90 側枝太短。
+- C cand-3：90 側視太細。
+- C cand-4：88 直立。
+- D cand-1：選用。中間 Y 形分岔、一端斷、細端多小枝、地衣斑。
+- D cand-2：88 直立像樹。
+- D cand-3：90 枝太多。
+- D cand-4：88 太小。
+- E cand-1：選用。微彎、剝皮處露淺木、一端斷、幾根小枝。
+- E cand-2：89 剝皮太亮。
+- E cand-3：88 太小。
+- E cand-4：88 拱起來。
+- F cand-1：選用。兩根側枝、朝上一面長苔、一端長碎木刺斷口、另一端細枝。
+- F cand-2：90 苔太多。
+- F cand-3：90 側枝往下。
+- F cand-4：90 太粗。
+
+### DP15A
+PROMPT:
+Three-view orthographic turnaround sheet of a medium fallen branch about 1.6 m long and 7 cm thick, one fork, one end broken off with long pale splinters, the other end with a few small twigs, grey-brown bark, lying on the ground, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (grey-brown and dark brown bark, pale fibrous broken wood, dark olive moss, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP15B
+PROMPT:
+Three-view orthographic turnaround sheet of a medium fallen branch about 2 m long and 8 cm thick, curving, two forks, a jagged broken end, small twigs at the thin end, grey-brown bark with moss patches, lying on the ground, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (grey-brown and dark brown bark, pale fibrous broken wood, dark olive moss, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP15C
+PROMPT:
+Three-view orthographic turnaround sheet of a medium fallen branch about 2.2 m long and 9 cm thick, fairly straight with one long side branch, a broken end with pale splinters, grey-brown bark, lying on the ground, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (grey-brown and dark brown bark, pale fibrous broken wood, dark olive moss, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP15D
+PROMPT:
+Three-view orthographic turnaround sheet of a medium fallen branch about 2.5 m long and 9 cm thick, a Y-shaped fork in the middle, one broken end, twiggy thin ends, grey-brown bark with lichen spots, lying on the ground, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (grey-brown and dark brown bark, pale fibrous broken wood, dark olive moss, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP15E
+PROMPT:
+Three-view orthographic turnaround sheet of a medium fallen branch about 2.8 m long and 10 cm thick, gently bent, bark peeling in places showing pale wood, one broken end, a few small twigs, lying on the ground, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (grey-brown and dark brown bark, pale fibrous broken wood, dark olive moss, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP15F
+PROMPT:
+Three-view orthographic turnaround sheet of a medium fallen branch about 3 m long and 11 cm thick, two side branches, moss on the upper side, one end broken off with long pale splinters, small twigs at the other end, lying on the ground, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (grey-brown and dark brown bark, pale fibrous broken wood, dark olive moss, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

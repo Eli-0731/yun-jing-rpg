@@ -1,0 +1,19 @@
+DP22 泡在水窪裡的落葉與枝（11/15 300h 包 C 批：一組；放進 DS03 水窪；葉子濕、顏色深；D2 V3、V6）三視圖與自評（2026-11-23）
+選用：DP22A-cand-1.png（90分）
+
+三視圖用深色平面代表水，模型只做葉與枝。
+Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每種四張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+- A cand-1：選用。十來片濕暗葉和三根細枝平躺，有的半沉。
+- A cand-2：89 太亮。
+- A cand-3：89 葉太少。
+- A cand-4：89 側視太厚。
+
+### DP22A
+PROMPT:
+Three-view orthographic turnaround sheet of a set of soaked fallen leaves and thin twigs lying flat in a shallow forest puddle about 0.8 m across, about a dozen dark wet brown and russet leaves and three thin dark twigs, some leaves half sunk, shown on a plain flat dark surface for the water, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark wet brown and russet leaves, dark grey-brown wet twigs, murky dark water), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
