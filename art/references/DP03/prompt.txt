@@ -1,0 +1,41 @@
+DP03 層狀菌（11/15 300h 包 A 批：三種，靈芝型與層孔菌型；可貼在樹幹、倒木、樹樁側面，一層層往外伸；D2 V4、V5）三視圖與自評（2026-11-22）
+選用：DP03A-cand-3.png（91分）、DP03B-cand-3.png（91分）、DP03C-cand-3.png（90分）
+
+物件句照工作包 DP03 一行寫。V4、V5 在這個解析度看不到清楚的層狀菌，所以形狀照工作包的文字：每件背面是一塊平的樹皮或木頭，可以整片貼在幹、倒木、樹樁上。
+Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每種四張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+- A 薄層架 cand-1：90（27+27+24+12）。很好，側視層間距較平均。
+- A cand-2：90（27+27+24+12）。樹皮塊偏大。
+- A cand-3：91（28+27+24+12）。選用。七片薄層高低交錯，同心紋褐色帶淺奶油色邊，側視菌架往外伸、背面平樹皮。
+- A cand-4：88（27+27+22+12）。側視樹皮在右邊，和正視方向不一致。
+- B 厚蹄形三個 cand-1：88（27+27+22+12）。側視菌長在樹皮的另一面。
+- B cand-2：90（27+27+24+12）。最下一個太大。
+- B cand-3：91（28+27+24+12）。選用。三個厚蹄形由小到大往下疊，紋帶暗褐和鏽褐、圓鈍淺赭邊，側視和正視一致。
+- B cand-4：90（27+27+24+12）。很接近，樹皮右緣不整。
+- C 靈芝三朵 cand-1：90（27+26+25+12）。底下多了綠葉。
+- C cand-2：89（27+26+24+12）。傘面偏紫。
+- C cand-3：90（28+25+25+12）。選用。三朵腎形漆亮的傘、短彎側柄，從一塊朽木側面長出。紅褐比 D2 飽和，建模時降低彩度往暗紅褐、赭褐調。
+- C cand-4：89（27+26+24+12）。側柄纏在一起。
+
+### DP03A -> art/references/DP03/DP03A-cand-1.png, art/references/DP03/DP03A-cand-2.png, art/references/DP03/DP03A-cand-3.png, art/references/DP03/DP03A-cand-4.png
+PROMPT:
+Three-view orthographic turnaround sheet of a stacked group of six thin shelf bracket fungi growing out of a flat vertical patch of dark tree bark, as if on the side of a tree trunk, about 0.34 m wide, 0.30 m tall and sticking out 0.13 m from the bark, overlapping semicircular shelves 8 to 16 cm wide arranged in uneven tiers one above another, each shelf thin with a wavy edge, concentric growth rings of tawny brown, umber and grey-brown on top, a thin pale cream growing rim, pale cream pore surface underneath, the back of the object is a flat piece of bark that can sit flush against a trunk, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (umber, tawny brown and dull rust-brown fungus with cream and pale ochre growing rims, dark grey-brown bark, dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, cute cartoon mushroom, red cap with white dots, fly agaric, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP03B -> art/references/DP03/DP03B-cand-1.png, art/references/DP03/DP03B-cand-2.png, art/references/DP03/DP03B-cand-3.png, art/references/DP03/DP03B-cand-4.png
+PROMPT:
+Three-view orthographic turnaround sheet of three thick hoof-shaped polypore bracket fungi stacked on a flat vertical patch of dark tree bark, as if on the side of a fallen log, about 0.30 m wide, 0.28 m tall and sticking out 0.16 m from the bark, woody hard brackets 10 to 18 cm wide with a rounded hoof profile, ridged concentric bands of dark grey-brown, umber and dull rust, a rounded pale ochre growing edge, flat pale beige pore surface underneath, a little dark olive moss on the bark, the back of the object is a flat piece of bark that can sit flush against a log, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (umber, tawny brown and dull rust-brown fungus with cream and pale ochre growing rims, dark grey-brown bark, dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, cute cartoon mushroom, red cap with white dots, fly agaric, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP03C -> art/references/DP03/DP03C-cand-1.png, art/references/DP03/DP03C-cand-2.png, art/references/DP03/DP03C-cand-3.png, art/references/DP03/DP03C-cand-4.png
+PROMPT:
+Three-view orthographic turnaround sheet of a group of three kidney-shaped lacquered lingzhi (reishi) mushrooms growing from the side of a flat patch of dark rotting wood, as if on the side of a tree stump, about 0.24 m wide, 0.20 m tall and sticking out 0.14 m, each cap 6 to 12 cm wide on a short curved side stalk, smooth subtly varnished caps with soft concentric ridges, deep muted red-brown to umber fading to a pale ochre-cream growing rim, pale cream underside, low saturation, the back of the object is a flat piece of wood that can sit flush against a stump, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (umber, tawny brown and dull rust-brown fungus with cream and pale ochre growing rims, dark grey-brown bark, dark olive moss), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, cute cartoon mushroom, red cap with white dots, fly agaric, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

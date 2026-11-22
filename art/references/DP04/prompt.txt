@@ -1,0 +1,41 @@
+DP04 苔上的小菇與黏菌（11/15 300h 包 A 批：三種，很小 2–5 cm，點綴用；D2 V6）三視圖與自評（2026-11-22）
+選用：DP04A-cand-3.png（90分）、DP04B-cand-1.png（90分）、DP04C-cand-2.png（91分）
+
+物件句照工作包 DP04 一行寫：苔上的小菇、黏菌、長苔細枝上的一排小鈴菇。V6 的苔上到處是這種點綴；黏菌的芥末黃要壓低彩度。
+Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每種四張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+- A 苔上小菇 cand-1：90（27+27+24+12）。苔墊偏高。
+- A cand-2：89（27+27+23+12）。苔上有星形小草，不像苔。
+- A cand-3：90（27+27+24+12）。選用。九朵 2–5 cm 小鈴形菇，傘有細溝，夾著幾顆小鈕；苔墊低、邊緣自然。
+- A cand-4：89（27+27+23+12）。傘偏大，不像 2–5 cm。
+- B 黏菌 cand-1：90（27+27+24+12）。選用。芥末黃的網狀脈爬在苔和朽木屑上，一叢細柄暗褐小球孢子囊，兩處奶油色小團；三面一致。
+- B cand-2：89（27+26+24+12）。黃脈偏亮。
+- B cand-3：89（27+26+24+12）。孢子囊太少。
+- B cand-4：89（27+27+23+12）。黃網碎成點，讀不出脈。
+- C 苔枝一排小鈴菇 cand-1：90（27+27+24+12）。枝端多了一段斷枝。
+- C cand-2：91（28+27+24+12）。選用。一段長苔細枝，頂上一排七朵小鈴菇，側視是圓斷面、蕈在上面。
+- C cand-3：90（27+27+24+12）。苔上有小黃花。
+- C cand-4：90（27+27+24+12）。枝偏粗，像小原木。
+
+### DP04A -> art/references/DP04/DP04A-cand-1.png, art/references/DP04/DP04A-cand-2.png, art/references/DP04/DP04A-cand-3.png, art/references/DP04/DP04A-cand-4.png
+PROMPT:
+Three-view orthographic turnaround sheet of a small patch of dark olive cushion moss about 0.12 m across and 0.03 m tall with about nine tiny bonnet mushrooms growing out of it, each mushroom only 2 to 5 cm tall, hair-thin pale stems, tiny conical-bell caps 0.5 to 1.5 cm across with fine radial grooves, dull tan to ochre-brown caps with paler rims, a few still closed tiny buttons, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dull tan and ochre tiny mushrooms, muted mustard-yellow slime mould, dark olive moss, deep wet brown soil and rotting wood), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, cute cartoon mushroom, red cap with white dots, fly agaric, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP04B -> art/references/DP04/DP04B-cand-1.png, art/references/DP04/DP04B-cand-2.png, art/references/DP04/DP04B-cand-3.png, art/references/DP04/DP04B-cand-4.png
+PROMPT:
+Three-view orthographic turnaround sheet of a small patch of dark olive moss and wet rotting wood chips about 0.14 m across and 0.03 m tall covered by a slime mould, a lumpy branching net of muted mustard-yellow plasmodium veins spreading over the moss, with a cluster of about twenty tiny stalked round sporangia 1 to 2 cm tall, tiny dark umber-brown spheres on hair-thin dark stalks, plus a few small soft cream-ochre blobs, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dull tan and ochre tiny mushrooms, muted mustard-yellow slime mould, dark olive moss, deep wet brown soil and rotting wood), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, cute cartoon mushroom, red cap with white dots, fly agaric, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP04C -> art/references/DP04/DP04C-cand-1.png, art/references/DP04/DP04C-cand-2.png, art/references/DP04/DP04C-cand-3.png, art/references/DP04/DP04C-cand-4.png
+PROMPT:
+Three-view orthographic turnaround sheet of a short moss-covered fallen twig section about 0.15 m long and 0.04 m thick lying on the ground, dark grey-brown bark half covered by dark olive moss, with seven tiny pale bell-shaped mushrooms 2 to 4 cm tall growing along its top in a loose row, hair-thin translucent pale stems, tiny bell caps 0.5 to 1.2 cm with fine radial grooves, pale ivory-grey caps with a faint tan centre, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dull tan and ochre tiny mushrooms, muted mustard-yellow slime mould, dark olive moss, deep wet brown soil and rotting wood), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, cute cartoon mushroom, red cap with white dots, fly agaric, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
