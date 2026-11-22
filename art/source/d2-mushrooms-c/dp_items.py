@@ -26,28 +26,34 @@ def _stem(name,base,top,r0,r1,M,grp,sides=8,bulb=1.25,bend=None,rings=6):
     for fc in bm.faces:fc.smooth=True
     return finish(name,bm,M['stem'],grp,keep_uv=True)
 
-def _cap(name,apex,ax,R,M,grp,seed,segs=24,thick=.22,umbo=.06,droop=.04,wave=.05,under=.10,gill=.035,young=0.):
+def _cap(name,apex,ax,R,M,grp,seed,segs=24,thick=.22,umbo=.06,droop=.04,wave=.05,under=.10,gill=.035,young=0.,arch=1.6):
     """mushroom cap round the axis `ax`, its underside centre at `apex` (the stem top).
     Top (material 'cap'): pole → 3 rings → rim, flat-convex with a low central bump; the rim turns a little down and under.
     Underside (material 'gill'): 2 corrugated rings (gill ridges in the mesh, fine gill lines in the texture) → a fan at the stem.
     young (0–1) closes the cap into a bell (buttons). Both pieces keep a polar 'Tiled' UV: u round the cap, v centre → rim."""
     r_=_rnd.Random(seed);ax,U,V=_frame(ax);apex=Vector(apex);ph=[r_.uniform(0,6.3) for _ in range(4)]
     rot=Matrix.Rotation(r_.uniform(0,math.tau),3,ax);U=rot@U;V=rot@V   # each cap's segments start at a different angle
-    def rad(th):return R*(1+wave*math.sin(3*th+ph[0])+wave*.6*math.sin(5*th+ph[1]))
+    # Broad asymmetry plus small scallops and a chipped sector on mature caps.
+    def rad(th):
+        nick=max(0.,math.cos(th-ph[3]))**45
+        return R*(1+wave*math.sin(3*th+ph[0])+wave*.6*math.sin(5*th+ph[1])
+                  +(1-young)*(.024*math.sin(9*th+ph[2])-.055*nick))
+    def edge_lift(th):
+        return R*(1-young)*(.023*math.sin(5*th+ph[1])+.016*math.sin(11*th+ph[2]))
     def P(th,rho,h):return apex+(U*math.cos(th)+V*math.sin(th))*rho+ax*h
     bell=young
     def htop(f):   # f: 0 centre … 1 rim, in units of R
-        return R*(thick*(1-f**1.6)*(1+bell*.5)+umbo*math.exp(-(f/.22)**2)-droop*f**3-bell*.55*f**2)+R*under   # flat-convex: a low dome with a small central bump (D2 V2/V4/V6), the rim turned down
-    top_f=(.30,.60,.85,1.0);bm=bmesh.new();lay=bm.loops.layers.uv.new('Tiled')
+        return R*(thick*(1-f**arch)*(1+bell*.5)+umbo*math.exp(-(f/.29)**2)-droop*f**3-bell*.55*f**2)+R*under   # flat-convex: a low dome with a small central bump (D2 V2/V4/V6), the rim turned down
+    top_f=(.14,.32,.60,.85,1.0) if R>.028 else (.30,.60,.85,1.0);bm=bmesh.new();lay=bm.loops.layers.uv.new('Tiled')
     pole=bm.verts.new(apex+ax*htop(0));ring=[]
     for f in top_f:
         row=[]
         for k in range(segs):
-            th=math.tau*k/segs;rr=rad(th)*f*(1-.18*bell*f);row.append(bm.verts.new(P(th,rr,htop(f)+R*.012*math.sin(2*th+ph[2])*f)))
+            th=math.tau*k/segs;rr=rad(th)*f*(1-.18*bell*f);row.append(bm.verts.new(P(th,rr,htop(f)+R*.012*math.sin(2*th+ph[2])*f+edge_lift(th)*f**3)))
         ring.append(row)
     rim=[]   # rolled-under edge
     for k in range(segs):
-        th=math.tau*k/segs;rr=rad(th)*(.96-.2*bell);rim.append(bm.verts.new(P(th,rr,htop(1)-R*(.06+.25*bell))))
+        th=math.tau*k/segs;rr=rad(th)*(.96-.2*bell);rim.append(bm.verts.new(P(th,rr,htop(1)-R*(.06+.25*bell)+edge_lift(th))))
     ring.append(rim);fv=list(top_f)+[1.0]
     for k in range(segs):
         k1=(k+1)%segs;u0,u1=k/segs,(k+1)/segs
@@ -64,7 +70,7 @@ def _cap(name,apex,ax,R,M,grp,seed,segs=24,thick=.22,umbo=.06,droop=.04,wave=.05
         row=[]
         for k in range(segs):
             th=math.tau*k/segs;rr=rad(th)*f*(1-.2*bell);g=(gill*R if j>0 else 0)*(1 if k%2 else -1)
-            hh=(htop(1)-R*(.06+.25*bell)) if j==0 else R*under*(.55+.45*(1-f))-R*.02+g
+            hh=(htop(1)-R*(.06+.25*bell)+edge_lift(th)) if j==0 else R*under*(.55+.45*(1-f))-R*.032+g
             row.append(bm.verts.new(P(th,rr,hh)))
         rows.append(row)
     ctr=bm.verts.new(apex+ax*R*under*.9);vf=(1.,.72,.38)
@@ -86,9 +92,11 @@ def _shroom(name,base,lean,H,R,M,grp,seed,segs=24,stem_r=None,bend=.25,bend_dir=
     apex=base+ax*(H-R*(cap.get('thick',.22)+cap.get('umbo',.06)+cap.get('under',.10)))
     side=ax.orthogonal().normalized();side.rotate(Matrix.Rotation(r_.uniform(0,6.3),3,ax))
     if bend_dir is not None:side=Vector(bend_dir).normalized()   # the tuft: the stems bow outwards
-    sides=8 if R>.03 else 6
-    _stem(name+'_stem',base,apex+ax*und*.25,sr*1.15,sr*.85,M,grp,sides=sides,bend=side*H*bend*.12)
-    capax=(ax+Vector((r_.uniform(-.07,.07),r_.uniform(-.07,.07),0))).normalized()
+    sides=10 if R>.045 else (8 if R>.03 else 6)
+    _stem(name+'_stem',base,apex+ax*und*.55,sr*1.15,sr*.85,M,grp,sides=sides,bend=side*H*bend*.12)
+    # The stem can lean away from the cluster while its mature cap stays nearly level.
+    cap_lean = .38 if cap.get('young',0) < .25 else .64
+    capax=Vector((ax.x*cap_lean+r_.uniform(-.11,.11),ax.y*cap_lean+r_.uniform(-.10,.10),1)).normalized()
     _cap(name+'_cap',apex,capax,R,M,grp,seed,segs=segs,**cap)
 
 def _pad(name,c,rx,ry,h,M,grp,seed,segs=18,mat='moss',skirt='soil',depth=.012,rings=(.35,.7,1.0),noise=.25):
@@ -140,10 +148,10 @@ def dp01_01(M):
     _rnd.seed(1001)   # stem rolls and texture offsets: the same model on every rebuild
     _pad('DP01_01_pad',(0,0,0),.085,.065,.014,M,'Body',101,segs=20)
     S=[(250-260,290-260,455,255,.00,40,1),(215-260,135-260,355,200,.035,36,2),(290-260,425-260,320,170,-.03,32,3),
-       (235-260,215-260,220,118,.03,26,4),(300-260,370-260,225,120,-.035,26,5)]
+       (235-260,215-260,220,118,.03,26,4),(295-260,334-260,195,110,.075,26,5)]
     for fx,cx,h,w,dy,segs,i in S:
         H=h*PX;R=w*PX/2;base=(fx*PX,dy*.35,.004)
-        _shroom(f'DP01_01_m{i}',base,((cx-fx)*PX/H,dy*.9/H*.12),H,R,M,'Body',100+i,segs=segs,stem_r=R*.13,bend=.35,thick=.24,umbo=.05,droop=.05,under=.10,gill=.03)
+        _shroom(f'DP01_01_m{i}',base,((cx-fx)*PX/H,dy*.9/H*.12),H,R,M,'Body',100+i,segs=segs,stem_r=R*.13,bend=.35,thick=.255,umbo=.073,droop=.047,under=.125,gill=.051)
     return {'notes':'five slender brown mushrooms on a moss cushion; caps and gills modelled, gill lines in the texture'}
 
 def dp01_02(M):
@@ -153,7 +161,7 @@ def dp01_02(M):
     for i,(base,lean,H,R,sr,segs) in enumerate((((.005,.0,.006),(.05,.02),.118,.056,.0125,44),
                                                  ((-.055,.012,.006),(-.25,.05),.072,.031,.0075,32),
                                                  ((.058,-.008,.006),(.18,-.08),.050,.021,.0055,26)),1):
-        _shroom(f'DP01_02_m{i}',base,lean,H,R,M,'Body',200+i,segs=segs,stem_r=sr,bend=.15,thick=.30,umbo=.05,droop=.07,under=.11,gill=.03)
+        _shroom(f'DP01_02_m{i}',base,lean,H,R,M,'Body',200+i,segs=segs,stem_r=sr,bend=.15,thick=.245,umbo=.084,droop=.062,under=.155,gill=.061,arch=2.7)
     return {'notes':'a stout trio: one large mature mushroom (11 cm cap) and two smaller ones'}
 
 def dp01_03(M):
@@ -168,7 +176,7 @@ def dp01_03(M):
         H=.028+.07*size;young=min(.5,max(0.,.8-1.6*size));R=(.013+.022*size+r_.uniform(-.002,.002))*(1-.25*young)
         segs=20 if R>.02 else 16
         _shroom(f'DP01_03_m{i+1}',(x,y,.004),(r_.uniform(-.08,.08),r_.uniform(-.06,.06)),H,R,M,'Body',310+i,segs=segs,stem_r=R*.19,bend=.2,
-                thick=.24+.2*young,umbo=.04,droop=.06,under=.10,gill=.03,young=young)
+                thick=.24+.2*young,umbo=.04,droop=.06,under=.115,gill=.047,young=young)
     return {'notes':'ten mushrooms in a curved line, to place along the foot of a root'}
 
 def dp01_04(M):
@@ -185,7 +193,7 @@ def dp01_04(M):
         out=(.30 if ring==0 else .75)+r_.uniform(0,.25)
         base=hub+Vector((math.cos(a)*.013,math.sin(a)*.010,-.002*ring))
         _shroom(f'DP01_04_m{i+1}',base,(math.cos(a)*out,math.sin(a)*out*.8),H,R,M,'Body',410+i,segs=16 if R>.016 else 12,stem_r=R*.16,bend=1.3,bend_dir=(math.cos(a),math.sin(a),0),
-                thick=.26+.25*young,umbo=.05,droop=.08,under=.10,gill=.03,young=young)
+                thick=.26+.25*young,umbo=.05,droop=.08,under=.115,gill=.047,young=young)
     return {'notes':'a dense tuft of twelve mushrooms on a mossy chip of rotten wood'}
 
 PROPS.update({'DP01_01':dp01_01,'DP01_02':dp01_02,'DP01_03':dp01_03,'DP01_04':dp01_04})

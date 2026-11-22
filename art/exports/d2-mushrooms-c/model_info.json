@@ -2,11 +2,11 @@
  "DP01_01": {
   "id": "DP01_01",
   "name": "BrownMushroomsTall",
-  "version": "v001",
+  "version": "v002",
   "files": {
-   "fbx": "art/exports/d2-mushrooms-c/DP01_01_v001.fbx",
-   "glb": "art/exports/d2-mushrooms-c/DP01_01_v001.glb",
-   "blend": "art/source/d2-mushrooms-c/DP01_01_v001.blend"
+   "fbx": "art/exports/d2-mushrooms-c/DP01_01_v002.fbx",
+   "glb": "art/exports/d2-mushrooms-c/DP01_01_v002.glb",
+   "blend": "art/source/d2-mushrooms-c/DP01_01_v002.blend"
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
@@ -30,8 +30,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 2764,
-    "triangles_without_detail": 2764,
+    "triangles": 2980,
+    "triangles_without_detail": 2980,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -55,8 +55,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1382,
-    "triangles_without_detail": 1382,
+    "triangles": 1489,
+    "triangles_without_detail": 1489,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -80,8 +80,8 @@
     }
    },
    "LOD2": {
-    "triangles": 414,
-    "triangles_without_detail": 414,
+    "triangles": 447,
+    "triangles_without_detail": 447,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -124,11 +124,11 @@
  "DP01_02": {
   "id": "DP01_02",
   "name": "BrownMushroomsStout",
-  "version": "v001",
+  "version": "v002",
   "files": {
-   "fbx": "art/exports/d2-mushrooms-c/DP01_02_v001.fbx",
-   "glb": "art/exports/d2-mushrooms-c/DP01_02_v001.glb",
-   "blend": "art/source/d2-mushrooms-c/DP01_02_v001.blend"
+   "fbx": "art/exports/d2-mushrooms-c/DP01_02_v002.fbx",
+   "glb": "art/exports/d2-mushrooms-c/DP01_02_v002.glb",
+   "blend": "art/source/d2-mushrooms-c/DP01_02_v002.blend"
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
@@ -152,8 +152,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 1824,
-    "triangles_without_detail": 1824,
+    "triangles": 1998,
+    "triangles_without_detail": 1998,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -177,8 +177,8 @@
     }
    },
    "LOD1": {
-    "triangles": 912,
-    "triangles_without_detail": 912,
+    "triangles": 999,
+    "triangles_without_detail": 999,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -202,8 +202,8 @@
     }
    },
    "LOD2": {
-    "triangles": 273,
-    "triangles_without_detail": 273,
+    "triangles": 298,
+    "triangles_without_detail": 298,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -246,21 +246,21 @@
  "DP01_03": {
   "id": "DP01_03",
   "name": "BrownMushroomsRootRow",
-  "version": "v001",
+  "version": "v002",
   "files": {
-   "fbx": "art/exports/d2-mushrooms-c/DP01_03_v001.fbx",
-   "glb": "art/exports/d2-mushrooms-c/DP01_03_v001.glb",
-   "blend": "art/source/d2-mushrooms-c/DP01_03_v001.blend"
+   "fbx": "art/exports/d2-mushrooms-c/DP01_03_v002.fbx",
+   "glb": "art/exports/d2-mushrooms-c/DP01_03_v002.glb",
+   "blend": "art/source/d2-mushrooms-c/DP01_03_v002.blend"
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
    0.572,
-   0.081,
+   0.082,
    0.113
   ],
   "body_dimensions_xyz_m": [
    0.572,
-   0.081,
+   0.082,
    0.113
   ],
   "size_limit_xyz_m": [
@@ -274,8 +274,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3602,
-    "triangles_without_detail": 3602,
+    "triangles": 3802,
+    "triangles_without_detail": 3802,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -299,8 +299,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1801,
-    "triangles_without_detail": 1801,
+    "triangles": 1900,
+    "triangles_without_detail": 1900,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -324,8 +324,8 @@
     }
    },
    "LOD2": {
-    "triangles": 540,
-    "triangles_without_detail": 540,
+    "triangles": 570,
+    "triangles_without_detail": 570,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -368,22 +368,22 @@
  "DP01_04": {
   "id": "DP01_04",
   "name": "BrownMushroomsTuft",
-  "version": "v001",
+  "version": "v002",
   "files": {
-   "fbx": "art/exports/d2-mushrooms-c/DP01_04_v001.fbx",
-   "glb": "art/exports/d2-mushrooms-c/DP01_04_v001.glb",
-   "blend": "art/source/d2-mushrooms-c/DP01_04_v001.blend"
+   "fbx": "art/exports/d2-mushrooms-c/DP01_04_v002.fbx",
+   "glb": "art/exports/d2-mushrooms-c/DP01_04_v002.glb",
+   "blend": "art/source/d2-mushrooms-c/DP01_04_v002.blend"
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
    0.18,
    0.165,
-   0.138
+   0.136
   ],
   "body_dimensions_xyz_m": [
    0.18,
    0.165,
-   0.138
+   0.136
   ],
   "size_limit_xyz_m": [
    0.3,
@@ -446,8 +446,8 @@
     }
    },
    "LOD2": {
-    "triangles": 550,
-    "triangles_without_detail": 550,
+    "triangles": 549,
+    "triangles_without_detail": 549,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,

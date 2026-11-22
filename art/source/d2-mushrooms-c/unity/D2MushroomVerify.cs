@@ -20,7 +20,7 @@ namespace YunJing.Editor
     public static class D2MushroomVerify
     {
         const string Models = "Assets/YunJing/Models/D2MushroomsC";   // temporary copy of art/exports, removed by the run script
-        const string Version = "v001";
+        const string Version = "v002";
         static readonly string[] AllIds = { "DP01_01", "DP01_02", "DP01_03", "DP01_04" };
         static string[] Ids;   // the ones model_info.json holds
         static readonly HashSet<string> Cloth = new HashSet<string> { "DP01_01", "DP01_02", "DP01_03", "DP01_04" };   // cap top and gills are two open sheets: both faces
@@ -76,7 +76,7 @@ namespace YunJing.Editor
             foreach (var id in Ids)
             {
                 Copy(Path.Combine(Repo, "art/exports/d2-mushrooms-c"), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Version}.fbx");
-                Copy(Path.Combine(Repo, "art/textures/d2-mushrooms-c"), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
+                Copy(Path.Combine(Repo, "art/textures/d2-mushrooms-c", Version), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
             }
             AssetDatabase.Refresh();
             foreach (var guid in AssetDatabase.FindAssets("t:Model", new[] { Models }))

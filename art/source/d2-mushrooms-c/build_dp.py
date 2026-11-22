@@ -22,27 +22,28 @@ REF=ROOT/'art/references';TEX=ROOT/'art/textures'/PKG;OUT=ROOT/'art/exports'/PKG
 sys.path.insert(0,str(ROOT/'art/source/modelling-basics-c'));import meshfix
 for p in (TEX,OUT):p.mkdir(parents=True,exist_ok=True)
 X=np.arange(K.R)[None,:]/K.R;Y=np.arange(K.R)[:,None]/K.R
-RES=1024;VERSION='v001'
+RES=1024;VERSION='v002'
+TEX=TEX/VERSION;TEX.mkdir(parents=True,exist_ok=True)
 
 # ---------------- tiled source textures (D2 smalls, own seeds) ----------------
 def make_sources():
     S={}
     K.rng=np.random.default_rng(5101)   # cap: X round the cap (tileable), Y from the centre (0) to the rim (1)
     streak=np.clip((fbm(40,2,aniso=20)-.5)*2+.5,0,1)   # fine radial streaks (stretched along Y = the radius)
-    blot=fbm(4,3)
+    blot=fbm(4,3);freckles=np.clip((fbm(36,2)-.53)*3.8,0,1)
     spk=np.clip((fbm(90,1)-.80)*9,0,1)*np.clip((Y-.12)*4,0,1)*np.clip((.93-Y)*12,0,1)   # small pale speckles, not in the middle nor on the rim
-    rim=np.clip((Y-.90)*12,0,1);mid=np.clip(1-Y*3.2,0,1)   # pale cream rim, darker umber bump in the middle
-    t=np.clip(.55+.6*(blot-.5)+.30*(streak-.5),0,1)
-    col=lerp((.33,.22,.13),(.56,.42,.27),t)
+    rim=np.clip((Y-.89+(.5-fbm(18,1))*.075)*13,0,1);mid=np.clip(1-Y*3.2,0,1)   # pale cream rim, darker umber bump in the middle
+    t=np.clip(.43+.98*(blot-.5)+.26*(streak-.5),0,1)
+    col=lerp((.29,.16,.09),(.64,.43,.25),t)*(1-.28*freckles[...,None])
     col=col*(1-.30*mid[...,None])
     col=col*(1-rim[...,None])+np.array([.70,.60,.45])[None,None,:]*rim[...,None]
     col=col*(1-.7*spk[...,None])+np.array([.74,.66,.52])[None,None,:]*.7*spk[...,None]   # a few small pale dots
-    S['cap']=(col,.9*streak+.3*blot+.4*spk,1.0,.55,0,0)
+    S['cap']=(col,.9*streak+.5*blot+.4*spk+.45*freckles,1.45,.54,0,0)
     K.rng=np.random.default_rng(5102)   # gills: X round the cap, fine radial lines, cream with dark gaps, darker toward the stem
-    ln=.5+.5*np.sin(math.tau*X*96+1.2*fbm(6,2));gap=np.clip((.25-ln)*4,0,1)
+    ln=.5+.5*np.sin(math.tau*X*58+.42*fbm(6,2));gap=np.clip((.25-ln)*4,0,1)
     t=np.clip(.6+.4*(fbm(5,3)-.5),0,1)
-    col=lerp((.62,.54,.42),(.80,.72,.58),t)*(1-.55*gap[...,None])*(1-.25*np.clip(1-Y*2.5,0,1))[...,None]
-    S['gill']=(col,1.2*ln,1.6,.8,0,0)
+    col=lerp((.62,.54,.42),(.80,.72,.58),t)*(1-.73*gap[...,None])*(1-.25*np.clip(1-Y*2.5,0,1))[...,None]
+    S['gill']=(col,1.6*ln,3.4,.78,0,0)
     K.rng=np.random.default_rng(5103)   # stem: pale cream, fibrous along the length, a little browner at the foot
     fib=np.clip((fbm(60,2,aniso=40)-.5)*2+.5,0,1)
     col=lerp((.42,.34,.24),(.68,.60,.47),np.clip(.55+.5*(fbm(4,3,aniso=6)-.5)+.35*(fib-.5),0,1))*(1-.18*np.clip((fbm(30,2,aniso=10)-.6)*4,0,1))[...,None]   # D2: tan-grey, darker fibre streaks

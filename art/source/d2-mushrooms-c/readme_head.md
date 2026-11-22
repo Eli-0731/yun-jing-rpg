@@ -4,10 +4,10 @@
 | 工作包 | docs/execution/2026-11-15/C-300h-D2-small-life.md，A 批；標準照 docs/execution/2026-11-15/00-300h-共同標準.md |
 | ID | DP01（A 批樣品，四種：DP01_01–DP01_04；DP02–DP05 等樣品審過再做） |
 | 分支／PR | art/c-1115-d2-mushrooms ／ 開 PR 後補 |
-| 版本 | v001（檔名帶 `_v001`；之後改版另存 v002，不覆寫） |
-| 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖、和 D2 設定圖並排）／ In-game Verified：未驗（沒放進正式場景） |
+| 版本 | v002。v001 的母稿、模型及貼圖保留。 |
+| 狀態 | Exported ／ Unity 6000.3.28f1 匯入結果見驗證紀錄／ Blender 並排審圖完成 ／ 正式 D2 場景驗收待驗 |
 | 素材來源 | 原創；三視圖參考在 `art/references/DP01/`；貼圖全部在建模腳本裡畫，沒有外部素材 |
-| 實際工時 | 2026-11-19 03:45–04:35（台灣時間），約 50 分鐘：讀標準、三視圖、建模腳本、灰模三輪、上貼圖、視覺修正兩輪、QA、審圖、Unity 檢查 |
+| 實際工時（v001） | 2026-11-19 03:45–04:35（台灣時間），約 50 分鐘：讀標準、三視圖、建模腳本、灰模三輪、上貼圖、視覺修正兩輪、QA、審圖、Unity 檢查 |
 
 # D2 古樹神木的蕈（d2-mushrooms-c）
 
@@ -23,3 +23,7 @@
 - 建模流程和 yard-roadside-c 的 `build_vg.py` 相同（來源貼圖 → 一張 UV 圖集 → Cycles 烘焙），因為那個套件還沒進 main，所以把流程複製成 `build_dp.py`，工具（`creekside-life-c/wl_kit.py`）用 main 上的。亂數種子固定，重建結果一樣。
 - 重建：`blender -b --factory-startup -P art/source/d2-mushrooms-c/build_dp.py -- DP01_01 [DP01_02 ...] [--clay]`；審圖、QA、D2 對圖用的渲染：`BL=<blender> sh art/source/d2-mushrooms-c/render_reviews.sh`；審圖總表和 D2 並排圖：`D2=<放 D2 V1–V6.png 的資料夾> sh art/source/d2-mushrooms-c/make_sheets.sh`；Unity：`UNITY=<Unity.exe 6000.3.28f1> sh art/source/d2-mushrooms-c/unity/run_unity_check.sh`。
 
+
+**v002**
+- 成熟傘增加不同頻率的環向起伏與小缺口，傘頂加內圈改善中央尖折。大傘降低隆起、放寬傘肩。重做傘緣的淺色分布和褶縫的深淺，調整細長款最小一朵的位置以減少交疊。
+- 使用既有候選及選圖；v002 的貼圖在 `art/textures/d2-mushrooms-c/v002/`。

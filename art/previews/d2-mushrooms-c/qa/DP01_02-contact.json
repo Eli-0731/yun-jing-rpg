@@ -1,12 +1,12 @@
 {
- "DP01_02_v001": {
+ "DP01_02_v002": {
   "DP01_02_Body_LOD0": {
    "pieces": 7,
-   "within_1mm": 6,
-   "gap_1_3mm": 1,
+   "within_1mm": 7,
+   "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
-   "largest_mm": 2.2,
+   "largest_mm": 0.0,
    "worst_at": []
   }
  }
