@@ -22,9 +22,9 @@ namespace YunJing.Editor
         const string Models = "Assets/YunJing/Models/D2MushroomsC";   // temporary copy of art/exports, removed by the run script
         static string Ver(string id) => id.StartsWith("DP01") ? "v002" : "v001";   // DP01 is on its second version, later IDs on their first
         static string TexDir(string id) => Ver(id) == "v001" ? "art/textures/d2-mushrooms-c" : "art/textures/d2-mushrooms-c/" + Ver(id);
-        static readonly string[] AllIds = { "DP01_01", "DP01_02", "DP01_03", "DP01_04", "DP02_01", "DP02_02", "DP02_03" };
+        static readonly string[] AllIds = { "DP01_01", "DP01_02", "DP01_03", "DP01_04", "DP02_01", "DP02_02", "DP02_03", "DP03_01", "DP03_02", "DP03_03" };
         static string[] Ids;   // the ones model_info.json holds
-        static readonly HashSet<string> Cloth = new HashSet<string> { "DP01_01", "DP01_02", "DP01_03", "DP01_04", "DP02_01", "DP02_02", "DP02_03" };   // cap top and gills are two open sheets: both faces
+        static readonly HashSet<string> Cloth = new HashSet<string> { "DP01_01", "DP01_02", "DP01_03", "DP01_04", "DP02_01", "DP02_02", "DP02_03", "DP03_01", "DP03_02", "DP03_03" };   // cap top and gills are two open sheets: both faces
         static readonly HashSet<string> Cutout = new HashSet<string>();   // no alpha-clip cards: every cap and gill is geometry
         static readonly HashSet<string> Collide = new HashSet<string>();   // filled from model_info.json: items with a "collision" block
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
@@ -181,7 +181,10 @@ namespace YunJing.Editor
                 $"{id}: imported size {b.size.x:0.000} x {b.size.z:0.000} x {b.size.y:0.000} m matches model_info {d[0]} x {d[1]} x {d[2]} within 2 cm");
             Check(b.size.x <= lim[0] + .005f && b.size.z <= lim[1] + .005f && b.size.y <= lim[2] + .005f,
                 $"{id}: within the work pack's limit {lim[0]} x {lim[1]} x {lim[2]} m");
-            Check(body.min.y < -.005f && body.min.y > -.03f, $"{id}: the pad runs on {-body.min.y * 100:0.0} cm under the ground (origin on the ground, rim at z = 0)");
+            if (id.StartsWith("DP03"))   // wall pieces: the flat back of the slab is the plane z = 0 (it sits on a trunk), the origin at its bottom, the brackets out to -Z
+                Check(Mathf.Abs(b.max.z) < .003f && Mathf.Abs(b.min.y) < .003f && b.min.z < -.05f, $"{id}: flat back on z = 0 (max z {b.max.z * 100:0.00} cm), bottom on y = 0 ({b.min.y * 100:0.00} cm), brackets out {-b.min.z * 100:0.0} cm to the front");
+            else
+                Check(body.min.y < -.005f && body.min.y > -.03f, $"{id}: the pad runs on {-body.min.y * 100:0.0} cm under the ground (origin on the ground, rim at z = 0)");
             var levels = info.lods.All;
             var tris = Enumerable.Range(0, 3).Select(i => Tris(Level(go, i))).ToArray();
             Check(Enumerable.Range(0, 3).All(i => Mathf.Abs(tris[i] - levels[i].triangles) <= levels[i].triangles * .01f),

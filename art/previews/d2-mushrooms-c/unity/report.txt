@@ -111,4 +111,52 @@ PASS DP02_03: no detailObjects, and no Detail_ mesh in the model
 PASS DP02_03: Detail_* off still shows the body (1 mesh per LOD)
 PASS DP02_03: no collider in the model
 PASS DP02_03: cloth material renders both faces (Cull Off)
+PASS DP03_01: Albedo / MaskURP / Normal textures found
+PASS DP03_01: textures 1024x1024 (1024 or less)
+PASS DP03_01: DP03_01_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP03_01: imported size 0.256 x 0.112 x 0.314 m matches model_info 0.256 x 0.112 x 0.314 within 2 cm
+PASS DP03_01: within the work pack's limit 0.3 x 0.16 x 0.34 m
+PASS DP03_01: flat back on z = 0 (max z 0.00 cm), bottom on y = 0 (0.00 cm), brackets out 11.2 cm to the front
+PASS DP03_01: triangles LOD0/1/2 = 3656 / 1828 / 547 (50% / 15%), model_info 3656 / 1828 / 547
+PASS DP03_01: LOD0 3656 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP03_01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP03_01: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP03_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP03_01: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP03_01: no detailObjects, and no Detail_ mesh in the model
+PASS DP03_01: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP03_01: no collider in the model
+PASS DP03_01: cloth material renders both faces (Cull Off)
+PASS DP03_02: Albedo / MaskURP / Normal textures found
+PASS DP03_02: textures 1024x1024 (1024 or less)
+PASS DP03_02: DP03_02_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP03_02: imported size 0.253 x 0.123 x 0.314 m matches model_info 0.253 x 0.123 x 0.314 within 2 cm
+PASS DP03_02: within the work pack's limit 0.3 x 0.18 x 0.34 m
+PASS DP03_02: flat back on z = 0 (max z 0.00 cm), bottom on y = 0 (0.00 cm), brackets out 12.3 cm to the front
+PASS DP03_02: triangles LOD0/1/2 = 2336 / 1167 / 349 (50% / 15%), model_info 2336 / 1167 / 349
+PASS DP03_02: LOD0 2336 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP03_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP03_02: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP03_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP03_02: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP03_02: no detailObjects, and no Detail_ mesh in the model
+PASS DP03_02: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP03_02: no collider in the model
+PASS DP03_02: cloth material renders both faces (Cull Off)
+PASS DP03_03: Albedo / MaskURP / Normal textures found
+PASS DP03_03: textures 1024x1024 (1024 or less)
+PASS DP03_03: DP03_03_GroundOrigin is the model root; all LOD meshes hang under it
+PASS DP03_03: imported size 0.231 x 0.119 x 0.226 m matches model_info 0.231 x 0.119 x 0.226 within 2 cm
+PASS DP03_03: within the work pack's limit 0.26 x 0.16 x 0.26 m
+PASS DP03_03: flat back on z = 0 (max z 0.00 cm), bottom on y = 0 (0.00 cm), brackets out 11.9 cm to the front
+PASS DP03_03: triangles LOD0/1/2 = 3060 / 1530 / 459 (50% / 15%), model_info 3060 / 1530 / 459
+PASS DP03_03: LOD0 3060 ≤ 4,000, LOD1 50% (about 50 %), LOD2 15% (about 15 %)
+PASS DP03_03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
+PASS DP03_03: 1 material for every LOD and Detail_ mesh (one material)
+PASS DP03_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
+PASS DP03_03: minTier = standard (forest-floor smalls, shown at the standard tier too)
+PASS DP03_03: no detailObjects, and no Detail_ mesh in the model
+PASS DP03_03: Detail_* off still shows the body (1 mesh per LOD)
+PASS DP03_03: no collider in the model
+PASS DP03_03: cloth material renders both faces (Cull Off)
 INFO renders written to art/previews/d2-mushrooms-c/unity

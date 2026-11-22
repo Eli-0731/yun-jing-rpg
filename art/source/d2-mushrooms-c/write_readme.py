@@ -20,6 +20,13 @@ DESC={
   '中間一朵高的（約 17 cm）和兩側兩朵矮的，傘和柄帶淡水青色，照 V6 朽木旁那三朵；設定圖裡它們微微發光，模型只照顏色、不做發光。'),
  'DP02_03':('白色小蕈叢・朽木段上一群','C cand-1（91）',
   '一段半埋的碎朽木（長 0.29 m），頂上一層不規則的苔，五朵小白蕈長在頂上、一朵從斷口邊長出。朽木段往地下 1.5 cm。'),
+
+ 'DP03_01':('層狀菌・薄層架','A cand-3（91）',
+  '六片薄的層架菌高低錯落，長在一片樹皮板上。同心紋是褐、黃褐、灰褐，邊緣一圈淺奶油色，底下是淺色孔面。背面是平的，貼在樹幹或倒木上。'),
+ 'DP03_02':('層狀菌・厚蹄形三個','B cand-3（91）',
+  '三個厚的蹄形多孔菌由小到大往下疊，每個底下留一點間隙。紋帶暗褐、鏽褐，最外緣淺赭色。背面是平的樹皮板。'),
+ 'DP03_03':('層狀菌・靈芝三朵','C cand-3（90）',
+  '三朵腎形的靈芝，短柄從一塊圓的樹樁木頭側面彎出來，傘面暗紅褐帶漆光（粗糙度比其他件低），邊緣淺赭。紅色比三視圖壓暗、壓低彩度。背面是平的。'),
 }
 rows=[]
 for k in sorted(info):
@@ -27,7 +34,7 @@ for k in sorted(info):
     tex=', '.join(sorted({f'{w}×{h}' for w,h in l['LOD0']['textures_px'].values()}))
     rows.append(f"### {k} {name}（{d['name']}，{d['version']}）\n\n{desc}\n\n"
       f"| 項目 | 數字 |\n|---|---|\n| 三視圖 | `art/references/{k[:4]}/`，選用 {ref} |\n"
-      f"| 尺寸（寬 × 深 × 高） | {d['dimensions_xyz_m'][0]} × {d['dimensions_xyz_m'][1]} × {d['dimensions_xyz_m'][2]} m（高度含地下的苔墊） |\n"
+      f"| 尺寸（寬 × 深 × 高） | {d['dimensions_xyz_m'][0]} × {d['dimensions_xyz_m'][1]} × {d['dimensions_xyz_m'][2]} m（{'深是從貼樹的背面往前伸出的距離' if k.startswith('DP03') else '高度含地下的苔墊'}） |\n"
       f"| 三角面 LOD0 / LOD1 / LOD2 | {l['LOD0']['triangles']:,} / {l['LOD1']['triangles']:,} / {l['LOD2']['triangles']:,}（工作包每件 LOD0 ≤ 4,000） |\n"
       f"| 物件數（每個 LOD） | {l['LOD0']['objects']} |\n"
       f"| 材質數 | 1（`{d['material']}`，雙面） |\n| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，{tex} |\n"

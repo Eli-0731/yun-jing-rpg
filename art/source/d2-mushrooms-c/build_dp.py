@@ -85,6 +85,9 @@ TABLE={
  'DP02_01':('WhiteMushroomsMoss',(.25,.22,.20),'standard'),
  'DP02_02':('PaleMushroomsTall',(.20,.15,.20),'standard'),
  'DP02_03':('WhiteMushroomsLog',(.35,.20,.18),'standard'),
+ 'DP03_01':('BracketShelves',(.30,.16,.34),'standard'),   # DP03: w × out from the trunk × h
+ 'DP03_02':('BracketHoofs',(.30,.18,.34),'standard'),
+ 'DP03_03':('BracketLingzhi',(.26,.16,.26),'standard'),
 }
 IDS=tuple(TABLE);TARGET={k:('x',None) for k in IDS}
 LIMIT={k:v[1] for k,v in TABLE.items()};NAME={k:v[0] for k,v in TABLE.items()};MIN_TIER={k:v[2] for k,v in TABLE.items()}
@@ -109,7 +112,7 @@ def run(pid):
     print('WL_EXT',pid,'body',[round(float(x),4) for x in hi-lo],'all',[round(float(x),4) for x in ahi-alo],'scale',round(float(f),4))   # edge jitter and bevels move the size by a few mm: scale to the work pack's length, never past its limit
     for o in parts:o.data.transform(o.matrix_world);o.matrix_world=Matrix.Identity(4);o.data.transform(Matrix.Scale(f,4))
     pts=np.array([v.co[:] for o in parts if not o['grp'].startswith('Detail_') for v in o.data.vertices]);lo,hi=pts.min(0),pts.max(0);meta['scale_to_target']=round(float(f),4)
-    off=Vector((0,0,0))   # ground origin: the item is built round (0, 0) with z = 0 on the ground
+    off=Vector((0,0,-lo[2])) if meta.get('wall') else Vector((0,0,0))   # ground origin: built round (0, 0) with z = 0 on the ground; wall pieces (DP03): z = 0 at the bottom of the flat back
     for o in parts:o.data.transform(o.matrix_world);o.matrix_world=Matrix.Identity(4);o.data.transform(Matrix.Translation(off))
     meta['offset']=np.array(off[:]);meta['height']=float(hi[2])
     if CLAY:   # grey model first (work pack §5: pick a three-view, then the grey model): bare geometry, no bake, for the clay review
@@ -295,7 +298,7 @@ def run(pid):
           'lods':per_lod,'objects':{n:[d.name for d in g] for n,g in lods.items()},'material':fm.name,
           'textures':'one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)',
           'source_parts':len(srcparts),'coplanar_lifted':meta['coplanar_lifted'],
-          'reference':f'art/references/{rid}/prompt.txt','origin':'footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)',
+          'reference':f'art/references/{rid}/prompt.txt','origin':meta.get('origin_text','footprint centre, z = 0 on the ground (the moss pad runs on below it), front = -Y (Blender) / -Z (FBX, Unity)'),
           'collision':col_info or meta.get('collision','none in the model; add a box from body_dimensions if the scene needs one')}
     if 'notes' in meta:info['notes']=meta['notes']
     print('WL_DONE',json.dumps(info,ensure_ascii=False));return info

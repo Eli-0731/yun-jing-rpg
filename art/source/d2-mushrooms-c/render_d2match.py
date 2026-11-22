@@ -9,7 +9,7 @@ import bpy,math,sys,argparse,random
 from pathlib import Path
 from mathutils import Vector
 a=argparse.ArgumentParser();a.add_argument('--glb');a.add_argument('--out');a.add_argument('--tag');a.add_argument('--samples',type=int,default=96)
-a.add_argument('--baseline');a.add_argument('--fig',type=int,default=1);a.add_argument('--small',type=int,default=0)
+a.add_argument('--baseline');a.add_argument('--wall',type=int,default=0);a.add_argument('--fig',type=int,default=1);a.add_argument('--small',type=int,default=0)
 A=a.parse_args(sys.argv[sys.argv.index('--')+1:]);out=Path(A.out).resolve();out.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True);sc=bpy.context.scene
 (bpy.ops.import_scene.fbx if A.glb.lower().endswith('.fbx') else bpy.ops.import_scene.gltf)(filepath=A.glb)
@@ -114,6 +114,18 @@ def root():
     for f in o.data.polygons:f.use_smooth=True
 
 root()
+if A.wall:   # DP03 wall pieces: a trunk right behind the flat back (y = 0) so the slab reads as sitting on a tree, as it will in the game
+    verts=[];faces=[];sides=48;rings=6;Rt=.55
+    for i in range(rings):
+        z=-.05+1.3*i/(rings-1)
+        for j in range(sides):
+            a_=math.pi*1.5+j*math.tau/sides;rr=Rt*(1+.03*math.sin(11*a_+z*3)+.02*math.sin(23*a_))
+            verts.append((ctr.x+rr*math.cos(a_),Rt+.003+rr*math.sin(a_),z))
+    for i in range(rings-1):
+        for j in range(sides):
+            k=(j+1)%sides;faces.append((i*sides+j,i*sides+k,(i+1)*sides+k,(i+1)*sides+j))
+    o=mesh('Preview trunk',verts,faces,wood)
+    for f in o.data.polygons:f.use_smooth=True
 if A.tag=='DP01_02':
     lit('Wet-soil bounce into the gills',origin+Vector((-.11,-.21,.045)),origin+Vector((0,0,H*.78)),.60,.28,(1.,.91,.78))
 if A.tag=='DP06_05':

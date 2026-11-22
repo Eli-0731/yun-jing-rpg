@@ -7,10 +7,11 @@
 BL="${BL:?set BL to blender.exe}";S=art/source/d2-mushrooms-c;R=art/source/creekside-life-c;P=art/previews/d2-mushrooms-c;E=art/exports/d2-mushrooms-c;Q=$P/qa
 m(){ cygpath -m "$1" 2>/dev/null || echo "$1"; }
 r(){ MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $R/render_wl.py)" -- "$@" 2>&1 | grep -E "Error|Traceback"; true; }
-ALL="DP01_01 DP01_02 DP01_03 DP01_04 DP02_01 DP02_02 DP02_03"
+ALL="DP01_01 DP01_02 DP01_03 DP01_04 DP02_01 DP02_02 DP02_03 DP03_01 DP03_02 DP03_03"
 IDS="${*:-$ALL}";mkdir -p $Q
 for id in $IDS; do
   V=v002;[ -f $E/${id}_v002.glb ] || V=v001;[ -f $E/${id}_$V.glb ] || continue   # DP01 is on v002, later IDs on v001
+  WALL=;case $id in DP03_*) WALL="--wall 1";; esac   # DP03 hangs on a trunk
   D=$P/$id;G=$(m $E/${id}_$V.glb);F=$(m $E/${id}_$V.fbx);B=;[ $V = v002 ] && B="--baseline $(m $E/${id}_v001.glb)"
   r --glb "$(m $D/clay/$id-clay.glb)" --out "$(m $D/clay)" --tag $id-clay --views front,side,threequarter --clay --samples 32
   r --glb "$(m $D/clay/$id-clay.glb)" --out "$(m $D/clay)" --tag $id-clay-close --views threequarter --clay --no-ruler --samples 32
@@ -20,6 +21,6 @@ for id in $IDS; do
   for L in 0 1 2; do r --glb "$F" --out "$(m $D)" --tag $id-LOD$L-nodetail --views threequarter --lod $L --hide Detail_ --no-ruler --samples 48; done
   for o in "" "--loose"; do MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m tools/art/qa_lod0_basic.py)" -- $o "$(m $Q/$id-qa${o:+-loose}.json)" "$G" >/dev/null 2>&1; done
   MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m tools/art/qa_contact_glb.py)" -- "$(m $Q/$id-contact.json)" "$G" >/dev/null 2>&1
-  MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $S/render_d2match.py)" -- --glb "$G" --out "$(m $D/d2)" --tag $id --small 1 --fig 0 $B 2>&1 | grep -E "Error|Traceback"
+  MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $S/render_d2match.py)" -- --glb "$G" --out "$(m $D/d2)" --tag $id --small 1 --fig 0 $B $WALL 2>&1 | grep -E "Error|Traceback"
   echo "done $id"
 done
