@@ -1,0 +1,314 @@
+{
+ "what": "DP05 擺放示範：DP01–DP04 在一段倒木上的一組擺法，給整合時照抄",
+ "log": {
+  "id": "DR06_FallenTrunk_A",
+  "file": "art/exports/d2-logs-b/DR06_FallenTrunk_A/DR06_FallenTrunk_A_v001.glb",
+  "why": "the work pack names DR08 (not made yet) or any fallen log"
+ },
+ "coordinates": "DR06_FallenTrunk_A asset coordinates: its origin, metres, Blender axes (z up, -Y front). To use in Unity, parent the pieces under the placed log and convert like the FBX export (Blender -Y forward -> Unity -Z, z up -> y up).",
+ "stretch_x_m": [
+  1.6,
+  3.9
+ ],
+ "pieces": [
+  {
+   "id": "DP01_03",
+   "glb": "art/exports/d2-mushrooms-c/DP01_03_v002.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP01_03_v002.fbx",
+   "location_m": [
+    1.7,
+    -0.7803,
+    0.0
+   ],
+   "rotation_euler_xyz_deg": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "rotation_quaternion_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "placed": "foot",
+   "note": "a row of brown mushrooms along the foot of the log (front side)"
+  },
+  {
+   "id": "DP01_01",
+   "glb": "art/exports/d2-mushrooms-c/DP01_01_v002.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP01_01_v002.fbx",
+   "location_m": [
+    2.55,
+    -0.8217,
+    0.0
+   ],
+   "rotation_euler_xyz_deg": [
+    0.0,
+    -0.0,
+    25.0
+   ],
+   "rotation_quaternion_wxyz": [
+    0.9763,
+    0.0,
+    0.0,
+    0.21644
+   ],
+   "placed": "foot",
+   "note": "slender brown cluster at the foot"
+  },
+  {
+   "id": "DP01_02",
+   "glb": "art/exports/d2-mushrooms-c/DP01_02_v002.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP01_02_v002.fbx",
+   "location_m": [
+    3.35,
+    -0.7444,
+    0.0
+   ],
+   "rotation_euler_xyz_deg": [
+    0.0,
+    0.0,
+    -30.0
+   ],
+   "rotation_quaternion_wxyz": [
+    0.96593,
+    0.0,
+    0.0,
+    -0.25882
+   ],
+   "placed": "foot",
+   "note": "stout trio at the foot"
+  },
+  {
+   "id": "DP02_02",
+   "glb": "art/exports/d2-mushrooms-c/DP02_02_v001.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP02_02_v001.fbx",
+   "location_m": [
+    2.15,
+    -0.8051,
+    0.0
+   ],
+   "rotation_euler_xyz_deg": [
+    0.0,
+    -0.0,
+    10.0
+   ],
+   "rotation_quaternion_wxyz": [
+    0.99619,
+    0.0,
+    0.0,
+    0.08716
+   ],
+   "placed": "foot",
+   "note": "pale aqua-white trio tucked in at the foot"
+  },
+  {
+   "id": "DP02_03",
+   "glb": "art/exports/d2-mushrooms-c/DP02_03_v001.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP02_03_v001.fbx",
+   "location_m": [
+    2.95,
+    -1.4452,
+    0.0
+   ],
+   "rotation_euler_xyz_deg": [
+    0.0,
+    0.0,
+    -15.0
+   ],
+   "rotation_quaternion_wxyz": [
+    0.99144,
+    0.0,
+    0.0,
+    -0.13053
+   ],
+   "placed": "ground",
+   "note": "white mushrooms on a broken chunk lying in front of the log"
+  },
+  {
+   "id": "DP04_02",
+   "glb": "art/exports/d2-mushrooms-c/DP04_02_v001.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP04_02_v001.fbx",
+   "location_m": [
+    3.75,
+    -0.7337,
+    0.0
+   ],
+   "rotation_euler_xyz_deg": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "rotation_quaternion_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "placed": "foot",
+   "note": "slime mould where the log meets the ground"
+  },
+  {
+   "id": "DP01_04",
+   "glb": "art/exports/d2-mushrooms-c/DP01_04_v002.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP01_04_v002.fbx",
+   "location_m": [
+    2.1999,
+    0.0599,
+    0.9916
+   ],
+   "rotation_euler_xyz_deg": [
+    -0.07,
+    1.02,
+    40.0
+   ],
+   "rotation_quaternion_wxyz": [
+    0.93966,
+    -0.00362,
+    0.00817,
+    0.34201
+   ],
+   "placed": "top",
+   "note": "brown tuft on the top of the log"
+  },
+  {
+   "id": "DP02_01",
+   "glb": "art/exports/d2-mushrooms-c/DP02_01_v001.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP02_01_v001.fbx",
+   "location_m": [
+    3.0496,
+    0.0369,
+    0.965
+   ],
+   "rotation_euler_xyz_deg": [
+    -30.7,
+    -6.98,
+    -18.08
+   ],
+   "rotation_quaternion_wxyz": [
+    0.94805,
+    -0.27014,
+    -0.01647,
+    -0.16717
+   ],
+   "placed": "top",
+   "note": "white cluster on the moss on top"
+  },
+  {
+   "id": "DP04_01",
+   "glb": "art/exports/d2-mushrooms-c/DP04_01_v001.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP04_01_v001.fbx",
+   "location_m": [
+    1.7501,
+    -0.0506,
+    1.0269
+   ],
+   "rotation_euler_xyz_deg": [
+    -6.21,
+    0.27,
+    14.99
+   ],
+   "rotation_quaternion_wxyz": [
+    0.98998,
+    -0.05405,
+    -0.00472,
+    0.13033
+   ],
+   "placed": "top",
+   "note": "tiny bonnets on top"
+  },
+  {
+   "id": "DP04_03",
+   "glb": "art/exports/d2-mushrooms-c/DP04_03_v001.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP04_03_v001.fbx",
+   "location_m": [
+    3.5505,
+    -0.0227,
+    1.0426
+   ],
+   "rotation_euler_xyz_deg": [
+    -14.9,
+    22.76,
+    66.99
+   ],
+   "rotation_quaternion_wxyz": [
+    0.79655,
+    -0.21394,
+    0.09302,
+    0.55775
+   ],
+   "placed": "top",
+   "note": "mossy twig with tiny bells lying on top"
+  },
+  {
+   "id": "DP03_01",
+   "glb": "art/exports/d2-mushrooms-c/DP03_01_v001.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP03_01_v001.fbx",
+   "location_m": [
+    2.5995,
+    -0.8091,
+    0.5498
+   ],
+   "rotation_euler_xyz_deg": [
+    -1.16,
+    0.0,
+    3.79
+   ],
+   "rotation_quaternion_wxyz": [
+    0.9994,
+    -0.01015,
+    -0.00034,
+    0.03306
+   ],
+   "placed": "side",
+   "note": "thin shelves on the front side"
+  },
+  {
+   "id": "DP03_02",
+   "glb": "art/exports/d2-mushrooms-c/DP03_02_v001.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP03_02_v001.fbx",
+   "location_m": [
+    3.3003,
+    -0.8159,
+    0.4494
+   ],
+   "rotation_euler_xyz_deg": [
+    -4.55,
+    -0.0,
+    -2.33
+   ],
+   "rotation_quaternion_wxyz": [
+    0.99901,
+    -0.03964,
+    0.00081,
+    -0.02031
+   ],
+   "placed": "side",
+   "note": "hoof polypores on the front side"
+  },
+  {
+   "id": "DP03_03",
+   "glb": "art/exports/d2-mushrooms-c/DP03_03_v001.glb",
+   "fbx": "art/exports/d2-mushrooms-c/DP03_03_v001.fbx",
+   "location_m": [
+    1.9509,
+    -0.8202,
+    0.4033
+   ],
+   "rotation_euler_xyz_deg": [
+    24.43,
+    -0.0,
+    -6.88
+   ],
+   "rotation_quaternion_wxyz": [
+    0.9756,
+    0.21121,
+    -0.0127,
+    -0.05864
+   ],
+   "placed": "side",
+   "note": "lingzhi on the front side"
+  }
+ ]
+}
