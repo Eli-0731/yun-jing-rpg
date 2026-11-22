@@ -1,0 +1,74 @@
+DP07 苔被片（11/15 300h 包 B 批：六種，很薄、貼合表面、邊緣鬚狀；D2 V2、V3、V5）三視圖與自評（2026-11-22）
+選用：DP07A-cand-1.png（90分）、DP07B-cand-1.png（90分）、DP07C-cand-1.png（90分）、DP07D-cand-2.png（91分）、DP07E-cand-1.png（90分）、DP07F-cand-2.png（91分）
+
+三視圖裡的石頭、根只是為了看出苔怎麼貼，模型只做苔那一層。
+Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每種四張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+- A cand-1：選用。苔像帽子蓋在圓石頂，側面看得出薄、邊緣垂鬚。
+- A cand-2：89 側視苔太厚。
+- A cand-3：89 和 1 接近，邊緣鬚少。
+- A cand-4：88 苔偏黃、石頭偏大。
+- B cand-1：選用。平石上一片薄苔，幾個低墊，破邊。
+- B cand-2：89 苔過滿到石緣。
+- B cand-3：88 背面也有苔。
+- B cand-4：89 苔塊太碎。
+- C cand-1：選用。根頂一條苔，兩側垂短鬚，正側背一致。
+- C cand-2：89 根太扁。
+- C cand-3：88 根中間懸空。
+- C cand-4：87 沒有根，看不出貼合。
+- D cand-1：89 苔片偏窄。
+- D cand-2：選用。石側垂下一片薄苔，下緣滴垂狀的苔鬚。
+- D cand-3：89 苔太稀。
+- D cand-4：90 和 2 接近，下緣太尖。
+- E cand-1：選用。曲面上一小片不規則薄苔，邊緣鬚狀。
+- E cand-2：89 石頭太圓像球。
+- E cand-3：88 背面苔偏褐。
+- E cand-4：88 苔塊太小。
+- F cand-1：90 頂面苔太少。
+- F cand-2：選用。苔從方石頂面包過邊角往正面垂，兩面都有鬚邊。
+- F cand-3：89 正面垂得太短。
+- F cand-4：89 垂成一個尖。
+
+### DP07A
+PROMPT:
+Three-view orthographic turnaround sheet of a thin layer of velvety moss draped like a cap over the top of a large rounded boulder, the boulder shown as a plain smooth grey shape only for context, the moss sheet about 0.8 m across and only 2 to 4 cm thick, following the curve of the stone, with an irregular fringed edge of loose moss strands hanging a little over the sides, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark olive moss green with muted yellow-green tips, deep wet brown soil, cool grey stone), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP07B
+PROMPT:
+Three-view orthographic turnaround sheet of a thin flat patch of moss lying on a flat slab of stone, the stone shown as a plain smooth grey slab only for context, the moss patch about 0.6 m by 0.45 m and 1 to 3 cm thick, a few low cushions, an irregular fringed edge, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark olive moss green with muted yellow-green tips, deep wet brown soil, cool grey stone), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP07C
+PROMPT:
+Three-view orthographic turnaround sheet of a thin strip of moss growing along the top of a thick tree root lying on the ground, the root shown as a plain smooth grey-brown shape only for context, the moss strip about 1 m long and 0.2 m wide, following the round top of the root and hanging down its sides in short fringes, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark olive moss green with muted yellow-green tips, deep wet brown soil, cool grey stone), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP07D
+PROMPT:
+Three-view orthographic turnaround sheet of a thin sheet of moss hanging down the vertical side of a stone, the stone shown as a plain smooth grey shape only for context, the moss sheet about 0.5 m wide and 0.6 m tall, thin and clinging, with a ragged dripping lower edge of moss strands, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark olive moss green with muted yellow-green tips, deep wet brown soil, cool grey stone), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP07E
+PROMPT:
+Three-view orthographic turnaround sheet of a small irregular thin patch of moss about 0.3 m across clinging to a gently curved grey stone surface, the stone shown as a plain smooth grey shape only for context, a few tiny cushions and a fringed edge, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark olive moss green with muted yellow-green tips, deep wet brown soil, cool grey stone), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP07F
+PROMPT:
+Three-view orthographic turnaround sheet of a thin sheet of moss wrapping over the sharp edge of a squared stone block, half on the top and half down the front face, the block shown as a plain smooth grey shape only for context, the moss about 0.5 m wide, clinging and thin, with a fringed edge on both faces, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (dark olive moss green with muted yellow-green tips, deep wet brown soil, cool grey stone), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

@@ -1,0 +1,52 @@
+DP13 地衣片（11/15 300h 包 B 批：四種，灰白、淺綠的殼狀地衣，可以貼在石頭和樹皮上；D2 V3、V5）三視圖與自評（2026-11-22）
+選用：DP13A-cand-1.png（90分）、DP13B-cand-3.png（90分）、DP13C-cand-2.png（91分）、DP13D-cand-1.png（90分）
+
+三視圖裡的石頭、樹皮只是為了看出地衣怎麼貼，模型只做地衣那一層。
+Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每種四張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+- A cand-1：選用。圓形一片灰白殼狀地衣，細小鱗片和環，邊緣較淺。
+- A cand-2：89 太規則。
+- A cand-3：89 偏綠。
+- A cand-4：89 太滿到邊。
+- B cand-1：89 只有一大朵。
+- B cand-2：89 太碎。
+- B cand-3：選用。幾朵灰綠葉狀地衣，瓣邊微捲。
+- B cand-4：89 背面也長滿。
+- C cand-1：90 杯太少。
+- C cand-2：選用。一片淺鼠尾草綠杯狀地衣，小喇叭杯長在灰綠鱗片墊上。
+- C cand-3：90 杯太整齊。
+- C cand-4：89 太低。
+- D cand-1：選用。深色樹皮上一條淺灰綠地衣，扁平殼狀帶幾個小葉瓣。
+- D cand-2：89 太寬。
+- D cand-3：89 偏白。
+- D cand-4：89 太窄。
+
+### DP13A
+PROMPT:
+Three-view orthographic turnaround sheet of a roughly round patch of crusty grey-white crustose lichen about 0.25 m across growing flat on a grey stone surface, the stone shown as a plain smooth grey shape only for context, the lichen made of many tiny flat scales and rings, paler at the growing edge, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (pale grey-white, soft grey-green and pale sage lichen, cool grey stone, dark grey-brown bark), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP13B
+PROMPT:
+Three-view orthographic turnaround sheet of a few soft grey-green leafy foliose lichen rosettes about 0.15 m across each, lobed and slightly curled at the edges, on a grey stone surface shown as a plain smooth grey shape only for context, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (pale grey-white, soft grey-green and pale sage lichen, cool grey stone, dark grey-brown bark), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP13C
+PROMPT:
+Three-view orthographic turnaround sheet of a small patch of pale sage-green cup lichen about 0.15 m across, many tiny trumpet-shaped cups 1 to 2 cm tall on a mat of small grey-green scales, on a mossy stone surface shown as a plain grey shape only for context, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (pale grey-white, soft grey-green and pale sage lichen, cool grey stone, dark grey-brown bark), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP13D
+PROMPT:
+Three-view orthographic turnaround sheet of a narrow strip of pale grey-green lichen about 0.4 m long and 0.12 m wide growing on dark tree bark, the bark shown as a plain dark grey-brown curved shape only for context, flat crusty lichen with a few small leafy lobes, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (pale grey-white, soft grey-green and pale sage lichen, cool grey stone, dark grey-brown bark), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

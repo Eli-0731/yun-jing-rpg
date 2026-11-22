@@ -1,0 +1,40 @@
+DP08 小蕨（11/15 300h 包 B 批：三個新品種，和 BM09、UG01 都不同；一片片羽葉，不用葉片卡；D2 V2、V6）三視圖與自評（2026-11-22）
+選用：DP08A-cand-3.png（90分）、DP08B-cand-1.png（91分）、DP08C-cand-1.png（90分）
+
+Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每種四張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+- A cand-1：89 葉太密，像灌木。
+- A cand-2：89 側視往一邊倒。
+- A cand-3：選用。細黑柄分叉成一扇扇小圓扇形小葉，往外拱，最像鐵線蕨型。
+- A cand-4：88 葉偏大。
+- B cand-1：選用。六片二回羽狀細裂的葉往外拱，中間一個捲曲的幼葉。
+- B cand-2：90 幼葉偏亮。
+- B cand-3：90 葉偏灰。
+- B cand-4：89 葉太平展。
+- C cand-1：選用。直立的窄葉成瓶狀一叢，小葉兩排像梯子。
+- C cand-2：89 葉太密。
+- C cand-3：89 葉偏寬。
+- C cand-4：88 葉往外翻太多。
+
+### DP08A
+PROMPT:
+Three-view orthographic turnaround sheet of a small delicate maidenhair-type forest fern about 0.35 m tall and 0.45 m wide, thin dark stems branching into fans of many small rounded fan-shaped leaflets, the fronds arching outwards from a small root crown in dark soil, each leaflet modelled separately, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark olive, a little yellow-green on new growth, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP08B
+PROMPT:
+Three-view orthographic turnaround sheet of a small lacy forest fern about 0.4 m tall and 0.55 m wide, a rosette of six arching fronds, each frond finely divided twice into many small toothed leaflets, soft muted green with a yellow-green young frond uncurling as a fiddlehead, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark olive, a little yellow-green on new growth, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP08C
+PROMPT:
+Three-view orthographic turnaround sheet of a small upright ladder fern about 0.45 m tall and 0.35 m wide, a vase-shaped tuft of narrow stiff fronds, each a single row of short rounded leaflets on both sides of the stem like a ladder, dark green, from a small root crown in dark soil, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark olive, a little yellow-green on new growth, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

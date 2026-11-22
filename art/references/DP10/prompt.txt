@@ -1,0 +1,52 @@
+DP10 垂藤與細藤段（11/15 300h 包 B 批：四種，0.5–3 m；從根和石頭邊緣垂下的細藤，帶小葉；和 UG06 不同；D2 V2、V3）三視圖與自評（2026-11-22）
+選用：DP10A-cand-1.png（90分）、DP10B-cand-1.png（91分）、DP10C-cand-1.png（90分）、DP10D-cand-1.png（91分）
+
+三視圖上方的灰色橫桿只是表示掛的邊緣，模型不含。
+Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每種四張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+- A cand-1：選用。單條 0.6 m 細藤，成對小橢圓葉，幾條捲鬚。
+- A cand-2：89 葉偏少。
+- A cand-3：89 葉偏大。
+- A cand-4：89 葉偏黃。
+- B cand-1：選用。兩條細藤稍微互纏，心形和橢圓小葉，越往下越少。
+- B cand-2：90 下段太長。
+- B cand-3：90 側視只有一條。
+- B cand-4：89 葉太密。
+- C cand-1：選用。一條約 3 m 長藤，下端在地上捲一圈，葉成簇。
+- C cand-2：89 地上那圈太大。
+- C cand-3：89 葉太少。
+- C cand-4：89 藤太粗。
+- D cand-1：選用。五條長短不同的細藤垂成一片簾子。
+- D cand-2：90 太密。
+- D cand-3：89 頂上有葉往上長。
+- D cand-4：90 長短太平均。
+
+### DP10A
+PROMPT:
+Three-view orthographic turnaround sheet of a single thin forest vine about 0.6 m long hanging straight down from a horizontal edge, the edge shown as a plain smooth grey bar only for context, a thin dark grey-brown stem with pairs of small oval leaves every few centimetres, a few tendrils, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark olive, a little yellow-green on new growth, deep wet brown soil, dark grey-brown vine stems), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP10B
+PROMPT:
+Three-view orthographic turnaround sheet of two thin forest vines hanging from a horizontal edge, about 1.5 m long, twisting slightly around each other, the edge shown as a plain smooth grey bar only for context, thin dark stems with small oval and heart-shaped leaves, fewer leaves toward the tips, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark olive, a little yellow-green on new growth, deep wet brown soil, dark grey-brown vine stems), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP10C
+PROMPT:
+Three-view orthographic turnaround sheet of one long thin forest vine about 3 m long hanging down from a horizontal edge and curling on the ground at the bottom, the edge shown as a plain smooth grey bar only for context, dark stem with small leaves in clusters, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark olive, a little yellow-green on new growth, deep wet brown soil, dark grey-brown vine stems), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
+### DP10D
+PROMPT:
+Three-view orthographic turnaround sheet of a loose curtain of five thin forest vines of different lengths from 0.6 to 1.2 m hanging from a horizontal edge about 0.6 m wide, the edge shown as a plain smooth grey bar only for context, small dark green oval leaves along each stem, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark olive, a little yellow-green on new growth, deep wet brown soil, dark grey-brown vine stems), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, flowers, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
