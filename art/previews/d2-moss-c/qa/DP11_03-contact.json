@@ -1,0 +1,13 @@
+{
+ "DP11_03_v001": {
+  "DP11_03_Body_LOD0": {
+   "pieces": 83,
+   "within_1mm": 78,
+   "gap_1_3mm": 5,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.9,
+   "worst_at": []
+  }
+ }
+}

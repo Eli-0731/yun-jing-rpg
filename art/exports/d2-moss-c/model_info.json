@@ -724,5 +724,3272 @@
   "reference": "art/references/DP06/prompt.txt",
   "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP07_01": {
+  "id": "DP07_01",
+  "name": "MossSheetBoulderCap",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP07_01_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP07_01_v001.glb",
+   "blend": "art/source/d2-moss-c/DP07_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.893,
+   0.733,
+   0.283
+  ],
+  "body_dimensions_xyz_m": [
+   0.893,
+   0.733,
+   0.283
+  ],
+  "size_limit_xyz_m": [
+   1.0,
+   1.0,
+   0.4
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3064,
+    "triangles_without_detail": 3064,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1532,
+    "triangles_without_detail": 1532,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 459,
+    "triangles_without_detail": 459,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP07_01_Body_LOD0",
+    "DP07_01_Body_LOD1",
+    "DP07_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP07_01_MossSheetBoulderCap",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP07/prompt.txt",
+  "origin": "the host surface point under the sheet centre, z along that surface normal (the host is not in the model: a boulder top of radius about 0.55 m); the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.251) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP07_02": {
+  "id": "DP07_02",
+  "name": "MossSheetFlat",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP07_02_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP07_02_v001.glb",
+   "blend": "art/source/d2-moss-c/DP07_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.567,
+   0.499,
+   0.042
+  ],
+  "body_dimensions_xyz_m": [
+   0.567,
+   0.499,
+   0.042
+  ],
+  "size_limit_xyz_m": [
+   0.75,
+   0.6,
+   0.08
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2726,
+    "triangles_without_detail": 2726,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1362,
+    "triangles_without_detail": 1362,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 408,
+    "triangles_without_detail": 408,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP07_02_Body_LOD0",
+    "DP07_02_Body_LOD1",
+    "DP07_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP07_02_MossSheetFlat",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP07/prompt.txt",
+  "origin": "the host surface point under the sheet centre, z along that surface normal (the host is not in the model: a flat slab; z = 0 on its face)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP07_03": {
+  "id": "DP07_03",
+  "name": "MossSheetRootTop",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP07_03_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP07_03_v001.glb",
+   "blend": "art/source/d2-moss-c/DP07_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.078,
+   0.219,
+   0.096
+  ],
+  "body_dimensions_xyz_m": [
+   1.078,
+   0.219,
+   0.096
+  ],
+  "size_limit_xyz_m": [
+   1.2,
+   0.4,
+   0.25
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3148,
+    "triangles_without_detail": 3148,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1574,
+    "triangles_without_detail": 1574,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 471,
+    "triangles_without_detail": 471,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP07_03_Body_LOD0",
+    "DP07_03_Body_LOD1",
+    "DP07_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP07_03_MossSheetRootTop",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP07/prompt.txt",
+  "origin": "the host surface point under the sheet centre, z along that surface normal (the host is not in the model: a root of radius about 0.12 m lying along X); the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.062) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP07_04": {
+  "id": "DP07_04",
+  "name": "MossSheetStoneSide",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP07_04_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP07_04_v001.glb",
+   "blend": "art/source/d2-moss-c/DP07_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.636,
+   0.03,
+   0.516
+  ],
+  "body_dimensions_xyz_m": [
+   0.636,
+   0.03,
+   0.516
+  ],
+  "size_limit_xyz_m": [
+   0.65,
+   0.1,
+   0.8
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2792,
+    "triangles_without_detail": 2792,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1396,
+    "triangles_without_detail": 1396,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 418,
+    "triangles_without_detail": 418,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP07_04_Body_LOD0",
+    "DP07_04_Body_LOD1",
+    "DP07_04_Body_LOD2"
+   ]
+  },
+  "material": "M_DP07_04_MossSheetStoneSide",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP07/prompt.txt",
+  "origin": "the host surface point under the sheet centre, z along that surface normal (the host is not in the model: a vertical stone face, the plane y = 0; the moss on its -Y side); the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.270) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP07_05": {
+  "id": "DP07_05",
+  "name": "MossSheetSmall",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP07_05_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP07_05_v001.glb",
+   "blend": "art/source/d2-moss-c/DP07_05_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.376,
+   0.229,
+   0.048
+  ],
+  "body_dimensions_xyz_m": [
+   0.376,
+   0.229,
+   0.048
+  ],
+  "size_limit_xyz_m": [
+   0.42,
+   0.36,
+   0.08
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1848,
+    "triangles_without_detail": 1848,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 924,
+    "triangles_without_detail": 924,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 277,
+    "triangles_without_detail": 277,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_05_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_05_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_05_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_05_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP07_05_Body_LOD0",
+    "DP07_05_Body_LOD1",
+    "DP07_05_Body_LOD2"
+   ]
+  },
+  "material": "M_DP07_05_MossSheetSmall",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP07/prompt.txt",
+  "origin": "the host surface point under the sheet centre, z along that surface normal (the host is not in the model: a gently curved stone of radius about 1 m); the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.024) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP07_06": {
+  "id": "DP07_06",
+  "name": "MossSheetBlockEdge",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP07_06_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP07_06_v001.glb",
+   "blend": "art/source/d2-moss-c/DP07_06_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.494,
+   0.256,
+   0.304
+  ],
+  "body_dimensions_xyz_m": [
+   0.494,
+   0.256,
+   0.304
+  ],
+  "size_limit_xyz_m": [
+   0.65,
+   0.4,
+   0.45
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2810,
+    "triangles_without_detail": 2810,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1405,
+    "triangles_without_detail": 1405,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 421,
+    "triangles_without_detail": 421,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP07_06_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP07_06_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP07_06_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP07_06_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP07_06_Body_LOD0",
+    "DP07_06_Body_LOD1",
+    "DP07_06_Body_LOD2"
+   ]
+  },
+  "material": "M_DP07_06_MossSheetBlockEdge",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP07/prompt.txt",
+  "origin": "the host surface point under the sheet centre, z along that surface normal (the host is not in the model: the edge of a squared block along X: top face z = 0 behind, front face y = 0 below); the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.277) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP08_01": {
+  "id": "DP08_01",
+  "name": "FernMaidenhair",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP08_01_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP08_01_v001.glb",
+   "blend": "art/source/d2-moss-c/DP08_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.396,
+   0.367,
+   0.247
+  ],
+  "body_dimensions_xyz_m": [
+   0.396,
+   0.367,
+   0.247
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.6,
+   0.4
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2676,
+    "triangles_without_detail": 2676,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP08_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP08_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP08_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP08_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1338,
+    "triangles_without_detail": 1338,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP08_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP08_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP08_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP08_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 401,
+    "triangles_without_detail": 401,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP08_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP08_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP08_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP08_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP08_01_Body_LOD0",
+    "DP08_01_Body_LOD1",
+    "DP08_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP08_01_FernMaidenhair",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 252,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP08/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP08_02": {
+  "id": "DP08_02",
+  "name": "FernLacy",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP08_02_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP08_02_v001.glb",
+   "blend": "art/source/d2-moss-c/DP08_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.391,
+   0.406,
+   0.194
+  ],
+  "body_dimensions_xyz_m": [
+   0.391,
+   0.406,
+   0.194
+  ],
+  "size_limit_xyz_m": [
+   0.75,
+   0.75,
+   0.45
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3724,
+    "triangles_without_detail": 3724,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP08_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP08_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP08_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP08_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1862,
+    "triangles_without_detail": 1862,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP08_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP08_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP08_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP08_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 558,
+    "triangles_without_detail": 558,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP08_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP08_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP08_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP08_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP08_02_Body_LOD0",
+    "DP08_02_Body_LOD1",
+    "DP08_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP08_02_FernLacy",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 176,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP08/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP08_03": {
+  "id": "DP08_03",
+  "name": "FernLadder",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP08_03_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP08_03_v001.glb",
+   "blend": "art/source/d2-moss-c/DP08_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.202,
+   0.189,
+   0.408
+  ],
+  "body_dimensions_xyz_m": [
+   0.202,
+   0.189,
+   0.408
+  ],
+  "size_limit_xyz_m": [
+   0.5,
+   0.5,
+   0.5
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3788,
+    "triangles_without_detail": 3788,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP08_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP08_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP08_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP08_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1893,
+    "triangles_without_detail": 1893,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP08_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP08_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP08_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP08_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 568,
+    "triangles_without_detail": 568,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP08_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP08_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP08_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP08_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP08_03_Body_LOD0",
+    "DP08_03_Body_LOD1",
+    "DP08_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP08_03_FernLadder",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 311,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP08/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP09_01": {
+  "id": "DP09_01",
+  "name": "GroundWoodSorrel",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP09_01_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP09_01_v001.glb",
+   "blend": "art/source/d2-moss-c/DP09_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.259,
+   0.245,
+   0.085
+  ],
+  "body_dimensions_xyz_m": [
+   0.259,
+   0.245,
+   0.085
+  ],
+  "size_limit_xyz_m": [
+   0.3,
+   0.28,
+   0.13
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1452,
+    "triangles_without_detail": 1452,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 726,
+    "triangles_without_detail": 726,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 217,
+    "triangles_without_detail": 217,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP09_01_Body_LOD0",
+    "DP09_01_Body_LOD1",
+    "DP09_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP09_01_GroundWoodSorrel",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 113,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP09/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP09_02": {
+  "id": "DP09_02",
+  "name": "GroundSeedlings",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP09_02_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP09_02_v001.glb",
+   "blend": "art/source/d2-moss-c/DP09_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.282,
+   0.148,
+   0.191
+  ],
+  "body_dimensions_xyz_m": [
+   0.282,
+   0.148,
+   0.191
+  ],
+  "size_limit_xyz_m": [
+   0.3,
+   0.22,
+   0.2
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 488,
+    "triangles_without_detail": 488,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 244,
+    "triangles_without_detail": 244,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 73,
+    "triangles_without_detail": 73,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP09_02_Body_LOD0",
+    "DP09_02_Body_LOD1",
+    "DP09_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP09_02_GroundSeedlings",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 20,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP09/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP09_03": {
+  "id": "DP09_03",
+  "name": "GroundRoundLeaves",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP09_03_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP09_03_v001.glb",
+   "blend": "art/source/d2-moss-c/DP09_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.344,
+   0.241,
+   0.061
+  ],
+  "body_dimensions_xyz_m": [
+   0.344,
+   0.241,
+   0.061
+  ],
+  "size_limit_xyz_m": [
+   0.36,
+   0.3,
+   0.07
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1876,
+    "triangles_without_detail": 1876,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 938,
+    "triangles_without_detail": 938,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 280,
+    "triangles_without_detail": 280,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP09_03_Body_LOD0",
+    "DP09_03_Body_LOD1",
+    "DP09_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP09_03_GroundRoundLeaves",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 105,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP09/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP09_04": {
+  "id": "DP09_04",
+  "name": "GroundMixed",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP09_04_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP09_04_v001.glb",
+   "blend": "art/source/d2-moss-c/DP09_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.338,
+   0.288,
+   0.117
+  ],
+  "body_dimensions_xyz_m": [
+   0.338,
+   0.288,
+   0.117
+  ],
+  "size_limit_xyz_m": [
+   0.4,
+   0.34,
+   0.15
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1964,
+    "triangles_without_detail": 1964,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 982,
+    "triangles_without_detail": 982,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 294,
+    "triangles_without_detail": 294,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP09_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP09_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP09_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP09_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP09_04_Body_LOD0",
+    "DP09_04_Body_LOD1",
+    "DP09_04_Body_LOD2"
+   ]
+  },
+  "material": "M_DP09_04_GroundMixed",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 147,
+  "coplanar_lifted": 3,
+  "reference": "art/references/DP09/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP10_01": {
+  "id": "DP10_01",
+  "name": "VineSingle",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP10_01_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP10_01_v001.glb",
+   "blend": "art/source/d2-moss-c/DP10_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.103,
+   0.074,
+   0.6
+  ],
+  "body_dimensions_xyz_m": [
+   0.103,
+   0.074,
+   0.6
+  ],
+  "size_limit_xyz_m": [
+   0.2,
+   0.2,
+   0.68
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 854,
+    "triangles_without_detail": 854,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 426,
+    "triangles_without_detail": 426,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 128,
+    "triangles_without_detail": 128,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP10_01_Body_LOD0",
+    "DP10_01_Body_LOD1",
+    "DP10_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP10_01_VineSingle",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 29,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP10/prompt.txt",
+  "origin": "the point the vine hangs from (an edge of a root or a stone): the model is raised so its lowest point is on z = 0; the hanging point is recorded below; the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.000) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP10_02": {
+  "id": "DP10_02",
+  "name": "VineTwinTwist",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP10_02_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP10_02_v001.glb",
+   "blend": "art/source/d2-moss-c/DP10_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.172,
+   0.102,
+   1.506
+  ],
+  "body_dimensions_xyz_m": [
+   0.172,
+   0.102,
+   1.506
+  ],
+  "size_limit_xyz_m": [
+   0.3,
+   0.3,
+   1.6
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1602,
+    "triangles_without_detail": 1602,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 801,
+    "triangles_without_detail": 801,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 240,
+    "triangles_without_detail": 240,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP10_02_Body_LOD0",
+    "DP10_02_Body_LOD1",
+    "DP10_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP10_02_VineTwinTwist",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 73,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP10/prompt.txt",
+  "origin": "the point the vine hangs from (an edge of a root or a stone): the model is raised so its lowest point is on z = 0; the hanging point is recorded below; the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.000) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP10_03": {
+  "id": "DP10_03",
+  "name": "VineLongCoil",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP10_03_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP10_03_v001.glb",
+   "blend": "art/source/d2-moss-c/DP10_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.27,
+   0.24,
+   3.014
+  ],
+  "body_dimensions_xyz_m": [
+   0.27,
+   0.24,
+   3.014
+  ],
+  "size_limit_xyz_m": [
+   0.4,
+   0.4,
+   3.1
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2404,
+    "triangles_without_detail": 2404,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1202,
+    "triangles_without_detail": 1202,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 360,
+    "triangles_without_detail": 360,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP10_03_Body_LOD0",
+    "DP10_03_Body_LOD1",
+    "DP10_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP10_03_VineLongCoil",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 128,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP10/prompt.txt",
+  "origin": "the point the vine hangs from (an edge of a root or a stone): the model is raised so its lowest point is on z = 0; the hanging point is recorded below; the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.014) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP10_04": {
+  "id": "DP10_04",
+  "name": "VineCurtain",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP10_04_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP10_04_v001.glb",
+   "blend": "art/source/d2-moss-c/DP10_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.638,
+   0.077,
+   1.207
+  ],
+  "body_dimensions_xyz_m": [
+   0.638,
+   0.077,
+   1.207
+  ],
+  "size_limit_xyz_m": [
+   0.75,
+   0.25,
+   1.25
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2420,
+    "triangles_without_detail": 2420,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1210,
+    "triangles_without_detail": 1210,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 363,
+    "triangles_without_detail": 363,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP10_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP10_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP10_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP10_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP10_04_Body_LOD0",
+    "DP10_04_Body_LOD1",
+    "DP10_04_Body_LOD2"
+   ]
+  },
+  "material": "M_DP10_04_VineCurtain",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 116,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP10/prompt.txt",
+  "origin": "the point the vine hangs from (an edge of a root or a stone): the model is raised so its lowest point is on z = 0; the hanging point is recorded below; the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.000) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP11_01": {
+  "id": "DP11_01",
+  "name": "SedgeTuft",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP11_01_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP11_01_v001.glb",
+   "blend": "art/source/d2-moss-c/DP11_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.369,
+   0.319,
+   0.223
+  ],
+  "body_dimensions_xyz_m": [
+   0.369,
+   0.319,
+   0.223
+  ],
+  "size_limit_xyz_m": [
+   0.55,
+   0.55,
+   0.36
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2028,
+    "triangles_without_detail": 2028,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP11_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP11_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP11_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP11_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1014,
+    "triangles_without_detail": 1014,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP11_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP11_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP11_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP11_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 304,
+    "triangles_without_detail": 304,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP11_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP11_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP11_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP11_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP11_01_Body_LOD0",
+    "DP11_01_Body_LOD1",
+    "DP11_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP11_01_SedgeTuft",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 81,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP11/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP11_02": {
+  "id": "DP11_02",
+  "name": "SedgeFountain",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP11_02_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP11_02_v001.glb",
+   "blend": "art/source/d2-moss-c/DP11_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.637,
+   0.706,
+   0.269
+  ],
+  "body_dimensions_xyz_m": [
+   0.637,
+   0.706,
+   0.269
+  ],
+  "size_limit_xyz_m": [
+   0.9,
+   0.9,
+   0.48
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2316,
+    "triangles_without_detail": 2316,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP11_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP11_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP11_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP11_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1157,
+    "triangles_without_detail": 1157,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP11_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP11_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP11_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP11_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 347,
+    "triangles_without_detail": 347,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP11_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP11_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP11_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP11_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP11_02_Body_LOD0",
+    "DP11_02_Body_LOD1",
+    "DP11_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP11_02_SedgeFountain",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 93,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP11/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP11_03": {
+  "id": "DP11_03",
+  "name": "SedgeSeedSpikes",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP11_03_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP11_03_v001.glb",
+   "blend": "art/source/d2-moss-c/DP11_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.293,
+   0.285,
+   0.477
+  ],
+  "body_dimensions_xyz_m": [
+   0.293,
+   0.285,
+   0.477
+  ],
+  "size_limit_xyz_m": [
+   0.45,
+   0.45,
+   0.5
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2096,
+    "triangles_without_detail": 2096,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP11_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP11_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP11_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP11_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1047,
+    "triangles_without_detail": 1047,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP11_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP11_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP11_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP11_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 314,
+    "triangles_without_detail": 314,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP11_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP11_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP11_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP11_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP11_03_Body_LOD0",
+    "DP11_03_Body_LOD1",
+    "DP11_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP11_03_SedgeSeedSpikes",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 83,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP11/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP12_01": {
+  "id": "DP12_01",
+  "name": "DeadShrubSmall",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP12_01_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP12_01_v001.glb",
+   "blend": "art/source/d2-moss-c/DP12_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.276,
+   0.332,
+   0.28
+  ],
+  "body_dimensions_xyz_m": [
+   0.276,
+   0.332,
+   0.28
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.6,
+   0.48
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3984,
+    "triangles_without_detail": 3984,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP12_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP12_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP12_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP12_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1992,
+    "triangles_without_detail": 1992,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP12_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP12_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP12_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP12_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 672,
+    "triangles_without_detail": 672,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP12_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP12_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP12_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP12_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP12_01_Body_LOD0",
+    "DP12_01_Body_LOD1",
+    "DP12_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP12_01_DeadShrubSmall",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 218,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP12/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP12_02": {
+  "id": "DP12_02",
+  "name": "DeadShrubMedium",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP12_02_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP12_02_v001.glb",
+   "blend": "art/source/d2-moss-c/DP12_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.47,
+   0.464,
+   0.486
+  ],
+  "body_dimensions_xyz_m": [
+   0.47,
+   0.464,
+   0.486
+  ],
+  "size_limit_xyz_m": [
+   0.85,
+   0.85,
+   0.8
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3306,
+    "triangles_without_detail": 3306,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP12_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP12_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP12_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP12_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1734,
+    "triangles_without_detail": 1734,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP12_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP12_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP12_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP12_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 536,
+    "triangles_without_detail": 536,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP12_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP12_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP12_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP12_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP12_02_Body_LOD0",
+    "DP12_02_Body_LOD1",
+    "DP12_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP12_02_DeadShrubMedium",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 177,
+  "coplanar_lifted": 1,
+  "reference": "art/references/DP12/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP12_03": {
+  "id": "DP12_03",
+  "name": "DeadShrubLarge",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP12_03_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP12_03_v001.glb",
+   "blend": "art/source/d2-moss-c/DP12_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.663,
+   0.732,
+   0.658
+  ],
+  "body_dimensions_xyz_m": [
+   0.663,
+   0.732,
+   0.658
+  ],
+  "size_limit_xyz_m": [
+   1.1,
+   1.1,
+   1.12
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2334,
+    "triangles_without_detail": 2334,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP12_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP12_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP12_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP12_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1172,
+    "triangles_without_detail": 1172,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP12_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP12_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP12_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP12_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 456,
+    "triangles_without_detail": 456,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP12_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP12_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP12_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP12_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP12_03_Body_LOD0",
+    "DP12_03_Body_LOD1",
+    "DP12_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP12_03_DeadShrubLarge",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 124,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP12/prompt.txt",
+  "origin": "footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP13_01": {
+  "id": "DP13_01",
+  "name": "LichenCrust",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP13_01_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP13_01_v001.glb",
+   "blend": "art/source/d2-moss-c/DP13_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.267,
+   0.25,
+   0.018
+  ],
+  "body_dimensions_xyz_m": [
+   0.267,
+   0.25,
+   0.018
+  ],
+  "size_limit_xyz_m": [
+   0.34,
+   0.32,
+   0.04
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1650,
+    "triangles_without_detail": 1650,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 824,
+    "triangles_without_detail": 824,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 247,
+    "triangles_without_detail": 247,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP13_01_Body_LOD0",
+    "DP13_01_Body_LOD1",
+    "DP13_01_Body_LOD2"
+   ]
+  },
+  "material": "M_DP13_01_LichenCrust",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP13/prompt.txt",
+  "origin": "the host surface point under the sheet centre, z along that surface normal (the host is not in the model: a stone of radius about 0.8 m (works on flat stone too)); the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.015) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP13_02": {
+  "id": "DP13_02",
+  "name": "LichenFoliose",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP13_02_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP13_02_v001.glb",
+   "blend": "art/source/d2-moss-c/DP13_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.204,
+   0.184,
+   0.018
+  ],
+  "body_dimensions_xyz_m": [
+   0.204,
+   0.184,
+   0.018
+  ],
+  "size_limit_xyz_m": [
+   0.26,
+   0.26,
+   0.05
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3178,
+    "triangles_without_detail": 3178,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1589,
+    "triangles_without_detail": 1589,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 476,
+    "triangles_without_detail": 476,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP13_02_Body_LOD0",
+    "DP13_02_Body_LOD1",
+    "DP13_02_Body_LOD2"
+   ]
+  },
+  "material": "M_DP13_02_LichenFoliose",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 10,
+  "coplanar_lifted": 1,
+  "reference": "art/references/DP13/prompt.txt",
+  "origin": "the host surface point under the sheet centre, z along that surface normal (the host is not in the model: a stone of radius about 0.8 m); the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.013) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP13_03": {
+  "id": "DP13_03",
+  "name": "LichenCups",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP13_03_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP13_03_v001.glb",
+   "blend": "art/source/d2-moss-c/DP13_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.177,
+   0.156,
+   0.028
+  ],
+  "body_dimensions_xyz_m": [
+   0.177,
+   0.156,
+   0.028
+  ],
+  "size_limit_xyz_m": [
+   0.22,
+   0.2,
+   0.06
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2884,
+    "triangles_without_detail": 2884,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1442,
+    "triangles_without_detail": 1442,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 432,
+    "triangles_without_detail": 432,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP13_03_Body_LOD0",
+    "DP13_03_Body_LOD1",
+    "DP13_03_Body_LOD2"
+   ]
+  },
+  "material": "M_DP13_03_LichenCups",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 24,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP13/prompt.txt",
+  "origin": "the host surface point under the sheet centre, z along that surface normal (the host is not in the model: a mossy stone of radius about 0.6 m); the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.011) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
+ },
+ "DP13_04": {
+  "id": "DP13_04",
+  "name": "LichenBarkStrip",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/d2-moss-c/DP13_04_v001.fbx",
+   "glb": "art/exports/d2-moss-c/DP13_04_v001.glb",
+   "blend": "art/source/d2-moss-c/DP13_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.12,
+   0.014,
+   0.463
+  ],
+  "body_dimensions_xyz_m": [
+   0.12,
+   0.014,
+   0.463
+  ],
+  "size_limit_xyz_m": [
+   0.18,
+   0.12,
+   0.52
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1670,
+    "triangles_without_detail": 1670,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 835,
+    "triangles_without_detail": 835,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 250,
+    "triangles_without_detail": 250,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "DP13_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "DP13_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "DP13_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "DP13_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "DP13_04_Body_LOD0",
+    "DP13_04_Body_LOD1",
+    "DP13_04_Body_LOD2"
+   ]
+  },
+  "material": "M_DP13_04_LichenBarkStrip",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 2,
+  "coplanar_lifted": 0,
+  "reference": "art/references/DP13/prompt.txt",
+  "origin": "the host surface point under the sheet centre, z along that surface normal (the host is not in the model: a vertical trunk of radius about 0.3 m, its axis at y = +0.3 m); the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, 0.212) m",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one"
  }
 }

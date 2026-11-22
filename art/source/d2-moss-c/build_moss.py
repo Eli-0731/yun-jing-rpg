@@ -22,8 +22,10 @@ REF=ROOT/'art/references';TEX=ROOT/'art/textures'/PKG;OUT=ROOT/'art/exports'/PKG
 sys.path.insert(0,str(ROOT/'art/source/modelling-basics-c'));import meshfix
 for p in (TEX,OUT):p.mkdir(parents=True,exist_ok=True)
 X=np.arange(K.R)[None,:]/K.R;Y=np.arange(K.R)[:,None]/K.R
-RES=1024;VERSION='v002'
-TEX=TEX/VERSION;TEX.mkdir(parents=True,exist_ok=True)
+RES=1024
+VERSIONS={f'DP06_0{i}':'v002' for i in range(1,7)}   # DP06 is on its second version; every later ID starts at v001
+TEX0=TEX
+SRC_HOOKS=[]   # extra source textures from the item files (DP07 onwards): fn(S) adds entries to S
 
 # ---------------- tiled source textures (D2 smalls, own seeds) ----------------
 def make_sources():
@@ -42,6 +44,7 @@ def make_sources():
     K.rng=np.random.default_rng(5605)   # wet dark forest soil with a few crumbs
     clod=np.clip((fbm(26,3)-.5)*2.4+.5,0,1);peb=np.clip((fbm(90,2)-.72)*5,0,1)
     S['soil']=(lerp((.07,.055,.04),(.18,.13,.09),np.clip(.5+.9*(fbm(4,3)-.5)+.35*(clod-.5),0,1))*(1+.3*peb[...,None]),.9*clod+.4*fbm(70,2)+.4*peb,1.6,.78,0,0)
+    for fn in SRC_HOOKS:fn(S)
     out={}
     for k,(alb,h,s,r,m,glow) in S.items():
         mat=bpy.data.materials.new('src_'+k);mat.use_nodes=True;nt=mat.node_tree;bs=nt.nodes['Principled BSDF']
@@ -63,6 +66,33 @@ TABLE={
  'DP06_04':('MossRootFootStrip',(.68,.30,.16),'standard'),
  'DP06_05':('MossBoulderCap',(.52,.52,.20),'standard'),
  'DP06_06':('MossTuftsScattered',(.58,.48,.12),'standard'),
+ 'DP07_01':('MossSheetBoulderCap',(1.0,1.0,.40),'standard'),   # DP07 / DP13: sheets that lie on a host (the host is not in the model)
+ 'DP07_02':('MossSheetFlat',(.75,.60,.08),'standard'),
+ 'DP07_03':('MossSheetRootTop',(1.2,.40,.25),'standard'),
+ 'DP07_04':('MossSheetStoneSide',(.65,.10,.80),'standard'),
+ 'DP07_05':('MossSheetSmall',(.42,.36,.08),'standard'),
+ 'DP07_06':('MossSheetBlockEdge',(.65,.40,.45),'standard'),
+ 'DP08_01':('FernMaidenhair',(.60,.60,.40),'standard'),   # DP08 / DP09 / DP11: small plants, every leaf modelled
+ 'DP08_02':('FernLacy',(.75,.75,.45),'standard'),
+ 'DP08_03':('FernLadder',(.50,.50,.50),'standard'),
+ 'DP09_01':('GroundWoodSorrel',(.30,.28,.13),'standard'),
+ 'DP09_02':('GroundSeedlings',(.30,.22,.20),'standard'),
+ 'DP09_03':('GroundRoundLeaves',(.36,.30,.07),'standard'),
+ 'DP09_04':('GroundMixed',(.40,.34,.15),'standard'),
+ 'DP11_01':('SedgeTuft',(.55,.55,.36),'standard'),
+ 'DP11_02':('SedgeFountain',(.90,.90,.48),'standard'),
+ 'DP11_03':('SedgeSeedSpikes',(.45,.45,.50),'standard'),
+ 'DP10_01':('VineSingle',(.20,.20,.68),'standard'),   # DP10: hanging vines (the edge they hang from is not in the model)
+ 'DP10_02':('VineTwinTwist',(.30,.30,1.6),'standard'),
+ 'DP10_03':('VineLongCoil',(.40,.40,3.1),'standard'),
+ 'DP10_04':('VineCurtain',(.75,.25,1.25),'standard'),
+ 'DP12_01':('DeadShrubSmall',(.60,.60,.48),'standard'),   # DP12: dead shrubs
+ 'DP12_02':('DeadShrubMedium',(.85,.85,.80),'standard'),
+ 'DP12_03':('DeadShrubLarge',(1.1,1.1,1.12),'standard'),
+ 'DP13_01':('LichenCrust',(.34,.32,.04),'standard'),
+ 'DP13_02':('LichenFoliose',(.26,.26,.05),'standard'),
+ 'DP13_03':('LichenCups',(.22,.20,.06),'standard'),
+ 'DP13_04':('LichenBarkStrip',(.18,.12,.52),'standard'),
 }
 IDS=tuple(TABLE);TARGET={k:('x',None) for k in IDS}
 LIMIT={k:v[1] for k,v in TABLE.items()};NAME={k:v[0] for k,v in TABLE.items()};MIN_TIER={k:v[2] for k,v in TABLE.items()}
@@ -74,6 +104,8 @@ def sel(*obs):
     for o in obs:o.select_set(True)
     bpy.context.view_layer.objects.active=obs[0]
 def run(pid):
+    global VERSION,TEX
+    VERSION=VERSIONS.get(pid,'v001');TEX=TEX0/VERSION if VERSION!='v001' else TEX0;TEX.mkdir(parents=True,exist_ok=True)   # v001 textures in the package folder, later versions in a sub-folder
     rid=pid.split('_')[0];sel_txt=(REF/rid/'prompt.txt').read_text(encoding='utf-8')
     assert '選用：' in sel_txt,f'{pid}: pick a saved three-view before modelling'
     bpy.ops.wm.read_factory_settings(use_empty=True);parts.clear();K.uvr.seed(77)
@@ -86,6 +118,8 @@ def run(pid):
     for o in parts:o.data.transform(o.matrix_world);o.matrix_world=Matrix.Identity(4);o.data.transform(Matrix.Scale(f,4))
     pts=np.array([v.co[:] for o in parts if not o['grp'].startswith('Detail_') for v in o.data.vertices]);lo,hi=pts.min(0),pts.max(0);meta['scale_to_target']=round(float(f),4)
     off=Vector((0,0,0))   # ground origin: the item is built round (0, 0) with z = 0 on the ground
+    if meta.get('lift_to_ground'):   # sheets that hang down a host (DP07 / DP13): lowest point on z = 0, the host anchor recorded
+        off=Vector((0,0,-lo[2]));meta['origin_text']=meta.get('origin_text','')+f'; the model is raised so its lowest point is on z = 0, which puts that host point at (0, 0, {-lo[2]:.3f}) m'
     for o in parts:o.data.transform(o.matrix_world);o.matrix_world=Matrix.Identity(4);o.data.transform(Matrix.Translation(off))
     meta['offset']=np.array(off[:]);meta['height']=float(hi[2])
     if CLAY:   # grey model first (work pack §5: pick a three-view, then the grey model): bare geometry, no bake, for the clay review
@@ -213,6 +247,12 @@ def run(pid):
         for L,ratio in ((1,.5),(2,.15)):
             e=d.copy();e.data=d.data.copy();sc.collection.objects.link(e);e.name=e.data.name=f'{pid}_{name}_LOD{L}'
             cd_=card if (card and L==2 and name=='Body' and card.get('verts')) else None
+            fine=meta.get('fine_drop') if name=='Body' else None
+            if fine:   # DP10 / DP12: the finest twig tips and tendrils are sub-pixel far away: LOD1 keeps half of them, LOD2 none;
+                fid=[groups.index(g) for g in fine if g in groups];n0=sum(len(p.vertices)-2 for p in d.data.polygons)   # the rest is decimated so the totals stay about 50 % / 15 %
+                bm=bmesh.new();bm.from_mesh(e.data);la=bm.faces.layers.int['gid']
+                if L==2:bmesh.ops.delete(bm,geom=[f_ for f_ in bm.faces if f_[la] in fid],context='FACES')
+                bm.to_mesh(e.data);bm.free();n1=sum(len(p.vertices)-2 for p in e.data.polygons);ratio=min(1.,ratio*n0/max(n1,1))
             if cd_:   # LOD2 body: the modelled net (FI03) or line coil (FI02) is dropped for a low stand-in painted in the atlas strip
                 drop=[groups.index(g) for g in cd_['drop']];bm=bmesh.new();bm.from_mesh(e.data);la=bm.faces.layers.int['gid']
                 bmesh.ops.delete(bm,geom=[f_ for f_ in bm.faces if f_[la] in drop],context='FACES');bm.to_mesh(e.data);bm.free();ratio=cd_.get('ratio',ratio)
@@ -271,7 +311,7 @@ def run(pid):
           'lods':per_lod,'objects':{n:[d.name for d in g] for n,g in lods.items()},'material':fm.name,
           'textures':'one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)',
           'source_parts':len(srcparts),'coplanar_lifted':meta['coplanar_lifted'],
-          'reference':f'art/references/{rid}/prompt.txt','origin':'footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)',
+          'reference':f'art/references/{rid}/prompt.txt','origin':meta.get('origin_text','footprint centre, z = 0 on the ground (the soil skirt runs on below it), front = -Y (Blender) / -Z (FBX, Unity)'),
           'collision':col_info or meta.get('collision','none in the model; add a box from body_dimensions if the scene needs one')}
     if 'notes' in meta:info['notes']=meta['notes']
     print('WL_DONE',json.dumps(info,ensure_ascii=False));return info

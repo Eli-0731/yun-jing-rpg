@@ -1,0 +1,15 @@
+[
+ {
+  "file": "art\\exports\\d2-moss-c\\DP09_04_v001.glb",
+  "objects": 1,
+  "triangles": 1964,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "DP09_04_Body_LOD0",
+    "count": 1,
+    "note": "1 triangle pairs {'up one piece': 1}, e.g. at [[0.045, -0.057, 0.029, 'n-0-0+1']]"
+   }
+  ]
+ }
+]

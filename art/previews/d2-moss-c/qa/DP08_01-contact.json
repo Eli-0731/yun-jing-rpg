@@ -1,0 +1,13 @@
+{
+ "DP08_01_v001": {
+  "DP08_01_Body_LOD0": {
+   "pieces": 252,
+   "within_1mm": 223,
+   "gap_1_3mm": 29,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.5,
+   "worst_at": []
+  }
+ }
+}

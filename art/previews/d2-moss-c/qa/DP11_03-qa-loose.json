@@ -1,0 +1,15 @@
+[
+ {
+  "file": "art\\exports\\d2-moss-c\\DP11_03_v001.glb",
+  "objects": 1,
+  "triangles": 2096,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "DP11_03_Body_LOD0",
+    "count": 18,
+    "note": "18 triangle pairs {'side two pieces': 18}, e.g. at [[0.034, -0.011, 0.061, 'n-1+0+0'], [0.043, -0.015, 0.084, 'n-1+0+0'], [0.043, -0.015, 0.084, 'n-1+0+0'], [0.004, 0.028, 0.023, 'n-0-1+0'], [0.01, -0.009, 0.013, 'n-0+1+0'], [0.019, -0.008, 0.023, 'n-1+0+0']]"
+   }
+  ]
+ }
+]

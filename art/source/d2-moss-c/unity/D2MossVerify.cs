@@ -20,10 +20,12 @@ namespace YunJing.Editor
     public static class D2MossVerify
     {
         const string Models = "Assets/YunJing/Models/D2MossC";   // temporary copy of art/exports, removed by the run script
-        const string Version = "v002";
-        static readonly string[] AllIds = { "DP06_01", "DP06_02", "DP06_03", "DP06_04", "DP06_05", "DP06_06" };
+        static string Ver(string id) => id.StartsWith("DP06") ? "v002" : "v001";   // DP06 is on its second version, later IDs on their first
+        static string TexDir(string id) => Ver(id) == "v001" ? "art/textures/d2-moss-c" : "art/textures/d2-moss-c/" + Ver(id);
+        static readonly string[] AllIds = { "DP06_01", "DP06_02", "DP06_03", "DP06_04", "DP06_05", "DP06_06", "DP07_01", "DP07_02", "DP07_03", "DP07_04", "DP07_05", "DP07_06", "DP13_01", "DP13_02", "DP13_03", "DP13_04", "DP08_01", "DP08_02", "DP08_03", "DP09_01", "DP09_02", "DP09_03", "DP09_04", "DP11_01", "DP11_02", "DP11_03", "DP10_01", "DP10_02", "DP10_03", "DP10_04", "DP12_01", "DP12_02", "DP12_03" };
         static string[] Ids;   // the ones model_info.json holds
-        static readonly HashSet<string> Cloth = new HashSet<string> { "DP06_01", "DP06_02", "DP06_03", "DP06_04", "DP06_05", "DP06_06" };   // the strands over the rim are open at the root: both faces
+        static readonly HashSet<string> Lifted = new HashSet<string> { "DP07_01", "DP07_03", "DP07_04", "DP07_05", "DP07_06", "DP13_01", "DP13_02", "DP13_03", "DP13_04", "DP10_01", "DP10_02", "DP10_03", "DP10_04" };   // sheets lying on a host: raised so the lowest point is on y = 0
+        static readonly HashSet<string> Cloth = new HashSet<string> { "DP06_01", "DP06_02", "DP06_03", "DP06_04", "DP06_05", "DP06_06", "DP07_01", "DP07_02", "DP07_03", "DP07_04", "DP07_05", "DP07_06", "DP13_01", "DP13_02", "DP13_03", "DP13_04", "DP08_01", "DP08_02", "DP08_03", "DP09_01", "DP09_02", "DP09_03", "DP09_04", "DP11_01", "DP11_02", "DP11_03", "DP10_01", "DP10_02", "DP10_03", "DP10_04", "DP12_01", "DP12_02", "DP12_03" };   // the strands over the rim are open at the root: both faces
         static readonly HashSet<string> Cutout = new HashSet<string>();   // no alpha-clip cards: every cap and gill is geometry
         static readonly HashSet<string> Collide = new HashSet<string>();   // filled from model_info.json: items with a "collision" block
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
@@ -75,8 +77,8 @@ namespace YunJing.Editor
         {
             foreach (var id in Ids)
             {
-                Copy(Path.Combine(Repo, "art/exports/d2-moss-c"), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Version}.fbx");
-                Copy(Path.Combine(Repo, "art/textures/d2-moss-c", Version), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
+                Copy(Path.Combine(Repo, "art/exports/d2-moss-c"), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Ver(id)}.fbx");
+                Copy(Path.Combine(Repo, TexDir(id)), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
             }
             AssetDatabase.Refresh();
             foreach (var guid in AssetDatabase.FindAssets("t:Model", new[] { Models }))
@@ -141,7 +143,7 @@ namespace YunJing.Editor
 
         static GameObject Place(string id, string material, Vector3 at, float yaw)
         {
-            var go = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>($"{Models}/{id}/{id}_{Version}.fbx"));
+            var go = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>($"{Models}/{id}/{id}_{Ver(id)}.fbx"));
             go.transform.SetPositionAndRotation(at, Quaternion.Euler(0, yaw, 0));
             var m = Mat(id, material);
             foreach (var c in go.GetComponentsInChildren<Transform>(true).Where(t => t.name.EndsWith("_Collision")).ToArray())
@@ -180,7 +182,9 @@ namespace YunJing.Editor
                 $"{id}: imported size {b.size.x:0.000} x {b.size.z:0.000} x {b.size.y:0.000} m matches model_info {d[0]} x {d[1]} x {d[2]} within 2 cm");
             Check(b.size.x <= lim[0] + .005f && b.size.z <= lim[1] + .005f && b.size.y <= lim[2] + .005f,
                 $"{id}: within the work pack's limit {lim[0]} x {lim[1]} x {lim[2]} m");
-            if (id == "DP06_05")   // the boulder cap sits on its rock: the lowest point of its draped lip is the origin plane
+            if (Lifted.Contains(id))
+                Check(Mathf.Abs(body.min.y) < .003f, $"{id}: lies on its host; the lowest point is on y = 0 ({body.min.y * 100:0.00} cm), the host point is written in model_info origin");
+            else if (id == "DP06_05")   // the boulder cap sits on its rock: the lowest point of its draped lip is the origin plane
                 Check(Mathf.Abs(body.min.y) < .003f, $"{id}: the draped lip sits on the origin plane ({body.min.y * 100:0.0} cm), hollow underneath for the rock");
             else
                 Check(body.min.y < -.005f && body.min.y > -.03f, $"{id}: the soil skirt runs on {-body.min.y * 100:0.0} cm under the ground (origin on the ground, moss rim at z = 0)");

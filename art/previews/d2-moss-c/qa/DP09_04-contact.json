@@ -1,0 +1,13 @@
+{
+ "DP09_04_v001": {
+  "DP09_04_Body_LOD0": {
+   "pieces": 114,
+   "within_1mm": 112,
+   "gap_1_3mm": 2,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.3,
+   "worst_at": []
+  }
+ }
+}

@@ -7,11 +7,11 @@
 BL="${BL:?set BL to blender.exe}";S=art/source/d2-moss-c;R=art/source/creekside-life-c;P=art/previews/d2-moss-c;E=art/exports/d2-moss-c;Q=$P/qa
 m(){ cygpath -m "$1" 2>/dev/null || echo "$1"; }
 r(){ MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $R/render_wl.py)" -- "$@" 2>&1 | grep -E "Error|Traceback"; true; }
-ALL="DP06_01 DP06_02 DP06_03 DP06_04 DP06_05 DP06_06"
+ALL="DP06_01 DP06_02 DP06_03 DP06_04 DP06_05 DP06_06 DP07_01 DP07_02 DP07_03 DP07_04 DP07_05 DP07_06 DP13_01 DP13_02 DP13_03 DP13_04 DP08_01 DP08_02 DP08_03 DP09_01 DP09_02 DP09_03 DP09_04 DP11_01 DP11_02 DP11_03 DP10_01 DP10_02 DP10_03 DP10_04 DP12_01 DP12_02 DP12_03"
 IDS="${*:-$ALL}";mkdir -p $Q
 for id in $IDS; do
-  [ -f $E/${id}_v002.glb ] || continue
-  D=$P/$id;G=$(m $E/${id}_v002.glb);F=$(m $E/${id}_v002.fbx)
+  V=v002;[ -f $E/${id}_v002.glb ] || V=v001;[ -f $E/${id}_$V.glb ] || continue   # DP06 is on v002, later IDs on v001
+  D=$P/$id;G=$(m $E/${id}_$V.glb);F=$(m $E/${id}_$V.fbx);B=;[ $V = v002 ] && B="--baseline $(m $E/${id}_v001.glb)"
   r --glb "$(m $D/clay/$id-clay.glb)" --out "$(m $D/clay)" --tag $id-clay --views front,side,threequarter --clay --samples 32
   r --glb "$(m $D/clay/$id-clay.glb)" --out "$(m $D/clay)" --tag $id-clay-close --views threequarter --clay --no-ruler --samples 32
   r --glb "$G" --out "$(m $D)" --tag $id --light neutral --samples 64
@@ -20,6 +20,6 @@ for id in $IDS; do
   for L in 0 1 2; do r --glb "$F" --out "$(m $D)" --tag $id-LOD$L-nodetail --views threequarter --lod $L --hide Detail_ --no-ruler --samples 48; done
   for o in "" "--loose"; do MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m tools/art/qa_lod0_basic.py)" -- $o "$(m $Q/$id-qa${o:+-loose}.json)" "$G" >/dev/null 2>&1; done
   MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m tools/art/qa_contact_glb.py)" -- "$(m $Q/$id-contact.json)" "$G" >/dev/null 2>&1
-  MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $S/render_d2match.py)" -- --glb "$G" --out "$(m $D/d2)" --tag $id --small 1 --fig 0 --baseline "$(m $E/${id}_v001.glb)" 2>&1 | grep -E "Error|Traceback"
+  MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $S/render_d2match.py)" -- --glb "$G" --out "$(m $D/d2)" --tag $id --small 1 --fig 0 $B 2>&1 | grep -E "Error|Traceback"
   echo "done $id"
 done
