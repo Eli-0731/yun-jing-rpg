@@ -22,9 +22,9 @@ namespace YunJing.Editor
         const string Models = "Assets/YunJing/Models/D2MushroomsC";   // temporary copy of art/exports, removed by the run script
         static string Ver(string id) => id.StartsWith("DP01") ? "v002" : "v001";   // DP01 is on its second version, later IDs on their first
         static string TexDir(string id) => Ver(id) == "v001" ? "art/textures/d2-mushrooms-c" : "art/textures/d2-mushrooms-c/" + Ver(id);
-        static readonly string[] AllIds = { "DP01_01", "DP01_02", "DP01_03", "DP01_04", "DP02_01", "DP02_02", "DP02_03", "DP03_01", "DP03_02", "DP03_03" };
+        static readonly string[] AllIds = { "DP01_01", "DP01_02", "DP01_03", "DP01_04", "DP02_01", "DP02_02", "DP02_03", "DP03_01", "DP03_02", "DP03_03", "DP04_01", "DP04_02", "DP04_03" };
         static string[] Ids;   // the ones model_info.json holds
-        static readonly HashSet<string> Cloth = new HashSet<string> { "DP01_01", "DP01_02", "DP01_03", "DP01_04", "DP02_01", "DP02_02", "DP02_03", "DP03_01", "DP03_02", "DP03_03" };   // cap top and gills are two open sheets: both faces
+        static readonly HashSet<string> Cloth = new HashSet<string> { "DP01_01", "DP01_02", "DP01_03", "DP01_04", "DP02_01", "DP02_02", "DP02_03", "DP03_01", "DP03_02", "DP03_03", "DP04_01", "DP04_02", "DP04_03" };   // cap top and gills are two open sheets: both faces
         static readonly HashSet<string> Cutout = new HashSet<string>();   // no alpha-clip cards: every cap and gill is geometry
         static readonly HashSet<string> Collide = new HashSet<string>();   // filled from model_info.json: items with a "collision" block
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));

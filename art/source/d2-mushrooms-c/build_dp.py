@@ -88,6 +88,9 @@ TABLE={
  'DP03_01':('BracketShelves',(.30,.16,.34),'standard'),   # DP03: w × out from the trunk × h
  'DP03_02':('BracketHoofs',(.30,.18,.34),'standard'),
  'DP03_03':('BracketLingzhi',(.26,.16,.26),'standard'),
+ 'DP04_01':('TinyMushroomsMoss',(.15,.13,.09),'standard'),
+ 'DP04_02':('SlimeMouldMoss',(.17,.14,.06),'standard'),
+ 'DP04_03':('TinyMushroomsTwig',(.18,.07,.08),'standard'),
 }
 IDS=tuple(TABLE);TARGET={k:('x',None) for k in IDS}
 LIMIT={k:v[1] for k,v in TABLE.items()};NAME={k:v[0] for k,v in TABLE.items()};MIN_TIER={k:v[2] for k,v in TABLE.items()}

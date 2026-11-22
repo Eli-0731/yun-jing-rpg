@@ -7,7 +7,7 @@
 BL="${BL:?set BL to blender.exe}";S=art/source/d2-mushrooms-c;R=art/source/creekside-life-c;P=art/previews/d2-mushrooms-c;E=art/exports/d2-mushrooms-c;Q=$P/qa
 m(){ cygpath -m "$1" 2>/dev/null || echo "$1"; }
 r(){ MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $R/render_wl.py)" -- "$@" 2>&1 | grep -E "Error|Traceback"; true; }
-ALL="DP01_01 DP01_02 DP01_03 DP01_04 DP02_01 DP02_02 DP02_03 DP03_01 DP03_02 DP03_03"
+ALL="DP01_01 DP01_02 DP01_03 DP01_04 DP02_01 DP02_02 DP02_03 DP03_01 DP03_02 DP03_03 DP04_01 DP04_02 DP04_03"
 IDS="${*:-$ALL}";mkdir -p $Q
 for id in $IDS; do
   V=v002;[ -f $E/${id}_v002.glb ] || V=v001;[ -f $E/${id}_$V.glb ] || continue   # DP01 is on v002, later IDs on v001
