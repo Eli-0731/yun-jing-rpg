@@ -7,7 +7,7 @@
 | 版本 | v001 |
 | 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（Blender 審圖、和 D2 設定圖並排）／ In-game Verified：未驗（沒放進正式場景） |
 | 素材來源 | 樹皮：Poly Haven `bark_brown_02`（CC0，2k），共同標準第五節指定，和 d2-roots-b／d2-logs-b 同一套；掃描圖不進版本庫，放在環境變數 `DR_TEX` 指的資料夾（預設 `D:/yun-jing-cache/polyhaven-bark/`），建模時取它的明暗與高度，重新上成 D2 的灰褐色。其餘原創，貼圖在建模腳本裡畫；三視圖參考在 `art/references/DP14/`–`DP22/` |
-| 實際工時 | 2026-11-23（台灣時間），約 7 小時：三視圖 192 張與自評（DP20 三種重畫一次）、套件建立、45 件建模、灰模每組兩到三輪、上貼圖、QA、審圖、Unity 檢查 |
+| 實際工時 | 2026-11-23（台灣時間），約 9 小時：三視圖 192 張與自評（DP20 三種重畫一次）、套件建立、45 件建模、灰模每組兩到三輪、上貼圖、QA、審圖、Unity 檢查，再回頭修 DP20、DP21 約 2 小時 |
 
 # D2 地上的小東西（d2-floor-c）
 

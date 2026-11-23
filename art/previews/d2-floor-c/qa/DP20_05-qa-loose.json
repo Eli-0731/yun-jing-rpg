@@ -2,7 +2,14 @@
  {
   "file": "art\\exports\\d2-floor-c\\DP20_05_v001.glb",
   "objects": 1,
-  "triangles": 1572,
-  "findings": []
+  "triangles": 2572,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "DP20_05_Body_LOD0",
+    "count": 9,
+    "note": "9 triangle pairs {'side z<0.02 two pieces': 7, 'up z<0.02 two pieces': 2}, e.g. at [[0.181, 0.244, 0.013, 'n+0-0+1'], [0.181, 0.244, 0.013, 'n+0-0+1'], [0.144, 0.222, 0.012, 'n-0+1+0'], [0.145, 0.221, 0.013, 'n+0-0+1'], [0.145, 0.221, 0.013, 'n+0-0+1'], [0.145, 0.221, 0.013, 'n+0-0+1']]"
+   }
+  ]
  }
 ]

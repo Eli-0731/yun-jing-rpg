@@ -3,11 +3,22 @@
   "DP21_04_Body_LOD0": {
    "pieces": 20,
    "within_1mm": 18,
-   "gap_1_3mm": 2,
-   "gap_3_10mm": 0,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 2,
    "gap_over_10mm": 0,
-   "largest_mm": 1.5,
-   "worst_at": []
+   "largest_mm": 8.7,
+   "worst_at": [
+    [
+     0.156,
+     0.217,
+     0.473
+    ],
+    [
+     -0.275,
+     -0.066,
+     0.46
+    ]
+   ]
   }
  }
 }

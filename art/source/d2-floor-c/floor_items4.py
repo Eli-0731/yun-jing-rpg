@@ -77,29 +77,41 @@ def dp16_06(M):
     _barkpiece('DP16_06',.40,.24,.35,.008,M,'Body',16601,roll=-2.6,nu=14);_settle();return dict(WB)
 
 # ---------------- DP21 rotten stumps (three-views: art/references/DP21/prompt.txt) ----------------
-def _stump(name,H,R,M,grp,seed,cols=26,hollow=.72,teeth=.22,spikes=(),notches=(),roots=5,moss=.5,root_r=.2):
+def _rotin_src(S):
+    K.rng=np.random.default_rng(2101)   # the rotten inside of a stump: warm orange-brown, coarse fibres along V, dark gaps and pits
+    vf=np.clip((fbm(36,2,aniso=24)-.5)*2+.5,0,1);pit=np.clip((fbm(14,2)-.62)*4,0,1);gap=np.clip((.32-vf)*4,0,1)
+    S['rotin']=(lerp((.16,.09,.045),(.48,.29,.14),np.clip(.5+.6*(fbm(4,3,aniso=6)-.5)+.35*(vf-.5),0,1))*(1-.45*gap[...,None])*(1-.4*pit[...,None]),1.5*vf-1.1*pit,2.6,.9,0,0)
+    S['moss_st']=(np.clip(S['moss'][0]*np.array([1.5,1.55,1.4]),0,1),)+tuple(S['moss'][1:])   # stump moss: a little lighter olive (it catches the light on the upright wall)
+    S['rotout']=(S['rotin'][0]*np.array([.8,.78,.8])+np.array([.03,.03,.03]),)+tuple(S['rotin'][1:])   # bark gone on the outside: the rotten wood, weathered greyer than inside
+SRC_HOOKS.append(_rotin_src)
+
+def _stump(name,H,R,M,grp,seed,cols=26,hollow=.72,teeth=.22,spikes=(),notches=(),roots=5,moss=.5,root_r=.28):
     """a rotten hollow stump: a lathe of columns whose tops are jagged (teeth; spikes [(angle, extra height × H, width)];
     notches [(angle, depth × H, width)] break the wall down), flaring into root buttresses at the foot, 6 cm under the ground;
-    inside a pale crumbling wall and a dark rotten floor; roots run out and down into the soil; moss on the lower outside"""
+    the bark cut by deep vertical fissures, patches of it gone (rotten wood showing); inside a rough orange-brown rotten wall
+    and floor, pale splintered wood only on the broken rim; thick roots run out of the buttresses into the soil, thin ones between;
+    moss in blobs and streaks over the foot, down from the rim and on the rim itself"""
     r_=_rnd.Random(seed);off=Vector((r_.uniform(0,40),r_.uniform(0,40),r_.uniform(0,40)))
     ra=[math.tau*k/roots+r_.uniform(-.3,.3) for k in range(roots)]
     def dang(a,b):return (a-b+math.pi)%math.tau-math.pi
     hs=[]
     for k in range(cols):
-        th=math.tau*k/cols;h=H*(1-teeth*(.5+.5*_mn.noise(Vector((math.cos(th)*2.2,math.sin(th)*2.2,0))+off))-teeth*.8*r_.random()**2)   # broad high and low runs, then single splinters
+        th=math.tau*k/cols;h=H*(1-teeth*(.5+.5*_mn.noise(Vector((math.cos(th)*2.2,math.sin(th)*2.2,0))+off))-teeth*1.1*r_.random()**2)   # broad high and low runs, then single splinters
+        if r_.random()<.22:h+=H*teeth*.6*r_.random()   # a lone splinter standing up
         for a,e,w in spikes:h+=H*e*math.exp(-(dang(th,a)/w)**2)
         for a,dd,w in notches:h-=H*dd*math.exp(-(dang(th,a)/w)**2)
         hs.append(max(H*.15,h))
     butt=lambda th:sum(max(0.,math.cos(dang(th,a)))**10 for a in ra)
     def rout(th,z):
-        zz=max(z,0.);return R*(1+(.38+.5*butt(th))*math.exp(-zz/(.16*H)))*(1+.035*math.sin(11*th+2*_mn.noise(Vector((th,z*4,0))+off))+.05*_mn.noise(Vector((math.cos(th)*2,math.sin(th)*2,z*3))+off))
-    FO=(0,.04,.1,.2,.33,.48,.63,.78,.9,1.);FI=(0,.25,.5,.75,1.);Tl=.4;fl=H*.1
+        zz=max(z,0.);fis=.15*abs(_mn.noise(Vector((math.cos(th)*5,math.sin(th)*5,z*.8))+off))   # ridged noise: deep vertical fissures between the bark plates
+        return R*(1+(.38+.7*butt(th))*math.exp(-zz/(.17*H)))*(1.05-fis+.05*_mn.noise(Vector((math.cos(th)*2,math.sin(th)*2,z*3))+off))
+    FO=(0,.03,.07,.12,.18,.26,.35,.45,.55,.65,.74,.82,.89,.95,1.);FI=(0,.15,.3,.45,.6,.75,.88,1.);Tl=.4;fl=H*.1
     bm=bmesh.new();lay=bm.loops.layers.uv.new('Tiled');O=[];I=[]
     for k in range(cols):
         th=math.tau*k/cols;c,s=math.cos(th),math.sin(th);col=[];ci=[]
         for f in FO:z=-.06+(hs[k]+.06)*f;r=rout(th,z);col.append(bm.verts.new((c*r,s*r,z)))
         for f in FI:
-            z=fl+(hs[k]-H*.04-fl)*f;r=min(rout(th,z)*hollow*(1+.08*_mn.noise(Vector((c*3,s*3,z*5))+off)),rout(th,z)-.012)
+            z=fl+(hs[k]-H*.04-fl)*f;r=min(rout(th,z)*hollow*(1+.16*_mn.noise(Vector((c*3,s*3,z*5))+off)-.12*abs(_mn.noise(Vector((c*9,s*9,z*2))+off))),rout(th,z)-.012)   # crumbling: lumps and gouges
             ci.append(bm.verts.new((c*r,s*r,z)))
         O.append(col);I.append(ci)
     def quad(vs,mi,uvs,smooth=True):
@@ -110,7 +122,7 @@ def _stump(name,H,R,M,grp,seed,cols=26,hollow=.72,teeth=.22,spikes=(),notches=()
     for k in range(cols):
         k1=(k+1)%cols
         for j in range(len(FO)-1):out.append(quad((O[k][j],O[k1][j],O[k1][j+1],O[k][j+1]),0,((U(k),O[k][j].co.z/Tl),(U(k+1),O[k1][j].co.z/Tl),(U(k+1),O[k1][j+1].co.z/Tl),(U(k),O[k][j+1].co.z/Tl))))
-        for j in range(len(FI)-1):quad((I[k][j],I[k][j+1],I[k1][j+1],I[k1][j]),2,((U(k),I[k][j].co.z/Tl),(U(k),I[k][j+1].co.z/Tl),(U(k+1),I[k1][j+1].co.z/Tl),(U(k+1),I[k1][j].co.z/Tl)))
+        for j in range(len(FI)-1):quad((I[k][j],I[k][j+1],I[k1][j+1],I[k1][j]),1,((U(k),I[k][j].co.z/Tl),(U(k),I[k][j+1].co.z/Tl),(U(k+1),I[k1][j+1].co.z/Tl),(U(k+1),I[k1][j].co.z/Tl)))
         quad((O[k][-1],O[k1][-1],I[k1][-1],I[k][-1]),2,((U(k),0),(U(k+1),0),(U(k+1),.08),(U(k),.08)),smooth=False)   # the broken rim
     cf=bm.verts.new((0,0,fl-.01));cb=bm.verts.new((0,0,-.06))
     for k in range(cols):
@@ -118,32 +130,44 @@ def _stump(name,H,R,M,grp,seed,cols=26,hollow=.72,teeth=.22,spikes=(),notches=()
         quad((I[k][0],I[k1][0],cf),1,((math.cos(th)*R/Tl,math.sin(th)*R/Tl),(math.cos(th+math.tau/cols)*R/Tl,math.sin(th+math.tau/cols)*R/Tl),(0,0)))
         quad((O[k1][0],O[k][0],cb),1,((0,0),(.1,0),(.05,.1)))
     bmesh.ops.recalc_face_normals(bm,faces=bm.faces);bm.normal_update()
-    if moss:
-        mf=[f for f in out if (c_:=f.calc_center_median()).z<H*.55 and c_.z>-.01 and f.normal.z>-.2 and .5*_mn.noise(c_*9+off)+.4*(1-c_.z/(H*.55))>.75-moss*.5]
-        if mf:_shell(name+'_moss',bm,mf,M,grp,seed,th=.006)
-    o=finish(name,bm,M['bark'],grp,keep_uv=True);o.data.materials.append(M['rotwood']);o.data.materials.append(M['woodpale'])
-    for j,a in enumerate(ra):   # roots: out from the buttress, arching down into the soil
-        rr=R*root_r*r_.uniform(.8,1.15);Lr=R*r_.uniform(2.2,3.0);c,s=math.cos(a),math.sin(a);pts=[]
-        for i in range(9):
-            t=i/8;d=R*.7+Lr*t;z=H*.16*(1-t)**1.6-rr*(.2+.9*t)
-            pts.append((c*d-s*R*.15*math.sin(t*3+j),s*d+c*R*.15*math.sin(t*3+j),z))
-        _limb(f'{name}_r{j}',pts,rr,rr*.35,M,grp,seed+40+j,ends=('cut','tip'),moss=moss*.5,bulge=.06)
+    fq=2.5/R;taken=set()
+    if moss:   # moss: the best-scoring share of the outer faces (blobs, streaks down from the rim, the foot and the top band), and patches on the rim
+        def score(f):
+            c_=f.calc_center_median();th=math.atan2(c_.y,c_.x);k=int(round(th/math.tau*cols))%cols
+            zb=max(0.,1-c_.z/(H*.3));zt=max(0.,1-(hs[k]-c_.z)/(H*.28))
+            return .6*_mn.noise(c_*fq*.6+off)+.5*_mn.noise(Vector((math.cos(th)*3,math.sin(th)*3,c_.z*.6))+off*1.7)+.3*max(zb,zt)+.15*f.normal.z
+        cand=[f for f in out if f.calc_center_median().z>-.01 and f.normal.z>-.35]
+        sc_=sorted(((score(f),i) for i,f in enumerate(cand)),reverse=True);mf=[cand[i] for _,i in sc_[:int(len(cand)*moss*.62)]]
+        rim=[f for f in bm.faces if f.material_index==2 and f.normal.z>.2 and _mn.noise(f.calc_center_median()*fq+off)>.3-moss*.4]
+        bm.faces.index_update();taken={f.index for f in mf}
+        _shell(name+'_moss',bm,mf+rim,M,grp,seed,th=min(.01,.005+R*.035),mat='moss_st',relax=3)
+    for f in out:   # bark gone in patches: the rotten wood under it shows (outside the moss)
+        if f.index not in taken and _mn.noise(f.calc_center_median()*fq*.35+off*2.3)>.3:f.material_index=3
+    o=finish(name,bm,M['bark'],grp,keep_uv=True);o.data.materials.append(M['rotin']);o.data.materials.append(M['woodpale']);o.data.materials.append(M['rotout'])
+    rl=[(a,1.) for a in ra]+[(a+math.pi/roots*r_.uniform(.7,1.3),.5) for a in ra]   # thick roots from the buttresses, thin ones between
+    for j,(a,sz) in enumerate(rl):   # roots: out of the foot, arching down into the soil
+        rr=R*root_r*sz*r_.uniform(.85,1.15);Lr=R*r_.uniform(2.6,3.4)*(.55+.45*sz);pts=[];w=r_.uniform(-1,1);aa=a
+        p=Vector((math.cos(a),math.sin(a),0))*R*(.5 if sz==1 else .8)
+        for i in range(11):   # out of the buttress, then lying half buried along the ground, winding; the tip dives
+            t=i/10;z=H*(.2 if sz==1 else .06)*max(0.,1-t/.3)**1.5+rr*(.15-.3*t)-(max(0.,t-.85)/.15)*rr*.5
+            pts.append((p.x,p.y,z));aa+=w*.35*math.sin(t*5+j);p=p+Vector((math.cos(aa),math.sin(aa),0))*Lr/10
+        _limb(f'{name}_r{j}',pts,rr,rr*.4,M,grp,seed+40+j,ends=('cut','tip'),bulge=.1,rough=.09,mat='bark_root',sides=7 if sz==1 else 5)
     return o
 
 O_STUMP='trunk centre, z = 0 on the ground; the stump foot and the roots run on 6–10 cm under it'
 WS=dict(grime=.7,wear=.5,origin_text=O_STUMP)
 def dp21_01(M):
     """小朽樁 (DP21A-cand-1): 0.3 m tall, 0.25 m wide, hollow, jagged top, moss on the sides, roots into the soil"""
-    _stump('DP21_01',.30,.095,M,'Body',21101,cols=22,roots=4,moss=.55);return dict(WS)
+    _stump('DP21_01',.30,.095,M,'Body',21101,cols=30,roots=4,moss=.55);return dict(WS)
 def dp21_02(M):
     """破邊空心樁 (DP21B-cand-1): 0.5 m, 0.4 m wide, one side broken away showing the hollow, moss and lichen"""
-    _stump('DP21_02',.50,.15,M,'Body',21201,cols=26,notches=((-math.pi/2,.62,.8),),roots=5,moss=.45);return dict(WS)
+    _stump('DP21_02',.50,.15,M,'Body',21201,cols=34,notches=((-math.pi/2,.62,.8),),roots=5,moss=.45);return dict(WS)
 def dp21_03(M):
     """高木刺樁 (DP21C-cand-1): 0.7 m with a tall jagged splinter on one side, hollow, moss on the lower half"""
-    _stump('DP21_03',.48,.19,M,'Body',21301,cols=28,spikes=((2.2,.5,.16),(2.7,.25,.1)),teeth=.25,roots=5,moss=.6);return dict(WS)
+    _stump('DP21_03',.48,.19,M,'Body',21301,cols=36,spikes=((2.2,.5,.16),(2.7,.25,.1)),teeth=.25,roots=5,moss=.6);return dict(WS)
 def dp21_04(M):
     """裂兩半的寬樁 (DP21D-cand-1): 1.0 m, 0.7 m wide, split into two jagged parts, soft rotten centre, thick moss, roots"""
-    _stump('DP21_04',1.0,.26,M,'Body',21401,cols=32,notches=((-1.4,.7,.2),(1.75,.62,.2)),spikes=((0.2,.12,.2),(3.4,.1,.2)),hollow=.7,roots=6,moss=.8,root_r=.18);return dict(WS)
+    _stump('DP21_04',1.0,.26,M,'Body',21401,cols=40,notches=((-1.4,.7,.2),(1.75,.62,.2)),spikes=((0.2,.12,.2),(3.4,.1,.2)),hollow=.7,roots=6,moss=.8,root_r=.26);return dict(WS)
 
 TABLE.update({'DP16_01':('BarkHalfTube',(.20,.14,.07),'standard'),'DP16_02':('BarkFlatThick',(.30,.18,.06),'standard'),'DP16_03':('BarkStripTwisted',(.40,.12,.09),'standard'),
  'DP16_04':('BarkFlakes',(.26,.22,.05),'standard'),'DP16_05':('BarkChunkCurved',(.36,.22,.12),'standard'),'DP16_06':('BarkSheetRolled',(.46,.28,.12),'standard'),

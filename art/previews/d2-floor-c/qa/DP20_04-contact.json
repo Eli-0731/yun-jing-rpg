@@ -1,8 +1,8 @@
 {
  "DP20_04_v001": {
   "DP20_04_Body_LOD0": {
-   "pieces": 5,
-   "within_1mm": 5,
+   "pieces": 29,
+   "within_1mm": 29,
    "gap_1_3mm": 0,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,

@@ -4124,14 +4124,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   0.959,
-   0.521,
-   0.058
+   0.726,
+   0.9,
+   0.042
   ],
   "body_dimensions_xyz_m": [
-   0.959,
-   0.521,
-   0.058
+   0.726,
+   0.9,
+   0.042
   ],
   "size_limit_xyz_m": [
    1.2,
@@ -4144,8 +4144,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 1336,
-    "triangles_without_detail": 1336,
+    "triangles": 3624,
+    "triangles_without_detail": 3624,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4169,8 +4169,8 @@
     }
    },
    "LOD1": {
-    "triangles": 668,
-    "triangles_without_detail": 668,
+    "triangles": 1811,
+    "triangles_without_detail": 1811,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4194,8 +4194,8 @@
     }
    },
    "LOD2": {
-    "triangles": 200,
-    "triangles_without_detail": 200,
+    "triangles": 542,
+    "triangles_without_detail": 542,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4228,10 +4228,10 @@
   },
   "material": "M_DP20_01_RootNetCrossing",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 16,
-  "coplanar_lifted": 0,
+  "source_parts": 58,
+  "coplanar_lifted": 2,
   "reference": "art/references/DP20/prompt.txt",
-  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "origin": "footprint centre, z = 0 on the ground; a low sheet of wet soil (up to 2 cm), the roots weave 1–5 cm in and out of it, moss patches on it",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one"
  },
  "DP20_02": {
@@ -4245,14 +4245,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.175,
-   1.049,
-   0.079
+   1.207,
+   1.2,
+   0.084
   ],
   "body_dimensions_xyz_m": [
-   1.175,
-   1.049,
-   0.079
+   1.207,
+   1.2,
+   0.084
   ],
   "size_limit_xyz_m": [
    1.4,
@@ -4265,8 +4265,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3406,
-    "triangles_without_detail": 3406,
+    "triangles": 3934,
+    "triangles_without_detail": 3934,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4290,8 +4290,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1702,
-    "triangles_without_detail": 1702,
+    "triangles": 1966,
+    "triangles_without_detail": 1966,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4315,8 +4315,8 @@
     }
    },
    "LOD2": {
-    "triangles": 509,
-    "triangles_without_detail": 509,
+    "triangles": 589,
+    "triangles_without_detail": 589,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4349,10 +4349,10 @@
   },
   "material": "M_DP20_02_RootNetFan",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 35,
+  "source_parts": 36,
   "coplanar_lifted": 0,
   "reference": "art/references/DP20/prompt.txt",
-  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "origin": "footprint centre, z = 0 on the ground; a low sheet of wet soil (up to 2 cm), the roots weave 1–5 cm in and out of it, moss patches on it",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one"
  },
  "DP20_03": {
@@ -4366,13 +4366,13 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.279,
-   1.388,
+   1.259,
+   1.392,
    0.12
   ],
   "body_dimensions_xyz_m": [
-   1.279,
-   1.388,
+   1.259,
+   1.392,
    0.12
   ],
   "size_limit_xyz_m": [
@@ -4386,8 +4386,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 2064,
-    "triangles_without_detail": 2064,
+    "triangles": 3668,
+    "triangles_without_detail": 3668,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4411,8 +4411,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1032,
-    "triangles_without_detail": 1032,
+    "triangles": 1833,
+    "triangles_without_detail": 1833,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4436,8 +4436,8 @@
     }
    },
    "LOD2": {
-    "triangles": 308,
-    "triangles_without_detail": 308,
+    "triangles": 550,
+    "triangles_without_detail": 550,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4470,10 +4470,10 @@
   },
   "material": "M_DP20_03_RootKnot",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 23,
+  "source_parts": 50,
   "coplanar_lifted": 0,
   "reference": "art/references/DP20/prompt.txt",
-  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "origin": "footprint centre, z = 0 on the ground; a low sheet of wet soil (up to 2 cm), the roots weave 1–5 cm in and out of it, moss patches on it",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one"
  },
  "DP20_04": {
@@ -4488,13 +4488,13 @@
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
    1.551,
-   0.155,
-   0.071
+   0.346,
+   0.076
   ],
   "body_dimensions_xyz_m": [
    1.551,
-   0.155,
-   0.071
+   0.346,
+   0.076
   ],
   "size_limit_xyz_m": [
    1.7,
@@ -4507,8 +4507,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 1256,
-    "triangles_without_detail": 1256,
+    "triangles": 2604,
+    "triangles_without_detail": 2604,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4532,8 +4532,8 @@
     }
    },
    "LOD1": {
-    "triangles": 627,
-    "triangles_without_detail": 627,
+    "triangles": 1301,
+    "triangles_without_detail": 1301,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4557,8 +4557,8 @@
     }
    },
    "LOD2": {
-    "triangles": 188,
-    "triangles_without_detail": 188,
+    "triangles": 390,
+    "triangles_without_detail": 390,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4591,10 +4591,10 @@
   },
   "material": "M_DP20_04_RootsParallel",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 7,
+  "source_parts": 33,
   "coplanar_lifted": 0,
   "reference": "art/references/DP20/prompt.txt",
-  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "origin": "footprint centre, z = 0 on the ground; a low sheet of wet soil (up to 2 cm), the roots weave 1–5 cm in and out of it, moss patches on it",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one"
  },
  "DP20_05": {
@@ -4608,14 +4608,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.162,
-   1.146,
-   0.087
+   1.805,
+   1.324,
+   0.079
   ],
   "body_dimensions_xyz_m": [
-   1.162,
-   1.146,
-   0.087
+   1.805,
+   1.324,
+   0.079
   ],
   "size_limit_xyz_m": [
    1.95,
@@ -4628,8 +4628,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 1572,
-    "triangles_without_detail": 1572,
+    "triangles": 2572,
+    "triangles_without_detail": 2572,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4653,8 +4653,8 @@
     }
    },
    "LOD1": {
-    "triangles": 785,
-    "triangles_without_detail": 785,
+    "triangles": 1285,
+    "triangles_without_detail": 1285,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4678,8 +4678,8 @@
     }
    },
    "LOD2": {
-    "triangles": 234,
-    "triangles_without_detail": 234,
+    "triangles": 385,
+    "triangles_without_detail": 385,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4712,10 +4712,10 @@
   },
   "material": "M_DP20_05_RootNetBranching",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 17,
+  "source_parts": 32,
   "coplanar_lifted": 0,
   "reference": "art/references/DP20/prompt.txt",
-  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "origin": "footprint centre, z = 0 on the ground; a low sheet of wet soil (up to 2 cm), the roots weave 1–5 cm in and out of it, moss patches on it",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one"
  },
  "DP20_06": {
@@ -4729,14 +4729,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.912,
-   0.991,
-   0.081
+   2.3,
+   1.098,
+   0.089
   ],
   "body_dimensions_xyz_m": [
-   1.912,
-   0.991,
-   0.081
+   2.3,
+   1.098,
+   0.089
   ],
   "size_limit_xyz_m": [
    2.3,
@@ -4749,8 +4749,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3988,
-    "triangles_without_detail": 3988,
+    "triangles": 3960,
+    "triangles_without_detail": 3960,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4774,8 +4774,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1994,
-    "triangles_without_detail": 1994,
+    "triangles": 1980,
+    "triangles_without_detail": 1980,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4799,8 +4799,8 @@
     }
    },
    "LOD2": {
-    "triangles": 598,
-    "triangles_without_detail": 598,
+    "triangles": 593,
+    "triangles_without_detail": 593,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4833,10 +4833,10 @@
   },
   "material": "M_DP20_06_RootNetWideStones",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 28,
+  "source_parts": 34,
   "coplanar_lifted": 0,
   "reference": "art/references/DP20/prompt.txt",
-  "origin": "footprint centre, z = 0 on the ground; the roots weave 1–5 cm in and out of the soil, soil heaped over the dips",
+  "origin": "footprint centre, z = 0 on the ground; a low sheet of wet soil (up to 2 cm), the roots weave 1–5 cm in and out of it, moss patches on it",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one"
  },
  "DP21_01": {
@@ -4850,14 +4850,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   0.645,
-   0.605,
-   0.343
+   0.691,
+   0.636,
+   0.364
   ],
   "body_dimensions_xyz_m": [
-   0.645,
-   0.605,
-   0.343
+   0.691,
+   0.636,
+   0.364
   ],
   "size_limit_xyz_m": [
    0.72,
@@ -4870,8 +4870,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 1219,
-    "triangles_without_detail": 1219,
+    "triangles": 2658,
+    "triangles_without_detail": 2658,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4895,8 +4895,8 @@
     }
    },
    "LOD1": {
-    "triangles": 609,
-    "triangles_without_detail": 609,
+    "triangles": 1328,
+    "triangles_without_detail": 1328,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4920,8 +4920,8 @@
     }
    },
    "LOD2": {
-    "triangles": 182,
-    "triangles_without_detail": 182,
+    "triangles": 398,
+    "triangles_without_detail": 398,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -4971,14 +4971,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.038,
-   1.05,
-   0.5
+   0.907,
+   0.883,
+   0.511
   ],
   "body_dimensions_xyz_m": [
-   1.038,
-   1.05,
-   0.5
+   0.907,
+   0.883,
+   0.511
   ],
   "size_limit_xyz_m": [
    1.05,
@@ -4991,8 +4991,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 1666,
-    "triangles_without_detail": 1666,
+    "triangles": 3100,
+    "triangles_without_detail": 3100,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -5016,8 +5016,8 @@
     }
    },
    "LOD1": {
-    "triangles": 832,
-    "triangles_without_detail": 832,
+    "triangles": 1550,
+    "triangles_without_detail": 1550,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -5041,8 +5041,8 @@
     }
    },
    "LOD2": {
-    "triangles": 249,
-    "triangles_without_detail": 249,
+    "triangles": 465,
+    "triangles_without_detail": 465,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -5092,14 +5092,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.266,
-   1.208,
-   0.653
+   1.301,
+   0.959,
+   0.672
   ],
   "body_dimensions_xyz_m": [
-   1.266,
-   1.208,
-   0.653
+   1.301,
+   0.959,
+   0.672
   ],
   "size_limit_xyz_m": [
    1.4,
@@ -5112,8 +5112,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 1787,
-    "triangles_without_detail": 1787,
+    "triangles": 3310,
+    "triangles_without_detail": 3310,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -5137,8 +5137,8 @@
     }
    },
    "LOD1": {
-    "triangles": 893,
-    "triangles_without_detail": 893,
+    "triangles": 1655,
+    "triangles_without_detail": 1655,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -5162,8 +5162,8 @@
     }
    },
    "LOD2": {
-    "triangles": 268,
-    "triangles_without_detail": 268,
+    "triangles": 495,
+    "triangles_without_detail": 495,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -5213,14 +5213,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.79,
-   1.571,
-   1.081
+   1.696,
+   1.729,
+   1.106
   ],
   "body_dimensions_xyz_m": [
-   1.79,
-   1.571,
-   1.081
+   1.696,
+   1.729,
+   1.106
   ],
   "size_limit_xyz_m": [
    1.8,
@@ -5233,8 +5233,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 2163,
-    "triangles_without_detail": 2163,
+    "triangles": 3926,
+    "triangles_without_detail": 3926,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -5258,8 +5258,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1080,
-    "triangles_without_detail": 1080,
+    "triangles": 1962,
+    "triangles_without_detail": 1962,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -5283,8 +5283,8 @@
     }
    },
    "LOD2": {
-    "triangles": 324,
-    "triangles_without_detail": 324,
+    "triangles": 588,
+    "triangles_without_detail": 588,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
