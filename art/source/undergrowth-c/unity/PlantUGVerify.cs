@@ -21,9 +21,11 @@ namespace YunJing.Editor
     {
         const string Models = "Assets/YunJing/Models/UndergrowthC";   // temporary copy of art/exports, removed by the run script
         const string Version = "v001";
-        static readonly string[] AllIds = { "SH01" };
+        static readonly string[] AllIds = { "SH01", "UG01", "UG02", "UG03", "UG04", "UG05_01", "UG05_02", "UG05_03", "UG06_01", "UG06_02", "UG06_03", "UG06_04" };
         static string[] Ids;   // the ones model_info.json holds
-        static readonly HashSet<string> Cloth = new HashSet<string> { "SH01" };   // five-vertex leaves are single surfaces: both faces
+        static readonly HashSet<string> Cloth = new HashSet<string> { "SH01", "UG01", "UG02", "UG03", "UG04", "UG05_01", "UG05_02", "UG05_03", "UG06_01", "UG06_02", "UG06_03", "UG06_04" };   // every leaf and petal is a single surface: both faces
+        static readonly HashSet<string> Lying = new HashSet<string> { "UG05_01", "UG05_02", "UG05_03" };   // leaf heaps: bottom on the ground, no stems
+        static readonly HashSet<string> OnRoot = new HashSet<string> { "UG06_01", "UG06_02", "UG06_03", "UG06_04" };   // vines: origin on a root's top line, they hang down its sides
         static readonly HashSet<string> Cutout = new HashSet<string>();   // no alpha-clip cards in this batch: every leaf and petal is geometry
         static readonly HashSet<string> Collide = new HashSet<string>();   // filled from model_info.json: items with a "collision" block
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
@@ -42,6 +44,10 @@ namespace YunJing.Editor
             Directory.CreateDirectory(Out);
             json = File.ReadAllText(Path.Combine(Repo, "art/exports/undergrowth-c/model_info.json"));
             Ids = AllIds.Where(id => json.Contains($"\"{id}\":")).ToArray();
+            // a checkout with LFS skipped holds pointer files for items delivered earlier: report and leave those out instead of stopping
+            var pointers = Ids.Where(id => IsPointer(Path.Combine(Repo, "art/exports/undergrowth-c", $"{id}_{Version}.fbx")) || IsPointer(Path.Combine(Repo, "art/textures/undergrowth-c", id + "_Albedo.png"))).ToArray();
+            foreach (var id in pointers) Report.Add($"SKIP {id}: Git LFS pointer in this checkout (not pulled), not checked in this run");
+            Ids = Ids.Except(pointers).ToArray();
             foreach (var id in Ids) if (Block(json, id).Contains("\"collision\": {")) Collide.Add(id);
             Import();
             QingxiUrpUpgrade.EnsurePipeline();
@@ -100,6 +106,8 @@ namespace YunJing.Editor
                 ti.SaveAndReimport();
             }
         }
+
+        static bool IsPointer(string file) => File.Exists(file) && new FileInfo(file).Length < 1024 && File.ReadAllText(file).StartsWith("version https://git-lfs");
 
         static void Copy(string sourceDir, string targetDir, string pattern)
         {
@@ -180,12 +188,15 @@ namespace YunJing.Editor
                 $"{id}: imported size {b.size.x:0.000} x {b.size.z:0.000} x {b.size.y:0.000} m matches model_info {d[0]} x {d[1]} x {d[2]} within 2 cm");
             Check(b.size.x <= lim[0] + .005f && b.size.z <= lim[1] + .005f && b.size.y <= lim[2] + .005f,
                 $"{id}: within the work pack's limit {lim[0]} x {lim[1]} x {lim[2]} m");
-            Check(body.min.y < -.05f && body.min.y > -.25f, $"{id}: the stems run on {-body.min.y:0.00} m under the ground (origin at the stem base on the ground)");
+            if (Lying.Contains(id)) Check(Mathf.Abs(body.min.y) <= .002f, $"{id}: the heap sits on the ground (bottom at {body.min.y:0.000} m)");
+            else if (OnRoot.Contains(id)) Check(body.min.y <= 0f && body.min.y > -.8f && body.max.y < .25f, $"{id}: the vine runs from {body.max.y:0.00} m above to {-body.min.y:0.00} m below the root's top line (origin on the root)");
+            else Check(body.min.y < -.05f && body.min.y > -.25f, $"{id}: the stems run on {-body.min.y:0.00} m under the ground (origin at the stem base on the ground)");
             var levels = info.lods.All;
             var tris = Enumerable.Range(0, 3).Select(i => Tris(Level(go, i))).ToArray();
             Check(Enumerable.Range(0, 3).All(i => Mathf.Abs(tris[i] - levels[i].triangles) <= levels[i].triangles * .01f),
                 $"{id}: triangles LOD0/1/2 = {tris[0]} / {tris[1]} / {tris[2]} ({100f * tris[1] / tris[0]:0}% / {100f * tris[2] / tris[0]:0}%), model_info {levels[0].triangles} / {levels[1].triangles} / {levels[2].triangles}");
-            Check(tris[0] <= 30000 && tris[1] <= 4000 && tris[2] <= 2000, $"{id}: triangles {tris[0]} / {tris[1]} / {tris[2]} within LOD0 30,000 / LOD1 4,000 / LOD2 2,000");
+            if (id.StartsWith("UG")) Check(tris[0] <= 4000 && tris[1] <= 2000 && tris[2] <= 1000, $"{id}: triangles {tris[0]} / {tris[1]} / {tris[2]} within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)");
+            else Check(tris[0] <= 30000 && tris[1] <= 4000 && tris[2] <= 2000, $"{id}: triangles {tris[0]} / {tris[1]} / {tris[2]} within LOD0 30,000 / LOD1 4,000 / LOD2 2,000");
             var bodies = Enumerable.Range(0, 3).Select(i => Level(go, i, false).First().GetComponent<MeshFilter>().sharedMesh).ToArray();
             var uv2 = new List<Vector2>();
             Check(bodies.All(m => { m.GetUVs(1, uv2); return m.colors.Length == m.vertexCount && uv2.Count == m.vertexCount && uv2.All(w => w.x >= 0 && w.x <= 1); }),

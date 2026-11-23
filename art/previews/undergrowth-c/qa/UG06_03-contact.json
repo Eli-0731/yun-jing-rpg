@@ -1,0 +1,13 @@
+{
+ "UG06_03_v001": {
+  "UG06_03_Body_LOD0": {
+   "pieces": 139,
+   "within_1mm": 139,
+   "gap_1_3mm": 0,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 0.0,
+   "worst_at": []
+  }
+ }
+}

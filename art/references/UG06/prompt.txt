@@ -1,0 +1,23 @@
+UG06 貼在樹根上的小藤（11/14 工作包 B 批：可沿根擺放的幾段；D2 V2、V6 根上的小藤）三視圖與自評（2026-11-23）
+選用：UG06-cand-5.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 B 批和 D2 設定圖寫（工作包沒有附逐件提示詞）；Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+
+第一輪（cand-1 到 cand-4）四張的根都畫成直立的一根，和提示詞「平躺在地上的根」不合，都在 85 分以下（85、84、84、83），所以改寫提示詞（根平躺、橫過畫面、只到膝蓋高）重生成 cand-5 到 cand-8：
+- cand-5：91。選用。根平躺，細藤沿根頂從一頭爬到另一頭，心形小葉貼著根，兩根往上的側芽，幾片紅褐葉；端視看得出藤包住根頂往兩側垂。
+- cand-6：90。和 5 接近，葉偏稀，端視藤只在一側。
+- cand-7：89。中間那張是背視還是頂視看不清，三面不一致。
+- cand-8：90。藤只在根頂一條線，沒有往兩側貼。
+
+三視圖裡的根只是為了看出藤怎麼貼，模型只做藤那一層。
+
+建模取捨：照 cand-5 做四段（直的、彎的、包到側面的、從根上爬下地的），藤莖是細管貼著根的表面走，心形小葉一片片貼著根面、葉柄短；一兩根側芽往上翹；幾片葉偏紅褐。根用一個標準圓柱（半徑寫在 README）當貼合的面，模型裡不含根。
+
+== 提示詞（cand-5 到 cand-8）==
+PROMPT:
+Three-view orthographic turnaround sheet of a thin creeping vine clinging along a thick old tree root that lies FLAT and HORIZONTAL on the ground like a fallen log, about 1.3 m long and 0.25 m thick, running left to right across the image and only knee-high, the root shown as a plain smooth grey-brown horizontal cylinder only for context, the vine about 1.2 m long running along the length of the root on its top and upper side, a thin dark stem hugging the root surface with tiny clinging rootlets, small dark green heart-shaped ivy-like leaves 3 to 5 cm long on short stalks along the stem lying flat against the root, two short side shoots, a few leaves turned red-brown, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark blue-green, a little yellow-green on new growth, deep wet brown soil, dark grey-brown root bark), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

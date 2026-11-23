@@ -138,5 +138,1392 @@
    "LOD1: a quarter of the leaves, each 1.6 × larger, the wood decimated to 15 %; LOD2: a twelfth of the leaves, 2.5 × larger, wood 6 %",
    "moss and soil at the stem feet, pale lichen higher up, painted; Detail_Litter (34 fallen leaves) is off at the standard tier; no collision (it is walked through)"
   ]
+ },
+ "UG01": {
+  "id": "UG01",
+  "name": "WaistHighFernClump",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG01_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG01_v001.glb",
+   "blend": "art/source/undergrowth-c/UG01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.783,
+   1.561,
+   1.129
+  ],
+  "body_dimensions_xyz_m": [
+   1.783,
+   1.561,
+   1.129
+  ],
+  "size_limit_xyz_m": [
+   2.0,
+   2.0,
+   1.4
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3740,
+    "triangles_without_detail": 3740,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG01_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG01_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1870,
+    "triangles_without_detail": 1870,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG01_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG01_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 561,
+    "triangles_without_detail": 561,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG01_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG01_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG01_Body_LOD0",
+    "UG01_Body_LOD1",
+    "UG01_Body_LOD2"
+   ]
+  },
+  "material": "M_UG01_WaistHighFernClump",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 18,
+  "coplanar_lifted": 3,
+  "reference": "art/references/UG01/prompt.txt",
+  "origin": "crown centre on the ground (z = 0); the crown runs on a few cm under the ground; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "about eleven once-pinnate fronds fountaining up and out from one hairy crown, the tips bending over, the clump leaning a little right and back",
+   "520 five-vertex pinnae in pairs along the stalks, longest a third of the way up, shortening to the tip; the pinna texture carries the midrib and the toothed edge",
+   "two fiddleheads (a stalk ending in a tight coil) in the middle; three old brown fronds lying on the ground",
+   "LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
+ },
+ "UG02": {
+  "id": "UG02",
+  "name": "HeartLeafForestPlant",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG02_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG02_v001.glb",
+   "blend": "art/source/undergrowth-c/UG02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.667,
+   0.677,
+   0.642
+  ],
+  "body_dimensions_xyz_m": [
+   0.667,
+   0.677,
+   0.642
+  ],
+  "size_limit_xyz_m": [
+   1.2,
+   1.2,
+   0.9
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3342,
+    "triangles_without_detail": 3342,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG02_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG02_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1671,
+    "triangles_without_detail": 1671,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG02_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG02_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 500,
+    "triangles_without_detail": 500,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG02_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG02_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG02_Body_LOD0",
+    "UG02_Body_LOD1",
+    "UG02_Body_LOD2"
+   ]
+  },
+  "material": "M_UG02_HeartLeafForestPlant",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 18,
+  "coplanar_lifted": 0,
+  "reference": "art/references/UG02/prompt.txt",
+  "origin": "crown centre on the ground (z = 0); the crown runs on a few cm under the ground; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "about thirteen heart-shaped leaves 17–25 cm long, each on its own red-green stalk from a low crown, at different heights and angles, cupped along the midrib, tips drooping; three young leaves in the middle",
+   "each leaf is a mesh cut to the heart outline (outline and two rings, 140 triangles), its pale main vein and side veins in its own texture; wet sheen (roughness 0.40)",
+   "LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
+ },
+ "UG03": {
+  "id": "UG03",
+  "name": "StrapLeafForestPlant",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG03_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG03_v001.glb",
+   "blend": "art/source/undergrowth-c/UG03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.773,
+   0.879,
+   0.497
+  ],
+  "body_dimensions_xyz_m": [
+   0.773,
+   0.879,
+   0.497
+  ],
+  "size_limit_xyz_m": [
+   1.2,
+   1.2,
+   0.75
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1926,
+    "triangles_without_detail": 1926,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG03_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG03_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 963,
+    "triangles_without_detail": 963,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG03_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG03_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 288,
+    "triangles_without_detail": 288,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG03_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG03_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG03_Body_LOD0",
+    "UG03_Body_LOD1",
+    "UG03_Body_LOD2"
+   ]
+  },
+  "material": "M_UG03_StrapLeafForestPlant",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 3,
+  "coplanar_lifted": 0,
+  "reference": "art/references/UG03/prompt.txt",
+  "origin": "crown centre on the ground (z = 0); the crown runs on a few cm under the ground; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "about sixteen strap leaves 30–50 cm long, wavy edges, sunken dark midrib, arching up and out from a low crown; four young leaves upright in the middle; two old yellowing leaves lying on the ground",
+   "each leaf is a strip of fifteen rows by five columns along the midrib (no leaf cards), its midrib and fine side veins in its own texture; glossy (roughness 0.38)",
+   "LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
+ },
+ "UG04": {
+  "id": "UG04",
+  "name": "WhiteWildflowerClump",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG04_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG04_v001.glb",
+   "blend": "art/source/undergrowth-c/UG04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.274,
+   0.251,
+   0.326
+  ],
+  "body_dimensions_xyz_m": [
+   0.274,
+   0.251,
+   0.326
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.6,
+   0.4
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3012,
+    "triangles_without_detail": 3012,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG04_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG04_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1506,
+    "triangles_without_detail": 1506,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG04_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG04_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 451,
+    "triangles_without_detail": 451,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG04_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG04_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG04_Body_LOD0",
+    "UG04_Body_LOD1",
+    "UG04_Body_LOD2"
+   ]
+  },
+  "material": "M_UG04_WhiteWildflowerClump",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 31,
+  "coplanar_lifted": 2,
+  "reference": "art/references/UG04/prompt.txt",
+  "origin": "crown centre on the ground (z = 0); the crown runs on a few cm under the ground; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "about twelve palmately cut leaves (five toothed lobes) close to the ground on short stalks; seven thin flower stalks 17–25 cm, each with one open white six-petalled flower (petals one by one, cupped) and a yellow centre; two closed buds",
+   "leaf veins and the faint petal veins in their own textures",
+   "LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
+ },
+ "UG05_01": {
+  "id": "UG05_01",
+  "name": "FallenLeafHeapSmall",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG05_01_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG05_01_v001.glb",
+   "blend": "art/source/undergrowth-c/UG05_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.527,
+   0.435,
+   0.074
+  ],
+  "body_dimensions_xyz_m": [
+   0.527,
+   0.435,
+   0.074
+  ],
+  "size_limit_xyz_m": [
+   0.6,
+   0.6,
+   0.15
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 1054,
+    "triangles_without_detail": 1054,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG05_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG05_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG05_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG05_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 527,
+    "triangles_without_detail": 527,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG05_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG05_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG05_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG05_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 158,
+    "triangles_without_detail": 158,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG05_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG05_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG05_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG05_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG05_01_Body_LOD0",
+    "UG05_01_Body_LOD1",
+    "UG05_01_Body_LOD2"
+   ]
+  },
+  "material": "M_UG05_01_FallenLeafHeapSmall",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 3,
+  "coplanar_lifted": 0,
+  "reference": "art/references/UG05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0 (the rim of the heap a few mm under it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a low heap of fallen leaves 0.44 m across and 0.05 m high: 70 oval and lobed leaves one by one in layers over a dark litter mound, curled edges, loose single leaves round the edge, 1 twigs",
+   "drier and lighter on top, darker and wet at the bottom; each leaf's veins in the leaf texture",
+   "LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
+ },
+ "UG05_02": {
+  "id": "UG05_02",
+  "name": "FallenLeafHeapMedium",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG05_02_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG05_02_v001.glb",
+   "blend": "art/source/undergrowth-c/UG05_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.026,
+   0.823,
+   0.137
+  ],
+  "body_dimensions_xyz_m": [
+   1.026,
+   0.823,
+   0.137
+  ],
+  "size_limit_xyz_m": [
+   1.2,
+   1.2,
+   0.25
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2344,
+    "triangles_without_detail": 2344,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG05_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG05_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG05_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG05_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1172,
+    "triangles_without_detail": 1172,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG05_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG05_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG05_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG05_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 351,
+    "triangles_without_detail": 351,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG05_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG05_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG05_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG05_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG05_02_Body_LOD0",
+    "UG05_02_Body_LOD1",
+    "UG05_02_Body_LOD2"
+   ]
+  },
+  "material": "M_UG05_02_FallenLeafHeapMedium",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 6,
+  "coplanar_lifted": 0,
+  "reference": "art/references/UG05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0 (the rim of the heap a few mm under it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a low heap of fallen leaves 0.90 m across and 0.11 m high: 165 oval and lobed leaves one by one in layers over a dark litter mound, curled edges, loose single leaves round the edge, 3 twigs, a curled piece of bark",
+   "drier and lighter on top, darker and wet at the bottom; each leaf's veins in the leaf texture",
+   "LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
+ },
+ "UG05_03": {
+  "id": "UG05_03",
+  "name": "FallenLeafHeapLarge",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG05_03_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG05_03_v001.glb",
+   "blend": "art/source/undergrowth-c/UG05_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.554,
+   1.281,
+   0.183
+  ],
+  "body_dimensions_xyz_m": [
+   1.554,
+   1.281,
+   0.183
+  ],
+  "size_limit_xyz_m": [
+   1.8,
+   1.8,
+   0.32
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3356,
+    "triangles_without_detail": 3356,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG05_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG05_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG05_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG05_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1678,
+    "triangles_without_detail": 1678,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG05_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG05_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG05_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG05_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 503,
+    "triangles_without_detail": 503,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG05_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG05_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG05_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG05_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG05_03_Body_LOD0",
+    "UG05_03_Body_LOD1",
+    "UG05_03_Body_LOD2"
+   ]
+  },
+  "material": "M_UG05_03_FallenLeafHeapLarge",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 7,
+  "coplanar_lifted": 0,
+  "reference": "art/references/UG05/prompt.txt",
+  "origin": "footprint centre, bottom z = 0 (the rim of the heap a few mm under it), front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a low heap of fallen leaves 1.40 m across and 0.15 m high: 245 oval and lobed leaves one by one in layers over a dark litter mound, curled edges, loose single leaves round the edge, 4 twigs, a curled piece of bark",
+   "drier and lighter on top, darker and wet at the bottom; each leaf's veins in the leaf texture",
+   "LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
+ },
+ "UG06_01": {
+  "id": "UG06_01",
+  "name": "RootVineStraight",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG06_01_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG06_01_v001.glb",
+   "blend": "art/source/undergrowth-c/UG06_01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   0.92,
+   0.175,
+   0.155
+  ],
+  "body_dimensions_xyz_m": [
+   0.92,
+   0.175,
+   0.155
+  ],
+  "size_limit_xyz_m": [
+   1.2,
+   0.5,
+   0.4
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2132,
+    "triangles_without_detail": 2132,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1066,
+    "triangles_without_detail": 1066,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 319,
+    "triangles_without_detail": 319,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_01_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_01_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG06_01_Body_LOD0",
+    "UG06_01_Body_LOD1",
+    "UG06_01_Body_LOD2"
+   ]
+  },
+  "material": "M_UG06_01_RootVineStraight",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 75,
+  "coplanar_lifted": 0,
+  "reference": "art/references/UG06/prompt.txt",
+  "origin": "on the top line of a root of radius 0.15 m whose axis runs along X 0.15 m below; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a thin creeping vine 0.9 m long made to lie on a root 0.30 m thick (radius 0.15 m): the root axis runs along X, 0.15 m under the origin; the origin is on the root's top line",
+   "the stem hugs the bark (3.5 mm off it), small heart-shaped leaves lie flat on the bark on short stalks, alternate, a few red-brown; tiny clinging rootlets every few leaves; 1 short side shoots lift off the root with young leaves",
+   "the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
+ },
+ "UG06_02": {
+  "id": "UG06_02",
+  "name": "RootVineWinding",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG06_02_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG06_02_v001.glb",
+   "blend": "art/source/undergrowth-c/UG06_02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.214,
+   0.275,
+   0.179
+  ],
+  "body_dimensions_xyz_m": [
+   1.214,
+   0.275,
+   0.179
+  ],
+  "size_limit_xyz_m": [
+   1.6,
+   0.6,
+   0.6
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3003,
+    "triangles_without_detail": 3003,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1501,
+    "triangles_without_detail": 1501,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 450,
+    "triangles_without_detail": 450,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_02_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_02_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG06_02_Body_LOD0",
+    "UG06_02_Body_LOD1",
+    "UG06_02_Body_LOD2"
+   ]
+  },
+  "material": "M_UG06_02_RootVineWinding",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 105,
+  "coplanar_lifted": 0,
+  "reference": "art/references/UG06/prompt.txt",
+  "origin": "on the top line of a root of radius 0.22 m whose axis runs along X 0.22 m below; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a thin creeping vine 1.2 m long made to lie on a root 0.44 m thick (radius 0.22 m): the root axis runs along X, 0.22 m under the origin; the origin is on the root's top line",
+   "the stem hugs the bark (3.5 mm off it), small heart-shaped leaves lie flat on the bark on short stalks, alternate, a few red-brown; tiny clinging rootlets every few leaves; 2 short side shoots lift off the root with young leaves",
+   "the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
+ },
+ "UG06_03": {
+  "id": "UG06_03",
+  "name": "RootVineWrapping",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG06_03_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG06_03_v001.glb",
+   "blend": "art/source/undergrowth-c/UG06_03_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.037,
+   0.418,
+   0.372
+  ],
+  "body_dimensions_xyz_m": [
+   1.037,
+   0.418,
+   0.372
+  ],
+  "size_limit_xyz_m": [
+   1.4,
+   0.8,
+   0.7
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 2545,
+    "triangles_without_detail": 2545,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1271,
+    "triangles_without_detail": 1271,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 381,
+    "triangles_without_detail": 381,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_03_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_03_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_03_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_03_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG06_03_Body_LOD0",
+    "UG06_03_Body_LOD1",
+    "UG06_03_Body_LOD2"
+   ]
+  },
+  "material": "M_UG06_03_RootVineWrapping",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 93,
+  "coplanar_lifted": 0,
+  "reference": "art/references/UG06/prompt.txt",
+  "origin": "on the top line of a root of radius 0.30 m whose axis runs along X 0.30 m below; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a thin creeping vine 1.0 m long made to lie on a root 0.60 m thick (radius 0.30 m): the root axis runs along X, 0.30 m under the origin; the origin is on the root's top line",
+   "the stem hugs the bark (3.5 mm off it), small heart-shaped leaves lie flat on the bark on short stalks, alternate, a few red-brown; tiny clinging rootlets every few leaves; 1 short side shoots lift off the root with young leaves",
+   "the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
+ },
+ "UG06_04": {
+  "id": "UG06_04",
+  "name": "RootVineDownToGround",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/UG06_04_v001.fbx",
+   "glb": "art/exports/undergrowth-c/UG06_04_v001.glb",
+   "blend": "art/source/undergrowth-c/UG06_04_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.21,
+   0.273,
+   0.387
+  ],
+  "body_dimensions_xyz_m": [
+   1.21,
+   0.273,
+   0.387
+  ],
+  "size_limit_xyz_m": [
+   1.6,
+   0.7,
+   0.6
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [],
+  "detailMeshes": [],
+  "lods": {
+   "LOD0": {
+    "triangles": 3088,
+    "triangles_without_detail": 3088,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1544,
+    "triangles_without_detail": 1544,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 463,
+    "triangles_without_detail": 463,
+    "objects": 1,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "UG06_04_Albedo.png": [
+      1024,
+      1024
+     ],
+     "UG06_04_Normal.png": [
+      1024,
+      1024
+     ],
+     "UG06_04_ORM.png": [
+      1024,
+      1024
+     ],
+     "UG06_04_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "UG06_04_Body_LOD0",
+    "UG06_04_Body_LOD1",
+    "UG06_04_Body_LOD2"
+   ]
+  },
+  "material": "M_UG06_04_RootVineDownToGround",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 121,
+  "coplanar_lifted": 0,
+  "reference": "art/references/UG06/prompt.txt",
+  "origin": "on the top line of a root of radius 0.18 m whose axis runs along X 0.18 m below; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "a thin creeping vine 0.8 m long made to lie on a root 0.36 m thick (radius 0.18 m): the root axis runs along X, 0.18 m under the origin; the origin is on the root's top line; the last part climbs down the root's side and runs 0.3 m over the ground (0.36 m under the origin)",
+   "the stem hugs the bark (3.5 mm off it), small heart-shaped leaves lie flat on the bark on short stalks, alternate, a few red-brown; tiny clinging rootlets every few leaves",
+   "the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
+  ]
  }
 }

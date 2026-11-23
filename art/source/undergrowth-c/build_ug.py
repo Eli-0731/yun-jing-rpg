@@ -38,6 +38,17 @@ PROPS={}
 # id: (name, size limit w × d × h in m (h counts the stems under the ground too), minTier)
 TABLE={
  'SH01':('UnderstoryShrubBroadleaf',(2.2,2.2,2.4),'standard'),
+ 'UG01':('WaistHighFernClump',(2.0,2.0,1.4),'standard'),
+ 'UG02':('HeartLeafForestPlant',(1.2,1.2,.9),'standard'),
+ 'UG03':('StrapLeafForestPlant',(1.2,1.2,.75),'standard'),
+ 'UG04':('WhiteWildflowerClump',(.6,.6,.4),'standard'),
+ 'UG05_01':('FallenLeafHeapSmall',(.6,.6,.15),'standard'),
+ 'UG05_02':('FallenLeafHeapMedium',(1.2,1.2,.25),'standard'),
+ 'UG05_03':('FallenLeafHeapLarge',(1.8,1.8,.32),'standard'),
+ 'UG06_01':('RootVineStraight',(1.2,.5,.4),'standard'),
+ 'UG06_02':('RootVineWinding',(1.6,.6,.6),'standard'),
+ 'UG06_03':('RootVineWrapping',(1.4,.8,.7),'standard'),
+ 'UG06_04':('RootVineDownToGround',(1.6,.7,.6),'standard'),
 }
 IDS=tuple(TABLE);TARGET={k:('x',None) for k in IDS};TARGET['SH01']=('z',1.93)   # 1.75 m above the ground + the stems under it
 LIMIT={k:v[1] for k,v in TABLE.items()};NAME={k:v[0] for k,v in TABLE.items()};MIN_TIER={k:v[2] for k,v in TABLE.items()}

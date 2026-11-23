@@ -1,0 +1,19 @@
+UG04 林下白花叢（11/14 工作包 B 批：0.2–0.3 m；D2 V6 右下那種白花）三視圖與自評（2026-11-23）
+選用：UG04-cand-1.png（92分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 B 批和 D2 設定圖寫（工作包沒有附逐件提示詞）；Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：選用。貼地一圈深裂的深綠葉，七根細花莖高低不同，每根頂一朵六瓣白花、黃心，兩個花苞；正側背一致。
+- cand-2：91 花莖偏高，葉偏亮。
+- cand-3：90 花偏多偏擠。
+- cand-4：91 葉團偏整齊。
+
+建模取捨：照 cand-1：葉是掌狀深裂的網格葉，貼地一圈；花莖是細管，六片花瓣一片片做成微凹的立體瓣，黃色花心是一個小圓頂；兩個閉合花苞。
+
+== 提示詞 ==
+PROMPT:
+Three-view orthographic turnaround sheet of a low clump of white forest wildflowers about 0.25 m tall and 0.35 m wide, like a wood anemone, about twelve deeply cut dark green leaves with toothed lobes close to the ground on dark soil, seven thin stalks rising above the leaves each carrying one open white flower 3 to 4 cm across with six rounded petals and a small yellow centre, two closed buds, the flowers facing up and to the side at different heights, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark blue-green, a little yellow-green on new growth, deep wet brown soil, pure white petals with a small yellow centre), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

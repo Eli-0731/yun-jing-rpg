@@ -1,0 +1,19 @@
+UG01 及腰大蕨叢（11/14 工作包 B 批：0.8–1.2 m；D2 V2 左下、V6 右上那種大蕨）三視圖與自評（2026-11-23）
+選用：UG01-cand-1.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 B 批和 D2 設定圖寫（工作包沒有附逐件提示詞）；Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：選用。十來片一回羽狀長葉從一個根冠噴泉狀往上往外拱、葉尖下垂，中間兩個捲著的幼葉，根部有幾片枯褐老葉；側視往一邊斜，剪影好認。
+- cand-2：90 和 1 接近，葉較密較圓，像一顆球。
+- cand-3：90 葉往上直立較多，葉尖少下垂。
+- cand-4：89 葉太密，正背面幾乎一樣。
+
+建模取捨：照 cand-1：約十四片葉從根冠拱出，每片是一根葉軸加一對對羽片（五頂點立體羽片，一片片排，不用葉片卡），越往葉尖羽片越短；兩個捲著的幼葉；根冠周圍三片枯褐老葉平躺。
+
+== 提示詞 ==
+PROMPT:
+Three-view orthographic turnaround sheet of a large waist-high wild sword fern clump about 1.0 m tall and 1.4 m wide, about fourteen long arching once-pinnate fronds rising from one dark hairy root crown on dark forest soil, each frond a straight dark stalk with forty pairs of long narrow pointed leaflets set one by one on both sides, the fronds fountaining up and out and bending over at the tips, two young fronds uncurling as fiddleheads in the middle, a few old brown fronds lying at the base, deep blue-green fronds slightly glossy with dew, irregular asymmetric silhouette, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark blue-green, a little yellow-green on new growth, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+flowers, photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

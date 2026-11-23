@@ -1,0 +1,19 @@
+UG05 落葉堆（11/14 工作包 B 批：三種大小）三視圖與自評（2026-11-23）
+選用：UG05-cand-3.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 B 批和 D2 設定圖寫（工作包沒有附逐件提示詞）；Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90 堆太扁太整齊。
+- cand-2：89 偏紅，葉偏小。
+- cand-3：選用。一片片乾葉層層疊成低堆，有細枝和一小片樹皮，邊緣鬆散有零散的單片葉，上乾下濕。
+- cand-4：90 和 3 接近，堆頂偏尖。
+
+建模取捨：照 cand-3 做三種大小（小、中、大），葉子一片片立體疊放（卵形和裂葉兩種葉形），和 DP19 落葉堆不同大小；上層乾淺、下層濕深。
+
+== 提示詞 ==
+PROMPT:
+Three-view orthographic turnaround sheet of a low heap of fallen broadleaf leaves on dark forest soil about 0.9 m across and 0.15 m tall, many separate dry oval and lobed leaves 6 to 12 cm long lying on top of each other in layers, curled and crumpled edges, a few twigs and a small piece of bark mixed in, the edge of the heap loose and scattered with single leaves, drier and lighter on top, darker and wet at the bottom, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (faded russet-brown, ochre and dull orange dead leaves, a few darker wet leaves, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

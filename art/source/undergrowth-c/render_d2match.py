@@ -10,6 +10,7 @@ from pathlib import Path
 from mathutils import Vector
 a=argparse.ArgumentParser();a.add_argument('--glb');a.add_argument('--out');a.add_argument('--tag');a.add_argument('--samples',type=int,default=96)
 a.add_argument('--fig',type=int,default=1)
+a.add_argument('--root',type=float,default=0.)   # UG06 vines: a plain bark cylinder of this radius along X, its top line at the origin
 A=a.parse_args(sys.argv[sys.argv.index('--')+1:]);out=Path(A.out).resolve();out.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True);sc=bpy.context.scene
 (bpy.ops.import_scene.fbx if A.glb.lower().endswith('.fbx') else bpy.ops.import_scene.gltf)(filepath=A.glb)
@@ -36,8 +37,12 @@ fn.links.new(vol.outputs[0],fn.nodes['Material Output'].inputs['Volume']);fog.da
 l=bpy.data.objects.new('sun',bpy.data.lights.new('sun','SUN'));l.data.energy=.9;l.data.color=(.92,.94,1.);l.data.angle=math.radians(25)
 l.rotation_euler=(math.radians(40),0,math.radians(-30));sc.collection.objects.link(l)
 # dark wet forest soil, a little sheen
-bpy.ops.mesh.primitive_plane_add(size=400);g=bpy.context.object;m=bpy.data.materials.new('soil');m.use_nodes=True;g.data.materials.append(m)
+bpy.ops.mesh.primitive_plane_add(size=400,location=(0,0,-2*A.root));g=bpy.context.object;m=bpy.data.materials.new('soil');m.use_nodes=True;g.data.materials.append(m)
 p=m.node_tree.nodes['Principled BSDF'];p.inputs['Base Color'].default_value=(.075,.058,.042,1);p.inputs['Roughness'].default_value=.85
+if A.root:
+    bpy.ops.mesh.primitive_cylinder_add(radius=A.root,depth=max(hi.x-lo.x+.6,1.),location=(ctr.x,0,-A.root),rotation=(0,math.pi/2,0),vertices=48);rt=bpy.context.object
+    bpy.ops.object.shade_smooth();rm=bpy.data.materials.new('root');rm.use_nodes=True;rp=rm.node_tree.nodes['Principled BSDF'];rp.inputs['Base Color'].default_value=(.16,.13,.10,1);rp.inputs['Roughness'].default_value=.9;rt.data.materials.append(rm)
+    lo.z=-2*A.root
 if A.fig:
     bpy.ops.mesh.primitive_cylinder_add(radius=.18,depth=1.75,location=(hi.x+.55,ctr.y+.3,.875));fig=bpy.context.object
     fm=bpy.data.materials.new('fig');fm.use_nodes=True;fm.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.30,.42,.55,1);fig.data.materials.append(fm)

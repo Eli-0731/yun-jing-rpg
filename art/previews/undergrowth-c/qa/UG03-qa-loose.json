@@ -1,0 +1,15 @@
+[
+ {
+  "file": "art\\exports\\undergrowth-c\\UG03_v001.glb",
+  "objects": 1,
+  "triangles": 1926,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "UG03_Body_LOD0",
+    "count": 1,
+    "note": "1 triangle pairs {'side two pieces': 1}, e.g. at [[-0.027, 0.057, 0.073, 'n+0-1+1']]"
+   }
+  ]
+ }
+]

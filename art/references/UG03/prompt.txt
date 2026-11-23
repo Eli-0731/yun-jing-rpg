@@ -1,0 +1,19 @@
+UG03 細長葉林下植物（11/14 工作包 B 批：0.4–0.6 m）三視圖與自評（2026-11-23）
+選用：UG03-cand-2.png（91分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 B 批和 D2 設定圖寫（工作包沒有附逐件提示詞）；Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：90 中間幾片偏亮黃綠。
+- cand-2：選用。十六片舌狀長葉、邊緣波浪、深色中肋，從低冠往上往外拱；中間幾片幼葉直立，地上一兩片老葉枯黃。
+- cand-3：89 葉偏寬偏亂。
+- cand-4：90 葉偏長偏高。
+
+建模取捨：照 cand-2：每片葉是沿中肋的窄條網格，邊緣做波浪、中肋下凹；幼葉直立、老葉往外倒；兩片枯黃老葉躺在地上。
+
+== 提示詞 ==
+PROMPT:
+Three-view orthographic turnaround sheet of a forest floor plant with long narrow strap-shaped leaves about 0.5 m tall and 0.7 m wide, a rosette of about sixteen smooth tongue-shaped leaves 35 to 50 cm long and 4 to 6 cm wide with wavy edges and a pointed tip, arching up and outwards from a low crown on dark soil, each leaf with a clear dark midrib, glossy dark green, a few young upright leaves in the middle and one or two old leaves yellowing and lying on the ground, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark blue-green, a little yellow-green on new growth, deep wet brown soil), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+flowers, photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

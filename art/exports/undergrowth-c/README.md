@@ -2,25 +2,27 @@
 |---|---|
 | 誰做的 | C（Eli-0731） |
 | 工作包 | docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md，B 批；做法照 docs/execution/2026-11-14/樹木重做-v2-分工.md 和 tree-method/天空島世界樹建模歷程與精修方法.md |
-| ID | SH01（樣品；B 批其餘 SH02、SP01、UG01–UG06 等樣品審過再做） |
+| ID | SH01（樣品）；UG01–UG04、UG05_01–03（三種大小）、UG06_01–04（四段）。SH02、SP01 還沒做 |
 | 分支／PR | art/c-1114-sh-ug-undergrowth ／ 開 PR 後補 |
 | 版本 | v001（檔名帶 `_v001`；之後改版另存 v002，不覆寫） |
 | 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖）／ In-game Verified：未驗（沒放進正式場景） |
-| 素材來源 | 原創；三視圖參考在 `art/references/SH01/` |
-| 實際工時 | 2026-11-18 02:45–04:00（台灣時間），約 1 小時 15 分：讀指南、三視圖、建模腳本（植物用的 LOD、頂點色、風權重）、建模、QA、審圖、Unity 檢查 |
+| 素材來源 | 原創；三視圖參考在 `art/references/<ID>/`（UG05、UG06 的變體共用 `UG05/`、`UG06/`） |
+| 實際工時 | SH01：2026-11-18 02:45–04:00（台灣時間），約 1 小時 15 分。UG01–UG06：2026-11-23 20:40–22:40，約 2 小時：三視圖（UG06 重生成一輪）、葉形和葉貼圖、建模、修改、QA、審圖、D2 對圖、Unity 檢查 |
 
 # 林下植物（undergrowth-c）
 
-11/14 的 120 小時包 B 批：D2 林下（設定圖 V2、V3、V6），也用在 D1、A1 院子。照《樹木重做 v2》的分工，SH01 先交一個樣品，等審查意見再做其他的。靜態擺設；擺進世界由核心組做，這裡不改主場景、不改區塊 JSON。
+11/14 的 120 小時包 B 批：D2 林下（設定圖 V2、V3、V6），也用在 D1、A1 院子。SH01 先交樣品；UG01–UG06 照「不等審查先做完」先做完，審查意見回來再改。靜態擺設；擺進世界由核心組做，這裡不改主場景、不改區塊 JSON。
 
 **共同做法**
 - 先生成三視圖（每件 4 張）、自評選一張（分數和取捨在 `prompt.txt`），再做灰模（`art/previews/undergrowth-c/<ID>/clay/`），最後上貼圖。
 - 照指南的順序：先定三面剪影和幹，再分次枝、細枝（三級粗細），最後才排葉子；葉子是五頂點的立體葉，一片片沿枝排，不用葉片卡、不用葉團圖集、不在球裡撒葉，不鏡像。
-- 原點在幹基中心的地面（z = 0），Blender −Y 是正面（FBX／Unity 是 −Z）；幹往地下延伸 0.18 m。
+- 原點在幹基或根冠中心的地面（z = 0），Blender −Y 是正面（FBX／Unity 是 −Z）；SH01 的幹往地下延伸 0.18 m，UG01–UG04 的根冠往地下 6–9 cm。UG05 落葉堆原點在底面中心；UG06 原點在根頂的那條線上（見各件）。
+- **UG 的葉子**：每片葉照自己的輪廓切網格（心形、掌狀深裂、舌狀長條、花瓣、卵形和裂葉的落葉，輪廓寫在 `ug_shapes.py`），葉脈、中肋、鋸齒邊畫在那種葉自己的來源貼圖上（`ug_sources.py`），UV 直接對著每一片葉，所以葉脈和葉形對得上；蕨的羽片是五頂點立體羽片。沒有葉片卡、沒有透明貼圖。
+- **頂點色**：glTF 會把 COLOR_0 乘到底色上。SH01 寫的是葉色；UG 改寫灰階明暗（下內 0.78、上外 1.0），A 是遮蔽，免得在會乘頂點色的檢視器裡變暗變綠。
 - 一件一個材質、一套 1024 貼圖（Albedo／Normal／ORM／MaskURP），雙面；葉色同時在 Albedo 和頂點色。可有可無的小東西放 `Detail_*`（標準畫質關掉）。`minTier` 都是 `standard`。
-- **面數**：工作包寫「件小，面數各 ≤ 4,000」，《樹木重做 v2》寫灌木 LOD0 ≤ 30,000、LOD1 ≤ 7,500、LOD2 ≤ 2,000。這裡取品質優先：LOD0 一片片的葉子約 16,600 面，LOD1 ≤ 4,000（符合工作包），LOD2 ≤ 2,000。如果 LOD0 也要 ≤ 4,000，請在審查時說，會改成更少更大的葉子。
+- **面數**：工作包寫「件小，面數各 ≤ 4,000」，《樹木重做 v2》寫灌木 LOD0 ≤ 30,000、LOD1 ≤ 7,500、LOD2 ≤ 2,000。SH01 取品質優先：LOD0 約 16,600 面，LOD1 ≤ 4,000，LOD2 ≤ 2,000；如果 LOD0 也要 ≤ 4,000，請在審查時說。**UG01–UG06 照工作包，每件 LOD0 ≤ 4,000**（1,054–3,740 面）。
 - 建模流程和 yard-props-c、yard-roadside-c 相同（共用工具和來源貼圖），`build_ug.py` 只多三件事：原點留在幹基、葉子減量的 LOD、頂點色和風權重。
-- 重建：`blender -b --factory-startup -P art/source/undergrowth-c/build_ug.py -- SH01 [--clay]`；審圖、QA 和植物出圖（剪影、樹冠下、20 m／60 m、正面和左右 35°）：`BL=<blender> sh art/source/undergrowth-c/render_reviews.sh`；Unity：`UNITY=<Unity.exe 6000.3.28f1> sh art/source/undergrowth-c/unity/run_unity_check.sh`。
+- 重建：`blender -b --factory-startup -P art/source/undergrowth-c/build_ug.py -- <ID> [--clay]`；審圖、QA 和植物出圖（剪影、樹冠下、20 m／60 m、正面和左右 35°）：`BL=<blender> sh art/source/undergrowth-c/render_reviews.sh`；Unity：`UNITY=<Unity.exe 6000.3.28f1> sh art/source/undergrowth-c/unity/run_unity_check.sh`。
 
 ### SH01 林下灌木（闊葉）（UnderstoryShrubBroadleaf，v001）
 
@@ -41,10 +43,221 @@
 | 亂數種子 | 枝幹 `UG_SEED` 8101、葉子 `UG_LSEED` 8159（固定，重建一樣） |
 | 檔案 | `art/exports/undergrowth-c/SH01_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/SH01_v001.glb`（LOD0）、`art/source/undergrowth-c/SH01_v001.blend` |
 
+### UG01 及腰大蕨叢（WaistHighFernClump，v001）
+
+十片一回羽狀長葉從一個毛茸茸的根冠噴泉狀拱出，葉尖往外往下垂，整叢往右後方微斜；葉軸先直再均勻彎下。每片葉約 26 對羽片，一片片沿葉軸排（五頂點立體羽片，不用葉片卡），葉軸三分之一處最長、往葉尖漸短；羽片的中肋和鋸齒邊畫在羽片自己的貼圖上（UV 對著每一片）。中間兩個捲著的幼葉，根冠旁三片枯褐老葉平躺。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG01/`，選用 cand-1（91） |
+| 尺寸（寬 × 深 × 高） | 1.783 × 1.561 × 1.129 m，高度含根冠往地下的幾 cm |
+| 三角面 LOD0 / LOD1 / LOD2 | 3,740 / 1,870 / 561（不含 Detail_：3,740 / 1,870 / 561） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG01_WaistHighFernClump`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8301（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG01_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG01_v001.glb`（LOD0）、`art/source/undergrowth-c/UG01_v001.blend` |
+
+### UG02 心形大葉林下植物（HeartLeafForestPlant，v001）
+
+十三片 17–25 cm 的心形大葉，各自一根紅綠細長柄從低矮根冠長出，高低角度不同，葉從柄頂往外往下垂、沿中脈微凹、葉尖下垂；中間三片小嫩葉。每片葉是照心形輪廓切的網格（輪廓加兩圈內環，140 面），不是葉片卡；淺色主脈和五對側脈畫在葉自己的貼圖上，濕亮（粗糙 0.40）。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG02/`，選用 cand-1（92） |
+| 尺寸（寬 × 深 × 高） | 0.667 × 0.677 × 0.642 m，高度含根冠往地下的幾 cm |
+| 三角面 LOD0 / LOD1 / LOD2 | 3,342 / 1,671 / 500（不含 Detail_：3,342 / 1,671 / 500） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG02_HeartLeafForestPlant`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8302（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG02_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG02_v001.glb`（LOD0）、`art/source/undergrowth-c/UG02_v001.blend` |
+
+### UG03 細長葉林下植物（StrapLeafForestPlant，v001）
+
+十六片 40–58 cm 的舌狀長葉從低冠往上往外拱，邊緣波浪、中肋下凹；中間四片幼葉較直立，地上兩片枯黃老葉。每片葉是沿中肋 15 列 × 5 行的條狀網格，中肋和細側脈畫在葉自己的貼圖上，亮面（粗糙 0.38）。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG03/`，選用 cand-2（91） |
+| 尺寸（寬 × 深 × 高） | 0.773 × 0.879 × 0.497 m，高度含根冠往地下的幾 cm |
+| 三角面 LOD0 / LOD1 / LOD2 | 1,926 / 963 / 288（不含 Detail_：1,926 / 963 / 288） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG03_StrapLeafForestPlant`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8303（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG03_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG03_v001.glb`（LOD0）、`art/source/undergrowth-c/UG03_v001.blend` |
+
+### UG04 林下白花叢（WhiteWildflowerClump，v001）
+
+十二片掌狀深裂葉（五個帶齒的裂片）貼地一圈；七根 17–25 cm 的細花莖，每根頂一朵六瓣白花（花瓣一片片做、往上微凹）和黃色花心；兩個閉合的花苞。葉脈和花瓣的細脈畫在各自的貼圖上。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG04/`，選用 cand-1（92） |
+| 尺寸（寬 × 深 × 高） | 0.274 × 0.251 × 0.326 m，高度含根冠往地下的幾 cm |
+| 三角面 LOD0 / LOD1 / LOD2 | 3,012 / 1,506 / 451（不含 Detail_：3,012 / 1,506 / 451） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG04_WhiteWildflowerClump`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8304（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG04_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG04_v001.glb`（LOD0）、`art/source/undergrowth-c/UG04_v001.blend` |
+
+### UG05_01 落葉堆（小）（FallenLeafHeapSmall，v001）
+
+約 0.5 m 寬的低矮落葉堆：70 片卵形和裂葉的乾葉一片片疊在一個深色濕腐葉土堆上，邊緣捲曲，堆外有零散的單片；上乾淺、下濕深；一根細枝。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG05/`，選用 cand-3（91） |
+| 尺寸（寬 × 深 × 高） | 0.527 × 0.435 × 0.074 m，堆的邊緣比地面低幾 mm |
+| 三角面 LOD0 / LOD1 / LOD2 | 1,054 / 527 / 158（不含 Detail_：1,054 / 527 / 158） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG05_01_FallenLeafHeapSmall`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8351（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG05_01_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG05_01_v001.glb`（LOD0）、`art/source/undergrowth-c/UG05_01_v001.blend` |
+
+### UG05_02 落葉堆（中）（FallenLeafHeapMedium，v001）
+
+約 1.0 m 寬：165 片乾葉一層層疊，三根細枝、一片捲曲的樹皮；其他同小堆。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG05/`，選用 cand-3（91） |
+| 尺寸（寬 × 深 × 高） | 1.026 × 0.823 × 0.137 m，堆的邊緣比地面低幾 mm |
+| 三角面 LOD0 / LOD1 / LOD2 | 2,344 / 1,172 / 351（不含 Detail_：2,344 / 1,172 / 351） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG05_02_FallenLeafHeapMedium`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8352（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG05_02_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG05_02_v001.glb`（LOD0）、`art/source/undergrowth-c/UG05_02_v001.blend` |
+
+### UG05_03 落葉堆（大）（FallenLeafHeapLarge，v001）
+
+約 1.5 m 寬：245 片乾葉，四根細枝、一片樹皮；其他同小堆。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG05/`，選用 cand-3（91） |
+| 尺寸（寬 × 深 × 高） | 1.554 × 1.281 × 0.183 m，堆的邊緣比地面低幾 mm |
+| 三角面 LOD0 / LOD1 / LOD2 | 3,356 / 1,678 / 503（不含 Detail_：3,356 / 1,678 / 503） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG05_03_FallenLeafHeapLarge`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8353（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG05_03_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG05_03_v001.glb`（LOD0）、`art/source/undergrowth-c/UG05_03_v001.blend` |
+
+### UG06_01 根上小藤（直段）（RootVineStraight，v001）
+
+0.9 m 的細藤貼著半徑 0.15 m 的根頂微微左右擺，一根側芽往上翹。藤莖離樹皮 3.5 mm 貼著走，心形小葉（4–6 cm）短柄、互生、平貼在樹皮上，約八分之一的葉偏紅褐；每隔幾片葉有細小的氣生根抓進樹皮。**模型不含根**：原點在根頂的那條線上，根的軸沿 X、在原點下方一個半徑處；沿半徑相近的根擺，轉向配合根的走向。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG06/`，選用 cand-5（91） |
+| 尺寸（寬 × 深 × 高） | 0.92 × 0.175 × 0.155 m，高度從根頂往下量到藤垂得最低處 |
+| 三角面 LOD0 / LOD1 / LOD2 | 2,132 / 1,066 / 319（不含 Detail_：2,132 / 1,066 / 319） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG06_01_RootVineStraight`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8361（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG06_01_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG06_01_v001.glb`（LOD0）、`art/source/undergrowth-c/UG06_01_v001.blend` |
+
+### UG06_02 根上小藤（蜿蜒）（RootVineWinding，v001）
+
+1.2 m 的細藤在半徑 0.22 m 的根頂上蜿蜒，兩根側芽往上翹。藤莖離樹皮 3.5 mm 貼著走，心形小葉（4–6 cm）短柄、互生、平貼在樹皮上，約八分之一的葉偏紅褐；每隔幾片葉有細小的氣生根抓進樹皮。**模型不含根**：原點在根頂的那條線上，根的軸沿 X、在原點下方一個半徑處；沿半徑相近的根擺，轉向配合根的走向。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG06/`，選用 cand-5（91） |
+| 尺寸（寬 × 深 × 高） | 1.214 × 0.275 × 0.179 m，高度從根頂往下量到藤垂得最低處 |
+| 三角面 LOD0 / LOD1 / LOD2 | 3,003 / 1,501 / 450（不含 Detail_：3,003 / 1,501 / 450） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG06_02_RootVineWinding`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8362（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG06_02_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG06_02_v001.glb`（LOD0）、`art/source/undergrowth-c/UG06_02_v001.blend` |
+
+### UG06_03 根上小藤（包到側面）（RootVineWrapping，v001）
+
+1.0 m 的細藤從半徑 0.30 m 的根頂往一側包下去，一根側芽。藤莖離樹皮 3.5 mm 貼著走，心形小葉（4–6 cm）短柄、互生、平貼在樹皮上，約八分之一的葉偏紅褐；每隔幾片葉有細小的氣生根抓進樹皮。**模型不含根**：原點在根頂的那條線上，根的軸沿 X、在原點下方一個半徑處；沿半徑相近的根擺，轉向配合根的走向。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG06/`，選用 cand-5（91） |
+| 尺寸（寬 × 深 × 高） | 1.037 × 0.418 × 0.372 m，高度從根頂往下量到藤垂得最低處 |
+| 三角面 LOD0 / LOD1 / LOD2 | 2,545 / 1,271 / 381（不含 Detail_：2,545 / 1,271 / 381） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG06_03_RootVineWrapping`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8363（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG06_03_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG06_03_v001.glb`（LOD0）、`art/source/undergrowth-c/UG06_03_v001.blend` |
+
+### UG06_04 根上小藤（爬下地）（RootVineDownToGround，v001）
+
+0.8 m 的細藤沿半徑 0.18 m 的根頂走，最後從根側爬下地，在地上再走 0.35 m。藤莖離樹皮 3.5 mm 貼著走，心形小葉（4–6 cm）短柄、互生、平貼在樹皮上，約八分之一的葉偏紅褐；每隔幾片葉有細小的氣生根抓進樹皮。**模型不含根**：原點在根頂的那條線上，根的軸沿 X、在原點下方一個半徑處；沿半徑相近的根擺，轉向配合根的走向。
+
+| 項目 | 數字 |
+|---|---|
+| 三視圖 | `art/references/UG06/`，選用 cand-5（91） |
+| 尺寸（寬 × 深 × 高） | 1.21 × 0.273 × 0.387 m，高度從根頂往下量到藤垂得最低處 |
+| 三角面 LOD0 / LOD1 / LOD2 | 3,088 / 1,544 / 463（不含 Detail_：3,088 / 1,544 / 463） |
+| LOD 做法 | LOD1 減到 50%、LOD2 減到 15%（整體減面） |
+| 物件數（每個 LOD） | 1（本體） |
+| 材質數 | 1（`M_UG06_04_RootVineDownToGround`，全部共用，雙面） |
+| 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
+| 頂點資料 | COLOR_0（RGB 灰階明暗 0.78–1，A 遮蔽）、UV2 `Wind`（風的權重、相位），每個 LOD 都有 |
+| minTier | standard |
+| 碰撞 | 模型裡沒有 |
+| 亂數種子 | 8364（固定，重建一樣） |
+| 檔案 | `art/exports/undergrowth-c/UG06_04_v001.fbx`（LOD0–2）、`art/exports/undergrowth-c/UG06_04_v001.glb`（LOD0）、`art/source/undergrowth-c/UG06_04_v001.blend` |
+
 ## 驗證
 
 - QA（`tools/art/qa_lod0_basic.py` 嚴格與寬鬆、`tools/art/qa_contact_glb.py`）：SH01 嚴格、寬鬆都是 0 項；接觸最大 1.2 mm（落葉）。結果在 `art/previews/undergrowth-c/qa/`。
-- Unity 6000.3.28f1 獨立匯入：`art/previews/undergrowth-c/unity/report.txt`（17 項全過）。另外查了：幹往地下 0.18 m、面數在 LOD0 30,000／LOD1 4,000／LOD2 2,000 內、三個 LOD 都有頂點色和 UV2（風的權重 0–1）、材質雙面、沒有碰撞。
+- QA（UG）：嚴格 11 件都是 0 項。寬鬆會列出「近乎共面」1–97 處，都是葉片彼此貼得很近的地方（UG04 的花瓣和貼地葉最多），不是重複的面；接觸：UG01–UG04、UG06 都在 1 mm 內；落葉堆上層的葉斜疊在下層葉上，最大間隙 3.8／6.0／7.1 mm（小／中／大）。
+- Unity 6000.3.28f1 獨立匯入：`art/previews/undergrowth-c/unity/report.txt`：2026-11-23 這次 UG 11 件共 187 項全過；SH01 在這個工作樹的貼圖和 FBX 是沒拉下來的 Git LFS 指標檔，這次跳過（報告裡寫 SKIP），2026-11-18 那次是 17 項全過（見 git 紀錄）。UG 另外查了：LOD0 ≤ 4,000、LOD1 ≤ 2,000、LOD2 ≤ 1,000；UG01–UG04 根冠在地下；落葉堆底面在地上；藤的最低點不高於根頂線。
+- SH01（2026-11-18）：Unity 6000.3.28f1 獨立匯入：`art/previews/undergrowth-c/unity/report.txt`（17 項全過）。另外查了：幹往地下 0.18 m、面數在 LOD0 30,000／LOD1 4,000／LOD2 2,000 內、三個 LOD 都有頂點色和 UV2（風的權重 0–1）、材質雙面、沒有碰撞。
 - 每件的審圖在 `art/previews/undergrowth-c/<ID>/`：灰模（`clay/`）、四個方向加 1.75 m 人形尺、近看、線框、LOD0／LOD1／LOD2（不含 Detail_），`<ID>-sheet.jpg` 把選用的三視圖和這些排在同一張。
 - 《樹木重做 v2》第 3 節要的圖：`<ID>/plant/`，黑色剪影三張（正面、側面、35°）、樹冠下往上看、20 m 和 60 m（EEVEE，貼圖有 mipmap，和遊戲裡一樣）、同光的正面和左右 35°；`SH01-plant-sheet.jpg` 把這些和標準圖（天空島世界樹）排在一起。
 
@@ -57,6 +270,17 @@
   2. **整叢的量感**：設定圖的林下植物是貼地、密實的葉團，看不到光禿的莖；SH01 是七根細幹往上張開的花瓶形，下半段幾乎只有幹，比較像幼樹叢。V5 右邊的林緣小灌木是小圓葉成簇、葉團很滿，也比 SH01 密。
   3. **葉面材質**：設定圖的葉子濕亮，有高光，偏藍綠；SH01 的葉是平的暗綠，沒有高光，也沒有葉脈。
 - 這些等審查意見決定要不要出 v002；如果要改，打算換成卵形大葉加主脈、壓低整叢讓葉團貼到地面，葉面加一點濕潤的高光。
+
+## UG01–UG06 和 D2 設定圖對圖
+
+- `art/previews/undergrowth-c/UG-d2-compare.jpg`：上排是 D2 設定圖裡最接近的那一塊（V2 左下大蕨、心形大葉；V6 右長舌葉、右下白花、中間根上小藤；V2 路上落葉），下排是成品在同一種光下蹲低 0.6 m 看（`render_d2match.py`，UG06_02 下面放一根半徑 0.22 m 的素色圓柱當根）。單張在 `<ID>/d2/`。
+- **自評（單件和設定圖比）**：UG01 約 50%、UG02 約 45%、UG03 約 35%、UG04 約 35%、UG05 約 35%、UG06 約 35%。共通的差距：
+  1. 設定圖是一大片植物擠在一起、葉子濕亮有高光；這裡是一叢單獨擺在空地上，葉面比較平、比較暗。
+  2. UG03：設定圖那種是寬的波浪舌葉（像鳥巢蕨），葉面亮綠；UG03 照三視圖做成較窄、較暗的長葉，比設定圖細。
+  3. UG04：設定圖的葉是有細鋸齒的深綠卵形葉，UG04 照三視圖做掌狀深裂葉，但裂片偏圓、齒不明顯，近看是多邊形的邊。白花本身大小和顏色接近。
+  4. UG05：設定圖路上的落葉是一片片散開的，落葉堆是工作包要的另一種；散葉要靠 DP19／零散落葉另外補。
+  5. UG06：只看得出是一條帶葉的細藤貼在根上；葉比設定圖小、也比較稀。
+- 擺進 5 × 5 m 林地一角和根腳的全包檢查（`art/previews/d2-floor-c/pack-check/`，在 C 批分支）還沒把 UG 加進去重拍。
 
 ## 指南第四節檢查表（SH01）
 
@@ -102,6 +326,8 @@
 - [x] 測試通過、美術通過、真機通過分開記錄：QA 和 Unity 檢查通過；美術要等審查；真機沒測。
 
 ## 已知問題與未驗
+
+- **UG**：葉的網格邊在近看時是折線（每片葉 12–30 個輪廓點）；寬鬆 QA 的近乎共面見上；UG06 不含根，要擺在半徑相近的根上，沒在 Josh 的根上實際擺過。UG 沒做 Detail_ 群組。正式場景擺放、手機上的效果、風動都未驗。
 
 - **和標準圖比**：標準圖的樹冠是很細碎的小葉、密度高；SH01 照三視圖是比較疏的林下灌木，葉子 6–9 cm、約 1,800 片，枝間看得到天空。近看（樹冠下往上看）每片葉子是菱形的輪廓，這是五頂點葉的形狀。如果要更密、更細碎，可以加葉數或改成更小的葉，面數會往上。
 - **變體**：《樹木重做 v2》要每種三個變體（A、B、C）。這個樣品只有一個，變體用不同的 `UG_SEED` 產生，等樣品審過再做。

@@ -1,0 +1,19 @@
+UG02 心形大葉林下植物（11/14 工作包 B 批：0.5–0.8 m，D2 V2 左下那種）三視圖與自評（2026-11-23）
+選用：UG02-cand-1.png（92分）
+
+物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 B 批和 D2 設定圖寫（工作包沒有附逐件提示詞）；Layout 段沿用 11/07 包附錄的固定段（一字不改）；畫風段照 D2（陰天上午、低霧、低彩度古林）。每張相同提示詞。
+評分：形體與尺寸比例 30／和 D2 設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：選用。十來片心形大葉各自一根紅綠細長柄，高低角度不同，葉尖下垂、葉面微凹、濕亮，淺色主脈清楚，中間幾片小嫩葉。
+- cand-2：91 葉柄較直立，整叢偏高瘦。
+- cand-3：90 葉偏平、偏卵形，心形不明顯。
+- cand-4：91 和 1 接近，下層葉偏多偏擠。
+
+建模取捨：照 cand-1：每片葉是有心形缺口的網格（不是葉片卡），沿主脈對摺微凹、葉尖下垂；淺色主脈和側脈畫在葉的貼圖上；葉柄是細管，紅綠色。
+
+== 提示詞 ==
+PROMPT:
+Three-view orthographic turnaround sheet of a forest floor plant with large heart-shaped leaves about 0.65 m tall and 0.8 m wide, about twelve broad heart-shaped leaves 15 to 25 cm long, each on its own long thin reddish-green stalk rising from a low crown on dark soil, the leaves held at different heights and angles, slightly cupped with a drooping pointed tip, dark blue-green and wet-looking with a soft sheen and pale green main veins, a few smaller young leaves in the middle, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark blue-green, a little yellow-green on new growth, deep wet brown soil, pale green leaf veins), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+flowers, photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+
