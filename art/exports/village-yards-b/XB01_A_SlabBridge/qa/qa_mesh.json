@@ -1,0 +1,141 @@
+{
+ "XB01_A_SlabBridge_Detail_Small_LOD0": {
+  "tris": 3830,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 272,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "XB01_A_SlabBridge_Detail_Small_LOD1": {
+  "tris": 1915,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 272,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "XB01_A_SlabBridge_Detail_Small_LOD2": {
+  "tris": 574,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 209,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "XB01_A_SlabBridge_LOD0": {
+  "tris": 50056,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 158,
+  "coplanar_two_sides": 38,
+  "closed_pieces": 104,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -2.69,
+     0.26,
+     0.0
+    ],
+    23
+   ],
+   [
+    [
+     -1.01,
+     0.26,
+     0.0
+    ],
+    20
+   ],
+   [
+    [
+     0.79,
+     0.26,
+     0.0
+    ],
+    17
+   ],
+   [
+    [
+     2.47,
+     0.26,
+     0.0
+    ],
+    15
+   ],
+   [
+    [
+     -2.43,
+     -0.76,
+     0.0
+    ],
+    6
+   ],
+   [
+    [
+     -2.42,
+     -0.77,
+     0.0
+    ],
+    5
+   ]
+  ],
+  "inverted_at": []
+ },
+ "XB01_A_SlabBridge_LOD1": {
+  "tris": 25028,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 104,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "XB01_A_SlabBridge_LOD2": {
+  "tris": 7508,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 104,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

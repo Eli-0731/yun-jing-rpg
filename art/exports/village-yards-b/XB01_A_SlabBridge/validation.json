@@ -1,0 +1,190 @@
+{
+  "asset": "XB01_A_SlabBridge",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -3.0,
+          -0.9,
+          0.0
+        ],
+        "max": [
+          3.0,
+          0.9,
+          1.0137
+        ],
+        "box_m": [
+          [
+            -3.0,
+            -0.9,
+            0.0
+          ],
+          [
+            3.0,
+            0.9,
+            1.2
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.03841
+      }
+    },
+    {
+      "check": "deck_walkable_level",
+      "pass": true,
+      "detail": {
+        "deck_top_m": [
+          0.985,
+          0.999,
+          0.994,
+          0.988,
+          0.987,
+          1.003,
+          1.001,
+          1.01,
+          0.988,
+          0.988,
+          0.991,
+          0.993,
+          0.999,
+          0.999,
+          0.987,
+          0.992,
+          0.98,
+          0.983,
+          0.995,
+          0.994,
+          0.987,
+          0.991,
+          0.987,
+          0.988
+        ],
+        "note": "x -2.9..2.9 on the slabs (not on the 4 cm joints between them)"
+      }
+    },
+    {
+      "check": "no_railings",
+      "pass": true,
+      "detail": {
+        "hits": [
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "check": "water_runs_under_the_spans",
+      "pass": true,
+      "detail": {
+        "note": "rays across under each span at 0.3 m"
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 53886,
+          "LOD1": 26943,
+          "LOD2": 8082
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Stone": {
+            "LOD0": 50056,
+            "LOD1": 25028,
+            "LOD2": 7508
+          },
+          "Detail_Small": {
+            "LOD0": 3830,
+            "LOD1": 1915,
+            "LOD2": 574
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          6.0,
+          1.8,
+          1.0137
+        ],
+        "blend_dims_m": [
+          6.0,
+          1.8,
+          1.0137
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_BankA.001",
+        "Socket_BankB.001",
+        "XB01_A_SlabBridge.001",
+        "XB01_A_SlabBridge_Collision.001",
+        "XB01_A_SlabBridge_Detail_Small_LOD0.001",
+        "XB01_A_SlabBridge_Detail_Small_LOD1.001",
+        "XB01_A_SlabBridge_Detail_Small_LOD2.001",
+        "XB01_A_SlabBridge_LOD0.001",
+        "XB01_A_SlabBridge_LOD1.001",
+        "XB01_A_SlabBridge_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_BankA.001": [
+          -3.0,
+          0.0,
+          1.0
+        ],
+        "Socket_BankB.001": [
+          3.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 4587752
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 194,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

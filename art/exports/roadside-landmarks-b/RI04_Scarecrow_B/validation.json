@@ -1,0 +1,145 @@
+{
+  "asset": "RI04_Scarecrow_B",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.7527,
+          -0.25,
+          0.0
+        ],
+        "max": [
+          0.445,
+          0.25,
+          1.8295
+        ],
+        "box_m": [
+          [
+            -0.755,
+            -0.25,
+            0.0
+          ],
+          [
+            0.445,
+            0.25,
+            1.9
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01616
+      }
+    },
+    {
+      "check": "straw_outline_spreads",
+      "pass": true,
+      "detail": {
+        "straw_reach_from_post_x_m": 0.6,
+        "cuff_x_m": 0.4,
+        "lowest_straw_or_cloth_seen_from_front_m": 0.2,
+        "hem_z_m": 0.52
+      }
+    },
+    {
+      "check": "hat_on_top",
+      "pass": true,
+      "detail": {
+        "crown_x_m": -0.22,
+        "top_m": 1.826
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 72792,
+          "LOD1": 36395,
+          "LOD2": 10917
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 65616,
+            "LOD1": 32808,
+            "LOD2": 9842
+          },
+          "Detail_Small": {
+            "LOD0": 7176,
+            "LOD1": 3587,
+            "LOD2": 1075
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.1977,
+          0.5,
+          1.8295
+        ],
+        "blend_dims_m": [
+          1.1977,
+          0.5,
+          1.8295
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "RI04_Scarecrow_B.001",
+        "RI04_Scarecrow_B_Collision.001",
+        "RI04_Scarecrow_B_Detail_Small_LOD0.001",
+        "RI04_Scarecrow_B_Detail_Small_LOD1.001",
+        "RI04_Scarecrow_B_Detail_Small_LOD2.001",
+        "RI04_Scarecrow_B_LOD0.001",
+        "RI04_Scarecrow_B_LOD1.001",
+        "RI04_Scarecrow_B_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 6404860
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 121,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

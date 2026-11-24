@@ -1,0 +1,20 @@
+CW02 三視圖提示詞與選圖
+工作包：2026-11-11 B｜40 小時（院牆院門、水井、石板橋、穀倉、牛棚）A 段 CW02。
+
+選用：CW02-cand-2.png。備選：CW02-cand-4.png。
+選用理由：開著和關著兩種都有；兩根方木柱、門楣、小懸山瓦頂、兩扇舊木板門、門檻石，兩側短夯土牆有自己的瓦壓頂，能直接接 CW01。結構簡單，像一般農家院門。
+沒選的原因：
+- cand-1：門上有門環和門釘，屋頂較高、像大戶門樓。
+- cand-3：柱子外多了斜撐和多層木構，偏複雜。
+- cand-4：可用；門板補丁和鐵件較多，作備選。
+建模時注意：門扇做成獨立物件（Detail_DoorL／R），以門軸為轉軸；門洞淨寬柱間 1.34 m、開門後 1.24 m；不貼門神、不寫字；瓦和 CW01 同一種黛瓦。
+
+工具與張數：
+- Codex CLI，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 4 張（CW02-cand-1..4），原尺寸存檔，沒有 seed。生成日期 2026-11-11。
+- 提示詞組法：物件句＋建築 Layout 段＋美術方向；Codex 沒有負面欄，所以把負面提示加上本包那句（not Japanese machiya … no glossy plastic look），以「Avoid:」接在最後。全部原文，一字未改。
+
+== 物件句 ==
+Three-view orthographic turnaround sheet of a small rural Chinese courtyard gate, about 2.4 m wide, 1.2 m deep and 2.8 m tall, a plain timber door frame under a small dark grey tile roof, two old plank doors, a worn stone threshold, short rammed earth wall stubs on both sides, old weathered dark wood, shown in two versions: doors open and doors closed, no writing, no door god prints.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of a small rural Chinese courtyard gate, about 2.4 m wide, 1.2 m deep and 2.8 m tall, a plain timber door frame under a small dark grey tile roof, two old plank doors, a worn stone threshold, short rammed earth wall stubs on both sides, old weathered dark wood, shown in two versions: doors open and doors closed, no writing, no door god prints. Layout: one three-quarter view from slightly above at eye height of a person, plus front, side and back orthographic views on the same sheet at the same scale, plain light warm-grey background, even soft lighting, building only (no landscape around it except a small ground patch). Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, not Tudor half-timbering, no bright teal roof, no glossy plastic look
