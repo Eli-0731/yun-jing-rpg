@@ -35,7 +35,8 @@ def run(v, samples=64):
             o.hide_render = True
     cx = (L - 1.0) * .5
     w = L + 1.8
-    out = f'{ROOT}/art/previews/d2-logs-b/{asset}/{asset}_LOD0_refcam.png'
+    ver = os.environ.get('DR8VER', 'v001')                 # v002 以後的對照圖放在 <物件>/<版本>/，不蓋掉 v001
+    out = f'{ROOT}/art/previews/d2-logs-b/{asset}/' + ('' if ver == 'v001' else ver + '/') + f'{asset}_LOD0_refcam.png'
     os.makedirs(os.path.dirname(out), exist_ok=True)
     pv['shot'](out, (cx, -w * 1.75, .75), (cx, 0, .55), 50, res=(1536, 640))
     dp['frame'](asset, False)
