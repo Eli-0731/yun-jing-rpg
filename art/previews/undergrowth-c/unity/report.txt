@@ -222,3 +222,4 @@ PASS UG06_04: Detail_* off still shows the body (1 mesh per LOD)
 PASS UG06_04: no collider in the model
 PASS UG06_04: cloth material renders both faces (Cull Off)
 INFO renders written to art/previews/undergrowth-c/unity
+INFO forest patch: 18 plants (SH01 only when its files are pulled), 18 LODGroups left on automatic; renders in art/previews/undergrowth-c/unity/patch (scene not saved)

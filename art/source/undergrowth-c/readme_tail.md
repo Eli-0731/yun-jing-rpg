@@ -3,6 +3,7 @@
 
 - QA（`tools/art/qa_lod0_basic.py` 嚴格與寬鬆、`tools/art/qa_contact_glb.py`）：SH01 嚴格、寬鬆都是 0 項；接觸最大 1.2 mm（落葉）。結果在 `art/previews/undergrowth-c/qa/`。
 - QA（UG）：嚴格 11 件都是 0 項。寬鬆會列出「近乎共面」1–97 處，都是葉片彼此貼得很近的地方（UG04 的花瓣和貼地葉最多），不是重複的面；接觸：UG01–UG04、UG06 都在 1 mm 內；落葉堆上層的葉斜疊在下層葉上，最大間隙 3.8／6.0／7.1 mm（小／中／大）。
+- **Unity 裡的林地試擺**（2026-11-24，`art/previews/undergrowth-c/unity/patch/`）：Unity 檢查最後開一個暫時的空場景（不存檔、不動 apps/game 和主場景），把 SH02、SP01、UG01–UG06 共 18 株擺在 7 × 7 m 的濕土上，兩根素色圓柱當根給 UG06 爬，陰天光加指數霧，LODGroup 自己切換，拍低機位（像 V6）、眼高、斜上方、12 m、30 m 五張。看到的：URP 下 SH02、SP01 的葉是綠的，不像 Cycles 逆光那樣發黑；UG02、UG01 的葉在 URP 偏青、有反光（MaskURP 的光滑度）；SH02 枝葉細，12 m 外就很淡；UG01 地上的枯葉在遠處像一段段橘色虛線；UG06 在根上只看得到一條細線和小葉。SH01 在這個工作樹沒拉下來，沒擺進去。
 - QA（SH02、SP01）：嚴格兩件都是 0 項；寬鬆 SH02 列出 6 處「近乎共面」（細枝上的小葉貼得很近），SP01 0 項。接觸：SH02 枝葉最大間隙 1.4 mm、SP01 1.0 mm，落葉 1.2 mm。
 - Unity 6000.3.28f1 獨立匯入：`art/previews/undergrowth-c/unity/report.txt`：2026-11-24 這次 SH02、SP01 和 UG 11 件共 221 項全過（SH02、SP01 各 17 項，UG 187 項）；SH01 在這個工作樹的貼圖和 FBX 是沒拉下來的 Git LFS 指標檔，這次跳過（報告裡寫 SKIP），2026-11-18 那次是 17 項全過（見 git 紀錄）。UG 另外查了：LOD0 ≤ 4,000、LOD1 ≤ 2,000、LOD2 ≤ 1,000；UG01–UG04 根冠在地下；落葉堆底面在地上；藤的最低點不高於根頂線。
 - SH01（2026-11-18）：Unity 6000.3.28f1 獨立匯入：`art/previews/undergrowth-c/unity/report.txt`（17 項全過）。另外查了：幹往地下 0.18 m、面數在 LOD0 30,000／LOD1 4,000／LOD2 2,000 內、三個 LOD 都有頂點色和 UV2（風的權重 0–1）、材質雙面、沒有碰撞。

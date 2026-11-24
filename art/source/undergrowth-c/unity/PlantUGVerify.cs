@@ -55,6 +55,7 @@ namespace YunJing.Editor
             Report.Add($"Unity {Application.unityVersion}, pipeline {GraphicsSettings.currentRenderPipeline?.name ?? "built-in"}");
             foreach (var id in Ids) Inspect(id, JsonUtility.FromJson<Info>(Block(json, id)));
             Shots();
+            ForestPatch();
             File.WriteAllLines(Path.Combine(Out, "report.txt"), Report);
             foreach (var line in Report) Debug.Log("UG " + line);
             if (failures > 0) throw new Exception($"UG_VERIFY {failures} check(s) failed, see {Out}/report.txt");
@@ -270,6 +271,52 @@ namespace YunJing.Editor
                 UnityEngine.Object.DestroyImmediate(go);
             }
             Report.Add("INFO renders written to art/previews/undergrowth-c/unity");
+        }
+
+        // ------------------------------------------------------------------ a temporary forest-floor patch (not saved, apps/game untouched)
+        // The batch's plants set out together on a 7 x 7 m patch of wet soil under overcast D2 light with fog, two plain cylinders standing
+        // in for roots under the vines; LODGroups left to pick their own level. Shots: low like V6, eye height, from above, and from 12 / 30 m.
+        static void ForestPatch()
+        {
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
+            sun = new GameObject("Overcast Sun").AddComponent<Light>(); sun.type = LightType.Directional; sun.shadows = LightShadows.Soft;
+            sun.transform.rotation = Quaternion.Euler(52, -30, 0); sun.color = new Color(.92f, .93f, .95f); sun.intensity = .95f;
+            RenderSettings.ambientMode = AmbientMode.Trilight;
+            RenderSettings.ambientSkyColor = new Color(.56f, .62f, .70f); RenderSettings.ambientEquatorColor = new Color(.44f, .47f, .47f); RenderSettings.ambientGroundColor = new Color(.20f, .18f, .15f);
+            RenderSettings.fog = true; RenderSettings.fogMode = FogMode.Exponential; RenderSettings.fogDensity = .045f; RenderSettings.fogColor = new Color(.62f, .67f, .72f);
+            var ground = GameObject.CreatePrimitive(PrimitiveType.Plane); ground.transform.localScale = Vector3.one * 8;
+            ground.GetComponent<Renderer>().sharedMaterial = Flat("wet-soil", new Color(.17f, .13f, .10f));
+            var rootMat = Flat("root-stand-in", new Color(.22f, .19f, .16f));
+            foreach (var (x, z, r, len) in new[] { (-.2f, 2.0f, .22f, 2.6f), (-1.6f, 3.4f, .30f, 2.2f) })
+            {   // a plain root lying along X, its top line at y = 2r (the vines' origin line)
+                var c = GameObject.CreatePrimitive(PrimitiveType.Cylinder); UnityEngine.Object.DestroyImmediate(c.GetComponent<Collider>());
+                c.transform.SetPositionAndRotation(new Vector3(x, r, z), Quaternion.Euler(0, 0, 90)); c.transform.localScale = new Vector3(2 * r, len / 2, 2 * r);
+                c.GetComponent<Renderer>().sharedMaterial = rootMat;
+            }
+            var set = new (string id, float x, float y, float z, float yaw)[] {
+                ("UG01", -1.9f, 0, 1.0f, 20), ("UG01", 2.1f, 0, 2.3f, 140), ("UG02", -1.2f, 0, -.1f, 60), ("UG02", 1.7f, 0, .6f, 200),
+                ("UG03", 1.0f, 0, 1.4f, 30), ("UG03", -.4f, 0, 3.0f, 100), ("UG04", .9f, 0, -.8f, 0), ("UG04", 1.35f, 0, -.45f, 90), ("UG04", -.85f, 0, -.95f, 200),
+                ("UG05_01", -.35f, 0, -.4f, 0), ("UG05_02", .35f, 0, .9f, 45), ("UG05_03", -2.4f, 0, 2.7f, 10),
+                ("UG06_02", -.6f, .44f, 2.0f, 0), ("UG06_03", -1.6f, .60f, 3.4f, 0),
+                ("SH01", -2.2f, 0, 4.0f, 30), ("SH02", -2.0f, 0, 3.7f, 0), ("SH02", 2.6f, 0, 3.5f, 120), ("SP01", .8f, 0, 4.6f, 0), ("SP01", -3.0f, 0, 5.2f, 70) };
+            int placed = 0;
+            foreach (var s in set)
+            {
+                if (!Ids.Contains(s.id)) continue;
+                Place(s.id, MatName[s.id], new Vector3(s.x, s.y, s.z), s.yaw); placed++;
+            }
+            cam = new GameObject("Patch Camera").AddComponent<Camera>(); cam.nearClipPlane = .02f; cam.farClipPlane = 300;
+            UnityEngine.Rendering.Universal.CameraExtensions.GetUniversalAdditionalCameraData(cam).renderPostProcessing = true;
+            target = new RenderTexture(1600, 900, 24) { antiAliasing = 4 }; cam.targetTexture = target;
+            cam.clearFlags = CameraClearFlags.SolidColor; cam.backgroundColor = RenderSettings.fogColor;
+            Shot("patch/patch-low-v6", new Vector3(.1f, .6f, -3.0f), new Vector3(0, .35f, 1.6f), 55);
+            Shot("patch/patch-eye", new Vector3(.2f, 1.6f, -4.2f), new Vector3(0, .5f, 1.6f), 50);
+            Shot("patch/patch-above", new Vector3(5.0f, 4.2f, -4.6f), new Vector3(0, 0, 1.6f), 45);
+            Shot("patch/patch-12m", new Vector3(0, 2.2f, -10.4f), new Vector3(0, .8f, 1.6f), 30);
+            Shot("patch/patch-30m", new Vector3(0, 4.0f, -28.4f), new Vector3(0, .8f, 1.6f), 18);
+            var lods = UnityEngine.Object.FindObjectsByType<LODGroup>(FindObjectsSortMode.None);
+            Report.Add($"INFO forest patch: {placed} plants (SH01 only when its files are pulled), {lods.Length} LODGroups left on automatic; renders in art/previews/undergrowth-c/unity/patch (scene not saved)");
+            RenderSettings.fog = false;
         }
 
         static void Day()
