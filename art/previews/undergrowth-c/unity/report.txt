@@ -3,12 +3,12 @@ Unity 6000.3.28f1, pipeline URP
 PASS SH02: Albedo / MaskURP / Normal textures found
 PASS SH02: textures 1024x1024 (1024 or less)
 PASS SH02: SH02_GroundOrigin is the model root; all LOD meshes hang under it
-PASS SH02: imported size 1.535 x 1.065 x 1.455 m matches model_info 1.535 x 1.064 x 1.455 within 2 cm
+PASS SH02: imported size 1.550 x 1.072 x 1.459 m matches model_info 1.55 x 1.072 x 1.459 within 2 cm
 PASS SH02: within the work pack's limit 2 x 2 x 1.9 m
 PASS SH02: the stems run on 0.18 m under the ground (origin at the stem base on the ground)
-PASS SH02: triangles LOD0/1/2 = 18820 / 3510 / 1819 (19% / 10%), model_info 18820 / 3510 / 1819
-PASS SH02: triangles 18820 / 3510 / 1819 within LOD0 30,000 / LOD1 4,000 / LOD2 2,000
-PASS SH02: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 31029 / 7114 / 3892 vertices
+PASS SH02: triangles LOD0/1/2 = 19664 / 3722 / 1887 (19% / 10%), model_info 19664 / 3722 / 1887
+PASS SH02: triangles 19664 / 3722 / 1887 within LOD0 30,000 / LOD1 4,000 / LOD2 2,000
+PASS SH02: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 32531 / 7459 / 3909 vertices
 PASS SH02: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
 PASS SH02: 1 material for every LOD and Detail_ mesh (one material)
 PASS SH02: 1 LODGroup(s) with 3 levels covering all 2 LOD0 renderers

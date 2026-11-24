@@ -12,15 +12,19 @@ for _a,_c in ((.35,.25),(.70,.30),(1.15,.22),(1.75,.15),(2.35,.10)):        # si
 _fn=fbm(6,3);_e=np.clip(1-np.abs(_y)/.42,0,1)
 _alb=lerp((.105,.205,.175),(.215,.335,.265),np.clip(.45+.55*(_fn-.5)+.25*_e,0,1))
 _alb=_alb*(1-.55*_v[...,None])+_v[...,None]*.55*np.array([.48,.58,.42])
-E['ug_heart']=(_alb,.8*_v-.25*np.clip(1-_e*2.5,0,1),1.2,.40,0,0)
 E['ug_heart_red']=(np.clip(_alb*np.array([2.3,.95,.55])+np.array([.04,0,0]),0,1),.8*_v,1.2,.55,0,0)   # a few turning red-brown (UG06)
+# 2026-11-25: the green moved from blue-green to a deep moss green and the roughness raised .40 → .62 (in URP the old leaf read
+# teal and glossy: smoothness .60 mirrored the grey-blue sky); the red-brown leaves above keep the old base
+_alb=lerp((.110,.210,.120),(.230,.345,.180),np.clip(.45+.55*(_fn-.5)+.25*_e,0,1))
+_alb=_alb*(1-.55*_v[...,None])+_v[...,None]*.55*np.array([.50,.58,.38])
+E['ug_heart']=(_alb,.8*_v-.25*np.clip(1-_e*2.5,0,1),1.2,.62,0,0)
 # UG01 fern pinna (a five-vertex pinna: stalk at v = 0, tip at v = 1, edges at u = 0 / 1): blue-green, a paler midrib, toothed darker edge
 _u=X+0*Y;_w=Y+0*X;_m=np.clip(1-np.abs(_u-.5)/.035,0,1)*(_w<.95)
 _tooth=np.clip(np.sin(_w*math.pi*26)*.5+.5,0,1)*np.clip(np.abs(_u-.5)*2-.55,0,1)*2
-_alb=lerp((.15,.29,.21),(.29,.45,.32),np.clip(.5+.6*(fbm(5,3)-.5)+.25*_w,0,1))*(1-.30*_tooth[...,None])
+_alb=lerp((.150,.280,.150),(.290,.440,.220),np.clip(.5+.6*(fbm(5,3)-.5)+.25*_w,0,1))*(1-.30*_tooth[...,None])   # 2026-11-25: less blue (was .15,.29,.21 → .29,.45,.32)
 _sv=np.clip(1-np.abs(((_w*14+np.abs(_u-.5)*6)%1)-.5)/.08,0,1)*np.clip(np.abs(_u-.5)*4,0,1)*.4   # faint side veins
 _alb=_alb*(1+.30*_m[...,None]+.12*_sv[...,None])
-E['ug_pinna']=(_alb,.6*_m+.3*_sv-.3*_tooth,1.0,.55,0,0)
+E['ug_pinna']=(_alb,.6*_m+.3*_sv-.3*_tooth,1.0,.72,0,0)   # roughness .55 → .72 (it read glossy in URP)
 # old fronds: dull withered grey-brown, close to the soil and litter (a saturated russet read as orange dashes at distance)
 E['ug_pinna_dead']=(lerp((.15,.12,.085),(.33,.27,.19),np.clip(.5+.7*(fbm(5,3)-.5)+.15*_w,0,1))*(1-.30*_tooth[...,None]),.6*_m-.3*_tooth,1.0,.90,0,0)
 # fern stalk and crown: dark brown-green, scaly

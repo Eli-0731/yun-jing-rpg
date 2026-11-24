@@ -1,12 +1,12 @@
 {
  "SH02_v001": {
   "SH02_Body_LOD0": {
-   "pieces": 2602,
-   "within_1mm": 2358,
-   "gap_1_3mm": 244,
+   "pieces": 2813,
+   "within_1mm": 2531,
+   "gap_1_3mm": 282,
    "gap_3_10mm": 0,
    "gap_over_10mm": 0,
-   "largest_mm": 1.4,
+   "largest_mm": 1.5,
    "worst_at": []
   },
   "SH02_Detail_Litter_LOD0": {

@@ -63,7 +63,7 @@ def SH02(M):
     BK,TW,LF=M['bark'],M['twig'],M['herb'];M['herb']['mid']=1.
     lean_all=Vector((.10,.05,0))
     stems=[(az,ln,L*.86) for az,ln,L in ((-172,40,1.00),(-140,28,1.18),(-108,10,1.42),(-80,6,1.46),(-50,20,1.24),(-16,32,1.12),(24,42,.98),(118,12,1.36),(160,26,1.16))]
-    nb=nt_=0;LS=.031
+    nb=nt_=0;LS=.037   # 2026-11-25: .031 → .037 and a leaf or two more per twig: at 12 m in Unity the bush had nearly vanished
     for k,(az,lean,Ls) in enumerate(stems):
         a=math.radians(az+rr.uniform(-8,8));out=Vector((math.cos(a),math.sin(a)*.6,0)).normalized();ln=math.radians(lean+rr.uniform(-4,4));ph=rr.uniform(0,6.28)
         side=Z.cross(out).normalized();ob=Vector((math.cos(a),math.sin(a),0))
@@ -86,7 +86,7 @@ def SH02(M):
                 tp=BP(v);tt=BT(v);td,_=_side_dir(tt,rr.uniform(0,6.28)+q*2.6,math.radians(rr.uniform(40,62)),lift=.05)
                 td=(td-Z*td.dot(Z)*.5).normalized();Lt=rr.uniform(.10,.22)
                 TP,TT=_twig(f'SH02_Tw{k}{j}{q}',tp,td,Lt,.0015,TW,lift=.10,sag=.06);nt_+=1
-                _spray(LV,TP,TT,.12,1.,rl.randint(7,10),LS,rl,phase=rl.uniform(0,6.28),lift=.30)
+                _spray(LV,TP,TT,.12,1.,rl.randint(8,11),LS,rl,phase=rl.uniform(0,6.28),lift=.30)
         _spray(LV,P,T,.80,1.,rl.randint(8,11),LS*1.05,rl,phase=rl.uniform(0,6.28),grow=(.9,1.05),lift=.30)
     LV.done('SH02_Leaves',LF,'Body');nl=_Leaves.n-n0
     nlit=_litter('SH02_Litter',rr,26,.08,.42,M,size=(.025,.045),gap=.08)
@@ -94,12 +94,12 @@ def SH02(M):
     return _woody_meta(tone,8211,(.48,.45,.20),
       ['about nine very thin wiry stems from one point, fanning out (wider from the front than from the side, leaning a little to the right); the stems run on 0.18 m under the ground',
        f'{nb} side branches (four to six per stem, alternating round it) spreading sideways in thin layers, {nt_} fine twigs: three orders of thickness',
-       f'{nl} small five-vertex leaves (2.5–3.5 cm), one by one along the twigs, alternate, sparse so the twigs show; a young leaf at each tip; no leaf cards',
+       f'{nl} small five-vertex leaves (3–4.3 cm), one by one along the twigs, alternate, sparse so the twigs show; a young leaf at each tip; no leaf cards',
        'leaf colour in the albedo: up and out lighter, down and in deeper and cooler, a few low leaves yellowing; COLOR_0 RGB a grey shade (0.78–1), A canopy occlusion; UV2 "Wind": u wind weight, v phase',
-       'LOD1: a quarter of the leaves, each 1.6 × larger, the wood decimated to 12 %; LOD2: a twelfth of the leaves, 2.5 × larger, wood 11 % (less would flatten the thin stems into fins)',
+       'LOD1: a quarter of the leaves, each 2.2 × larger, the wood decimated to 12 %; LOD2: a twelfth of the leaves, 3.6 × larger, wood 11 % (less would flatten the thin stems into fins)',
        f'moss and soil at the stem feet, pale lichen higher up, painted; Detail_Litter ({nlit} fallen leaves) is off at the standard tier; no collision (it is walked through)'],
       'stem base centre on the ground (z = 0); the stems run on 0.18 m under the ground; front = -Y (Blender) / -Z (FBX, Unity)',
-      ((4,1.6,.12),(12,2.5,.11)),bark=(.30,.27,.24))
+      ((4,2.2,.12),(12,3.6,.11)),bark=(.30,.27,.24))   # LOD1 / LOD2: fewer but larger leaves, leaf area ≥ LOD0 (2.2²/4, 3.6²/12) so the far bush keeps its mass
 PROPS['SH02']=SH02
 
 # ---------------- SP01 young broadleaf sapling ----------------

@@ -150,14 +150,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.535,
-   1.064,
-   1.455
+   1.55,
+   1.072,
+   1.459
   ],
   "body_dimensions_xyz_m": [
-   1.535,
-   1.064,
-   1.455
+   1.55,
+   1.072,
+   1.459
   ],
   "size_limit_xyz_m": [
    2.0,
@@ -176,8 +176,8 @@
   ],
   "lods": {
    "LOD0": {
-    "triangles": 18820,
-    "triangles_without_detail": 18716,
+    "triangles": 19664,
+    "triangles_without_detail": 19560,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -201,8 +201,8 @@
     }
    },
    "LOD1": {
-    "triangles": 3510,
-    "triangles_without_detail": 3458,
+    "triangles": 3722,
+    "triangles_without_detail": 3670,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -226,8 +226,8 @@
     }
    },
    "LOD2": {
-    "triangles": 1819,
-    "triangles_without_detail": 1804,
+    "triangles": 1887,
+    "triangles_without_detail": 1872,
     "objects": 2,
     "objects_without_detail": 1,
     "materials": 1,
@@ -273,9 +273,9 @@
   "notes": [
    "about nine very thin wiry stems from one point, fanning out (wider from the front than from the side, leaning a little to the right); the stems run on 0.18 m under the ground",
    "52 side branches (four to six per stem, alternating round it) spreading sideways in thin layers, 202 fine twigs: three orders of thickness",
-   "2339 small five-vertex leaves (2.5–3.5 cm), one by one along the twigs, alternate, sparse so the twigs show; a young leaf at each tip; no leaf cards",
+   "2550 small five-vertex leaves (3–4.3 cm), one by one along the twigs, alternate, sparse so the twigs show; a young leaf at each tip; no leaf cards",
    "leaf colour in the albedo: up and out lighter, down and in deeper and cooler, a few low leaves yellowing; COLOR_0 RGB a grey shade (0.78–1), A canopy occlusion; UV2 \"Wind\": u wind weight, v phase",
-   "LOD1: a quarter of the leaves, each 1.6 × larger, the wood decimated to 12 %; LOD2: a twelfth of the leaves, 2.5 × larger, wood 11 % (less would flatten the thin stems into fins)",
+   "LOD1: a quarter of the leaves, each 2.2 × larger, the wood decimated to 12 %; LOD2: a twelfth of the leaves, 3.6 × larger, wood 11 % (less would flatten the thin stems into fins)",
    "moss and soil at the stem feet, pale lichen higher up, painted; Detail_Litter (26 fallen leaves) is off at the standard tier; no collision (it is walked through)"
   ]
  },
