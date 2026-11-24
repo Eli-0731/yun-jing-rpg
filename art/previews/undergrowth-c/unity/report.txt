@@ -40,9 +40,9 @@ PASS UG01: UG01_GroundOrigin is the model root; all LOD meshes hang under it
 PASS UG01: imported size 1.783 x 1.561 x 1.129 m matches model_info 1.783 x 1.561 x 1.129 within 2 cm
 PASS UG01: within the work pack's limit 2 x 2 x 1.4 m
 PASS UG01: the stems run on 0.09 m under the ground (origin at the stem base on the ground)
-PASS UG01: triangles LOD0/1/2 = 3740 / 1870 / 561 (50% / 15%), model_info 3740 / 1870 / 561
-PASS UG01: triangles 3740 / 1870 / 561 within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)
-PASS UG01: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 5205 / 3516 / 1398 vertices
+PASS UG01: triangles LOD0/1/2 = 3812 / 1906 / 571 (50% / 15%), model_info 3812 / 1906 / 571
+PASS UG01: triangles 3812 / 1906 / 571 within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)
+PASS UG01: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 5459 / 3710 / 1418 vertices
 PASS UG01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS UG01: 1 material for every LOD and Detail_ mesh (one material)
 PASS UG01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers

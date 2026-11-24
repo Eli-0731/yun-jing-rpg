@@ -450,8 +450,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3740,
-    "triangles_without_detail": 3740,
+    "triangles": 3812,
+    "triangles_without_detail": 3812,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -475,8 +475,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1870,
-    "triangles_without_detail": 1870,
+    "triangles": 1906,
+    "triangles_without_detail": 1906,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -500,8 +500,8 @@
     }
    },
    "LOD2": {
-    "triangles": 561,
-    "triangles_without_detail": 561,
+    "triangles": 571,
+    "triangles_without_detail": 571,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -542,7 +542,7 @@
   "notes": [
    "about eleven once-pinnate fronds fountaining up and out from one hairy crown, the tips bending over, the clump leaning a little right and back",
    "520 five-vertex pinnae in pairs along the stalks, longest a third of the way up, shortening to the tip; the pinna texture carries the midrib and the toothed edge",
-   "two fiddleheads (a stalk ending in a tight coil) in the middle; three old brown fronds lying on the ground",
+   "two fiddleheads (a stalk ending in a tight coil) in the middle; three short old fronds lying flat on the ground, dull withered grey-brown, the pinnae wide and overlapping",
    "LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
   ]
  },

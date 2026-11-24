@@ -21,7 +21,8 @@ _alb=lerp((.15,.29,.21),(.29,.45,.32),np.clip(.5+.6*(fbm(5,3)-.5)+.25*_w,0,1))*(
 _sv=np.clip(1-np.abs(((_w*14+np.abs(_u-.5)*6)%1)-.5)/.08,0,1)*np.clip(np.abs(_u-.5)*4,0,1)*.4   # faint side veins
 _alb=_alb*(1+.30*_m[...,None]+.12*_sv[...,None])
 E['ug_pinna']=(_alb,.6*_m+.3*_sv-.3*_tooth,1.0,.55,0,0)
-E['ug_pinna_dead']=(lerp((.26,.15,.07),(.52,.34,.16),np.clip(.5+.7*(fbm(5,3)-.5)+.2*_w,0,1))*(1-.30*_tooth[...,None]),.6*_m-.3*_tooth,1.0,.85,0,0)
+# old fronds: dull withered grey-brown, close to the soil and litter (a saturated russet read as orange dashes at distance)
+E['ug_pinna_dead']=(lerp((.15,.12,.085),(.33,.27,.19),np.clip(.5+.7*(fbm(5,3)-.5)+.15*_w,0,1))*(1-.30*_tooth[...,None]),.6*_m-.3*_tooth,1.0,.90,0,0)
 # fern stalk and crown: dark brown-green, scaly
 E['ug_rachis']=(lerp((.10,.12,.07),(.24,.24,.12),np.clip(.5+.7*(fbm(5,3,aniso=12)-.5),0,1)),.6*fbm(30,2,aniso=10),1.0,.70,0,0)
 E['ug_scale']=(lerp((.18,.10,.05),(.40,.24,.12),np.clip(.5+.8*(fbm(12,3)-.5),0,1)),.9*fbm(40,2),1.4,.80,0,0)

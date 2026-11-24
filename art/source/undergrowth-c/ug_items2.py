@@ -144,21 +144,22 @@ def UG01(M):
         for j in range(1,15):
             ph=j/14*math.tau*1.35;r_=r0*(1-.70*j/14);coil.append(c0+(-o*math.cos(ph)+Z*math.sin(ph))*r_)
         pts,P,T,S=_crv(coil,22);_ttube(f'UG01_Fiddle{k}',pts,[.0055*(1-.6*i/(len(pts)-1)) for i in range(len(pts))],M['ug_rachis'],'Body',sides=4,scale=.1)
-    for k,az in enumerate((-115,30,150)):   # old brown fronds lying on the ground round the crown
-        a=math.radians(az+rr.uniform(-10,10));o=Vector((math.cos(a),math.sin(a),0));L_=rr.uniform(.45,.60)
-        ctrl=[o*.04+Z*.02,o*(L_*.4)+Z*.03,o*L_+Vector((-o.y,o.x,0))*.06+Z*.012];pts,P,T,S=_crv(ctrl,6)
-        _ttube(f'UG01_Dead{k}',pts,[.004*(1-.6*i/(len(pts)-1)) for i in range(len(pts))],M['ug_rachis'],'Body',sides=3,scale=.2)
-        for i in range(9):
-            u=.15+.82*(i+.5)/9;w=(u-.15)/.82;Lp=.075*(max(w,.02)**.35*(1-w)**.85)/.37
-            if Lp<.012:continue
+    for k,az in enumerate((-115,30,150)):   # old fronds lying on the ground round the crown: short, dull grey-brown, the pinnae
+        # wide and overlapping so the frond reads as one flat withered blade, not a row of separate orange dashes
+        a=math.radians(az+rr.uniform(-10,10));o=Vector((math.cos(a),math.sin(a),0));L_=rr.uniform(.36,.44)
+        ctrl=[o*.03+Z*.02,o*(L_*.45)+Z*.022,o*L_+Vector((-o.y,o.x,0))*.05+Z*.010];pts,P,T,S=_crv(ctrl,6)
+        _ttube(f'UG01_Dead{k}',pts,[.0035*(1-.6*i/(len(pts)-1)) for i in range(len(pts))],M['ug_rachis'],'Body',sides=3,scale=.2)
+        for i in range(12):
+            u=.10+.86*(i+.5)/12;w=(u-.10)/.86;Lp=.085*(max(w,.02)**.35*(1-w)**.70)/.40
+            if Lp<.014:continue
             q=P(u);t=T(u);lat=t.cross(Z).normalized()
             for sd in (1,-1):
-                d=(lat*sd*.6+t*.55-Z*.30).normalized();DS.five(q,d,Z+lat*sd*.4,Lp,Lp*.34,droop=.20,cup=.25)
+                d=(lat*sd*.75+t*.45-Z*.16).normalized();DS.five(q,d,Z+lat*sd*.25,Lp,Lp*.46,droop=.14,cup=.30)
     LS.done('UG01_Pinnae',M['ug_pinna'],'Body');DS.done('UG01_DeadPinnae',M['ug_pinna_dead'],'Body')
     meta=_plant_meta([(.10,.20,.16),(.15,.27,.20),(.21,.35,.25),(.28,.42,.29)],.7,
       ['about eleven once-pinnate fronds fountaining up and out from one hairy crown, the tips bending over, the clump leaning a little right and back',
        f'{nb} five-vertex pinnae in pairs along the stalks, longest a third of the way up, shortening to the tip; the pinna texture carries the midrib and the toothed edge',
-       'two fiddleheads (a stalk ending in a tight coil) in the middle; three old brown fronds lying on the ground',
+       'two fiddleheads (a stalk ending in a tight coil) in the middle; three short old fronds lying flat on the ground, dull withered grey-brown, the pinnae wide and overlapping',
        'LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)'])
     return meta
 PROPS['UG01']=UG01
