@@ -38,6 +38,8 @@ PROPS={}
 # id: (name, size limit w × d × h in m (h counts the stems under the ground too), minTier)
 TABLE={
  'SH01':('UnderstoryShrubBroadleaf',(2.2,2.2,2.4),'standard'),
+ 'SH02':('UnderstoryShrubFineLeaf',(2.0,2.0,1.9),'standard'),
+ 'SP01':('YoungBroadleafSapling',(2.4,2.4,3.7),'standard'),
  'UG01':('WaistHighFernClump',(2.0,2.0,1.4),'standard'),
  'UG02':('HeartLeafForestPlant',(1.2,1.2,.9),'standard'),
  'UG03':('StrapLeafForestPlant',(1.2,1.2,.75),'standard'),

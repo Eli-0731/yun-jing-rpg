@@ -1,0 +1,18 @@
+SP01 幼樹（11/14 工作包 B 批：2–4 m；v2 分工：一根細幹、三到五根主枝，可以當大樹的幼年；D2、D1 林間）三視圖與自評（2026-11-24）
+選用：SP01-cand-3.png（92分）
+
+評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 B 批、docs/execution/2026-11-14/樹木重做-v2-分工.md 第 4 節和 D2 設定圖寫，加 UG 那批相同的 Layout 段和 D2 林下的美術段（陰天、薄霧、低彩度）。
+- cand-1：91（28+28+23+12）。分層清楚，但葉偏大、樹冠下緣平。
+- cand-2：91（28+28+23+12）。比例好，樹冠稍像三角錐。
+- cand-3：92（28+28+24+12）。選用。一根細幹微彎、側視往右後微斜，下段光裸只有一根枯短枝，上面主枝分三四層往外往上斜、每層角度和長度不同，枝上細枝和一片片的橢圓葉成平展的葉簇，層間有空隙，頂芽嫩葉較淺；幹腳根頸微張、有青苔。
+- cand-4：90（27+28+23+12）。幹的 S 彎太明顯，像被風吹過。
+
+建模取捨：照 cand-3，照世界樹指南的順序：先定幹（約 4 cm 粗、根頸微張、往上收細、微彎微斜），下段 1.2 m 光裸只留兩根枯短枝；上面主枝分層排、左右交錯不鏡像，每根主枝帶幾根細枝，三級粗細分明；葉子是五頂點的立體葉（6–9 cm），一片片沿細枝和主枝外段互生、葉面朝上成平展的葉簇；頂端主梢一串較淺的嫩葉。不用葉片卡。葉色寫在貼圖上，頂點色寫灰階明暗和遮蔽，第二組 UV 寫風。原點在幹基中心的地面，照 v2 幹往地下 0.3 m。
+
+== 提示詞（每張相同） ==
+PROMPT:
+Three-view orthographic turnaround sheet of a single young wild broadleaf sapling tree of a misty ancient southern Chinese mountain forest, about 3 m tall and 1.6 m wide, one slender straight-ish trunk about 4 cm thick at the base with smooth grey-brown bark, slightly leaning and curving toward the light, the lower 1.2 m of the trunk bare with one or two small dead side twigs, above that thin side branches in irregular tiers growing out and up at different angles, each branch with fine twigs, medium elliptic pointed leaves 6 to 10 cm long arranged one by one along the twigs in flat sprays, a narrow open crown with gaps where the sky shows through, the leader shoot at the top with young lighter leaves, irregular asymmetric, deep calm greens, a little moss at the trunk foot, a few fallen leaves on the ground, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark blue-green, a little yellow-green on new growth, deep wet brown soil, smooth grey-brown young bark), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+flowers, fruit, thick trunk, mature tree, round lollipop crown, photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

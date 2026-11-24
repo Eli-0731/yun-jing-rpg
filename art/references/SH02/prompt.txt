@@ -1,0 +1,18 @@
+SH02 林下灌木（細葉、較疏）（11/14 工作包 B 批：0.8–1.5 m；v2 分工：同 SH01，葉小、枝更細；D2、D4、D6）三視圖與自評（2026-11-24）
+選用：SH02-cand-2.png（91分）
+
+評分：形體與尺寸比例 30／和設定圖同一個世界 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。物件句照工作包 docs/execution/2026-11-14/C-120h-yards-undergrowth-and-wayside.md 第 1 節 B 批、docs/execution/2026-11-14/樹木重做-v2-分工.md 第 4 節和 D2 設定圖寫，加 UG 那批相同的 Layout 段和 D2 林下的美術段（陰天、薄霧、低彩度）。
+- cand-1：90（27+28+23+12）。細枝和小葉對，但整叢上緣接近圓頂，左右幾乎對稱。
+- cand-2：91（28+28+23+12）。選用。約九根細幹從一點分出，兩三根長的往上衝出頂端、其他往外斜，枝條分層往側面平伸，小葉一片片沿細枝排，枝間空洞大、看得到背景；側視窄、整叢往右傾，剪影好認；幹腳青苔落葉。
+- cand-3：90（27+28+23+12）。疏密好，但葉偏大、偏亮，像小葉的 SH01。
+- cand-4：89（26+28+23+12）。中間一根直幹太高，像幼樹不像灌木。
+
+建模取捨：照 cand-2，和 SH01 同一套做法：先定九根細幹（每根彎、往上收細、角度各不同，幾根比較直立、長出頂端），每根四到六根側枝左右交錯、往側面平伸成薄層，側枝上再分細枝；葉子是五頂點的立體小葉（2–3 cm），一片片沿細枝互生，比 SH01 稀很多，讓枝看得見。不用葉片卡。葉色寫在貼圖上（上外淺、下內深、下層幾片偏黃），頂點色只寫灰階明暗和遮蔽，第二組 UV 寫風。地上的落葉是 Detail 群組。原點在幹基中心的地面，幹往地下 0.18 m。
+
+== 提示詞（每張相同） ==
+PROMPT:
+Three-view orthographic turnaround sheet of a single wild fine-leaved evergreen understory shrub of a misty ancient southern Chinese mountain forest, about 1.2 m tall and 1.2 m wide, a sparse airy open shrub (like a wild box-leaf or small-leaved privet) with about nine very thin dark wiry stems rising from one point in the leaf litter and fanning out, each stem dividing into many fine slender twigs that arch and spread sideways in thin layers, very small narrow pointed leaves 1.5 to 3 cm long set one by one along the fine twigs, the leaves sparse so the twigs and lots of background show through, light see-through silhouette with big gaps, irregular asymmetric, not a round ball and not a clump, deep calm greens with a few yellowish leaves low down, moss at the stem bases, a few fallen leaves on the ground, natural colours, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), the floor of an ancient misty primeval forest under an overcast morning sky, soft diffuse grey-blue light, low ground mist, low-saturation natural palette (deep muted forest greens, dark blue-green, a little yellow-green on new growth, deep wet brown soil, thin dark grey-brown stems), painterly textures made of soft colour gradients with a few visible brush strokes, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, game-ready asset look, high quality, masterpiece.
+Negative prompt:
+flowers, berries, round ball shape, dense bush, photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, bright lime green, flat lighting, modern objects, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, glowing, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, floating parts, distorted perspective, fisheye
+

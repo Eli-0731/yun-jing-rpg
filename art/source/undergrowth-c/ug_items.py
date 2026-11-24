@@ -73,7 +73,7 @@ class _Leaves:
             if not moved:break
         return finish(name,s.bm,mat,grp,.06)
 
-def _spray(L_,P,T,u0,u1,n,size,rr,phase=0.,tip=True,lift=.42,grow=(.75,1.15)):
+def _spray(L_,P,T,u0,u1,n,size,rr,phase=0.,tip=True,lift=.42,grow=(.75,1.15),wid=(.44,.56)):
     """leaves along one branch from u0 to u1: alternate in a spiral (137.5° apart), each leaving at 35–60° from the branch, turned up to the light"""
     Z=Vector((0,0,1))
     for i in range(n):
@@ -84,7 +84,7 @@ def _spray(L_,P,T,u0,u1,n,size,rr,phase=0.,tip=True,lift=.42,grow=(.75,1.15)):
         be=math.radians(rr.uniform(35,60));d=(t*math.cos(be)+sd*math.sin(be)+Z*lift).normalized()
         up=(Z+sd*.35-d*d.dot(Z)).normalized()
         g=grow[0]+(grow[1]-grow[0])*(u-u0)/max(u1-u0,1e-6);Ln=size*g*rr.uniform(.82,1.12)
-        L_.add(p,d,up,Ln,Ln*rr.uniform(.44,.56),droop=rr.uniform(.08,.26))
+        L_.add(p,d,up,Ln,Ln*rr.uniform(*wid),droop=rr.uniform(.08,.26))
     if tip:
         t=T(1.);up=(Z-t*t.dot(Z));up=up.normalized() if up.length>1e-3 else Vector((1,0,0));Ln=size*.62
         ro=rr.uniform(-.7,.7);up=(up*math.cos(ro)+t.cross(up)*math.sin(ro)).normalized()   # each tip leaf rolled its own way round the shoot

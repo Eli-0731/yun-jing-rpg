@@ -139,6 +139,286 @@
    "moss and soil at the stem feet, pale lichen higher up, painted; Detail_Litter (34 fallen leaves) is off at the standard tier; no collision (it is walked through)"
   ]
  },
+ "SH02": {
+  "id": "SH02",
+  "name": "UnderstoryShrubFineLeaf",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/SH02_v001.fbx",
+   "glb": "art/exports/undergrowth-c/SH02_v001.glb",
+   "blend": "art/source/undergrowth-c/SH02_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.535,
+   1.064,
+   1.455
+  ],
+  "body_dimensions_xyz_m": [
+   1.535,
+   1.064,
+   1.455
+  ],
+  "size_limit_xyz_m": [
+   2.0,
+   2.0,
+   1.9
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Litter"
+  ],
+  "detailMeshes": [
+   "SH02_Detail_Litter_LOD0",
+   "SH02_Detail_Litter_LOD1",
+   "SH02_Detail_Litter_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 18820,
+    "triangles_without_detail": 18716,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "SH02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "SH02_Normal.png": [
+      1024,
+      1024
+     ],
+     "SH02_ORM.png": [
+      1024,
+      1024
+     ],
+     "SH02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 3510,
+    "triangles_without_detail": 3458,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "SH02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "SH02_Normal.png": [
+      1024,
+      1024
+     ],
+     "SH02_ORM.png": [
+      1024,
+      1024
+     ],
+     "SH02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 1819,
+    "triangles_without_detail": 1804,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "SH02_Albedo.png": [
+      1024,
+      1024
+     ],
+     "SH02_Normal.png": [
+      1024,
+      1024
+     ],
+     "SH02_ORM.png": [
+      1024,
+      1024
+     ],
+     "SH02_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "SH02_Body_LOD0",
+    "SH02_Body_LOD1",
+    "SH02_Body_LOD2"
+   ],
+   "Detail_Litter": [
+    "SH02_Detail_Litter_LOD0",
+    "SH02_Detail_Litter_LOD1",
+    "SH02_Detail_Litter_LOD2"
+   ]
+  },
+  "material": "M_SH02_UnderstoryShrubFineLeaf",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 265,
+  "coplanar_lifted": 0,
+  "reference": "art/references/SH02/prompt.txt",
+  "origin": "stem base centre on the ground (z = 0); the stems run on 0.18 m under the ground; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "about nine very thin wiry stems from one point, fanning out (wider from the front than from the side, leaning a little to the right); the stems run on 0.18 m under the ground",
+   "52 side branches (four to six per stem, alternating round it) spreading sideways in thin layers, 202 fine twigs: three orders of thickness",
+   "2339 small five-vertex leaves (2.5–3.5 cm), one by one along the twigs, alternate, sparse so the twigs show; a young leaf at each tip; no leaf cards",
+   "leaf colour in the albedo: up and out lighter, down and in deeper and cooler, a few low leaves yellowing; COLOR_0 RGB a grey shade (0.78–1), A canopy occlusion; UV2 \"Wind\": u wind weight, v phase",
+   "LOD1: a quarter of the leaves, each 1.6 × larger, the wood decimated to 12 %; LOD2: a twelfth of the leaves, 2.5 × larger, wood 11 % (less would flatten the thin stems into fins)",
+   "moss and soil at the stem feet, pale lichen higher up, painted; Detail_Litter (26 fallen leaves) is off at the standard tier; no collision (it is walked through)"
+  ]
+ },
+ "SP01": {
+  "id": "SP01",
+  "name": "YoungBroadleafSapling",
+  "version": "v001",
+  "files": {
+   "fbx": "art/exports/undergrowth-c/SP01_v001.fbx",
+   "glb": "art/exports/undergrowth-c/SP01_v001.glb",
+   "blend": "art/source/undergrowth-c/SP01_v001.blend"
+  },
+  "bake_device": "OPTIX",
+  "dimensions_xyz_m": [
+   1.697,
+   1.544,
+   3.29
+  ],
+  "body_dimensions_xyz_m": [
+   1.697,
+   1.544,
+   3.29
+  ],
+  "size_limit_xyz_m": [
+   2.4,
+   2.4,
+   3.7
+  ],
+  "within_limit": true,
+  "minTier": "standard",
+  "detailObjects": [
+   "Detail_Litter"
+  ],
+  "detailMeshes": [
+   "SP01_Detail_Litter_LOD0",
+   "SP01_Detail_Litter_LOD1",
+   "SP01_Detail_Litter_LOD2"
+  ],
+  "lods": {
+   "LOD0": {
+    "triangles": 7840,
+    "triangles_without_detail": 7720,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "SP01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "SP01_Normal.png": [
+      1024,
+      1024
+     ],
+     "SP01_ORM.png": [
+      1024,
+      1024
+     ],
+     "SP01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD1": {
+    "triangles": 1644,
+    "triangles_without_detail": 1584,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "SP01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "SP01_Normal.png": [
+      1024,
+      1024
+     ],
+     "SP01_ORM.png": [
+      1024,
+      1024
+     ],
+     "SP01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   },
+   "LOD2": {
+    "triangles": 578,
+    "triangles_without_detail": 560,
+    "objects": 2,
+    "objects_without_detail": 1,
+    "materials": 1,
+    "textures_px": {
+     "SP01_Albedo.png": [
+      1024,
+      1024
+     ],
+     "SP01_Normal.png": [
+      1024,
+      1024
+     ],
+     "SP01_ORM.png": [
+      1024,
+      1024
+     ],
+     "SP01_MaskURP.png": [
+      1024,
+      1024
+     ]
+    }
+   }
+  },
+  "objects": {
+   "Body": [
+    "SP01_Body_LOD0",
+    "SP01_Body_LOD1",
+    "SP01_Body_LOD2"
+   ],
+   "Detail_Litter": [
+    "SP01_Detail_Litter_LOD0",
+    "SP01_Detail_Litter_LOD1",
+    "SP01_Detail_Litter_LOD2"
+   ]
+  },
+  "material": "M_SP01_YoungBroadleafSapling",
+  "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
+  "source_parts": 93,
+  "coplanar_lifted": 0,
+  "reference": "art/references/SP01/prompt.txt",
+  "origin": "trunk base centre on the ground (z = 0); the trunk runs on 0.3 m under the ground; front = -Y (Blender) / -Z (FBX, Unity)",
+  "collision": "none in the model; add a box from body_dimensions if the scene needs one",
+  "notes": [
+   "one slender trunk about 4 cm across at the foot, flaring a little at the ground, leaning and curving a little to the light; the lower 1.2 m bare but for two short dead twigs; the trunk runs on 0.3 m under the ground",
+   "five main branches in loose irregular tiers and 5 shorter side shoots higher up the leader, out and up at different angles, 78 twigs: three orders of thickness",
+   "1075 five-vertex leaves (7–10 cm), one by one along the twigs and the outer halves of the branches, alternate, in flat sprays; a leader shoot with young leaves at the top; no leaf cards",
+   "leaf colour in the albedo: up and out lighter and warmer, down and in deeper and cooler, a few low leaves yellowing; COLOR_0 RGB a grey shade (0.78–1), A canopy occlusion; UV2 \"Wind\": u wind weight, v phase",
+   "LOD1: a quarter of the leaves, each 1.6 × larger, the wood decimated to 15 %; LOD2: a twelfth of the leaves, 2.5 × larger, wood 6 %",
+   "moss and soil at the trunk foot, pale lichen higher up, painted; Detail_Litter (30 fallen leaves) is off at the standard tier; no collision (it is walked through)"
+  ]
+ },
  "UG01": {
   "id": "UG01",
   "name": "WaistHighFernClump",

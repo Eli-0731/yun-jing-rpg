@@ -4,7 +4,7 @@
 # art/previews/undergrowth-c/<ID>/<ID>-sheet.jpg (the LOD row doubles as the quality-tier check).
 #   sh art/source/undergrowth-c/make_sheets.sh [ID ...]
 P=art/previews/undergrowth-c;S=art/source/undergrowth-c
-pick(){ case $1 in SH01) echo SH01/SH01-cand-2;; UG01) echo UG01/UG01-cand-1;; UG02) echo UG02/UG02-cand-1;; UG03) echo UG03/UG03-cand-2;; UG04) echo UG04/UG04-cand-1;; UG05*) echo UG05/UG05-cand-3;; UG06*) echo UG06/UG06-cand-5;; esac; }
+pick(){ case $1 in SH01) echo SH01/SH01-cand-2;; SH02) echo SH02/SH02-cand-2;; SP01) echo SP01/SP01-cand-3;; UG01) echo UG01/UG01-cand-1;; UG02) echo UG02/UG02-cand-1;; UG03) echo UG03/UG03-cand-2;; UG04) echo UG04/UG04-cand-1;; UG05*) echo UG05/UG05-cand-3;; UG06*) echo UG06/UG06-cand-5;; esac; }
 IDS="${*:-SH01}"
 for id in $IDS; do
   D=$P/$id

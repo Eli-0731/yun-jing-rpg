@@ -1,0 +1,22 @@
+{
+ "SP01_v001": {
+  "SP01_Body_LOD0": {
+   "pieces": 1166,
+   "within_1mm": 1164,
+   "gap_1_3mm": 2,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.0,
+   "worst_at": []
+  },
+  "SP01_Detail_Litter_LOD0": {
+   "pieces": 30,
+   "within_1mm": 27,
+   "gap_1_3mm": 3,
+   "gap_3_10mm": 0,
+   "gap_over_10mm": 0,
+   "largest_mm": 1.2,
+   "worst_at": []
+  }
+ }
+}

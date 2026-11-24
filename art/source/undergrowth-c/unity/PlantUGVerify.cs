@@ -21,9 +21,9 @@ namespace YunJing.Editor
     {
         const string Models = "Assets/YunJing/Models/UndergrowthC";   // temporary copy of art/exports, removed by the run script
         const string Version = "v001";
-        static readonly string[] AllIds = { "SH01", "UG01", "UG02", "UG03", "UG04", "UG05_01", "UG05_02", "UG05_03", "UG06_01", "UG06_02", "UG06_03", "UG06_04" };
+        static readonly string[] AllIds = { "SH01", "SH02", "SP01", "UG01", "UG02", "UG03", "UG04", "UG05_01", "UG05_02", "UG05_03", "UG06_01", "UG06_02", "UG06_03", "UG06_04" };
         static string[] Ids;   // the ones model_info.json holds
-        static readonly HashSet<string> Cloth = new HashSet<string> { "SH01", "UG01", "UG02", "UG03", "UG04", "UG05_01", "UG05_02", "UG05_03", "UG06_01", "UG06_02", "UG06_03", "UG06_04" };   // every leaf and petal is a single surface: both faces
+        static readonly HashSet<string> Cloth = new HashSet<string> { "SH01", "SH02", "SP01", "UG01", "UG02", "UG03", "UG04", "UG05_01", "UG05_02", "UG05_03", "UG06_01", "UG06_02", "UG06_03", "UG06_04" };   // every leaf and petal is a single surface: both faces
         static readonly HashSet<string> Lying = new HashSet<string> { "UG05_01", "UG05_02", "UG05_03" };   // leaf heaps: bottom on the ground, no stems
         static readonly HashSet<string> OnRoot = new HashSet<string> { "UG06_01", "UG06_02", "UG06_03", "UG06_04" };   // vines: origin on a root's top line, they hang down its sides
         static readonly HashSet<string> Cutout = new HashSet<string>();   // no alpha-clip cards in this batch: every leaf and petal is geometry
@@ -190,7 +190,7 @@ namespace YunJing.Editor
                 $"{id}: within the work pack's limit {lim[0]} x {lim[1]} x {lim[2]} m");
             if (Lying.Contains(id)) Check(Mathf.Abs(body.min.y) <= .002f, $"{id}: the heap sits on the ground (bottom at {body.min.y:0.000} m)");
             else if (OnRoot.Contains(id)) Check(body.min.y <= 0f && body.min.y > -.8f && body.max.y < .25f, $"{id}: the vine runs from {body.max.y:0.00} m above to {-body.min.y:0.00} m below the root's top line (origin on the root)");
-            else Check(body.min.y < -.05f && body.min.y > -.25f, $"{id}: the stems run on {-body.min.y:0.00} m under the ground (origin at the stem base on the ground)");
+            else Check(body.min.y < -.05f && body.min.y > (id == "SP01" ? -.35f : -.25f), $"{id}: the stems run on {-body.min.y:0.00} m under the ground (origin at the stem base on the ground)");
             var levels = info.lods.All;
             var tris = Enumerable.Range(0, 3).Select(i => Tris(Level(go, i))).ToArray();
             Check(Enumerable.Range(0, 3).All(i => Mathf.Abs(tris[i] - levels[i].triangles) <= levels[i].triangles * .01f),

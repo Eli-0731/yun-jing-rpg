@@ -1,0 +1,15 @@
+[
+ {
+  "file": "art\\exports\\undergrowth-c\\SH02_v001.glb",
+  "objects": 2,
+  "triangles": 18820,
+  "findings": [
+   {
+    "kind": "coplanar overlap",
+    "object": "SH02_Body_LOD0",
+    "count": 6,
+    "note": "6 triangle pairs {'side two pieces': 3, 'down two pieces': 2, 'up two pieces': 1}, e.g. at [[-0.503, 0.146, 0.801, 'n-1-0-1'], [-0.351, -0.145, 0.52, 'n+0+1+1'], [-0.333, 0.394, 0.373, 'n-0+0-1'], [-0.333, 0.394, 0.373, 'n-0+0-1'], [-0.259, -0.103, 0.451, 'n+1+0-0'], [0.565, 0.344, 0.445, 'n-0-0+1']]"
+   }
+  ]
+ }
+]

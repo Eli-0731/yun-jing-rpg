@@ -8,7 +8,7 @@
 BL="${BL:?set BL to blender.exe}";S=art/source/undergrowth-c;R=art/source/creekside-life-c;P=art/previews/undergrowth-c;E=art/exports/undergrowth-c;Q=$P/qa
 m(){ cygpath -m "$1" 2>/dev/null || echo "$1"; }
 r(){ MSYS_NO_PATHCONV=1 "$BL" -b --factory-startup -P "$(m $R/render_wl.py)" -- "$@" 2>&1 | grep -E "Error|Traceback"; true; }
-ALL="SH01 UG01 UG02 UG03 UG04 UG05_01 UG05_02 UG05_03 UG06_01 UG06_02 UG06_03 UG06_04"
+ALL="SH01 SH02 SP01 UG01 UG02 UG03 UG04 UG05_01 UG05_02 UG05_03 UG06_01 UG06_02 UG06_03 UG06_04"
 IDS="${*:-$ALL}";[ "$IDS" = "-" ] && IDS="";mkdir -p $Q $P/compare
 for id in $IDS; do
   [ -f $E/${id}_v001.glb ] || continue
