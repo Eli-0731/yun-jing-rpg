@@ -1,0 +1,222 @@
+{
+  "asset": "WE01_VillageWell",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -1.6887,
+          -1.7278,
+          0.0
+        ],
+        "max": [
+          1.6921,
+          1.7278,
+          3.5419
+        ],
+        "box_m": [
+          [
+            -1.75,
+            -1.75,
+            0.0
+          ],
+          [
+            1.75,
+            1.75,
+            3.6
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.00078
+      }
+    },
+    {
+      "check": "well_has_water_inside",
+      "pass": true,
+      "detail": {
+        "hits_z_m": [
+          0.36,
+          0.36,
+          0.36
+        ],
+        "water_z_m": 0.36000000000000004
+      }
+    },
+    {
+      "check": "ring_rim_height",
+      "pass": true,
+      "detail": {
+        "rim_hits_z_m": [
+          0.803,
+          0.805
+        ],
+        "rim_z_m": 0.81
+      }
+    },
+    {
+      "check": "roof_ridge_along_x",
+      "pass": true,
+      "detail": {
+        "ridge_top_m": [
+          3.467,
+          3.465,
+          3.467
+        ],
+        "front_slope_m": 2.523,
+        "back_slope_m": 2.523
+      }
+    },
+    {
+      "check": "headroom_front",
+      "pass": true,
+      "detail": {
+        "first_hit_above_m": [
+          2.362,
+          2.007,
+          2.007
+        ],
+        "note": "from 1.0 m up: eave, lower beam"
+      }
+    },
+    {
+      "check": "walk_in_to_the_ring",
+      "pass": true,
+      "detail": {
+        "first_collision_y_m": {
+          "-0.3,0.15": -0.52,
+          "-0.3,0.9": null,
+          "-0.3,1.7": null,
+          "0.0,0.15": -0.6,
+          "0.0,0.9": null,
+          "0.0,1.7": null,
+          "0.3,0.15": -0.52,
+          "0.3,0.9": null,
+          "0.3,1.7": null
+        },
+        "ring_front_y_m": -0.6,
+        "note": "rays from y -3 m; z 1.7 passes over the ring (None or past it)"
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 106184,
+          "LOD1": 53089,
+          "LOD2": 15544
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.146,
+        "per_group": {
+          "Main": {
+            "LOD0": 7038,
+            "LOD1": 3518,
+            "LOD2": 1054
+          },
+          "Stone": {
+            "LOD0": 26850,
+            "LOD1": 13424,
+            "LOD2": 4026
+          },
+          "Detail_Small": {
+            "LOD0": 42692,
+            "LOD1": 21345,
+            "LOD2": 6402
+          },
+          "Wood": {
+            "LOD0": 13860,
+            "LOD1": 6930,
+            "LOD2": 2078
+          },
+          "Roof": {
+            "LOD0": 15744,
+            "LOD1": 7872,
+            "LOD2": 1984
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          3.3807,
+          3.4556,
+          3.5419
+        ],
+        "blend_dims_m": [
+          3.3807,
+          3.4556,
+          3.5419
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "Socket_DrawWater.001",
+        "Socket_WellWater.001",
+        "WE01_VillageWell.001",
+        "WE01_VillageWell_Collision.001",
+        "WE01_VillageWell_Detail_Small_LOD0.001",
+        "WE01_VillageWell_Detail_Small_LOD1.001",
+        "WE01_VillageWell_Detail_Small_LOD2.001",
+        "WE01_VillageWell_LOD0.001",
+        "WE01_VillageWell_LOD1.001",
+        "WE01_VillageWell_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_DrawWater.001": [
+          0.0,
+          -0.88,
+          0.05
+        ],
+        "Socket_WellWater.001": [
+          0.0,
+          0.0,
+          0.36
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 10276364
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 320,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

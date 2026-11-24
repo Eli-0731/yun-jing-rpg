@@ -1,0 +1,192 @@
+{
+  "asset": "CW01_D_BreachWall",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -2.0,
+          -0.9616,
+          0.0
+        ],
+        "max": [
+          2.0,
+          0.8059,
+          1.7959
+        ],
+        "box_m": [
+          [
+            -2.0,
+            -1.0,
+            0.0
+          ],
+          [
+            2.0,
+            1.0,
+            1.8
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.0166
+      }
+    },
+    {
+      "check": "joint_faces_in_socket_planes",
+      "pass": true,
+      "detail": {
+        "offset_from_socket_plane_m": [
+          -0.005,
+          -0.0008,
+          -0.005,
+          -0.0004
+        ],
+        "note": "z 0.2 footing, z 0.6 earth"
+      }
+    },
+    {
+      "check": "coping_ridge_height",
+      "pass": true,
+      "detail": {
+        "ridge_top_m": 1.796
+      }
+    },
+    {
+      "check": "wall_blocks_from_the_front",
+      "pass": true,
+      "detail": {
+        "first_collision_y_m": [
+          -0.22,
+          -0.22,
+          -0.22,
+          -0.22,
+          -0.22,
+          -0.22
+        ],
+        "x_m": [
+          -1.5,
+          0.0,
+          1.6
+        ]
+      }
+    },
+    {
+      "check": "breach_is_low_at_the_end",
+      "pass": true,
+      "detail": {
+        "top_at_x1.85_m": 0.778,
+        "top_at_x-1.5_m": 1.796
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 37884,
+          "LOD1": 18941,
+          "LOD2": 5680
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Stone": {
+            "LOD0": 16392,
+            "LOD1": 8196,
+            "LOD2": 2458
+          },
+          "Main": {
+            "LOD0": 19092,
+            "LOD1": 9545,
+            "LOD2": 2862
+          },
+          "Detail_Small": {
+            "LOD0": 2400,
+            "LOD1": 1200,
+            "LOD2": 360
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          4.0,
+          1.7676,
+          1.7959
+        ],
+        "blend_dims_m": [
+          4.0,
+          1.7676,
+          1.7959
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 5e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "CW01_D_BreachWall.001",
+        "CW01_D_BreachWall_Collision.001",
+        "CW01_D_BreachWall_Detail_Small_LOD0.001",
+        "CW01_D_BreachWall_Detail_Small_LOD1.001",
+        "CW01_D_BreachWall_Detail_Small_LOD2.001",
+        "CW01_D_BreachWall_LOD0.001",
+        "CW01_D_BreachWall_LOD1.001",
+        "CW01_D_BreachWall_LOD2.001",
+        "Socket_A.001",
+        "Socket_B.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_A.001": [
+          -2.0,
+          0.0,
+          0.0
+        ],
+        "Socket_B.001": [
+          2.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 4253524
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 230,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

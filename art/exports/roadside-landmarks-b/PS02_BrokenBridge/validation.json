@@ -1,0 +1,217 @@
+{
+  "asset": "PS02_BrokenBridge",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -6.9746,
+          -2.0,
+          0.0
+        ],
+        "max": [
+          6.9767,
+          2.0,
+          4.2972
+        ],
+        "box_m": [
+          [
+            -7.0,
+            -2.0,
+            0.0
+          ],
+          [
+            7.0,
+            2.0,
+            5.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01762
+      }
+    },
+    {
+      "check": "stair_treads",
+      "pass": true,
+      "detail": {
+        "tread_tops_m": {
+          "left": [
+            0.526,
+            1.57,
+            2.623,
+            3.32
+          ],
+          "right": [
+            0.527,
+            1.567,
+            2.625,
+            3.325
+          ]
+        },
+        "expected_m": [
+          0.525,
+          1.575,
+          2.625,
+          3.325
+        ]
+      }
+    },
+    {
+      "check": "gap_open",
+      "pass": true,
+      "detail": {
+        "top_at_centre_m": null,
+        "deck_edges_x_m": [
+          -1.152,
+          1.392
+        ],
+        "gap_m": 2.54
+      }
+    },
+    {
+      "check": "arch_springs_both_sides",
+      "pass": true,
+      "detail": {
+        "soffit_z_at_x_+-3_m": [
+          1.413,
+          1.41
+        ],
+        "expected_m": 1.408
+      }
+    },
+    {
+      "check": "collision_stops_at_gap",
+      "pass": true,
+      "detail": {
+        "lip_x_m": [
+          -1.05,
+          1.45
+        ],
+        "ramp_z_at_x_+-4_m": [
+          2.126,
+          2.126
+        ],
+        "nosing_m": 2.127
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 116964,
+          "LOD1": 58482,
+          "LOD2": 17542
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Stone": {
+            "LOD0": 32788,
+            "LOD1": 16394,
+            "LOD2": 4918
+          },
+          "Rail": {
+            "LOD0": 46236,
+            "LOD1": 23118,
+            "LOD2": 6934
+          },
+          "Detail_Small": {
+            "LOD0": 35240,
+            "LOD1": 17620,
+            "LOD2": 5286
+          },
+          "Main": {
+            "LOD0": 2700,
+            "LOD1": 1350,
+            "LOD2": 404
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          13.9513,
+          4.0,
+          4.2972
+        ],
+        "blend_dims_m": [
+          13.9513,
+          4.0,
+          4.2972
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 5e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "PS02_BrokenBridge.001",
+        "PS02_BrokenBridge_Collision.001",
+        "PS02_BrokenBridge_Detail_Small_LOD0.001",
+        "PS02_BrokenBridge_Detail_Small_LOD1.001",
+        "PS02_BrokenBridge_Detail_Small_LOD2.001",
+        "PS02_BrokenBridge_LOD0.001",
+        "PS02_BrokenBridge_LOD1.001",
+        "PS02_BrokenBridge_LOD2.001",
+        "PS02_BrokenBridge_Rail_LOD0.001",
+        "PS02_BrokenBridge_Rail_LOD1.001",
+        "PS02_BrokenBridge_Rail_LOD2.001",
+        "Socket_RoadEnd_L.001",
+        "Socket_RoadEnd_R.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_RoadEnd_L.001": [
+          -7.0,
+          0.0,
+          0.0
+        ],
+        "Socket_RoadEnd_R.001": [
+          7.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 15584400
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 722,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}
