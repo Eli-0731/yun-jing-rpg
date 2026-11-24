@@ -336,17 +336,22 @@ def _ug06(M,pid,Rr,Ln,phi,seed,shoots,ground=0.):
         for j in range(1,7):path.append(surf(x+.01*j,a0+(math.pi*.5-a0)*j/6,.0035))
         for j in range(1,int(ground/.03)+1):path.append(Vector((x+.06+.03*j,Rr+.004+.02*math.sin(j),-2*Rr+.0035)))
     pts,P,T,S=_crv(path,len(path))
-    _ttube(f'{pid}_Stem',pts,[.0034*(1-.35*i/(len(pts)-1)) for i in range(len(pts))],M['ug_redstem'],'Body',sides=4,scale=.1)
+    # 2026-11-25: stem 3.4 → 4.6 mm, leaves 4.0–5.8 → 5.0–8.2 cm about every 2.3 cm (was 2.6), each lifted a little (0–6°) at the stalk and bending down along the curve of the root, because
+    # in the Unity forest patch the vine read only as a thin line on the root (the D2 concept's vine leaves are also bigger and denser)
+    _ttube(f'{pid}_Stem',pts,[.0046*(1-.35*i/(len(pts)-1)) for i in range(len(pts))],M['ug_redstem'],'Body',sides=4,scale=.1)
     def nrm_at(p):
         if p.z<-2*Rr+.01:return Z
         return Vector((0,p.y,p.z+Rr)).normalized()
-    nl=int(S/.026);red=set(rr.sample(range(nl),max(2,nl//8)))
+    nl=int(S/.023);red=set(rr.sample(range(nl),max(2,nl//8)))
     for i in range(nl):
-        u=(i+.5)/nl;p=P(u);t=T(u);n=nrm_at(p);sd=1 if i%2 else -1
-        side=t.cross(n).normalized()*sd;d=(side*.8+t*.6).normalized();d=(d-n*d.dot(n)).normalized()
-        Ll=rr.uniform(.040,.058);q=p+d*.008+n*.004
-        _ttube(f'{pid}_Petiole{i}',[p,p+d*.004+n*.003,q],[.0012]*3,M['ug_redstem'],'Body',sides=3,scale=.05,cap0=False,cap1=False)
-        LS_=LS if i not in red else RL;LS_.poly(HEART,HEART_C,q,d,n,Ll,bend=.10,fold=.08,rings=(),npts=12)
+        u=(i+rr.uniform(.15,.85))/nl;p=P(u);t=T(u);n=nrm_at(p);sd=1 if i%2 else -1
+        if rr.random()<.12:sd=-sd   # now and then two leaves on one side, so the row is not a regular saw edge
+        side=t.cross(n).normalized()*sd;fw=rr.uniform(.15,.95)*(1 if rr.random()<.8 else -.6)
+        d=(side*.8+t*fw).normalized();d=(d-n*d.dot(n)).normalized()
+        Ll=rr.uniform(.050,.082);q=p+d*.010+n*.006;lf=rr.uniform(.0,.10)
+        dl=(d+n*lf).normalized();nl_=(n-d*lf).normalized()   # the blade rises a little from the bark, each leaf by its own angle
+        _ttube(f'{pid}_Petiole{i}',[p,p+d*.005+n*.004,q],[.0014]*3,M['ug_redstem'],'Body',sides=3,scale=.05,cap0=False,cap1=False)
+        LS_=LS if i not in red else RL;LS_.poly(HEART,HEART_C,q,dl,nl_,Ll,bend=.24,fold=.05,rings=(),npts=12)
         if i%3==0:   # clinging rootlets into the bark
             for j in range(3):
                 r0=p-side*sd*.002;r1=r0+(-side*sd*.006+t*(j-1)*.004)-n*.0025
@@ -356,7 +361,7 @@ def _ug06(M,pid,Rr,Ln,phi,seed,shoots,ground=0.):
         sp,SP,ST,SS=_crv(sh,8);_ttube(f'{pid}_Shoot{k}',sp,[.0024*(1-.5*i/(len(sp)-1)) for i in range(len(sp))],M['ug_redstem'],'Body',sides=4,scale=.08)
         for j,v in enumerate((.35,.6,.85,1.)):
             q=SP(v);tt=ST(v);sd=1 if j%2 else -1;d=(tt.cross(n).normalized()*sd+tt*.5+n*.3).normalized()
-            LS.poly(HEART,HEART_C,q,d,(n+tt*.3),.022+.006*j*(j<3),bend=-.2,fold=.10,rings=(),npts=12)
+            LS.poly(HEART,HEART_C,q,d,(n+tt*.3),.030+.008*j*(j<3),bend=-.2,fold=.10,rings=(),npts=12)
     return LS
 def _ug06_item(pid,Rr,Ln,phi,seed,shoots,ground=0.):
     def f(M):
@@ -366,7 +371,7 @@ def _ug06_item(pid,Rr,Ln,phi,seed,shoots,ground=0.):
         meta=_plant_meta([(.09,.18,.15),(.12,.23,.18),(.16,.29,.22)],Ln/2,
           [f'a thin creeping vine {Ln:.1f} m long made to lie on a root {2*Rr:.2f} m thick (radius {Rr:.2f} m): the root axis runs along X, {Rr:.2f} m under the origin; the origin is on the root\'s top line'
            +(f'; the last part climbs down the root\'s side and runs {ground:.1f} m over the ground ({2*Rr:.2f} m under the origin)' if ground else ''),
-           'the stem hugs the bark (3.5 mm off it), small heart-shaped leaves lie flat on the bark on short stalks, alternate, a few red-brown; tiny clinging rootlets every few leaves'
+           'the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), heart-shaped leaves 5–8 cm long about every 2.3 cm on short stalks, mostly alternate, pointing each its own way, lifted a little at the stalk and bending down to follow the curve of the root, a few red-brown; tiny clinging rootlets every few leaves'
            +(f'; {len(shoots)} short side shoots lift off the root with young leaves' if shoots else ''),
            'the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)'])
         meta['origin_note']=f'on the top line of a root of radius {Rr:.2f} m whose axis runs along X {Rr:.2f} m below; front = -Y (Blender) / -Z (FBX, Unity)'
