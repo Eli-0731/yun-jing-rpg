@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 namespace YunJing.Editor
 {
-    // Unity check of B's D2 fallen logs and stumps (art/exports/d2-logs-b, joshsu54: DR06 fallen trunk, DR05 hollow log), the same way as D2RootsVerify (d2-roots-b). It does
+    // Unity check of B's D2 fallen logs and stumps (art/exports/d2-logs-b, joshsu54: DR06 fallen trunk, DR05 hollow log, DR07 giant stumps), the same way as D2RootsVerify (d2-roots-b). It does
     // not change apps/game: run_unity_check.sh copies this file in for one batch run and removes it together with the temporary model copies.
     // Imports the delivered FBX and textures, builds one URP Lit for the body (Albedo, Normal, MaskURP, shared bark detail on UV0) and one
     // two-sided for the plants, compares with model_info.json (size within 2 cm, triangles per LOD, objects, materials, 2048 textures,
@@ -24,7 +24,7 @@ namespace YunJing.Editor
         static string Models = BudgetModels;
         static bool Raw => Models == RawModels;
         static string Version(string id) => "v001";
-        static readonly string[] AllIds = { "DR06_FallenTrunk_B", "DR06_FallenTrunk_A", "DR05_HollowLog" };
+        static readonly string[] AllIds = { "DR06_FallenTrunk_B", "DR06_FallenTrunk_A", "DR05_HollowLog", "DR07_GiantStump_A", "DR07_GiantStump_B" };
         static string[] Ids => string.IsNullOrEmpty(Environment.GetEnvironmentVariable("D2_IDS")) ? AllIds
             : Environment.GetEnvironmentVariable("D2_IDS").Split(',').Select(s => s.Trim()).Where(AllIds.Contains).ToArray();
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
@@ -38,11 +38,16 @@ namespace YunJing.Editor
         [Serializable] class UnityInfo { public float detail_tiling_on_uv0; }
         [Serializable] class Cam { public string name; public float[] from; public float[] at; public float lens_mm; }
         [Serializable] class Tunnel { public float axis_y, floor_z, x0, x1; }
+        [Serializable] class Stump { public float axis_x, axis_y, rim_low, pool_z, radius; }
         [Serializable] class Info
         {
             public float[] dimensions_m; public string minTier; public string[] detailObjects; public Lods budget_per_lod; public UnityInfo unity;
             public float[] build_origin_m; public float length_build_m, plate_x_build_m; public Cam[] review_cams_build_xyz; public Tunnel tunnel_build;
+            public Stump stump_build; public float[] ruler_build_xy; public WaterInfo water;
         }
+        // DR07: the standing water is its own FBX (<id>_water_v001.fbx, like CR06 / F01 in the creek repair pack): wet = body + water, dry = body only
+        [Serializable] class WaterInfo { public string file; public string[] objects; public float z_m; public float[] centre_xy_m; }
+        static bool HasWater(Info info) => info.water != null && !string.IsNullOrEmpty(info.water.file);
 
         public static void Run()
         {
@@ -89,6 +94,8 @@ namespace YunJing.Editor
             foreach (var id in Ids)
             {
                 Copy(Path.Combine(Exports, id), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Version(id)}.fbx");
+                if (File.Exists(Path.Combine(Exports, id, $"{id}_water_{Version(id)}.fbx")))
+                    Copy(Path.Combine(Exports, id), Path.Combine(Repo, "apps/game", Models, id), $"{id}_water_{Version(id)}.fbx");
                 Copy(Path.Combine(Exports, id, "Textures"), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
             }
             Copy(Path.Combine(Repo, "art/exports/d2-roots-b/Shared"), Path.Combine(Repo, "apps/game", Models, "Shared"), "*.png");
@@ -194,6 +201,43 @@ namespace YunJing.Editor
             return go;
         }
 
+        // the user's water from the creek repair pack: YunJing/CreekFlowWater in still mode (as Field_StillWater), tinted tea brown
+        static Material WaterMat(string id)
+        {
+            var shader = Shader.Find("YunJing/CreekFlowWater"); if (shader == null || ShaderUtil.ShaderHasError(shader)) throw new InvalidOperationException("CreekFlowWater did not compile");
+            var dir = $"{Models}/{id}/Materials"; Directory.CreateDirectory(Path.Combine(Repo, "apps/game", dir));
+            var path = $"{dir}/M_{id}_Water.mat";
+            var m = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (m == null) { m = new Material(shader); AssetDatabase.CreateAsset(m, path); }
+            m.shader = shader; m.SetColor("_Shallow", new Color(.18f, .255f, .21f)); m.SetColor("_Deep", new Color(.085f, .16f, .135f));
+            // a stump pool: rain water steeped in rotten wood is tea brown and clear, so the mud and leaves 14 cm down show through
+            m.SetFloat("_Still", 1); m.SetFloat("_Speed", .03f); m.SetFloat("_AlphaMid", .6f); m.SetFloat("_AlphaBank", .6f);
+            m.SetVector("_StillColour", new Vector4(.05f, .036f, .02f, 1));
+            m.SetFloat("_Ripple", .012f); m.SetFloat("_Gloss", 512);      // a pool in a stump barely moves: at 0.06 / 220 the sun glints read as white streaks
+            EditorUtility.SetDirty(m); return m;
+        }
+
+        static GameObject PlaceWater(string id, Info info, bool atBuild = true)
+        {
+            var asset = AssetDatabase.LoadAssetAtPath<GameObject>($"{Models}/{id}/{id}_water_{Version(id)}.fbx");
+            if (asset == null) return null;
+            var go = (GameObject)PrefabUtility.InstantiatePrefab(asset);
+            var mat = WaterMat(id);
+            var rs = go.GetComponentsInChildren<Renderer>(true);
+            // slot 0 is the water; slot 1 (LOD0 / LOD1) the leaves floating on it, on the stump atlas like the Detail_ plants
+            foreach (var r in rs)
+            {
+                r.sharedMaterials = r.sharedMaterials.Select((sm, k) => k == 0 ? mat : Mat(id, true, info)).ToArray();
+                r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            }
+            float[] cut = { .25f, .08f, .015f };
+            var lg = go.GetComponent<LODGroup>(); if (lg == null) lg = go.AddComponent<LODGroup>();
+            lg.SetLODs(Enumerable.Range(0, 3).Select(i => new LOD(cut[i], rs.Where(r => r.name.EndsWith("_LOD" + i)).ToArray())).ToArray());
+            var p = info.build_origin_m;
+            if (atBuild && p != null && p.Length == 3) go.transform.position = new Vector3(-p[0], -p[2], -p[1]);
+            return go;
+        }
+
         static void Detail(GameObject go, bool on) { foreach (var r in go.GetComponentsInChildren<Renderer>(true).Where(IsDetail)) r.enabled = on; }
         static Renderer[] Level(GameObject go, int i, bool detail = true) =>
             go.GetComponentsInChildren<Renderer>(true).Where(r => r.name.EndsWith("_LOD" + i) && (detail || !IsDetail(r))).ToArray();
@@ -206,6 +250,32 @@ namespace YunJing.Editor
             var go = Place(id, info, false);
             var body = Box(Level(go, 0, false));
             float[] d = info.dimensions_m;
+            if (HasWater(info))
+            {
+                // the water FBX: three LODs, no collider, flat at the pool height, centred on the hollow, inside the stump's footprint
+                var w = PlaceWater(id, info, false);
+                Check(w != null, $"{id}: water model {info.water.file} imported");
+                if (w != null)
+                {
+                    var wr = w.GetComponentsInChildren<Renderer>(true);
+                    var w0 = wr.Where(r => r.name.EndsWith("_LOD0")).ToArray();
+                    Check(Enumerable.Range(0, 3).All(i => wr.Count(r => r.name == $"{id}_water_LOD{i}") == 1), $"{id}: water LOD0 / LOD1 / LOD2 ({string.Join(", ", wr.Select(r => r.name))})");
+                    Check(w.GetComponentsInChildren<Collider>(true).Length == 0, $"{id}: the water has no collider (the stump collision closes the hollow)");
+                    var wb = Box(w0);
+                    Check(Mathf.Abs(wb.min.y - info.water.z_m) <= .01f && wb.size.y < .03f, $"{id}: water flat at y = {wb.min.y:0.000} m, floating leaves at most {wb.size.y * 100:0.0} cm above it (model_info {info.water.z_m:0.000})");
+                    var c = info.water.centre_xy_m;
+                    Check(c != null && c.Length == 2 && Mathf.Abs(wb.center.x - c[0]) <= .05f && Mathf.Abs(wb.center.z - c[1]) <= .05f,
+                        $"{id}: water centred on the hollow ({wb.center.x:0.00}, {wb.center.z:0.00}) (model_info {c?[0]:0.00}, {c?[1]:0.00})");
+                    Check(wb.min.x > body.min.x && wb.max.x < body.max.x && wb.min.z > body.min.z && wb.max.z < body.max.z,
+                        $"{id}: water {wb.size.x:0.00} x {wb.size.z:0.00} m inside the stump {body.size.x:0.00} x {body.size.z:0.00} m");
+                    Check(wr.All(r => r.sharedMaterials[0].shader.name == "YunJing/CreekFlowWater" && r.sharedMaterials[0].GetFloat("_Still") == 1),
+                        $"{id}: water uses YunJing/CreekFlowWater, still (_Still 1, _Speed 0.03, _AlphaMid 0.6, _StillColour tea brown)");
+                    var mf = w0[0].GetComponent<MeshFilter>().sharedMesh;
+                    Check(mf.subMeshCount == 2 && w0[0].sharedMaterials[1].GetFloat("_Cull") == 0, $"{id}: {mf.subMeshCount - 1} submesh of floating leaves on LOD0, two-sided stump-atlas material");
+                    Check(mf.uv.Length == mf.vertexCount && mf.uv.Max(u => Mathf.Max(Mathf.Abs(u.x), Mathf.Abs(u.y))) > .3f, $"{id}: water UV in metres from the centre");
+                    UnityEngine.Object.DestroyImmediate(w);
+                }
+            }
             Check(Mathf.Abs(body.size.x - d[0]) <= .02f && Mathf.Abs(body.size.z - d[1]) <= .02f && Mathf.Abs(body.size.y - d[2]) <= .02f,
                 $"{id}: imported size {body.size.x:0.000} x {body.size.z:0.000} x {body.size.y:0.000} m matches model_info {d[0]} x {d[1]} x {d[2]} within 2 cm");
             Check(body.min.y < 0 && body.min.y > -1.0f, $"{id}: lowest point y = {body.min.y:0.000} (the trunk sinks into the soil, origin on the ground)");
@@ -236,6 +306,25 @@ namespace YunJing.Editor
             // part; the root plate stops it too; the top of the trunk is solid underfoot
             go = Place(id, info);
             Physics.SyncTransforms();
+            if (info.stump_build != null && info.stump_build.radius > 0)
+            {
+                // DR07 stump: a 1.75 m walker crossing the stump (along Unity z) is stopped on five lines across the trunk; the hollow is closed
+                // on top in the collision (nobody falls into the water); the root collar is a low step (under 0.45 m)
+                var s = info.stump_build; int sn = 0, sh = 0;
+                foreach (float k in new[] { -.6f, -.3f, 0f, .3f, .6f })
+                {
+                    sn++;
+                    float x = s.axis_x + k * s.radius;
+                    if (Physics.CapsuleCast(new Vector3(x, .45f, s.axis_y - 12), new Vector3(x, 1.40f, s.axis_y - 12), .35f, Vector3.forward, 24)) sh++;
+                }
+                Check(sh == sn, $"{id}: a walker crossing the stump is stopped at {sh} of {sn} lines (-0.6 R to 0.6 R)");
+                bool lid = Physics.Raycast(new Vector3(s.axis_x, 10, s.axis_y), Vector3.down, out var hl, 12);
+                Check(lid && hl.point.y > s.pool_z + .3f, $"{id}: the hollow is closed on top in the collision (y = {(lid ? hl.point.y : 0):0.00} m, water at {s.pool_z:0.00} m)");
+                bool step = Physics.Raycast(new Vector3(s.axis_x + 1.35f * s.radius, 10, s.axis_y), Vector3.down, out var hs, 12);
+                Check(step && hs.point.y < .45f, $"{id}: the root collar at 1.35 R is a low step (y = {(step ? hs.point.y : 0):0.00} m)");
+                UnityEngine.Object.DestroyImmediate(go);
+                return;
+            }
             float L = info.length_build_m;
             int n = 0, hit = 0;
             bool hollow = info.tunnel_build != null && info.tunnel_build.x1 > info.tunnel_build.x0;
@@ -284,16 +373,26 @@ namespace YunJing.Editor
             var ruler = GameObject.CreatePrimitive(PrimitiveType.Capsule);
             UnityEngine.Object.DestroyImmediate(ruler.GetComponent<Collider>());
             float L = info.length_build_m;
-            ruler.transform.position = new Vector3(.45f * L, .875f, -2.2f * (info.dimensions_m[1] > 6 ? 1f : .7f)); ruler.transform.localScale = new Vector3(.42f, .875f, .42f);
+            ruler.transform.position = info.ruler_build_xy != null && info.ruler_build_xy.Length == 2 ? new Vector3(info.ruler_build_xy[0], .875f, info.ruler_build_xy[1])
+                : new Vector3(.45f * L, .875f, -2.2f * (info.dimensions_m[1] > 6 ? 1f : .7f)); ruler.transform.localScale = new Vector3(.42f, .875f, .42f);
             ruler.GetComponent<Renderer>().sharedMaterial = Flat("ruler", new Color(.85f, .85f, .85f));
+            var water = HasWater(info) ? PlaceWater(id, info) : null;
             var lg = go.GetComponent<LODGroup>();
-            lg.ForceLOD(0);
+            lg.ForceLOD(0); if (water) water.GetComponent<LODGroup>().ForceLOD(0);
             var cams = info.review_cams_build_xyz.ToDictionary(c => c.name);
             void S(string file, Cam c) => Shot(id, file, new Vector3(c.from[0], c.from[2], c.from[1]), new Vector3(c.at[0], c.at[2], c.at[1]), c.lens_mm);
             S("side-lod0", cams["side"]);
-            if (Raw) { var rk = cams.ContainsKey("snap") ? "snap" : "end"; S(rk, cams[rk]); return; }      // 空心倒木沒有斷口（snap），改拍洞口（end）
-            foreach (var k in new[] { "tq", "plate", "plateq", "snap", "back", "sap", "end", "endA", "inside", "peel" }) if (cams.ContainsKey(k)) S(k, cams[k]);
-            for (int i = 1; i < 3; i++) { lg.ForceLOD(i); S($"side-lod{i}", cams["side"]); }
+            if (Raw) { var rk = cams.ContainsKey("snap") ? "snap" : cams.ContainsKey("end") ? "end" : "tq"; S(rk, cams[rk]); if (water) { water.SetActive(false); S(rk + "-dry", cams[rk]); } return; }      // 樹樁拍四分之三      // 空心倒木沒有斷口（snap），改拍洞口（end）
+            foreach (var k in new[] { "tq", "plate", "plateq", "snap", "back", "sap", "end", "endA", "inside", "peel", "hinge", "into", "roots", "rim" }) if (cams.ContainsKey(k)) S(k, cams[k]);
+            if (water)
+            {
+                // dry: the same stump without the water FBX
+                water.SetActive(false);
+                foreach (var k in new[] { "tq", "into", "rim" }) if (cams.ContainsKey(k)) S(k + "-dry", cams[k]);
+                water.SetActive(true);
+            }
+            for (int i = 1; i < 3; i++) { lg.ForceLOD(i); if (water) water.GetComponent<LODGroup>().ForceLOD(i); S($"side-lod{i}", cams["side"]); }
+            if (water) water.GetComponent<LODGroup>().ForceLOD(-1);
             lg.ForceLOD(1); Detail(go, false);
             S("side-standard-tier-lod1-nodetail", cams["side"]);
             Detail(go, true); lg.ForceLOD(-1);
