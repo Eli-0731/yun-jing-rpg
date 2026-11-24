@@ -53,7 +53,7 @@ def _side_dir(t,ang,be,out=None,Z=Vector((0,0,1)),lift=0.):
     return (t*math.cos(be)+sd*math.sin(be)+Z*lift).normalized(),sd
 
 # ---------------- SH02 fine-leaved, sparser understory shrub ----------------
-SH02_PAL=[(.120,.205,.130),(.175,.270,.155),(.240,.345,.180),(.330,.430,.215),(.460,.530,.270)]
+SH02_PAL=[(.170,.265,.150),(.235,.345,.180),(.315,.430,.205),(.420,.520,.240),(.560,.620,.300)]
 def SH02(M):
     """about nine very thin wiry stems from one point, fanning out; on each, side branches alternating round it and many fine
     twigs that spread sideways in thin layers; very small narrow leaves one by one along the twigs, sparse, so the twigs and the
@@ -103,7 +103,7 @@ def SH02(M):
 PROPS['SH02']=SH02
 
 # ---------------- SP01 young broadleaf sapling ----------------
-SP01_PAL=[(.135,.220,.135),(.195,.295,.165),(.270,.375,.195),(.365,.460,.230),(.500,.565,.285)]
+SP01_PAL=[(.185,.280,.150),(.255,.365,.180),(.340,.450,.205),(.450,.540,.240),(.590,.640,.300)]
 def SP01(M):
     """one slender trunk, a little leaning and curving to the light, the lower 1.2 m bare but for two short dead twigs; above it
     main branches in loose irregular tiers, out and up at different angles, each with twigs; leaves one by one along the twigs in
