@@ -9,6 +9,7 @@
 | `art/exports/creek-repair-b` | B | [#70](https://github.com/z1nnz/chengtian/pull/70) B：工地和三種修法模型 CR03–CR09（外加 CR14、CR15、F01_F | #72、#73 |
 | `art/exports/creek-repair-b-props` | B | [#71](https://github.com/z1nnz/chengtian/pull/71) B：修水路玩法（清淤、接渠、通水）與測試場景 | — |
 | `art/exports/creekside-life-c` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | #93 |
+| `art/exports/d2-logs-b` | B | [#124](https://github.com/z1nnz/chengtian/pull/124) 【B】11/15 DR05–12：D2 倒木、樹樁、朽木（DR06 樣品） | #125、#126、#127 |
 | `art/exports/d2-roots-b` | B | [#122](https://github.com/z1nnz/chengtian/pull/122) 【B】11/15 DR01–04：南入口大根拱、板根牆 A／B／C、根牆收頭與交 | — |
 | `art/exports/elder-world-tree-hero-v1` | 核心組 | [#17](https://github.com/z1nnz/chengtian/pull/17) 整合青溪世界分支並還原樹伴原樹葉冠 | — |
 | `art/exports/forest-paths-b` | B | [#87](https://github.com/z1nnz/chengtian/pull/87) 【B】11/08 FP01–FP05：古林步道套件 | — |
@@ -166,6 +167,10 @@
 | `art/references/DR02` | B | [#122](https://github.com/z1nnz/chengtian/pull/122) 【B】11/15 DR01–04：南入口大根拱、板根牆 A／B／C、根牆收頭與交 | — |
 | `art/references/DR03` | B | [#122](https://github.com/z1nnz/chengtian/pull/122) 【B】11/15 DR01–04：南入口大根拱、板根牆 A／B／C、根牆收頭與交 | — |
 | `art/references/DR04` | B | [#122](https://github.com/z1nnz/chengtian/pull/122) 【B】11/15 DR01–04：南入口大根拱、板根牆 A／B／C、根牆收頭與交 | — |
+| `art/references/DR05` | B | [#125](https://github.com/z1nnz/chengtian/pull/125) 【B】11/15 DR05 空心倒木 v001 | — |
+| `art/references/DR06` | B | [#124](https://github.com/z1nnz/chengtian/pull/124) 【B】11/15 DR05–12：D2 倒木、樹樁、朽木（DR06 樣品） | — |
+| `art/references/DR07` | B | [#126](https://github.com/z1nnz/chengtian/pull/126) 【B】11/15 DR07 巨樹樁 A／B v001（有水／沒水） | — |
+| `art/references/DR08` | B | [#127](https://github.com/z1nnz/chengtian/pull/127) 【B】11/15 DR08 長滿蕈和苔的朽木 A／B／C v001 | — |
 | `art/references/F01` | B | [#70](https://github.com/z1nnz/chengtian/pull/70) B：工地和三種修法模型 CR03–CR09（外加 CR14、CR15、F01_F | — |
 | `art/references/FE04` | B | [#102](https://github.com/z1nnz/chengtian/pull/102) 【B】11/09 PS01–02、BT01、FS01、RI04、FE04、BS0 | — |
 | `art/references/FI01` | C | [#93](https://github.com/z1nnz/chengtian/pull/93) 【C】11/07 FI01–FI05：西溪釣具五件（釣竿、線輪、抄網、魚筌、浮子 | — |
@@ -344,6 +349,7 @@
 | `art/source/c2-home-interior-v1` | 核心組 | [#110](https://github.com/z1nnz/chengtian/pull/110) 【核心組】11/08 C2：借住處後門與室內配置對位（Codex） | — |
 | `art/source/creek-repair-b` | B | [#70](https://github.com/z1nnz/chengtian/pull/70) B：工地和三種修法模型 CR03–CR09（外加 CR14、CR15、F01_F | #72、#73 |
 | `art/source/creekside-life-c` | C | [#88](https://github.com/z1nnz/chengtian/pull/88) 【C】11/07 WL01–WL05：西溪洗衣小物五件 | #93 |
+| `art/source/d2-logs-b` | B | [#124](https://github.com/z1nnz/chengtian/pull/124) 【B】11/15 DR05–12：D2 倒木、樹樁、朽木（DR06 樣品） | #125、#126、#127 |
 | `art/source/d2-roots-b` | B | [#122](https://github.com/z1nnz/chengtian/pull/122) 【B】11/15 DR01–04：南入口大根拱、板根牆 A／B／C、根牆收頭與交 | — |
 | `art/source/forest-paths-b` | B | [#87](https://github.com/z1nnz/chengtian/pull/87) 【B】11/08 FP01–FP05：古林步道套件 | — |
 | `art/source/forest-roots-b` | B | [#84](https://github.com/z1nnz/chengtian/pull/84) 【B】11/07 FR01–FR04：古林巨根套件（根牆三種、根拱門、垂藤幕兩種 | #103 |

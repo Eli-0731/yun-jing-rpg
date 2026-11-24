@@ -1,6 +1,6 @@
 # PR 總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；要更新就重跑。產生時間：2026-11-20 09:00 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；要更新就重跑。產生時間：2026-11-24 15:10 UTC。
 > 人：A = Johnnnny0823（John）、B = joshsu54（Josh）、C = Eli-0731（Eli）、核心組 = z1nnz（含 Claude Code、Codex 代提交）。
 
 | PR | 誰 | 狀態 | 日期 | 分支 | 做了什麼（標題） | 動到的主要資料夾（檔案數） |
@@ -118,8 +118,14 @@
 | [#115](https://github.com/z1nnz/chengtian/pull/115) | 核心組 | 已合併 | 2026-11-13 | `docs/core-1113-registry-after-111` | docs: 重新產生帳本（#98–#111 合併後） | `docs/registry/branches.md`(1)、`docs/registry/folders.md`(1)、`docs/registry/prs.md`(1) |
 | [#116](https://github.com/z1nnz/chengtian/pull/116) | C | 已合併 | 2026-11-13 | `Eli-0731:art/c-1107-lv01-06-village-life` | 【C】11/07 LV01–LV06：青溪村生活小物六件 | `art/previews/village-life-c`(182)、`art/textures/village-life-c`(24)、`art/source/village-life-c`(15)、`art/exports/village-life-c`(14)、`art/references/LV01`(5) 等 10 處 |
 | [#117](https://github.com/z1nnz/chengtian/pull/117) | C | 已合併 | 2026-11-20 | `Eli-0731:art/c-1110-lv07-12-village-life` | 【C】11/07 LV07–LV12：水瓢、蓑衣、鳥籠、鞋組、磨刀石與蛋籃 | `art/previews/village-life-c`(243)、`art/textures/village-life-c`(24)、`art/exports/village-life-c`(14)、`art/source/village-life-c`(13)、`art/references/LV10`(9) 等 10 處 |
-| [#118](https://github.com/z1nnz/chengtian/pull/118) | 核心組 | 開啟中 | 2026-11-14 | `art/core-1114-d2-altar-terrace` | 【核心組】11/14 AL01：D2 樹根下祭壇台石 | `art/previews/core-d2-v1`(145)、`art/exports/core-d2-v1`(78)、`art/source/core-d2-v1`(25)、`art/references/core-d2-models-v1`(3)、`art/references/core-d2-v1`(3) |
+| [#118](https://github.com/z1nnz/chengtian/pull/118) | 核心組 | 開啟中 | 2026-11-14 | `art/core-1114-d2-altar-terrace` | 【核心組】11/14 AL01：D2 樹根下祭壇台石 | `art/previews/core-d2-v1`(209)、`art/exports/core-d2-v1`(78)、`art/source/core-d2-v1`(40)、`art/references/core-d2-models-v1`(3)、`art/references/core-d2-v1`(3) 等 7 處 |
 | [#119](https://github.com/z1nnz/chengtian/pull/119) | A | 開啟中 | 2026-11-14 | `art/a-1114-tg-rd-ts-yard-and-road` | 【A】11/14 TG01–06、RD01–04、TS01：演武場、官道、茶棚道具 | `art/previews/training-yard-a`(13)、`art/source/training-yard-a`(6)、`art/references/TG01`(5)、`art/textures/training-yard-a`(4)、`art/exports/training-yard-a`(3) 等 9 處 |
 | [#120](https://github.com/z1nnz/chengtian/pull/120) | A | 開啟中 | 2026-11-15 | `art/a-1114-tr-trees-v2-shaped` | 【A】11/14 TR04／06／07／08／09 v002：照世界樹做法重做 | `art/previews/trees-v2-a`(351)、`art/exports/trees-v2-a`(31)、`art/source/trees-v2-a`(20)、`art/textures/trees-v2-a`(17)、`art/references/TR04`(9) 等 13 處 |
 | [#121](https://github.com/z1nnz/chengtian/pull/121) | B | 開啟中 | 2026-11-15 | `art/b-1114-tr-trees-v2-conifer-broadleaf` | 【B】11/14 TR01／02／03／05 v002：照世界樹做法重做 | `art/previews/trees-v2`(339)、`art/exports/trees-v2`(73)、`art/source/trees-v2`(17)、`art/references/TR01`(10)、`art/references/TR02`(10) 等 8 處 |
 | [#122](https://github.com/z1nnz/chengtian/pull/122) | B | 已合併 | 2026-11-20 | `art/b-1115-d2-root-arch-walls` | 【B】11/15 DR01–04：南入口大根拱、板根牆 A／B／C、根牆收頭與交叉件、根間的樹洞 | `art/previews/d2-roots-b`(653)、`art/exports/d2-roots-b`(179)、`art/source/d2-roots-b`(103)、`art/references/DR02`(6)、`art/references/DR01`(5) 等 7 處 |
+| [#123](https://github.com/z1nnz/chengtian/pull/123) | 核心組 | 已合併 | 2026-11-20 | `docs/core-1120-registry-after-122` | 【核心組】11/20 重新產生帳本（#102、#104、#105、#117、#122 合併後） | `docs/registry/branches.md`(1)、`docs/registry/folders.md`(1)、`docs/registry/prs.md`(1) |
+| [#124](https://github.com/z1nnz/chengtian/pull/124) | B | 已合併 | 2026-11-21 | `art/b-1115-d2-logs-stumps` | 【B】11/15 DR05–12：D2 倒木、樹樁、朽木（DR06 樣品） | `art/previews/d2-logs-b`(72)、`art/exports/d2-logs-b`(17)、`art/source/d2-logs-b`(11)、`art/references/DR06`(4) |
+| [#125](https://github.com/z1nnz/chengtian/pull/125) | B | 已合併 | 2026-11-24 | `art/b-1115-dr05-hollow-log` | 【B】11/15 DR05 空心倒木 v001 | `art/previews/d2-logs-b`(36)、`art/exports/d2-logs-b`(9)、`art/source/d2-logs-b`(8)、`art/references/DR05`(4) |
+| [#126](https://github.com/z1nnz/chengtian/pull/126) | B | 已合併 | 2026-11-24 | `art/b-1115-dr07-stumps` | 【B】11/15 DR07 巨樹樁 A／B v001（有水／沒水） | `art/previews/d2-logs-b`(110)、`art/exports/d2-logs-b`(21)、`art/source/d2-logs-b`(11)、`art/references/DR07`(4)、`apps/game/Assets/YunJing/Runtime`(1) |
+| [#127](https://github.com/z1nnz/chengtian/pull/127) | B | 已合併 | 2026-11-24 | `art/b-1115-dr08-rotten-logs` | 【B】11/15 DR08 長滿蕈和苔的朽木 A／B／C v001 | `art/previews/d2-logs-b`(120)、`art/exports/d2-logs-b`(39)、`art/source/d2-logs-b`(30)、`art/references/DR08`(9)、`apps/game/Assets/YunJing/Runtime`(3) |
+| [#128](https://github.com/z1nnz/chengtian/pull/128) | B | 開啟中 | 2026-11-24 | `art/b-1115-dr09-branch-piles` | 【B】11/15 DR09 斷枝堆 S／M／L v001 | `art/previews/d2-logs-b`(105)、`art/exports/d2-logs-b`(16)、`art/source/d2-logs-b`(11)、`art/references/DR09`(4) |

@@ -1,27 +1,33 @@
 # 分支總帳
 
-> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-20 09:01 UTC。
+> 由 `tools/registry/build-registry.mjs` 產生，**不要手改**；人工判斷寫在 `tools/registry/notes.json`。產生時間：2026-11-24 15:10 UTC。
 > 「main 沒有的檔案」= 這條分支改過、而現在內容和 main 不一樣的檔案數（用內容比，不是比提交編號）。0 代表分支裡的東西都已在 main，刪掉也不會遺失，但先保留不刪。
 
 - 主線：1 條
-- 舊版或試驗，保留參考：20 條
-- 待審：7 條
-- 內容都在 main，可封存：75 條
+- 內容都在 main，可封存：79 條
+- 待審：8 條
+- 舊版或試驗，保留參考：21 條
 - 核心組進行中：1 條
 - 內容都在 main（只差幾個小檔）：6 條
 
 | 分支 | 分類 | 最後更新 | 最後提交者 | main 沒有的檔案 | PR | 做了什麼 | 備註 |
 |---|---|---|---|---:|---|---|---|
-| `main` | 主線 | 2026-11-20 | z1nnz | 0 | 沒有 PR | Merge pull request #122 from z1nnz/art/b-1115-d2-root-arch-walls |  |
-| `art/codex-1113-ground-textures-v2` | 舊版或試驗，保留參考 | 2026-11-20 | z1nnz | 45 | 沒有 PR | GT05: 製作河谷暖灰岩可平鋪地形貼圖 |  |
-| `art/core-1114-d2-altar-terrace` | 待審 | 2026-11-20 | z1nnz | 254 | [#118](https://github.com/z1nnz/chengtian/pull/118) 開啟中 | 【核心組】11/14 AL01：D2 樹根下祭壇台石 |  |
-| `art/b-1115-d2-root-arch-walls` | 內容都在 main，可封存 | 2026-11-19 | joshsu54 | 0 | [#122](https://github.com/z1nnz/chengtian/pull/122) 已合併 | 【B】11/15 DR01–04：南入口大根拱、板根牆 A／B／C、根牆收頭與交叉件、根間的樹洞 |  |
+| `main` | 主線 | 2026-11-24 | z1nnz | 0 | 沒有 PR | Merge pull request #127 from z1nnz/art/b-1115-dr08-rotten-logs |  |
+| `art/b-1115-dr08-rotten-logs` | 內容都在 main，可封存 | 2026-11-24 | joshsu54 | 0 | [#127](https://github.com/z1nnz/chengtian/pull/127) 已合併 | 【B】11/15 DR08 長滿蕈和苔的朽木 A／B／C v001 |  |
+| `art/b-1115-dr09-branch-piles` | 待審 | 2026-11-24 | joshsu54 | 136 | [#128](https://github.com/z1nnz/chengtian/pull/128) 開啟中 | 【B】11/15 DR09 斷枝堆 S／M／L v001 |  |
+| `art/codex-1113-ground-textures-v2` | 舊版或試驗，保留參考 | 2026-11-24 | z1nnz | 76 | 沒有 PR | docs: 記錄 v7 八種地形材質驗收範圍 |  |
+| `art/core-1114-d2-altar-terrace` | 待審 | 2026-11-24 | z1nnz | 336 | [#118](https://github.com/z1nnz/chengtian/pull/118) 開啟中 | 【核心組】11/14 AL01：D2 樹根下祭壇台石 |  |
+| `art/b-1115-d2-logs-stumps` | 內容都在 main，可封存 | 2026-11-21 | z1nnz | 0 | [#124](https://github.com/z1nnz/chengtian/pull/124) 已合併 | 【B】11/15 DR05–12：D2 倒木、樹樁、朽木（DR06 樣品） |  |
+| `art/b-1115-dr05-hollow-log` | 內容都在 main，可封存 | 2026-11-21 | joshsu54 | 0 | [#125](https://github.com/z1nnz/chengtian/pull/125) 已合併 | 【B】11/15 DR05 空心倒木 v001 |  |
+| `art/b-1115-dr07-stumps` | 內容都在 main，可封存 | 2026-11-21 | joshsu54 | 0 | [#126](https://github.com/z1nnz/chengtian/pull/126) 已合併 | 【B】11/15 DR07 巨樹樁 A／B v001（有水／沒水） |  |
+| `art/b-1111-cw-yard-walls-and-well` | 舊版或試驗，保留參考 | 2026-11-20 | z1nnz | 125 | [#104](https://github.com/z1nnz/chengtian/pull/104) 已合併 | 【B】11/11 WE01、CW01、CW02、XB01：水井、院牆、院門、石板橋，加院門開關元件 |  |
+| `art/b-1115-d2-root-arch-walls` | 內容都在 main，可封存 | 2026-11-20 | z1nnz | 0 | [#122](https://github.com/z1nnz/chengtian/pull/122) 已合併 | 【B】11/15 DR01–04：南入口大根拱、板根牆 A／B／C、根牆收頭與交叉件、根間的樹洞 |  |
+| `docs/core-1120-registry-after-122` | 內容都在 main，可封存 | 2026-11-20 | z1nnz | 0 | [#123](https://github.com/z1nnz/chengtian/pull/123) 已合併 | 【核心組】11/20 重新產生帳本（#102、#104、#105、#117、#122 合併後） |  |
 | `art/b-1114-tr-trees-v2-conifer-broadleaf` | 待審 | 2026-11-16 | joshsu54 | 471 | [#121](https://github.com/z1nnz/chengtian/pull/121) 開啟中 | 【B】11/14 TR01／02／03／05 v002：照世界樹做法重做 |  |
 | `art/core-1113-co-ruins-v2` | 舊版或試驗，保留參考 | 2026-11-16 | z1nnz | 700 | 沒有 PR | Merge approved GT01 seed-4 shape and record Blender review |  |
 | `game/codex-1113-world-plan` | 舊版或試驗，保留參考 | 2026-11-16 | z1nnz | 904 | 沒有 PR | 整理 D2 11/15 工作包定位並穩定場景 smoke 驗證 |  |
 | `art/a-1114-tr-trees-v2-shaped` | 待審 | 2026-11-15 | Johnnnny0823 | 460 | [#120](https://github.com/z1nnz/chengtian/pull/120) 開啟中 | 【A】11/14 TR04／06／07／08／09 v002：照世界樹做法重做 |  |
 | `art/b-1109-ps-roadside-landmarks` | 內容都在 main，可封存 | 2026-11-15 | joshsu54 | 0 | [#102](https://github.com/z1nnz/chengtian/pull/102) 已合併 | 【B】11/09 PS01–02、BT01、FS01、RI04、FE04、BS01：路上地標 |  |
-| `art/b-1111-cw-yard-walls-and-well` | 內容都在 main，可封存 | 2026-11-15 | joshsu54 | 0 | [#104](https://github.com/z1nnz/chengtian/pull/104) 已合併 | 【B】11/11 WE01、CW01、CW02、XB01：水井、院牆、院門、石板橋，加院門開關元件 |  |
 | `art/b-1111-gn-granary-and-shed` | 舊版或試驗，保留參考 | 2026-11-15 | joshsu54 | 125 | [#105](https://github.com/z1nnz/chengtian/pull/105) 已合併 | 【B】11/11 GN01、AN01：穀倉、牛棚與食槽（接在院落 A 段之後） |  |
 | `feature/qingxi-creek-chapter` | 核心組進行中 | 2026-11-15 | z1nnz | 456 | 沒有 PR | docs: 11/15 三份 300 小時包改為全部做 D2 古樹神木的物件，附 D2 完成度估算 | 核心組進行中：故事定稿、工作包、區塊資料、11/07 文件。尚未合回 main（待整併）。 |
 | `art/a-1114-tg-rd-ts-yard-and-road` | 待審 | 2026-11-14 | Johnnnny0823 | 36 | [#119](https://github.com/z1nnz/chengtian/pull/119) 開啟中 | 【A】11/14 TG01–06、RD01–04、TS01：演武場、官道、茶棚道具 |  |
