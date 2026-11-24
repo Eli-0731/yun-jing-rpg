@@ -1,5 +1,5 @@
 """Whole-pack check for C's 11/15 D2 small-life pack (C-300h-D2-small-life.md, 全包檢查): A (DP01–04 mushrooms), B (DP06–13 moss and
-small plants), C (DP14–22 floor smalls) and SH01, set out as (1) a 5 × 5 m forest-floor corner framed like setting view V6 and
+small plants), C (DP14–22 floor smalls), and from the 11/14 pack batch B the undergrowth SH01–02, SP01, UG01–06 (2026-11-24), set out as (1) a 5 × 5 m forest-floor corner framed like setting view V6 and
 (2) a root foot (one of Josh's D2 roots with mushrooms, moss and vines) framed like the lower left of V2.
 Blender 4.5.3:  blender -b --factory-startup -P pack_check.py -- --dirs <export dir> [<export dir> ...] --out <dir> [--samples 96]
 The export dirs are searched in order for <ID>_v002.glb, then <ID>_v001.glb (and for Josh's DR roots / logs in their sub-folders).
@@ -134,6 +134,15 @@ def corner():
     for pid,x,y,r in (('DP17_08',1.05,-.5,.4),('DP17_07',-.35,-1.75,1.),('DP17_06',.35,-1.5,2.2),('DP17_04',-.15,-.95,.3),('DP17_05',-.95,-.55,1.1),
                       ('DP14_06',.75,-.95,.5),('DP14_05',.85,-.75,.3),('DP14_08',.45,-.35,1.3),('DP14_07',-.4,.9,.2),('DP16_06',-1.3,.35,.9),('DP16_05',-1.05,.85,2.)):load(pid,x,y,r)
     load('DP22_01',.05,-.6,.3,sink=0.);puddle(.05,-.6,.32,.22)
+    # 11/14 batch B undergrowth: waist-high ferns and strap-leaved plants on the right by the log, white flowers lower right,
+    # heart-leaved plants and a fern on the left bank, leaf heaps by the path, a vine along the log, shrubs and saplings behind
+    for pid,x,y,r in (('UG01',2.05,.85,.4),('UG01',-1.95,.35,2.2),('UG01',.95,1.75,1.3),('UG03',1.05,.55,.8),('UG03',1.35,-.45,2.6),('UG02',-1.55,-1.15,.9),('UG02',-2.25,1.2,2.9),
+                      ('UG04',1.0,-1.05,.3),('UG04',.75,-1.35,1.9),('UG04',1.3,-1.3,4.),('UG04',-.8,-1.2,.7),('UG05_01',-.7,-1.55,.4),('UG05_02',-1.05,1.75,2.),('UG05_01',.95,1.05,3.5),
+                      ('SH02',-1.25,3.1,.2),('SH02',2.35,3.35,2.5),('SH01',.95,3.9,4.1),('SP01',.45,4.6,.3),('SP01',-1.85,4.4,2.)):load(pid,x,y,r)
+    lt=[(t_,surface(2.6+.25*t_*math.cos(-.79),-.9+.25*t_*math.sin(-.79))) for t_ in range(-6,7)]   # the top of the fallen trunk along its length
+    for pid,k in (('UG06_02',4),('UG06_01',9)):
+        t_,h=lt[k];x=2.6+.25*t_*math.cos(-.79);y=-.9+.25*t_*math.sin(-.79)
+        if h[1] is not None and h[0]>.2:load(pid,x,y,-.79,z=h[0]-.004,tilt=False)
     scatter(rng,['DP17_01','DP17_02','DP17_03','DP14_01','DP14_02','DP14_03','DP14_04','DP16_01','DP16_02','DP16_03','DP16_04','DP18_01','DP18_02','DP18_03'],34,(-2.4,2.4,-2.2,2.4),
             avoid=((2.7,0.,.9),(-1.75,1.,.7),(.05,-.6,.35)))
     green=['DP09_01','DP09_02','DP09_03','DP09_04','DP06_01','DP06_06','DP06_02','DP08_01','DP08_02','DP08_03','DP11_01','DP07_02','DP07_05']
@@ -173,6 +182,11 @@ def rootfoot():
                       ('DP06_06',x0+1.8,ff-.6,0.),('DP09_02',x0+1.1,ff-.45,0.),('DP09_04',x0+2.0,ff-1.05,.7),('DP19_02',x0+.6,ff-.55,.3),('DP04_03',x0+1.5,ff-.2,.4),
                       ('DP02_01',x0+2.6,ff-.15,1.),('DP11_01',x0+2.9,ff-.8,.3)):load(pid,x,y,r,support=[SUP[0]])
     scatter(rng,['DP17_01','DP17_03','DP14_02','DP14_03','DP16_02','DP16_04'],12,(x0-.6,x1,ff-1.7,ff-.3))
+    # 11/14 batch B: big ferns and heart-leaved plants in front of the root (V2 lower left), white flowers, a leaf heap, vines along its back
+    for pid,x,y,r in (('UG01',x0-.2,ff-.9,.3),('UG01',x0+2.4,ff-1.3,2.4),('UG02',x0+.7,ff-.6,1.),('UG02',x0-.7,ff-1.6,2.6),('UG02',x0+1.6,ff-.9,4.4),
+                      ('UG04',x0+1.25,ff-1.55,.5),('UG03',x1+.2,ff-.6,1.7),('UG05_01',x0+2.0,ff-.45,.8),('SH02',x1+1.0,ff+.8,.5),('SP01',x0-1.4,ff+1.6,1.)):load(pid,x,y,r,support=[SUP[0]])
+    for pid,k in (('UG06_02',2),('UG06_03',7),('UG06_01',10)):
+        if k<len(W):x,f,t=W[k];load(pid,x,t[0],0.,z=t[1]-.004,tilt=False)
     scatter(rng,['DP08_01','DP08_02','DP08_03','DP06_01','DP06_06','DP06_02','DP09_01','DP09_02','DP09_04','DP11_01','DP07_02'],30,(x0-1.2,x1+.3,ff-1.9,ff-.15))   # V2 lower left: ferns and moss right up to the root
     tz=max(w[2][1] for w in W);camera(((x0+x1)/2-.9,ff-3.1,.6),((x0+x1)/2,ff+.6,tz*.4),26);shot('v2-rootfoot')
 
