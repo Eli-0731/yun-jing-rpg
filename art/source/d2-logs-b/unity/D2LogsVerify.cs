@@ -24,7 +24,7 @@ namespace YunJing.Editor
         static string Models = BudgetModels;
         static bool Raw => Models == RawModels;
         static string Version(string id) => "v001";
-        static readonly string[] AllIds = { "DR06_FallenTrunk_B", "DR06_FallenTrunk_A", "DR05_HollowLog", "DR07_GiantStump_A", "DR07_GiantStump_B" };
+        static readonly string[] AllIds = { "DR06_FallenTrunk_B", "DR06_FallenTrunk_A", "DR05_HollowLog", "DR07_GiantStump_A", "DR07_GiantStump_B", "DR08_RottenLog_A", "DR08_RottenLog_B", "DR08_RottenLog_C" };
         static string[] Ids => string.IsNullOrEmpty(Environment.GetEnvironmentVariable("D2_IDS")) ? AllIds
             : Environment.GetEnvironmentVariable("D2_IDS").Split(',').Select(s => s.Trim()).Where(AllIds.Contains).ToArray();
         static string Repo => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", ".."));
@@ -96,8 +96,10 @@ namespace YunJing.Editor
                 Copy(Path.Combine(Exports, id), Path.Combine(Repo, "apps/game", Models, id), $"{id}_{Version(id)}.fbx");
                 if (File.Exists(Path.Combine(Exports, id, $"{id}_water_{Version(id)}.fbx")))
                     Copy(Path.Combine(Exports, id), Path.Combine(Repo, "apps/game", Models, id), $"{id}_water_{Version(id)}.fbx");
-                Copy(Path.Combine(Exports, id, "Textures"), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
+                if (!IsLayered(id)) Copy(Path.Combine(Exports, id, "Textures"), Path.Combine(Repo, "apps/game", Models, id, "Textures"), id + "_*.png");
             }
+            // DR08: A / B / C share six hand-painted tiling layers (1024) and the plant atlas (2048) in DR08_Shared
+            if (Ids.Any(IsLayered)) Copy(Path.Combine(Exports, "DR08_Shared", "Textures"), Path.Combine(Repo, "apps/game", Models, "DR08_Shared", "Textures"), "*.png");
             Copy(Path.Combine(Repo, "art/exports/d2-roots-b/Shared"), Path.Combine(Repo, "apps/game", Models, "Shared"), "*.png");
             AssetDatabase.Refresh();
             foreach (var guid in AssetDatabase.FindAssets("t:Model", new[] { Models }))
@@ -135,6 +137,51 @@ namespace YunJing.Editor
         }
 
         static readonly Dictionary<string, Material> Mats = new Dictionary<string, Material>();
+        static bool IsLayered(string id) => id.StartsWith("DR08");
+        static readonly string[] Layers = { "Bark", "Moss", "Rot", "Fibre", "Inner", "Soil" };
+        static Texture2D SharedTex(string name) => AssetDatabase.LoadAssetAtPath<Texture2D>($"{Models}/DR08_Shared/Textures/{name}.png");
+        // DR08: the body slot gets YunJing/D2LayeredWood (six layers mixed by vertex colour + UV1), the bracket fungus slot and Detail_ the plant atlas
+        static Material MatFor(string id, Renderer r, Material imported, Info info)
+        {
+            if (!IsLayered(id)) return Mat(id, IsDetail(r), info);
+            bool plants = IsDetail(r) || (imported != null && imported.name.Contains("Plants"));
+            string key = "DR08" + (plants ? "Plants" : "Layered");
+            if (Mats.TryGetValue(key, out var cached) && cached) return cached;
+            var dir = $"{Models}/DR08_Shared/Materials"; Directory.CreateDirectory(Path.Combine(Repo, "apps/game", dir));
+            var path = $"{dir}/M_DR08_{(plants ? "Plants" : "Layered")}.mat";
+            var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
+            var shader = Shader.Find(plants ? "Universal Render Pipeline/Lit" : "YunJing/D2LayeredWood");
+            Check(shader != null, $"{id}: shader {(plants ? "URP Lit" : "YunJing/D2LayeredWood")} found");
+            if (mat == null) { mat = new Material(shader); AssetDatabase.CreateAsset(mat, path); } else mat.shader = shader;
+            if (plants)
+            {
+                var a = SharedTex("DR08_Plants_Albedo");
+                Check(a != null, $"{id}: DR08_Plants_Albedo.png found");
+                mat.SetTexture("_BaseMap", a); mat.SetColor("_BaseColor", Color.white); mat.SetFloat("_Smoothness", .15f);
+                mat.SetFloat("_AlphaClip", 1); mat.SetFloat("_Cutoff", .5f); mat.EnableKeyword("_ALPHATEST_ON");
+                mat.SetFloat("_Cull", (float)CullMode.Off); mat.doubleSidedGI = true;
+                mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.AlphaTest; mat.SetOverrideTag("RenderType", "TransparentCutout");
+            }
+            else
+            {
+                var sizes = new List<string>();
+                foreach (var l in Layers)
+                {
+                    var al = SharedTex($"DR08_{l}_Albedo"); var nm = SharedTex($"DR08_{l}_Normal");
+                    Check(al != null && nm != null, $"{id}: DR08_{l}_Albedo / Normal found");
+                    mat.SetTexture($"_{l}Map", al); mat.SetTexture($"_{l}Nrm", nm);
+                    foreach (var t in new[] { al, nm }.Where(t => t))
+                    {
+                        ((TextureImporter)AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(t))).GetSourceTextureWidthAndHeight(out int w, out int h);
+                        sizes.Add($"{w}x{h}");
+                    }
+                }
+                var src = sizes.Distinct().ToArray();
+                Check(src.Length == 1 && src[0] == "1024x1024", $"{id}: shared tiling layers delivered at {string.Join(", ", src)} (1024, tiled 1–2 times per metre)");
+            }
+            EditorUtility.SetDirty(mat); Mats[key] = mat;
+            return mat;
+        }
         static Material Mat(string id, bool leaf, Info info)
         {
             string key = id + (leaf ? "Leaf" : "A");
@@ -189,7 +236,7 @@ namespace YunJing.Editor
             var go = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>($"{Models}/{id}/{id}_{Version(id)}.fbx"));
             foreach (var r in go.GetComponentsInChildren<Renderer>(true))
             {
-                r.sharedMaterials = r.sharedMaterials.Select(sm => Mat(id, IsDetail(r), info)).ToArray();
+                r.sharedMaterials = r.sharedMaterials.Select(sm => MatFor(id, r, sm, info)).ToArray();
                 if (IsCollision(r)) { r.enabled = false; r.gameObject.AddComponent<MeshCollider>().sharedMesh = r.GetComponent<MeshFilter>().sharedMesh; }
             }
             float[] cut = { .25f, .08f, .015f };
@@ -298,7 +345,18 @@ namespace YunJing.Editor
             Check(shown == 1, $"{id}: Detail_* off still shows the body ({shown} mesh per LOD)");
             Detail(go, true);
             foreach (var mf in Level(go, 0).Select(r => r.GetComponent<MeshFilter>().sharedMesh))
-                Check(mf.uv.Length == mf.vertexCount && mf.uv2.Length == mf.vertexCount, $"{id}: {mf.name} has UV0 (atlas) and UV1 (TileUV)");
+                if (!IsLayered(id)) Check(mf.uv.Length == mf.vertexCount && mf.uv2.Length == mf.vertexCount, $"{id}: {mf.name} has UV0 (atlas) and UV1 (TileUV)");
+            if (IsLayered(id))
+            {
+                var body0 = Level(go, 0, false)[0];
+                var m0 = body0.GetComponent<MeshFilter>().sharedMesh;
+                Check(m0.uv.Length == m0.vertexCount && m0.uv2.Length == m0.vertexCount && m0.colors.Length == m0.vertexCount,
+                    $"{id}: {m0.name} has UV0 (metres), UV1 (soil, AO) and vertex colours (moss, rot, fibre, inner weights)");
+                var c = m0.colors; var u2 = m0.uv2;
+                Report.Add($"INFO {id}: mean layer weights moss {c.Average(q => q.r):0.00}, rot {c.Average(q => q.g):0.00}, fibre {c.Average(q => q.b):0.00}, inner {c.Average(q => q.a):0.00}, soil {u2.Average(q => q.x):0.00}; AO {u2.Min(q => q.y):0.00}–{u2.Max(q => q.y):0.00}");
+                Check(body0.sharedMaterials.Length >= 1 && body0.sharedMaterials[0].shader.name == "YunJing/D2LayeredWood" && body0.sharedMaterials.Skip(1).All(x => x.GetFloat("_Cull") == 0),
+                    $"{id}: body slots {string.Join(", ", body0.sharedMaterials.Select(x => x.name + " (" + x.shader.name + ")"))}: layered wood (any extra slot two-sided plant atlas)");
+            }
             var col = go.GetComponentsInChildren<MeshCollider>(true);
             Check(col.Length == 1, $"{id}: one collision shell (MeshCollider, renderer off)");
             UnityEngine.Object.DestroyImmediate(go);
@@ -326,6 +384,22 @@ namespace YunJing.Editor
                 return;
             }
             float L = info.length_build_m;
+            if (id.StartsWith("DR08"))
+            {
+                // DR08 rotten logs are low (top 0.6–0.85 m, below hip height): instead of the 1.75 m walker capsule, check that
+                // a shin-high sweep (0.08–0.22 m, radius 0.06) is stopped all along, i.e. a walker has to step over or go round, and that the
+                // highest point of the top along 0.1–0.9 L is between 0.35 and 1.1 m (the ends and the middle of A are crumbled open)
+                int sn = 0, sh = 0;
+                for (float x = .12f * L; x <= .90f * L; x += .5f, sn++)
+                    if (Physics.CapsuleCast(new Vector3(x, .14f, -12), new Vector3(x, .16f, -12), .06f, Vector3.forward, 24)) sh++;
+                Check(sh == sn, $"{id}: a shin-high sweep across the log is stopped at {sh} of {sn} places (every 0.5 m from 0.12 L to 0.90 L)");
+                float best = 0;
+                for (float x = .1f * L; x <= .9f * L; x += .1f)
+                    if (Physics.Raycast(new Vector3(x, 10, 0), Vector3.down, out var hm, 12)) best = Mathf.Max(best, hm.point.y);
+                Check(best > .35f && best < 1.1f, $"{id}: the highest point of the log's top (0.1–0.9 L) is a low obstacle below hip height (y = {best:0.00} m)");
+                UnityEngine.Object.DestroyImmediate(go);
+                return;
+            }
             int n = 0, hit = 0;
             bool hollow = info.tunnel_build != null && info.tunnel_build.x1 > info.tunnel_build.x0;
             float lo = hollow ? .15f : .25f, hi = hollow ? .85f : .95f;          // DR05: both ends are ragged and open, check the closed middle
@@ -383,7 +457,7 @@ namespace YunJing.Editor
             void S(string file, Cam c) => Shot(id, file, new Vector3(c.from[0], c.from[2], c.from[1]), new Vector3(c.at[0], c.at[2], c.at[1]), c.lens_mm);
             S("side-lod0", cams["side"]);
             if (Raw) { var rk = cams.ContainsKey("snap") ? "snap" : cams.ContainsKey("end") ? "end" : "tq"; S(rk, cams[rk]); if (water) { water.SetActive(false); S(rk + "-dry", cams[rk]); } return; }      // 樹樁拍四分之三      // 空心倒木沒有斷口（snap），改拍洞口（end）
-            foreach (var k in new[] { "tq", "plate", "plateq", "snap", "back", "sap", "end", "endA", "inside", "peel", "hinge", "into", "roots", "rim" }) if (cams.ContainsKey(k)) S(k, cams[k]);
+            foreach (var k in new[] { "tq", "plate", "plateq", "snap", "back", "sap", "end", "endA", "inside", "peel", "hinge", "into", "roots", "rim", "hole", "fungi", "brk" }) if (cams.ContainsKey(k)) S(k, cams[k]);
             if (water)
             {
                 // dry: the same stump without the water FBX
