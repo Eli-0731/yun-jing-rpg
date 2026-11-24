@@ -1,5 +1,5 @@
 #!/bin/sh
-# Unity check of C's village props (LV01–LV06) without changing apps/game: copies VillageLVVerify.cs into the project for one
+# Unity check of C's village props (LV01–LV12) without changing apps/game: copies VillageLVVerify.cs into the project for one
 # batch run, then removes it, the temporary model copies and the URP settings the run switches on.
 #   UNITY=<Unity.exe 6000.3.28f1> sh art/source/village-life-c/unity/run_unity_check.sh   (from the repo root)
 # Results: art/previews/village-life-c/unity/report.txt and renders; log in artifacts/unity-village.log.

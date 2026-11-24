@@ -12,5 +12,5 @@ def font(sz):
 ims=[(Image.open(p).convert('RGB'),l) for p,l in items];tw=640;th=int(tw*ims[0][0].size[1]/ims[0][0].size[0]);lab=40;rows=(len(ims)+cols-1)//cols
 sheet=Image.new('RGB',(cols*(tw+6),56+rows*(th+lab+6)),(250,250,248));d=ImageDraw.Draw(sheet);d.text((10,10),title,fill=(20,20,20),font=font(30))
 for i,(im,l) in enumerate(ims):
-    x,y=(i%cols)*(tw+6),56+(i//cols)*(th+lab+6);f=min(tw/im.width,th/im.height);w2,h2=int(im.width*f),int(im.height*f);sheet.paste(im.resize((w2,h2),Image.LANCZOS),(x+(tw-w2)//2,y+lab+(th-h2)//2))   # keep each image's aspect (references are 3:2, renders 4:3);d.text((x+6,y+6),l,fill=(40,40,40),font=font(22))
+    x,y=(i%cols)*(tw+6),56+(i//cols)*(th+lab+6);f=min(tw/im.width,th/im.height);w2,h2=int(im.width*f),int(im.height*f);sheet.paste(im.resize((w2,h2),Image.LANCZOS),(x+(tw-w2)//2,y+lab+(th-h2)//2));d.text((x+6,y+6),l,fill=(40,40,40),font=font(22))   # keep each image's aspect (references are 3:2, renders 4:3); the label above it
 out.parent.mkdir(parents=True,exist_ok=True);sheet.save(out,quality=88);print('sheet',out)

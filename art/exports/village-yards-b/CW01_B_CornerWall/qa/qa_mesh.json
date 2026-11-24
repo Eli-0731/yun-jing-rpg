@@ -1,0 +1,141 @@
+{
+ "CW01_B_CornerWall_Detail_Small_LOD0": {
+  "tris": 1128,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 133,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_B_CornerWall_Detail_Small_LOD1": {
+  "tris": 564,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 124,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_B_CornerWall_Detail_Small_LOD2": {
+  "tris": 169,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 124,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_B_CornerWall_LOD0": {
+  "tris": 47822,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 243,
+  "coplanar_two_sides": 48,
+  "closed_pieces": 196,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -0.06,
+     0.86,
+     0.0
+    ],
+    50
+   ],
+   [
+    [
+     -1.42,
+     0.06,
+     0.0
+    ],
+    49
+   ],
+   [
+    [
+     0.06,
+     1.42,
+     0.0
+    ],
+    31
+   ],
+   [
+    [
+     -0.1,
+     0.09,
+     0.0
+    ],
+    22
+   ],
+   [
+    [
+     -0.86,
+     -0.06,
+     0.0
+    ],
+    18
+   ],
+   [
+    [
+     0.1,
+     -0.09,
+     0.0
+    ],
+    9
+   ]
+  ],
+  "inverted_at": []
+ },
+ "CW01_B_CornerWall_LOD1": {
+  "tris": 23910,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 196,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_B_CornerWall_LOD2": {
+  "tris": 7172,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 196,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

@@ -1,0 +1,17 @@
+LV08 斗笠與蓑衣掛在木架上（工作包第二部分表 A：0.8 × 0.4 × 1.6 m，練斗笠的圓錐、蓑衣的一層層草片）三視圖與自評（2026-11-10）
+選用：LV08-cand-2.png（93分）
+
+提示詞照工作包 docs/execution/2026-11-07/C-128h-creekside-and-village-life.md「附：三視圖提示詞」原文（物件句、Layout 段、5.2、5.3 一字不改），四張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- cand-1：92（28+28+24+12）。斗笠戴在立柱頂、蓑衣五層；底座兩條橫腳加十字綁繩；側面斗笠斜掛在短木樁上，前後不一致。
+- cand-2：93（28+29+24+12）。選用。立柱頂一個斗笠（竹編圓錐、頂上一個小結、緣口參差）、柱上兩根短木樁，蓑衣領口用麻繩綁在柱上、往下一層層草片（五層、越往下越寬）、幾塊補丁；柱腳一圈麻繩，底座是兩條橫木加兩塊墊腳。三面一致、輪廓最清楚。
+- cand-3：91（27+28+24+12）。T 形架加斜撐，斗笠掛在橫木前面擋住蓑衣上半；底座斜撐偏大。
+- cand-4：92（28+28+24+12）。T 形架，斗笠蓋住蓑衣上半，正面看不出斗笠的完整圓錐；腳邊長草。
+
+建模取捨：照 cand-2。練「斗笠的圓錐」：斗笠是有厚度的淺圓錐（直徑約 0.55 m），竹篾編紋畫在貼圖上，緣口一圈收邊、幾處破開參差；頂上一個竹結。「蓑衣的一層層草片」：五層草片，每層是一圈有厚度、下緣剪成鋸齒的草片，一層蓋住上一層的下緣，越往下越寬；領口麻繩綁在柱上。木架：方立柱、兩根短木樁（常摸的那根較亮）、底座兩條橫木加墊腳、柱腳纏繩。
+
+== 正面提示詞 ==
+Three-view orthographic turnaround sheet of a conical woven bamboo rain hat and a layered straw rain cape hanging on a simple standing wooden peg rack, about 0.8 m wide, 0.4 m deep and 1.6 m tall, made of split bamboo, dried palm-fibre and straw layers and old cedar, showing overlapping straw layers, a frayed hat rim and a worn peg, used in the yards of houses in a lived-in mountain valley village. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞 ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
