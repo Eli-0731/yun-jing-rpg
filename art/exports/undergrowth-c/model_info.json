@@ -1313,14 +1313,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   0.945,
-   0.239,
-   0.157
+   0.974,
+   0.313,
+   0.214
   ],
   "body_dimensions_xyz_m": [
-   0.945,
-   0.239,
-   0.157
+   0.974,
+   0.313,
+   0.214
   ],
   "size_limit_xyz_m": [
    1.2,
@@ -1333,8 +1333,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 2219,
-    "triangles_without_detail": 2219,
+    "triangles": 2631,
+    "triangles_without_detail": 2631,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1358,8 +1358,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1109,
-    "triangles_without_detail": 1109,
+    "triangles": 1315,
+    "triangles_without_detail": 1315,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1383,8 +1383,8 @@
     }
    },
    "LOD2": {
-    "triangles": 332,
-    "triangles_without_detail": 332,
+    "triangles": 393,
+    "triangles_without_detail": 393,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1417,14 +1417,14 @@
   },
   "material": "M_UG06_01_RootVineStraight",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 94,
-  "coplanar_lifted": 1,
+  "source_parts": 85,
+  "coplanar_lifted": 0,
   "reference": "art/references/UG06/prompt.txt",
   "origin": "on the top line of a root of radius 0.15 m whose axis runs along X 0.15 m below; front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one",
   "notes": [
    "a thin creeping vine 0.9 m long made to lie on a root 0.30 m thick (radius 0.15 m): the root axis runs along X, 0.15 m under the origin; the origin is on the root's top line",
-   "the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green heart-shaped leaves with silvery veins, 5–8 cm long about every 2.0 cm on short stalks, mostly alternate, pointing each its own way, lifted a little at the stalk and bending down to follow the curve of the root, a few red-brown; tiny clinging rootlets every few leaves; 1 short side shoots lift off the root with young leaves",
+   "the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green rounded heart-shaped leaves with silvery veins, 6–10 cm long about every 2.2 cm on stalks 1–3 cm long, mostly alternate, pointing each its own way, most held up 20–40° off the bark with the tip drooping, a third lying flatter, one or two red-brown; a thinner side runner branches off near the start and runs beside the stem a little round the root with smaller leaves (4.5–7.5 cm, about every 2.6 cm); a clinging rootlet every fourth leaf; 1 short side shoots lift off the root with young leaves",
    "the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
   ]
  },
@@ -1439,14 +1439,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.26,
-   0.334,
-   0.186
+   1.263,
+   0.388,
+   0.268
   ],
   "body_dimensions_xyz_m": [
-   1.26,
-   0.334,
-   0.186
+   1.263,
+   0.388,
+   0.268
   ],
   "size_limit_xyz_m": [
    1.6,
@@ -1459,8 +1459,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3117,
-    "triangles_without_detail": 3117,
+    "triangles": 3641,
+    "triangles_without_detail": 3641,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1484,8 +1484,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1557,
-    "triangles_without_detail": 1557,
+    "triangles": 1819,
+    "triangles_without_detail": 1819,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1509,8 +1509,8 @@
     }
    },
    "LOD2": {
-    "triangles": 466,
-    "triangles_without_detail": 466,
+    "triangles": 546,
+    "triangles_without_detail": 546,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1543,14 +1543,14 @@
   },
   "material": "M_UG06_02_RootVineWinding",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 131,
+  "source_parts": 117,
   "coplanar_lifted": 0,
   "reference": "art/references/UG06/prompt.txt",
   "origin": "on the top line of a root of radius 0.22 m whose axis runs along X 0.22 m below; front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one",
   "notes": [
    "a thin creeping vine 1.2 m long made to lie on a root 0.44 m thick (radius 0.22 m): the root axis runs along X, 0.22 m under the origin; the origin is on the root's top line",
-   "the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green heart-shaped leaves with silvery veins, 5–8 cm long about every 2.0 cm on short stalks, mostly alternate, pointing each its own way, lifted a little at the stalk and bending down to follow the curve of the root, a few red-brown; tiny clinging rootlets every few leaves; 2 short side shoots lift off the root with young leaves",
+   "the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green rounded heart-shaped leaves with silvery veins, 6–10 cm long about every 2.2 cm on stalks 1–3 cm long, mostly alternate, pointing each its own way, most held up 20–40° off the bark with the tip drooping, a third lying flatter, one or two red-brown; a thinner side runner branches off near the start and runs beside the stem a little round the root with smaller leaves (4.5–7.5 cm, about every 2.6 cm); a clinging rootlet every fourth leaf; 2 short side shoots lift off the root with young leaves",
    "the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
   ]
  },
@@ -1565,14 +1565,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.039,
-   0.462,
-   0.384
+   1.097,
+   0.599,
+   0.421
   ],
   "body_dimensions_xyz_m": [
-   1.039,
-   0.462,
-   0.384
+   1.097,
+   0.599,
+   0.421
   ],
   "size_limit_xyz_m": [
    1.4,
@@ -1585,8 +1585,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 2671,
-    "triangles_without_detail": 2671,
+    "triangles": 3103,
+    "triangles_without_detail": 3103,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1610,8 +1610,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1335,
-    "triangles_without_detail": 1335,
+    "triangles": 1551,
+    "triangles_without_detail": 1551,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1635,8 +1635,8 @@
     }
    },
    "LOD2": {
-    "triangles": 399,
-    "triangles_without_detail": 399,
+    "triangles": 465,
+    "triangles_without_detail": 465,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1669,14 +1669,14 @@
   },
   "material": "M_UG06_03_RootVineWrapping",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 118,
+  "source_parts": 106,
   "coplanar_lifted": 0,
   "reference": "art/references/UG06/prompt.txt",
   "origin": "on the top line of a root of radius 0.30 m whose axis runs along X 0.30 m below; front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one",
   "notes": [
    "a thin creeping vine 1.0 m long made to lie on a root 0.60 m thick (radius 0.30 m): the root axis runs along X, 0.30 m under the origin; the origin is on the root's top line",
-   "the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green heart-shaped leaves with silvery veins, 5–8 cm long about every 2.0 cm on short stalks, mostly alternate, pointing each its own way, lifted a little at the stalk and bending down to follow the curve of the root, a few red-brown; tiny clinging rootlets every few leaves; 1 short side shoots lift off the root with young leaves",
+   "the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green rounded heart-shaped leaves with silvery veins, 6–10 cm long about every 2.2 cm on stalks 1–3 cm long, mostly alternate, pointing each its own way, most held up 20–40° off the bark with the tip drooping, a third lying flatter, one or two red-brown; a thinner side runner branches off near the start and runs beside the stem a little round the root with smaller leaves (4.5–7.5 cm, about every 2.6 cm); a clinging rootlet every fourth leaf; 1 short side shoots lift off the root with young leaves",
    "the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
   ]
  },
@@ -1691,14 +1691,14 @@
   },
   "bake_device": "OPTIX",
   "dimensions_xyz_m": [
-   1.214,
-   0.345,
-   0.426
+   1.271,
+   0.379,
+   0.454
   ],
   "body_dimensions_xyz_m": [
-   1.214,
-   0.345,
-   0.426
+   1.271,
+   0.379,
+   0.454
   ],
   "size_limit_xyz_m": [
    1.6,
@@ -1711,8 +1711,8 @@
   "detailMeshes": [],
   "lods": {
    "LOD0": {
-    "triangles": 3241,
-    "triangles_without_detail": 3241,
+    "triangles": 3101,
+    "triangles_without_detail": 3101,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1736,8 +1736,8 @@
     }
    },
    "LOD1": {
-    "triangles": 1619,
-    "triangles_without_detail": 1619,
+    "triangles": 1550,
+    "triangles_without_detail": 1550,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1761,8 +1761,8 @@
     }
    },
    "LOD2": {
-    "triangles": 486,
-    "triangles_without_detail": 486,
+    "triangles": 465,
+    "triangles_without_detail": 465,
     "objects": 1,
     "objects_without_detail": 1,
     "materials": 1,
@@ -1795,14 +1795,14 @@
   },
   "material": "M_UG06_04_RootVineDownToGround",
   "textures": "one set: Albedo (sRGB) / Normal (OpenGL, +Y) / ORM (R AO, G roughness, B metal) / MaskURP (R metal, G AO, A smoothness)",
-  "source_parts": 153,
+  "source_parts": 112,
   "coplanar_lifted": 0,
   "reference": "art/references/UG06/prompt.txt",
   "origin": "on the top line of a root of radius 0.18 m whose axis runs along X 0.18 m below; front = -Y (Blender) / -Z (FBX, Unity)",
   "collision": "none in the model; add a box from body_dimensions if the scene needs one",
   "notes": [
    "a thin creeping vine 0.8 m long made to lie on a root 0.36 m thick (radius 0.18 m): the root axis runs along X, 0.18 m under the origin; the origin is on the root's top line; the last part climbs down the root's side and runs 0.3 m over the ground (0.36 m under the origin)",
-   "the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green heart-shaped leaves with silvery veins, 5–8 cm long about every 2.0 cm on short stalks, mostly alternate, pointing each its own way, lifted a little at the stalk and bending down to follow the curve of the root, a few red-brown; tiny clinging rootlets every few leaves",
+   "the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green rounded heart-shaped leaves with silvery veins, 6–10 cm long about every 2.2 cm on stalks 1–3 cm long, mostly alternate, pointing each its own way, most held up 20–40° off the bark with the tip drooping, a third lying flatter, one or two red-brown; a thinner side runner branches off near the start and runs beside the stem a little round the root with smaller leaves (4.5–7.5 cm, about every 2.6 cm); a clinging rootlet every fourth leaf",
    "the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)"
   ]
  }

@@ -378,20 +378,39 @@ def _ug06(M,pid,Rr,Ln,phi,seed,shoots,ground=0.):
     def nrm_at(p):
         if p.z<-2*Rr+.01:return Z
         return Vector((0,p.y,p.z+Rr)).normalized()
-    nl=int(S/.020);red=set(rr.sample(range(nl),max(2,nl//8)))
+    # 2026-11-25 (third round): as the D2 concept's vine, the leaves are rounder (ws 1.2) and bigger (6–10 cm), held up off the bark
+    # on stalks 1.2–2.6 cm long, most blades raised 20–40° with the tip drooping, a third lying flatter; a thinner side runner
+    # branches off and runs beside the main stem a little round the root with its own smaller leaves, so the vine covers a strip of
+    # bark instead of one line; fewer red-brown leaves (they read as orange spots); one rootlet every fourth leaf (was three every third)
+    def leaf(tag,i,p,t,n,sd,Lr,LS_,rstalk):
+        side=t.cross(n).normalized()*sd;fw=rr.uniform(.15,.95)*(1 if rr.random()<.8 else -.6)
+        d=(side*.8+t*fw).normalized();d=(d-n*d.dot(n)).normalized()
+        Ll=rr.uniform(*Lr);pl=rr.uniform(.012,.026)*Ll/.08;q=p+d*pl*.75+n*(pl*.55+.0016*(i%3))   # i%3: neighbours at three heights, never in one plane
+        lf=rr.uniform(.35,.80) if rr.random()<.67 else rr.uniform(.05,.25)
+        dl=(d+n*lf).normalized();nl_=(n-d*lf).normalized()
+        _ttube(f'{pid}_{tag}Petiole{i}',[p,q],[rstalk,rstalk*.8],M['ug_redstem'],'Body',sides=3,scale=.05,cap0=False,cap1=False)
+        LS_.poly(HEART,HEART_C,q,dl,nl_,Ll,ws=1.2,bend=-rr.uniform(.30,.65),fold=.08,rings=(),npts=12)
+        return side
+    nl=int(S/.022);red=set(rr.sample(range(nl),max(1,nl//16)))
     for i in range(nl):
         u=(i+rr.uniform(.15,.85))/nl;p=P(u);t=T(u);n=nrm_at(p);sd=1 if i%2 else -1
         if rr.random()<.12:sd=-sd   # now and then two leaves on one side, so the row is not a regular saw edge
-        side=t.cross(n).normalized()*sd;fw=rr.uniform(.15,.95)*(1 if rr.random()<.8 else -.6)
-        d=(side*.8+t*fw).normalized();d=(d-n*d.dot(n)).normalized()
-        Ll=rr.uniform(.050,.082);q=p+d*.010+n*(.005+.0016*(i%3));lf=rr.uniform(.0,.10)   # i%3: neighbours at three heights, never in one plane
-        dl=(d+n*lf).normalized();nl_=(n-d*lf).normalized()   # the blade rises a little from the bark, each leaf by its own angle
-        _ttube(f'{pid}_Petiole{i}',[p,q],[.0014]*2,M['ug_redstem'],'Body',sides=3,scale=.05,cap0=False,cap1=False)
-        LS_=LS if i not in red else RL;LS_.poly(HEART,HEART_C,q,dl,nl_,Ll,bend=.24,fold=.05,rings=(),npts=12)
-        if i%3==0:   # clinging rootlets into the bark
-            for j in range(3):
-                r0=p-side*sd*.002;r1=r0+(-side*sd*.006+t*(j-1)*.004)-n*.0025
-                _ttube(f'{pid}_Rootlet{i}{j}',[r0,(r0+r1)/2-n*.0005,r1],[.0007,.0006,.0004],M['ug_redstem'],'Body',sides=3,scale=.05,cap0=False)
+        side=leaf('',i,p,t,n,sd,(.060,.100),LS if i not in red else RL,.0016)
+        if i%4==0:   # a clinging rootlet into the bark
+            r0=p-side*.002;r1=r0-side*.007-n*.0025
+            _ttube(f'{pid}_Rootlet{i}',[r0,(r0+r1)/2-n*.0005,r1],[.0007,.0006,.0004],M['ug_redstem'],'Body',sides=3,scale=.05,cap0=False)
+    # the side runner: leaves the main stem at t0, swings off by 'off' radians round the root within the first fifth, runs to t1
+    t0,t1=rr.uniform(.08,.18),rr.uniform(.78,.90);off=(.50 if rr.random()<.5 else -.50)
+    rp=[]
+    for j in range(int(Ln*(t1-t0)/.02)+1):
+        s_=j/max(1,int(Ln*(t1-t0)/.02));t_=t0+(t1-t0)*s_;e=min(1.,s_/.2);e=e*e*(3-2*e)
+        rp.append(surf(-Ln/2+Ln*t_,phi(t_)+off*e*(1+.25*math.sin(s_*9+seed)),.0030))
+    rpts,RP,RT,RS=_crv(rp,len(rp))
+    _ttube(f'{pid}_Runner',rpts,[.0030*(1-.5*i/(len(rpts)-1)) for i in range(len(rpts))],M['ug_redstem'],'Body',sides=3,scale=.1)
+    nr=int(RS/.026)
+    for i in range(nr):
+        u=(i+rr.uniform(.2,.8))/nr;p=RP(u)
+        leaf('R',i,p,RT(u),nrm_at(p),1 if i%2 else -1,(.045,.075),LS,.0012)
     for k,u0 in enumerate(shoots):   # short side shoots lifting off the root with a few young leaves
         p=P(u0);n=nrm_at(p);t=T(u0);sh=[p,p+n*.04+t*.02,p+n*.09+t*.05+t.cross(n)*.02,p+n*.13+t*.06]
         sp,SP,ST,SS=_crv(sh,8);_ttube(f'{pid}_Shoot{k}',sp,[.0024*(1-.5*i/(len(sp)-1)) for i in range(len(sp))],M['ug_redstem'],'Body',sides=4,scale=.08)
@@ -407,7 +426,7 @@ def _ug06_item(pid,Rr,Ln,phi,seed,shoots,ground=0.):
         meta=_plant_meta([(.09,.18,.15),(.12,.23,.18),(.16,.29,.22)],Ln/2,
           [f'a thin creeping vine {Ln:.1f} m long made to lie on a root {2*Rr:.2f} m thick (radius {Rr:.2f} m): the root axis runs along X, {Rr:.2f} m under the origin; the origin is on the root\'s top line'
            +(f'; the last part climbs down the root\'s side and runs {ground:.1f} m over the ground ({2*Rr:.2f} m under the origin)' if ground else ''),
-           'the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green heart-shaped leaves with silvery veins, 5–8 cm long about every 2.0 cm on short stalks, mostly alternate, pointing each its own way, lifted a little at the stalk and bending down to follow the curve of the root, a few red-brown; tiny clinging rootlets every few leaves'
+           'the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green rounded heart-shaped leaves with silvery veins, 6–10 cm long about every 2.2 cm on stalks 1–3 cm long, mostly alternate, pointing each its own way, most held up 20–40° off the bark with the tip drooping, a third lying flatter, one or two red-brown; a thinner side runner branches off near the start and runs beside the stem a little round the root with smaller leaves (4.5–7.5 cm, about every 2.6 cm); a clinging rootlet every fourth leaf'
            +(f'; {len(shoots)} short side shoots lift off the root with young leaves' if shoots else ''),
            'the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)'],gz=-2*Rr)
         meta['origin_note']=f'on the top line of a root of radius {Rr:.2f} m whose axis runs along X {Rr:.2f} m below; front = -Y (Blender) / -Z (FBX, Unity)'

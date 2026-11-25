@@ -23,6 +23,9 @@ E['ug_heart']=(_alb,.8*_v-.25*np.clip(1-_e*2.5,0,1),1.2,.62,0,0)
 _alb=lerp((.200,.300,.180),(.360,.460,.280),np.clip(.45+.55*(_fn-.5)+.25*_e,0,1))
 _alb=_alb*(1-.65*_v[...,None])+_v[...,None]*.65*np.array([.64,.70,.54])
 E['ug_vine']=(_alb,.8*_v-.25*np.clip(1-_e*2.5,0,1),1.2,.66,0,0)
+# the vine's few old leaves (replaces the red-brown above, which only UG06 used): a dull withered red-brown from the same leaf, not
+# the saturated orange that read as a spot on the root (the D2 concept's vine has no orange)
+E['ug_heart_red']=(np.clip(_alb.mean(2,keepdims=True)*np.array([1.30,.82,.58]),0,1),.8*_v,1.2,.72,0,0)
 # UG01 fern pinna (a five-vertex pinna: stalk at v = 0, tip at v = 1, edges at u = 0 / 1): blue-green, a paler midrib, toothed darker edge
 _u=X+0*Y;_w=Y+0*X;_m=np.clip(1-np.abs(_u-.5)/.035,0,1)*(_w<.95)
 _tooth=np.clip(np.sin(_w*math.pi*26)*.5+.5,0,1)*np.clip(np.abs(_u-.5)*2-.55,0,1)*2

@@ -156,12 +156,12 @@ PASS UG05_03: cloth material renders both faces (Cull Off)
 PASS UG06_01: Albedo / MaskURP / Normal textures found
 PASS UG06_01: textures 1024x1024 (1024 or less)
 PASS UG06_01: UG06_01_GroundOrigin is the model root; all LOD meshes hang under it
-PASS UG06_01: imported size 0.945 x 0.239 x 0.157 m matches model_info 0.945 x 0.239 x 0.157 within 2 cm
+PASS UG06_01: imported size 0.974 x 0.313 x 0.214 m matches model_info 0.974 x 0.313 x 0.214 within 2 cm
 PASS UG06_01: within the work pack's limit 1.2 x 0.5 x 0.4 m
-PASS UG06_01: the vine runs from 0.15 m above to 0.01 m below the root's top line (origin on the root)
-PASS UG06_01: triangles LOD0/1/2 = 2219 / 1109 / 332 (50% / 15%), model_info 2219 / 1109 / 332
-PASS UG06_01: triangles 2219 / 1109 / 332 within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)
-PASS UG06_01: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 2979 / 1735 / 608 vertices
+PASS UG06_01: the vine runs from 0.15 m above to 0.07 m below the root's top line (origin on the root)
+PASS UG06_01: triangles LOD0/1/2 = 2631 / 1315 / 393 (50% / 15%), model_info 2631 / 1315 / 393
+PASS UG06_01: triangles 2631 / 1315 / 393 within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)
+PASS UG06_01: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 3332 / 2017 / 726 vertices
 PASS UG06_01: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS UG06_01: 1 material for every LOD and Detail_ mesh (one material)
 PASS UG06_01: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
@@ -173,12 +173,12 @@ PASS UG06_01: cloth material renders both faces (Cull Off)
 PASS UG06_02: Albedo / MaskURP / Normal textures found
 PASS UG06_02: textures 1024x1024 (1024 or less)
 PASS UG06_02: UG06_02_GroundOrigin is the model root; all LOD meshes hang under it
-PASS UG06_02: imported size 1.260 x 0.334 x 0.186 m matches model_info 1.26 x 0.334 x 0.186 within 2 cm
+PASS UG06_02: imported size 1.263 x 0.388 x 0.268 m matches model_info 1.263 x 0.388 x 0.268 within 2 cm
 PASS UG06_02: within the work pack's limit 1.6 x 0.6 x 0.6 m
-PASS UG06_02: the vine runs from 0.15 m above to 0.04 m below the root's top line (origin on the root)
-PASS UG06_02: triangles LOD0/1/2 = 3117 / 1557 / 466 (50% / 15%), model_info 3117 / 1557 / 466
-PASS UG06_02: triangles 3117 / 1557 / 466 within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)
-PASS UG06_02: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 4131 / 2447 / 833 vertices
+PASS UG06_02: the vine runs from 0.15 m above to 0.12 m below the root's top line (origin on the root)
+PASS UG06_02: triangles LOD0/1/2 = 3641 / 1819 / 546 (50% / 15%), model_info 3641 / 1819 / 546
+PASS UG06_02: triangles 3641 / 1819 / 546 within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)
+PASS UG06_02: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 4679 / 2800 / 1049 vertices
 PASS UG06_02: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS UG06_02: 1 material for every LOD and Detail_ mesh (one material)
 PASS UG06_02: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
@@ -190,12 +190,12 @@ PASS UG06_02: cloth material renders both faces (Cull Off)
 PASS UG06_03: Albedo / MaskURP / Normal textures found
 PASS UG06_03: textures 1024x1024 (1024 or less)
 PASS UG06_03: UG06_03_GroundOrigin is the model root; all LOD meshes hang under it
-PASS UG06_03: imported size 1.039 x 0.462 x 0.384 m matches model_info 1.039 x 0.462 x 0.384 within 2 cm
+PASS UG06_03: imported size 1.097 x 0.599 x 0.421 m matches model_info 1.097 x 0.599 x 0.421 within 2 cm
 PASS UG06_03: within the work pack's limit 1.4 x 0.8 x 0.7 m
-PASS UG06_03: the vine runs from 0.14 m above to 0.24 m below the root's top line (origin on the root)
-PASS UG06_03: triangles LOD0/1/2 = 2671 / 1335 / 399 (50% / 15%), model_info 2671 / 1335 / 399
-PASS UG06_03: triangles 2671 / 1335 / 399 within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)
-PASS UG06_03: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 3678 / 2209 / 777 vertices
+PASS UG06_03: the vine runs from 0.14 m above to 0.28 m below the root's top line (origin on the root)
+PASS UG06_03: triangles LOD0/1/2 = 3103 / 1551 / 465 (50% / 15%), model_info 3103 / 1551 / 465
+PASS UG06_03: triangles 3103 / 1551 / 465 within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)
+PASS UG06_03: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 3992 / 2415 / 883 vertices
 PASS UG06_03: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS UG06_03: 1 material for every LOD and Detail_ mesh (one material)
 PASS UG06_03: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
@@ -207,12 +207,12 @@ PASS UG06_03: cloth material renders both faces (Cull Off)
 PASS UG06_04: Albedo / MaskURP / Normal textures found
 PASS UG06_04: textures 1024x1024 (1024 or less)
 PASS UG06_04: UG06_04_GroundOrigin is the model root; all LOD meshes hang under it
-PASS UG06_04: imported size 1.214 x 0.345 x 0.426 m matches model_info 1.214 x 0.345 x 0.426 within 2 cm
+PASS UG06_04: imported size 1.271 x 0.379 x 0.454 m matches model_info 1.271 x 0.379 x 0.454 within 2 cm
 PASS UG06_04: within the work pack's limit 1.6 x 0.7 x 0.6 m
-PASS UG06_04: the vine runs from 0.04 m above to 0.38 m below the root's top line (origin on the root)
-PASS UG06_04: triangles LOD0/1/2 = 3241 / 1619 / 486 (50% / 15%), model_info 3241 / 1619 / 486
-PASS UG06_04: triangles 3241 / 1619 / 486 within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)
-PASS UG06_04: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 4450 / 2697 / 873 vertices
+PASS UG06_04: the vine runs from 0.07 m above to 0.38 m below the root's top line (origin on the root)
+PASS UG06_04: triangles LOD0/1/2 = 3101 / 1550 / 465 (50% / 15%), model_info 3101 / 1550 / 465
+PASS UG06_04: triangles 3101 / 1550 / 465 within the work pack's 4,000 (LOD1 2,000, LOD2 1,000)
+PASS UG06_04: every LOD body has the vertex colour (leaf colour, A occlusion) and UV2 wind weight 0–1 on all 4033 / 2428 / 880 vertices
 PASS UG06_04: objects per LOD 1 / 1 / 1 (model_info 1 / 1 / 1)
 PASS UG06_04: 1 material for every LOD and Detail_ mesh (one material)
 PASS UG06_04: 1 LODGroup(s) with 3 levels covering all 1 LOD0 renderers
