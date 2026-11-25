@@ -15,7 +15,7 @@ head="""| 項目 | 內容 |
 | 誰做的 | C（Eli-0731） |
 | 工作包 | docs/execution/2026-11-07/C-128h-creekside-and-village-life.md 第二部分 C（自己的舊件補 LOD） |
 | ID | #34 `qingxi-village-signs-v1` Q01–Q04、#35 `qingxi-return-c` C01–C08（#60 `qingxi-day12-c` 原本就有 LOD，見下面） |
-| 分支／PR | art/c-1112-gc01-06-ground-cover ／ 開 PR 後補（和 GC01–GC06 同一張，一次一張，等前一張結案） |
+| 分支／PR | art/c-1112-gc01-06-ground-cover ／ #130（和 GC01–GC06 同一張） |
 | 版本 | 全部 v001（新資料夾 `lod-backfill-c/`；來源檔一個都沒改，原本的 GLB 也還在原處） |
 | 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（前後對照圖）；In-game Verified：未驗 |
 | 素材來源 | 改自 C 自己的舊件，只加 LOD：#34 與 #35 的 GLB。LOD0 就是原本的幾何，沒有重做 |

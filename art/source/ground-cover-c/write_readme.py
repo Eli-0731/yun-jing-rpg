@@ -30,7 +30,7 @@ head="""| 項目 | 內容 |
 | 誰做的 | C（Eli-0731） |
 | 工作包 | docs/execution/2026-11-07/C-128h-creekside-and-village-life.md 第二部分 B（GC01–GC06） |
 | ID | GC01–GC06 |
-| 分支／PR | art/c-1112-gc01-06-ground-cover ／ 開 PR 後補（一次一張，等前一張結案） |
+| 分支／PR | art/c-1112-gc01-06-ground-cover ／ #130 |
 | 版本 | v001（檔名帶 `_v001`；之後改版另存 v002，不覆寫） |
 | 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖）／ In-game Verified：未驗（沒放進正式場景） |
 | 素材來源 | 原創；三視圖參考在 `art/references/GC01/`–`art/references/GC06/` |
