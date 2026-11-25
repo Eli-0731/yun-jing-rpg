@@ -2,13 +2,13 @@
  {
   "file": "art\\exports\\undergrowth-c\\UG06_01_v001.glb",
   "objects": 1,
-  "triangles": 2267,
+  "triangles": 2219,
   "findings": [
    {
     "kind": "coplanar overlap",
     "object": "UG06_01_Body_LOD0",
-    "count": 11,
-    "note": "11 triangle pairs {'up z<0.02 two pieces': 7, 'side z<0.02 two pieces': 3, 'down z<0.02 two pieces': 1}, e.g. at [[-0.048, 0.027, 0.009, 'n-0+0+1'], [-0.034, 0.027, 0.008, 'n-0+0+1'], [-0.034, 0.027, 0.008, 'n-0+0+1'], [-0.149, 0.06, -0.001, 'n+0+0+1'], [-0.306, 0.041, -0.003, 'n-0+1+1'], [-0.305, 0.04, -0.002, 'n-0+1+1']]"
+    "count": 27,
+    "note": "27 triangle pairs {'side z<0.02 two pieces': 7, 'side two pieces': 1, 'up z<0.02 two pieces': 11, 'down z<0.02 two pieces': 8}, e.g. at [[-0.115, 0.032, 0.008, 'n-0+0+1'], [-0.115, 0.032, 0.008, 'n-0+0+1'], [-0.111, 0.02, 0.013, 'n-0+0+1'], [-0.111, 0.02, 0.013, 'n-0+0+1'], [-0.132, -0.002, 0.021, 'n-0+0+1'], [-0.148, 0.091, -0.003, 'n-0+0+1']]"
    }
   ]
  }

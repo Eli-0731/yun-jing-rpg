@@ -89,7 +89,7 @@ def _lump(name,c,r,h,mat,grp,seg=10,ring=4,below=.08,rr=None):
     for f in bm.faces:f.smooth=True
     return finish(name,bm,mat,grp,.12)
 
-def _plant_meta(pal,R,notes,extra=None,dark=(.30,.26,.20)):
+def _plant_meta(pal,R,notes,extra=None,dark=(.30,.26,.20),gz=0.):
     """the meta every UG plant shares: origin at the crown on the ground, plain decimation for LOD1/2 (each item ≤ 4,000 at LOD0),
     vertex colour (height tone, A occlusion) and the wind UV"""
     P_=np.array(pal,np.float32)
@@ -99,10 +99,12 @@ def _plant_meta(pal,R,notes,extra=None,dark=(.30,.26,.20)):
     def vcol(co,isleaf,H):   # glTF multiplies the base colour by COLOR_0: RGB is a grey shade (0.78 low / inside … 1.0 up / outside), A occlusion
         tc,occ=tone(co[:,0],co[:,1],co[:,2],H);g=.78+.22*(occ-.55)/.45;return np.column_stack([g,g,g,occ])
     def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
-        P_=((pos-np.array(meta['offset'][:]))/meta['scale_to_target']).astype(np.float32);pz=P_[...,2];H=meta['height']
+        # gz: the ground under the item (UG06 vines: 2 root radii under the origin; before 2026-11-25 the vine leaves on the sides of
+        # the root, below z = 0, were painted with the ground dirt and went near black)
+        P_=((pos-np.array(meta['offset'][:]))/meta['scale_to_target']).astype(np.float32);pz=P_[...,2]-gz;H=meta['height']
         sh=np.clip(.80+.30*pz/max(H,.05),.80,1.08)*filled+(1-filled);col=col*sh[...,None]          # a little darker low down and inside
         dirt=filled*np.clip((.03-pz)/.06,0,1);col=col*(1-.45*dirt[...,None])+dirt[...,None]*.45*np.array(dark)
-        if extra:col,rough=extra(col,rough,P_,noise,filled,meta)
+        if extra:meta['_onrm']=onrm;col,rough=extra(col,rough,P_,noise,filled,meta);meta.pop('_onrm',None)
         return col,rough
     return {'paint':paint,'wear':0.,'grime':.2,'ao_k':.30,'uv_angle':60,'ground0':True,'vcol':vcol,
             'origin_note':'crown centre on the ground (z = 0); the crown runs on a few cm under the ground; front = -Y (Blender) / -Z (FBX, Unity)','notes':notes}
@@ -254,16 +256,26 @@ def UG04(M):
 PROPS['UG04']=UG04
 
 # ---------------- UG05 fallen-leaf heaps, three sizes (cand-3) ----------------
-def _ug05(M,pid,R,h,n,seed,twigs,bark):
+def _ug05(M,pid,R,h,n,seed,twigs,bark,Lr=(.06,.11)):
+    # 2026-11-25: was a flat dome (height / width about 0.12) on an elliptic, near-black mound whose rim showed all round, so in the Unity
+    # forest patch and the D2 match it read as a dark round cake. Now, as in the three-view: a heaped pile (height / width about 0.25,
+    # a low skirt rising to a rounded top), a lobed outline, leaves following the slope with their own tilt (some tucked in steeply),
+    # the mound smaller than the leaves' spread and a mid brown, and loose single leaves lying flat on the ground round the edge.
     rr=random.Random(seed);LS=_LS();Z=Vector((0,0,1))
+    p1,p2,p3=rr.uniform(0,6.3),rr.uniform(0,6.3),rr.uniform(0,6.3)
+    def rim(a):return 1+.11*math.sin(3*a+p1)+.07*math.sin(5*a+p2)
     def mound(x,y):
-        q=(x/R)**2+(y/(R*.8))**2;return h*max(0.,1-q)**1.4
-    # the mound under the leaves: dark wet litter, its rim a little under the ground
-    bm=bmesh.new();rows=[];seg=18;ring=5
+        a=math.atan2(y/.85,x);s=math.hypot(x,y/.85)/(R*rim(a))
+        if s>=1:return 0.
+        return h*(1-s)**1.7*(1+.7*s)*(1+.10*s*math.sin(4*a+p3))
+    def grad(x,y,e=.004):
+        return Vector((-(mound(x+e,y)-mound(x-e,y))/(2*e),-(mound(x,y+e)-mound(x,y-e))/(2*e),1)).normalized()
+    # the mound under the leaves: litter, a mid brown, its rim a little inside the leaves' spread and a little under the ground
+    bm=bmesh.new();rows=[];seg=20;ring=6
     for i in range(ring+1):
         t=i/ring;row=[]
         for k in range(seg if i<ring else 1):
-            a=math.tau*k/seg;rad=R*1.12*(1-t)**.8*(1+rr.uniform(-.06,.06)*(i<ring));x,y=math.cos(a)*rad,math.sin(a)*rad*.8
+            a=math.tau*k/seg;rad=R*.96*rim(a)*(1-t)**.9;x,y=math.cos(a)*rad,math.sin(a)*rad*.85
             row.append(bm.verts.new((x,y,mound(x,y)-.004*(i==0))))
         rows.append(row)
     for A_,B_ in zip(rows,rows[1:]):
@@ -271,20 +283,37 @@ def _ug05(M,pid,R,h,n,seed,twigs,bark):
             if len(B_)==1:bm.faces.new((A_[k],A_[(k+1)%seg],B_[0]))
             else:bm.faces.new((A_[k],A_[(k+1)%seg],B_[(k+1)%seg],B_[k]))
     for f in bm.faces:f.smooth=True
+    from mathutils.bvhtree import BVHTree
+    bvh=BVHTree.FromBMesh(bm)
+    def mz(x,y):   # the mound mesh's own height (its flat faces sag under the smooth formula; leaves lie on the mesh)
+        hit=bvh.ray_cast(Vector((x,y,1.)),Vector((0,0,-1.)));return max(hit[0].z,0.) if hit[0] else 0.
     finish(f'{pid}_Mound',bm,M['ug_litter'],'Body',.25)
-    placed=[];tries=0;lv=_LS();ok=0
-    while ok<n and tries<n*30:
-        tries+=1
-        a=rr.uniform(0,6.28);d_=R*(rr.random()**.75)*1.08;x,y=math.cos(a)*d_,math.sin(a)*d_*.8
-        Ln=rr.uniform(.06,.11);z=mound(x,y)
-        if any((x-p[0])**2+(y-p[1])**2<(Ln*.32)**2 and abs(z-p[2])<.02 for p in placed):continue
-        placed.append((x,y,z));ok+=1
-        k=sum(1 for p in placed if (x-p[0])**2+(y-p[1])**2<(Ln*.5)**2)   # stacked: each later leaf a little higher
-        b=rr.uniform(0,6.28);dd=Vector((math.cos(b),math.sin(b),rr.uniform(-.25,.25)))
-        nrm=Vector((rr.uniform(-.18,.18),rr.uniform(-.18,.18),1)).normalized()
+    placed=[];tries=0;ok=0;nl=int(n*.16)   # nl loose leaves on the ground round the heap
+    while ok<n and tries<n*40:
+        tries+=1;loose=ok>=n-nl
+        a=rr.uniform(0,6.28)
+        s=rr.uniform(.98,1.25) if loose else min(1.,rr.random()**.75*1.02)
+        d_=R*rim(a)*s;x,y=math.cos(a)*d_,math.sin(a)*d_*.85
+        Ln=rr.uniform(*Lr)*(.8 if loose else 1.);z=mz(x,y)
+        if any((x-p[0])**2+(y-p[1])**2<(Ln*.30)**2 and abs(z-p[2])<.02 for p in placed):continue
+        k=sum(1 for p in placed if (x-p[0])**2+(y-p[1])**2<(Ln*.5)**2 and p[3]==loose)   # stacked on earlier leaves (not counting itself): a little higher
+        placed.append((x,y,z,loose));ok+=1
+        b=rr.uniform(0,6.28);dd=Vector((math.cos(b),math.sin(b),0))
+        if loose:   # flat on the ground, edges curled up a little
+            nrm=Vector((rr.uniform(-.06,.06),rr.uniform(-.06,.06),1)).normalized();base=Vector((x,y,-.0025+.0025*min(k,3)));bend=rr.uniform(-.05,.2)
+        else:
+            g=grad(x,y);t_=rr.random()
+            tilt=rr.uniform(-.30,.30) if t_<.75 or s>.8 else rr.uniform(.45,.85)*(1 if rr.random()<.5 else -1)   # a quarter tucked in steeply (not on the skirt, where they would stand clear)
+            ax=dd.cross(g).normalized();nrm=(g*math.cos(tilt)+ax.cross(g)*math.sin(tilt)).normalized()
+            dd=(dd-nrm*dd.dot(nrm)).normalized()
+            base=Vector((x,y,z+.0018+.0025*min(k,4)))-dd*Ln*.45;bend=rr.uniform(-.3,.3)
         P,C=(OAK,OAK_C) if rr.random()<.45 else (OVAL,OVAL_C)
-        dd.z*=.3;LS.poly(P,C,Vector((x,y,z+.0025+.003*min(k,4)))-dd.normalized()*Ln*.45,dd,nrm,Ln,ws=rr.uniform(.85,1.1),bend=rr.uniform(-.25,.25),fold=rr.uniform(-.05,.12),
-                curl=rr.uniform(.05,.35),rings=(),npts=12)
+        nv0=len(LS.bm.verts);LS.poly(P,C,base,dd,nrm,Ln,ws=rr.uniform(.85,1.1),bend=bend,fold=rr.uniform(-.05,.12),curl=rr.uniform(.05,.35),rings=(),npts=12)
+        # no part of a leaf under the ground: a steep or drooping leaf on the skirt went 2–3 cm under it, and the build then lifted the
+        # whole heap to put its lowest point on z = 0, so the loose leaves hung in the air
+        LS.bm.verts.ensure_lookup_table();nv=LS.bm.verts[nv0:];low=min(v.co.z for v in nv)
+        if low<-.0035:   # the mound's rim is 4 mm under z = 0 and is the lowest point; the leaves stop just above it
+            for v in nv:v.co.z+=-.0035-low
     for k in range(twigs):   # a few thin twigs lying across the top
         a=rr.uniform(0,3.14);c=Vector((rr.uniform(-R,R)*.4,rr.uniform(-R,R)*.3,0));dv=Vector((math.cos(a),math.sin(a),0));L_=rr.uniform(.25,.45)*R/.45
         pts=[c+dv*L_*(i/6-.5) for i in range(7)]
@@ -304,20 +333,26 @@ def _ug05(M,pid,R,h,n,seed,twigs,bark):
         finish(f'{pid}_Bark',bm,M['bark'],'Body',.15)
     LS.done(f'{pid}_Leaves',M['ug_oval'],'Body')
     def extra(col,rough,P_,noise,filled,meta):   # each patch of leaves its own shade of russet, ochre or dull orange; wet and dark at the bottom
-        hue=_fb(P_,(9.,9.,9.),seed,2);t=np.clip((hue-.3)*1.8,0,1)[...,None]
-        col=col*((1-t)*np.array([.92,.86,.82])+t*np.array([1.02,.98,.80]));g_=col.mean(2,keepdims=True);col=g_+(col-g_)*.75
-        wet=filled*np.clip((h*.45-P_[...,2])/(h*.45),0,1);col=col*(1-.40*wet[...,None]);rough=np.where(wet>.5,np.clip(rough-.25,0,1),rough)
+        # 2026-11-25: smaller patches and three tones (dull red-brown, russet, pale tan) so neighbouring leaves differ, as in the three-view
+        # each leaf lies at its own tilt, so its normal (coarsely rounded) picks its tone; the smooth mound changes tone only slowly
+        nq=np.round(meta['_onrm']*2.5);hk=np.abs(np.sin(nq[...,0]*12.9898+nq[...,1]*78.233+nq[...,2]*37.719+seed*.013)*43758.5453)%1.
+        hue=.55*hk+.45*_fb(P_,(14.,14.,14.),seed,2);t=np.clip((hue-.25)*2.2,0,1)[...,None];pale=np.clip((hue-.66)*4,0,1)[...,None]
+        col=col*((1-t)*np.array([.86,.70,.66])+t*np.array([1.02,.96,.80]));col=col*(1-pale)+pale*(col.mean(2,keepdims=True)*.35+np.array([.50,.40,.27])*.75)
+        g_=col.mean(2,keepdims=True);col=g_+(col-g_)*.78
+        # the bottom only a little darker and no longer glossier (2026-11-25: in URP the glossy wet bottom and the loose leaves
+        # round the heap mirrored the grey-blue sky and read as a blue-grey ring)
+        wet=filled*np.clip((h*.30-P_[...,2])/(h*.30),0,1);col=col*(1-.18*wet[...,None])
         return col,rough
     meta=_plant_meta([(.30,.18,.09),(.42,.27,.13),(.55,.37,.19)],R,
-      [f'a low heap of fallen leaves {2*R:.2f} m across and {h:.2f} m high: {n} oval and lobed leaves one by one in layers over a dark litter mound, curled edges, loose single leaves round the edge'
+      [f'a heap of fallen leaves about {2*R:.2f} m across and {h:.2f} m high (a low skirt rising to a rounded top, lobed outline): {n} oval and lobed leaves one by one in layers over a brown litter mound, following the slope each at its own tilt, a quarter tucked in steeply, curled edges; about {int(n*.16)} loose single leaves lying flat on the ground round the edge'
        +(f', {twigs} twigs' if twigs else '')+(', a curled piece of bark' if bark else ''),
        'drier and lighter on top, darker and wet at the bottom; each leaf\'s veins in the leaf texture',
        'LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)'],extra=extra,dark=(.12,.08,.05))
     meta.pop('ground0');meta['origin_note']='footprint centre, bottom z = 0 (the rim of the heap a few mm under it), front = -Y (Blender) / -Z (FBX, Unity)'
     return meta
-PROPS['UG05_01']=lambda M:_ug05(M,'UG05_01',.22,.05,70,8351,1,False)
-PROPS['UG05_02']=lambda M:_ug05(M,'UG05_02',.45,.11,165,8352,3,True)
-PROPS['UG05_03']=lambda M:_ug05(M,'UG05_03',.70,.15,245,8353,4,True)
+PROPS['UG05_01']=lambda M:_ug05(M,'UG05_01',.20,.10,120,8351,1,False,(.055,.095))
+PROPS['UG05_02']=lambda M:_ug05(M,'UG05_02',.42,.18,270,8352,3,True,(.075,.135))
+PROPS['UG05_03']=lambda M:_ug05(M,'UG05_03',.64,.24,290,8353,4,True,(.09,.17))
 
 # ---------------- UG06 creeping vine segments to lay along roots (cand-5) ----------------
 def _ug06(M,pid,Rr,Ln,phi,seed,shoots,ground=0.):
@@ -337,20 +372,21 @@ def _ug06(M,pid,Rr,Ln,phi,seed,shoots,ground=0.):
         for j in range(1,int(ground/.03)+1):path.append(Vector((x+.06+.03*j,Rr+.004+.02*math.sin(j),-2*Rr+.0035)))
     pts,P,T,S=_crv(path,len(path))
     # 2026-11-25: stem 3.4 → 4.6 mm, leaves 4.0–5.8 → 5.0–8.2 cm about every 2.3 cm (was 2.6), each lifted a little (0–6°) at the stalk and bending down along the curve of the root, because
-    # in the Unity forest patch the vine read only as a thin line on the root (the D2 concept's vine leaves are also bigger and denser)
+    # in the Unity forest patch the vine read only as a thin line on the root (the D2 concept's vine leaves are also bigger and denser);
+    # then (same day) a leaf about every 2.0 cm, straight stalks, and its own paler sage-green leaf (ug_vine)
     _ttube(f'{pid}_Stem',pts,[.0046*(1-.35*i/(len(pts)-1)) for i in range(len(pts))],M['ug_redstem'],'Body',sides=4,scale=.1)
     def nrm_at(p):
         if p.z<-2*Rr+.01:return Z
         return Vector((0,p.y,p.z+Rr)).normalized()
-    nl=int(S/.023);red=set(rr.sample(range(nl),max(2,nl//8)))
+    nl=int(S/.020);red=set(rr.sample(range(nl),max(2,nl//8)))
     for i in range(nl):
         u=(i+rr.uniform(.15,.85))/nl;p=P(u);t=T(u);n=nrm_at(p);sd=1 if i%2 else -1
         if rr.random()<.12:sd=-sd   # now and then two leaves on one side, so the row is not a regular saw edge
         side=t.cross(n).normalized()*sd;fw=rr.uniform(.15,.95)*(1 if rr.random()<.8 else -.6)
         d=(side*.8+t*fw).normalized();d=(d-n*d.dot(n)).normalized()
-        Ll=rr.uniform(.050,.082);q=p+d*.010+n*.006;lf=rr.uniform(.0,.10)
+        Ll=rr.uniform(.050,.082);q=p+d*.010+n*(.005+.0016*(i%3));lf=rr.uniform(.0,.10)   # i%3: neighbours at three heights, never in one plane
         dl=(d+n*lf).normalized();nl_=(n-d*lf).normalized()   # the blade rises a little from the bark, each leaf by its own angle
-        _ttube(f'{pid}_Petiole{i}',[p,p+d*.005+n*.004,q],[.0014]*3,M['ug_redstem'],'Body',sides=3,scale=.05,cap0=False,cap1=False)
+        _ttube(f'{pid}_Petiole{i}',[p,q],[.0014]*2,M['ug_redstem'],'Body',sides=3,scale=.05,cap0=False,cap1=False)
         LS_=LS if i not in red else RL;LS_.poly(HEART,HEART_C,q,dl,nl_,Ll,bend=.24,fold=.05,rings=(),npts=12)
         if i%3==0:   # clinging rootlets into the bark
             for j in range(3):
@@ -367,13 +403,13 @@ def _ug06_item(pid,Rr,Ln,phi,seed,shoots,ground=0.):
     def f(M):
         global RL
         RL=_LS();LS=_ug06(M,pid,Rr,Ln,phi,seed,shoots,ground)
-        LS.done(f'{pid}_Leaves',M['ug_heart'],'Body');RL.done(f'{pid}_RedLeaves',M['ug_heart_red'],'Body')
+        LS.done(f'{pid}_Leaves',M['ug_vine'],'Body');RL.done(f'{pid}_RedLeaves',M['ug_heart_red'],'Body')
         meta=_plant_meta([(.09,.18,.15),(.12,.23,.18),(.16,.29,.22)],Ln/2,
           [f'a thin creeping vine {Ln:.1f} m long made to lie on a root {2*Rr:.2f} m thick (radius {Rr:.2f} m): the root axis runs along X, {Rr:.2f} m under the origin; the origin is on the root\'s top line'
            +(f'; the last part climbs down the root\'s side and runs {ground:.1f} m over the ground ({2*Rr:.2f} m under the origin)' if ground else ''),
-           'the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), heart-shaped leaves 5–8 cm long about every 2.3 cm on short stalks, mostly alternate, pointing each its own way, lifted a little at the stalk and bending down to follow the curve of the root, a few red-brown; tiny clinging rootlets every few leaves'
+           'the stem (about 9 mm across at the start) hugs the bark (3.5 mm off it), pale sage-green heart-shaped leaves with silvery veins, 5–8 cm long about every 2.0 cm on short stalks, mostly alternate, pointing each its own way, lifted a little at the stalk and bending down to follow the curve of the root, a few red-brown; tiny clinging rootlets every few leaves'
            +(f'; {len(shoots)} short side shoots lift off the root with young leaves' if shoots else ''),
-           'the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)'])
+           'the root is not part of the model; LOD1 / LOD2: decimated (each item is ≤ 4,000 triangles at LOD0)'],gz=-2*Rr)
         meta['origin_note']=f'on the top line of a root of radius {Rr:.2f} m whose axis runs along X {Rr:.2f} m below; front = -Y (Blender) / -Z (FBX, Unity)'
         return meta
     return f

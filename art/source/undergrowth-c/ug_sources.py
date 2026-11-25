@@ -18,6 +18,11 @@ E['ug_heart_red']=(np.clip(_alb*np.array([2.3,.95,.55])+np.array([.04,0,0]),0,1)
 _alb=lerp((.110,.210,.120),(.230,.345,.180),np.clip(.45+.55*(_fn-.5)+.25*_e,0,1))
 _alb=_alb*(1-.55*_v[...,None])+_v[...,None]*.55*np.array([.50,.58,.38])
 E['ug_heart']=(_alb,.8*_v-.25*np.clip(1-_e*2.5,0,1),1.2,.62,0,0)
+# UG06 vine leaf (2026-11-25): its own paler sage green with silvery veins, as the small vine leaves of the D2 concept, so it stands
+# out from the dark root bark (with UG02's deep green it read as a dark line on the root and its shaded side went near black)
+_alb=lerp((.200,.300,.180),(.360,.460,.280),np.clip(.45+.55*(_fn-.5)+.25*_e,0,1))
+_alb=_alb*(1-.65*_v[...,None])+_v[...,None]*.65*np.array([.64,.70,.54])
+E['ug_vine']=(_alb,.8*_v-.25*np.clip(1-_e*2.5,0,1),1.2,.66,0,0)
 # UG01 fern pinna (a five-vertex pinna: stalk at v = 0, tip at v = 1, edges at u = 0 / 1): blue-green, a paler midrib, toothed darker edge
 _u=X+0*Y;_w=Y+0*X;_m=np.clip(1-np.abs(_u-.5)/.035,0,1)*(_w<.95)
 _tooth=np.clip(np.sin(_w*math.pi*26)*.5+.5,0,1)*np.clip(np.abs(_u-.5)*2-.55,0,1)*2
@@ -58,4 +63,4 @@ for _nm,_P in (('ug_oval',OVAL),('ug_oak',OAK)):
     _sp=np.clip((fbm(18,3)-.66)*5,0,1)
     _alb=lerp((.36,.20,.09),(.66,.44,.20),np.clip(.5+.7*(fbm(4,3)-.5),0,1))*(1-.35*_m[...,None]-.22*_sv[...,None]-.4*_sp[...,None])
     E[_nm]=(_alb,.6*_m+.35*_sv-.3*_sp,1.2,.82,0,0)
-E['ug_litter']=(lerp((.10,.07,.04),(.30,.20,.11),np.clip(.5+.9*(fbm(8,3)-.5),0,1)),.8*fbm(20,3),1.6,.92,0,0)
+E['ug_litter']=(lerp((.22,.13,.06),(.42,.26,.12),np.clip(.5+.9*(fbm(8,3)-.5),0,1)),.8*fbm(20,3),1.6,.92,0,0)
