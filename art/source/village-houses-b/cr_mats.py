@@ -39,8 +39,9 @@ def _moss(g, col, P, ao, up, Z, amount, low_z=.3):
     return g.mix(m, col, tone), m, fine
 
 
-def stone(name, light=(.37, .35, .3), dark=(.18, .17, .145), ochre=(.29, .25, .17), moss=.8, wet_z=None, crack=.7, lichen=.5, slot='Main', wear=None, polish=(.46, .43, .38)):
-    """wear (mountain-stairs-b): name of a per-vertex vector attribute, x in 0..1 = how foot-polished the surface is (treads); None = as before."""
+def stone(name, light=(.37, .35, .3), dark=(.18, .17, .145), ochre=(.29, .25, .17), moss=.8, wet_z=None, crack=.7, lichen=.5, slot='Main', wear=None, polish=(.46, .43, .38), moss_low_z=.3):
+    """wear (mountain-stairs-b): name of a per-vertex vector attribute, x in 0..1 = how foot-polished the surface is (treads); None = as before.
+    moss_low_z (roadside-landmarks-b BS01): height under which moss thickens towards the ground; 0.3 m as before."""
     # the game's sun and sky add up well over 1: these are the values that read as warm grey granite under them, not white
     light = tuple(c * .74 for c in light); dark = tuple(c * .76 for c in dark); ochre = tuple(c * .82 for c in ochre)
     m, g = tm._new(name, slot)
@@ -82,7 +83,7 @@ def stone(name, light=(.37, .35, .3), dark=(.18, .17, .145), ochre=(.29, .25, .1
     col, below = _wet(g, col, Z, P, wet_z)
     mh = None
     if moss:
-        col, mm_, fine = _moss(g, col, P, ao, up, Z, moss if wv is None else g.math('MULTIPLY', moss, g.math('SUBTRACT', 1.0, g.maprange(wv, .05, .6))))
+        col, mm_, fine = _moss(g, col, P, ao, up, Z, moss if wv is None else g.math('MULTIPLY', moss, g.math('SUBTRACT', 1.0, g.maprange(wv, .05, .6))), low_z=moss_low_z)
         mh = g.math('MULTIPLY', mm_, g.math('ADD', .6, g.math('MULTIPLY', fine, .8)))
     rough = g.math('SUBTRACT', .82, g.math('MULTIPLY', e, .12)) if below is None else g.math('SUBTRACT', .84, g.math('MULTIPLY', below, .3))
     if wv is not None: rough = g.math('SUBTRACT', rough, g.math('MULTIPLY', g.maprange(wv, .2, .9), .07))
@@ -93,7 +94,7 @@ def stone(name, light=(.37, .35, .3), dark=(.18, .17, .145), ochre=(.29, .25, .1
     return m
 
 
-def wood(name, dark, light, slot='Main', wet_z=None, ground_h=.1, moss=False, polish=0., holes=0., grey=.3, moss_amt=.6):
+def wood(name, dark, light, slot='Main', wet_z=None, ground_h=.1, moss=False, polish=0., holes=0., grey=.3, moss_amt=.6, grey_grain=False):
     """Weathered timber on grain coordinates: long streaks, per-board tint, knots, worn edges. Optional water
     mark, ground grime, a hand-polished sheen (polish) and scattered old nail holes (holes)."""
     m, g = tm._new(name, slot)
@@ -112,7 +113,10 @@ def wood(name, dark, light, slot='Main', wet_z=None, ground_h=.1, moss=False, po
     col = g.mix(g.math('MULTIPLY', lines, .78), col, tuple(c * .42 for c in dark))
     fine_lines = g.maprange(g.noise(g.vmath('MULTIPLY', co, (.3, 210, 210)), 1.0, 2, .5), .54, .66)
     col = g.mix(g.math('MULTIPLY', fine_lines, .45), col, tuple(c * .55 for c in dark))
-    if grey:
+    if grey and grey_grain:          # silvering that runs with the grain in long narrow streaks (no soft cloud blotches across the boards)
+        sil = g.maprange(g.noise(g.vmath('MULTIPLY', co, (.45, 9, 9)), 1.2, 3, .55), .52, .64)
+        col = g.mix(g.math('MULTIPLY', g.math('MULTIPLY', sil, g.maprange(streak, .3, .8)), grey * .85), col, (.17, .16, .15))
+    elif grey:
         col = g.mix(g.math('MULTIPLY', g.maprange(g.noise(P, 1.8, 2, .5), .5, .72), grey), col, (.17, .16, .15))
     kn = g.math('MULTIPLY', g.maprange(g.voronoi(g.vmath('MULTIPLY', co, (1.2, 6, 6)), 1.0, 'F1', 'Distance'), .08, .02),
                 g.maprange(g.noise(co, 3.0, 2, .5), .6, .7))

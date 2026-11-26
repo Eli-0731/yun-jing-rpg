@@ -1,0 +1,543 @@
+{
+ "ST01": {
+  "objects": {
+   "ST_ST01_Detail_Moss_LOD0": {
+    "tris": 24,
+    "errors": [
+     "floating/detached part in ST_ST01_Detail_Moss_LOD0 (3 verts at [0.151, 0.257, 0.165])"
+    ],
+    "warnings": [
+     "ST_ST01_Detail_Moss_LOD0: ~60.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "asset lowest point z=0.138 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "ST_ST01_Glow_LOD0": {
+    "tris": 28,
+    "errors": [],
+    "warnings": [
+     "ST_ST01_Glow_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "asset lowest point z=1.69 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.0
+   },
+   "ST_ST01_LOD0": {
+    "tris": 14278,
+    "errors": [],
+    "warnings": [
+     "ST_ST01_LOD0: ~93.65% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST01_LOD0: 166 n-gons",
+     "hidden back-to-back faces: ST_ST01_LOD0 (738 pairs) - delete to save tris"
+    ],
+    "sec": 0.5
+   },
+   "JOINED_ST_ST01_Glow_LOD0+ST_ST01_LOD0": {
+    "tris": 14306,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   },
+   "JOINED_ST_ST01_Detail_Moss_LOD0+ST_ST01_LOD0": {
+    "tris": 14302,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   0.598,
+   0.597,
+   2.4
+  ],
+  "built_dims": [
+   0.598,
+   0.597,
+   2.4
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST02": {
+  "objects": {
+   "ST_ST02_Glow_LOD0": {
+    "tris": 3000,
+    "errors": [],
+    "warnings": [
+     "ST_ST02_Glow_LOD0: ~83.2% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST02_Glow_LOD0: duplicate verts=160 loose verts=0",
+     "ST_ST02_Glow_LOD0: 20 n-gons",
+     "hidden back-to-back faces: ST_ST02_Glow_LOD0 (450 pairs) - delete to save tris",
+     "asset lowest point z=-0.7504 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "ST_ST02_LOD0": {
+    "tris": 3980,
+    "errors": [],
+    "warnings": [
+     "ST_ST02_LOD0: ~93.62% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST02_LOD0: 64 n-gons",
+     "asset lowest point z=-0.9661 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "JOINED_ST_ST02_Glow_LOD0+ST_ST02_LOD0": {
+    "tris": 6980,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   7.993,
+   0.34,
+   0.973
+  ],
+  "built_dims": [
+   7.993,
+   0.34,
+   0.973
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST02_6M": {
+  "objects": {
+   "ST_ST02_6M_Glow_LOD0": {
+    "tris": 2400,
+    "errors": [],
+    "warnings": [
+     "ST_ST02_6M_Glow_LOD0: ~82.71% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST02_6M_Glow_LOD0: duplicate verts=128 loose verts=0",
+     "ST_ST02_6M_Glow_LOD0: 16 n-gons",
+     "hidden back-to-back faces: ST_ST02_6M_Glow_LOD0 (340 pairs) - delete to save tris",
+     "asset lowest point z=-0.6822 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "ST_ST02_6M_LOD0": {
+    "tris": 3564,
+    "errors": [],
+    "warnings": [
+     "ST_ST02_6M_LOD0: ~93.42% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST02_6M_LOD0: 54 n-gons",
+     "asset lowest point z=-0.8826 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "JOINED_ST_ST02_6M_Glow_LOD0+ST_ST02_6M_LOD0": {
+    "tris": 5964,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   5.993,
+   0.34,
+   0.89
+  ],
+  "built_dims": [
+   5.993,
+   0.34,
+   0.89
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST02_4M": {
+  "objects": {
+   "ST_ST02_4M_Glow_LOD0": {
+    "tris": 1800,
+    "errors": [],
+    "warnings": [
+     "ST_ST02_4M_Glow_LOD0: ~81.17% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST02_4M_Glow_LOD0: duplicate verts=96 loose verts=0",
+     "ST_ST02_4M_Glow_LOD0: 12 n-gons",
+     "hidden back-to-back faces: ST_ST02_4M_Glow_LOD0 (282 pairs) - delete to save tris",
+     "asset lowest point z=-0.63 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "ST_ST02_4M_LOD0": {
+    "tris": 3148,
+    "errors": [],
+    "warnings": [
+     "ST_ST02_4M_LOD0: ~90.86% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST02_4M_LOD0: 44 n-gons",
+     "asset lowest point z=-0.8276 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   },
+   "JOINED_ST_ST02_4M_Glow_LOD0+ST_ST02_4M_LOD0": {
+    "tris": 4948,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.993,
+   0.34,
+   0.835
+  ],
+  "built_dims": [
+   3.993,
+   0.34,
+   0.835
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST03_S": {
+  "objects": {
+   "ST_ST03_S_Detail_Moss_LOD0": {
+    "tris": 70,
+    "errors": [
+     "floating/detached part in ST_ST03_S_Detail_Moss_LOD0 (3 verts at [-1.112, -0.205, 0.033])",
+     "floating/detached part in ST_ST03_S_Detail_Moss_LOD0 (3 verts at [-1.119, -0.196, 0.034])",
+     "floating/detached part in ST_ST03_S_Detail_Moss_LOD0 (3 verts at [-0.217, -0.225, 0.034])",
+     "floating/detached part in ST_ST03_S_Detail_Moss_LOD0 (3 verts at [-0.765, -0.098, 0.137])",
+     "floating/detached part in ST_ST03_S_Detail_Moss_LOD0 (3 verts at [-0.702, -0.202, 0.03])",
+     "floating/detached part in ST_ST03_S_Detail_Moss_LOD0 (3 verts at [-0.684, -0.208, 0.037])",
+     "floating/detached part in ST_ST03_S_Detail_Moss_LOD0 (3 verts at [0.243, -0.215, 0.033])",
+     "floating/detached part in ST_ST03_S_Detail_Moss_LOD0 (3 verts at [1.265, -0.219, 0.035])",
+     "floating/detached part in ST_ST03_S_Detail_Moss_LOD0 (3 verts at [1.327, -0.226, 0.04])"
+    ],
+    "warnings": [
+     "ST_ST03_S_Detail_Moss_LOD0: ~43.75% UV overlap (ok only if mirrored/stacked on purpose; bakes break)"
+    ],
+    "sec": 0.0
+   },
+   "ST_ST03_S_LOD0": {
+    "tris": 2608,
+    "errors": [],
+    "warnings": [
+     "ST_ST03_S_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "hidden back-to-back faces: ST_ST03_S_LOD0 (26 pairs) - delete to save tris"
+    ],
+    "sec": 0.1
+   },
+   "JOINED_ST_ST03_S_Detail_Moss_LOD0+ST_ST03_S_LOD0": {
+    "tris": 2678,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.999,
+   0.5,
+   0.3
+  ],
+  "built_dims": [
+   3.999,
+   0.5,
+   0.3
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST03_C": {
+  "objects": {
+   "ST_ST03_C_Detail_Moss_LOD0": {
+    "tris": 18,
+    "errors": [
+     "floating/detached part in ST_ST03_C_Detail_Moss_LOD0 (3 verts at [0.074, -0.099, 0.136])"
+    ],
+    "warnings": [
+     "ST_ST03_C_Detail_Moss_LOD0: ~75.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)"
+    ],
+    "sec": 0.0
+   },
+   "ST_ST03_C_LOD0": {
+    "tris": 380,
+    "errors": [],
+    "warnings": [
+     "ST_ST03_C_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "hidden back-to-back faces: ST_ST03_C_LOD0 (3 pairs) - delete to save tris"
+    ],
+    "sec": 0.0
+   },
+   "JOINED_ST_ST03_C_Detail_Moss_LOD0+ST_ST03_C_LOD0": {
+    "tris": 398,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   0.498,
+   0.498,
+   0.297
+  ],
+  "built_dims": [
+   0.498,
+   0.498,
+   0.297
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST03_D": {
+  "objects": {
+   "ST_ST03_D_Detail_Moss_LOD0": {
+    "tris": 122,
+    "errors": [
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [-1.896, -0.094, 2.134])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [-1.716, -0.21, 0.025])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [-1.103, 0.102, 1.765])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [-1.143, 0.102, 1.771])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [-1.125, 0.104, 1.764])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [-1.106, 0.1, 1.776])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [-0.667, -0.103, 1.588])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [-0.626, -0.096, 1.59])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [0.675, 0.1, 0.867])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [0.665, 0.104, 0.862])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [0.608, -0.215, 0.029])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [0.978, 0.104, 0.68])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [1.019, 0.107, 0.684])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [1.5, -0.221, 0.041])",
+     "floating/detached part in ST_ST03_D_Detail_Moss_LOD0 (3 verts at [1.915, -0.1, 0.318])"
+    ],
+    "warnings": [
+     "ST_ST03_D_Detail_Moss_LOD0: ~76.47% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "1 parts fully enclosed, not touching (eyes/internals?): ['ST_ST03_D_Detail_Moss_LOD0']"
+    ],
+    "sec": 0.0
+   },
+   "ST_ST03_D_LOD0": {
+    "tris": 8640,
+    "errors": [],
+    "warnings": [
+     "ST_ST03_D_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST03_D_LOD0: duplicate verts=4 loose verts=0",
+     "hidden back-to-back faces: ST_ST03_D_LOD0 (44 pairs) - delete to save tris"
+    ],
+    "sec": 0.3
+   },
+   "JOINED_ST_ST03_D_Detail_Moss_LOD0+ST_ST03_D_LOD0": {
+    "tris": 8762,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   3.999,
+   0.5,
+   2.297
+  ],
+  "built_dims": [
+   3.999,
+   0.5,
+   2.297
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST04": {
+  "objects": {
+   "ST_ST04_Detail_Moss_LOD0": {
+    "tris": 25,
+    "errors": [
+     "floating/detached part in ST_ST04_Detail_Moss_LOD0 (3 verts at [0.423, -0.179, 0.034])",
+     "floating/detached part in ST_ST04_Detail_Moss_LOD0 (3 verts at [0.507, -0.188, 0.039])"
+    ],
+    "warnings": [
+     "ST_ST04_Detail_Moss_LOD0: ~66.67% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "1 parts fully enclosed, not touching (eyes/internals?): ['ST_ST04_Detail_Moss_LOD0']"
+    ],
+    "sec": 0.0
+   },
+   "ST_ST04_LOD0": {
+    "tris": 8260,
+    "errors": [],
+    "warnings": [
+     "ST_ST04_LOD0: ~98.36% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST04_LOD0: 6 n-gons",
+     "hidden back-to-back faces: ST_ST04_LOD0 (224 pairs) - delete to save tris"
+    ],
+    "sec": 0.3
+   },
+   "JOINED_ST_ST04_Detail_Moss_LOD0+ST_ST04_LOD0": {
+    "tris": 8285,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   1.798,
+   0.479,
+   0.479
+  ],
+  "built_dims": [
+   1.798,
+   0.479,
+   0.479
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST05_A": {
+  "objects": {
+   "ST_ST05_A_LOD0": {
+    "tris": 3152,
+    "errors": [],
+    "warnings": [
+     "ST_ST05_A_LOD0: ~98.85% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST05_A_LOD0: 78 n-gons",
+     "hidden back-to-back faces: ST_ST05_A_LOD0 (35 pairs) - delete to save tris"
+    ],
+    "sec": 0.1
+   }
+  },
+  "reimport_dims": [
+   0.59,
+   0.068,
+   1.773
+  ],
+  "built_dims": [
+   0.59,
+   0.068,
+   1.773
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST05_B": {
+  "objects": {
+   "ST_ST05_B_LOD0": {
+    "tris": 3152,
+    "errors": [],
+    "warnings": [
+     "ST_ST05_B_LOD0: ~99.42% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST05_B_LOD0: 78 n-gons",
+     "hidden back-to-back faces: ST_ST05_B_LOD0 (38 pairs) - delete to save tris"
+    ],
+    "sec": 0.1
+   }
+  },
+  "reimport_dims": [
+   0.59,
+   0.071,
+   1.758
+  ],
+  "built_dims": [
+   0.59,
+   0.071,
+   1.758
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST05_C": {
+  "objects": {
+   "ST_ST05_C_LOD0": {
+    "tris": 3152,
+    "errors": [],
+    "warnings": [
+     "ST_ST05_C_LOD0: ~97.77% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST05_C_LOD0: 78 n-gons",
+     "hidden back-to-back faces: ST_ST05_C_LOD0 (37 pairs) - delete to save tris"
+    ],
+    "sec": 0.1
+   }
+  },
+  "reimport_dims": [
+   0.59,
+   0.069,
+   1.769
+  ],
+  "built_dims": [
+   0.59,
+   0.069,
+   1.769
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST06_S": {
+  "objects": {
+   "ST_ST06_S_LOD0": {
+    "tris": 3748,
+    "errors": [],
+    "warnings": [
+     "ST_ST06_S_LOD0: ~99.54% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST06_S_LOD0: 16 n-gons",
+     "hidden back-to-back faces: ST_ST06_S_LOD0 (57 pairs) - delete to save tris",
+     "asset lowest point z=0.115 (not resting on ground plane z=0)"
+    ],
+    "sec": 0.1
+   }
+  },
+  "reimport_dims": [
+   1.854,
+   0.193,
+   0.931
+  ],
+  "built_dims": [
+   1.854,
+   0.193,
+   0.931
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST06_C": {
+  "objects": {
+   "ST_ST06_C_Detail_Moss_LOD0": {
+    "tris": 14,
+    "errors": [
+     "floating/detached part in ST_ST06_C_Detail_Moss_LOD0 (3 verts at [0.052, -0.053, 0.022])"
+    ],
+    "warnings": [
+     "ST_ST06_C_Detail_Moss_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)"
+    ],
+    "sec": 0.0
+   },
+   "ST_ST06_C_LOD0": {
+    "tris": 348,
+    "errors": [],
+    "warnings": [
+     "ST_ST06_C_LOD0: ~94.52% UV overlap (ok only if mirrored/stacked on purpose; bakes break)"
+    ],
+    "sec": 0.0
+   },
+   "JOINED_ST_ST06_C_Detail_Moss_LOD0+ST_ST06_C_LOD0": {
+    "tris": 362,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   0.198,
+   0.198,
+   1.095
+  ],
+  "built_dims": [
+   0.198,
+   0.198,
+   1.095
+  ],
+  "reimport_error_m": 0.0
+ },
+ "ST06_E": {
+  "objects": {
+   "ST_ST06_E_Detail_Moss_LOD0": {
+    "tris": 11,
+    "errors": [
+     "floating/detached part in ST_ST06_E_Detail_Moss_LOD0 (3 verts at [0.006, -0.067, 0.02])",
+     "floating/detached part in ST_ST06_E_Detail_Moss_LOD0 (3 verts at [-0.018, 0.054, 0.018])"
+    ],
+    "warnings": [],
+    "sec": 0.0
+   },
+   "ST_ST06_E_LOD0": {
+    "tris": 672,
+    "errors": [],
+    "warnings": [
+     "ST_ST06_E_LOD0: ~80.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+     "ST_ST06_E_LOD0: 4 n-gons"
+    ],
+    "sec": 0.0
+   },
+   "JOINED_ST_ST06_E_Detail_Moss_LOD0+ST_ST06_E_LOD0": {
+    "tris": 683,
+    "floating_errors": [],
+    "note": "joined check: floating only"
+   }
+  },
+  "reimport_dims": [
+   0.473,
+   0.198,
+   1.1
+  ],
+  "built_dims": [
+   0.473,
+   0.198,
+   1.1
+  ],
+  "reimport_error_m": 0.0
+ }
+}

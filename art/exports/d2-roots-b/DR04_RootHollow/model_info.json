@@ -1,0 +1,157 @@
+{
+  "asset": "DR04_RootHollow",
+  "version": "v002",
+  "minTier": "standard",
+  "detailObjects": [
+    "Detail_DR04_Plants"
+  ],
+  "name_zh": "根間的樹洞",
+  "slot": "板根之間 2 處（神木根部、或靠在 DR02 板根牆的側面）",
+  "note": "和 DR02 板根牆同一套做法：一塊內芯加上一股股慢慢扭轉的根絞成一束，斷面底寬頂尖。洞口本身是一道粗根拱，後面再一道更高的拱當洞頂，最後面是封住的心材牆（背面靠在神木或根牆上）；兩側各一條板根從後面高處斜下來、往前往外攤開鑽進土裡。洞口寬約 1.5 m、高約 1.5 m，往裡約 1.4 m；洞裡兩側內壁和後壁貼著紅褐色的朽心材，洞底後面一堆朽木，拱的內緣垂著一圈朽木纖維。Socket_Back 在背面正中的地面，+X 朝後。樹皮：Poly Haven bark_brown_02 掃描凹凸推進高模幾何再烘焙；苔是鼓起來的苔墊。Detail_DR04_Plants：根上的蕨、心形葉小叢，兩端的蕨和心形葉。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 28873,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD1": {
+      "triangles": 14479,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD2": {
+      "triangles": 4282,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    }
+  },
+  "texture_resolution_px": {
+    "DR04_RootHollow_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR04_RootHollow_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR04_RootHollow_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR04_RootHollow_A_ORM.png": [
+      2048,
+      2048
+    ],
+    "Shared/D2Bark_Detail_Normal.png": [
+      1024,
+      1024
+    ],
+    "Shared/D2Bark_Detail_Albedo.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)：看進洞口；背面（+Y）靠在神木或根牆上",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，鑽土的部分在 z < 0",
+  "previous_origin_m": [
+    -0.1189,
+    -0.5735,
+    0.0
+  ],
+  "previous_origin_note": "v001 的原點（洞口正下方的地面（洞口那道根拱的中線）；z = 0 是地面，鑽土的部分在 z < 0）在這一版座標裡的位置；用 v001 擺好的場景，把這一版往 -previous_origin_m 移就對回原處",
+  "dimensions_m": [
+    5.7406,
+    4.2649,
+    3.1346
+  ],
+  "bounds_min_m": [
+    -2.8703,
+    -2.1325,
+    -0.5485
+  ],
+  "bounds_max_m": [
+    2.8703,
+    2.1324,
+    2.5861
+  ],
+  "shape": {
+    "length_above_ground_m": 5.376,
+    "height_max_m": 2.586,
+    "gap_under_root_max_m": 0.0,
+    "top_along_spine_m": [
+      1.597,
+      1.8,
+      1.965,
+      2.096,
+      2.19,
+      2.204,
+      2.106,
+      2.051,
+      1.943,
+      1.887,
+      1.78,
+      1.609
+    ],
+    "walkable_under_1p75m": false,
+    "blocked_at_1m_fraction": 1.0,
+    "blocked_at_1p7m_fraction": 0.8
+  },
+  "lods": {
+    "LOD0": {
+      "DR04_RootHollow_LOD0": 14287,
+      "Detail_DR04_Plants_LOD0": 14586
+    },
+    "LOD1": {
+      "DR04_RootHollow_LOD1": 7186,
+      "Detail_DR04_Plants_LOD1": 7293
+    },
+    "LOD2": {
+      "DR04_RootHollow_LOD2": 2095,
+      "Detail_DR04_Plants_LOD2": 2187
+    },
+    "collision": 268
+  },
+  "lod_rule": "LOD0 不刪細節；LOD1 collapse 50%；LOD2 collapse 15%",
+  "materials": [
+    "M_DR04_RootHollow_A",
+    "M_DR04_RootHollow_Leaf"
+  ],
+  "objects_per_lod": 2,
+  "material_note": "本體一個物件、一個材質 M_DR04_RootHollow_A（一組貼圖 2048）；Detail_DR04_Plants 一個材質 M_DR04_RootHollow_Leaf（同一組貼圖，雙面）",
+  "uv": {
+    "UV0": "UVMap：烘焙圖集，所有 UV 島同比例（108.9 px/m）、同方向",
+    "UV1": "TileUV：每 2.6 m 重複的樹皮 UV"
+  },
+  "unity": {
+    "shader": "Universal Render Pipeline/Lit",
+    "detail_normal": "Shared/D2Bark_Detail_Normal.png",
+    "detail_albedo": "Shared/D2Bark_Detail_Albedo.png",
+    "detail_mask": "Albedo.png 的 alpha（1 = 樹皮，0 = 苔和葉）",
+    "detail_tiling_on_uv0": 7.23,
+    "mask_map": "MaskURP.png（R metal、G AO、A smoothness）"
+  },
+  "collision": "DR04_RootHollow_Collision: MeshCollider (convex off), renderer hidden；只含內芯半徑 0.28 m 以上的根（內芯和粗股）",
+  "sockets_blender_xyz": {
+    "Socket_Back": [
+      -0.119,
+      1.977,
+      0.0
+    ]
+  },
+  "external_assets": [
+    {
+      "name": "bark_brown_02",
+      "source": "https://polyhaven.com/a/bark_brown_02",
+      "license": "CC0"
+    }
+  ],
+  "files_sha256": {
+    "DR04_RootHollow_v002.fbx": "756a246a5bb1fc01e69ccad404a75664a4aaa8887bcba7ec2316f03dca3eb984",
+    "DR04_RootHollow_v002.glb": "31c2e0db2b8cf1415677b78bbb9de92c22a8b92c1d356a25931b23b2fa32e4a7"
+  }
+}

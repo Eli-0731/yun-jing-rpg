@@ -1,0 +1,141 @@
+{
+ "CW01_C_EndWall_Detail_Small_LOD0": {
+  "tris": 126,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 21,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_C_EndWall_Detail_Small_LOD1": {
+  "tris": 63,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 21,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_C_EndWall_Detail_Small_LOD2": {
+  "tris": 18,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 18,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_C_EndWall_LOD0": {
+  "tris": 19946,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 128,
+  "coplanar_two_sides": 31,
+  "closed_pieces": 75,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     0.2,
+     0.09,
+     0.0
+    ],
+    49
+   ],
+   [
+    [
+     -0.39,
+     0.06,
+     0.0
+    ],
+    39
+   ],
+   [
+    [
+     -0.19,
+     -0.06,
+     0.0
+    ],
+    13
+   ],
+   [
+    [
+     0.4,
+     -0.09,
+     0.0
+    ],
+    4
+   ],
+   [
+    [
+     0.01,
+     -0.19,
+     0.0
+    ],
+    1
+   ],
+   [
+    [
+     0.01,
+     0.19,
+     0.0
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "CW01_C_EndWall_LOD1": {
+  "tris": 9972,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 75,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_C_EndWall_LOD2": {
+  "tris": 2990,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 75,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

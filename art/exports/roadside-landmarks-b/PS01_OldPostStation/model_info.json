@@ -1,0 +1,377 @@
+{
+  "asset": "PS01_OldPostStation",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "PS01_OldPostStation_Detail_Small"
+  ],
+  "name_zh": "舊驛站",
+  "slot": "A9_OfficialRoad_South_PostStation",
+  "note": "官道邊半荒的舊驛站（三視圖 PS01-cand-3）：左邊主屋單層，坐在 0.4 m 石台基上，牆腳亂石砌、上段褪色石灰泥，柱樑橫平豎直沒有斜撐；前簷四根簷柱下一道走廊，三級石階上到木板對開門（一扇半掩，只開 0.4 m，人進不去），兩扇直欞窗、窗紙破了。右邊一排三間開敞馬廄，矮一截的屋頂靠在主屋山牆上：木板後牆、木板隔間、料槽、地上鋪草；A 間柵門關著、B 間敞開人可以走進去、C 間柵門只剩一邊掛著。前面一片舊石板院子，縫裡長草，主屋台階前和馬廄前踩出一條較禿的路；院前一道拴馬木欄（四根柱、圓木橫桿、鐵環、纏繩），馬廄前一只石水槽。半荒但沒有塌：屋頂幾處缺瓦露出掛瓦條，灰泥剝到見石，每個牆腳長草。碰撞：台基與台階、主屋（門算關著）、簷柱、馬廄柱與後牆、隔間、A／C 柵門、料槽、拴馬欄（1.15 m 高，人不能從下面鑽）、水槽、陶缸，以及院子和馬廄前的石板面（腳踩在石板上）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 110764,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 55381,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 15445,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "PS01_OldPostStation_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "PS01_OldPostStation_Metallic.png": [
+      2048,
+      2048
+    ],
+    "PS01_OldPostStation_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "PS01_OldPostStation_Normal.png": [
+      2048,
+      2048
+    ],
+    "PS01_OldPostStation_Roughness.png": [
+      2048,
+      2048
+    ],
+    "PS01_OldPostStation_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "PS01_OldPostStation_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "PS01_OldPostStation_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "PS01_OldPostStation_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "PS01_OldPostStation_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "PS01_OldPostStation_Wood_BaseColor.png": [
+      4096,
+      4096
+    ],
+    "PS01_OldPostStation_Wood_Metallic.png": [
+      4096,
+      4096
+    ],
+    "PS01_OldPostStation_Wood_MetallicSmoothness.png": [
+      4096,
+      4096
+    ],
+    "PS01_OldPostStation_Wood_Normal.png": [
+      4096,
+      4096
+    ],
+    "PS01_OldPostStation_Wood_Roughness.png": [
+      4096,
+      4096
+    ],
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre, z = 0 at the lowest ground contact",
+  "dimensions_m": [
+    13.8365,
+    9.962,
+    5.311
+  ],
+  "bounds_min_m": [
+    -6.9794,
+    -5.0,
+    0.0
+  ],
+  "bounds_max_m": [
+    6.8571,
+    4.962,
+    5.311
+  ],
+  "size_limit_m": [
+    14.0,
+    10.0,
+    6.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        13.8365,
+        9.962,
+        5.311
+      ],
+      "min": [
+        -6.9794,
+        -5.0,
+        0.0
+      ],
+      "max": [
+        6.8571,
+        4.962,
+        5.311
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        13.1729,
+        9.4564,
+        1.0452
+      ],
+      "min": [
+        -6.7338,
+        -4.9323,
+        0.0
+      ],
+      "max": [
+        6.4391,
+        4.5241,
+        1.0452
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 4880,
+      "LOD1": 2439,
+      "LOD2": 732
+    },
+    "Stone": {
+      "LOD0": 24032,
+      "LOD1": 12016,
+      "LOD2": 3604
+    },
+    "Detail_Small": {
+      "LOD0": 6540,
+      "LOD1": 3270,
+      "LOD2": 981
+    },
+    "Wood": {
+      "LOD0": 30160,
+      "LOD1": 15080,
+      "LOD2": 4524
+    },
+    "Roof": {
+      "LOD0": 45152,
+      "LOD1": 22576,
+      "LOD2": 5604
+    }
+  },
+  "lod_totals": {
+    "LOD0": 110764,
+    "LOD1": 55381,
+    "LOD2": 15445
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_PS01_OldPostStation_Main",
+    "M_PS01_OldPostStation_RoofTiles",
+    "M_PS01_OldPostStation_Stone",
+    "M_PS01_OldPostStation_Wood"
+  ],
+  "textures": [
+    "PS01_OldPostStation_BaseColor.png",
+    "PS01_OldPostStation_Metallic.png",
+    "PS01_OldPostStation_MetallicSmoothness.png",
+    "PS01_OldPostStation_Normal.png",
+    "PS01_OldPostStation_Roughness.png",
+    "PS01_OldPostStation_Stone_BaseColor.png",
+    "PS01_OldPostStation_Stone_Metallic.png",
+    "PS01_OldPostStation_Stone_MetallicSmoothness.png",
+    "PS01_OldPostStation_Stone_Normal.png",
+    "PS01_OldPostStation_Stone_Roughness.png",
+    "PS01_OldPostStation_Wood_BaseColor.png",
+    "PS01_OldPostStation_Wood_Metallic.png",
+    "PS01_OldPostStation_Wood_MetallicSmoothness.png",
+    "PS01_OldPostStation_Wood_Normal.png",
+    "PS01_OldPostStation_Wood_Roughness.png",
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_PS01_OldPostStation_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "PS01_OldPostStation_BaseColor.png",
+        "Normal": "PS01_OldPostStation_Normal.png",
+        "MetallicSmoothness": "PS01_OldPostStation_MetallicSmoothness.png"
+      },
+      "M_PS01_OldPostStation_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_PS01_OldPostStation_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "PS01_OldPostStation_Stone_BaseColor.png",
+        "Normal": "PS01_OldPostStation_Stone_Normal.png",
+        "MetallicSmoothness": "PS01_OldPostStation_Stone_MetallicSmoothness.png"
+      },
+      "M_PS01_OldPostStation_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "PS01_OldPostStation_Wood_BaseColor.png",
+        "Normal": "PS01_OldPostStation_Wood_Normal.png",
+        "MetallicSmoothness": "PS01_OldPostStation_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "PS01_OldPostStation_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Door": [
+      -3.0,
+      -0.5,
+      0.4
+    ],
+    "Socket_Road": [
+      0.0,
+      -5.0,
+      0.0
+    ],
+    "Socket_Yard": [
+      0.0,
+      -2.6,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Door.001": [
+      -3.0,
+      -0.5,
+      0.4
+    ],
+    "Socket_Road.001": [
+      0.0,
+      -5.0,
+      0.0
+    ],
+    "Socket_Yard.001": [
+      0.0,
+      -2.6,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "PS01_OldPostStation.001",
+    "PS01_OldPostStation_Collision.001",
+    "PS01_OldPostStation_Detail_Small_LOD0.001",
+    "PS01_OldPostStation_Detail_Small_LOD1.001",
+    "PS01_OldPostStation_Detail_Small_LOD2.001",
+    "PS01_OldPostStation_LOD0.001",
+    "PS01_OldPostStation_LOD1.001",
+    "PS01_OldPostStation_LOD2.001",
+    "Socket_Door.001",
+    "Socket_Road.001",
+    "Socket_Yard.001"
+  ],
+  "glb": "PS01_OldPostStation_v001.glb",
+  "interface": {
+    "hall_ridge_m": 5.121,
+    "stable_ridge_m": 3.621,
+    "roof_patches_missing": 3
+  },
+  "modeling_method": "procedural mesh construction (art/source/roadside-landmarks-b/) on the StarterHouse v004 outline; procedural shaders baked to two 2048 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 158.7,
+        "median": 178.3,
+        "p90": 180.1,
+        "area_m2": 68.7
+      },
+      "inside_or_covered": {
+        "p10": 15.1,
+        "median": 25.8,
+        "p90": 69.1,
+        "area_m2": 400.3
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 116.2,
+        "median": 159.5,
+        "p90": 159.5,
+        "area_m2": 72.0
+      },
+      "inside_or_covered": {
+        "p10": 32.7,
+        "median": 40.4,
+        "p90": 133.4,
+        "area_m2": 130.0
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 182.9,
+        "median": 226.9,
+        "p90": 227.8,
+        "area_m2": 109.9
+      },
+      "inside_or_covered": {
+        "p10": 10.6,
+        "median": 109.9,
+        "p90": 177.1,
+        "area_m2": 315.0
+      },
+      "atlas_px": 4096,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": [
+    9134,
+    24283
+  ],
+  "reference": "art/references/PS01/ (AI three-view PS01/PS01-cand-3; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}

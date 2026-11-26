@@ -1,0 +1,2103 @@
+{
+  "version": 1,
+  "note": "世界施工圖的單一資料來源。座標都是世界座標：+Z 北、A1 中心 (0,0)、每塊 100 m。zones 的 x,z 是中心，hx,hz 是半長。groups 寫模型 ID、件數和擺法；tag pending 的模型還沒合併，missing 的還沒有人做。改完跑 python tools/qingxi-terrain/render-world-blueprint.py。",
+  "freedom": {
+    "player": [
+      "沒有規定路線：除了第 1 天從官道進村，玩家想先去哪就去哪，紅線只是常見走法。",
+      "每個區塊至少兩個出入口，不走回頭路也能繞回村子。",
+      "不用看不見的牆擋人。走不過去要看得出原因：懸崖、深水、密林；能爬的坡就讓人爬。",
+      "主路之外要有小徑和捷徑，走偏了要有獎勵：機緣、好風景、一個小場景。",
+      "故事還沒到的地方也能走到，只是事件還沒發生，不要整塊封起來。"
+    ],
+    "builder": [
+      "鎖定的只有四樣：地標、鏡頭要看到的東西、感覺、區塊之間的連接。",
+      "其他都可以自己決定：分區的位置和大小、件數、擺法都是建議，覺得更好就改，也可以加施工圖沒寫的東西。",
+      "改了就更新 world-blueprint.json，回報時說明為什麼。",
+      "覺得鏡頭或地標本身不對，可以提出替代方案並附截圖，由 z1nnz 決定。"
+    ]
+  },
+  "route": [
+    {
+      "day": "1",
+      "from": "A2",
+      "to": "A1"
+    },
+    {
+      "day": "2-3",
+      "from": "A1",
+      "to": "A3"
+    },
+    {
+      "day": "3",
+      "from": "A3",
+      "to": "D3"
+    },
+    {
+      "day": "4",
+      "from": "A1",
+      "to": "A4"
+    },
+    {
+      "day": "5",
+      "from": "A1",
+      "to": "D1"
+    },
+    {
+      "day": "5",
+      "from": "D1",
+      "to": "D2"
+    },
+    {
+      "day": "5",
+      "from": "D2",
+      "to": "D6"
+    },
+    {
+      "day": "5",
+      "from": "D6",
+      "to": "B1"
+    },
+    {
+      "day": "5",
+      "from": "B1",
+      "to": "B2"
+    },
+    {
+      "day": "7",
+      "from": "D2",
+      "to": "D4"
+    },
+    {
+      "day": "8",
+      "from": "A1",
+      "to": "A6"
+    },
+    {
+      "day": "8+",
+      "from": "A2",
+      "to": "A5"
+    },
+    {
+      "day": "自由",
+      "from": "A3",
+      "to": "A5",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "A2",
+      "to": "A6",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "A4",
+      "to": "A6",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "D3",
+      "to": "D1",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "D3",
+      "to": "D4",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "A4",
+      "to": "D5",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "D5",
+      "to": "D6",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "D1",
+      "to": "D5",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "A4",
+      "to": "A7",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "A7",
+      "to": "D8",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "D8",
+      "to": "B1",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "A6",
+      "to": "A8",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "A8",
+      "to": "A7",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "A2",
+      "to": "A9",
+      "free": true
+    },
+    {
+      "day": "自由",
+      "from": "D2",
+      "to": "D7",
+      "free": true
+    }
+  ],
+  "blocks": [
+    {
+      "id": "A2",
+      "name": "村外官道與茶亭",
+      "cell": [
+        0,
+        -1
+      ],
+      "order": 1,
+      "days": "第 1 天",
+      "feel": "走了很久的路，終於有人家",
+      "terrain": "南低北高，0 到 3 m 的長緩坡。官道從南邊 (0,-149) 寬弧線往北，在茶亭前繞過一個小土丘，最後爬上坡頂才看見村門。東側地勢較低，溪流遠遠在右手邊。",
+      "landmark": "茶亭 RK03 的屋頂，從南邊 80 m 外就看得到；下一個目標是坡頂後露出的古樹樹冠和炊煙。",
+      "zones": [
+        {
+          "id": "a2-start",
+          "name": "來路起點",
+          "x": 2,
+          "z": -132,
+          "hx": 6,
+          "hz": 4,
+          "groups": [
+            {
+              "models": "RK01A",
+              "count": 1,
+              "how": "岔路路牌，朝北"
+            },
+            {
+              "models": "R05_Milestone",
+              "count": 1,
+              "how": "路邊，斜 8°"
+            },
+            {
+              "models": "StonesMossy,GrassTall",
+              "count": 12,
+              "how": "路肩兩叢，留出路面"
+            }
+          ]
+        },
+        {
+          "id": "a2-tea",
+          "name": "茶亭",
+          "x": -17,
+          "z": -107,
+          "hx": 7,
+          "hz": 5,
+          "groups": [
+            {
+              "models": "RK03",
+              "count": 1,
+              "how": "地標，正面朝東南對著來路"
+            },
+            {
+              "models": "RK04_TeaStall",
+              "count": 1,
+              "how": "緊貼茶亭東側"
+            },
+            {
+              "models": "TI09_TeaStove,TI10_TeaSet",
+              "count": 2,
+              "how": "放在桌上和爐位"
+            },
+            {
+              "models": "R03_FirewoodNeat",
+              "count": 1,
+              "how": "亭後"
+            },
+            {
+              "models": "BM01_01,BM03_01",
+              "count": 4,
+              "how": "亭前靠柱，散放不對齊"
+            }
+          ]
+        },
+        {
+          "id": "a2-cart",
+          "name": "路邊板車",
+          "x": 22,
+          "z": -112,
+          "hx": 3,
+          "hz": 2.5,
+          "groups": [
+            {
+              "models": "RK05",
+              "count": 1,
+              "how": "停在路肩，車頭朝北"
+            },
+            {
+              "models": "A2_OverturnedCart",
+              "count": 1,
+              "how": "遠一點的田邊，當背景故事"
+            }
+          ]
+        },
+        {
+          "id": "a2-shrine",
+          "name": "土地祠",
+          "x": 17,
+          "z": -88,
+          "hx": 4,
+          "hz": 3.5,
+          "groups": [
+            {
+              "models": "RK06",
+              "count": 1,
+              "how": "背靠松叢，正面朝路"
+            },
+            {
+              "models": "R04_StoneLanternIntact",
+              "count": 1,
+              "how": "祠前一側"
+            }
+          ]
+        },
+        {
+          "id": "a2-view",
+          "name": "坡頂觀景",
+          "x": -6,
+          "z": -67,
+          "hx": 4.5,
+          "hz": 4,
+          "groups": [
+            {
+              "models": "RK09",
+              "count": 1,
+              "how": "石凳，面向北"
+            },
+            {
+              "models": "R02_BambooFence_Straight,R02_BambooFence_Leaning",
+              "count": 6,
+              "how": "沿路西側斷續圍一段，帶一根歪的"
+            }
+          ]
+        }
+      ],
+      "fill": "ElderPine 成 7 叢（每叢 4 到 9 棵），路兩旁留 3 m；GrassDry 和 GrassTall 沿路肩；FlowerYellow 三小片。東側低地種 ElderWillow 2 棵帶出溪的方向。",
+      "shots": [
+        {
+          "id": "A2-S1",
+          "ka": "KA02",
+          "x": 0,
+          "z": -118,
+          "yaw": 0,
+          "time": "傍晚",
+          "must": "茶亭在左、路往右彎、遠方古樹和炊煙"
+        },
+        {
+          "id": "A2-S2",
+          "x": 2,
+          "z": -145,
+          "yaw": 5,
+          "time": "傍晚",
+          "must": "剛出生的第一眼：長路、路牌、遠處茶亭屋頂"
+        },
+        {
+          "id": "A2-S3",
+          "x": -10,
+          "z": -100,
+          "yaw": 150,
+          "time": "傍晚",
+          "must": "從茶亭內回望來路，亭柱框住畫面"
+        },
+        {
+          "id": "A2-S4",
+          "x": -6,
+          "z": -63,
+          "yaw": 0,
+          "time": "傍晚轉入夜",
+          "must": "坡頂第一次看見整個村子和古樹"
+        }
+      ],
+      "missing": [
+        "村門：KA02 主視覺有門樓，現在沒有模型。先不做，主視覺改掉門樓（依區塊規劃 A1 入口只用三盞燈）",
+        "炊煙特效（Codex）"
+      ]
+    },
+    {
+      "id": "A1",
+      "name": "青溪村核心",
+      "cell": [
+        0,
+        0
+      ],
+      "order": 2,
+      "days": "第 1 到 9 天",
+      "feel": "有人住：柴堆、晾衣、竹籃，不是一件件隔開展示",
+      "terrain": "中央廣場 0.5 m 高的平台，古樹在廣場北側。西側是溪，東側緩升到演武場。民居沿兩條彎路貼著路排，房與房之間 3 到 5 m，不要再留 15 m 以上的空地。",
+      "landmark": "廣場古樹 ElderCamphor 要比任何房子都高，從村口和官道坡頂都要看得到。",
+      "zones": [
+        {
+          "id": "a1-entry",
+          "name": "村口",
+          "x": 0,
+          "z": -40,
+          "hx": 8,
+          "hz": 6,
+          "groups": [
+            {
+              "models": "G01",
+              "count": 2,
+              "how": "路兩側，距路中 2.5 m"
+            },
+            {
+              "models": "TY04",
+              "count": 1,
+              "how": "第三盞，再往裡 12 m"
+            },
+            {
+              "models": "R02_BambooFence_Straight,R02_BambooFence_Corner",
+              "count": 8,
+              "how": "接到第一戶院子"
+            }
+          ]
+        },
+        {
+          "id": "a1-plaza",
+          "name": "廣場",
+          "x": 0,
+          "z": -2,
+          "hx": 9,
+          "hz": 8,
+          "groups": [
+            {
+              "models": "ElderCamphor",
+              "count": 1,
+              "how": "廣場北側，樹下放石凳"
+            },
+            {
+              "models": "RK09",
+              "count": 2,
+              "how": "繞著樹"
+            },
+            {
+              "models": "BM01_01,BM01_02,BM03_01,BM03_02,BM05_03",
+              "count": 10,
+              "how": "攤位之間成堆，不要排成一列"
+            },
+            {
+              "models": "MK01_Steelyard,MK02_HarvestSieve,MK03_PriceBoard,MK04_BackBasket",
+              "count": 4,
+              "how": "放進坊市攤位"
+            }
+          ]
+        },
+        {
+          "id": "a1-homes",
+          "name": "民居巷",
+          "x": 22,
+          "z": -22,
+          "hx": 16,
+          "hz": 12,
+          "groups": [
+            {
+              "models": "H01_StoneTimberHouse,StarterHouse",
+              "count": 6,
+              "how": "貼著路，朝向錯開 10 到 30°"
+            },
+            {
+              "models": "R01_DryStoneWall_Straight,R01_DryStoneWall_Corner,R01_DryStoneWall_EndCap",
+              "count": 18,
+              "how": "圍出三個院子"
+            },
+            {
+              "models": "R03_FirewoodNeat,R03_FirewoodScattered",
+              "count": 5,
+              "how": "靠牆"
+            }
+          ]
+        },
+        {
+          "id": "a1-yard",
+          "name": "演武場",
+          "x": 16.5,
+          "z": -2,
+          "hx": 6.5,
+          "hz": 6.5,
+          "groups": [
+            {
+              "models": "agility-post,qi-striking-post,weapon-rack,training-banner,training-shelter,engraved-training-stone",
+              "count": 6,
+              "how": "維持現有玩法位置"
+            }
+          ]
+        },
+        {
+          "id": "a1-alchemy",
+          "name": "煉丹角",
+          "x": -18,
+          "z": 18,
+          "hx": 8,
+          "hz": 7,
+          "groups": [
+            {
+              "models": "B12_WorkshopChimney,B08_VentilatedDryingBasket,B04_BambooSortingTrays",
+              "count": 5,
+              "how": "屋外曬藥，有煙"
+            }
+          ]
+        },
+        {
+          "id": "a1-creek",
+          "name": "村西溪邊",
+          "x": -26,
+          "z": 2,
+          "hx": 6,
+          "hz": 12,
+          "groups": [
+            {
+              "models": "QX_CreekSteppingPlank",
+              "count": 1,
+              "how": "現有踏步"
+            },
+            {
+              "models": "QX_WaterReeds",
+              "count": 6,
+              "how": "成兩叢"
+            },
+            {
+              "models": "ElderWillow",
+              "count": 3,
+              "how": "岸邊"
+            }
+          ]
+        }
+      ],
+      "fill": "ElderPlum、ElderCamphor_B 當院內樹；ElderWithered 和 ElderGinkgo 一村各一棵，太亮的要調色。每個院子放一組菜圃和晾衣（LV，等 Eli）。",
+      "shots": [
+        {
+          "id": "A1-S1",
+          "ka": "KA01",
+          "x": 0,
+          "z": -46,
+          "yaw": 0,
+          "time": "入夜",
+          "must": "兩盞石燈、路、窗光、古樹剪影、細彎月"
+        },
+        {
+          "id": "A1-S2",
+          "ka": "KA00",
+          "x": 0,
+          "z": -8,
+          "yaw": 0,
+          "time": "上午",
+          "must": "古樹、攤位、房子貼在一起，看得到往溪邊的路"
+        },
+        {
+          "id": "A1-S3",
+          "x": 14,
+          "z": -28,
+          "yaw": 40,
+          "time": "上午",
+          "must": "民居巷：院牆、柴堆、晾衣，轉彎後看見下一間"
+        },
+        {
+          "id": "A1-S4",
+          "x": -20,
+          "z": 2,
+          "yaw": 90,
+          "time": "黃昏",
+          "must": "從溪邊回望村子屋頂和古樹"
+        },
+        {
+          "id": "A1-S5",
+          "x": 12,
+          "z": 30,
+          "yaw": 190,
+          "time": "上午",
+          "must": "從村北往南看整村層次"
+        }
+      ],
+      "missing": [
+        "民居種類不足：只有 H01、StarterHouse。需要 2 到 3 種新民居（待排工作包）",
+        "晾衣架、菜圃、掛物（Eli 的 LV 交付後接入）"
+      ]
+    },
+    {
+      "id": "A3",
+      "name": "西溪與水磨坊",
+      "cell": [
+        -1,
+        0
+      ],
+      "order": 3,
+      "days": "第 2 到 8 天",
+      "feel": "一早的村裡日常，水聲變大，材料變成石和濕木",
+      "terrain": "溪由北往南穿過區塊，東岸緩、西岸有 2 m 石坎。**要改：上游現在是斷的**，把 D3 主溪在 (-90,55) 分出一條支流，接到 A3 的 (-95,49)。磨坊蓋在東岸水邊，水車貼水。",
+      "landmark": "水車 WM02（直徑約 5 m），從 A1 往西的路一轉彎就要看到它在轉。",
+      "zones": [
+        {
+          "id": "a3-mill",
+          "name": "磨坊",
+          "x": -86,
+          "z": 18,
+          "hx": 9,
+          "hz": 8,
+          "groups": [
+            {
+              "models": "WM01_MillHouse",
+              "count": 1,
+              "how": "東岸"
+            },
+            {
+              "models": "WM02_WaterWheel",
+              "count": 1,
+              "how": "貼著屋子伸進溪"
+            },
+            {
+              "models": "WM04_Millstones",
+              "count": 1,
+              "how": "屋前"
+            },
+            {
+              "models": "WM08A,WM08B,WM08C",
+              "count": 4,
+              "how": "麻袋和木件靠牆"
+            }
+          ]
+        },
+        {
+          "id": "a3-wash",
+          "name": "洗衣埠",
+          "x": -92,
+          "z": -3,
+          "hx": 5,
+          "hz": 4,
+          "groups": [
+            {
+              "models": "WM05_WashSteps",
+              "count": 1,
+              "how": "從東岸下到水邊"
+            },
+            {
+              "models": "BM03_02",
+              "count": 2,
+              "how": "水桶、木盆"
+            }
+          ]
+        },
+        {
+          "id": "a3-bridge",
+          "name": "石橋",
+          "x": -99.5,
+          "z": 4,
+          "hx": 5,
+          "hz": 3,
+          "groups": [
+            {
+              "models": "WM07_StoneBridge",
+              "count": 1,
+              "how": "跨溪接西岸小路"
+            }
+          ]
+        },
+        {
+          "id": "a3-bamboo",
+          "name": "竹林亭",
+          "x": -125,
+          "z": 26,
+          "hx": 11,
+          "hz": 8,
+          "groups": [
+            {
+              "models": "WM09_BambooPavilion",
+              "count": 1,
+              "how": "竹林中空出一塊"
+            },
+            {
+              "models": "BambooClump",
+              "count": 30,
+              "how": "密成一片，留一條小徑"
+            }
+          ]
+        },
+        {
+          "id": "a3-fish",
+          "name": "釣魚石台",
+          "x": -114,
+          "z": -20,
+          "hx": 4,
+          "hz": 3,
+          "groups": [
+            {
+              "models": "WM10A,WM10B",
+              "count": 2,
+              "how": "石台和簡單魚具"
+            }
+          ]
+        }
+      ],
+      "fill": "ElderWillow 沿東岸 4 棵；苔石 StonesMossy、A04_MossBoulderCover 12 群貼水邊；QX_WaterReeds 成叢；水面薄霧清晨才有。",
+      "shots": [
+        {
+          "id": "A3-S1",
+          "ka": "KA03",
+          "x": -90,
+          "z": 2,
+          "yaw": 315,
+          "time": "清晨",
+          "must": "洗衣石階、石橋、水車和磨坊三層"
+        },
+        {
+          "id": "A3-S2",
+          "x": -60,
+          "z": 8,
+          "yaw": 265,
+          "time": "上午",
+          "must": "從村子走來的路，轉彎第一眼看到水車"
+        },
+        {
+          "id": "A3-S3",
+          "x": -103,
+          "z": 3,
+          "yaw": 80,
+          "time": "上午",
+          "must": "橋上回望磨坊，水從腳下流過"
+        },
+        {
+          "id": "A3-S4",
+          "x": -125,
+          "z": 16,
+          "yaw": 0,
+          "time": "午後",
+          "must": "竹林裡光線變暗，亭子在中間"
+        }
+      ],
+      "missing": []
+    },
+    {
+      "id": "D3",
+      "name": "上游溪谷",
+      "cell": [
+        -1,
+        1
+      ],
+      "order": 4,
+      "days": "第 3、6、7 天",
+      "feel": "這條溪出了事",
+      "terrain": "溪谷比兩側低 3 到 5 m，溪從 D4 方向的源頭蜿蜒向東南。兩岸有石坎，秋紅楓樹集中在工地四周。斷壩上游有水、下游乾。",
+      "landmark": "斷流石壩 UP01 和裂開的舊石槽；從 A3 北口進來就要看到乾掉的溪床。",
+      "zones": [
+        {
+          "id": "d3-gauge",
+          "name": "水尺",
+          "x": -77.5,
+          "z": 68,
+          "hx": 4.5,
+          "hz": 4.5,
+          "groups": [
+            {
+              "models": "A09_WaterGauge,A06_MarkerStone",
+              "count": 2,
+              "how": "現有線索位置"
+            }
+          ]
+        },
+        {
+          "id": "d3-sluice",
+          "name": "裂槽工地",
+          "x": -88,
+          "z": 81.6,
+          "hx": 7,
+          "hz": 7,
+          "groups": [
+            {
+              "models": "UP01,UP03,UP04",
+              "count": 3,
+              "how": "斷壩和工地"
+            },
+            {
+              "models": "CR03_StonePile,CR03_TimberRack,CR04_Tools,CR05_WorkShelter",
+              "count": 5,
+              "how": "圍著工地，工具放在前景"
+            }
+          ]
+        },
+        {
+          "id": "d3-nursery",
+          "name": "蹄印淺灘",
+          "x": -84.6,
+          "z": 111.8,
+          "hx": 5,
+          "hz": 5,
+          "groups": [
+            {
+              "models": "A07_NurseryTracks,A08_gravel_bar_01",
+              "count": 2,
+              "how": "現有線索位置"
+            }
+          ]
+        },
+        {
+          "id": "d3-ruin",
+          "name": "舊亭",
+          "x": -117,
+          "z": 106,
+          "hx": 5,
+          "hz": 5,
+          "groups": [
+            {
+              "models": "A11_PavilionRuin",
+              "count": 1,
+              "how": "坡上"
+            },
+            {
+              "models": "R01_DryStoneWall_Collapsed",
+              "count": 3,
+              "how": "塌牆圍著"
+            }
+          ]
+        },
+        {
+          "id": "d3-source",
+          "name": "源頭",
+          "x": -130.7,
+          "z": 120.6,
+          "hx": 5,
+          "hz": 5,
+          "groups": [
+            {
+              "models": "A12_ResonanceStone,A01_end_source_01",
+              "count": 2,
+              "how": "現有位置"
+            }
+          ]
+        },
+        {
+          "id": "d3-camp",
+          "name": "小營地",
+          "x": -66,
+          "z": 102,
+          "hx": 3.2,
+          "hz": 3.2,
+          "groups": [
+            {
+              "models": "A09_StoneShelter",
+              "count": 1,
+              "how": "往 D1 的路旁"
+            }
+          ]
+        }
+      ],
+      "fill": "ElderMaple 8 棵成叢在工地和舊亭旁（要真的紅，現在太亮要降飽和）；ElderPine 上坡成片；BR02_YoungPine_A、B 補低矮層；落葉地面 Eli 的 BM10_02、03；A05_WitheredSedge 乾溪床兩岸。草要降到非螢光。",
+      "shots": [
+        {
+          "id": "D3-S1",
+          "ka": "KA07",
+          "x": -80,
+          "z": 75,
+          "yaw": 315,
+          "time": "午後",
+          "must": "乾溪床、斷壩、前景工具和落葉"
+        },
+        {
+          "id": "D3-S2",
+          "x": -75,
+          "z": 54,
+          "yaw": 340,
+          "time": "午後",
+          "must": "從 A3 進來第一眼：路、乾溪、楓紅"
+        },
+        {
+          "id": "D3-S3",
+          "x": -100,
+          "z": 100,
+          "yaw": 50,
+          "time": "午後",
+          "must": "溪谷俯視，看得懂上游有水、下游乾"
+        },
+        {
+          "id": "D3-S4",
+          "x": -125,
+          "z": 112,
+          "yaw": 40,
+          "time": "黃昏",
+          "must": "源頭共鳴石，安靜"
+        }
+      ],
+      "missing": []
+    },
+    {
+      "id": "A4",
+      "name": "東坡茶田",
+      "cell": [
+        1,
+        0
+      ],
+      "order": 5,
+      "days": "第 4 天起",
+      "feel": "想爬上去看看；第一次看懂河谷有多大、第一次看見山城",
+      "terrain": "從西南 (55,-40) 高度 1 m 往東北升到 (135,40) 高度 12 m。4 到 5 層梯田順著等高線彎，每層寬 6 到 9 m、石坎高 0.8 到 1.2 m。石階 TE03 從下往上斜穿，到亭子。",
+      "landmark": "TE05 亭子在最高處，從 A1 東口就看得到；爬到亭子後回頭看到村子和溪，轉向東北看到雲海上的山城。",
+      "zones": [
+        {
+          "id": "a4-low",
+          "name": "下層茶田",
+          "x": 75,
+          "z": -18,
+          "hx": 20,
+          "hz": 16,
+          "groups": [
+            {
+              "models": "TE01_StraightA,TE01_StraightB,TE01_GentleInner,TE01_GentleOuter,TE01_InnerBend,TE01_OuterBend",
+              "count": 16,
+              "how": "兩層梯田，順等高線"
+            },
+            {
+              "models": "TE02_Hedge,TE02_HedgeShort,TE02_Round,TE02_Wide",
+              "count": 40,
+              "how": "排成行，每 5 到 8 株換一種；邊緣用 TE02_HedgeEnd"
+            },
+            {
+              "models": "TE04_Basket,TE04_Tray",
+              "count": 3,
+              "how": "石坎邊"
+            }
+          ]
+        },
+        {
+          "id": "a4-mid",
+          "name": "中層茶田與石階",
+          "x": 100,
+          "z": 5,
+          "hx": 22,
+          "hz": 18,
+          "groups": [
+            {
+              "models": "TE01_StraightA,TE01_StraightB_H12,TE01_End,TE01_Broken",
+              "count": 18,
+              "how": "兩層，放一處塌坎"
+            },
+            {
+              "models": "TE02_Hedge,TE02_Tall,TE02_Wide",
+              "count": 50,
+              "how": "順梯田"
+            },
+            {
+              "models": "TE03_Stair,TE03_Path,TE03_Stepping",
+              "count": 22,
+              "how": "連續石階，每 6 到 8 階一個小平台"
+            }
+          ]
+        },
+        {
+          "id": "a4-top",
+          "name": "亭子",
+          "x": 125,
+          "z": 30,
+          "hx": 7,
+          "hz": 6,
+          "groups": [
+            {
+              "models": "TE05_Pavilion",
+              "count": 1,
+              "how": "視線朝西南開"
+            },
+            {
+              "models": "ElderPlum",
+              "count": 2,
+              "how": "亭旁開花小樹"
+            },
+            {
+              "models": "TE04_Basket",
+              "count": 1,
+              "how": "亭內"
+            }
+          ]
+        }
+      ],
+      "fill": "梯田上方 ElderPine 少量成叢壓住天際線；石坎下 StonesMossy 和蕨；遠景用 SM_Skyline_Arc 和山城剪影卡片，不要真的建。",
+      "shots": [
+        {
+          "id": "A4-S1",
+          "ka": "KA04-1",
+          "x": 70,
+          "z": -15,
+          "yaw": 45,
+          "time": "上午",
+          "must": "前景茶樹和竹簍、石階往上、亭子在高處、雲海山城"
+        },
+        {
+          "id": "A4-S2",
+          "ka": "KA04-2",
+          "x": 125,
+          "z": 30,
+          "yaw": 225,
+          "time": "上午晚些",
+          "must": "亭柱框景，梯田鋪開，村子和溪在下面"
+        },
+        {
+          "id": "A4-S3",
+          "x": 125,
+          "z": 30,
+          "yaw": 45,
+          "time": "上午晚些",
+          "must": "轉向東北：第一次看見山城"
+        },
+        {
+          "id": "A4-S4",
+          "x": 92,
+          "z": 0,
+          "yaw": 60,
+          "time": "上午",
+          "must": "石階中段平台，茶樹在兩側"
+        },
+        {
+          "id": "A4-S5",
+          "x": 48,
+          "z": -8,
+          "yaw": 75,
+          "time": "上午",
+          "must": "從 A1 東口看：一層層梯田和高處的亭子"
+        }
+      ],
+      "missing": [
+        "遠景山城剪影和雲海卡片（Codex SK、CL）"
+      ]
+    },
+    {
+      "id": "A6",
+      "name": "稻田與大水車",
+      "cell": [
+        1,
+        -1
+      ],
+      "order": 6,
+      "days": "第 8 天",
+      "feel": "通水以後的好日子",
+      "terrain": "幾乎平地，1 到 2 m 的小階差。田埂圍成不規則的 8 到 10 塊水田，水渠從北邊接過來。",
+      "landmark": "9 m 大水車 RI03，從 A1 和 A2 坡頂都看得到。",
+      "zones": [
+        {
+          "id": "a6-wheel",
+          "name": "大水車",
+          "x": 95,
+          "z": -70,
+          "hx": 8,
+          "hz": 7,
+          "groups": [
+            {
+              "models": "RI03_GreatWheel",
+              "count": 1,
+              "how": "跨水渠，緩轉"
+            }
+          ]
+        },
+        {
+          "id": "a6-paddy",
+          "name": "水田",
+          "x": 90,
+          "z": -105,
+          "hx": 30,
+          "hz": 25,
+          "groups": [
+            {
+              "models": "RI01_Paddy",
+              "count": 10,
+              "how": "不規則拼接，高度略有差"
+            },
+            {
+              "models": "RI01_Bund_Straight,RI01_Bund_Corner,RI01_Bund_T",
+              "count": 32,
+              "how": "田埂"
+            },
+            {
+              "models": "RI02_Rice",
+              "count": 300,
+              "how": "GPU 實例，依天數換階段"
+            }
+          ]
+        }
+      ],
+      "fill": "田邊 ElderWillow 3 棵；田間小廟與稻草人缺模型先留位。金色斜光是這區的重點，黃昏才亮。",
+      "shots": [
+        {
+          "id": "A6-S1",
+          "ka": "KA06",
+          "x": 95,
+          "z": -70,
+          "yaw": 90,
+          "time": "黃昏前",
+          "must": "前景金色稻穗、水田、大水車緩轉、遠處茶田"
+        },
+        {
+          "id": "A6-S2",
+          "x": 60,
+          "z": -90,
+          "yaw": 80,
+          "time": "黃昏前",
+          "must": "從路邊看整片田和水車"
+        },
+        {
+          "id": "A6-S3",
+          "x": 110,
+          "z": -125,
+          "yaw": 340,
+          "time": "黃昏",
+          "must": "田埂上往北，水車剪影"
+        }
+      ],
+      "missing": [
+        "RI04 田間小物（待做）",
+        "稻草人、田間小廟"
+      ]
+    },
+    {
+      "id": "A5",
+      "name": "河灣渡口",
+      "cell": [
+        -1,
+        -1
+      ],
+      "order": 7,
+      "days": "第 8 天後",
+      "feel": "河谷外面還有世界；安靜",
+      "terrain": "溪在這裡變寬成河灣，岸邊低窪溼地。棧橋從南岸伸出 15 m。",
+      "landmark": "擺渡船和渡口小棚，霧裡只看得到輪廓。",
+      "zones": [
+        {
+          "id": "a5-pier",
+          "name": "棧橋",
+          "x": -100,
+          "z": -70,
+          "hx": 8,
+          "hz": 8,
+          "groups": [
+            {
+              "models": "FE01_Straight,FE01_Corner,FE01_End",
+              "count": 8,
+              "how": "連成一段 L 形"
+            },
+            {
+              "models": "FE02_Ferry",
+              "count": 1,
+              "how": "繫在棧橋末端"
+            }
+          ]
+        },
+        {
+          "id": "a5-shed",
+          "name": "渡口小棚",
+          "x": -90,
+          "z": -82,
+          "hx": 4,
+          "hz": 3,
+          "groups": [
+            {
+              "models": "FE03_FerryShed",
+              "count": 1,
+              "how": "岸上"
+            },
+            {
+              "models": "R05_Milestone",
+              "count": 1,
+              "how": "往官道的路口"
+            }
+          ]
+        }
+      ],
+      "fill": "QX_WaterReeds 大片，需先做低面版；ElderWillow 3 棵；濃霧清晨才有。",
+      "shots": [
+        {
+          "id": "A5-S1",
+          "ka": "KA05",
+          "x": -100,
+          "z": -70,
+          "yaw": 225,
+          "time": "清晨",
+          "must": "棧橋木板、擺渡船、蘆葦、霧裡的湖影"
+        },
+        {
+          "id": "A5-S2",
+          "x": -75,
+          "z": -90,
+          "yaw": 290,
+          "time": "清晨",
+          "must": "從官道來，蘆葦後露出小棚"
+        },
+        {
+          "id": "A5-S3",
+          "x": -105,
+          "z": -60,
+          "yaw": 90,
+          "time": "上午",
+          "must": "棧橋回望村子方向"
+        }
+      ],
+      "missing": [
+        "曬網架、繫纜樁",
+        "湖面與浮島遠景"
+      ]
+    },
+    {
+      "id": "D1",
+      "name": "林緣獵場",
+      "cell": [
+        0,
+        1
+      ],
+      "order": 8,
+      "days": "第 3、5 天",
+      "feel": "光變暗、樹變大、沒有房子",
+      "terrain": "由南往北漸升 0 到 6 m，溪在西側接 D3。樹從疏到密，路窄到 2.2 m。",
+      "landmark": "ElderGuardian 大樹，從村北口往上看得到；瞭望台 A10 是中途停點。",
+      "zones": [
+        {
+          "id": "d1-watch",
+          "name": "瞭望台",
+          "x": 22,
+          "z": 104,
+          "hx": 5,
+          "hz": 4.5,
+          "groups": [
+            {
+              "models": "A10_WatchPlatform",
+              "count": 1,
+              "how": "現有"
+            },
+            {
+              "models": "A11_WarningClothRack",
+              "count": 1,
+              "how": "路旁"
+            }
+          ]
+        },
+        {
+          "id": "d1-shed",
+          "name": "獵人棚",
+          "x": -16,
+          "z": 88,
+          "hx": 4,
+          "hz": 3.5,
+          "groups": [
+            {
+              "models": "SC04",
+              "count": 1,
+              "how": "現有"
+            },
+            {
+              "models": "R03_FirewoodScattered",
+              "count": 2,
+              "how": "棚邊"
+            }
+          ]
+        },
+        {
+          "id": "d1-rabbit",
+          "name": "山兔坡",
+          "x": 12,
+          "z": 72,
+          "hx": 9,
+          "hz": 8,
+          "groups": [
+            {
+              "models": "A01_SlopeTile,A07_RabbitTrailTile,A02_HollowTile",
+              "count": 6,
+              "how": "接成兔徑"
+            },
+            {
+              "models": "A03_FallenLog,A06_RootStump",
+              "count": 6,
+              "how": "沿徑散放"
+            },
+            {
+              "models": "A08_BrokenBambooFence",
+              "count": 3,
+              "how": "邊界"
+            }
+          ]
+        }
+      ],
+      "fill": "ElderCypress 和 ElderPine 由南往北加密，每 100 m² 從 1 棵到 3 棵；A04_MossBoulderCover、A05_LayeredRockCover 12 群；蕨 BM09；BM10_01 苔蘚等 #81。",
+      "shots": [
+        {
+          "id": "D1-S1",
+          "x": 5,
+          "z": 54,
+          "yaw": 0,
+          "time": "上午",
+          "must": "從村子走進林緣，樹開始變大"
+        },
+        {
+          "id": "D1-S2",
+          "x": 18,
+          "z": 96,
+          "yaw": 345,
+          "time": "午後",
+          "must": "瞭望台和林隙光"
+        },
+        {
+          "id": "D1-S3",
+          "x": 10,
+          "z": 145,
+          "yaw": 0,
+          "time": "陰天",
+          "must": "往 D2 的路口，看見神木的巨根"
+        }
+      ],
+      "missing": []
+    },
+    {
+      "id": "D2",
+      "name": "古樹神木",
+      "cell": [
+        0,
+        2
+      ],
+      "order": 9,
+      "days": "第 5、7 天",
+      "feel": "自己很小；這裡很老",
+      "terrain": "凹地，四周略高，神木在正中央。巨根高過人，路從根之間穿過。",
+      "landmark": "世界古樹（高約 90 m），是整個新手區的第二地標，從 A4 亭子遠望也要看得到樹冠。",
+      "zones": [
+        {
+          "id": "d2-tree",
+          "name": "神木",
+          "x": 0,
+          "z": 200,
+          "hx": 14,
+          "hz": 14,
+          "groups": [
+            {
+              "models": "elder-world-tree-hero-v1",
+              "count": 1,
+              "how": "正中央，LOD 要先確認"
+            }
+          ]
+        },
+        {
+          "id": "d2-pit",
+          "name": "被挖的坑",
+          "x": 14,
+          "z": 182,
+          "hx": 5,
+          "hz": 5,
+          "groups": [
+            {
+              "models": "A02_HollowTile",
+              "count": 1,
+              "how": "暫代，等專用模型"
+            }
+          ]
+        }
+      ],
+      "fill": "用 D 區深綠和黑褐，幾乎沒有人造物。ElderCypress_B、C、D 外圈密林；A03_FallenLog、A06_RootStump、BM09 蕨；低霧和林隙光束。",
+      "shots": [
+        {
+          "id": "D2-S1",
+          "ka": "KA08",
+          "x": 10,
+          "z": 145,
+          "yaw": 355,
+          "time": "陰天",
+          "must": "前景巨根和蕨、林間小路、比一切都大的神木"
+        },
+        {
+          "id": "D2-S2",
+          "x": 8,
+          "z": 178,
+          "yaw": 345,
+          "time": "陰天",
+          "must": "站在樹根下往上看，看不到樹頂"
+        },
+        {
+          "id": "D2-S3",
+          "x": 14,
+          "z": 188,
+          "yaw": 150,
+          "time": "陰天",
+          "must": "坑和鑿痕，安靜不對勁"
+        }
+      ],
+      "missing": [
+        "神木旁被挖的坑專用模型",
+        "光束和低霧"
+      ]
+    },
+    {
+      "id": "D4",
+      "name": "苔石古祠",
+      "cell": [
+        -1,
+        2
+      ],
+      "order": 10,
+      "days": "第 7 天",
+      "feel": "被遺忘的東西，碑上少了一行",
+      "terrain": "林中一塊略高的石台，三面是苔石斜坡，只有東側一條舊石路進來。",
+      "landmark": "塌牆小祠和古碑。",
+      "zones": [
+        {
+          "id": "d4-shrine",
+          "name": "塌牆小祠",
+          "x": -100,
+          "z": 200,
+          "hx": 8,
+          "hz": 7,
+          "groups": [
+            {
+              "models": "R01_DryStoneWall_Collapsed,R01_DryStoneWall_Straight",
+              "count": 8,
+              "how": "只剩兩面牆"
+            },
+            {
+              "models": "R04_StoneLanternBroken",
+              "count": 2,
+              "how": "倒在路旁"
+            }
+          ]
+        }
+      ],
+      "fill": "ElderCypress 密林；A04_MossBoulderCover 12 群；BM09 蕨大片。",
+      "shots": [
+        {
+          "id": "D4-S1",
+          "x": -78,
+          "z": 196,
+          "yaw": 275,
+          "time": "陰天",
+          "must": "舊石路盡頭，塌牆從林中露出"
+        },
+        {
+          "id": "D4-S2",
+          "x": -98,
+          "z": 195,
+          "yaw": 0,
+          "time": "陰天",
+          "must": "碑面正面，鑿痕和缺月記號"
+        }
+      ],
+      "missing": [
+        "古林碑（鑿痕、缺月記號）",
+        "祠內殘件"
+      ]
+    },
+    {
+      "id": "D6",
+      "name": "古林深處往山腳",
+      "cell": [
+        1,
+        2
+      ],
+      "order": 11,
+      "days": "第 5 天",
+      "feel": "樹變少，石頭變多，開始出現整齊的人造石階",
+      "terrain": "從 D2 東側 (50,200) 起坡，到 (150,200) 升高 20 m。後段變陡，路改為石階。",
+      "landmark": "往上看得到山門的輪廓。",
+      "zones": [
+        {
+          "id": "d6-marker",
+          "name": "山腳界碑",
+          "x": 140,
+          "z": 198,
+          "hx": 5,
+          "hz": 5,
+          "groups": [
+            {
+              "models": "R05_Milestone",
+              "count": 1,
+              "how": "暫代界碑"
+            },
+            {
+              "models": "TE03_Stair",
+              "count": 8,
+              "how": "最早的一段石階"
+            }
+          ]
+        }
+      ],
+      "fill": "樹 60 m 內由密變疏，往東換成 ElderPine 和岩石；這條過渡帶不要一條線切開。",
+      "shots": [
+        {
+          "id": "D6-S1",
+          "x": 100,
+          "z": 195,
+          "yaw": 85,
+          "time": "上午",
+          "must": "林子變疏，遠處看到石階"
+        },
+        {
+          "id": "D6-S2",
+          "x": 135,
+          "z": 195,
+          "yaw": 80,
+          "time": "上午",
+          "must": "第一段石階和往上的山門影子"
+        }
+      ],
+      "missing": [
+        "山腳界碑（Josh 的 SG 包內，待確認）"
+      ]
+    },
+    {
+      "id": "B1",
+      "name": "山門石階",
+      "cell": [
+        2,
+        2
+      ],
+      "order": 12,
+      "days": "第 5、10 天",
+      "feel": "要爬很久；山裡有別的規則",
+      "terrain": "從南西 (155,155) 高度 20 m 爬到北東 (240,245) 高度 70 m。寬石階分三段，中間兩個歇腳台，一側懸崖。",
+      "landmark": "山門 SectGate 在第二段石階頂。",
+      "zones": [
+        {
+          "id": "b1-base",
+          "name": "階底",
+          "x": 195,
+          "z": 158,
+          "hx": 8,
+          "hz": 8,
+          "groups": [
+            {
+              "models": "SG 石階組",
+              "count": 12,
+              "how": "寬 6 m，Josh 的 SG",
+              "tag": "pending"
+            }
+          ]
+        },
+        {
+          "id": "b1-gate",
+          "name": "山門",
+          "x": 205,
+          "z": 210,
+          "hx": 8,
+          "hz": 6,
+          "groups": [
+            {
+              "models": "SectGate",
+              "count": 1,
+              "how": "Dondon 的模型"
+            }
+          ]
+        },
+        {
+          "id": "b1-rest",
+          "name": "歇腳亭",
+          "x": 200,
+          "z": 185,
+          "hx": 5,
+          "hz": 4,
+          "groups": [
+            {
+              "models": "TE05_Pavilion",
+              "count": 1,
+              "how": "暫代，正式等 B 區風格模型"
+            }
+          ]
+        }
+      ],
+      "fill": "崖松 ElderPine_B、C；花崗岩石群；雲海卡片在腳下。B 區用灰白花崗石，不要用河谷的暖木色。",
+      "shots": [
+        {
+          "id": "B1-S1",
+          "ka": "KA09",
+          "x": 195,
+          "z": 155,
+          "yaw": 5,
+          "time": "晴",
+          "must": "前景階石和崖松、一段段往上、山門和瀑布白線"
+        },
+        {
+          "id": "B1-S2",
+          "x": 202,
+          "z": 188,
+          "yaw": 200,
+          "time": "晴",
+          "must": "歇腳亭回望，雲在腳下"
+        },
+        {
+          "id": "B1-S3",
+          "x": 205,
+          "z": 222,
+          "yaw": 180,
+          "time": "晴",
+          "must": "穿過山門回頭，整段石階"
+        }
+      ],
+      "missing": [
+        "B 區石階和歇腳亭（確認 Josh 的 SG 內容）"
+      ]
+    },
+    {
+      "id": "B2",
+      "name": "山城街與測資廣場",
+      "cell": [
+        2,
+        3
+      ],
+      "order": 13,
+      "days": "第 5、10 天",
+      "feel": "又高又擠又講究，和青溪村一眼分得出來；第 10 天這一刻很重要",
+      "terrain": "南半塊是上坡街道（寬 5 到 7 m，兩側街屋），北半塊是大平台廣場。廣場外圈是崖邊，看得到雲海。",
+      "landmark": "同心圓石台，從街尾上坡一抬頭就看到。",
+      "zones": [
+        {
+          "id": "b2-street",
+          "name": "山城街",
+          "x": 200,
+          "z": 275,
+          "hx": 28,
+          "hz": 20,
+          "groups": [
+            {
+              "models": "MC01 街屋組",
+              "count": 12,
+              "how": "兩側緊貼，John 的 #80 改完才接",
+              "tag": "pending"
+            },
+            {
+              "models": "ST01-ST06",
+              "count": 14,
+              "how": "排水槽、石長椅、跨街燈籠",
+              "tag": "pending"
+            }
+          ]
+        },
+        {
+          "id": "b2-plaza",
+          "name": "測資廣場",
+          "x": 225,
+          "z": 328,
+          "hx": 18,
+          "hz": 14,
+          "groups": [
+            {
+              "models": "aptitude-plaza-v1",
+              "count": 1,
+              "how": "舊版暫放；石台設計等故事定稿，先不做新模型"
+            }
+          ]
+        }
+      ],
+      "fill": "灰白花崗石佔 50%，黛瓦、深色木、銅件。七道統棚位先留空地。",
+      "shots": [
+        {
+          "id": "B2-S1",
+          "ka": "KA10",
+          "x": 200,
+          "z": 258,
+          "yaw": 5,
+          "time": "黃昏",
+          "must": "前景排水槽和石凳、兩側街屋、跨街燈籠、更高的屋頂"
+        },
+        {
+          "id": "B2-S2",
+          "ka": "KA11",
+          "x": 245,
+          "z": 345,
+          "yaw": 230,
+          "time": "清晨",
+          "must": "同心圓石台、雲海、更高的峰（只出主視覺）"
+        },
+        {
+          "id": "B2-S3",
+          "x": 205,
+          "z": 298,
+          "yaw": 25,
+          "time": "黃昏",
+          "must": "街尾抬頭看到廣場"
+        }
+      ],
+      "missing": [
+        "同心圓石台與七道統棚位（等故事）",
+        "MC01、ST 等 John 的 #80"
+      ]
+    },
+    {
+      "id": "D5",
+      "name": "蕈谷",
+      "cell": [
+        1,
+        1
+      ],
+      "order": 14,
+      "days": "自由探索，入夜最好",
+      "feel": "白天只是陰濕的山谷，入夜才知道它值得來",
+      "terrain": "夾在 A4 東坡和 D6 之間的窄谷，谷底低 4 m，常年有霧。南口接 A4 上坡，北口接 D6。倒伏的大樹橫過谷底當天然橋。",
+      "landmark": "倒伏的 ElderGuardian，從 A4 亭子北望能看到谷口的霧。",
+      "zones": [
+        {
+          "id": "d5-log",
+          "name": "倒木",
+          "x": 100,
+          "z": 100,
+          "hx": 12,
+          "hz": 6,
+          "groups": [
+            {
+              "models": "ElderGuardian",
+              "count": 1,
+              "how": "放倒橫跨谷底，可以走上去"
+            },
+            {
+              "models": "A03_FallenLog,A06_RootStump",
+              "count": 8,
+              "how": "散在倒木兩側"
+            }
+          ]
+        },
+        {
+          "id": "d5-glen",
+          "name": "蕈群",
+          "x": 118,
+          "z": 128,
+          "hx": 14,
+          "hz": 12,
+          "groups": [
+            {
+              "models": "A04_MossBoulderCover,A05_LayeredRockCover",
+              "count": 14,
+              "how": "成群壓低視線"
+            },
+            {
+              "models": "BM09_01,BM09_02",
+              "count": 30,
+              "how": "蕨鋪滿地面"
+            }
+          ]
+        }
+      ],
+      "fill": "ElderCypress_C、D 圍住谷壁；濃霧。發光蕈群和螢火要新做，靈氣光點面積控制在 5% 以內。",
+      "shots": [
+        {
+          "id": "D5-S1",
+          "x": 85,
+          "z": 62,
+          "yaw": 15,
+          "time": "黃昏",
+          "must": "從 A4 走來，霧裡的谷口"
+        },
+        {
+          "id": "D5-S2",
+          "x": 100,
+          "z": 92,
+          "yaw": 20,
+          "time": "入夜",
+          "must": "倒木橋和遠處發光的蕈群"
+        },
+        {
+          "id": "D5-S3",
+          "x": 118,
+          "z": 118,
+          "yaw": 0,
+          "time": "入夜",
+          "must": "站進蕈群，光從腳邊來"
+        }
+      ],
+      "missing": [
+        "發光蕈群、螢火（待排）"
+      ]
+    },
+    {
+      "id": "A7",
+      "name": "東坡山脊",
+      "cell": [
+        2,
+        0
+      ],
+      "order": 15,
+      "days": "自由探索",
+      "feel": "爬到亭子還不夠，再往上有另一個世界",
+      "terrain": "從 A4 亭子後方接小徑，升到高度 25 m 的長條山脊，兩側緩降。風大、樹少、視野最開。",
+      "landmark": "山脊上一棵孤松和塌了一半的烽火台，從 A4 梯田抬頭就看得到。",
+      "zones": [
+        {
+          "id": "a7-tower",
+          "name": "舊烽台",
+          "x": 200,
+          "z": 15,
+          "hx": 8,
+          "hz": 7,
+          "groups": [
+            {
+              "models": "R01_DryStoneWall_Collapsed,R01_DryStoneWall_Corner",
+              "count": 10,
+              "how": "圍成塌掉的圓台"
+            },
+            {
+              "models": "R04_StoneLanternBroken",
+              "count": 1,
+              "how": "台邊"
+            }
+          ]
+        },
+        {
+          "id": "a7-pine",
+          "name": "孤松",
+          "x": 175,
+          "z": -10,
+          "hx": 4,
+          "hz": 4,
+          "groups": [
+            {
+              "models": "ElderPine",
+              "count": 1,
+              "how": "山脊最高點"
+            },
+            {
+              "models": "RK09",
+              "count": 1,
+              "how": "樹下石凳，朝西看河谷"
+            }
+          ]
+        }
+      ],
+      "fill": "GrassDry、GrassTall 大片隨風；岩石 A05_LayeredRockCover 8 群；幾乎沒有樹。",
+      "shots": [
+        {
+          "id": "A7-S1",
+          "x": 160,
+          "z": 20,
+          "yaw": 95,
+          "time": "上午",
+          "must": "小徑盡頭，孤松和烽台在山脊上"
+        },
+        {
+          "id": "A7-S2",
+          "x": 175,
+          "z": -6,
+          "yaw": 260,
+          "time": "黃昏",
+          "must": "整個河谷和村子都在腳下"
+        },
+        {
+          "id": "A7-S3",
+          "x": 205,
+          "z": 25,
+          "yaw": 15,
+          "time": "上午",
+          "must": "往北看到東山徑和山城"
+        }
+      ],
+      "missing": []
+    },
+    {
+      "id": "D8",
+      "name": "東山徑",
+      "cell": [
+        2,
+        1
+      ],
+      "order": 16,
+      "days": "第 5 天另一條路",
+      "feel": "不走古林也能上山，但路比較險",
+      "terrain": "從 A7 山脊北端沿崖邊上到 B1 階底，高度 25 到 40 m。窄路 2 m，一側懸崖，一段木棧。",
+      "landmark": "懸崖上的木棧和歇腳石棚。",
+      "zones": [
+        {
+          "id": "d8-camp",
+          "name": "歇腳棚",
+          "x": 205,
+          "z": 100,
+          "hx": 5,
+          "hz": 4,
+          "groups": [
+            {
+              "models": "A09_StoneShelter",
+              "count": 1,
+              "how": "靠崖"
+            },
+            {
+              "models": "R03_FirewoodScattered",
+              "count": 1,
+              "how": "棚邊"
+            }
+          ]
+        },
+        {
+          "id": "d8-ledge",
+          "name": "崖邊棧道",
+          "x": 215,
+          "z": 130,
+          "hx": 8,
+          "hz": 14,
+          "groups": [
+            {
+              "models": "FE01_Straight,FE01_Corner",
+              "count": 10,
+              "how": "暫用棧橋件貼崖，可換 B 區風格"
+            }
+          ]
+        }
+      ],
+      "fill": "ElderPine_B 崖松，由河谷的暖色慢慢換成 B 區的灰白石。",
+      "shots": [
+        {
+          "id": "D8-S1",
+          "x": 200,
+          "z": 60,
+          "yaw": 10,
+          "time": "上午",
+          "must": "路沿著崖往上，看得到棧道"
+        },
+        {
+          "id": "D8-S2",
+          "x": 215,
+          "z": 125,
+          "yaw": 5,
+          "time": "上午",
+          "must": "棧道上，一側是深谷和雲"
+        },
+        {
+          "id": "D8-S3",
+          "x": 200,
+          "z": 145,
+          "yaw": 340,
+          "time": "晴",
+          "must": "快到了：石階和山門就在上面"
+        }
+      ],
+      "missing": [
+        "B 區風格的崖邊棧道（現在用棧橋件暫代）"
+      ]
+    },
+    {
+      "id": "A8",
+      "name": "東谷竹海",
+      "cell": [
+        2,
+        -1
+      ],
+      "order": 17,
+      "days": "自由探索",
+      "feel": "走進去就看不到外面，只有風聲",
+      "terrain": "A6 東側的小山谷，整片竹林。一條彎小徑穿過，中間有一處空地和小水潭。",
+      "landmark": "竹海中間的廢棄小屋。",
+      "zones": [
+        {
+          "id": "a8-hut",
+          "name": "廢屋空地",
+          "x": 205,
+          "z": -95,
+          "hx": 10,
+          "hz": 8,
+          "groups": [
+            {
+              "models": "H01_StoneTimberHouse",
+              "count": 1,
+              "how": "屋頂要破損版，沒有就加塌牆"
+            },
+            {
+              "models": "R02_BambooFence_Leaning,R02_BambooFence_EndPost",
+              "count": 6,
+              "how": "倒了一半"
+            },
+            {
+              "models": "BM03_03",
+              "count": 2,
+              "how": "門邊"
+            }
+          ]
+        }
+      ],
+      "fill": "BambooClump 60 叢以上，密到看不穿；地面落葉 BM10_02。",
+      "shots": [
+        {
+          "id": "A8-S1",
+          "x": 158,
+          "z": -90,
+          "yaw": 90,
+          "time": "上午",
+          "must": "稻田邊走進竹林，光線一下暗下來"
+        },
+        {
+          "id": "A8-S2",
+          "x": 190,
+          "z": -92,
+          "yaw": 90,
+          "time": "午後",
+          "must": "竹林裂開，露出廢屋"
+        }
+      ],
+      "missing": [
+        "破損版民居（沒有就用塌牆）"
+      ]
+    },
+    {
+      "id": "A9",
+      "name": "官道南段與舊驛站",
+      "cell": [
+        0,
+        -2
+      ],
+      "order": 18,
+      "days": "第 1 天起可回頭走",
+      "feel": "外面的世界從這條路來，也可以往回看看",
+      "terrain": "A2 再往南，地勢更低更開闊，官道兩旁是荒田。路的盡頭是被山洪沖斷的橋，走不過去但看得懂為什麼。",
+      "landmark": "舊驛站和斷橋。",
+      "zones": [
+        {
+          "id": "a9-post",
+          "name": "舊驛站",
+          "x": -12,
+          "z": -190,
+          "hx": 9,
+          "hz": 7,
+          "groups": [
+            {
+              "models": "H01_StoneTimberHouse",
+              "count": 1,
+              "how": "沒人住，門半開"
+            },
+            {
+              "models": "A2_OverturnedCart",
+              "count": 1,
+              "how": "院子裡"
+            },
+            {
+              "models": "R01_DryStoneWall_Straight,R01_DryStoneWall_Collapsed",
+              "count": 8,
+              "how": "院牆"
+            }
+          ]
+        },
+        {
+          "id": "a9-bridge",
+          "name": "斷橋",
+          "x": 5,
+          "z": -240,
+          "hx": 8,
+          "hz": 6,
+          "groups": [
+            {
+              "models": "WM07_StoneBridge",
+              "count": 1,
+              "how": "要斷開的版本，沒有就先用塌牆和石堆堵路"
+            },
+            {
+              "models": "CR03_StonePile",
+              "count": 3,
+              "how": "橋頭"
+            }
+          ]
+        }
+      ],
+      "fill": "GrassDry 為主；ElderWithered 1 棵；R05_Milestone 2 個。",
+      "shots": [
+        {
+          "id": "A9-S1",
+          "x": 2,
+          "z": -160,
+          "yaw": 180,
+          "time": "傍晚",
+          "must": "回頭往南，路通向遠方和驛站"
+        },
+        {
+          "id": "A9-S2",
+          "x": 0,
+          "z": -228,
+          "yaw": 180,
+          "time": "傍晚",
+          "must": "斷橋和對岸的遠山"
+        },
+        {
+          "id": "A9-S3",
+          "x": -5,
+          "z": -180,
+          "yaw": 10,
+          "time": "傍晚",
+          "must": "從驛站往北：遠處茶亭和村子"
+        }
+      ],
+      "missing": [
+        "斷橋版石橋"
+      ]
+    },
+    {
+      "id": "D7",
+      "name": "神木背面",
+      "cell": [
+        0,
+        3
+      ],
+      "order": 19,
+      "days": "自由探索",
+      "feel": "正面是所有人都會去的地方，背面只有找得到的人才知道",
+      "terrain": "D2 北側地勢往下掉，形成一圈環繞神木根部的低地。巨根之間有天然石洞。",
+      "landmark": "從背面仰望神木，看到正面看不到的巨大樹洞。",
+      "zones": [
+        {
+          "id": "d7-hollow",
+          "name": "樹洞入口",
+          "x": 0,
+          "z": 262,
+          "hx": 8,
+          "hz": 6,
+          "groups": [
+            {
+              "models": "A02_HollowTile,A06_RootStump",
+              "count": 4,
+              "how": "根部低地"
+            },
+            {
+              "models": "A04_MossBoulderCover",
+              "count": 8,
+              "how": "遮住入口，要繞才看得到"
+            }
+          ]
+        }
+      ],
+      "fill": "ElderCypress_D 密林；BM09 蕨；幾乎無光。放機緣，不放主線。",
+      "shots": [
+        {
+          "id": "D7-S1",
+          "x": 25,
+          "z": 255,
+          "yaw": 300,
+          "time": "陰天",
+          "must": "繞到背面，發現樹根間有路"
+        },
+        {
+          "id": "D7-S2",
+          "x": 4,
+          "z": 250,
+          "yaw": 355,
+          "time": "陰天",
+          "must": "樹洞入口，光從縫裡進來"
+        }
+      ],
+      "missing": [
+        "樹洞內部（之後再規劃）"
+      ]
+    }
+  ],
+  "later": [
+    "B3 宗門群",
+    "B4 雲瀑",
+    "C 區裂靈湖"
+  ],
+  "size": "可走區塊從 21 塊加到 26 塊（約 2.1 到 2.6 平方公里，多 24%）。每塊仍是 100 m，已建好的區塊座標不動。新區塊建到時要加進 novice-world-blocks.json 和 world-dressing.json。"
+}

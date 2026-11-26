@@ -1,0 +1,270 @@
+{
+  "asset": "RS03_SectGate",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -4.57,
+          -2.27,
+          0.0
+        ],
+        "max": [
+          4.57,
+          2.27,
+          5.7171
+        ],
+        "box_m": [
+          [
+            -4.5900001716613765,
+            -2.2899999809265137,
+            0.0
+          ],
+          [
+            4.5900001716613765,
+            2.2899999809265137,
+            5.737061519622802
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0
+      }
+    },
+    {
+      "check": "shape_unchanged_triangles",
+      "pass": true,
+      "detail": {
+        "lod0_triangles": 64256,
+        "source_triangles": 62604,
+        "source_zero_area_dropped": 64,
+        "reviewed_part_edits": [
+          {
+            "part": "143 open roof tubes capped (286 end rings)",
+            "why": "back-face check: open swept tubes have no inside, so some came out facing inward (30 % red)",
+            "triangles_before": 27920,
+            "triangles_after": 29636
+          }
+        ]
+      }
+    },
+    {
+      "check": "shape_unchanged_size",
+      "pass": true,
+      "detail": {
+        "dimensions_m": [
+          9.14,
+          4.54,
+          5.7171
+        ],
+        "source_dimensions_m": [
+          9.14,
+          4.54,
+          5.7171
+        ],
+        "max_error_m": 0.0
+      }
+    },
+    {
+      "check": "source_coplanar_pulled_apart",
+      "pass": true,
+      "detail": {
+        "pairs_found": 1391,
+        "faces_moved": 791,
+        "rounds": 3,
+        "pairs_left": 0,
+        "push_m": 0.0015,
+        "tol_m": 0.0011,
+        "vertices_moved": 1193,
+        "max_shift_m": 0.003
+      }
+    },
+    {
+      "check": "roof_tile_dark_not_teal",
+      "pass": true,
+      "detail": {
+        "tile_atlas_mean_srgb": [
+          0.197,
+          0.212,
+          0.241
+        ],
+        "hex": "#32363D",
+        "saturation": 0.183,
+        "target": "#3A4048",
+        "source_tile": "Blue_Green_Tiles linear (.065, .15, .155), Tile_Roll_Highlight (.11, .22, .22)"
+      }
+    },
+    {
+      "check": "collision_boxes_made",
+      "pass": true,
+      "detail": {
+        "boxes": 29,
+        "triangles": 348,
+        "skipped_parts": [],
+        "rule": "one box per part with its lowest point under 2.2 m (roof tile and Detail_Small none): the smaller of its axis-aligned and principal-axes box, thin sides opened to 2 cm"
+      }
+    },
+    {
+      "check": "collision_probe_tops",
+      "pass": true,
+      "detail": [
+        {
+          "probe": "step_1",
+          "xy": [
+            0.0,
+            -2.1
+          ],
+          "top_z_m": 0.16,
+          "expected": [
+            0.14,
+            0.18
+          ],
+          "ok": true
+        },
+        {
+          "probe": "platform_gateway",
+          "xy": [
+            0.0,
+            0.4
+          ],
+          "top_z_m": 0.5,
+          "expected": [
+            0.48,
+            0.52
+          ],
+          "ok": true
+        },
+        {
+          "probe": "platform_back",
+          "xy": [
+            0.0,
+            1.9
+          ],
+          "top_z_m": 0.5,
+          "expected": [
+            0.48,
+            0.52
+          ],
+          "ok": true
+        },
+        {
+          "probe": "ground_side",
+          "xy": [
+            -4.8,
+            0.0
+          ],
+          "top_z_m": null,
+          "expected": null,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 64256,
+          "LOD1": 32128,
+          "LOD2": 9222
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.144,
+        "per_group": {
+          "Main": {
+            "LOD0": 5836,
+            "LOD1": 2918,
+            "LOD2": 874
+          },
+          "Wood": {
+            "LOD0": 22652,
+            "LOD1": 11326,
+            "LOD2": 3396
+          },
+          "Tile": {
+            "LOD0": 30284,
+            "LOD1": 15142,
+            "LOD2": 4130
+          },
+          "Stone": {
+            "LOD0": 2068,
+            "LOD1": 1034,
+            "LOD2": 310
+          },
+          "Detail_Small": {
+            "LOD0": 3416,
+            "LOD1": 1708,
+            "LOD2": 512
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          9.14,
+          4.54,
+          5.7171
+        ],
+        "blend_dims_m": [
+          9.14,
+          4.54,
+          5.7171
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "RS03_SectGate.001",
+        "RS03_SectGate_Collision.001",
+        "RS03_SectGate_Detail_Small_LOD0.001",
+        "RS03_SectGate_Detail_Small_LOD1.001",
+        "RS03_SectGate_Detail_Small_LOD2.001",
+        "RS03_SectGate_LOD0.001",
+        "RS03_SectGate_LOD1.001",
+        "RS03_SectGate_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 8739408
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 419,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "asset": "DR03_RootCross",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "Detail_DR03_Plants"
+  ],
+  "name_zh": "根牆交叉件",
+  "slot": "根牆在路邊斷開的地方（收頭）、兩條根交叉或 DR02 接頭處（交叉件）",
+  "note": "和 DR02 板根牆同一套做法：一塊內芯加上一股股慢慢扭轉的根絞成一束，斷面底寬頂尖。兩條根約 55° 交叉：下面一條順著 X 貼地，上面一條細一點，拱起來壓在它上面，四個端都鑽進土裡。Socket_Joint 在交叉點正下方、+X 是下面那條根的方向；對到 DR02 的接頭就蓋住接縫，也可以單獨放在兩條根交叉的地方。樹皮：Poly Haven bark_brown_02 掃描凹凸推進高模幾何再烘焙；苔是鼓起來的苔墊。Detail_DR03_Plants：根上的蕨、心形葉小叢，兩端的蕨和心形葉。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 27946,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD1": {
+      "triangles": 14021,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD2": {
+      "triangles": 4299,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    }
+  },
+  "texture_resolution_px": {
+    "DR03_RootCross_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR03_RootCross_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR03_RootCross_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR03_RootCross_A_ORM.png": [
+      2048,
+      2048
+    ],
+    "Shared/D2Bark_Detail_Normal.png": [
+      1024,
+      1024
+    ],
+    "Shared/D2Bark_Detail_Albedo.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)；收頭：根指往 +X 攤開，接牆的一端在 -X；交叉件：下面那條沿 X、上面那條和 X 夾 55°",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "收頭：整件（含鑽土的部分）沿 X 的中點正下方的地面；交叉件：交叉點正下方的地面。z = 0 是地面，鑽土的部分在 z < 0",
+  "dimensions_m": [
+    7.8256,
+    7.1555,
+    2.6404
+  ],
+  "bounds_min_m": [
+    -3.957,
+    -3.5845,
+    -0.7082
+  ],
+  "bounds_max_m": [
+    3.8686,
+    3.571,
+    1.9322
+  ],
+  "shape": {
+    "length_above_ground_m": 6.878,
+    "height_max_m": 1.932,
+    "gap_under_root_max_m": 0.0,
+    "top_along_spine_m": [
+      0.773,
+      1.647,
+      1.473
+    ],
+    "walkable_under_1p75m": false,
+    "blocked_at_1m_fraction": 0.462,
+    "blocked_at_1p7m_fraction": 0.154
+  },
+  "lods": {
+    "LOD0": {
+      "DR03_RootCross_LOD0": 12774,
+      "Detail_DR03_Plants_LOD0": 15172
+    },
+    "LOD1": {
+      "DR03_RootCross_LOD1": 6435,
+      "Detail_DR03_Plants_LOD1": 7586
+    },
+    "LOD2": {
+      "DR03_RootCross_LOD2": 2024,
+      "Detail_DR03_Plants_LOD2": 2275
+    },
+    "collision": 172
+  },
+  "lod_rule": "LOD0 不刪細節；LOD1 collapse 50%；LOD2 collapse 15%",
+  "materials": [
+    "M_DR03_RootCross_A",
+    "M_DR03_RootCross_Leaf"
+  ],
+  "objects_per_lod": 2,
+  "material_note": "本體一個物件、一個材質 M_DR03_RootCross_A（一組貼圖 2048）；Detail_DR03_Plants 一個材質 M_DR03_RootCross_Leaf（同一組貼圖，雙面）",
+  "uv": {
+    "UV0": "UVMap：烘焙圖集，所有 UV 島同比例（124.4 px/m）、同方向",
+    "UV1": "TileUV：每 2.6 m 重複的樹皮 UV"
+  },
+  "unity": {
+    "shader": "Universal Render Pipeline/Lit",
+    "detail_normal": "Shared/D2Bark_Detail_Normal.png",
+    "detail_albedo": "Shared/D2Bark_Detail_Albedo.png",
+    "detail_mask": "Albedo.png 的 alpha（1 = 樹皮，0 = 苔和葉）",
+    "detail_tiling_on_uv0": 6.33,
+    "mask_map": "MaskURP.png（R metal、G AO、A smoothness）"
+  },
+  "collision": "DR03_RootCross_Collision: MeshCollider (convex off), renderer hidden；只含半徑 0.32 m 以上的根（內芯和粗股）",
+  "sockets_blender_xyz": {
+    "Socket_Joint": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "external_assets": [
+    {
+      "name": "bark_brown_02",
+      "source": "https://polyhaven.com/a/bark_brown_02",
+      "license": "CC0"
+    }
+  ],
+  "files_sha256": {
+    "DR03_RootCross_v001.fbx": "3ac3b9126fcb531dce748add9880bc940ad1f195dcfda2f3756561b16184f56c",
+    "DR03_RootCross_v001.glb": "ab32b7276351d7fb02fb887a250026ce7be90d32f3bf5db02be5549693ed1964"
+  }
+}

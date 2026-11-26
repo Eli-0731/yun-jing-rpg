@@ -1,0 +1,380 @@
+{
+  "asset": "PS02_BrokenBridge",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "PS02_BrokenBridge_Detail_Small"
+  ],
+  "name_zh": "斷橋",
+  "slot": "A9_RoadEnd_BrokenBridge",
+  "note": "路盡頭被山洪沖斷的石拱橋（三視圖 PS02-cand-1）：兩端橋頭還在，各是一段條石砌的橋台，中間一道弓背石階（20 級，每級高 0.175 m，下段陡、上段緩）夾在兩道石欄杆之間，爬到 3.5 m 的小平台；石欄杆是方柱加圓珠頂、欄板開雲形透孔、上面壓扶手。橋下是拱的起頭：拱圈石凸出牆面一圈，拱底也是一塊塊條石。中段沖掉了：斷面粗糙，各層石頭參差往後退，拱圈斷在平台邊緣後面一點，左右斷口不一樣（左邊 x -0.95、右邊 x 1.35，平台處缺口約 2.3 m）。河床鋪舊卵石，散著十幾塊落石和幾塊拱圈石。灰色舊石、牆腳和縫裡長苔，牆面長蕨。圖上的木支撐不做；不寫字。碰撞：石階是一條斜坡、兩邊欄杆是牆、斷口處平台上有 1.1 m 的透明擋（人走到斷口就停），加四塊最大的落石。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 116964,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 3
+    },
+    "LOD1": {
+      "triangles": 58482,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 3
+    },
+    "LOD2": {
+      "triangles": 17542,
+      "objects": 3,
+      "objects_without_detail": 2,
+      "materials": 3
+    }
+  },
+  "texture_resolution_px": {
+    "PS02_BrokenBridge_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "PS02_BrokenBridge_Metallic.png": [
+      2048,
+      2048
+    ],
+    "PS02_BrokenBridge_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "PS02_BrokenBridge_Normal.png": [
+      2048,
+      2048
+    ],
+    "PS02_BrokenBridge_Rail_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "PS02_BrokenBridge_Rail_Metallic.png": [
+      2048,
+      2048
+    ],
+    "PS02_BrokenBridge_Rail_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "PS02_BrokenBridge_Rail_Normal.png": [
+      2048,
+      2048
+    ],
+    "PS02_BrokenBridge_Rail_Roughness.png": [
+      2048,
+      2048
+    ],
+    "PS02_BrokenBridge_Roughness.png": [
+      2048,
+      2048
+    ],
+    "PS02_BrokenBridge_Stone_BaseColor.png": [
+      4096,
+      4096
+    ],
+    "PS02_BrokenBridge_Stone_Metallic.png": [
+      4096,
+      4096
+    ],
+    "PS02_BrokenBridge_Stone_MetallicSmoothness.png": [
+      4096,
+      4096
+    ],
+    "PS02_BrokenBridge_Stone_Normal.png": [
+      4096,
+      4096
+    ],
+    "PS02_BrokenBridge_Stone_Roughness.png": [
+      4096,
+      4096
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre at river-bed level, z = 0; the bridge runs along X, front (-Y) looks at its side",
+  "dimensions_m": [
+    13.9513,
+    4.0,
+    4.2972
+  ],
+  "bounds_min_m": [
+    -6.9746,
+    -2.0,
+    0.0
+  ],
+  "bounds_max_m": [
+    6.9767,
+    2.0,
+    4.2972
+  ],
+  "size_limit_m": [
+    14.0,
+    4.0,
+    5.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        13.8187,
+        3.8188,
+        3.49
+      ],
+      "min": [
+        -6.9088,
+        -1.9199,
+        0.0
+      ],
+      "max": [
+        6.9099,
+        1.899,
+        3.49
+      ]
+    },
+    "Rail": {
+      "dims_m": [
+        13.9513,
+        3.7642,
+        4.2952
+      ],
+      "min": [
+        -6.9746,
+        -1.8819,
+        0.002
+      ],
+      "max": [
+        6.9767,
+        1.8823,
+        4.2972
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        13.8183,
+        4.0,
+        3.5032
+      ],
+      "min": [
+        -6.8831,
+        -2.0,
+        0.0
+      ],
+      "max": [
+        6.9351,
+        2.0,
+        3.5032
+      ]
+    }
+  },
+  "lods": {
+    "Stone": {
+      "LOD0": 32788,
+      "LOD1": 16394,
+      "LOD2": 4918
+    },
+    "Rail": {
+      "LOD0": 46236,
+      "LOD1": 23118,
+      "LOD2": 6934
+    },
+    "Detail_Small": {
+      "LOD0": 35240,
+      "LOD1": 17620,
+      "LOD2": 5286
+    },
+    "Main": {
+      "LOD0": 2700,
+      "LOD1": 1350,
+      "LOD2": 404
+    }
+  },
+  "lod_totals": {
+    "LOD0": 116964,
+    "LOD1": 58482,
+    "LOD2": 17542
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_PS02_BrokenBridge_Main",
+    "M_PS02_BrokenBridge_Rail",
+    "M_PS02_BrokenBridge_Stone"
+  ],
+  "textures": [
+    "PS02_BrokenBridge_BaseColor.png",
+    "PS02_BrokenBridge_Metallic.png",
+    "PS02_BrokenBridge_MetallicSmoothness.png",
+    "PS02_BrokenBridge_Normal.png",
+    "PS02_BrokenBridge_Rail_BaseColor.png",
+    "PS02_BrokenBridge_Rail_Metallic.png",
+    "PS02_BrokenBridge_Rail_MetallicSmoothness.png",
+    "PS02_BrokenBridge_Rail_Normal.png",
+    "PS02_BrokenBridge_Rail_Roughness.png",
+    "PS02_BrokenBridge_Roughness.png",
+    "PS02_BrokenBridge_Stone_BaseColor.png",
+    "PS02_BrokenBridge_Stone_Metallic.png",
+    "PS02_BrokenBridge_Stone_MetallicSmoothness.png",
+    "PS02_BrokenBridge_Stone_Normal.png",
+    "PS02_BrokenBridge_Stone_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_PS02_BrokenBridge_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "PS02_BrokenBridge_BaseColor.png",
+        "Normal": "PS02_BrokenBridge_Normal.png",
+        "MetallicSmoothness": "PS02_BrokenBridge_MetallicSmoothness.png"
+      },
+      "M_PS02_BrokenBridge_Rail": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "PS02_BrokenBridge_Rail_BaseColor.png",
+        "Normal": "PS02_BrokenBridge_Rail_Normal.png",
+        "MetallicSmoothness": "PS02_BrokenBridge_Rail_MetallicSmoothness.png"
+      },
+      "M_PS02_BrokenBridge_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "PS02_BrokenBridge_Stone_BaseColor.png",
+        "Normal": "PS02_BrokenBridge_Stone_Normal.png",
+        "MetallicSmoothness": "PS02_BrokenBridge_Stone_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "PS02_BrokenBridge_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "parts": {
+    "stair": {
+      "riser_m": 0.175,
+      "treads_m": [
+        0.222,
+        0.225,
+        0.228,
+        0.231,
+        0.235,
+        0.238,
+        0.242,
+        0.247,
+        0.251,
+        0.257,
+        0.263,
+        0.269,
+        0.277,
+        0.287,
+        0.298,
+        0.312,
+        0.331,
+        0.358,
+        0.404,
+        0.574
+      ],
+      "steps": 20,
+      "landing_z_m": 3.5,
+      "landing_inner_x_m": 1.2,
+      "foot_x_m": 6.95,
+      "hump": "nosing line z = 3.5 (1 - t^1.3), steepest 38 deg at the foot"
+    },
+    "arch": {
+      "springing_x_m": 3.6,
+      "springing_z_m": 0.35,
+      "rise_m": 2.5,
+      "radius_m": 3.842,
+      "ring_m": 0.5
+    },
+    "break_deck_x_m": {
+      "left": -0.95,
+      "right": 1.35
+    },
+    "deck_width_m": 3.04,
+    "walls_outer_y_m": 1.8599999999999999,
+    "collision": "ramp on the stair nosing line, balustrade walls 0.85 m over it, a 1.1 m invisible lip across the deck at each broken edge, the four biggest fallen blocks",
+    "sockets": "Socket_RoadEnd_L / R at the foot of each stair, +Y (Unity forward) pointing away from the bridge"
+  },
+  "sockets_blender_xyz": {
+    "Socket_RoadEnd_L": [
+      -7.0,
+      0.0,
+      0.0
+    ],
+    "Socket_RoadEnd_R": [
+      7.0,
+      0.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_RoadEnd_L.001": [
+      -7.0,
+      0.0,
+      0.0
+    ],
+    "Socket_RoadEnd_R.001": [
+      7.0,
+      0.0,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "PS02_BrokenBridge.001",
+    "PS02_BrokenBridge_Collision.001",
+    "PS02_BrokenBridge_Detail_Small_LOD0.001",
+    "PS02_BrokenBridge_Detail_Small_LOD1.001",
+    "PS02_BrokenBridge_Detail_Small_LOD2.001",
+    "PS02_BrokenBridge_LOD0.001",
+    "PS02_BrokenBridge_LOD1.001",
+    "PS02_BrokenBridge_LOD2.001",
+    "PS02_BrokenBridge_Rail_LOD0.001",
+    "PS02_BrokenBridge_Rail_LOD1.001",
+    "PS02_BrokenBridge_Rail_LOD2.001",
+    "Socket_RoadEnd_L.001",
+    "Socket_RoadEnd_R.001"
+  ],
+  "glb": "PS02_BrokenBridge_v001.glb",
+  "interface": {
+    "gap_m": 2.54
+  },
+  "modeling_method": "procedural mesh construction (art/source/roadside-landmarks-b/) on the StarterHouse v004 outline; procedural shaders baked to two 2048 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 250.8,
+        "median": 260.2,
+        "p90": 267.2,
+        "area_m2": 35.7
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 187.9,
+        "median": 190.5,
+        "p90": 193.3,
+        "area_m2": 345.3
+      },
+      "inside_or_covered": null,
+      "atlas_px": 4096,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Rail": {
+      "visible": {
+        "p10": 115.7,
+        "median": 115.8,
+        "p90": 115.9,
+        "area_m2": 225.2
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "art/references/PS02/ (AI three-view PS02/PS02-cand-1; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}
