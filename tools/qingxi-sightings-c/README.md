@@ -1,11 +1,11 @@
 # 青溪見聞 C（10/31 第二部分）
 
-作者：Eli-0731 · 2026-10-30。分支 `feature/qingxi-sightings-c`，等 #55（#47 收尾）合併後才開 PR。
+作者：Eli-0731 · 2026-10-30。分支 `feature/qingxi-sightings-c`；[本批 PR](https://github.com/z1nnz/chengtian/pulls?q=is%3Apr%20author%3AEli-0731%20head%3Afeature%2Fqingxi-sightings-c)（2026-11-27 開）。
 
 ## 進度
 
 - 12 則文字初稿：`sightings.json`（含指向層、三層取名、規則自檢）、`fortunes-c.json`（照 `packages/content/fortunes.json` 格式，`condition` 為新欄位）、`positions.json`（建議座標）。
-- 12 張 AI 三視圖已保存並逐張檢視：`art/references/qingxi-sightings-c/`（`PROMPTS.md`、`review.json`）。
+- 12 張三視圖已保存並逐張檢視：`art/references/qingxi-sightings-c/`（`PROMPTS.md`、`review.json`）。
 - **12 件全部建模**：`art/source/qingxi-sightings-c/build_sightings.py` → `art/exports/qingxi-sightings-c/<id>.fbx/.glb`；每件一個材質、四張 1024² 貼圖（Albedo、Normal、MaskURP、ORM）、同檔 LOD0/1/2（約 100%／50%／15%）、原點在底部中心。
 
 | id | 標題 | 道具名 | 材質 | 尺寸 m | 三角面 | 條件 |
@@ -104,7 +104,7 @@ npm test                                                      # 規則測試
 - 收藏依找到順序；本機紀錄壞掉時重置、去重；
 - `fortunes-c.json` 與文字一致、物品 id 小寫連字號；HOME 座標在屋內或後院範圍內。
 
-瀏覽器實測（Claude 內建瀏覽器）：A2 撿銅鈴（連按兩次 F 只記一次）、A3 夜裡撿木齒、雨後撿油紙包、後院撿草鞋、重新整理後進度保留、收藏頁順序正確、844 × 390 橫向手機版面正常。
+瀏覽器實測：A2 撿銅鈴（連按兩次 F 只記一次）、A3 夜裡撿木齒、雨後撿油紙包、後院撿草鞋、重新整理後進度保留、收藏頁順序正確、844 × 390 橫向手機版面正常。
 
 ## 短錄影
 
