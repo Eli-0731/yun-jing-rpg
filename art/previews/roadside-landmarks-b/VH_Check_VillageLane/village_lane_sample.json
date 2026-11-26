@@ -1,0 +1,272 @@
+{
+  "check": "VH-檢查 村子樣張",
+  "source": "D:/yun-jing-village-houses/art",
+  "lane": {
+    "length_m": 31.0,
+    "width_m": 4.5,
+    "north_side_end_m": 31.5,
+    "south_side_end_m": 30.73,
+    "gap_between_houses_m": 0.3
+  },
+  "figure_height_m": 1.75,
+  "figures": 6,
+  "eye_height_views_m": 1.7,
+  "houses": [
+    {
+      "key": "VH01",
+      "asset": "VH01_TwoStoreyHouse",
+      "version": "v001",
+      "yaw_deg": 0,
+      "min_m": [
+        0.0,
+        2.25,
+        0.0
+      ],
+      "max_m": [
+        7.96,
+        8.72,
+        7.46
+      ],
+      "size_m": [
+        7.96,
+        6.47,
+        7.46
+      ],
+      "lod0_tris": 83420
+    },
+    {
+      "key": "VH03",
+      "asset": "VH03_NarrowCottage",
+      "version": "v001",
+      "yaw_deg": 0,
+      "min_m": [
+        8.26,
+        2.25,
+        0.0
+      ],
+      "max_m": [
+        12.94,
+        10.93,
+        4.81
+      ],
+      "size_m": [
+        4.68,
+        8.68,
+        4.81
+      ],
+      "lod0_tris": 79010
+    },
+    {
+      "key": "VL01",
+      "asset": "VL01_LongEmptyHouse",
+      "version": "v001",
+      "yaw_deg": 0,
+      "min_m": [
+        13.24,
+        2.25,
+        0.0
+      ],
+      "max_m": [
+        22.22,
+        10.45,
+        5.55
+      ],
+      "size_m": [
+        8.98,
+        8.2,
+        5.55
+      ],
+      "lod0_tris": 76060
+    },
+    {
+      "key": "VL02",
+      "asset": "VL02_MovedInHouse",
+      "version": "v001",
+      "yaw_deg": 0,
+      "min_m": [
+        22.52,
+        2.25,
+        0.0
+      ],
+      "max_m": [
+        31.5,
+        10.44,
+        5.55
+      ],
+      "size_m": [
+        8.98,
+        8.19,
+        5.55
+      ],
+      "lod0_tris": 63186
+    },
+    {
+      "key": "VH02",
+      "asset": "VH02_LCourtyardHouse",
+      "version": "v001",
+      "yaw_deg": 180,
+      "min_m": [
+        0.0,
+        -12.2,
+        0.0
+      ],
+      "max_m": [
+        11.87,
+        -2.25,
+        5.26
+      ],
+      "size_m": [
+        11.87,
+        9.95,
+        5.26
+      ],
+      "lod0_tris": 156752
+    },
+    {
+      "key": "VL03",
+      "asset": "VL03_HalfCollapsedHouse",
+      "version": "v001",
+      "yaw_deg": 180,
+      "min_m": [
+        12.17,
+        -10.44,
+        0.0
+      ],
+      "max_m": [
+        21.45,
+        -2.25,
+        5.55
+      ],
+      "size_m": [
+        9.28,
+        8.19,
+        5.55
+      ],
+      "lod0_tris": 72884
+    },
+    {
+      "key": "VL04",
+      "asset": "VL04_DiligentFamilyHouse",
+      "version": "v001",
+      "yaw_deg": 180,
+      "min_m": [
+        21.75,
+        -10.44,
+        0.0
+      ],
+      "max_m": [
+        30.73,
+        -2.25,
+        5.55
+      ],
+      "size_m": [
+        8.98,
+        8.19,
+        5.55
+      ],
+      "lod0_tris": 89876
+    },
+    {
+      "key": "RS01",
+      "asset": "RS01_TownInn",
+      "version": "v002",
+      "yaw_deg": 90,
+      "min_m": [
+        -15.09,
+        -8.69,
+        0.0
+      ],
+      "max_m": [
+        -0.3,
+        5.69,
+        10.41
+      ],
+      "size_m": [
+        14.79,
+        14.38,
+        10.41
+      ],
+      "lod0_tris": 49020
+    },
+    {
+      "key": "RS02a",
+      "asset": "RS02_Blacksmith",
+      "version": "v001",
+      "yaw_deg": -90,
+      "min_m": [
+        34.0,
+        -9.88,
+        0.0
+      ],
+      "max_m": [
+        39.73,
+        -2.45,
+        5.36
+      ],
+      "size_m": [
+        5.72,
+        7.43,
+        5.36
+      ],
+      "lod0_tris": 95512
+    },
+    {
+      "key": "RS02b",
+      "asset": "RS02_MaterialShop",
+      "version": "v001",
+      "yaw_deg": -90,
+      "min_m": [
+        34.0,
+        2.45,
+        0.0
+      ],
+      "max_m": [
+        42.19,
+        11.5,
+        5.61
+      ],
+      "size_m": [
+        8.19,
+        9.05,
+        5.61
+      ],
+      "lod0_tris": 130488
+    },
+    {
+      "key": "VL05",
+      "asset": "VL05_ElderlyCoupleHouse",
+      "version": "v001",
+      "yaw_deg": -90,
+      "min_m": [
+        46.19,
+        -4.49,
+        0.0
+      ],
+      "max_m": [
+        54.38,
+        4.49,
+        5.55
+      ],
+      "size_m": [
+        8.19,
+        8.98,
+        5.55
+      ],
+      "lod0_tris": 88882
+    }
+  ],
+  "layout_size_m": [
+    69.47,
+    23.7,
+    10.41
+  ],
+  "renders": [
+    "01_plan.png",
+    "02_high_three_quarter.png",
+    "03_eye_1p7_west_to_east.png",
+    "04_eye_1p7_east_to_west.png",
+    "05_north_side_elevation.png",
+    "06_south_side_elevation.png"
+  ],
+  "note": "review layout only, LOD0 meshes from the exported GLBs; houses unchanged; not a game scene"
+}

@@ -1,0 +1,158 @@
+{
+  "asset": "BS01_BoundaryStone",
+  "source": "art/source/roadside-landmarks-b/blend/BS01_BoundaryStone_v001.blend",
+  "same_geometry": true,
+  "render_of": "exported LOD0 with baked textures",
+  "views": [
+    {
+      "file": "01_front.png",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "camera_location": [
+        0.0,
+        -5.6923,
+        1.0002
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "02_right.png",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "camera_location": [
+        5.6923,
+        0.0,
+        1.0002
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "03_rear.png",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "camera_location": [
+        0.0,
+        5.6923,
+        1.0002
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "04_left.png",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "camera_location": [
+        -5.6923,
+        0.0,
+        1.0002
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "05_front_right.png",
+      "direction": [
+        1,
+        -1,
+        0.45
+      ],
+      "camera_location": [
+        3.8356,
+        -3.8356,
+        2.7262
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "06_rear_right.png",
+      "direction": [
+        1,
+        1,
+        0.45
+      ],
+      "camera_location": [
+        3.8356,
+        3.8356,
+        2.7262
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "07_rear_left.png",
+      "direction": [
+        -1,
+        1,
+        0.45
+      ],
+      "camera_location": [
+        -3.8356,
+        3.8356,
+        2.7262
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "08_front_left.png",
+      "direction": [
+        -1,
+        -1,
+        0.45
+      ],
+      "camera_location": [
+        -3.8356,
+        -3.8356,
+        2.7262
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "09_top.png",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "camera_location": [
+        0.0,
+        0.0,
+        6.6925
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    },
+    {
+      "file": "10_high_front.png",
+      "direction": [
+        0,
+        -1,
+        1
+      ],
+      "camera_location": [
+        0.0,
+        -4.0251,
+        5.0253
+      ],
+      "projection": "orthographic",
+      "framing_checked": true
+    }
+  ]
+}

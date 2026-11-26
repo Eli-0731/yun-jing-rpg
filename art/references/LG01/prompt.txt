@@ -1,0 +1,20 @@
+LG01 三視圖提示詞與選圖
+工作包：2026-11-09 B｜112 小時（不同外形的民居、舊建築換材質、路上地標）第 6 節 LG01。固定段照 docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md 附錄（game/core-1108-world-east-valley）。
+
+選用：LG01-cand-3.png。備選：LG01-cand-1.png。
+選用理由：沒有人工木板，整根倒樹自己當橋：一端樹根盤翹起、另一端斷枝，樹幹上方有一條被走出來的淺色路線，苔和層狀蕈分布自然；三視圖對齊。
+沒選的原因：
+- cand-1：可用；但樹幹上釘了一塊木板補丁，作備選（建模不做木板）。
+- cand-2：樹幹中間綁了木板和繩，人工物太多。
+- cand-4：中間綁了木板，側視圖底下畫了溪谷背景，不是單件。
+建模時注意：比例照工作包 22 × 5 × 4 m，不照圖量；樹幹頂可走，兩端和地面順接；樹根盤一端、斷枝一端；苔綠 #3F5A2E、深樹皮 #2B2018；不做木板、不做繩。
+
+工具與張數：
+- Codex CLI 0.167.0，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 4 張（LG01-cand-1..4），原尺寸存檔，沒有 seed。生成日期 2026-11-11。
+- 提示詞組法：物件句＋單件物品的 Layout 段＋5.2 美術方向；Codex 沒有負面欄，所以把 5.3 負面提示加上第 6 節那句，以「Avoid:」接在最後。全部原文，一字未改。
+
+== 工作包原文（LG01 物件句）==
+Three-view orthographic turnaround sheet of an enormous fallen ancient tree lying across a forest ravine as a natural bridge, about 22 m long, 5 m wide and 4 m tall, a huge root plate lifted at one end, broken branches at the other, thick cracked dark bark covered in moss and shelf fungus, a worn walkable line along the top of the trunk, no writing.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of an enormous fallen ancient tree lying across a forest ravine as a natural bridge, about 22 m long, 5 m wide and 4 m tall, a huge root plate lifted at one end, broken branches at the other, thick cracked dark bark covered in moss and shelf fungus, a worn walkable line along the top of the trunk, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only. Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, no Japanese stone toro lantern, not Tudor half-timbering, no diagonal braces on plaster walls, no bright teal roof, no glossy plastic look

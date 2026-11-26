@@ -1,0 +1,381 @@
+{
+  "asset": "VH02_LCourtyardHouse",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "VH02_LCourtyardHouse_Detail_Small"
+  ],
+  "name_zh": "曲尺形院落民居",
+  "slot": "A1_QingxiVillage_House",
+  "note": "曲尺形院落民居（三視圖 VH02-cand-1）：後面一棟正屋橫跨整個寬度，前面右邊一棟廂房往巷子伸出來，兩棟都是單層，圍出左前方的小院。正屋坐在 0.4 m 石台基上，前簷四根簷柱下一道走廊，三級石階下到院子，木板對開門一扇半開；廂房台基較低，山牆朝巷子，向院子開一扇門兩扇窗。兩個屋頂交成一道天溝（各自去掉被另一個屋頂蓋住的瓦、板和簷口零件，交線上鋪一道天溝瓦）。院子是夯土地，矮院牆（下段亂石、上段石灰泥、頂上壓瓦）圍住，前牆一扇有小瓦頂的木門，兩扇門板開著靠在牆內，人可以走進院子。院子左邊留一塊 5 × 4 m 空地給菜圃（菜圃不在這件裡）。牆是石灰泥加亂石牆腳，木柱、木樑橫平豎直，沒有斜撐；直欞窗糊紙。有人住、照顧得好：灰泥少剝落、窗紙新、苔少；廂房牆邊一堆柴、兩只陶缸，走廊上竹匾、兩個竹籃、一只陶缸、門邊一把掃帚（竹匾、竹籃、掃帚、草在 Detail_Small）。碰撞：兩棟屋（和台基對齊，不留小台階，門都算關著）、走廊台基與石階、簷柱、院牆（大門開口留 0.9 m）、開著的門板、陶缸、柴堆。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 156752,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 78375,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 22005,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "VH02_LCourtyardHouse_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Normal.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "VH02_LCourtyardHouse_Wood_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the lot at ground level, front (gate side) -Y",
+  "dimensions_m": [
+    11.8733,
+    9.947,
+    5.2589
+  ],
+  "bounds_min_m": [
+    -5.9827,
+    -4.985,
+    0.0
+  ],
+  "bounds_max_m": [
+    5.8906,
+    4.962,
+    5.2589
+  ],
+  "size_limit_m": [
+    12.0,
+    10.0,
+    5.5
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        11.8106,
+        9.947,
+        5.2589
+      ],
+      "min": [
+        -5.92,
+        -4.985,
+        0.0
+      ],
+      "max": [
+        5.8906,
+        4.962,
+        5.2589
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        11.5548,
+        9.643,
+        2.0825
+      ],
+      "min": [
+        -5.9827,
+        -4.9027,
+        0.0
+      ],
+      "max": [
+        5.5721,
+        4.7403,
+        2.0825
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 10172,
+      "LOD1": 5086,
+      "LOD2": 1524
+    },
+    "Stone": {
+      "LOD0": 44712,
+      "LOD1": 22356,
+      "LOD2": 6706
+    },
+    "Wood": {
+      "LOD0": 28100,
+      "LOD1": 14050,
+      "LOD2": 4214
+    },
+    "Detail_Small": {
+      "LOD0": 17800,
+      "LOD1": 8899,
+      "LOD2": 2669
+    },
+    "Roof": {
+      "LOD0": 55968,
+      "LOD1": 27984,
+      "LOD2": 6892
+    }
+  },
+  "lod_totals": {
+    "LOD0": 156752,
+    "LOD1": 78375,
+    "LOD2": 22005
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_VH02_LCourtyardHouse_Main",
+    "M_VH02_LCourtyardHouse_RoofTiles",
+    "M_VH02_LCourtyardHouse_Stone",
+    "M_VH02_LCourtyardHouse_Wood"
+  ],
+  "textures": [
+    "VH02_LCourtyardHouse_BaseColor.png",
+    "VH02_LCourtyardHouse_Metallic.png",
+    "VH02_LCourtyardHouse_MetallicSmoothness.png",
+    "VH02_LCourtyardHouse_Normal.png",
+    "VH02_LCourtyardHouse_Roughness.png",
+    "VH02_LCourtyardHouse_Stone_BaseColor.png",
+    "VH02_LCourtyardHouse_Stone_Metallic.png",
+    "VH02_LCourtyardHouse_Stone_MetallicSmoothness.png",
+    "VH02_LCourtyardHouse_Stone_Normal.png",
+    "VH02_LCourtyardHouse_Stone_Roughness.png",
+    "VH02_LCourtyardHouse_Wood_BaseColor.png",
+    "VH02_LCourtyardHouse_Wood_Metallic.png",
+    "VH02_LCourtyardHouse_Wood_MetallicSmoothness.png",
+    "VH02_LCourtyardHouse_Wood_Normal.png",
+    "VH02_LCourtyardHouse_Wood_Roughness.png",
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_VH02_LCourtyardHouse_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VH02_LCourtyardHouse_BaseColor.png",
+        "Normal": "VH02_LCourtyardHouse_Normal.png",
+        "MetallicSmoothness": "VH02_LCourtyardHouse_MetallicSmoothness.png"
+      },
+      "M_VH02_LCourtyardHouse_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_VH02_LCourtyardHouse_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VH02_LCourtyardHouse_Stone_BaseColor.png",
+        "Normal": "VH02_LCourtyardHouse_Stone_Normal.png",
+        "MetallicSmoothness": "VH02_LCourtyardHouse_Stone_MetallicSmoothness.png"
+      },
+      "M_VH02_LCourtyardHouse_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VH02_LCourtyardHouse_Wood_BaseColor.png",
+        "Normal": "VH02_LCourtyardHouse_Wood_Normal.png",
+        "MetallicSmoothness": "VH02_LCourtyardHouse_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "VH02_LCourtyardHouse_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Gate": [
+      0.8,
+      -4.77,
+      0.0
+    ],
+    "Socket_Door": [
+      0.6,
+      1.3,
+      0.4
+    ],
+    "Socket_Yard_Plot": [
+      -3.0,
+      -2.4,
+      0.02
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Door.001": [
+      0.6,
+      1.3,
+      0.4
+    ],
+    "Socket_Gate.001": [
+      0.8,
+      -4.77,
+      0.0
+    ],
+    "Socket_Yard_Plot.001": [
+      -3.0,
+      -2.4,
+      0.02
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Door.001",
+    "Socket_Gate.001",
+    "Socket_Yard_Plot.001",
+    "VH02_LCourtyardHouse.001",
+    "VH02_LCourtyardHouse_Collision.001",
+    "VH02_LCourtyardHouse_Detail_Small_LOD0.001",
+    "VH02_LCourtyardHouse_Detail_Small_LOD1.001",
+    "VH02_LCourtyardHouse_Detail_Small_LOD2.001",
+    "VH02_LCourtyardHouse_LOD0.001",
+    "VH02_LCourtyardHouse_LOD1.001",
+    "VH02_LCourtyardHouse_LOD2.001"
+  ],
+  "glb": "VH02_LCourtyardHouse_v001.glb",
+  "interface": {
+    "collision": {
+      "rear": 4.45,
+      "right_main": 5.45,
+      "right_side": 5.45,
+      "side_front": -4.45,
+      "main_left": -5.45
+    }
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-houses-b/vh_court.py, vh_roof.py); procedural shaders baked to three 2048 atlases (Main, Stone, Wood); roof tiles on the shared 1024 VL tile texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 71.2,
+        "median": 108.8,
+        "p90": 138.9,
+        "area_m2": 65.2
+      },
+      "inside_or_covered": {
+        "p10": 11.5,
+        "median": 46.8,
+        "p90": 95.6,
+        "area_m2": 459.6
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 88.0,
+        "median": 120.9,
+        "p90": 121.0,
+        "area_m2": 161.5
+      },
+      "inside_or_covered": {
+        "p10": 29.6,
+        "median": 30.9,
+        "p90": 88.1,
+        "area_m2": 100.8
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 93.7,
+        "median": 108.5,
+        "p90": 108.9,
+        "area_m2": 128.8
+      },
+      "inside_or_covered": {
+        "p10": 4.6,
+        "median": 66.8,
+        "p90": 84.2,
+        "area_m2": 284.4
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": [
+    15151,
+    36468
+  ],
+  "reference": "art/references/VH02/ (AI three-view VH02/VH02-cand-1; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check, not committed)",
+  "based_on": "new outline (work pack 2026-11-09 VH02); materials and roof tiles shared with VL01-05 and VH01"
+}

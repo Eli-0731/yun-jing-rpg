@@ -1,0 +1,78 @@
+{
+ "id": "ST01",
+ "package": "docs/execution/2026-11-08/A-80h-mountain-city.md",
+ "author": "A (Johnnnny0823)",
+ "version": "v001",
+ "status": "Exported; Imported: see README (Unity 6000.3.28f1 check); In-game Verified: 未驗",
+ "dimensions_m": [
+  0.598,
+  0.597,
+  2.4
+ ],
+ "bounds_min_m": [
+  -0.299,
+  -0.298,
+  0.0
+ ],
+ "bounds_max_m": [
+  0.299,
+  0.299,
+  2.4
+ ],
+ "limit_m": [
+  0.6,
+  0.6,
+  2.4
+ ],
+ "origin": "free-standing on the street, bottom z = 0",
+ "minTier": "low",
+ "lods": [
+  {
+   "lod": 0,
+   "triangles": 14330,
+   "objects": 3,
+   "materials": 2
+  },
+  {
+   "lod": 1,
+   "triangles": 6626,
+   "objects": 3,
+   "materials": 2
+  },
+  {
+   "lod": 2,
+   "triangles": 2004,
+   "objects": 3,
+   "materials": 2
+  }
+ ],
+ "objectsLOD0": [
+  "ST_ST01_LOD0",
+  "ST_ST01_Glow_LOD0",
+  "ST_ST01_Detail_Moss_LOD0"
+ ],
+ "detailObjects": [
+  "ST_ST01_Detail_Moss_LOD0"
+ ],
+ "glowObjects": [
+  "ST_ST01_Glow_LOD0"
+ ],
+ "materials": [
+  "M_MountainStreet_Glow",
+  "M_MountainStreet_Trim"
+ ],
+ "textures": {
+  "T_MountainStreet_Albedo": "2048x2048",
+  "T_MountainStreet_Normal": "2048x2048",
+  "T_MountainStreet_MetallicSmoothness": "2048x2048",
+  "T_MountainStreet_Emission": "2048x2048"
+ },
+ "textureNote": "M_MountainStreet_*: shared MC01 trim sheet (art/textures/mountain-street-houses-a); M_StreetFurniture_*: art/textures/mountain-street-a (256 px/m)",
+ "sockets": [],
+ "collision": "ST_ST01_Collision (3 boxes)",
+ "extra": {
+  "glow": "ST01_lamp paper box inside the lamp house (M_MountainStreet_Glow)"
+ },
+ "fbx": "art/exports/mountain-street-a/ST_ST01.fbx",
+ "fps": "不寫（手機未實測）"
+}

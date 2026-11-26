@@ -1,0 +1,26 @@
+Unity 6000.3.28f1, pipeline URP
+PASS DR04_RootHollow set A: Albedo / Normal / ORM / MaskURP textures found
+PASS DR04_RootHollow set A: delivered textures 2048x2048 (larger than a person: 2048)
+INFO DR04_RootHollow: imported at 1024x1024 on StandaloneWindows64 (importer max 1024, default platform max 1024, build override max 0)
+INFO DR04_RootHollow: bark detail on UV0, tiling 7.23
+PASS DR04_RootHollow: imported size 5.741 x 4.265 x 3.135 m matches model_info 5.7406 x 4.2649 x 3.1346 within 2 cm
+PASS DR04_RootHollow: lowest point y = -0.549 (root tips dive below the ground, origin on the ground)
+PASS DR04_RootHollow: triangles LOD0/1/2 = 28873 / 14479 / 4282 (50% / 15%), model_info 28873 / 14479 / 4282
+PASS DR04_RootHollow: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS DR04_RootHollow: 2 materials over every LOD and Detail_ mesh (model_info 2; one per texture set and one two-sided for the plants)
+PASS DR04_RootHollow: Detail_* leaves render both faces
+PASS DR04_RootHollow: each slot of the body has its own texture set (M_DR04_RootHollow_A)
+PASS DR04_RootHollow: minTier = standard (landmark that blocks the way: everyone sees it)
+PASS DR04_RootHollow: detailObjects Detail_DR04_Plants present in the FBX
+PASS DR04_RootHollow: Detail_* off still shows the body (1 mesh per LOD)
+PASS DR04_RootHollow: Detail_DR04_Plants_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR04_RootHollow: DR04_RootHollow_LOD0 has UV0 (atlas) and UV1 (TileUV)
+INFO DR04_RootHollow: mesh compression Medium; UV0 of LOD0 has 965 distinct u and 421 distinct v over 11048 vertices (smallest step 0.000697 / 0.000697)
+PASS DR04_RootHollow: sockets Socket_Back (0.0, 0.0, 2.6)
+PASS DR04_RootHollow: one collision shell (MeshCollider, renderer off)
+PASS DR04_RootHollow: a walker heading into the hole is stopped with its centre at z = -0.17 m (at the mouth, not inside)
+PASS DR04_RootHollow: a walker crossing the piece side to side is stopped at 5 of 5 places (z = -0.5 to 1.5 m, every 0.5 m)
+PASS DR04_RootHollow: a walker coming from behind is stopped by the back wall (centre at z = 2.85 m)
+INFO DR04_RootHollow: collision clear height in the mouth 1.61 m
+INFO renders written to art/previews/d2-roots-b/DR04_RootHollow/unity
+INFO DR04_RootHollow: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)

@@ -1,0 +1,194 @@
+{
+  "asset": "BS01_BoundaryStone",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.5,
+          -0.25,
+          0.0
+        ],
+        "max": [
+          0.5,
+          0.25,
+          2.0004
+        ],
+        "box_m": [
+          [
+            -0.5,
+            -0.25,
+            0.0
+          ],
+          [
+            0.5,
+            0.25,
+            2.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.00278
+      }
+    },
+    {
+      "check": "blank_face_flat",
+      "pass": true,
+      "detail": {
+        "face_hits_y_m": [
+          -0.1007,
+          -0.1006,
+          -0.1004,
+          -0.0995,
+          -0.0993,
+          -0.1004,
+          -0.1002,
+          -0.0996,
+          -0.0996,
+          -0.0999,
+          -0.0996,
+          -0.0997,
+          -0.0997,
+          -0.0998,
+          -0.0999,
+          -0.0999,
+          -0.1,
+          -0.1002,
+          -0.1005,
+          -0.0995
+        ],
+        "spread_m": 0.0014,
+        "note": "no writing, no carving"
+      }
+    },
+    {
+      "check": "top_chipped_shoulder",
+      "pass": true,
+      "detail": {
+        "top_middle_m": 2.0,
+        "left_shoulder_m": 1.946,
+        "right_shoulder_m": 1.823
+      }
+    },
+    {
+      "check": "inscription_socket_on_face",
+      "pass": true,
+      "detail": {
+        "socket_m": [
+          0.0,
+          -0.1,
+          1.22
+        ],
+        "face_y_m": -0.0996
+      }
+    },
+    {
+      "check": "collision_base_and_stele",
+      "pass": true,
+      "detail": {
+        "base_front_y_m": -0.25,
+        "stele_front_y_m": -0.1,
+        "top_m": 2.0
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 10232,
+          "LOD1": 5114,
+          "LOD2": 1534
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 8798,
+            "LOD1": 4398,
+            "LOD2": 1319
+          },
+          "Detail_Small": {
+            "LOD0": 1434,
+            "LOD1": 716,
+            "LOD2": 215
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.0,
+          0.5,
+          2.0004
+        ],
+        "blend_dims_m": [
+          1.0,
+          0.5,
+          2.0004
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "BS01_BoundaryStone.001",
+        "BS01_BoundaryStone_Collision.001",
+        "BS01_BoundaryStone_Detail_Small_LOD0.001",
+        "BS01_BoundaryStone_Detail_Small_LOD1.001",
+        "BS01_BoundaryStone_Detail_Small_LOD2.001",
+        "BS01_BoundaryStone_LOD0.001",
+        "BS01_BoundaryStone_LOD1.001",
+        "BS01_BoundaryStone_LOD2.001",
+        "Socket_Inscription.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Inscription.001": [
+          0.0,
+          -0.1,
+          1.22
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 814200
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 228,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

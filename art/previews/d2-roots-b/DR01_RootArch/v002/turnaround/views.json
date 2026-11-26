@@ -1,0 +1,167 @@
+{
+  "asset": "DR01_RootArch",
+  "version": "v002",
+  "views": [
+    {
+      "name": "01_front",
+      "direction": [
+        0,
+        -1,
+        0.06
+      ],
+      "camera": [
+        0.0,
+        -51.907,
+        5.714
+      ],
+      "lens_mm": 50,
+      "file": "turnaround/01_front.png",
+      "mesh": "LOD0"
+    },
+    {
+      "name": "02_right",
+      "direction": [
+        1,
+        0,
+        0.06
+      ],
+      "camera": [
+        51.907,
+        0.0,
+        5.714
+      ],
+      "lens_mm": 50,
+      "file": "turnaround/02_right.png",
+      "mesh": "LOD0"
+    },
+    {
+      "name": "03_rear",
+      "direction": [
+        0,
+        1,
+        0.06
+      ],
+      "camera": [
+        0.0,
+        51.907,
+        5.714
+      ],
+      "lens_mm": 50,
+      "file": "turnaround/03_rear.png",
+      "mesh": "LOD0"
+    },
+    {
+      "name": "04_left",
+      "direction": [
+        -1,
+        0,
+        0.06
+      ],
+      "camera": [
+        -51.907,
+        0.0,
+        5.714
+      ],
+      "lens_mm": 50,
+      "file": "turnaround/04_left.png",
+      "mesh": "LOD0"
+    },
+    {
+      "name": "05_front_right",
+      "direction": [
+        1,
+        -1,
+        0.45
+      ],
+      "camera": [
+        35.038,
+        -35.038,
+        18.367
+      ],
+      "lens_mm": 50,
+      "file": "turnaround/05_front_right.png",
+      "mesh": "LOD0"
+    },
+    {
+      "name": "06_rear_right",
+      "direction": [
+        1,
+        1,
+        0.45
+      ],
+      "camera": [
+        35.038,
+        35.038,
+        18.367
+      ],
+      "lens_mm": 50,
+      "file": "turnaround/06_rear_right.png",
+      "mesh": "LOD0"
+    },
+    {
+      "name": "07_rear_left",
+      "direction": [
+        -1,
+        1,
+        0.45
+      ],
+      "camera": [
+        -35.038,
+        35.038,
+        18.367
+      ],
+      "lens_mm": 50,
+      "file": "turnaround/07_rear_left.png",
+      "mesh": "LOD0"
+    },
+    {
+      "name": "08_front_left",
+      "direction": [
+        -1,
+        -1,
+        0.45
+      ],
+      "camera": [
+        -35.038,
+        -35.038,
+        18.367
+      ],
+      "lens_mm": 50,
+      "file": "turnaround/08_front_left.png",
+      "mesh": "LOD0"
+    },
+    {
+      "name": "09_top",
+      "direction": [
+        0,
+        -0.001,
+        1
+      ],
+      "camera": [
+        0.0,
+        -0.06,
+        62.6
+      ],
+      "lens_mm": 50,
+      "file": "turnaround/09_top.png",
+      "mesh": "LOD0"
+    },
+    {
+      "name": "10_high_front",
+      "direction": [
+        0,
+        -1,
+        1
+      ],
+      "camera": [
+        0.0,
+        -36.77,
+        39.37
+      ],
+      "lens_mm": 50,
+      "file": "turnaround/10_high_front.png",
+      "mesh": "LOD0"
+    }
+  ],
+  "note": "遊戲模型 LOD0＋Detail_DR01_Plants，烘焙貼圖；白柱是 1.75 m 人形尺"
+}

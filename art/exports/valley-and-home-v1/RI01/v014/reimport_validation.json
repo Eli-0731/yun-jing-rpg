@@ -1,0 +1,546 @@
+{
+  "source": "D:\\chengtian\\1-進行中\\codex-v4-rice-and-ferry\\art\\source\\valley-and-home-v1\\RI01\\RI01-paddy-pack-v014.blend",
+  "results": {
+    "RI01_Paddy.fbx": {
+      "file_bytes": 405740,
+      "expected_meshes": 14,
+      "imported_meshes": 14,
+      "missing": [],
+      "max_dimension_error_m": 9.693244464870077e-07,
+      "triangle_mismatch": [],
+      "meshes": {
+        "Detail_RI01_Bund_EdgeGrass_LOD0": {
+          "triangles": 54,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.439378261566162,
+            5.442003011703491,
+            0.1680772304534912
+          ],
+          "dimension_error_m": 8.642673492431641e-07
+        },
+        "SM_RI01_Paddy_Base_LOD0": {
+          "triangles": 4208,
+          "triangle_match": true,
+          "dimensions_m": [
+            10.0,
+            6.0,
+            0.4629807202145457
+          ],
+          "dimension_error_m": 9.657815098762512e-07
+        },
+        "SM_RI01_Paddy_Base_LOD1": {
+          "triangles": 3032,
+          "triangle_match": true,
+          "dimensions_m": [
+            10.0,
+            6.0,
+            0.4623859552666545
+          ],
+          "dimension_error_m": 9.657815098762512e-07
+        },
+        "SM_RI01_Paddy_Base_LOD2": {
+          "triangles": 1232,
+          "triangle_match": true,
+          "dimensions_m": [
+            10.0,
+            6.0,
+            0.4555628979578614
+          ],
+          "dimension_error_m": 9.655486792325974e-07
+        },
+        "SM_RI01_Paddy_Collision": {
+          "triangles": 72,
+          "triangle_match": true,
+          "dimensions_m": [
+            10.0,
+            6.0,
+            0.40000100508723335
+          ],
+          "dimension_error_m": 9.693244464870077e-07
+        },
+        "SM_RI01_State_Dry_LOD0": {
+          "triangles": 12,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.035000324249268,
+            5.050000190734863,
+            0.04000081866979599
+          ],
+          "dimension_error_m": 8.195638656616211e-07
+        },
+        "SM_RI01_State_Dry_LOD1": {
+          "triangles": 12,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.04000082612037659
+          ],
+          "dimension_error_m": 8.195638656616211e-07
+        },
+        "SM_RI01_State_Dry_LOD2": {
+          "triangles": 12,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.04000082612037659
+          ],
+          "dimension_error_m": 8.195638656616211e-07
+        },
+        "SM_RI01_State_Flooded_LOD0": {
+          "triangles": 144,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.035000324249268,
+            5.050000190734863,
+            0.3433196395635605
+          ],
+          "dimension_error_m": 8.270144462585449e-07
+        },
+        "SM_RI01_State_Flooded_LOD1": {
+          "triangles": 84,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.3433196470141411
+          ],
+          "dimension_error_m": 8.270144462585449e-07
+        },
+        "SM_RI01_State_Flooded_LOD2": {
+          "triangles": 42,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.34025420993566513
+          ],
+          "dimension_error_m": 8.270144462585449e-07
+        },
+        "SM_RI01_State_Grown_LOD0": {
+          "triangles": 492,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.035000324249268,
+            5.050000190734863,
+            0.41468752920627594
+          ],
+          "dimension_error_m": 8.270144462585449e-07
+        },
+        "SM_RI01_State_Grown_LOD1": {
+          "triangles": 252,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.41468753665685654
+          ],
+          "dimension_error_m": 8.270144462585449e-07
+        },
+        "SM_RI01_State_Grown_LOD2": {
+          "triangles": 81,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.41468753665685654
+          ],
+          "dimension_error_m": 8.270144462585449e-07
+        }
+      }
+    },
+    "RI01_Paddy.glb": {
+      "file_bytes": 3021236,
+      "expected_meshes": 14,
+      "imported_meshes": 14,
+      "missing": [],
+      "max_dimension_error_m": 0.0,
+      "triangle_mismatch": [],
+      "meshes": {
+        "Detail_RI01_Bund_EdgeGrass_LOD0": {
+          "triangles": 54,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.439378261566162,
+            5.442003011703491,
+            0.16807636618614197
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_Paddy_Base_LOD0": {
+          "triangles": 4208,
+          "triangle_match": true,
+          "dimensions_m": [
+            10.0,
+            6.0,
+            0.46297975443303585
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_Paddy_Base_LOD1": {
+          "triangles": 3032,
+          "triangle_match": true,
+          "dimensions_m": [
+            10.0,
+            6.0,
+            0.4623849894851446
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_Paddy_Base_LOD2": {
+          "triangles": 1232,
+          "triangle_match": true,
+          "dimensions_m": [
+            10.0,
+            6.0,
+            0.4555619324091822
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_Paddy_Collision": {
+          "triangles": 72,
+          "triangle_match": true,
+          "dimensions_m": [
+            10.0,
+            6.0,
+            0.40000003576278687
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_State_Dry_LOD0": {
+          "triangles": 12,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.035000324249268,
+            5.050000190734863,
+            0.03999999910593033
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_State_Dry_LOD1": {
+          "triangles": 12,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.040000006556510925
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_State_Dry_LOD2": {
+          "triangles": 12,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.040000006556510925
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_State_Flooded_LOD0": {
+          "triangles": 144,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.035000324249268,
+            5.050000190734863,
+            0.3433188125491142
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_State_Flooded_LOD1": {
+          "triangles": 84,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.3433188199996948
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_State_Flooded_LOD2": {
+          "triangles": 42,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.34025338292121887
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_State_Grown_LOD0": {
+          "triangles": 492,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.035000324249268,
+            5.050000190734863,
+            0.4146867021918297
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_State_Grown_LOD1": {
+          "triangles": 252,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.4146867096424103
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_State_Grown_LOD2": {
+          "triangles": 81,
+          "triangle_match": true,
+          "dimensions_m": [
+            9.050000190734863,
+            5.050000190734863,
+            0.4146867096424103
+          ],
+          "dimension_error_m": 0.0
+        }
+      }
+    },
+    "RI01_Bund_Straight.fbx": {
+      "file_bytes": 41452,
+      "expected_meshes": 3,
+      "imported_meshes": 3,
+      "missing": [],
+      "max_dimension_error_m": 1.1641532182693481e-07,
+      "triangle_mismatch": [],
+      "meshes": {
+        "SM_RI01_Bund_Straight_LOD0": {
+          "triangles": 84,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            0.7093324363231659,
+            0.3782752538099885
+          ],
+          "dimension_error_m": 1.1641532182693481e-07
+        },
+        "SM_RI01_Bund_Straight_LOD1": {
+          "triangles": 60,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            0.607261061668396,
+            0.3782752240076661
+          ],
+          "dimension_error_m": 8.66129994392395e-08
+        },
+        "SM_RI01_Bund_Straight_LOD2": {
+          "triangles": 60,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            0.6145245134830475,
+            0.3709929473698139
+          ],
+          "dimension_error_m": 1.0058283805847168e-07
+        }
+      }
+    },
+    "RI01_Bund_Straight.glb": {
+      "file_bytes": 17892,
+      "expected_meshes": 3,
+      "imported_meshes": 3,
+      "missing": [],
+      "max_dimension_error_m": 0.0,
+      "triangle_mismatch": [],
+      "meshes": {
+        "SM_RI01_Bund_Straight_LOD0": {
+          "triangles": 84,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            0.7093323767185211,
+            0.37827513739466667
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_Bund_Straight_LOD1": {
+          "triangles": 60,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            0.6072610020637512,
+            0.37827513739466667
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_Bund_Straight_LOD2": {
+          "triangles": 60,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            0.6145244538784027,
+            0.37099284678697586
+          ],
+          "dimension_error_m": 0.0
+        }
+      }
+    },
+    "RI01_Bund_Corner.fbx": {
+      "file_bytes": 48124,
+      "expected_meshes": 3,
+      "imported_meshes": 3,
+      "missing": [],
+      "max_dimension_error_m": 1.8998980522155762e-07,
+      "triangle_mismatch": [],
+      "meshes": {
+        "SM_RI01_Bund_Corner_LOD0": {
+          "triangles": 192,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.1124114394187927,
+            1.1215789914131165,
+            0.42624001763761044
+          ],
+          "dimension_error_m": 1.8998980522155762e-07
+        },
+        "SM_RI01_Bund_Corner_LOD1": {
+          "triangles": 144,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0122771263122559,
+            1.1215789914131165,
+            0.42158520594239235
+          ],
+          "dimension_error_m": 1.8998980522155762e-07
+        },
+        "SM_RI01_Bund_Corner_LOD2": {
+          "triangles": 96,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0122771263122559,
+            1.0082639455795288,
+            0.3633708003908396
+          ],
+          "dimension_error_m": 1.7136335372924805e-07
+        }
+      }
+    },
+    "RI01_Bund_Corner.glb": {
+      "file_bytes": 33200,
+      "expected_meshes": 3,
+      "imported_meshes": 3,
+      "missing": [],
+      "max_dimension_error_m": 0.0,
+      "triangle_mismatch": [],
+      "meshes": {
+        "SM_RI01_Bund_Corner_LOD0": {
+          "triangles": 192,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.1124114394187927,
+            1.1215789318084717,
+            0.4262398276478052
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_Bund_Corner_LOD1": {
+          "triangles": 144,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0122771263122559,
+            1.1215789318084717,
+            0.4215850159525871
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_Bund_Corner_LOD2": {
+          "triangles": 96,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0122771263122559,
+            1.008263885974884,
+            0.36337062902748585
+          ],
+          "dimension_error_m": 0.0
+        }
+      }
+    },
+    "RI01_Bund_T.fbx": {
+      "file_bytes": 46204,
+      "expected_meshes": 3,
+      "imported_meshes": 3,
+      "missing": [],
+      "max_dimension_error_m": 1.862645149230957e-07,
+      "triangle_mismatch": [],
+      "meshes": {
+        "SM_RI01_Bund_T_LOD0": {
+          "triangles": 168,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            1.1203105449676514,
+            0.38527973322197795
+          ],
+          "dimension_error_m": 1.834123395383358e-07
+        },
+        "SM_RI01_Bund_T_LOD1": {
+          "triangles": 120,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            1.00114606320858,
+            0.38527970341965556
+          ],
+          "dimension_error_m": 1.536100171506405e-07
+        },
+        "SM_RI01_Bund_T_LOD2": {
+          "triangles": 96,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            1.1203105449676514,
+            0.319372795522213
+          ],
+          "dimension_error_m": 1.862645149230957e-07
+        }
+      }
+    },
+    "RI01_Bund_T.glb": {
+      "file_bytes": 29308,
+      "expected_meshes": 3,
+      "imported_meshes": 3,
+      "missing": [],
+      "max_dimension_error_m": 0.0,
+      "triangle_mismatch": [],
+      "meshes": {
+        "SM_RI01_Bund_T_LOD0": {
+          "triangles": 168,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            1.1203104853630066,
+            0.3852795498096384
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_Bund_T_LOD1": {
+          "triangles": 120,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            1.0011460036039352,
+            0.3852795498096384
+          ],
+          "dimension_error_m": 0.0
+        },
+        "SM_RI01_Bund_T_LOD2": {
+          "triangles": 96,
+          "triangle_match": true,
+          "dimensions_m": [
+            1.0,
+            1.1203104853630066,
+            0.31937260925769806
+          ],
+          "dimension_error_m": 0.0
+        }
+      }
+    }
+  },
+  "pass": true
+}

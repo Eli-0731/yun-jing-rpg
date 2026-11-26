@@ -1,0 +1,34 @@
+{
+  "id": "MM02",
+  "name_zh": "喀斯特雙峰",
+  "units": "m",
+  "reference": "art/references/midground-v1/MM02/three-view.png",
+  "type": "遠景透明微弧卡片",
+  "pivot": "可見輪廓底部中央",
+  "dimensions_m": [
+    110.0,
+    2.0,
+    107.0
+  ],
+  "visible_height_m": 100.0,
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangles": 12,
+      "materials": 1,
+      "textures": [
+        {
+          "name": "MM02_Albedo.png",
+          "resolution": [
+            2048,
+            2048
+          ],
+          "channels": "RGBA"
+        }
+      ]
+    }
+  ],
+  "unity_material": "URP 雙面透明、Alpha Blend；透明排序須實景檢查",
+  "collision": false,
+  "unity_import": "未驗證"
+}

@@ -1,0 +1,275 @@
+{
+  "asset": "RS02_MaterialShop",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -4.395,
+          -4.72,
+          0.0
+        ],
+        "max": [
+          4.6528,
+          3.4691,
+          5.6129
+        ],
+        "box_m": [
+          [
+            -4.414999980926513,
+            -4.740000267028808,
+            0.0
+          ],
+          [
+            4.672789115905761,
+            3.489064712524414,
+            5.6328773689270015
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 4e-05
+      }
+    },
+    {
+      "check": "shape_unchanged_triangles",
+      "pass": true,
+      "detail": {
+        "lod0_triangles": 130488,
+        "source_triangles": 118064,
+        "source_zero_area_dropped": 48,
+        "reviewed_part_edits": [
+          {
+            "part": "14 glazed jars",
+            "why": "review (Unity shot): one egg shape, glossy highlight; rebuilt as three thrown shapes with foot, neck and lip, cloth covers and lids, semi-matte glaze; footprint 8 % narrower so the rows do not crowd",
+            "triangles_before": 5320,
+            "triangles_after": 17792
+          }
+        ]
+      }
+    },
+    {
+      "check": "shape_unchanged_size",
+      "pass": true,
+      "detail": {
+        "dimensions_m": [
+          9.0478,
+          8.1891,
+          5.6129
+        ],
+        "source_dimensions_m": [
+          9.0478,
+          8.1891,
+          5.6129
+        ],
+        "max_error_m": 0.0
+      }
+    },
+    {
+      "check": "source_coplanar_pulled_apart",
+      "pass": true,
+      "detail": {
+        "pairs_found": 305,
+        "faces_moved": 72,
+        "rounds": 3,
+        "pairs_left": 0,
+        "push_m": 0.0015,
+        "tol_m": 0.0011,
+        "vertices_moved": 352,
+        "max_shift_m": 0.003
+      }
+    },
+    {
+      "check": "roof_tile_dark_not_teal",
+      "pass": true,
+      "detail": {
+        "tile_atlas_mean_srgb": [
+          0.21,
+          0.226,
+          0.232
+        ],
+        "hex": "#363A3B",
+        "saturation": 0.095,
+        "target": "#3A4048",
+        "source_tile": "Celadon_Grey_Tile_0-4, linear (.065-.105, .13-.178, .14-.188)"
+      }
+    },
+    {
+      "check": "collision_boxes_made",
+      "pass": true,
+      "detail": {
+        "boxes": 204,
+        "triangles": 2448,
+        "skipped_parts": [
+          "Jar_",
+          "Warm_Window_Paper",
+          "Shop_Jade_Ore",
+          "Shop_Dried_Herbs"
+        ],
+        "rule": "one box per part with its lowest point under 2.2 m (roof tile and Detail_Small none): the smaller of its axis-aligned and principal-axes box, thin sides opened to 2 cm"
+      }
+    },
+    {
+      "check": "collision_probe_tops",
+      "pass": true,
+      "detail": [
+        {
+          "probe": "step_1",
+          "xy": [
+            0.0,
+            -4.5
+          ],
+          "top_z_m": 0.18,
+          "expected": [
+            0.15,
+            0.21
+          ],
+          "ok": true
+        },
+        {
+          "probe": "porch",
+          "xy": [
+            0.2,
+            -3.2
+          ],
+          "top_z_m": 0.54,
+          "expected": [
+            0.52,
+            0.56
+          ],
+          "ok": true
+        },
+        {
+          "probe": "floor_inside",
+          "xy": [
+            0.0,
+            0.0
+          ],
+          "top_z_m": 0.54,
+          "expected": [
+            0.52,
+            0.56
+          ],
+          "ok": true
+        },
+        {
+          "probe": "ground_outside",
+          "xy": [
+            0.0,
+            -5.2
+          ],
+          "top_z_m": null,
+          "expected": null,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 130488,
+          "LOD1": 65244,
+          "LOD2": 19570
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 16160,
+            "LOD1": 8080,
+            "LOD2": 2424
+          },
+          "Wood": {
+            "LOD0": 29420,
+            "LOD1": 14710,
+            "LOD2": 4412
+          },
+          "Stone": {
+            "LOD0": 5948,
+            "LOD1": 2974,
+            "LOD2": 892
+          },
+          "Tile": {
+            "LOD0": 45696,
+            "LOD1": 22848,
+            "LOD2": 6854
+          },
+          "Detail_Small": {
+            "LOD0": 33264,
+            "LOD1": 16632,
+            "LOD2": 4988
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          9.0478,
+          8.1891,
+          5.6129
+        ],
+        "blend_dims_m": [
+          9.0478,
+          8.1891,
+          5.6129
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "RS02_MaterialShop.001",
+        "RS02_MaterialShop_Collision.001",
+        "RS02_MaterialShop_Detail_Small_LOD0.001",
+        "RS02_MaterialShop_Detail_Small_LOD1.001",
+        "RS02_MaterialShop_Detail_Small_LOD2.001",
+        "RS02_MaterialShop_LOD0.001",
+        "RS02_MaterialShop_LOD1.001",
+        "RS02_MaterialShop_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 16266856
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 384,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

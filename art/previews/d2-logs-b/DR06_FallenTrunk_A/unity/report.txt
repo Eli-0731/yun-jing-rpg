@@ -1,0 +1,23 @@
+Unity 6000.3.28f1, pipeline URP
+PASS DR06_FallenTrunk_A: Albedo / Normal / ORM / MaskURP textures found
+PASS DR06_FallenTrunk_A: delivered textures 2048x2048 (larger than a person: 2048)
+INFO DR06_FallenTrunk_A: imported at 1024x1024 on StandaloneWindows64 (importer max 1024)
+INFO DR06_FallenTrunk_A: bark detail on UV0, tiling 8.58
+PASS DR06_FallenTrunk_A: imported size 14.265 x 4.142 x 4.025 m matches model_info 14.2646 x 4.1418 x 4.025 within 2 cm
+PASS DR06_FallenTrunk_A: lowest point y = -0.390 (the trunk sinks into the soil, origin on the ground)
+PASS DR06_FallenTrunk_A: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; y = 0 is the ground)
+PASS DR06_FallenTrunk_A: triangles LOD0/1/2 = 81353 / 40659 / 12126 (50% / 15%), model_info 81353 / 40659 / 12126
+PASS DR06_FallenTrunk_A: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS DR06_FallenTrunk_A: 2 materials over every LOD and Detail_ mesh (model_info 2: body, two-sided plants)
+PASS DR06_FallenTrunk_A: Detail_* plants render both faces
+PASS DR06_FallenTrunk_A: minTier = standard (blocks the way: everyone sees it)
+PASS DR06_FallenTrunk_A: detailObjects Detail_DR06_Plants present in the FBX
+PASS DR06_FallenTrunk_A: Detail_* off still shows the body (1 mesh per LOD)
+PASS DR06_FallenTrunk_A: Detail_DR06_Plants_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR06_FallenTrunk_A: DR06_FallenTrunk_A_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR06_FallenTrunk_A: one collision shell (MeshCollider, renderer off)
+PASS DR06_FallenTrunk_A: a walker crossing the trunk is stopped at 14 of 14 places (every 0.5 m from 0.25 L to 0.95 L)
+PASS DR06_FallenTrunk_A: the root plate stops a walker (x = -0.16)
+PASS DR06_FallenTrunk_A: the top of the trunk is solid at 0.6 L (y = 1.10 m)
+INFO renders written to art/previews/d2-logs-b/DR06_FallenTrunk_A/unity
+INFO DR06_FallenTrunk_A: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)

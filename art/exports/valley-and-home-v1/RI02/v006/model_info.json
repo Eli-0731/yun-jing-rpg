@@ -1,0 +1,186 @@
+{
+  "SM_RI02_Rice_Seedling_LOD0": {
+    "vertices": 420,
+    "triangles": 483,
+    "dimensions_m": [
+      0.34625,
+      0.43096,
+      0.3
+    ],
+    "wind_attribute": [
+      "WindWeight"
+    ]
+  },
+  "SM_RI02_Rice_Seedling_LOD1": {
+    "vertices": 319,
+    "triangles": 328,
+    "dimensions_m": [
+      0.34617,
+      0.43076,
+      0.30003
+    ],
+    "wind_attribute": [
+      "WindWeight"
+    ]
+  },
+  "SM_RI02_Rice_Seedling_LOD2": {
+    "vertices": 215,
+    "triangles": 202,
+    "dimensions_m": [
+      0.34617,
+      0.43076,
+      0.30004
+    ],
+    "wind_attribute": [
+      "WindWeight"
+    ]
+  },
+  "SM_RI02_Rice_Green_LOD0": {
+    "vertices": 1190,
+    "triangles": 1117,
+    "dimensions_m": [
+      0.87666,
+      0.79861,
+      0.8
+    ],
+    "wind_attribute": [
+      "WindWeight"
+    ]
+  },
+  "SM_RI02_Rice_Green_LOD1": {
+    "vertices": 923,
+    "triangles": 759,
+    "dimensions_m": [
+      0.87639,
+      0.7984,
+      0.80002
+    ],
+    "wind_attribute": [
+      "WindWeight"
+    ]
+  },
+  "SM_RI02_Rice_Green_LOD2": {
+    "vertices": 668,
+    "triangles": 469,
+    "dimensions_m": [
+      0.87639,
+      0.7984,
+      0.79743
+    ],
+    "wind_attribute": [
+      "WindWeight"
+    ]
+  },
+  "SM_RI02_Rice_Golden_LOD0": {
+    "vertices": 1762,
+    "triangles": 1545,
+    "dimensions_m": [
+      0.84782,
+      0.7812,
+      0.8
+    ],
+    "wind_attribute": [
+      "WindWeight"
+    ]
+  },
+  "SM_RI02_Rice_Golden_LOD1": {
+    "vertices": 1371,
+    "triangles": 1050,
+    "dimensions_m": [
+      0.84771,
+      0.78111,
+      0.80005
+    ],
+    "wind_attribute": [
+      "WindWeight"
+    ]
+  },
+  "SM_RI02_Rice_Golden_LOD2": {
+    "vertices": 1008,
+    "triangles": 648,
+    "dimensions_m": [
+      0.84771,
+      0.78111,
+      0.80005
+    ],
+    "wind_attribute": [
+      "WindWeight"
+    ]
+  },
+  "minTier": "standard",
+  "detailObjects": [],
+  "source": "art/source/valley-and-home-v1/RI02/RI02-rice-pack-v006.blend",
+  "texture_count": 11,
+  "exports": {
+    "fbx": {
+      "bytes": 1461708,
+      "reimported_meshes": 9,
+      "max_dimension_error_m": 5e-06
+    },
+    "glb": {
+      "bytes": 1716180,
+      "reimported_meshes": 9,
+      "max_dimension_error_m": 5e-06
+    }
+  },
+  "qa": {
+    "profile": "game",
+    "glb_meshes_checked": 9,
+    "errors": 0,
+    "warnings_by_mesh": {
+      "SM_RI02_Rice_Seedling_LOD0": [
+        "SM_RI02_Rice_Seedling_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_RI02_Rice_Seedling_LOD0: duplicate verts=457 loose verts=0"
+      ],
+      "SM_RI02_Rice_Seedling_LOD1": [
+        "SM_RI02_Rice_Seedling_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_RI02_Rice_Seedling_LOD1: duplicate verts=373 loose verts=0"
+      ],
+      "SM_RI02_Rice_Seedling_LOD2": [
+        "SM_RI02_Rice_Seedling_LOD2: ~99.54% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_RI02_Rice_Seedling_LOD2: duplicate verts=242 loose verts=0"
+      ],
+      "SM_RI02_Rice_Green_LOD0": [
+        "SM_RI02_Rice_Green_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_RI02_Rice_Green_LOD0: duplicate verts=929 loose verts=0"
+      ],
+      "SM_RI02_Rice_Green_LOD1": [
+        "SM_RI02_Rice_Green_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_RI02_Rice_Green_LOD1: duplicate verts=709 loose verts=0"
+      ],
+      "SM_RI02_Rice_Green_LOD2": [
+        "SM_RI02_Rice_Green_LOD2: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_RI02_Rice_Green_LOD2: duplicate verts=411 loose verts=0"
+      ],
+      "SM_RI02_Rice_Golden_LOD0": [
+        "SM_RI02_Rice_Golden_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_RI02_Rice_Golden_LOD0: duplicate verts=1241 loose verts=0",
+        "hidden back-to-back faces: SM_RI02_Rice_Golden_LOD0 (12 pairs) - delete to save tris"
+      ],
+      "SM_RI02_Rice_Golden_LOD1": [
+        "SM_RI02_Rice_Golden_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_RI02_Rice_Golden_LOD1: duplicate verts=930 loose verts=0"
+      ],
+      "SM_RI02_Rice_Golden_LOD2": [
+        "SM_RI02_Rice_Golden_LOD2: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_RI02_Rice_Golden_LOD2: duplicate verts=500 loose verts=0"
+      ]
+    },
+    "accepted_warning_reason": "Overlapping UVs deliberately reuse tiling leaf/stem/grain textures. GLB vertex splits at UV/material seams duplicate positions but have no loose vertices. Golden LOD0 back-to-back leaf cards occur within a dense clump and are not visible in inspected views."
+  },
+  "windWeight": {
+    "source_blend": "WindWeight FLOAT_COLOR vertex red channel, root 0 to tip 1",
+    "glb": "_WINDWEIGHT custom scalar vertex attribute on all nine meshes; no COLOR_0 to avoid tinting BaseColor",
+    "fbx": "WindWeight vertex color attribute survived independent Blender reimport",
+    "runtime_binding": "not tested; core team must bind custom attribute in game material"
+  },
+  "status": {
+    "Exported": true,
+    "Imported": true,
+    "Visually Verified": true,
+    "In-game Verified": false,
+    "game_preview": "Blender warm valley lighting only; no Unity scene changed",
+    "40m_single_clump": "not verified; this vegetation is intended for repeated field placement"
+  },
+  "previews": "art/previews/valley-and-home-v1/RI02/v006/"
+}

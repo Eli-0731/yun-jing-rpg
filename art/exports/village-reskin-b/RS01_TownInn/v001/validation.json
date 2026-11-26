@@ -1,0 +1,195 @@
+{
+  "asset": "RS01_TownInn",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -7.19,
+          -7.3945,
+          0.0
+        ],
+        "max": [
+          7.19,
+          7.3945,
+          10.4074
+        ],
+        "box_m": [
+          [
+            -7.21,
+            -7.414549999999999,
+            0.0
+          ],
+          [
+            7.21,
+            7.414549999999999,
+            10.4274
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0
+      }
+    },
+    {
+      "check": "shape_unchanged_triangles",
+      "pass": true,
+      "detail": {
+        "lod0_triangles": 51088,
+        "source_triangles": 51152,
+        "source_zero_area_dropped": 64
+      }
+    },
+    {
+      "check": "shape_unchanged_size",
+      "pass": true,
+      "detail": {
+        "dimensions_m": [
+          14.38,
+          14.7891,
+          10.4074
+        ],
+        "source_dimensions_m": [
+          14.38,
+          14.7891,
+          10.4074
+        ],
+        "max_error_m": 0.0
+      }
+    },
+    {
+      "check": "source_coplanar_pulled_apart",
+      "pass": true,
+      "detail": {
+        "pairs_found": 1130,
+        "faces_moved": 597,
+        "rounds": 4,
+        "pairs_left": 0,
+        "push_m": 0.001,
+        "vertices_moved": 898,
+        "max_shift_m": 0.003
+      }
+    },
+    {
+      "check": "roof_tile_dark_not_teal",
+      "pass": true,
+      "detail": {
+        "tile_atlas_mean_srgb": [
+          0.2,
+          0.217,
+          0.237
+        ],
+        "hex": "#33373C",
+        "saturation": 0.156,
+        "target": "#3A4048",
+        "source_tile_hex": "#486D6E (TL09_Tile), #507F75 glaze"
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 51088,
+          "LOD1": 25544,
+          "LOD2": 8224
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.161,
+        "per_group": {
+          "Main": {
+            "LOD0": 4376,
+            "LOD1": 2188,
+            "LOD2": 656
+          },
+          "Wood": {
+            "LOD0": 25800,
+            "LOD1": 12900,
+            "LOD2": 3870
+          },
+          "Stone": {
+            "LOD0": 648,
+            "LOD1": 324,
+            "LOD2": 96
+          },
+          "Tile": {
+            "LOD0": 17512,
+            "LOD1": 8756,
+            "LOD2": 3190
+          },
+          "Detail_Small": {
+            "LOD0": 2752,
+            "LOD1": 1376,
+            "LOD2": 412
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          14.38,
+          14.7891,
+          10.4074
+        ],
+        "blend_dims_m": [
+          14.38,
+          14.7891,
+          10.4074
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 3e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "RS01_TownInn.001",
+        "RS01_TownInn_Detail_Small_LOD0.001",
+        "RS01_TownInn_Detail_Small_LOD1.001",
+        "RS01_TownInn_Detail_Small_LOD2.001",
+        "RS01_TownInn_LOD0.001",
+        "RS01_TownInn_LOD1.001",
+        "RS01_TownInn_LOD2.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 8841232
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 598,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

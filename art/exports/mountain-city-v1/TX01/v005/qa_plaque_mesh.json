@@ -1,0 +1,111 @@
+{
+ "Detail_TX01_Plaque_LOD0": {
+  "tris": 176,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 20,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 4,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     0.38,
+     -0.06,
+     0.35
+    ],
+    3
+   ],
+   [
+    [
+     -0.38,
+     -0.06,
+     -0.35
+    ],
+    3
+   ],
+   [
+    [
+     1.14,
+     0.06,
+     -0.11
+    ],
+    3
+   ],
+   [
+    [
+     -1.14,
+     0.06,
+     0.11
+    ],
+    3
+   ],
+   [
+    [
+     0.38,
+     -0.06,
+     -0.35
+    ],
+    2
+   ],
+   [
+    [
+     -0.38,
+     -0.06,
+     0.35
+    ],
+    2
+   ]
+  ],
+  "inverted_at": []
+ },
+ "SM_TX01_Plaque_LOD0": {
+  "tris": 44,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 1,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "SM_TX01_Plaque_LOD1": {
+  "tris": 30,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 1,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "SM_TX01_Plaque_LOD2": {
+  "tris": 14,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 1,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "LF03",
+  "name_zh": "溪畔螢火",
+  "minTier": "high",
+  "texture": "LF03_Glow.png",
+  "texture_resolution": [
+    256,
+    256
+  ],
+  "unity_particle_recommendation": {
+    "simulationSpace": "World",
+    "maxParticles": 60,
+    "emissionRatePerSecond": [
+      3,
+      8
+    ],
+    "lifetimeSeconds": [
+      2.5,
+      5.0
+    ],
+    "startSizeMetres": [
+      0.045,
+      0.11
+    ],
+    "startSpeedMetresPerSecond": [
+      0.02,
+      0.1
+    ],
+    "renderer": "Billboard, additive 或 premultiplied alpha，關閉陰影與光照",
+    "motion": "低速上浮、平緩水平雜訊；高度約水面上 0.2–1.8 m",
+    "colorOverLifetime": "暖黃淡入、峰值約 0.45 秒、末段淡出",
+    "useCondition": "夜晚溪邊與 D5 蕈谷；白天停用",
+    "performance": "需於 Unity 實測後調整數量與 overdraw"
+  },
+  "unity_import": "未驗證"
+}
