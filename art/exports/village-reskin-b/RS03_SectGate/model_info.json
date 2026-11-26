@@ -1,0 +1,424 @@
+{
+  "asset": "RS03_SectGate",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "RS03_SectGate_Detail_Small"
+  ],
+  "name_zh": "山門換材質（舊木、黛瓦、銅件、花崗石基）",
+  "slot": "B1_SectGate",
+  "note": "Dondon SectGate v001 的三開間山門，外形不動；鮮豔青綠加光滑的材質改成舊木、深瓦、銅件、灰白花崗石基，顏色收斂，有雨痕和磨損（11/09 工作包 RS03）；原檔不改，另存新檔",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 64256,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 32128,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 9222,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "RS03_SectGate_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Tile_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Tile_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Tile_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Tile_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Tile_Roughness.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "RS03_SectGate_Wood_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "footprint centre, z = 0 at the lowest ground contact",
+  "dimensions_m": [
+    9.14,
+    4.54,
+    5.7171
+  ],
+  "bounds_min_m": [
+    -4.57,
+    -2.27,
+    0.0
+  ],
+  "bounds_max_m": [
+    4.57,
+    2.27,
+    5.7171
+  ],
+  "size_limit_m": [
+    9.180000343322753,
+    4.579999961853027,
+    5.737061519622802
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        9.14,
+        4.54,
+        5.7171
+      ],
+      "min": [
+        -4.57,
+        -2.27,
+        0.0
+      ],
+      "max": [
+        4.57,
+        2.27,
+        5.7171
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        8.015,
+        1.452,
+        3.6852
+      ],
+      "min": [
+        -4.0075,
+        -1.314,
+        0.0696
+      ],
+      "max": [
+        4.0075,
+        0.138,
+        3.7548
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 5836,
+      "LOD1": 2918,
+      "LOD2": 874
+    },
+    "Wood": {
+      "LOD0": 22652,
+      "LOD1": 11326,
+      "LOD2": 3396
+    },
+    "Tile": {
+      "LOD0": 30284,
+      "LOD1": 15142,
+      "LOD2": 4130
+    },
+    "Stone": {
+      "LOD0": 2068,
+      "LOD1": 1034,
+      "LOD2": 310
+    },
+    "Detail_Small": {
+      "LOD0": 3416,
+      "LOD1": 1708,
+      "LOD2": 512
+    }
+  },
+  "lod_totals": {
+    "LOD0": 64256,
+    "LOD1": 32128,
+    "LOD2": 9222
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_RS03_SectGate_Main",
+    "M_RS03_SectGate_Stone",
+    "M_RS03_SectGate_Tile",
+    "M_RS03_SectGate_Wood"
+  ],
+  "textures": [
+    "RS03_SectGate_BaseColor.png",
+    "RS03_SectGate_Metallic.png",
+    "RS03_SectGate_MetallicSmoothness.png",
+    "RS03_SectGate_Normal.png",
+    "RS03_SectGate_Roughness.png",
+    "RS03_SectGate_Stone_BaseColor.png",
+    "RS03_SectGate_Stone_Metallic.png",
+    "RS03_SectGate_Stone_MetallicSmoothness.png",
+    "RS03_SectGate_Stone_Normal.png",
+    "RS03_SectGate_Stone_Roughness.png",
+    "RS03_SectGate_Tile_BaseColor.png",
+    "RS03_SectGate_Tile_Metallic.png",
+    "RS03_SectGate_Tile_MetallicSmoothness.png",
+    "RS03_SectGate_Tile_Normal.png",
+    "RS03_SectGate_Tile_Roughness.png",
+    "RS03_SectGate_Wood_BaseColor.png",
+    "RS03_SectGate_Wood_Metallic.png",
+    "RS03_SectGate_Wood_MetallicSmoothness.png",
+    "RS03_SectGate_Wood_Normal.png",
+    "RS03_SectGate_Wood_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_RS03_SectGate_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS03_SectGate_BaseColor.png",
+        "Normal": "RS03_SectGate_Normal.png",
+        "MetallicSmoothness": "RS03_SectGate_MetallicSmoothness.png"
+      },
+      "M_RS03_SectGate_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS03_SectGate_Stone_BaseColor.png",
+        "Normal": "RS03_SectGate_Stone_Normal.png",
+        "MetallicSmoothness": "RS03_SectGate_Stone_MetallicSmoothness.png"
+      },
+      "M_RS03_SectGate_Tile": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS03_SectGate_Tile_BaseColor.png",
+        "Normal": "RS03_SectGate_Tile_Normal.png",
+        "MetallicSmoothness": "RS03_SectGate_Tile_MetallicSmoothness.png"
+      },
+      "M_RS03_SectGate_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "RS03_SectGate_Wood_BaseColor.png",
+        "Normal": "RS03_SectGate_Wood_Normal.png",
+        "MetallicSmoothness": "RS03_SectGate_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "RS03_SectGate_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {},
+  "sockets_fbx_reimport_xyz": {},
+  "fbx_objects": [
+    "RS03_SectGate.001",
+    "RS03_SectGate_Collision.001",
+    "RS03_SectGate_Detail_Small_LOD0.001",
+    "RS03_SectGate_Detail_Small_LOD1.001",
+    "RS03_SectGate_Detail_Small_LOD2.001",
+    "RS03_SectGate_LOD0.001",
+    "RS03_SectGate_LOD1.001",
+    "RS03_SectGate_LOD2.001"
+  ],
+  "glb": "RS03_SectGate_v001.glb",
+  "interface": {
+    "source_coplanar_nudged": {
+      "pairs_found": 1391,
+      "faces_moved": 791,
+      "rounds": 3,
+      "pairs_left": 0,
+      "push_m": 0.0015,
+      "tol_m": 0.0011,
+      "vertices_moved": 1193,
+      "max_shift_m": 0.003
+    },
+    "tile_mean_hex": "#32363D",
+    "source_parts_by_material": {
+      "Celadon_Jade": 3,
+      "Warm_Timber": 16,
+      "Dark_Chestnut": 41,
+      "Tile_Roll_Highlight": 71,
+      "Aged_Brass": 12,
+      "Blue_Green_Tiles": 60,
+      "Pale_Stone": 5,
+      "Blue_Gray_Stone": 6,
+      "Recess_Shadow": 9
+    },
+    "collision_probes": [
+      {
+        "probe": "step_1",
+        "xy": [
+          0.0,
+          -2.1
+        ],
+        "top_z_m": 0.16,
+        "expected": [
+          0.14,
+          0.18
+        ],
+        "ok": true
+      },
+      {
+        "probe": "platform_gateway",
+        "xy": [
+          0.0,
+          0.4
+        ],
+        "top_z_m": 0.5,
+        "expected": [
+          0.48,
+          0.52
+        ],
+        "ok": true
+      },
+      {
+        "probe": "platform_back",
+        "xy": [
+          0.0,
+          1.9
+        ],
+        "top_z_m": 0.5,
+        "expected": [
+          0.48,
+          0.52
+        ],
+        "ok": true
+      },
+      {
+        "probe": "ground_side",
+        "xy": [
+          -4.8,
+          0.0
+        ],
+        "top_z_m": null,
+        "expected": null,
+        "ok": true
+      }
+    ]
+  },
+  "modeling_method": "every exported mesh of the source evaluated with its modifiers (what the source FBX holds), origin kept (bottom centre); parts under min(0.35 m, 12 % of the size) to Detail_Small; then as RS01: loose parts, vertices unchanged except the 1.5 mm coplanar pull-back; the 9 flat source materials swapped for the VL / VH set, four 2048 atlases",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 586.5,
+        "median": 648.9,
+        "p90": 665.1,
+        "area_m2": 6.6
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 151.9,
+        "median": 152.3,
+        "p90": 152.7,
+        "area_m2": 163.9
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 186.2,
+        "median": 196.2,
+        "p90": 201.9,
+        "area_m2": 62.8
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Tile": {
+      "visible": {
+        "p10": 107.4,
+        "median": 114.3,
+        "p90": 117.3,
+        "area_m2": 127.2
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "no three-view (a re-texture, work pack: original and new side by side under the same light instead)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/SectGate/v001/SectGate_v001.blend (Dondon SectGate v001; read only, not changed)",
+  "source_triangles": 62604,
+  "uv_detached_zero_faces": 780,
+  "collision_boxes": {
+    "boxes": 29,
+    "triangles": 348,
+    "skipped_parts": [],
+    "rule": "one box per part with its lowest point under 2.2 m (roof tile and Detail_Small none): the smaller of its axis-aligned and principal-axes box, thin sides opened to 2 cm",
+    "by_part": {
+      "Blue_Gray_Stone": 6,
+      "Celadon_Jade": 2,
+      "Dark_Chestnut": 12,
+      "Pale_Stone": 5,
+      "Warm_Timber": 4
+    }
+  }
+}

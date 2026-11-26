@@ -1,0 +1,184 @@
+{
+  "asset": "PS01_OldPostStation",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -6.9794,
+          -5.0,
+          0.0
+        ],
+        "max": [
+          6.8571,
+          4.962,
+          5.311
+        ],
+        "box_m": [
+          [
+            -7.0,
+            -5.0,
+            0.0
+          ],
+          [
+            7.0,
+            5.0,
+            6.0
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.01482
+      }
+    },
+    {
+      "check": "hall_higher_than_stable",
+      "pass": true,
+      "detail": {
+        "hall_ridge_m": 5.121,
+        "stable_ridge_m": 3.621,
+        "stable_front_eave_m": 2.347
+      }
+    },
+    {
+      "check": "stall_b_open_and_roofed",
+      "pass": true,
+      "detail": {
+        "collision_above_stall_b_floor_m": null
+      }
+    },
+    {
+      "check": "hitching_rail_blocks",
+      "pass": true,
+      "detail": {
+        "collision_face_y_m": -4.6
+      }
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 110764,
+          "LOD1": 55381,
+          "LOD2": 15445
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.139,
+        "per_group": {
+          "Main": {
+            "LOD0": 4880,
+            "LOD1": 2439,
+            "LOD2": 732
+          },
+          "Stone": {
+            "LOD0": 24032,
+            "LOD1": 12016,
+            "LOD2": 3604
+          },
+          "Detail_Small": {
+            "LOD0": 6540,
+            "LOD1": 3270,
+            "LOD2": 981
+          },
+          "Wood": {
+            "LOD0": 30160,
+            "LOD1": 15080,
+            "LOD2": 4524
+          },
+          "Roof": {
+            "LOD0": 45152,
+            "LOD1": 22576,
+            "LOD2": 5604
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          13.8365,
+          9.962,
+          5.311
+        ],
+        "blend_dims_m": [
+          13.8365,
+          9.962,
+          5.311
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 4e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "PS01_OldPostStation.001",
+        "PS01_OldPostStation_Collision.001",
+        "PS01_OldPostStation_Detail_Small_LOD0.001",
+        "PS01_OldPostStation_Detail_Small_LOD1.001",
+        "PS01_OldPostStation_Detail_Small_LOD2.001",
+        "PS01_OldPostStation_LOD0.001",
+        "PS01_OldPostStation_LOD1.001",
+        "PS01_OldPostStation_LOD2.001",
+        "Socket_Door.001",
+        "Socket_Road.001",
+        "Socket_Yard.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_Door.001": [
+          -3.0,
+          -0.5,
+          0.4
+        ],
+        "Socket_Road.001": [
+          0.0,
+          -5.0,
+          0.0
+        ],
+        "Socket_Yard.001": [
+          0.0,
+          -2.6,
+          0.0
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 13624988
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 548,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

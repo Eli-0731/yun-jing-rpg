@@ -162,7 +162,7 @@ def cut_above(o, co, no):
     bm.to_mesh(me); bm.free(); me.update(); _sharp(me)
 
 
-def wall_courses(P, R, side, zones, z0=0., name='Kerb_Wall', x0=KX0, x1=KX1, plinth=True):
+def wall_courses(P, R, side, zones, z0=0., name='Kerb_Wall', x0=KX0, x1=KX1, plinth=True, px=PX):
     """Coursed dressed blocks on one side wall. zones = [(y0, y1, bed(y), plane)] with plane = (point, normal) cutting the top,
     or None where the bed is level. Courses keep their joints at the zone edges; each block is a whole dressed stone,
     its top sawn along the bed plane (no squashed vertices). side = +1 / -1 (x sign)."""
@@ -173,7 +173,7 @@ def wall_courses(P, R, side, zones, z0=0., name='Kerb_Wall', x0=KX0, x1=KX1, pli
         while y < yb_all - .05:
             L = min(R.uniform(.7, 1.1), yb_all - y)
             if yb_all - (y + L) < .3: L = yb_all - y
-            o = rbox(f'{name}_Plinth', (side * (x0 + PX) / 2, y + L / 2, .07), (PX - x0, L - gap, .14), R.choice(P['wall']),
+            o = rbox(f'{name}_Plinth', (side * (x0 + px) / 2, y + L / 2, .07), (px - x0, L - gap, .14), R.choice(P['wall']),
                      r=.012, amp=.002, freq=5., hew=3, chips=R.choice((0, 0, 1)), seed=R.randrange(999), div=.09, flat='zZ')
             out.append(o); y += L
     heights = []

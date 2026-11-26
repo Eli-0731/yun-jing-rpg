@@ -1,0 +1,20 @@
+Use your built-in image generation tool (image_gen) to paint TEXTURES for a real-time 3D game asset (a rotting fallen log overgrown with moss and fungi), and save the PNG files into ./out/ with the exact file names below. Use V6.png (main: the fallen mossy log on the right), V5.png and ref-detail.png in this folder as the input reference images for every generation, and match their hand-painted style, colours, moss and bark exactly. Do not write any code other than what is needed to copy the generated files into ./out/.
+
+These are TEXTURES, not illustrations:
+- Square, at least 1024x1024.
+- Seen straight from above (orthographic, flat), filling the whole square edge to edge. No perspective, no horizon, no sky, no background, no frame, no border, no vignette, no text.
+- Even, flat, soft overcast light from directly above. No strong cast shadows and no directional highlights (the game engine adds lighting). Only gentle ambient occlusion in deep cracks.
+- Seamless / tileable: the left edge must continue into the right edge and the top into the bottom.
+- Hand-painted Eastern xianxia fantasy game style, like the reference images: clear readable medium-size shapes, painterly but not noisy, low saturation.
+
+Files (each a separate generation):
+1. out/tex_moss.png : a thick, soft, lumpy carpet of dark olive-green moss cushions with rounded tufts, slightly warmer yellow-olive on the tops of the tufts, dark gaps between cushions, a few tiny pale grey-green lichen rosettes and a few tiny dried leaves. Colour like the moss on the log in V6.
+2. out/tex_bark.png : old deep grey-brown tree bark broken into loose overlapping flaky SHINGLES (plates 8 to 20 cm), their edges lifting, dark cracks between plates, pale grey-green lichen patches on some plates. The grain and the long axis of the plates run LEFT-RIGHT (horizontal).
+3. out/tex_rot.png : brown-rot wood surface: rusty reddish-brown soft rotten wood broken by deep dark cracks along and across the grain into chunky irregular blocks (5 to 15 cm), the blocks soft, crumbly, porous, with rounded chipped edges, wood fibres visible on them, uneven sizes, some blocks missing leaving dark holes, a little red-brown wood powder in the cracks and a few thin white mycelium threads. Grain runs LEFT-RIGHT. It must clearly read as rotten WOOD, never as bricks, tiles or a stone wall: no straight continuous mortar lines, no regular courses.
+4. out/tex_fibre.png : torn, splintered, shredded wood fibres and strips, warm grey-brown weathered wood, long thin fibres and splinters running LEFT-RIGHT, some separated by dark gaps, like the torn end of an old rotten log.
+5. out/tex_soil.png : dark brown forest-floor soil mixed with red-brown crumbled rotten wood powder, small wood crumbs, tiny bark flakes, a few small fallen leaves (muted brown, ochre), a little moss.
+6. out/tex_inner.png : the inside of a hollow rotten log: dark red-brown soft rotten heartwood with long stringy fibres and shallow grooves running LEFT-RIGHT, darker and damp in the grooves.
+7. out/tex_fungus.png : NOT tileable. Top view of ONE large shelf / bracket fungus cap (half-round fan shape, the straight edge at the BOTTOM of the image is where it attaches to the log), with concentric growth bands of tan, rusty brown and dark brown and a pale cream wavy rim, velvety painted surface, on a plain flat pure magenta (#FF00FF) background.
+8. out/sheet_plants.png : NOT tileable. A sprite sheet on a plain flat pure magenta (#FF00FF) background, items spread out with clear gaps between them, all seen from the front/side and flat-lit: four separate fern fronds (dark muted green, like V6, not bright), three clusters of small tan-brown mushrooms with thin stems (not white), two clusters of tiny pale cyan glowing mushrooms, six single fallen leaves (muted brown, ochre, dull orange), two small seedlings with a few dark-green leaves, two tufts of drooping moss strands. No item touches another or the image border.
+
+When finished, list the files in ./out/ with their pixel sizes.

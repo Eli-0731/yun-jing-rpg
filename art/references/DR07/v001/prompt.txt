@@ -1,0 +1,18 @@
+Use your built-in image generation tool (image_gen) to make reference sheets for ONE 3D game asset family, and save the PNG files into ./out/ with the exact file names below. Use V1.png and V4.png in this folder as the main input reference images for every generation: they show an ancient-tree forest clearing with giant mossy roots, fallen logs and stumps. V5.png and V6.png show the same forest from other angles. Match their bark, colours, moss and painting style exactly. Do not write any code other than what is needed to copy the generated files into ./out/.
+
+The asset: "DR07 giant tree stumps", TWO variants of the stump left where an enormous ancient tree snapped and broke off long ago (not sawn):
+- Variant A: trunk diameter about 2.5 m, about 1.4 m tall at its lowest edge and 2.0 m at its highest broken spike.
+- Variant B: trunk diameter about 3.5 m, about 1.5 m at the lowest edge and 3.0 m at the tallest jagged broken spike.
+Both:
+- The top is a broken, ragged, splintered rim: uneven jagged teeth and tall slivers of torn wood fibre on one side, lower crumbling edges on the other side; NOT a flat saw cut.
+- The CENTRE is rotted hollow like a deep bowl inside the shell (shell wall 20-40 cm thick); rainwater has collected in the bottom of the hollow as a dark still pool with a few floating leaves; the inner wall is soft, rotten, fibrous orange-brown wood with layered growth rings visible on the broken rim.
+- The ROOT COLLAR flares out wide at the base (about 1.6-1.8 times the trunk diameter): 5-8 thick buttress roots spread out and grip the ground, twisting and diving into the soil, some small roots exposed between them, soil and small stones between the roots.
+- Outside: deep grey-brown old bark with long ridges and furrows twisting slightly; one area where bark has peeled off showing pale grey weathered wood; thick dark olive-green moss on the upper surfaces of roots and the rim, pale grey-green lichen rosettes, a few ferns and small mushrooms at the foot, shelf fungi on one side.
+
+Files to make (each a separate generation, landscape, at least 1536x1024):
+1. out/DR07-threeview.png : orthographic views of BOTH variants side by side (A left, B right): FRONT view on top, TOP view below each (looking down into the hollow with its pool of water); same scale, flat ground line, a small 1.75 m grey human silhouette for scale between them. Plain light warm-grey background, even soft overcast lighting, no cast shadows on the background, no fog, no trees, no text or labels.
+2. out/DR07-threequarter.png : both stumps in the forest clearing, three-quarter view from eye height 1.7 m about 9 m away, slightly high enough to glimpse the water inside the larger one, mossy forest floor, overcast light, the same style as V4.
+3. out/DR07-detail.png : a sheet of three close-ups: (a) looking down into the hollow: rotten fibrous inner wall, growth rings on the broken rim, dark pool of water with floating leaves; (b) the jagged splintered broken top with tall fibre slivers; (c) the flared root collar with buttress roots gripping the soil, moss, ferns and mushrooms.
+
+Style: Eastern xianxia fantasy, hand-painted look 3D game concept art, low saturation, overcast. Deep grey-brown old bark with long ridges and furrows, pale grey lichen on raised ridges, thick dark olive-green moss on upward-facing surfaces. Not a photo.
+When finished, list the files in ./out/ with their pixel sizes.

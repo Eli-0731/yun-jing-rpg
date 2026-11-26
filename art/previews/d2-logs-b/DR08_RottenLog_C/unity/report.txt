@@ -1,0 +1,19 @@
+Unity 6000.3.28f1, pipeline URP
+PASS DR08_RottenLog_C: imported size 5.876 x 2.843 x 1.426 m matches model_info 5.8755 x 2.8425 x 1.4254 within 2 cm
+PASS DR08_RottenLog_C: lowest point y = -0.435 (the trunk sinks into the soil, origin on the ground)
+PASS DR08_RottenLog_C: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; y = 0 is the ground)
+PASS DR08_RottenLog_C: triangles LOD0/1/2 = 26773 / 11403 / 2326 (43% / 9%), model_info 26773 / 11403 / 2326
+PASS DR08_RottenLog_C: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS DR08_RottenLog_C: 2 materials over every LOD and Detail_ mesh (model_info 2: body, two-sided plants)
+PASS DR08_RottenLog_C: Detail_* plants render both faces
+PASS DR08_RottenLog_C: minTier = standard (blocks the way: everyone sees it)
+PASS DR08_RottenLog_C: detailObjects Detail_DR08_Plants present in the FBX
+PASS DR08_RottenLog_C: Detail_* off still shows the body (1 mesh per LOD)
+PASS DR08_RottenLog_C: DR08_RottenLog_C_LOD0 has UV0 (metres), UV1 (soil, AO) and vertex colours (moss, rot, fibre, inner weights)
+INFO DR08_RottenLog_C: mean layer weights moss 0.07, rot 0.41, fibre 0.01, inner 0.11, soil 0.13; AO 0.16–1.00
+PASS DR08_RottenLog_C: body slots M_DR08_Layered (YunJing/D2LayeredWood), M_DR08_Plants (Universal Render Pipeline/Lit): layered wood (any extra slot two-sided plant atlas)
+PASS DR08_RottenLog_C: one collision shell (MeshCollider, renderer off)
+PASS DR08_RottenLog_C: a shin-high sweep across the log is stopped at 9 of 9 places (every 0.5 m from 0.12 L to 0.90 L)
+PASS DR08_RottenLog_C: the highest point of the log's top (0.1–0.9 L) is a low obstacle below hip height (y = 0.93 m)
+INFO renders written to art/previews/d2-logs-b/DR08_RottenLog_C/unity
+INFO DR08_RottenLog_C: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)

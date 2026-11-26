@@ -174,4 +174,5 @@ def main():
     if len(args) > 1: json.dump(r, open(args[1], 'w', encoding='utf8'), indent=1, ensure_ascii=False)
 
 
-main()
+if __name__ == "__main__":      # importable: build scripts reuse near_pairs()
+    main()

@@ -1,0 +1,29 @@
+{
+  "id": "FE02",
+  "version": "v008",
+  "source": "art/source/valley-and-home-v1/FE02/fe02-rework-pack-v008.blend",
+  "reference": "art/references/valley-and-home-v1/FE02/",
+  "method": "既有模型接口保留；Josh cr_parts/cr_mats/vl_mats 零件與材質；Eli AO、粗糙度、物件法線、Pointiness、位置圖烘焙",
+  "lods": {
+    "Detail_FE02_HullPatches_LOD0": 96,
+    "SM_FE02_FerryHull_LOD0": 1168,
+    "SM_FE02_FerryHull_LOD1": 992,
+    "SM_FE02_FerryHull_LOD2": 956,
+    "SM_FE02_PushPole_LOD0": 92,
+    "SM_FE02_Rework_Canopy_LOD0": 9628,
+    "SM_FE02_Rework_Canopy_LOD1": 4332,
+    "SM_FE02_Rework_Canopy_LOD2": 1844,
+    "SM_FE02_Rework_LOD0": 8592,
+    "SM_FE02_Rework_LOD1": 3866,
+    "SM_FE02_Rework_LOD2": 1718
+  },
+  "materials": {
+    "Detail_FE02_HullPatches_LOD0": 1,
+    "SM_FE02_FerryHull_LOD0": 4,
+    "SM_FE02_PushPole_LOD0": 2,
+    "SM_FE02_Rework_Canopy_LOD0": 1,
+    "SM_FE02_Rework_LOD0": 1
+  },
+  "texture_resolution": 512,
+  "unity_import": "未驗證"
+}

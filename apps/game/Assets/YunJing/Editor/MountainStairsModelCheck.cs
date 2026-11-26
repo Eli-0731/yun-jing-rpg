@@ -23,7 +23,7 @@ namespace YunJing.Editor
         static string Exports => Path.Combine(Repo, "art", "exports", "mountain-stairs-b");
         static string Out => Path.Combine(Repo, "artifacts", "mountain-stairs-unity");
         // only the pieces that have been exported so far; the rest of the SG set is added when it exists
-        static readonly string[] Wanted = { "SG01_StraightRun", "SG02_Landing", "SG03_RailStraight", "SG03_RailSloped", "SG03_PostCorner", "SG03_PostEnd", "SG04_RestShelter" };
+        static readonly string[] Wanted = { "SG01_StraightRun", "SG02_Landing", "SG03_RailStraight", "SG03_RailSloped", "SG03_PostCorner", "SG03_PostEnd", "SG04_RestShelter", "SG05_WideStairRun", "SG06_WideLanding" };
         static readonly List<string> Report = new List<string>();
         static int failed;
 
@@ -74,6 +74,8 @@ namespace YunJing.Editor
                 var id = ids[n]; var at = new Vector3(n * 30, 0, 0);
                 var go = Place(id, at); Verify(id, go); Sockets(id, go);
                 if (id == "SG01_StraightRun") Walk(id, go);
+                if (id == "SG05_WideStairRun") Walk(id, go, new[] { -2.3f, -1.0f, 1.0f, 2.3f }, "either side of the carved slab");
+                if (id == "SG06_WideLanding") WalkAcrossWide(id, go);
                 if (id == "SG02_Landing") WalkAcross(id, go);
                 if (id == "SG04_RestShelter") WalkIn(id, go);
                 if (id == "SG03_RailStraight") Blocks(id, go);
@@ -92,6 +94,7 @@ namespace YunJing.Editor
                 foreach (var r in go.GetComponentsInChildren<Renderer>(true).Where(r => r.name.Contains("_Detail_"))) r.enabled = true;
             }
             if (ids.Contains("SG01_StraightRun") && ids.Contains("SG02_Landing") && ids.Contains("SG03_RailSloped")) Combo(new Vector3(ids.Length * 30, 0, 0));
+            if (ids.Contains("SG05_WideStairRun") && ids.Contains("SG06_WideLanding") && ids.Contains("SG03_RailSloped")) ComboWide(new Vector3(ids.Length * 30 + 30, 0, 0));
             File.WriteAllText(Path.Combine(Out, "unity-verify-report.txt"), string.Join("\n", Report) + $"\n\nUnity {Application.unityVersion}; failed checks: {failed}; editor batch check only, not placed in the main scene, not played\n");
             Debug.Log("MOUNTAIN_STAIRS_" + (failed == 0 ? "PASS" : "FAIL") + "\n" + string.Join("\n", Report));
             if (failed > 0 && Application.isBatchMode) EditorApplication.Exit(1);
@@ -238,13 +241,15 @@ namespace YunJing.Editor
 
         // A 1.75 m CharacterController (radius 0.25, step offset 0.3, slope limit 45) walks from 1 m before the first riser up the centre line
         // on the stair collider and must end standing on the top tread. Done with CharacterController.Move in the editor, not in play mode.
-        static void Walk(string id, GameObject go)
+        static void Walk(string id, GameObject go) => Walk(id, go, new[] { -.85f, 0f, .85f }, "");
+
+        static void Walk(string id, GameObject go, float[] lines, string where)
         {
             Physics.SyncTransforms();
             var o = go.transform.position; var b = LodBounds(go);
             var body = new GameObject("Walker_1.75m"); var cc = body.AddComponent<CharacterController>();
             cc.height = 1.75f; cc.radius = .25f; cc.center = new Vector3(0, .875f, 0); cc.stepOffset = .3f; cc.slopeLimit = 45; cc.skinWidth = .02f;
-            foreach (float x in new[] { -.85f, 0f, .85f })   // 0.25 m radius: the body stays inside the 2.4 m walking width
+            foreach (float x in lines)   // 0.25 m radius: the body stays inside the walking width
             {
                 body.transform.position = o + new Vector3(x, .02f, b.min.z - o.z - 1f); Physics.SyncTransforms();
                 float topZ = b.max.z - o.z - .3f, highest = 0; int frames = 0;
@@ -254,7 +259,7 @@ namespace YunJing.Editor
                     highest = Mathf.Max(highest, body.transform.position.y - o.y);
                 }
                 var end = body.transform.position - o;
-                Check(end.z >= topZ && Mathf.Abs(end.y - 1.6f) < .06f, $"{id}: walker on x {x:F2} climbs the ten steps on the collider (end y {end.y:F3} m, z {end.z:F2} m, {frames} frames at 1.4 m/s)");
+                Check(end.z >= topZ && Mathf.Abs(end.y - 1.6f) < .06f, $"{id}: walker on x {x:F2} climbs the ten steps on the collider{(where == "" ? "" : " (" + where + ")")} (end y {end.y:F3} m, z {end.z:F2} m, {frames} frames at 1.4 m/s)");
             }
             UnityEngine.Object.DestroyImmediate(body);
         }
@@ -289,6 +294,56 @@ namespace YunJing.Editor
                 Check(r.x > .38f && r.y < .43f && Vector3.Dot(end - from, dir) > 2.4f, $"{id}: walker crosses the landing along {dir} over the joints (feet {r.x:F3}-{r.y:F3} m, moved {Vector3.Dot(end - from, dir):F2} m)");
             }
             UnityEngine.Object.DestroyImmediate(cc.gameObject);
+        }
+
+        // SG06: walk across the 7 m landing both ways, over the slab joints and the carved heart stone; the feet stay at the 0.8 m surface
+        static void WalkAcrossWide(string id, GameObject go)
+        {
+            Physics.SyncTransforms(); var o = go.transform.position; var cc = Walker();
+            foreach (var (from, dir) in new[] { (new Vector3(-3.0f, .85f, -.3f), Vector3.right), (new Vector3(-.3f, .85f, -3.0f), Vector3.forward), (new Vector3(-3.0f, .85f, 1.6f), Vector3.right) })
+            {
+                cc.transform.position = o + from; Physics.SyncTransforms();
+                var r = Stroll(cc, o, dir, 250); var end = cc.transform.position - o;
+                Check(r.x > .77f && r.y < .84f && Vector3.Dot(end - from, dir) > 5.4f, $"{id}: walker crosses the landing along {dir} from {from.x:F1},{from.z:F1} over the joints (feet {r.x:F3}-{r.y:F3} m, moved {Vector3.Dot(end - from, dir):F2} m)");
+            }
+            UnityEngine.Object.DestroyImmediate(cc.gameObject);
+        }
+
+        // SG05 with SG03 sloped runs on both kerbs (posts at x +-2.84) and SG06 at the top (its Socket_Edge_S on SG05's Socket_Top)
+        static void ComboWide(Vector3 at)
+        {
+            var stair = Place("SG05_WideStairRun", at);
+            var st = stair.GetComponentsInChildren<Transform>().First(t => t.name == "Socket_Top").position;
+            var land = Place("SG06_WideLanding", at);
+            var es = land.GetComponentsInChildren<Transform>().First(t => t.name == "Socket_Edge_S").position;
+            land.transform.position += st - es; Physics.SyncTransforms();
+            var rails = new[] { -2.84f, 2.84f }.Select(x => Place("SG03_RailSloped", at + new Vector3(x, 0, 0))).ToArray();
+            Physics.SyncTransforms();
+            float worst = 0;
+            foreach (var (r, s) in rails.Select((r, i) => (r, i == 0 ? "L" : "R")))
+                for (int i = 0; i < 3; i++)
+                {
+                    var a = r.GetComponentsInChildren<Transform>().First(t => t.name == "Socket_Post_" + i).position;
+                    var b = stair.GetComponentsInChildren<Transform>().First(t => t.name == $"Socket_Post_{s}{i}").position;
+                    worst = Mathf.Max(worst, Vector3.Distance(a, b));
+                }
+            Check(worst < .002f, $"wide combo: six SG03 posts on the six SG05 sockets (max error {worst * 1000:F1} mm)");
+            var cc = Walker();
+            foreach (float x in new[] { -1.6f, 1.6f })
+            {
+                cc.transform.position = at + new Vector3(x, .02f, -2.6f); Physics.SyncTransforms();
+                Stroll(cc, at, Vector3.forward, 360); var end = cc.transform.position - at;
+                Check(Mathf.Abs(end.y - 1.6f) < .06f && end.z > 3.5f, $"wide combo: walker on x {x:F1} climbs SG05 onto the SG06 landing (feet {end.y:F3} m, z {end.z:F2} m)");
+            }
+            cc.transform.position = at + new Vector3(2.0f, .82f, -.4f); Physics.SyncTransforms();
+            Stroll(cc, at, Vector3.right, 120); var side = cc.transform.position - at;
+            Check(side.x < 2.7f, $"wide combo: walker pushed sideways on the flight stays inside the kerb and rail (centre x {side.x:F2} m)");
+            UnityEngine.Object.DestroyImmediate(cc.gameObject);
+            var b2 = LodBounds(land); b2.Encapsulate(LodBounds(stair));
+            var person = Person(at + new Vector3(-1.6f, 0, -1.4f));
+            Shot("combo_SG05_SG03_SG06", b2.center, b2.center + new Vector3(.8f, .5f, -.9f).normalized * b2.size.magnitude * 1.2f, 35);
+            Shot("combo_wide_eye_1.7m", at + new Vector3(0, 1.7f, 3.5f), at + new Vector3(-1.6f, 1.7f, -3.2f), 60);
+            person.SetActive(false);
         }
 
         // SG04: walk in from 1 m in front of the open side; the walker steps onto the 6 cm floor and stops at the bench or the rock

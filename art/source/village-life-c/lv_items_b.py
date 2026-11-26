@@ -332,13 +332,15 @@ def LV09(M):
                      'the cage: dark base ring and floor, 36 bars curving into a dome, three hoops, the door open on its hinge; LOD2 shows the bars painted on a cylinder and dome (alpha clip)']}
 PROPS['LV09']=LV09
 
-# ---------------- LV10 a pair of straw sandals and a pair of wooden clogs (cand-1) ----------------
+# ---------------- LV10 a pair of Chinese straw sandals and a pair of cloth shoes (v2 cand-1; #117 review: the clogs and thong sandals were Japanese) ----------------
 def LV10(M):
-    """left: a pair of straw sandals — a flat oval sole with a thick braided rim, a dark cloth thong from the toe knot to
-    both sides, the braid and the flattened, darker heel in the texture; right: a pair of wooden clogs — a pale old board
-    with rounded corners on two teeth, the same dark cloth thong, mud on the teeth. Each shoe is its own piece, the pairs
-    set down a little askew. Real sizes: sandal 0.24 m long, clog 0.225 m long, teeth 3.4 cm high."""
-    rr=random.Random(1010)
+    """#117 review: the clogs and thong sandals were Japanese; remade as two Chinese pairs (three-view v2 cand-1).
+    left: a pair of straw sandals (caoxie) — a flat woven sole with a braided rim, two straw-cord ears at the front, one
+    ear on each side, a cord loop standing at the heel; two cords run from the heel loop through the side ears and cross
+    over the instep to the front ears (nothing goes between the toes), their ends tied at the heel loop and lying slack.
+    right: a pair of cloth shoes — black cloth upper with a round toe and a bound opening, on a thick white layered-cloth
+    sole. Each shoe is its own piece, the pairs set down a little askew. Real sizes: sandal 0.24 m, cloth shoe 0.245 m."""
+    rr=random.Random(1010);ST,HP,CL,LN=M['straw'],M['hemp'],M['cloth_dark'],M['linen']
     def place(n0,cx,cy,rot):
         T=Matrix.Translation((cx,cy,0))@Matrix.Rotation(rot,4,'Z')
         for o in parts[n0:]:
@@ -351,59 +353,100 @@ def LV10(M):
         return pts
     def flat(name,outline,z0,z1,mat,grp,bev,seed):   # an outline in X–Y extruded along Z (via _plate, turned up)
         o=_plate(name,[(x,-y) for x,y in outline],z0,z1,mat,grp,bev=bev,jit=.0006,seed=seed);o.data.transform(Matrix.Rotation(math.pi/2,4,'X'));return o
-    def thong(tag,side_z,knot,peak,anchors,post_z):
-        kp=Vector(knot)
-        for k,sx in enumerate((-1,1)):   # two straps from the knot to the sides, padded cloth over a cord
-            ax,ay=anchors;pts=[Vector((sx*ax,ay,side_z-.004)),Vector((sx*ax*.96,ay-.004,side_z+.012)),Vector((sx*peak[0],peak[1],peak[2])),Vector((sx*.012,kp.y+.012,kp.z+.002)),kp+Vector((sx*.003,.002,0))]
-            tube(f'{tag}_Strap{k}',_spline(pts,4),.0062,M['cloth_dark'],'Body',sides=7,scale=.05)
-        tube(f'{tag}_Post',[kp,kp+Vector((0,-.002,-.012)),Vector((0,kp.y-.003,post_z))],.0052,M['cloth_dark'],'Body',sides=7,scale=.05)
-        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=2,radius=.0095,location=kp);o=bpy.context.object;o.scale=(1.25,1.1,.9);bpy.ops.object.transform_apply(scale=True)
-        bm=bmesh.new();bm.from_mesh(o.data);bpy.data.objects.remove(o);finish(f'{tag}_Knot',bm,M['cloth_dark'],'Body',.04)
-        for j in range(4):   # frayed threads at the knot (Detail_)
-            d=Vector((rr.uniform(-1,1),rr.uniform(-1,-.2),rr.uniform(-.2,.6))).normalized()
-            _taper(f'{tag}_Fray{j}',[kp+d*.006,kp+d*.014,kp+d*.021+Vector((0,0,-.004))],[.0012,.0009,.0003],M['cloth_dark'],'Detail_Frays',sides=3,scale=.03)
-    SH=[]
-    # straw sandals
+    def cord(name,pts,r=.0034,grp='Body',sub=2):return tube(name,_spline([Vector(p) for p in pts],sub),r,ST,grp,sides=5,scale=.04)
+    SH=[];ZS=.0105
+    # straw sandals: toe towards -Y
     for k,(cx,cy,rot) in enumerate(((-.146,.010,.05),(-.048,-.004,-.035))):
-        n0=len(parts);ol=soleline(.12,.048,.041)
-        flat(f'LV10_Sandal{k}_Sole',ol,0.,.0105,M['straw'],'Body',bev=.003,seed=1011+k)
+        n0=len(parts);ol=soleline(.12,.048,.041);tag=f'LV10_Sandal{k}';j=.004*(k-.5)
+        flat(f'{tag}_Sole',ol,0.,ZS,ST,'Body',bev=.003,seed=1011+k)
         inset=[]
         for i,(x,y) in enumerate(ol):   # the rim's centre line: the outline moved in by the rope's radius
             xa,ya=ol[i-1];xb,yb=ol[(i+1)%len(ol)];tx,ty=xb-xa,yb-ya;l=math.hypot(tx,ty);inset.append((x-ty/l*.0074,y+tx/l*.0074))
         rp=[Vector((x,y,.0098+.0006*math.sin(7*i))) for i,(x,y) in enumerate(inset)];rp=rp+[rp[0]+(rp[1]-rp[0])*.6+Vector((0,0,.0026))]   # the end rides up over the start
-        tube(f'LV10_Sandal{k}_Rim',rp,.0078,M['straw'],'Body',sides=8,scale=.06,up=Vector((0,0,1)))   # one thick braid; its plait is painted (ply tubes lay flat along the sole's edge)
-        thong(f'LV10_Sandal{k}',.0105,(0,-.070,.032),(.031,-.018,.036),(.032,.012),.004)
-        place(n0,cx,cy,rot);SH.append(('s',cx,cy,rot))
-    # wooden clogs on two teeth
-    for k,(cx,cy,rot) in enumerate(((.051,-.012,.03),(.146,.006,-.045))):
-        n0=len(parts);ol=soleline(.1125,.045,.043,ex=4.)
-        flat(f'LV10_Clog{k}_Board',ol,.033,.052,M['stumpwood'],'Body',bev=.003,seed=1021+k)
-        for j,y in enumerate((-.056,.054)):box(f'LV10_Clog{k}_Tooth{j}',(.080,.021,.0345),(0,y,.0172),M['stumpwood'],'Body',bev=.002,jit=.0006,seed=1031+2*k+j)
-        thong(f'LV10_Clog{k}',.052,(0,-.066,.073),(.029,-.016,.080),(.034,.016),.040)
-        place(n0,cx,cy,rot);SH.append(('c',cx,cy,rot))
+        tube(f'{tag}_Rim',rp,.0078,ST,'Body',sides=8,scale=.06,up=Vector((0,0,1)))   # one thick braid; its plait is painted
+        ears={}
+        for nm,x,y,h,dy in (('FrontL',-.021,-.094,.021,.016),('FrontR',.021,-.094,.021,.016),('SideL',-.036,-.012,.019,.020),('SideR',.036,-.012,.019,.020)):   # straw-cord ears standing on the sole
+            sx=1 if x>0 else -1;lean=sx*-.004
+            cord(f'{tag}_Ear{nm}',[(x,y-dy,ZS-.005),(x+lean*.5,y-dy*.8,ZS+h*.7),(x+lean,y,ZS+h),(x+lean*.5,y+dy*.8,ZS+h*.7),(x,y+dy,ZS-.005)],r=.0036)
+            ears[nm]=Vector((x+lean,y,ZS+h-.0045))
+        hl=[(-.029,.094,ZS-.005),(-.027,.090,ZS+.026),(-.014,.085+j,ZS+.043),(0,.083+j,ZS+.047),(.014,.085+j,ZS+.043),(.027,.090,ZS+.026),(.029,.094,ZS-.005)]
+        cord(f'{tag}_HeelLoop',hl,r=.0040);top=Vector((0,.083+j,ZS+.047))
+        for q,(a,b,sx) in enumerate((('SideL','FrontR',-1),('SideR','FrontL',1))):   # the laces: heel loop → side ear → across the instep → the far front ear
+            pa,pb=ears[a],ears[b];lift=.006*q   # the second lies over the first where they cross
+            pts=[top+Vector((sx*.012,.001,-.004)),top+Vector((sx*.022,-.018,-.016)),Vector((sx*.034,.040,ZS+.020)),pa+Vector((0,.006,.002)),pa+Vector((-sx*.004,-.004,-.0005)),
+                 Vector((sx*.012,-.040,ZS+.014+lift)),Vector((-sx*.008,-.066,ZS+.015+lift)),pb+Vector((sx*.004,.006,.0005)),pb+Vector((0,-.004,-.001))]
+            cord(f'{tag}_Lace{q}',pts,r=.0030)
+        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=2,radius=.0078,location=top+Vector((0,.001,.002)));o=bpy.context.object;o.scale=(1.5,1.,.85);bpy.ops.object.transform_apply(scale=True)
+        bm=bmesh.new();bm.from_mesh(o.data);bpy.data.objects.remove(o);finish(f'{tag}_Knot',bm,ST,'Body',.04)
+        for q,sx in enumerate((-1,1)):   # the tied ends hang slack behind the heel loop, down onto the sole's edge
+            cord(f'{tag}_End{q}',[top+Vector((sx*.004,.003,.002)),top+Vector((sx*.016,.012,-.006)),Vector((sx*.024,.103,ZS+.018)),Vector((sx*(.030+.004*q),.112,ZS+.002)),Vector((sx*(.040+.006*q),.110-.01*q,ZS-.003))],r=.0028)
+        for q in range(5):   # loose straw ends sticking out of the braid (Detail_)
+            a=rr.uniform(0,math.tau);x,y=inset[int(a/math.tau*len(inset))%len(inset)];d=Vector((x,y*.4,0)).normalized()
+            _taper(f'{tag}_Fray{q}',[Vector((x,y,.011)),Vector((x,y,.014))+d*.012,Vector((x,y,.012))+d*.024],[.0013,.0010,.0004],ST,'Detail_Frays',sides=3,scale=.03)
+        place(n0,cx,cy,rot);SH.append(('s',cx,cy,rot,k))
+    # cloth shoes: a layered white sole, a black upper with a round toe and a bound opening
+    A,ZB=.1225,.019
+    for k,(cx,cy,rot) in enumerate(((.052,-.012,.04),(.147,.006,-.05))):
+        n0=len(parts);tag=f'LV10_Cloth{k}';ol=soleline(A,.046,.041,ex=3.0);n=len(ol)
+        flat(f'{tag}_Sole',[(x*1.045,y*1.02) for x,y in ol],0.,ZB,LN,'Body',bev=.0025,seed=1021+k)
+        def rimpt(i):
+            t=math.tau*i/n;h=.043+.006*math.sin(t)**2+.003*math.sin(t);return Vector((.0265*math.cos(t),.040+.071*math.sin(t),h))
+        SS=(0.,.15,.32,.5,.7,.88,1.);bm=bmesh.new();O=[];I=[]
+        for s in SS:
+            ro=[];ri=[]
+            for i,(x,y) in enumerate(ol):
+                r_=rimpt(i);e=s**1.8;p=Vector((x*.985+(r_.x-x*.985)*e,y*.985+(r_.y-y*.985)*e,ZB-.002+(r_.z-ZB+.002)*(1-(1-s)**2.2)))
+                if s==0:p.z=ZB-.003
+                c=Vector((0,max(-.03,min(.10,p.y)),p.z));d=(c-p);d.z=0;d=d.normalized() if d.length>1e-6 else Vector((0,0,0))
+                q_=p+d*.0048*(1-.25*s)-Vector((0,0,.0040*e));ro.append(bm.verts.new(p));ri.append(bm.verts.new(q_))
+            O.append(ro);I.append(ri)
+        for a,b in zip(O,O[1:]):
+            for i in range(n):bm.faces.new((a[i],a[(i+1)%n],b[(i+1)%n],b[i]))
+        for a,b in zip(I,I[1:]):
+            for i in range(n):bm.faces.new((a[i],b[i],b[(i+1)%n],a[(i+1)%n]))
+        for i in range(n):bm.faces.new((O[-1][i],O[-1][(i+1)%n],I[-1][(i+1)%n],I[-1][i]));bm.faces.new((O[0][i],I[0][i],I[0][(i+1)%n],O[0][(i+1)%n]))
+        bmesh.ops.recalc_face_normals(bm,faces=bm.faces)
+        for f in bm.faces:f.smooth=True
+        finish(f'{tag}_Upper',bm,CL,'Body',.08)
+        bm=bmesh.new();R_=[]   # the bound edge of the opening: a closed ring, welded all the way round
+        for i in range(n):
+            c=rimpt(i)+Vector((0,0,.0006));nr=Vector((c.x,(c.y-.040)*.4,0)).normalized()
+            R_.append([bm.verts.new(c+(nr*math.cos(math.tau*(q+.5)/6)+Vector((0,0,1))*math.sin(math.tau*(q+.5)/6))*.0031) for q in range(6)])
+        for i in range(n):
+            for q in range(6):bm.faces.new((R_[i][q],R_[i][(q+1)%6],R_[(i+1)%n][(q+1)%6],R_[(i+1)%n][q]))
+        bmesh.ops.recalc_face_normals(bm,faces=bm.faces)
+        for f in bm.faces:f.smooth=True
+        finish(f'{tag}_Binding',bm,CL,'Body',.04)   # the bound edge of the opening
+        place(n0,cx,cy,rot);SH.append(('c',cx,cy,rot,k))
     def paint(col,rough,pos,onrm,ao,cav,edge,noise,mid,filled,meta):
         P=(pos-np.array(meta['offset'][:]))/meta['scale_to_target'];px,py,pz=P[...,0],P[...,1],P[...,2]
-        for kind,cx,cy,rot in SH:
+        for kind,cx,cy,rot,k in SH:
             c_,s_=math.cos(-rot),math.sin(-rot);lx=(px-cx)*c_-(py-cy)*s_;ly=(px-cx)*s_+(py-cy)*c_
-            on=filled*(np.abs(lx)<.06)*(np.abs(ly)<.125)
-            if kind=='s':   # the sole's braid (herringbone rows across), the heel and ball pressed flat and darker
-                rim=on*(pz>.004)*(np.abs(onrm[...,2])<.9)   # the rim braid: slanted plait bands along it
-                pl=.5+.5*np.sin(math.tau*(np.arctan2(ly/.12,lx/.046)*14+pz*90))
-                col=col*(1-.25*np.clip((.4-pl)*3,0,1)*rim)[...,None]
+            on=filled*(np.abs(lx)<.052)*(np.abs(ly)<.13)
+            if kind=='s':   # the sole's weave (rows across), the heel and ball pressed flat and darker; dried mud, more on the second
+                rim=on*(pz>.004)*(pz<.02)*(np.abs(onrm[...,2])<.9)*(np.hypot(lx/.05,ly/.125)>.8)
+                pl=.5+.5*np.sin(math.tau*(np.arctan2(ly/.12,lx/.046)*14+pz*90));col=col*(1-.25*np.clip((.4-pl)*3,0,1)*rim)[...,None]
                 top=on*(pz<.0125)*(onrm[...,2]>.6)
                 br=.5+.5*np.sin(math.tau*(ly*70+np.abs(lx)*48));br2=.5+.5*np.sin(math.tau*lx*26)
                 col=col*(1-(.30*np.clip((.35-br)*3,0,1)+.10*br2)[...,None]*top[...,None])
                 pr=top*(np.exp(-((ly-.06)/.035)**2)+.8*np.exp(-((ly+.05)/.03)**2))*np.clip(1-np.abs(lx)/.04,0,1)
                 col=col*(1-.28*pr[...,None]);rough=np.clip(rough-.15*pr,0,1)
-            else:   # mud on the teeth and the board's underside; the foot's dark print on top
-                mud=on*np.clip((.036-pz)/.03,0,1)*np.clip(.6+(noise-.5)*1.5,0,1)
-                col=col*(1-.55*mud[...,None])+mud[...,None]*np.array([.10,.07,.04]);rough=np.clip(rough+.1*mud,0,1)
-                pr=on*(pz>.05)*(onrm[...,2]>.7)*(np.exp(-((ly-.05)/.03)**2)+.7*np.exp(-((ly+.04)/.03)**2))*np.clip(1-np.abs(lx)/.04,0,1)
-                col=col*(1-.25*pr[...,None])
+                mud=on*np.clip((.016-pz)/.014,0,1)*np.clip((.35 if k==0 else .75)+(noise-.5)*2.2,0,1)*(np.abs(onrm[...,2])<.95)
+                col=col*(1-.6*mud[...,None])+mud[...,None]*.6*np.array([.25,.19,.13]);rough=np.clip(rough+.1*mud,0,1)
+            else:
+                sole=on*(pz<ZB-.0015)*(np.abs(onrm[...,2])<.7)   # the layered sole: rows of cloth layers and stitches round its edge
+                lay=.5+.5*np.sin(math.tau*pz/.0034);col=col*(1-.20*np.clip((.35-lay)*3,0,1)*sole)[...,None]
+                st=np.clip((np.sin(np.arctan2(ly/.12,lx/.046)*60)-.6)*2.5,0,1)*np.clip(1-np.abs(pz-.010)/.003,0,1);col=col*(1-.30*st*sole)[...,None]
+                dirt=sole*np.clip((.009-pz)/.008,0,1)*np.clip(.5+(noise-.5)*2,0,1);col=col*(1-.45*dirt[...,None])+dirt[...,None]*.45*np.array([.30,.24,.17])
+                up=on*(pz>=ZB-.0015)*(col.mean(2)<.5)                  # the upper: near-black cloth with a blue cast, dusty at the toe
+                col=col*(1-up[...,None])+up[...,None]*(col*np.array([.40,.42,.52])+np.array([.012,.014,.022]))
+                dust=up*np.clip((-.04-ly)/.07,0,1)*np.clip(.3+(noise-.5)*2.4,0,1)*np.clip(onrm[...,2]+.3,0,1);col=col*(1-.35*dust[...,None])+dust[...,None]*.35*np.array([.36,.31,.25])
+                ins=on*(pz>=ZB-.0015)*(pz<ZB+.004)*(onrm[...,2]>.7)*(col.mean(2)>=.5);col=col*(1-.30*ins[...,None])   # the insole in the opening's shade, worn darker
         return col,rough
-    return {'paint':paint,'wear':1.0,'grime':.8,'uv_angle':50,'notes':['two straw sandals (0.24 m) and two wooden clogs (0.225 m, teeth 3.4 cm), each its own piece, set down a little askew',
-            'the sandal sole is a flat plate with a braided rope rim; the braid, the pressed heel and ball are painted; clog mud and foot print painted',
-            'thongs: two padded cloth straps from a toe knot to the sides and a post into the sole; Detail_Frays: frayed threads at the knots']}
+    return {'paint':paint,'wear':1.0,'grime':.8,'uv_angle':50,'notes':['#117 review: remade as Chinese footwear — two straw sandals (0.24 m) and two black cloth shoes (0.245 m), each its own piece, set down a little askew',
+            'straw sandal: a flat sole with a braided rope rim; two front ears, two side ears and a heel loop of straw cord; two laces cross over the instep (no toe thong), tied at the heel loop with slack ends; weave, pressed heel and ball, mud painted',
+            'cloth shoe: a round-toed upper with thickness and a bound opening on a thick white sole; the cloth layers and stitches of the sole, the dust and the near-black colour are painted',
+            'the laces lie slack (no foot inside), so they do not stand as tall as in the three-view; Detail_Frays: loose straw ends on the sandal rims']}
 PROPS['LV10']=LV10
 
 # ---------------- LV11 a long whetstone on a low wooden bench, a water bowl at one end (cand-1) ----------------

@@ -1,0 +1,232 @@
+{
+  "asset": "DR01_RootArch",
+  "version": "v001",
+  "blender": "5.2.2 LTS",
+  "bounds_main": {
+    "min": [
+      -18.6415,
+      -14.6713,
+      -0.6915
+    ],
+    "max": [
+      19.2325,
+      12.6639,
+      8.0831
+    ],
+    "dims": [
+      37.874,
+      27.3352,
+      8.7746
+    ]
+  },
+  "bounds_detail": {
+    "min": [
+      -12.8406,
+      -9.1612,
+      -0.0569
+    ],
+    "max": [
+      13.4513,
+      8.1905,
+      8.3671
+    ]
+  },
+  "opening_lod0": {
+    "clear_height_m_at_x": {
+      "-4": 4.377,
+      "-3": 5.462,
+      "-2": 5.679,
+      "-1": 5.903,
+      "0": 5.816,
+      "1": 5.675,
+      "2": 5.28,
+      "3": 4.849,
+      "4": 4.162
+    },
+    "clear_span_m_at_z": {
+      "0.3": 9.023,
+      "1.0": 8.522,
+      "2.0": 9.025,
+      "3.0": 9.05,
+      "4.0": 8.402
+    },
+    "path_2p2m_blocked_samples": 0,
+    "clear_height_min_over_central_4m": 5.28,
+    "clear_span_min_ground_to_3m": 8.522,
+    "meets_pack_8m_x_5m": true
+  },
+  "opening_collision": {
+    "clear_height_m_at_x": {
+      "-4": 4.501,
+      "-3": 5.49,
+      "-2": 5.731,
+      "-1": 5.966,
+      "0": 5.836,
+      "1": 5.656,
+      "2": 5.342,
+      "3": 4.898,
+      "4": 4.315
+    },
+    "clear_span_m_at_z": {
+      "0.3": 9.197,
+      "1.0": 9.064,
+      "2.0": 9.034,
+      "3.0": 9.014,
+      "4.0": 8.565
+    },
+    "path_2p2m_blocked_samples": 0,
+    "clear_height_min_over_central_4m": 5.342,
+    "clear_span_min_ground_to_3m": 9.014,
+    "meets_pack_8m_x_5m": true
+  },
+  "foot_root_spread_m": {
+    "west": 14.19,
+    "east": 14.14
+  },
+  "buried_depth_m": 0.692,
+  "tris": {
+    "LOD0": {
+      "DR01_RootArch_LOD0": 68444,
+      "Detail_DR01_Plants_LOD0": 24938
+    },
+    "LOD1": {
+      "DR01_RootArch_LOD1": 34954,
+      "Detail_DR01_Plants_LOD1": 12469
+    },
+    "LOD2": {
+      "DR01_RootArch_LOD2": 10776,
+      "Detail_DR01_Plants_LOD2": 3740
+    },
+    "collision": 4920
+  },
+  "lod_ratio": {
+    "LOD1": 0.508,
+    "LOD2": 0.155
+  },
+  "fbx_roundtrip": {
+    "objects": [
+      "DR01_RootArch",
+      "DR01_RootArch_Collision",
+      "DR01_RootArch_LOD0",
+      "DR01_RootArch_LOD1",
+      "DR01_RootArch_LOD2",
+      "Detail_DR01_Plants_LOD0",
+      "Detail_DR01_Plants_LOD1",
+      "Detail_DR01_Plants_LOD2",
+      "Socket_Path_N",
+      "Socket_Path_S",
+      "Socket_Wall_E",
+      "Socket_Wall_W"
+    ],
+    "lod0_dimensions_m": [
+      37.874,
+      27.3352,
+      8.7746
+    ],
+    "sockets": {
+      "Socket_Path_N": [
+        0.0,
+        4.0,
+        -0.0
+      ],
+      "Socket_Path_S": [
+        0.0,
+        -4.0,
+        0.0
+      ],
+      "Socket_Wall_E": [
+        15.0,
+        0.0,
+        0.0
+      ],
+      "Socket_Wall_W": [
+        -15.0,
+        0.0,
+        0.0
+      ]
+    },
+    "uv_layers": [
+      "UVMap",
+      "TileUV"
+    ],
+    "materials": [
+      "M_DR01_RootArch_A",
+      "M_DR01_RootArch_B",
+      "M_DR01_RootArch_C",
+      "M_DR01_RootArch_D",
+      "M_DR01_RootArch_Leaf"
+    ]
+  },
+  "fbx_dims_match": true,
+  "textures_px": {
+    "DR01_RootArch_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_A_ORM.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_B_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_B_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_B_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_B_ORM.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_C_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_C_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_C_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_C_ORM.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_D_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_D_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_D_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_D_ORM.png": [
+      2048,
+      2048
+    ]
+  },
+  "checks_not_in_this_file": [
+    "Unity 匯入與引擎內外觀：另見 art/previews/d2-roots-b/DR01_RootArch/unity/report.txt",
+    "放進 D2 場景後的同鏡位截圖（場景由核心組擺）",
+    "實機效能、FPS"
+  ]
+}
