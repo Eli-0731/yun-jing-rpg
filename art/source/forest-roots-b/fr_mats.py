@@ -164,3 +164,109 @@ def rings(name, slot='Main'):
     col = g.mul(1.0, col, g.ramp(ao, [(0, (.45, .4, .38)), (1, (1, 1, 1))]))
     tm._finish(g, col, .82, 0.0, g.bump(g.math('ADD', ring, g.math('MULTIPLY', chk, -1.)), .4, .002), spec=.3)
     return m
+
+
+def worn_top(name, slot='Main'):
+    """LG01 walking line along the top of the fallen tree, and its splintered break: the bark worn off by feet and weather, silver-brown
+    long-grained wood, a darker smoother trodden line down the middle, moss creeping in from the edges. No tool marks (it is not hewn).
+    Reads 'adze': x = metres along the log, y = metres across from the trunk's top line, z = 1 on the walking band."""
+    m, g = tm._new(name, slot)
+    P, Zp, up = _p(g)
+    x, y, w = _sep(g, g.attr('adze'))
+    grain = g.noise(_xyz(g, g.math('MULTIPLY', x, .5), g.math('MULTIPLY', y, 26.), g.math('MULTIPLY', Zp, 26.)), 1.0, 4, .5)
+    fib = g.maprange(g.noise(_xyz(g, g.math('MULTIPLY', x, 1.), g.math('MULTIPLY', y, 110.), g.math('MULTIPLY', Zp, 110.)), 1.0, 2, .5), .4, .64)
+    col = g.ramp(g.math('ADD', g.math('MULTIPLY', grain, .7), g.math('MULTIPLY', dabs(g, P, 9.0), .3)),
+                 [(.25, (.058, .047, .036)), (.55, (.1, .083, .062)), (.85, (.15, .128, .098))])
+    col = g.mix(g.math('MULTIPLY', fib, .22), col, (.035, .027, .019))
+    # long checks along the grain (dry cracks), dark
+    chk = g.maprange(g.math('ABSOLUTE', g.math('SUBTRACT', g.noise(_xyz(g, g.math('MULTIPLY', x, .35), g.math('MULTIPLY', y, 14.), 0.), 1.0, 3, .5), .5)), .018, .0)
+    col = g.mix(g.math('MULTIPLY', chk, .8), col, (.018, .013, .009))
+    # bark remnants: islands of dark bark left on the worn wood towards the edges
+    rem = g.math('MULTIPLY', g.maprange(g.noise(P, 3.5, 3, .55), .56, .62), g.maprange(g.math('ABSOLUTE', y), .15, .32))
+    col = g.mix(rem, col, (.026, .017, .011))
+    tr = g.math('MULTIPLY', g.maprange(g.math('ABSOLUTE', y), .22, .06), w)
+    col = g.mix(g.math('MULTIPLY', tr, .45), col, (.07, .052, .034))
+    mo = g.math('MULTIPLY', g.maprange(g.math('ABSOLUTE', y), .26, .4), g.maprange(g.noise(P, 4.0, 3, .5), .42, .6))
+    col = g.mix(g.math('MULTIPLY', mo, .85), col, (.045, .075, .02))
+    ao = g.ao(.05)
+    col = g.mul(1.0, col, g.ramp(ao, [(0, (.42, .38, .36)), (1, (1, 1, 1))]))
+    rough = g.math('SUBTRACT', .84, g.math('MULTIPLY', tr, .2))
+    h = g.math('ADD', g.math('MULTIPLY', fib, .4), g.math('ADD', g.math('MULTIPLY', grain, .3), g.math('MULTIPLY', chk, -.8)))
+    tm._finish(g, col, rough, 0.0, g.bump(h, .5, .003), spec=.3)
+    return m
+
+
+def bracket_fungus(name, slot='Main'):
+    """Shelf fungus on the fallen trunk: ochre-tan bands round the attachment, a pale cream growing rim, a darker felted top.
+    Reads 'adze': x = 0 at the attachment .. 1 at the rim."""
+    m, g = tm._new(name, slot)
+    P, Zp, up = _p(g)
+    x, y, w = _sep(g, g.attr('adze'))
+    band = g.math('SINE', g.math('ADD', g.math('MULTIPLY', x, 34.), g.math('MULTIPLY', g.noise(P, 12.0, 2, .5), 3.)))
+    col = g.ramp(g.math('ADD', g.math('MULTIPLY', x, .7), g.math('MULTIPLY', band, .12)),
+                 [(.1, (.055, .036, .018)), (.45, (.16, .1, .045)), (.75, (.28, .2, .1)), (.93, (.42, .36, .24))])
+    col = g.mix(g.math('MULTIPLY', g.maprange(up, -.2, -.7), .7), col, (.36, .31, .22))     # pale pore surface underneath
+    col = g.mix(g.math('MULTIPLY', g.maprange(g.noise(P, 30.0, 3, .5), .55, .7), .3), col, (.05, .07, .02))
+    ao = g.ao(.03)
+    col = g.mul(1.0, col, g.ramp(ao, [(0, (.45, .4, .38)), (1, (1, 1, 1))]))
+    tm._finish(g, col, .72, 0.0, g.bump(g.math('ADD', band, g.noise(P, 40.0, 2, .5)), .25, .002), spec=.3)
+    return m
+
+
+def mushroom_cap(name, tone=(1., 1., 1.), slot='Main'):
+    """FO02 cap: muted dark violet-brown, darker and felted towards the top, paler towards the thick rolled rim, fine pale flecks,
+    moss and grime settled on the upward faces. Not glossy, not saturated."""
+    m, g = tm._new(name, slot)
+    P, Zp, up = _p(g)
+    k = lambda c: tuple(min(1., v * t) for v, t in zip(c, tone))
+    big = g.noise(P, 6.0, 4, .55); fine = g.noise(P, 48.0, 3, .6)
+    col = g.ramp(g.math('ADD', g.math('MULTIPLY', big, .75), g.math('MULTIPLY', g.noise(P, 22.0, 3, .5), .25)),          # soft mottling, no hard-edged dabs
+                 [(.3, k((.035, .025, .027))), (.55, k((.06, .043, .043))), (.8, k((.095, .07, .062)))])
+    rim = g.maprange(up, .55, .05)                          # the steep rim and its roll: paler, warmer
+    col = g.mix(g.math('MULTIPLY', rim, .55), col, k((.15, .115, .09)))
+    fl = g.math('MULTIPLY', g.maprange(g.noise(P, 90.0, 2, .5), .66, .72), g.maprange(up, .4, .8))
+    col = g.mix(g.math('MULTIPLY', fl, .45), col, k((.2, .17, .14)))
+    mo = g.math('MULTIPLY', g.maprange(up, .75, .95), g.maprange(g.math('ADD', g.math('MULTIPLY', big, .6), g.math('MULTIPLY', fine, .4)), .56, .66))
+    col = g.mix(g.math('MULTIPLY', mo, .85), col, g.ramp(fine, [(.35, (.03, .05, .012)), (.75, (.06, .1, .026))]))
+    ao = g.ao(.05)
+    col = g.mul(1.0, col, g.ramp(ao, [(0, (.4, .36, .38)), (1, (1, 1, 1))]))
+    tm._finish(g, col, .78, 0.0, g.bump(g.math('ADD', g.math('MULTIPLY', fine, .5), g.math('MULTIPLY', mo, .8)), .4, .002), spec=.35)
+    return m
+
+
+def mushroom_stem(name, slot='Main'):
+    """FO02 stem: pale cream-grey flesh with long fibres up the stem, a faint cool cast high up under the cap, soil-stained at the foot."""
+    m, g = tm._new(name, slot)
+    P, Zp, up = _p(g)
+    x, y, w = _sep(g, g.attr('adze'))                       # x = metres up the stem, y = angle round it
+    fib = g.noise(_xyz(g, g.math('MULTIPLY', y, 9.), g.math('MULTIPLY', x, 1.2), 0.), 1.0, 4, .55)
+    streak = g.maprange(g.math('ABSOLUTE', g.math('SUBTRACT', g.noise(_xyz(g, g.math('MULTIPLY', y, 22.), g.math('MULTIPLY', x, .8), 3.), 1.0, 2, .5), .5)), .03, .0)
+    col = g.ramp(g.math('ADD', g.math('MULTIPLY', fib, .7), g.math('MULTIPLY', dabs(g, P, 25.0), .3)),
+                 [(.25, (.2, .17, .13)), (.6, (.33, .29, .225)), (.9, (.42, .375, .3))])     # cream flesh, not white
+    col = g.mix(g.math('MULTIPLY', streak, .5), col, (.14, .12, .1))
+    col = g.mix(g.math('MULTIPLY', g.maprange(w, .7, 1.), .22), col, (.26, .32, .31))   # w: share of the way up; a cool cast only just under the gills
+    dirt = g.math('MULTIPLY', g.maprange(x, .13, .0), g.maprange(g.noise(P, 20.0, 3, .5), .25, .55))
+    col = g.mix(g.math('MULTIPLY', dirt, .85), col, (.05, .035, .022))
+    ao = g.ao(.04)
+    col = g.mul(1.0, col, g.ramp(ao, [(0, (.45, .38, .3)), (1, (1, 1, 1))]))
+    tm._finish(g, col, .7, 0.0, g.bump(g.math('ADD', fib, g.math('MULTIPLY', streak, -1.)), .35, .0015), spec=.35)
+    return m
+
+
+def mushroom_gill(name, glow=(.04, .62, .56), slot='Main'):
+    """FO02 gills under the cap: pale grey-cyan plates; the glow (emission) is cyan, strongest on the gill edges in the inner half
+    and gone at the rim, so only a small part of the mushroom lights. Reads 'adze': x = 0 at the stem .. 1 at the rim, y = 1 on a gill edge."""
+    m, g = tm._new(name, slot)
+    P, Zp, up = _p(g)
+    x, y, w = _sep(g, g.attr('adze'))
+    col = g.ramp(g.math('ADD', g.math('MULTIPLY', y, .5), g.math('MULTIPLY', g.noise(P, 60.0, 2, .5), .5)),
+                 [(.2, (.06, .075, .075)), (.6, (.15, .19, .18)), (.9, (.22, .28, .26))])
+    col = g.mix(g.math('MULTIPLY', g.maprange(x, .75, 1.), .6), col, (.1, .08, .07))
+    gl = g.math('MULTIPLY', g.math('MULTIPLY', g.maprange(x, .95, .45), g.maprange(x, .0, .12)), g.math('ADD', .35, g.math('MULTIPLY', y, .65)))
+    gl = g.math('MULTIPLY', gl, g.maprange(g.noise(P, 14.0, 2, .5), .3, .6, .6, 1.))
+    emit = g.mix(gl, (0., 0., 0.), glow)
+    col = g.mix(g.math('MULTIPLY', gl, .5), col, tuple(c * .5 + .1 for c in glow))
+    ao = g.ao(.02)
+    col = g.mul(1.0, col, g.ramp(ao, [(0, (.5, .5, .5)), (1, (1, 1, 1))]))
+    tm._finish(g, col, .6, 0.0, g.bump(y, .3, .001), emit=emit, spec=.4)
+    return m

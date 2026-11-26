@@ -1,0 +1,421 @@
+{
+  "asset": "WE01_VillageWell",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "WE01_VillageWell_Detail_Small"
+  ],
+  "name_zh": "村中水井與井亭",
+  "slot": "A1_VillageCentre_Well",
+  "note": "村心天天有人用的水井（三視圖 WE01-cand-4）：石砌圓井圈加一圈壓頂石，井裡有水；井旁兩根立柱架木轆轤，軸上纏繩、右邊一支搖把，繩子垂進井裡；井邊石板上一只木桶。四根方木柱立在石柱礎上，撐一個懸山黛瓦小亭頂（VL 瓦片縮 0.65 倍，屋脊沿 x、兩端捲起），長邊有額枋和下枋、三根短柱，兩端山面是露明的抬梁（橫梁、脊瓜柱、兩根斜撐），柱和梁之間有斜撐、用麻繩綁。地上是一圈不規則石板，井前和木桶旁的石板被水弄濕變深，石縫和邊上長草。人從前面兩根柱子之間走進亭內（淨寬 2.18 m），站在井圈前打水，後面同樣開著。不寫字、沒有人。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 106184,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 53089,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 15544,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ],
+    "WE01_VillageWell_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Metallic.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Normal.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Roughness.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "WE01_VillageWell_Wood_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the pad, bottom z = 0, front (an open long side) -Y",
+  "dimensions_m": [
+    3.3807,
+    3.4556,
+    3.5419
+  ],
+  "bounds_min_m": [
+    -1.6887,
+    -1.7278,
+    0.0
+  ],
+  "bounds_max_m": [
+    1.6921,
+    1.7278,
+    3.5419
+  ],
+  "size_limit_m": [
+    3.5,
+    3.5,
+    3.6
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        3.3113,
+        3.4556,
+        3.5419
+      ],
+      "min": [
+        -1.6564,
+        -1.7278,
+        0.0
+      ],
+      "max": [
+        1.6549,
+        1.7278,
+        3.5419
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        3.3807,
+        3.1745,
+        1.9685
+      ],
+      "min": [
+        -1.6887,
+        -1.4576,
+        0.0
+      ],
+      "max": [
+        1.6921,
+        1.7169,
+        1.9685
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 7038,
+      "LOD1": 3518,
+      "LOD2": 1054
+    },
+    "Stone": {
+      "LOD0": 26850,
+      "LOD1": 13424,
+      "LOD2": 4026
+    },
+    "Detail_Small": {
+      "LOD0": 42692,
+      "LOD1": 21345,
+      "LOD2": 6402
+    },
+    "Wood": {
+      "LOD0": 13860,
+      "LOD1": 6930,
+      "LOD2": 2078
+    },
+    "Roof": {
+      "LOD0": 15744,
+      "LOD1": 7872,
+      "LOD2": 1984
+    }
+  },
+  "lod_totals": {
+    "LOD0": 106184,
+    "LOD1": 53089,
+    "LOD2": 15544
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_WE01_VillageWell_Main",
+    "M_WE01_VillageWell_RoofTiles",
+    "M_WE01_VillageWell_Stone",
+    "M_WE01_VillageWell_Wood"
+  ],
+  "textures": [
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png",
+    "WE01_VillageWell_BaseColor.png",
+    "WE01_VillageWell_Metallic.png",
+    "WE01_VillageWell_MetallicSmoothness.png",
+    "WE01_VillageWell_Normal.png",
+    "WE01_VillageWell_Roughness.png",
+    "WE01_VillageWell_Stone_BaseColor.png",
+    "WE01_VillageWell_Stone_Metallic.png",
+    "WE01_VillageWell_Stone_MetallicSmoothness.png",
+    "WE01_VillageWell_Stone_Normal.png",
+    "WE01_VillageWell_Stone_Roughness.png",
+    "WE01_VillageWell_Wood_BaseColor.png",
+    "WE01_VillageWell_Wood_Metallic.png",
+    "WE01_VillageWell_Wood_MetallicSmoothness.png",
+    "WE01_VillageWell_Wood_Normal.png",
+    "WE01_VillageWell_Wood_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_WE01_VillageWell_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "WE01_VillageWell_BaseColor.png",
+        "Normal": "WE01_VillageWell_Normal.png",
+        "MetallicSmoothness": "WE01_VillageWell_MetallicSmoothness.png"
+      },
+      "M_WE01_VillageWell_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_WE01_VillageWell_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "WE01_VillageWell_Stone_BaseColor.png",
+        "Normal": "WE01_VillageWell_Stone_Normal.png",
+        "MetallicSmoothness": "WE01_VillageWell_Stone_MetallicSmoothness.png"
+      },
+      "M_WE01_VillageWell_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "WE01_VillageWell_Wood_BaseColor.png",
+        "Normal": "WE01_VillageWell_Wood_Normal.png",
+        "MetallicSmoothness": "WE01_VillageWell_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "WE01_VillageWell_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "parts": {
+    "pad_m": {
+      "radius": 1.62,
+      "top_z": 0.05,
+      "flagstones": "Voronoi cells, wet (darker) in front of the ring and round the bucket"
+    },
+    "posts_m": {
+      "grid_x": 2.56,
+      "grid_y": 2.1,
+      "section": 0.18,
+      "plinth": [
+        0.38,
+        0.38,
+        0.32
+      ],
+      "post_top": 2.347,
+      "plate_top": {
+        "-1": 2.517,
+        "1": 2.517
+      },
+      "ridge_purlin_top": 3.198
+    },
+    "front_clear_m": 2.18,
+    "well_ring_m": {
+      "outer_r": 0.56,
+      "inner_r": 0.4,
+      "rim_z": 0.81,
+      "water_z": 0.36000000000000004
+    },
+    "windlass_m": {
+      "uprights_x": 0.64,
+      "axle_z": 1.18,
+      "drum_r": 0.075,
+      "crank": "+x"
+    },
+    "bucket_m": {
+      "at": [
+        0.66,
+        -0.74
+      ],
+      "height": 0.3,
+      "radius_top": 0.17
+    },
+    "roof": {
+      "scale": 0.65,
+      "eave_y_m": -1.72,
+      "eave_underside_front_m": 2.343,
+      "note": "VL tiles at 0.65 scale (vl_roof keeps 12 courses a slope), hanging gable, ridge along x"
+    },
+    "Socket_WellWater": "water surface centre",
+    "Socket_DrawWater": "where a character stands to draw water (in front of the ring, facing +y)"
+  },
+  "sockets_blender_xyz": {
+    "Socket_WellWater": [
+      0.0,
+      0.0,
+      0.36
+    ],
+    "Socket_DrawWater": [
+      0.0,
+      -0.88,
+      0.05
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_DrawWater.001": [
+      0.0,
+      -0.88,
+      0.05
+    ],
+    "Socket_WellWater.001": [
+      0.0,
+      0.0,
+      0.36
+    ]
+  },
+  "fbx_objects": [
+    "Socket_DrawWater.001",
+    "Socket_WellWater.001",
+    "WE01_VillageWell.001",
+    "WE01_VillageWell_Collision.001",
+    "WE01_VillageWell_Detail_Small_LOD0.001",
+    "WE01_VillageWell_Detail_Small_LOD1.001",
+    "WE01_VillageWell_Detail_Small_LOD2.001",
+    "WE01_VillageWell_LOD0.001",
+    "WE01_VillageWell_LOD1.001",
+    "WE01_VillageWell_LOD2.001"
+  ],
+  "glb": "WE01_VillageWell_v001.glb",
+  "interface": {
+    "water_hits_z_m": [
+      0.36,
+      0.36,
+      0.36
+    ],
+    "ridge_m": [
+      3.467,
+      3.465,
+      3.467
+    ],
+    "headroom_m": [
+      2.362,
+      2.007,
+      2.007
+    ],
+    "collision_front_posts_x_m": [
+      -1.47,
+      -1.47
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-yards-b/we_well.py, vh_roof.py at 0.65 scale); procedural shaders baked to three 2048 atlases (Main, Stone, Wood); roof tiles on the shared 1024 VL tile texture (VL_Shared, read only)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 292.0,
+        "median": 292.6,
+        "p90": 293.8,
+        "area_m2": 23.1
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 275.6,
+        "median": 284.4,
+        "p90": 290.9,
+        "area_m2": 32.4
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 258.2,
+        "median": 260.1,
+        "p90": 263.4,
+        "area_m2": 27.3
+      },
+      "inside_or_covered": {
+        "p10": 43.4,
+        "median": 193.0,
+        "p90": 205.7,
+        "area_m2": 27.1
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "art/references/WE01/ (AI three-view WE01/WE01-cand-4; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-yards-unity/ (local Unity batch check VillageYardsModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}

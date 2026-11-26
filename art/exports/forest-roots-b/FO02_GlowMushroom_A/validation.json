@@ -1,0 +1,185 @@
+{
+  "asset": "FO02_GlowMushroom_A",
+  "checks": [
+    {
+      "check": "footprint_within_limit",
+      "pass": true,
+      "detail": {
+        "min": [
+          -0.5619,
+          -0.5435,
+          0.0
+        ],
+        "max": [
+          0.5423,
+          0.545,
+          0.7405
+        ],
+        "box_m": [
+          [
+            -0.6,
+            -0.6,
+            0.0
+          ],
+          [
+            0.6,
+            0.6,
+            0.8
+          ]
+        ]
+      }
+    },
+    {
+      "check": "base_at_z0",
+      "pass": true,
+      "detail": {
+        "min_z": 0.0,
+        "design_min_z": 0.0,
+        "largest_clamp_m": 0.02043
+      }
+    },
+    {
+      "check": "caps_thick_and_domed",
+      "pass": true,
+      "detail": {
+        "cap_radius_and_thickness_at_half_radius_m": [
+          [
+            0.29,
+            0.1148
+          ],
+          [
+            0.17,
+            0.0666
+          ],
+          [
+            0.15,
+            0.0572
+          ],
+          [
+            0.085,
+            0.0334
+          ],
+          [
+            0.065,
+            0.028
+          ],
+          [
+            0.055,
+            0.0206
+          ]
+        ],
+        "need": "thickness >= 0.22 x cap radius at half radius (a domed cap with body, not a disc)"
+      }
+    },
+    {
+      "check": "glow_only_under_caps",
+      "pass": true,
+      "detail": {
+        "glow_surface_share": 0.236,
+        "glow_faces_mean_normal_z": -0.297,
+        "glow_area_facing_up_share": 0.0,
+        "emission_atlas": "FO02_GlowMushroom_A_Emission.png",
+        "note": "faces whose baked Emission texel (at the UV centre) is above 0.08: a small share of the surface, facing down under the caps"
+      }
+    },
+    {
+      "check": "sockets_present",
+      "pass": true,
+      "detail": [
+        "Socket_GlowLight"
+      ]
+    },
+    {
+      "check": "lod_ratios_50_15",
+      "pass": true,
+      "detail": {
+        "triangles": {
+          "LOD0": 60656,
+          "LOD1": 30327,
+          "LOD2": 9097
+        },
+        "LOD1": 0.5,
+        "LOD2": 0.15,
+        "per_group": {
+          "Main": {
+            "LOD0": 44180,
+            "LOD1": 22090,
+            "LOD2": 6626
+          },
+          "Detail_Small": {
+            "LOD0": 16476,
+            "LOD1": 8237,
+            "LOD2": 2471
+          }
+        }
+      }
+    },
+    {
+      "check": "fbx_reimport_dimensions",
+      "pass": true,
+      "detail": {
+        "fbx_lod0_dims_m": [
+          1.1042,
+          1.0885,
+          0.7405
+        ],
+        "blend_dims_m": [
+          1.1042,
+          1.0885,
+          0.7405
+        ],
+        "tolerance_m": 0.02,
+        "max_error_m": 2e-05
+      }
+    },
+    {
+      "check": "fbx_has_lod0_1_2",
+      "pass": true,
+      "detail": [
+        "FO02_GlowMushroom_A.001",
+        "FO02_GlowMushroom_A_Collision.001",
+        "FO02_GlowMushroom_A_Detail_Small_LOD0.001",
+        "FO02_GlowMushroom_A_Detail_Small_LOD1.001",
+        "FO02_GlowMushroom_A_Detail_Small_LOD2.001",
+        "FO02_GlowMushroom_A_LOD0.001",
+        "FO02_GlowMushroom_A_LOD1.001",
+        "FO02_GlowMushroom_A_LOD2.001",
+        "Socket_GlowLight.001"
+      ]
+    },
+    {
+      "check": "fbx_sockets",
+      "pass": true,
+      "detail": {
+        "Socket_GlowLight.001": [
+          0.06,
+          0.08,
+          0.5803
+        ]
+      }
+    },
+    {
+      "check": "fbx_collision",
+      "pass": true,
+      "detail": "collision mesh present"
+    },
+    {
+      "check": "glb_written",
+      "pass": true,
+      "detail": {
+        "bytes": 3652028
+      }
+    },
+    {
+      "check": "ten_views_rendered",
+      "pass": true,
+      "detail": "orthographic, framing asserted per view"
+    }
+  ],
+  "all_pass": true,
+  "seconds": 174,
+  "not_checked": [
+    "in-engine lighting and walking (see the Unity report)",
+    "mobile frame rate (not measured)"
+  ]
+}

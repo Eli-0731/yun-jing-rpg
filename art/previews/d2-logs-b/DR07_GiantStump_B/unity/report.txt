@@ -1,0 +1,32 @@
+Unity 6000.3.28f1, pipeline URP
+PASS DR07_GiantStump_B: Albedo / Normal / ORM / MaskURP textures found
+PASS DR07_GiantStump_B: delivered textures 2048x2048 (larger than a person: 2048)
+INFO DR07_GiantStump_B: imported at 1024x1024 on StandaloneWindows64 (importer max 1024)
+INFO DR07_GiantStump_B: bark detail on UV0, tiling 5.07
+PASS DR07_GiantStump_B: water model DR07_GiantStump_B_water_v001.fbx imported
+PASS DR07_GiantStump_B: water LOD0 / LOD1 / LOD2 (DR07_GiantStump_B_water_LOD0, DR07_GiantStump_B_water_LOD1, DR07_GiantStump_B_water_LOD2)
+PASS DR07_GiantStump_B: the water has no collider (the stump collision closes the hollow)
+PASS DR07_GiantStump_B: water flat at y = 0.700 m, floating leaves at most 1.4 cm above it (model_info 0.700)
+PASS DR07_GiantStump_B: water centred on the hollow (-0.08, 0.02) (model_info -0.05, 0.02)
+PASS DR07_GiantStump_B: water 1.92 x 1.91 m inside the stump 8.99 x 8.93 m
+PASS DR07_GiantStump_B: water uses YunJing/CreekFlowWater, still (_Still 1, _Speed 0.03, _AlphaMid 0.6, _StillColour tea brown)
+PASS DR07_GiantStump_B: 1 submesh of floating leaves on LOD0, two-sided stump-atlas material
+PASS DR07_GiantStump_B: water UV in metres from the centre
+PASS DR07_GiantStump_B: imported size 8.995 x 8.925 x 3.906 m matches model_info 8.9943 x 8.925 x 3.9059 within 2 cm
+PASS DR07_GiantStump_B: lowest point y = -0.632 (the trunk sinks into the soil, origin on the ground)
+PASS DR07_GiantStump_B: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; y = 0 is the ground)
+PASS DR07_GiantStump_B: triangles LOD0/1/2 = 59988 / 29994 / 8998 (50% / 15%), model_info 59988 / 29994 / 8998
+PASS DR07_GiantStump_B: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS DR07_GiantStump_B: 2 materials over every LOD and Detail_ mesh (model_info 2: body, two-sided plants)
+PASS DR07_GiantStump_B: Detail_* plants render both faces
+PASS DR07_GiantStump_B: minTier = standard (blocks the way: everyone sees it)
+PASS DR07_GiantStump_B: detailObjects Detail_DR07_Plants present in the FBX
+PASS DR07_GiantStump_B: Detail_* off still shows the body (1 mesh per LOD)
+PASS DR07_GiantStump_B: Detail_DR07_Plants_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR07_GiantStump_B: DR07_GiantStump_B_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR07_GiantStump_B: one collision shell (MeshCollider, renderer off)
+PASS DR07_GiantStump_B: a walker crossing the stump is stopped at 5 of 5 lines (-0.6 R to 0.6 R)
+PASS DR07_GiantStump_B: the hollow is closed on top in the collision (y = 1.49 m, water at 0.70 m)
+PASS DR07_GiantStump_B: the root collar at 1.35 R is a low step (y = 0.08 m)
+INFO renders written to art/previews/d2-logs-b/DR07_GiantStump_B/unity
+INFO DR07_GiantStump_B: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)

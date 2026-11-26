@@ -1,0 +1,211 @@
+{
+  "glb": {
+    "mesh_count": 9,
+    "objects": {
+      "SM_RI02_Rice_Seedling_LOD0": {
+        "triangles": 483,
+        "triangles_match": true,
+        "max_dimension_error_m": 2e-06,
+        "vertex_color_attributes": [],
+        "origin_z": 0.0,
+        "qa_pass": true,
+        "qa_errors": [],
+        "qa_warnings": [
+          "SM_RI02_Rice_Seedling_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+          "SM_RI02_Rice_Seedling_LOD0: duplicate verts=457 loose verts=0"
+        ]
+      },
+      "SM_RI02_Rice_Seedling_LOD1": {
+        "triangles": 328,
+        "triangles_match": true,
+        "max_dimension_error_m": 5e-06,
+        "vertex_color_attributes": [],
+        "origin_z": 0.0,
+        "qa_pass": true,
+        "qa_errors": [],
+        "qa_warnings": [
+          "SM_RI02_Rice_Seedling_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+          "SM_RI02_Rice_Seedling_LOD1: duplicate verts=373 loose verts=0"
+        ]
+      },
+      "SM_RI02_Rice_Seedling_LOD2": {
+        "triangles": 202,
+        "triangles_match": true,
+        "max_dimension_error_m": 5e-06,
+        "vertex_color_attributes": [],
+        "origin_z": 0.0,
+        "qa_pass": true,
+        "qa_errors": [],
+        "qa_warnings": [
+          "SM_RI02_Rice_Seedling_LOD2: ~99.54% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+          "SM_RI02_Rice_Seedling_LOD2: duplicate verts=242 loose verts=0"
+        ]
+      },
+      "SM_RI02_Rice_Green_LOD0": {
+        "triangles": 1117,
+        "triangles_match": true,
+        "max_dimension_error_m": 4e-06,
+        "vertex_color_attributes": [],
+        "origin_z": 0.0,
+        "qa_pass": true,
+        "qa_errors": [],
+        "qa_warnings": [
+          "SM_RI02_Rice_Green_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+          "SM_RI02_Rice_Green_LOD0: duplicate verts=929 loose verts=0"
+        ]
+      },
+      "SM_RI02_Rice_Green_LOD1": {
+        "triangles": 759,
+        "triangles_match": true,
+        "max_dimension_error_m": 4e-06,
+        "vertex_color_attributes": [],
+        "origin_z": 0.0,
+        "qa_pass": true,
+        "qa_errors": [],
+        "qa_warnings": [
+          "SM_RI02_Rice_Green_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+          "SM_RI02_Rice_Green_LOD1: duplicate verts=709 loose verts=0"
+        ]
+      },
+      "SM_RI02_Rice_Green_LOD2": {
+        "triangles": 469,
+        "triangles_match": true,
+        "max_dimension_error_m": 3e-06,
+        "vertex_color_attributes": [],
+        "origin_z": 0.0,
+        "qa_pass": true,
+        "qa_errors": [],
+        "qa_warnings": [
+          "SM_RI02_Rice_Green_LOD2: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+          "SM_RI02_Rice_Green_LOD2: duplicate verts=411 loose verts=0"
+        ]
+      },
+      "SM_RI02_Rice_Golden_LOD0": {
+        "triangles": 1545,
+        "triangles_match": true,
+        "max_dimension_error_m": 4e-06,
+        "vertex_color_attributes": [],
+        "origin_z": 0.0,
+        "qa_pass": true,
+        "qa_errors": [],
+        "qa_warnings": [
+          "SM_RI02_Rice_Golden_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+          "SM_RI02_Rice_Golden_LOD0: duplicate verts=1241 loose verts=0",
+          "hidden back-to-back faces: SM_RI02_Rice_Golden_LOD0 (12 pairs) - delete to save tris"
+        ]
+      },
+      "SM_RI02_Rice_Golden_LOD1": {
+        "triangles": 1050,
+        "triangles_match": true,
+        "max_dimension_error_m": 5e-06,
+        "vertex_color_attributes": [],
+        "origin_z": 0.0,
+        "qa_pass": true,
+        "qa_errors": [],
+        "qa_warnings": [
+          "SM_RI02_Rice_Golden_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+          "SM_RI02_Rice_Golden_LOD1: duplicate verts=930 loose verts=0"
+        ]
+      },
+      "SM_RI02_Rice_Golden_LOD2": {
+        "triangles": 648,
+        "triangles_match": true,
+        "max_dimension_error_m": 5e-06,
+        "vertex_color_attributes": [],
+        "origin_z": 0.0,
+        "qa_pass": true,
+        "qa_errors": [],
+        "qa_warnings": [
+          "SM_RI02_Rice_Golden_LOD2: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+          "SM_RI02_Rice_Golden_LOD2: duplicate verts=500 loose verts=0"
+        ]
+      }
+    }
+  },
+  "fbx": {
+    "mesh_count": 9,
+    "objects": {
+      "SM_RI02_Rice_Seedling_LOD0": {
+        "triangles": 483,
+        "triangles_match": true,
+        "max_dimension_error_m": 2e-06,
+        "vertex_color_attributes": [
+          "WindWeight"
+        ],
+        "origin_z": 0.0
+      },
+      "SM_RI02_Rice_Seedling_LOD1": {
+        "triangles": 328,
+        "triangles_match": true,
+        "max_dimension_error_m": 5e-06,
+        "vertex_color_attributes": [
+          "WindWeight"
+        ],
+        "origin_z": 0.0
+      },
+      "SM_RI02_Rice_Seedling_LOD2": {
+        "triangles": 202,
+        "triangles_match": true,
+        "max_dimension_error_m": 5e-06,
+        "vertex_color_attributes": [
+          "WindWeight"
+        ],
+        "origin_z": 0.0
+      },
+      "SM_RI02_Rice_Green_LOD0": {
+        "triangles": 1117,
+        "triangles_match": true,
+        "max_dimension_error_m": 4e-06,
+        "vertex_color_attributes": [
+          "WindWeight"
+        ],
+        "origin_z": 0.0
+      },
+      "SM_RI02_Rice_Green_LOD1": {
+        "triangles": 759,
+        "triangles_match": true,
+        "max_dimension_error_m": 4e-06,
+        "vertex_color_attributes": [
+          "WindWeight"
+        ],
+        "origin_z": 0.0
+      },
+      "SM_RI02_Rice_Green_LOD2": {
+        "triangles": 469,
+        "triangles_match": true,
+        "max_dimension_error_m": 3e-06,
+        "vertex_color_attributes": [
+          "WindWeight"
+        ],
+        "origin_z": 0.0
+      },
+      "SM_RI02_Rice_Golden_LOD0": {
+        "triangles": 1545,
+        "triangles_match": true,
+        "max_dimension_error_m": 4e-06,
+        "vertex_color_attributes": [
+          "WindWeight"
+        ],
+        "origin_z": 0.0
+      },
+      "SM_RI02_Rice_Golden_LOD1": {
+        "triangles": 1050,
+        "triangles_match": true,
+        "max_dimension_error_m": 5e-06,
+        "vertex_color_attributes": [
+          "WindWeight"
+        ],
+        "origin_z": 0.0
+      },
+      "SM_RI02_Rice_Golden_LOD2": {
+        "triangles": 648,
+        "triangles_match": true,
+        "max_dimension_error_m": 5e-06,
+        "vertex_color_attributes": [
+          "WindWeight"
+        ],
+        "origin_z": 0.0
+      }
+    }
+  }
+}

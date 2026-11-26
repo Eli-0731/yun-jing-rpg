@@ -1,0 +1,161 @@
+{
+  "asset": "DR02_RootWall_C",
+  "version": "v002",
+  "minTier": "standard",
+  "detailObjects": [
+    "Detail_DR02_Plants"
+  ],
+  "name_zh": "板根牆・分岔",
+  "slot": "D2 空地外圈一圈，約 14 件首尾相接圍成弧（A／B／C 混用、可鏡像）",
+  "note": "神木的板根延伸出去的樣子：一頭粗（從土裡斜著冒出來，最高）、一頭細鑽進土裡。整條是一塊立起來的內芯板根加上八到十二股慢慢扭轉的根絞成一束，斷面底寬頂尖；有幾股半路離開這一束，往旁邊爬下去鑽進土裡。粗頭往前分成 Y 字兩條：一條拱起來越過另一條，另一條貼地，各自鑽進土裡。樹皮：Poly Haven bark_brown_02 掃描凹凸推進高模幾何再烘焙；苔是鼓起來的苔墊。Detail_DR02_Plants：根上的蕨、心形葉小叢，兩端的蕨和心形葉。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 24865,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD1": {
+      "triangles": 12200,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD2": {
+      "triangles": 3653,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    }
+  },
+  "texture_resolution_px": {
+    "DR02_RootWall_C_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR02_RootWall_C_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR02_RootWall_C_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR02_RootWall_C_A_ORM.png": [
+      2048,
+      2048
+    ],
+    "Shared/D2Bark_Detail_Normal.png": [
+      1024,
+      1024
+    ],
+    "Shared/D2Bark_Detail_Albedo.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)；根沿 +X 走，粗頭在 -X、細頭在 +X",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，鑽土的部分在 z < 0",
+  "previous_origin_m": [
+    0.3251,
+    -0.2602,
+    0.0
+  ],
+  "previous_origin_note": "v001 的原點（整條根（含頭尾鑽土的部分）中點正下方的地面；z = 0 是地面，鑽土的部分在 z < 0）在這一版座標裡的位置；用 v001 擺好的場景，把這一版往 -previous_origin_m 移就對回原處",
+  "dimensions_m": [
+    14.2951,
+    8.6636,
+    3.45
+  ],
+  "bounds_min_m": [
+    -7.1475,
+    -4.3318,
+    -1.1159
+  ],
+  "bounds_max_m": [
+    7.1476,
+    4.3318,
+    2.3341
+  ],
+  "shape": {
+    "length_above_ground_m": 13.49,
+    "height_max_m": 2.334,
+    "gap_under_root_max_m": 0.15,
+    "top_along_spine_m": [
+      1.737,
+      2.098,
+      2.028,
+      1.473,
+      1.733,
+      1.998,
+      2.155,
+      2.194,
+      1.83,
+      1.252,
+      0.558
+    ],
+    "walkable_under_1p75m": false,
+    "blocked_at_1m_fraction": 0.654,
+    "blocked_at_1p7m_fraction": 0.731
+  },
+  "lods": {
+    "LOD0": {
+      "DR02_RootWall_C_LOD0": 15329,
+      "Detail_DR02_Plants_LOD0": 9536
+    },
+    "LOD1": {
+      "DR02_RootWall_C_LOD1": 7432,
+      "Detail_DR02_Plants_LOD1": 4768
+    },
+    "LOD2": {
+      "DR02_RootWall_C_LOD2": 2223,
+      "Detail_DR02_Plants_LOD2": 1430
+    },
+    "collision": 2708
+  },
+  "lod_rule": "LOD0 不刪細節；LOD1 collapse 50%；LOD2 collapse 15%",
+  "materials": [
+    "M_DR02_RootWall_C_A",
+    "M_DR02_RootWall_C_Leaf"
+  ],
+  "objects_per_lod": 2,
+  "material_note": "本體一個物件、一個材質 M_DR02_RootWall_C_A（一組貼圖 2048）；Detail_DR02_Plants 一個材質 M_DR02_RootWall_C_Leaf（同一組貼圖，雙面）",
+  "uv": {
+    "UV0": "UVMap：烘焙圖集，所有 UV 島同比例（91.3 px/m）、同方向",
+    "UV1": "TileUV：每 2.6 m 重複的樹皮 UV"
+  },
+  "unity": {
+    "shader": "Universal Render Pipeline/Lit",
+    "detail_normal": "Shared/D2Bark_Detail_Normal.png",
+    "detail_albedo": "Shared/D2Bark_Detail_Albedo.png",
+    "detail_mask": "Albedo.png 的 alpha（1 = 樹皮，0 = 苔和葉）",
+    "detail_tiling_on_uv0": 8.63,
+    "mask_map": "MaskURP.png（R metal、G AO、A smoothness）"
+  },
+  "collision": "DR02_RootWall_C_Collision: MeshCollider (convex off), renderer hidden；只含內芯半徑 0.32 m 以上的根（內芯和粗股）",
+  "sockets_blender_xyz": {
+    "Socket_Head": [
+      -5.79,
+      -0.265,
+      0.0
+    ],
+    "Socket_Tail": [
+      4.14,
+      -3.221,
+      0.0
+    ]
+  },
+  "external_assets": [
+    {
+      "name": "bark_brown_02",
+      "source": "https://polyhaven.com/a/bark_brown_02",
+      "license": "CC0"
+    }
+  ],
+  "files_sha256": {
+    "DR02_RootWall_C_v002.fbx": "61990578e4407217afd84136388eca9c205700f3b65076fe8f90f240fd048f18",
+    "DR02_RootWall_C_v002.glb": "e89fadc795d0481529e08f6221f3d06af5901d3cc492351900913f3ae8f9da48"
+  }
+}

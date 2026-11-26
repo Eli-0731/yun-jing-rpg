@@ -1,0 +1,20 @@
+SG06 三視圖提示詞與選圖
+工作包：2026-11-09 B｜112 小時（不同外形的民居、舊建築換材質、路上地標）第 6 節 SG06。固定段照 docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md 附錄（game/core-1108-world-east-valley）。
+
+選用：SG06-cand-3.png。備選：SG06-cand-2.png。
+選用理由：四角是圓鼓形燈座（沒有燈），平台正中一塊雕雲紋的方心石，四周大方石板，邊緣一圈壓邊石，側面有雲紋石板。
+沒選的原因：
+- cand-1：四角直接畫了燈亭，工作包只要燈座插槽。
+- cand-2：四角也畫了燈亭；鋪法可參考，作備選。
+- cand-4：方心石的紋樣是一大片渦形，不像 SG02 的鋪法語言。
+建模時注意：比例照工作包 7 × 7 × 0.8 m；圖裡前面的台階不做（由 SG05 接上）；地磚鋪法照 SG02（大方石板、外圈壓邊、中心方心石）；四角燈座插槽接現有燈；花崗白 #C9C6BD。
+
+工具與張數：
+- Codex CLI 0.167.0，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 4 張（SG06-cand-1..4），原尺寸存檔，沒有 seed。生成日期 2026-11-11。
+- 提示詞組法：物件句＋單件物品的 Layout 段＋5.2 美術方向；Codex 沒有負面欄，所以把 5.3 負面提示加上第 6 節那句，以「Avoid:」接在最後。全部原文，一字未改。
+
+== 工作包原文（SG06 物件句）==
+Three-view orthographic turnaround sheet of a wide square granite stair landing, about 7 m wide, 7 m deep and 0.8 m tall, large grey-white granite paving slabs in a formal layout with a central panel, low stone kerb, four small round lantern seats at the corners, weathered edges and a little moss, no writing.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of a wide square granite stair landing, about 7 m wide, 7 m deep and 0.8 m tall, large grey-white granite paving slabs in a formal layout with a central panel, low stone kerb, four small round lantern seats at the corners, weathered edges and a little moss, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only. Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, no Japanese stone toro lantern, not Tudor half-timbering, no diagonal braces on plaster walls, no bright teal roof, no glossy plastic look

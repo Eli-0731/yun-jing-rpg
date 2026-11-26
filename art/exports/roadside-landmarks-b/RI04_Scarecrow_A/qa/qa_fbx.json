@@ -1,0 +1,357 @@
+{
+ "asset": "RI04_Scarecrow_A_v001",
+ "tris": 73544,
+ "objects": [
+  "RI04_Scarecrow_A_Detail_Small_LOD0",
+  "RI04_Scarecrow_A_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 162,
+   "same_between": 167,
+   "same_inside": 5,
+   "same": 172,
+   "two_sides": 91,
+   "groups": {
+    "A_Detail_Small|same_between": {
+     "pairs": 161,
+     "overlap_cm2": 5.67
+    },
+    "A|two_sides_inside": {
+     "pairs": 53,
+     "overlap_cm2": 7.39
+    },
+    "A|two_sides_between": {
+     "pairs": 33,
+     "overlap_cm2": 6.13
+    },
+    "A|same_between": {
+     "pairs": 6,
+     "overlap_cm2": 2.96
+    },
+    "A|same_inside": {
+     "pairs": 4,
+     "overlap_cm2": 0.07
+    },
+    "A_Detail_Small|two_sides_inside": {
+     "pairs": 3,
+     "overlap_cm2": 0.07
+    },
+    "A/A_Detail_Small|two_sides_between": {
+     "pairs": 2,
+     "overlap_cm2": 0.42
+    },
+    "A_Detail_Small|same_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.01
+    }
+   },
+   "same_at": [
+    [
+     -0.03,
+     -0.09,
+     0.0,
+     30
+    ],
+    [
+     -0.02,
+     -0.08,
+     0.0,
+     28
+    ],
+    [
+     -0.02,
+     -0.09,
+     0.0,
+     20
+    ],
+    [
+     -0.03,
+     -0.08,
+     0.0,
+     18
+    ],
+    [
+     -0.01,
+     -0.09,
+     0.0,
+     17
+    ],
+    [
+     -0.0,
+     -0.09,
+     0.0,
+     12
+    ],
+    [
+     -0.03,
+     -0.1,
+     0.0,
+     9
+    ],
+    [
+     -0.0,
+     -0.08,
+     0.0,
+     6
+    ],
+    [
+     -0.02,
+     -0.1,
+     0.0,
+     5
+    ],
+    [
+     -0.01,
+     -0.08,
+     0.0,
+     5
+    ],
+    [
+     -0.0,
+     -0.1,
+     0.0,
+     4
+    ],
+    [
+     -0.04,
+     -0.09,
+     0.0,
+     3
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 162,
+   "same_between": 162,
+   "same_inside": 5,
+   "same": 167,
+   "two_sides": 58,
+   "groups": {
+    "A_Detail_Small|same_between": {
+     "pairs": 161,
+     "overlap_cm2": 5.67
+    },
+    "A|two_sides_inside": {
+     "pairs": 53,
+     "overlap_cm2": 7.39
+    },
+    "A|same_inside": {
+     "pairs": 4,
+     "overlap_cm2": 0.07
+    },
+    "A_Detail_Small|two_sides_inside": {
+     "pairs": 3,
+     "overlap_cm2": 0.07
+    },
+    "A|two_sides_between": {
+     "pairs": 2,
+     "overlap_cm2": 0.29
+    },
+    "A_Detail_Small|same_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.01
+    },
+    "A|same_between": {
+     "pairs": 1,
+     "overlap_cm2": 0.01
+    }
+   },
+   "same_at": [
+    [
+     -0.03,
+     -0.09,
+     0.0,
+     30
+    ],
+    [
+     -0.02,
+     -0.08,
+     0.0,
+     28
+    ],
+    [
+     -0.02,
+     -0.09,
+     0.0,
+     20
+    ],
+    [
+     -0.03,
+     -0.08,
+     0.0,
+     18
+    ],
+    [
+     -0.01,
+     -0.09,
+     0.0,
+     17
+    ],
+    [
+     -0.0,
+     -0.09,
+     0.0,
+     12
+    ],
+    [
+     -0.03,
+     -0.1,
+     0.0,
+     9
+    ],
+    [
+     -0.0,
+     -0.08,
+     0.0,
+     6
+    ],
+    [
+     -0.02,
+     -0.1,
+     0.0,
+     5
+    ],
+    [
+     -0.01,
+     -0.08,
+     0.0,
+     5
+    ],
+    [
+     -0.0,
+     -0.1,
+     0.0,
+     4
+    ],
+    [
+     -0.04,
+     -0.09,
+     0.0,
+     3
+    ]
+   ]
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 162,
+   "same_between": 161,
+   "same_inside": 2,
+   "same": 163,
+   "two_sides": 34,
+   "groups": {
+    "A_Detail_Small|same_between": {
+     "pairs": 161,
+     "overlap_cm2": 5.67
+    },
+    "A|two_sides_inside": {
+     "pairs": 31,
+     "overlap_cm2": 3.43
+    },
+    "A_Detail_Small|two_sides_inside": {
+     "pairs": 3,
+     "overlap_cm2": 0.07
+    },
+    "A_Detail_Small|same_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.01
+    },
+    "A|same_inside": {
+     "pairs": 1,
+     "overlap_cm2": 0.02
+    }
+   },
+   "same_at": [
+    [
+     -0.03,
+     -0.09,
+     0.0,
+     30
+    ],
+    [
+     -0.02,
+     -0.08,
+     0.0,
+     28
+    ],
+    [
+     -0.02,
+     -0.09,
+     0.0,
+     20
+    ],
+    [
+     -0.03,
+     -0.08,
+     0.0,
+     18
+    ],
+    [
+     -0.01,
+     -0.09,
+     0.0,
+     17
+    ],
+    [
+     -0.0,
+     -0.09,
+     0.0,
+     12
+    ],
+    [
+     -0.03,
+     -0.1,
+     0.0,
+     9
+    ],
+    [
+     -0.0,
+     -0.08,
+     0.0,
+     6
+    ],
+    [
+     -0.02,
+     -0.1,
+     0.0,
+     5
+    ],
+    [
+     -0.01,
+     -0.08,
+     0.0,
+     5
+    ],
+    [
+     -0.0,
+     -0.1,
+     0.0,
+     4
+    ],
+    [
+     -0.04,
+     -0.09,
+     0.0,
+     3
+    ]
+   ]
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 1321,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

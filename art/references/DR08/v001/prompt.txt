@@ -1,0 +1,20 @@
+Use your built-in image generation tool (image_gen) to make reference sheets for ONE 3D game asset family, and save the PNG files into ./out/ with the exact file names below. Use V6.png and V5.png in this folder as the main input reference images for every generation: V6 shows, on the right, a fallen rotting log covered in moss, pale lichen and small mushrooms; V5 shows the same ancient-tree forest path. V1.png and V4.png show the same forest from other angles. Match their bark, colours, moss and painting style exactly. Do not write any code other than what is needed to copy the generated files into ./out/.
+
+The asset: "DR08 rotting logs overgrown with fungi and moss", THREE variants of an old fallen log that has been rotting on the forest floor for decades, so soft it looks like it would crumble if touched:
+- Variant A: short broken chunk, about 2 m long and 0.6 m thick, both ends broken and crumbling, sagging and half sunk into the soil, top partly caved in.
+- Variant B: about 3.5 m long and 0.7 m thick, one end a splintered break, the middle section split open and collapsing so you can see the soft crumbling brown rotten wood inside.
+- Variant C: about 5 m long and 0.8 m thick, long log lying low and partly sunk into the ground along its length, one end hollow, loose bark plates peeling and hanging off.
+All three:
+- Brown-rot wood: the exposed wood is broken into CUBICAL CHUNKS by a grid of deep cracks along and across the grain (like charcoal blocks), dark reddish-brown, soft and crumbly; small crumbled wood bits and powder spill onto the ground beside the log.
+- Most of the bark is gone; the remaining bark is in loose grey-brown plates with gaps.
+- Thick layered SHELF / BRACKET FUNGI growing in overlapping tiers out of the sides (pale cream, tan and rusty-brown bands with pale rims), plus clusters of small tan mushrooms and a few tiny pale glowing mushrooms in the shade.
+- WHITE MYCELIUM: thin white fungal threads and fan-shaped white sheets spreading over the rotten wood where bark has come off and in the cracks.
+- Thick soft dark olive-green moss blanket over the top, moss cushions, pale grey-green lichen patches, a few ferns and seedlings growing out of the log, fallen leaves.
+
+Files to make (each a separate generation, landscape, at least 1536x1024):
+1. out/DR08-threeview.png : orthographic views of ALL THREE variants (A top, B middle, C bottom): SIDE view on the left and TOP view on the right of each row; same scale, flat ground line, a small 1.75 m grey human silhouette for scale. Plain light warm-grey background, even soft overcast lighting, no cast shadows on the background, no fog, no trees, no text or labels.
+2. out/DR08-threequarter.png : all three logs lying on the mossy forest floor near the path, three-quarter view from eye height 1.7 m about 6 m away, overcast light, the same style as V6.
+3. out/DR08-detail.png : a sheet of three close-ups: (a) the cubical cracked crumbling brown-rot wood with white mycelium threads and fans; (b) tiers of layered shelf fungi growing out of the side of the log, with moss; (c) a broken crumbling end of the log with loose bark plates, moss cushion and small mushrooms.
+
+Style: Eastern xianxia fantasy, hand-painted look 3D game concept art, low saturation, overcast. Deep grey-brown old bark, pale grey lichen, thick dark olive-green moss on upward-facing surfaces. Not a photo.
+When finished, list the files in ./out/ with their pixel sizes.

@@ -1,0 +1,178 @@
+{
+  "SM_FE03_FerryShed_LOD0": {
+    "vertices": 3296,
+    "triangles": 6024,
+    "dimensions_m": [
+      2.913,
+      2.35042,
+      2.59
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "Detail_FE03_FerryShed_LOD0": {
+    "vertices": 208,
+    "triangles": 376,
+    "dimensions_m": [
+      2.68,
+      2.0635,
+      2.074
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE03_MooringPost_LOD0": {
+    "vertices": 116,
+    "triangles": 208,
+    "dimensions_m": [
+      0.36,
+      0.29,
+      0.76
+    ],
+    "origin_m": [
+      -1.75,
+      -0.89,
+      0.0
+    ]
+  },
+  "SM_FE03_FerryShed_LOD1": {
+    "vertices": 2753,
+    "triangles": 4938,
+    "dimensions_m": [
+      2.913,
+      2.35042,
+      2.59
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE03_FerryShed_LOD2": {
+    "vertices": 2151,
+    "triangles": 3734,
+    "dimensions_m": [
+      2.913,
+      2.35249,
+      2.59
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE03_RearWall_Collision": {
+    "vertices": 8,
+    "triangles": 12,
+    "dimensions_m": [
+      2.38,
+      0.1,
+      1.46
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE03_LeftWall_Collision": {
+    "vertices": 8,
+    "triangles": 12,
+    "dimensions_m": [
+      0.1,
+      1.9,
+      1.46
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE03_RightWall_Collision": {
+    "vertices": 8,
+    "triangles": 12,
+    "dimensions_m": [
+      0.1,
+      1.9,
+      1.46
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "minTier": "standard",
+  "detailObjects": [
+    "Detail_FE03_FerryShed_LOD0"
+  ],
+  "shed_envelope_m": [
+    2.913,
+    2.35042,
+    2.59
+  ],
+  "mooring_post_assembly_offset_m": [
+    -1.75,
+    -0.89,
+    0
+  ],
+  "shed_origin_m": [
+    0,
+    0,
+    0
+  ],
+  "source": "art/source/valley-and-home-v1/FE03/FE03-ferry-shed-pack-v007.blend",
+  "status": {
+    "Exported": true,
+    "Imported": true,
+    "Visually Verified": true,
+    "In-game Verified": false,
+    "preview": "art/previews/valley-and-home-v1/FE03/v007/FE03_shed_threequarter.png",
+    "same_scene_preview": "art/previews/valley-and-home-v1/FE03/v005/FE03_FE01_RK03_A11_threequarter_material.png",
+    "not_verified": [
+      "Unity ferry and boardwalk placement",
+      "40 m silhouette under game camera",
+      "Unity collider and mooring post placement"
+    ]
+  },
+  "exports": {
+    "fbx": {
+      "bytes": 2911180,
+      "reimported_meshes": 8,
+      "max_dimension_error_m": 3e-06
+    },
+    "glb": {
+      "bytes": 4227372,
+      "reimported_meshes": 8,
+      "max_dimension_error_m": 3e-06
+    }
+  },
+  "textures": {
+    "new_tile_and_stone_512": 6,
+    "new_bytes": 1330448,
+    "shared_with_FE01": "wood, bamboo and hemp rope textures/materials"
+  },
+  "qa": {
+    "profile": "game",
+    "errors_by_lod": {
+      "LOD0": 0,
+      "LOD1": 0,
+      "LOD2": 0
+    },
+    "warnings_by_lod": {
+      "LOD0": 7,
+      "LOD1": 5,
+      "LOD2": 5
+    },
+    "accepted_warning_reason": "Tiled UVs and planar n-gon cylinder caps; no blocking QA errors."
+  }
+}

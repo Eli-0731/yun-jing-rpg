@@ -1,0 +1,137 @@
+{
+  "ok": true,
+  "pass": true,
+  "errors": [],
+  "warnings": [
+    "SM_FE02_FerryHull_LOD0: ~98.37% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_FE02_FerryHull_LOD0: duplicate verts=1020 loose verts=0",
+    "SM_FE02_Canopy_LOD0: ~99.85% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_FE02_Canopy_LOD0: duplicate verts=2442 loose verts=0",
+    "SM_FE02_PushPole_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_FE02_PushPole_LOD0: duplicate verts=78 loose verts=0",
+    "Detail_FE02_HullPatches_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "Detail_FE02_HullPatches_LOD0: duplicate verts=96 loose verts=0",
+    "hidden back-to-back faces: SM_FE02_FerryHull_LOD0 (264 pairs) - delete to save tris",
+    "asset lowest point z=-0.26 (not resting on ground plane z=0)"
+  ],
+  "ground_z": -0.26,
+  "zfighting": [],
+  "floating": [],
+  "back_to_back": [
+    {
+      "where": "SM_FE02_FerryHull_LOD0",
+      "tri_pairs": 264
+    }
+  ],
+  "enclosed": [],
+  "objects": {
+    "SM_FE02_FerryHull_LOD0": {
+      "verts": 2040,
+      "faces": 1168,
+      "tris": 1168,
+      "ngons": 0,
+      "boundary_edges": 2040,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 1020,
+      "islands": 436,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 4,
+      "uv_maps": 1,
+      "uv_oob_pct": 86.3,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 98.37,
+      "uv_coverage_pct": 85.0
+    },
+    "SM_FE02_Canopy_LOD0": {
+      "verts": 4884,
+      "faces": 2868,
+      "tris": 2868,
+      "ngons": 0,
+      "boundary_edges": 4884,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 2442,
+      "islands": 1008,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 3,
+      "uv_maps": 1,
+      "uv_oob_pct": 63.83,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 99.85,
+      "uv_coverage_pct": 67.3
+    },
+    "SM_FE02_PushPole_LOD0": {
+      "verts": 156,
+      "faces": 92,
+      "tris": 92,
+      "ngons": 0,
+      "boundary_edges": 156,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 78,
+      "islands": 32,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 2,
+      "uv_maps": 1,
+      "uv_oob_pct": 65.22,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 7.2
+    },
+    "Detail_FE02_HullPatches_LOD0": {
+      "verts": 192,
+      "faces": 96,
+      "tris": 96,
+      "ngons": 0,
+      "boundary_edges": 192,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 96,
+      "islands": 48,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 1,
+      "uv_maps": 1,
+      "uv_oob_pct": 87.5,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 3.0
+    }
+  }
+}

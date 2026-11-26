@@ -1,0 +1,126 @@
+{
+ "LG01_GiantLogBridge_Detail_Small_LOD0": {
+  "tris": 77832,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 3,
+  "coplanar_two_sides": 420,
+  "closed_pieces": 323,
+  "open_pieces": 1546,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -3.65,
+     -0.7,
+     1.01
+    ],
+    1
+   ],
+   [
+    [
+     -0.46,
+     -0.6,
+     1.19
+    ],
+    1
+   ],
+   [
+    [
+     -0.28,
+     -0.61,
+     1.34
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "LG01_GiantLogBridge_Detail_Small_LOD1": {
+  "tris": 38916,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 323,
+  "open_pieces": 1212,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "LG01_GiantLogBridge_Detail_Small_LOD2": {
+  "tris": 11673,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 323,
+  "open_pieces": 1217,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "LG01_GiantLogBridge_LOD0": {
+  "tris": 309818,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 3,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 122,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -8.77,
+     -1.95,
+     0.02
+    ],
+    3
+   ]
+  ],
+  "inverted_at": []
+ },
+ "LG01_GiantLogBridge_LOD1": {
+  "tris": 154908,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 122,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "LG01_GiantLogBridge_LOD2": {
+  "tris": 46472,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 122,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

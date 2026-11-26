@@ -1,0 +1,84 @@
+{
+  "ok": true,
+  "pass": true,
+  "errors": [],
+  "warnings": [
+    "SM_FE01_Straight_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_FE01_Straight_LOD0: duplicate verts=684 loose verts=0",
+    "Detail_FE01_Straight_RopeBamboo_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "Detail_FE01_Straight_RopeBamboo_LOD0: duplicate verts=1340 loose verts=0",
+    "hidden back-to-back faces: SM_FE01_Straight_LOD0<->Detail_FE01_Straight_RopeBamboo_LOD0 (16 pairs) - delete to save tris",
+    "hidden back-to-back faces: SM_FE01_Straight_LOD0 (5 pairs) - delete to save tris",
+    "asset lowest point z=-1.0 (not resting on ground plane z=0)"
+  ],
+  "ground_z": -1.0,
+  "zfighting": [],
+  "floating": [],
+  "back_to_back": [
+    {
+      "where": "SM_FE01_Straight_LOD0<->Detail_FE01_Straight_RopeBamboo_LOD0",
+      "tri_pairs": 16
+    },
+    {
+      "where": "SM_FE01_Straight_LOD0",
+      "tri_pairs": 5
+    }
+  ],
+  "enclosed": [],
+  "objects": {
+    "SM_FE01_Straight_LOD0": {
+      "verts": 1368,
+      "faces": 716,
+      "tris": 716,
+      "ngons": 0,
+      "boundary_edges": 1368,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 684,
+      "islands": 326,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 4,
+      "uv_maps": 1,
+      "uv_oob_pct": 0.0,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 100.0
+    },
+    "Detail_FE01_Straight_RopeBamboo_LOD0": {
+      "verts": 2680,
+      "faces": 1352,
+      "tris": 1352,
+      "ngons": 0,
+      "boundary_edges": 2680,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 1340,
+      "islands": 664,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 2,
+      "uv_maps": 1,
+      "uv_oob_pct": 0.0,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 100.0
+    }
+  }
+}

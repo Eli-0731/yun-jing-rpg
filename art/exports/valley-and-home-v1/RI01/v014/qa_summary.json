@@ -1,0 +1,92 @@
+{
+  "Paddy_Dry_LOD0": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 6
+  },
+  "Paddy_Flooded_LOD0": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 6
+  },
+  "Paddy_Grown_LOD0": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 6
+  },
+  "Paddy_Dry_LOD1": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 5
+  },
+  "Paddy_Flooded_LOD1": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 5
+  },
+  "Paddy_Grown_LOD1": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 5
+  },
+  "Paddy_Dry_LOD2": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 5
+  },
+  "Paddy_Flooded_LOD2": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 5
+  },
+  "Paddy_Grown_LOD2": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 5
+  },
+  "Bund_Straight_LOD0": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 3
+  },
+  "Bund_Straight_LOD1": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 3
+  },
+  "Bund_Straight_LOD2": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 3
+  },
+  "Bund_Corner_LOD0": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 3
+  },
+  "Bund_Corner_LOD1": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 3
+  },
+  "Bund_Corner_LOD2": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 3
+  },
+  "Bund_T_LOD0": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 2
+  },
+  "Bund_T_LOD1": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 2
+  },
+  "Bund_T_LOD2": {
+    "pass": true,
+    "errors": [],
+    "warning_count": 3
+  }
+}

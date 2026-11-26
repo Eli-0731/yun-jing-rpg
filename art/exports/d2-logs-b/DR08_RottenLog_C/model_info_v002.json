@@ -1,0 +1,49 @@
+{
+ "asset": "DR08_RottenLog_C",
+ "version": "v002",
+ "variant": "C",
+ "spec": {
+  "L": 5.0,
+  "R": 0.62
+ },
+ "tris": {
+  "0": {
+   "DR08_RottenLog_C_LOD0": 13330,
+   "Detail_DR08_Plants_LOD0": 3470
+  },
+  "1": {
+   "DR08_RottenLog_C_LOD1": 5048,
+   "Detail_DR08_Plants_LOD1": 1658
+  },
+  "2": {
+   "DR08_RottenLog_C_LOD2": 1288,
+   "Detail_DR08_Plants_LOD2": 724
+  },
+  "collision": 220
+ },
+ "bounds_min_m": [
+  -2.9579999446868896,
+  -1.3739999532699585,
+  -0.13600000739097595
+ ],
+ "bounds_max_m": [
+  2.944000005722046,
+  1.3899999856948853,
+  1.6990000009536743
+ ],
+ "dimensions_m": [
+  5.9019999504089355,
+  2.7639999389648438,
+  1.8350000381469727
+ ],
+ "build_origin_m": [
+  2.5169999599456787,
+  0.013100000098347664,
+  0.0
+ ],
+ "materials": [
+  "M_DR08_Layered_v002",
+  "M_DR08_Plants"
+ ],
+ "textures": "DR08_Shared/Textures（1024 分層貼圖 12 張＋苔、纖維、樹皮 v002 顏色圖 3 張、植物圖集 2048）"
+}

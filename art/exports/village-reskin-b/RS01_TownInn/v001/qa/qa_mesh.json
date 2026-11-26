@@ -1,0 +1,141 @@
+{
+ "RS01_TownInn_Detail_Small_LOD0": {
+  "tris": 2752,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 10,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "RS01_TownInn_Detail_Small_LOD1": {
+  "tris": 1376,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 10,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "RS01_TownInn_Detail_Small_LOD2": {
+  "tris": 412,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 10,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "RS01_TownInn_LOD0": {
+  "tris": 48336,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 11,
+  "coplanar_two_sides": 249,
+  "closed_pieces": 304,
+  "open_pieces": 88,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -3.25,
+     -1.3,
+     4.71
+    ],
+    2
+   ],
+   [
+    [
+     -4.48,
+     -4.02,
+     6.96
+    ],
+    1
+   ],
+   [
+    [
+     -4.48,
+     4.02,
+     6.96
+    ],
+    1
+   ],
+   [
+    [
+     -4.48,
+     -2.87,
+     6.85
+    ],
+    1
+   ],
+   [
+    [
+     -4.3,
+     -1.15,
+     6.79
+    ],
+    1
+   ],
+   [
+    [
+     -4.3,
+     2.87,
+     6.85
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "RS01_TownInn_LOD1": {
+  "tris": 24168,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 304,
+  "open_pieces": 88,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "RS01_TownInn_LOD2": {
+  "tris": 7812,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 392,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

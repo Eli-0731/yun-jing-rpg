@@ -1,0 +1,217 @@
+{
+  "asset": "DR06_FallenTrunk_A",
+  "version": "v001",
+  "blender": "5.2.2 LTS",
+  "bounds_main": {
+    "min": [
+      -7.1323,
+      -2.0709,
+      -0.3902
+    ],
+    "max": [
+      7.1323,
+      2.0709,
+      3.6348
+    ],
+    "dims": [
+      14.2646,
+      4.1418,
+      4.025
+    ]
+  },
+  "origin_at_bottom_centre": {
+    "footprint_centre_xy_m": [
+      0.0,
+      0.0
+    ],
+    "ok": true
+  },
+  "build_origin_in_asset_m": [
+    -4.6434,
+    -0.1171,
+    0.0
+  ],
+  "bounds_detail": {
+    "min": [
+      -7.0255,
+      -3.0034,
+      -0.494
+    ],
+    "max": [
+      5.3358,
+      2.2615,
+      2.5934
+    ]
+  },
+  "shape_lod0": {
+    "trunk_top_z_m_every_1m": [
+      1.645,
+      1.348,
+      1.184,
+      1.163,
+      1.101,
+      1.102,
+      1.013,
+      1.05,
+      1.077
+    ],
+    "trunk_width_m_every_1m": [
+      1.572,
+      1.3,
+      1.32,
+      1.288,
+      1.357,
+      1.268,
+      1.314,
+      1.291,
+      1.147
+    ],
+    "trunk_diameter_mid_m": 1.304,
+    "plate_width_y_m": 3.791,
+    "plate_height_m": 3.635,
+    "gap_under_raised_base_m": [
+      0.194,
+      0.193,
+      0.174,
+      0.13,
+      0.068
+    ],
+    "blocked_fraction_at_0p3_1p0_1p7m": [
+      1.0,
+      1.0,
+      0.15
+    ]
+  },
+  "shape_collision": {
+    "trunk_top_z_m_every_1m": [
+      1.602,
+      1.37,
+      1.193,
+      1.125,
+      1.133,
+      1.092,
+      1.006,
+      1.033,
+      1.069
+    ],
+    "trunk_width_m_every_1m": [
+      1.595,
+      1.383,
+      1.251,
+      1.259,
+      1.324,
+      1.259,
+      1.32,
+      1.272,
+      1.145
+    ],
+    "trunk_diameter_mid_m": 1.287,
+    "plate_width_y_m": 3.029,
+    "plate_height_m": 2.864,
+    "gap_under_raised_base_m": [
+      0.185,
+      0.159,
+      0.132,
+      0.106,
+      0.076,
+      0.038
+    ],
+    "blocked_fraction_at_0p3_1p0_1p7m": [
+      1.0,
+      1.0,
+      0.1
+    ]
+  },
+  "spec_check": {
+    "spec": {
+      "L": 10.0,
+      "D": 1.4,
+      "plate": 3.5
+    },
+    "trunk_length_root_collar_to_break_m": 10.163,
+    "overall_bbox_x_m": 14.2646,
+    "trunk_diameter_mid_m": 1.304,
+    "plate_width_m": 3.791,
+    "plate_height_m": 3.635,
+    "length_ok": true,
+    "diameter_ok": true,
+    "plate_ok": true,
+    "note": "工作包的 10 m／16 m 是樹幹長（根頸到斷口）；外框 X 另含根盤往後伸的根和斷口往前伸的木刺。徑量的是樹幹中段（0.3–0.9 L）在中心高處的左右寬"
+  },
+  "plants_inside_body_lod0": {
+    "vertices_checked": 29874,
+    "inside_body_over_2cm": 671,
+    "inside_body_over_5cm": 94
+  },
+  "buried_depth_m": 0.39,
+  "tris": {
+    "LOD0": {
+      "DR06_FallenTrunk_A_LOD0": 44644,
+      "Detail_DR06_Plants_LOD0": 36709
+    },
+    "LOD1": {
+      "DR06_FallenTrunk_A_LOD1": 22357,
+      "Detail_DR06_Plants_LOD1": 18302
+    },
+    "LOD2": {
+      "DR06_FallenTrunk_A_LOD2": 6728,
+      "Detail_DR06_Plants_LOD2": 5398
+    },
+    "collision": 492
+  },
+  "lod_ratio": {
+    "LOD1": 0.5,
+    "LOD2": 0.149
+  },
+  "fbx_roundtrip": {
+    "objects": [
+      "DR06_FallenTrunk_A",
+      "DR06_FallenTrunk_A_Collision",
+      "DR06_FallenTrunk_A_LOD0",
+      "DR06_FallenTrunk_A_LOD1",
+      "DR06_FallenTrunk_A_LOD2",
+      "Detail_DR06_Plants_LOD0",
+      "Detail_DR06_Plants_LOD1",
+      "Detail_DR06_Plants_LOD2"
+    ],
+    "lod0_dimensions_m": [
+      14.2646,
+      4.1418,
+      4.025
+    ],
+    "uv_layers": [
+      "UVMap",
+      "TileUV"
+    ],
+    "materials": [
+      "M_DR06_FallenTrunk_A_A",
+      "M_DR06_FallenTrunk_A_Leaf"
+    ]
+  },
+  "fbx_dims_match": true,
+  "textures_px": {
+    "DR06_FallenTrunk_A_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR06_FallenTrunk_A_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR06_FallenTrunk_A_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR06_FallenTrunk_A_A_ORM.png": [
+      2048,
+      2048
+    ]
+  },
+  "texel_px_per_m": 91.8,
+  "hidden_tris_removed_lod0": 1820,
+  "checks_not_in_this_file": [
+    "Unity 匯入與引擎內外觀：另見 art/previews/d2-logs-b/DR06_FallenTrunk_A/unity/report.txt",
+    "放進 D2 場景後的同鏡位截圖（場景由核心組擺）",
+    "實機效能、FPS"
+  ]
+}

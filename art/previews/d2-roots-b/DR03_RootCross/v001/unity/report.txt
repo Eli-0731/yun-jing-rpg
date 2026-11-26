@@ -1,0 +1,24 @@
+Unity 6000.3.28f1, pipeline URP
+PASS DR03_RootCross set A: Albedo / Normal / ORM / MaskURP textures found
+PASS DR03_RootCross set A: delivered textures 2048x2048 (larger than a person: 2048)
+INFO DR03_RootCross: imported at 1024x1024 on StandaloneWindows64 (importer max 1024, default platform max 1024, build override max 0)
+INFO DR03_RootCross: bark detail on UV0, tiling 6.33
+PASS DR03_RootCross: imported size 7.826 x 7.156 x 2.641 m matches model_info 7.8256 x 7.1555 x 2.6404 within 2 cm
+PASS DR03_RootCross: lowest point y = -0.708 (root tips dive below the ground, origin on the ground)
+PASS DR03_RootCross: triangles LOD0/1/2 = 27946 / 14021 / 4299 (50% / 15%), model_info 27946 / 14021 / 4299
+PASS DR03_RootCross: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS DR03_RootCross: 2 materials over every LOD and Detail_ mesh (model_info 2; one per texture set and one two-sided for the plants)
+PASS DR03_RootCross: Detail_* leaves render both faces
+PASS DR03_RootCross: each slot of the body has its own texture set (M_DR03_RootCross_A)
+PASS DR03_RootCross: minTier = standard (landmark that blocks the way: everyone sees it)
+PASS DR03_RootCross: detailObjects Detail_DR03_Plants present in the FBX
+PASS DR03_RootCross: Detail_* off still shows the body (1 mesh per LOD)
+PASS DR03_RootCross: Detail_DR03_Plants_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR03_RootCross: DR03_RootCross_LOD0 has UV0 (atlas) and UV1 (TileUV)
+INFO DR03_RootCross: mesh compression Medium; UV0 of LOD0 has 471 distinct u and 291 distinct v over 8971 vertices (smallest step 0.000896 / 0.000896)
+PASS DR03_RootCross: sockets Socket_Joint (0.0, 0.0, 0.0)
+PASS DR03_RootCross: one collision shell (MeshCollider, renderer off)
+PASS DR03_RootCross: a walker crossing the lower root is stopped at 7 of 7 places (1.5 m either side of the crossing, every 0.5 m)
+INFO DR03_RootCross: collision top at the crossing 1.49 m
+INFO renders written to art/previews/d2-roots-b/DR03_RootCross/unity
+INFO DR03_RootCross: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)

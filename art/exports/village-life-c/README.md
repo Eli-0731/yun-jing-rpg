@@ -2,21 +2,21 @@
 |---|---|
 | 誰做的 | C（Eli-0731） |
 | 工作包 | docs/execution/2026-11-07/C-128h-creekside-and-village-life.md 第二部分 A（LV01–LV12）與 D（十二件並排）；docs/execution/2026-11-08/C-40h-more-village-life.md 表 A（LV13–LV20）與 C（八件並排） |
-| ID | LV01–LV20 |
-| 分支／PR | LV01–LV06：art/c-1107-lv01-06-village-life；LV07–LV12：art/c-1110-lv07-12-village-life；LV13–LV20：art/c-1108-lv13-lv20-village-props ／ 開 PR 後補（一次一張，等前一張結案） |
+| ID | LV01–LV20（本批新增 LV13–LV20） |
+| 分支／PR | LV01–LV06：[#116](https://github.com/z1nnz/chengtian/pull/116)；LV07–LV12：[#117](https://github.com/z1nnz/chengtian/pull/117)；LV13–LV20：art/c-1108-lv13-lv20-village-props ／ [本批 PR](https://github.com/z1nnz/chengtian/pulls?q=is%3Apr%20author%3AEli-0731%20head%3Aart%2Fc-1108-lv13-lv20-village-props) |
 | 版本 | v001（檔名帶 `_v001`；之後改版另存 v002，不覆寫） |
 | 狀態 | Exported ／ Imported（Unity 6000.3.28f1 獨立匯入檢查）／ Visually Verified（Blender 與 Unity 審圖）／ In-game Verified：未驗（沒放進正式場景） |
 | 素材來源 | 原創；三視圖參考在 `art/references/LV01/`–`art/references/LV20/` |
 
 # 青溪村裡生活小物 LV01–LV20
 
-128 小時工作包第二部分 A 的十二件，加 11/08 40 小時工作包表 A 的八件：讓 A1 青溪村各戶門口、院子、牆邊有一點生活的東西。靜態擺設，沒有玩法、碰撞或動畫；擺進世界由核心組做。
+LV01–LV12 已由 #116、#117 合併；本批新增 11/08 40 小時工作包表 A 的八件 LV13–LV20，並完成八件並排。和前十二件一樣，是讓 A1 青溪村各戶門口、院子、牆邊有一點生活的東西。靜態擺設，沒有玩法、碰撞或動畫；擺進世界由核心組做。
 
 **共同做法**
 - 先生成三視圖（每件 4 張）、自評選一張（分數和取捨在各自的 `prompt.txt`），再做灰模（`art/previews/village-life-c/<ID>/clay/`），最後上貼圖。一件只專心練工作包寫的那一兩個技巧。
 - 原點在腳印中心、底部 z = 0，Blender −Y 是正面（FBX／Unity 是 −Z）。不附地面底板。
 - 一件一個材質、一套 1024 貼圖；可有可無的小東西放 `Detail_*` 子物件（標準畫質關掉），本體的環境遮蔽烘焙時不含 Detail_。
-- LOD1 約 50%、LOD2 約 15%，LOD0 不減面。`minTier` 都是 `high`（畫質分級第 4 節：增加豐富度的擺設，不擋路、不參與玩法），所以沒有碰撞。
+- LOD1 約 50%、LOD2 約 15%，LOD0 不減面；LV09 的 LOD1 為 60%，保留籠條輪廓，LOD2 改用 alpha clip。`minTier` 都是 `high`（畫質分級第 4 節：增加豐富度的擺設，不擋路、不參與玩法），所以沒有碰撞。
 - 建模流程和 creekside-life-c（WL、FI）相同，共用那裡的工具（`wl_kit.py`、零件函式、審圖相機 `render_wl.py`），這裡只放 LV 自己的物件和建模腳本。
 - 重建：`blender -b --factory-startup -P art/source/village-life-c/build_lv.py -- LV01 [--clay]`；審圖與 QA：`BL=<blender> sh art/source/village-life-c/render_reviews.sh`；Unity：`UNITY=<Unity.exe 6000.3.28f1> sh art/source/village-life-c/unity/run_unity_check.sh`。
 
@@ -155,17 +155,17 @@
 | minTier | high |
 | 檔案 | `art/exports/village-life-c/LV09_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV09_v001.glb`（LOD0）、`art/source/village-life-c/LV09_v001.blend` |
 
-### LV10 草鞋與木屐各一雙（StrawSandalsClogs，v001）
+### LV10 草鞋與布鞋各一雙（StrawSandalsClothShoes，v001）
 
-練「小物件的比例、編織紋用貼圖表現」。照真實尺寸：草鞋長 0.24 m，木屐長 0.225 m、兩個齒高 3.4 cm。草鞋是一片平的鞋底加一圈粗草辮邊，鞋底的人字編紋、腳跟和前掌壓扁變深、草辮邊的斜紋都畫在貼圖上，不逐根建；木屐是一塊淺色舊木板、底下兩個齒，齒和板底沾泥、板面的腳印畫在貼圖上。四隻鞋都用同一種深藍布帶：兩條從腳趾的結拉到兩側，一根柱插進鞋底；結上散開的線頭是 Detail_。每隻鞋各自分開，兩雙稍微歪著放。
+練「小物件的比例、編織紋用貼圖表現」。#117 審查後重做：第一版的木屐和夾腳草履是日式的，改成中式的草鞋和布鞋。照真實尺寸：草鞋長 0.24 m，布鞋長 0.245 m。草鞋是一片平的鞋底加一圈粗草辮邊，鞋底的編紋、腳跟和前掌壓扁變深、草辮邊的斜紋、乾掉的泥都畫在貼圖上，不逐根建；建出來的是前端兩個草繩耳、兩側各一個耳、後跟一個繩圈，兩條草繩從後跟圈穿過側耳、在腳背上交叉到對側的前耳（不夾腳趾），繩頭在後跟圈打結後鬆垂。布鞋是有厚度的黑布鞋面、圓頭、鞋口一圈滾邊，底下一片厚的白布底；千層底的布層和針腳、鞋頭的灰畫在貼圖上。草辮邊翹出的草頭是 Detail_。每隻鞋各自分開，兩雙稍微歪著放。
 
 | 項目 | 數字 |
 |---|---|
-| 三視圖 | `art/references/LV10/`，選用 cand-1（92） |
-| 尺寸（寬 × 深 × 高） | 0.382 × 0.255 × 0.089 m（上限 0.4 × 0.3 × 0.1 m） |
-| 三角面 LOD0 / LOD1 / LOD2 | 6,336 / 3,168 / 948（不含 Detail_：6,112 / 3,056 / 916） |
+| 三視圖 | `art/references/LV10/`，選用 v2-cand-1（93） |
+| 尺寸（寬 × 深 × 高） | 0.393 × 0.284 × 0.067 m（上限 0.4 × 0.3 × 0.1 m） |
+| 三角面 LOD0 / LOD1 / LOD2 | 8,936 / 4,468 / 1,338（不含 Detail_：8,796 / 4,398 / 1,318） |
 | 物件數（每個 LOD） | 2（本體 1 + Detail_Frays） |
-| 材質數 | 1（`M_LV10_StrawSandalsClogs`，本體和 Detail_ 共用） |
+| 材質數 | 1（`M_LV10_StrawSandalsClothShoes`，本體和 Detail_ 共用） |
 | 貼圖 | Albedo、Normal、ORM、MaskURP 各一張，1024×1024 |
 | minTier | high |
 | 檔案 | `art/exports/village-life-c/LV10_v001.fbx`（LOD0–2）、`art/exports/village-life-c/LV10_v001.glb`（LOD0）、`art/source/village-life-c/LV10_v001.blend` |
@@ -323,7 +323,8 @@
 ## 驗證
 
 - QA（`tools/art/qa_lod0_basic.py` 嚴格與寬鬆、`tools/art/qa_contact_glb.py`）：二十件嚴格、寬鬆都是 0 項，結果在 `art/previews/village-life-c/qa/`。
-- Unity 6000.3.28f1 獨立匯入：`art/previews/village-life-c/unity/report.txt`。
+- FBX 原始資料與回匯覆核：`blender -b --factory-startup --python-exit-code 1 -P art/source/village-life-c/verify_delivery.py`。LV01–LV12 檢查每個 LOD 的原始面數、物件／材質數、貼圖解析度、UV、回匯尺寸與底部原點；記錄在 `art/previews/village-life-c/qa/fbx-roundtrip.json`。
+- Unity 6000.3.28f1 獨立匯入：`art/previews/village-life-c/unity/report.txt`（LV01–LV20，合進 main 的 LV10 新版後重跑）。
 - 同光同角度並排（含 1.75 m 人形尺，灰模和成品各一張）：`art/previews/village-life-c/compare/`。LV01／LV04 對 B 的竹篩 MK02、背簍 MK04；LV02／LV03 對 B 的柴堆 R03、C 的木樁 BM02_01；LV05 對 C 的陶罐 BM03_01–03；LV06 對 BM02_01、R03；`LV-set` 是 LV01–LV06 放在一起。LV07／LV11 對 BM02_01、R03；LV08／LV09 對 C 的晾藥架 TY08（工作包「不做已有的」：形狀要分得開）；LV10／LV12 對 MK02、MK04 和 LV04；`LV-set2` 是 LV07–LV12 放在一起。工作包第二部分 D 的十二件並排（兩排、配 1.75 m 人形）在 Unity 審圖 `art/previews/village-life-c/unity/LV-all-*.png`。LV13–LV20：LV13／LV19 對 MK02 竹篩和 LV12；LV14／LV17／LV18 對 LV11；LV15／LV16 對陶罐 BM03_01 和洗衣板 WL01；LV20 對捶衣棒 WL02 和 WL04；11/08 包 C 的八件並排（配 1.75 m 人形和第一批的 LV05）在 `art/previews/village-life-c/unity/LV-set3-*.png`。
 
 **和既有模型的三個共同點**
@@ -334,6 +335,7 @@
 ## 已知問題與未驗
 
 - 正式場景擺放、手機上的效果都未驗。
+- Blender 4.5.3 回匯 FBX 後，部分物件的 LOD1／LOD2 面數較原始檔少；逐項差異列在 `qa/fbx-roundtrip.json`。`model_info.json` 的面數與 FBX 原始資料、既有 Unity 匯入報告一致，沒有以 Blender 回匯數字覆寫它們。
 - LV02：三視圖四張都把掃帚畫成直立，照提示詞和工作包高度改成平躺；綁好的那段芯看起來偏像一截光滑木頭。
 - LV03：工作包尺寸深 0.1 m，模型是直立的；靠牆的角度要在擺放時整件傾斜。
 - LV04：原點在籃底，單獨擺放是籃子著地、繩子立起；要掛起來時以頂上的繩圈為掛點。
@@ -341,7 +343,7 @@
 - LV07：掛牆用，單獨放在地上是瓢底著地、木板懸空；擺放時以木板背面貼牆。水漬畫得淡，遠看不明顯。
 - LV08：深度上限 0.4 m，斗笠只有 0.38 m 寬，比三視圖小；蓑衣的草絲紋在貼圖上，近看才分得出一根根。
 - LV09：竹環、鐵眼和麻繩圈互扣，彼此間有 0.3 mm 的縫；LOD2 的竹條是貼圖（alpha clip），近看是平的，小門在 LOD2 也一起拿掉。
-- LV10：鞋底編紋、草辮邊的斜紋都是貼圖，側面近看草辮是一條平滑的管。
+- LV10：鞋底編紋、草辮邊的斜紋都是貼圖，側面近看草辮是一條平滑的管。鞋裡沒有腳，草繩是鬆垂擺著的，沒有像三視圖那樣往上綁得高。布鞋的千層底只有一片厚底，布層和針腳是畫的；三視圖上的補丁沒做。審查提到的「草鞋斜靠牆腳」沒做（這件不含牆），草鞋平放。
 - LV17：照工作包高度 0.2 m，筆架比三視圖矮，毛筆 15 cm。
 - LV18：工作包尺寸的高只有 0.05 m，算盤平放；沒有做珠子被撥到不同位置。
 - LV20：三視圖四張都沒把兩把扇子並排畫，照 cand-3 的兩把扇子自己排；摺扇骨數從三視圖的 14 根減成 10 根。
