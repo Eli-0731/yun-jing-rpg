@@ -1,0 +1,203 @@
+{
+ "PS02_BrokenBridge_Detail_Small_LOD0": {
+  "tris": 35240,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 372,
+  "coplanar_two_sides": 493,
+  "closed_pieces": 238,
+  "open_pieces": 499,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -3.06,
+     0.01,
+     0.0
+    ],
+    16
+   ],
+   [
+    [
+     -2.74,
+     0.99,
+     0.0
+    ],
+    14
+   ],
+   [
+    [
+     -2.82,
+     -1.25,
+     0.0
+    ],
+    14
+   ],
+   [
+    [
+     -3.03,
+     0.02,
+     0.0
+    ],
+    14
+   ],
+   [
+    [
+     -3.22,
+     0.17,
+     0.0
+    ],
+    14
+   ],
+   [
+    [
+     -3.05,
+     0.03,
+     0.0
+    ],
+    11
+   ]
+  ],
+  "inverted_at": []
+ },
+ "PS02_BrokenBridge_Detail_Small_LOD1": {
+  "tris": 17620,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 238,
+  "open_pieces": 373,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "PS02_BrokenBridge_Detail_Small_LOD2": {
+  "tris": 5286,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 238,
+  "open_pieces": 373,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "PS02_BrokenBridge_LOD0": {
+  "tris": 35488,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 2,
+  "coplanar_two_sides": 100,
+  "closed_pieces": 299,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     3.39,
+     1.58,
+     0.81
+    ],
+    1
+   ],
+   [
+    [
+     2.86,
+     1.8,
+     1.57
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "PS02_BrokenBridge_LOD1": {
+  "tris": 17744,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 299,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "PS02_BrokenBridge_LOD2": {
+  "tris": 5322,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 299,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "PS02_BrokenBridge_Rail_LOD0": {
+  "tris": 46236,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 3,
+  "closed_pieces": 223,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "PS02_BrokenBridge_Rail_LOD1": {
+  "tris": 23118,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 223,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "PS02_BrokenBridge_Rail_LOD2": {
+  "tris": 6934,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 223,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

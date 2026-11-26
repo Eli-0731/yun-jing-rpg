@@ -1,0 +1,22 @@
+WE01 三視圖提示詞與選圖
+工作包：2026-11-11 B｜40 小時（院牆院門、水井、石板橋、穀倉、牛棚）A 批 WE01，本批樣品。
+
+選用：WE01-cand-4.png。備選：WE01-cand-2.png。
+選用理由：懸山小亭頂（屋脊一條、兩端山面露出抬梁），比 cand-1／2／3 的四坡翹角亭更像村裡自家搭的井亭，和 VL 民居屋頂同一套瓦；
+四根方柱立在石柱礎上、柱和梁間有斜撐綁麻繩；井旁兩根立柱架轆轤、右邊搖把、繩垂進井裡；井前木桶；地面是一圈不規則石板、井前濕。三張正交圖對得上。
+沒選的原因：
+- cand-1：四坡翹角亭，亭頂中央掛一塊空白木牌，地面是方形石台。
+- cand-2：可用；四坡翹角、寶頂，比本村民居講究，作備選。
+- cand-3：四坡翹角，柱子歪貼補板較多，地面方形。
+建模時注意：屋頂用 VL 瓦片（縮 0.65 倍，保持 12 道瓦）；轆轤立在地上不掛在亭柱上；石板圓形不規則；不做牌子、不寫字、沒有人。
+
+工具與張數：
+- Codex CLI，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 4 張（WE01-cand-1..4），原尺寸 1536×1024 存檔，沒有 seed。生成日期 2026-11-11。
+- 提示詞組法：物件句＋建築 Layout 段＋美術方向；Codex 沒有負面欄，所以把負面提示加上本包那句（not Japanese machiya … no glossy plastic look），以「Avoid:」接在最後。全部原文，一字未改。
+- 本包六項（CW01、CW02、WE01、XB01、GN01、AN01）同一次產生，各 4 張存在各自資料夾；CW01、XB01 用物件 Layout 段，其餘用建築 Layout 段。其他五項的選圖在各自開做時寫。
+
+== 物件句 ==
+Three-view orthographic turnaround sheet of a village well in daily use under a small pavilion, about 3.5 m wide, 3.5 m deep and 3.6 m tall, a round stone well ring, a wooden windlass with rope and one wooden bucket, four plain timber posts carrying a small dark grey tile roof, flat stone paving around the well worn smooth and darkened by water, no people, no writing.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of a village well in daily use under a small pavilion, about 3.5 m wide, 3.5 m deep and 3.6 m tall, a round stone well ring, a wooden windlass with rope and one wooden bucket, four plain timber posts carrying a small dark grey tile roof, flat stone paving around the well worn smooth and darkened by water, no people, no writing. Layout: one three-quarter view from slightly above at eye height of a person, plus front, side and back orthographic views on the same sheet at the same scale, plain light warm-grey background, even soft lighting, building only (no landscape around it except a small ground patch). Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, not Tudor half-timbering, no bright teal roof, no glossy plastic look

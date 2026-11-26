@@ -1,0 +1,377 @@
+{
+  "asset": "VH01_TwoStoreyHouse",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "VH01_TwoStoreyHouse_Detail_Small"
+  ],
+  "name_zh": "兩層民居",
+  "slot": "A1_QingxiVillage_House",
+  "note": "兩層民居（三視圖 VH01-cand-1）：底層亂石砌牆（石塊分層砌、轉角用大塊角石、每個門窗上一根木過樑），石基高 0.28 m、門前一級石階；木板對開門、兩扇小直欞窗。二層是木構架（地栿、柱、頂樑、窗頂一道穿枋，全是橫平豎直，沒有斜撐）加石灰泥牆，兩側和後面在樓板樑上往外出挑 0.2 m；正面一道 0.7 m 窄外廊，由穿過石牆的兩層挑枋托住，方木欄杆。屋頂用 VL 的筒瓦與板瓦，坡度比 VL 陡（屋脊處約 35 度，VL 約 29 度），屋脊兩端低調起翹。舊而深色的木頭、補過的灰泥、石腳長苔；門邊兩只陶缸、幾根靠牆的柴、外廊欄杆上晾一塊布（布和草、苔在 Detail_Small）。碰撞：石基、台階、整個石砌一層（門關著）、二層連外廊一整塊（人上不去）。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 83420,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD1": {
+      "triangles": 41709,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    },
+    "LOD2": {
+      "triangles": 11901,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 4
+    }
+  },
+  "texture_resolution_px": {
+    "VH01_TwoStoreyHouse_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Normal.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Stone_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Wood_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Wood_Metallic.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Wood_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Wood_Normal.png": [
+      2048,
+      2048
+    ],
+    "VH01_TwoStoreyHouse_Wood_Roughness.png": [
+      2048,
+      2048
+    ],
+    "VL_RoofTiles_BaseColor.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_MetallicSmoothness.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Normal.png": [
+      1024,
+      1024
+    ],
+    "VL_RoofTiles_Roughness.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the ground-floor stone walls at ground level, front -Y",
+  "dimensions_m": [
+    7.9587,
+    6.474,
+    7.4553
+  ],
+  "bounds_min_m": [
+    -3.9794,
+    -3.462,
+    0.0
+  ],
+  "bounds_max_m": [
+    3.9794,
+    3.012,
+    7.4553
+  ],
+  "size_limit_m": [
+    8.0,
+    7.0,
+    7.5
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        7.9587,
+        6.474,
+        7.4553
+      ],
+      "min": [
+        -3.9794,
+        -3.462,
+        0.0
+      ],
+      "max": [
+        3.9794,
+        3.012,
+        7.4553
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        7.0826,
+        5.6686,
+        3.832
+      ],
+      "min": [
+        -3.5247,
+        -3.017,
+        0.0
+      ],
+      "max": [
+        3.5579,
+        2.6516,
+        3.832
+      ]
+    }
+  },
+  "lods": {
+    "Main": {
+      "LOD0": 3572,
+      "LOD1": 1786,
+      "LOD2": 534
+    },
+    "Stone": {
+      "LOD0": 21908,
+      "LOD1": 10954,
+      "LOD2": 3286
+    },
+    "Wood": {
+      "LOD0": 29804,
+      "LOD1": 14902,
+      "LOD2": 4470
+    },
+    "Detail_Small": {
+      "LOD0": 3176,
+      "LOD1": 1587,
+      "LOD2": 475
+    },
+    "Roof": {
+      "LOD0": 24960,
+      "LOD1": 12480,
+      "LOD2": 3136
+    }
+  },
+  "lod_totals": {
+    "LOD0": 83420,
+    "LOD1": 41709,
+    "LOD2": 11901
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_VH01_TwoStoreyHouse_Main",
+    "M_VH01_TwoStoreyHouse_RoofTiles",
+    "M_VH01_TwoStoreyHouse_Stone",
+    "M_VH01_TwoStoreyHouse_Wood"
+  ],
+  "textures": [
+    "VH01_TwoStoreyHouse_BaseColor.png",
+    "VH01_TwoStoreyHouse_Metallic.png",
+    "VH01_TwoStoreyHouse_MetallicSmoothness.png",
+    "VH01_TwoStoreyHouse_Normal.png",
+    "VH01_TwoStoreyHouse_Roughness.png",
+    "VH01_TwoStoreyHouse_Stone_BaseColor.png",
+    "VH01_TwoStoreyHouse_Stone_Metallic.png",
+    "VH01_TwoStoreyHouse_Stone_MetallicSmoothness.png",
+    "VH01_TwoStoreyHouse_Stone_Normal.png",
+    "VH01_TwoStoreyHouse_Stone_Roughness.png",
+    "VH01_TwoStoreyHouse_Wood_BaseColor.png",
+    "VH01_TwoStoreyHouse_Wood_Metallic.png",
+    "VH01_TwoStoreyHouse_Wood_MetallicSmoothness.png",
+    "VH01_TwoStoreyHouse_Wood_Normal.png",
+    "VH01_TwoStoreyHouse_Wood_Roughness.png",
+    "VL_RoofTiles_BaseColor.png",
+    "VL_RoofTiles_MetallicSmoothness.png",
+    "VL_RoofTiles_Normal.png",
+    "VL_RoofTiles_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_VH01_TwoStoreyHouse_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VH01_TwoStoreyHouse_BaseColor.png",
+        "Normal": "VH01_TwoStoreyHouse_Normal.png",
+        "MetallicSmoothness": "VH01_TwoStoreyHouse_MetallicSmoothness.png"
+      },
+      "M_VH01_TwoStoreyHouse_RoofTiles": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VL_RoofTiles_BaseColor.png",
+        "Normal": "VL_RoofTiles_Normal.png",
+        "MetallicSmoothness": "VL_RoofTiles_MetallicSmoothness.png",
+        "uv": "own (tile cells)"
+      },
+      "M_VH01_TwoStoreyHouse_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VH01_TwoStoreyHouse_Stone_BaseColor.png",
+        "Normal": "VH01_TwoStoreyHouse_Stone_Normal.png",
+        "MetallicSmoothness": "VH01_TwoStoreyHouse_Stone_MetallicSmoothness.png"
+      },
+      "M_VH01_TwoStoreyHouse_Wood": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "VH01_TwoStoreyHouse_Wood_BaseColor.png",
+        "Normal": "VH01_TwoStoreyHouse_Wood_Normal.png",
+        "MetallicSmoothness": "VH01_TwoStoreyHouse_Wood_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "VH01_TwoStoreyHouse_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "sockets_blender_xyz": {
+    "Socket_Door": [
+      0.0,
+      -2.3,
+      0.28
+    ],
+    "Socket_Path": [
+      0.0,
+      -2.64,
+      0.0
+    ],
+    "Socket_Gallery": [
+      0.0,
+      -2.65,
+      2.85
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Door.001": [
+      0.0,
+      -2.3,
+      0.28
+    ],
+    "Socket_Gallery.001": [
+      0.0,
+      -2.65,
+      2.85
+    ],
+    "Socket_Path.001": [
+      0.0,
+      -2.64,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "Socket_Door.001",
+    "Socket_Gallery.001",
+    "Socket_Path.001",
+    "VH01_TwoStoreyHouse.001",
+    "VH01_TwoStoreyHouse_Collision.001",
+    "VH01_TwoStoreyHouse_Detail_Small_LOD0.001",
+    "VH01_TwoStoreyHouse_Detail_Small_LOD1.001",
+    "VH01_TwoStoreyHouse_Detail_Small_LOD2.001",
+    "VH01_TwoStoreyHouse_LOD0.001",
+    "VH01_TwoStoreyHouse_LOD1.001",
+    "VH01_TwoStoreyHouse_LOD2.001"
+  ],
+  "glb": "VH01_TwoStoreyHouse_v001.glb",
+  "interface": {
+    "ridge_top_m": 7.455,
+    "deck_m": 2.85,
+    "gallery_headroom_m": 2.4
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-houses-b/vh_house.py, vh_roof.py); procedural shaders baked to three 2048 atlases (Main, Stone, Wood); roof tiles on the shared 1024 VL tile texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 120.6,
+        "median": 149.9,
+        "p90": 152.3,
+        "area_m2": 84.1
+      },
+      "inside_or_covered": {
+        "p10": 14.2,
+        "median": 51.9,
+        "p90": 106.1,
+        "area_m2": 316.7
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 118.3,
+        "median": 162.4,
+        "p90": 162.5,
+        "area_m2": 102.6
+      },
+      "inside_or_covered": {
+        "p10": 39.8,
+        "median": 39.8,
+        "p90": 118.3,
+        "area_m2": 61.5
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Wood": {
+      "visible": {
+        "p10": 102.3,
+        "median": 106.6,
+        "p90": 106.9,
+        "area_m2": 151.5
+      },
+      "inside_or_covered": {
+        "p10": 4.9,
+        "median": 27.1,
+        "p90": 81.1,
+        "area_m2": 239.2
+      },
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": [
+    7792,
+    20830
+  ],
+  "reference": "art/references/VH01/ (AI three-view VH01/VH01-cand-1; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check, not committed)",
+  "based_on": "new outline (work pack 2026-11-09 VH01); materials and roof tiles shared with VL01-05"
+}

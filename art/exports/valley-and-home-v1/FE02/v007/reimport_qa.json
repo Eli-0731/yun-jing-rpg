@@ -1,0 +1,236 @@
+{
+  "glb": {
+    "mesh_count": 9,
+    "objects": {
+      "SM_FE02_FerryHull_LOD0": {
+        "triangles": 1168,
+        "tri_match": true,
+        "max_dimension_error_m": 4e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_Canopy_LOD0": {
+        "triangles": 2868,
+        "tri_match": true,
+        "max_dimension_error_m": 3e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_PushPole_LOD0": {
+        "triangles": 92,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Detail_FE02_HullPatches_LOD0": {
+        "triangles": 96,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_FerryHull_LOD1": {
+        "triangles": 992,
+        "tri_match": true,
+        "max_dimension_error_m": 4e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_FerryHull_LOD2": {
+        "triangles": 956,
+        "tri_match": true,
+        "max_dimension_error_m": 4e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_Canopy_LOD1": {
+        "triangles": 2294,
+        "tri_match": true,
+        "max_dimension_error_m": 3e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_Canopy_LOD2": {
+        "triangles": 1576,
+        "tri_match": true,
+        "max_dimension_error_m": 3e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_Ferry_Collision": {
+        "triangles": 12,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "LOD0_qa": {
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "SM_FE02_FerryHull_LOD0: ~98.37% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_FerryHull_LOD0: duplicate verts=1020 loose verts=0",
+        "SM_FE02_Canopy_LOD0: ~99.85% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_Canopy_LOD0: duplicate verts=2442 loose verts=0",
+        "SM_FE02_PushPole_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_PushPole_LOD0: duplicate verts=78 loose verts=0",
+        "Detail_FE02_HullPatches_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "Detail_FE02_HullPatches_LOD0: duplicate verts=96 loose verts=0",
+        "hidden back-to-back faces: SM_FE02_FerryHull_LOD0 (264 pairs) - delete to save tris",
+        "asset lowest point z=-0.26 (not resting on ground plane z=0)"
+      ]
+    },
+    "LOD1_qa": {
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "SM_FE02_FerryHull_LOD1: ~97.69% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_FerryHull_LOD1: duplicate verts=928 loose verts=0",
+        "SM_FE02_Canopy_LOD1: ~98.55% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_Canopy_LOD1: duplicate verts=2120 loose verts=0",
+        "SM_FE02_PushPole_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_PushPole_LOD0: duplicate verts=78 loose verts=0",
+        "hidden back-to-back faces: SM_FE02_FerryHull_LOD1 (120 pairs) - delete to save tris",
+        "asset lowest point z=-0.26 (not resting on ground plane z=0)"
+      ]
+    },
+    "LOD2_qa": {
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "SM_FE02_FerryHull_LOD2: ~97.08% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_FerryHull_LOD2: duplicate verts=903 loose verts=0",
+        "SM_FE02_Canopy_LOD2: ~96.96% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_Canopy_LOD2: duplicate verts=1681 loose verts=0",
+        "SM_FE02_PushPole_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_PushPole_LOD0: duplicate verts=78 loose verts=0",
+        "hidden back-to-back faces: SM_FE02_FerryHull_LOD2 (131 pairs) - delete to save tris",
+        "asset lowest point z=-0.26 (not resting on ground plane z=0)"
+      ]
+    }
+  },
+  "fbx": {
+    "mesh_count": 9,
+    "objects": {
+      "SM_FE02_FerryHull_LOD0": {
+        "triangles": 1168,
+        "tri_match": true,
+        "max_dimension_error_m": 4e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_Canopy_LOD0": {
+        "triangles": 2868,
+        "tri_match": true,
+        "max_dimension_error_m": 3e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_PushPole_LOD0": {
+        "triangles": 92,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Detail_FE02_HullPatches_LOD0": {
+        "triangles": 96,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_FerryHull_LOD1": {
+        "triangles": 992,
+        "tri_match": true,
+        "max_dimension_error_m": 4e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_FerryHull_LOD2": {
+        "triangles": 956,
+        "tri_match": true,
+        "max_dimension_error_m": 4e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_Canopy_LOD1": {
+        "triangles": 2294,
+        "tri_match": true,
+        "max_dimension_error_m": 3e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_Canopy_LOD2": {
+        "triangles": 1576,
+        "tri_match": true,
+        "max_dimension_error_m": 3e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE02_Ferry_Collision": {
+        "triangles": 12,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

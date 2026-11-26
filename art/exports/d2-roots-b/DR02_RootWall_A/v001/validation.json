@@ -1,0 +1,163 @@
+{
+  "asset": "DR02_RootWall_A",
+  "version": "v001",
+  "blender": "5.2.2 LTS",
+  "bounds_main": {
+    "min": [
+      -8.577,
+      -2.6132,
+      -1.1016
+    ],
+    "max": [
+      7.5817,
+      4.0715,
+      3.4735
+    ],
+    "dims": [
+      16.1587,
+      6.6847,
+      4.5751
+    ]
+  },
+  "bounds_detail": {
+    "min": [
+      -10.8363,
+      -4.1186,
+      -0.0536
+    ],
+    "max": [
+      8.8934,
+      5.3405,
+      3.0548
+    ]
+  },
+  "shape_lod0": {
+    "length_above_ground_m": 15.091,
+    "height_max_m": 3.473,
+    "gap_under_root_max_m": 1.05,
+    "top_along_spine_m": [
+      2.525,
+      2.98,
+      3.253,
+      3.439,
+      3.368,
+      2.842,
+      2.617,
+      1.951,
+      1.285,
+      0.801
+    ],
+    "walkable_under_1p75m": false,
+    "blocked_at_1m_fraction": 0.767,
+    "blocked_at_1p7m_fraction": 0.7
+  },
+  "shape_collision": {
+    "length_above_ground_m": 14.446,
+    "height_max_m": 3.462,
+    "gap_under_root_max_m": 1.05,
+    "top_along_spine_m": [
+      2.508,
+      2.929,
+      3.177,
+      3.402,
+      3.346,
+      2.676,
+      2.553,
+      1.937,
+      1.281,
+      0.793
+    ],
+    "walkable_under_1p75m": false,
+    "blocked_at_1m_fraction": 0.857,
+    "blocked_at_1p7m_fraction": 0.75
+  },
+  "plants_inside_root_lod0": {
+    "vertices_checked": 17414,
+    "inside_root_over_2cm": 0,
+    "inside_root_over_5cm": 0
+  },
+  "buried_depth_m": 1.102,
+  "tris": {
+    "LOD0": {
+      "DR02_RootWall_A_LOD0": 14565,
+      "Detail_DR02_Plants_LOD0": 10480
+    },
+    "LOD1": {
+      "DR02_RootWall_A_LOD1": 7280,
+      "Detail_DR02_Plants_LOD1": 5240
+    },
+    "LOD2": {
+      "DR02_RootWall_A_LOD2": 2223,
+      "Detail_DR02_Plants_LOD2": 1572
+    },
+    "collision": 2716
+  },
+  "lod_ratio": {
+    "LOD1": 0.5,
+    "LOD2": 0.152
+  },
+  "fbx_roundtrip": {
+    "objects": [
+      "DR02_RootWall_A",
+      "DR02_RootWall_A_Collision",
+      "DR02_RootWall_A_LOD0",
+      "DR02_RootWall_A_LOD1",
+      "DR02_RootWall_A_LOD2",
+      "Detail_DR02_Plants_LOD0",
+      "Detail_DR02_Plants_LOD1",
+      "Detail_DR02_Plants_LOD2",
+      "Socket_Head",
+      "Socket_Tail"
+    ],
+    "lod0_dimensions_m": [
+      16.1587,
+      6.6847,
+      4.5751
+    ],
+    "sockets": {
+      "Socket_Head": [
+        -7.0289,
+        0.0038,
+        -0.0
+      ],
+      "Socket_Tail": [
+        4.0237,
+        0.3497,
+        -0.0
+      ]
+    },
+    "uv_layers": [
+      "UVMap",
+      "TileUV"
+    ],
+    "materials": [
+      "M_DR02_RootWall_A_A",
+      "M_DR02_RootWall_A_Leaf"
+    ]
+  },
+  "fbx_dims_match": true,
+  "textures_px": {
+    "DR02_RootWall_A_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR02_RootWall_A_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR02_RootWall_A_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR02_RootWall_A_A_ORM.png": [
+      2048,
+      2048
+    ]
+  },
+  "texel_px_per_m": 88.1,
+  "checks_not_in_this_file": [
+    "Unity 匯入與引擎內外觀：另見 art/previews/d2-roots-b/DR02_RootWall_A/unity/report.txt",
+    "放進 D2 場景後的同鏡位截圖（場景由核心組擺）",
+    "實機效能、FPS"
+  ]
+}

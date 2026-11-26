@@ -1,0 +1,20 @@
+PS02 三視圖提示詞與選圖
+工作包：2026-11-09 B｜112 小時（不同外形的民居、舊建築換材質、路上地標）第 6 節 PS02。固定段照 docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md 附錄（game/core-1108-world-east-valley）。
+
+選用：PS02-cand-1.png。備選：PS02-cand-3.png。
+選用理由：兩端橋頭保留拱的起點，中間大缺口，河床有落石；斷面粗糙；端面圖可以看出橋面寬度。
+沒選的原因：
+- cand-2：兩端都加了木支撐和新砌補牆，像在修，不像被沖斷後荒著。
+- cand-3：可用；木支撐較多，作備選。
+- cand-4：印了「5.0 m」「14.0 m」「4.0 m」尺寸字。
+建模時注意：圖上的木支撐不做；碰撞要讓人走到斷口就停。
+
+工具與張數：
+- Codex CLI 0.167.0，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 4 張（PS02-cand-1..4），原尺寸存檔，沒有 seed。生成日期 2026-11-09。
+- 提示詞組法：物件句＋建築 Layout 段（工作包第 6 節：建築用建築 Layout 段）＋5.2 美術方向；Codex 沒有負面欄，所以把 5.3 負面提示加上第 6 節那句，以「Avoid:」接在最後。全部原文，一字未改。
+
+== 工作包原文（PS02 物件句）==
+Three-view orthographic turnaround sheet of a broken old Chinese stone arch bridge washed out by a flood, about 14 m long, 4 m wide and 5 m tall, two surviving abutments with the start of the arch on each side and a wide gap in the middle, rough fractured stone edges, fallen stone blocks below, grey weathered masonry with moss, no writing.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of a broken old Chinese stone arch bridge washed out by a flood, about 14 m long, 4 m wide and 5 m tall, two surviving abutments with the start of the arch on each side and a wide gap in the middle, rough fractured stone edges, fallen stone blocks below, grey weathered masonry with moss, no writing. Layout: one three-quarter view from slightly above at eye height of a person, plus front, side and back orthographic views on the same sheet at the same scale, plain light warm-grey background, even soft lighting, building only (no landscape around it except a small ground patch). Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, no Japanese stone toro lantern, not Tudor half-timbering, no diagonal braces on plaster walls, no bright teal roof, no glossy plastic look

@@ -372,6 +372,58 @@ def _uv_islands(bm, uvl, skip):
         out.append(comp)
     return out
 
+def _uv_area(q):
+    return sum(abs((q[i] - q[0]).cross(q[i + 1] - q[0])) * .5 for i in range(1, len(q) - 1))
+
+
+def detach_zero_uv(objs, own_of, size, eps=1e-8, px=3., squash=.1):
+    """village-reskin-b: faces the unwrap squashed (a needle triangle in a cut edge, or a bent corner face of a forge hood seen
+    edge-on by its island's projection) used to be opened afterwards by spread_zero_uv into a patch under a texel at their own spot,
+    inside the piece they belong to: in the atlas that patch is its own piece and claims texels the piece around it already has
+    (RS02/RS03: 13 to 400 texels, each patch 1 to 1.5 texels); a squashed face it did not catch kept triangles of no width in UV.
+    Done before the pack instead: a face whose UV is under `squash` of the texels per square metre it should have (the object's
+    density times the face's 'uvw' weight; a whole island can be squashed together, so not its island's), or has a fan triangle
+    under `eps`, or is a polygon of five or more corners that make_lods' beauty split will leave with a triangle under `eps` (RS02:
+    the forge hood's corner plates, 5 cm triangles in a line of texels), is cut out of its island and unwrapped on its own plane at
+    that density (a face too thin for that, a needle,
+    gets a triangle of `px` texels), away from everything, so the pack places it as its own island with the margin to its neighbours.
+    The face bakes the colour of its own spot; shapes do not change. Returns the number of faces cut out."""
+    n = 0; r = px / size
+    for o in objs:
+        bm = bmesh.new(); bm.from_mesh(o.data); uvl = bm.loops.layers.uv.active
+        wl = bm.faces.layers.float.get('uvw')
+        faces = [f for f in bm.faces if f.material_index not in own_of[o.name]]
+        uva = {f.index: _uv_area([l[uvl].uv for l in f.loops]) for f in faces}; a3 = {f.index: f.calc_area() for f in faces}
+        wt = {f.index: (max(f[wl], 1e-3) if wl else 1.) for f in faces}
+        base = sum(uva.values()) / max(sum(a3[i] * wt[i] for i in a3), 1e-12)      # UV area per square metre at weight 1
+        b2 = bm.copy(); src = b2.faces.layers.int.new('src_face'); b2.faces.ensure_lookup_table(); uv2 = b2.loops.layers.uv.active
+        for g in b2.faces: g[src] = g.index
+        big = [g for g in b2.faces if len(g.verts) > 4]
+        if big: bmesh.ops.triangulate(b2, faces=big, quad_method='BEAUTY', ngon_method='BEAUTY')     # as make_lods splits them
+        split_thin = {g[src] for g in b2.faces if len(g.verts) == 3 and _uv_area([l[uv2].uv for l in g.loops]) < eps}
+        b2.free()
+        for f in faces:
+            ua, fa = uva[f.index], a3[f.index]; dens = base * wt[f.index]
+            q = [l[uvl].uv for l in f.loops]
+            fan = min(abs((q[i] - q[0]).cross(q[i + 1] - q[0])) * .5 for i in range(1, len(q) - 1))
+            if fan >= eps and ua >= squash * dens * fa and f.index not in split_thin: continue
+            c = Vector((1.5 + .01 * (n % 97), 1.5 + .01 * (n // 97 % 97))); n += 1
+            nrm = f.normal if f.normal.length > .5 else None
+            co = [v.co for v in f.verts]
+            if nrm is not None and fa * dens >= 4 * eps:
+                u = (co[1] - co[0]); u = (u - nrm * u.dot(nrm)); u = u.normalized() if u.length > 1e-9 else nrm.orthogonal().normalized()
+                w = nrm.cross(u); k = math.sqrt(dens)
+                pts = [Vector(((x - co[0]).dot(u) * k, (x - co[0]).dot(w) * k)) for x in co]
+                mid = sum(pts, Vector((0, 0))) / len(pts)
+                if min(abs((pts[i] - pts[0]).cross(pts[i + 1] - pts[0])) * .5 for i in range(1, len(pts) - 1)) >= eps:
+                    for l, pt in zip(f.loops, pts): l[uvl].uv = c + pt - mid
+                    continue
+            for i, l in enumerate(f.loops):
+                t = i / len(f.loops) * math.tau; l[uvl].uv = c + Vector((math.cos(t), math.sin(t))) * r
+        bm.to_mesh(o.data); bm.free(); o.data.update()
+    return n
+
+
 def grow_small_islands(objs, size, own_of, min_px):
     """A piece narrower than a texel can miss every texel centre and bake to nothing, which reads black: open it to min_px along both of its axes."""
     grown = 0; tiny = 1e-7
@@ -415,13 +467,23 @@ def scale_islands_by_uvw(objs):
         bm.to_mesh(me); bm.free(); me.update()
 
 
-def uv_atlas(weights=None, size=2048, min_px=3., pad_px=2.5, shape='CONCAVE', objs=None):
+def uv_atlas(weights=None, size=2048, min_px=3., pad_px=2.5, shape='CONCAVE', objs=None, detach_zero=False):
     """weights: {group: factor} texel-density weight per export group (e.g. a basket's fill shares the atlas with the body).
     min_px: narrowest a piece may end up in texels. pad_px: gap between pieces in texels.
     shape: pack_islands shape_method; CONVEX packs by convex hull instead of nesting pieces into each other's notches. On the SG03
     sloped rail (sheared panel recess) it took the overlap from 663 to 265 texels; the rest are recess slivers that stay joined to the
-    face beside them."""
+    face beside them. detach_zero: detach_zero_uv after every pack, with the growing (village-reskin-b)."""
     objs = objs or list(S['lod0'].values())
+    if detach_zero:
+        # make_lods splits polygons of five or more corners after the bake (beauty); split them here, before the unwrap, the same
+        # way: a polygon bent round a corner (RS02's forge hood plates) is then unwrapped side by side instead of seen edge-on from
+        # one side. Same triangles in the export, same shape.
+        for o in objs:
+            own = {i for i, m in enumerate(o.data.materials) if (MAT_INFO.get(m.name) or MAT_INFO.get(m.name.rsplit('.', 1)[0]) or {}).get('own_uv', False)}
+            bm = bmesh.new(); bm.from_mesh(o.data); big = [f for f in bm.faces if len(f.verts) > 4 and f.material_index not in own]
+            if big: bmesh.ops.triangulate(bm, faces=big, quad_method='BEAUTY', ngon_method='BEAUTY')
+            bm.to_mesh(o.data); bm.free(); o.data.update()
+            S['ngons_split_before_uv'] = S.get('ngons_split_before_uv', 0) + len(big)
     bpy.ops.object.select_all(action='DESELECT')
     for o in objs: o.select_set(True)
     bpy.context.view_layer.objects.active = objs[0]
@@ -446,15 +508,16 @@ def uv_atlas(weights=None, size=2048, min_px=3., pad_px=2.5, shape='CONCAVE', ob
             uvl = o.data.uv_layers.active; uv = np.zeros(len(uvl.data) * 2, dtype=np.float32)
             uvl.data.foreach_get('uv', uv); uvl.data.foreach_set('uv', uv * math.sqrt(f))   # area scales with f
         bpy.ops.object.mode_set(mode='EDIT')
+    own_of = {o.name: {i for i, m in enumerate(o.data.materials) if (MAT_INFO.get(m.name) or MAT_INFO.get(m.name.rsplit('.', 1)[0]) or {}).get('own_uv', False)} for o in objs}
     pack = lambda: bpy.ops.uv.pack_islands(rotate=True, margin_method='FRACTION', margin=pad_px / size, shape_method=shape)
     pack()
-    own_of = {o.name: {i for i, m in enumerate(o.data.materials) if (MAT_INFO.get(m.name) or MAT_INFO.get(m.name.rsplit('.', 1)[0]) or {}).get('own_uv', False)} for o in objs}
-    for _ in range(3):   # growing them changes what the next pack can fit, so measure again
+    for _ in range(4):   # growing them changes what the next pack can fit, so measure again
         bpy.ops.object.mode_set(mode='OBJECT')
+        nz = detach_zero_uv(objs, own_of, size, eps=4e-8) if detach_zero else 0     # at the packed scale, the one spread_zero_uv measures at
         n = grow_small_islands(objs, size, own_of, min_px)
         bpy.ops.object.mode_set(mode='EDIT')
-        print('UV_GROW', S['asset'], n, flush=True)
-        if not n: break
+        print('UV_GROW', S['asset'], n, 'UV_DETACH_ZERO', nz, flush=True); S['uv_detached_zero_faces'] = S.get('uv_detached_zero_faces', 0) + nz
+        if not n and not nz: break
         pack()
     bpy.ops.object.mode_set(mode='OBJECT')
     for o in objs:

@@ -1,0 +1,50 @@
+{
+  "ok": true,
+  "pass": true,
+  "errors": [],
+  "warnings": [
+    "SM_FE01_Straight_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_FE01_Straight_LOD1: duplicate verts=620 loose verts=0",
+    "hidden back-to-back faces: SM_FE01_Straight_LOD1 (5 pairs) - delete to save tris",
+    "asset lowest point z=-1.0 (not resting on ground plane z=0)"
+  ],
+  "ground_z": -1.0,
+  "zfighting": [],
+  "floating": [],
+  "back_to_back": [
+    {
+      "where": "SM_FE01_Straight_LOD1",
+      "tri_pairs": 5
+    }
+  ],
+  "enclosed": [],
+  "objects": {
+    "SM_FE01_Straight_LOD1": {
+      "verts": 1240,
+      "faces": 644,
+      "tris": 644,
+      "ngons": 0,
+      "boundary_edges": 1240,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 620,
+      "islands": 298,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 4,
+      "uv_maps": 1,
+      "uv_oob_pct": 0.0,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 100.0
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+ "asset": "VH01_TwoStoreyHouse_v001",
+ "tris": 83420,
+ "objects": [
+  "VH01_TwoStoreyHouse_Detail_Small_LOD0",
+  "VH01_TwoStoreyHouse_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 2,
+   "same_inside": 0,
+   "same": 2,
+   "two_sides": 987,
+   "groups": {
+    "TwoStoreyHouse|two_sides_between": {
+     "pairs": 987,
+     "overlap_cm2": 143321.13
+    },
+    "TwoStoreyHouse|same_between": {
+     "pairs": 2,
+     "overlap_cm2": 122.5
+    }
+   },
+   "same_at": [
+    [
+     -1.14,
+     -2.23,
+     2.85,
+     2
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 874,
+   "groups": {
+    "TwoStoreyHouse|two_sides_between": {
+     "pairs": 874,
+     "overlap_cm2": 137506.81
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 874,
+   "groups": {
+    "TwoStoreyHouse|two_sides_between": {
+     "pairs": 874,
+     "overlap_cm2": 137506.81
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 1
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "VH01_TwoStoreyHouse_Detail_Small_LOD0": 1
+  }
+ },
+ "pieces": 1111,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

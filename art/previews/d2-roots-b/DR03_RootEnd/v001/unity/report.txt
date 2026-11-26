@@ -1,0 +1,25 @@
+Unity 6000.3.28f1, pipeline URP
+PASS DR03_RootEnd set A: Albedo / Normal / ORM / MaskURP textures found
+PASS DR03_RootEnd set A: delivered textures 2048x2048 (larger than a person: 2048)
+INFO DR03_RootEnd: imported at 1024x1024 on StandaloneWindows64 (importer max 1024, default platform max 1024, build override max 0)
+INFO DR03_RootEnd: bark detail on UV0, tiling 8.67
+PASS DR03_RootEnd: imported size 8.869 x 5.217 x 3.314 m matches model_info 8.8684 x 5.2172 x 3.3141 within 2 cm
+PASS DR03_RootEnd: lowest point y = -1.298 (root tips dive below the ground, origin on the ground)
+PASS DR03_RootEnd: triangles LOD0/1/2 = 23426 / 11337 / 3372 (48% / 14%), model_info 23426 / 11337 / 3372
+PASS DR03_RootEnd: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS DR03_RootEnd: 2 materials over every LOD and Detail_ mesh (model_info 2; one per texture set and one two-sided for the plants)
+PASS DR03_RootEnd: Detail_* leaves render both faces
+PASS DR03_RootEnd: each slot of the body has its own texture set (M_DR03_RootEnd_A)
+PASS DR03_RootEnd: minTier = standard (landmark that blocks the way: everyone sees it)
+PASS DR03_RootEnd: detailObjects Detail_DR03_Plants present in the FBX
+PASS DR03_RootEnd: Detail_* off still shows the body (1 mesh per LOD)
+PASS DR03_RootEnd: Detail_DR03_Plants_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR03_RootEnd: DR03_RootEnd_LOD0 has UV0 (atlas) and UV1 (TileUV)
+INFO DR03_RootEnd: mesh compression Medium; UV0 of LOD0 has 567 distinct u and 240 distinct v over 8825 vertices (smallest step 0.000901 / 0.000901)
+PASS DR03_RootEnd: sockets Socket_Wall (-2.1, 0.0, 0.0)
+PASS DR03_RootEnd: one collision shell (MeshCollider, renderer off)
+PASS DR03_RootEnd: Socket_Wall points into the wall (DR02 A's tail lies 11.1 m along it)
+PASS DR03_RootEnd: joined to DR02_RootWall_A (Socket_Wall on Socket_Head): a walker crossing the wall and cap is stopped at 9 of 9 places (2 m either side of the joint, every 0.5 m)
+INFO DR03_RootEnd: collision top 1.5 m out from the wall 1.51 m
+INFO renders written to art/previews/d2-roots-b/DR03_RootEnd/unity
+INFO DR03_RootEnd: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)

@@ -1,3 +1,25 @@
+LV10 草鞋與布鞋各一雙（工作包第二部分表 A：0.4 × 0.3 × 0.1 m，練小物件的比例、編織紋用貼圖表現）三視圖與自評 — 第二版（2026-11-16，照 #117 審查重做）
+選用：LV10-v2-cand-1.png（93分）
+
+#117 審查：第一版的木屐（厚木底加夾腳帶）和夾腳草履是日式的，青溪村是中國南方山村，不能出現。改成中式草鞋（稻草編底、前端兩條草繩、腳跟一個草繩圈、繩子交叉往上綁，不夾腳趾）和布鞋（黑布面、千層白布底、圓頭）。第一版的四張（LV10-cand-1…4.png）留著對照，不再使用；第一版的說明在本檔後半。
+
+提示詞：物件句照審查的要求改寫（加上 "Chinese southern mountain village, not Japanese, no geta, no zori thong"），固定的 Layout 段、5.2、5.3 一字不改，四張相同。評分：形體與尺寸比例 30／練習重點 30／提示詞細節 25／乾淨無字、三面同一地線同比例 15。
+- v2-cand-1：93（28+28+25+12）。選用。草鞋：編的鞋底、前端兩個草繩耳、後跟一個繩圈，繩子在腳背交叉、往上綁成結；布鞋：黑布面圓頭、白色千層底、沿口滾邊。三面同一地線。布鞋上有補丁。
+- v2-cand-2：91（28+27+24+12）。草鞋邊較高、側面的繩子畫得很長；布鞋沾泥較多。
+- v2-cand-3：90（27+27+24+12）。草鞋的鞋底像草蓆、較方；布鞋鞋口較大。
+- v2-cand-4：92（28+28+24+12）。和 cand-1 相近，草鞋的繩結站得很高。
+
+建模取捨：照 v2-cand-1。草鞋長 0.24 m、布鞋長 0.245 m，照真實尺寸；四隻鞋各自分開，兩雙稍微歪著放。草鞋：一片有厚度的鞋底加一圈粗草辮邊，編紋在貼圖上；建出來的是前端兩個草繩耳、兩側各一個耳、後跟一個繩圈，兩條繩從後跟圈穿過側耳、在腳背上交叉到對側的前耳，繩頭在後跟圈打結後鬆垂。鞋裡沒有腳，所以繩子是鬆垂擺著的，不像三視圖那樣站得高（高度上限 0.1 m）。布鞋：有厚度的黑布鞋面、圓頭、鞋口一圈滾邊，底下一片厚的白布底；千層底的布層和針腳、鞋頭的灰、近黑帶藍的布色畫在貼圖上；三視圖上的補丁不做。審查提到「一雙沾了泥的草鞋可以斜靠在牆腳」：這件道具不含牆，草鞋平放，第二隻的泥畫得比較多。
+
+== 正面提示詞（第二版） ==
+Three-view orthographic turnaround sheet of a pair of Chinese hand-woven rice-straw sandals beside a pair of traditional Chinese black cloth shoes, about 0.4 m wide, 0.3 m deep and 0.1 m tall, the straw sandals have a flat woven straw sole, two straw cord loops at the front, one straw cord loop at the heel, and thin straw cords crossing over the instep and tied upward (nothing between the toes), the cloth shoes have plain black cotton uppers, a round toe and a thick white stitched layered-cloth sole, showing flattened worn straw, a little dried mud on the straw sandals and dusty worn cloth, used at the doorsteps of houses in a lived-in Chinese southern mountain village, not Japanese, no geta, no zori thong, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only.
+Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece.
+
+== 負面提示詞（第二版，同第一版） ==
+photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye
+
+———— 以下是第一版（2026-11-10，已被 #117 審查退回，不再使用） ————
+
 LV10 草鞋與木屐各一雙（工作包第二部分表 A：0.4 × 0.3 × 0.1 m，練小物件的比例、編織紋用貼圖表現）三視圖與自評（2026-11-10）
 選用：LV10-cand-1.png（92分）
 

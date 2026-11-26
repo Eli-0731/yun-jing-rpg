@@ -1,0 +1,399 @@
+{
+  "asset": "DR07_GiantStump_B",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "Detail_DR07_Plants"
+  ],
+  "name_zh": "巨樹樁 B（徑 3.5 m，矮邊 1.6 m、斷刺最高 3 m）",
+  "slot": "D2 古樹空地四周的林地（工作包：兩種共擺 4 個）",
+  "note": "巨樹很久以前折斷後留下的樹樁（不是鋸的）：頂上參差的斷口，鉸點那側幾片高高撕裂的木板、細長木刺，另一側低、朽爛；斷面一圈圈年輪層、翻卷的朽木片。中心朽空成一個深碗，碗底一層泥、落葉，牆腳長苔；內壁是朽爛的紅褐纖維木，縱向纖維溝、朽洞。積水是另一個模型（<件名>_water_v001.fbx）：有水＝本體＋水面，沒水＝只放本體。根頸往外張，板根扭著鑽進土裡，根間細根、土和小石塊。外面深灰褐長稜老樹皮，一片剝皮露出灰白風化木；斷口上緣和板根上長苔、地衣，一側層狀菌。樹皮：Poly Haven bark_brown_02 掃描凹凸推進高模幾何再烘焙。Detail_DR07_Plants：斷口上的小蕨，腳邊的蕨、闊葉草、蕈，根上的蕈，地上和樹洞底的落葉。",
+  "references": "art/references/DR07/v001/（Codex 依 D2 設定圖 V1、V4（另參考 V5、V6）畫的三視圖、四分之三視圖、細節圖）",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 59988,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD1": {
+      "triangles": 29994,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD2": {
+      "triangles": 8998,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    }
+  },
+  "texture_resolution_px": {
+    "DR07_GiantStump_B_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR07_GiantStump_B_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR07_GiantStump_B_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR07_GiantStump_B_A_ORM.png": [
+      2048,
+      2048
+    ],
+    "Shared/D2Bark_Detail_Normal.png": [
+      1024,
+      1024
+    ],
+    "Shared/D2Bark_Detail_Albedo.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)；斷口最高的木板朝 hinge 方位角（stump_build 之外另記在 hinge_azimuth_deg）",
+  "hinge_azimuth_deg": -37.2,
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，鑽進土裡的根在 z < 0",
+  "stump_build": {
+    "axis_x": -0.0,
+    "axis_y": 0.0,
+    "rim_low": 1.268,
+    "pool_z": 0.7,
+    "radius": 1.75
+  },
+  "peel_fraction_side": 0.107,
+  "dimensions_m": [
+    8.9943,
+    8.925,
+    3.9059
+  ],
+  "bounds_min_m": [
+    -4.4971,
+    -4.4625,
+    -0.6314
+  ],
+  "bounds_max_m": [
+    4.4972,
+    4.4625,
+    3.2745
+  ],
+  "shape": {
+    "trunk_diameter_at_1m_xy_m": {
+      "x": 3.861,
+      "y": 3.746
+    },
+    "trunk_diameter_at_1m_m": 3.804,
+    "rim_top_z_every_10deg": [
+      2.094,
+      1.888,
+      1.65,
+      1.964,
+      1.924,
+      1.726,
+      1.75,
+      1.713,
+      1.685,
+      1.67,
+      1.632,
+      1.588,
+      1.644,
+      1.742,
+      1.604,
+      1.618,
+      1.632,
+      1.268,
+      1.456,
+      1.668,
+      1.699,
+      1.684,
+      1.71,
+      1.958,
+      1.482,
+      1.761,
+      1.813,
+      1.888,
+      1.916,
+      2.284,
+      2.39,
+      2.184,
+      2.666,
+      2.797,
+      2.14,
+      2.558
+    ],
+    "rim_low_m": 1.268,
+    "rim_high_m": 2.797,
+    "root_collar_spread_diameter_m": 7.508,
+    "hollow_inner_diameter_m": 2.437,
+    "pool_or_floor_z_m": 0.565,
+    "wall_thickness_at_1m_m": {
+      "min": 0.137,
+      "max": 0.852,
+      "mean": 0.558
+    },
+    "blocked_at_0p3_1p0m_three_lines": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ]
+  },
+  "spec_check": {
+    "spec": {
+      "D": 3.5,
+      "H": [
+        1.2,
+        3.0
+      ]
+    },
+    "trunk_diameter_at_1m_m": 3.804,
+    "rim_low_m": 1.268,
+    "rim_high_m": 2.797,
+    "root_collar_spread_ratio": 1.97,
+    "diameter_ok": true,
+    "height_ok": true,
+    "hollow_deep_enough_for_water": true,
+    "note": "工作包：徑 2.5／3.5 m、高 1.2–3 m；斷口參差、中心朽空積水、根頸張開抓地。樹幹徑量 1.0 m 高處（根頸往上已收回）X、Y 兩向平均；高度量殼壁中間每 10° 從上往下打到的斷口頂（最低＝矮邊、最高＝斷刺）；根頸張開量 0.05 m 高處最外的板根到軸心距離 × 2"
+  },
+  "lods": {
+    "LOD0": {
+      "DR07_GiantStump_B_LOD0": 36405,
+      "Detail_DR07_Plants_LOD0": 23583
+    },
+    "LOD1": {
+      "DR07_GiantStump_B_LOD1": 18407,
+      "Detail_DR07_Plants_LOD1": 11587
+    },
+    "LOD2": {
+      "DR07_GiantStump_B_LOD2": 5531,
+      "Detail_DR07_Plants_LOD2": 3467
+    },
+    "collision": 88
+  },
+  "lod_rule": "LOD0 不刪細節；LOD1／LOD2：本體每件各自 collapse 再刪藏起來的面，植物整件 collapse；照實得比例修正，本體＋植物合計約為 LOD0 的 50%／15%；面積 0 的三角形匯出前刪掉",
+  "materials": [
+    "M_DR07_GiantStump_B_A",
+    "M_DR07_GiantStump_B_Leaf"
+  ],
+  "objects_per_lod": 2,
+  "material_note": "本體一個物件、一個材質 M_DR07_GiantStump_B_A（一組貼圖 2048）；Detail_DR07_Plants 一個材質 M_DR07_GiantStump_B_Leaf（同一組貼圖，雙面）。水面另一個 FBX、一個材質 M_DR07_GiantStump_B_Water（沒有貼圖；Unity 換成 YunJing/CreekFlowWater）",
+  "water": {
+    "file": "DR07_GiantStump_B_water_v001.fbx",
+    "objects": [
+      "DR07_GiantStump_B_water_LOD0",
+      "DR07_GiantStump_B_water_LOD1",
+      "DR07_GiantStump_B_water_LOD2"
+    ],
+    "triangles": {
+      "LOD0": 360,
+      "LOD1": 116,
+      "LOD2": 16
+    },
+    "origin": "same as the body FBX (bottom centre)",
+    "z_m": 0.7,
+    "centre_xy_m": [
+      -0.049,
+      0.021
+    ],
+    "radius_m": {
+      "min": 0.879,
+      "max": 1.052,
+      "mean": 0.963
+    },
+    "edge_tucked_into_wall_m": 0.04,
+    "uv": "u, v in metres from the water centre (standing water: CreekFlowWater _Still = 1 reads uv as metres on both axes)",
+    "textures": "water: none; floating leaves (2nd material slot): the stump atlas, same material as Detail_ plants",
+    "floating_leaves": {
+      "LOD0": 168,
+      "LOD1": 84,
+      "LOD2": false
+    },
+    "collision": "none (the stump collision closes the hollow on top)",
+    "unity_shader": "YunJing/CreekFlowWater（apps/game/Assets/YunJing/Runtime/CreekRepair/CreekFlowWater.shader，使用者青溪水工 B 的水）：靜水模式 _Still = 1、_Speed 0.03（同 CreekRepairSceneBuilder 的 Field_StillWater），樹洞水另設 _StillColour 茶褐 (0.05, 0.036, 0.02)、_AlphaMid／_AlphaBank 0.6，看得到洞底的泥和落葉；_StillColour 是這次在著色器加的可調值，預設等於原本田裡積水的灰綠，F01 不變；隨 _Time 慢慢起伏，不用腳本",
+    "blender_preview": "Blender 審圖用 M_<件名>_Water：Cycles 單面透射（IOR 1.333、粗糙度 0.02），透射染茶褐、兩層很淡的小波，看得到底下的泥和落葉、斜看映出內壁"
+  },
+  "states": {
+    "wet": "有水：本體 DR07_GiantStump_B_v001.fbx ＋ 水面 DR07_GiantStump_B_water_v001.fbx（同一個位置、同一個旋轉）",
+    "dry": "沒水：只放本體 DR07_GiantStump_B_v001.fbx（樹洞底是泥、落葉，牆腳長苔；水面那個 FBX 不放）"
+  },
+  "uv": {
+    "UV0": "UVMap：烘焙圖集，所有 UV 島同比例（155.5 px/m）、不旋轉",
+    "UV1": "TileUV：樹皮件是每 2.6 m 重複的樹皮 UV，其他件同 UV0"
+  },
+  "unity": {
+    "shader": "Universal Render Pipeline/Lit",
+    "detail_normal": "Shared/D2Bark_Detail_Normal.png",
+    "detail_albedo": "Shared/D2Bark_Detail_Albedo.png",
+    "detail_mask": "Albedo.png 的 alpha（1 = 樹皮，0 = 苔和葉）",
+    "detail_tiling_on_uv0": 5.07,
+    "mask_map": "MaskURP.png（R metal、G AO、A smoothness）"
+  },
+  "collision": "DR07_GiantStump_B_Collision: MeshCollider (convex off), renderer hidden；樹幹一個實心 12 邊柱（到矮邊 0.92 高，頂上封平，人掉不進樹洞）＋根頸一圈 0.38 m 高的矮台",
+  "sockets_blender_xyz": {},
+  "build_origin_m": [
+    -0.0346,
+    -0.0,
+    0.0
+  ],
+  "build_origin_note": "建模座標（樹幹軸心在原點附近、沿 +Z）的原點在本資產座標裡的位置；Unity 檢查把模型放在它的負值，審圖鏡位才對得上",
+  "length_build_m": 3.0,
+  "ruler_build_xy": [
+    4.2,
+    -2.1
+  ],
+  "review_cams_build_xyz": [
+    {
+      "name": "tq",
+      "from": [
+        -8.4,
+        -10.36,
+        1.7
+      ],
+      "at": [
+        0,
+        0,
+        1.053
+      ],
+      "lens_mm": 30
+    },
+    {
+      "name": "front",
+      "from": [
+        0,
+        -13.3,
+        1.5
+      ],
+      "at": [
+        0,
+        0,
+        1.35
+      ],
+      "lens_mm": 30
+    },
+    {
+      "name": "back",
+      "from": [
+        0,
+        13.3,
+        1.8
+      ],
+      "at": [
+        0,
+        0,
+        1.35
+      ],
+      "lens_mm": 30
+    },
+    {
+      "name": "side",
+      "from": [
+        13.3,
+        0,
+        1.5
+      ],
+      "at": [
+        0,
+        0,
+        1.35
+      ],
+      "lens_mm": 30
+    },
+    {
+      "name": "hinge",
+      "from": [
+        8.359,
+        -6.354,
+        1.7
+      ],
+      "at": [
+        0,
+        0,
+        1.5
+      ],
+      "lens_mm": 30
+    },
+    {
+      "name": "top",
+      "from": [
+        0,
+        -0.01,
+        15.6
+      ],
+      "at": [
+        0,
+        0,
+        0
+      ],
+      "lens_mm": 30
+    },
+    {
+      "name": "into",
+      "from": [
+        -1.783,
+        1.356,
+        5.24
+      ],
+      "at": [
+        0.159,
+        -0.121,
+        0.7
+      ],
+      "lens_mm": 26
+    },
+    {
+      "name": "roots",
+      "from": [
+        -3.64,
+        -5.04,
+        0.9
+      ],
+      "at": [
+        0,
+        -0.84,
+        0.3
+      ],
+      "lens_mm": 28
+    },
+    {
+      "name": "rim",
+      "from": [
+        -2.675,
+        2.033,
+        3.4
+      ],
+      "at": [
+        0.446,
+        -0.339,
+        1.82
+      ],
+      "lens_mm": 30
+    }
+  ],
+  "external_assets": [
+    {
+      "name": "bark_brown_02",
+      "source": "https://polyhaven.com/a/bark_brown_02",
+      "license": "CC0"
+    }
+  ],
+  "files_sha256": {
+    "DR07_GiantStump_B_v001.fbx": "a3b0648188bca9043ada3fc90697bd0be2fb0f70b85a26a71c1ca988db2b23d8",
+    "DR07_GiantStump_B_v001.glb": "e245e95afd9fbae3e088ad203bcd9eb49b954c04ca9723f412eeff87eba4be53",
+    "DR07_GiantStump_B_water_v001.fbx": "192aa90e0e7c4aa031df8f611860c5fe18218a5cf5f51b7c3652923961034131",
+    "DR07_GiantStump_B_water_v001.glb": "3b211ba868759a6b96999cacd99581f4a113269098c19db293ff53ebdfab43e7"
+  }
+}

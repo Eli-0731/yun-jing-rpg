@@ -1,0 +1,341 @@
+{
+ "asset": "FO02_GlowMushroom_A_v001",
+ "tris": 60656,
+ "objects": [
+  "FO02_GlowMushroom_A_Detail_Small_LOD0",
+  "FO02_GlowMushroom_A_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 56,
+   "same_between": 56,
+   "same_inside": 0,
+   "same": 56,
+   "two_sides": 192,
+   "groups": {
+    "A_Detail_Small|two_sides_inside": {
+     "pairs": 188,
+     "overlap_cm2": 420.96
+    },
+    "A|same_between": {
+     "pairs": 49,
+     "overlap_cm2": 40.23
+    },
+    "A/A_Detail_Small|same_between": {
+     "pairs": 7,
+     "overlap_cm2": 2.56
+    },
+    "A/A_Detail_Small|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 1.01
+    }
+   },
+   "same_at": [
+    [
+     -0.38,
+     0.19,
+     -0.0,
+     6
+    ],
+    [
+     -0.08,
+     -0.33,
+     0.0,
+     5
+    ],
+    [
+     -0.08,
+     -0.31,
+     0.0,
+     4
+    ],
+    [
+     0.08,
+     -0.34,
+     0.0,
+     4
+    ],
+    [
+     -0.06,
+     -0.31,
+     0.0,
+     3
+    ],
+    [
+     -0.09,
+     -0.33,
+     0.0,
+     3
+    ],
+    [
+     0.1,
+     -0.34,
+     0.0,
+     3
+    ],
+    [
+     0.51,
+     0.19,
+     -0.0,
+     3
+    ],
+    [
+     -0.38,
+     0.2,
+     -0.0,
+     3
+    ],
+    [
+     0.34,
+     0.23,
+     0.0,
+     2
+    ],
+    [
+     -0.05,
+     -0.3,
+     0.0,
+     2
+    ],
+    [
+     -0.06,
+     -0.33,
+     0.0,
+     2
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 52,
+   "same_between": 52,
+   "same_inside": 0,
+   "same": 52,
+   "two_sides": 10,
+   "groups": {
+    "A|same_between": {
+     "pairs": 45,
+     "overlap_cm2": 36.68
+    },
+    "A/A_Detail_Small|same_between": {
+     "pairs": 7,
+     "overlap_cm2": 2.56
+    },
+    "A_Detail_Small|two_sides_inside": {
+     "pairs": 6,
+     "overlap_cm2": 2.12
+    },
+    "A/A_Detail_Small|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 1.01
+    }
+   },
+   "same_at": [
+    [
+     -0.38,
+     0.19,
+     -0.0,
+     6
+    ],
+    [
+     -0.08,
+     -0.33,
+     0.0,
+     5
+    ],
+    [
+     0.08,
+     -0.34,
+     0.0,
+     4
+    ],
+    [
+     -0.08,
+     -0.31,
+     0.0,
+     3
+    ],
+    [
+     -0.09,
+     -0.33,
+     0.0,
+     3
+    ],
+    [
+     0.1,
+     -0.34,
+     0.0,
+     3
+    ],
+    [
+     0.51,
+     0.19,
+     -0.0,
+     3
+    ],
+    [
+     -0.38,
+     0.2,
+     -0.0,
+     3
+    ],
+    [
+     0.34,
+     0.23,
+     0.0,
+     2
+    ],
+    [
+     -0.06,
+     -0.33,
+     0.0,
+     2
+    ],
+    [
+     -0.06,
+     -0.31,
+     0.0,
+     2
+    ],
+    [
+     -0.06,
+     -0.32,
+     0.0,
+     2
+    ]
+   ]
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 44,
+   "same_between": 44,
+   "same_inside": 0,
+   "same": 44,
+   "two_sides": 10,
+   "groups": {
+    "A|same_between": {
+     "pairs": 39,
+     "overlap_cm2": 30.36
+    },
+    "A_Detail_Small|two_sides_inside": {
+     "pairs": 6,
+     "overlap_cm2": 2.12
+    },
+    "A/A_Detail_Small|same_between": {
+     "pairs": 5,
+     "overlap_cm2": 1.07
+    },
+    "A/A_Detail_Small|two_sides_between": {
+     "pairs": 4,
+     "overlap_cm2": 1.01
+    }
+   },
+   "same_at": [
+    [
+     -0.38,
+     0.19,
+     -0.0,
+     6
+    ],
+    [
+     -0.08,
+     -0.33,
+     0.0,
+     4
+    ],
+    [
+     0.08,
+     -0.34,
+     0.0,
+     4
+    ],
+    [
+     0.1,
+     -0.34,
+     0.0,
+     3
+    ],
+    [
+     0.51,
+     0.19,
+     -0.0,
+     3
+    ],
+    [
+     -0.38,
+     0.2,
+     -0.0,
+     3
+    ],
+    [
+     -0.06,
+     -0.33,
+     0.0,
+     2
+    ],
+    [
+     -0.08,
+     -0.31,
+     0.0,
+     2
+    ],
+    [
+     -0.06,
+     -0.31,
+     0.0,
+     2
+    ],
+    [
+     -0.06,
+     -0.32,
+     0.0,
+     2
+    ],
+    [
+     0.1,
+     -0.37,
+     0.0,
+     2
+    ],
+    [
+     0.09,
+     -0.35,
+     0.0,
+     2
+    ]
+   ]
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 2
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {
+   "FO02_GlowMushroom_A_LOD0": 2
+  }
+ },
+ "pieces": 186,
+ "loose_over_5mm": 1,
+ "loose_list": [
+  {
+   "verts": 6001,
+   "centre": [
+    0.064,
+    0.081,
+    0.643
+   ],
+   "size": [
+    0.593,
+    0.614,
+    0.214
+   ]
+  }
+ ]
+}

@@ -1,0 +1,207 @@
+{
+  "glb": {
+    "mesh_count": 8,
+    "objects": {
+      "SM_FE03_FerryShed_LOD0": {
+        "triangles": 6024,
+        "tri_match": true,
+        "max_dimension_error_m": 3e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Detail_FE03_FerryShed_LOD0": {
+        "triangles": 376,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE03_MooringPost_LOD0": {
+        "triangles": 208,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          -1.75,
+          -0.89,
+          0.0
+        ]
+      },
+      "SM_FE03_FerryShed_LOD1": {
+        "triangles": 4938,
+        "tri_match": true,
+        "max_dimension_error_m": 3e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE03_FerryShed_LOD2": {
+        "triangles": 3734,
+        "tri_match": true,
+        "max_dimension_error_m": 2e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE03_RearWall_Collision": {
+        "triangles": 12,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE03_LeftWall_Collision": {
+        "triangles": 12,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE03_RightWall_Collision": {
+        "triangles": 12,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "LOD0_qa": {
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "SM_FE03_FerryShed_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE03_FerryShed_LOD0: duplicate verts=6492 loose verts=0",
+        "SM_FE03_MooringPost_LOD0: duplicate verts=186 loose verts=0",
+        "Detail_FE03_FerryShed_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "Detail_FE03_FerryShed_LOD0: duplicate verts=384 loose verts=0",
+        "hidden back-to-back faces: SM_FE03_FerryShed_LOD0 (16 pairs) - delete to save tris",
+        "hidden back-to-back faces: SM_FE03_MooringPost_LOD0 (14 pairs) - delete to save tris"
+      ]
+    },
+    "LOD1_qa": {
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "SM_FE03_FerryShed_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE03_FerryShed_LOD1: duplicate verts=5406 loose verts=0",
+        "SM_FE03_MooringPost_LOD0: duplicate verts=186 loose verts=0",
+        "hidden back-to-back faces: SM_FE03_FerryShed_LOD1 (16 pairs) - delete to save tris",
+        "hidden back-to-back faces: SM_FE03_MooringPost_LOD0 (14 pairs) - delete to save tris"
+      ]
+    },
+    "LOD2_qa": {
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "SM_FE03_FerryShed_LOD2: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE03_FerryShed_LOD2: duplicate verts=4215 loose verts=0",
+        "SM_FE03_MooringPost_LOD0: duplicate verts=186 loose verts=0",
+        "hidden back-to-back faces: SM_FE03_FerryShed_LOD2 (16 pairs) - delete to save tris",
+        "hidden back-to-back faces: SM_FE03_MooringPost_LOD0 (14 pairs) - delete to save tris"
+      ]
+    }
+  },
+  "fbx": {
+    "mesh_count": 8,
+    "objects": {
+      "SM_FE03_FerryShed_LOD0": {
+        "triangles": 6024,
+        "tri_match": true,
+        "max_dimension_error_m": 3e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "Detail_FE03_FerryShed_LOD0": {
+        "triangles": 376,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE03_MooringPost_LOD0": {
+        "triangles": 208,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          -1.75,
+          -0.89,
+          0.0
+        ]
+      },
+      "SM_FE03_FerryShed_LOD1": {
+        "triangles": 4938,
+        "tri_match": true,
+        "max_dimension_error_m": 3e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE03_FerryShed_LOD2": {
+        "triangles": 3734,
+        "tri_match": true,
+        "max_dimension_error_m": 2e-06,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE03_RearWall_Collision": {
+        "triangles": 12,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE03_LeftWall_Collision": {
+        "triangles": 12,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "SM_FE03_RightWall_Collision": {
+        "triangles": 12,
+        "tri_match": true,
+        "max_dimension_error_m": 0.0,
+        "origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

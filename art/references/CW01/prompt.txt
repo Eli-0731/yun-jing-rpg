@@ -1,0 +1,20 @@
+CW01 三視圖提示詞與選圖
+工作包：2026-11-11 B｜40 小時（院牆院門、水井、石板橋、穀倉、牛棚）A 段 CW01。
+
+選用：CW01-cand-2.png。備選：CW01-cand-1.png。
+選用理由：直段、轉角、端頭（方形牆墩）、缺口段四件都有；夯土牆身乾淨、有一版一版的夯層，下面石腳，上面一排黛瓦壓頂、筒瓦往兩側流；缺口段沿夯層一階一階塌，露出土芯，腳下碎石土堆。最接近「住家院牆、較高較整齊」。
+沒選的原因：
+- cand-1：可用；牆面掛了兩塊木牌（不做字和牌子），作備選。
+- cand-3：四件排成多列，缺口段塌得太多、像斷牆遺址。
+- cand-4：牆面有圓形破洞和木框補丁，偏破敗。
+建模時注意：轉角做成 0.6 m 方牆墩接兩邊各 2 m 的牆（四件都要能首尾相接）；端頭是 0.6 m 牆加牆墩；壓頂黛瓦照工作包色 #3A4048，不用 VL 共用瓦片貼圖；不做木牌。
+
+工具與張數：
+- Codex CLI，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 4 張（CW01-cand-1..4），原尺寸存檔，沒有 seed。生成日期 2026-11-11。
+- 提示詞組法：物件句＋單件 Layout 段＋美術方向；Codex 沒有負面欄，所以把負面提示加上本包那句（not Japanese machiya … no glossy plastic look），以「Avoid:」接在最後。全部原文，一字未改。
+
+== 物件句 ==
+Three-view orthographic turnaround sheet of a modular rural Chinese courtyard wall set, each section about 4 m long, 0.5 m thick and 1.8 m tall, rammed earth wall body in warm yellow-grey on a rough stone footing, capped with a single row of dark grey clay tiles, shown as four pieces: a straight section, a corner, an end cap, and a section with one collapsed corner exposing the earth core, weathered and rain-streaked, no writing.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of a modular rural Chinese courtyard wall set, each section about 4 m long, 0.5 m thick and 1.8 m tall, rammed earth wall body in warm yellow-grey on a rough stone footing, capped with a single row of dark grey clay tiles, shown as four pieces: a straight section, a corner, an end cap, and a section with one collapsed corner exposing the earth core, weathered and rain-streaked, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only. Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, not Tudor half-timbering, no bright teal roof, no glossy plastic look

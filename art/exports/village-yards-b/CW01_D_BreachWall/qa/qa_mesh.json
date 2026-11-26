@@ -1,0 +1,141 @@
+{
+ "CW01_D_BreachWall_Detail_Small_LOD0": {
+  "tris": 2400,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 9,
+  "open_pieces": 182,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_D_BreachWall_Detail_Small_LOD1": {
+  "tris": 1200,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 9,
+  "open_pieces": 162,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_D_BreachWall_Detail_Small_LOD2": {
+  "tris": 360,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 9,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_D_BreachWall_LOD0": {
+  "tris": 35484,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 229,
+  "coplanar_two_sides": 4,
+  "closed_pieces": 149,
+  "open_pieces": 1,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     -0.66,
+     0.06,
+     0.0
+    ],
+    146
+   ],
+   [
+    [
+     0.66,
+     -0.06,
+     0.0
+    ],
+    44
+   ],
+   [
+    [
+     -0.07,
+     -0.07,
+     0.0
+    ],
+    1
+   ],
+   [
+    [
+     -1.48,
+     -0.14,
+     0.0
+    ],
+    1
+   ],
+   [
+    [
+     -1.42,
+     -0.14,
+     0.0
+    ],
+    1
+   ],
+   [
+    [
+     -1.38,
+     -0.14,
+     0.0
+    ],
+    1
+   ]
+  ],
+  "inverted_at": []
+ },
+ "CW01_D_BreachWall_LOD1": {
+  "tris": 17741,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 149,
+  "open_pieces": 1,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "CW01_D_BreachWall_LOD2": {
+  "tris": 5320,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 149,
+  "open_pieces": 1,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

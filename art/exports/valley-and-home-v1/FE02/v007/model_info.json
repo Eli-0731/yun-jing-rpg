@@ -1,0 +1,221 @@
+{
+  "SM_FE02_FerryHull_LOD0": {
+    "vertices": 680,
+    "triangles": 1168,
+    "dimensions_m": [
+      1.77199,
+      6.0,
+      0.541
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE02_Canopy_LOD0": {
+    "vertices": 1650,
+    "triangles": 2868,
+    "dimensions_m": [
+      1.54755,
+      2.52,
+      0.753
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE02_PushPole_LOD0": {
+    "vertices": 52,
+    "triangles": 92,
+    "dimensions_m": [
+      0.072,
+      5.74,
+      0.07
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "Detail_FE02_HullPatches_LOD0": {
+    "vertices": 64,
+    "triangles": 96,
+    "dimensions_m": [
+      1.5546,
+      5.04,
+      0.32
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE02_FerryHull_LOD1": {
+    "vertices": 592,
+    "triangles": 992,
+    "dimensions_m": [
+      1.76863,
+      6.00022,
+      0.541
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE02_FerryHull_LOD2": {
+    "vertices": 574,
+    "triangles": 956,
+    "dimensions_m": [
+      1.76863,
+      6.00022,
+      0.541
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE02_Canopy_LOD1": {
+    "vertices": 1363,
+    "triangles": 2294,
+    "dimensions_m": [
+      1.54926,
+      2.52,
+      0.75307
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE02_Canopy_LOD2": {
+    "vertices": 1004,
+    "triangles": 1576,
+    "dimensions_m": [
+      1.55132,
+      2.51915,
+      0.75307
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "SM_FE02_Ferry_Collision": {
+    "vertices": 8,
+    "triangles": 12,
+    "dimensions_m": [
+      1.22,
+      5.65,
+      0.1
+    ],
+    "origin_m": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "minTier": "standard",
+  "switchableCanopy": "SM_FE02_Canopy_LOD0",
+  "detailObjects": [
+    "Detail_FE02_HullPatches_LOD0"
+  ],
+  "waterline_origin_m": [
+    0,
+    0,
+    0
+  ],
+  "overall_envelope_m": [
+    1.77199,
+    6.0,
+    1.197
+  ],
+  "overall_bounds_z_m": [
+    -0.26,
+    0.937
+  ],
+  "source": "art/source/valley-and-home-v1/FE02/FE02-ferry-pack-v007.blend",
+  "status": {
+    "Exported": true,
+    "Imported": true,
+    "Visually Verified": true,
+    "In-game Verified": false,
+    "preview": "art/previews/valley-and-home-v1/FE02/v007/FE02_ferry_threequarter_neutral.png",
+    "same_scene_preview": "art/previews/valley-and-home-v1/FE02/v007/FE02_ferry_FE01_A11_threequarter_materials.png",
+    "not_verified": [
+      "Unity ferry/boardwalk placement and boarding",
+      "40 m silhouette under game camera",
+      "canopy toggle in Unity"
+    ]
+  },
+  "exports": {
+    "fbx": {
+      "bytes": 2514620,
+      "reimported_meshes": 9,
+      "max_dimension_error_m": 4e-06
+    },
+    "glb": {
+      "bytes": 2928104,
+      "reimported_meshes": 9,
+      "max_dimension_error_m": 4e-06
+    }
+  },
+  "textures": {
+    "new_woven_mat_512": 3,
+    "new_bytes": 261517,
+    "shared_with_FE01": "six wood/bamboo/rope BaseColor 1024 and shared Normal/ORM 512"
+  },
+  "qa": {
+    "profile": "game",
+    "errors_by_lod": {
+      "LOD0": 0,
+      "LOD1": 0,
+      "LOD2": 0
+    },
+    "warnings_by_lod": {
+      "LOD0": [
+        "SM_FE02_FerryHull_LOD0: ~98.37% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_FerryHull_LOD0: duplicate verts=1020 loose verts=0",
+        "SM_FE02_Canopy_LOD0: ~99.85% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_Canopy_LOD0: duplicate verts=2442 loose verts=0",
+        "SM_FE02_PushPole_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_PushPole_LOD0: duplicate verts=78 loose verts=0",
+        "Detail_FE02_HullPatches_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "Detail_FE02_HullPatches_LOD0: duplicate verts=96 loose verts=0",
+        "hidden back-to-back faces: SM_FE02_FerryHull_LOD0 (264 pairs) - delete to save tris",
+        "asset lowest point z=-0.26 (not resting on ground plane z=0)"
+      ],
+      "LOD1": [
+        "SM_FE02_FerryHull_LOD1: ~97.69% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_FerryHull_LOD1: duplicate verts=928 loose verts=0",
+        "SM_FE02_Canopy_LOD1: ~98.55% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_Canopy_LOD1: duplicate verts=2120 loose verts=0",
+        "SM_FE02_PushPole_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_PushPole_LOD0: duplicate verts=78 loose verts=0",
+        "hidden back-to-back faces: SM_FE02_FerryHull_LOD1 (120 pairs) - delete to save tris",
+        "asset lowest point z=-0.26 (not resting on ground plane z=0)"
+      ],
+      "LOD2": [
+        "SM_FE02_FerryHull_LOD2: ~97.08% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_FerryHull_LOD2: duplicate verts=903 loose verts=0",
+        "SM_FE02_Canopy_LOD2: ~96.96% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_Canopy_LOD2: duplicate verts=1681 loose verts=0",
+        "SM_FE02_PushPole_LOD0: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+        "SM_FE02_PushPole_LOD0: duplicate verts=78 loose verts=0",
+        "hidden back-to-back faces: SM_FE02_FerryHull_LOD2 (131 pairs) - delete to save tris",
+        "asset lowest point z=-0.26 (not resting on ground plane z=0)"
+      ]
+    },
+    "accepted_warning_reason": "Tiled UVs intentionally repeat; cylindrical bamboo/rope caps are triangulable planar n-gons; hidden plank and binding contact surfaces are intentional. Do not bake on shared UVs."
+  }
+}

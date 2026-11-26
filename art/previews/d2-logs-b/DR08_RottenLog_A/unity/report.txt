@@ -1,0 +1,29 @@
+Unity 6000.3.28f1, pipeline URP
+PASS DR08_RottenLog_A: shader URP Lit found
+PASS DR08_RottenLog_A: DR08_Plants_Albedo.png found
+PASS DR08_RottenLog_A: shader YunJing/D2LayeredWood found
+PASS DR08_RottenLog_A: DR08_Bark_Albedo / Normal found
+PASS DR08_RottenLog_A: DR08_Moss_Albedo / Normal found
+PASS DR08_RottenLog_A: DR08_Rot_Albedo / Normal found
+PASS DR08_RottenLog_A: DR08_Fibre_Albedo / Normal found
+PASS DR08_RottenLog_A: DR08_Inner_Albedo / Normal found
+PASS DR08_RottenLog_A: DR08_Soil_Albedo / Normal found
+PASS DR08_RottenLog_A: shared tiling layers delivered at 1024x1024 (1024, tiled 1–2 times per metre)
+PASS DR08_RottenLog_A: imported size 3.037 x 3.105 x 1.115 m matches model_info 3.0372 x 3.1045 x 1.1146 within 2 cm
+PASS DR08_RottenLog_A: lowest point y = -0.333 (the trunk sinks into the soil, origin on the ground)
+PASS DR08_RottenLog_A: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; y = 0 is the ground)
+PASS DR08_RottenLog_A: triangles LOD0/1/2 = 15524 / 6287 / 1329 (40% / 9%), model_info 15524 / 6287 / 1329
+PASS DR08_RottenLog_A: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS DR08_RottenLog_A: 2 materials over every LOD and Detail_ mesh (model_info 2: body, two-sided plants)
+PASS DR08_RottenLog_A: Detail_* plants render both faces
+PASS DR08_RottenLog_A: minTier = standard (blocks the way: everyone sees it)
+PASS DR08_RottenLog_A: detailObjects Detail_DR08_Plants present in the FBX
+PASS DR08_RottenLog_A: Detail_* off still shows the body (1 mesh per LOD)
+PASS DR08_RottenLog_A: DR08_RottenLog_A_LOD0 has UV0 (metres), UV1 (soil, AO) and vertex colours (moss, rot, fibre, inner weights)
+INFO DR08_RottenLog_A: mean layer weights moss 0.07, rot 0.33, fibre 0.01, inner 0.08, soil 0.10; AO 0.17–1.00
+PASS DR08_RottenLog_A: body slots M_DR08_Layered (YunJing/D2LayeredWood), M_DR08_Plants (Universal Render Pipeline/Lit): layered wood (any extra slot two-sided plant atlas)
+PASS DR08_RottenLog_A: one collision shell (MeshCollider, renderer off)
+PASS DR08_RottenLog_A: a shin-high sweep across the log is stopped at 4 of 4 places (every 0.5 m from 0.12 L to 0.90 L)
+PASS DR08_RottenLog_A: the highest point of the log's top (0.1–0.9 L) is a low obstacle below hip height (y = 0.71 m)
+INFO renders written to art/previews/d2-logs-b/DR08_RottenLog_A/unity
+INFO DR08_RottenLog_A: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)

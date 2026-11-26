@@ -1,0 +1,96 @@
+{
+ "id": "ST02-6M",
+ "package": "docs/execution/2026-11-08/A-80h-mountain-city.md",
+ "author": "A (Johnnnny0823)",
+ "version": "v001",
+ "status": "Exported; Imported: see README (Unity 6000.3.28f1 check); In-game Verified: 未驗",
+ "dimensions_m": [
+  5.993,
+  0.34,
+  0.89
+ ],
+ "bounds_min_m": [
+  -2.997,
+  -0.17,
+  -0.883
+ ],
+ "bounds_max_m": [
+  2.997,
+  0.17,
+  0.007
+ ],
+ "limit_m": [
+  6.0,
+  0.4,
+  1.2
+ ],
+ "origin": "hang the two hook tips (Socket_HookA / Socket_HookB, z = 0) on eave rings or nails at the same height; the string hangs below to about -0.95 m. Other spans: build_st.py ST02 --span <metres>",
+ "minTier": "low",
+ "lods": [
+  {
+   "lod": 0,
+   "triangles": 5964,
+   "objects": 2,
+   "materials": 2
+  },
+  {
+   "lod": 1,
+   "triangles": 2836,
+   "objects": 2,
+   "materials": 2
+  },
+  {
+   "lod": 2,
+   "triangles": 850,
+   "objects": 2,
+   "materials": 2
+  }
+ ],
+ "objectsLOD0": [
+  "ST_ST02_6M_LOD0",
+  "ST_ST02_6M_Glow_LOD0"
+ ],
+ "detailObjects": [],
+ "glowObjects": [
+  "ST_ST02_6M_Glow_LOD0"
+ ],
+ "materials": [
+  "M_StreetFurniture",
+  "M_StreetFurniture_Glow"
+ ],
+ "textures": {
+  "T_StreetFurniture_Albedo": "1024x1024",
+  "T_StreetFurniture_Normal": "1024x1024",
+  "T_StreetFurniture_MetallicSmoothness": "1024x1024",
+  "T_StreetFurniture_Emission": "1024x1024"
+ },
+ "textureNote": "M_MountainStreet_*: shared MC01 trim sheet (art/textures/mountain-street-houses-a); M_StreetFurniture_*: art/textures/mountain-street-a (256 px/m)",
+ "sockets": [
+  {
+   "name": "Socket_HookA",
+   "location_m": [
+    -2.955,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Socket_HookB",
+   "location_m": [
+    2.955,
+    0.0,
+    0.0
+   ]
+  }
+ ],
+ "collision": "none (hanging piece)",
+ "extra": {
+  "hanging": true,
+  "span_m": 6.0,
+  "lanterns": 4,
+  "glow": "lantern paper (M_StreetFurniture_Glow)",
+  "noWriting": true
+ },
+ "fbx": "art/exports/mountain-street-a/ST_ST02_6M.fbx",
+ "fps": "不寫（手機未實測）"
+}

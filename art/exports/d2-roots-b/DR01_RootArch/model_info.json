@@ -1,0 +1,229 @@
+{
+  "asset": "DR01_RootArch",
+  "version": "v006",
+  "minTier": "standard",
+  "detailObjects": [
+    "Detail_DR01_Plants"
+  ],
+  "name_zh": "南入口大根拱",
+  "slot": "D2_AncientTree_SouthEntrance (10,167)，拱朝南北",
+  "note": "v004 前後雙拱：南邊一道三股絞成的粗拱、北邊約 6 m 處一道細一點、反方向絞的拱，中間用根連成一段短隧道；頂上幾條根順著路從南拱騎到北拱（往上拱起、左右蜿蜒），根和根之間有縫透光，兩條靠邊的越過北拱垂到地上；兩側各兩條根從拱肩斜著落地，在外側交叉成 X，頂上垂下幾條細氣根。前拱的根只往南往外散，後拱的只往北往外散。每道拱的兩腳各有實心根座、一條條板根和扇形散根，朝外的大板根從拱腿半腰掃到地面，尾端鑽進土裡。樹皮：Poly Haven bark_brown_02 掃描凹凸推進高模幾何再烘焙。苔是鼓起來的苔墊（做在高模幾何和材質上），拱頂正面背面的上半邊披著一層。Detail_DR01_Plants：拱頂的蕨、心形葉小叢、垂藤，根腳的蕨和心形葉。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 114333,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 5
+    },
+    "LOD1": {
+      "triangles": 58392,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 5
+    },
+    "LOD2": {
+      "triangles": 17779,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 5
+    }
+  },
+  "texture_resolution_px": {
+    "DR01_RootArch_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_A_ORM.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_B_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_B_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_B_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_B_ORM.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_C_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_C_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_C_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_C_ORM.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_D_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_D_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_D_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR01_RootArch_D_ORM.png": [
+      2048,
+      2048
+    ],
+    "Shared/D2Bark_Detail_Normal.png": [
+      1024,
+      1024
+    ],
+    "Shared/D2Bark_Detail_Albedo.png": [
+      1024,
+      1024
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)，從南邊看；路沿 Y 穿過拱洞",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "底部中心：LOD0 本體外框 XY 的中心正下方的地面；z = 0 是地面，根尾鑽土的部分在 z < 0",
+  "previous_origin_m": [
+    -0.3251,
+    -2.6925,
+    0.0
+  ],
+  "previous_origin_note": "v005 的原點（拱洞正下方地面、南拱的中線）在這一版座標裡的位置；用 v005 擺好的場景，把這一版往 -previous_origin_m 移就對回原處",
+  "dimensions_m": [
+    38.0155,
+    33.591,
+    9.3531
+  ],
+  "bounds_min_m": [
+    -19.0078,
+    -16.7955,
+    -0.87
+  ],
+  "bounds_max_m": [
+    19.0077,
+    16.7955,
+    8.4831
+  ],
+  "opening": {
+    "clear_height_m_at_x": {
+      "-4": 4.365,
+      "-3": 5.239,
+      "-2": 5.513,
+      "-1": 5.734,
+      "0": 5.789,
+      "1": 5.57,
+      "2": 5.263,
+      "3": 4.638,
+      "4": 0.057
+    },
+    "clear_span_m_at_z": {
+      "0.3": 9.163,
+      "1.0": 9.061,
+      "2.0": 9.0,
+      "3.0": 9.086,
+      "4.0": 8.311
+    },
+    "path_2p2m_blocked_samples": 0,
+    "clear_height_min_over_central_4m": 5.263,
+    "clear_span_min_ground_to_3m": 9.0,
+    "meets_pack_8m_x_5m": true
+  },
+  "foot_root_spread_m": {
+    "west": 13.9,
+    "east": 14.35
+  },
+  "lods": {
+    "LOD0": {
+      "DR01_RootArch_LOD0": 78565,
+      "Detail_DR01_Plants_LOD0": 35768
+    },
+    "LOD1": {
+      "DR01_RootArch_LOD1": 40508,
+      "Detail_DR01_Plants_LOD1": 17884
+    },
+    "LOD2": {
+      "DR01_RootArch_LOD2": 12414,
+      "Detail_DR01_Plants_LOD2": 5365
+    },
+    "collision": 8436
+  },
+  "lod_rule": "LOD0 不刪細節；LOD1 collapse 50%；LOD2 collapse 15%",
+  "materials": [
+    "M_DR01_RootArch_A",
+    "M_DR01_RootArch_B",
+    "M_DR01_RootArch_C",
+    "M_DR01_RootArch_D",
+    "M_DR01_RootArch_Leaf"
+  ],
+  "objects_per_lod": 2,
+  "material_note": "本體一個物件、四個材質槽（A–D 四組貼圖，各 2048）；Detail_DR01_Plants 一個材質 M_DR01_RootArch_Leaf（用 A 組貼圖，雙面）。四組 UV 同比例，細節貼圖 Tiling 相同",
+  "uv": {
+    "UV0": "UVMap：烘焙圖集（四組），所有 UV 島同比例（70.2 px/m）、同方向",
+    "UV1": "TileUV：每 2.6 m 重複的樹皮 UV"
+  },
+  "unity": {
+    "shader": "Universal Render Pipeline/Lit",
+    "detail_normal": "Shared/D2Bark_Detail_Normal.png",
+    "detail_albedo": "Shared/D2Bark_Detail_Albedo.png",
+    "detail_mask": "各組 Albedo.png 的 alpha（1 = 樹皮，0 = 苔和葉）",
+    "detail_tiling_on_uv0": 11.22,
+    "mask_map": "各組 MaskURP.png（R metal、G AO、A smoothness）"
+  },
+  "collision": "DR01_RootArch_Collision: MeshCollider (convex off), renderer hidden；只含半徑 0.32 m 以上的根",
+  "sockets_blender_xyz": {
+    "Socket_Path_N": [
+      -0.325,
+      7.007,
+      0.0
+    ],
+    "Socket_Path_S": [
+      -0.325,
+      -6.193,
+      0.0
+    ],
+    "Socket_Wall_E": [
+      14.675,
+      -2.693,
+      0.0
+    ],
+    "Socket_Wall_W": [
+      -15.325,
+      -2.693,
+      0.0
+    ]
+  },
+  "external_assets": [
+    {
+      "name": "bark_brown_02",
+      "source": "https://polyhaven.com/a/bark_brown_02",
+      "license": "CC0"
+    }
+  ],
+  "files_sha256": {
+    "DR01_RootArch_v006.fbx": "8cbbf7f775781d409f32c67298fdd6396375ee6fbfb8c9cc506efbd071650d1b",
+    "DR01_RootArch_v006.glb": "2f023ab8818c2ef4b270126155994ff26ae9ec64844ede86ebcf139408328133"
+  }
+}
