@@ -1,0 +1,231 @@
+{
+ "Roof_Tiles_-1_LOD0": {
+  "tris": 7872,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 41,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "Roof_Tiles_-1_LOD1": {
+  "tris": 3936,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 41,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "Roof_Tiles_-1_LOD2": {
+  "tris": 992,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 41,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "Roof_Tiles_1_LOD0": {
+  "tris": 7872,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 41,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "Roof_Tiles_1_LOD1": {
+  "tris": 3936,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 41,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "Roof_Tiles_1_LOD2": {
+  "tris": 992,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 0,
+  "open_pieces": 41,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WE01_VillageWell_Detail_Small_LOD0": {
+  "tris": 42692,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 2,
+  "closed_pieces": 12,
+  "open_pieces": 798,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WE01_VillageWell_Detail_Small_LOD1": {
+  "tris": 21345,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 12,
+  "open_pieces": 754,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WE01_VillageWell_Detail_Small_LOD2": {
+  "tris": 6402,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 3,
+  "open_pieces": 0,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WE01_VillageWell_LOD0": {
+  "tris": 63492,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 170,
+  "coplanar_two_sides": 51,
+  "closed_pieces": 222,
+  "open_pieces": 83,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     1.09,
+     1.19,
+     0.0
+    ],
+    27
+   ],
+   [
+    [
+     1.23,
+     0.69,
+     0.0
+    ],
+    27
+   ],
+   [
+    [
+     1.27,
+     1.06,
+     0.0
+    ],
+    20
+   ],
+   [
+    [
+     -0.76,
+     -1.22,
+     0.0
+    ],
+    16
+   ],
+   [
+    [
+     -0.67,
+     1.13,
+     0.0
+    ],
+    15
+   ],
+   [
+    [
+     1.32,
+     1.01,
+     0.0
+    ],
+    11
+   ]
+  ],
+  "inverted_at": []
+ },
+ "WE01_VillageWell_LOD1": {
+  "tris": 31744,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 222,
+  "open_pieces": 83,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "WE01_VillageWell_LOD2": {
+  "tris": 9142,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 180,
+  "open_pieces": 83,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}

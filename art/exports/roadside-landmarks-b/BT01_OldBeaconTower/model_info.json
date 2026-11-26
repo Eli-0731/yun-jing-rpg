@@ -1,0 +1,299 @@
+{
+  "asset": "BT01_OldBeaconTower",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "BT01_OldBeaconTower_Detail_Small"
+  ],
+  "name_zh": "舊烽台",
+  "slot": "A7_EastSlope_Ridge_BeaconTower",
+  "note": "東坡山脊上塌了一半的圓形乾砌石烽台（三視圖 BT01-cand-4）：圓台底半徑 2.75 m、頂 2.45 m、高 5.4 m，18 層石頭，牆略往內收；右後方的牆塌出一個 V 形缺口（底在 2.2 m），裡面的填土石塌成一道碎石坡往右後角散開；其餘牆面完整到頂，頂上鋪石板，邊上幾段斷掉的矮垛。一道 0.9 m 寬的石階貼著外牆，從正面繞到左後方上到頂（27 級，每級 0.2 m），頂上可以站人看風景。石縫和頂上長乾草，牆腳有苔。圖上的木欄杆和木架不做，石階沒有扶手；不寫字。碰撞：一張高度場（頂面 5.4 m、缺口和碎石坡照實際高低、四周地面）加石階斜坡。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 63438,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD1": {
+      "triangles": 31718,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD2": {
+      "triangles": 9514,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    }
+  },
+  "texture_resolution_px": {
+    "BT01_OldBeaconTower_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "BT01_OldBeaconTower_Metallic.png": [
+      2048,
+      2048
+    ],
+    "BT01_OldBeaconTower_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "BT01_OldBeaconTower_Normal.png": [
+      2048,
+      2048
+    ],
+    "BT01_OldBeaconTower_Roughness.png": [
+      2048,
+      2048
+    ],
+    "BT01_OldBeaconTower_Stone_BaseColor.png": [
+      4096,
+      4096
+    ],
+    "BT01_OldBeaconTower_Stone_Metallic.png": [
+      4096,
+      4096
+    ],
+    "BT01_OldBeaconTower_Stone_MetallicSmoothness.png": [
+      4096,
+      4096
+    ],
+    "BT01_OldBeaconTower_Stone_Normal.png": [
+      4096,
+      4096
+    ],
+    "BT01_OldBeaconTower_Stone_Roughness.png": [
+      4096,
+      4096
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "centre of the tower at ground level, z = 0, front -Y",
+  "dimensions_m": [
+    7.8238,
+    7.8493,
+    6.2962
+  ],
+  "bounds_min_m": [
+    -3.8738,
+    -3.8638,
+    0.0
+  ],
+  "bounds_max_m": [
+    3.95,
+    3.9855,
+    6.2962
+  ],
+  "size_limit_m": [
+    8.0,
+    8.0,
+    7.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        7.5916,
+        7.5476,
+        6.2962
+      ],
+      "min": [
+        -3.6416,
+        -3.5621,
+        0.0
+      ],
+      "max": [
+        3.95,
+        3.9855,
+        6.2962
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        6.9876,
+        7.0607,
+        5.6246
+      ],
+      "min": [
+        -3.8738,
+        -3.8638,
+        0.0
+      ],
+      "max": [
+        3.1137,
+        3.1968,
+        5.6246
+      ]
+    }
+  },
+  "lods": {
+    "Stone": {
+      "LOD0": 45268,
+      "LOD1": 22634,
+      "LOD2": 6790
+    },
+    "Main": {
+      "LOD0": 13656,
+      "LOD1": 6827,
+      "LOD2": 2047
+    },
+    "Detail_Small": {
+      "LOD0": 4514,
+      "LOD1": 2257,
+      "LOD2": 677
+    }
+  },
+  "lod_totals": {
+    "LOD0": 63438,
+    "LOD1": 31718,
+    "LOD2": 9514
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_BT01_OldBeaconTower_Main",
+    "M_BT01_OldBeaconTower_Stone"
+  ],
+  "textures": [
+    "BT01_OldBeaconTower_BaseColor.png",
+    "BT01_OldBeaconTower_Metallic.png",
+    "BT01_OldBeaconTower_MetallicSmoothness.png",
+    "BT01_OldBeaconTower_Normal.png",
+    "BT01_OldBeaconTower_Roughness.png",
+    "BT01_OldBeaconTower_Stone_BaseColor.png",
+    "BT01_OldBeaconTower_Stone_Metallic.png",
+    "BT01_OldBeaconTower_Stone_MetallicSmoothness.png",
+    "BT01_OldBeaconTower_Stone_Normal.png",
+    "BT01_OldBeaconTower_Stone_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_BT01_OldBeaconTower_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "BT01_OldBeaconTower_BaseColor.png",
+        "Normal": "BT01_OldBeaconTower_Normal.png",
+        "MetallicSmoothness": "BT01_OldBeaconTower_MetallicSmoothness.png"
+      },
+      "M_BT01_OldBeaconTower_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "BT01_OldBeaconTower_Stone_BaseColor.png",
+        "Normal": "BT01_OldBeaconTower_Stone_Normal.png",
+        "MetallicSmoothness": "BT01_OldBeaconTower_Stone_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "BT01_OldBeaconTower_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "parts": {
+    "tower": {
+      "radius_foot_m": 2.75,
+      "radius_top_m": 2.45,
+      "top_z_m": 5.4,
+      "courses": 18,
+      "wall_thickness_m": 0.45
+    },
+    "stair": {
+      "risers": 27,
+      "riser_m": 0.2,
+      "width_m": 0.9,
+      "from_deg": -100.0,
+      "to_deg": -239.99999999999997,
+      "tread_on_middle_line_m": 0.276,
+      "rail": "none (the sheet's timber rail is not made)"
+    },
+    "breach": {
+      "centre_deg": 45.0,
+      "floor_z_m": 2.2,
+      "fan_half_width_deg": 62.0
+    },
+    "rubble_stones": 69,
+    "sockets": {
+      "Socket_Lookout": "on the top, looking out over the breach",
+      "Socket_StairFoot": "at the stair foot"
+    }
+  },
+  "sockets_blender_xyz": {
+    "Socket_Lookout": [
+      -0.4243,
+      -0.4243,
+      5.4
+    ],
+    "Socket_StairFoot": [
+      -0.5557,
+      -3.1514,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_Lookout.001": [
+      -0.4243,
+      -0.4243,
+      5.4
+    ],
+    "Socket_StairFoot.001": [
+      -0.5557,
+      -3.1514,
+      0.0
+    ]
+  },
+  "fbx_objects": [
+    "BT01_OldBeaconTower.001",
+    "BT01_OldBeaconTower_Collision.001",
+    "BT01_OldBeaconTower_Detail_Small_LOD0.001",
+    "BT01_OldBeaconTower_Detail_Small_LOD1.001",
+    "BT01_OldBeaconTower_Detail_Small_LOD2.001",
+    "BT01_OldBeaconTower_LOD0.001",
+    "BT01_OldBeaconTower_LOD1.001",
+    "BT01_OldBeaconTower_LOD2.001",
+    "Socket_Lookout.001",
+    "Socket_StairFoot.001"
+  ],
+  "glb": "BT01_OldBeaconTower_v001.glb",
+  "interface": {
+    "stair_m": [
+      0.401,
+      1.593,
+      2.801,
+      4.001,
+      5.2
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/roadside-landmarks-b/) on the StarterHouse v004 outline; procedural shaders baked to two 2048 atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 160.8,
+        "median": 167.9,
+        "p90": 175.2,
+        "area_m2": 92.9
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 142.3,
+        "median": 143.4,
+        "p90": 144.5,
+        "area_m2": 632.4
+      },
+      "inside_or_covered": null,
+      "atlas_px": 4096,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "art/references/BT01/ (AI three-view BT01/BT01-cand-4; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-houses-unity/ (local Unity batch check VillageHousesModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}

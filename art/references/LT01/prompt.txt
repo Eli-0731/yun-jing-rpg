@@ -1,0 +1,38 @@
+LT01 三視圖提示詞與選圖
+工作包：2026-11-09 B｜112 小時（不同外形的民居、舊建築換材質、路上地標）第 6 節 LT01。固定段照 docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md 附錄（game/core-1108-world-east-valley）。
+最終選用：LT01-fix-cand-1.png（加強提示詞重出，見最後一節）。下面第一段是原提示詞那一輪的選圖紀錄。
+
+選用：LT01-cand-2.png（結構與比例），沒有一張完全符合。
+選用理由：方柱、方形燈室、階梯式方座最敦實；四面燈口簡單。
+共同問題：四張的石頂四角都翹得比「只微翹」明顯，而且柱身比 0.7 m 寬的設定瘦。建模時石頂四角起翹壓低，整體加粗，照工作包 0.7 × 0.7 × 1.8 m 與 G01 原點。
+沒選的原因：
+- cand-1：石頂薄、翹角最誇張，偏日式。
+- cand-3：燈室有缺塊與補丁，太碎。
+- cand-4：石頂分兩層，偏塔形。
+
+工具與張數：
+- Codex CLI 0.167.0，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 4 張（LT01-cand-1..4），原尺寸存檔，沒有 seed。生成日期 2026-11-09。
+- 提示詞組法：物件句＋單件物品的 Layout 段＋5.2 美術方向；Codex 沒有負面欄，所以把 5.3 負面提示加上第 6 節那句，以「Avoid:」接在最後。全部原文，一字未改。
+
+== 工作包原文（LT01 物件句）==
+Three-view orthographic turnaround sheet of a solid squared-off Chinese village stone lantern, about 0.7 m wide and 1.8 m tall, a plain square stone post on a stepped square base, a square lantern chamber with simple rectangular openings, and a low four-sided stone cap with only slightly lifted corners, weathered grey stone with moss at the base, sturdy and plain, no writing.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of a solid squared-off Chinese village stone lantern, about 0.7 m wide and 1.8 m tall, a plain square stone post on a stepped square base, a square lantern chamber with simple rectangular openings, and a low four-sided stone cap with only slightly lifted corners, weathered grey stone with moss at the base, sturdy and plain, no writing. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only. Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, no Japanese stone toro lantern, not Tudor half-timbering, no diagonal braces on plaster walls, no bright teal roof, no glossy plastic look
+
+== 加強提示詞重出（2026-11-09，使用者指示「做有問題的就好了」）==
+原因：原本 4 張的石頂四角都翹得太明顯、柱身偏瘦，只能勉強選用。
+做法：工作包物件句、Layout 段、5.2、5.3 和第 6 節負面句都原樣保留；另外在物件句後面加一句說明，在負面提示最後加幾個詞。這和工作包「固定段原樣接上」的做法不完全相同，PR 會寫明。用 Codex CLI 0.167.0（gpt-6.1-terra，推理 xhigh，內建 image_gen）生成 4 張：LT01-fix-cand-1..4，沒有 seed。
+加在物件句後的說明：Important: the stone cap is a low, heavy square slab with a shallow four-sided slope, its corners lifted only a few centimetres, not a flared pagoda roof; the whole lantern is chunky and squat, the square post about half as wide as the base.
+加在負面提示最後的詞：flared pagoda roof, curled upturned corners, tall slender post, Japanese toro
+
+選用改為：LT01-fix-cand-1.png（取代原本勉強選用的 LT01-cand-2.png）。
+理由：石頂變成一塊矮而厚的方石板，四面緩坡，四角只微翹；方柱加粗，整體敦實，最接近工作包「方正、敦實、四角微翹」。
+沒選的原因：
+- fix-2：底座變成梯形斜面，石頂比 fix-1 小、翹角較明顯。
+- fix-3：柱身仍偏細，石頂翹角較明顯。
+- fix-4：可用；石頂翹角比 fix-1 明顯，作備選。
+建模時仍要注意：尺寸照 0.7 × 0.7 × 1.8 m 與 G01 原點；燈室正面的鐵扣補件可不做。
+
+== 加強提示詞重出實際送出的完整提示詞（4 張相同）==
+Three-view orthographic turnaround sheet of a solid squared-off Chinese village stone lantern, about 0.7 m wide and 1.8 m tall, a plain square stone post on a stepped square base, a square lantern chamber with simple rectangular openings, and a low four-sided stone cap with only slightly lifted corners, weathered grey stone with moss at the base, sturdy and plain, no writing. Important: the stone cap is a low, heavy square slab with a shallow four-sided slope, its corners lifted only a few centimetres, not a flared pagoda roof; the whole lantern is chunky and squat, the square post about half as wide as the base. Layout: front view, side view and back view side by side in one image, all at the same scale and aligned on the same ground line, orthographic (no perspective), centred, full object visible with margin around it, plain light warm-grey background, even soft studio lighting so shapes and materials read clearly, no cast shadows on the background, one object only. Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, no Japanese stone toro lantern, not Tudor half-timbering, no diagonal braces on plaster walls, no bright teal roof, no glossy plastic look, flared pagoda roof, curled upturned corners, tall slender post, Japanese toro

@@ -1,0 +1,296 @@
+{
+  "asset": "DR08_RottenLog_C",
+  "version": "v001",
+  "blender": "5.2.2 LTS",
+  "bounds_main": {
+    "min": [
+      -2.9377,
+      -1.4213,
+      -0.4346
+    ],
+    "max": [
+      2.9378,
+      1.4212,
+      0.9908
+    ],
+    "dims": [
+      5.8755,
+      2.8425,
+      1.4254
+    ]
+  },
+  "origin_at_bottom_centre": {
+    "footprint_centre_xy_m": [
+      0.0,
+      -0.0
+    ],
+    "ok": true
+  },
+  "build_origin_in_asset_m": [
+    -2.6151,
+    0.0164,
+    0.0
+  ],
+  "bounds_detail": {
+    "min": [
+      -2.929,
+      -1.4006,
+      -0.0731
+    ],
+    "max": [
+      2.9728,
+      1.4145,
+      1.1936
+    ]
+  },
+  "shape_lod0": {
+    "top_z_m_every_0p25m": [
+      0.948,
+      0.975,
+      0.986,
+      0.988,
+      0.955,
+      0.858,
+      0.756,
+      0.672,
+      0.583,
+      0.504,
+      0.418,
+      0.44,
+      0.488,
+      0.543,
+      0.582,
+      0.624,
+      0.695,
+      0.698,
+      0.039
+    ],
+    "outer_width_m_every_0p25m": [
+      1.062,
+      1.07,
+      1.092,
+      1.157,
+      1.118,
+      1.104,
+      1.078,
+      1.07,
+      1.082,
+      1.104,
+      1.123,
+      1.139,
+      1.139,
+      1.071,
+      0.959,
+      0.9,
+      0.894,
+      0.938,
+      0.968
+    ],
+    "outer_width_mid_m": 1.067,
+    "top_z_mid_m": {
+      "min": 0.418,
+      "max": 0.988,
+      "mean": 0.65
+    },
+    "blocked_fraction_at_0p15_0p30_0p45m": [
+      1.0,
+      1.0,
+      0.95
+    ]
+  },
+  "shape_collision": {
+    "top_z_m_every_0p25m": [
+      null,
+      0.908,
+      0.928,
+      0.924,
+      0.903,
+      0.87,
+      0.815,
+      0.762,
+      0.727,
+      0.691,
+      0.683,
+      0.678,
+      0.676,
+      0.675,
+      0.677,
+      0.681,
+      0.689,
+      0.712,
+      null
+    ],
+    "outer_width_m_every_0p25m": [
+      0.0,
+      1.136,
+      1.156,
+      1.164,
+      1.168,
+      1.17,
+      1.15,
+      1.136,
+      1.152,
+      1.17,
+      1.163,
+      1.171,
+      1.134,
+      1.07,
+      1.017,
+      0.975,
+      0.949,
+      0.967,
+      0.0
+    ],
+    "outer_width_mid_m": 1.113,
+    "top_z_mid_m": {
+      "min": 0.675,
+      "max": 0.924,
+      "mean": 0.747
+    },
+    "blocked_fraction_at_0p15_0p30_0p45m": [
+      0.9,
+      0.9,
+      0.9
+    ]
+  },
+  "spec_check": {
+    "spec": {
+      "L": 5.0,
+      "D": 1.1
+    },
+    "overall_bbox_x_m": 5.8755,
+    "shell_length_mean_m": 5.02,
+    "outer_width_mid_m": 1.067,
+    "top_z_mid_m": {
+      "min": 0.418,
+      "max": 0.988,
+      "mean": 0.65
+    },
+    "length_ok": true,
+    "in_pack_range_2_to_5m": true,
+    "width_ok": true,
+    "blocks_walker": true,
+    "note": "工作包：長 2–5 m、三種。長量外框 X（含斷口的木刺、碎屑）；shell_length_mean 是沿長度從兩側水平打（離地 0.15、0.25 m）、打到軸心 1.3 R 內的頭尾距離（四條線平均），length_ok 用它比。外寬量中段（0.15–0.85 L）在軸心高處的左右寬（朽軟塌扁：寬比高大）。頂高是從上往下打到的最高處（含苔）。blocks_walker：0.30 m 高處橫打，六成以上的位置打得到算擋人（要跨過去或繞過去）"
+  },
+  "peel_fraction_side_high": null,
+  "high_parts": {},
+  "plants_inside_body_lod0": {
+    "vertices_checked": 1187,
+    "inside_body_over_2cm": 0,
+    "inside_body_over_5cm": 0
+  },
+  "buried_depth_m": 0.435,
+  "tris": {
+    "LOD0": {
+      "DR08_RottenLog_C_LOD0": 25681,
+      "Detail_DR08_Plants_LOD0": 1092
+    },
+    "LOD1": {
+      "DR08_RottenLog_C_LOD1": 10721,
+      "Detail_DR08_Plants_LOD1": 682
+    },
+    "LOD2": {
+      "DR08_RottenLog_C_LOD2": 2182,
+      "Detail_DR08_Plants_LOD2": 144
+    },
+    "collision": 360
+  },
+  "lod_ratio": {
+    "LOD1": 0.426,
+    "LOD2": 0.087
+  },
+  "fbx_roundtrip": {
+    "objects": [
+      "DR08_RottenLog_C",
+      "DR08_RottenLog_C_Collision",
+      "DR08_RottenLog_C_LOD0",
+      "DR08_RottenLog_C_LOD1",
+      "DR08_RottenLog_C_LOD2",
+      "Detail_DR08_Plants_LOD0",
+      "Detail_DR08_Plants_LOD1",
+      "Detail_DR08_Plants_LOD2"
+    ],
+    "lod0_dimensions_m": [
+      5.8755,
+      2.8425,
+      1.4254
+    ],
+    "uv_layers": [
+      "UVMap",
+      "Extra"
+    ],
+    "materials": [
+      "M_DR08_Layered",
+      "M_DR08_Plants"
+    ]
+  },
+  "fbx_dims_match": true,
+  "textures_px": {
+    "DR08_Shared/Textures/DR08_Bark_Albedo.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Bark_Normal.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Fibre_Albedo.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Fibre_Normal.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Inner_Albedo.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Inner_Normal.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Moss_Albedo.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Moss_Normal.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Plants_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR08_Shared/Textures/DR08_Rot_Albedo.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Rot_Normal.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Soil_Albedo.png": [
+      1024,
+      1024
+    ],
+    "DR08_Shared/Textures/DR08_Soil_Normal.png": [
+      1024,
+      1024
+    ]
+  },
+  "texel_px_per_m": {
+    "Bark": 1024,
+    "Moss": 2048,
+    "Rot": 2048,
+    "Fibre": 1024,
+    "Inner": 1024,
+    "Soil": 1024
+  },
+  "hidden_tris_removed_lod0": 0,
+  "checks_not_in_this_file": [
+    "Unity 匯入與引擎內外觀：另見 art/previews/d2-logs-b/DR08_RottenLog_C/unity/report.txt",
+    "放進 D2 場景後的同鏡位截圖（場景由核心組擺）",
+    "實機效能、FPS"
+  ]
+}

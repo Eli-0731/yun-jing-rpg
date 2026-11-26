@@ -1,0 +1,313 @@
+{
+ "asset": "CW01_A_StraightWall_v001",
+ "tris": 40226,
+ "objects": [
+  "CW01_A_StraightWall_Detail_Small_LOD0",
+  "CW01_A_StraightWall_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 194,
+   "same_between": 202,
+   "same_inside": 0,
+   "same": 202,
+   "two_sides": 17,
+   "groups": {
+    "StraightWall|same_between": {
+     "pairs": 194,
+     "overlap_cm2": 2929.82
+    },
+    "StraightWall|two_sides_between": {
+     "pairs": 17,
+     "overlap_cm2": 65.58
+    },
+    "StraightWall_Detail_Small|same_between": {
+     "pairs": 7,
+     "overlap_cm2": 4.43
+    },
+    "StraightWall/StraightWall_Detail_Small|same_between": {
+     "pairs": 1,
+     "overlap_cm2": 0.2
+    }
+   },
+   "same_at": [
+    [
+     -0.66,
+     0.06,
+     -0.0,
+     92
+    ],
+    [
+     0.66,
+     -0.06,
+     0.0,
+     52
+    ],
+    [
+     -1.24,
+     -0.25,
+     0.09,
+     2
+    ],
+    [
+     -1.58,
+     0.25,
+     0.09,
+     2
+    ],
+    [
+     -0.6,
+     -0.13,
+     0.0,
+     1
+    ],
+    [
+     1.33,
+     -0.14,
+     0.0,
+     1
+    ],
+    [
+     1.39,
+     -0.14,
+     0.0,
+     1
+    ],
+    [
+     -1.58,
+     0.25,
+     0.1,
+     1
+    ],
+    [
+     -1.58,
+     0.25,
+     0.12,
+     1
+    ],
+    [
+     0.71,
+     0.25,
+     0.06,
+     1
+    ],
+    [
+     0.28,
+     -0.14,
+     0.0,
+     1
+    ],
+    [
+     1.73,
+     0.11,
+     -0.0,
+     1
+    ]
+   ]
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 194,
+   "same_between": 199,
+   "same_inside": 0,
+   "same": 199,
+   "two_sides": 1,
+   "groups": {
+    "StraightWall|same_between": {
+     "pairs": 194,
+     "overlap_cm2": 2929.82
+    },
+    "StraightWall_Detail_Small|same_between": {
+     "pairs": 5,
+     "overlap_cm2": 3.09
+    },
+    "StraightWall|two_sides_between": {
+     "pairs": 1,
+     "overlap_cm2": 2.21
+    }
+   },
+   "same_at": [
+    [
+     -0.66,
+     0.06,
+     -0.0,
+     92
+    ],
+    [
+     0.66,
+     -0.06,
+     0.0,
+     52
+    ],
+    [
+     -1.24,
+     -0.25,
+     0.09,
+     2
+    ],
+    [
+     -0.6,
+     -0.13,
+     0.0,
+     1
+    ],
+    [
+     1.33,
+     -0.14,
+     0.0,
+     1
+    ],
+    [
+     1.39,
+     -0.14,
+     0.0,
+     1
+    ],
+    [
+     -1.58,
+     0.25,
+     0.1,
+     1
+    ],
+    [
+     -1.58,
+     0.25,
+     0.09,
+     1
+    ],
+    [
+     -1.58,
+     0.25,
+     0.12,
+     1
+    ],
+    [
+     0.28,
+     -0.14,
+     0.0,
+     1
+    ],
+    [
+     1.73,
+     0.11,
+     -0.0,
+     1
+    ],
+    [
+     1.79,
+     0.11,
+     -0.0,
+     1
+    ]
+   ]
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 192,
+   "same_between": 197,
+   "same_inside": 0,
+   "same": 197,
+   "two_sides": 0,
+   "groups": {
+    "StraightWall|same_between": {
+     "pairs": 192,
+     "overlap_cm2": 2893.07
+    },
+    "StraightWall_Detail_Small|same_between": {
+     "pairs": 5,
+     "overlap_cm2": 3.09
+    }
+   },
+   "same_at": [
+    [
+     -0.66,
+     0.06,
+     -0.0,
+     92
+    ],
+    [
+     0.66,
+     -0.06,
+     0.0,
+     50
+    ],
+    [
+     -1.24,
+     -0.25,
+     0.09,
+     2
+    ],
+    [
+     -0.6,
+     -0.13,
+     0.0,
+     1
+    ],
+    [
+     1.33,
+     -0.14,
+     0.0,
+     1
+    ],
+    [
+     1.39,
+     -0.14,
+     0.0,
+     1
+    ],
+    [
+     -1.58,
+     0.25,
+     0.1,
+     1
+    ],
+    [
+     -1.58,
+     0.25,
+     0.09,
+     1
+    ],
+    [
+     -1.58,
+     0.25,
+     0.12,
+     1
+    ],
+    [
+     0.28,
+     -0.14,
+     0.0,
+     1
+    ],
+    [
+     1.73,
+     0.11,
+     -0.0,
+     1
+    ],
+    [
+     1.79,
+     0.11,
+     -0.0,
+     1
+    ]
+   ]
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 344,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

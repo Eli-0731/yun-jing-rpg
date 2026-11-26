@@ -1,5 +1,6 @@
 """village-houses-b v001 (work pack B-104h part 2, batch 3): VL01 long-empty house, VL02 just-moved-into house, VL03 half-collapsed
-house, all three on the Dondon StarterHouse v004 outline.
+house, all three on the Dondon StarterHouse v004 outline. Work pack 2026-11-09 (B-112h, batch A) adds VH01.. (vh_house.py, vh_roof.py):
+new house forms on the same three-atlas + shared tile texture scheme.
 
 Run one asset per process:
   blender --background --factory-startup --python art/source/village-houses-b/build_village_houses_b.py -- VL01_LongEmptyHouse --force
@@ -24,7 +25,7 @@ sys.path.insert(0, str(HERE))
 import numpy as np
 from mathutils import Vector, Matrix
 import ti_core, ti_mats, ti_pipeline as pl
-import vl_house, vl_roof
+import vl_house, vl_roof, vh_house, vh_court, vh_lane, lt_lantern
 from ti_core import S
 
 KIT = 'village-houses-b'
@@ -35,6 +36,10 @@ LOD_DROPS = {1: (2, 99), 2: (1, 2, 99)}
 
 ASSETS = {}
 vl_house.register(ASSETS)
+vh_house.register(ASSETS)   # work pack 2026-11-09 B-112h batch A: VH01..
+vh_court.register(ASSETS)   # VH02
+vh_lane.register(ASSETS)    # VH03
+lt_lantern.register(ASSETS) # LT01 (village-gate stone lantern, one 1024 atlas)
 
 
 def route_details():
@@ -67,17 +72,20 @@ def make_lods():
         lods[lv] = {}
         for gname, src in S['lod0'].items():
             n0 = tris(src.data); want = n0 * LOD_TARGET[lv]
+            whole = gname in S.get('no_decimate', ())     # FE04's net (wireframe twine): never collapsed; each LOD drops whole parts by their detail level
             for drop in LOD_DROPS[lv]:
                 me = src.data.copy(); bm = bmesh.new(); bm.from_mesh(me)
                 lay = bm.faces.layers.int.get('part_detail')
                 if lay is not None and drop < 99:
                     bmesh.ops.delete(bm, geom=[f for f in bm.faces if f[lay] >= drop], context='FACES')
                 bm.to_mesh(me); bm.free()
-                if tris(me) >= want * .98 or drop == 99: break
+                if whole or tris(me) >= want * .98 or drop == 99: break
                 bpy.data.meshes.remove(me)
+            if whole and tris(me) == 0:                    # nothing of this group left at this level: it is left out of the LOD
+                bpy.data.meshes.remove(me); report.setdefault(gname, {'LOD0': n0})[f'LOD{lv}'] = 0; continue
             o = src.copy(); o.data = me; S['lodcol'].objects.link(o)
             o.name = src.name.replace('_LOD0', f'_LOD{lv}'); me.name = o.name
-            r = min(1., want / max(tris(me), 1))
+            r = 1. if whole else min(1., want / max(tris(me), 1))
             bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active = o
             if r < .999:
                 m = o.modifiers.new('LOD_decimate', 'DECIMATE'); m.use_collapse_triangulate = True; m.ratio = r
@@ -107,10 +115,13 @@ def clamp_to_limit(cfg):
         me = o.data; co = np.zeros(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
         w = co + np.array(o.location, np.float32)
         c = w.copy(); c[:, 0] = np.clip(c[:, 0], lo_b[0], hi_b[0]); c[:, 1] = np.clip(c[:, 1], lo_b[1], hi_b[1]); c[:, 2] = np.maximum(c[:, 2], lo_b[2])
-        moved = max(moved, float(np.abs(c - w).max()))
+        dm = np.abs(c - w)
+        if float(dm.max()) > moved:
+            i = int(dm.max(axis=1).argmax()); S['clamp_worst'] = (o.name, [round(float(v), 3) for v in w[i]])
+        moved = max(moved, float(dm.max()))
         me.vertices.foreach_set('co', (c - np.array(o.location, np.float32)).ravel()); me.update()
     S['clamped_m'] = round(moved, 5)
-    assert moved < cfg.get('clamp_max', .02), ('clamp moved a vertex too far', moved)   # TE03: buried stone bottoms are flattened onto z = 0
+    assert moved < cfg.get('clamp_max', .02), ('clamp moved a vertex too far', moved, S.get('clamp_worst'))   # TE03: buried stone bottoms are flattened onto z = 0
 
 
 def roof_lods(src, tex_dir):
@@ -298,14 +309,16 @@ def run(aid, force=False):
         print('ALREADY_COMPLETE', aid, flush=True); return
     t0 = time.time()
     build(aid)
+    S['no_decimate'] = set(cfg.get('no_decimate', ()))     # after build(): build() starts from a cleared S
     ti_core.write_grain_attributes(); route_details()
     pl.join_groups()
     roof = S['lod0'].pop('Roof', None)                  # tiles keep their own UVs and are built per LOD
     for name, groups in cfg['atlases'].items():
         objs = [S['lod0'][g] for g in groups if g in S['lod0']]
-        pl.uv_atlas(cfg.get('uv_weight'), cfg['tex'], shape=cfg.get('uv_shape', 'CONCAVE'), objs=objs); pl.spread_zero_uv(objs)
-        S['texel_density'] = {**S.get('texel_density', {}), name: texel_density(objs, cfg['tex'])}
-        pl.bake(exp / 'Textures', cfg['tex'], objs=objs, prefix=aid if name == 'Main' else f'{aid}_{name}')
+        px = cfg.get('tex_atlas', {}).get(name, cfg['tex'])   # an atlas may bake larger than the asset's default (big stone / timber areas)
+        pl.uv_atlas(cfg.get('uv_weight'), px, shape=cfg.get('uv_shape', 'CONCAVE'), objs=objs, detach_zero=cfg.get('uv_detach_zero', False)); pl.spread_zero_uv(objs)
+        S['texel_density'] = {**S.get('texel_density', {}), name: texel_density(objs, px)}
+        pl.bake(exp / 'Textures', px, objs=objs, prefix=aid if name == 'Main' else f'{aid}_{name}')
     lod_report = make_lods()
     if roof is not None: lod_report['Roof'] = roof_lods(roof, exp / 'Textures')
     export_materials_multi(cfg)
@@ -390,11 +403,11 @@ def run(aid, force=False):
         'sockets_blender_xyz': {k: [round(v, 4) for v in e.matrix_world.translation] for k, e in S['sockets'].items()},
         'sockets_fbx_reimport_xyz': rt['sockets'], 'fbx_objects': rt['objects'], 'glb': glb.name,
         'interface': spec,
-        'modeling_method': f'procedural mesh construction (art/source/{KIT}/) on the StarterHouse v004 outline; procedural shaders baked to two {cfg["tex"]} atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)',
+        'modeling_method': cfg.get('method') or f'procedural mesh construction (art/source/{KIT}/) on the StarterHouse v004 outline; procedural shaders baked to two {cfg["tex"]} atlases (Main, Wood); roof tiles on the shared 1024 tile-cell texture (VL_Shared)',
         'texel_density_px_per_m': S.get('texel_density'), 'hidden_faces_downweighted': S.get('occluded_faces'),
         'reference': f"art/references/{cfg['ref'].split('/')[0]}/ (AI three-view {cfg['ref']}; proportions from the work pack's written sizes, not measured from the image)",
         'unity_import_verified': 'see artifacts/village-houses-unity/ (local Unity batch check, not committed)',
-        'based_on': 'art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)',
+        'based_on': cfg.get('based_on') or 'art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)',
     }
     (exp / 'model_info.json').write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding='utf-8')
     val = {'asset': aid, 'checks': checks, 'all_pass': all(c['pass'] for c in checks), 'seconds': round(time.time() - t0),
@@ -415,10 +428,19 @@ def close_shot(objs, path, samples=32, target=None, eye=None, lens=40):
 
 def wire(objs, path):
     """Wireframe over the baked colour, same 3/4 angle as the hero."""
+    # 2026-11-09: the wires take the last material slot (an offset past the end clamps there). Before this a house's last slot was the
+    # roof tiles and the 4 mm wires were under a pixel at the hero distance, so the earlier VL wireframe sheets show next to no wires.
+    wm = bpy.data.materials.get('QA_Wire_Orange') or bpy.data.materials.new('QA_Wire_Orange')
+    wm.use_nodes = True; bs = wm.node_tree.nodes['Principled BSDF']
+    bs.inputs['Base Color'].default_value = (.95, .45, .05, 1); bs.inputs['Roughness'].default_value = 1.     # orange: reads on dark tile and on lime plaster
+    bs.inputs['Emission Color'].default_value = (.95, .45, .05, 1); bs.inputs['Emission Strength'].default_value = .6
+    lo, hi = pl.eval_bounds(objs); th = max(.008, max(hi - lo) / 600)      # about 1.5 px at the hero framing, whatever the size
     for o in objs:
-        m = o.modifiers.new('QA_Wire', 'WIREFRAME'); m.thickness = .004; m.use_replace = False; m.material_offset = 99
+        o.data.materials.append(wm)
+        m = o.modifiers.new('QA_Wire', 'WIREFRAME'); m.thickness = th; m.use_replace = False; m.material_offset = 999; m.use_even_offset = False   # even offset throws spikes off acute corners
     pl.persp_shot(objs, path, samples=24)
-    for o in objs: o.modifiers.remove(o.modifiers['QA_Wire'])
+    for o in objs:
+        o.modifiers.remove(o.modifiers['QA_Wire']); o.data.materials.pop()
 
 
 def _strip(paths, out):
@@ -433,6 +455,10 @@ def _strip(paths, out):
 
 # ------------------------------------------------------------------ FR checks
 from vl_checks import *   # noqa: F401,F403  house_checks, texel_density
+from vh_house import vhouse_checks   # noqa: F401
+from vh_court import vcourt_checks   # noqa: F401
+from vh_lane import vlane_checks   # noqa: F401
+from lt_lantern import lantern_checks   # noqa: F401
 
 
 def spec_checks(aid, check):

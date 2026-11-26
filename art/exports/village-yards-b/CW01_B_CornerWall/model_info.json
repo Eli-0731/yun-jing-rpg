@@ -1,0 +1,291 @@
+{
+  "asset": "CW01_B_CornerWall",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "CW01_B_CornerWall_Detail_Small"
+  ],
+  "name_zh": "院牆轉角",
+  "slot": "A1_Yard_Wall",
+  "note": "夯土院牆（三視圖 CW01-cand-2）：暖黃灰夯土一版一版夯成（每版約 16 cm），下面兩層石腳，上面一層灰磚檐，再一排黛瓦（#3A4048）壓頂，筒瓦從屋脊往兩邊流、脊上一條圓脊瓦。轉角和端頭是方形夯土牆墩，四面瓦頂加一個小頂珠。缺口段的上角沿夯土層一階一階塌下，露出粗糙的土芯，腳下堆土、土塊和碎瓦。四件首尾相接：Socket_A 在 -x 端面、Socket_B 在 +x 端面（轉角在 +y 端），都在地面、牆中心線上。不寫字。 本件：轉角，兩邊各 2 m（中心線），交在 0.6 m 牆墩上；外框 2.3 × 2.3 m，每一邊都在 4 × 0.5 m 以內。牆墩比牆高 20 cm（頂珠到約 1.98 m），牆頂瓦脊收進牆墩側面。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 48950,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD1": {
+      "triangles": 24474,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD2": {
+      "triangles": 7341,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    }
+  },
+  "texture_resolution_px": {
+    "CW01_B_CornerWall_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "CW01_B_CornerWall_Metallic.png": [
+      2048,
+      2048
+    ],
+    "CW01_B_CornerWall_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "CW01_B_CornerWall_Normal.png": [
+      2048,
+      2048
+    ],
+    "CW01_B_CornerWall_Roughness.png": [
+      2048,
+      2048
+    ],
+    "CW01_B_CornerWall_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "CW01_B_CornerWall_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "CW01_B_CornerWall_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "CW01_B_CornerWall_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "CW01_B_CornerWall_Stone_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "ground z = 0 on the wall centre line; straight / breach: middle of the 4 m; corner: where the centre lines meet; end: middle of the 1.2 m; front -Y",
+  "dimensions_m": [
+    2.3,
+    2.3,
+    1.995
+  ],
+  "bounds_min_m": [
+    -2.0,
+    -0.3,
+    0.0
+  ],
+  "bounds_max_m": [
+    0.3,
+    2.0,
+    1.995
+  ],
+  "size_limit_m": [
+    2.3,
+    2.3,
+    2.0
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        2.3,
+        2.3,
+        1.995
+      ],
+      "min": [
+        -2.0,
+        -0.3,
+        0.0
+      ],
+      "max": [
+        0.3,
+        2.0,
+        1.995
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        2.2015,
+        2.1026,
+        1.6727
+      ],
+      "min": [
+        -1.9414,
+        -0.26,
+        0.0
+      ],
+      "max": [
+        0.2601,
+        1.8425,
+        1.6727
+      ]
+    }
+  },
+  "lods": {
+    "Stone": {
+      "LOD0": 31526,
+      "LOD1": 15762,
+      "LOD2": 4728
+    },
+    "Main": {
+      "LOD0": 16296,
+      "LOD1": 8148,
+      "LOD2": 2444
+    },
+    "Detail_Small": {
+      "LOD0": 1128,
+      "LOD1": 564,
+      "LOD2": 169
+    }
+  },
+  "lod_totals": {
+    "LOD0": 48950,
+    "LOD1": 24474,
+    "LOD2": 7341
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_CW01_B_CornerWall_Main",
+    "M_CW01_B_CornerWall_Stone"
+  ],
+  "textures": [
+    "CW01_B_CornerWall_BaseColor.png",
+    "CW01_B_CornerWall_Metallic.png",
+    "CW01_B_CornerWall_MetallicSmoothness.png",
+    "CW01_B_CornerWall_Normal.png",
+    "CW01_B_CornerWall_Roughness.png",
+    "CW01_B_CornerWall_Stone_BaseColor.png",
+    "CW01_B_CornerWall_Stone_Metallic.png",
+    "CW01_B_CornerWall_Stone_MetallicSmoothness.png",
+    "CW01_B_CornerWall_Stone_Normal.png",
+    "CW01_B_CornerWall_Stone_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_CW01_B_CornerWall_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "CW01_B_CornerWall_BaseColor.png",
+        "Normal": "CW01_B_CornerWall_Normal.png",
+        "MetallicSmoothness": "CW01_B_CornerWall_MetallicSmoothness.png"
+      },
+      "M_CW01_B_CornerWall_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "CW01_B_CornerWall_Stone_BaseColor.png",
+        "Normal": "CW01_B_CornerWall_Stone_Normal.png",
+        "MetallicSmoothness": "CW01_B_CornerWall_Stone_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "CW01_B_CornerWall_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "parts": {
+    "piece": "corner, two 2 m legs (wall centre lines) meeting at a 0.6 m pier",
+    "height_m": 1.8,
+    "footing_m": {
+      "height": 0.42,
+      "thickness": 0.44
+    },
+    "rammed_earth_m": {
+      "thickness_foot": 0.4,
+      "thickness_top": 0.36,
+      "lift": 0.16,
+      "top": 1.54
+    },
+    "coping_m": {
+      "eave_z": 1.6,
+      "ridge_z": 1.705,
+      "half_width": 0.22,
+      "tile": "cr_mats.tile #3A4048, pan and roll, not the VL tile texture"
+    },
+    "sockets": "Socket_A at the -x end face, Socket_B at the +x end face (corner: +y), both at ground level on the wall centre line"
+  },
+  "sockets_blender_xyz": {
+    "Socket_A": [
+      -2.0,
+      0.0,
+      0.0
+    ],
+    "Socket_B": [
+      0.0,
+      2.0,
+      0.0
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_A.001": [
+      -2.0,
+      0.0,
+      0.0
+    ],
+    "Socket_B.001": [
+      0.0,
+      2.0,
+      -0.0
+    ]
+  },
+  "fbx_objects": [
+    "CW01_B_CornerWall.001",
+    "CW01_B_CornerWall_Collision.001",
+    "CW01_B_CornerWall_Detail_Small_LOD0.001",
+    "CW01_B_CornerWall_Detail_Small_LOD1.001",
+    "CW01_B_CornerWall_Detail_Small_LOD2.001",
+    "CW01_B_CornerWall_LOD0.001",
+    "CW01_B_CornerWall_LOD1.001",
+    "CW01_B_CornerWall_LOD2.001",
+    "Socket_A.001",
+    "Socket_B.001"
+  ],
+  "glb": "CW01_B_CornerWall_v001.glb",
+  "interface": {
+    "joint_offsets_m": [
+      -0.005,
+      -0.0017,
+      -0.005,
+      -0.0004
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-yards-b/cw_wall.py, cw_parts.py); procedural shaders baked to two 2048 atlases (Main, Stone)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 295.1,
+        "median": 295.2,
+        "p90": 295.2,
+        "area_m2": 36.6
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 274.1,
+        "median": 277.6,
+        "p90": 279.8,
+        "area_m2": 38.0
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "art/references/CW01/ (AI three-view CW01/CW01-cand-2; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-yards-unity/ (local Unity batch check VillageYardsModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}

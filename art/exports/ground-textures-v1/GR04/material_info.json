@@ -1,0 +1,20 @@
+{
+  "id": "GR04",
+  "name_zh": "濕泥地",
+  "resolution": [
+    2048,
+    2048
+  ],
+  "source": "references/ground-textures-v1/GR04/source.png",
+  "outputs": [
+    "Albedo RGB",
+    "Normal RGB",
+    "MaskURP RGBA: R metallic=0, G AO, B detail=1, A smoothness"
+  ],
+  "seam_max_channel_delta": {
+    "Albedo": 0,
+    "Normal": 0,
+    "MaskURP": 0
+  },
+  "unity_import": "未驗證；Albedo sRGB、Normal 為 Normal Map、MaskURP 線性"
+}

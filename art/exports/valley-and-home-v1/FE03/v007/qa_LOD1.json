@@ -1,0 +1,82 @@
+{
+  "ok": true,
+  "pass": true,
+  "errors": [],
+  "warnings": [
+    "SM_FE03_FerryShed_LOD1: ~100.0% UV overlap (ok only if mirrored/stacked on purpose; bakes break)",
+    "SM_FE03_FerryShed_LOD1: duplicate verts=5406 loose verts=0",
+    "SM_FE03_MooringPost_LOD0: duplicate verts=186 loose verts=0",
+    "hidden back-to-back faces: SM_FE03_FerryShed_LOD1 (16 pairs) - delete to save tris",
+    "hidden back-to-back faces: SM_FE03_MooringPost_LOD0 (14 pairs) - delete to save tris"
+  ],
+  "ground_z": 0.0,
+  "zfighting": [],
+  "floating": [],
+  "back_to_back": [
+    {
+      "where": "SM_FE03_FerryShed_LOD1",
+      "tri_pairs": 16
+    },
+    {
+      "where": "SM_FE03_MooringPost_LOD0",
+      "tri_pairs": 14
+    }
+  ],
+  "enclosed": [],
+  "objects": {
+    "SM_FE03_FerryShed_LOD1": {
+      "verts": 10812,
+      "faces": 4938,
+      "tris": 4938,
+      "ngons": 0,
+      "boundary_edges": 10812,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 5406,
+      "islands": 2937,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 6,
+      "uv_maps": 1,
+      "uv_oob_pct": 91.94,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 100.0,
+      "uv_coverage_pct": 100.0
+    },
+    "SM_FE03_MooringPost_LOD0": {
+      "verts": 372,
+      "faces": 208,
+      "tris": 208,
+      "ngons": 0,
+      "boundary_edges": 372,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 0,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 186,
+      "islands": 82,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 3,
+      "uv_maps": 1,
+      "uv_oob_pct": 100.0,
+      "uv_zero_area_faces": 0,
+      "uv_overlap_pct": 0.0,
+      "uv_coverage_pct": 0.0
+    }
+  }
+}

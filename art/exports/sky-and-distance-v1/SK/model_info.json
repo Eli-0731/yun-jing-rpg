@@ -1,0 +1,22 @@
+{
+  "asset": "SM_Skyline_Arc",
+  "purpose": "Reusable 90-degree painted skyline carrier for SK01–06",
+  "minTier": "standard",
+  "detailObjects": [],
+  "collision": "none",
+  "unit": "metre",
+  "origin": "world centre",
+  "radius_m": 800,
+  "height_m": 240,
+  "coverage_degrees": 90,
+  "rotation_for_quadrants_degrees": [0, 90, 180, 270],
+  "normals": "face inward toward world centre",
+  "lod0_triangles": 128,
+  "lod1_triangles": 128,
+  "lod2_triangles": 128,
+  "lod_note": "One shared curved carrier; image resolution and art layer control perceived skyline detail.",
+  "materials": ["Skyline_Carrier_Neutral placeholder"],
+  "texture_status": "SK01–06 textures are not approved; do not integrate this placeholder as visible final art",
+  "fbx": "SM_Skyline_Arc.fbx",
+  "glb": "SM_Skyline_Arc.glb"
+}

@@ -1,0 +1,354 @@
+{
+  "asset": "DR07_GiantStump_A",
+  "version": "v001",
+  "blender": "5.2.2 LTS",
+  "bounds_main": {
+    "min": [
+      -3.1875,
+      -3.2511,
+      -0.6128
+    ],
+    "max": [
+      3.1875,
+      3.251,
+      2.3019
+    ],
+    "dims": [
+      6.375,
+      6.5021,
+      2.9147
+    ]
+  },
+  "origin_at_bottom_centre": {
+    "footprint_centre_xy_m": [
+      0.0,
+      -0.0
+    ],
+    "ok": true
+  },
+  "build_origin_in_asset_m": [
+    -0.0,
+    -0.0636,
+    0.0
+  ],
+  "bounds_detail": {
+    "min": [
+      -4.0164,
+      -4.1036,
+      -0.0377
+    ],
+    "max": [
+      4.0551,
+      4.0241,
+      1.5713
+    ]
+  },
+  "shape_lod0": {
+    "trunk_diameter_at_1m_xy_m": {
+      "x": 2.165,
+      "y": 2.294
+    },
+    "trunk_diameter_at_1m_m": 2.229,
+    "rim_top_z_every_10deg": [
+      1.327,
+      1.411,
+      1.391,
+      1.427,
+      1.417,
+      1.404,
+      1.443,
+      1.487,
+      1.505,
+      1.57,
+      1.724,
+      1.667,
+      1.846,
+      2.038,
+      1.972,
+      1.55,
+      1.695,
+      1.638,
+      1.531,
+      1.534,
+      1.408,
+      1.461,
+      1.416,
+      1.408,
+      1.378,
+      1.36,
+      1.348,
+      1.339,
+      1.348,
+      1.324,
+      1.31,
+      1.284,
+      1.288,
+      1.317,
+      1.288,
+      1.318
+    ],
+    "rim_low_m": 1.284,
+    "rim_high_m": 2.038,
+    "root_collar_spread_diameter_m": 5.228,
+    "hollow_inner_diameter_m": 1.707,
+    "pool_or_floor_z_m": 0.563,
+    "wall_thickness_at_1m_m": {
+      "min": 0.207,
+      "max": 0.427,
+      "mean": 0.331
+    },
+    "blocked_at_0p3_1p0m_three_lines": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ]
+  },
+  "shape_collision": {
+    "trunk_diameter_at_1m_xy_m": {
+      "x": 2.468,
+      "y": 2.467
+    },
+    "trunk_diameter_at_1m_m": 2.468,
+    "rim_top_z_every_10deg": [
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242,
+      1.242
+    ],
+    "rim_low_m": 1.242,
+    "rim_high_m": 1.242,
+    "root_collar_spread_diameter_m": 3.456,
+    "hollow_inner_diameter_m": 2.413,
+    "pool_or_floor_z_m": 1.242,
+    "wall_thickness_at_1m_m": {
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0
+    },
+    "blocked_at_0p3_1p0m_three_lines": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ]
+  },
+  "spec_check": {
+    "spec": {
+      "D": 2.5,
+      "H": [
+        1.2,
+        3.0
+      ]
+    },
+    "trunk_diameter_at_1m_m": 2.229,
+    "rim_low_m": 1.284,
+    "rim_high_m": 2.038,
+    "root_collar_spread_ratio": 2.35,
+    "diameter_ok": true,
+    "height_ok": true,
+    "hollow_deep_enough_for_water": true,
+    "note": "工作包：徑 2.5／3.5 m、高 1.2–3 m；斷口參差、中心朽空積水、根頸張開抓地。樹幹徑量 1.0 m 高處（根頸往上已收回）X、Y 兩向平均；高度量殼壁中間每 10° 從上往下打到的斷口頂（最低＝矮邊、最高＝斷刺）；根頸張開量 0.05 m 高處最外的板根到軸心距離 × 2"
+  },
+  "peel_fraction_side_high": 0.187,
+  "plants_inside_body_lod0": {
+    "vertices_checked": 20667,
+    "inside_body_over_2cm": 535,
+    "inside_body_over_5cm": 225
+  },
+  "buried_depth_m": 0.613,
+  "tris": {
+    "LOD0": {
+      "DR07_GiantStump_A_LOD0": 22576,
+      "Detail_DR07_Plants_LOD0": 22212
+    },
+    "LOD1": {
+      "DR07_GiantStump_A_LOD1": 11484,
+      "Detail_DR07_Plants_LOD1": 10910
+    },
+    "LOD2": {
+      "DR07_GiantStump_A_LOD2": 3446,
+      "Detail_DR07_Plants_LOD2": 3272
+    },
+    "collision": 88
+  },
+  "lod_ratio": {
+    "LOD1": 0.5,
+    "LOD2": 0.15
+  },
+  "water": {
+    "model": {
+      "file": "DR07_GiantStump_A_water_v001.fbx",
+      "objects": [
+        "DR07_GiantStump_A_water_LOD0",
+        "DR07_GiantStump_A_water_LOD1",
+        "DR07_GiantStump_A_water_LOD2"
+      ],
+      "triangles": {
+        "LOD0": 360,
+        "LOD1": 116,
+        "LOD2": 16
+      },
+      "origin": "same as the body FBX (bottom centre)",
+      "z_m": 0.7,
+      "centre_xy_m": [
+        0.018,
+        -0.074
+      ],
+      "radius_m": {
+        "min": 0.736,
+        "max": 0.848,
+        "mean": 0.799
+      },
+      "edge_tucked_into_wall_m": 0.04,
+      "uv": "u, v in metres from the water centre (standing water: CreekFlowWater _Still = 1 reads uv as metres on both axes)",
+      "textures": "water: none; floating leaves (2nd material slot): the stump atlas, same material as Detail_ plants",
+      "floating_leaves": {
+        "LOD0": 168,
+        "LOD1": 84,
+        "LOD2": false
+      },
+      "collision": "none (the stump collision closes the hollow on top)"
+    },
+    "z_m": 0.7,
+    "flat": true,
+    "radius_max_m": 0.848,
+    "edge_hidden_in_wall_dirs": "32/32",
+    "edge_inside_outer_shell_dirs": "32/32",
+    "floor_z_under_centre_m": 0.563,
+    "depth_over_floor_m": 0.137,
+    "tris": {
+      "LOD0": 360,
+      "LOD1": 116,
+      "LOD2": 16
+    },
+    "ok": true
+  },
+  "water_fbx_roundtrip": {
+    "objects": [
+      "DR07_GiantStump_A_water",
+      "DR07_GiantStump_A_water_LOD0",
+      "DR07_GiantStump_A_water_LOD1",
+      "DR07_GiantStump_A_water_LOD2"
+    ],
+    "lod0_min_m": [
+      -0.7723,
+      -0.9097,
+      0.7
+    ],
+    "lod0_max_m": [
+      0.8525,
+      0.7323,
+      0.7123
+    ],
+    "uv_layers": [
+      "UVMap"
+    ]
+  },
+  "fbx_roundtrip": {
+    "objects": [
+      "DR07_GiantStump_A",
+      "DR07_GiantStump_A_Collision",
+      "DR07_GiantStump_A_LOD0",
+      "DR07_GiantStump_A_LOD1",
+      "DR07_GiantStump_A_LOD2",
+      "Detail_DR07_Plants_LOD0",
+      "Detail_DR07_Plants_LOD1",
+      "Detail_DR07_Plants_LOD2"
+    ],
+    "lod0_dimensions_m": [
+      6.375,
+      6.5021,
+      2.9147
+    ],
+    "uv_layers": [
+      "UVMap",
+      "TileUV"
+    ],
+    "materials": [
+      "M_DR07_GiantStump_A_A",
+      "M_DR07_GiantStump_A_Leaf"
+    ]
+  },
+  "fbx_dims_match": true,
+  "textures_px": {
+    "DR07_GiantStump_A_A_Albedo.png": [
+      2048,
+      2048
+    ],
+    "DR07_GiantStump_A_A_MaskURP.png": [
+      2048,
+      2048
+    ],
+    "DR07_GiantStump_A_A_Normal.png": [
+      2048,
+      2048
+    ],
+    "DR07_GiantStump_A_A_ORM.png": [
+      2048,
+      2048
+    ]
+  },
+  "texel_px_per_m": 147.7,
+  "hidden_tris_removed_lod0": 720,
+  "stump_build": {
+    "axis_x": 0.0,
+    "axis_y": -0.0,
+    "rim_low": 1.284,
+    "pool_z": 0.7,
+    "radius": 1.25
+  },
+  "checks_not_in_this_file": [
+    "Unity 匯入與引擎內外觀：另見 art/previews/d2-logs-b/DR07_GiantStump_A/unity/report.txt",
+    "放進 D2 場景後的同鏡位截圖（場景由核心組擺）",
+    "實機效能、FPS"
+  ]
+}

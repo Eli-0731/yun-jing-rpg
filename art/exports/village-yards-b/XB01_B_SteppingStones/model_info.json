@@ -1,0 +1,313 @@
+{
+  "asset": "XB01_B_SteppingStones",
+  "version": "v001",
+  "minTier": "standard",
+  "detailObjects": [
+    "XB01_B_SteppingStones_Detail_Small"
+  ],
+  "name_zh": "溪中踏石（五顆）",
+  "slot": "A1_to_A3_Creek_Crossing",
+  "note": "石板橋與踏石（三視圖 XB01-cand-3）：粗鑿長石板兩塊並排、分三跨，架在四個石砌矮墩上；墩用五層方石疊成、往上收分，頂上一條橫的承石；沒有欄杆。石板邊角磨圓、中間被踩出淺凹，板縫一指寬、長青苔；墩腳到水位線（0.38 m）石頭濕黑長苔，腳邊有草和半埋的河石。另一件是五顆大小不同、頂面磨平的踏石。不寫字。 本件：踏石五顆，沿 x 排成微彎一列，頂面離溪床 0.22–0.28 m，石間空隙 0.1–0.18 m，一步 0.6–0.7 m。",
+  "budget_per_lod": {
+    "LOD0": {
+      "triangles": 5792,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD1": {
+      "triangles": 2895,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    },
+    "LOD2": {
+      "triangles": 868,
+      "objects": 2,
+      "objects_without_detail": 1,
+      "materials": 2
+    }
+  },
+  "texture_resolution_px": {
+    "XB01_B_SteppingStones_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "XB01_B_SteppingStones_Metallic.png": [
+      2048,
+      2048
+    ],
+    "XB01_B_SteppingStones_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "XB01_B_SteppingStones_Normal.png": [
+      2048,
+      2048
+    ],
+    "XB01_B_SteppingStones_Roughness.png": [
+      2048,
+      2048
+    ],
+    "XB01_B_SteppingStones_Stone_BaseColor.png": [
+      2048,
+      2048
+    ],
+    "XB01_B_SteppingStones_Stone_Metallic.png": [
+      2048,
+      2048
+    ],
+    "XB01_B_SteppingStones_Stone_MetallicSmoothness.png": [
+      2048,
+      2048
+    ],
+    "XB01_B_SteppingStones_Stone_Normal.png": [
+      2048,
+      2048
+    ],
+    "XB01_B_SteppingStones_Stone_Roughness.png": [
+      2048,
+      2048
+    ]
+  },
+  "units": "meters",
+  "front": "-Y (Blender)",
+  "up": "+Z (Blender); FBX exported Y-up, -Z forward, transforms baked",
+  "origin": "middle of the row on the stream bed, front -Y, row along x",
+  "dimensions_m": [
+    3.1444,
+    0.7799,
+    0.2855
+  ],
+  "bounds_min_m": [
+    -1.6,
+    -0.3433,
+    0.0
+  ],
+  "bounds_max_m": [
+    1.5444,
+    0.4366,
+    0.2855
+  ],
+  "size_limit_m": [
+    3.2,
+    1.0,
+    0.4
+  ],
+  "pieces": {
+    "Main": {
+      "dims_m": [
+        3.1444,
+        0.7799,
+        0.2855
+      ],
+      "min": [
+        -1.6,
+        -0.3433,
+        0.0
+      ],
+      "max": [
+        1.5444,
+        0.4366,
+        0.2855
+      ]
+    },
+    "Detail_Small": {
+      "dims_m": [
+        2.5598,
+        0.4903,
+        0.1368
+      ],
+      "min": [
+        -1.1036,
+        -0.2422,
+        0.0243
+      ],
+      "max": [
+        1.4562,
+        0.248,
+        0.1611
+      ]
+    }
+  },
+  "lods": {
+    "Stone": {
+      "LOD0": 3920,
+      "LOD1": 1960,
+      "LOD2": 588
+    },
+    "Detail_Small": {
+      "LOD0": 1872,
+      "LOD1": 935,
+      "LOD2": 280
+    }
+  },
+  "lod_totals": {
+    "LOD0": 5792,
+    "LOD1": 2895,
+    "LOD2": 868
+  },
+  "lod_rule": "LOD1 about 50%, LOD2 about 15% of LOD0 (detail parts dropped first, then collapse decimate)",
+  "materials": [
+    "M_XB01_B_SteppingStones_Main",
+    "M_XB01_B_SteppingStones_Stone"
+  ],
+  "textures": [
+    "XB01_B_SteppingStones_BaseColor.png",
+    "XB01_B_SteppingStones_Metallic.png",
+    "XB01_B_SteppingStones_MetallicSmoothness.png",
+    "XB01_B_SteppingStones_Normal.png",
+    "XB01_B_SteppingStones_Roughness.png",
+    "XB01_B_SteppingStones_Stone_BaseColor.png",
+    "XB01_B_SteppingStones_Stone_Metallic.png",
+    "XB01_B_SteppingStones_Stone_MetallicSmoothness.png",
+    "XB01_B_SteppingStones_Stone_Normal.png",
+    "XB01_B_SteppingStones_Stone_Roughness.png"
+  ],
+  "texture_size_px": 2048,
+  "unity": {
+    "pipeline": "URP Lit",
+    "axes": "imported with bakeAxisConversion: Unity local = (Blender x, z, y); the model front faces Unity -Z",
+    "materials": {
+      "M_XB01_B_SteppingStones_Main": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "XB01_B_SteppingStones_BaseColor.png",
+        "Normal": "XB01_B_SteppingStones_Normal.png",
+        "MetallicSmoothness": "XB01_B_SteppingStones_MetallicSmoothness.png"
+      },
+      "M_XB01_B_SteppingStones_Stone": {
+        "shader": "Universal Render Pipeline/Lit",
+        "BaseColor": "XB01_B_SteppingStones_Stone_BaseColor.png",
+        "Normal": "XB01_B_SteppingStones_Stone_Normal.png",
+        "MetallicSmoothness": "XB01_B_SteppingStones_Stone_MetallicSmoothness.png"
+      }
+    },
+    "normal_maps": "OpenGL +Y",
+    "MetallicSmoothness": "R metallic, A smoothness",
+    "lod_group": "objects end in _LOD0/_LOD1/_LOD2 under one root",
+    "collision": "XB01_B_SteppingStones_Collision: MeshCollider (convex off), renderer hidden"
+  },
+  "collision": true,
+  "parts": {
+    "stones_m": [
+      {
+        "x": -1.22,
+        "y": -0.04,
+        "along": 0.56,
+        "across": 0.48,
+        "top": 0.24
+      },
+      {
+        "x": -0.6,
+        "y": 0.06,
+        "along": 0.5,
+        "across": 0.42,
+        "top": 0.26
+      },
+      {
+        "x": 0.0,
+        "y": 0.1,
+        "along": 0.64,
+        "across": 0.54,
+        "top": 0.28
+      },
+      {
+        "x": 0.6,
+        "y": 0.04,
+        "along": 0.46,
+        "across": 0.4,
+        "top": 0.22
+      },
+      {
+        "x": 1.18,
+        "y": -0.08,
+        "along": 0.52,
+        "across": 0.46,
+        "top": 0.25
+      }
+    ],
+    "gaps_m": [
+      0.09,
+      0.03,
+      0.05,
+      0.09
+    ],
+    "z0": "stream bed",
+    "note": "tops ground flat; a step of 0.6-0.7 m centre to centre"
+  },
+  "sockets_blender_xyz": {
+    "Socket_StartStone": [
+      -1.22,
+      -0.04,
+      0.24
+    ],
+    "Socket_EndStone": [
+      1.18,
+      -0.08,
+      0.25
+    ]
+  },
+  "sockets_fbx_reimport_xyz": {
+    "Socket_EndStone.001": [
+      1.18,
+      -0.08,
+      0.25
+    ],
+    "Socket_StartStone.001": [
+      -1.22,
+      -0.04,
+      0.24
+    ]
+  },
+  "fbx_objects": [
+    "Socket_EndStone.001",
+    "Socket_StartStone.001",
+    "XB01_B_SteppingStones.001",
+    "XB01_B_SteppingStones_Collision.001",
+    "XB01_B_SteppingStones_Detail_Small_LOD0.001",
+    "XB01_B_SteppingStones_Detail_Small_LOD1.001",
+    "XB01_B_SteppingStones_Detail_Small_LOD2.001",
+    "XB01_B_SteppingStones_LOD0.001",
+    "XB01_B_SteppingStones_LOD1.001",
+    "XB01_B_SteppingStones_LOD2.001"
+  ],
+  "glb": "XB01_B_SteppingStones_v001.glb",
+  "interface": {
+    "tops_m": [
+      0.244,
+      0.264,
+      0.285,
+      0.223,
+      0.254
+    ]
+  },
+  "modeling_method": "procedural mesh construction (art/source/village-yards-b/xb_bridge.py); procedural shaders baked to two 2048 atlases (Main, Stone)",
+  "texel_density_px_per_m": {
+    "Main": {
+      "visible": {
+        "p10": 4587.7,
+        "median": 4871.8,
+        "p90": 5128.8,
+        "area_m2": 0.1
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    },
+    "Stone": {
+      "visible": {
+        "p10": 782.3,
+        "median": 855.9,
+        "p90": 890.0,
+        "area_m2": 3.8
+      },
+      "inside_or_covered": null,
+      "atlas_px": 2048,
+      "style_spec_target": "256 px/m for buildings"
+    }
+  },
+  "hidden_faces_downweighted": null,
+  "reference": "art/references/XB01/ (AI three-view XB01/XB01-cand-3; proportions from the work pack's written sizes, not measured from the image)",
+  "unity_import_verified": "see artifacts/village-yards-unity/ (local Unity batch check VillageYardsModelCheck, not committed)",
+  "based_on": "art/incoming/dondon/StarterHouse/v004 (outline and sizes; the original files are not changed)"
+}

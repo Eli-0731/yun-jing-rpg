@@ -1,0 +1,141 @@
+{
+ "FO02_GlowMushroom_C_Detail_Small_LOD0": {
+  "tris": 16682,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 19,
+  "open_pieces": 120,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "FO02_GlowMushroom_C_Detail_Small_LOD1": {
+  "tris": 8341,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 19,
+  "open_pieces": 45,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "FO02_GlowMushroom_C_Detail_Small_LOD2": {
+  "tris": 2501,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 19,
+  "open_pieces": 45,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "FO02_GlowMushroom_C_LOD0": {
+  "tris": 44818,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 204,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 8,
+  "open_pieces": 7,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [
+   [
+    [
+     0.29,
+     0.25,
+     0.0
+    ],
+    8
+   ],
+   [
+    [
+     0.31,
+     0.25,
+     0.0
+    ],
+    8
+   ],
+   [
+    [
+     -0.35,
+     0.16,
+     0.0
+    ],
+    7
+   ],
+   [
+    [
+     0.27,
+     0.24,
+     0.0
+    ],
+    7
+   ],
+   [
+    [
+     -0.22,
+     -0.31,
+     0.0
+    ],
+    6
+   ],
+   [
+    [
+     0.3,
+     0.21,
+     0.0
+    ],
+    6
+   ]
+  ],
+  "inverted_at": []
+ },
+ "FO02_GlowMushroom_C_LOD1": {
+  "tris": 22408,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 8,
+  "open_pieces": 7,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ },
+ "FO02_GlowMushroom_C_LOD2": {
+  "tris": 6722,
+  "degenerate": 0,
+  "zero_uv": 0,
+  "coplanar_same_facing": 0,
+  "coplanar_two_sides": 0,
+  "closed_pieces": 8,
+  "open_pieces": 7,
+  "inverted_closed": 0,
+  "black_faces": 0,
+  "black_m2": 0.0,
+  "zero_at": [],
+  "same_at": [],
+  "inverted_at": []
+ }
+}
