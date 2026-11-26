@@ -1,0 +1,123 @@
+{
+ "asset": "RS03_SectGate_v001",
+ "tris": 64256,
+ "objects": [
+  "RS03_SectGate_Detail_Small_LOD0",
+  "RS03_SectGate_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 240,
+   "groups": {
+    "SectGate|two_sides_between": {
+     "pairs": 240,
+     "overlap_cm2": 12722.04
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 240,
+   "groups": {
+    "SectGate|two_sides_between": {
+     "pairs": 240,
+     "overlap_cm2": 12722.04
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 240,
+   "groups": {
+    "SectGate|two_sides_between": {
+     "pairs": 240,
+     "overlap_cm2": 12722.04
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 223,
+ "loose_over_5mm": 4,
+ "loose_list": [
+  {
+   "verts": 768,
+   "centre": [
+    -0.0,
+    0.12,
+    3.6
+   ],
+   "size": [
+    0.31,
+    0.036,
+    0.31
+   ]
+  },
+  {
+   "verts": 384,
+   "centre": [
+    -1.65,
+    0.45,
+    0.82
+   ],
+   "size": [
+    0.38,
+    0.38,
+    0.11
+   ]
+  },
+  {
+   "verts": 384,
+   "centre": [
+    1.65,
+    0.45,
+    0.82
+   ],
+   "size": [
+    0.38,
+    0.38,
+    0.11
+   ]
+  },
+  {
+   "verts": 96,
+   "centre": [
+    0.0,
+    0.11,
+    3.6
+   ],
+   "size": [
+    0.142,
+    0.025,
+    0.142
+   ]
+  }
+ ]
+}

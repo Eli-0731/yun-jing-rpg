@@ -1,0 +1,71 @@
+{
+ "asset": "SG05_WideStairRun_v001",
+ "tris": 149045,
+ "objects": [
+  "SG05_WideStairRun_Detail_Small_LOD0",
+  "SG05_WideStairRun_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 63,
+   "groups": {
+    "WideStairRun|two_sides_between": {
+     "pairs": 63,
+     "overlap_cm2": 599.9
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 7,
+   "groups": {
+    "WideStairRun|two_sides_between": {
+     "pairs": 7,
+     "overlap_cm2": 50.41
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 0,
+   "groups": {},
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 2,
+  "1e-09": 14,
+  "1e-08": 220
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {
+   "SG05_WideStairRun_LOD0": 2
+  },
+  "1e-09": {
+   "SG05_WideStairRun_LOD0": 14
+  },
+  "1e-08": {
+   "SG05_WideStairRun_LOD0": 220
+  }
+ },
+ "pieces": 278,
+ "loose_over_5mm": 0,
+ "loose_list": []
+}

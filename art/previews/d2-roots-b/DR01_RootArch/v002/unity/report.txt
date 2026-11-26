@@ -1,0 +1,31 @@
+Unity 6000.3.28f1, pipeline URP
+PASS DR01_RootArch set A: Albedo / Normal / ORM / MaskURP textures found
+PASS DR01_RootArch set A: delivered textures 2048x2048 (larger than a person: 2048)
+INFO DR01_RootArch: imported at 1024x1024 on StandaloneWindows64 (importer max 1024, default platform max 1024, build override max 0)
+INFO DR01_RootArch: bark detail on UV0, tiling 9.02
+PASS DR01_RootArch set B: Albedo / Normal / ORM / MaskURP textures found
+PASS DR01_RootArch set B: delivered textures 2048x2048 (larger than a person: 2048)
+PASS DR01_RootArch set D: Albedo / Normal / ORM / MaskURP textures found
+PASS DR01_RootArch set D: delivered textures 2048x2048 (larger than a person: 2048)
+PASS DR01_RootArch set C: Albedo / Normal / ORM / MaskURP textures found
+PASS DR01_RootArch set C: delivered textures 2048x2048 (larger than a person: 2048)
+PASS DR01_RootArch: imported size 36.797 x 27.372 x 9.157 m matches model_info 36.7957 x 27.3705 x 9.1555 within 2 cm
+PASS DR01_RootArch: lowest point y = -0.689 (root tips dive below the ground, origin on the ground)
+PASS DR01_RootArch: triangles LOD0/1/2 = 91126 / 46160 / 14249 (51% / 16%), model_info 91126 / 46160 / 14249
+PASS DR01_RootArch: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS DR01_RootArch: 5 materials over every LOD and Detail_ mesh (model_info 5; one per texture set and one two-sided for the plants)
+PASS DR01_RootArch: Detail_* leaves render both faces
+PASS DR01_RootArch: each slot of the body has its own texture set (M_DR01_RootArch_A, M_DR01_RootArch_B, M_DR01_RootArch_D, M_DR01_RootArch_C)
+PASS DR01_RootArch: minTier = standard (landmark that blocks the way: everyone sees it)
+PASS DR01_RootArch: detailObjects Detail_DR01_Plants present in the FBX
+PASS DR01_RootArch: Detail_* off still shows the body (1 mesh per LOD)
+PASS DR01_RootArch: Detail_DR01_Plants_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR01_RootArch: DR01_RootArch_LOD0 has UV0 (atlas) and UV1 (TileUV)
+INFO DR01_RootArch: mesh compression Medium; UV0 of LOD0 has 1338 distinct u and 716 distinct v over 41521 vertices (smallest step 0.000551 / 0.000551)
+PASS DR01_RootArch: sockets Socket_Path_N (0.0, 0.0, 4.0), Socket_Path_S (0.0, 0.0, -4.0), Socket_Wall_E (15.0, 0.0, 0.0), Socket_Wall_W (-15.0, 0.0, 0.0)
+PASS DR01_RootArch: one collision shell (MeshCollider, renderer off)
+PASS DR01_RootArch: a walker passes through the arch along the 2.2 m path (centre and both edges, 32 m)
+PASS DR01_RootArch: both arch feet block (hit at x = -8.21 and 7.22)
+PASS DR01_RootArch: collision clear height under the crown 6.42 m
+INFO renders written to art/previews/d2-roots-b/DR01_RootArch/unity
+INFO DR01_RootArch: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)

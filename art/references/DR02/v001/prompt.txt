@@ -1,0 +1,17 @@
+Use your built-in image generation tool (image_gen) to make reference sheets for ONE family of 3D game assets, and save the PNG files into ./out/ with the exact file names below. Use V3.png in this folder as the main input reference image for every generation (behind the altar, the long mossy roots that run away from the giant tree along the ground are the asset). V5.png (close, the roots that form a low wall beside the path), V1.png (bird's-eye: a ring of roots around the clearing) and V4.png show the same roots from other angles. Match their bark, colours, moss and painting style exactly. Do not write any code other than what is needed to copy the generated files into ./out/.
+
+The asset family: "DR02 buttress-root wall modules". Each module is ONE long tree root, 10-14 m long, that looks like a buttress root of the giant tree continuing outward: one end is thick (about 1.6-2.2 m across, a tall flattened plank-like buttress with a sharp ridge on top) and the other end gets thinner and dives into the soil. Several modules are laid head to tail to form a curved wall around a forest clearing. Along the sides there are thick twisted ribs and furrows that spiral slowly along the root. Deep grey-brown old bark with long ridges and furrows, pale grey lichen patches on raised ridges, darker crevices, thick dark olive-green moss on the upward-facing surfaces, a few small ferns. Three variants:
+ A "high arch": the root lifts off the ground in the middle into a low hump about 3.5-4 m high, leaving a dark gap underneath (too low to walk through, about 1 m), then dives back down.
+ B "low crawl": the root lies along the ground, 1.5-2 m high, gently snaking, half buried, with small side rootlets.
+ C "fork": the thick end splits into two roots that separate into a long Y, each branch diving into the soil, 2.5-3 m high at the split.
+
+Files to make (each a separate generation, landscape, at least 1536x1024):
+1. out/DR02-A-high-arch-threeview.png : variant A, orthographic SIDE view (long side, the root runs left to right, thick end on the left), TOP view below it, and END view (looking along the root from the thick end) on the right; same scale, flat ground line, small 1.75 m grey human silhouette for scale.
+2. out/DR02-B-low-crawl-threeview.png : the same layout for variant B.
+3. out/DR02-C-fork-threeview.png : the same layout for variant C.
+4. out/DR02-wall-threequarter.png : three-quarter view from eye height 1.7 m of four modules (A, B, C, B) joined head to tail into a curved wall about 45 m long around the edge of a clearing, the joints hidden where one root's thin tip tucks beside the next root's thick end.
+5. out/DR02-detail-bark-ribs.png : a sheet of three close-ups: (a) the thick end's flattened buttress with the sharp top ridge and twisted ribs; (b) the thin end diving into dark soil with leaf litter; (c) the dark gap under variant A's hump.
+
+Layout rules for 1, 2, 3: one object only, plain light warm-grey background, flat ground line, even soft overcast lighting, no cast shadows on the background, no fog, no trees, no rocks, no path, no altar, no text or labels.
+Style: Eastern xianxia fantasy, hand-painted look 3D game concept art, low saturation, overcast. Not a photo.
+When finished, list the files in ./out/ with their pixel sizes.

@@ -1,0 +1,87 @@
+{
+ "id": "ST05-C",
+ "package": "docs/execution/2026-11-08/A-80h-mountain-city.md",
+ "author": "A (Johnnnny0823)",
+ "version": "v001",
+ "status": "Exported; Imported: see README (Unity 6000.3.28f1 check); In-game Verified: 未驗",
+ "dimensions_m": [
+  0.59,
+  0.069,
+  1.769
+ ],
+ "bounds_min_m": [
+  -0.295,
+  -0.036,
+  0.0
+ ],
+ "bounds_max_m": [
+  0.295,
+  0.033,
+  1.769
+ ],
+ "limit_m": [
+  0.6,
+  0.1,
+  1.8
+ ],
+ "origin": "hang the cord loop (Socket_Hang) on a nail, hook or the MC01 DT02 arm; tassel tips at z = 0",
+ "minTier": "low",
+ "lods": [
+  {
+   "lod": 0,
+   "triangles": 3152,
+   "objects": 1,
+   "materials": 2
+  },
+  {
+   "lod": 1,
+   "triangles": 1576,
+   "objects": 1,
+   "materials": 2
+  },
+  {
+   "lod": 2,
+   "triangles": 472,
+   "objects": 1,
+   "materials": 2
+  }
+ ],
+ "objectsLOD0": [
+  "ST_ST05_C_LOD0"
+ ],
+ "detailObjects": [],
+ "glowObjects": [],
+ "materials": [
+  "M_MountainStreet_Trim",
+  "M_StreetFurniture"
+ ],
+ "textures": {
+  "T_MountainStreet_Albedo": "2048x2048",
+  "T_MountainStreet_Normal": "2048x2048",
+  "T_MountainStreet_MetallicSmoothness": "2048x2048",
+  "T_MountainStreet_Emission": "2048x2048",
+  "T_StreetFurniture_Albedo": "1024x1024",
+  "T_StreetFurniture_Normal": "1024x1024",
+  "T_StreetFurniture_MetallicSmoothness": "1024x1024",
+  "T_StreetFurniture_Emission": "1024x1024"
+ },
+ "textureNote": "M_MountainStreet_*: shared MC01 trim sheet (art/textures/mountain-street-houses-a); M_StreetFurniture_*: art/textures/mountain-street-a (256 px/m)",
+ "sockets": [
+  {
+   "name": "Socket_Hang",
+   "location_m": [
+    0.0,
+    0.0,
+    1.757
+   ]
+  }
+ ],
+ "collision": "none (hanging piece)",
+ "extra": {
+  "hanging": true,
+  "cloth": "cloth_grey",
+  "noWriting": true
+ },
+ "fbx": "art/exports/mountain-street-a/ST_ST05_C.fbx",
+ "fps": "不寫（手機未實測）"
+}

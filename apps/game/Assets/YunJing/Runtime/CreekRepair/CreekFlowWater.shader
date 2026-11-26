@@ -22,6 +22,7 @@ Shader "YunJing/CreekFlowWater"
         _AlphaBank ("Opacity at the banks", Range(0, 1)) = 0.7
         _AlphaMid ("Opacity mid-channel", Range(0, 1)) = 0.9
         _Still ("Standing water", Float) = 0
+        _StillColour ("Standing water colour, linear rgb (a Vector so the default stays exactly the old field water; DR07 stump pools set a tea brown)", Vector) = (0.185, 0.275, 0.235, 1)
         _Reveal ("Water front: x, z of the entry, w radius reached", Vector) = (0, 0, 0, 100000)
     }
     SubShader
@@ -44,7 +45,7 @@ Shader "YunJing/CreekFlowWater"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
             CBUFFER_START(UnityPerMaterial)
-                half4 _Shallow, _Deep, _Sky, _Foam;
+                half4 _Shallow, _Deep, _Sky, _Foam, _StillColour;
                 float _Width, _Speed, _Ripple, _Gloss, _AlphaBank, _AlphaMid, _Still;
                 float4 _Reveal;
             CBUFFER_END
@@ -119,7 +120,7 @@ Shader "YunJing/CreekFlowWater"
 
                 float3 view = normalize(GetWorldSpaceViewDir(i.positionWS));
                 float fresnel = pow(1 - saturate(dot(n, view)), 4);
-                half3 colour = still > .5 ? half3(.185, .275, .235) * (.82 + h * .36) : lerp(_Shallow.rgb, _Deep.rgb, saturate(smoothstep(0.02, 0.8, middle) * (0.62 + h * 0.75)));
+                half3 colour = still > .5 ? _StillColour.rgb * (.82 + h * .36) : lerp(_Shallow.rgb, _Deep.rgb, saturate(smoothstep(0.02, 0.8, middle) * (0.62 + h * 0.75)));
 
                 // pale lines where the current folds over, running with the water
                 float streak = pow(1 - abs(layer(m, 40, 2, 1.15) * 2 - 1), 8) * smoothstep(0.1, 0.6, middle) * (1 - still);

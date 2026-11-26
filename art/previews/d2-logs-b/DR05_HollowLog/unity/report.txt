@@ -1,0 +1,24 @@
+Unity 6000.3.28f1, pipeline URP
+PASS DR05_HollowLog: Albedo / Normal / ORM / MaskURP textures found
+PASS DR05_HollowLog: delivered textures 2048x2048 (larger than a person: 2048)
+INFO DR05_HollowLog: imported at 1024x1024 on StandaloneWindows64 (importer max 1024)
+INFO DR05_HollowLog: bark detail on UV0, tiling 7.42
+PASS DR05_HollowLog: imported size 7.906 x 3.004 x 3.070 m matches model_info 7.9062 x 3.0043 x 3.0694 within 2 cm
+PASS DR05_HollowLog: lowest point y = -0.598 (the trunk sinks into the soil, origin on the ground)
+PASS DR05_HollowLog: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; y = 0 is the ground)
+PASS DR05_HollowLog: triangles LOD0/1/2 = 58056 / 29067 / 8681 (50% / 15%), model_info 58056 / 29067 / 8681
+PASS DR05_HollowLog: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS DR05_HollowLog: 2 materials over every LOD and Detail_ mesh (model_info 2: body, two-sided plants)
+PASS DR05_HollowLog: Detail_* plants render both faces
+PASS DR05_HollowLog: minTier = standard (blocks the way: everyone sees it)
+PASS DR05_HollowLog: detailObjects Detail_DR05_Plants present in the FBX
+PASS DR05_HollowLog: Detail_* off still shows the body (1 mesh per LOD)
+PASS DR05_HollowLog: Detail_DR05_Plants_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR05_HollowLog: DR05_HollowLog_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR05_HollowLog: one collision shell (MeshCollider, renderer off)
+PASS DR05_HollowLog: a walker crossing the trunk is stopped at 12 of 12 places (every 0.5 m from 0.15 L to 0.85 L)
+PASS DR05_HollowLog: a crouching walker (1.1 m, radius 0.3) passes through the tunnel along x at y = 0.08 (floor 0.33 m)
+PASS DR05_HollowLog: a standing 1.75 m walker cannot walk upright through the tunnel (has to crouch)
+PASS DR05_HollowLog: the top of the trunk is solid at 0.6 L (y = 1.75 m)
+INFO renders written to art/previews/d2-logs-b/DR05_HollowLog/unity
+INFO DR05_HollowLog: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)

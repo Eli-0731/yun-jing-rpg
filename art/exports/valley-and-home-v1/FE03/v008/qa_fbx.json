@@ -1,0 +1,176 @@
+{
+ "asset": "FE03_rework",
+ "tris": 9412,
+ "objects": [
+  "Detail_FE03_FerryShed_LOD0",
+  "SM_FE03_FerryShed_LOD0",
+  "SM_FE03_MooringPost_LOD0",
+  "SM_FE03_Rework_Detail_Small_LOD0",
+  "SM_FE03_Rework_LOD0"
+ ],
+ "near_coplanar": {
+  "1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 68,
+   "groups": {
+    "Rework_Detail_Small|two_sides_inside": {
+     "pairs": 38,
+     "overlap_cm2": 81.62
+    },
+    "FerryShed|two_sides_between": {
+     "pairs": 16,
+     "overlap_cm2": 519.84
+    },
+    "MooringPost|two_sides_between": {
+     "pairs": 14,
+     "overlap_cm2": 330.75
+    }
+   },
+   "same_at": []
+  },
+  "0.5mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 68,
+   "groups": {
+    "Rework_Detail_Small|two_sides_inside": {
+     "pairs": 38,
+     "overlap_cm2": 81.62
+    },
+    "FerryShed|two_sides_between": {
+     "pairs": 16,
+     "overlap_cm2": 519.84
+    },
+    "MooringPost|two_sides_between": {
+     "pairs": 14,
+     "overlap_cm2": 330.75
+    }
+   },
+   "same_at": []
+  },
+  "0.1mm": {
+   "state_alternatives": 0,
+   "same_underside_on_ground": 0,
+   "same_between": 0,
+   "same_inside": 0,
+   "same": 0,
+   "two_sides": 59,
+   "groups": {
+    "Rework_Detail_Small|two_sides_inside": {
+     "pairs": 29,
+     "overlap_cm2": 47.35
+    },
+    "FerryShed|two_sides_between": {
+     "pairs": 16,
+     "overlap_cm2": 519.84
+    },
+    "MooringPost|two_sides_between": {
+     "pairs": 14,
+     "overlap_cm2": 330.75
+    }
+   },
+   "same_at": []
+  }
+ },
+ "zero_uv": {
+  "1e-12": 0,
+  "1e-10": 0,
+  "1e-09": 0,
+  "1e-08": 0
+ },
+ "zero_uv_by_object": {
+  "1e-12": {},
+  "1e-10": {},
+  "1e-09": {},
+  "1e-08": {}
+ },
+ "pieces": 165,
+ "loose_over_5mm": 6,
+ "loose_list": [
+  {
+   "verts": 588,
+   "centre": [
+    -0.98,
+    0.24,
+    1.141
+   ],
+   "size": [
+    0.342,
+    0.054,
+    0.78
+   ]
+  },
+  {
+   "verts": 500,
+   "centre": [
+    0.936,
+    0.024,
+    0.546
+   ],
+   "size": [
+    0.296,
+    1.322,
+    1.062
+   ]
+  },
+  {
+   "verts": 20,
+   "centre": [
+    0.0,
+    -1.11,
+    2.419
+   ],
+   "size": [
+    2.86,
+    0.048,
+    0.05
+   ]
+  },
+  {
+   "verts": 20,
+   "centre": [
+    -1.75,
+    -0.89,
+    0.61
+   ],
+   "size": [
+    0.36,
+    0.099,
+    0.104
+   ]
+  },
+  {
+   "verts": 16,
+   "centre": [
+    -1.25,
+    -1.0,
+    0.29
+   ],
+   "size": [
+    0.18,
+    0.028,
+    0.028
+   ]
+  },
+  {
+   "verts": 16,
+   "centre": [
+    1.25,
+    -1.0,
+    0.29
+   ],
+   "size": [
+    0.18,
+    0.028,
+    0.028
+   ]
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "TX02",
+  "name_zh": "大鐘與鐘亭",
+  "units": "m",
+  "reference": "art/references/mountain-city-v1/TX02/three-view.png",
+  "dimensions_m": [
+    5,
+    5,
+    6.48
+  ],
+  "bell_diameter_m": 1.8,
+  "pivots": {
+    "Bell": "上方吊環 z=4.44 m",
+    "Striker": "兩根吊繩頂端 x=1.52,z=4.65 m",
+    "Socket_Ring": "Bell 子物件，局部原點"
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangles": 4772,
+      "materials": 6,
+      "textures": [
+        {
+          "name": "TX02_Bronze_Albedo.png",
+          "resolution": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "name": "TX02_Tile_Albedo.png",
+          "resolution": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "name": "TX02_Wood_Albedo.png",
+          "resolution": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "name": "TX02_Stone_Albedo.png",
+          "resolution": [
+            1024,
+            1024
+          ]
+        }
+      ]
+    }
+  ],
+  "unity_import": "未驗證"
+}

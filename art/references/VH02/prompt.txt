@@ -1,0 +1,19 @@
+VH02 三視圖提示詞與選圖
+工作包：2026-11-09 B｜112 小時（不同外形的民居、舊建築換材質、路上地標）第 6 節 VH02。固定段照 docs/execution/2026-11-07/B-104h-tea-wheel-and-mountain-way.md 附錄（game/core-1108-world-east-valley）。
+
+選用：VH02-cand-1.png。備選：VH02-cand-3.png。
+選用理由：L 形兩翼圍出小院，院牆加一扇小木門、院內黃土空地都清楚；兩道屋脊；正面、側面、背面與四分之三視角對得上。
+沒選的原因：
+- cand-2、cand-4：可用；院門、廊下與兩翼的關係不如 1 清楚。
+- cand-3：可用，院落比例偏淺，作備選。
+建模時注意：院內留 5 × 4 m 空地給菜圃。
+
+工具與張數：
+- Codex CLI 0.167.0，模型 gpt-6.1-terra，推理 xhigh，內建 image_gen；共 4 張（VH02-cand-1..4），原尺寸存檔，沒有 seed。生成日期 2026-11-09。
+- 提示詞組法：物件句＋建築 Layout 段（工作包第 6 節：建築用建築 Layout 段）＋5.2 美術方向；Codex 沒有負面欄，所以把 5.3 負面提示加上第 6 節那句，以「Avoid:」接在最後。全部原文，一字未改。
+
+== 工作包原文（VH02 物件句）==
+Three-view orthographic turnaround sheet of a modest L-shaped rural Chinese courtyard house, about 12 m wide, 10 m deep and 5.5 m tall, two single-storey wings meeting at a corner around a small open yard enclosed by a low stone and plaster wall with one small timber gate, dark grey clay tile roofs at two ridgelines, old weathered wood, stone footing, empty yard floor of packed earth, no writing.
+
+== 實際送出的完整提示詞（每張相同）==
+Three-view orthographic turnaround sheet of a modest L-shaped rural Chinese courtyard house, about 12 m wide, 10 m deep and 5.5 m tall, two single-storey wings meeting at a corner around a small open yard enclosed by a low stone and plaster wall with one small timber gate, dark grey clay tile roofs at two ridgelines, old weathered wood, stone footing, empty yard floor of packed earth, no writing. Layout: one three-quarter view from slightly above at eye height of a person, plus front, side and back orthographic views on the same sheet at the same scale, plain light warm-grey background, even soft lighting, building only (no landscape around it except a small ground patch). Art direction: stylized hand-painted 3D game art for an Eastern xianxia fantasy world (Chinese immortal-cultivation setting), warm golden morning light from a low sun, soft warm rim light on edges and silhouettes, gentle blue-violet shadows (never pure black), layered soft white mist in the distance, painterly textures made of large soft colour gradients with a few visible brush strokes, rich but natural colour palette (sunlit warm yellow-greens, cool teal shade greens, warm grey stone, aged brown timber, blue-grey roof tiles, turquoise water), lived-in details: wear on edges, moss and soil in the joints, patched and repaired parts, small cracks, weathered wood grain, high level of detail with clear readable shapes and a strong silhouette, real-world scale and proportions, cohesive with a hand-painted xianxia valley village, game-ready asset look, high quality, masterpiece. Avoid: photorealistic, photograph, photo texture, scanned texture, realistic PBR, plastic, glossy, shiny, chrome, pure black shadows, harsh contrast, neon colours, oversaturated, flat lighting, noon lighting, modern objects, cars, wires, concrete, glass windows, text, letters, Chinese characters, signature, logo, UI, watermark, frame, border, anime screenshot, cel-shaded flat colour, Genshin Impact, Mihoyo, copy of an existing game asset, blocky low-poly, voxel, cartoon chibi, noisy texture, blurry, low resolution, cropped, cut off, duplicate objects, extra limbs, floating parts, distorted perspective, fisheye, not Japanese machiya, no noren, no round paper lanterns, no Japanese stone toro lantern, not Tudor half-timbering, no diagonal braces on plaster walls, no bright teal roof, no glossy plastic look

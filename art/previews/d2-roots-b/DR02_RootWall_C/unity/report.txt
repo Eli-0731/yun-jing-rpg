@@ -1,0 +1,27 @@
+Unity 6000.3.28f1, pipeline URP
+PASS DR02_RootWall_C set A: Albedo / Normal / ORM / MaskURP textures found
+PASS DR02_RootWall_C set A: delivered textures 2048x2048 (larger than a person: 2048)
+INFO DR02_RootWall_C: imported at 1024x1024 on StandaloneWindows64 (importer max 1024, default platform max 1024, build override max 0)
+INFO DR02_RootWall_C: bark detail on UV0, tiling 8.63
+PASS DR02_RootWall_C: imported size 14.296 x 8.664 x 3.450 m matches model_info 14.2951 x 8.6636 x 3.45 within 2 cm
+PASS DR02_RootWall_C: lowest point y = -1.116 (root tips dive below the ground, origin on the ground)
+PASS DR02_RootWall_C: origin at the bottom centre (LOD0 body footprint centre 0.000, 0.000 m from the origin; z = 0 is the ground)
+PASS DR02_RootWall_C: triangles LOD0/1/2 = 24865 / 12200 / 3653 (49% / 15%), model_info 24865 / 12200 / 3653
+PASS DR02_RootWall_C: objects per LOD 2 / 2 / 2 (model_info 2 / 2 / 2)
+PASS DR02_RootWall_C: 2 materials over every LOD and Detail_ mesh (model_info 2; one per texture set and one two-sided for the plants)
+PASS DR02_RootWall_C: Detail_* leaves render both faces
+PASS DR02_RootWall_C: each slot of the body has its own texture set (M_DR02_RootWall_C_A)
+PASS DR02_RootWall_C: minTier = standard (landmark that blocks the way: everyone sees it)
+PASS DR02_RootWall_C: detailObjects Detail_DR02_Plants present in the FBX
+PASS DR02_RootWall_C: Detail_* off still shows the body (1 mesh per LOD)
+PASS DR02_RootWall_C: Detail_DR02_Plants_LOD0 has UV0 (atlas) and UV1 (TileUV)
+PASS DR02_RootWall_C: DR02_RootWall_C_LOD0 has UV0 (atlas) and UV1 (TileUV)
+INFO DR02_RootWall_C: mesh compression Medium; UV0 of LOD0 has 551 distinct u and 232 distinct v over 10029 vertices (smallest step 0.000776 / 0.000776)
+PASS DR02_RootWall_C: sockets Socket_Head (-6.1, 0.0, 0.0), Socket_Tail (3.8, 0.0, -3.0)
+PASS DR02_RootWall_C: one collision shell (MeshCollider, renderer off)
+PASS DR02_RootWall_C: a walker crossing the wall is stopped at 18 of 18 places between the sockets (every 0.5 m)
+PASS DR02_RootWall_C: no opening a person could walk through between the sockets (widest column clear from 0.3 to 1.75 m: 0.00 m)
+PASS DR02_RootWall_C: two copies joined Socket_Head on Socket_Tail: a walker crossing the joint is stopped at 9 of 9 places
+INFO DR02_RootWall_C: collision top at the middle 1.73 m
+INFO renders written to art/previews/d2-roots-b/DR02_RootWall_C/unity
+INFO DR02_RootWall_C: *-rawimport.png show the delivered files without the project's import budget (2048 textures, no crunch, no mesh compression)
